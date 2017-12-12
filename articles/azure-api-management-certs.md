@@ -1,6 +1,6 @@
 ---
 title: "Przekaż certyfikat interfejsu API zarządzania platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak można przekazać certyfikatu interfejsu API zarządzania athe dla klasycznego portalu Azure."
+description: "Dowiedz się, jak można przekazać certyfikatu interfejsu API zarządzania dla portalu Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upload-an-azure-management-api-management-certificate"></a>Przekaż certyfikat zarządzania interfejsem API zarządzania platformy Azure
 Certyfikaty zarządzania umożliwiają uwierzytelniania za pomocą klasycznego modelu wdrażania dostarczany przez platformę Azure. Wiele programów i narzędzia (np. programu Visual Studio lub zestawu Azure SDK) korzystały z tych certyfikatów można zautomatyzować konfigurowanie i wdrażanie różnych usług platformy Azure. 
 
 > [!WARNING]
-> Ostrożnie! Te typy certyfikatów umożliwiają każdego, kto jest uwierzytelniany w usłudze ich do zarządzania subskrypcją, które są skojarzone.
+> Ostrożnie. Te typy certyfikatów umożliwiają każdego, kto jest uwierzytelniany w usłudze ich do zarządzania subskrypcją, które są skojarzone.
 >
 >
 

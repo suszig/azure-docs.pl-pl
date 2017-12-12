@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Samouczek: Rozpoczynanie pracy z rozszerzanie U-SQL z języka Python
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Przed rozpoczęciem upewnij się, że na koncie usługi Azure Data Lake Analytics są zainstalowane rozszerzenia języka Python.
+
+* Przejdź do użytkownika konta usługi Data Lake Analytics w portalu Azure
+* W menu po lewej stronie w obszarze **wprowadzenie** kliknij **przykładowe skrypty**
+* Kliknij przycisk **zainstalować rozszerzenia języka U-SQL** następnie **OK**
+
+## <a name="overview"></a>Omówienie 
 
 Rozszerzenia języka Python dla U-SQL umożliwiają deweloperom wykonać równoległemu wykonywanie kodu języka Python. Poniższy przykład przedstawia podstawowe kroki:
 

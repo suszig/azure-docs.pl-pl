@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Łączenie programu Operations Manager do analizy dzienników
 Aby chronić inwestycję istniejących w programie System Center Operations Manager i rozszerzone możliwości za pomocą analizy dzienników, programu Operations Manager można zintegrować z obszarem roboczym pakietu OMS.  Dzięki temu, że wykorzystać możliwości OMS podczas dalszego korzystania z programu Operations Manager:
@@ -40,9 +40,9 @@ Jeśli zasady zabezpieczeń IT nie zezwalają na komputerach w sieci, aby nawią
 ## <a name="system-requirements"></a>Wymagania systemowe
 Przed rozpoczęciem należy przejrzeć następujące informacje, aby sprawdzić, czy zostały spełnione wymagania wstępne.
 
-* OMS obsługuje tylko programu Operations Manager 2016, UR10 dodatku SP1 dla programu Operations Manager 2012 lub nowszej, a programu Operations Manager 2012 R2 UR11 i większa.
+* OMS obsługuje tylko programu Operations Manager 2016, UR6 dodatku SP1 dla programu Operations Manager 2012 lub nowszej, a programu Operations Manager 2012 R2 UR2 i większa.  Obsługa serwera proxy została dodana w programach Operations Manager 2012 SP1 UR7 i Operations Manager 2012 R2 UR3.
 * Wszystkie agenty programu Operations Manager musi spełniać wymagania minimalne pomocy technicznej. Upewnij się, że agenci są przy minimalnej aktualizacji, w przeciwnym razie ruchu agenta systemu Windows może zakończyć się niepowodzeniem i wiele błędów może wypełnić dziennik zdarzeń programu Operations Manager.
-* Subskrypcja usługi Analiza dzienników Azure.  Aby uzyskać więcej informacji, przejrzyj [wprowadzenie do analizy dzienników](log-analytics-get-started.md).
+* Subskrypcja pakietu OMS.  Aby uzyskać więcej informacji, przejrzyj [wprowadzenie do analizy dzienników](log-analytics-get-started.md).
 
 ### <a name="network"></a>Sieć
 Informacje poniżej listy proxy i zapory konfiguracji wymaganych informacji dla agenta programu Operations Manager, serwerów zarządzania i konsoli operacje, aby komunikować się z usługą OMS.  Ruch z każdego składnika jest wychodzący z sieci lokalnej z usługą OMS.     
@@ -208,7 +208,7 @@ Aby usunąć dwa łączniki - Microsoft.SystemCenter.Advisor.DataConnector i ł�
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

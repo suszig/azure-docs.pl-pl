@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentacja usługi Azure Container Instances
+title: "Dokumentacja usługi Azure Container Instances"
 metadata:
-  title: Dokumentacja usługi Azure Container Instances — samouczki | Microsoft Docs
-  description: 'Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu.'
+  title: "Dokumentacja usługi Azure Container Instances — samouczki | Microsoft Docs"
+  description: "Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu."
   services: container-instances
   author: czeumault
   manager: carolz
@@ -13,43 +13,48 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: 37acd22cd6a85b1a9062b0c0aee6e48957f1ea11
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu. Jeśli potrzebujesz pełnego rozwiązania do organizowania kontenerów, zobacz <a href="/azure/container-service/kubernetes/">Kubernetes on Azure Container Service documentation (Dokumentacja dotycząca rozwiązania Kubernetes w usłudze Azure Container Service)</a>. Dowiedz się, jak tworzyć wystąpienia kontenera i zarządzać nimi, korzystając z naszych przewodników Szybki start, samouczków i przykładów.'
+  description: "Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu. Jeśli potrzebujesz pełnego rozwiązania do organizowania kontenerów, zobacz <a href=\"/azure/container-service/kubernetes/\">Kubernetes on Azure Container Service documentation (Dokumentacja dotycząca rozwiązania Kubernetes w usłudze Azure Container Service)</a>. Dowiedz się, jak tworzyć wystąpienia kontenera i zarządzać nimi, korzystając z naszych przewodników Szybki start, samouczków i przykładów."
 sections:
-  - title: 5-minutowe przewodniki Szybki start
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak wdrożyć obrazy kontenera przy użyciu usługi Azure Container Instances."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak wdrożyć obrazy kontenera przy użyciu usługi Azure Container Instances.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/cli.svg
-            text: Interfejs wiersza polecenia platformy Azure
-            href: /azure/container-instances/container-instances-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/container-instances/container-instances-quickstart-portal
-  - title: Samouczki krok po kroku
+    - image:
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Interfejs wiersza polecenia platformy Azure
+      href: /azure/container-instances/container-instances-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/container-instances/container-instances-quickstart-portal
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak spakować kod do obrazu kontenera i uruchomić go w wystąpieniu kontenera platformy Azure."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak spakować kod do obrazu kontenera i uruchomić go w wystąpieniu kontenera platformy Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image (Pakowanie aplikacji do obrazu kontenera)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Create an Azure Container Registry and upload the container image (Tworzenie usługi Azure Container Registry i przekazywanie obrazu kontenera)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Deploy the container image to an Azure Container Instance (Wdrażanie obrazu kontenera w wystąpieniu kontenera platformy Azure)</a>
-  - title: Dokumentacja
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Package an application into a container image (Pakowanie aplikacji do obrazu kontenera)</a>
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-acr\">Create an Azure Container Registry and upload the container image (Tworzenie usługi Azure Container Registry i przekazywanie obrazu kontenera)</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-deploy-app\">Deploy the container image to an Azure Container Instance (Wdrażanie obrazu kontenera w wystąpieniu kontenera platformy Azure)</a>"
+- title: Dokumentacja
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Wiersz polecenia
-            html: '<p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
-          - title: Języki
-            html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/container-instances">Dokumentacja interfejsu API REST</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Szablon usługi Resource Manager</a></p>
+    - title: Wiersz polecenia
+      html: <p><a href="/cli/azure/container">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+    - title: "Języki"
+      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/container-instances\">Dokumentacja interfejsu API REST</a></p><p><a href=\"/azure/templates/microsoft.containerinstance/containergroups\">Szablon usługi Resource Manager</a></p>"

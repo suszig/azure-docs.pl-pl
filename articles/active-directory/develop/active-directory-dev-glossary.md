@@ -4,7 +4,7 @@ description: "Lista warunków dla często używanych koncepcje dla deweloperów 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Słownik dewelopera usługi Azure Active Directory
 Ten artykuł zawiera definicje dla niektórych podstawowe koncepcje dla deweloperów usługi Azure Active Directory (AD), które są przydatne podczas nauki opracowywanie aplikacji dla usługi Azure AD.
@@ -54,7 +54,7 @@ Aby można było zezwolić aplikacji na integrują się z i delegować funkcje Z
 
 Zobacz [Integrowanie aplikacji z usługą Azure Active Directory] [ AAD-Integrating-Apps] więcej szczegółów.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>uwierzytelnianie
 Czynność wyzwanie strona uzasadnionych poświadczeń, podając podstawę tworzenia podmiotu zabezpieczeń do użycia dla tożsamości i kontroli dostępu. Podczas [udzielania autoryzacji OAuth2](#authorization-grant) na przykład strona uwierzytelniania jest wypełnianie rolę albo [właściciel zasobu](#resource-owner) lub [aplikacji klienckiej](#client-application), w zależności od Udziel używane.
 
 ## <a name="authorization"></a>Autoryzacji

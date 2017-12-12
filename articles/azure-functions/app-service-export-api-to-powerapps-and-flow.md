@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Eksportowanie interfejs API hostowanymi na platformie Azure do PowerApps i przepływów firmy Microsoft
 
@@ -34,7 +34,7 @@ Przed wyeksportowaniem interfejsu API, musi zawierać opis interfejsu API przy u
 
 Aby wyeksportować definicji interfejsu API, wykonaj następujące kroki:
 
-1. W [portalu Azure](https://portal.azure.com), przejdź do aplikacji usługi Azure Functions lub usługi aplikacji.
+1. W [portalu Azure](https://portal.azure.com), przejdź do funkcji Azure lub inną aplikację usługi aplikacji.
 
     Jeśli przy użyciu usługi Azure Functions, wybierz aplikację funkcji, wybierz **funkcji platformy**, a następnie **definicji interfejsu API**.
 
@@ -48,11 +48,11 @@ Aby wyeksportować definicji interfejsu API, wykonaj następujące kroki:
 
     ![Eksportowanie do rozwiązania PowerApps + Microsoft Flow przycisku](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Wybierz **Eksport tryb**:
+3. Wybierz **tryb eksportu**:
 
-    **Express** umożliwia tworzenie niestandardowych łącznik z portalu Azure. Wymaga to jest zarejestrowany w rozwiązaniu PowerApps lub Flow firmy Microsoft i mieć uprawnienie do tworzenia łączników w środowisku docelowym. Jest to zalecane podejście, jeśli ten wymóg może zostać spełniony. Jeśli ten tryb jest używany, wykonaj [używać funkcji eksportowania express](#express) poniższe instrukcje.
+    **Express** umożliwia tworzenie niestandardowych łącznik z portalu Azure. Wymaga to jest zarejestrowany w rozwiązaniu PowerApps lub Flow firmy Microsoft i mieć uprawnienie do tworzenia łączników w środowisku docelowym. Jest to zalecane podejście spełnieniu tych dwóch wymagań. Jeśli ten tryb jest używany, wykonaj [używać funkcji eksportowania express](#express) poniższe instrukcje.
 
-    **Ręczne** umożliwia eksportowanie definicji interfejsu API, która będzie następnie zaimportować przy użyciu portali rozwiązania PowerApps lub Flow firmy Microsoft. Jest to zalecane podejście, jeśli użytkowników platformy Azure i użytkownik z uprawnieniami do tworzenia łączników są różne osoby, lub Jeśli łącznik musi zostać utworzona w innej dzierżawie. Jeśli ten tryb jest używany, wykonaj [używać funkcji eksportowania ręczne](#manual) poniższe instrukcje.
+    **Ręczne** umożliwia eksportowanie definicji interfejsu API, która będzie następnie zaimportować przy użyciu portali rozwiązania PowerApps lub Flow firmy Microsoft. Jest to zalecane podejście, jeśli użytkowników platformy Azure i użytkownik z uprawnieniami do tworzenia łączników są różne osoby, lub Jeśli łącznik musi zostać utworzona w innej dzierżawie usługi Azure. Jeśli ten tryb jest używany, wykonaj [używać funkcji eksportowania ręczne](#manual) poniższe instrukcje.
 
     ![Tryb eksportu](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -168,7 +168,7 @@ Wymagane są następujące wartości konfiguracji:
 > [!IMPORTANT]
 > Jeśli ktoś zaimportuje definicji interfejsu API do PowerApps i Microsoft Flow jako część przepływu ręczne, należy podać je z Identyfikatorem klienta i klucz tajny klienta *Rejestracja łącznika*, a także adres URL zasobu interfejsu API. Upewnij się, że tych kluczy tajnych są zarządzane w bezpieczny sposób. **Nie udostępniaj poświadczenia zabezpieczeń samego interfejsu API.**
 
-### <a name="generic-oauth-20"></a>Ogólny OAuth 2.0
+### <a name="generic-oauth-20"></a>Ogólne uwierzytelnianie OAuth 2.0
 Korzystając z ogólnym OAuth 2.0, można zintegrować z każdego dostawcy OAuth 2.0. Dzięki temu można pracować przy użyciu dostawców niestandardowych, które nie są obsługiwane natywnie.
 
 Wymagane są następujące wartości konfiguracji:

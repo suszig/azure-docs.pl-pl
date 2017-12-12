@@ -4,7 +4,7 @@ description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD implem
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 06d5000e30850156781496c32ac549ecc0772f46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protokoły v2.0 - przepływu kodu autoryzacji OAuth 2.0
 Udzielania kodu autoryzacji protokołu OAuth 2.0 służy w aplikacjach, które są zainstalowane na urządzeniu w celu uzyskania dostępu do chronionych zasobów, takich jak interfejsów API sieci web.  Przy użyciu app model v2.0 w implementacji protokołu OAuth 2.0, można dodać Zaloguj się i interfejsu API dostępu do aplikacji mobilnych i klasycznych.  Ten przewodnik jest niezależny od języka i opisuje sposób wysyłania i odbierania wiadomości HTTP bez przy użyciu dowolnej z naszych bibliotekach open source.
@@ -66,9 +66,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Zakres |Wymagane |Rozdzieloną spacjami listę [zakresy](active-directory-v2-scopes.md) oznaczający użytkownika o zgodę. |
 | response_mode |Zalecane |Określa metodę, które mają być używane do wysyłania wynikowy token wstecz do aplikacji.  Może być `query` lub `form_post`. |
 | state |Zalecane |Wartość zawarte w żądaniu zwracana w odpowiedzi tokenu.  Można go ciągiem zawartość, która ma.  Losowo generowany unikatową wartość jest zazwyczaj używana w przypadku [zapobieganie fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12).  Stan służy także do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
-| wiersz |Opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  W tej chwili jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Spowoduje to wymuszenie użytkownika o wprowadzenie poświadczeń w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - zapewni, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punktu końcowego v2.0 spowoduje zwrócenie błędu.  `prompt=consent`wyzwoli okna dialogowego zgoda OAuth, po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
-| login_hint |Opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika konta na stronie dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
-| domain_hint |Opcjonalne |Może być jednym z `consumers` lub `organizations`.  Jeśli uwzględniona, pominie proces odnajdowania opartych na poczcie e-mail tego użytkownika odbywa się przez na stronie rejestracji v2.0, co może prowadzić do wymaga nieco więcej udoskonalone środowisko użytkownika.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania, wyodrębniając `tid` z poprzednich logowanie.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, należy użyć `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
+| wiersz |opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  W tej chwili jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Spowoduje to wymuszenie użytkownika o wprowadzenie poświadczeń w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - zapewni, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punktu końcowego v2.0 spowoduje zwrócenie błędu.  `prompt=consent`wyzwoli okna dialogowego zgoda OAuth, po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
+| login_hint |opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika konta na stronie dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
+| domain_hint |opcjonalne |Może być jednym z `consumers` lub `organizations`.  Jeśli uwzględniona, pominie proces odnajdowania opartych na poczcie e-mail tego użytkownika odbywa się przez na stronie rejestracji v2.0, co może prowadzić do wymaga nieco więcej udoskonalone środowisko użytkownika.  Aplikacje często użyje tego parametru podczas ponownego uwierzytelniania, wyodrębniając `tid` z poprzednich logowanie.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, należy użyć `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
 
 W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wykonania uwierzytelnienia.  Punktu końcowego v2.0 będzie również upewnij się, że użytkownik zgodził się na uprawnienia wskazanych w `scope` parametr zapytania.  Jeśli użytkownik zgodził się nie do dowolnego z tych uprawnień, poprosi użytkownika o zgodę na wymagane uprawnienia.  Szczegóły [uprawnień, zgody i aplikacje wielodostępne znajdują się w tym miejscu](active-directory-v2-scopes.md).
 
@@ -105,7 +105,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Kody błędów dla błędów punktu końcowego autoryzacji
 W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w `error` parametr odpowiedzi na błąd.
 
-| Kod błędu: | Opis | Akcja klienta |
+| Kod błędu | Opis | Akcja klienta |
 | --- | --- | --- |
 | invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie. To rozwinięcie błąd jest zwykle przechwycono podczas testowania początkowej. |
 | unauthorized_client |Aplikacja kliencka nie jest dozwolone przy kod autoryzacji żądania. |Dzieje się tak zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowany w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD przez użytkownika. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |
@@ -195,7 +195,7 @@ Błąd odpowiedzi będą wyglądać jak:
 | correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Kody błędów dla punktu końcowego tokena błędów
-| Kod błędu: | Opis | Akcja klienta |
+| Kod błędu | Opis | Akcja klienta |
 | --- | --- | --- |
 | invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie |
 | invalid_grant |Kod autoryzacji jest nieprawidłowa lub wygasła. |Ponów żądanie nowej `/authorize` punktu końcowego |

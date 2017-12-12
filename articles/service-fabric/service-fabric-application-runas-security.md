@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Konfigurowanie zasad zabezpieczeń aplikacji
 Za pomocą usługi Azure Service Fabric, można zabezpieczyć aplikacji uruchomionych w klastrze, w obszarze konta innego użytkownika. Zabezpieczanie zasobów, które są używane przez aplikacje w czasie wdrażania na kontach użytkowników — na przykład, plików, katalogów i certyfikatów pomaga również w sieci szkieletowej usług. Dzięki temu uruchamianie aplikacji, nawet w środowisku hostowanej udostępnionego bardziej bezpieczne od siebie nawzajem.
@@ -30,7 +30,7 @@ Domyślnie aplikacje sieci szkieletowej usług są uruchamiane na koncie, dział
 Można zdefiniować i Utwórz grupy użytkowników, dzięki czemu można dodać co najmniej jednego użytkownika do każdej grupy do wspólnego zarządzania. Jest to przydatne, jeśli jest wielu użytkowników do innej usługi, punkty wejścia i muszą mieć niektórych typowych uprawnień, które są dostępne na poziomie grupy.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Skonfiguruj zasady dla punktu wejścia instalacji usługi
-Zgodnie z opisem w [model aplikacji](service-fabric-application-model.md), ustawienia punktu wejścia, **SetupEntryPoint**, to punkt wejścia uprzywilejowanych uruchamiane przy użyciu tych samych poświadczeń jako sieci szkieletowej usług (zazwyczaj  *Usługa sieciowa* konta) przed innymi punktu wejścia. Plik wykonywalny, który jest określony przez **punktu wejścia** jest zazwyczaj długotrwałe hosta usługi. Dlatego o punktu wejścia oddzielne ustawienia pozwala uniknąć konieczności uruchamiania pliku wykonywalnego hosta usługi z wysokiego poziomu uprawnień przez dłuższy czas. Plik wykonywalny który **punktu wejścia** określa po zakończeniu **SetupEntryPoint** kończy się pomyślnie. Wynikowy proces jest monitorowane i ponownie uruchomione i ponownie rozpoczyna się od **SetupEntryPoint** Jeśli kiedykolwiek kończy lub ulegnie awarii.
+Zgodnie z opisem w [aplikacji i manifestów usługi](service-fabric-application-and-service-manifests.md), ustawienia punktu wejścia, **SetupEntryPoint**, to punkt wejścia uprzywilejowanych uruchamiane przy użyciu tych samych poświadczeń jako sieci szkieletowej usług (zazwyczaj *NetworkService* konta) przed innymi punktu wejścia. Plik wykonywalny, który jest określony przez **punktu wejścia** jest zazwyczaj długotrwałe hosta usługi. Dlatego o punktu wejścia oddzielne ustawienia pozwala uniknąć konieczności uruchamiania pliku wykonywalnego hosta usługi z wysokiego poziomu uprawnień przez dłuższy czas. Plik wykonywalny który **punktu wejścia** określa po zakończeniu **SetupEntryPoint** kończy się pomyślnie. Wynikowy proces jest monitorowane i ponownie uruchomione i ponownie rozpoczyna się od **SetupEntryPoint** Jeśli kiedykolwiek kończy lub ulegnie awarii.
 
 Poniżej przedstawiono przykład manifestu usługi simple, pokazujący element SetupEntryPoint i główny punkt wejścia dla usługi.
 

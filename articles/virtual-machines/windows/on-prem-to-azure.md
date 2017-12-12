@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migracji z usług sieci Web firmy Amazon (AWS) i innych platform do zarządzanych dysków na platformie Azure
 
-Możesz przekazać pliki VHD z rozwiązania do wirtualizacji usług AWS lub lokalnego do platformy Azure do tworzenia maszyn wirtualnych, które korzystają z dysków zarządzanych. Azure dysków zarządzanych usuwa potrzebę z zarządzaniem kont magazynu dla maszyn wirtualnych IaaS platformy Azure. Należy określić tylko typ (Premium lub Standard) oraz rozmiar dysku należy i Azure tworzy i zarządza dysku. 
+Możesz przekazać pliki VHD z rozwiązania do wirtualizacji usług AWS lub lokalnego do platformy Azure do tworzenia maszyn wirtualnych, które korzystają z dysków zarządzanych. Azure dysków zarządzanych eliminuje konieczność zarządzania kontami magazynu dla maszyn wirtualnych IaaS platformy Azure. Należy określić tylko typ (Premium lub Standard) oraz rozmiar dysku należy i Azure tworzy i zarządza dysku. 
 
 Możesz przekazać ogólnych i specjalnych wirtualne dyski twarde. 
 - **Uogólniony wirtualny dysk twardy** -ma wszystkie informacje osobiste Konto usunięte za pomocą programu Sysprep. 

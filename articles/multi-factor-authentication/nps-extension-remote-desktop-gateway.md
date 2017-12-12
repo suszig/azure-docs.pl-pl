@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Usługa Azure MFA, integracja bramy usług pulpitu zdalnego, Azure Active Directory, serwer zasad sieciowych rozszerzenia"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: fe831dc21f5e91bc2e78a1f38b655205bbc68971
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrowanie infrastruktury bramy usług pulpitu zdalnego przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i Azure AD
 
@@ -197,7 +197,7 @@ Zasady autoryzacji połączeń usług pulpitu zdalnego (RD CAP) określić wymag
  >Wspólny klucz tajny jest używany do ustanawiania relacji zaufania między serwerami usługi RADIUS i klientami. Utwórz klucz tajny długich i złożonych.
  >
 
- ![Wspólny klucz tajny](./media/nps-extension-remote-desktop-gateway/image11.png)
+ ![Wspólny wpis tajny](./media/nps-extension-remote-desktop-gateway/image11.png)
 
 9. Kliknij przycisk **OK**, aby zamknąć okno dialogowe.
 

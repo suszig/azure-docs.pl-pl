@@ -3,33 +3,33 @@ title: "Instalowanie programu PowerShell dla usługi Azure stosu | Dokumentacja 
 description: "Dowiedz się, jak zainstalować program PowerShell Azure stosu."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalowanie programu PowerShell dla usługi Azure stosu  
 
 Azure stosu zgodne Azure moduły programu PowerShell są wymagane do pracy z stosu Azure. W tym przewodniku możemy opisano kroki wymagane do zainstalowania programu PowerShell dla usługi Azure stosu. Korzystając z procedury opisanej w tym artykule z Development Kit stosu Azure lub z systemem Windows klienta zewnętrznych po nawiązaniu połączenia za pośrednictwem sieci VPN.
 
-W tym artykule przedstawiono szczegółowe instrukcje dotyczące instalacji programu PowerShell dla usługi Azure stosu. Jednak jeśli chcesz szybko zainstalować i skonfigurować program PowerShell, można użyć skryptu, który znajduje się w temacie "Get i uruchomić przy użyciu programu PowerShell". 
+W tym artykule przedstawiono szczegółowe instrukcje dotyczące instalacji programu PowerShell dla usługi Azure stosu. Jednak jeśli chcesz szybko zainstalować i skonfigurować program PowerShell, można użyć skryptu, który znajduje się w artykule "Get i uruchomić przy użyciu programu PowerShell". 
 
 > [!NOTE]
 > Poniższe kroki wymagają programu PowerShell 5.0. Aby sprawdzić swoją wersję, uruchom $PSVersionTable.PSVersion i porównaj "Główny" numer wersji.
 
-Polecenia programu PowerShell dla usługi Azure stosu są instalowane za pośrednictwem galerii programu PowerShell. Aby regiser repozytorium PSGallery Otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z zestaw deweloperski lub klient zewnętrznych z systemem Windows, jeśli są połączone za pośrednictwem sieci VPN i uruchom następujące polecenie:
+Polecenia programu PowerShell dla usługi Azure stosu są instalowane za pośrednictwem galerii programu PowerShell. Aby zarejestrować repozytorium PSGallery, otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z zestaw deweloperski lub klient zewnętrznych z systemem Windows Jeśli są połączone za pośrednictwem sieci VPN i uruchom następujące polecenie:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Aby sprawdzić instalację, uruchom następujące polecenie:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Jeśli instalacja się powiodła, AzureRM i AzureStack moduły są wyświetlane w danych wyjściowych.
+  Jeśli instalacja się powiodła, moduły AzureRM i stosu Azure są wyświetlane w danych wyjściowych.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instalowanie programu PowerShell w scenariuszu częściowo połączonych lub rozłączona (ograniczone z łącznością z Internetem)
 

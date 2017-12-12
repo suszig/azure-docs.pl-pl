@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji internetowej ASP.NET na platformie Azure | Microsoft Docs
+title: Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure | Microsoft Docs
 description: "Dowiedz się, jak uruchamiać aplikacje internetowe w usłudze Azure App Service, wdrażając przykładową aplikację internetową ASP.NET."
 services: app-service\web
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a6a785b739697a94fcbd7cc8e3163f142887e1b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-an-aspnet-web-app-in-azure"></a>Tworzenie aplikacji sieci Web platformy ASP.NET na platformie Azure
+# <a name="create-an-aspnet-core-web-app-in-azure"></a>Tworzenie aplikacji internetowej ASP.NET Core na platformie Azure
 
-Usługa [Azure Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten przewodnik Szybki start zawiera informacje dotyczące sposobu wdrożenia pierwszej aplikacji internetowej ASP.NET w usłudze Azure App Service. Po zakończeniu będzie istnieć grupa zasobów składająca się z planu usługi App Service i aplikacji internetowej platformy Azure wraz z wdrożoną aplikacją internetową.
+Usługa [Azure Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie.  Ten przewodnik Szybki start zawiera informacje dotyczące sposobu wdrożenia pierwszej aplikacji internetowej ASP.NET Core w usłudze Azure Web Apps. Po zakończeniu będzie istnieć grupa zasobów składająca się z planu usługi App Service i aplikacji internetowej platformy Azure wraz z wdrożoną aplikacją internetową.
 
-Obejrzyj wideo, aby zobaczyć, jak działa ten przewodnik Szybki start, a następnie wykonaj kroki samodzielnie, aby opublikować swoją pierwszą aplikację .NET na platformie Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+> [!NOTE]
+> Jeśli szukasz sposobu tworzenia i wdrażania aplikacji internetowej platformy ASP.NET Framework, ten artykuł jest dostępny [tutaj](app-service-web-get-started-dotnet-framework.md). 
+>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,37 +41,41 @@ W celu ukończenia tego samouczka:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-web-app"></a>Tworzenie aplikacji sieci Web platformy ASP.NET
+## <a name="create-an-aspnet-core-web-app"></a>Tworzenie aplikacji internetowej ASP.NET Core
 
 W programie Visual Studio utwórz nowy projekt, wybierając pozycję **Plik > Nowy > Projekt**. 
 
-W oknie dialogowym **Nowy projekt** kliknij pozycję **Visual C# > Sieć Web > Aplikacja sieci Web ASP.NET (program .NET Framework)**.
+W oknie dialogowym **Nowy projekt** wybierz pozycję **Visual C# > Sieć Web > Aplikacja sieci Web platformy ASP.NET Core**.
 
 Nadaj aplikacji nazwę _myFirstAzureWebApp_, a następnie kliknij przycisk **OK**.
    
 ![Okno dialogowe Nowy projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Na platformie Azure można wdrożyć dowolny typ aplikacji sieci Web platformy ASP.NET. Do celów tego przewodnika Szybki start wybierz szablon **MVC** i upewnij się, że uwierzytelnianie jest ustawione na wartość **Bez uwierzytelniania**.
+Na platformie Azure można wdrożyć dowolny typ aplikacji internetowej ASP.NET Core. Do celów tego przewodnika Szybki start wybierz szablon **Aplikacja sieci Web** i upewnij się, że uwierzytelnianie jest ustawione na wartość **Bez uwierzytelniania**.
       
 Kliknij przycisk **OK**.
 
-![Okno dialogowe Nowy projekt ASP.NET](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+![Okno dialogowe Nowy projekt ASP.NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+
+Po utworzeniu projektu ASP.NET Core zostanie wyświetlona strona powitalna platformy ASP.NET Core zawierająca wiele linków do zasobów ułatwiających rozpoczęcie pracy. 
+
+![Strona powitalna](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 Z menu wybierz pozycję **Debuguj > Uruchom bez debugowania**, aby lokalnie uruchomić aplikację internetową.
 
-![Uruchamianie aplikacji lokalnie](./media/app-service-web-get-started-dotnet/local-web-app.png)
+![Uruchamianie aplikacji lokalnie](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## <a name="publish-to-azure"></a>Publikowanie na platformie Azure
 
 W obszarze **Eksplorator rozwiązań** kliknij prawym przyciskiem myszy projekt **myFirstAzureWebApp**, a następnie wybierz polecenie **Publikuj**.
 
-![Publikowanie z Eksploratora rozwiązań](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+![Publikowanie z Eksploratora rozwiązań](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
 Upewnij się, że pozycja **Microsoft Azure App Service** jest zaznaczona, a następnie kliknij przycisk **Publikuj**.
 
 ![Publikowanie ze strony przeglądu projektu](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Spowoduje to otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure niezbędnych do uruchomienia aplikacji internetowej ASP.NET na platformie Azure.
+Spowoduje to otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwi Ci utworzenie wszystkich zasobów platformy Azure niezbędnych do uruchomienia aplikacji internetowej ASP.NET Core na platformie Azure.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -118,19 +122,19 @@ Wybierz pozycję **Utwórz**, aby rozpocząć tworzenie zasobów platformy Azure
 
 ![Konfigurowanie nazwy aplikacji sieci Web](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-Po zakończeniu działania kreatora aplikacja internetowa ASP.NET zostanie opublikowana na platformie Azure, a następnie uruchomiona w domyślnej przeglądarce.
+Po zakończeniu działania kreatora aplikacja internetowa ASP.NET Core zostanie opublikowana na platformie Azure, a następnie uruchomiona w domyślnej przeglądarce.
 
-![Opublikowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![Opublikowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 Nazwa aplikacji internetowej określona w [kroku tworzenia i publikowania](#create-and-publish-the-web-app) jest używana jako prefiks adresu URL w formacie `http://<app_name>.azurewebsites.net`.
 
-Gratulacje, Twoja aplikacja internetowa ASP.NET działa w usłudze Azure App Service.
+Gratulacje, Twoja aplikacja internetowa ASP.NET Core działa w usłudze Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>Aktualizowanie aplikacji i ponowne wdrażanie
 
-Za pomocą **Eksploratora rozwiązań** otwórz plik _Views\Home\Index.cshtml_.
+Za pomocą **Eksploratora rozwiązań** otwórz plik _Pages/Index.cshtml_.
 
-Znajdź tag HTML `<div class="jumbotron">` u góry i zastąp cały element następującym kodem:
+Znajdź tag HTML `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` u góry i zastąp cały element następującym kodem:
 
 ```HTML
 <div class="jumbotron">
@@ -145,7 +149,7 @@ Na stronie publikowania wybierz pozycję **Publikuj**.
 
 Po zakończeniu publikowania program Visual Studio otworzy w przeglądarce adres URL aplikacji internetowej.
 
-![Zaktualizowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![Zaktualizowana aplikacja sieci Web platformy ASP.NET na platformie Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>Zarządzanie aplikacją internetową platformy Azure
 

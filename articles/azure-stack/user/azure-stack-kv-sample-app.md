@@ -3,8 +3,8 @@ title: Zezwalaj aplikacjom na pobieranie kluczy tajnych magazyn kluczy Azure sto
 description: "Użyj przykładowej aplikacji do pracy z magazynem kluczy Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Przykładowa aplikacja korzystająca z kluczy i kluczy tajnych przechowywane w magazynie kluczy
 
@@ -132,7 +132,7 @@ Zanotuj **VaultUrl**, **AuthClientId**, i **AuthClientSecret** zwróconych przez
 
 ## <a name="download-and-run-the-sample-application"></a>Pobieranie i uruchamianie przykładowej aplikacji
 
-Pobierz przykładowe magazynu kluczy z platformy Azure [przykłady klienta usługi Key Vault](https://www.microsoft.com/en-us/download/details.aspx?id=45343) strony. Wyodrębnij zawartość pliku ZIP na deweloperskiej stacji roboczej. Istnieją dwa przykłady znajdujących się w folderze próbek. Używamy próbki HellpKeyVault w tym temacie. Przejdź do **Microsoft.Azure.KeyVault.Samples** > **przykłady** > **HelloKeyVault** folderu i otworzyć aplikację HelloKeyVault w programie Visual Studio. 
+Pobierz przykładowe magazynu kluczy z platformy Azure [przykłady klienta usługi Key Vault](https://www.microsoft.com/en-us/download/details.aspx?id=45343) strony. Wyodrębnij zawartość pliku ZIP na deweloperskiej stacji roboczej. Istnieją dwa przykłady znajdujących się w folderze próbek. Używamy próbki HellpKeyVault w tym artykule. Przejdź do **Microsoft.Azure.KeyVault.Samples** > **przykłady** > **HelloKeyVault** folderu i otworzyć aplikację HelloKeyVault w programie Visual Studio. 
 
 Otwórz plik HelloKeyVault\App.config i Zastąp wartości <appSettings> element z **VaultUrl**, **AuthClientId**, i **AuthClientSecret** wartości zwrócony przez poprzednie skryptu. Należy zauważyć, domyślnie App.config zawiera symbol zastępczy *AuthCertThumbprint*, ale użyj *AuthClientSecret* zamiast tego. Po zastąpić jej ustawienia, ponownie skompiluj rozwiązanie i uruchom aplikację.
 

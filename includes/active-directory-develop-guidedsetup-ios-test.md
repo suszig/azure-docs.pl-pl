@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testowanie zapytań interfejsu API programu Microsoft Graph z aplikacji systemu iOS
 
 Aby uruchomić kod w symulatorze, naciśnij klawisz **polecenia** + **R**.

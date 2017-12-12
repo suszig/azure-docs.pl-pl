@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Uruchom zadanie Apache Hive, Pig lub Hadoop przy użyciu bazy danych rozwiązania Cosmos Azure i usługi HDInsight
 W tym samouczku przedstawiono sposób uruchamiania [Apache Hive][apache-hive], [Apache Pig][apache-pig], i [Apache Hadoop] [ apache-hadoop] zadań MapReduce w usłudze Azure HDInsight z łącznikiem usługi Hadoop DB rozwiązania Cosmos. Łącznik usługi Hadoop DB rozwiązania cosmos umożliwia rozwiązania Cosmos bazy danych, które będą działać jako źródło i ujście zadań Hive, Pig i MapReduce. W tym samouczku będzie używać rozwiązania Cosmos bazy danych jako źródła danych i docelowy zadania usługi Hadoop.
@@ -178,7 +178,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
         $clusterName = "<HDInsightClusterName>"
 2. <p>Zacznijmy konstruowanie ciągu zapytania. Firma Microsoft będzie Napisz zapytanie Hive, które przyjmuje sygnatury czasowe wygenerowany przez system (_ts) i unikatowe identyfikatory (_rid) z kolekcji bazy danych Azure rozwiązania Cosmos wszystkie dokumenty, zlicza wszystkie dokumenty za minutę, a następnie zapisuje wyniki do nowej kolekcji bazy danych Azure rozwiązania Cosmos.</p>
 
-    <p>Najpierw utwórz tabeli programu Hive z naszych kolekcji bazy danych Azure rozwiązania Cosmos. W okienku skrypt programu PowerShell Dodaj poniższy fragment kodu <strong>po</strong> fragment kodu z #1. Upewnij się, że obejmują przycinania t parametr opcjonalny DocumentDB.query naszych dokumentów, aby tylko _ts i _rid.</p>
+    <p>Najpierw utwórz tabeli programu Hive z naszych kolekcji bazy danych Azure rozwiązania Cosmos. W okienku skrypt programu PowerShell Dodaj poniższy fragment kodu <strong>po</strong> fragment kodu z #1. Upewnij się, że zawierać parametr zapytania opcjonalne, aby przyciąć dokumentów, aby tylko _ts i _rid.</p>
 
    > [!NOTE]
    > **Nazewnictwo DocumentDB.inputCollections nie błędu.** Tak, firma Microsoft Zezwalaj na dodawanie wielu kolekcji jako dane wejściowe: </br>
@@ -276,7 +276,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Zacznijmy konstruowanie ciągu zapytania. Firma Microsoft będzie Napisz zapytanie Pig, które przyjmuje sygnatury czasowe wygenerowany przez system (_ts) i unikatowe identyfikatory (_rid) z kolekcji bazy danych Azure rozwiązania Cosmos wszystkie dokumenty, zlicza wszystkie dokumenty za minutę, a następnie zapisuje wyniki do nowej kolekcji bazy danych Azure rozwiązania Cosmos.</p>
-    <p>Po pierwsze ładowanie dokumentów z rozwiązania Cosmos bazy danych do usługi HDInsight. W okienku skrypt programu PowerShell Dodaj poniższy fragment kodu <strong>po</strong> fragment kodu z #1. Upewnij się dodać zapytanie bazy danych DocumentDB do opcjonalny parametr zapytania usługi DocumentDB przyciąć naszych dokumentów, aby tylko _ts i _rid.</p>
+    <p>Po pierwsze ładowanie dokumentów z rozwiązania Cosmos bazy danych do usługi HDInsight. W okienku skrypt programu PowerShell Dodaj poniższy fragment kodu <strong>po</strong> fragment kodu z #1. Upewnij się dodać zapytanie do opcjonalny parametr zapytania usługi DocumentDB przyciąć naszych dokumentów, aby tylko _ts i _rid.</p>
 
    > [!NOTE]
    > Tak, firma Microsoft Zezwalaj na dodawanie wielu kolekcji jako dane wejściowe: </br>

@@ -4,7 +4,7 @@ description: "Jak utworzyć interfejs Api sieci Web .NET MVC, który akceptuje t
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: bb332196aef59a497a1f80b67ab5c1eeef3dee0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Zabezpiecz interfejs API web MVC
 Z usługą Azure Active Directory punktu końcowego v2.0, można chronić przy użyciu interfejsu API sieci Web [OAuth 2.0](active-directory-v2-protocols.md) dostęp do tokenów, umożliwiając użytkownikom z obu osobistego konta Microsoft i służbowego konta do bezpiecznego dostępu do interfejsu API sieci Web.

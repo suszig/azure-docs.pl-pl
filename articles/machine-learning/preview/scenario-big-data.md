@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -108,10 +108,10 @@ Numer kolumny | Nazwa pola| Typ | Opis |
 6 | `HTTP1` | Liczba całkowita|  Sesja używa HTTP1 lub HTTP2
 7 |`ServerType` | Liczba całkowita   |Typ serwera
 8 |`SubService_1_Load` | O podwójnej precyzji |   Obciążenia subservice 1
-9 | `SubService_1_Load` | O podwójnej precyzji |  Subservice 2 obciążenia
-10 | `SubService_1_Load` | O podwójnej precyzji |     Obciążenia subservice 3
-11 |`SubService_1_Load` | O podwójnej precyzji |  Subservice 4 obciążenia
-12 | `SubService_1_Load`| O podwójnej precyzji |      Obciążenia subservice 5
+9 | `SubService_2_Load` | O podwójnej precyzji |  Subservice 2 obciążenia
+10 | `SubService_3_Load` | O podwójnej precyzji |     Obciążenia subservice 3
+11 |`SubService_4_Load` | O podwójnej precyzji |  Subservice 4 obciążenia
+12 | `SubService_5_Load`| O podwójnej precyzji |      Obciążenia subservice 5
 13 |`SecureBytes_Load`  | O podwójnej precyzji | Bezpieczne bajtów obciążenia
 14 |`TotalLoad` | O podwójnej precyzji | Całkowita liczba obciążenie serwera
 15 |`ClientIP` | Ciąg|    Adres IP klienta
@@ -327,7 +327,7 @@ Na prawo paska bocznego Workbench, przejdź do **działa** wyświetlić histori�
 
 ### <a name="operationalize-the-model"></a>Operacjonalizuj modelu
 
-W tej sekcji możesz operacjonalizacji model, który został utworzony w poprzednich krokach jako usługę sieci web. Można również sposób korzystania z usługi sieci web na potrzeby prognozowania obciążenia. Użyj języka maszyny operationalization wiersza polecenia interfejsów (CLIs) pakietu kodu i zależności jako obrazy usługi Docker i publikowanie model jako usługę sieci web konteneryzowanych. Aby uzyskać więcej informacji, zobacz [ten przegląd](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+W tej sekcji możesz operacjonalizacji model, który został utworzony w poprzednich krokach jako usługę sieci web. Można również sposób korzystania z usługi sieci web na potrzeby prognozowania obciążenia. Użyj języka maszyny operationalization wiersza polecenia interfejsów (CLIs) pakietu kodu i zależności jako obrazy usługi Docker i publikowanie model jako usługę sieci web konteneryzowanych.
 
 W wierszu polecenia w Machine Learning Workbench służy do uruchamiania CLIs.  Można również uruchomić CLIs na Ubuntu Linux, wykonując [Przewodnik instalacji](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Umożliwia tworzenie podsumowań wideo miniatur wideo multimediów Azure
 ## <a name="overview"></a>Omówienie
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 **Miniatur wideo multimediów Azure** pakiet administracyjny jest obecnie w przeglądzie.
 
-Ten temat zawiera szczegółowe informacje o **miniatur wideo multimediów Azure** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
+Ten artykuł zawiera szczegółowe informacje o **miniatur wideo multimediów Azure** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -77,7 +77,7 @@ Następujące JSON ustawia dostępne parametry.
 Następujących programów przedstawiono sposób:
 
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
-2. Tworzy zadanie z zadaniem miniatur wideo oparty na pliku konfiguracji, który zawiera następujące ustawienie json. 
+2. Tworzy zadanie z zadaniem miniatur wideo oparty na pliku konfiguracji, który zawiera następujące ustawienie json: 
    
         {                
             "version": "1.0",
@@ -109,16 +109,24 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

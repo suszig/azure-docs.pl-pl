@@ -1,6 +1,6 @@
 ---
-title: "Usługa Azure DocumentDB .NET zmienić zasoby & źródła procesora zestawu SDK | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wszystkiego o interfejsie API procesora źródła danych zmian i zestawu SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone od każda wersja programu .NET zmiany źródła procesora zestawu SDK usługi DocumentDB."
+title: "Azure rozwiązania Cosmos bazy danych: Interfejs API programu .NET zmiany źródła procesora, zestawu SDK & zasobów | Dokumentacja firmy Microsoft"
+description: "Dowiedz się wszystkiego o interfejsie API procesora źródła danych zmian i zestawu SDK, w tym daty wydania, daty wycofania i zmiany między poszczególnymi wersjami zmiany źródła procesora zestawu SDK .NET."
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 495d69ffc485cc0df148cff9898e9c1f734c296a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>Usługa DocumentDB .NET zmiany źródła strumieniowego procesora zestawu SDK: Pobierz i informacje o wersji
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Procesor kanału informacyjnego zmiany .NET SDK: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Źródła danych zmian .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -32,31 +32,33 @@ ms.lasthandoff: 11/01/2017
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 |   |   |
 |---|---|
 |**Pobierz zestaw SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Dokumentacja interfejsu API**|[Zmień dokumentacji interfejsu API biblioteki procesora źródła danych](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Wprowadzenie**|[Wprowadzenie do usługi DocumentDB zmiany źródła procesora zestawu .NET SDK](change-feed.md)|
+|**Wprowadzenie**|[Wprowadzenie zmian źródła danych procesora zestawu .NET SDK](change-feed.md)|
 |**Bieżąca platforma obsługiwane**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Program Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Dodaje obsługę platformy .NET Standard 2.0. Pakiet obsługuje teraz `netstandard2.0` i `net451` monikerów framework.
-* Zgodny z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md) wersji 1.17.0 lub nowszym.
-* Zgodny z [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) wersji 1.5.1 lub nowszym.
+* Zgodny z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md) wersji 1.17.0 lub nowszym.
+* Zgodny z [SQL .NET Core SDK](documentdb-sdk-dotnet-core.md) wersji 1.5.1 lub nowszym.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Rozwiązuje problem z wyliczeniem oszacowania pracy pozostałej podczas zmiany źródła danych jest pusta lub oczekiwała żadne czynności.
-* Zgodny z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md) wersji 1.13.2 lub nowszym.
+* Zgodny z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md) wersji 1.13.2 lub nowszym.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Dodaje metody uzyskać szacunkową Praca pozostała na przetworzenie w źródła danych zmian.
-* Zgodny z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md) wersji 1.13.2 lub nowszym.
+* Zgodny z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md) wersji 1.13.2 lub nowszym.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
-* Zgodny z [zestawu SDK .NET usługi DocumentDB](documentdb-sdk-dotnet.md) wersji 1.14.1 i poniżej.
+* Zgodny z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md) wersji 1.14.1 i poniżej.
 
 ## <a name="release--retirement-dates"></a>Wersja & wycofania dat
 Firma Microsoft udostępni powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
@@ -69,7 +71,7 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
-| [1.2.0](#1.2.0) |31 października 2017 r. |--- |
+| [1.2.0](#1.2.0) |31 października 2017 r. |--- |
 | [1.1.1](#1.1.1) |29 sierpnia 2017 r. |--- |
 | [1.1.0](#1.1.0) |13 sierpnia 2017 r. |--- |
 | [1.0.0](#1.0.0) |07 lipca 2017 r. |--- |

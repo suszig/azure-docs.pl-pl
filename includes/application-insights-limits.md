@@ -11,7 +11,7 @@ Istnieją pewne ograniczenia liczby metryk i zdarzeń na aplikację (czyli na kl
 | Długość nazwy właściwości i metryki | 150 | Zobacz [wpisz schematów](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Długość ciągu wartości właściwości | 8192 | Zobacz [wpisz schematów](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Długość komunikatu śledzenia i wyjątku | 10 tys. | Zobacz [wpisz schematów](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Liczba [testów dostępności](../articles/application-insights/app-insights-monitor-web-app-availability.md) na aplikację  | 10 |
+| Liczba [testów dostępności](../articles/application-insights/app-insights-monitor-web-app-availability.md) na aplikację  | 100 |
 | [Profiler](../articles/application-insights/app-insights-profiler.md) przechowywania danych | 5 dni |
 | [Profiler](../articles/application-insights/app-insights-profiler.md) danych wysyłanych dziennie | 10GB |
 

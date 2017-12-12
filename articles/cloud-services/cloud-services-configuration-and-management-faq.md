@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurowanie i zarządzanie problemy dotyczące usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -221,3 +221,65 @@ Po przeprowadzeniu, można sprawdzić, czy włączono HTTP/2 nie przy użyciu je
 - Włącz narzędzia dla deweloperów F12 w Internet Explorer/Edge i przejść do karty sieciowej można zweryfikować protokołu. 
 
 Aby uzyskać więcej informacji, zobacz [HTTP/2 w usługach IIS](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Wersja zestawu SDK usługi w chmurze nie są wyświetlane w portalu Azure. Jak uzyskać który?
+
+Pracujemy nad wprowadzeniem tej funkcji w portalu Azure. W tym samym czasie służy następujących poleceń programu PowerShell do pobrania wersji zestawu SDK:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Nie mogę pulpitu zdalnego do maszyny Wirtualnej usługi chmury, za pomocą pliku RDP. Pobierz I następujący błąd: Wystąpił błąd uwierzytelniania (kod: 0x80004005)
+
+Ten błąd może wystąpić, jeżeli używany jest plik RDP na komputerze, który jest przyłączony do usługi Azure Active Directory. Aby rozwiązać ten problem, wykonaj następujące kroki:
+
+1. Kliknij prawym przyciskiem myszy pobrany plik RDP, a następnie wybierz **Edytuj**.
+2. Dodaj "&#92;" jako prefiksu przed nazwy użytkownika. Na przykład użyć **. \username** zamiast **username**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Chcę wyłączyć usługę w chmurze dla kilku miesięcy. Jak zmniejszyć koszt rozliczeń usługi w chmurze bez utraty adres IP?
+
+Już raz wdrożonej usługi w chmurze pobiera rozliczane dla zasobów obliczeniowych i magazynu używa. Tak nawet w przypadku zamykania maszyny Wirtualnej platformy Azure można będzie nadal uzyskać użyta dla magazynu. 
+
+Oto, co możesz zrobić, aby zmniejszyć rozliczeniowego bez utraty adres IP dla usługi:
+
+1. [Zastrzec adresu IP](../virtual-network/virtual-networks-reserved-public-ip.md) przed usunięcie jego wdrożeń.  Tylko będą naliczane dla tego adresu IP. Aby uzyskać więcej informacji dotyczących rozliczeń adresu IP, zobacz [adresy IP cennik](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Usunięcie jego wdrożeń. Nie należy usuwać xxx.cloudapp.net, tak aby można go używać przyszłość.
+3. Jeśli chcesz ponownie wdrożyć usługę w chmurze przy użyciu tego samego adresu IP rezerwy zarezerwowane w ramach subskrypcji, zobacz [zarezerwowane adresy IP dla usługi w chmurze i maszyn wirtualnych](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Wygasa certyfikatu zarządzania usługi chmury. Jak odnowić go?
+
+Aby odnowić certyfikaty zarządzania służy następujących poleceń programu PowerShell:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+**Get-AzurePublishSettingsFile** utworzy nowy certyfikat zarządzania w **subskrypcji** > **certyfikaty zarządzania** w portalu Azure. Nazwa nowego świadectwa wygląda "YourSubscriptionNam]-[CurrentDate] - poświadczenia".
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Jak można skonfigurować oparty na pamięci metryki automatycznego skalowania
+
+W oparciu metryki pamięci dla usługi w chmurze automatycznego skalowania nie jest obecnie obsługiwane. 
+
+Aby obejść ten problem, można użyć usługi Application Insights, dzięki czemu diagnostycznych agenta może kierować metryk do usługi Application Insights. Automatyczne skalowanie obsługuje usługi Application Insights jako źródło metryki i można go skalować liczbę wystąpień roli w oparciu metryki gościa, takich jak "Pamięci".  Należy skonfigurować usługi Application Insights w pliku pakietu (*.cspkg) projektu usługi w chmurze i włączyć rozszerzenie Azure Diagnostics na usługę, aby zaimplementować to feat.
+
+Aby uzyskać więcej informacji na temat sposobu korzystania niestandardowa Metryka za pomocą usługi Application Insights, aby skonfigurować automatyczne skalowanie na usługi w chmurze, zobacz [Rozpoczynanie pracy z Skalowanie automatyczne według metryki niestandardowe na platformie Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Aby uzyskać więcej informacji na temat integracji Azure Diagnostics z usługi Application Insights dla usługi w chmurze, zobacz [wysyłania usługi w chmurze maszyny wirtualnej i sieci szkieletowej usług danych diagnostycznych do usługi Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Aby uzyskać więcej informacji o włączenie usługi Application Insights dla usługi w chmurze, zobacz [usługi Application Insights dla usługi w chmurze Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Aby uzyskać więcej informacji o sposobie włączania rejestrowania diagnostyki Azure dla usługi w chmurze, zobacz [Ustaw diagnostyki dla usług Azure Cloud Services i maszyny wirtualne](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Jak zautomatyzować główny certyfikat SSL (.pfx) i Instalacja certyfikatu pośredniego certificate(.p7b)?
+
+Można zautomatyzować to zadanie za pomocą skryptu uruchomieniowego (partii cmd/PowerShell) i zarejestrować tego skryptu do uruchomienia w pliku definicji usługi. Dodaj zarówno uruchomienia skryptu, jak i certyfikat (plik p7b) w folderze projektu w tym samym katalogu skryptu uruchomieniowego.
+
+Aby uzyskać więcej informacji zobacz następujące artykuły:
+- [Jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Typowe zadania uruchamiania usługi w chmurze](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Dlaczego portalu Azure wymaga mnie o podanie konta magazynu dla wdrożenia?
+
+W klasycznym portalu pakiet został przekazany do warstwy interfejsu API zarządzania bezpośrednio, a następnie warstwę interfejsu API tymczasowo czy umieść pakiet do konta wewnętrznego magazynu.  Ten proces powoduje problemy z wydajnością i skalowalnością, ponieważ warstwę interfejsu API nie został zaprojektowany jako usługa przekazywania plików.  W portalu Azure (modelu wdrażania usługi Resource Manager) firma Microsoft ma pominąć tymczasowe kroku wcześniejszego przekazania do warstwy interfejsu API, co w przypadku wdrożeń szybszy i bardziej niezawodny.
+ 
+Podobnie jak w przypadku koszt jest bardzo mała i we wszystkich wdrożeniach można ponownie użyć tego samego konta magazynu. Można użyć [Kalkulator magazynu koszt](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ustalić koszt do przekazania pakietu usługi (CSPKG), Pobierz CSPKG, a następnie usuń CSPKG.

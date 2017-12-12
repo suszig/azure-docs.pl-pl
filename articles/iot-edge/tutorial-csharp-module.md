@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Tworzenie i wdrażanie modułu krawędzi IoT C# w symulowane urządzenie — w wersji preview
 
@@ -219,7 +219,7 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
         
    Użyj nazwy użytkownika, hasło i serwer logowania, skopiowany z rejestru kontenera platformy Azure podczas jego tworzenia.
 
-3. Wypchnij obrazu do repozytorium Docker. Wybierz **widoku** > **palety polecenia** i wyszukaj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia menu. Wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz używany w kroku 1.d.
+3. Wypchnij obrazu do repozytorium Docker. Wybierz **widoku** > **palety polecenia** i wyszukaj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia menu. Wprowadź nazwę obrazu w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj takiej samej nazwy obraz, którego użyto w kroku 4.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Dodawanie poświadczeń rejestru do środowiska wykonawczego krawędzi
 Dodaj poświadczenia do rejestru do środowiska wykonawczego Edge na komputerze, na którym są uruchomione Twoje urządzenie brzegowe. Te poświadczenia zapewniają dostęp środowiska uruchomieniowego do ściągnięcia kontenera. 

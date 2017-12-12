@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalowanie omówienie zadania elastycznej bazy danych
-[**Zadania elastyczne bazy danych** ](sql-database-elastic-jobs-overview.md) można zainstalować za pomocą programu PowerShell lub za pośrednictwem Portal.You klasycznego Azure mogą uzyskać dostęp do utworzenia zadania i zarządzać nimi przy użyciu interfejsu API środowiska PowerShell, tylko w przypadku instalowania pakietu programu PowerShell. Ponadto API środowiska PowerShell stanowią znacznie więcej funkcji niż portalu w tym momencie.
+[**Zadania elastyczne bazy danych** ](sql-database-elastic-jobs-overview.md) można zainstalować za pomocą programu PowerShell lub za pośrednictwem portalu Azure. Możliwość uzyskania dostępu do utworzenia zadania i zarządzać nimi przy użyciu interfejsu API środowiska PowerShell, tylko w przypadku instalowania pakietu programu PowerShell. Ponadto API środowiska PowerShell stanowią znacznie więcej funkcji niż portalu w tym momencie.
 
 Jeśli użytkownik zainstalował już **zadania elastycznej bazy danych** za pośrednictwem portalu z istniejącego **puli elastycznej**, najnowszej wersji zapoznawczej programu Powershell obejmuje skrypty w celu uaktualnienia istniejącej instalacji. Zdecydowanie zaleca się uaktualnienia do najnowszej wersji instalacji **zadania elastycznej bazy danych** składników, aby korzystać z nowych funkcji udostępnianych za pośrednictwem interfejsów API środowiska PowerShell.
 

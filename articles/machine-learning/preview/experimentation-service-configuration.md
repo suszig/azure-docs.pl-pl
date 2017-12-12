@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurowanie usługi Azure Machine Learning eksperymenty usługi
 
@@ -221,7 +221,8 @@ _**Omówienie zdalnego maszyny wirtualnej wykonanie skryptu Python:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Uruchamianie skryptu w klastrze usługi HDInsight
 HDInsight to platforma popularnych analizy danych big data obsługi Apache Spark. Workbench umożliwia eksperymenty danych big Data z użyciem klastrów HDInsight Spark. 
 
->![UWAGA] Klaster usługi HDInsight musi używać usługi Azure Blob Storage jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
+>[!NOTE]
+>Klaster usługi HDInsight, musisz użyć obiektów Blob platformy Azure jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
 
 Można utworzyć cel obliczeń i uruchomić konfigurację klastra Spark w usłudze HDInsight przy użyciu następującego polecenia:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Dołącz klucz publiczny, generowane przez narzędzia Workbench do pliku ~/.ssh/authorized_keys w celu dołączone obliczeń. 
 
-[!IMPORTANT] Musisz zalogować się na elemencie docelowym obliczeń przy użyciu tej samej nazwy użytkownika, używanego do tworzenia docelowego obliczeń. 
+>[!IMPORTANT]
+>Musisz zalogować się na elemencie docelowym obliczeń przy użyciu tej samej nazwy użytkownika, używanego do tworzenia docelowego obliczeń. 
 
 - Możesz teraz przygotowanie i użyć docelowej obliczeń przy użyciu uwierzytelniania opartego na kluczach SSH.
 

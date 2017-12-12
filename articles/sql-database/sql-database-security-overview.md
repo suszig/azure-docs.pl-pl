@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 181ad8471c0d0cb24d8f4eae6bddd9d750b4ee61
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Zabezpieczanie bazy danych SQL
 
@@ -31,7 +31,7 @@ Pełne omówienie funkcji zabezpieczeń dostępnych we wszystkich wersjach bazy 
 Usługa SQL Database zabezpiecza dane, szyfrując przesyłane dane za pomocą protokołu [Transport Layer Security](https://support.microsoft.com/kb/3135244), zapisane dane za pomocą funkcji [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) oraz używane dane za pomocą funkcji [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Wszystkie połączenia z usługą Azure SQL Database wymagają szyfrowania (SSL/TLS) podczas całego okresu, w którym dane są przesyłane do i z bazy danych. W parametrach połączenia aplikacji należy tak określić parametry, aby szyfrować połączenia i *nie* ufać certyfikatom serwera (jest to wykonywane automatycznie po skopiowaniu ciągu połączenia z klasycznego portalu Azure). W przeciwnym razie połączenie nie zweryfikuje tożsamości serwera i będzie podatne na ataki typu man-in-the-middle. Na przykład w przypadku sterownika ADO.NET te parametry połączenia mają wartość **Encrypt = True** i **TrustServerCertificate = False**. 
+>Wszystkie połączenia z usługą Azure SQL Database wymagają szyfrowania (SSL/TLS) podczas całego okresu, w którym dane są przesyłane do i z bazy danych. W parametrach połączenia aplikacji, należy określić parametry do szyfrowania połączenia oraz *nie* zaufania certyfikatu serwera (odbywa się automatycznie po skopiowaniu parametrów połączenia z portalu Azure), w przeciwnym razie połączenie nie będzie zweryfikować tożsamość serwera i będzie narażony na ataki "man-in--middle". Na przykład w przypadku sterownika ADO.NET te parametry połączenia mają wartość **Encrypt = True** i **TrustServerCertificate = False**. 
 
 Można również rozważyć inne sposoby szyfrowania danych:
 

@@ -1,6 +1,6 @@
 ---
-title: "Python rozwiązania Cosmos Azure DB interfejsu API, zestaw SDK i zasoby | Dokumentacja firmy Microsoft"
-description: "Dowiedz się wszystkiego o interfejsie API języka Python i zestawu SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji zestawu SDK Python platformy Azure rozwiązania Cosmos bazy danych."
+title: "Azure rozwiązania Cosmos bazy danych: Interfejsu API SQL Python, zestaw SDK & zasobów | Dokumentacja firmy Microsoft"
+description: "Dowiedz się wszystkiego o interfejsu API języka Python SQL i zestawu SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone od każdej wersji zestawu SDK Python platformy Azure rozwiązania Cosmos bazy danych."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Python rozwiązania Cosmos bazy danych Azure SDK: Informacje o wersji i zasoby
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Python DB rozwiązania Cosmos dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Źródła danych zmian .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -81,8 +83,8 @@ ms.lasthandoff: 11/15/2017
 * Dodano obsługę TOP/ORDERBY zapytania dla kolekcji partycjonowanych.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Obsługa zasad dodano ponownych prób dla żądań z ograniczeniem przepustowości. (Ograniczeniem przepustowości żądania odbierania żądania szybkość zbyt duży wyjątek, kod błędu 429.) Domyślnie bazy danych Azure rozwiązania Cosmos ponowi próbę dziewięciokrotnie dla każdego żądania po napotkaniu błędu kodu 429 ramach czasu retryAfter nagłówka odpowiedzi. Czas interwału ponawiania stałym teraz można ustawić jako część właściwości RetryOptions w obiekcie ConnectionPolicy aby zignorować godzinę retryAfter zwrócony przez serwer między ponownymi próbami. Azure DB rozwiązania Cosmos teraz czeka na maksymalnie 30 sekund dla każdego żądania jest ograniczane (niezależnie od liczby ponownych prób) i zwraca odpowiedź z kodem błędu 429. Teraz można także przesłonięta we właściwości RetryOptions ConnectionPolicy obiektu.
-* Rozwiązania cosmos DB teraz zwraca x-ms ograniczania liczby ponownych prób i x-ms-throttle-retry-wait-time-ms nagłówków odpowiedzi każde żądanie do oznaczania przepustnicy ponów liczba i czas cummulative żądanie oczekiwało między ponownymi próbami.
+* Obsługa zasad dodano ponownych prób dla żądań z ograniczeniem przepustowości. (Ograniczeniem przepustowości żądania odbierania żądania szybkość zbyt duży wyjątek, kod błędu 429.) Domyślnie bazy danych Azure rozwiązania Cosmos ponowi próbę dziewięciokrotnie dla każdego żądania po napotkaniu błędu kodu 429 ramach czasu retryAfter nagłówka odpowiedzi. Czas interwału ponawiania stałym teraz można ustawić jako część właściwości RetryOptions w obiekcie ConnectionPolicy aby zignorować godzinę retryAfter zwrócony przez serwer między ponownymi próbami. Azure DB rozwiązania Cosmos teraz czeka na maksymalnie 30 sekund dla każdego żądania jest ograniczane (niezależnie od liczby ponownych prób) i zwraca odpowiedź z kodem błędu 429. Teraz również może zostać przesłonięta we właściwości RetryOptions ConnectionPolicy obiektu.
+* Rozwiązania cosmos DB teraz zwraca x-ms ograniczania liczby ponownych prób i x-ms-throttle-retry-wait-time-ms nagłówków odpowiedzi każde żądanie do oznaczania przepustnicy ponów liczby i skumulowany czas żądanie oczekiwało między ponownymi próbami.
 * Usunąć klasę RetryPolicy i odpowiadających im właściwości (retry_policy) udostępniane w klasie document_client i zamiast tego wprowadzono klasy RetryOptions udostępnianie właściwości RetryOptions w klasie ConnectionPolicy, który może służyć do zastępowania niektórych domyślne opcje ponownych prób.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * Dodano obsługę funkcji czas do Live(TTL) dokumentów.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Poprawki błędów związanych z serwera partycjonowania po stronie, aby zezwalać na znaki specjalne w ścieżce partitionkey.
+* Poprawki dotyczące partycjonowania po stronie serwera, aby zezwalać na znaki specjalne w ścieżce klucza partycji.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Zaimplementowane [kolekcje partycjonowane](partition-data.md) i [poziomy wydajności zdefiniowanych przez użytkownika](performance-levels.md). 
@@ -119,14 +121,14 @@ ms.lasthandoff: 11/15/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Wersja & wycofania dat
-Firma Microsoft udostępni powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
+Firma Microsoft udostępnia powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
 
 Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do bieżącego zestawu SDK, w związku jest zalecane, zawsze uaktualnienie SDK najnowszą tak szybko jak to możliwe. 
 
-Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestawu SDK będą odrzucane przez usługę.
+Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestawu SDK są odrzucane przez usługę.
 
 > [!WARNING]
-> Wszystkie wersje zestawu SDK usługi DocumentDB platformy Azure dla języka Python poprzedzające wersję **1.0.0** zostaną wycofane w **29 lutego 2016**. 
+> Wszystkie wersje zestawu SQL Azure SDK dla języka Python poprzedzające wersję **1.0.0** zostały wycofane na **29 lutego 2016**. 
 > 
 > 
 

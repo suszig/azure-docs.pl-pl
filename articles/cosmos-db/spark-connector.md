@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 1a551615d0ffbbc036d3052cc552fbf4c1098ff7
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bcd29d0b21d7624f6de10fc27e3dfce2fb3406c6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Przyspieszenie w czasie rzeczywistym analizy danych big data w usłudze Spark do łącznika usługi Azure DB rozwiązania Cosmos
 
@@ -56,13 +56,13 @@ Oficjalnie obsługiwane wersje:
 |---------|-------|
 |Apache Spark|2.0+|
 | Scala| 2.11|
-| Zestaw SDK Java usługi DocumentDB platformy Azure | 1.10.0 |
+| Azure rozwiązania Cosmos bazy danych SQL w języku Java SDK | 1.10.0 |
 
 W tym artykule opisano, jak uruchomić niektóre proste przykłady przy użyciu języka Python (za pośrednictwem pakiet pyDocumentDB) i interfejsy Scala.
 
 Istnieją dwa podejścia do połączenia Apache Spark i bazy danych rozwiązania Cosmos Azure:
-- Użyj pydocumentdb — za pomocą [Azure SDK Python usługi DocumentDB](https://github.com/Azure/azure-documentdb-python).
-- Utwórz oparte na języku Java platformy Spark do bazy danych Azure rozwiązania Cosmos łącznika przy użyciu [zestawu SDK Java usługi DocumentDB Azure](https://github.com/Azure/azure-documentdb-java).
+- Użyj pydocumentdb — za pomocą [zestaw SDK Python SQL Azure rozwiązania Cosmos DB](https://github.com/Azure/azure-documentdb-python).
+- Utwórz oparte na języku Java platformy Spark do bazy danych Azure rozwiązania Cosmos łącznika przy użyciu [zestawu Java SDK usługi Azure rozwiązania Cosmos bazy danych SQL](https://github.com/Azure/azure-documentdb-java).
 
 ## <a name="pydocumentdb-implementation"></a>Pakiet pyDocumentDB implementacji
 Bieżący [pydocumentdb — zestaw SDK](https://github.com/Azure/azure-documentdb-python) umożliwia podłączenie do bazy danych Azure rozwiązania Cosmos Spark, jak pokazano na poniższym diagramie:
@@ -158,7 +158,7 @@ df = spark.createDataFrame(elements)
 
 ## <a name="spark-to-azure-cosmos-db-connector"></a>Platforma Spark jest łącznikiem bazy danych Azure rozwiązania Cosmos
 
-Korzysta z platformy Spark do łącznika usługi Azure DB rozwiązania Cosmos [zestawu SDK Java usługi DocumentDB Azure](https://github.com/Azure/azure-documentdb-java) i przenosi dane między węzłami procesów roboczych Spark i bazy danych Azure rozwiązania Cosmos, jak pokazano na poniższym diagramie:
+Korzysta z platformy Spark do łącznika usługi Azure DB rozwiązania Cosmos [zestawu Java SDK usługi Azure rozwiązania Cosmos bazy danych SQL](https://github.com/Azure/azure-documentdb-java) i przenosi dane między węzłami procesów roboczych Spark i bazy danych Azure rozwiązania Cosmos, jak pokazano na poniższym diagramie:
 
 ![Przepływ danych w Spark do łącznika usługi Azure DB rozwiązania Cosmos](./media/spark-connector/spark-connector.png)
 
@@ -202,7 +202,7 @@ Jeśli używasz usługi notesu, takich jak usługa notesu Azure HDInsight Jupyte
 }
 ```
 
-**Słoików** polecenie umożliwia dołączenie dwóch słoików, które są wymagane przez **spark-azure-cosmosdb** (się i zestawu SDK Java usługi DocumentDB Azure) i wykluczyć **scala-odzwierciedlają** tak, aby nie zakłóca Livy wywołuje (notesu Jupyter > Livy > Spark).
+**Słoików** polecenie umożliwia dołączenie dwóch słoików, które są wymagane przez **spark-azure-cosmosdb** (się i zestawu SDK usługi Azure rozwiązania Cosmos bazy danych SQL Java) i wykluczyć **scala-odzwierciedlają**tak, aby nie zakłóca wywołania Livy (notesu Jupyter > Livy > Spark).
 
 ### <a name="connect-spark-to-azure-cosmos-db-using-the-connector"></a>Połącz Spark do bazy danych rozwiązania Cosmos Azure za pomocą łącznika
 Mimo że transportu komunikacji jest nieco bardziej skomplikowane, wykonywanie zapytania z Spark do bazy danych rozwiązania Cosmos Azure za pomocą łącznika jest znacznie szybsze.

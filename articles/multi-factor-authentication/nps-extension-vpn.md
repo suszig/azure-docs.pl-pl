@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Usługa Azure MFA, integracja sieci VPN, Azure Active Directory, serwer zasad sieciowych rozszerzenia"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA za pomocą rozszerzenia serwera zasad sieciowych na platformie Azure
 
@@ -491,7 +491,7 @@ Aby użyć skryptu, dostarczają rozszerzenie poświadczeń administracyjnych us
 
 6. Uruchom ponownie serwer.
 
-### <a name="verify-the-configuration"></a>Sprawdź konfigurację
+### <a name="verify-the-configuration"></a>Sprawdź, czy konfiguracja
 Aby sprawdzić konfigurację, należy ustanowić nowe połączenie sieci VPN z serwerem sieci VPN. Po pomyślnym wprowadzeniu poświadczeń dla uwierzytelniania podstawowego, połączenie sieci VPN czeka dodatkowego uwierzytelniania się powodzeniem przed połączenie zostanie nawiązane, jak pokazano poniżej. 
 
 ![Okno sieci VPN ustawienia systemu Windows](./media/nps-extension-vpn/image42.png)

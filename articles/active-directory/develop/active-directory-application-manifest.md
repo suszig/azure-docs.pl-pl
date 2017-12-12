@@ -4,7 +4,7 @@ description: "Szczegółowe pokrycia manifest aplikacji usługi Azure Active Dir
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Opis manifestu aplikacji usługi Azure Active Directory
 Aplikacje, które integrują się z usługi Azure Active Directory (AD) musi być zarejestrowana w dzierżawie usługi Azure AD, zapewniając konfiguracji trwałe tożsamości dla aplikacji. Ta konfiguracja jest konsultacje w czasie wykonywania, włączanie scenariusze, które umożliwiają aplikacjom zewnętrzny i broker uwierzytelniania/autoryzacji za pomocą usługi Azure AD. Aby uzyskać więcej informacji na temat modelu aplikacji usługi Azure AD, zobacz [Dodawanie, aktualizowanie i usuwanie aplikacji] [ ADD-UPD-RMV-APP] artykułu.
@@ -28,7 +28,7 @@ Aplikacje, które integrują się z usługi Azure Active Directory (AD) musi by�
 ## <a name="updating-an-applications-identity-configuration"></a>Trwa aktualizowanie konfiguracji tożsamości aplikacji
 Dostępne są faktycznie wiele opcji aktualizowania właściwości w konfiguracji tożsamości aplikacji, które różnią się w funkcji i stopni problemy, takie jak następujące:
 
-* **[Portalu Azure] [ AZURE-PORTAL] interfejs użytkownika sieci Web** umożliwia zaktualizowanie typowych właściwości aplikacji. Jest to sposób podatne najszybszym i co najmniej błąd aktualizowanie właściwości aplikacji, ale nie daje pełny dostęp do wszystkich właściwości, takie jak kolejnych dwóch metod.
+*  **[Portalu Azure] [ AZURE-PORTAL] interfejs użytkownika sieci Web** umożliwia zaktualizowanie typowych właściwości aplikacji. Jest to sposób podatne najszybszym i co najmniej błąd aktualizowanie właściwości aplikacji, ale nie daje pełny dostęp do wszystkich właściwości, takie jak kolejnych dwóch metod.
 * Dla bardziej zaawansowanych scenariuszy, w których należy zaktualizować właściwości, które nie są widoczne w klasycznym portalu Azure, można zmodyfikować **manifest aplikacji**. To jest fokus w tym artykule i omówiono bardziej szczegółowo w następnej sekcji systemie.
 * Istnieje również możliwość **napisać aplikację, która używa [interfejsu API programu Graph] [ GRAPH-API]**  można zaktualizować aplikacji, co wymaga najbardziej wysiłku. Może to być atrakcyjną opcję Chociaż, pisania oprogramowanie do zarządzania, czy należy zaktualizować właściwości aplikacji regularnie w zautomatyzowany sposób.
 

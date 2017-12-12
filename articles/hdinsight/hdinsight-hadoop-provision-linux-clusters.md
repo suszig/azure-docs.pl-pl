@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i
 
@@ -89,7 +89,7 @@ Każdy typ klastra ma własną liczba węzłów, terminologii dla węzłów i do
 
 | Typ | Węzły | Diagram |
 | --- | --- | --- |
-| Usługa Hadoop |Nagłówek węzła (2), węzeł danych (1 +) |![Węzły klastra usługi HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Nagłówek węzła (2), węzeł danych (1 +) |![Węzły klastra usługi HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |HEAD serwer (2), region (1 +), węzeł główny/dozorcy (3) |![Węzły klastra HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Węzeł nimbus (2), serwer przełożonego (1 +), dozorcy węzła (3) |![Węzły klastra Storm w usłudze HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | platforma Spark |HEAD węzła (2), węzłem procesu roboczego (1 +), węzeł dozorcy (3) (bezpłatnie dla rozmiaru maszyna wirtualna A1 dozorcy) |![Węzły klastra Spark w usłudze HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
@@ -98,15 +98,6 @@ Aby uzyskać więcej informacji, zobacz [domyślne rozmiary maszyn wirtualnych i
 
 ### <a name="hdinsight-version"></a>Wersja usługi HDInsight
 Wybierz wersję HDInsight dla tego klastra. Aby uzyskać więcej informacji, zobacz [HDInsight obsługiwane wersje](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Warstwy klastrów: warstwy usługi HDInsight
-
-Usługa Azure HDInsight zapewnia oferty danych big data chmury w dwóch warstwach usług: Standard i Premium.  Aby uzyskać więcej informacji, zobacz [HDInsight Standard i HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-Poniższy zrzut ekranu przedstawia informacje o portalu Azure dotyczące wybierania typów klastra.
-
-![HDInsight premium konfiguracji](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Logowania do klastra i nazwy użytkownika SSH
 Z klastrami usługi HDInsight można skonfigurować dwa konta użytkownika, podczas tworzenia klastra:

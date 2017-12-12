@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Ramka zabezpieczeń: Dane poufne | Środki zaradcze 
 | Produktów i usług | Artykuł |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplikacja sieci Web** | <ul><li>[Upewnij się, poufnej zawartości nie jest buforowana w przeglądarce](#cache-browser)</li><li>[Szyfrowanie sekcji pliki konfiguracji aplikacji sieci Web, które zawierają dane poufne](#encrypt-data)</li><li>[Jawnie Wyłącz Autouzupełnianie atrybutu HTML w formularzach poufnych i dane wejściowe](#autocomplete-input)</li><li>[Upewnij się, że poufne dane wyświetlane na ekranie użytkownika są wyświetlane jako znaki](#data-mask)</li></ul> | 
 | **Baza danych** | <ul><li>[Implementowanie dynamiczne maskowanie Aby ograniczyć użytkowników narażenia z systemem innym niż uprzywilejowany danych poufnych danych](#dynamic-users)</li><li>[Upewnij się, że hasła są przechowywane w formacie solone wyznaczania wartości skrótu](#salted-hash)</li><li>[Upewnij się, że poufne dane w kolumnach bazy danych są szyfrowane](#db-encrypted)</li><li>[Upewnij się, że włączone jest szyfrowanie tej bazy danych na poziomie (funkcji TDE)](#tde-enabled)</li><li>[Upewnij się, że kopie zapasowe bazy danych są szyfrowane.](#backup)</li></ul> | 
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że poufne dane związane z interfejsu API sieci Web nie są przechowywane w pamięci masowej w przeglądarce](#api-browser)</li></ul> | 
-| Dokumentów w usłudze Azure DB | <ul><li>[Szyfrowania poufnych danych przechowywanych w usłudze DocumentDB](#encrypt-docdb)</li></ul> | 
+| Dokumentów w usłudze Azure DB | <ul><li>[Szyfrowania poufnych danych przechowywanych w usłudze Azure DB rozwiązania Cosmos](#encrypt-docdb)</li></ul> | 
 | **Maszyna wirtualna platformy Azure IaaS granicy zaufania** | <ul><li>[Użyj szyfrowania dysków Azure do szyfrowania dysków używanych przez maszyny wirtualne](#disk-vm)</li></ul> | 
 | **Granic zaufania sieci szkieletowej usług** | <ul><li>[Szyfrowanie kluczy tajnych w aplikacji sieci szkieletowej usług](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Wykonaj modelowania zabezpieczeń i użyć zespołów jednostki biznesowe w przypadku, gdy wymagane](#modeling-teams)</li><li>[Minimalizowanie dostęp do udziału funkcji na jednostkach krytyczne](#entities)</li><li>[Szkolenie użytkowników na ryzyko związane z funkcji programu Dynamics CRM udziału i dobrej rozwiązania](#good-practices)</li><li>[Programowanie regułę standardy, proscribing konfiguracji ze szczegółowymi informacjami w Zarządzanie wyjątkami dołączania](#exception-mgmt)</li></ul> | 
@@ -160,7 +160,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Zastosowanie technologii** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
-| **Kroki** | Dane poufne, takie jak hasła, numery kart kredytowych, itp. SSN powinien maskowane, gdy wyświetlane na ekranie. Ma to zapobiec próbom nieautoryzowanego dostępu do danych (np. hasła ramię przeglądanie, pomocy technicznej wyświetlanie SSN liczby użytkowników). Upewnij się, że te elementy danych nie są widoczne w postaci zwykłego tekstu i odpowiednio są ukryte. Musi to być wykonane szczególną uwagę podczas akceptowania ich jako danych wejściowych (np.. wprowadzania type = "password") oraz wyświetlanie wstecz na ekranie (np. wyświetlania tylko ostatnich 4 cyfr numeru karty kredytowej). |
+| **Kroki** | Dane poufne, takie jak hasła, numery kart kredytowych, itp. SSN powinien maskowane, gdy wyświetlane na ekranie. Ma to zapobiec próbom nieautoryzowanego dostępu do danych (np. hasła ramię przeglądanie, pomocy technicznej wyświetlanie SSN liczby użytkowników). Upewnij się, że te elementy danych nie są widoczne w postaci zwykłego tekstu i odpowiednio są ukryte. Musi to być wykonane szczególną uwagę podczas akceptowania ich jako danych wejściowych (np. wprowadzania type = "password") oraz wyświetlanie wstecz na ekranie (np. wyświetlania tylko ostatnich 4 cyfr numeru karty kredytowej). |
 
 ## <a id="dynamic-users"></a>Implementowanie dynamiczne maskowanie Aby ograniczyć użytkowników narażenia z systemem innym niż uprzywilejowany danych poufnych danych
 

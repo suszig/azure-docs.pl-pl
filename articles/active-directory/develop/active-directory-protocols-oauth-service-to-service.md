@@ -4,7 +4,7 @@ description: "W tym artykule opisano sposób użycia wiadomości HTTP do zaimple
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Usługi w celu wywołania usługi przy użyciu poświadczeń klienta (wspólny klucz tajny lub certyfikatu)
 OAuth 2.0 klienta poświadczenia Grant Flow pozwala usługi sieci web (*poufne klienta*) korzystać własne poświadczenia zamiast personifikacji użytkownika, do uwierzytelniania podczas wywoływania metody innej usługi sieci web. W tym scenariuszu klient jest zwykle usługi sieci web warstwy środkowej, usługa demona lub witryny sieci web. Wyższy poziom gwarancji usługi Azure AD umożliwia wywołanie usługi do korzystania z certyfikatu (zamiast wspólny klucz tajny) jako poświadczenie.
@@ -55,7 +55,7 @@ Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawier
 | Typ grant_type |Wymagane |Określa typ żądanej przydziału. W przepływie przyznania poświadczeń klienta, wartość musi być **client_credentials**. |
 | client_id |Wymagane |Określa identyfikator klienta usługi Azure AD wywoływania usługi sieci web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij żądaną aplikację. Jest client_id *identyfikator aplikacji* |
 | client_secret |Wymagane |Wprowadź klucz, w zarejestrowany wywoływania aplikacji sieci web usługi lub demon w usłudze Azure AD. Aby utworzyć klucz, w portalu Azure, kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij aplikację, kliknij przycisk **ustawienia**, kliknij przycisk **klucze**, i Dodaj klucz.|
-| Zasobów |Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**przełącznika katalogu, kliknij aplikację usługi, a następnie kliknij przycisk **ustawienia** i **właściwości** |
+| zasób |Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**przełącznika katalogu, kliknij aplikację usługi, a następnie kliknij przycisk **ustawienia** i **właściwości** |
 
 #### <a name="example"></a>Przykład
 Następujące POST protokołu HTTP żądania tokenu dostępu dla usługi sieci web https://service.contoso.com/. `client_id` Identyfikuje żądania tokenu dostępu usługi sieci web.
@@ -77,7 +77,7 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 | client_id |Wymagane |Określa identyfikator klienta usługi Azure AD wywoływania usługi sieci web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij żądaną aplikację. Jest client_id *identyfikator aplikacji* |
 | client_assertion_type |Wymagane |Wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Wymagane | (JSON Web Token) potwierdzenia, że musisz utworzyć i podpisać przy użyciu certyfikatu został zarejestrowany jako poświadczeń dla aplikacji. Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) informacje na temat rejestracji certyfikatu i format potwierdzenia.|
-| Zasobów | Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**. |
+| zasób | Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**. |
 
 Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
@@ -103,7 +103,7 @@ Odpowiedź sukcesu zawiera odpowiedź JSON OAuth 2.0 z następującymi parametra
 | expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
 | expires_on |Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów. |
 | not_before |Czas, w którym nadaje się tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu ważności tokenu.|
-| Zasobów |Identyfikator URI aplikacji odbierającej usługi sieci web. |
+| zasób |Identyfikator URI aplikacji odbierającej usługi sieci web. |
 
 #### <a name="example-of-response"></a>Przykład odpowiedzi
 W poniższym przykładzie przedstawiono Powodzenie odpowiedzi na żądanie tokenu dostępu do usługi sieci web.

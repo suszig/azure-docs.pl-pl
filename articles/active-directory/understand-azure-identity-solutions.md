@@ -3,7 +3,7 @@ title: "Zrozumienie tożsamość platformy Azure | Dokumentacja firmy Microsoft"
 description: "Uzyskaj podstawową wiedzę na temat warunków rozwiązania tożsamości Microsoft Azure, pojęcia i zalecenia dotyczące najlepszych decyzji ładu tożsamości dla Twojej organizacji."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Zrozumienie Azure tożsamościach
 Microsoft Azure Active Directory (Azure AD) to rozwiązanie chmury zarządzania tożsamościami i dostępem, który udostępnia usługi katalogowe, Zarządzanie tożsamościami i zarządzania dostępem do aplikacji. Usługi Azure AD szybko [umożliwia logowanie jednokrotne (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) do 1 000 na wstępnie zintegrowanych aplikacji handlowych i niestandardowych w [galerii aplikacji Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Wiele z tych aplikacji prawdopodobnie już używasz usługi Office 365, witryny Salesforce.com, pola, usługi ServiceNow i produktu Workday.

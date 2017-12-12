@@ -4,7 +4,7 @@ description: "Ten artykuł zawiera informacje dotyczące rozwiązywania problem�
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją hasła z synchronizacji Azure AD Connect
 Ten temat zawiera procedurę rozwiązywania problemów z synchronizacją haseł. Jeśli nie można zsynchronizować hasła, zgodnie z oczekiwaniami, można dla podzbioru użytkowników lub dla wszystkich użytkowników.
@@ -333,7 +333,7 @@ W kolumnie Stan może mieć następujące wartości:
 | TargetNotExportedToDirectory |Obiekt do przestrzeni łącznika usługi Azure AD nie zostały wyeksportowane. |
 | MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacji 1.0.9125.0 i jest wyświetlany w stanie starszej wersji. |
 | Błąd |Usługa zwróciła nieznany błąd. |
-| Nieznany |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
+| Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
 | MissingAttribute |Określone atrybuty (na przykład protokołu Kerberos wyznaczania wartości skrótu) wymagane przez usługi domenowe Azure AD nie są dostępne. |
 | RetryRequestedByTarget |Określone atrybuty (na przykład protokołu Kerberos wyznaczania wartości skrótu) wymagane przez usługi domenowe Azure AD nie były wcześniej dostępne. Podejmowana jest próba, aby ponownie zsynchronizować skrót hasła użytkownika. |
 

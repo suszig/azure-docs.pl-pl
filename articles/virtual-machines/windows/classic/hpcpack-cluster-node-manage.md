@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Zarządzanie liczbą i dostępnością węzłów obliczeniowych w klastrze pakietu HPC Pack na platformie Azure
 Jeśli utworzony klaster HPC Pack 2012 R2 w maszynach wirtualnych platformy Azure, możesz sposobów, aby łatwo dodać, usunąć, start (zainicjować obsługi administracyjnej) lub zatrzymać (deprovision) obliczeniowe niektórych maszyn wirtualnych węzła w klastrze. Aby wykonać te zadania, uruchomić skrypty programu Azure PowerShell, które są zainstalowane w węźle głównym maszyny Wirtualnej. Skrypty te można kontrolować liczbę i dostępności zasobów klastra HPC Pack, więc można kontrolować koszty.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parametry
 * **ServiceName**: Nazwa usługi w chmurze, która obliczeniowe nowego węzła maszyny wirtualne są dodawane do.
-* **Nazwa_obrazu**: Nazwa obrazu maszyny Wirtualnej platformy Azure, który można uzyskać za pośrednictwem klasycznego portalu Azure lub polecenia cmdlet programu Azure PowerShell **Get-AzureVMImage**. Obraz musi spełniać następujące wymagania:
+* **Nazwa_obrazu**: Nazwa obrazu maszyny Wirtualnej platformy Azure, który można uzyskać za pośrednictwem portalu Azure lub polecenia cmdlet programu Azure PowerShell **Get-AzureVMImage**. Obraz musi spełniać następujące wymagania:
   
   1. Musi być zainstalowany w systemie operacyjnym Windows.
   2. HPC Pack musi być zainstalowany w roli węzła obliczeń.

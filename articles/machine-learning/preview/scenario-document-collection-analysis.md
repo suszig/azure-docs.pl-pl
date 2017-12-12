@@ -2,18 +2,17 @@
 title: Dokument analiza kolekcji - Azure | Dokumentacja firmy Microsoft
 description: "Sposób podsumowywania i analizowania dużych kolekcji dokumentów, w tym technik, takich jak learning frazy, temacie modelowania i tematu modelu analizy przy użyciu usługi Azure ML Workbench."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Analiza kolekcji dokumentów
 
@@ -72,7 +71,7 @@ Utwórz nowy projekt za pomocą tego przykładu jako szablon:
 
 ## <a name="data-description"></a>Opis elementu danych
 
-Zestaw danych, w tym scenariuszu zawiera tekst podsumowania i skojarzone metadane dla każdej akcji prawnych przez Kongres NAS. Dane są zbierane z [GovTrack.us](https://www.govtrack.us/), który śledzi działania Kongres Stanów Zjednoczonych i pomaga obywateli brać udziału w procesu prawa krajowego. Dane zbiorcze można pobrać za pomocą [to łącze](https://www.govtrack.us/data/congress/) za pomocą ręcznej skryptu, który nie jest zawarty w tym scenariuszu. Szczegółów dotyczących sposobu pobierania danych można znaleźć w [dokumentacji interfejsu API GovTrack](https://www.govtrack.us/developers/api).
+Zestaw danych, w tym scenariuszu zawiera tekst podsumowania i skojarzone metadane dla każdej prawne akcję wykonywaną przez Kongres NAS. Dane są zbierane z [GovTrack.us](https://www.govtrack.us/), który śledzi działania Kongres Stanów Zjednoczonych i pomaga obywateli brać udziału w procesu prawa krajowego. Dane zbiorcze można pobrać za pomocą [to łącze](https://www.govtrack.us/data/congress/) za pomocą ręcznej skryptu, który nie jest zawarty w tym scenariuszu. Szczegółów dotyczących sposobu pobierania danych można znaleźć w [dokumentacji interfejsu API GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Źródło danych
 

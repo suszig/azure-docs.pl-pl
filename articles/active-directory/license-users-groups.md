@@ -4,7 +4,7 @@ description: "Informacje o licencji użytkownika, jak i użytkowników w usłudz
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Szybki Start: Licencji użytkowników w usłudze Azure Active Directory
 Na podstawie licencji usługi Azure AD usług pracy aktywować subskrypcję usługi Azure Active Directory (Azure AD) w dzierżawie platformy Azure. Po subskrypcja jest aktywna, możliwości usługi są zarządzane przez administratorów usługi Azure AD i używane przez licencjonowanych użytkowników. Po zakupie pakietu Enterprise Mobility + Security, Azure AD Premium lub Azure AD podstawowa dzierżawy jest aktualizowana subskrypcji, takie jak jego okresu ważności i przedpłaty licencji. Informacje o Twojej subskrypcji, wraz z liczbą przydzielonych lub dostępnych licencji, jest dostępna za pośrednictwem portalu Azure w obszarze **usługi Azure Active Directory** otwierając **licencji** kafelka. **Licencji** bloku jest również najlepszym miejscem, aby zarządzać przypisaniami licencji.

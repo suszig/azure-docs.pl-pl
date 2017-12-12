@@ -3,8 +3,8 @@ title: "Użycie modułu zasad stosu Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak ograniczyć subskrypcji platformy Azure, aby działały jak subskrypcji platformy Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: sngun
-ms.openlocfilehash: c9c96d4a536949e0406af53d218949b57517ba87
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 11/08/2017
+ms.author: mabrigg
+ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Zarządzanie zasadami Azure za pomocą modułu zasad stosu Azure
 

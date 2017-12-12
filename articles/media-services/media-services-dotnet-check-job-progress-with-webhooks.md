@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Elementów Webhook Azure używana do monitorowania usługi Media Services zadania powiadomienia z platformą .NET
-Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. Powiadomienia zadań usługi Media Services można monitorować za pomocą elementów Webhook Azure lub [magazynu kolejek Azure](media-services-dotnet-check-job-progress-with-queues.md). W tym temacie przedstawiono sposób pracy z elementów webhook.
+Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. Powiadomienia zadań usługi Media Services można monitorować za pomocą elementów Webhook Azure lub [magazynu kolejek Azure](media-services-dotnet-check-job-progress-with-queues.md). W tym artykule przedstawiono sposób pracy z elementów webhook.
 
-W tym temacie przedstawiono sposób
+W tym artykule przedstawiono sposób
 
 *  Zdefiniuj funkcję platformy Azure, dostosowane odpowiedzieć elementów webhook. 
     
@@ -33,9 +33,9 @@ W tym temacie przedstawiono sposób
     >Przed kontynuowaniem upewnij się, że rozumiesz, jak [powiązania HTTP funkcje platformy Azure i elementu webhook](../azure-functions/functions-bindings-http-webhook.md) pracy.
     >
     
-* Dodawanie elementu webhook do kodowania zadań, a następnie określ adres URL elementu webhook i klucz tajny, który odpowiada ten element webhook. Można znaleźć przykład dodającego elementu webhook do kodowania zadań na końcu tego tematu.  
+* Dodawanie elementu webhook do kodowania zadań, a następnie określ adres URL elementu webhook i klucz tajny, który odpowiada ten element webhook. Można znaleźć przykład dodającego elementu webhook do kodowania zadań na końcu tego artykułu.  
 
-Można znaleźć definicji różnych Media Services .NET usługi Azure Functions (w tym przedstawionego w tym temacie) [tutaj](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Można znaleźć definicji różnych Media Services .NET usługi Azure Functions (w tym przedstawionego w tym artykule) [tutaj](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -54,7 +54,7 @@ Do wykonania czynności przedstawionych w tym samouczku są niezbędne następuj
 
 Podczas tworzenia usługi Media Services funkcje, warto dodać zmiennych środowiskowych, które będą używane w całej funkcji. Aby skonfigurować ustawienia aplikacji, kliknij łącze Konfiguruj ustawienia aplikacji. 
 
-[Ustawienia aplikacji](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) sekcja definiuje parametry, które są używane w webhook zdefiniowane w tym temacie. Również dodać następujące parametry do ustawień aplikacji. 
+[Ustawienia aplikacji](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) sekcja definiuje parametry, które są używane w webhook zdefiniowane w tym artykule. Również dodać następujące parametry do ustawień aplikacji. 
 
 |Nazwa|Definicja|Przykład| 
 |---|---|---|
@@ -72,7 +72,7 @@ Po wdrożeniu aplikacji funkcji można znaleźć wśród **usługi aplikacji** u
 
 ### <a name="files"></a>Pliki
 
-Funkcja Azure jest skojarzony z plików kodu i innych plików, które zostały opisane w tej sekcji. Domyślnie funkcja jest skojarzony z **function.json** i **run.csx** plików (C#). Należy dodać **project.json** pliku. Pozostałej części tej sekcji przedstawiono definicje tych plików.
+Funkcja Azure jest skojarzony z plików kodu i innych plików, które zostały opisane w tej sekcji. Domyślnie funkcja jest skojarzony z **function.json** i **run.csx** plików (C#). Konieczne jest dodanie **project.json** pliku. Pozostałej części tej sekcji przedstawiono definicje tych plików.
 
 ![Pliki](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

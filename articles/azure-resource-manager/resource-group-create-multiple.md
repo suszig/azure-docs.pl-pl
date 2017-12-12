@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Wdrażanie wielu wystąpień zasobów lub właściwości w szablonach usługi Azure Resource Manager
-W tym temacie przedstawiono sposób wykonania iteracji w szablonie usługi Azure Resource Manager, aby utworzyć wiele wystąpień zasobu lub wiele wystąpień właściwości w zasobie.
+W tym artykule przedstawiono warunkowo wdrażanie zasobu i porady dotyczące iteracji po do szablonu usługi Azure Resource Manager, aby utworzyć wiele wystąpień zasobu.
 
-Jeśli musisz dodać logikę do szablonu, który pozwala określić, czy zasób jest wdrażany, zobacz [warunkowo wdrażanie zasobów](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Warunkowo wdrażanie zasobów
 
-Na przykład tworzenie wielu elementów w tablicy zmiennej, zobacz [zmienne](resource-group-authoring-templates.md#variables).
+Jeśli podczas wdrażania należy zdecydować, aby utworzyć jedno wystąpienie lub żadnych wystąpień zasobu, użyj `condition` elementu. Wartość dla tego elementu jest rozpoznawany jako PRAWDA lub FAŁSZ. Gdy ma wartość true, zasób zostanie wdrożona. Gdy wartość jest równa false, zasób nie została wdrożona. Na przykład aby określić, czy nowe konto magazynu jest wdrażana, czy istniejące konto magazynu jest używana, należy użyć:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Iteracja zasobów
-Aby utworzyć wiele wystąpień tego typu zasobu, należy dodać `copy` elementu Typ zasobu. Copy element służy do określenia liczby iteracji i nazwę tej pętli. Wartość licznika musi być dodatnią liczbą całkowitą i nie może przekraczać 800. Menedżer zasobów tworzy zasoby równolegle. W związku z tym nie jest gwarantowana kolejności ich utworzenia. Aby utworzyć iterowane zasobów w sekwencji, zobacz [Serial kopiowania](#serial-copy). 
+Jeśli podczas wdrażania należy zdecydować, aby utworzyć co najmniej jednego wystąpienia zasobu, należy dodać `copy` elementu Typ zasobu. Copy element służy do określenia liczby iteracji i nazwę tej pętli. Wartość licznika musi być dodatnią liczbą całkowitą i nie może przekraczać 800. 
 
 Zasobu do utworzenia wielokrotnie ma następujący format:
 
@@ -112,151 +127,40 @@ Tworzy następujące nazwy:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Kopiuj szeregowe
+Domyślnie usługi Resource Manager tworzy zasoby równolegle. W związku z tym nie jest gwarantowana kolejności ich utworzenia. Można określić, że zasoby są wdrażane w sekwencji. Na przykład podczas aktualizacji do środowiska produkcyjnego, można tak skonfigurować aktualizacje tylko pewne są aktualizowane w dowolnym momencie.
 
-Jeśli używasz elementu kopiowania do utworzenia wielu wystąpień typu zasobu, Menedżer zasobów, domyślnie wdroży je równolegle. Można określić, że zasoby są wdrażane w sekwencji. Na przykład podczas aktualizacji do środowiska produkcyjnego, można tak skonfigurować aktualizacje tylko pewne są aktualizowane w dowolnym momencie.
+Aby wdrożyć kolejno wielu wystąpień zasobu, należy ustawić `mode` do **serial** i `batchSize` liczby wystąpień do wdrożenia w czasie. Serial w trybie Menedżera zasobów tworzy zależność w wystąpieniach wcześniej w pętli, więc nie zostanie uruchomiony serii do chwili zakończenia poprzedniej wsadowym.
 
-Menedżer zasobów udostępnia właściwości w elemencie kopiowania umożliwiających szeregowo wdrażanie wielu wystąpień. W zestawie elementów kopiowania `mode` do **serial** i `batchSize` liczby wystąpień do wdrożenia w czasie. Serial w trybie Menedżera zasobów tworzy zależność w wystąpieniach wcześniej w pętli, więc nie zostanie uruchomiony serii do chwili zakończenia poprzedniej wsadowym.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-Właściwość mode również akceptuje **równoległych**, która jest wartością domyślną.
-
-Aby przetestować serial kopiowania bez tworzenia rzeczywistych zasobów, wpisz następujący szablon, który wdraża pusty zagnieżdżone szablony:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-W historii wdrożenia Zwróć uwagę, że zagnieżdżone wdrożenia są przetwarzane w sekwencji.
-
-![Serial wdrożenia](./media/resource-group-create-multiple/serial-copy.png)
-
-Dla scenariusza bardziej realistyczne poniższy przykład wdraża dwóch wystąpień w czasie z zagnieżdżonych szablonu maszyny wirtualnej systemu Linux:
+Na przykład pojedynczo wdrożenie kont magazynu, dwa w czasie, należy użyć:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+Właściwość mode również akceptuje **równoległych**, która jest wartością domyślną.
 
 ## <a name="property-iteration"></a>Właściwość iteracji
 
@@ -352,50 +256,56 @@ Iteracja zasobów i właściwości można użyć razem. Odwołanie do iteracji w
 }
 ```
 
-We właściwościach dla każdego zasobu może zawierać tylko jeden element kopiowania. Aby określić iteracji pętli dla więcej niż jedną właściwość, należy zdefiniować wiele obiektów w tablicy kopiowania. Każdy obiekt jest iterowane oddzielnie. Na przykład, aby utworzyć wiele wystąpień obu `frontendIPConfigurations` właściwości i `loadBalancingRules` właściwości modułu równoważenia obciążenia, zdefiniuj zarówno do obiektów w elemencie pojedynczej kopii: 
+## <a name="variable-iteration"></a>Zmiennej iteracji
+
+Aby utworzyć wiele wystąpień w zmiennej, użyj `copy` element w sekcji zmiennych. Można utworzyć wiele wystąpień obiektów z wartościami pokrewne i Przypisz te wartości wystąpienia zasobu. Kopiuj służy do tworzenia obiekt o właściwości tablicy lub tablica. W poniższym przykładzie przedstawiono obu podejść:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Określ, czy zasób jest wdrażane za pomocą po inny zasób `dependsOn` element
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Tworzenie wielu wystąpień zasobu podrzędnego
+## <a name="iteration-for-a-child-resource"></a>Iteracje dla zasobu podrzędnego
 Nie można używać pętli kopii zasobu podrzędnego. Aby utworzyć wiele wystąpień z zasobem, który zazwyczaj zdefiniowane jako zagnieżdżony w ramach innego zasobu, należy zamiast tego utworzyć tego zasobu jako zasób najwyższego poziomu. Można zdefiniować relacji z zasobem nadrzędnej za pośrednictwem typem i nazwą właściwości.
 
 Na przykład załóżmy, że zazwyczaj Definiowanie zestawu danych jako zasób podrzędnych w fabryce danych.
@@ -485,28 +395,140 @@ W poniższym przykładzie przedstawiono implementacji:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Warunkowo wdrażanie zasobów
+## <a name="deploy-example-templates"></a>Wdrażanie szablonów przykład
 
-Aby określić, czy zasób jest wdrażany, użyj `condition` elementu. Wartość dla tego elementu jest rozpoznawany jako PRAWDA lub FAŁSZ. Gdy ma wartość true, zasób zostanie wdrożona. Gdy wartość jest równa false, zasób nie została wdrożona. Na przykład aby określić, czy nowe konto magazynu jest wdrażana, czy istniejące konto magazynu jest używana, należy użyć:
+### <a name="resource-iteration"></a>Iteracja zasobów
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+[Skopiować magazynu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) szablonu wdraża wiele kont magazynu o numerze indeksu w nazwie.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Na przykład za pomocą nowego lub istniejącego zasobu, zobacz [nowy lub istniejący szablon warunku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
 
-Przykład wdrożenia maszyny wirtualnej za pomocą hasła lub klucza SSH, zobacz [nazwa użytkownika lub SSH szablonu warunku](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Iteracja Serial zasobów
+
+[Magazynu kopii Serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) szablonu wdraża wiele kont magazynu co w czasie. Nazwa zawiera numer indeksu.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Iteracja zasobów z tablicy
+
+[Skopiować magazynu z tablicy](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) szablonu wdraża wiele kont magazynu. Nazwa zawiera wartość z tablicy.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Warunkowo wdrażanie zasobów
+
+[Maszynę Wirtualną za pomocą nowej lub istniejącej sieci wirtualnej, magazynu i publicznego adresu IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) szablonu wdrażania nowych lub istniejących zasobów z maszyną wirtualną.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Właściwość iteracji
+
+[Wdrożenia maszyny Wirtualnej ze zmienną liczbą dysków z danymi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) szablonu wdraża wiele dysków z danymi z maszyną wirtualną.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Zmiennej iteracji
+
+[Skopiuj zmienne](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) szablonu przedstawiono różne sposoby iteracja na zmiennych.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Zmiennej iteracji, aby utworzyć zasobów
+
+[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) szablonu wdraża wiele reguł zabezpieczeń grupy zabezpieczeń sieci. Tworzy ona zasady zabezpieczeń z parametrem.
+
+W przypadku programu PowerShell użyj polecenia:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Następne kroki
 * Jeśli chcesz dowiedzieć się więcej o części szablonu, zobacz [Authoring Azure Resource Manager szablony](resource-group-authoring-templates.md).

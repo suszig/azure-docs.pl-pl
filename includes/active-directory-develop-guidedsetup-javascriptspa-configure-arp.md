@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Dodawanie informacji o rejestracji aplikacji do aplikacji
 
 W tym kroku należy skonfigurować adres URL przekierowania aplikacji informacje rejestracyjne, a następnie Dodaj identyfikator aplikacji do aplikacji JEDNOSTRONICOWEJ JavaScript.

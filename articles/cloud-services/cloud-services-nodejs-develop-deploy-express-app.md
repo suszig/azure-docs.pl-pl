@@ -1,6 +1,6 @@
 ---
-title: "Sieci Web aplikacji w usłudze Express (Node.js) | Dokumentacja firmy Microsoft"
-description: "Samouczek, opiera się na samouczek usługi chmury, która ilustruje sposób korzystania z modułu Express."
+title: "Tworzenie i wdrażanie aplikacji Node.js Express z usługami w chmurze Azure"
+description: "Tworzenie i wdrażanie aplikacji Express.js w środowisku Node.js do usługi w chmurze Azure"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Tworzenie aplikacji sieci web Node.js za pomocą ekspresowego na usługi w chmurze platformy Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Tworzenie i wdrażanie aplikacji sieci web Node.js za pomocą ekspresowego na usługi w chmurze Azure
+
 Node.js zawiera minimalny zestaw funkcji w podstawowego środowiska wykonawczego.
-Deweloperzy często używane 3 modułów strona oferowanie dodatkowych funkcji podczas opracowywania aplikacji Node.js. W tym samouczku spowoduje utworzenie nowej aplikacji przy użyciu [Express] [ Express] moduł, który zapewnia platformę MVC do tworzenia aplikacji sieci web Node.js.
+Deweloperzy często używane 3 modułów strona oferowanie dodatkowych funkcji podczas opracowywania aplikacji Node.js. W tym samouczku spowoduje utworzenie nowej aplikacji przy użyciu [Express](https://github.com/expressjs/express) moduł, który zapewnia platformę MVC do tworzenia aplikacji sieci web Node.js.
 
 Zrzut ekranu przedstawiający ukończona aplikacja znajduje się poniżej:
 

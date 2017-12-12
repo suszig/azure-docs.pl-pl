@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Zasoby, ról i kontroli dostępu w usłudze Application Insights
 Można kontrolować, kto ma odczytywanie i aktualizowanie dostępu do danych na platformie Azure [usługi Application Insights][start], za pomocą [kontroli dostępu opartej na rolach w systemie Microsoft Azure](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ Pierwszy, definicje:
 
     ![Kliknij przycisk Przeglądaj, grupy zasobów, a następnie wybierz grupę](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Subskrypcja** ](https://manage.windowsazure.com) — Aby używać usługi Application Insights lub innych zasobów platformy Azure, zaloguj się do subskrypcji platformy Azure. Każda grupa zasobów należy do jednej subskrypcji platformy Azure, które wybierz pakiet ceny i, jeśli jest subskrypcji organizacji wybrać członków i uprawnień dostępu.
+* [**Subskrypcja** ](https://portal.azure.com) — Aby używać usługi Application Insights lub innych zasobów platformy Azure, zaloguj się do subskrypcji platformy Azure. Każda grupa zasobów należy do jednej subskrypcji platformy Azure, które wybierz pakiet ceny i, jeśli jest subskrypcji organizacji wybrać członków i uprawnień dostępu.
 * [**Konto Microsoft** ] [ account] — nazwa użytkownika i hasło, którego używasz do logowania się na Microsoft Azure subskrypcji, XBox Live, Outlook.com i innych usług firmy Microsoft.
 
 ## <a name="access"></a>Kontroli dostępu w grupie zasobów

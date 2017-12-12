@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia związane z planowaniem pojemności klastra sieci szkieletowej usług
 Wszystkie wdrożenia produkcyjnego planowania pojemności jest ważnym krokiem. Poniżej przedstawiono niektóre elementy, które należy wziąć pod uwagę w ramach tego procesu.
@@ -107,7 +107,7 @@ Użyj trwałości Silver lub Gold dla wszystkich typów węzłów zawierających
 
 
 > [!WARNING]
-> Zmiana rozmiaru jednostki SKU maszyny Wirtualnej dla zestawy skalowania maszyny Wirtualnej nie działa przynajmniej srebrny trwałości nie jest zalecane. Zmiana rozmiaru jednostki SKU maszyny Wirtualnej jest operacją destrukcyjnego danych w miejscu infrastruktury. Co najmniej możliwość opóźnienia lub monitora tę zmianę może to oznaczać, że operacji może spowodować dataloss dla stanowych usług lub późniejsze innych unforseen problemy z działaniem, nawet w przypadku obciążeń bezstanowych. 
+> Zmiana rozmiaru jednostki SKU maszyny Wirtualnej dla zestawów skalowania maszyn wirtualnych nie działa przynajmniej srebrny trwałości nie jest zalecane. Zmiana rozmiaru jednostki SKU maszyny Wirtualnej jest operacją destrukcyjnego danych w miejscu infrastruktury. Co najmniej możliwość opóźnienia lub monitora tę zmianę może to oznaczać, że operacji może spowodować utratę danych dla stanowych usług lub spowodować innych nieprzewidzianych problemów z działaniem, nawet w przypadku obciążeń bezstanowych. 
 > 
     
 3. Obsługa minimalna liczba pięć węzłów dla dowolnego zestawu skalowania maszyny wirtualnej mającej poziom trwałości Gold lub Silver włączone
@@ -143,7 +143,7 @@ Poniżej przedstawiono zalecenia o wyborze warstwa niezawodności.
 | 1 |Nie określaj parametru warstwa niezawodności system oblicza ona |
 | 3 |Brązowy |
 | 5 lub 6|Srebrny |
-| 7 lub 8 |Gold |
+| 7 lub 8 |Złoty |
 | 9 i nowsze |Platynowa |
 
 

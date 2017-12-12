@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Formant Azure Content Delivery Network zachowanie buforowania z buforowaniem reguły
 
@@ -40,13 +40,19 @@ Informacje domyślne zachowanie buforowania i buforowanie dyrektywy nagłówków
 Jak ustawić CDN buforowanie reguł:
 
 1. Otwórz Azure portal, wybierz profil CDN, a następnie wybierz punkt końcowy.
-2. W lewym okienku w obszarze Ustawienia, kliknij przycisk **pamięci podręcznej**.
-3. Utwórz regułę buforowania globalne w następujący sposób:
+2. W lewym okienku w obszarze Ustawienia, kliknij przycisk **buforowanie reguły**.
+
+   ![Przycisk reguły buforowania CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Utwórz regułę buforowania globalne w następujący sposób:
    1. W obszarze **globalnej pamięci podręcznej zasad**ustaw **zachowanie buforowania ciągu kwerendy** do **ignorować ciągi kwerendy**.
    2. Ustaw **zachowanie buforowania** do **Jeśli brak**.
+       
    3. Dla **pamięci podręcznej Czas wygaśnięcia**, wprowadź 10 w **dni** pola.
 
        Globalna reguła buforowania ma wpływ na wszystkie żądania do punktu końcowego. Ta zasada będzie honorować pochodzenia nagłówki dyrektywy pamięci podręcznej, jeśli istnieją (`Cache-Control` lub `Expires`); w przeciwnym razie, jeśli nie są one określone, ustawia pamięć podręczną do 10 dni. 
+
+     ![Globalne reguły buforowania](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Utwórz niestandardową regułę buforowania w następujący sposób:
     1. W obszarze **niestandardowe reguły buforowania**ustaw **dopasować stan** do **ścieżki** i **odpowiada wartości** do `/images/*.jpg`.
@@ -54,7 +60,7 @@ Jak ustawić CDN buforowanie reguł:
        
        Ta niestandardową regułę buforowania ustawia czas buforowania, 30 dni na dowolnym `.jpg` pliki obrazów w `/images` folderu punktu końcowego. Zastępuje ona żadnego `Cache-Control` lub `Expires` nagłówków HTTP, które są wysyłane przez serwer pochodzenia.
 
-  ![Okno reguły buforowania](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Niestandardowe reguły buforowania](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Pliki, które są buforowane przed zmianą reguły Obsługa ustawienie czasu trwania pamięci podręcznej ich źródła. Aby zresetować ich czas trwania pamięci podręcznej, należy najpierw [przeczyścić pliku](cdn-purge-endpoint.md). Aby uzyskać **Azure CDN from Verizon** punktów końcowych, może potrwać do 90 minut buforowanie zasady zaczęły obowiązywać.

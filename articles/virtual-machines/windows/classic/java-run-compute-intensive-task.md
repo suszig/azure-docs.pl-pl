@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak uruchomić zadanie wymagające wielu obliczeń w środowisku Java na maszynie wirtualnej
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Oto przykład monitorowania zadań obliczeniowych aplikacji Java.
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Aby utworzyć maszynę wirtualną
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 2. Kliknij przycisk **nowy**, kliknij przycisk **obliczeniowe**, kliknij przycisk **maszyny wirtualnej**, a następnie kliknij przycisk **z galerii**.
 3. W **wybierz obraz maszyny wirtualnej** okno dialogowe, wybierz opcję **JDK 7 systemu Windows Server 2012**.
    Należy pamiętać, że **JDK 6 systemu Windows Server 2012** jest dostępna w przypadku, gdy masz starsze aplikacje, które nie są jeszcze gotowy do uruchomienia w JDK 7.
@@ -74,7 +74,7 @@ Oto przykład monitorowania zadań obliczeniowych aplikacji Java.
    2. Kliknij przycisk **Complete** (Zakończ).
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Aby zdalnie zalogować się do maszyny wirtualnej
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij przycisk **maszyn wirtualnych**.
 3. Kliknij nazwę maszyny wirtualnej, która ma logować się do.
 4. Kliknij przycisk **Połącz**.
@@ -87,15 +87,15 @@ Aby rozpocząć korzystanie z kolejek usługi Service Bus na platformie Azure, n
 
 Aby utworzyć przestrzeń nazw usługi:
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
-2. W okienku nawigacji w lewym dolnym w klasycznym portalu Azure kliknij **usługi Service Bus, kontroli dostępu i buforowanie**.
-3. W lewym górnym okienku klasycznego portalu Azure, kliknij przycisk **usługi Service Bus** węzeł, a następnie kliknij przycisk **nowy** przycisku.  
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. W okienku nawigacji w lewym dolnym w portalu Azure kliknij **usługi Service Bus, kontroli dostępu i buforowanie**.
+3. W okienku lewej górnej części portalu Azure kliknij **usługi Service Bus** węzeł, a następnie kliknij przycisk **nowy** przycisku.  
    ![Zrzut ekranu węzeł magistrali usług][svc_bus_node]
 4. W **tworzenie nowych Namespace usługi** okna dialogowego wprowadź **Namespace**, a następnie upewnij się, że jest unikatowa, kliknij **Sprawdź dostępność** przycisku.  
    ![Utwórz nowy Namespace zrzut ekranu][create_namespace]
 5. Po upewnieniu się, nazwę przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym ma być hostowana przestrzeni nazw, a następnie kliknij **utworzyć Namespace** przycisku.  
    
-   Przestrzeń nazw, utworzony zostanie następnie wyświetlona w klasycznym portalu Azure i zajmuje kilka minut, aby aktywować. Poczekaj, aż stan **Active** przed przejściem do następnego kroku.
+   Przestrzeń nazw, utworzony zostanie następnie wyświetlona w portalu Azure i zajmuje kilka minut, aby aktywować. Poczekaj, aż stan **Active** przed przejściem do następnego kroku.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Uzyskiwanie poświadczeń zarządzania domyślnej przestrzeni nazw
 W celu wykonywania operacji zarządzania, takich jak tworzenie kolejki w nowej przestrzeni nazw, należy uzyskać poświadczenia zarządzania dla przestrzeni nazw.

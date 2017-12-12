@@ -4,7 +4,7 @@ description: "Ten dokument zawiera najlepsze rozwiązania w zakresie obsługi za
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2be36bce1b4cffdab2d25d150bd5a0e8451e422d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 465b6cac8ac04b48d27890893c1a4459e652dc28
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Najlepsze rozwiązania dotyczące korzystania z usługi Azure Multi-Factor Authentication z konta usługi Azure AD
 
@@ -74,7 +74,7 @@ Podczas konfigurowania serwera Multi-Factor Authentication, należy wziąć pod 
 
 * Jeśli to zabezpieczania zasobów usługi Azure AD przy użyciu usługi Active Directory Federation Services (AD FS), a następnie w pierwszym krokiem weryfikacji jest wykonywane lokalnie za pomocą usług AD FS. Drugi etap odbywa się lokalnie i polega na uznaniu oświadczenia.
 * Nie trzeba instalować serwera usługi Azure Multi-Factor Authentication serwera federacyjnego usług AD FS. Jednak karty uwierzytelniania wieloskładnikowego usług AD FS musi być zainstalowany w systemie Windows Server 2012 R2 uruchomionymi usługami AD FS. Można zainstalować serwer na innym komputerze, tak długo, jak jest obsługiwana wersja i oddzielnie zainstalować adapter AD FS na serwerze federacyjnym usług AD FS. 
-* Uwierzytelnianie wieloskładnikowe AD FS karty Kreator instalacji tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w usłudze Active Directory, a następnie dodanie konta usługi AD FS do tej grupy. Sprawdź, czy grupa PhoneFactor Admins została utworzona na kontrolerze domeny oraz czy konto usług AD FS jest elementem członkowskim tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins na kontrolerze domeny.
+* Uwierzytelnianie wieloskładnikowe AD FS karty Kreator instalacji tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w usłudze Active Directory, a następnie dodanie konta usługi AD FS do tej grupy. Sprawdź, czy grupa PhoneFactor Admins została utworzona na kontrolerze domeny oraz czy konto usług AD FS jest członkiem tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins na kontrolerze domeny.
 
 ### <a name="user-portal"></a>Portal użytkowników
 Portal użytkowników umożliwia funkcji samoobsługi i zapewnia pełny zestaw możliwości administrowania użytkownika. Działa on w witrynie sieci web usług Internet Information Server (IIS). Aby skonfigurować ten składnik, skorzystaj z poniższych wskazówek:

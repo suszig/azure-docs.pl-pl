@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0804e43c3f1bb13bea92ebd661ca52c799ff2332
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Pomoc w bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
            return x509Credentials;
        }
        ```
-   2. Podaj je za pomocą [pakietu konfiguracji](service-fabric-application-model.md):
+   2. Podaj je za pomocą [pakietu konfiguracji](service-fabric-application-and-service-manifests.md):
 
        Dodaj `TransportSettings` sekcji w pliku settings.xml.
 

@@ -1,7 +1,7 @@
 # Omówienie
 ## [Co to jest usługa Power BI Embedded?](what-is-power-bi-embedded.md)
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Rozpoczynanie pracy z usługą Power BI Embedded](get-started.md)
 ## [Rozpoczynanie pracy przy użyciu przykładu](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
@@ -24,7 +24,7 @@
 
 # Dokumentacja
 ## Interfejsy API
-### [Interfejsy API REST usługi Azure Resource Management](/rest/api/powerbiembedded/)
+### [Interfejsy API REST usługi Azure Resource Management](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [Interfejsy API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## Zestawy SDK
 ### [Zestaw SDK dla platformy .NET do pobrania](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

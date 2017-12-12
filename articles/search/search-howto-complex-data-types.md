@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Jak model złożone typy danych w usłudze Azure Search
 Zewnętrznych zestawów danych używanych do wypełniania indeksu usługi Azure Search czasami to hierarchiczna lub zagnieżdżony struktur podrzędnych, które nie podzielić się starannie na tabelarycznych zestawu wierszy. Przykłady takich konstrukcji może obejmują wiele lokalizacji i numerów telefonów dla jednego klienta, wiele kolorów i rozmiary dla jednej jednostki SKU wielu autorów jednej książce i tak dalej. Modelowanie warunki, można napotkać tych struktur, określany jako *złożone typy danych*, *złożone typy danych*, *złożone typy danych*, lub *agregacji typy danych*, kilka.
@@ -66,7 +66,7 @@ Zazwyczaj w danych znajduje się jako zestaw dokumentów JSON i XML lub jako ele
 Gdy pola o nazwie 'id', 'name' i 'firma' łatwo można mapować jeden do jednego jako pola w indeksie usługi Azure Search, pole "w lokalizacji" zawiera tablicę lokalizacje mających zarówno zestaw identyfikatorów lokalizacji, a także opisy lokalizacji. Biorąc pod uwagę, że usługi Azure Search nie ma typu danych, która obsługuje tę funkcję, potrzebujemy inną metodę modelu to w usłudze Azure Search. 
 
 > [!NOTE]
-> Ta technika jest również przez Kirk Evans opisane w artykule w blogu [indeksowania usługi DocumentDB z usługi Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), technika o nazwie "spłaszczanie danych", który wskazuje, według których należy pole o nazwie `locationsID` i `locationsDescription` są takie [kolekcje](https://msdn.microsoft.com/library/azure/dn798938.aspx) (lub tablicą ciągów).   
+> Ta technika jest również przez Kirk Evans opisane w artykule w blogu [indeksowania rozwiązania Cosmos bazy danych platformy Azure z usługi Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), technika o nazwie "spłaszczanie danych", który wskazuje, według których należy pole o nazwie `locationsID` i `locationsDescription` są takie [kolekcje](https://msdn.microsoft.com/library/azure/dn798938.aspx) (lub tablicą ciągów).   
 > 
 > 
 

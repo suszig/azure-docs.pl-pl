@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f5d6bb066f9cee0d072ddb3129867cefefe3e66f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Korzystanie z rozszerzenia maszyny wirtualnej platformy Docker z klasycznym portalem Azure
+# <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Przy użyciu rozwiązania Docker rozszerzenia maszyny Wirtualnej z portalu Azure
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]

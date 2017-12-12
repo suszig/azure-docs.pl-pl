@@ -4,7 +4,7 @@ description: "Krok instrukcje dotyczące konfigurowania i używania zarządzanyc
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: bryanla
-ms.openlocfilehash: 25bbe7bbfbc32441cd3dbbb1e213fdce556b410b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Konfigurowanie maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu zestawu Azure SDK
 
@@ -35,7 +35,7 @@ W tym artykule dowiesz sposobu włączania i usunąć MSI dla maszyny Wirtualnej
 
 Azure obsługuje wiele platform programowania przez szereg [zestawów SDK usługi Azure](https://azure.microsoft.com/downloads). Niektóre z nich zostały zaktualizowane do obsługi MSI i podaj odpowiednie próbek, aby zademonstrować sposób użycia. Ta lista jest aktualizowana w miarę dodawania dodatkowego pomocy technicznej:
 
-| SDK | Przykład |
+| SDK | Sample |
 | --- | ------ | 
 | .NET   | [Zarządzanie zasobów z maszyny Wirtualnej z włączoną MSI](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Zarządzanie magazynem za pomocą maszyny Wirtualnej z włączoną MSI](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|

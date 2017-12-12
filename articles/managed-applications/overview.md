@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 682b7577135e327457976dc77ce4b4364bd12e48
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="azure-managed-applications-overview"></a>Omówienie usługi Azure zarządzanych aplikacji
+# <a name="azure-managed-applications-overview"></a>Omówienie aplikacji zarządzanych platformy Azure
 
 Zarządzane aplikacje platformy Azure umożliwiają oferują rozwiązaniach w chmurze, które są łatwe w konsumentach napisanych wdrażania i obsługi. Wdrażanie infrastruktury i trwającej obsługi. Aby udostępnić zarządzanej aplikacji dla wszystkich klientów, należy opublikować w portalu Azure marketplace. Aby było to możliwe tylko do użytkowników w organizacji, należy opublikować do katalogu wewnętrznego. 
 
@@ -48,8 +48,6 @@ Aby dowiedzieć się, jak publikowanie aplikacji zarządzanych katalogu usług, 
 
 Dostawców chcą naliczać opłaty za swoje usługi można udostępnić zarządzanych aplikacji za pośrednictwem portalu Azure marketplace. Dostawcy publikuje aplikacji, jest dostępny dla użytkowników spoza organizacji. Z tego podejścia, dostawców usług zarządzanych (MSPs) niezależnym dostawcom oprogramowania (ISV) i system integratory (SIs) może oferować ich rozwiązania wszystkich klientów platformy Azure.
 
-Informacje o publikowaniu zarządzanej aplikacji do witryny Marketplace, zobacz [tworzenie aplikacji marketplace](publish-marketplace-app.md).
-
 ## <a name="resource-groups-for-managed-applications"></a>Grupy zasobów zarządzanych aplikacji
 
 Zazwyczaj zasobów zarządzanych aplikacji znajdują się w dwie grupy zasobów. Użytkownik zarządza jedna grupa zasobów oraz wydawcy zarządza grupie zasobów. Podczas definiowania zarządzanej aplikacji, wydawca Określa poziomy dostępu. Na poniższej ilustracji przedstawiono scenariusz, w którym wydawcy żądań rolę właściciela grupy zasobów zarządzanych. Wydawcy umieścić blokady tylko do odczytu w tej grupie zasobów dla konsumentów.
@@ -62,7 +60,7 @@ Ta grupa zasobów zawiera wystąpienie zarządzanych aplikacji. Ta grupa zasobó
 
 Klient ma pełny dostęp do grupy zasobów i używa go do zarządzania cyklem życia aplikacji zarządzanych.
 
-### <a name="managed-resource-group"></a>Grupa zasobów zarządzanych
+### <a name="managed-resource-group"></a>Zarządzana grupa zasobów
 
 Ta grupa zasobów zawiera zasoby, które są wymagane przez aplikację. Na przykład ta grupa zasobów zawiera maszyny wirtualne, konta magazynu i sieci wirtualne dla rozwiązania. Konsument ma ograniczony dostęp do tej grupy zasobów, ponieważ konsumenta nie zarządza poszczególnych zasobów zarządzanych aplikacji. Rola określona w definicji aplikacji zarządzanych odpowiada wydawcy dostęp do tej grupy zasobów. Na przykład wydawcy może zażądać roli właściciela lub współautora dla tej grupy zasobów.
 
@@ -72,5 +70,4 @@ Gdy użytkownik usunie aplikacja zarządzana, grupa zasobów zarządzanych równ
 
 * Aby obejrzeć wprowadzenie do definiowania i wdrażania aplikacji zarządzanych, zobacz [tworzenie i wdrażanie platformy Azure zarządzanych aplikacji przy użyciu wiersza polecenia platformy Azure](managed-apps-quickstart-cli.md)
 * Informacje dotyczące publikowania aplikacji wewnętrznych, zobacz [Utwórz aplikację usługi wykazu](publish-service-catalog-app.md).
-* Uzyskać informacji dotyczących publikowania aplikacji zarządzanych do witryny marketplace, zobacz [tworzenie aplikacji marketplace](publish-marketplace-app.md).
 

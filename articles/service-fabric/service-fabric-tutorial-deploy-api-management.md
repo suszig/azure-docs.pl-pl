@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
 W tym samouczku jest częścią czterech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu.  Zarządzanie interfejsami API jest przydatne, gdy należy opublikować interfejsy API z bogaty zestaw reguły routingu dla usług sieci szkieletowej usług zaplecza. Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej przeznaczone dla ruchu transfer danych przychodzących przykład aplikacji, usługi Event Hubs, Centrum IoT lub usługi Azure API Management APP.NET Core. 

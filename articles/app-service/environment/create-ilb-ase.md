@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji Azure"
-description: "Więcej informacji na temat tworzenia i używania środowiska usługi aplikacji Azure izolowane internet"
+title: "Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem Azure App Service Environment"
+description: "Szczegółowe informacje na temat tworzenia i używania środowiska Azure App Service Environment odizolowanego od Internetu"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,102 +10,103 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z środowiska usługi aplikacji #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia ze środowiskiem App Service Environment #
 
- Środowiska usługi aplikacji Azure to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet). Istnieją dwa sposoby wdrożenia środowiska usługi App Service (ASE): 
+ Środowisko Azure App Service Environment to wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure (VNet). Istnieją dwa sposoby wdrażania środowiska App Service Environment (ASE): 
 
-- Z adresów VIP na zewnętrzny adres IP często nazywane ASE zewnętrznych.
-- Z adresów VIP na wewnętrzny adres IP często nazywane ASE ILB, ponieważ wewnętrzny punkt końcowy jest wewnętrzny moduł równoważenia obciążenia (ILB). 
+- Z wirtualnym adresem IP będącym zewnętrznym adresem IP — jest to często nazywane zewnętrznym środowiskiem ASE.
+- Z wirtualnym adresem IP będącym wewnętrznym adresem IP — jest to często nazywane środowiskiem ASE z wewnętrznym modułem równoważenia obciążenia, ponieważ wewnętrzny punkt końcowy jest wewnętrznym modułem równoważenia obciążenia (ILB, Internal Load Balancer). 
 
-W tym artykule przedstawiono sposób tworzenia ASE ILB. Omówienie ASE, zobacz [wprowadzenie do środowiska usługi aplikacji][Intro]. Aby dowiedzieć się, jak utworzyć ASE zewnętrznych, zobacz [Tworzenie zewnętrznych ASE][MakeExternalASE].
+W tym artykule przedstawiono sposób tworzenia środowiska ASE z wewnętrznym modułem równoważenia obciążenia. Omówienie środowiska ASE podano w temacie [Wprowadzenie do środowisk App Service Environment][Intro]. Aby dowiedzieć się, jak utworzyć zewnętrzne środowisko ASE, zobacz [Create an External ASE][MakeExternalASE] (Tworzenie zewnętrznego środowiska ASE).
 
 ## <a name="overview"></a>Omówienie ##
 
-Można wdrożyć ASE z punktem końcowym dostęp do Internetu lub adres IP w sieci wirtualnej. Aby ustawić adres IP adresów sieci wirtualnej, należy wdrożyć ASE z ILB. Podczas wdrażania sieci ASE z ILB, należy podać:
+Środowisko ASE można wdrożyć za pomocą punktu końcowego dostępnego z Internetu lub adresu IP w sieci wirtualnej. Aby można było ustawić jako adres IP adres sieci wirtualnej, należy wdrożyć środowisko ASE z wewnętrznym modułem równoważenia obciążenia. W przypadku wdrażania środowiska ASE z wewnętrznym modułem równoważenia obciążenia należy podać następujące informacje:
 
--   Własnej domeny, który jest używany podczas tworzenia aplikacji.
+-   Własna domena używana podczas tworzenia aplikacji.
 -   Certyfikat używany do obsługi protokołu HTTPS.
--   Zarządzanie systemem DNS dla domeny.
+-   Zarządzanie usługą DNS dla domeny.
 
-W zamian można wykonać czynności takich jak:
+Umożliwia to realizowanie m.in. następujących zadań:
 
--   Host aplikacji intranetowych bezpiecznie w chmurze, które dostępne za pośrednictwem sieci VPN platformy Azure ExpressRoute lub lokacja lokacja.
--   Aplikacje hosta w chmurze, które nie są wymienione w publicznych serwerów DNS.
--   Utwórz izolowaną internet zaplecza aplikacji, które frontonu aplikacji bezpiecznego można zintegrować z.
+-   Bezpieczne hostowanie aplikacji intranetowych w chmurze dostępnych za pośrednictwem sieci VPN usługi Azure ExpressRoute lub połączenia typu lokacja-lokacja.
+-   Hostowanie w chmurze aplikacji, które nie są wymienione na publicznych serwerach DNS.
+-   Tworzenie odizolowanych od Internetu aplikacji zaplecza, z którymi można bezpiecznie integrować aplikacje frontonu.
 
 ### <a name="disabled-functionality"></a>Funkcje wyłączone ###
 
-Istnieje kilka kwestii, które nie można wykonać, gdy używasz ASE ILB:
+Pewnych zadań nie można realizować w przypadku używania środowiska ASE z wewnętrznym modułem równoważenia obciążenia:
 
--   Użyj opartych na protokole SSL.
--   Przypisz adresy IP do określonych aplikacji.
--   Kup i korzystać z certyfikatu z aplikacji za pośrednictwem portalu Azure. Można uzyskać certyfikatów bezpośrednio od urzędu certyfikacji i używać ich z aplikacjami. Nie można je uzyskać za pośrednictwem portalu Azure.
+-   Używanie protokołu SSL opartego na protokole IP.
+-   Przypisywanie adresów IP do określonych aplikacji.
+-   Kupowanie i używanie certyfikatu za pomocą aplikacji za pośrednictwem witryny Azure Portal. Certyfikaty można uzyskiwać bezpośrednio od urzędu certyfikacji i używać ich z aplikacjami. Nie można ich uzyskiwać za pośrednictwem witryny Azure Portal.
 
-## <a name="create-an-ilb-ase"></a>Utwórz ILB ASE ##
+## <a name="create-an-ilb-ase"></a>Tworzenie środowiska ASE z wewnętrznym modułem równoważenia obciążenia ##
 
-Aby utworzyć ASE ILB:
+Aby utworzyć środowisko ASE z wewnętrznym modułem równoważenia obciążenia:
 
-1. W portalu Azure wybierz **nowy** > **sieci Web i mobilność** > **środowiska usługi aplikacji**.
+1. W witrynie Azure Portal wybierz pozycję **Nowy** > **Sieć Web + aplikacje mobilne** > **App Service Environment**.
 
 2. Wybierz subskrypcję.
 
 3. Wybierz lub utwórz grupę zasobów.
 
-4. Wybierz lub Utwórz sieć wirtualną.
+4. Wybierz lub utwórz sieć wirtualną.
 
-5. W przypadku wybrania istniejącej sieci wirtualnej, należy utworzyć podsieci do przechowywania ASE. Upewnij się, że ustawiony rozmiar podsieci, wystarczająco duże, aby pomieścić przyszłego rozwoju Twojej ASE. Firma Microsoft zaleca o rozmiarze `/25`, który 128 adresów i może obsłużyć ASE rozmiar maksymalny. Możesz wybrać rozmiar minimalny to `/28`. Po wymaga infrastruktury, ten rozmiar mogą być skalowane do maksymalnie 11 wystąpień.
+5. W przypadku wybrania istniejącej sieci wirtualnej należy utworzyć podsieć, w której zostanie umieszczone środowisko ASE. Ustaw wystarczająco duży rozmiar podsieci, aby pomieścić środowisko ASE, nawet gdy w przyszłości się rozrośnie. Zalecamy rozmiar `/25`, który zapewnia 128 adresów i może obsłużyć środowiska ASE o maksymalnym rozmiarze. Minimalny rozmiar, jaki można wybrać, to `/28`. Po zaspokojeniu wymagań infrastruktury ten rozmiar można skalować do maksymalnie 11 wystąpień.
 
-    * Przekraczają maksymalną liczbą wystąpień 100 domyślną w planów usługi aplikacji.
+    * Plany usługi App Service umożliwiają przekroczenie domyślnej maksymalnej liczby wystąpień wynoszącej 100.
 
-    * Skalowanie bliskie 100, ale także z bardziej szybkie skalowanie frontonu.
+    * Możliwe jest skalowanie bliskie 100, ale z szybszym skalowaniem frontonu.
 
-6. Wybierz **wirtualnego lokalizacji** > **konfiguracji sieci wirtualnej**. Ustaw **typu VIP** do **wewnętrzny**.
+6. Wybierz pozycję **Sieć wirtualna/lokalizacja** > **Konfiguracja sieci wirtualnej**. Skonfiguruj dla ustawienia **Typ adresu VIP** wartość **Wewnętrzny**.
 
-7. Wprowadź nazwę domeny. Ta domena jest używany w przypadku aplikacji utworzone w tym ASE. Istnieją pewne ograniczenia. Nie można go:
+7. Wprowadź nazwę domeny. Jest to domena używana w przypadku aplikacji tworzonych w tym środowisku ASE. Obowiązują pewne ograniczenia. Nie mogą to być następujące domeny:
 
-    * NET   
+    * net   
 
-    * azurewebsites.NET
+    * azurewebsites.net
 
-    * p.azurewebsites.NET
+    * p.azurewebsites.net
 
-    * &lt;asename&gt;. p.azurewebsites.net
+    * &lt;nazwa_ASE&gt;.p.azurewebsites.net
 
-   Niestandardowa nazwa domeny używane do aplikacji i nazwy domeny używane przez użytkownika ASE nie mogą się nakładać. Dla ASE ILB z nazwą domeny _contoso.com_, nie można użyć niestandardowych nazw domen dla twojej aplikacji, takich jak:
+   Nazwa domeny niestandardowej używanej z aplikacjami i nazwa domeny używana przez środowisko ASE nie mogą się nakładać. W przypadku środowiska ASE z wewnętrznym modułem równoważenia obciążenia mającego nazwę domeny _contoso.com_ nie można używać następujących nazw domen niestandardowych dla aplikacji:
 
     * www.contoso.com
 
-    * Abcd.def.contoso.com
+    * abcd.def.contoso.com
 
-    * Abcd.contoso.com
+    * abcd.contoso.com
 
-   Jeśli znasz nazwy domeny niestandardowej dla aplikacji, należy wybrać domenę dla ASE ILB, który nie występuje konflikt z tymi nazwami domen niestandardowych. W tym przykładzie, można użyć przypominać *contoso internal.com* dla domeny Twojej ASE ponieważ nie będących w konflikcie z nazwami domen niestandardowych, które kończą się *. contoso.com*.
+   Jeśli znasz nazwy domen niestandardowych używane z aplikacjami, wybierz dla środowiska ASE z wewnętrznym modułem równoważenia obciążenia taką domenę, dla której nie występuje konflikt z tymi nazwami domen niestandardowych. W tym przykładzie można użyć jako domeny środowiska ASE czegoś w rodzaju *contoso-wewn.com*, ponieważ ta nazwa nie jest w konflikcie z nazwami domen niestandardowych, które kończą się na *.contoso.com*.
 
-8. Wybierz **OK**, a następnie wybierz **Utwórz**.
+8. Wybierz przycisk **OK**, a następnie wybierz pozycję **Utwórz**.
 
     ![Tworzenie środowiska ASE][1]
 
-Na **sieci wirtualnej** bloku jest **konfiguracja sieci wirtualnej** opcji. Służy on do wybierania zewnętrznego adresu VIP lub wewnętrznego adresu VIP. Wartość domyślna to **zewnętrznych**. W przypadku wybrania **zewnętrznych**, Twoje ASE używa VIP dostępny z Internetu. W przypadku wybrania **wewnętrzne**, Twoje ASE skonfigurowano ILB na adres IP w sieci wirtualnej.
+W bloku **Sieć wirtualna** dostępna jest opcja **Konfiguracja sieci wirtualnej**. Umożliwia ona wybranie zewnętrznego lub wewnętrznego wirtualnego adresu IP. Wartość domyślna to **Zewnętrzny**. W przypadku wybrania opcji **Zewnętrzny** środowisko ASE używa wirtualnego adresu IP dostępnego z Internetu. W przypadku wybrania opcji **Wewnętrzny** środowisko ASE jest skonfigurowane z wewnętrznym modułem równoważenia obciążenia i adresem IP w sieci wirtualnej.
 
-Po wybraniu **wewnętrzne**, możliwość dodawania więcej adresów IP do sieci ASE zostanie usunięta. Zamiast tego należy podać domenę ASE. W elemencie ASE z zewnętrznego wirtualnego adresu IP nazwę ASE służy w domenie aplikacji utworzone w tym ASE.
+Po wybraniu opcji **Wewnętrzny** możliwość dodawania kolejnych adresów IP do środowiska ASE zostaje usunięta. Zamiast tego należy podać domenę środowiska ASE. W przypadku środowiska ASE z zewnętrznym wirtualnym adresem IP nazwa środowiska ASE jest używana w domenie dla aplikacji tworzonych w tym środowisku ASE.
 
-Jeśli ustawisz **typu VIP** do **wewnętrzne**, nazwę ASE nie jest używany w domenie dla ASE. Jawnie określ domenę. Jeśli Twoja domena to *contoso.corp.net* i utworzyć aplikację, w tym o nazwie ASE *timereporting*, adres URL dla tej aplikacji jest timereporting.contoso.corp.net.
+Jeśli dla ustawienia **Typ adresu VIP** została wybrana opcja **Wewnętrzny**, nazwa środowiska ASE nie jest używana w domenie dla środowiska ASE. Domenę określa się jawnie. Jeśli domena to *contoso.corp.net* i utworzysz w tym środowisku ASE aplikację o nazwie *raportowanieczasu*, adres URL dla tej aplikacji to raportowanieczasu.contoso.corp.net.
 
 
-## <a name="create-an-app-in-an-ilb-ase"></a>Utwórz aplikację w elemencie ASE ILB ##
+## <a name="create-an-app-in-an-ilb-ase"></a>Tworzenie aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia ##
 
-Tworzenie aplikacji w elemencie ASE ILB odbywa się w taki sam sposób tworzenia aplikacji w elemencie ASE normalnie.
+Aplikację w środowisku ASE z wewnętrznym modułem równoważenia obciążenia tworzy się tak samo jak w normalnym środowisku ASE.
 
-1. W portalu Azure wybierz **nowy** > **sieci Web i mobilność** > **Web** lub **Mobile** lub **interfejsu API Aplikacja**.
+1. W witrynie Azure Portal wybierz pozycję **Nowy** > **Sieć Web + aplikacje mobilne** > **Web**, **Urządzenie przenośne** lub **Aplikacja interfejsu API**.
 
 2. Wprowadź nazwę aplikacji.
 
@@ -113,30 +114,30 @@ Tworzenie aplikacji w elemencie ASE ILB odbywa się w taki sam sposób tworzenia
 
 4. Wybierz lub utwórz grupę zasobów.
 
-5. Wybierz lub Utwórz plan usługi aplikacji. Jeśli chcesz utworzyć nowy plan usługi aplikacji, wybierz użytkownika ASE jako lokalizację. Wybierz puli procesów roboczych, w którym ma swój plan usługi aplikacji ma zostać utworzony. Po utworzeniu planu usługi aplikacji, wybierz Twoje ASE jako lokalizację i puli procesów roboczych. Po określeniu nazwy aplikacji domeny pod nazwą aplikacji zostało zastąpione przez domenę dla Twojego ASE.
+5. Wybierz lub utwórz plan usługi App Service. Jeśli chcesz utworzyć nowy plan usługi App Service, wybierz środowisko ASE jako lokalizację. Wybierz pulę procesów roboczych, w której ma zostać utworzony plan usługi App Service. Podczas tworzenia planu usługi App Service wybierz środowisko ASE jako lokalizację i pulę procesów roboczych. Po określeniu nazwy aplikacji domena w obszarze nazwy aplikacji zostanie zamieniona na domenę środowiska ASE.
 
-6. Wybierz pozycję **Utwórz**. Aplikacji są wyświetlane na pulpicie nawigacyjnym, zaznacz **Przypnij do pulpitu nawigacyjnego** pole wyboru.
+6. Wybierz pozycję **Utwórz**. Jeśli aplikacja ma być wyświetlana na pulpicie nawigacyjnym, zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego**.
 
-    ![Tworzenie planu usługi aplikacji][2]
+    ![Tworzenie planu usługi App Service][2]
 
-    W obszarze **Nazwa aplikacji**, nazwa domeny jest zaktualizowana w celu odzwierciedlenia domeny Twojej ASE.
+    W obszarze **Nazwa aplikacji** nazwa domeny zostanie zaktualizowana w celu odzwierciedlenia domeny środowiska ASE.
 
-## <a name="post-ilb-ase-creation-validation"></a>Sprawdzanie poprawności tworzenia POST ILB ASE ##
+## <a name="post-ilb-ase-creation-validation"></a>Weryfikacja po utworzeniu środowiska ASE z wewnętrznym modułem równoważenia obciążenia ##
 
-ASE ILB są nieco inne niż z systemem innym niż - ILB ASE. Jak już zanotowane trzeba zarządzać własną DNS. Należy również podać swój własny certyfikat dla połączeń HTTPS.
+Środowisko ASE z wewnętrznym modułem równoważenia obciążenia różni się nieco od wersji bez tego modułu. Jak już wspomniano, trzeba zarządzać własną usługą DNS. Konieczne jest też zapewnienie własnego certyfikatu do połączeń HTTPS.
 
-Po utworzeniu sieci ASE, nazwa domeny zawiera określonej domeny. Nowy element jest wyświetlany w **ustawienie** menu o nazwie **certyfikatu ILB**. ASE jest tworzony przy użyciu certyfikatu, który nie określa domeny ILB ASE. Użycie ASE z tego certyfikatu, przeglądarki informuje, że jest on nieprawidłowy. Ten certyfikat ułatwia testowanie HTTPS, ale należy przekazać swój własny certyfikat, który jest powiązany z własną domeną ILB ASE. Ten krok jest niezbędny, niezależnie od tego, czy certyfikat z podpisem własnym, czy otrzymanego od urzędu certyfikacji.
+Po utworzeniu środowiska ASE jako nazwa domeny wskazywana jest podana nazwa domeny. W menu **Ustawienie** jest wyświetlany nowy element menu o nazwie **Certyfikat wewnętrznego modułu równoważenia obciążenia**. Środowisko ASE jest tworzone wraz z certyfikatem, który nie określa domeny środowiska ASE z wewnętrznym modułem równoważenia obciążenia. Jeśli spróbujesz użyć środowiska ASE z tym certyfikatem, przeglądarka poinformuje, że jest on nieprawidłowy. Ten certyfikat ułatwia przetestowanie usługi HTTPS, ale należy przekazać własny certyfikat powiązany z domeną środowiska ASE z wewnętrznym modułem równoważenia obciążenia. Ten krok jest niezbędny niezależnie od tego, czy certyfikat jest z podpisem własnym, czy otrzymano go od urzędu certyfikacji.
 
-![Nazwa domeny ILB ASE][3]
+![Nazwa domeny środowiska ASE z wewnętrznym modułem równoważenia obciążenia][3]
 
-Twoje ASE ILB musi mieć prawidłowy certyfikat SSL. Użyj certyfikatu wewnętrznego urzędów, kupić certyfikat od zewnętrznego wystawcy lub Użyj certyfikatu z podpisem własnym. Niezależnie od źródła certyfikatu SSL, należy poprawnie skonfigurowane następujące atrybuty certyfikatu:
+Środowisko ASE z wewnętrznym modułem równoważenia obciążenia wymaga prawidłowego certyfikatu SSL. Użyj wewnętrznych urzędów certyfikacji, kup certyfikat od wystawcy zewnętrznego lub użyj certyfikatu z podpisem własnym. Niezależnie od źródła certyfikatu SSL należy poprawnie skonfigurować następujące atrybuty certyfikatu:
 
-* **Temat**: ten atrybut musi mieć ustawioną *.your głównego domeny tutaj.
-* **Alternatywna nazwa podmiotu**: ten atrybut musi zawierać zarówno **.your głównego domeny tutaj* i **.scm.your-głównego-domeny — w tym miejscu*. Połączenia SSL do witryny SCM/Kudu skojarzone z każdej aplikacji używać adresu w postaci *your-app-name.scm.your-root-domain-here*.
+* **Podmiot**: ten atrybut musi mieć ustawioną wartość *.domena-główna.
+* **Alternatywna nazwa podmiotu**: ten atrybut musi zawierać zarówno pozycję **.domena-główna*, jak i pozycję **.scm.domena-główna*. W połączeniach SSL z witryną SCM/Kudu skojarzonych z poszczególnymi aplikacjami używane są adresy w postaci *nazwa-aplikacji.scm.domena-główna*.
 
-Konwertuj/Zapisz certyfikat jako plik pfx. Plik PFX musi obejmować wszystkie pośrednie i certyfikaty główne. Zabezpiecz ją przy użyciu hasła.
+Przekonwertuj lub zapisz certyfikat SSL jako plik pfx. Plik pfx musi zawierać wszystkie certyfikaty pośrednie i główne. Zabezpiecz go przy użyciu hasła.
 
-Jeśli chcesz utworzyć certyfikat z podpisem własnym, w tym miejscu można użyć poleceń programu PowerShell. Należy użyć nazwy domeny ILB ASE zamiast *internal.contoso.com*: 
+Jeśli chcesz utworzyć certyfikat z podpisem własnym, możesz użyć tu poleceń programu PowerShell. Pamiętaj, aby użyć nazwy domeny środowiska ASE z wewnętrznym modułem równoważenia obciążenia, a nie domeny *wewnętrzna.contoso.com*: 
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
     
@@ -146,81 +147,81 @@ Jeśli chcesz utworzyć certyfikat z podpisem własnym, w tym miejscu można uż
     $fileName = "exportedcert.pfx" 
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
-Certyfikat, który generowanie tych poleceń programu PowerShell oflagowane przez przeglądarki, ponieważ certyfikat nie został utworzony przez urząd certyfikacji, który znajduje się w łańcuch zaufania w przeglądarce. Aby uzyskać certyfikat, któremu ufa przeglądarki, należy przygotować od urzędu certyfikacji komercyjnych w łańcuchu zaufania w przeglądarce. 
+Certyfikat wygenerowany za pomocą tych poleceń programu PowerShell jest oflagowywany przez przeglądarki, ponieważ nie został utworzony przez urząd certyfikacji obecny w łańcuchu zaufania przeglądarki. Aby używać certyfikatu, któremu będzie ufać przeglądarka, uzyskaj go od komercyjnego urzędu certyfikacji obecnego w łańcuchu zaufania przeglądarki. 
 
-![Zestaw ILB certyfikatu][4]
+![Ustawianie certyfikatu wewnętrznego modułu równoważenia obciążenia][4]
 
-Aby przekazać własne certyfikaty i testowanie dostępu:
+Aby przekazać własne certyfikaty i przetestować dostęp:
 
-1. Po utworzeniu ASE, przejdź do ASE interfejsu użytkownika. Wybierz **ASE** > **ustawienia** > **certyfikatu ILB**.
+1. Po utworzeniu środowiska ASE przejdź do interfejsu użytkownika tego środowiska. Wybierz pozycję **ASE** > **Ustawienia** > **Certyfikat wewnętrznego modułu równoważenia obciążenia**.
 
-2. Aby ustawić certyfikat ILB, wybierz plik certyfikatu PFX, a następnie wprowadź hasło. Ten krok zajmuje trochę czasu. Pojawi się komunikat z informacją, że operacja przekazywania jest w toku.
+2. Aby ustawić certyfikat wewnętrznego modułu równoważenia obciążenia, wybierz plik certyfikatu pfx, a następnie wprowadź hasło. Ten krok zajmuje trochę czasu. Pojawi się komunikat z informacją, że operacja przekazywania jest w toku.
 
-3. Pobierz adres ILB dla Twojego ASE. Wybierz **ASE** > **właściwości** > **wirtualny adres IP**.
+3. Uzyskaj adres wewnętrznego modułu równoważenia obciążenia środowiska ASE. Wybierz pozycję **ASE** > **Właściwości** > **Wirtualny adres IP**.
 
-4. Tworzenie aplikacji sieci web w sieci ASE po utworzeniu ASE.
+4. Po utworzeniu środowiska ASE utwórz aplikację internetową w środowisku ASE.
 
-5. Tworzenie maszyny Wirtualnej, jeśli nie istnieje w tej sieci wirtualnej.
+5. Utwórz maszynę wirtualną, jeśli w tej sieci wirtualnej nie ma żadnej.
 
     > [!NOTE] 
-    > Nie należy próbować utworzyć tej maszyny Wirtualnej w tej samej podsieci co ASE, ponieważ będzie zakończyć się niepowodzeniem lub spowodować problemy.
+    > Nie próbuj tworzyć tej maszyny wirtualnej w tej samej podsieci, w której istnieje środowisko ASE — nie powiedzie się to lub wystąpią problemy.
     >
     >
 
-6. Ustaw DNS dla domeny ASE. Za pomocą symbolu wieloznacznego i domeny w systemie DNS. Proste testy w celu edytowania pliku hosts na maszynie Wirtualnej można ustawić nazwy aplikacji sieci web do adresu VIP IP:
+6. Skonfiguruj ustawienia DNS dla domeny środowiska ASE. W domenie w usłudze DNS możesz użyć symbolu wieloznacznego. Aby przeprowadzić proste testy, edytuj plik hosts na maszynie wirtualnej w celu ustawienia dla nazwy aplikacji internetowej wirtualnego adresu IP:
 
-    a. Jeśli Twoje ASE ma nazwę domeny _. ilbase.com_ i utworzysz aplikację sieci web o nazwie _mytestapp_, jest skierowana na _mytestapp.ilbase.com_. Następnie ustaw _mytestapp.ilbase.com_ do rozpoznawania adresów ILB. (W systemie Windows, w pliku hosts wynosi _C:\Windows\System32\drivers\etc\_.)
+    a. Jeśli nazwa domeny środowiska ASE to _.aseilb.com_ i utworzysz aplikację internetową o nazwie _mojaaplikacja_, będzie ona miała adres _mojaaplikacja.aseilb.com_. Następnie skonfiguruj rozpoznawanie adresu _mojaaplikacja.aseilb.com_ jako adresu wewnętrznego modułu równoważenia obciążenia. (W systemie Windows plik hosts znajduje się w folderze _C:\Windows\System32\drivers\etc\_).
 
-    b. Aby przetestować wdrożenie publikowania w sieci web lub dostęp do zaawansowanych konsoli, należy utworzyć rekord dla _mytestapp.scm.ilbase.com_.
+    b. Aby przetestować publikowanie wdrażania w Internecie lub dostęp do konsoli zaawansowanej, utwórz rekord dla _mojaaplikacja.scm.aseilb.com_.
 
-7. Korzystanie z przeglądarki na tej maszynie Wirtualnej, przejdź do http://mytestapp.ilbase.com. (Lub przejdź do niezależnie od Twoja nazwa aplikacji sieci web jest z domeną.)
+7. Za pomocą przeglądarki na tej maszynie wirtualnej przejdź do strony http://mojaaplikacjatestowa.aseilb.com. (Lub przejdź do strony z nazwą dowolnej aplikacji w używanej domenie).
 
-8. Korzystanie z przeglądarki na tej maszynie Wirtualnej, przejdź do https://mytestapp.ilbase.com. Jeśli używasz certyfikatu z podpisem własnym, należy zaakceptować braku zabezpieczeń.
+8. Za pomocą przeglądarki na tej maszynie wirtualnej przejdź do strony https://mojaaplikacjatestowa.aseilb.com. Jeśli używasz certyfikatu z podpisem własnym, zaakceptuj brak zabezpieczeń.
 
-    Adres IP dla sieci ILB znajduje się w obszarze **adresów IP**. Ta lista zawiera również adresy IP używane przez zewnętrznych adresów VIP oraz dla ruchu przychodzącego zarządzania.
+    Adres IP wewnętrznego modułu równoważenia obciążenia znajduje się w obszarze **Adresy IP**. Ta lista zawiera również adresy IP używane przez zewnętrzne wirtualne adresy IP oraz do obsługi ruchu przychodzącego zarządzania.
 
-    ![Adres ILB IP][5]
+    ![Adres IP wewnętrznego modułu równoważenia obciążenia][5]
 
-## <a name="web-jobs-functions-and-the-ilb-ase"></a>Zadania Web Job, funkcje i ILB ASE ##
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Zadania Web Job, usługa Functions i środowisko ASE z wewnętrznym modułem równoważenia obciążenia ##
 
-Zarówno funkcje i zadania sieci web są obsługiwane w elemencie ASE ILB, ale portalu pracować z nimi, musi mieć dostęp do sieci do lokacji SCM.  Oznacza to, że przeglądarka musi być na hoście, który jest albo podłączone do sieci wirtualnej.  
+W środowisku ASE z wewnętrznym modułem równoważenia obciążenia jest obsługiwana zarówno usługa Functions, jak i zadania Web Job, ale aby portal z nimi współdziałał, musisz mieć dostęp do witryny SCM.  Oznacza to, że przeglądarka musi działać na hoście, który albo znajduje się w sieci wirtualnej, albo jest z nią połączony.  
 
-Gdy używasz usługi Azure Functions w elemencie ASE ILB, może pobrać komunikat o błędzie stwierdzający "nie możemy teraz pobrać funkcji. Spróbuj ponownie później." Ten błąd występuje, ponieważ interfejs użytkownika funkcji wykorzystuje lokacji SCM za pośrednictwem protokołu HTTPS i certyfikatu głównego nie jest w przeglądarce łańcuch zaufania. Zadania Web Job ma podobny problem. Aby uniknąć tego problemu, wykonaj jedną z następujących czynności:
+W trakcie używania usługi Azure Functions w środowisku ASE z wewnętrznym modułem równoważenia obciążenia może pojawić się komunikat o błędzie „Nie możemy teraz pobrać funkcji. Spróbuj ponownie później”. Ten błąd występuje, ponieważ interfejs użytkownika usługi Functions korzysta z witryny SCM za pośrednictwem protokołu HTTPS, a w łańcuchu zaufania przeglądarki nie ma certyfikatu głównego. Podobny problem występuje w przypadku zadań Web Job. Aby uniknąć tego problemu, możesz wykonać jedną z następujących czynności:
 
-- Dodaj certyfikat do magazynu zaufanych certyfikatów. Odblokowuje to Edge i przeglądarki Internet Explorer.
-- Użyj przeglądarki Chrome i przejdź do witryny SCM najpierw, Zaakceptuj niezaufany certyfikat, a następnie przejdź do portalu.
-- Użyj komercyjnych certyfikat w łańcuchu zaufania przeglądarki.  Jest to najlepsze rozwiązanie.  
+- Dodaj certyfikat do magazynu zaufanych certyfikatów. Odblokowuje to obsługę w przeglądarkach Edge i Internet Explorer.
+- W przeglądarce Chrome przejdź najpierw do witryny SCM, zaakceptuj niezaufany certyfikat, a następnie przejdź do portalu.
+- Użyj komercyjnego certyfikatu obecnego w łańcuchu zaufania przeglądarki.  Jest to najlepsze rozwiązanie.  
 
-## <a name="dns-configuration"></a>Konfiguracja DNS ##
+## <a name="dns-configuration"></a>Konfiguracja usługi DNS ##
 
-Gdy używasz zewnętrznego adresu VIP DNS jest zarządzana przez platformę Azure. Wszystkich aplikacji utworzonych w Twojej ASE jest automatycznie dodawany do usługi Azure DNS, który jest publicznym systemie DNS. W elemencie ASE ILB możesz zarządzać własną DNS. Dla danej domeny, takie jak _contoso.net_, należy utworzyć rekordy A systemu DNS w systemie DNS, wskazujące na adres ILB dla:
+Gdy używasz zewnętrznego wirtualnego adresu IP, usługą DNS zarządza platforma Azure. Każda aplikacja utworzona w środowisku ASE jest automatycznie dodawana do usługi Azure DNS, która jest publiczną usługą DNS. W środowisku ASE z wewnętrznym modułem równoważenia obciążenia musisz zarządzać własną usługą DNS. Dla danej domeny, takiej jak _contoso.net_, należy w używanej usłudze DNS utworzyć rekordy A systemu DNS wskazujące adres wewnętrznego modułu równoważenia obciążenia dla:
 
-- *. contoso.net
-- *. scm.contoso.net
+- *.contoso.net
+- *.scm.contoso.net
 
-Jeśli domenę ILB ASE jest używany dla wielu elementów poza tym ASE, może być konieczne zarządzanie DNS na podstawie ciągu app-name. Ta metoda może być trudne, ponieważ konieczne jest dodanie nowej nazwy aplikacji w systemie DNS, podczas jego tworzenia. Z tego powodu zaleca się użycie dedykowanych domeny.
+Jeśli domena środowiska ASE z wewnętrznym modułem równoważenia obciążenia jest używana także do celów innych niż obsługa tego środowiska, może być konieczne zarządzanie usługą DNS na poziomie nazw aplikacji. Może to okazać się wyzwaniem, ponieważ wymaga dodania nazwy każdej nowej aplikacji do usługi DNS podczas jej tworzenia. Z tego powodu zalecamy używanie dedykowanej domeny.
 
-## <a name="publish-with-an-ilb-ase"></a>Publikowanie za pomocą ILB ASE ##
+## <a name="publish-with-an-ilb-ase"></a>Publikowanie za pomocą środowiska ASE z wewnętrznym modułem równoważenia obciążenia ##
 
-Każda aplikacja, która zostanie utworzona są dwa punkty końcowe. W elemencie ASE ILB masz  *&lt;Nazwa aplikacji >.&lt; Domeny ASE ILB >* i  *&lt;Nazwa aplikacji > .scm.&lt; Domeny ASE ILB >*. 
+Dla każdej tworzonej aplikacji istnieją dwa punkty końcowe. W środowisku ASE z wewnętrznym modułem równoważenia obciążenia istnieje punkt *&lt;nazwa aplikacji>.&lt;domena środowiska ASE z wewnętrznym modułem równoważenia obciążenia>* i punkt *&lt;nazwa aplikacji>.scm.&lt;domena środowiska ASE z wewnętrznym modułem równoważenia obciążenia>*. 
 
-Nazwa witryny SCM umożliwia przejście do konsoli Kudu, nazywanym **portal zaawansowane**, w portalu Azure. Konsola Kudu umożliwia wyświetlanie zmiennych środowiskowych, eksplorowania dysku, użyj konsoli i o wiele więcej. Aby uzyskać więcej informacji, zobacz [konsoli Kudu dla usługi Azure App Service][Kudu]. 
+Nazwa witryny SCM umożliwia przejście do konsoli Kudu, nazywanej **portalem zaawansowanym**, w witrynie Azure Portal. Konsola Kudu umożliwia między innymi wyświetlanie zmiennych środowiskowych, eksplorowanie dysku i używanie konsoli. Aby uzyskać więcej informacji, zobacz [Kudu console for Azure App Service][Kudu] (Konsola Kudu dla usługi Azure App Service). 
 
-W wielodostępnej usługi aplikacji i zewnętrznego ASE Brak rejestracji jednokrotnej między konsoli Kudu i portalu Azure. Dla ASE ILB jednak należy do korzystania z poświadczeń publikowania do logowania się do konsoli Kudu.
+W przypadku wielodostępnej usługi App Service i zewnętrznego środowiska ASE obsługiwane jest logowanie jednokrotne między konsolą Kudu a witryną Azure Portal. Jednak w przypadku środowiska ASE z wewnętrznym modułem równoważenia obciążenia do logowania się do konsoli Kudu należy używać poświadczeń publikowania.
 
-Internetowych systemów elementu konfiguracji, takich jak GitHub i Visual Studio Team Services nie działają z ASE ILB, ponieważ punkt końcowy publikowania nie jest dostępny internet. Zamiast tego należy użyć systemu elementu konfiguracji, który wykorzystuje model ściągania, takich jak Dropbox.
+Internetowe systemy ciągłej integracji, takie jak GitHub i Visual Studio Team Services, nie współdziałają ze środowiskiem ASE z wewnętrznym modułem równoważenia obciążenia, ponieważ punkt końcowy publikowania nie jest dostępny przez Internet. Zamiast tego należy używać systemu ciągłej integracji używającego modelu ściągania, takiego jak Dropbox.
 
-Publikowanie punktów końcowych dla aplikacji w elemencie ASE ILB Użyj domeny, która została utworzona ILB ASE. Ta domena jest wyświetlany w profilu publikowania aplikacji i w bloku portalu aplikacji (**omówienie** > **Essentials** , a także **właściwości**). Jeśli masz ASE ILB z poddomeny *contoso.net* i aplikację o nazwie *test*, użyj *mytest.contoso.net* dla FTP i *mytest.scm.contoso.net* wdrożenia sieci web.
+Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Ta domena jest wyświetlana w profilu publikowania aplikacji i w bloku portalu aplikacji (**Przegląd** > **Podstawy** oraz **Właściwości**). Jeśli masz środowisko ASE z wewnętrznym modułem równoważenia obciążenia z poddomeną *contoso.net* i aplikację o nazwie *testowa*, użyj adresu *testowa.contoso.net* dla protokołu FTP i *testowa.scm.contoso.net* dla wdrożenia w Internecie.
 
-## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Połączenie ASE ILB z urządzenia zapory aplikacji sieci Web ##
+## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Łączenie środowiska ASE z wewnętrznym modułem równoważenia obciążenia z urządzeniem zapory aplikacji internetowych ##
 
-Usługa aplikacji Azure udostępnia wiele środki bezpieczeństwa, które zapewniają ochronę systemu. Ułatwiają również określić, czy zostało zaatakowane aplikacji. Ochrona najlepsze dla aplikacji sieci web jest połączenie Platforma macierzysta, takich jak usługi Azure App Service za pomocą zapory aplikacji sieci web (WAF). Ponieważ ILB ASE ma punkt końcowy aplikacji izolowane sieci, jest odpowiednie do takiego użycia.
+Usługa Azure App Service udostępnia wiele mechanizmów zabezpieczeń chroniących system. Ułatwiają one też ustalenie, czy aplikacja nie została zaatakowana. Najlepszą ochronę aplikacji internetowej zapewnia połączenie platformy hostingowej, takiej jak usługa Azure App Service, z zaporą aplikacji internetowych. Ponieważ środowisko ASE z wewnętrznym modułem równoważenia obciążenia ma punkt końcowy aplikacji izolowany od sieci, takie rozwiązanie jest odpowiednie.
 
-Aby dowiedzieć się więcej na temat sposobu konfigurowania sieci ASE ILB z urządzenia zapory aplikacji sieci Web, zobacz [Konfigurowanie zapory aplikacji sieci web ze środowiskiem usługi aplikacji][ASEWAF]. W tym artykule przedstawiono sposób Barracuda urządzenia wirtualnego za pomocą programu ASE. Innym rozwiązaniem jest używać bramy aplikacji Azure. Brama aplikacji w używa reguł core OWASP do zabezpieczania aplikacji umieszczony za nią. Aby uzyskać więcej informacji na temat bramy aplikacji, zobacz [wprowadzenie do zapory aplikacji sieci web platformy Azure][AppGW].
+Aby dowiedzieć się więcej na temat sposobu konfigurowania używania środowiska ASE z wewnętrznym modułem równoważenia obciążenia z urządzeniem zapory aplikacji internetowych, zobacz [Configure a web application firewall with your App Service environment][ASEWAF] (Konfigurowanie zapory aplikacji internetowych dla środowiska App Service Environment). W tym artykule wyjaśniono, jak używać urządzenia wirtualnego Barracuda ze środowiskiem ASE. Innym rozwiązaniem jest używanie usługi Azure Application Gateway. Usługa Application Gateway zabezpiecza wszelkie umieszczone za nią aplikacje za pomocą reguł podstawowych OWASP. Aby uzyskać więcej informacji na temat usługi Application Gateway, zobacz [Introduction to the Azure web application firewall][AppGW] (Wprowadzenie do zapory aplikacji internetowych platformy Azure).
 
-## <a name="get-started"></a>Rozpoczynanie pracy ##
+## <a name="get-started"></a>Rozpoczęcie pracy ##
 
-* Aby rozpocząć pracę z ASEs, zobacz [wprowadzenie do środowiska usługi aplikacji][Intro].
+* Aby rozpocząć pracę ze środowiskami ASE, zobacz [Wprowadzenie do środowisk App Service Environment][Intro].
  
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

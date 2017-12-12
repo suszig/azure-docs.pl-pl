@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4427e65930aaeac6335e31dcfe3479baa6fdb6cd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Sposób rozpowszechniania danych globalnie z bazy danych Azure rozwiązania Cosmos
 Azure to powszechny — ma wpływu globalnych w regionach geograficznych 30 + i jest stale rozszerzanie. Z jego obecność na całym świecie jeden zróżnicowanych funkcji, które platforma Azure oferuje deweloperom jego jest możliwość tworzenia, wdrażania i łatwo Zarządzaj aplikacjami globalnie rozproszone. 
@@ -88,7 +88,7 @@ Obecnie funkcji automatycznej i ręcznej pracy awaryjnej są widoczne na poziom 
 ### <a id="MultiHomingAPIs"></a>Wielu interfejsów API w Azure rozwiązania Cosmos bazy danych
 Azure DB rozwiązania Cosmos pozwala korzystać z bazą danych przy użyciu jednej logicznej (niezależny od regionu) lub fizycznych (określonego regionu) punktów końcowych. Użycie logiczne punkty końcowe gwarantuje, czy aplikacja może być przezroczysty wieloadresowego w przypadku trybu failover. Ostatnie fizycznego punktów końcowych, podaj szczegółową kontrolę do aplikacji, aby przekierować odczytuje i zapisuje określonych regionach.
 
-Informacje dotyczące sposobu konfigurowania preferencji odczytu można znaleźć [interfejsu API usługi DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md), [interfejsu API programu Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API tabeli](../cosmos-db/tutorial-global-distribution-table.md), i [API bazy danych MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) w odpowiednich połączone artykułów.
+Informacje dotyczące sposobu konfigurowania preferencji odczytu można znaleźć [interfejsu API SQL](../cosmos-db/tutorial-global-distribution-documentdb.md), [interfejsu API programu Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API tabeli](../cosmos-db/tutorial-global-distribution-table.md), i [API bazy danych MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) w ich odpowiednich połączonych artykułów.
 
 ### <a id="TransparentSchemaMigration"></a>Migracja schematu i indeksu przejrzyste i spójności bazy danych 
 Azure DB rozwiązania Cosmos jest w pełni [niezależny od schematu](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Unikatowa konstrukcja jego aparatu bazy danych pozwala na automatyczne i synchronicznie indeks wszystkich danych, który wysyła strumień go bez żadnego schematu lub indeksów pomocniczych od użytkownika. Dzięki temu można szybko przejść aplikacji rozproszonych globalnie bez obaw o migracji schematu i indeks bazy danych lub koordynowanie wdrożenia aplikacji fazy wielu zmian schematu. Azure DB rozwiązania Cosmos gwarantuje, że wszystkie zmiany do indeksowania jawnie wprowadzonych przez Ciebie zasad nie powoduje do pogorszenia się wydajności i dostępności.  

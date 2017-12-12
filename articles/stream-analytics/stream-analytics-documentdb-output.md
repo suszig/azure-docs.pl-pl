@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Docelowej bazy danych rozwiązania Cosmos Azure dla danych wyjściowych JSON z usługi Stream Analytics
 Analiza strumienia może kierować [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/) dla danych wyjściowych JSON, włączanie archiwizacji i małych opóźnieniach kwerend danych na dane JSON bez struktury. W tym dokumencie opisano najważniejsze wskazówki dotyczące implementowania tej konfiguracji.
@@ -27,7 +27,7 @@ Analiza strumienia może kierować [bazy danych Azure rozwiązania Cosmos](https
 Dla osób, które znają rozwiązania Cosmos DB, Przyjrzyjmy się [ścieżka szkoleniowa dotycząca usługi Azure rozwiązania Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) rozpocząć pracę. 
 
 > [!Note]
-> W tej chwili Azure Stream Analytics obsługuje tylko połączenia za pomocą CosmosDB **DocumentDB (SQL) interfejsu API**.
+> W tej chwili Azure Stream Analytics obsługuje tylko połączenia za pomocą CosmosDB **interfejsu API SQL**.
 > Innych interfejsów API Azure rozwiązania Cosmos bazy danych nie są jeszcze obsługiwane. Jeśli punkt Azure Stream Analytics do kont Azure DB rozwiązania Cosmos tworzone za pomocą innych interfejsów API, dane mogą nie być poprawnie przechowywane. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Podstawy DB rozwiązania Cosmos jako miejsce docelowe danych wyjściowych
@@ -36,7 +36,7 @@ Dane wyjściowe bazy danych Azure rozwiązania Cosmos w Stream Analytics umożli
 Niektóre opcje kolekcji DB rozwiązania Cosmos są szczegółowo opisane poniżej.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Dostosuj spójności, dostępnością i opóźnieniem
-Aby była zgodna z wymaganiami aplikacji z DB rozwiązania Cosmos umożliwia prawidłowo dostrajania bazy danych i kolekcji i wprowadzić kompromis między spójności, dostępności i opóźnień. W zależności od tego, jakiego poziomu spójności odczytu potrzeb scenariusz przed zapisu i odczytu opóźnienia, możesz wybrać poziom spójności na konta bazy danych. Domyślnie DB rozwiązania Cosmos umożliwia również synchroniczne indeksowania na każdej operacji CRUD do kolekcji. To jest inną opcją przydatne do kontrolowania wydajności zapisu/odczytu w bazie danych rozwiązania Cosmos. Aby uzyskać więcej informacji na ten temat, zapoznaj się [Zmień poziomy spójności bazy danych i zapytania](../documentdb/documentdb-consistency-levels.md) artykułu.
+Aby była zgodna z wymaganiami aplikacji z DB rozwiązania Cosmos umożliwia prawidłowo dostrajania bazy danych i kolekcji i wprowadzić kompromis między spójności, dostępności i opóźnień. W zależności od tego, jakiego poziomu spójności odczytu potrzeb scenariusz przed zapisu i odczytu opóźnienia, możesz wybrać poziom spójności na konta bazy danych. Domyślnie DB rozwiązania Cosmos umożliwia również synchroniczne indeksowania na każdej operacji CRUD do kolekcji. To jest inną opcją przydatne do kontrolowania wydajności zapisu/odczytu w bazie danych rozwiązania Cosmos. Aby uzyskać więcej informacji na ten temat, zapoznaj się [Zmień poziomy spójności bazy danych i zapytania](../cosmos-db/consistency-levels.md) artykułu.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts z usługi Stream Analytics
 Stream Analytics integracji z rozwiązania Cosmos DB umożliwia wstawić lub zaktualizować rekord w kolekcji rozwiązania Cosmos bazy danych na podstawie danego kolumny Identyfikator dokumentu. To jest również nazywany *Upsert*.

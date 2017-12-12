@@ -4,7 +4,7 @@ description: "Omówienie pięciu najbardziej typowych scenariuszy uwierzytelnian
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scenariusze uwierzytelniania dla usługi Azure AD
 Azure Active Directory (Azure AD) ułatwia uwierzytelniania dla deweloperów, zapewniając tożsamości jako źródło usługi o obsługę standardowych protokołów, takich jak OAuth 2.0 i OpenID Connect, a także otwarte biblioteki dla różnych platform, które ułatwiają rozpoczęcie kodowania szybko. Ten dokument pomaga zrozumieć różne obsługuje scenariusze usługi Azure AD i opisano, jak rozpocząć pracę. Scenariusz jest podzielony na następujące sekcje:
@@ -78,16 +78,16 @@ Tokenów zabezpieczających wydanych przez usługę Azure AD zawiera oświadczen
 | Grupy |Zawiera grupy identyfikatorów Azure AD obiektów, których użytkownik jest członkiem. |
 | Dostawca tożsamości |Rejestruje dostawcę tożsamości, który uwierzytelniony podmiot tokenu. |
 | Wystawiony w |Rejestruje czas, w którym token został wystawiony, często używany do tokenu świeżości. |
-| Wystawcy |Identyfikuje Usługa tokenu Zabezpieczającego, które są emitowane token, a także dzierżawy usługi Azure AD. |
+| Wystawca |Identyfikuje Usługa tokenu Zabezpieczającego, które są emitowane token, a także dzierżawy usługi Azure AD. |
 | Nazwisko |Udostępnia nazwisko użytkownika zgodnie z ustawieniami w usłudze Azure AD. |
 | Nazwa |Udostępnia człowieka wartość do odczytu, która identyfikuje podmiotu tokenu. |
-| Identyfikator obiektu: |Zawiera niezmienne, unikatowy identyfikator tematu w usłudze Azure AD. |
+| Identyfikator obiektu |Zawiera niezmienne, unikatowy identyfikator tematu w usłudze Azure AD. |
 | Role |Zawiera przyjaznych nazw Azure ról aplikacji AD użytkownikowi zostało udzielone. |
 | Zakres |Wskazuje uprawnienia do aplikacji klienckiej. |
 | Temat |Wskazuje o tym, które token deklaracji rozkazujących informacji podmiotu zabezpieczeń. |
 | Identyfikator dzierżawy |Zawiera niezmienne, unikatowy identyfikator dzierżawy katalogu, który wystawił token. |
 | Okres istnienia tokenu |Określa przedział czasu, w którym token jest prawidłowy. |
-| Główna nazwa użytkownika |Zawiera główną nazwę użytkownika tematu. |
+| Nazwa główna użytkownika |Zawiera główną nazwę użytkownika tematu. |
 | Wersja |Zawiera numer wersji tokenu. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Podstawowe informacje dotyczące rejestrowania aplikacji w usłudze Azure AD

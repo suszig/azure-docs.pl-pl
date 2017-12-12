@@ -3,28 +3,28 @@ title: "Różnice i zagadnienia dotyczące maszyn wirtualnych w stosie Azure | D
 description: "Więcej informacji na temat różnic i zagadnienia dotyczące podczas pracy z maszynami wirtualnymi Azure stosu."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
+author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: sngun
-ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mabrigg
+ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowane przez stos Azure. Korzystając z maszyn wirtualnych, należy zrozumieć, czy istnieją różnice między stosie Azure i funkcje, które są dostępne w systemie Azure. Ten artykuł zawiera omówienie unikatowy zagadnień dotyczących maszyn wirtualnych i jego funkcji w stosie Azure. Aby uzyskać informacje ogólne różnice między stosu Azure i usługi Azure, zobacz [kluczowe zagadnienia dotyczące](azure-stack-considerations.md) tematu.
+Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowane przez stos Azure. Korzystając z maszyn wirtualnych, należy zrozumieć, czy istnieją różnice między stosie Azure i funkcje, które są dostępne w systemie Azure. Ten artykuł zawiera omówienie unikatowy zagadnień dotyczących maszyn wirtualnych i jego funkcji w stosie Azure. Aby uzyskać informacje ogólne różnice między stosu Azure i usługi Azure, zobacz [kluczowe zagadnienia dotyczące](azure-stack-considerations.md) artykułu.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Ściągawka: różnice maszyny wirtualnej
 
@@ -33,7 +33,7 @@ Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowa
 | Obrazy maszyny wirtualnej | W portalu Azure Marketplace zawiera obrazy, których można użyć do utworzenia maszyny wirtualnej. Zobacz [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) strony w celu wyświetlenia listy obrazów, które są dostępne w portalu Azure Marketplace. | Domyślnie nie ma żadnych obrazów dostępne w witrynie marketplace stosu Azure. Administrator chmury Azure stosu należy opublikować lub pobrać obrazów do stosu Azure marketplace, zanim użytkownicy mogą korzystać z nich. |
 | Rozmiary maszyn wirtualnych | Azure obsługuje różnych rozmiarów maszyn wirtualnych. Aby dowiedzieć się więcej na temat dostępne rozmiary i opcji, zapoznaj się [rozmiary maszyn wirtualnych systemu Windows](../../virtual-machines/virtual-machines-windows-sizes.md) i [rozmiarów maszyn wirtualnych systemu Linux](../../virtual-machines/linux/sizes.md) tematów. | Stos Azure obsługuje podzbiór rozmiarów maszyn wirtualnych, które są dostępne w systemie Azure. Aby wyświetlić listę obsługiwanych rozmiarów, zobacz [rozmiarów maszyn wirtualnych](#virtual-machine-sizes) sekcji tego artykułu. |
 | Przydziały maszyny wirtualnej | [Limity przydziału](../../azure-subscription-service-limits.md#service-specific-limits) są ustawiane przez firmę Microsoft | Administrator chmury Azure stosu przypisać przydziały przed oferują maszyn wirtualnych dla użytkowników. |
-| Rozszerzenia maszyn wirtualnych |Azure obsługuje wiele rozszerzeń maszyny wirtualnej. Aby dowiedzieć się więcej o dostępnych rozszerzeń, zapoznaj się [rozszerzenia maszyn wirtualnych i funkcji](../../virtual-machines/windows/extensions-features.md) tematu.| Stos Azure obsługuje podzbiór rozszerzeń, które są dostępne w systemie Azure i rozszerzenia o określonych wersji. Administrator chmury Azure stosu może zdecydować, które rozszerzenia udostępniane na rzecz własnych użytkowników. Aby wyświetlić listę obsługiwanych rozszerzeń, zobacz [rozszerzenia maszyny wirtualnej](#virtual-machine-extensions) sekcji tego artykułu. |
+| Rozszerzenia maszyny wirtualnej |Azure obsługuje wiele rozszerzeń maszyny wirtualnej. Aby dowiedzieć się więcej o dostępnych rozszerzeń, zapoznaj się [rozszerzenia maszyn wirtualnych i funkcji](../../virtual-machines/windows/extensions-features.md) artykułu.| Stos Azure obsługuje podzbiór rozszerzeń, które są dostępne w systemie Azure i rozszerzenia o określonych wersji. Administrator chmury Azure stosu może zdecydować, które rozszerzenia udostępniane na rzecz własnych użytkowników. Aby wyświetlić listę obsługiwanych rozszerzeń, zobacz [rozszerzenia maszyny wirtualnej](#virtual-machine-extensions) sekcji tego artykułu. |
 | Sieć maszyny wirtualnej | Publiczne adresy IP przypisane do dzierżawy maszyny wirtualnej są dostępne za pośrednictwem Internetu.<br><br><br>Maszyny wirtualne platformy Azure ma stały nazwy DNS | Publiczne adresy IP przypisane do maszyny wirtualnej dzierżawcy są dostępne tylko w środowisku Azure stosu Development Kit. Użytkownik musi mieć dostęp do zestaw deweloperski stosu Azure za pośrednictwem [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) lub [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) nawiązać połączenia z maszyny wirtualnej, która jest tworzona w stosie Azure.<br><br>Maszyny wirtualne utworzone w ramach określonego wystąpienia stosu Azure mają nazw DNS na podstawie wartości, który został skonfigurowany przez administratora chmury. |
 | Magazyn maszyny wirtualnej | Obsługuje [dyskach zarządzanych.](../../virtual-machines/windows/managed-disks-overview.md) | Dyski zarządzane nie są jeszcze obsługiwane w stosie Azure. |
 | Wersje interfejsu API | Platforma Azure ma zawsze najnowsze wersje interfejsu API dla wszystkich funkcji maszyny wirtualnej. | Stos Azure obsługuje określonych usług platformy Azure i określonych wersji interfejsu API dla tych usług. Aby wyświetlić listę obsługiwanych wersji interfejsu API, zobacz [wersji interfejsu API](#api-versions) sekcji tego artykułu. |
@@ -57,7 +57,7 @@ Zestaw deweloperski stosu Azure obsługuje następujące wymiary:
 
 Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na platformie Azure. Na przykład w tym ilość pamięci, liczby rdzeni i numer/rozmiaru dysków z danymi, które mogą zostać utworzone. Jednak wydajność ten sam rozmiar maszyny Wirtualnej Azure stosu zależy od podstawowej właściwości określonym środowisku Azure stosu.
 
-## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyn wirtualnych 
+## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyny wirtualnej 
 
  Zestaw deweloperski stosu Azure obsługuje następujące wersje rozszerzenia maszyny wirtualnej:
 

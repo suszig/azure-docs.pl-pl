@@ -4,7 +4,7 @@ description: "Zrozumienia i rozwiązania błędów niedopasowanych directory dla
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Rozwiązywanie błędów niedopasowanych directory dla istniejących domen zarządzanych usług domenowych Azure AD
-Masz istniejące domeny zarządzanej, która była włączona przy użyciu klasycznego portalu Azure. Gdy przejdź do nowego portalu Azure i wyświetlić domeny zarządzanej, zobaczysz komunikat o błędzie:
+Masz istniejące domeny zarządzanej usług domenowych Azure AD. Gdy przejdź do portalu Azure i wyświetlić domeny zarządzanej, zobaczysz komunikat o błędzie:
 
 ![Błąd niedopasowanych katalogu](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Ten błąd występuje, gdy domeny zarządzanej i jest włączona w sieci wirtual
 
 Nowego portalu Azure (i w szczególności rozszerzenia usług domenowych Azure AD) jest oparty na usłudze Azure Resource Manager. Nowoczesne środowisko usługi Azure Resource Manager wymusza pewne ograniczenia do dostarczania większe bezpieczeństwo i dla dostępu na podstawie ról (RBAC) należy kontrolować do zasobów. Włączanie usług domenowych Azure AD dla dzierżawy usługi Azure AD jest poufnych operacji, ponieważ powoduje skrótów poświadczeń do synchronizacji z domeny zarządzanej. Ta operacja wymaga, aby użytkownik był administratorem dzierżawy dla katalogu. Ponadto musi mieć uprawnienia administracyjne za pośrednictwem sieci wirtualnej, w którym można włączyć domeny zarządzanej. Kontroli RBAC działać spójnie domeny zarządzanej i siecią wirtualną powinny należeć do tej samej dzierżawy usługi Azure AD.
 
-Innymi słowy nie można włączyć domeny zarządzanej dla dzierżawy usługi Azure AD "contoso.com" w sieci wirtualnej należących do subskrypcji platformy Azure należących do innej dzierżawy usługi Azure AD "fabrikam.com". Klasyczny portal Azure nie jest oparty na platformie Resource Manager i nie wymusza tych ograniczeń.
+Innymi słowy nie można włączyć domeny zarządzanej dla dzierżawy usługi Azure AD "contoso.com" w sieci wirtualnej należących do subskrypcji platformy Azure należących do innej dzierżawy usługi Azure AD "fabrikam.com". 
 
 **Nieprawidłowa konfiguracja**: W tym scenariuszu wdrażania domeny zarządzanej Contoso jest włączona dla dzierżawy usługi Azure AD w firmie Contoso. Domeny zarządzanej jest widoczna w sieci wirtualnej należących do subskrypcji platformy Azure należących do dzierżawy usługi Azure AD w firmie Contoso. W związku z tym zarówno domeny zarządzanej, jak i sieć wirtualna należy do tej samej dzierżawy usługi Azure AD. Ta konfiguracja jest nieprawidłowy i w pełni obsługiwane.
 

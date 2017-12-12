@@ -1,5 +1,5 @@
 ---
-title: "Metryki kwerendy SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB | Dokumentacja firmy Microsoft"
+title: "Metryki kwerendy SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych SQL | Dokumentacja firmy Microsoft"
 description: "Więcej informacji na temat sposobu Instrumentacja i debugowania wydajność kwerend SQL żądań bazy danych Azure rozwiązania Cosmos."
 keywords: "Składnia SQL, zapytanie sql, zapytania sql, język zapytań json, koncepcje bazy danych i zapytania sql, funkcje agregujące"
 services: cosmos-db
@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2cb6319356a536aebc1db3122cf80b8736d1fd4f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Dostrajanie wydajności kwerend z bazy danych Azure rozwiązania Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Udostępnia bazę danych systemu Azure rozwiązania Cosmos [interfejsu API SQL na potrzeby zapytań o dane](documentdb-sql-query.md), bez konieczności schematu lub indeksów pomocniczych. Ten artykuł zawiera następujące informacje dla deweloperów:
 
 * Ogólne szczegóły dotyczące sposobu działania wykonanie kwerendy SQL Azure rozwiązania Cosmos DB
@@ -31,7 +34,7 @@ Udostępnia bazę danych systemu Azure rozwiązania Cosmos [interfejsu API SQL n
 
 ## <a name="about-sql-query-execution"></a>Wykonanie kwerendy SQL — informacje
 
-W usłudze Azure DB rozwiązania Cosmos, przechowywanie danych w kontenerach, które może zwiększyć się do dowolnego [rozmiaru lub żądania przepływności](partition-data.md). Azure DB rozwiązania Cosmos bezproblemowo skaluje danych przez fizyczne partycji w obszarze obejmuje do obsługi przyrostu danych lub zwiększyć przepływność. Możesz wykonywać zapytania SQL do dowolnego kontenera za pomocą interfejsu API REST lub jednym z obsługiwanych [zestawów SDK usługi DocumentDB](documentdb-sdk-dotnet.md).
+W usłudze Azure DB rozwiązania Cosmos, przechowywanie danych w kontenerach, które może zwiększyć się do dowolnego [rozmiaru lub żądania przepływności](partition-data.md). Azure DB rozwiązania Cosmos bezproblemowo skaluje danych przez fizyczne partycji w obszarze obejmuje do obsługi przyrostu danych lub zwiększyć przepływność. Możesz wykonywać zapytania SQL do dowolnego kontenera za pomocą interfejsu API REST lub jednym z obsługiwanych [zestawów SDK SQL](documentdb-sdk-dotnet.md).
 
 Krótki przegląd partycjonowania: Definiowanie klucza partycji, takich jak "Miasto", który określa sposób danych jest podzielić na partycje fizycznych. Danych należących do klucza jedną partycję (na przykład "Miasto" == "Seattle") są przechowywane w partycji fizycznej, ale zwykle jednej partycji fizycznej ma wiele kluczy partycji. Gdy partycji osiągnie rozmiar magazynu, usługa bezproblemowo dzieli partycji na dwóch nowych partycji i dzieli klucza partycji równomiernie między tych partycji. Ponieważ partycje są przejściowe, interfejsy API Użyj abstrakcję "zakresem kluczy partycji", oznaczająca zakresy skrótów klucza partycji. 
 
@@ -50,7 +53,7 @@ Zestawy SDK zapewniają różne opcje w celu wykonywania zapytań. Na przykład 
 | `EnableScanInQuery` | Musi mieć ustawioną wartość true, jeśli użytkownik zgodził się poza indeksowania, ale chcesz uruchomić zapytanie za pomocą skanowania, mimo to. Tylko dotyczy indeksowania ścieżki żądany filtr jest wyłączona. | 
 | `MaxItemCount` | Maksymalna liczba elementów, aby powrócić na obiegu do serwera. Przez ustawienie wartości -1, możesz pozwolić, aby serwer zarządzania liczbę elementów. Alternatywnie można zmniejszyć tę wartość, aby pobrać tylko niewielka liczba elementów na obiegu. 
 | `MaxBufferedItemCount` | Jest to opcja po stronie klienta i pozwala ograniczyć zużycie pamięci podczas wykonywania różnych partycji ORDER BY. Wyższa wartość pomaga zmniejszyć opóźnienia między partycji sortowania. |
-| `MaxDegreeOfParallelism` | Pobiera lub ustawia liczbę jednoczesnych operacji podczas równoległego wykonywania zapytań w bazie danych usługi Azure DocumentDB uruchomić po stronie klienta. Wartość właściwości dodatnią ogranicza liczbę jednoczesnych operacji z wartością zestawu. Jeśli jest ustawiona na wartość mniejszą niż 0, system automatycznie decyduje, liczba jednoczesnych operacji do uruchomienia. |
+| `MaxDegreeOfParallelism` | Pobiera lub ustawia liczbę jednoczesnych operacji podczas równoległego wykonywania zapytań w usłudze Azure DB rozwiązania Cosmos bazy danych należy uruchomić po stronie klienta. Wartość właściwości dodatnią ogranicza liczbę jednoczesnych operacji z wartością zestawu. Jeśli jest ustawiona na wartość mniejszą niż 0, system automatycznie decyduje, liczba jednoczesnych operacji do uruchomienia. |
 | `PopulateQueryMetrics` | Czas ładowania umożliwia szczegółowe rejestrowanie statystyk czasu trwania fazy wykonywania zapytania, takie jak czas kompilacji, czas pętli indeksu i dokumentu. Dane wyjściowe z statystyki zapytania można udostępniać z pomocą techniczną platformy Azure do diagnozowania problemów z wydajnością zapytania. |
 | `RequestContinuation` | Wykonanie kwerendy można wznowić przez przekazywanie token kontynuacji nieprzezroczyste zwracany przez każde zapytanie. Token kontynuacji hermetyzuje stan wszystkich wymaganych do wykonywania zapytań. |
 | `ResponseContinuationTokenLimitInKb` | Można ograniczyć maksymalny rozmiar token kontynuacji zwrócony przez serwer. Może być konieczne ustawienie, jeśli dostęp do aplikacji hosta ma limity rozmiaru nagłówka odpowiedzi. To ustawienie może zwiększyć ogólną czas trwania i RUs używane dla zapytania.  |
@@ -137,7 +140,7 @@ Następujące nagłówki odpowiedzi klucza zwróconych przez kwerendę:
 | `x-ms-documentdb-query-metrics` | Statystyka wykonywania zapytania. Jest to ciąg rozdzielany zawierający statystyk czasu poświęconego na różnych etapach wykonywania zapytania. Jeśli zwrócony `x-ms-documentdb-populatequerymetrics` ma ustawioną wartość `True`. | 
 | `x-ms-request-charge` | Liczba [jednostek żądania](request-units.md) używane przez zapytanie. | 
 
-Aby uzyskać więcej informacji o opcjach i nagłówki żądania interfejsu API REST, zobacz [zapytań zasobów przy użyciu interfejsu API REST usługi DocumentDB](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Aby uzyskać więcej informacji o opcjach i nagłówki żądania interfejsu API REST, zobacz [zapytań zasobów przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Najlepsze rozwiązania dotyczące wydajności zapytań
 Poniżej przedstawiono najbardziej typowych czynników, które mają wpływ na wydajność kwerend bazy danych Azure rozwiązania Cosmos. Firma Microsoft głębiej do szczegółów każdego z tych tematów w tym artykule.
@@ -174,7 +177,7 @@ Aby dowiedzieć się więcej na temat partycjonowania i kluczy partycji, zobacz 
 Zobacz [porady dotyczące wydajności](performance-tips.md) i [testowania wydajności](performance-testing.md) instrukcje uzyskać najlepszą wydajność klienta z bazy danych Azure rozwiązania Cosmos. W tym przy użyciu najnowszych zestawów SDK, konfigurowanie konfiguracje specyficzne dla platformy, takich jak domyślną liczbę połączeń, częstotliwość operacji wyrzucania elementów bezużytecznych i opcji łączności lekkie, takich jak bezpośrednio/TCP. 
 
 
-#### <a name="max-item-count"></a>Liczba maksymalna liczba elementów.
+#### <a name="max-item-count"></a>Maksymalna liczba elementów
 Dla zapytań, wartość `MaxItemCount` może mieć znaczący wpływ na czas kwerendy end-to-end. Zwraca większa niż liczba elementów w każdej obiegu do serwera `MaxItemCount` (domyślnie: 100 elementów). To ustawienie wyższej wartości (wartość -1 jest maksymalną i zalecane) poprawia ogólną czasu trwania kwerendy poprzez ograniczenie liczby rund między serwerem a klientem, szczególnie w przypadku zapytań dotyczących dużych zestawów wyników.
 
 ```cs
@@ -212,7 +215,7 @@ Poniżej przedstawiono efekty zapytania równoległe spowoduje zachowanie dla r�
 * (P > 1) = > zadań równoległych Min (P, N) 
 * (P < 1) = > zadań równoległych Min (N, D)
 
-Informacje o wersji zestawu SDK i Zobacz szczegóły dotyczące zaimplementowanych klasy i metody [zestawów SDK usługi DocumentDB](documentdb-sdk-dotnet.md)
+Informacje o wersji zestawu SDK i Zobacz szczegóły dotyczące zaimplementowanych klasy i metody [zestawów SDK SQL](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Opóźnienie sieci
 Zobacz [dystrybucji globalnej bazy danych Azure rozwiązania Cosmos](tutorial-global-distribution-documentdb.md) jak skonfigurować globalne dystrybucji i połącz się najbliżej regionu. Opóźnienie sieci ma znaczący wpływ na wydajność zapytań, gdy trzeba utworzyć wiele rund lub pobrać dużych zestawu wyników z kwerendy. 
@@ -253,9 +256,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisekundy | Czas ładowania dokumentów  | 
 | `systemFunctionExecuteTimeInMs` | milisekundy | Łączny czas podczas wykonywania funkcji (wbudowane) systemu w milisekundach  | 
 | `userFunctionExecuteTimeInMs` | milisekundy | Łączny czas podczas wykonywania funkcji zdefiniowanej przez użytkownika (w milisekundach) | 
-| `retrievedDocumentCount` | Liczba | Całkowita liczba pobranych dokumentów  | 
-| `retrievedDocumentSize` | Bajty | Całkowity rozmiar pobrane dokumentów w bajtach  | 
-| `outputDocumentCount` | Liczba | Liczba dokumentów, dane wyjściowe | 
+| `retrievedDocumentCount` | liczba | Całkowita liczba pobranych dokumentów  | 
+| `retrievedDocumentSize` | B | Całkowity rozmiar pobrane dokumentów w bajtach  | 
+| `outputDocumentCount` | liczba | Liczba dokumentów, dane wyjściowe | 
 | `writeOutputTimeInMs` | milisekundy | Czas wykonywania kwerendy w milisekundach | 
 | `indexUtilizationRatio` | stosunek (< = 1) | Załadowano stosunek liczby dokumentów, które są dopasowane wg filtr, aby liczba dokumentów  | 
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Uaktualnianie aplikacji usługi Service Fabric
-Aplikacja Azure Service Fabric jest kolekcja usług. Podczas uaktualniania usługi sieć szkieletowa porównuje nowe [manifest aplikacji](service-fabric-application-model.md#describe-an-application) z poprzedniej wersji i określa usług w aplikacji wymagają aktualizacji. Sieć szkieletowa usług porównuje wersji numery w usłudze manifesty numery wersji w poprzedniej wersji. Jeśli usługa nie została zmieniona, czy usługa nie jest uaktualniony.
+Aplikacja Azure Service Fabric jest kolekcja usług. Podczas uaktualniania usługi sieć szkieletowa porównuje nowe [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzedniej wersji i określa usług w aplikacji wymagają aktualizacji. Sieć szkieletowa usług porównuje wersji numery w usłudze manifesty numery wersji w poprzedniej wersji. Jeśli usługa nie została zmieniona, czy usługa nie jest uaktualniony.
 
 ## <a name="rolling-upgrades-overview"></a>Omówienie uaktualnienia stopniowego
 W uaktualnienia stopniowego aplikacji uaktualnienia jest wykonywane w etapach. Na każdym etapie uaktualnienie ma zostać zastosowane do podzbioru węzłów w klastrze o nazwie domeny aktualizacji. W związku z tym aplikacja pozostaje dostępne w całej uaktualnienia. Podczas uaktualniania klastra może zawierać mieszanie starej i nowej wersji.
@@ -47,14 +47,14 @@ Tryb, w którym firma Microsoft zaleca się uaktualnienie aplikacji jest monitor
 Niemonitorowane ręczny tryb wymaga ręcznej interwencji po każdym uaktualnieniu domeny aktualizacji, aby rozpocząć poza uaktualniania do następnej domeny aktualizacji. Nie sieci szkieletowej usług kondycji są sprawdzane. Administrator przeprowadza kontrole kondycji lub stanu przed rozpoczęciem uaktualniania w następnej domeny aktualizacji.
 
 ## <a name="upgrade-default-services"></a>Uaktualnij usługi domyślne
-Podczas procesu uaktualniania aplikacji można uaktualnić usługi domyślnej aplikacji sieci szkieletowej usług. Domyślne usługi są zdefiniowane w [manifest aplikacji](service-fabric-application-model.md#describe-an-application). Standardowe reguły uaktualniania usług domyślnych są następujące:
+Podczas procesu uaktualniania aplikacji można uaktualnić usługi domyślnej aplikacji sieci szkieletowej usług. Domyślne usługi są zdefiniowane w [manifest aplikacji](service-fabric-application-and-service-manifests.md). Standardowe reguły uaktualniania usług domyślnych są następujące:
 
-1. Domyślne usługi w nowym [manifest aplikacji](service-fabric-application-model.md#describe-an-application) który nie istnieje w klastrze są tworzone.
+1. Domyślne usługi w nowym [manifest aplikacji](service-fabric-application-and-service-manifests.md) który nie istnieje w klastrze są tworzone.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musi być ustawiona na true, aby włączyć następujące reguły. Ta funkcja jest obsługiwana w wersji 5.5.
 
-2. Domyślne usługi istniejących w obu poprzednich [manifest aplikacji](service-fabric-application-model.md#describe-an-application) i nowej wersji zostały zaktualizowane. Opisy usług w nowej wersji zastąpiłaby już w klastrze. Uaktualnianie aplikacji czy wycofywania automatycznie po aktualizacji awaria usługi domyślne.
-3. Domyślne usługi w poprzedniej [manifest aplikacji](service-fabric-application-model.md#describe-an-application) , ale nie w nowej wersji są usuwane. **Należy zwrócić uwagę, to usunięcie usług domyślnych nie można przywrócić.**
+2. Domyślne usługi istniejących w obu poprzednich [manifest aplikacji](service-fabric-application-and-service-manifests.md) i nowej wersji zostały zaktualizowane. Opisy usług w nowej wersji zastąpiłaby już w klastrze. Uaktualnianie aplikacji czy wycofywania automatycznie po aktualizacji awaria usługi domyślne.
+3. Domyślne usługi w poprzedniej [manifest aplikacji](service-fabric-application-and-service-manifests.md) , ale nie w nowej wersji są usuwane. **Należy zwrócić uwagę, to usunięcie usług domyślnych nie można przywrócić.**
 
 W przypadku uaktualniania zostanie wycofana, domyślne, które usługi są przywracane do stanu przed rozpoczęciem uaktualniania. Ale usługami usunięto nigdy nie mogą być tworzone.
 

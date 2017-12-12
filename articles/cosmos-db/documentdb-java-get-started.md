@@ -1,6 +1,6 @@
 ---
-title: "Samouczek NoSQL: usługi DocumentDB interfejsu API Azure rozwiązania Cosmos DB Java SDK | Dokumentacja firmy Microsoft"
-description: "Samouczek NoSQL, który powoduje utworzenie bazy danych w trybie online i aplikację konsoli języka Java przy użyciu interfejsu API usługi DocumentDB dla bazy danych Azure rozwiązania Cosmos. Usługa Azure DocumentDB jest bazą danych NoSQL dla formatu JSON."
+title: "Samouczek NoSQL: interfejsu API SQL dla usługi Azure rozwiązania Cosmos DB Java SDK | Dokumentacja firmy Microsoft"
+description: "Samouczek NoSQL, który powoduje utworzenie bazy danych w trybie online i aplikacji konsoli w języku Java za pomocą interfejsu API SQL dla bazy danych Azure rozwiązania Cosmos. Azure SQL jest bazą danych NoSQL dla formatu JSON."
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>Samouczek NoSQL: tworzenie aplikacji konsoli Java interfejsu API usługi DocumentDB
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Samouczek NoSQL: tworzenie aplikacji konsoli Java interfejsu API SQL
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Witamy w samouczku NoSQL dla interfejsu API usługi DocumentDB Azure rozwiązania Cosmos DB Java SDK! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi Azure Cosmos DB i wykonuje dla nich zapytania.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Samouczek NoSQL dla interfejsu API SQL dla Zapraszamy Azure rozwiązania Cosmos DB Java SDK! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi Azure Cosmos DB i wykonuje dla nich zapytania.
 
 Zostaną opisane:
 
@@ -73,7 +75,7 @@ Możesz rozpocząć od sklonowania repozytorium GitHub na potrzeby pracy z temat
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Katalog zawiera `pom.xml` dla projektu i `src` folder zawierający kod źródłowy Java w tym `Program.java` które pokazuje sposób wykonywaniem prostych operacji dotyczących bazy danych rozwiązania Cosmos platformy Azure, takich jak tworzenie dokumentów i wykonywanie zapytania na danych w ramach kolekcji . Plik `pom.xml` zawiera zależność dla [zestawu Java SDK bazy danych DocumentDB w Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+Katalog zawiera `pom.xml` dla projektu i `src` folder zawierający kod źródłowy Java w tym `Program.java` które pokazuje sposób wykonywaniem prostych operacji dotyczących bazy danych rozwiązania Cosmos platformy Azure, takich jak tworzenie dokumentów i wykonywanie zapytania na danych w ramach kolekcji . `pom.xml` Zawiera zależności na [Azure rozwiązania Cosmos DB Java SDK na Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Gratulacje! Pomyślnie ukończono ten samouczek NoSQL i utworzono działającą 
 * Czy chcesz samouczek aplikacji sieci Web w języku Java? Zobacz [Build a web application with Java using Azure Cosmos DB](documentdb-java-application.md) (Tworzenie aplikacji internetowej w języku Java przy użyciu usługi Azure Cosmos DB).
 * Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
-* Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

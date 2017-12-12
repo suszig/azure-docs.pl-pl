@@ -1,5 +1,5 @@
 ---
-title: "Zapytania SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB | Dokumentacja firmy Microsoft"
+title: "Zapytania SQL dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
 description: "Dowiedz się więcej o składni SQL, pojęcia bazy danych i zapytania SQL dla bazy danych Azure rozwiązania Cosmos. SQL może być używany jako język kwerendy JSON w usłudze Azure DB rozwiązania Cosmos."
 keywords: "Składnia SQL, zapytanie sql, zapytania sql, język zapytań json, koncepcje bazy danych i zapytania sql, funkcje agregujące"
 services: cosmos-db
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f620e7eac0bd0c9d3e5047b52bcc149aa11c5644
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Zapytania SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB
-Bazy danych programu Microsoft Azure rozwiązania Cosmos obsługuje tworzenie zapytań dla dokumentów przy użyciu programu SQL (Structured Query Language) jako język zapytań JSON. Rozwiązania cosmos bazy danych jest naprawdę bez schematu. Ze względu na jego zobowiązania do modelu danych JSON bezpośrednio wewnątrz aparatu bazy danych zapewnia automatycznego indeksowania dokumentów JSON bez konieczności jawnego schematu lub tworzenia indeksów pomocniczych. 
+# <a name="sql-queries-for-azure-cosmos-db"></a>Zapytania SQL dla bazy danych Azure rozwiązania Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bazy danych programu Microsoft Azure rozwiązania Cosmos obsługuje tworzenie zapytań dla dokumentów przy użyciu programu SQL (Structured Query Language) jako język kwerendy JSON na kontach interfejsu API SQL. Azure DB rozwiązania Cosmos jest rzeczywiście bez schematu. Ze względu na jego zobowiązania do modelu danych JSON bezpośrednio wewnątrz aparatu bazy danych zapewnia automatycznego indeksowania dokumentów JSON bez konieczności jawnego schematu lub tworzenia indeksów pomocniczych.
 
 Podczas projektowania rozwiązania Cosmos DB język zapytań, było dwóch celów pamiętać:
 
 * Zamiast inventing nowy język zapytań JSON, możemy obsługuje język SQL. SQL jest jednym z znanych i najbardziej popularnych języków zapytania. Rozwiązania cosmos bazy danych SQL zapewnia model programowania posiadanie zaawansowane zapytania przez dokumentów JSON.
-* Jako dokument bazy danych JSON może zostać uruchomiona JavaScript bezpośrednio w aparacie bazy danych trzeba użyć modelu programowania języka JavaScript jako podstawa dla naszych języka zapytań. SQL interfejsu API usługi DocumentDB jest umieszczone w systemie typów języka JavaScript, wyrażenia i wywołania funkcji. To w Włącz zapewnia fizyczną model programowania dla projekcje relacyjnych, hierarchicznych nawigacji między dokumentów JSON, self sprzężenia zapytania przestrzenne i wywołania funkcji zdefiniowanej przez użytkownika (UDF) zapisywane w całości w języku JavaScript, między innymi funkcjami. 
+* Jako dokument bazy danych JSON może zostać uruchomiona JavaScript bezpośrednio w aparacie bazy danych trzeba użyć modelu programowania języka JavaScript jako podstawa dla naszych języka zapytań. Interfejsu API SQL jest umieszczone w systemie typów języka JavaScript, wyrażenia i wywołania funkcji. To w Włącz zapewnia fizyczną model programowania dla projekcje relacyjnych, hierarchicznych nawigacji między dokumentów JSON, self sprzężenia zapytania przestrzenne i wywołania funkcji zdefiniowanej przez użytkownika (UDF) zapisywane w całości w języku JavaScript, między innymi funkcjami. 
 
 Mamy nadzieję, że te możliwości są kluczem do zmniejszenia tarcia pomiędzy aplikacją i bazy danych i decydują o produktywność deweloperów.
 
@@ -99,7 +102,7 @@ W tym miejscu jest drugi dokument o jedną niewielka różnica — `givenName` i
 }
 ```
 
-Teraz spróbujmy kilka zapytań dotyczących tych danych, aby poznać niektóre z kluczowych aspektów SQL interfejsu API usługi DocumentDB. Na przykład następujące zapytanie zwraca dokumentów, jeśli w polu identyfikatora odpowiada `AndersenFamily`. Ponieważ jest ono `SELECT *`, wyniki kwerendy jest cały dokument JSON:
+Teraz spróbujmy kilka zapytań dotyczących tych danych, aby poznać niektóre z kluczowych aspektów język zapytań SQL Azure rozwiązania Cosmos DB. Na przykład następujące zapytanie zwraca dokumentów, jeśli w polu identyfikatora odpowiada `AndersenFamily`. Ponieważ jest ono `SELECT *`, wyniki kwerendy jest cały dokument JSON:
 
 **Zapytanie**
 
@@ -166,13 +169,13 @@ Dalej zapytania zwraca wszystkie nazwy podanej dzieci w rodzinie odpowiada o ide
 
 Chcemy zwrócić uwagę na kilka aspektów warte wymienienia DB rozwiązania Cosmos język zapytania za pomocą którego możemy wykonanej do tej pory przedstawiono przykłady:  
 
-* Ponieważ usługa DocumentDB interfejsu API SQL działa na wartości JSON, dotyczy drzewa w kształcie jednostek zamiast wierszy i kolumn. W związku z tym języka umożliwia tak samo, jak można znaleźć węzły drzewa w dowolnej dowolnego głębokości `Node1.Node2.Node3…..Nodem`, podobny do relacyjnej bazy danych SQL odwołujących się do odwołania dwie części `<table>.<column>`.   
+* Ponieważ interfejsu API SQL działa na wartości JSON, dotyczy drzewa w kształcie jednostek zamiast wierszy i kolumn. W związku z tym języka umożliwia tak samo, jak można znaleźć węzły drzewa w dowolnej dowolnego głębokości `Node1.Node2.Node3…..Nodem`, podobny do relacyjnej bazy danych SQL odwołujących się do odwołania dwie części `<table>.<column>`.   
 * Język structured query language współpracuje z danych bez schematu. W związku z tym system typów należy powiązać dynamicznie. To samo wyrażenie można użyć instrukcji yield różnych typów w różnych dokumentach. Wynik kwerendy jest prawidłową wartością JSON, ale nie musi być typu stałego schematu.  
 * Rozwiązania cosmos bazy danych obsługuje tylko ścisłe dokumentów JSON. Oznacza to, że system typów i wyrażenia są ograniczone do radzenia tylko z typami JSON. Zapoznaj się [specyfikacji JSON](http://www.json.org/) więcej szczegółów.  
 * Kolekcja DB rozwiązania Cosmos jest kontenerem dokumentów JSON bez schematu. Relacji w danych jednostki w obrębie dokumentów w kolekcji oraz niejawnie są przechwytywane przez zamknięcia, a nie przez klucz podstawowy i relacje klucza obcego. To jest istotnym elementem warto wskazujące świetle sprzężenia wewnątrz dokumentu omówiony w dalszej części tego artykułu.
 
 ## <a id="Indexing"></a>Indeksowanie rozwiązania cosmos bazy danych
-Przed uzyskujemy do składni SQL usługi DocumentDB interfejsu API, warto eksploracji indeksowania projektu do rozwiązania Cosmos bazy danych. 
+Przed uzyskujemy do składni SQL, warto eksploracji indeksowania projektu w usłudze Azure DB rozwiązania Cosmos. 
 
 Indeksy bazy danych służy do obsługi zapytań w różnych formularzach i kształtów zużycie zasobów minimalną (na przykład procesora CPU i operacjami wejścia/wyjścia) zapewniają dobrą wydajność i małe opóźnienia. Często wybór indeks prawo do wykonywania zapytań w bazie danych wymaga dużo planowania i eksperymenty. Takie podejście stanowi wyzwanie dla baz danych bez schematu, gdzie dane nie są zgodne z ograniczeniami schematu i rozwoju szybko. 
 
@@ -280,7 +283,7 @@ Następujące zapytanie żądań dokumentów, które zawierają właściwość n
     }]
 
 
-W poprzednim przykładzie pokazano zapytania prostego równości. SQL interfejsu API usługi DocumentDB obsługuje również wiele wyrażeń skalarnych. Wyrażenia binarne i jednoargumentowy są najczęściej używane. Odwołań do właściwości z obiektu JSON źródła są również prawidłowe wyrażenia. 
+W poprzednim przykładzie pokazano zapytania prostego równości. Interfejsu API SQL obsługuje również wiele wyrażeń skalarnych. Wyrażenia binarne i jednoargumentowy są najczęściej używane. Odwołań do właściwości z obiektu JSON źródła są również prawidłowe wyrażenia. 
 
 Następujące operatory binarne są obecnie obsługiwane i mogą być używane w zapytaniach, jak pokazano w poniższych przykładach:  
 
@@ -338,7 +341,7 @@ Operatory jednoargumentowe +,-, ~ nie są również obsługiwane i może być u�
 Oprócz operatorów binarnych i jednoargumentowe dozwolone są też odwołań do właściwości. Na przykład `SELECT * FROM Families f WHERE f.isRegistered` zwraca dokument JSON zawierający właściwości `isRegistered` gdy wartość właściwości jest równa JSON `true` wartość. Inne wartości (wartość false, wartość null, niezdefiniowane, `<number>`, `<string>`, `<object>`, `<array>`, itd.) prowadzi do dokumentu źródłowego są wykluczone z wyników. 
 
 ### <a name="equality-and-comparison-operators"></a>Operatory równości i porównania
-W poniższej tabeli przedstawiono wynik porównania równości w usłudze DocumentDB interfejsu API SQL między żadnych dwa typy JSON.
+W poniższej tabeli przedstawiono wynik porównania równości w interfejsie API SQL między żadnych dwa typy JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -373,136 +376,136 @@ W poniższej tabeli przedstawiono wynik porównania równości w usłudze Docume
             <strong>Niezdefiniowana<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Wartość null<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Wartość logiczna<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Numer<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Ciąg<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Obiekt<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Tablica<strong>
          </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
-Niezdefiniowana </td>
+Nie zdefiniowano </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
@@ -533,28 +536,28 @@ W odróżnieniu od w ANSI SQL umożliwia także klauzuli BETWEEN w klauzuli FROM
 
 Dla krótszego czasu wykonywania zapytania Pamiętaj, aby utworzyć zasady indeksowania, które korzysta z typu indeksu zakresu względem dowolnego liczbowego właściwości/ścieżek, które są filtrowane w klauzuli BETWEEN. 
 
-Główną różnicą między przy użyciu BETWEEN interfejsu API usługi DocumentDB i ANSI SQL jest czy można wyrazić zakresu zapytań dotyczących właściwości mieszane typy — na przykład może być "klasy" być liczbą (5) w niektórych dokumentów i ciągi w innych ("grade4"). W takich przypadkach takich jak w języku JavaScript, porównanie dwóch różnych typów wyników w "undefined" i dokument zostanie pominięte.
+Główną różnicą między przy użyciu BETWEEN interfejsu API SQL i ANSI SQL jest czy można wyrazić zakresu zapytań dotyczących właściwości mieszane typy — na przykład może być "klasy" być liczbą (5) w niektórych dokumentów i ciągi w innych ("grade4"). W takich przypadkach takich jak w języku JavaScript, porównanie dwóch różnych typów wyników w "undefined" i dokument zostanie pominięte.
 
 ### <a name="logical-and-or-and-not-operators"></a>Logiczne (AND, OR i NOT) operatory
 Operatory logiczne działają na wartości logiczne. W poniższych tabelach przedstawiono tabel logicznych prawdy dla tych operatorów.
 
-| LUB | True | False | Niezdefiniowana |
+| LUB | True | False | Nie zdefiniowano |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Niezdefiniowana |
-| Niezdefiniowana |True |Niezdefiniowana |Niezdefiniowana |
+| False |True |False |Nie zdefiniowano |
+| Nie zdefiniowano |True |Nie zdefiniowano |Nie zdefiniowano |
 
-| I | True | False | Niezdefiniowana |
+| I | True | False | Nie zdefiniowano |
 | --- | --- | --- | --- |
-| True |True |False |Niezdefiniowana |
+| True |True |False |Nie zdefiniowano |
 | False |False |False |False |
-| Niezdefiniowana |Niezdefiniowana |False |Niezdefiniowana |
+| Nie zdefiniowano |Nie zdefiniowano |False |Nie zdefiniowano |
 
 | NIE |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Niezdefiniowana |Niezdefiniowana |
+| Nie zdefiniowano |Nie zdefiniowano |
 
 ### <a name="in-keyword"></a>IN — słowo kluczowe
 IN — słowo kluczowe może służyć do sprawdzenia, czy określona wartość odpowiada wartości na liście. Na przykład ta kwerenda zwraca wszystkie dokumenty rodziny których identyfikator jest "WakefieldFamily" lub "AndersenFamily". 
@@ -750,7 +753,7 @@ W poniższym przykładzie wynik wyrażenia skalarne jest wartością logiczną.
 
 
 ### <a name="object-and-array-creation"></a>Tworzenie obiektu i tablicy
-Inna funkcja klucza SQL interfejsu API usługi DocumentDB jest tworzenie tablicy i obiektów. W poprzednim przykładzie należy pamiętać, że utworzono nowy obiekt JSON. Analogicznie jeden również utworzyć tablic jak pokazano w poniższych przykładach:
+Inna funkcja klucza interfejsu API SQL jest tworzenie tablicy i obiektów. W poprzednim przykładzie należy pamiętać, że utworzono nowy obiekt JSON. Analogicznie jeden również utworzyć tablic jak pokazano w poniższych przykładach:
 
 **Zapytanie**
 
@@ -921,14 +924,14 @@ Można również wykonywać wartości zagregowanych w połączeniu z filtrami. N
 
     [ 1 ]
 
-W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w interfejsie API usługi DocumentDB. `SUM`i `AVG` są wykonywane za pośrednictwem wartości liczbowe, podczas gdy `COUNT`, `MIN`, i `MAX` mogą być wykonywane za pośrednictwem liczb i ciągów, wartości logiczne oraz wartości null. 
+W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w interfejsie API SQL. `SUM`i `AVG` są wykonywane za pośrednictwem wartości liczbowe, podczas gdy `COUNT`, `MIN`, i `MAX` mogą być wykonywane za pośrednictwem liczb i ciągów, wartości logiczne oraz wartości null. 
 
 | Sposób użycia | Opis |
 |-------|-------------|
 | LICZBA | Zwraca liczbę elementów w wyrażeniu. |
 | SUMA   | Zwraca sumę wszystkich wartości w wyrażeniu. |
-| MIN   | Zwraca minimalną wartość wyrażenia. |
-| MAKSYMALNA LICZBA   | Zwraca maksymalną wartość wyrażenia. |
+| MIN.   | Zwraca minimalną wartość wyrażenia. |
+| MAKS.   | Zwraca maksymalną wartość wyrażenia. |
 | ŚR.   | Zwraca średnią z wartości wyrażenia. |
 
 Można również przeprowadzić agregacje w wynikach iteracji tablicy. Aby uzyskać więcej informacji, zobacz [iteracji tablicy w zapytaniach](#Iteration).
@@ -987,7 +990,7 @@ I w tym czasie kwerendę, która pobiera rodzin w kolejności Data utworzenia, k
 ## <a id="Advanced"></a>Pojęcia zaawansowane bazy danych i zapytania SQL
 
 ### <a id="Iteration"></a>Iteracji
-Dodano nową konstrukcję za pośrednictwem **IN** słów kluczowych w języku SQL interfejsu API usługi DocumentDB zapewnia obsługę Iterowanie przez tablice notacji JSON. Źródło FROM zapewnia obsługę iteracji. Zacznijmy od poniższym przykładzie:
+Dodano nową konstrukcję za pośrednictwem **IN** — słowo kluczowe w interfejsie API SQL w celu zapewnienia obsługi Iterowanie przez tablice notacji JSON. Źródło FROM zapewnia obsługę iteracji. Zacznijmy od poniższym przykładzie:
 
 **Zapytanie**
 
@@ -1081,7 +1084,7 @@ Można również wykonywać agregacji na wyniku iteracji tablicy. Na przykład p
     ]
 
 ### <a id="Joins"></a>Tworzy sprzężenie
-W relacyjnej bazie danych ważne jest konieczność dołączanie w tabelach. Jest logiczną następstwem projektowania znormalizowane schematów. Sprzeczności z tego interfejsu API usługi DocumentDB podchodzi do modelu danych nieznormalizowany dokumentów bez schematu. Jest to odpowiednik logiczny a "samosprzężenie".
+W relacyjnej bazie danych ważne jest konieczność dołączanie w tabelach. Jest logiczną następstwem projektowania znormalizowane schematów. Sprzeczności z tego interfejsu API SQL podchodzi do modelu danych nieznormalizowany dokumentów bez schematu. Jest to odpowiednik logiczny a "samosprzężenie".
 
 Składnia, obsługujący język jest sprzężenia sprzężenia < from_source2 > < from_source1 >... Przyłącz < from_sourceN >. Ogólne, to zwraca zbiór **N**- krotek (krotki o **N** wartości). Każda krotka zawiera wartości utworzonego przez Iterowanie wszystkie aliasy kolekcji po ich odpowiednich zestawów. Innymi słowy jest to pełny iloczyn wektorowy zestawów uczestniczących sprzężenia.
 
@@ -1236,9 +1239,9 @@ Azure DB rozwiązania Cosmos zapewnia model programowania do wykonywania logiki 
 * Fizyczne modelowania przepływu sterowania, zmiennej zakresu i przypisania i integracja z transakcji bazy danych w nim elementów podstawowych obsługi wyjątków. Aby uzyskać więcej informacji o obsłudze bazy danych Azure rozwiązania Cosmos integracji JavaScript zapoznaj się dokumentacją programowania po stronie serwera JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Funkcje zdefiniowane przez użytkownika (UDF)
-Wraz z typów zdefiniowanych w tym artykule SQL interfejsu API usługi DocumentDB zapewnia obsługę dla użytkownika określone funkcje (UDF). W szczególności skalarne funkcji UDF są obsługiwane, gdy deweloperzy można przekazywać do zera lub wiele argumentów i zwracanie wyniku pojedynczy argument ponownie. Każdy z tych argumentów jest sprawdzany pod kątem trwa wartości JSON.  
+Wraz z typów zdefiniowanych w tym artykule interfejsu API SQL zapewnia obsługę dla użytkownika określone funkcje (UDF). W szczególności skalarne funkcji UDF są obsługiwane, gdy deweloperzy można przekazywać do zera lub wiele argumentów i zwracanie wyniku pojedynczy argument ponownie. Każdy z tych argumentów jest sprawdzany pod kątem trwa wartości JSON.  
 
-Składnia SQL interfejsu API usługi DocumentDB jest rozszerzony do obsługi niestandardowej logiki aplikacji przy użyciu tych funkcji zdefiniowanych przez użytkownika. Funkcje UDF może być zarejestrowane przy użyciu interfejsu API usługi DocumentDB i odwoływać jako część zapytania SQL. W rzeczywistości funkcje UDF exquisitely są przeznaczone do wywołania przez zapytania. Jako następstwem ta opcja funkcje UDF nie mają dostępu do obiektu kontekstu, które mają inne typy JavaScript (procedury składowane i wyzwalaczy). Od czasu wykonania zapytania jako tylko do odczytu, można uruchomić na podstawowym lub w replikach pomocniczych. W związku z tym funkcje UDF są przeznaczone do uruchamiania w replikach pomocniczych, w odróżnieniu od innych typów języka JavaScript.
+Składnia SQL jest rozszerzony do obsługi niestandardowej logiki aplikacji przy użyciu tych funkcji zdefiniowanych przez użytkownika. Funkcje UDF może być zarejestrowane przy użyciu interfejsu API SQL i odwoływać jako część zapytania SQL. W rzeczywistości funkcje UDF exquisitely są przeznaczone do wywołania przez zapytania. Jako następstwem ta opcja funkcje UDF nie mają dostępu do obiektu kontekstu, które mają inne typy JavaScript (procedury składowane i wyzwalaczy). Od czasu wykonania zapytania jako tylko do odczytu, można uruchomić na podstawowym lub w replikach pomocniczych. W związku z tym funkcje UDF są przeznaczone do uruchamiania w replikach pomocniczych, w odróżnieniu od innych typów języka JavaScript.
 
 Poniżej przedstawiono przykładowy sposób funkcji zdefiniowanej przez użytkownika może być zarejestrowany w rozwiązania Cosmos DB bazy danych, a w szczególności w kolekcji dokumentów.
 
@@ -1341,18 +1344,18 @@ Poniżej znajduje się przykład sprawdzający funkcję zdefiniowaną przez uży
     ]
 
 
-Zgodnie z poprzednim przykłady pokazują, funkcje UDF integracji możliwości języka JavaScript z interfejsu API SQL usługi DocumentDB zapewnia bogaty interfejs programowalny celu złożonej logiki procedurach, warunkowego za pomocą wbudowanych możliwości środowiska wykonawczego języka JavaScript.
+Zgodnie z poprzednim przykłady pokazują, funkcje UDF zintegrować możliwości języka JavaScript przy użyciu interfejsu API SQL zapewnia bogaty interfejs programowalny celu złożonej logiki procedurach, warunkowego za pomocą wbudowanych możliwości środowiska wykonawczego języka JavaScript.
 
-SQL interfejsu API usługi DocumentDB zapewnia argumentów do funkcji UDF dla każdego dokumentu w źródle na etapie bieżący (w klauzuli WHERE lub w klauzuli SELECT) przetwarzania funkcję zdefiniowaną przez użytkownika. Wynik jest włączona w ogólnej potoku wykonywania bezproblemowo. Jeśli właściwości określonym przez funkcję zdefiniowaną przez użytkownika nie są dostępne w formacie JSON wartości parametrów, parametr jest uznawany za niezdefiniowane i dlatego wywołania funkcji zdefiniowanej przez użytkownika jest całkowicie pominięty. Podobnie jeśli zdefiniowano wynik UDF go nie jest uwzględniony w wyniku. 
+Interfejsu API SQL umożliwia argumentów do funkcji UDF dla każdego dokumentu w źródle na etapie bieżący (w klauzuli WHERE lub w klauzuli SELECT) przetwarzania funkcję zdefiniowaną przez użytkownika. Wynik jest włączona w ogólnej potoku wykonywania bezproblemowo. Jeśli właściwości określonym przez funkcję zdefiniowaną przez użytkownika nie są dostępne w formacie JSON wartości parametrów, parametr jest uznawany za niezdefiniowane i dlatego wywołania funkcji zdefiniowanej przez użytkownika jest całkowicie pominięty. Podobnie jeśli zdefiniowano wynik UDF go nie jest uwzględniony w wyniku. 
 
 Podsumowując funkcje UDF są doskonałe narzędzia celu złożonej logiki biznesowej w ramach zapytania.
 
 ### <a name="operator-evaluation"></a>Ocena — operator
 Rozwiązania cosmos bazy danych, na mocy jest bazą danych JSON, rysuje równoleżników JavaScript — operatory i jego semantyki oceny. Gdy DB rozwiązania Cosmos próbuje zachować semantyki JavaScript pod względem obsługi JSON, oceny operacji odbiega w niektórych przypadkach.
 
-W programie SQL usługi DocumentDB interfejsu API w przeciwieństwie do tradycyjnych SQL typy wartości często nie są znane aż do wartości są pobierane z bazy danych. Aby wydajnie wykonywanie zapytań, większość operatorów mają wymagania dotyczące typu strict. 
+W interfejsie API SQL w przeciwieństwie do tradycyjnych SQL typy wartości, często nie są znane aż do wartości są pobierane z bazy danych. Aby wydajnie wykonywanie zapytań, większość operatorów mają wymagania dotyczące typu strict. 
 
-Usługa DocumentDB interfejsu API SQL nie działa niejawne konwersje, w przeciwieństwie do języka JavaScript. Na przykład, takich jak kwerendy `SELECT * FROM Person p WHERE p.Age = 21` odpowiada dokumentów, które zawierają właściwość wieku, którego wartość to 21. Innych dokumentów, których właściwość wieku odpowiada ciągu "21" lub innych zmian prawdopodobnie nieskończone, takich jak "021", "21.0", "0021", "00021", nie będzie można dopasować itp. Pozwala to z kolei JavaScript, w których wartości ciągu są niejawnie rzutowana na numery (na podstawie operatora, np: ==). Ten wybór jest kluczowe znaczenie dla efektywnego indeksu pasujące SQL interfejsu API usługi DocumentDB. 
+Interfejsu API SQL nie działa niejawne konwersje, w przeciwieństwie do języka JavaScript. Na przykład, takich jak kwerendy `SELECT * FROM Person p WHERE p.Age = 21` odpowiada dokumentów, które zawierają właściwość wieku, którego wartość to 21. Innych dokumentów, których właściwość wieku odpowiada ciągu "21" lub innych zmian prawdopodobnie nieskończone, takich jak "021", "21.0", "0021", "00021", nie będzie można dopasować itp. Pozwala to z kolei JavaScript, w których wartości ciągu są niejawnie rzutowana na numery (na podstawie operatora, np: ==). Ten wybór jest kluczowe znaczenie dla efektywnego indeksu pasujące w interfejsie API SQL. 
 
 ## <a name="parameterized-sql-queries"></a>Sparametryzowane zapytania SQL
 Rozwiązania cosmos bazy danych obsługuje zapytania z parametrami wyrażone ze znanym @ notacji. Sparametryzowane SQL zapewnia niezawodne obsługi i anulowanie z danych wprowadzonych przez użytkownika, uniemożliwia przypadkowe ujawnienie danych za pomocą iniekcji kodu SQL. 
@@ -1665,12 +1668,12 @@ Funkcje przestrzenne może służyć do wykonywania zapytań zbliżeniowe wzglę
 
 Aby uzyskać więcej informacji dotyczących obsługi dane geograficzne do rozwiązania Cosmos bazy danych, zobacz [Praca z dane geograficzne w usłudze Azure DB rozwiązania Cosmos](geospatial.md). Który koduje funkcje przestrzenne i składni SQL DB rozwiązania Cosmos. Teraz Spójrzmy na jak wykonywanie kwerend działa i jak współdziała z użyciem składni LINQ możemy w tym samouczku wykonanej do tej pory.
 
-## <a id="Linq"></a>LINQ do SQL interfejsu API usługi DocumentDB
+## <a id="Linq"></a>LINQ do SQL interfejsu API
 LINQ jest model programowania .NET określającym obliczeń jako kwerendy dla strumieni obiektów. Rozwiązania cosmos DB udostępnia bibliotekę klienta do interfejsu za pomocą LINQ ułatwiając konwersji między obiektami JSON i .NET i mapowanie podzbiór zapytań LINQ do zapytania DB rozwiązania Cosmos. 
 
 Na rysunku poniżej przedstawiono architekturę obsługi zapytań LINQ przy użyciu rozwiązania Cosmos bazy danych.  Za pomocą klienta rozwiązania Cosmos bazy danych, deweloperzy mogą tworzyć **IQueryable** obiekt, który wysyła zapytanie bezpośrednio DB rozwiązania Cosmos dostawcy zapytania, który następnie tłumaczy zapytania LINQ na zapytanie DB rozwiązania Cosmos. Zapytania są następnie przekazywane do serwera bazy danych rozwiązania Cosmos można pobrać zestawu wyników w formacie JSON. Zwrócone wyniki są deserializacji w strumieniu obiekty .NET po stronie klienta.
 
-![Architektura obsługi zapytań LINQ przy użyciu interfejsu API usługi DocumentDB — składnia SQL, język zapytań JSON pojęcia bazy danych i zapytania SQL][1]
+![Architektura obsługi zapytań LINQ przy użyciu interfejsu API SQL — składni SQL, język zapytań JSON pojęcia bazy danych i zapytania SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mapowanie JSON i .NET
 Mapowanie między obiektami .NET i dokumentów JSON jest naturalna — każdego pola elementu członkowskiego danych jest zamapowany na obiekt JSON, gdzie nazwa pola jest mapowany na "klucz" część obiektu, a część "value" rekursywnie mapowane na wartości część obiektu. Rozważmy następujący przykład: rodziny obiektu utworzonego jest mapowany na dokument JSON, jak pokazano poniżej. I na odwrót dokumentu JSON jest zamapowana do obiektu .NET.
@@ -1775,7 +1778,7 @@ Najpierw w systemie typ obsługujemy JSON pierwotne typy — typy liczbowe, bool
      Nowy int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Lista obsługiwanych operatorów LINQ
-Poniżej przedstawiono listę obsługiwanych operatorów LINQ w dostawcy LINQ dołączone do zestawu SDK .NET usługi DocumentDB.
+Poniżej przedstawiono listę obsługiwanych operatorów LINQ w dostawcy LINQ dołączone do zestawu .NET SDK SQL.
 
 * **Wybierz**: projekcje przełożyć na SQL SELECT, łącznie z konstrukcji obiektów
 * **Gdzie**: filtry przełożyć na SQL WHERE i translacja między obsługuje & &, || i! Operatory SQL
@@ -1992,7 +1995,7 @@ Rozwiązania cosmos DB oferuje Otwórz model programowania RESTful za pośrednic
 
 Model podstawowe interakcji przy użyciu tych zasobów jest za pomocą polecenia HTTP GET, PUT, POST i DELETE z ich interpretacji standardowa. Zlecenie POST jest używany w celu utworzenia nowego zasobu, wykonywania procedury składowanej lub zapytania DB rozwiązania Cosmos. Zapytania są zawsze operacji tylko do odczytu z żadnych efektów ubocznych.
 
-W poniższych przykładach pokazano POST dla zapytania interfejsu API usługi DocumentDB wykonane w stosunku do kolekcji zawierającej dwa dokumenty przykładowe się, że firma Microsoft zostało sprawdzone wykonanej do tej pory. Kwerenda ma filtr prosty na właściwość name JSON. Zwróć uwagę na użycie `x-ms-documentdb-isquery` i Content-Type: `application/query+json` nagłówków do określenia, czy operacja się zapytania.
+W poniższych przykładach pokazano POST dla zapytania interfejsu API SQL wykonane w stosunku do kolekcji zawierającej dwa dokumenty przykładowe się, że firma Microsoft zostało sprawdzone wykonanej do tej pory. Kwerenda ma filtr prosty na właściwość name JSON. Zwróć uwagę na użycie `x-ms-documentdb-isquery` i Content-Type: `application/query+json` nagłówków do określenia, czy operacja się zapytania.
 
 **Żądanie**
 
@@ -2120,7 +2123,7 @@ Aby zarządzać zasadami spójności danych dla zapytań, należy użyć `x-ms-c
 
 Jeśli skonfigurowane zasady indeksowania w kolekcji nie obsługuje określonego zapytania, serwer bazy danych Azure rozwiązania Cosmos zwraca 400 "złe żądanie". Ten błąd jest zwracany dla zakresu zapytania względem ścieżki skonfigurowane dla wyszukiwań wyznaczania wartości skrótu (równości) i ścieżek jawnie wykluczona z indeksowania. `x-ms-documentdb-query-enable-scan` Można określić nagłówka Umożliwia zapytanie, aby wykonać skanowanie, gdy indeks nie jest dostępna.
 
-Szczegółowe metryki na wykonanie kwerendy można uzyskać przez ustawienie `x-ms-documentdb-populatequerymetrics` nagłówka do `True`. Aby uzyskać więcej informacji, zobacz [metryki kwerendy SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB](documentdb-sql-query-metrics.md).
+Szczegółowe metryki na wykonanie kwerendy można uzyskać przez ustawienie `x-ms-documentdb-populatequerymetrics` nagłówka do `True`. Aby uzyskać więcej informacji, zobacz [metryki kwerendy SQL dla bazy danych Azure rozwiązania Cosmos](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) ZESTAWU SDK
 Zestaw .NET SDK obsługuje zarówno LINQ, jak i SQL zapytań. Poniższy przykład pokazuje, jak wykonać kwerendy filtr prosty wprowadzone wcześniej w tym dokumencie.

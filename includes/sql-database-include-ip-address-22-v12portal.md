@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/) na http://portal.azure.com/.
-2. Na banerze po lewej stronie kliknij **PRZEGLĄDAJ wszystko**. **Przeglądaj** bloku jest wyświetlany.
-3. Przewiń i kliknij przycisk **serwerów SQL**. **Serwerów SQL** bloku jest wyświetlany.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+
+2. Na liście po lewej stronie wybierz **Przeglądaj**. 
+
+3. Przewiń i wybierz **serwerów SQL**. 
    
     ![Znaleźć serwera bazy danych SQL Azure w portalu][b21-FindServerInPortal]
-4. Dla wygody, kliknij kontrolkę Minimalizuj we wcześniejszej **Przeglądaj** bloku.
+4. Dla wygody zminimalizować **Przeglądaj** bloku.
+
 5. W polu filtru zacznij wpisywać nazwę serwera. Twoje wiersz jest wyświetlany.
-6. Kliknij wiersz dla serwera. Zostanie wyświetlony blok serwera.
-7. W bloku serwera, kliknij przycisk **ustawienia**. **Ustawienia** bloku jest wyświetlany.
-8. Kliknij przycisk **zapory**. **Ustawienia zapory** bloku jest wyświetlany.
+
+6. Wybierz wiersz dla serwera. Zostanie wyświetlony blok serwera.
+
+7. W bloku serwera, wybierz **ustawienia**. 
+
+8. Wybierz **zapory**. 
    
-    ![Kliknij przycisk Ustawienia > zapory][b31-SettingsFirewallNavig]
-9. Kliknij przycisk **Dodawanie klienta IP**. W pierwszym polu tekstowym, wpisz nazwę nowej reguły.
+    ![Wybierz ustawienia > zapory][b31-SettingsFirewallNavig]
+9. Wybierz **Dodawanie klienta IP**. W pierwszym polu tekstowym, wpisz nazwę nowej reguły.
+
 10. Wpisz wartości adresu IP niski i wysoki dla zakresu, który ma zostać włączony.
     
-    * Może być przydatny zakończeń niskiej wartości z **.0** i wysoki z **.255**.
+    * Może być przydatny zakończeń niskiej wartości z **.0** i wysokiej wartości kończyć **.255**.
     
     ![Dodaj zakres adresów IP, aby umożliwić][b41-AddRange]
-11. Kliknij pozycję **Zapisz**.
+11. Wybierz pozycję **Zapisz**.
 
 <!-- Image references. -->
 

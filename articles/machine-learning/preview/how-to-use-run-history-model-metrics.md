@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Sposób użycia Historia uruchomień i metryki modelu w konsoli usługi Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Do wykonania kroków opisanych ten przewodnik, musisz:
 ## <a name="azure-ml-logging-api-overview"></a>Przegląd interfejsu API usługi Azure ML rejestrowania
 [Rejestrowania interfejsu API uczenia Maszynowego Azure](reference-logging-api.md) jest dostępny za pośrednictwem **azureml.logging** modułu w języku Python (który jest instalowany z Workbench uczenia Maszynowego Azure.) Po zaimportowaniu tego modułu, można użyć **get_azureml_logger** metody tworzenia wystąpienia **rejestratora** obiektu.
 Następnie należy użyć Rejestratora **dziennika** metodę, aby przechowywać pary klucz wartość utworzonego przez skrypty języka Python.
-Obecnie rejestrowania metryki modelu skalarną, słownik, listy, dataframe są obsługiwane typy jak pokazano.
+Obecnie metryki model rejestrowania skalarnych i typów list są obsługiwane jak pokazano.
 
 ```Python
 # create a logger instance in already set up environment 

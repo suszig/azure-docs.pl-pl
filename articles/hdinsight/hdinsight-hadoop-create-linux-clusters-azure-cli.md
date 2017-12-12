@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 330e3691307d0b52ed63da3560390beef154f779
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Tworzenie klastrów usługi HDInsight przy użyciu wiersza polecenia platformy Azure
 
@@ -117,7 +117,7 @@ Poniższe kroki należy wykonać z poziomu wiersza polecenia, takich jak program
     * Zastąp `sshuser` i `sshuserpassword` przy użyciu nazwy użytkownika i hasła, które mają być używane podczas uzyskiwania dostępu do klastra przy użyciu protokołu SSH
 
     > [!IMPORTANT]
-    > W tym przykładzie jest tworzony klaster z dwoma notes procesu roboczego. Liczba węzłów procesu roboczego po utworzeniu klastra można również zmienić przez wykonanie operacji skalowania. Jeśli planujesz używanie więcej niż 32 węzłami procesów roboczych, następnie należy wybrać rozmiar węzła głównego z co najmniej 8 rdzeni i 14 GB pamięci RAM. Należy określić rozmiaru węzła głównego przy użyciu `--headNodeSize` parametru podczas tworzenia klastra.
+    > W tym przykładzie jest tworzony klaster z dwoma węzłami procesu roboczego. Liczba węzłów procesu roboczego po utworzeniu klastra można również zmienić przez wykonanie operacji skalowania. Jeśli planujesz używanie więcej niż 32 węzłami procesów roboczych, następnie należy wybrać rozmiar węzła głównego z co najmniej 8 rdzeni i 14 GB pamięci RAM. Należy określić rozmiaru węzła głównego przy użyciu `--headNodeSize` parametru podczas tworzenia klastra.
     >
     > Aby uzyskać więcej informacji na węzeł rozmiary i koszty, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

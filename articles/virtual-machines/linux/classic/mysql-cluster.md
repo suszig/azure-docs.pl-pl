@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Umożliwia zestawów o zrównoważonym obciążeniu clusterize bazy danych MySQL na systemie Linux
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Niezbędne są następujące zasoby i możliwości:
   * Corosync i rozrusznik
 
 ### <a name="affinity-group"></a>Grupa koligacji
-Utwórz grupę koligacji dla rozwiązania, logując się do klasycznego portalu Azure, wybierając **ustawienia**oraz tworzenia grupy koligacji. Przydzielone zasoby utworzone później zostanie przypisany do tej grupy koligacji.
+Utworzyć grupę koligacji dla rozwiązania, logując się do portalu Azure, wybierając **ustawienia**oraz tworzenia grupy koligacji. Przydzielone zasoby utworzone później zostanie przypisany do tej grupy koligacji.
 
 ### <a name="networks"></a>Sieci
 Utworzono nową sieć, i utworzeniu podsieci w sieci. W tym przykładzie używane sieci 10.10.10.0/24 z podsieci o prefiksie/24 tylko jeden wewnątrz.

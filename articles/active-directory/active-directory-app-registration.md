@@ -4,7 +4,7 @@ description: "W tym artykule opisano, jak zarejestrować aplikację w usłudze A
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Zarejestrować aplikację z dzierżawą usługi Azure Active Directory
 
@@ -45,7 +45,7 @@ Można łatwo zmodyfikować ustawienia istniejących aplikacji przy użyciu port
   * **Właściwości** strona umożliwia modyfikowanie ogólne informacje dla aplikacji. W tym nazwy aplikacji, adres URL logowania jednokrotnego i adresu URL wylogowania.
   * **Adresy URL odpowiedzi** strony umożliwia dodanie adresu URL odpowiedzi, który jest, gdzie usługi Azure AD wysyła odpowiedzi tokenu.
   * **Właścicieli** strony umożliwia dodanie właściciele aplikacji.
-  * **Uprawnienia** strony pozwala na skonfigurowanie uprawnień dla aplikacji. Na przykład, aby uzyskać dostęp do interfejsu API programu Microsoft Graph, kliknij przycisk **Dodaj** i wybierz **Microsoft Graph** w selektorze interfejsu API, a następnie wybierz uprawnienia wymagane, na przykład **Czytaj dane katalogu**.
+  * **Wymagane uprawnienia** strony pozwala na skonfigurowanie uprawnień dla aplikacji. Na przykład, aby uzyskać dostęp do interfejsu API programu Microsoft Graph, kliknij przycisk **Dodaj** i wybierz **Microsoft Graph** w selektorze interfejsu API, a następnie wybierz uprawnienia wymagane, na przykład **Czytaj dane katalogu**.
   * **Klucze** strony umożliwia dodanie hasła aplikacji. Klucz tajny będą wyświetlane tylko w przypadku, gdy natychmiast po utworzeniu, tak Pamiętaj skopiować go do dalszego użytku.
 
 ## <a name="use-the-inline-manifest-editor"></a>Za pomocą wbudowanego edytora manifestu

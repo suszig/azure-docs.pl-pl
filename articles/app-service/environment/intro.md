@@ -1,6 +1,6 @@
 ---
-title: "Wprowadzenie do środowiska usługi aplikacji Azure"
-description: "Krótki przegląd środowiska usługi aplikacji Azure"
+title: "Wprowadzenie do środowisk Azure App Service Environment"
+description: "Krótkie omówienie środowisk Azure App Service Environment"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,73 +10,74 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="introduction-to-app-service-environments"></a>Wprowadzenie do środowiska usługi aplikacji #
+# <a name="introduction-to-app-service-environments"></a>Wprowadzenie do środowisk App Service Environment #
  
 ## <a name="overview"></a>Omówienie ##
 
-Środowiska usługi aplikacji Azure to funkcja usługi Azure App Service, która udostępnia środowisko pełni izolowanym środowisku, aby bezpiecznie pracować aplikacji usługi App Service na dużą skalę. Ta funkcja może obsługiwać aplikacje sieci web [aplikacje mobilne][mobileapps], aplikacje interfejsu API i [funkcje][Functions].
+Azure App Service Environment to funkcja usługi Azure App Service udostępniająca w pełni izolowane, dedykowane środowisko do bezpiecznego uruchamiania aplikacji usługi App Service w dużej skali. Umożliwia ona hostowanie aplikacji internetowych, [aplikacji mobilnych][mobileapps], aplikacji interfejsu API oraz [funkcji][Functions].
 
-Środowiska usługi aplikacji (ASEs) są odpowiednie dla obciążeń aplikacji, które wymagają:
+Środowiska App Service Environment (ASE) są odpowiednie dla obciążeń aplikacji o następujących wymaganiach:
 
-- Bardzo dużej skali.
-- Izolacja i bezpiecznego dostępu do sieci.
-- Użycie pamięci wysokiej.
+- Bardzo duża skala.
+- Izolacja i bezpieczny dostęp do sieci.
+- Wysoki poziom użycia pamięci.
 
-Klienci mogą tworzyć wiele ASEs w pojedynczym regionie Azure lub w wielu regionach platformy Azure. Tego rodzaju elastyczności sprawia, że ASEs nadaje się doskonale dla warstwy aplikacji bezstanowych, w związku z wysoką obciążeniami RPS skalowanie w poziomie.
+Klienci mogą tworzyć wiele środowisk ASE w pojedynczym regionie platformy Azure lub w wielu regionach platformy Azure. Dzięki tej elastyczności środowiska ASE doskonale nadają się dla warstw aplikacji bezstanowych skalowanych w poziomie na potrzeby obsługi obciążeń o dużej liczbie żądań na sekundę (RPS).
 
-ASEs izolowane do uruchamiania tylko jednego odbiorcy aplikacji i zawsze są wdrażane w sieci wirtualnej. Klienci mają precyzyjną kontrolę nad aplikacji dla ruchu przychodzącego i wychodzącego ruchu sieciowego. Aplikacje mogą nawiązywać bezpiecznych połączeń o dużej szybkości za pośrednictwem sieci VPN do zasobów firmy lokalnie.
+Środowiska ASE są izolowane w celu uruchamiania aplikacji tylko jednego klienta i są zawsze wdrażane w sieci wirtualnej. Klienci mają precyzyjną kontrolę nad przychodzącym i wychodzącym ruchem sieciowym aplikacji. Aplikacje mogą nawiązywać bezpieczne szybkie połączenia za pośrednictwem sieci VPN z zasobami lokalnymi firmy.
 
-* ASEs włączyć hosting aplikacji wysokiej skali z bezpiecznego dostępu do sieci. Aby uzyskać więcej informacji, zobacz [nowości AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) na ASEs.
-* Wiele ASEs umożliwia skalowanie w poziomie. Aby uzyskać więcej informacji, zobacz [sposobu konfigurowania wpływ aplikacja rozproszona geograficznie](app-service-app-service-environment-geo-distributed-scale.md).
-* ASEs może służyć do konfigurowania Architektura zabezpieczeń, jak pokazano w AzureCon nowości. Aby dowiedzieć się, jak pokazano nowości AzureCon architektury zabezpieczeń został skonfigurowany, zobacz [artykuł na temat sposobu implementacja architektury zabezpieczeń warstwowych](app-service-app-service-environment-layered-security.md) ze środowiska usługi aplikacji.
-* Aplikacje działające na ASEs może mieć ich dostęp uzyskiwany za nadrzędnego urządzeń, takich jak zapory aplikacji sieci web (WAFs). Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapory aplikacji sieci Web dla środowiska usługi aplikacji](app-service-app-service-environment-web-application-firewall.md).
+* Środowiska ASE umożliwiają hosting aplikacji na dużą skalę z bezpiecznym dostępem do sieci. Aby uzyskać więcej informacji, zobacz film [AzureCon Deep Dive](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) poświęcony środowiskom ASE.
+* Za pomocą wielu środowisk ASE można realizować skalowanie w poziomie. Aby uzyskać więcej informacji, dowiedz się, [jak skonfigurować rozproszony geograficznie zasięg aplikacji](app-service-app-service-environment-geo-distributed-scale.md).
+* Za pomocą środowisk ASE można skonfigurować architekturę zabezpieczeń, jak zaprezentowano w tym filmie AzureCon Deep Dive. Aby dowiedzieć się, jak skonfigurowano architekturę zabezpieczeń przedstawioną w tym filmie AzureCon Deep Dive, zobacz [artykuł na temat implementowania warstwowej architektury zabezpieczeń](app-service-app-service-environment-layered-security.md) za pomocą środowisk App Service Environment.
+* Dostęp aplikacji działających w środowiskach ASE może być kontrolowany za pomocą bram na urządzeniach nadrzędnych, takich jak zapory aplikacji internetowych (WAF). Aby uzyskać więcej informacji, zobacz [Configure a WAF for App Service environments](app-service-app-service-environment-web-application-firewall.md) (Konfigurowanie zapory aplikacji internetowych dla środowiska App Service Environment).
 
-## <a name="dedicated-environment"></a>Dedykowanym środowisku ##
+## <a name="dedicated-environment"></a>Dedykowane środowisko ##
 
-ASE jest przeznaczona wyłącznie do jednej subskrypcji i może zawierać 100 wystąpień. Zakres może obejmować 100 wystąpień w jeden plan usługi aplikacji do 100 planów usługi aplikacji w jednym wystąpieniu, a wszystko w pomiędzy.
+Środowisko ASE jest przeznaczone wyłącznie dla jednej subskrypcji i może hostować do 100 wystąpień. Zakres może obejmować 100 wystąpień w jednym planie usługi App Service lub 100 planów usługi App Service z jednym wystąpieniem każdy — możliwe są też wszelkie konfiguracje pośrednie.
 
-ASE składa się z interfejsy i pracowników. Interfejsy są zobowiązani do zakończenia połączenia HTTP/HTTPS i automatyczne równoważenie obciążenia żądań aplikacji w elemencie ASE. Interfejsy są automatycznie dodawane jako planów usługi App Service w ASE jest skalowana w poziomie.
+Środowisko ASE składa się z frontonów i procesów roboczych. Frontony są odpowiedzialne za zakończenia połączeń HTTP/HTTPS i automatyczne równoważenie obciążenia żądań aplikacji w środowisku ASE. Frontony są automatycznie dodawane w przypadku skalowania w poziomie planów usługi App Service w środowisku ASE.
 
-Pracownicy są role, które hostowanie aplikacji klienta. Pracownicy są dostępne w trzech rozmiarach stałe:
+Procesy robocze to role, które hostują aplikacje klienta. Procesy robocze są dostępne w trzech stałych rozmiarach:
 
-* Jeden vCPU/3.5 GB pamięci RAM
-* Dwa vCPU/7 GB pamięci RAM
-* 4 vCPU/14 GB pamięci RAM
+* Jeden procesor vCPU/3,5 GB pamięci RAM
+* Dwa procesory vCPU/7 GB pamięci RAM
+* Cztery procesory vCPU/14 GB pamięci RAM
 
-Klienci nie muszą zarządzać interfejsy i pracowników. Wszystkie infrastruktury jest automatycznie dodawane jako klienci skalowania planów usługi aplikacji. Zgodnie z planami usługi aplikacji są tworzone lub skalowany w elemencie ASE, że wymagana infrastruktura dodaniu lub usunięciu odpowiednio.
+Klienci nie muszą zarządzać frontonami ani procesami roboczymi. Wszystkie elementy infrastruktury są automatycznie dodawane, gdy klienci skalują plany usługi App Service. Gdy w środowisku ASE są tworzone lub skalowane plany usługi App Service, wymagane elementy infrastruktury są odpowiednio dodawane lub usuwane.
 
-Brak płaskim miesięczne szybkości dla ASE, który pokrywa infrastruktury i nie zmienia się rozmiar ASE. Ponadto jest koszt vCPU planu usługi aplikacji. Wszystkie aplikacje obsługiwane w elemencie ASE znajdują się w izolowany cennik jednostki SKU. Aby uzyskać informacje o cenach dla ASE, zobacz [cennik usługi aplikacji] [ Pricing] strony i przejrzyj dostępne opcje ASEs.
+Obowiązuje zryczałtowana stawka miesięczna za środowisko ASE, która pokrywa koszty infrastruktury i nie zmienia się z rozmiarem tego środowiska. Ponadto obowiązują opłaty za procesory vCPU planów usługi App Service. Wszystkie aplikacje hostowane w środowisku ASE znajdują się w jednostce SKU wyceny „izolowanej” (Isolated). Aby uzyskać informacje o cenach dotyczących środowiska ASE, przejdź na stronę [App Service — cennik][Pricing] i zapoznaj się z dostępnymi opcjami środowisk ASE.
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej ##
 
-ASE można tworzyć tylko w sieci wirtualnej platformy Azure Resource Manager. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, zobacz [często zadawane pytania dotyczące sieci wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). ASE zawsze istnieje w sieci wirtualnej, a dokładnie w podsieci sieci wirtualnej. Funkcje zabezpieczeń sieci wirtualnych służy do kontroli ruchu przychodzącego i wychodzącego komunikacji dla aplikacji.
+Środowisko ASE można utworzyć tylko w sieci wirtualnej usługi Azure Resource Manager. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, zobacz [często zadawane pytania na ich temat](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Środowisko ASE zawsze istnieje w sieci wirtualnej, a dokładniej — w podsieci sieci wirtualnej. Za pomocą funkcji zabezpieczeń sieci wirtualnych można sterować przychodzącą i wychodzącą komunikacją sieciową używanych aplikacji.
 
-ASE może być skierowane do Internetu za pomocą publicznego adresu IP lub wewnętrzny uwzględniającym tylko adres (ILB) usługi równoważenia obciążenia wewnętrznego platformy Azure.
+Środowisko ASE może być środowiskiem połączonym z Internetem za pomocą publicznego adresu IP lub wewnętrznym i mającym tylko adres wewnętrznego modułu równoważenia obciążenia (ILB, Internal Load Balancer) platformy Azure.
 
-[Sieciowe grupy zabezpieczeń] [ NSGs] ograniczenia komunikacji sieciowej dla ruchu przychodzącego do podsieci, w której znajduje się ASE. Grupy NSG służy do uruchamiania aplikacji związany z nadrzędnego urządzeń i usług, takich jak WAFs i dostawców SaaS sieci.
+[Sieciowe grupy zabezpieczeń][NSGs] ograniczają komunikację sieciową przychodzącą do podsieci, w której znajduje się środowisko ASE. Za pomocą tych grup można uruchamiać aplikacje za urządzeniami i usługami nadrzędnymi, takimi jak zapora aplikacji internetowych i sieciowi dostawcy SaaS.
 
-Aplikacje muszą również często dostępu do zasobów firmy, takich jak wewnętrznej bazy danych i usług sieci web. Jeśli wdrożono ASE w sieci wirtualnej, który ma połączenie VPN do sieci lokalnej, aplikacje w ASE dostęp do zasobów lokalnych. Ta funkcja ma wartość true, niezależnie od tego, czy sieć VPN [lokacja lokacja](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) lub [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) sieci VPN.
+Aplikacje często muszą również uzyskiwać dostęp do zasobów firmy, takich jak wewnętrzne bazy danych i usługi internetowe. Jeśli środowisko ASE wdrożono w sieci wirtualnej mającej połączenie VPN z siecią lokalną, aplikacje w tym środowisku mają dostęp do zasobów lokalnych. Jest tak niezależnie od tego, czy połączenie VPN jest typu [lokacja-lokacja](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/), czy [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
-Aby uzyskać więcej informacji na temat działania ASEs z sieciami wirtualnymi i sieciach lokalnych, zobacz [zagadnienia dotyczące sieci środowiska usługi aplikacji][ASENetwork].
+Aby uzyskać więcej informacji na temat współdziałania środowisk ASE z sieciami wirtualnymi i sieciami lokalnymi, zobacz [App Service Environment network considerations][ASENetwork] (Zagadnienia dotyczące sieci środowiska App Service Environment).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
 ## <a name="app-service-environment-v1"></a>Środowisko usługi App Service — wersja 1 ##
 
-Środowiska usługi aplikacji ma dwie wersje: ASEv1 i ASEv2. Oparto na ASEv2 powyższych informacji. W tej sekcji przedstawiono różnice między ASEv1 i ASEv2. 
+Środowisko App Service Environment występuje w dwóch wersjach: ASEv1 i ASEv2. Podane wcześniej informacje dotyczyły wersji 2 — ASEv2. W tej sekcji przedstawiono różnice między środowiskami ASEv1 i ASEv2. 
 
-W ASEv1 trzeba zarządzać wszystkie zasoby ręcznie. Zawierającej interfejsy, pracowników i adresy IP używane dla opartych na protokole SSL. Przed można skalować w poziomie planu usługi aplikacji, konieczne jest pierwszy skalowania puli procesów roboczych, które chcesz udostępnić go.
+W środowisku ASEv1 wszystkimi zasobami trzeba zarządzać ręcznie. Obejmuje to frontony, procesy robocze oraz adresy IP używane do obsługi połączeń SSL opartych na protokole IP. Zanim będzie można skalować w poziomie plan usługi App Service, należy najpierw skalować w poziomie pulę procesów roboczych, w której będzie hostowany.
 
-ASEv1 używa innego modelu cenowego z ASEv2. W ASEv1 płacisz za każdym vCPU przydzielone. Zawierającą Vcpu, interfejsy lub pracowników, którzy nie są hosting dowolnych zadań. W ASEv1 domyślny rozmiar maksymalny skali ASE jest 55 hosty łącznie. Zawierającej pracowników i interfejsy. Jedną z zalet ASEv1 jest, że może on zostać wdrożony w klasycznej sieci wirtualnej i sieci wirtualnych Menedżera zasobów. Aby dowiedzieć się więcej na temat ASEv1, zobacz [wprowadzenie v1 środowiska usługi aplikacji][ASEv1Intro].
+W przypadku środowiska ASEv1 używany jest inny model cenowy niż w przypadku środowiska ASEv2. W przypadku środowiska ASEv1 płacisz za każdy przydzielony procesor vCPU. Obejmuje to procesory vCPU obsługujące frontony i procesy robocze, które nie hostują żadnych obciążeń. W przypadku środowiska ASEv1 domyślny rozmiar w skali maksymalnej środowiska ASE to 55 hostów łącznie. Obejmuje to frontony i procesy robocze. Jedną z zalet środowiska ASEv1 jest to, że można je wdrożyć w klasycznej sieci wirtualnej oraz w sieci wirtualnej usługi Resource Manager. Aby dowiedzieć się więcej na temat środowiska ASEv1, zobacz [App Service Environment v1 introduction][ASEv1Intro] (Wprowadzenie do środowiska App Service Environment w wersji 1).
 
 <!--Links-->
 [Intro]: ./intro.md

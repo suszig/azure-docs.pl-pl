@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 39fd3e0df9a9d86272fb94afc9397ff61dd049f0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dni porady bazy danych Azure rozwiązania Cosmos
 
@@ -177,7 +177,7 @@ Porada 19: partycji! Partycja! Partycja! Dlaczego i w #CosmosDB platformy Azure.
 
 Porada 20: Wszyscy zapewnia pełną obsługę dobrej starego ściągawka dotycząca. Azure #CosmosDB ma zbyt. Wyewidencjonuj przy [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Ściągawka dotycząca: [Azure DB rozwiązania Cosmos: arkusz ze wskazówkami zapytań SQL usługi DocumentDB interfejsu API plików PDF](https://aka.ms/Nt01nl)
+Ściągawka dotycząca: [Azure DB rozwiązania Cosmos: arkusz ze wskazówkami zapytania SQL PDF](https://aka.ms/Nt01nl)
 
 [![Retweet w serwisie twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![udziału w LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

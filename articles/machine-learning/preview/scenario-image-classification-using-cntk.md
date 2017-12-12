@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Za pomocą usługi Azure Machine Learning Workbench klasyfikacji obrazu
 
@@ -63,7 +63,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 - Błędy braku pamięci podczas uczenia DNN można uniknąć przez zmniejszenie rozmiaru minibatch (zmiennej `cntk_mb_size` w `PARAMETERS.py`).
 - Kod został przetestowany przy użyciu CNTK 2.2 i powinny również wykonywania na starszą (maksymalnie v2.0) i nowszych wersji bez żadnej lub tylko drobne zmiany.
 - W momencie pisania Azure Machine Learning Workbench wystąpiły problemy z wyświetlanie notesów większych niż 5 MB. Notesów to duży rozmiar może nastąpić, jeśli notesu zostanie zapisany pod wszystkie komórki wyświetlany w danych wyjściowych. Jeśli ten błąd wystąpi, należy otworzyć wiersz polecenia z menu Plik wewnątrz Workbench wykonania `jupyter notebook`Otwórz notesu, wyczyść wszystkie dane wyjściowe i Zapisz notesu. Po wykonaniu tych kroków, notesu zostanie prawidłowo wewnątrz Azure Machine Learning Workbench ponownie otworzyć.
-- Wszystkie skrypty znajdujące się w tym przykładzie muszą być wykonywane lokalnie, a nie na przykład środowiska zdalnego docker. Wszystkie notesy muszą zostać wykonane z jądra ustawioną jądra lokalnego projektu o nazwie "<projectname> lokalne" (np. "myImgClassUsingCNTK lokalnego").
+- Wszystkie skrypty znajdujące się w tym przykładzie muszą być wykonywane lokalnie, a nie na przykład środowiska zdalnego docker. Wszystkie notesy muszą zostać wykonane z jądra ustawioną jądra lokalnego projektu o nazwie "NAZWAPROJEKTU lokalne" (np. "myImgClassUsingCNTK lokalnego").
 
     
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt workbench
@@ -115,7 +115,7 @@ Wszystkie parametry ważne są określone, a podana krótkie objaśnienie, w jed
 ### <a name="step-1-data-preparation"></a>Krok 1: Przygotowanie danych
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Notesu `showImages.ipynb` może służyć do wizualizacji obrazów i popraw ich adnotacji, zgodnie z potrzebami. Aby uruchomić notesu, otwórz go w Azure Machine Learning Workbench, kliknij na "Start notesu Server" Jeśli ta opcja jest wyświetlana, zmień jądra lokalnego projektu o nazwie "<projectname> lokalne" (np. "myImgClassUsingCNTK lokalny"), a następnie wykonaj wszystkie komórki w notesu. Zobacz sekcję dotyczącą rozwiązywania problemów w tym dokumencie, jeśli wystąpi błąd, strona skarżąca czy notesu jest zbyt duży do wyświetlenia.
+Notesu `showImages.ipynb` może służyć do wizualizacji obrazów i popraw ich adnotacji, zgodnie z potrzebami. Aby uruchomić notesu, otwórz go w Workbench Learning Azure maszyny w "Start notesu Server", jeśli ta opcja jest wyświetlana, zmień jądra lokalnego projektu o nazwie "NAZWAPROJEKTU hodowla w lokalnym" (np. "myImgClassUsingCNTK lokalny"), kliknij przycisk, a następnie wykonaj wszystkie komórki w notesu. Zobacz sekcję dotyczącą rozwiązywania problemów w tym dokumencie, jeśli wystąpi błąd, strona skarżąca czy notesu jest zbyt duży do wyświetlenia.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -179,7 +179,7 @@ Oprócz dokładność krzywą ROC jest kreślony z odpowiedniego obszaru — w o
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizować wyniki odpowiednich klasyfikacji. Zgodnie z objaśnieniem w krok 1, co notesu w tym przykładzie musi używać jądra lokalnego projektu o nazwie "<projectname> lokalnego":
+Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizować wyniki odpowiednich klasyfikacji. Zgodnie z objaśnieniem w krok 1, co notesu w tym przykładzie musi używać jądra lokalnego projektu o nazwie "NAZWAPROJEKTU lokalnego":
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -191,7 +191,7 @@ Na koniec notesu `showResults.py` podano przewijanie obrazów testu i wizualizow
 ### <a name="step-6-deployment"></a>Krok 6: wdrożenia
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Teraz można opublikować przeszkolone systemu jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning (należy pamiętać ustawić jako jądra jądra lokalnego projektu o nazwie "<projectname> lokalnego"). W sekcji także doskonała wdrożenia [samouczek IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) wdrożenia więcej powiązane informacje.
+Teraz można opublikować przeszkolone systemu jako interfejs API REST. Wdrożenia opisanej w notesie `deploy.ipynb`i w oparciu o funkcje środowiska roboczego Azure Machine Learning (Pamiętaj, aby ustawić jako jądra jądra lokalnego projektu o nazwie "NAZWAPROJEKTU lokalnego"). W sekcji także doskonała wdrożenia [samouczek IRIS](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) wdrożenia więcej powiązane informacje.
 
 Po wdrożeniu można wywołać usługę sieci web przy użyciu skryptu `6_callWebservice.py`. Należy pamiętać, że adres IP (lokalnej lub w chmurze) usługa sieci web musi najpierw należy ustawić w skrypcie. Notesu `deploy.ipynb` wyjaśniono, jak znaleźć ten adres IP.
 

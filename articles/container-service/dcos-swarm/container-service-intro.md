@@ -1,28 +1,22 @@
 ---
-title: Hosting kontenera platformy Docker w chmurze platformy Azure | Microsoft Docs
+title: Hosting kontenera platformy Docker w chmurze platformy Azure
 description: "Usługa Azure Container Service umożliwia uproszczenie tworzenia, konfiguracji i zarządzania klastrem maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, kontenery, mikrousługi, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 3e263b88bf6afe652e06bd8cc109c98a17269cae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94ae759803bc3a65ec7dc9a8e01486625a638368
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Wprowadzenie do rozwiązań hostingu kontenera przy użyciu usługi Azure Container Service 
+
 Usługa Azure Container Service upraszcza tworzenie, konfigurację i zarządzanie klastrem maszyn wirtualnych, które są wstępnie skonfigurowane do uruchamiania konteneryzowanych aplikacji. Używa ona zoptymalizowanej konfiguracji popularnych narzędzi do planowania i aranżacji typu open source. Umożliwia to używanie posiadanych umiejętności lub sięganie po duży i rosnący zasób wiedzy społeczności w celu wdrażania opartych na kontenerze aplikacji platformy Microsoft Azure i zarządzania nimi.
 
 ![Usługa Azure Container Service udostępnia środki do zarządzania konteneryzowanymi aplikacjami na wielu hostach na platformie Azure.](./media/acs-intro/acs-cluster-new.png)

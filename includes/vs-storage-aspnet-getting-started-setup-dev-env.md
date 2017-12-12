@@ -1,6 +1,6 @@
 ## <a name="set-up-the-development-environment"></a>Konfigurowanie środowiska deweloperskiego
 
-W tej sekcji przedstawiono konfigurowanie środowiska deweloperskiego, w tym tworzenie aplikacji ASP.NET MVC, dodawanie połączenia usług połączonych dodawania kontrolera i określanie dyrektywy wymaganej przestrzeni nazw.
+Ta sekcja przeprowadzi Cię przez Konfigurowanie środowiska deweloperskiego, w tym tworzenie aplikacji ASP.NET MVC, dodawanie połączenia usług połączonych dodawania kontrolera i określanie dyrektywy wymaganej przestrzeni nazw.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Utwórz projekt aplikacji platformy ASP.NET MVC
 
@@ -24,8 +24,14 @@ W tej sekcji przedstawiono konfigurowanie środowiska deweloperskiego, w tym two
 
 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz z menu kontekstowego **podłączonej usługi -> Dodaj**.
 
-1. Na **dodać podłączonej usługi** okno dialogowe, wybierz opcję **usługi Azure Storage**, a następnie wybierz **Konfiguruj**.
+1. Na **dodać podłączonej usługi** okno dialogowe, wybierz opcję **magazynu w chmurze z usługą Azure Storage**, a następnie wybierz **Konfiguruj**.
 
     ![Podłączonej usługi okna dialogowego](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. Na **usługi Azure Storage** okno dialogowe, wybierz konto żądaną magazynu Azure, z którym chcesz pracować, a następnie wybierz **Dodaj**.
+1. Na **usługi Azure Storage** okno dialogowe, wybierz konto magazynu Azure do użycia na potrzeby tego samouczka.  Aby utworzyć nowe konto magazynu Azure, kliknij przycisk **Utwórz nowe konto magazynu** i wypełnij formularz.  Po wybraniu istniejącego konta magazynu lub tworzenia nowej, kliknij przycisk **Dodaj**.  Visual Studio zostanie zainstalowany pakiet NuGet dla usługi Azure Storage i parametry połączenia magazynu **Web.config**.
+
+> [!TIP]
+> Aby dowiedzieć się, jak utworzyć konto magazynu z [portalu Azure](https://portal.azure.com), zobacz [Utwórz konto magazynu](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+>
+> Konto magazynu platformy Azure można również utworzyć za pomocą [programu Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [interfejsu wiersza polecenia Azure](../articles/storage/common/storage-azure-cli.md), lub [powłoki chmury Azure](../articles/cloud-shell/overview.md).
+

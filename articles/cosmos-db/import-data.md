@@ -16,18 +16,20 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure rozwiązania Cosmos bazy danych: Narzędzie migracji danych
 
-W tym samouczku instrukcje na temat używania narzędzia migracji danych DB rozwiązania Cosmos Azure, które można importować dane z różnych źródeł do bazy danych Azure rozwiązania Cosmos kolekcje i tabele. Można importować z JSON, CSV pliki, SQL, bazy danych MongoDB, tabel Azure magazynu, Amazon DynamoDB, plików i nawet kolekcje interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB i migracji, czy dane do kolekcji i tabel dla używania z usługą Azure DB rozwiązania Cosmos. Narzędzie do migracji danych można również podczas migracji z kolekcji jednej partycji do kolekcji wielu partycji dla interfejsu API usługi DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+W tym samouczku instrukcje na temat używania narzędzia migracji danych DB rozwiązania Cosmos Azure, które można importować dane z różnych źródeł do bazy danych Azure rozwiązania Cosmos kolekcje i tabele. Można importować z JSON, CSV pliki, SQL, bazy danych MongoDB, tabel Azure magazynu, Amazon DynamoDB, plików i nawet kolekcje interfejsu API Azure rozwiązania Cosmos bazy danych SQL i migracji, czy dane do kolekcji i tabel dla używania z usługą Azure DB rozwiązania Cosmos. Narzędzie do migracji danych można również podczas migracji z kolekcji jednej partycji do kolekcji wielu partycji dla interfejsu API SQL.
 
 API, które będą korzystać z bazy danych rozwiązania Cosmos Azure? 
-* **[Interfejs API usługi DocumentDB](documentdb-introduction.md)**  — można użyć opcji źródła w narzędzia migracji danych do importowania danych.
+* **[Interfejsu API SQL](documentdb-introduction.md)**  — można użyć opcji źródła w narzędzia migracji danych do importowania danych.
 * **[Tabela interfejsu API](table-introduction.md)**  — narzędzia do migracji danych lub narzędzia AzCopy można użyć do importowania danych. Zobacz [importowania danych do użycia z interfejsu API Azure rozwiązania Cosmos DB tabeli](table-import.md) Aby uzyskać więcej informacji.
 * **[Interfejs API bazy danych MongoDB](mongodb-introduction.md)**  — narzędzia do migracji danych aktualnie nie obsługuje interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB jako źródło lub jako element docelowy. Jeśli chcesz przeprowadzić migrację danych do lub z kolekcji bazy danych MongoDB interfejsu API w usłudze Azure DB rozwiązania Cosmos odwołują się do [bazy danych Azure rozwiązania Cosmos: jak przeprowadzić migrację danych dla bazy danych MongoDB interfejsu API](mongodb-migrate.md) instrukcje. Do eksportowania danych z bazy danych MongoDB do interfejsu API Azure rozwiązania Cosmos bazy danych SQL kolekcji do użycia przy użyciu interfejsu API SQL, można nadal używać narzędzia migracji danych. 
 * **[Interfejs API programu Graph](graph-introduction.md)**  — narzędzia do migracji danych nie jest narzędziem obsługiwanych importu dla interfejsu API programu Graph kont w tym momencie. 
@@ -76,9 +78,9 @@ Po zainstalowaniu narzędzia jest czas w celu zaimportowania danych. Jakiego rod
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Obiekt blob](#BlobImport)
-* [Kolekcje usługi Azure DB rozwiązania Cosmos](#DocumentDBSource)
+* [Kolekcje usługi Azure DB rozwiązania Cosmos](#SQLSource)
 * [HBase](#HBaseSource)
-* [Importowania zbiorczego w usłudze Azure DB rozwiązania Cosmos](#DocumentDBBulkImport)
+* [Importowania zbiorczego w usłudze Azure DB rozwiązania Cosmos](#SQLBulkImport)
 * [Importowania platformy Azure kolejny rekord DB rozwiązania Cosmos](#DocumentDSeqTarget)
 
 
@@ -210,7 +212,7 @@ Oto przykład wiersza polecenia do importowania danych CSV:
 ## <a id="AzureTableSource"></a>Importuj z magazynem tabel Azure
 Opcja importera źródła magazynu tabel Azure umożliwia importowanie z pojedynczej tabeli magazynu tabel Azure. Opcjonalnie można filtrować jednostek tabeli do zaimportowania. 
 
-Dane importowane z magazynu tabel Azure może być dane wyjściowe do bazy danych Azure rozwiązania Cosmos tabel i jednostek, do użycia przy użyciu interfejsu API tabeli, lub do kolekcji i dokumentów do użycia przy użyciu interfejsu API usługi DocumentDB. Jednak; Tabela interfejsu API tylko jest dostępna jako miejsce docelowe w narzędziu wiersza polecenia, nie można wyeksportować do interfejsu API tabeli za pomocą interfejsu użytkownika narzędzia migracji danych. Aby uzyskać więcej informacji, zobacz [importowania danych do użycia z interfejsu API Azure rozwiązania Cosmos DB tabeli](table-import.md). 
+Dane importowane z magazynu tabel Azure może być dane wyjściowe do bazy danych Azure rozwiązania Cosmos tabel i jednostek, do użycia przy użyciu interfejsu API tabeli, lub do kolekcji i dokumentów do użycia przy użyciu interfejsu API SQL. Jednak; Tabela interfejsu API tylko jest dostępna jako miejsce docelowe w narzędziu wiersza polecenia, nie można wyeksportować do interfejsu API tabeli za pomocą interfejsu użytkownika narzędzia migracji danych. Aby uzyskać więcej informacji, zobacz [importowania danych do użycia z interfejsu API Azure rozwiązania Cosmos DB tabeli](table-import.md). 
 
 ![Opcje źródłowego magazynu tabel zrzut ekranu Azure](./media/import-data/azuretablesource.png)
 
@@ -267,7 +269,7 @@ Oto przykład wiersza polecenia, aby zaimportować pliki w formacie JSON z magaz
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Importuj z kolekcji interfejsu API usługi DocumentDB
+## <a id="SQLSource"></a>Importuj z kolekcji interfejsu API SQL
 Opcja importera źródłowej bazy danych Azure rozwiązania Cosmos umożliwia importowanie danych z jednej lub kilku kolekcjach bazy danych Azure rozwiązania Cosmos i opcjonalnie filtrowania dokumentów za pomocą zapytania.  
 
 ![Opcje źródła zrzut ekranu z rozwiązania Cosmos bazy danych Azure](./media/import-data/documentdbsource.png)
@@ -342,7 +344,7 @@ Oto przykład wiersza polecenia do importowania z bazy danych HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Importuj, aby usługa DocumentDB interfejsu API (importowania zbiorczego)
+## <a id="SQLBulkTarget"></a>Importuj do interfejsu API SQL (importowania zbiorczego)
 Importer zbiorczego DB rozwiązania Cosmos Azure umożliwia zaimportowanie od dowolnej spośród opcji dostępnego źródła przy użyciu procedury przechowywane bazy danych rozwiązania Cosmos Azure w celu zwiększenia wydajności. Narzędzie obsługuje importu do jednej kolekcji podzielone na partycje pojedynczej bazy danych Azure rozwiązania Cosmos, a także podzielonej importu, zgodnie z którymi danych jest podzielonym na partycje w wielu kolekcji podzielone na partycje pojedynczej bazy danych Azure rozwiązania Cosmos. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](partition-data.md). Narzędzie tworzy, wykonuje, a następnie usuwa procedury składowanej kolekcji docelowej.  
 
 ![Opcje zbiorczego zrzut ekranu z rozwiązania Cosmos bazy danych Azure](./media/import-data/documentdbbulk.png)
@@ -406,7 +408,7 @@ Importer zbiorczego DB rozwiązania Cosmos Azure ma następujące dodatkowe opcj
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Importuj, aby usługi DocumentDB interfejsu API (importu sekwencyjnych rekordu)
+## <a id="SQLSeqTarget"></a>Importuj do interfejsu API SQL (importu sekwencyjnych rekordu)
 Importer sekwencyjnych rekordu bazy danych rozwiązania Cosmos Azure umożliwia zaimportowanie z Opcje dostępnego źródła na podstawie rekordu na podstawie. Możesz wybrać tę opcję, jeśli importowany do istniejącej kolekcji, która osiągnęła limit przydziału procedur składowanych. Narzędzie obsługuje importu kolekcji rozwiązania Cosmos Azure DB jednym (jednej partycji i wielu partycji), a także podzielonej importu, zgodnie z którymi danych jest podzielona na partycje w wielu kolekcjach bazy danych Azure rozwiązania Cosmos jednej partycji i/lub wielu partycji. Aby uzyskać więcej informacji na temat partycjonowania danych, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](partition-data.md).
 
 ![Zrzut ekranu Azure DB rozwiązania Cosmos opcje sekwencyjnych importowania rekordów](./media/import-data/documentdbsequential.png)
@@ -466,7 +468,7 @@ Azure rozwiązania Cosmos DB — importer kolejny rekord ma następujące dodatk
 > 
 
 ## <a id="IndexingPolicy"></a>Określ zasady indeksowania
-Jeśli zezwolisz na narzędzie do migracji do tworzenia kolekcji interfejsu API Azure rozwiązania Cosmos bazy danych DocumentDB podczas importu, można określić zasady indeksowania w kolekcji. W sekcji Zaawansowane opcje importowania zbiorczego DB rozwiązania Cosmos Azure oraz Azure rozwiązania Cosmos DB sekwencyjnych opcje rekordów przejdź do sekcji zasady indeksowania.
+Jeśli zezwolisz na narzędzie do migracji do tworzenia kolekcji interfejsu API Azure rozwiązania Cosmos bazy danych SQL podczas importu, można określić zasady indeksowania w kolekcji. W sekcji Zaawansowane opcje importowania zbiorczego DB rozwiązania Cosmos Azure oraz Azure rozwiązania Cosmos DB sekwencyjnych opcje rekordów przejdź do sekcji zasady indeksowania.
 
 ![Zrzut ekranu Azure rozwiązania Cosmos DB indeksowania zasad opcje zaawansowane](./media/import-data/indexingpolicy1.png)
 

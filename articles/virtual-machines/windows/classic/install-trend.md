@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Jak zainstalować i skonfigurować rozwiązanie Trend Micro Deep Security as a Service na maszynie wirtualnej systemu Windows
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ W tym artykule przedstawiono sposób instalowania i konfigurowania zabezpieczeń
 
 Klient jest instalowany jako rozszerzenia zabezpieczeń, za pomocą agenta maszyny Wirtualnej. Na nowej maszyny wirtualnej należy zainstalować głębokie agenta zabezpieczeń, jak Agent maszyny Wirtualnej jest tworzona automatycznie w portalu Azure.
 
-Istniejącej maszyny Wirtualnej utworzone przy użyciu klasycznego portalu Azure CLI lub środowiska PowerShell może nie mieć agenta maszyny Wirtualnej. Dla istniejącej maszyny wirtualnej, która nie ma agenta maszyny Wirtualnej musisz pobrać i zainstalować ją najpierw. W tym artykule opisano zarówno sytuacji.
+Istniejącej maszyny Wirtualnej utworzone za pomocą portalu Azure, Azure CLI lub środowiska PowerShell może nie mieć agenta maszyny Wirtualnej. Dla istniejącej maszyny wirtualnej, która nie ma agenta maszyny Wirtualnej musisz pobrać i zainstalować ją najpierw. W tym artykule opisano zarówno sytuacji.
 
 Jeśli masz bieżącej subskrypcji z Trend Micro dla rozwiązania lokalnego, można użyć go w celu ochrony maszyn wirtualnych platformy Azure. Jeśli nie jesteś klientem jeszcze, można założyć dla subskrypcji wersji próbnej. Aby uzyskać więcej informacji o tym rozwiązaniu, zobacz blogu Trend Micro [zabezpieczeń firmy Microsoft Azure VM Agent rozszerzenia dla bezpośrednich](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

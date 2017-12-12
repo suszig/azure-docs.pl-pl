@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Przykładów dla platformy Azure środowiska PowerShell dla bazy danych Azure rozwiązania Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Poniższa tabela zawiera linki do przykładowe skrypty programu PowerShell systemu Azure dla bazy danych Azure rozwiązania Cosmos. W tym momencie można zarządzać tylko accountlayer bazy danych rozwiązania Cosmos Azure za pomocą programu PowerShell; inne zasoby, takie jak bazy danych i kolekcji nie można zarządzać za pomocą programu PowerShell.
 
 | |  |
 |---|---|
 |**Tworzenie konta bazy danych Azure rozwiązania Cosmos**||
-|[Utwórz konto usługi DocumentDB interfejsu API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy jednego konta Azure rozwiązania Cosmos DB do użycia przy użyciu interfejsu API usługi DocumentDB. |
+|[Utwórz konto interfejsu API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy jednego konta bazy danych Azure rozwiązania Cosmos do korzystania z interfejsu API SQL. |
 |**Skalować rozwiązania Cosmos Azure DB**||
 |[Replikację bazy danych Azure rozwiązania Cosmos konta w wielu regionach i skonfiguruj priorytetów trybu failover](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Globalny replikuje dane konta w wielu regionach o priorytecie określonego trybu failover.|
 |**Zabezpieczanie Azure rozwiązania Cosmos bazy danych**||

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Ramka zabezpieczeń: Autoryzacji | Środki zaradcze 
 | Produktów i usług | Artykuł |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Baza danych** | <ul><li>[Upewnij się, że najmniej uprzywilejowane konta są używane do połączenia z serwerem bazy danych](#privileged-server)</li><li>[Implementowanie wiersza poziom zabezpieczeń zabezpieczenia na poziomie wiersza aby uniemożliwić dostęp do siebie nawzajem danych dzierżawcy](#rls-tenants)</li><li>[Rola administratora systemu powinien mieć tylko niezbędne użytkowników](#sysadmin-users)</li></ul> |
 | **Brama chmury IoT** | <ul><li>[Połączyć się z bramą chmury przy użyciu najmniej uprzywilejowane tokenów](#cloud-least-privileged)</li></ul> |
 | **Centrum zdarzeń platformy Azure** | <ul><li>[Użyj uprawnień tylko do wysyłania klucza sygnatury dostępu Współdzielonego do generowania tokenów urządzenia](#sendonly-sas)</li><li>[Nie używaj tokenów dostępu, które udostępniają bezpośredni dostęp do Centrum zdarzeń](#access-tokens-hub)</li><li>[Połącz do Centrum zdarzeń za pomocą kluczy SAS, które ma minimalne uprawnienia wymagane](#sas-minimum-permissions)</li></ul> |
-| **Dokumentów w usłudze Azure DB** | <ul><li>[Nawiązywanie połączenia z usługi DocumentDB, jeśli to możliwe za pomocą tokenów zasobów](#resource-docdb)</li></ul> |
+| **Dokumentów w usłudze Azure DB** | <ul><li>[Używaj tokenów zasobów do nawiązania połączenia DB rozwiązania Cosmos Azure, jeśli to możliwe](#resource-docdb)</li></ul> |
 | **Granic zaufania Azure** | <ul><li>[Włącz szczegółowe zarządzanie dostępem do subskrypcji platformy Azure przy użyciu funkcji RBAC](#grained-rbac)</li></ul> |
 | **Granic zaufania sieci szkieletowej usług** | <ul><li>[Ogranicz dostęp klienta do operacji klastra przy użyciu funkcji RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Wykonaj modelowania zabezpieczeń i używać zabezpieczeń na poziomie pola w przypadku, gdy wymagane](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Należy pamiętać, że zabezpieczenia na poziomie wiersza jako funkcja bazy dan
 | **Zastosowanie technologii** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Odwołania**              | Nie dotyczy  |
-| **Kroki** | Token zasobu jest skojarzony z zasobem uprawnienia usługi DocumentDB i przechwytywanie relacji między użytkownikiem bazy danych i uprawnień, które użytkownik ma dla określonego zasobu aplikacji usługi DocumentDB (np. kolekcji i dokumentów). Aby uzyskać dostęp do usługi DocumentDB, jeśli klient nie może być zaufany za pomocą postępowania z kluczami głównego lub w trybie tylko do odczytu — podobnie jak aplikację użytkownika klienta przenośnego lub stacjonarnego zawsze używać token zasobu. Użyj klucza głównego lub tylko do odczytu klucze z wewnętrznej bazy danych aplikacji, które można bezpiecznie przechowywać klucze.|
+| **Kroki** | Token zasobu jest skojarzony z zasobem uprawnienia bazy danych Azure rozwiązania Cosmos i przechwytywanie relacji między użytkownikiem bazy danych i uprawnień, które użytkownik ma dla określonego zasobu aplikacji bazy danych rozwiązania Cosmos Azure (np. kolekcji i dokumentów). Aby uzyskać dostęp do bazy danych rozwiązania Cosmos platformy Azure, jeśli klient nie może być zaufany za pomocą postępowania z kluczami głównego lub w trybie tylko do odczytu — podobnie jak aplikację użytkownika klienta przenośnego lub stacjonarnego zawsze używać token zasobu. Użyj klucza głównego lub tylko do odczytu klucze z wewnętrznej bazy danych aplikacji, które można bezpiecznie przechowywać klucze.|
 
 ## <a id="grained-rbac"></a>Włącz szczegółowe zarządzanie dostępem do subskrypcji platformy Azure przy użyciu funkcji RBAC
 

@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Databricks? | Microsoft Docs
-description: "Informacje o nowościach Azure Databricks i jak stwarza Spark na Databricks na platformie Azure. Azure Databricks to platforma Apache Spark na podstawie analizy zoptymalizowane pod kątem platformy usługi w chmurze Microsoft Azure."
+description: "Dowiedz się, co to jest usługa Azure Databricks i jak udostępnia platformę Spark w usłudze Databricks na platformie Azure. Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -10,92 +10,93 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 7ced38cda2669cf03e51f50fbbbeea0344da9277
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="what-is-azure-databricks"></a>Co to jest Azure Databricks?
 
-Azure Databricks to platforma Apache Spark na podstawie analizy zoptymalizowane pod kątem platformy usługi w chmurze Microsoft Azure. Zaprojektowany z założycieli platformy Apache Spark, Databricks jest zintegrowany z platformy Azure w celu zapewnienia Instalatora jednym kliknięciem, prostsze przepływów pracy i interaktywny obszar roboczy, który umożliwia współpracę między analityków danych, inżynierów danych i analityków biznesowych.
+Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure. Usługa Databricks, zaprojektowana wspólnie z twórcami usługi Apache Spark, jest zintegrowana z platformą Azure w celu zapewnienia konfigurowania jednym kliknięciem, usprawnionych przepływów pracy oraz interakcyjnego obszaru roboczego, który umożliwia współpracę między analitykami danych, inżynierami danych i analitykami biznesowymi.
 
-![Co to jest Azure Databricks? ] (./media/what-is-azure-databricks/azure-databricks-overview.png "Co to jest Azure Databricks?")
+![Co to jest Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "Co to jest Azure Databricks?")
 
-## <a name="apache-spark-based-analytics-platform"></a>Apache Spark na podstawie analizy platformy
+## <a name="apache-spark-based-analytics-platform"></a>Platforma analityczna bazująca na projekcie Apache Spark
 
-Azure Databricks składa się z pełną technologie klastra Apache Spark open source i możliwości. Platforma Spark w usłudze Azure Databricks obejmuje następujące składniki:
+Usługa Azure Databricks zapewnia pełny zestaw możliwości i technologii klastra Apache Spark typu open source. Platforma Spark w usłudze Azure Databricks obejmuje następujące składniki:
 
-![Platforma Apache Spark w Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark w Azure Databricks")
+![Platforma Apache Spark w usłudze Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Platforma Apache Spark w usłudze Azure Databricks")
 
-* **Platforma Spark SQL i DataFrames**: Spark SQL jest moduł Spark do pracy z danych strukturalnych. DataFrame jest kolekcją rozproszonej podzielone na nazwane kolumny danych. Odpowiada koncepcyjnie do tabeli w relacyjnej bazie danych lub ramki danych w języku R/Python.
+* **Spark SQL i elementy DataFrame**: Spark SQL to moduł platformy Spark do pracy z danymi strukturalnymi. Element DataFrame jest rozproszoną kolekcją danych zorganizowanych w nazwanych kolumnach. Jest równoważny tabeli w relacyjnej bazie danych lub ramce danych w języku R/Python.
 
-* **Przesyłanie strumieniowe**: przetwarzanie danych w czasie rzeczywistym i analizy aplikacji analitycznych i interaktywne. Integruje się z systemem plików HDFS, Flume i Kafka.
+* **Przesyłanie strumieniowe**: przetwarzanie i analiza danych w czasie rzeczywistym dla aplikacji analitycznych i interakcyjnych. Integruje się z rozwiązaniami HDFS, Flume i Kafka.
 
-* **MLib**: Biblioteka Machine Learning składające się z wspólnej uczenia algorytmów i narzędzi, tym klasyfikacji, regresji, klaster, filtrowania współpracy, zmniejszenie wymiary, jak również bazowy podstawowych optymalizacji.
+* **MLib**: biblioteka uczenia maszynowego (Machine Learning) składająca się ze wspólnych narzędzi i algorytmów uczenia się, w tym klasyfikacji, regresji, klastrowania, filtrowania z wykorzystaniem współpracy, zmniejszania wymiarowości, a także źródłowych typów pierwotnych optymalizacji.
 
-* **GraphX**: wykresów i obliczeń wykres szeroki zakres zastosowań z kognitywnych analytics do Eksploracja danych.
+* **GraphX**: wykresy i obliczenia dotyczące wykresów do szerokiego zakresu zastosowań, od analizy poznawczej po eksplorację danych.
 
-* **Platforma Spark Core API**: obsługuje R, SQL, Python, Scala i Java.
+* **Interfejs API Spark Core**: zapewnia obsługę języków R, SQL, Python, Scala i Java.
 
-## <a name="apache-spark-in-azure-databricks"></a>Platforma Apache Spark w Azure Databricks
+## <a name="apache-spark-in-azure-databricks"></a>Platforma Apache Spark w usłudze Azure Databricks
 
-Azure Databricks opiera się na możliwości Spark zapewniając platformy zarządzania zero chmury, która obejmuje:
+Usługa Azure Databricks bazuje na możliwościach platformy Spark, zapewniając platformę chmurową, która nie wymaga zarządzania i obejmuje następujące elementy:
 
-- Klastry Spark pełni zarządzane
-- Interaktywny obszar roboczy do eksploracji i wizualizacji
-- Platforma do ulubionych aplikacji na podstawie Spark zasilania
+- W pełni zarządzane klastry Spark
+- Interakcyjny obszar roboczy do eksploracji i wizualizacji
+- Platforma do obsługi ulubionych aplikacji opartych na platformie Spark
 
-### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>Pełni zarządzane klastry platformy Apache Spark w chmurze
+### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>W pełni zarządzane klastry Apache Spark w chmurze
 
-Azure Databricks środowiska produkcyjnego bezpieczny i niezawodny znajdują się w chmurze, zarządzana i obsługiwana przez ekspertów platformy Spark. Możesz:
+Usługa Azure Databricks zapewnia bezpieczne i niezawodne środowisko produkcyjne w chmurze, zarządzane i obsługiwane przez ekspertów ds. platformy Spark. Możesz:
 
-* Tworzenie klastrów w sekundach.
-* Dynamicznie skalowania automatycznego klastrów w górę i w dół, niekorzystającą klastrów, w tym i udostępniać je między zespołami. 
-* Za pomocą klastrów programowo przy użyciu interfejsów API REST. 
-* Użyj zabezpieczonych danych funkcje integracji opartą na platformie Spark, które umożliwiają ujednolicenie bez centralizacji danych. 
-* Daje natychmiastowy dostęp do najnowszych funkcji platformy Apache Spark w poszczególnych wersjach.
+* Tworzyć klastry w ciągu sekund.
+* Dynamicznie automatycznie skalować klastry w górę i w dół, w tym klastry bezserwerowe, i udostępniać je między zespołami. 
+* Korzystać z klastrów programowo przy użyciu interfejsów API REST. 
+* Korzystać z bezpiecznych funkcji integracji danych opartych na platformie Spark, które umożliwiają ujednolicanie danych bez centralizacji. 
+* Uzyskiwać natychmiastowy dostęp do najnowszych funkcji platformy Apache Spark dodawanych w każdej wersji.
 
-### <a name="databricks-runtime"></a>Środowisko uruchomieniowe Databricks
-Środowisko uruchomieniowe Databricks bazuje na Apache Spark i natywnie zaprojektowano pod kątem chmury platformy Azure. 
+### <a name="databricks-runtime"></a>Środowisko uruchomieniowe usługi Databricks
+Środowisko uruchomieniowe usługi Databricks bazuje na platformie Apache Spark i zostało natywnie zaprojektowane pod kątem chmury platformy Azure. 
 
-Z **Serverless** opcji Azure Databricks całkowicie abstracts złożoności infrastruktury i potrzebę specjalne wiedzę do instalowania i konfigurowania infrastruktury danych. Opcja Niekorzystającą pomaga dane, które służące szybko przejść w zespole.
+Dzięki opcji **bezserwerowej** usługa Azure Databricks całkowicie eliminuje złożoność infrastruktury i wymaganie posiadania wiedzy eksperckiej w celu instalowania i konfigurowania infrastruktury danych. Opcja bezserwerowa ułatwia analitykom danych realizację szybkich cyklów pracy w zespole.
 
-Dla inżynierów danych, którzy najważniejsze informacje dotyczące wykonywania zadań produkcji, Azure Databricks udostępnia Spark aparatem, który jest szybsze i wydajności za pośrednictwem różnych optymalizacje na We/Wy i przetwarzania warstwy (Databricks We/Wy).
+Inżynierom danych, których interesuje wydajność zadań produkcyjnych, usługa Azure Databricks zapewnia aparat platformy Spark, który jest szybszy i wydajniejszy dzięki różnym optymalizacjom warstwy wejścia/wyjścia i warstwy przetwarzania (wejście/wyjście usługi Databricks).
 
 ### <a name="workspace-for-collaboration"></a>Obszar roboczy współpracy
 
-Za pomocą współpracy i zintegrowane środowisko Azure Databricks upraszcza proces eksplorowania danych, prototypowania i uruchamianie opartych na danych aplikacji w łączniku Spark.
+Dzięki zoptymalizowanemu pod kątem współpracy i zintegrowanemu środowisku usługa Azure Databricks upraszcza proces eksplorowania danych, tworzenia prototypów i uruchamiania aplikacji opartych na danych na platformie Spark.
 
-* Określenia sposobu używania danych z Eksploracja danych łatwe.
-* Następnie należy udokumentować postęp w notesach R, Python, Scala lub SQL.
-* Wizualizuj dane za pomocą kilku kliknięć, a za pomocą znanych narzędzi, takich jak Matplotlib, ggoplot lub d3.
-* Umożliwia tworzenie dynamicznych raportów interaktywnych pulpitów nawigacyjnych.
-* Użyj Spark i interakcję z danymi jednocześnie.
+* Ustalanie sposobu używania danych dzięki łatwej eksploracji danych.
+* Dokumentowanie postępu w notesach w językach R, Python, Scala lub SQL.
+* Wizualizowanie danych za pomocą kilku kliknięć i korzystanie ze znanych narzędzi, takich jak Matplotlib, ggoplot lub d3.
+* Tworzenie dynamicznych raportów za pomocą interakcyjnych pulpitów nawigacyjnych.
+* Korzystanie z platformy Spark w celu obsługi jednoczesnych interakcji z danymi.
 
-## <a name="enterprise-security"></a>Enterprise zabezpieczeń
+## <a name="enterprise-security"></a>Zabezpieczenia przedsiębiorstwa
 
-Azure Databricks udostępnia korporacyjnej zabezpieczeń platformy Azure, włącznie z integracją usługi Azure Active Directory, oparta na rolach kontroli oraz umów SLA, które zapewniają ochronę danych i firmy.
+Usługa Azure Databricks zapewnia zabezpieczenia klasy korporacyjnej platformy Azure, w tym integrację z usługą Azure Active Directory, kontrolę opartą na rolach oraz umowy SLA, które zapewniają ochronę danych i firmy.
 
-* Integracja z usługą Azure Active Directory umożliwia uruchamianie kompletnych rozwiązań bazujących na platformie Azure przy użyciu Azure Databricks.
-* Azure Databricks dostępu oparte na rolach umożliwia szczegółowe uprawnienia notesów, klastrów, zadania i dane.
-* SLA korporacyjnej. 
+* Integracja z usługą Azure Active Directory umożliwia uruchamianie przy użyciu usługi Azure Databricks kompletnych rozwiązań bazujących na platformie Azure.
+* Dostęp oparty na rolach usługi Azure Databricks umożliwia określanie szczegółowych uprawnień do notesów, klastrów, zadań i danych.
+* Umowy SLA klasy korporacyjnej. 
 
 ## <a name="integration-with-azure-services"></a>Integracja z usługami Azure
 
-Azure Databricks ściśle integruje się z bazy danych platformy Azure i magazyny: Magazyn danych SQL, rozwiązania Cosmos DB Data Lake Store i magazynu obiektów Blob. 
+Usługa Azure Databricks jest ściśle zintegrowana z bazami danych i magazynami platformy Azure: SQL Data Warehouse, Cosmos DB, Data Lake Store i Blob Storage. 
 
 ## <a name="integration-with-power-bi"></a>Integracja z usługą Power BI
-Za pomocą zaawansowanych integracji z usługą Power BI Azure Databricks służy do odnajdywania i udostępniania istotna szczegółowe dane szybkie i łatwe. Można użyć innych narzędzi do analizy Biznesowej oraz, takich jak Tableau oprogramowania za pomocą punktów końcowych klastra JDBC/ODBC.
+Dzięki rozbudowanej integracji z usługą Power BI usługa Azure Databricks umożliwia szybkie i łatwe odnajdywanie i udostępnianie istotnych wyników analiz. Można też używać innych narzędzi do analizy biznesowej, takich jak oprogramowanie Tableau — za pośrednictwem punktów końcowych klastra JDBC/ODBC.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki Start: Uruchom zadanie Spark Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+* [Szybki start: uruchamianie zadania Spark w usłudze Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Praca z klastrami Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Praca z notesów](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
+* [Praca z notesami](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
 * [Tworzenie zadań Spark](https://docs.azuredatabricks.net/user-guide/jobs.html)
 
  

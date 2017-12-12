@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak dane indeksu bazy danych rozwiązania Cosmos Azure?
 
@@ -229,7 +229,7 @@ Można wybrać, czy ma kolekcję do automatycznego indeksowania wszystkie dokume
 
 Z automatycznego indeksowania wyłączone, nadal selektywnie można dodać tylko dokumenty do indeksu. Z drugiej strony można pozostawić automatycznego indeksowania na i selektywnie wykluczyć wybrany tylko określonych dokumentów. Indeksowanie lub wyłącza konfiguracje są przydatne, jeśli masz tylko podzbiór dokumentów, które trzeba można wykonać zapytania.
 
-Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API usługi DocumentDB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
+Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -315,7 +315,7 @@ Podczas czy wprowadzania zmian zasad indeksowania do kolekcji bazy danych rozwi�
 > 
 
 ## <a name="performance-tuning"></a>Dostosowywanie wydajności
-Interfejsy API usługi DocumentDB zapewniają informacje o metryki wydajności, takie jak magazyn indeksu używane i kosztów przepustowości (jednostki żądania) dla każdej operacji. Te informacje można porównać różnych zasad indeksowania i dostrajania wydajności.
+Interfejsy API programu SQL Podaj informacje o metryki wydajności, takie jak magazyn indeksu używane i kosztów przepustowości (jednostki żądania) dla każdej operacji. Te informacje można porównać różnych zasad indeksowania i dostrajania wydajności.
 
 Aby sprawdzić przydział pamięci masowej i użycia kolekcji, uruchamianie żądania HEAD lub GET dla zasobu kolekcji, a sprawdzić x-ms żądania przydziału i nagłówków x-ms żądania użycia. W zestawie SDK .NET [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) i [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) właściwości w [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) zawierają te wartości.
 
@@ -409,7 +409,7 @@ Porównanie praktyczne Oto jeden niestandardowe zasady indeksowania przykład na
 ## <a name="next-steps"></a>Następne kroki
 Skorzystaj z łączy poniżej dla indeksu zasad zarządzania przykładów i dowiedzieć się więcej o język zapytań usługi Azure rozwiązania Cosmos DB.
 
-1. [Przykłady kodu Zarządzanie indeksami .NET interfejsu API usługi DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Operacje kolekcji usługi DocumentDB interfejsu API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [Przykłady kodu SQL interfejs API .NET indeksu zarządzania](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Operacje kolekcji REST API SQL](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Zapytania SQL](documentdb-sql-query.md)
 

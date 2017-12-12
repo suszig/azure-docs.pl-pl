@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Azure rozwiązań magazynów na potrzeby R Server w usłudze HDInsight
 
@@ -43,19 +43,25 @@ Aby uzyskać wskazówki dotyczące wybierania najbardziej odpowiedniej opcji mag
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Używanie kont magazynu obiektów Blob platformy Azure z serwerem R
 
-W razie potrzeby mogą otwierać wiele kont magazynu Azure lub kontenery z klastra HDI. Aby to zrobić, należy określić dodatkowe konta magazynu w interfejsie użytkownika, podczas tworzenia klastra, a następnie wykonaj następujące kroki, aby można było ich używać z serwerem R.
+Jeśli określono więcej niż jedno konto magazynu podczas tworzenia klastra serwerów R, poniższe instrukcje wyjaśniają sposób użycia dodatkowej konta dla dostępu do danych i operacji na serwerze R. Załóżmy następujące konta magazynu i kontener: **storage1** i domyślny kontener o nazwie **container1**, i **storage2**.
 
 > [!WARNING]
 > Ze względów wydajnościowych klastra usługi HDInsight jest tworzony w tym samym centrum danych, co konto magazynu podstawowego, który określisz. Używanie konta magazynu w innej lokalizacji niż klastra usługi HDInsight nie jest obsługiwane.
 
-1. Tworzenie klastra usługi HDInsight przy użyciu nazwy konta magazynu **storage1** i domyślny kontener o nazwie **container1**.
-2. Określ konto dodatkowego magazynu o nazwie **storage2**.  
-3. Skopiuj plik mycsv.csv do katalogu/share i przeprowadzania analizy dla tego pliku.  
+1. Przy użyciu klienta SSH, połącz się z węzłem krawędzi klastra jako remoteuser.  
+
+  + W portalu Azure > stronę usługi klastra HDI > Przegląd kliknij **Secure Shell (SSH)**.
+  + Nazwa hosta, wybierz węzeł krawędzi (zawiera *ed-ssh.azurehdinsight.net* w nazwie).
+  + Skopiuj nazwę hosta.
+  + Otwórz klienta SSH PutTY lub SmartTY, a następnie wprowadź nazwę hosta.
+  + Wprowadź nazwę użytkownika, a następnie hasło klastra remoteuser.
+  
+2. Skopiuj plik mycsv.csv do katalogu/Share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. W kodzie języka R ustawioną nazwę węzła **domyślnie** i Ustaw użytkownika katalogów i plików do przetworzenia.  
+3. Przełącz się do R Studio lub innej konsoli R i napisać kod R, aby ustawić nazwę węzła **domyślne** i lokalizację pliku, którego chcesz uzyskać dostęp.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ W razie potrzeby mogą otwierać wiele kont magazynu Azure lub kontenery z klast
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

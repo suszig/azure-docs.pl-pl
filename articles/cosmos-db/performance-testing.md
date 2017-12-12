@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Wydajność i skalę testowania z bazy danych Azure rozwiązania Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Skala testowanie wydajności i jest klucza krok w rozwoju aplikacji. Dla wielu aplikacji warstwy bazy danych ma znaczący wpływ na ogólną wydajność i skalowalność. W związku z tym jest składnikiem krytycznym testowania wydajności. [Azure DB rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) jest dedykowanym elastyczne skalowanie i przewidywalną wydajność. Te możliwości stanowić stanowi doskonałe dopasowanie dla aplikacji, które wymagają warstwy wysokiej wydajności bazy danych. 
 
 W tym artykule jest odwołaniem dla deweloperów wykonania testów wydajności dla obciążeń bazy danych Azure rozwiązania Cosmos. Ponadto umożliwia do oceny bazy danych Azure rozwiązania Cosmos w przypadku scenariuszy wysokiej wydajności aplikacji. Skupiono się głównie na testowania wydajności izolowanej bazy danych, ale zawiera również najlepsze rozwiązania dotyczące aplikacji produkcyjnych.
@@ -54,7 +57,7 @@ Aby skompilować i uruchomić przykładowe .NET jest najszybszym sposobem na roz
 
 **Krok 3:** skompilować i uruchomić aplikację konsoli z wiersza polecenia. Powinny pojawić się dane wyjściowe podobne do następujących:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

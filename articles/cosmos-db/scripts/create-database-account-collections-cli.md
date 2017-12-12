@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skryptu — Tworzenie konta interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB, bazy danych i kolekcji | Dokumentacja firmy Microsoft"
-description: "Azure CLI skrypt przykładowy — Utwórz konto interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB, bazy danych i kolekcji"
+title: "Azure CLI skryptu — Tworzenie konta interfejsu API Azure rozwiązania Cosmos bazy danych SQL, bazy danych i kolekcji | Dokumentacja firmy Microsoft"
+description: "Azure CLI skrypt przykładowy — Utwórz konto interfejsu API Azure rozwiązania Cosmos bazy danych SQL, bazy danych i kolekcji"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie konta usługi DocumentDB interfejsu API przy użyciu interfejsu wiersza polecenia
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie konta interfejsu API SQL przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt CLI tworzy konto interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB, bazy danych i kolekcji.  
+Ten przykładowy skrypt CLI tworzy konto interfejsu API Azure rozwiązania Cosmos bazy danych SQL, bazy danych i kolekcji.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac45408dab31566be3089cbf2cd7d31d54b1655
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Jądra dla notesu Jupyter w klastrze Spark w usłudze Azure HDInsight 
 
@@ -82,13 +82,13 @@ Poniżej przedstawiono kilka korzyści z notesu Jupyter w klastrze Spark w usłu
 
    | Magiczna | Przykład | Opis |
    | --- | --- | --- |
-   | Pomoc |`%%help` |Generuje spis wszystkich dostępnych poleceń magicznych przykład i opis |
+   | pomoc |`%%help` |Generuje spis wszystkich dostępnych poleceń magicznych przykład i opis |
    | Informacje o |`%%info` |Dane wyjściowe informacji o sesji dla bieżącej punktu końcowego programu Livy |
-   | Konfigurowanie |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfiguruje parametry w celu utworzenia sesji. Flagi force (-f) jest wymagane, jeśli sesja została już utworzona, który zapewnia, że sesja jest porzucona i utworzona ponownie. Przyjrzyj się [/sessions POST Livy w treści żądania](https://github.com/cloudera/livy#request-body) listę prawidłowych parametrów. Parametry muszą być przekazywane w postaci ciągu JSON i musi być w następnym wierszu po magic, jak pokazano w przykładzie kolumny. |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Wykonuje zapytanie Hive względem element sqlContext. Jeśli `-o` parametr jest przekazywany, w wyniku zapytania jest trwały %% lokalny kontekst Python jako [Pandas](http://pandas.pydata.org/) dataframe. |
+   | konfiguruj |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfiguruje parametry w celu utworzenia sesji. Flagi force (-f) jest wymagane, jeśli sesja została już utworzona, który zapewnia, że sesja jest porzucona i utworzona ponownie. Przyjrzyj się [/sessions POST Livy w treści żądania](https://github.com/cloudera/livy#request-body) listę prawidłowych parametrów. Parametry muszą być przekazywane w postaci ciągu JSON i musi być w następnym wierszu po magic, jak pokazano w przykładzie kolumny. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Wykonuje zapytanie Hive względem element sqlContext. Jeśli `-o` parametr jest przekazywany, w wyniku zapytania jest trwały %% lokalny kontekst Python jako [Pandas](http://pandas.pydata.org/) dataframe. |
    | lokalne |`%%local`<br>`a=1` |Cały kod w kolejnych wierszy jest wykonywana lokalnie. Kod musi być prawidłowym kodem Python2 nawet niezależnie od jądra, którego używasz. Tak, nawet w przypadku wybrania **PySpark3** lub **Spark** jądra podczas tworzenia notesu, jeśli używasz `%%local` magic w komórce, tej komórki musi mieć tylko prawidłowy kod Python2... |
    | dzienniki |`%%logs` |Dane wyjściowe dzienników dla bieżącej sesji programu Livy. |
-   | Usuń |`%%delete -f -s <session number>` |Usuwa określonej sesji bieżącego Livy punktu końcowego. Należy pamiętać, że nie można usunąć sesji, która jest inicjowane dla samej siebie jądra. |
+   | usuń |`%%delete -f -s <session number>` |Usuwa określonej sesji bieżącego Livy punktu końcowego. Należy pamiętać, że nie można usunąć sesji, która jest inicjowane dla samej siebie jądra. |
    | Czyszczenie |`%%cleanup -f` |Usuwa wszystkich sesji dla bieżącej Livy punktu końcowego tego notesu sesji. Flagi force -f jest obowiązkowe. |
 
    > [!NOTE]

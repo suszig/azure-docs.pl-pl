@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure rozwiązania Cosmos bazy danych: Za pomocą usługi Azure Functions obliczeniowych bez serwera bazy danych
 
@@ -44,7 +44,7 @@ W następujących kombinacji można wyzwalacza bazy danych Azure rozwiązania Co
 * Powiązania wejściowego do kontenera Azure DB rozwiązania Cosmos można użyć w tej samej funkcji jako wyzwalacz bazy danych Azure rozwiązania Cosmos i mogą być używane z lub bez wyjścia również powiązania. Ta kombinacja do stosowania aktualne waluty wymiany informacji (pobierane za pomocą powiązania wejściowego do kontenera programu exchange) można użyć do zmiany źródła nowych zamówień w usługą koszyka zakupów. Zaktualizowano łączną koszyka zakupów, z bieżącej konwersja zastosowane, mogą być zapisywane na trzeci kontener używanie powiązania danych wyjściowych.
 
 > [!NOTE]
-> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta usługi DocumentDB, tabel i interfejsu API programu Graph.
+> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta SQL, tabel i interfejsu API programu Graph.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 

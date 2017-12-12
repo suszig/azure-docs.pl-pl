@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unikatowy kluczy w usłudze Azure DB rozwiązania Cosmos
 
 Unikatowy kluczy dostarczyć deweloperom możliwość dodawania warstwy integralność danych do ich bazy danych. Tworząc unikatowe zasady klucza po utworzeniu kontenera, zapewnienia unikatowości co najmniej jedna wartość na [klucza partycji](partition-data.md). Po utworzeniu kontenera z zasadą unikatowy kluczy uniemożliwia tworzenie nowych lub zaktualizowanych elementów z wartościami, które zduplikowane wartości określonego przez ograniczenia klucza unique.   
 
 > [!NOTE]
-> Unikatowe klucze są obsługiwane przez najnowsze wersje [.NET](documentdb-sdk-dotnet.md) i [.NET Core](documentdb-sdk-dotnet-core.md) zestawów SDK DocumentDB (SQL) i [API bazy danych MongoDB](mongodb-feature-support.md#unique-indexes). Tabela interfejsu API i interfejsu API programu Graph nie obsługują unikatowy kluczy w tej chwili. 
+> Unikatowe klucze są obsługiwane przez najnowsze wersje [.NET](documentdb-sdk-dotnet.md) i [.NET Core](documentdb-sdk-dotnet-core.md) SDK SQL i [API bazy danych MongoDB](mongodb-feature-support.md#unique-indexes). Tabela interfejsu API i interfejsu API programu Graph nie obsługują unikatowy kluczy w tej chwili. 
 > 
 >
 
@@ -54,7 +54,7 @@ Unikatowy kluczy musi być zdefiniowana, jeśli ten kontener jest tworzony i zak
 
 Nie można zaktualizować istniejące kontenery do używać unikatowy kluczy.
 
-Po utworzeniu kontenera z zasadą unikatowy kluczy zasady nie można zmienić, o ile nie zostanie ponownie utworzona kontenera. Jeśli masz istniejące dane, które chcesz zaimplementować unikatowy kluczy, Utwórz nowy kontener, a następnie użyć narzędzia migracji danych do przenoszenia danych do nowego kontenera. Kontenery usługi DocumentDB (SQL), można użyć [narzędzia migracji danych](import-data.md). Dla bazy danych MongoDB kontenery, użyj [mongoimport.exe lub mongorestore.exe](mongodb-migrate.md).
+Po utworzeniu kontenera z zasadą unikatowy kluczy zasady nie można zmienić, o ile nie zostanie ponownie utworzona kontenera. Jeśli masz istniejące dane, które chcesz zaimplementować unikatowy kluczy, Utwórz nowy kontener, a następnie użyć narzędzia migracji danych do przenoszenia danych do nowego kontenera. Dla kontenerów SQL, użyj [narzędzia migracji danych](import-data.md). Dla bazy danych MongoDB kontenery, użyj [mongoimport.exe lub mongorestore.exe](mongodb-migrate.md).
 
 Maksymalnie 16 wartościami ścieżki (na przykład /firstName, /lastName, /address/zipCode itp.) mogą zostać włączone w każdym Unikatowy klucz. 
 
@@ -64,9 +64,9 @@ Każdy unikatowy kluczy zasad może mieć maksymalnie 10 ograniczeń klucza uniq
 
 Rozrzedzony unikatowy kluczy nie są obsługiwane. Brak wartości dla niektórych unikatowy ścieżki są traktowane jako specjalne wartość null, która uczestniczy w ograniczenie unikatowości.
 
-## <a name="documentdb-sql-api-sample"></a>Przykładowe DocumentDB (SQL) interfejsu API
+## <a name="sql-api-sample"></a>Przykładowy interfejs API SQL
 
-Poniższy przykład kodu pokazuje, jak utworzyć nowy kontener usługi DocumentDB (SQL) z dwóch ograniczeń klucza unique. Pierwszy ograniczenie jest firstName, lastName, poczty e-mail ograniczenia opisane w poprzedniego przykładu. Drugi ograniczeniem jest to adres/kod pocztowy użytkowników. Przykładowy plik JSON używa ścieżki tych unikatowy kluczy zasad następuje przykładów kodu. 
+Poniższy przykładowy kod przedstawia sposób tworzenia nowego kontenera SQL z dwóch ograniczeń klucza unique. Pierwszy ograniczenie jest firstName, lastName, poczty e-mail ograniczenia opisane w poprzedniego przykładu. Drugi ograniczeniem jest to adres/kod pocztowy użytkowników. Przykładowy plik JSON używa ścieżki tych unikatowy kluczy zasad następuje przykładów kodu. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Projekt za pomocą usługi kontenera platformy Azure (AKS)
 
-Projekt jest narzędziem open source, które pomaga pakietu i uruchamianie kodu w klastrze Kubernetes. Projekt jest przeznaczona dla rozwoju cyklu iteracji; ponieważ kod jest obecnie opracowywane, ale przed zatwierdzeniem do systemu kontroli wersji. Z wersji próbnej można szybko wdrożyć ponownie aplikację Kubernetes wystąpienia zmian kodu. Aby uzyskać więcej informacji na temat projektu, zobacz [projekt dokumentacji w witrynie Github](https://github.com/Azure/draft/tree/master/docs).
+Projekt jest narzędziem open source, które pomaga pakietu i uruchamianie kodu w klastrze Kubernetes. Projekt jest przeznaczona dla rozwoju cyklu iteracji; ponieważ kod jest obecnie opracowywane, ale przed zatwierdzeniem do systemu kontroli wersji. Z wersji próbnej można szybko wdrożyć ponownie aplikację Kubernetes wystąpienia zmian kodu. Aby uzyskać więcej informacji na temat projektu, zobacz [projekt dokumentacji w witrynie Github][draft-documentation].
 
 Szczegóły tego dokumentu z klastrem Kubernetes na AKS przy użyciu wersji roboczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W krokach szczegółowo opisanych w tym dokumencie założono, że klaster usługi AKS został utworzony i że zostało nawiązane połączenie kubectl z klastrem. Jeśli potrzebujesz tych elementów, zobacz [szybkiego startu AKS](./kubernetes-walkthrough.md).
+W krokach szczegółowo opisanych w tym dokumencie założono, że klaster usługi AKS został utworzony i że zostało nawiązane połączenie kubectl z klastrem. Jeśli potrzebujesz tych elementów, zobacz [szybkiego startu AKS][aks-quickstart].
 
-Należy również prywatnej rejestru Docker w rejestrze kontenera platformy Azure (ACR). Aby uzyskać instrukcje na temat wdrażania wystąpienia ACR, zobacz [Szybki Start Azure kontenera rejestru](../container-registry/container-registry-get-started-azure-cli.md).
+Należy również prywatnej rejestru Docker w rejestrze kontenera platformy Azure (ACR). Aby uzyskać instrukcje na temat wdrażania wystąpienia ACR Zobacz [kontenera rejestru Szybki Start Azure] [szybkiego startu acr].
 
 ## <a name="install-helm"></a>Zainstaluj Helm
 
 Helm interfejsu wiersza polecenia jest klient, który działa w systemie deweloperskim i umożliwia uruchamianie, zatrzymywanie i zarządzania aplikacjami z wykresami Helm.
 
-Aby zainstalować Helm interfejsu wiersza polecenia na komputerze Mac, należy użyć `brew`. Aby uzyskać dodatkowe opcje instalacji, zobacz [instalowanie Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Aby zainstalować Helm interfejsu wiersza polecenia na komputerze Mac, należy użyć `brew`. Aby uzyskać dodatkowe opcje instalacji, zobacz [instalowanie Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 Projekt interfejsu wiersza polecenia jest klient, który działa w systemie deweloperskim i pozwala na quicky wdrożenie w klastrze Kubernetes kodu.
 
-Aby zainstalować projektu interfejsu wiersza polecenia przy użyciu Mac `brew`. Aby uzyskać dodatkowe opcje instalacji Zobacz, [zainstalować wersję roboczą przewodnik](https://github.com/Azure/draft/blob/master/docs/install.md).
+Aby zainstalować projektu interfejsu wiersza polecenia przy użyciu Mac `brew`. Aby uzyskać dodatkowe opcje instalacji Zobacz, [zainstalować wersję roboczą przewodnik][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ Po zakończeniu badania użycia aplikacji `Control+C` zatrzymania połączenia s
 
 ## <a name="expose-application"></a>Udostępnianie aplikacji
 
-Podczas testowania aplikacji w Kubernetes, można udostępnić aplikacje w Internecie. Można to zrobić przy użyciu usługi Kubernetes z typem [usługi równoważenia obciążenia](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) lub [kontrolera wejściowych](https://kubernetes.io/docs/concepts/services-networking/ingress/). Szczegóły tego dokumentu przy użyciu usługi Kubernetes.
+Podczas testowania aplikacji w Kubernetes, można udostępnić aplikacje w Internecie. Można to zrobić przy użyciu usługi Kubernetes z typem [usługi równoważenia obciążenia] [ kubernetes-service-loadbalancer] lub [kontrolera wejściowych][kubernetes-ingress]. Szczegóły tego dokumentu przy użyciu usługi Kubernetes.
 
 
 Najpierw projekt pakietu musi zostać zaktualizowany, aby określić, że usługa z typem `LoadBalancer` powinien zostać utworzony. Aby to zrobić, typ usługi, w aktualizacji `values.yaml` pliku.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Aby uzyskać więcej informacji o korzystaniu z wersji próbnej zobacz dokumentację projekt w witrynie GitHub.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja projektu](https://github.com/Azure/draft/tree/master/docs)
+> [Dokumentacja projektu][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

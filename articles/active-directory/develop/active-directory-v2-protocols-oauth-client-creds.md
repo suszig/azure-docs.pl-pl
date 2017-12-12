@@ -4,7 +4,7 @@ description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD implem
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>V2.0 usługi Azure Active Directory i że przepływ poświadczeń klienta OAuth 2.0
 Można użyć [przyznania poświadczeń klienta OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), nazywane czasem *bokami dwa OAuth*, aby uzyskać dostęp do zasobów hostowanych w sieci web przy użyciu tożsamości aplikacji. Ten typ grant często służy do interakcji do serwera, które muszą zostać uruchomione w tle, bez natychmiastowego interakcji z użytkownikiem. Często aplikacje tego typu są określane jako *demony* lub *kont usługi*.
@@ -52,7 +52,7 @@ Zamiast przy użyciu list kontroli dostępu, możesz użyć interfejsów API do 
 * Odczytuj pocztę we wszystkich skrzynkach pocztowych
 * Odczytuj i zapisuj wiadomości e-mail we wszystkich skrzynkach pocztowych
 * Wysyłaj wiadomości e-mail jako dowolny użytkownik
-* Odczyt danych katalogu
+* Odczytaj dane katalogu
 
 Aby uzyskać więcej informacji o uprawnieniach aplikacji, przejdź do [Microsoft Graph](https://graph.microsoft.io).
 

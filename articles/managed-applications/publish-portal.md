@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publikowanie aplikacji katalogu usług za pośrednictwem portalu Azure
 
@@ -60,7 +60,6 @@ Plik zip, który zawiera definicję aplikacji zarządzanej musi być dostępny z
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [Omówienie aplikacji zarządzanych](overview.md).
+* Zobacz artykuł [Omówienie aplikacji zarządzanych](overview.md) zawierający wprowadzenie do aplikacji zarządzanych.
 * Przykłady zarządzanej aplikacji można znaleźć [przykładowe projekty dla platformy Azure zarządzanych aplikacji](sample-projects.md).
-* Informacje dotyczące publikowania zarządzanych aplikacji w portalu Azure Marketplace, zobacz [Azure zarządzanych aplikacji w witrynie Marketplace](publish-marketplace-app.md).
-* Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla zarządzanych aplikacji, zobacz [wprowadzenie CreateUiDefinition](create-uidefinition-overview.md).
+* Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla aplikacji zarządzanej, zobacz [Rozpoczynanie pracy z plikiem CreateUiDefinition](create-uidefinition-overview.md).

@@ -4,7 +4,7 @@ description: "W tym artykule opisano, jak skonfigurować łącznik usługi firmy
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Informacje techniczne dotyczące łącznika usługi Windows PowerShell
 W tym artykule opisano łącznik usługi Windows PowerShell. Artykuł dotyczy następujących produktów:
@@ -62,7 +62,7 @@ Można skonfigurować następujące parametry połączenia:
 | Parametr | Wartość domyślna | Przeznaczenie |
 | --- | --- | --- |
 | Serwer |<Blank> |Nazwa serwera, która łącznik należy nawiązać połączenie. |
-| Domeny |<Blank> |Domena poświadczenia, aby zapisać do użycia, gdy jest uruchamiany łącznik. |
+| Domena |<Blank> |Domena poświadczenia, aby zapisać do użycia, gdy jest uruchamiany łącznik. |
 | Użytkownik |<Blank> |Nazwa użytkownika poświadczeń przechowywanie do użycia, gdy jest uruchamiany łącznik. |
 | Hasło |<Blank> |Hasła poświadczenia, aby zapisać do użycia, gdy jest uruchamiany łącznik. |
 | Personifikuj konto łącznika |False |W przypadku wartości PRAWDA Usługa synchronizacji działa skryptów programu Windows PowerShell w kontekście dostarczone poświadczenia. Jeśli to możliwe, zalecane jest **$Credentials** parametr jest przekazywany do każdej skryptu jest używany zamiast personifikacji. Aby uzyskać więcej informacji o dodatkowe uprawnienia, które są wymagane, aby użyć tej opcji, zobacz [dodatkowej konfiguracji personifikacji](#additional-configuration-for-impersonation). |

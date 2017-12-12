@@ -8,7 +8,7 @@
 ## [Jak działa synchronizacja](active-directory-ds-synchronization.md)
 ## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
 ## [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
 ## [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
@@ -16,6 +16,7 @@
 ## [Zadanie 5. Włączanie synchronizacji haseł](active-directory-ds-getting-started-password-sync.md)
 
 # Instrukcje
+## [Korzystanie z usług Azure AD Domain Services w ramach subskrypcji Azure CSP](active-directory-ds-csp.md)
 ## [Włączanie usługi Azure AD Domain Services przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Dołączanie do domeny zarządzanej
 ### [Maszyna wirtualna z systemem Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)

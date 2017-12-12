@@ -12,8 +12,6 @@
   items:
     - name: Tworzenie aplikacji w katalogu usług
       href: publish-service-catalog-app.md
-    - name: Tworzenie aplikacji w witrynie Marketplace
-      href: publish-marketplace-app.md
 - name: Przykłady
   items:
     - name: Interfejs wiersza polecenia platformy Azure

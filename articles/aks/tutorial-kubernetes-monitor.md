@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d10f9ce965e832c826e2b27b4746231b47be83d0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Monitor usługi kontenera platformy Azure (AKS)
 
 Monitorowanie sieci klastra Kubernetes i kontenery jest krytyczny, szczególnie w przypadku uruchamiania klastra produkcyjnego na dużą skalę, z wieloma aplikacjami.
 
-W tym samouczku, można skonfigurować monitorowanie swoją AKS klastra przy użyciu [kontenery rozwiązanie do analizy dzienników](../log-analytics/log-analytics-containers.md).
+W tym samouczku, można skonfigurować monitorowanie swoją AKS klastra przy użyciu [kontenery rozwiązanie do analizy dzienników][log-analytics-containers].
 
 Ten samouczek, część 7, 8 obejmuje następujące zadania:
 
@@ -32,7 +32,7 @@ Ten samouczek, część 7, 8 obejmuje następujące zadania:
 
 W poprzednim samouczki aplikacji zostało umieszczone w kontener obrazów, te obrazy przekazane do rejestru kontenera Azure i klastra Kubernetes utworzone.
 
-Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./tutorial-kubernetes-prepare-app.md).
+Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Konfigurowanie monitorowania rozwiązania
 
@@ -58,7 +58,7 @@ Aby pobrać te wartości, wybierz **obszarem roboczym pakietu OMS** z menu po le
 
 ## <a name="configure-monitoring-agents"></a>Konfigurowanie monitorowania agentów
 
-Następujący plik manifestu Kubernetes może służyć do konfigurowania kontenera agentów w klastrze Kubernetes monitorowania. Tworzy Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), która działa pod jednym w każdym węźle klastra.
+Następujący plik manifestu Kubernetes może służyć do konfigurowania kontenera agentów w klastrze Kubernetes monitorowania. Tworzy Kubernetes [DaemonSet][kubernetes-daemonset], która działa pod jednym w każdym węźle klastra.
 
 Zapisz poniższy tekst do pliku o nazwie `oms-daemonset.yaml`i zastąp symbole zastępcze dla `WSID` i `KEY` z klucz i identyfikator obszaru roboczego analizy dzienników.
 
@@ -153,7 +153,7 @@ W portalu Azure wybierz obszar roboczy analizy dzienników, która została przy
 
 ![Pulpit nawigacyjny](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Zobacz [dokumentacji usługi Analiza dzienników Azure](../log-analytics/index.yml) szczegółowe wskazówki dotyczące zapytań i analizowanie danych monitorowania.
+Zobacz [dokumentacji usługi Analiza dzienników Azure] [ log-analytics-docs] szczegółowe wskazówki dotyczące zapytań i analizowanie danych monitorowania.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -167,4 +167,14 @@ W tym samouczku monitorowane są klastra Kubernetes z usługą OMS. Uwzględnion
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat uaktualniania Kubernetes do nowej wersji.
 
 > [!div class="nextstepaction"]
-> [Uaktualnij Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Uaktualnij Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

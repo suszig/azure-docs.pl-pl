@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Wskazówki i zalecenia dotyczące niezawodnej kolekcji w sieci szkieletowej usług Azure
 Ta sekcja zawiera wskazówki dotyczące korzystania niezawodnej Menedżer stanu i niezawodne kolekcji. Celem jest ułatwienie użytkownikom uniknąć typowych problemów.
@@ -33,6 +33,7 @@ Wytyczne dzielą się na prosty zalecenia prefiksem warunki *czy*, *rozważ*, *n
 * Nie twórz transakcji w innej transakcji `using` instrukcji, ponieważ może to spowodować zakleszczenie.
 * Upewnij się, że Twoje `IComparable<TKey>` implementacja jest prawidłowa. System ma zależności `IComparable<TKey>` do scalenia punkty kontrolne i wierszy.
 * Użyj blokady aktualizacji podczas odczytywania elementu zamiaru Aby zaktualizować go w celu uniemożliwienia klasy zakleszczenia.
+* Należy wziąć pod uwagę zachowanie liczby kolekcji niezawodnej przypadających na partycję za mniej niż 1000. Preferuj niezawodnej kolekcji z elementów przed więcej niezawodnej kolekcje z mniej elementów.
 * Pomyśl o pozostawieniu elementów (na przykład TKey + TValue niezawodnej słownika) poniżej 80 KB: mniejszych, tym lepiej. Zmniejsza to ilość wymagania we/wy sterty dużych obiektów użycia jak również dysków i sieci. Często zmniejsza replikowanie danych zduplikowanych, gdy tylko jednej części mała wartość jest aktualizowana. Typowy sposób można to osiągnąć w słowniku niezawodnej jest włamanie swoich wierszy się na wiele wierszy.
 * Należy wziąć pod uwagę przy użyciu kopii zapasowej i przywrócenia jej funkcjonalności mają odzyskiwania po awarii.
 * Unikaj mieszanie operacje pojedynczej jednostki i operacje obejmujące wiele urządzeń (np. `GetCountAsync`, `CreateEnumerableAsync`) w ramach jednej transakcji z powodu poziomu izolacji inny.

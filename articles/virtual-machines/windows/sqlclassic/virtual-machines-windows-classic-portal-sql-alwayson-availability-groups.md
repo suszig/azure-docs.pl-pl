@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Konfigurowanie zawsze włączonej grupy dostępności w maszynach wirtualnych platformy Azure (klasyczne)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Ten samouczek zakłada następujące czynności:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Utwórz serwer wirtualny Kontroler sieci i domeny
-Rozpocznij nowe konto wersji próbnej platformy Azure. Po skonfigurowaniu konta powinno być ekranu głównego z klasycznego portalu Azure.
+Rozpocznij nowe konto wersji próbnej platformy Azure. Po skonfigurowaniu konta powinno być ekranu głównego, w portalu Azure.
 
 1. Kliknij przycisk **nowy** przycisku w lewym rogu dolnej części strony, jak pokazano na poniższym zrzucie ekranu.
    
@@ -87,9 +87,9 @@ Rozpocznij nowe konto wersji próbnej platformy Azure. Po skonfigurowaniu konta 
    | Wybierz system operacyjny maszyny wirtualnej |Windows Server 2012 R2 Datacenter |
    | Konfiguracja maszyny wirtualnej |**Data wydania wersji** = (Najnowsza wersja)<br/>**Nazwa maszyny WIRTUALNEJ** = ContosoDC<br/>**WARSTWA** = STANDARD<br/>**ROZMIAR** = A2 (2 rdzenie)<br/>**NOWĄ nazwę użytkownika** = AzureAdmin<br/>**NOWE hasło** = Contoso! 000<br/>**POTWIERDŹ** = Contoso! 000 |
    | Konfiguracja maszyny wirtualnej |**USŁUGI w CHMURZE** = Tworzenie nowej usługi w chmurze<br/>**Nazwa DNS usługi w CHMURZE** = nazwa usługi w chmurze unikatowy<br/>**Nazwa DNS** unikatową nazwę = (przykład: ContosoDC123)<br/>**REGION/grupy KOLIGACJI i WIRTUALNEJ sieci** = ContosoNET<br/>**PODSIECI sieci WIRTUALNEJ** = Back(10.10.2.0/24)<br/>**Konto MAGAZYNU** = Użyj konta usługi storage automatycznie generowanych<br/>**ZESTAW dostępności** = (Brak) |
-   | Opcje maszyny wirtualnej |Użyj wartości domyślnych |
+   | Opcje maszyny wirtualnej |Użyj domyślnych |
 
-Po skonfigurowaniu nowej maszyny wirtualnej, poczekaj na maszynie wirtualnej może być provsioned. Ten proces trwa trochę czasu. Jeśli klikniesz przycisk **maszyny wirtualnej** kartę w klasycznym portalu Azure, można zobaczyć ContosoDC stanów następuje z **uruchamianie (inicjowania obsługi administracyjnej)** do **zatrzymane**, **uruchamianie**, **uruchomiona (inicjowania obsługi administracyjnej)**i w końcu **systemem**.
+Po skonfigurowaniu nowej maszyny wirtualnej, poczekaj na maszynie wirtualnej może być provsioned. Ten proces trwa trochę czasu. Jeśli klikniesz przycisk **maszyny wirtualnej** kartę w portalu Azure widzą ContosoDC stanów następuje z **uruchamianie (inicjowania obsługi administracyjnej)** do **zatrzymane**,  **Uruchamianie**, **uruchomiona (inicjowania obsługi administracyjnej)**, a na końcu **systemem**.
 
 Teraz pomyślnie obsługiwanej przez serwer kontrolera domeny. Następnie skonfiguruj domeny usługi Active Directory na tym serwerze kontrolera domeny.
 
@@ -171,7 +171,7 @@ Utwórz trzy maszyny wirtualne. Jeden jest węzłem klastra i są dwa dla progra
 | Wybierz system operacyjny maszyny wirtualnej |**Windows Server 2012 R2 Datacenter** |**SQL Server 2014 Enterprise RTM** |**SQL Server 2014 Enterprise RTM** |
 | Konfiguracja maszyny wirtualnej |**Data wydania wersji** = (Najnowsza wersja)<br/>**Nazwa maszyny WIRTUALNEJ** = ContosoWSFCNode<br/>**WARSTWA** = STANDARD<br/>**ROZMIAR** = A2 (2 rdzenie)<br/>**NOWĄ nazwę użytkownika** = AzureAdmin<br/>**NOWE hasło** = Contoso! 000<br/>**POTWIERDŹ** = Contoso! 000 |**Data wydania wersji** = (Najnowsza wersja)<br/>**Nazwa maszyny WIRTUALNEJ** = ContosoSQL1<br/>**WARSTWA** = STANDARD<br/>**ROZMIAR** = A3 (4 rdzenie)<br/>**NOWĄ nazwę użytkownika** = AzureAdmin<br/>**NOWE hasło** = Contoso! 000<br/>**POTWIERDŹ** = Contoso! 000 |**Data wydania wersji** = (Najnowsza wersja)<br/>**Nazwa maszyny WIRTUALNEJ** = ContosoSQL2<br/>**WARSTWA** = STANDARD<br/>**ROZMIAR** = A3 (4 rdzenie)<br/>**NOWĄ nazwę użytkownika** = AzureAdmin<br/>**NOWE hasło** = Contoso! 000<br/>**POTWIERDŹ** = Contoso! 000 |
 | Konfiguracja maszyny wirtualnej |**USŁUGI w CHMURZE** = nazwa DNS usługi utworzonej wcześniej unikatowe chmury (przykład: ContosoDC123)<br/>**REGION/grupy KOLIGACJI i WIRTUALNEJ sieci** = ContosoNET<br/>**PODSIECI sieci WIRTUALNEJ** = Back(10.10.2.0/24)<br/>**Konto MAGAZYNU** = Użyj konta usługi storage automatycznie generowanych<br/>**ZESTAWU dostępności** = Tworzenie dostępności ustawić<br/>**NAZWA ZBIORU DOSTĘPNOŚCI** = SQLHADR |**USŁUGI w CHMURZE** = nazwa DNS usługi utworzonej wcześniej unikatowe chmury (przykład: ContosoDC123)<br/>**REGION/grupy KOLIGACJI i WIRTUALNEJ sieci** = ContosoNET<br/>**PODSIECI sieci WIRTUALNEJ** = Back(10.10.2.0/24)<br/>**Konto MAGAZYNU** = Użyj konta usługi storage automatycznie generowanych<br/>**ZESTAWU dostępności** = SQLHADR (można również skonfigurować dostępność ustawić po utworzeniu maszyny. Wszystkie trzy maszyny powinien być przypisany do zestawu dostępności SQLHADR.) |**USŁUGI w CHMURZE** = nazwa DNS usługi utworzonej wcześniej unikatowe chmury (przykład: ContosoDC123)<br/>**REGION/grupy KOLIGACJI i WIRTUALNEJ sieci** = ContosoNET<br/>**PODSIECI sieci WIRTUALNEJ** = Back(10.10.2.0/24)<br/>**Konto MAGAZYNU** = Użyj konta usługi storage automatycznie generowanych<br/>**ZESTAWU dostępności** = SQLHADR (można również skonfigurować dostępność ustawić po utworzeniu maszyny. Wszystkie trzy maszyny powinien być przypisany do zestawu dostępności SQLHADR.) |
-| Opcje maszyny wirtualnej |Użyj wartości domyślnych |Użyj wartości domyślnych |Użyj wartości domyślnych |
+| Opcje maszyny wirtualnej |Użyj domyślnych |Użyj domyślnych |Użyj domyślnych |
 
 <br/>
 
@@ -257,7 +257,7 @@ Wykonaj następujące kroki, aby wykonać zadania, które pełnej konfiguracji k
    
    | Strona | Ustawienia |
    | --- | --- |
-   | Przed rozpoczęciem |Użyj wartości domyślnych |
+   | Przed rozpoczęciem |Użyj domyślnych |
    | Wybierz serwery |Typ **ContosoSQL1** w **wprowadź nazwę serwera** i kliknij przycisk **Dodaj** |
    | Ostrzeżenie dotyczące sprawdzania poprawności |Wybierz **nr nie jest wymagana obsługa firmy Microsoft dla tego klastra i z tego powodu nie chcesz uruchomić testy weryfikacyjne. Po kliknięciu przycisku dalej kontynuować tworzenie klastra**. |
    | Punkt dostępu do administrowania klastrem |Typ **klaster_1** w **nazwa klastra** |
@@ -268,7 +268,7 @@ Wykonaj następujące kroki, aby wykonać zadania, które pełnej konfiguracji k
    > 
    > 
 5. W okienku po lewej stronie rozwiń **Menedżera klastra trybu Failover**, a następnie kliknij przycisk **Cluster1.corp.contoso.com**.
-6. W środkowym okienku, przewiń w dół do **zasoby podstawowe klastra** , a następnie rozwiń węzeł **Name: Clutser1** szczegóły. Powinny pojawić się zarówno **nazwa** i **adres IP** zasobów w **niepowodzenie** stanu. Nie można przełączyć zasobu adresu IP do trybu online, ponieważ klastra jest przypisany ten sam adres IP komputera, który jest zduplikowany adres.
+6. W środkowym okienku, przewiń w dół do **zasoby podstawowe klastra** , a następnie rozwiń węzeł **Name: Clutser1** szczegóły. Powinny pojawić się zarówno **nazwa** i **adres IP** **zasobów** w stanu. Nie można przełączyć zasobu adresu IP do trybu online, ponieważ klastra jest przypisany ten sam adres IP komputera, który jest zduplikowany adres.
 7. Kliknij prawym przyciskiem myszy nieudane **adres IP** zasobów, a następnie kliknij przycisk **właściwości**.
    
     ![Właściwości klastra](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784633.png)

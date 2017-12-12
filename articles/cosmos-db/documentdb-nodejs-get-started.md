@@ -1,6 +1,6 @@
 ---
-title: "Samouczek środowiska Node.js dotyczący interfejsu API usługi DocumentDB dla usługi Azure Cosmos DB | Microsoft Docs"
-description: "Samouczek środowiska Node.js, który tworzy bazę danych Cosmos DB przy użyciu interfejsu API usługi DocumentDB."
+title: "Samouczek środowiska node.js dla interfejsu API SQL dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
+description: "Samouczek środowiska Node.js, która tworzy DB rozwiązania Cosmos przy użyciu interfejsu API SQL."
 keywords: samouczek node.js, baza danych node
 services: cosmos-db
 documentationcenter: node.js
@@ -15,13 +15,13 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 02e98aadc6a001c7275266d89a196a57bb366b3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 499caff06cc872be2b9fbd389adb9dcf974eeae8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Samouczek środowiska node.js: tworzenie aplikacji konsoli Node.js za pomocą interfejsu API usługi DocumentDB w usłudze Azure DB rozwiązania Cosmos
+# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Samouczek środowiska node.js: tworzenie aplikacji konsoli Node.js za pomocą interfejsu API SQL w usłudze Azure DB rozwiązania Cosmos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -31,6 +31,8 @@ ms.lasthandoff: 10/11/2017
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Witamy w samouczku środowiska Node.js dla zestawu SDK środowiska Node.js usługi Azure Cosmos DB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi Azure Cosmos DB i wykonuje dla nich zapytania.
 
@@ -626,7 +628,6 @@ To wszystko — skompiluj projekt i gotowe!
 * Potrzebujesz bardziej złożonego przykładu środowiska Node.js? Zobacz [Tworzenie aplikacji internetowej Node.js za pomocą usługi Azure Cosmos DB](documentdb-nodejs-application.md).
 * Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
-* Dowiedz się więcej o modelu programowania w sekcji Dla deweloperów [strony dokumentacji usługi Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
