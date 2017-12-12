@@ -4,7 +4,7 @@ description: "Często zadawane pytania dotyczące usługi Azure Active Directory
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 43c930c18c284a8e6c71174bcf905904001dcde2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.

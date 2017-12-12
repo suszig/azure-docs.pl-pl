@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, usługa cloud app discovery, zarządzanie aplikacjami, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff75a7e50142888e4cff4acd40bbdbee31c0e29d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f68c37c4ceeec9a3447ba224fb051ea786de9997
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Włączenie ochrony tożsamości usługi Azure Active Directory
 Azure Active Directory Identity Protection jest nową możliwość, która udostępnia skonsolidowany wgląd w podejrzane działania logowania i potencjalnych luk w zabezpieczeniach i przy użyciu powiadomień, zalecenia korygowania i ryzyka zasad pomaga chronić firmy. 

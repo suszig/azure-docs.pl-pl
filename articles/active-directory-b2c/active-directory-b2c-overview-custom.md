@@ -4,7 +4,7 @@ description: "Temat dotyczący zasad niestandardowych usługi Azure Active Direc
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Usługi Azure Active Directory B2C: Zasady niestandardowe
 
@@ -30,7 +30,7 @@ Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzier
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Porównywanie wbudowane i niestandardowe zasady
 
-| | Wbudowane zasady | zasady niestandardowe |
+| | Wbudowane zasady | Zasady niestandardowe |
 |-|-------------------|-----------------|
 |Użytkownicy docelowi | Wszystkie deweloperzy aplikacji z lub bez wiedzy tożsamości | Specjaliści tożsamości: integratorów systemów. platforma, konsultantów i zespoły wewnętrznych tożsamości. Potrafisz przepływów OpenIDConnect i zrozumieć dostawców tożsamości i uwierzytelniania opartego na oświadczeniach |
 |Metody konfiguracji | Portal Azure przy użyciu przyjaznych dla użytkownika interfejsu użytkownika | Bezpośredniego edytowania plików XML, a następnie przekazać do portalu Azure |
@@ -74,7 +74,7 @@ Formatuje pełni konfigurowalne, oparte na zasadach, oparte na chmurze platformy
 Wstępnie zdefiniowane pliki konfiguracyjne, które bezpośrednie zachowanie usługi Azure AD B2C do wykonania najczęściej używanych tożsamości zadania (tj. Rejestracja użytkownika, logowania resetowania hasła) i interakcję z zaufanych strony, których relację również wstępnie zdefiniowane w usłudze Azure AD B2C (dla przykład Facebook dostawcy tożsamości, LinkedIn, Account firmy Microsoft, konta Google).  W przyszłości wbudowane zasady mogą również przewidzieć dostosowania dostawców tożsamości, które są zazwyczaj w obszarze przedsiębiorstwa, np. Azure Active Directory Premium, Active Directory/ADFS Salesforce identyfikator dostawcy.
 
 
-### <a name="custom-policies"></a>zasady niestandardowe
+### <a name="custom-policies"></a>Zasady niestandardowe
 
 Pliki konfiguracyjne, które definiują zachowanie Framework obsługi tożsamości w dzierżawie usługi Azure AD B2C. Zasady niestandardowe jest dostępny jako jeden lub kilka plików XML (zobacz pliki zasad definicje) wykonanych przez platformę środowisko tożsamości, gdy została wywołana przez jednostkę uzależnioną (na przykład aplikacja). Zasady niestandardowe można edytować bezpośrednio przez dewelopera tożsamości, aby ukończyć near nieograniczoną liczbę zadań. Deweloperzy Konfigurowanie niestandardowych zasad musi definiować relacje zaufanych szczegółowo dokładne zawierają punkty końcowe metadanych, dokładne oświadczeń wymienić definicje i skonfiguruj klucze tajne, klucze i certyfikaty zgodnie z potrzebami każdego dostawcy tożsamości.
 

@@ -4,7 +4,7 @@ description: "Zawiera podstawowe informacje dotyczące serwera Proxy aplikacji u
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f2d7387f03757afb0b51105f02068d4aada8f9f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego z serwerem Proxy aplikacji usługi Azure AD
 
@@ -115,7 +115,7 @@ Konfiguracja opisane w tym artykule jest przeznaczony dla użytkowników w syste
 
 | Metoda uwierzytelniania | Obsługiwany klient konfiguracji |
 | --------------------- | ------------------------------ |
-| Wstępne uwierzytelnianie    | Windows 7/10 przy użyciu programu Internet Explorer + dodatek ActiveX usług pulpitu zdalnego |
+| Uwierzytelnianie wstępne    | Windows 7/10 przy użyciu programu Internet Explorer + dodatek ActiveX usług pulpitu zdalnego |
 | Przekazywanie | Dowolny inny system operacyjny obsługujący aplikacji pulpitu zdalnego firmy Microsoft |
 
 Przepływ uwierzytelniania wstępnego oferuje więcej korzyści w zakresie zabezpieczeń niż przepływu passthrough. Przy użyciu wstępnego uwierzytelniania można użyć funkcji uwierzytelniania usługi Azure AD, takich jak logowanie jednokrotne dostępu warunkowego i weryfikacji dwuetapowej dla zasobów lokalnych. Można również upewnij się, że tylko uwierzytelnianego osiągnie ruchu w sieci.

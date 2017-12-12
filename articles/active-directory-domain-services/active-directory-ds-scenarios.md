@@ -4,7 +4,7 @@ description: "Scenariusze wdrażania usług domenowych Azure AD"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenariusze wdrażania i przypadki użycia
 W tej sekcji przyjrzymy się kilka scenariuszy i przypadków użycia, które korzystają z usług domenowych w usłudze Azure Active Directory (AD).
@@ -41,7 +41,7 @@ Należy wziąć pod uwagę następujące istotne kwestie dotyczące tego scenari
 * Usługi domenowe Azure AD obsługuje schematu podstawowego obiektu komputera usługi AD. Nie można rozszerzyć schematu obiektu komputera.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Przyrostu i shift aplikacji lokalnej, która używa uwierzytelniania wiązania LDAP do usługi infrastruktury platformy Azure
-![Wiązanie LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![Powiązanie z protokołem LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 Firma Contoso ma aplikacji lokalnych, które zostało zakupione od niezależnego dostawcy oprogramowania wielu lat temu. Aplikacja jest obecnie w trybie konserwacji przez niezależnego dostawcy oprogramowania i żądania zmiany do aplikacji jest zbyt duży dla Contoso. Ta aplikacja ma frontonu sieci web, służąca do zbierania poświadczeń użytkownika za pomocą formularza sieci web i następnie uwierzytelnia użytkowników, wykonując wiązanie LDAP do firmowej usługi Active Directory. Contoso przeprowadzić migrację z tej aplikacji do usługi infrastruktury platformy Azure. Jest to pożądane, czy aplikacja działa tak jak, bez konieczności wprowadzania żadnych zmian. Ponadto użytkownicy powinni mieć do uwierzytelniania przy użyciu istniejących poświadczeń firmowych i bez konieczności retrain użytkownikom wykonywanie czynności inaczej. Innymi słowy użytkownicy końcowi powinny być oblivious, z którym jest uruchomiona aplikacja, i migracji powinny być przezroczyste do nich.
 

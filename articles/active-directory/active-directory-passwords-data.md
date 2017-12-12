@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ed82200bf81702bbe35a371e7d86676c2c27d8f4
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6704db9a722de78d9460703330cf3fdbc238b7d2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wdrażanie resetowania hasła bez konieczności rejestrowania użytkownika końcowego
 
@@ -40,7 +40,7 @@ Jeśli używasz ustawienia domyślne w programie Azure AD Connect zostały wprow
 | Lokalna usługa Active Directory | Azure AD | Azure AD authentication informacje o kontaktach |
 | --- | --- | --- |
 | TelephoneNumber | Telefon biurowy | Alternatywne telefonu |
-| Telefon komórkowy | Telefon komórkowy | Telefon |
+| Telefon komórkowy | Telefon komórkowy | Numer telefonu |
 
 
 ## <a name="security-questions-and-answers"></a>Pytania zabezpieczające i odpowiedzi
@@ -144,7 +144,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
 * [Rejestrowanie na potrzeby samoobsługowego resetowania haseł](active-directory-passwords-reset-register.md)
-* [Masz pytanie licencjonowania?](active-directory-passwords-licensing.md)
+* [Czy masz pytanie dotyczące licencjonowania?](active-directory-passwords-licensing.md)
 * [Jakie metody uwierzytelniania są dostępne dla użytkowników?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Jakie są opcje zasad dla funkcji samoobsługowego resetowania haseł?](active-directory-passwords-policy.md)
 * [Co to jest funkcja zapisywania zwrotnego haseł i dlaczego jest ona tak ważna?](active-directory-passwords-writeback.md)

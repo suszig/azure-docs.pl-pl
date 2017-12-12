@@ -4,7 +4,7 @@ description: "Jak rozwiązać problemy z logowaniem usługi Azure AD po zgłosze
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd86d4b13c8f61f278589e5c1d705ad91b3e3d4c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Błąd na stronie aplikacji po zalogowaniu
 
@@ -119,11 +119,11 @@ Aby zmienić, które części tokenu SAML są podpisane cyfrowo przez usługę A
 
 9.  Wybierz odpowiednie **opcja podpisywania** oczekiwany przez aplikację:
 
-  * Odpowiedzi SAML logowania
+  * Podpisz odpowiedź SAML
 
-  * Podpisywanie odpowiedzi SAML i potwierdzenia
+  * Podpisz odpowiedź i potwierdzenie SAML
 
-  * Potwierdzenia języka SAML logowania
+  * Podpisz potwierdzenie SAML
 
 Następnym razem, gdy użytkownik loguje się do aplikacji usługi Azure AD podpisać części odpowiedzi SAML wybrane.
 

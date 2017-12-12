@@ -4,7 +4,7 @@ description: "Z kontroli dostępu warunkowego usługi Azure Active Directory spr
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 921c8391fc18eca35d10c3ade158a98ae88df397
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan cyklu życia tożsamości hybrydowej
 Tożsamość jest jednym z kluczowych enterprise mobility i stosowania strategii dostępu. Czy są zalogować się do Twojego urządzenia przenośnego lub aplikacji SaaS, tożsamości jest klucz do uzyskania dostępu do wszystkich składników. Na najwyższym poziomie rozwiązania do zarządzania tożsamościami obejmuje połączenie i synchronizacja między repozytoriami tożsamości, co obejmuje automatyzacji i scentralizowany proces inicjowania obsługi administracyjnej zasobów. Rozwiązanie tożsamości powinny być scentralizowane tożsamości w ramach lokalnej i w chmurze i również formularz niektórych federacji tożsamości Obsługa scentralizowane uwierzytelnianie i bezpiecznie udostępnić i współpracę z użytkowników zewnętrznych i firm. Zasoby należeć do zakresu od systemów operacyjnych i aplikacji do osób w lub powiązane z organizacji. Struktura organizacyjna może się zmienić do inicjowania obsługi zasad i procedur.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, usługa cloud app discovery, zarządzanie aplikacjami, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
@@ -13,52 +13,71 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: abc0f3926905295a9cf239146cce7fc57da7eb29
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection powiadomienia
+
 Azure AD Identity Protection wysyła dwa rodzaje automatycznych powiadomień e-mail w celu zarządzania ryzykiem użytkownika i zdarzenia ryzyka:
 
-* Użytkownik naruszony alertów e-mail
-* Wiadomość e-mail z podsumowaniem co tydzień
+- Zagrożonych użytkowników wykryto poczty e-mail
+- Wiadomość e-mail z podsumowaniem co tydzień
 
-## <a name="user-compromised-alert-email"></a>Użytkownik naruszony alertów e-mail
-Alert ze złamanymi zabezpieczeniami poczty e-mail użytkownika jest generowany, gdy usługi Azure AD Identity Protection zidentyfikuje konto, jako naruszenia zabezpieczeń. Wiadomości e-mail zawiera łącze do użytkowników oflagowane ryzyka raportu na pulpicie nawigacyjnym Identity Protection. Zaleca się natychmiast Zbadaj powiadomienia, którego bezpieczeństwo zostało naruszone kont.
+Ten artykuł zawiera omówienie zarówno wiadomości e-mail z powiadomieniem.
+
+
+## <a name="users-at-risk-detected-email"></a>Zagrożonych użytkowników wykryto poczty e-mail
+
+W odpowiedzi na koncie Wykryto zagrożone, Azure AD Identity Protection generuje alerty w wiadomościach e-mail z **zagrożonych wykryto użytkowników** jako podmiotu. Wiadomości e-mail zawiera łącze do  **[użytkownicy oflagowani ryzyka](active-directory-reporting-security-user-at-risk.md)**  raportu. Najlepszym rozwiązaniem powinien natychmiast Zbadaj zagrożonych użytkowników.
+
+![Zagrożonych użytkowników wykryto poczty e-mail](./media/active-directory-identityprotection-notifications/01.png)
+
+
+### <a name="configuration"></a>Konfiguracja
+
+Jako administrator można ustawić:
+
+- **Poziom ryzyka, który wyzwala generowania tej wiadomości e-mail** — Domyślnie poziom ryzyka jest ustawiony na "High" ryzyka.
+- **Adresaci wiadomości e-mail** — domyślnie adresatów zawierają wszystkich administratorów globalnych. Administratorzy globalni można również dodawać innych administratorów globalnych, administratorów zabezpieczeń czytelnicy zabezpieczeń jako adresatów.  
+
+
+Aby otworzyć okno dialogowe powiązane, kliknij przycisk **alerty** w **ustawienia** sekcji **Identity Protection** strony.
+
+![Zagrożonych użytkowników wykryto poczty e-mail](./media/active-directory-identityprotection-notifications/05.png)
+
 
 ## <a name="weekly-digest-email"></a>Wiadomość e-mail z podsumowaniem co tydzień
-Co tydzień wiadomość e-mail z podsumowaniem zawiera podsumowanie nowych zdarzeń ryzyka.<br>
+
+Co tydzień wiadomość e-mail z podsumowaniem zawiera podsumowanie nowych zdarzeń ryzyka.  
 Obejmuje on:
 
-* Narażeni użytkownicy
-* Podejrzane działania
-* Wykryto luk w zabezpieczeniach
-* Linki do powiązanych raportów w Identity Protection
+- Narażeni użytkownicy
 
-<br>
-![Korygowanie](./media/active-directory-identityprotection-notifications/400.png "korygowania")
-<br>
+- Podejrzane działania
 
-Możesz przełączyć wysyłania co tydzień wiadomość e-mail z podsumowaniem.
-<br><br>
+- Wykryto luk w zabezpieczeniach
+
+- Linki do powiązanych raportów w Identity Protection
+
+    ![Korygowanie](./media/active-directory-identityprotection-notifications/400.png "korygowania")
+
+### <a name="configuration"></a>Konfiguracja
+
+Jako administrator możesz przełączyć wysyłania co tydzień wiadomość e-mail z podsumowaniem.
+
 ![Ryzyko użytkownika](./media/active-directory-identityprotection-notifications/62.png "zagrożeń użytkownika")
-<br>
 
-**Aby otworzyć okno dialogowe elementami konfiguracji**:
+Aby otworzyć okno dialogowe powiązane, kliknij przycisk **cotygodniowe podsumowanie** w **ustawienia** sekcji **Identity Protection** strony.
 
-1. Na **Azure AD Identity Protection** bloku, kliknij przycisk **ustawienia**.
-   <br><br>
-   ![Zasady użytkownika ryzyka](./media/active-directory-identityprotection-notifications/401.png "zasad ryzyka użytkownika")
-   <br>
-2. W **ogólne** kliknij **powiadomienia**.
-   <br><br>
-   ![Zasady użytkownika ryzyka](./media/active-directory-identityprotection-notifications/405.png "zasad ryzyka użytkownika")
-   <br>
+![Zagrożonych użytkowników wykryto poczty e-mail](./media/active-directory-identityprotection-notifications/04.png)
+
 
 ## <a name="see-also"></a>Zobacz też
-* [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)
+
+- [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)

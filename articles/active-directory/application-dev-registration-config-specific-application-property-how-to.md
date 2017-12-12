@@ -4,7 +4,7 @@ description: "Wskazówki dotyczące sposobu wypełniania określonych pól podcz
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Wypełniania określonych pól dla aplikacji utworzonych niestandardowych
 
@@ -51,10 +51,10 @@ Po wprowadzeniu powyższego pola zarejestrować aplikację w portalu Azure, i by
 | Identyfikator URI aplikacji      | Należy to unikatowy identyfikator URI, zazwyczaj formę **https://&lt;dzierżawy\_nazwa&gt;/&lt;aplikacji\_nazwa&gt;.** Jest on używany podczas przepływu grant autoryzacji, jako unikatowy identyfikator, aby określić zasób, który powinien być wydano tokenu dla. Staje się również w tokenie dostępu wystawione oświadczenie "lub". |
 | Przekaż nowe logo | Możesz użyć tego, aby przekazać logo aplikacji. Logo musi być w formacie BMP, jpg lub PNG, a rozmiar pliku powinna być mniejsza niż 100KB. Wymiary obrazu należy 215 x 215 pikseli i wymiary obrazu centralnej 94 x 94 pikseli.                                                       |
 | Adres URL strony głównej   | Jest to adres URL logowania określony podczas rejestracji aplikacji.                                                                                                                                                                                                                                              |
-| Adres URL wylogowania      | Ten adres URL wylogowania wylogowania pojedynczego. Usługi Azure AD wysyła żądanie wylogowania do tego adresu URL, gdy użytkownik usuwa sesję z usługą Azure AD przy użyciu zarejestrowanej aplikacji.                                                                                                                                       |
-| Obsługa wielu dzierżawcza  | Ten parametr określa, czy aplikacji mogą być używane przez wiele dzierżaw. Zwykle oznacza to, organizacje zewnętrzne można używać aplikacji przez zarejestrowanie go w swojej dzierżawy i udzielanie dostępu do danych używanych w organizacji.                                                                   |
+| Adres URL wylogowywania      | Ten adres URL wylogowania wylogowania pojedynczego. Usługi Azure AD wysyła żądanie wylogowania do tego adresu URL, gdy użytkownik usuwa sesję z usługą Azure AD przy użyciu zarejestrowanej aplikacji.                                                                                                                                       |
+| Z wieloma dzierżawami  | Ten parametr określa, czy aplikacji mogą być używane przez wiele dzierżaw. Zwykle oznacza to, organizacje zewnętrzne można używać aplikacji przez zarejestrowanie go w swojej dzierżawy i udzielanie dostępu do danych używanych w organizacji.                                                                   |
 | Adresy URL odpowiedzi      | Odpowiedź adresy URL są punkty końcowe gdzie usługi Azure AD zwracać wszystkie tokeny żądań aplikacji.                                                                                                                                                                                                          |
-| Identyfikator URI przekierowania   | Dla natywnych aplikacji jest to, gdy użytkownik jest wysyłane do następujących pomyślnej autoryzacji. Sprawdzenie Azure AD, dostarczającego przekierowania URI aplikacji w żądaniu protokołu OAuth 2.0 pasuje do jednej z wartości zarejestrowany w portalu.                                                            |
+| Identyfikatory URI przekierowania   | Dla natywnych aplikacji jest to, gdy użytkownik jest wysyłane do następujących pomyślnej autoryzacji. Sprawdzenie Azure AD, dostarczającego przekierowania URI aplikacji w żądaniu protokołu OAuth 2.0 pasuje do jednej z wartości zarejestrowany w portalu.                                                            |
 | Klucze            | Można utworzyć klucze do programowego dostępu do interfejsów API sieci web zabezpieczonych przez usługi Azure AD bez interakcji użytkownika. Z \* \*klucze\* \* strony, wprowadź opis klucza i datę wygaśnięcia i zapisywanie do wygenerowania klucza. Upewnij się zapisać go innym bezpieczne, ponieważ nie będzie można później uzyskać dostęp.             |
 
 ## <a name="next-steps"></a>Następne kroki

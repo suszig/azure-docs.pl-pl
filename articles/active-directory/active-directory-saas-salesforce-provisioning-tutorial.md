@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 49384b8b-3836-4eb1-b438-1c46bb9baf6f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usług Salesforce użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -65,7 +65,7 @@ Celem tej sekcji jest przedstawiają sposób włączania Inicjowanie obsługi u�
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
-    ![aprowizowanie](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    

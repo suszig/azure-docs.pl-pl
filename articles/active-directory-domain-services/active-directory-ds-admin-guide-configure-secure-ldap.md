@@ -4,7 +4,7 @@ description: "Skonfiguruj zabezpieczenia protokołu LDAP (LDAPS) dla domeny zarz
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurowanie bezpiecznego protokołu LDAP (LDAPS) dla domeny zarządzanej usług domenowych Azure AD
 W tym artykule opisano, jak można włączyć bezpieczny Lightweight Directory dostępu protokołu (LDAPS) dla domeny zarządzanej usług domenowych Azure AD. Bezpiecznego protokołu LDAP jest także znana jako "dostępu protokołu LDAP (Lightweight Directory) za pośrednictwem Secure Sockets Layer (SSL) / zabezpieczeń TLS (Transport Layer)".
@@ -39,23 +39,18 @@ Aby wykonać zadania opisane w tym artykule, należy:
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Wymagania dotyczące bezpiecznego certyfikatu LDAP
 Przed włączeniem bezpiecznego protokołu LDAP, należy uzyskać prawidłowy certyfikat dla następujących wytycznych. Wystąpią błędy, jeśli próbujesz włączyć bezpiecznego protokołu LDAP do domeny zarządzanej za pomocą certyfikatu nieprawidłowa lub być niepoprawne.
 
-1. **Zaufanych wystawców** — certyfikat musi być wystawiony przez urząd certyfikacji zaufany przez komputery łączenie domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP. Ten urząd może być publiczny urząd certyfikacji zaufany przez te komputery.
+1. **Zaufanych wystawców** — certyfikat musi być wystawiony przez urząd certyfikacji zaufany przez komputery łączenie domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP. Ten urząd może być publicznego urzędu certyfikacji (CA) lub urząd certyfikacji przedsiębiorstwa uważany za zaufany przez te komputery.
 2. **Okres istnienia** — certyfikat musi być prawidłowy, przez co najmniej dalej 3 – 6 miesięcy. Bezpieczny dostęp LDAP do domeny zarządzanej jest zakłócona po wygaśnięciu certyfikatu.
 3. **Nazwa podmiotu** — nazwa podmiotu certyfikatu musi być symbolem wieloznacznym dla domeny zarządzanej. Na przykład, jeśli domena ma nazwę "contoso100.com", nazwa podmiotu certyfikatu musi być "*. contoso100.com". Ustaw nazwę DNS (alternatywnej nazwy podmiotu) ta nazwa symbolu wieloznacznego.
 4. **Użycie klucza** — certyfikat musi być skonfigurowany dla poniżej używa - podpisy cyfrowe i szyfrowanie klucza.
 5. **Cel certyfikatu** -musi to być prawidłowy do uwierzytelniania serwera SSL.
-
-> [!NOTE]
-> **Urzędy certyfikacji przedsiębiorstwa:** usługi domenowe Azure AD nie obsługuje korzystania z bezpiecznego certyfikatów LDAP wystawiony przez urząd certyfikacji przedsiębiorstwa w organizacji. To ograniczenie obowiązuje, ponieważ usługa nie jest zaufany urząd certyfikacji jako główny urząd certyfikacji przedsiębiorstwa. 
->
->
 
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Zadanie 1 — Uzyskaj certyfikat dla bezpiecznego protokołu LDAP
 Pierwszym zadaniem obejmuje uzyskiwanie certyfikatu używany do bezpiecznego dostępu LDAP do domeny zarządzanej. Dostępne są dwie opcje:
 
-* Uzyskaj certyfikat z publicznego urzędu certyfikacji.
+* Uzyskaj certyfikat z publicznego urzędu certyfikacji lub urzędu certyfikacji przedsiębiorstwa.
 * Tworzenie certyfikatu z podpisem własnym.
 
 > [!NOTE]
@@ -63,7 +58,7 @@ Pierwszym zadaniem obejmuje uzyskiwanie certyfikatu używany do bezpiecznego dos
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opcja (zalecane) — Uzyskaj certyfikat bezpiecznego LDAP z urzędu certyfikacji
-Jeśli Twoja organizacja uzyskuje jego certyfikatów z publicznego urzędu certyfikacji, należy uzyskać bezpiecznego certyfikatu LDAP z tym publicznego urzędu certyfikacji.
+Jeśli Twoja organizacja otrzymuje swoje certyfikaty z publicznego urzędu certyfikacji, należy uzyskać bezpiecznego certyfikatu LDAP z publicznego urzędu certyfikacji. W przypadku wdrożenia urzędu certyfikacji przedsiębiorstwa, należy uzyskać bezpiecznego certyfikatu LDAP z urzędu certyfikacji przedsiębiorstwa.
 
 > [!TIP]
 > **Certyfikaty z podpisem własnym na użytek domen zarządzanych z ". onmicrosoft.com" sufiksy domen.**

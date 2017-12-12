@@ -4,7 +4,7 @@ description: W tym temacie opisano wbudowanych funkcji automatycznego uaktualnia
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
 Ta funkcja została wprowadzona z kompilacją 1.1.105.0 (wydane luty 2016).
@@ -37,7 +37,7 @@ Bieżący stan automatycznego uaktualniania można wyświetlić za pomocą polec
 | Stan | Komentarz |
 | --- | --- |
 | Enabled (Włączony) |Włączono automatyczną aktualizację. |
-| Zawieszone |Ustaw tylko w systemie. System nie jest już przysługiwać automatycznych uaktualnień. |
+| Wstrzymano |Ustaw tylko w systemie. System nie jest już przysługiwać automatycznych uaktualnień. |
 | Disabled (Wyłączony) |Automatyczne uaktualnianie jest wyłączona. |
 
 Można przełączać się między **włączone** i **wyłączone** z `Set-ADSyncAutoUpgrade`. Tylko system, należy ustawić stan **zawieszone**.

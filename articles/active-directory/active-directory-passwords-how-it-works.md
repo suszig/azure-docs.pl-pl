@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobsługowe Resetowanie w usłudze Azure AD nowości haseł
 
@@ -153,7 +153,7 @@ Wszystkie wstępnie zdefiniowanych pytania, na które należy wykonać są zloka
 * Kim chciałeś/chciałaś zostać w dzieciństwie, gdy dorośniesz?
 * Jak się nazywa najpopularniejsza poznana przez Ciebie osoba?
 
-### <a name="custom-security-questions"></a>Pytania zabezpieczające niestandardowych
+### <a name="custom-security-questions"></a>Niestandardowe pytania zabezpieczające
 
 Pytania zabezpieczające niestandardowe nie są zlokalizowane dla różnych ustawień regionalnych. Wszystkie pytania niestandardowe są wyświetlane w tym samym języku wprowadzoną w interfejsie użytkownika administracyjnego, nawet jeśli ustawienia regionalne przeglądarki użytkownika jest inna. Jeśli potrzebujesz zlokalizowanych pytania należy używać wstępnie zdefiniowanych pytań.
 
@@ -205,7 +205,7 @@ Jeśli ta opcja jest ustawiona na **tak**, następnie *wszystkich administrator�
 
 Przykład: Istnieją cztery Administratorzy w środowisku. Administrator A Resetuje hasła przy użyciu funkcji SSPR. Administratorzy B, C i D otrzymywać wiadomości e-mail, które alerty ich resetowania hasła.
 
-## <a name="on-premises-integration"></a>Integracja z lokalnymi
+## <a name="on-premises-integration"></a>Integracja lokalna
 
 Jeśli musisz zainstalować, skonfigurować i włączyć Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wygaszone, następnie zapisywania zwrotnego nie został poprawnie skonfigurowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback).
 

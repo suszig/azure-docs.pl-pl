@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Samouczek: Azure Active Directory integracji z oprogramowaniem HR Cezanne
 
@@ -125,25 +125,29 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji oprogramowania HR Cezanne** , kliknij przycisk **Konfigurowanie oprogramowania HR Cezanne** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na **konfiguracji oprogramowania HR Cezanne** , kliknij przycisk **Konfigurowanie oprogramowania HR Cezanne** otworzyć **Konfigurowanie logowania jednokrotnego** okna.
 
-    ![Cezanne HR konfiguracji oprogramowania](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Cezanne HR konfiguracji oprogramowania](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. W oknie przeglądarki innej witryny sieci web logowanie do dzierżawy Cezanne HR oprogramowania jako administrator.
+7. Przewiń w dół do **krótkimi opisami** sekcji. Kopiuj **SAML pojedynczy znak na adres URL usługi i identyfikator jednostki SAML** z **sekcji krótkimi opisami.**
 
-8. W lewym okienku nawigacji, kliknij polecenie **konfiguracji systemu**. Przejdź do **ustawienia zabezpieczeń**. Następnie przejdź do **konfiguracji rejestracji jednokrotnej**.
+    ![Cezanne HR konfiguracji oprogramowania](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. W oknie przeglądarki innej witryny sieci web logowanie do dzierżawy Cezanne HR oprogramowania jako administrator.
+
+9. W lewym okienku nawigacji, kliknij polecenie **konfiguracji systemu**. Przejdź do **ustawienia zabezpieczeń**. Następnie przejdź do **konfiguracji rejestracji jednokrotnej**.
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. W **Zezwalaj użytkownikom na logowanie przy użyciu następującej usługi pojedynczego logowania jednokrotnego (SSO)** panelu wyboru **SAML 2.0** i wybierz **Advanced Configuration** opcji.
+10. W **Zezwalaj użytkownikom na logowanie przy użyciu następującej usługi pojedynczego logowania jednokrotnego (SSO)** panelu wyboru **SAML 2.0** i wybierz **Advanced Configuration** opcji.
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Kliknij przycisk **Dodaj nowy** przycisku.
+11. Kliknij przycisk **Dodaj nowy** przycisku.
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Wykonaj następujące czynności na **dostawców tożsamości SAML 2.0** sekcji.
+12. Wykonaj następujące czynności na **dostawców tożsamości SAML 2.0** sekcji.
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     g. Kliknij przycisk **OK**. 
 
-12. Kliknij przycisk **zapisać** przycisku.
+13. Kliknij przycisk **zapisać** przycisku.
 
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

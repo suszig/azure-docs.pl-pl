@@ -4,7 +4,7 @@ description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure Active Di
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Usługa Azure Active Directory B2C: Sieci Web logowania z OpenID Connect
 OpenID Connect to protokół uwierzytelniania, rozszerzający OAuth 2.0, który może służyć do bezpiecznego logowania użytkowników w aplikacji sieci web. Za pomocą usługi Azure Active Directory B2C (Azure AD B2C) wdrażania protokołu OpenID Connect, można zewnętrzny rejestrację, logowanie i wykonywania innych zarządzania tożsamościami w aplikacji sieci web do usługi Azure Active Directory (Azure AD). Ten przewodnik przedstawia, jak to zrobić w sposób niezależny od języka. Przedstawiono sposób wysyłania i odbierania wiadomości HTTP bez przy użyciu dowolnej z naszych bibliotekach open source.

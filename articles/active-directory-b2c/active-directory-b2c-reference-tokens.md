@@ -4,7 +4,7 @@ description: "Typy tokenów wystawionych w usłudze Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Usługi Azure AD B2C: Odwołanie Token
 
@@ -74,7 +74,7 @@ Należy pamiętać, że oświadczenia w tokenach identyfikator nie są zwracane 
 | Nazwa | Claim | Przykładowa wartość | Opis |
 | --- | --- | --- | --- |
 | Grupy odbiorców |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Oświadczenie odbiorców identyfikuje adresata tokenu. Dla usługi Azure AD B2C odbiorców jest identyfikator aplikacji dla danej aplikacji, przypisany do aplikacji w portalu rejestracji aplikacji. Aplikację należy sprawdzić tę wartość i odrzucenie tokenu, jeśli nie jest zgodny. |
-| Wystawcy |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |To oświadczenie identyfikuje usługę tokenu zabezpieczającego (STS), które tworzy i zwraca token. Identyfikuje katalog usługi Azure AD, w którym użytkownik został uwierzytelniony. Aplikację należy zweryfikować oświadczenia wystawcy, aby upewnić się, że token pochodzi od punktu końcowego v2.0 usługi Azure Active Directory. |
+| Wystawca |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |To oświadczenie identyfikuje usługę tokenu zabezpieczającego (STS), które tworzy i zwraca token. Identyfikuje katalog usługi Azure AD, w którym użytkownik został uwierzytelniony. Aplikację należy zweryfikować oświadczenia wystawcy, aby upewnić się, że token pochodzi od punktu końcowego v2.0 usługi Azure Active Directory. |
 | wystawiony w |`iat` |`1438535543` |Oświadczenie to czas, jaką token został wystawiony, epoki czas. |
 | czas wygaśnięcia |`exp` |`1438539443` |Czas wygaśnięcia oświadczeń to czas, w którym token staje się nieprawidłowy, reprezentowane w czasie epoki. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |
 | nie wcześniej niż |`nbf` |`1438535543` |Oświadczenie to godzina, o której token prawidłową, w czasie epoki. Zazwyczaj jest taka sama jak czas, który został wystawiony token. Aby sprawdzić ważność okres istnienia tokenu aplikacji należy użyć tego oświadczenia. |

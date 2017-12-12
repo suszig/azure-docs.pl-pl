@@ -4,7 +4,7 @@ description: "Celem tego tematu jest dostarczają czynności, które należy wyk
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Ustawienia funkcji cloud Discovery aplikacji rejestru dla usługi serwera Proxy
 W tym temacie ma na celu informacje, jak wykonać, aby ustawić wymaganego portu na komputerach z systemem agenta Cloud App Discovery. Domyślnie agenta Cloud App Discovery jest skonfigurowany do użycia tylko porty 80 i 443. Jeśli planujesz zainstalowanie Cloud App Discovery w środowisku z serwera proxy, który jest używany niestandardowy port (80 ani 443), należy skonfigurować agentów do użycia tego portu. Konfiguracja jest oparta na kluczu rejestru.
