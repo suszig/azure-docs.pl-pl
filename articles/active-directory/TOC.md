@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczęcie pracy
+# Rozpoczynanie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -219,7 +219,6 @@
 ### [Konfigurowanie automatycznego przyspieszenia logowania za pomocą zasad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
-#### [Dostęp do samoobsługi](active-directory-self-service-application-access.md)
 #### [Dostęp z użyciem logowania jednokrotnego](active-directory-appssoaccess-whatis.md)
 #### [Certyfikaty rejestracji jednokrotnej](active-directory-sso-certs.md)
 #### [Ograniczenia dzierżawy](active-directory-tenant-restrictions.md)
