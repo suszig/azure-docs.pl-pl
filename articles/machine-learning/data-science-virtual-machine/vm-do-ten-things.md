@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dziesięć rzeczy, które można wykonać na maszynie wirtualnej analizy danych
 
@@ -803,14 +803,14 @@ Azure DB rozwiązania Cosmos jest bazą danych NoSQL w chmurze. Umożliwia prac�
 
 Należy wykonać następujące kroki na wymagania, aby uzyskać dostęp do bazy danych Azure rozwiązania Cosmos z DSVM.
 
-1. Zainstaluj zestaw SDK Python usługi DocumentDB (Uruchom ```pip install pydocumentdb``` z wiersza polecenia)
+1. Zainstaluj zestaw SDK Python platformy Azure rozwiązania Cosmos bazy danych (Uruchom ```pip install pydocumentdb``` z wiersza polecenia)
 2. Tworzenie konta bazy danych Azure rozwiązania Cosmos i bazę danych z [portalu Azure](https://portal.azure.com)
 3. Pobierz "Narzędzie migracji DB rozwiązania Cosmos Azure" z [tutaj](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) i wyodrębnij do katalogu wybranych przez użytkownika
 4. Importuj dane JSON (dane swe dzieła) przechowywanych w [publicznego obiektu blob](https://cahandson.blob.core.windows.net/samples/volcano.json) w bazie danych rozwiązania Cosmos z następujących parametrów polecenia do narzędzia do migracji (dtui.exe z katalogu, w którym zainstalowano narzędzie do migracji DB rozwiązania Cosmos). Wprowadź lokalizację źródłowych i docelowych z następującymi parametrami:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[klucz]; Baza danych = /t.Collection:volcano1 swe dzieła
 
-Po zaimportowaniu danych, można przejść do aplikacji Jupyter i otworzyć notesu zatytułowany *DocumentDBSample* zawierający kod języka python dostęp do usługi DocumentDB oraz czy niektóre podstawowe zapytań. Użytkownik może dowiedzieć się więcej o DB rozwiązania Cosmos, przechodząc na stronę usługi [stronę dokumentacji](https://docs.microsoft.com/azure/cosmos-db/).
+Po zaimportowaniu danych, można przejść do aplikacji Jupyter i otworzyć notesu zatytułowany *DocumentDBSample* zawierający kod języka python dostępu do bazy danych Azure rozwiązania Cosmos i czy niektóre podstawowe zapytań. Użytkownik może dowiedzieć się więcej o DB rozwiązania Cosmos, przechodząc na stronę usługi [stronę dokumentacji](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Twórz raporty i pulpit nawigacyjny za pomocą programu Power BI Desktop
 Daj nam wizualizacji pliku JSON swe dzieła, którą widzieliśmy w poprzednim przykładzie DB rozwiązania Cosmos w usłudze Power BI można uzyskać visual wgląd w dane. Szczegółowy opis kroków są dostępne w [artykułu usługi Power BI](../../cosmos-db/powerbi-visualize.md). Poniżej przedstawiono ogólne kroki:

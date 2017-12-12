@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Tworzenie i przekazywanie wirtualnego dysku twardego FreeBSD na platformie Azure
 W tym artykule opisano tworzenie i przekazywanie wirtualnego dysku twardego (VHD) z systemem operacyjnym FreeBSD. Po wysłaniu, służy ona jako własnego obrazu można utworzyć maszynę wirtualną (VM) na platformie Azure.
@@ -133,7 +133,7 @@ Podczas przekazywania pliku VHD, należy go umieścić w dowolnym w ramach usłu
 
 * **BlobStorageURL** jest adres URL dla konta magazynu, który został utworzony w kroku 2.
 * **YourImagesFolder** jest kontenera w magazynie obiektów Blob, w którym mają być przechowywane obrazy.
-* **VHDName** jest etykietę wyświetlaną w klasycznym portalu Azure, aby zidentyfikować wirtualnego dysku twardego.
+* **VHDName** jest etykietą, która jest wyświetlana w portalu Azure, aby zidentyfikować wirtualnego dysku twardego.
 * **PathToVHDFile** jest pełna ścieżka i nazwa pliku VHD.
 
 W oknie programu Azure PowerShell używanego w poprzednim kroku wpisz:

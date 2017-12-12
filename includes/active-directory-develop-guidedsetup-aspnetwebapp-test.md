@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testowanie kodu
 
 Aby przetestować aplikację w programie Visual Studio, naciśnij klawisz **F5** do uruchomienia projektu. Przeglądarka otworzy http://<span></span>localhost: {port} lokalizacji i zostanie wyświetlony **Zaloguj się przy użyciu Microsoft** przycisku. Wybierz przycisk, aby rozpocząć proces logowania.

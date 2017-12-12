@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Użyj biblioteki uwierzytelniania firmy Microsoft (MSAL) do logowania użytkownika
 
 1.  Utwórz plik o nazwie `app.js`. Jeśli używasz programu Visual Studio, wybierz projekt (folder główny projekt), kliknij prawym przyciskiem myszy i wybierz: `Add`  >  `New Item`  >  `JavaScript File`:

@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Zainstaluj środowisko uruchomieniowe IoT Edge w systemie Windows IoT Core - preview
 
-Środowisko uruchomieniowe krawędzi IoT Azure może działać nawet na niewielki rozmiar urządzenia pojedynczy komputer tablicy (SBC), które są bardzo często spotykane w branży IoT. W tym artykule przedstawiono inicjowania obsługi środowiska uruchomieniowego na [MinnowBoard skarp (Turbot)] [ lnk-minnow] tablicy programowanie z systemem Windows IoT Core.
+Usługa Azure IoT krawędzi i [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) działają razem, Włącz krawędzi przetwarzania danych na urządzeniach nawet małe. Środowisko uruchomieniowe krawędzi IoT Azure może działać nawet na niewielki rozmiar urządzenia pojedynczy komputer tablicy (SBC), które są bardzo często spotykane w branży IoT. 
+
+W tym artykule przedstawiono inicjowania obsługi środowiska uruchomieniowego na [MinnowBoard skarp (Turbot)] [ lnk-minnow] tablicy programowanie z systemem Windows IoT Core. Windows IoT Core obsługuje Azure IoT krawędzi tylko na podstawie x64 procesory Intel. 
 
 ## <a name="install-the-runtime"></a>Zainstaluj środowisko uruchomieniowe
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Korzystanie z programu PowerShell do tworzenia maszyny wirtualnej platformy Azure z serwerem raportów pracującym w trybie macierzystym
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ W tym temacie opisano i przedstawiono wdrożenia i konfiguracji serwera raportó
 ## <a name="prerequisites-and-assumptions"></a>Wymagania wstępne i założenia
 * **Subskrypcja platformy Azure**: Sprawdź liczba rdzeni dostępne w Twojej subskrypcji platformy Azure. Jeśli utworzysz zalecany rozmiar maszyny Wirtualnej **A3**, należy **4** dostępne rdzenie. Jeśli używasz rozmiar maszyny Wirtualnej **A2**, należy **2** dostępne rdzenie.
   
-  * Aby sprawdzić limit rdzeni w ramach subskrypcji w klasycznym portalu Azure, w menu u góry kliknij przycisk Ustawienia w okienku po lewej stronie, a następnie kliknij przycisk użycia.
+  * Aby sprawdzić limit rdzeni w ramach subskrypcji, w portalu Azure kliknij ustawienia w okienku po lewej stronie, a następnie kliknij przycisk użycia w menu u góry.
   * Aby zwiększyć limit przydziału rdzeni, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/). Uzyskać rozmiaru maszyny Wirtualnej, zobacz [rozmiarów maszyn wirtualnych na platformie Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell do obsługi skryptów**: temacie założono, że masz podstawową wiedzę na temat pracy programu Windows PowerShell. Aby uzyskać więcej informacji o korzystaniu z programu Windows PowerShell zobacz następujące tematy:
   
@@ -43,7 +43,7 @@ W tym temacie opisano i przedstawiono wdrożenia i konfiguracji serwera raportó
   * [Wprowadzenie do korzystania z programu Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Krok 1: Udostępnić maszynie wirtualnej platformy Azure
-1. Przejdź do klasycznego portalu Azure.
+1. Przejdź do portalu Azure.
 2. Kliknij przycisk **maszyn wirtualnych** w okienku po lewej stronie.
    
     ![maszyny wirtualne Microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -80,7 +80,7 @@ W tym temacie opisano i przedstawiono wdrożenia i konfiguracji serwera raportó
      * **HTTPS**: domyślne porty publiczne i prywatne są **443**. Ze względów bezpieczeństwa jest zmienić port prywatny i skonfigurować zapory i serwera raportów używać port prywatny. Aby uzyskać więcej informacji dotyczących punktów końcowych, zobacz [jak się komunikacja między z maszyną wirtualną](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Należy pamiętać, że jeśli użyjesz portu innego niż 443, Zmień parametr **$HTTPsport = 443** w skrypcie HTTPS.
    * Kliknij przycisk Dalej. ![Dalej](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Na ostatniej stronie kreatora, zachowaj ustawienie domyślne **Zainstaluj agenta maszyny Wirtualnej** wybrane. Kroki opisane w tym temacie, nie będą korzystać agenta maszyny Wirtualnej, ale jeśli chcesz zachować tę maszynę Wirtualną, agent maszyny Wirtualnej i rozszerzenia programu umożliwi zwiększenia on CM.  Aby uzyskać więcej informacji dotyczących agenta maszyny Wirtualnej, zobacz [agenta maszyny Wirtualnej i rozszerzenia — część 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Jednym z ad zainstalowanych rozszerzeń domyślne uruchomiona jest rozszerzenie "BGINFO", który wyświetla na pulpicie maszyny Wirtualnej, informacje o systemie, takie jak wewnętrznym adresem IP i wolnego miejsca na dysku.
-9. Kliknij polecenie ukończone. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Kliknij polecenie ukończone. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. **Stan** maszyny wirtualnej będzie wyświetlany jako **uruchamianie (inicjowania obsługi administracyjnej)** podczas procesu udostępniania i następnie wyświetlana **systemem** gdy maszyna wirtualna jest inicjowana i są gotowe do użycia.
 
 ## <a name="step-2-create-a-server-certificate"></a>Krok 2: Utworzenie certyfikatu serwera
@@ -117,7 +117,7 @@ Certyfikatu z podpisem własnym został utworzony na maszynie Wirtualnej podczas
 
 1. Aby pochodzi z zaufanego głównego urzędu certyfikacji certyfikatu na lokalnej maszynie Wirtualnej, należy dodać certyfikat do **zaufane główne urzędy certyfikacji**. Poniżej znajduje się podsumowanie kroków wymaganych. Aby uzyskać szczegółowe instrukcje dotyczące sposobu ufać urzędowi certyfikacji, zobacz [zainstalować certyfikat serwera](https://technet.microsoft.com/library/cc740068).
    
-   1. W klasycznym portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
+   1. W portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
       
        ![Połącz z maszyną wirtualną azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Użyj nazwy maszyny Wirtualnej użytkownika, nazwę użytkownika i hasło, które zostało skonfigurowane podczas tworzenia maszyny Wirtualnej. 
       
@@ -153,7 +153,7 @@ Aby uzyskać bardziej szczegółowe kroki, zobacz sekcję [podłączyć się do 
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Użyj skryptu do konfigurowania serwera raportów i HTTP
 Aby użyć skryptu programu Windows PowerShell do konfigurowania serwera raportów, wykonaj następujące kroki. Konfiguracja obejmuje protokołu HTTP, a nie HTTPS:
 
-1. W klasycznym portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
+1. W portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
    
     ![Połącz z maszyną wirtualną azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Użyj nazwy maszyny Wirtualnej użytkownika, nazwę użytkownika i hasło, które zostało skonfigurowane podczas tworzenia maszyny Wirtualnej. 
    
@@ -287,7 +287,7 @@ Aby użyć skryptu programu Windows PowerShell do konfigurowania serwera raport�
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Użyj skryptu do konfigurowania serwera raportów i HTTPS
 Aby użyć środowiska Windows PowerShell do konfigurowania serwera raportów, wykonaj następujące kroki. Konfiguracja obejmuje protokołu HTTPS, a nie HTTP.
 
-1. W klasycznym portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
+1. W portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. W zależności od konfiguracji przeglądarki może być monit o zapisanie pliku RDP do połączenia z maszyną wirtualną.
    
     ![Połącz z maszyną wirtualną azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Użyj nazwy maszyny Wirtualnej użytkownika, nazwę użytkownika i hasło, które zostało skonfigurowane podczas tworzenia maszyny Wirtualnej. 
    
@@ -495,10 +495,10 @@ Wynik będzie zawierać następujące czynności:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Umożliwia skonfigurowanie serwera raportów programu Configuration Manager
 Jeśli nie chcesz uruchomić skrypt programu PowerShell do konfigurowania serwera raportów, wykonaj kroki opisane w tej sekcji, aby użyć Menedżera konfiguracji usług Reporting Services w trybie macierzystym do konfiguracji serwera raportów.
 
-1. W klasycznym portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. Użyj nazwy użytkownika i hasła skonfigurowanego podczas tworzenia maszyny Wirtualnej.
+1. W portalu Azure wybierz maszynę Wirtualną, a następnie kliknij przycisk Połącz. Użyj nazwy użytkownika i hasła skonfigurowanego podczas tworzenia maszyny Wirtualnej.
    
     ![Połącz z maszyną wirtualną azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Uruchom usługę Windows update i instalować aktualizacje do maszyny Wirtualnej. Jeśli wymagane jest ponowne uruchomienie maszyny wirtualnej, uruchom ponownie maszynę Wirtualną i ponownie połączyć się z maszyną Wirtualną w klasycznym portalu Azure.
+2. Uruchom usługę Windows update i instalować aktualizacje do maszyny Wirtualnej. Jeśli wymagane jest ponowne uruchomienie maszyny wirtualnej, uruchom ponownie maszynę Wirtualną i ponownie połączyć się z maszyną Wirtualną z portalu Azure.
 3. W menu Start na maszynie Wirtualnej, wpisz **usług Reporting Services** , a następnie otwórz **Reporting Services Configuration Manager**.
 4. Pozostaw wartości domyślne dla **nazwy serwera** i **wystąpienie serwera raportów**. Kliknij przycisk **Połącz**.
 5. W okienku po lewej stronie kliknij **adres URL usługi sieci Web**.
@@ -546,7 +546,7 @@ Aby sprawdzić, czy port jest otwarty, Otwórz okno programu Windows PowerShell 
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Sprawdź konfigurację
+## <a name="verify-the-configuration"></a>Sprawdź, czy konfiguracja
 Aby sprawdzić, czy raport podstawowe funkcje serwera działa, otwórz przeglądarkę z uprawnieniami administracyjnymi, a następnie przejdź do następujących raportów ad raportu Menedżera serwera adresów URL:
 
 * Na Maszynie wirtualnej przejdź do adresu URL serwera raportów:
@@ -593,7 +593,7 @@ W poniższej tabeli przedstawiono niektóre opcje, aby opublikować istniejącyc
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Zminimalizować koszty, jeśli nie używasz maszyny Wirtualnej
 > [!NOTE]
-> Aby zminimalizować koszty dla maszyn wirtualnych platformy Azure nieużywane, zamknij maszynę Wirtualną w klasycznym portalu Azure. Jeśli używasz systemu Windows Opcje zasilania wewnątrz maszyny Wirtualnej można zamknąć maszyny Wirtualnej, są nadal naliczane samo dla maszyny Wirtualnej. Aby zmniejszyć koszty, należy wyłączyć maszynę Wirtualną w klasycznym portalu Azure. Jeśli maszyna wirtualna nie jest już potrzebny, pamiętaj, aby usunąć maszyny Wirtualnej oraz pliki VHD skojarzonego w celu uniknięcia opłat za magazyn. Aby uzyskać więcej informacji, zobacz sekcję — Często zadawane pytania na [maszyny wirtualne — cennik](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Aby zminimalizować koszty dla maszyn wirtualnych platformy Azure nieużywane, zamknij maszynę Wirtualną z portalu Azure. Jeśli używasz systemu Windows Opcje zasilania wewnątrz maszyny Wirtualnej można zamknąć maszyny Wirtualnej, są nadal naliczane samo dla maszyny Wirtualnej. Aby zmniejszyć koszty, musisz zamykania maszyny Wirtualnej w portalu Azure. Jeśli maszyna wirtualna nie jest już potrzebny, pamiętaj, aby usunąć maszyny Wirtualnej oraz pliki VHD skojarzonego w celu uniknięcia opłat za magazyn. Aby uzyskać więcej informacji, zobacz sekcję — Często zadawane pytania na [maszyny wirtualne — cennik](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Więcej informacji
 ### <a name="resources"></a>Zasoby

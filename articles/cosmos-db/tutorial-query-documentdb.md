@@ -1,6 +1,6 @@
 ---
 title: "Jak zapytania SQL w usłudze Azure DB rozwiązania Cosmos? | Microsoft Docs"
-description: "Dowiedz się zbadać za pomocą usługi DocumentDB danych SQL w usłudze Azure DB rozwiązania Cosmos"
+description: "Dowiedz się zbadać za pomocą programu SQL w usłudze Azure DB rozwiązania Cosmos"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 61a2516ec9f51df4ac88beaf55108208c7b8c6bc
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6e159ba7988801b274feb0d7c15a292b3b3b3126
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie, przy użyciu programu SQL?
 
-Azure DB rozwiązania Cosmos [interfejsu API usługi DocumentDB](documentdb-introduction.md) obsługiwanych badania dokumentów za pomocą programu SQL. Ten artykuł zawiera przykładowy dokument i dwa przykładowe zapytania SQL oraz wyniki.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Azure DB rozwiązania Cosmos [interfejsu API SQL](documentdb-introduction.md) obsługiwanych badania dokumentów za pomocą programu SQL. Ten artykuł zawiera przykładowy dokument i dwa przykładowe zapytania SQL oraz wyniki.
 
 W tym artykule opisano następujące zadania: 
 

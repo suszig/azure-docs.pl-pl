@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrowanie maszyn wirtualnych (AWS) usługi sieci Web firmy Amazon na platformie Azure
 
-W tym samouczku jest przedstawienie sposobu migracji Amazon Web Services (AWS) maszyn wirtualnych (VM) na maszynach wirtualnych platformy Azure przy użyciu usługi Site Recovery. Podczas migrowania EC2 wystąpień na platformie Azure, VMsare traktowany tak, jakby były fizycznych, komputerami lokalnymi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku jest przedstawienie sposobu migracji Amazon Web Services (AWS) maszyn wirtualnych (VM) na maszynach wirtualnych platformy Azure przy użyciu usługi Site Recovery. Podczas migrowania EC2 wystąpień na platformie Azure, maszyny wirtualne są traktowane jako fizyczne są, komputerami lokalnymi. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Przygotowanie zasobów platformy Azure
@@ -186,8 +186,8 @@ Włącz replikację każdej maszyny Wirtualnej, które chcesz migrować. Po wł�
         
     |  |  |
     |-----|-----|
-    | Element docelowy: | Pozostaw wartość domyślną.|
-    | Subskrypcji: | Wybierz subskrypcję, który był używany.|
+    | Obiekt docelowy: | Pozostaw wartość domyślną.|
+    | Subskrypcja: | Wybierz subskrypcję, który był używany.|
     | Grupa zasobów pracy awaryjnej POST:| Użyj grupy zasobów utworzonej w [zasobów Azure przygotowanie](#prepare-azure-resources) sekcji.|
     | Model wdrożenia trybu failover POST: | Wybierz **Menedżera zasobów**|
     | Konto magazynu: | Wybierz konto magazynu, utworzonego w [zasobów Azure przygotowanie](#prepare-azure-resources) sekcji.|

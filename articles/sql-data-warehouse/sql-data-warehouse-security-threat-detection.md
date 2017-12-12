@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Rozpoczynanie pracy z wykrywanie zagrożeń
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Na przykład wykrywanie zagrożeń wykrywa niektóre działania nietypowych bazy
    Wiadomość e-mail będzie zawierał informacje o zdarzeniu podejrzane zabezpieczeń w tym rodzaju nietypowych działań, nazwa bazy danych, nazwę serwera i czas trwania zdarzenia. Ponadto zawierają informacje dotyczące możliwe przyczyny i zalecane akcje do sprawdzania i ograniczyć potencjalne zagrożenie dla bazy danych.<br/>
    
     ![Okienko nawigacji][4]
-2. W wiadomości e-mail, kliknij polecenie **dziennik inspekcji SQL Azure** łącza, co spowoduje uruchomienie klasycznego portalu Azure i wyświetlić odpowiednie rekordy inspekcji w czasie zbliżonym do podejrzane zdarzenia.
+2. W wiadomości e-mail, kliknij polecenie **dziennik inspekcji SQL Azure** łącza, co spowoduje uruchomienie portalu Azure i wyświetlić odpowiednie rekordy inspekcji w czasie zbliżonym do podejrzane zdarzenia.
    
     ![Okienko nawigacji][5]
 3. Polecenie rekordów inspekcji, aby wyświetlić więcej szczegółów na działania podejrzane bazy danych, takie jak instrukcji SQL, Niepowodzenie IP Przyczyna i klienta.

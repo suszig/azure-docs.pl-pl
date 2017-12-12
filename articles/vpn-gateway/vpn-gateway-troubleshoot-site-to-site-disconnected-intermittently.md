@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 96202a4d7e91a221aa655f58f29f2c8e24b86e4e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9bcf30fbf1febbd80aa8899253de8cb61f4ae6f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Rozwiązywanie problemów: Azure VPN lokacja-lokacja rozłącza sporadycznie
 
-Może wystąpić problem, że nowe lub istniejące połączenie sieci VPN firmy Microsoft Azure punkt-lokacja nie jest stabilna lub odłącza regularnie. Ten artykuł zawiera Rozwiązywanie problemów z czynności, aby zidentyfikować i rozpoznać przyczynę problemu. 
+Może wystąpić problem, że nowe lub istniejące połączenie sieci VPN typu lokacja-lokacja Microsoft Azure nie jest stabilna lub odłącza regularnie. Ten artykuł zawiera Rozwiązywanie problemów z czynności, aby zidentyfikować i rozpoznać przyczynę problemu. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+## <a name="troubleshooting-steps"></a>Rozwiązywanie problemów
 
 ### <a name="prerequisite-step"></a>Krok wymagań wstępnych
 

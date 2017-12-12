@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie krojów z analizy multimediów Azure
 ## <a name="overview"></a>Omówienie
 **Azure Media Redactor** jest [analizy multimediów Azure](media-services-analytics-overview.md) procesor multimediów (MP) oferuje skalowalne krój redakcyjne w chmurze. Redakcyjne krój umożliwia modyfikowanie wideo do rozmycia kroje wybrane osoby. Można korzystać z usługi redakcyjne krój w publicznych scenariusze bezpieczeństwa i nośnika wiadomości. Kilka minut najmniejszym zawiera wiele kroje może zająć godzin redagowanie ręcznie, ale z tą usługą krój redakcyjne wymagany wykonanie kilku prostych krokach. Aby uzyskać więcej informacji, zobacz [to](https://azure.microsoft.com/blog/azure-media-redactor/) blogu.
 
-Ten temat zawiera szczegółowe informacje o **Azure Media Redactor** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
+Ten artykuł zawiera szczegółowe informacje o **Azure Media Redactor** i pokazuje, jak z niego korzystać z zestawu SDK usługi Media Services dla platformy .NET.
 
 ## <a name="face-redaction-modes"></a>Tryby redakcyjne krój
-Twarzy redakcyjne polega na wykrywaniu kroje w każdej ramce wideo i śledzenia obiektu krój zarówno przodu i do tyłu w czasie, tak, aby w tej samej osoby mogą rozmyciu z innych kątów również. Proces automatycznego redakcyjne jest bardzo skomplikowane i jest nie zawsze produktu 100% żądanego wyniku, z tego powodu analizy multimediów pozwala na kilka sposobów, aby zmodyfikować ostateczne dane wyjściowe.
+Twarzy redakcyjne polega na wykrywaniu kroje w każdej ramce wideo i śledzenia obiektu krój zarówno przodu i do tyłu w czasie, tak, aby w tej samej osoby mogą rozmyciu z innych kątów również. Proces automatycznego redakcyjne jest złożony i jest nie zawsze produktu 100% żądanego wyniku, z tego powodu analizy multimediów udostępnia kilka sposobów, aby zmodyfikować ostateczne dane wyjściowe.
 
-Oprócz pełni automatycznym Brak dwa przebieg przepływu pracy, umożliwiająca wybór/dezaktywuje-selection z znaleziono kroje za pomocą listy identyfikatorów. Aby dowolnego na dopasowania ramki PZ używa również, plik metadanych w formacie JSON. Ten przepływ pracy jest podzielony na **Analizuj** i **Redact** trybów. Możesz połączyć ze sobą dwa tryby w jednym przebiegu uruchomioną obu zadań w jedno zadanie. Ten tryb jest nazywany **nomenklatury**.
+Oprócz pełni automatycznym jest przepływ pracy dwa przebiegu, co umożliwia wybór/dezaktywuje-selection z znaleziono kroje za pomocą listy identyfikatorów. Aby dowolnego na dopasowania ramki PZ używa również, plik metadanych w formacie JSON. Ten przepływ pracy jest podzielony na **Analizuj** i **Redact** trybów. Możesz połączyć ze sobą dwa tryby w jednym przebiegu uruchomioną obu zadań w jedno zadanie. Ten tryb jest nazywany **nomenklatury**.
 
 ### <a name="combined-mode"></a>Tryb połączone
-Spowoduje to utworzenie zredagowanym mp4 automatycznie bez żadnych ręcznego wprowadzania.
+To spowoduje utworzenie zredagowanym mp4 automatycznie bez żadnych ręcznego wprowadzania.
 
 | Etap | Nazwa pliku | Uwagi |
 | --- | --- | --- |
@@ -172,7 +171,7 @@ MP redakcyjne zawiera wysokiej precyzji krój lokalizacji wykrywania i śledzeni
 Następujących programów przedstawiono sposób:
 
 1. Utworzenie elementu zawartości i przesyłanie pliku multimediów do elementu zawartości.
-2. Utwórz zadanie z zadaniem redakcyjne krój oparty na pliku konfiguracji, który zawiera następujące ustawienie json. 
+2. Utwórz zadanie z zadaniem redakcyjne krój oparty na pliku konfiguracji, który zawiera następujące ustawienie json: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Pobierz pliki danych wyjściowych w formacie JSON. 
@@ -183,30 +182,39 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

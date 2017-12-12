@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Zabezpieczanie bazy danych w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Istnieją następujące sposoby dalszego ograniczenia operacji wykonywanych prze
 * [Ról bazy danych] [ Database roles] innych niż db_datareader i db_datawriter może służyć do tworzenia bardziej zaawansowanych kont użytkowników aplikacji lub słabszy kont zarządzania. Role wbudowane stałej bazy danych z łatwością udzielić uprawnień, ale może spowodować udzielanie więcej uprawnień niż jest to konieczne.
 * [Procedury składowane] [ Stored procedures] pozwala ograniczyć akcje, które można podjąć w bazie danych.
 
-Zarządzanie bazami danych i serwerami logicznymi z klasycznego portalu Azure lub za pomocą interfejsu API usługi Azure Resource Manager jest kontrolowane przez przypisania ról do konta użytkownika portalu. Aby uzyskać więcej informacji na ten temat, zobacz [kontroli dostępu opartej na rolach w portalu Azure][Role-based access control in Azure Portal].
+Zarządzanie bazami danych i serwerów logicznych z portalu Azure lub przy użyciu interfejsu API Menedżera zasobów Azure jest kontrolowana przez konto użytkownika portalu przypisań ról. Aby uzyskać więcej informacji na ten temat, zobacz [kontroli dostępu opartej na rolach w portalu Azure][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Szyfrowanie
 Azure SQL Data magazynu przezroczysty danych szyfrowania (funkcji TDE) chroni przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania danych w stanie spoczynku.  Podczas szyfrowania bazy danych, skojarzonych kopii zapasowych i plików dzienników transakcji są szyfrowane bez konieczności wprowadzania jakichkolwiek zmian w aplikacji. Funkcji TDE szyfruje magazyn całej bazy danych przy użyciu klucza symetrycznego o nazwie klucza szyfrowania bazy danych. Baza danych SQL klucza szyfrowania bazy danych jest chroniona za pomocą certyfikatu wbudowanego serwera. Certyfikat serwera wbudowanych jest unikatowy dla każdego serwera bazy danych SQL. Microsoft automatycznie przełącza tych certyfikatów, co najmniej co 90 dni. Algorytm szyfrowania używany przez usługi SQL Data Warehouse jest AES 256. Ogólny opis funkcji TDE, zobacz [przezroczystego szyfrowania danych][Transparent Data Encryption].

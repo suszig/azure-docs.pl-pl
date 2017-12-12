@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentacja usługi Azure Container Registry
+title: "Dokumentacja usługi Azure Container Registry"
 metadata:
-  title: Dokumentacja usługi Azure Container Registry — samouczki | Microsoft Docs
-  description: 'Usługa Azure Container Registry umożliwia przechowywanie obrazów wdrożeń kontenerów dowolnego typu i zarządzanie nimi. Dowiedz się, jak używać usługi Azure Container Registry, korzystając z tych przewodników Szybki start, samouczków i przykładów.'
+  title: "Dokumentacja usługi Azure Container Registry — samouczki | Microsoft Docs"
+  description: "Usługa Azure Container Registry umożliwia przechowywanie obrazów wdrożeń kontenerów dowolnego typu i zarządzanie nimi. Dowiedz się, jak używać usługi Azure Container Registry, korzystając z tych przewodników Szybki start, samouczków i przykładów."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,47 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Usługa Azure Container Registry umożliwia przechowywanie obrazów wdrożeń kontenerów dowolnego typu i zarządzanie nimi. Dowiedz się, jak używać usługi Azure Container Registry, korzystając z tych przewodników Szybki start, samouczków i przykładów.'
+  description: "Usługa Azure Container Registry umożliwia przechowywanie obrazów wdrożeń kontenerów dowolnego typu i zarządzanie nimi. Dowiedz się, jak używać usługi Azure Container Registry, korzystając z tych przewodników Szybki start, samouczków i przykładów."
 sections:
-  - title: 5-minutowe przewodniki Szybki start
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak wdrożyć usługę Azure Container Registry."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak wdrożyć usługę Azure Container Registry.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Interfejs wiersza polecenia platformy Azure
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Samouczki krok po kroku
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Interfejs wiersza polecenia platformy Azure
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Dowiedz się z tych samouczków, jak używać usługi Azure Container Registry."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: 'Dowiedz się z tych samouczków, jak używać usługi Azure Container Registry.'
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replikacja geograficzna usługi Container Registry (wersja zapoznawcza)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Usługa Container Registry z usługą Azure Container Instances</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Usługa Container Registry z usługą Azure Container Service (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Usługa Container Registry z usługą Service Fabric</a>
-  - title: Dokumentacja
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">Replikacja geograficzna usługi Container Registry (wersja zapoznawcza)</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Usługa Container Registry z usługą Azure Container Instances</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">Usługa Container Registry z usługą Azure Container Service (AKS)</a>"
+    - html: "<a href=\"/azure/service-fabric/service-fabric-tutorial-create-container-images\">Usługa Container Registry z usługą Service Fabric</a>"
+- title: Dokumentacja
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Wiersz polecenia
-            html: <p><a href="/cli/azure/acr">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">Dokumentacja interfejsu API REST</a></p>
+    - title: Wiersz polecenia
+      html: <p><a href="/cli/azure/acr">Interfejs wiersza polecenia platformy Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: "Języki"
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/containerregistry\">Dokumentacja interfejsu API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Szablon usługi Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Schemat elementów webhook</a></p>"

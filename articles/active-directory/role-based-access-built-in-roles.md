@@ -4,7 +4,7 @@ description: "W tym temacie opisano wbudowanych ról dla kontroli dostępu opart
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure
 Azure opartej na rolach kontroli dostępu (RBAC) zawiera następujące role wbudowane przypisane do użytkowników, grup i usług. Nie można zmodyfikować definicje ról wbudowanych. Można jednak utworzyć [niestandardowych ról w Azure RBAC](role-based-access-control-custom-roles.md) do określonych potrzeb organizacji.
@@ -55,7 +55,7 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [Współautor fabryki danych](#data-factory-contributor) |Można tworzyć i zarządzać fabryki danych i zasoby podrzędne w nich. |
 | [DevTest Labs użytkownika](#devtest-labs-user) |Można wyświetlić wszystko i połącz start, zamknięcia i ponownego uruchomienia maszyny wirtualnej |
 | [Współautor strefy DNS](#dns-zone-contributor) |Można zarządzać strefy DNS i rekordów |
-| [Współautor konta Azure rozwiązania Cosmos bazy danych](#documentdb-account-contributor) |Można zarządzać kontami bazy danych Azure rozwiązania Cosmos |
+| [Współautor konta usługi DocumentDB](#documentdb-account-contributor) |Można zarządzać kontami bazy danych Azure rozwiązania Cosmos |
 | [Współautor konta systemów inteligentnych](#intelligent-systems-account-contributor) |Można zarządzać kontami systemów inteligentnych |
 | Współautor aplikacji logiki | Można zarządzać wszystkimi aspektami aplikacji logiki, ale nie Utwórz nową. |
 | Operator aplikacji logiki |Można uruchomić i zatrzymać przepływów pracy zdefiniowanych w aplikacji logiki. |
@@ -88,7 +88,7 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 ## <a name="role-permissions"></a>Uprawnienia roli
 W poniższych tabelach opisano określone uprawnienia do poszczególnych ról. Może to obejmować **akcje**, które dają uprawnienia, i **NotActions**, które ograniczają.
 
-### <a name="api-management-service-contributor"></a>Interfejs API zarządzania usługi współautora
+### <a name="api-management-service-contributor"></a>Współautor usługi API Management
 Interfejs API zarządzania usługami można zarządzać
 
 | **Akcje** |  |
@@ -135,7 +135,7 @@ Interfejs API zarządzania usługami można zarządzać
 | Microsoft.Resources/subscriptions/resourceGroups/read |Role odczytu i przypisania ról |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="application-insights-component-contributor"></a>Application Insights składnika współautora
+### <a name="application-insights-component-contributor"></a>Współautor składników usługi Application Insights
 Można zarządzać składnikami usługi Application Insights
 
 | **Akcje** |  |
@@ -274,7 +274,7 @@ Może wyświetlać wszystkie informacje rozliczeń
 | Microsoft.Billing/*/read |Odczytywanie informacji o rozliczeń |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="biztalk-contributor"></a>Współautor BizTalk
+### <a name="biztalk-contributor"></a>Współautor usługi BizTalk
 Można zarządzać usługi BizTalk services
 
 | **Akcje** |  |
@@ -287,7 +287,7 @@ Można zarządzać usługi BizTalk services
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="cleardb-mysql-db-contributor"></a>Współautor ClearDB MySQL bazy danych
+### <a name="cleardb-mysql-db-contributor"></a>Współautor bazy danych MySQL ClearDB
 Można zarządzać baz danych ClearDB MySQL
 
 | **Akcje** |  |
@@ -312,7 +312,7 @@ Mogą zarządzać wszystkim poza dostępem
 | Microsoft.Authorization/*/Delete |Nie można usuwać role i przypisania ról |
 | Microsoft.Authorization/*/Write |Nie można utworzyć role i przypisania ról |
 
-### <a name="data-factory-contributor"></a>Współautor fabryki danych
+### <a name="data-factory-contributor"></a>Współautor Data Factory
 Utwórz i Zarządzaj fabryki danych i zasoby podrzędne w nich.
 
 | **Akcje** |  |
@@ -325,7 +325,7 @@ Utwórz i Zarządzaj fabryki danych i zasoby podrzędne w nich.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="devtest-labs-user"></a>DevTest Labs użytkownika
+### <a name="devtest-labs-user"></a>Użytkownik usługi DevTest Labs
 Można wyświetlić wszystko i połącz start, zamknięcia i ponownego uruchomienia maszyny wirtualnej
 
 | **Akcje** |  |
@@ -371,20 +371,20 @@ Strefy DNS i rekordy można zarządzać.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/\* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Współautor konta Azure rozwiązania Cosmos bazy danych
-Można zarządzać kontami bazy danych Azure rozwiązania Cosmos
+### <a name="documentdb-account-contributor"></a>Współautor konta bazy danych DocumentDB
+Można zarządzać kontami bazy danych Azure rozwiązania Cosmos. Azure DB rozwiązania Cosmos jest znanego wcześniej jako usługi DocumentDB.
 
 | **Akcje** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Role odczytu i przypisania roli |
-| Microsoft.DocumentDb/databaseAccounts/* |Tworzenie i zarządzanie nimi kont usługi DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Tworzenie i zarządzanie kontami bazy danych Azure rozwiązania Cosmos |
 | Microsoft.Insights/alertRules/* |Tworzenie i zarządzanie nimi reguły alertów |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kondycja odczytu zasobów |
 | Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="intelligent-systems-account-contributor"></a>Współautor konta systemów inteligentnych
+### <a name="intelligent-systems-account-contributor"></a>Współautor konta usługi Systemy inteligentne
 Można zarządzać kontami systemów inteligentnych
 
 | **Akcje** |  |
@@ -467,7 +467,7 @@ Mogą przeglądać wszystko, ale nie można wprowadzić zmian
 | --- | --- |
 | * / Odczyt |Przeczytaj zasoby wszystkich typów, z wyjątkiem kluczy tajnych. |
 
-### <a name="redis-cache-contributor"></a>Współautor pamięci podręcznej redis
+### <a name="redis-cache-contributor"></a>Współautor pamięci podręcznej Redis
 Można zarządzać pamięci podręczne Redis
 
 | **Akcje** |  |
@@ -480,7 +480,7 @@ Można zarządzać pamięci podręczne Redis
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="scheduler-job-collections-contributor"></a>Harmonogram zadania kolekcje współautora
+### <a name="scheduler-job-collections-contributor"></a>Współautor kolekcji zadań usługi Harmonogram
 Można zarządzać harmonogramu kolekcji zadań
 
 | **Akcje** |  |
@@ -671,7 +671,7 @@ Można zarządzać baz danych, ale nie ich zasad związanych z zabezpieczeniami
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Nie można edytować zasady alertów zabezpieczeń |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Nie można edytować metryki zabezpieczeń |
 
-### <a name="sql-security-manager"></a>Menedżera zabezpieczeń programu SQL
+### <a name="sql-security-manager"></a>Menedżer zabezpieczeń SQL
 Można zarządzać zasadami związanych z zabezpieczeniami serwerów SQL i baz danych
 
 | **Akcje** |  |
@@ -698,7 +698,7 @@ Można zarządzać zasadami związanych z zabezpieczeniami serwerów SQL i baz d
 | Microsoft.Sql/servers/securityAlertPolicies/* |Utwórz i Zarządzaj zasadami alertów zabezpieczeń serwera SQL |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="sql-server-contributor"></a>SQL Server współautora
+### <a name="sql-server-contributor"></a>Współautor serwera SQL Server
 Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad związanych z zabezpieczeniami
 
 | **Akcje** |  |
@@ -724,7 +724,7 @@ Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad
 | Microsoft.Sql/servers/databases/securityMetrics/* |Nie można edytować metryki zabezpieczeń bazy danych serwera SQL |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Nie można edytować zasady alertu zabezpieczeń serwera SQL |
 
-### <a name="classic-storage-account-contributor"></a>Współautor konta magazynu Classic
+### <a name="classic-storage-account-contributor"></a>Współautor klasycznego konta magazynu
 Można zarządzać klasycznych kont magazynu
 
 | **Akcje** |  |
@@ -769,7 +769,7 @@ Można zarządzać dostępem użytkowników do zasobów platformy Azure
 | Microsoft.Authorization/* |Zarządzanie autoryzacji |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="classic-virtual-machine-contributor"></a>Współautor klasyczne maszyny wirtualnej
+### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
 Można zarządzać, ale nie z wirtualnych sieci lub magazynu konta do którego są podłączeni klasycznych maszyn wirtualnych
 
 | **Akcje** |  |
@@ -823,7 +823,7 @@ Można zarządzać, ale nie wirtualnych sieci lub magazynu konto do którego są
 | Microsoft.Storage/storageAccounts/read |Przeczytaj kont magazynu |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="classic-network-contributor"></a>Klasyczne sieci współautora
+### <a name="classic-network-contributor"></a>Współautor klasycznej sieci
 Można zarządzać klasycznych sieci wirtualnych i zarezerwowane adresy IP
 
 | **Akcje** |  |
@@ -836,7 +836,7 @@ Można zarządzać klasycznych sieci wirtualnych i zarezerwowane adresy IP
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="web-plan-contributor"></a>Współautor Plan sieci Web
+### <a name="web-plan-contributor"></a>Współautor planów sieci Web
 Można zarządzać planami sieci web
 
 | **Akcje** |  |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: d66c6760cd2414e377d9c0cf55835a21b4bc5051
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z monitorem Azure
 Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy je w portalu, dostępu do nich za pośrednictwem interfejsu API REST lub zapytań je przy użyciu programu PowerShell lub interfejsu wiersza polecenia. Poniżej przedstawiono pełną listę wszystkich metryki obecnie z potoku metryki Azure monitora.
@@ -506,7 +506,7 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |jobs.cancelJob.failure|Anulowanie zadania nie powiodło się|Licznik|Łącznie|Liczba wszystkich wywołań nie powiodło się, aby anulować zadanie.|Nie wymiarów|
 |jobs.queryJobs.success|Pomyślnie wykonane zadanie zapytań|Licznik|Łącznie|Liczba wszystkich pomyślnych wywołań do zadań zapytania.|Nie wymiarów|
 |jobs.queryJobs.failure|Nie powiodło się zadanie odpytuje|Licznik|Łącznie|Liczba wszystkie wywołania zakończone niepowodzeniem zadania zapytania.|Nie wymiarów|
-|Jobs.Completed|Ukończone zadania|Licznik|Łącznie|Liczba wszystkich zakończonych zadań.|Nie wymiarów|
+|Jobs.Completed|Zadania ukończone|Licznik|Łącznie|Liczba wszystkich zakończonych zadań.|Nie wymiarów|
 |Jobs.failed|Zadania zakończone niepowodzeniem|Licznik|Łącznie|Liczba wszystkie zadania zakończone niepowodzeniem.|Nie wymiarów|
 |d2c.telemetry.ingress.sendThrottle|Liczba błędów ograniczania przepustowości|Licznik|Łącznie|Ogranicza liczbę błędów ograniczania przepustowości z powodu przepływności urządzenia|Nie wymiarów|
 |dailyMessageQuotaUsed|Całkowita liczba komunikatów używany|Licznik|Średni|Liczba całkowita liczba komunikatów używany w tej chwili. Jest to wartość zbiorcza, która jest resetowany do zera w formacie UTC 00:00 każdego dnia.|Nie wymiarów|
@@ -519,7 +519,9 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |DeviceAssignments|Urządzenia przypisane|Licznik|Łącznie|Liczba urządzenia przypisane do Centrum IoT|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Poświadczenie prób|Licznik|Łącznie|Liczba podjęto poświadczenia urządzenia|Protokół ProvisioningServiceName, stan,|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (rozwiązania Azure Cosmos DB)
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |TotalRequests|Łączna liczba żądań|Licznik|Licznik|Liczba żądań|DatabaseAccount, CollectionName, DatabaseName, Region, StatusCode|
@@ -898,7 +900,7 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |CpuPercentage|Procent użycia procesora CPU|Procent|Średni|Procent użycia procesora CPU|Wystąpienie|
 |MemoryPercentage|Procent pamięci|Procent|Średni|Procent pamięci|Wystąpienie|
 |DiskQueueLength|Długość kolejki dysku|Licznik|Łącznie|Długość kolejki dysku|Wystąpienie|
-|HttpQueueLength|Długość kolejki HTTP|Licznik|Łącznie|Długość kolejki HTTP|Wystąpienie|
+|HttpQueueLength|Długość kolejki http|Licznik|Łącznie|Długość kolejki http|Wystąpienie|
 |BytesReceived|Dane wejściowe|Bajty|Łącznie|Dane wejściowe|Wystąpienie|
 |Żądania|Dane wyjściowe|Bajty|Łącznie|Dane wyjściowe|Wystąpienie|
 
@@ -911,18 +913,18 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |BytesReceived|Dane wejściowe|Bajty|Łącznie|Dane wejściowe|Wystąpienie|
 |Żądania|Dane wyjściowe|Bajty|Łącznie|Dane wyjściowe|Wystąpienie|
 |Http101|HTTP 101|Licznik|Łącznie|HTTP 101|Wystąpienie|
-|Http2xx|HTTP 2xx|Licznik|Łącznie|HTTP 2xx|Wystąpienie|
-|Http3xx|HTTP 3xx|Licznik|Łącznie|HTTP 3xx|Wystąpienie|
+|Http2xx|Http 2xx|Licznik|Łącznie|Http 2xx|Wystąpienie|
+|Http3xx|Http 3xx|Licznik|Łącznie|Http 3xx|Wystąpienie|
 |Http401|HTTP 401|Licznik|Łącznie|HTTP 401|Wystąpienie|
 |Http403|HTTP 403|Licznik|Łącznie|HTTP 403|Wystąpienie|
 |Http404|HTTP 404|Licznik|Łącznie|HTTP 404|Wystąpienie|
 |Http406|HTTP 406|Licznik|Łącznie|HTTP 406|Wystąpienie|
 |Http4xx|HTTP 4xx|Licznik|Łącznie|HTTP 4xx|Wystąpienie|
-|Http5xx|Błędy serwera HTTP|Licznik|Łącznie|Błędy serwera HTTP|Wystąpienie|
+|Http5xx|Błędy HTTP serwera|Licznik|Łącznie|Błędy HTTP serwera|Wystąpienie|
 |MemoryWorkingSet|Zestaw roboczy pamięci|Bajty|Średni|Zestaw roboczy pamięci|Wystąpienie|
-|AverageMemoryWorkingSet|Średni zestaw roboczy pamięci|Bajty|Średni|Średni zestaw roboczy pamięci|Wystąpienie|
+|AverageMemoryWorkingSet|Pamięć średni zestaw roboczy|Bajty|Średni|Pamięć średni zestaw roboczy|Wystąpienie|
 |AverageResponseTime|Średni czas odpowiedzi|Sekundy|Średni|Średni czas odpowiedzi|Wystąpienie|
-|FunctionExecutionUnits|Jednostki wykonawcze funkcji|Licznik|Średni|Jednostki wykonawcze funkcji|Wystąpienie|
+|FunctionExecutionUnits|Funkcja wykonywania jednostki|Licznik|Średni|Funkcja wykonywania jednostki|Wystąpienie|
 |FunctionExecutionCount|Liczba wykonań funkcji|Licznik|Średni|Liczba wykonań funkcji|Wystąpienie|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funkcje)
@@ -931,10 +933,10 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |---|---|---|---|---|---|
 |BytesReceived|Dane wejściowe|Bajty|Łącznie|Dane wejściowe|Wystąpienie|
 |Żądania|Dane wyjściowe|Bajty|Łącznie|Dane wyjściowe|Wystąpienie|
-|Http5xx|Błędy serwera HTTP|Licznik|Łącznie|Błędy serwera HTTP|Wystąpienie|
+|Http5xx|Błędy HTTP serwera|Licznik|Łącznie|Błędy HTTP serwera|Wystąpienie|
 |MemoryWorkingSet|Zestaw roboczy pamięci|Bajty|Średni|Zestaw roboczy pamięci|Wystąpienie|
-|AverageMemoryWorkingSet|Średni zestaw roboczy pamięci|Bajty|Średni|Średni zestaw roboczy pamięci|Wystąpienie|
-|FunctionExecutionUnits|Jednostki wykonawcze funkcji|Licznik|Średni|Jednostki wykonawcze funkcji|Wystąpienie|
+|AverageMemoryWorkingSet|Pamięć średni zestaw roboczy|Bajty|Średni|Pamięć średni zestaw roboczy|Wystąpienie|
+|FunctionExecutionUnits|Funkcja wykonywania jednostki|Licznik|Średni|Funkcja wykonywania jednostki|Wystąpienie|
 |FunctionExecutionCount|Liczba wykonań funkcji|Licznik|Średni|Liczba wykonań funkcji|Wystąpienie|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
@@ -946,18 +948,18 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |BytesReceived|Dane wejściowe|Bajty|Łącznie|Dane wejściowe|Wystąpienie|
 |Żądania|Dane wyjściowe|Bajty|Łącznie|Dane wyjściowe|Wystąpienie|
 |Http101|HTTP 101|Licznik|Łącznie|HTTP 101|Wystąpienie|
-|Http2xx|HTTP 2xx|Licznik|Łącznie|HTTP 2xx|Wystąpienie|
-|Http3xx|HTTP 3xx|Licznik|Łącznie|HTTP 3xx|Wystąpienie|
+|Http2xx|Http 2xx|Licznik|Łącznie|Http 2xx|Wystąpienie|
+|Http3xx|Http 3xx|Licznik|Łącznie|Http 3xx|Wystąpienie|
 |Http401|HTTP 401|Licznik|Łącznie|HTTP 401|Wystąpienie|
 |Http403|HTTP 403|Licznik|Łącznie|HTTP 403|Wystąpienie|
 |Http404|HTTP 404|Licznik|Łącznie|HTTP 404|Wystąpienie|
 |Http406|HTTP 406|Licznik|Łącznie|HTTP 406|Wystąpienie|
 |Http4xx|HTTP 4xx|Licznik|Łącznie|HTTP 4xx|Wystąpienie|
-|Http5xx|Błędy serwera HTTP|Licznik|Łącznie|Błędy serwera HTTP|Wystąpienie|
+|Http5xx|Błędy HTTP serwera|Licznik|Łącznie|Błędy HTTP serwera|Wystąpienie|
 |MemoryWorkingSet|Zestaw roboczy pamięci|Bajty|Średni|Zestaw roboczy pamięci|Wystąpienie|
-|AverageMemoryWorkingSet|Średni zestaw roboczy pamięci|Bajty|Średni|Średni zestaw roboczy pamięci|Wystąpienie|
+|AverageMemoryWorkingSet|Pamięć średni zestaw roboczy|Bajty|Średni|Pamięć średni zestaw roboczy|Wystąpienie|
 |AverageResponseTime|Średni czas odpowiedzi|Sekundy|Średni|Średni czas odpowiedzi|Wystąpienie|
-|FunctionExecutionUnits|Jednostki wykonawcze funkcji|Licznik|Średni|Jednostki wykonawcze funkcji|Wystąpienie|
+|FunctionExecutionUnits|Funkcja wykonywania jednostki|Licznik|Średni|Funkcja wykonywania jednostki|Wystąpienie|
 |FunctionExecutionCount|Liczba wykonań funkcji|Licznik|Średni|Liczba wykonań funkcji|Wystąpienie|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
@@ -968,32 +970,32 @@ Azure Monitor udostępnia kilka metod do interakcji z metryk, takich jak wykresy
 |BytesReceived|Dane wejściowe|Bajty|Łącznie|Dane wejściowe|Wystąpienie|
 |Żądania|Dane wyjściowe|Bajty|Łącznie|Dane wyjściowe|Wystąpienie|
 |Http101|HTTP 101|Licznik|Łącznie|HTTP 101|Wystąpienie|
-|Http2xx|HTTP 2xx|Licznik|Łącznie|HTTP 2xx|Wystąpienie|
-|Http3xx|HTTP 3xx|Licznik|Łącznie|HTTP 3xx|Wystąpienie|
+|Http2xx|Http 2xx|Licznik|Łącznie|Http 2xx|Wystąpienie|
+|Http3xx|Http 3xx|Licznik|Łącznie|Http 3xx|Wystąpienie|
 |Http401|HTTP 401|Licznik|Łącznie|HTTP 401|Wystąpienie|
 |Http403|HTTP 403|Licznik|Łącznie|HTTP 403|Wystąpienie|
 |Http404|HTTP 404|Licznik|Łącznie|HTTP 404|Wystąpienie|
 |Http406|HTTP 406|Licznik|Łącznie|HTTP 406|Wystąpienie|
 |Http4xx|HTTP 4xx|Licznik|Łącznie|HTTP 4xx|Wystąpienie|
-|Http5xx|Błędy serwera HTTP|Licznik|Łącznie|Błędy serwera HTTP|Wystąpienie|
+|Http5xx|Błędy HTTP serwera|Licznik|Łącznie|Błędy HTTP serwera|Wystąpienie|
 |AverageResponseTime|Średni czas odpowiedzi|Sekundy|Średni|Średni czas odpowiedzi|Wystąpienie|
 |CpuPercentage|Procent użycia procesora CPU|Procent|Średni|Procent użycia procesora CPU|Wystąpienie|
 |MemoryPercentage|Procent pamięci|Procent|Średni|Procent pamięci|Wystąpienie|
 |DiskQueueLength|Długość kolejki dysku|Licznik|Łącznie|Długość kolejki dysku|Wystąpienie|
-|HttpQueueLength|Długość kolejki HTTP|Licznik|Łącznie|Długość kolejki HTTP|Wystąpienie|
+|HttpQueueLength|Długość kolejki http|Licznik|Łącznie|Długość kolejki http|Wystąpienie|
 |ActiveRequests|Aktywne żądania|Licznik|Łącznie|Aktywne żądania|Wystąpienie|
-|TotalFrontEnds|Łącznie frontonów|Licznik|Średni|Łącznie frontonów|Wystąpienie|
-|SmallAppServicePlanInstances|Mała liczba procesów roboczych dla planu usługi App Service|Licznik|Średni|Mała liczba procesów roboczych dla planu usługi App Service|Wystąpienie|
-|MediumAppServicePlanInstances|Średnia liczba procesów roboczych dla planu usługi App Service|Licznik|Średni|Średnia liczba procesów roboczych dla planu usługi App Service|Wystąpienie|
-|LargeAppServicePlanInstances|Duża liczba procesów roboczych dla planu usługi App Service|Licznik|Średni|Duża liczba procesów roboczych dla planu usługi App Service|Wystąpienie|
+|TotalFrontEnds|Całkowita liczba przedniego kończy się|Licznik|Średni|Całkowita liczba przedniego kończy się|Wystąpienie|
+|SmallAppServicePlanInstances|Pracowników planu usługi aplikacji — małe|Licznik|Średni|Pracowników planu usługi aplikacji — małe|Wystąpienie|
+|MediumAppServicePlanInstances|Pracownicy planu usługi aplikacji — średnia|Licznik|Średni|Pracownicy planu usługi aplikacji — średnia|Wystąpienie|
+|LargeAppServicePlanInstances|Pracownicy planu usługi aplikacji — duże|Licznik|Średni|Pracownicy planu usługi aplikacji — duże|Wystąpienie|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Łączna|Łączna liczba procesów roboczych|Licznik|Średni|Łączna liczba procesów roboczych|Wystąpienie|
-|WorkersAvailable|Dostępne procesy robocze|Licznik|Średni|Dostępne procesy robocze|Wystąpienie|
-|WorkersUsed|Używane procesy robocze|Licznik|Średni|Używane procesy robocze|Wystąpienie|
+|Łączna|Całkowita liczba procesów roboczych|Licznik|Średni|Całkowita liczba procesów roboczych|Wystąpienie|
+|WorkersAvailable|Dostępne pracowników|Licznik|Średni|Dostępne pracowników|Wystąpienie|
+|WorkersUsed|Używane pracowników|Licznik|Średni|Używane pracowników|Wystąpienie|
 
 ## <a name="next-steps"></a>Następne kroki
 * [Przeczytaj informacje o metryki w monitorze Azure](monitoring-overview-metrics.md)

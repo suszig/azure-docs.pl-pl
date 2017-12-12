@@ -1,7 +1,7 @@
 ---
 title: "Samouczek tworzenia aplikacji w języku Java za pomocą usługi Azure Cosmos DB | Microsoft Docs"
-description: "W tym samouczku aplikacji sieci web Java pokazano, jak używać bazy danych rozwiązania Cosmos Azure i interfejsu API usługi DocumentDB do przechowywania i uzyskiwanie dostępu do danych z aplikacji w języku Java hostowanej przez usługę Azure Websites."
-keywords: Programowanie aplikacji, samouczek bazy danych, aplikacja Java, samouczek aplikacji sieci Web Java, DocumentDB, Azure, Microsoft Azure
+description: "W tym samouczku aplikacji sieci web Java pokazano, jak używać bazy danych rozwiązania Cosmos Azure i interfejsu API SQL do przechowywania i uzyskiwanie dostępu do danych z aplikacji w języku Java hostowanej przez usługę Azure Websites."
+keywords: Projektowanie aplikacji, samouczek bazy danych, aplikacji java, samouczek aplikacji sieci web java, azure, platformy Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Tworzenie aplikacji sieci web Java, przy użyciu bazy danych rozwiązania Cosmos Azure i interfejsu API usługi DocumentDB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tworzenie aplikacji sieci web Java, przy użyciu bazy danych rozwiązania Cosmos Azure i interfejsu API SQL
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 W tym samouczku aplikacji sieci web Java przedstawia sposób użycia [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) Usługa do przechowywania i uzyskać dostęp do danych z poziomu aplikacji Java hostowanej przez aplikacje sieci Web usługi aplikacji Azure. W tym artykule przedstawiono:
 
@@ -86,8 +88,8 @@ Aby utworzyć aplikację JSP:
    
     ![Witaj świecie – samouczek aplikacji w języku Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Krok 3. Instalacja zestawu SDK Java usługi DocumentDB
-Najprostszym sposobem pobrania zestawu SDK Java usługi DocumentDB i jego zależności jest skorzystanie z usługi [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Krok 3: Instalowanie SQL Java SDK
+Najprostszym sposobem pobrania zestawu SDK Java SQL i jego zależności jest użycie [Apache Maven](http://maven.apache.org/).
 
 Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując następujące kroki:
 
@@ -101,12 +103,12 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    * W **identyfikator artefaktu** wprowadź azure-documentdb.
    * W **wersji** wprowadź 1.5.1.
      
-   ![Instalacja zestawu SDK Java usługi DocumentDB](./media/documentdb-java-application/image13.png)
+   ![Instalowanie aplikacji Java SQL zestawu SDK](./media/documentdb-java-application/image13.png)
      
    * Lub Dodaj kod XML zależności dla identyfikatora grupy i identyfikator artefaktu bezpośrednio do pliku pom.xml za pomocą edytora tekstu:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Kliknij przycisk **OK** i Maven zostanie zainstalowany zestaw SDK Java usługi DocumentDB.
+6. Kliknij przycisk **OK** i Maven zostanie zainstalowany zestaw SDK Java SQL.
 7. Zapisz plik pom.xml.
 
 ## <a id="UseService"></a>Krok 4. Korzystanie z usługi Azure Cosmos DB w aplikacji Java
@@ -279,7 +281,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                 return null;
             }
         }
-7. Możemy również użyć obiektu DocumentClient, aby uzyskać kolekcję lub listę obiektów TodoItem przy użyciu usługi DocumentDB SQL:
+7. Możemy również użyć obiektu DocumentClient, aby uzyskać kolekcję lub listę obiektów Todoitem przy użyciu programu SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

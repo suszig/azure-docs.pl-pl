@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie skryptu U-SQL, Python, R i CSharp dla usługi Azure Data Lake Analytics w programie Visual Studio Code | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak za pomocą kodu języka Python, R i CSharp można przesłać zadania w usłudze Azure Data Lake."
+title: "Tworzenie skryptu U-SQL, Python, R i C# dla usługi Azure Data Lake Analytics w programie Visual Studio Code | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak za pomocą kodu języka Python, R i C# można przesłać zadania w usłudze Azure Data Lake."
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>Tworzenie skryptu U-SQL, Python, R i CSharp dla usługi Azure Data Lake Analytics w kodzie programu Visual Studio
-Dowiedz się, jak użyć programu Visual Studio Code (VSCode), aby zapisać Python, R CSharp kodu za pomocą języka U-SQL i przesyłanie zadań do usługi Azure Data Lake. Aby uzyskać więcej informacji na temat usługi Azure Data Lake Tools dla VSCode, zobacz [użyj narzędzi Azure Data Lake Tools dla Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Tworzenie skryptu U-SQL, Python, R i C# dla usługi Azure Data Lake Analytics w kodzie programu Visual Studio
+Dowiedz się, jak użyć programu Visual Studio Code (VSCode), aby zapisać Python, R i C# kodu za pomocą języka U-SQL i przesyłanie zadań do usługi Azure Data Lake. Aby uzyskać więcej informacji na temat usługi Azure Data Lake Tools dla VSCode, zobacz [użyj narzędzi Azure Data Lake Tools dla Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Przed zapisaniem CodeBehind kodu niestandardowego, należy otworzyć folder lub obszar roboczy w VSCode.
 

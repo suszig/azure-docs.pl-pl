@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32b72577002962f049f446d6f3c2353189867e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Przenoszenie danych do i z bazy danych rozwiązania Cosmos Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [łącznika Azure DB rozwiązania Cosmos w wersji 2](../connector-azure-cosmos-db.md).
 
-W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przeniesienia danych z bazy danych Azure rozwiązania Cosmos (interfejsu API usługi DocumentDB). Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania. 
+W tym artykule opisano sposób używania działania kopiowania w fabryce danych Azure do przeniesienia danych z bazy danych Azure rozwiązania Cosmos (interfejsu API SQL). Opiera się na [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, który przedstawia ogólny przegląd przenoszenia danych z działania kopiowania. 
 
 Dane należy skopiować z dowolnego źródła obsługiwanych magazynu danych do bazy danych Azure rozwiązania Cosmos lub z bazy danych usługi Azure rozwiązania Cosmos żadnych obsługiwanych ujścia magazynu danych. Lista magazynów danych obsługiwane jako źródła lub wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabeli. 
 
 > [!IMPORTANT]
-> Łącznik usługi Azure DB rozwiązania Cosmos obsługują tylko interfejsu API usługi DocumentDB.
+> Azure DB rozwiązania Cosmos łącznik obsługuje tylko interfejsu API SQL.
 
 Aby skopiować dane jako — jest do/z pliki w formacie JSON lub innej kolekcji rozwiązania Cosmos bazy danych, zobacz [dokumentów JSON importu/eksportu](#importexport-json-documents).
 

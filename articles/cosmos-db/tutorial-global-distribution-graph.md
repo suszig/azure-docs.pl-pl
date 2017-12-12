@@ -4,7 +4,7 @@ description: "Dowiedz się, jak skonfigurować bazy danych Azure rozwiązania Co
 services: cosmos-db
 keywords: globalne dystrybucji, wykres, gremlin
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API programu Graph
 
@@ -37,7 +37,7 @@ W tym artykule opisano następujące zadania:
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Łączenie z preferowanego regionu przy użyciu interfejsu API programu Graph przy użyciu zestawu .NET SDK
 
-Interfejsu API programu Graph jest ujawniona jako biblioteki rozszerzenia u góry zestawu SDK usługi DocumentDB.
+Interfejsu API programu Graph jest ujawniona jako biblioteki rozszerzenia na górze interfejsu API SQL.
 
 Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje klienckie można określić listy uporządkowanej preferencji regionów ma być używany do wykonywania operacji dokumentu. Można to zrobić przez ustawienie zasad połączenia. Na podstawie konfiguracji konta bazy danych Azure rozwiązania Cosmos, bieżącej dostępności regionalnych i na liście preferencji określone, optymalny punkt końcowy zostanie wybrany przez zestaw SDK, aby wykonać zapisu i operacji odczytu.
 
@@ -87,7 +87,7 @@ W tym samouczku wykonaniu następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API usługi DocumentDB
+> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API SQL
 
 Możesz teraz przejść do następnym samouczku, aby dowiedzieć się, jak opracowywać lokalnie przy użyciu emulatora lokalnej bazy danych Azure rozwiązania Cosmos.
 

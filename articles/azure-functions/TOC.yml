@@ -135,6 +135,8 @@
       items:
         - name: Ciągłe wdrażanie
           href: functions-continuous-deployment.md
+        - name: Wdrażanie powiadomień push pakietów zip
+          href: deployment-zip-push.md
         - name: Automatyzowanie wdrażania zasobów
           href: functions-infrastructure-as-code.md
         - name: Funkcje lokalne

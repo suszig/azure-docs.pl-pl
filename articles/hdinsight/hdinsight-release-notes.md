@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Informacje o wersji dla składników platformy Hadoop w usłudze Azure HDInsight
 
@@ -37,7 +37,7 @@ Ten artykuł zawiera informacje na temat **najnowszych** Azure HDInsight wersji 
 | Wersja programu Microsoft R Server 9.1 w usłudze HDInsight |HDInsight obsługuje teraz inicjowania obsługi klastrów 9.1 serwerem R w usłudze HDInsight. Aby uzyskać więcej informacji o wersji programu Microsoft R Server 9.1, zobacz [ten blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Usługa |R Server |
 | 3,6 HDInsight zawiera teraz nowsze wersje stosem platformy Hadoop|<ul><li>Aby uzyskać szczegółową listę zaktualizowanych wersji, zobacz [Hadoop wersji składników dostępnych w usłudze HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Lista błędów stałej w najnowszych wersjach stosem platformy Hadoop, zobacz [informacji poprawki Apache](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Aby uzyskać listę fundamentalne zmiany między HDP 2.6.1 (która jest teraz dostępna w usłudze HDInsight 3,6), zobacz [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Aby uzyskać listę znanych problemów dotyczących HDP 2.6.1 zobacz [znane problemy](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Usługa |Wszystkie |Nie dotyczy |
 | Aktualizacje klastrów interakcyjne gałęzi rejestru (wersja zapoznawcza) |<ul><li><b>Ulepszenia funkcji.</b> Implementacja na potrzeby magazynu metadanych pamięci podręcznej, która zmniejsza obciążenie wewnętrznej bazy danych SQL przez buforowanie metadanych i zwiększa wydajność w przypadku wszystkich operacji na metadanych.  To ulepszenie jest teraz domyślnie na wszystkich klastrach Hive interaktywnego. Aby uzyskać więcej informacji, zobacz [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Ulepszenia funkcji.</b> Ładowanie partycji dynamicznych jest zoptymalizowany. Aby uzyskać więcej informacji zobacz [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Ulepszenia funkcji.</b> Optymalizacje konfiguracji dla usługi HDInsight w systemie Linux.</li><li><b>Poprawka błędu.</b> `CredentialProviderFactory$getProviders`nie jest bezpieczne wątkowo. Ten problem teraz zostanie usunięty. Aby uzyskać więcej informacji, zobacz [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Poprawka błędu.</b> Wysokie użycie procesora CPU ze sterownikiem WASB `liststatus` wynikające z nieprawidłowych wydajności ATS interfejsu API. Ten problem teraz zostanie usunięty. Aby uzyskać więcej informacji, zobacz [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Usługa |Gałąź interakcyjne (wersja zapoznawcza) |
-| Aktualizacje klastrów platformy Hadoop |Zwiększona niezawodność operacji zadania Templeton. Aby uzyskać więcej informacji, zobacz [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Usługa |Usługa Hadoop |
+| Aktualizacje klastrów platformy Hadoop |Zwiększona niezawodność operacji zadania Templeton. Aby uzyskać więcej informacji, zobacz [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Usługa |Hadoop |
 | YARN aktualizacji | HDInsight teraz tworzy 250 GB Ambari bazę danych (bez zwiększania kosztów), co powoduje lepsze środowisko dla klientów. Tej zmiany należy uniemożliwić ATS pobierania wypełnione i prawdopodobnie mają lepszą wydajność. |Usługa |Wszystkie |
 | Platforma Spark aktualizacji | Wersja platformy Spark 2.1.1. Aby uzyskać więcej informacji, zobacz [wersji Spark 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Usługa | platforma Spark |
 
@@ -101,7 +101,7 @@ Platforma Spark 2.0.1 jest teraz dostępna w klastrze Spark (usługi HDInsight w
 * Identyfikator URI dla dostępu do węzła krawędzi zmieniła się na **clustername**-ed-ssh.azurehdinsight.net
 * Usprawniono R Server w inicjowania obsługi klastra usługi HDInsight.
 * Serwer R w usłudze HDInsight jest teraz dostępna jako regularne HDInsight "R Server" typ klastra i nie jest już zainstalowana jako osobne aplikacji usługi HDInsight. Węzeł krawędzi i plików binarnych serwera R są teraz udostępniony jako część wdrożenia klastra R Server. Zwiększa to szybkość i niezawodność inicjowania obsługi administracyjnej. Modelu cenowego dla R Server jest odpowiednio aktualizowany.
-* R Server klastra typu cena zależy teraz na cen warstwy standardowa plus cen przeciążenia serwera R. Warstwy Premium jest zarezerwowany dla Premium funkcje dostępne w różne typy klastrów i nie jest używany dla typu klastra serwera R. Ta zmiana nie wpływa na efektywne cennik serwera R. zmienia tylko jak opłaty są prezentowane w zestawieniu. Wszystkich istniejących klastrów R Server w dalszym ciągu działać i szablony Menedżera zasobów w dalszym ciągu działać do czasu powiadomienie o wycofaniu. **Zaleca się do aktualizacji wdrożeń inicjowanych przez skrypty można użyć nowego szablonu usługi Resource Manager.**
+* R Server klastra typu cena zależy teraz na cen warstwy standardowa plus cen przeciążenia serwera R. Ta zmiana nie wpływa na efektywne cennik serwera R. zmienia tylko jak opłaty są prezentowane w zestawieniu. Wszystkich istniejących klastrów R Server w dalszym ciągu działać i szablony Menedżera zasobów w dalszym ciągu działać do czasu powiadomienie o wycofaniu. **Zaleca się do aktualizacji wdrożeń inicjowanych przez skrypty można użyć nowego szablonu usługi Resource Manager.**
 
 
 

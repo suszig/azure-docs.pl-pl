@@ -66,6 +66,9 @@
         - name: Optymalizacja pod kątem obliczeń
           href: sizes-compute.md
         - name: Optymalizacja pod kątem pamięci
+          items:
+            - name: Procesory wirtualne z ograniczeniami
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Optymalizacja pod kątem magazynu
           href: sizes-storage.md
@@ -164,6 +167,8 @@
       items:
         - name: Przedpłaty dotyczące maszyn wirtualnych — wystąpienia zarezerwowane
           href: prepay-reserved-vm-instances.md
+        - name: Użycie maszyny wirtualnej
+          href: vm-usage.md
         - name: Typowe zadania programu PowerShell
           href: ps-common-ref.md
         - name: Przenoszenie maszyny wirtualnej

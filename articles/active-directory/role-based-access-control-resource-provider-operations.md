@@ -4,7 +4,7 @@ description: "Szczegóły operacje dostępne dla dostawców zasobów Microsoft A
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje Menedżera zasobów dostawcy zasobów platformy Azure
 
@@ -90,7 +90,7 @@ Ten dokument zawiera listę czynności dla każdego dostawcy zasobów programu M
 |/Service/loggers/DELETE|Usuń istniejące rejestratora|
 |/Service/Users/Read|Pobierz listę zarejestrowanych użytkowników lub pobrać szczegółów konta użytkownika|
 |/Service/Users/Write|Zarejestrować nowego użytkownika lub szczegóły konta aktualizacji istniejącego użytkownika|
-|/Service/Users/DELETE|Usuń konto użytkownika|
+|/Service/Users/DELETE|Usuwanie konta użytkownika|
 |/Service/Users/generateSsoUrl/Action|Generowania adresu URL logowania jednokrotnego. Adres URL można uzyskać dostęp do portalu administratora|
 |/Service/Users/Subscriptions/Read|Pobierz listę subskrypcji użytkownika|
 |/Service/Users/keys/Read|Pobierz listę kluczy użytkownika|
@@ -971,36 +971,36 @@ Ten dostawca nie jest pełną dostawcy ARM i nie zapewnia żadnych operacji ARM.
 |/Jobs/DELETE|Usuwa istniejące zadanie.|
 |/Locations/Read|Pobiera właściwości dla określonej lokalizacji lub zwraca listę lokalizacji.|
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>Elemencie Microsoft.Insights
 
 | Operacja | Opis |
 |---|---|
-|/ Register/działania|Zarejestruj dostawcę usługi Microsoft Insights|
+|/ Register/działania|Zarejestruj dostawcę usługi microsoft insights|
 |/ AlertRules/zapisu|Zapisywanie w konfiguracji reguły alertu|
 |/ AlertRules/usuwania|Usuwanie konfiguracji reguły alertu|
 |AlertRules/odczytu|Odczytywanie konfiguracji reguły alertu|
-|/ AlertRules/aktywowany/działania|Aktywowana reguła alertu|
-|/ AlertRules/rozpoznać/działania|Rozwiązana reguła alertu|
-|/ AlertRules/ograniczany/działania|Reguła alertu jest ograniczana|
-|AlertRules/zdarzenia/odczytu|Odczytywanie konfiguracji zdarzenia reguły alertu|
-|MetricDefinitions/odczytu|Przeczytaj definicje metryk|
-|/eventtypes/VALUES/Read|Typ zdarzeń zarządzania — odczytaj wartości|
-|/eventtypes/digestevents/Read|Typ zdarzeń zarządzania — odczytaj podsumowanie|
-|Metryki/odczytu|Odczytaj metryki|
+|/ AlertRules/aktywowany/działania|Reguła alertu aktywowany|
+|/ AlertRules/rozpoznać/działania|Reguła alertu rozwiązany|
+|/ AlertRules/ograniczany/działania|Reguła alertu jest ograniczany.|
+|AlertRules/zdarzenia/odczytu|Odczytywanie konfiguracji zdarzenia platformy reguły alertu|
+|MetricDefinitions/odczytu|Odczyt definicji metryk|
+|/eventtypes/VALUES/Read|Przeczytaj Zarządzanie wartości typu zdarzenia|
+|/eventtypes/digestevents/Read|Odczyt zarządzania zdarzeń typu szyfrowanego|
+|Metryki/odczytu|Odczytać metryki|
 |/ LogProfiles/zapisu|Zapisywanie w konfiguracji profilu dziennika|
 |/ LogProfiles/usuwania|Usuń konfigurację profilów dziennika|
 |LogProfiles/odczytu|Profile dziennika odczytu|
-|/ AutoscaleSettings/zapisu|Zapisywanie w konfiguracji ustawienia autoskalowania|
-|/ AutoscaleSettings/usuwania|Usuwanie konfiguracji ustawienia autoskalowania|
-|AutoscaleSettings/odczytu|Odczytywanie konfiguracji ustawienia autoskalowania|
-|/ AutoscaleSettings/Scaleup/działania|Autoskalowanie — operacja skalowania w górę|
-|/ AutoscaleSettings/Scaledown/działania|Autoskalowanie — operacja skalowania w dół|
-|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Przeczytaj definicje metryk|
+|/ AutoscaleSettings/zapisu|Zapisywanie konfiguracji Ustawienia skalowania automatycznego|
+|/ AutoscaleSettings/usuwania|Usuwanie konfiguracji Ustawienia skalowania automatycznego|
+|AutoscaleSettings/odczytu|Odczytywanie z konfiguracji Ustawienia skalowania automatycznego|
+|/ AutoscaleSettings/Scaleup/działania|Skalowania automatycznego skalowania w górę operacji|
+|/ AutoscaleSettings/Scaledown/działania|Skalowania automatycznego skalowania dół operacji|
+|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Odczyt definicji metryk|
 |/ ActivityLogAlerts/aktywowany/działania|Wyzwolony Alert dziennika aktywności|
-|/ DiagnosticSettings/zapisu|Zapisywanie w konfiguracji ustawień diagnostycznych|
+|/ DiagnosticSettings/zapisu|Zapisywanie konfiguracji ustawień diagnostycznych|
 |/ DiagnosticSettings/usuwania|Usuwanie konfiguracji ustawień diagnostycznych|
 |DiagnosticSettings/odczytu|Odczytywanie konfiguracji ustawień diagnostycznych|
-|LogDefinitions/odczytu|Przeczytaj definicje dzienników|
+|LogDefinitions/odczytu|Odczytaj definicje dzienników|
 |/ ExtendedDiagnosticSettings/zapisu|Zapisywanie ustawień diagnostycznych rozszerzonej konfiguracji|
 |/ ExtendedDiagnosticSettings/usuwania|Usuwanie konfiguracji rozszerzonej ustawień diagnostycznych|
 |ExtendedDiagnosticSettings/odczytu|Odczytywanie konfiguracji rozszerzonej ustawień diagnostycznych|

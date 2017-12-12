@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnej
 
-W tym samouczku przedstawiono sposób Konfigurowanie odzyskiwania po awarii do platformy Azure dla VMware lokalnej maszyny Wirtualnej uruchomionej w systemie Windows. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku przedstawiono sposób ustawienia odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnego systemu Windows. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie magazynu usług odzyskiwania Site Recovery
-> * Ustaw źródła i docelowymi środowisk replikacji
+> * Określ replikacji źródłowych i docelowych.
+> * Konfigurowanie środowiska źródłowego replikacji, łącznie z lokalnymi składnikami usługi Site Recovery i środowiska docelowego replikacji.
 > * Tworzenie zasad replikacji
 > * Włącz replikację dla maszyny Wirtualnej
 
@@ -35,37 +35,28 @@ To jest trzeci samouczek w serii. Ten samouczek zakłada, zostały już wykonane
 
 Przed rozpoczęciem warto [Przejrzyj architektura](concepts-vmware-to-azure-architecture.md) scenariuszu odzyskiwania po awarii.
 
-## <a name="configure-vmware-account-permissions"></a>Konfigurowanie uprawnień konta VMware
 
-1. Utwórz rolę na poziomie vCenter. Nadaj nazwę roli **Azure_Site_Recovery**.
-2. Przypisz następujące uprawnienia do **Azure_Site_Recovery** roli.
+## <a name="select-a-replication-goal"></a>Wybierz cel replikacji
 
-   **Zadanie podrzędne** | **Uprawnienia roli /** | **Szczegóły**
-   --- | --- | ---
-   **Odnajdywanie maszyny Wirtualnej** | Centrum danych obiektu –> propagowany do obiektu podrzędnego roli = tylko do odczytu | Co najmniej jeden użytkownik tylko do odczytu.<br/><br/> Użytkownik przypisane na poziomie centrum danych i ma dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, Przypisz **dostępu** roli z **propagowany do podrzędnego** obiektu do obiektów podrzędnych (hostami vSphere, datastores, maszyn wirtualnych i sieci).
-   **Pełnej replikacji, trybu failover i powrotu po awarii** |  Centrum danych obiektu –> propagowany do obiektu podrzędnego roli = Azure_Site_Recovery<br/><br/> Magazyn danych -> Przydziel przestrzeń na, Przeglądaj magazynu danych, operacje na plikach niskiego poziomu, usuń plik, zaktualizuj pliki maszyny wirtualnej<br/><br/> Sieć -> Przypisywanie sieci<br/><br/> Zasób -> Przypisywanie maszyny Wirtualnej do puli zasobów, migracji Zasilanie wyłączone maszyny Wirtualnej, migracja zasilanego na maszynie Wirtualnej<br/><br/> Zadania -> Utwórz zadanie, zadania aktualizacji<br/><br/> Maszyny wirtualne -> Konfiguracja<br/><br/> Maszyny wirtualne -> interakcja -> odpowiedzi na pytanie, połączenie z urządzeniem, skonfiguruj nośnik CD, skonfiguruj dyskietka, wyłącz zasilanie, włączania zasilania, zainstaluj narzędzia VMware<br/><br/> Maszyny wirtualne -> spisu -> Utwórz, rejestrowanie, wyrejestrowywanie<br/><br/> Maszyny wirtualne -> inicjowania obsługi administracyjnej -> Zezwalaj na pobieranie maszyny wirtualnej, a także zezwalanie przekazać pliki maszyny wirtualnej<br/><br/> Maszyny wirtualne -> migawki -> Usuń migawki | Użytkownik przypisane na poziomie centrum danych i ma dostęp do wszystkich obiektów w centrum danych.<br/><br/> Aby ograniczyć dostęp, Przypisz **dostępu** roli z **propagowany do podrzędnego** obiektu do obiektów podrzędnych (hostami vSphere, datastores, maszyn wirtualnych i sieci).
-
-3. Utwórz użytkownika na hoście serwera lub vSphere vCenter. Przypisać rolę użytkownikowi.
-
-## <a name="specify-what-you-want-to-replicate"></a>Określ, co chcesz replikować
-
-Musi być zainstalowana usługa mobilności na każdej maszynie Wirtualnej, którą chcesz replikować. Usługa Site Recovery automatycznie instaluje tej usługi, po włączeniu replikacji dla maszyny Wirtualnej. Automatyczną instalację należy przygotować konta, które uzyskują dostęp maszyny Wirtualnej odzyskiwania lokacji.
-
-Można użyć domeny lub konta lokalnego. Dla maszyn wirtualnych systemu Linux konto powinno być głównym urzędem certyfikacji na serwer źródłowy z systemem Linux. Dla maszyn wirtualnych systemu Windows, jeśli nie używasz konta domeny, wyłącz kontroli dostępu użytkownika zdalnego na komputerze lokalnym:
-
-  - W registery w obszarze **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, Dodaj wpis DWORD **LocalAccountTokenFilterPolicy** i ustaw wartość na 1.
+1. W **Magazyny usług odzyskiwania**, kliknij nazwę magazynu **ContosoVMVault**.
+2. W **wprowadzenie**, kliknij opcję usługi Site Recovery. Następnie kliknij przycisk **przygotowanie infrastruktury**.
+3. W **cel ochrony** > **których komputery znajdujące się**, wybierz pozycję **lokalnymi**.
+4. W ** gdzie chcesz zreplikować maszyny, wybierz **do platformy Azure**.
+5. W **są maszynach zwirtualizowanych**, wybierz pozycję **tak, z programem VMware vSphere Hypervisor**. Następnie kliknij przycisk **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
-Konfigurowanie środowiska źródłowego składa się z pobierania Instalatora Unified Site Recovery, konfigurowanie serwera konfiguracji i rejestrując ją w magazynie i odnajdywanie maszyn wirtualnych.
+Aby skonfigurować środowisko źródłowe, możesz pobrać plik Instalatora Unified odzyskiwania lokacji. Możesz uruchomić Instalatora, aby zainstalować składniki usługi Site Recovery lokalnymi, rejestrowanie serwerów VMware w magazynie i odnajdywanie maszyn wirtualnych lokalnie.
 
-Serwer konfiguracji jest jeden lokalnej maszyny Wirtualnej VMware do obsługi wszystkich składników usługi Site Recovery. Ta maszyna wirtualna działa serwer konfiguracji, serwer przetwarzania i główny serwer docelowy.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Sprawdź wymagania dotyczące odzyskiwania lokacji lokalnej
+
+Należy składnikami usługi Site Recovery lokalnego hosta VMware jednej, wysokiej dostępności, lokalnej maszyny Wirtualnej. Składniki zawierają konfiguracji serwera, serwer przetwarzania i główny serwer docelowy.
 
 - Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
-- Serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage. Serwer przetwarzania instaluje usługi mobilności na maszynach wirtualnych, którą chcesz replikować, i przeprowadza automatyczne odnajdywanie maszyn wirtualnych na lokalnych serwerach VMware.
+- Serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage. Serwer przetwarzania instaluje usługi mobilności na maszynach wirtualnych, którą chcesz replikować, i przeprowadza automatyczne odnajdywanie maszyn wirtualnych VMware lokalnymi.
 - Główny serwer docelowy obsługuje replikację danych podczas powrotu po awarii z platformy Azure.
 
-Serwer konfiguracji maszyny Wirtualnej powinny być wysokiej dostępności maszyny Wirtualnej VMware, która spełnia następujące wymagania:
+Maszyna wirtualna powinna spełniać następujące wymagania.
 
 | **Wymaganie** | **Szczegóły** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ Serwer konfiguracji maszyny Wirtualnej powinny być wysokiej dostępności maszy
 | Typ adresu IP | Statyczny |
 | Porty | 443 (organizowanie kanału sterowania)<br/>9443 (transport danych)|
 
-Upewnij się, że zegar jest zsynchronizowany z czasem serwera na serwerze konfiguracji maszyny Wirtualnej.
-Czas musi być synchronizowane w ciągu 15 minut. Jeśli różnica czasu jest większy niż 15 minut, instalacja zakończy się niepowodzeniem.
+Ponadto: 
+- Upewnij się, że zegara systemowego na maszynie Wirtualnej jest zsynchronizowany z czasem serwera. Czas musi być synchronizowane w ciągu 15 minut. Jeśli jest ona większa instalacja zakończy się niepowodzeniem.
+Instalacja nie powiedzie się.
+- Upewnij się, że serwer konfiguracji maszyny Wirtualnej można uzyskać dostępu do tych adresów URL:
 
-Upewnij się, że serwer konfiguracji można uzyskać dostępu do tych adresów URL:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Wszystkie reguły zapory oparte na adresie IP powinna zezwalać na komunikację z platformą Azure.
-
-- Zezwól na użycie [zakresów adresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) oraz portu 443 protokołu HTTPS.
+- Upewnij się, że reguły zapory oparte na adresie IP umożliwia komunikację z platformą Azure.
+    - Zezwalaj na [zakresy IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)portu 443 (HTTPS) i portu 9443 (replikacja danych).
     - Zezwalaj na zakresy adresów IP dla regionu Azure Twojej subskrypcji i zachodnie stany USA (używanych do zarządzania tożsamości i kontroli dostępu).
 
-Wszystkie reguły zapory oparte na adresie IP powinien zezwalają na komunikację z [zakresów IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)i porty 443 (HTTPS) i 9443 (replikacja danych). Pamiętaj umożliwić zakresów adresów IP dla regionu Azure Twojej subskrypcji i zachodnie stany USA (używanych do kontroli dostępu i zarządzania tożsamościami).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Pobierz lokacji odzyskiwania Unified Instalatora
+### <a name="download-the-site-recovery-unified-setup-file"></a>Pobierz plik Instalatora Unified usługi Site Recovery
 
-1. Otwórz [portalu Azure](https://portal.azure.com) i wybierz polecenie **wszystkie zasoby**.
-2. Kliknięcie w magazynie usług odzyskiwania o nazwie **ContosoVMVault**.
-3. Kliknij przycisk **usługi Site Recovery** > **przygotowanie infrastruktury** > **cel ochrony**.
-4. Wybierz **lokalnymi** dla której komputery znajdują się, **do platformy Azure** dla której chcesz zreplikować maszyny, a **tak, z programem VMware vSphere Hypervisor**. Następnie kliknij przycisk **OK**.
-5. W okienku źródło Prepare kliknij **+ serwer konfiguracji**.
-6. W **Dodaj serwer**, sprawdź, czy **serwera konfiguracji** pojawia się w **typ serwera**.
-7. Pobierz plik instalacyjny instalacja Unified usługi Site Recovery.
-8. Pobierz klucz rejestracji magazynu. Należy to po uruchomieniu Instalatora Unified. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
+1. W magazynie > **przygotowanie infrastruktury**, kliknij przycisk **źródła**.
+1. W **Przygotuj źródło**, kliknij przycisk **+ serwer konfiguracji**.
+2. W **Dodaj serwer**, sprawdź, czy **serwera konfiguracji** pojawia się w **typ serwera**.
+3. Pobierz plik instalacyjny instalacja Unified usługi Site Recovery.
+4. Pobierz klucz rejestracji magazynu. Należy to po uruchomieniu Instalatora Unified. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
    ![Konfiguracja źródła](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ Wszystkie reguły zapory oparte na adresie IP powinien zezwalają na komunikacj�
 
 ### <a name="configure-automatic-discovery"></a>Konfigurowanie automatycznego odnajdowania
 
-Aby odnaleźć maszyn wirtualnych, serwer konfiguracji musi łączyć się z lokalnymi serwerami VMware. Do celów tego samouczka należy dodać serwer vCenter lub hostach vSphere, przy użyciu konta z uprawnieniami administratora na serwerze.
+Aby odnaleźć maszyn wirtualnych, serwer konfiguracji musi łączyć się z lokalnymi serwerami VMware. Do celów tego samouczka należy dodać serwer vCenter lub hostach vSphere, przy użyciu konta z uprawnieniami administratora na serwerze. Utworzono tego konta w [samouczek poprzedniej](tutorial-prepare-on-premises-vmware.md). 
 
-1. Na serwerze konfiguracji uruchamiania **CSPSConfigtool.exe**. Jest on dostępny jako skrót na pulpicie i znajduje się w folderze *lokalizacja instalacji*\home\svsystems\bin.
+Aby dodać konto:
+
+1. Na serwerze konfiguracji maszyny Wirtualnej, należy uruchomić **CSPSConfigtool.exe**. Jest on dostępny jako skrót na pulpicie i znajduje się w folderze *lokalizacja instalacji*\home\svsystems\bin.
 
 2. Kliknij pozycje **Zarządzaj kontami** > **Dodaj konto**.
 
@@ -158,12 +146,12 @@ Aby odnaleźć maszyn wirtualnych, serwer konfiguracji musi łączyć się z lok
 
    ![Szczegóły](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Aby dodać serwer:
+Aby dodać serwer VMware:
 
 1. Otwórz [portalu Azure](https://portal.azure.com) i wybierz polecenie **wszystkie zasoby**.
 2. Kliknięcie w magazynie usług odzyskiwania o nazwie **ContosoVMVault**.
 3. Kliknij przycisk **lokacji odzyskiwania** > **przygotowanie infrastruktury** > **źródła**
-4. Wybierz **+ vCenter** nawiązać połączenia z programem vCenter server lub vSphere ESXi hostem.
+4. Wybierz **+ vCenter**, aby połączyć się z hostem ESXi vCenter, jak serwer lub vSphere.
 5. W **dodać vCenter**, określ przyjazną nazwę dla serwera. Następnie określ adres IP lub nazwę FQDN.
 6. Pozostaw portu 443, ustawić, chyba że serwerów VMware nasłuchiwać żądań na innym porcie.
 7. Wybierz konto do użycia podczas połączenia z serwerem. Kliknij przycisk **OK**.

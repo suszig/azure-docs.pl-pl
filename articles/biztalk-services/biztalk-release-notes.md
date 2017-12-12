@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Informacje o wersji dla usługi Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Informacje o wersji dla usługi Microsoft Azure BizTalk zawierają znane problemy występujące w tej wersji.
 
@@ -34,8 +36,8 @@ Informacje o wersji dla usługi Microsoft Azure BizTalk zawierają znane problem
 * Konta organizacyjne są obsługiwane:  
   * **Scenariusz**: zarejestrowany wdrażania usługi BizTalk przy użyciu konta Microsoft (takich jak user@live.com). W tym scenariuszu tylko Account Microsoft użytkownicy mogą zarządzać za pomocą portalu usługi BizTalk Services usługi BizTalk. Nie można użyć konta organizacyjnego.  
   * **Scenariusz**: zarejestrowanych w usłudze Azure Active Directory za pomocą konta organizacyjnego wdrożenia usługi BizTalk (takich jak user@fabrikam.com lub user@contoso.com). W tym scenariuszu tylko użytkownicy usługi Azure Active Directory w danej organizacji można zarządzać przy użyciu portalu usługi BizTalk Services usługi BizTalk. Nie można użyć konta Microsoft.  
-* Podczas tworzenia usługi BizTalk w klasycznym portalu Azure, są automatycznie rejestrowane w portalu usługi BizTalk.
-  * **Scenariusz**: możesz zalogować się do klasycznego portalu Azure, Utwórz usługę BizTalk, a następnie wybierz **Zarządzaj** po raz pierwszy. Po otwarciu portalu usługi BizTalk Services usługi BizTalk automatycznie rejestruje i jest gotowy do wdrożeń.  
+* Podczas tworzenia usługi BizTalk, są automatycznie rejestrowane w portalu usługi BizTalk.
+  * **Scenariusz**: możesz zalogować się do platformy Azure, Utwórz usługę BizTalk, a następnie wybierz **Zarządzaj** po raz pierwszy. Po otwarciu portalu usługi BizTalk Services usługi BizTalk automatycznie rejestruje i jest gotowy do wdrożeń.  
     Zobacz [rejestrowanie i aktualizowanie wdrożenia usługi BizTalk na BizTalk usług Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Aktualizacja z sierpnia 14

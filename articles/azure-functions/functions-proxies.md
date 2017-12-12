@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
@@ -44,7 +44,7 @@ Serwer proxy obecnie istnieje jako nowy punkt końcowy w aplikacji funkcji. Z pe
 
 ## <a name="modify-requests-responses"></a>Modyfikowanie żądań i odpowiedzi
 
-Za pomocą proxy funkcji platformy Azure można modyfikować żądania i odpowiedzi z wewnętrznych. Przekształcenia te można używać zmiennych, zgodnie z definicją w [używać zmiennych].
+Za pomocą proxy funkcji platformy Azure można modyfikować żądania i odpowiedzi z zaplecza. Przekształcenia te można używać zmiennych, zgodnie z definicją w [używać zmiennych].
 
 ### <a name="modify-backend-request"></a>Modyfikowanie żądania zaplecza
 
@@ -60,7 +60,7 @@ Obecnie nie są bez obsługi portalu modyfikowania odpowiedzi. Aby dowiedzieć s
 
 ## <a name="using-variables"></a>Używać zmiennych
 
-Konfiguracja serwera proxy dla muszą być statyczne. Można warunku, aby używać zmiennych z oryginalnego żądania, odpowiedzi zaplecza lub ustawienia aplikacji.
+Konfiguracja serwera proxy dla muszą być statyczne. Można warunku, aby używać zmiennych z oryginalnego żądania klienta, zaplecza odpowiedzi lub ustawień aplikacji.
 
 ### <a name="request-parameters"></a>Parametry żądania odwołania
 
@@ -135,9 +135,9 @@ Każdy serwer proxy ma przyjazną nazwę, takich jak *proxy1* w poprzednim przyk
 
 Obiekt requestOverrides definiuje zmiany wprowadzone do żądania wywołanego zasobów wewnętrznych. Obiekt jest zdefiniowane przez następujących właściwościach:
 
-* **backend.Request.Method**: metoda HTTP, która jest używana do wywołania wewnętrznej.
-* **backend.Request.QueryString. \<ParameterName\>**: parametr ciągu zapytania ustawioną dla wywołania wewnętrznej. Zastąp  *\<ParameterName\>*  o nazwę parametru, który chcesz ustawić. W przypadku pustego ciągu parametru nie jest uwzględniony w żądaniu zaplecza.
-* **backend.Request.headers. \<HeaderName\>**: nagłówek, który można ustawić dla wywołania wewnętrznej. Zastąp  *\<HeaderName\>*  o nazwie nagłówka, którą chcesz ustawić. Jeśli podasz pustym ciągiem nagłówka nie znajduje się na żądanie zaplecza.
+* **backend.Request.Method**: metody HTTP, które są używane do wywoływania zaplecza.
+* **backend.Request.QueryString. \<ParameterName\>**: parametr ciągu zapytania, które można ustawić dla wywołania zaplecza. Zastąp  *\<ParameterName\>*  o nazwę parametru, który chcesz ustawić. W przypadku pustego ciągu parametru nie jest uwzględniony w żądaniu zaplecza.
+* **backend.Request.headers. \<HeaderName\>**: nagłówek, który można ustawić dla wywołania zaplecza. Zastąp  *\<HeaderName\>*  o nazwie nagłówka, którą chcesz ustawić. Jeśli podasz pustym ciągiem nagłówka nie znajduje się na żądanie zaplecza.
 
 Ustawienia aplikacji i parametrów wartości można odwoływać się z oryginalnego żądania klienta.
 

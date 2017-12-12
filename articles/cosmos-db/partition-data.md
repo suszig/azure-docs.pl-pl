@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partycja i skali w usłudze Azure DB rozwiązania Cosmos
 
@@ -41,7 +41,7 @@ Jak działa partycjonowania? Każdy element musi mieć klucz partycji i klucz wi
 
 * Udostępnianie kontenera Azure DB rozwiązania Cosmos z `T` żądania/s przepustowości.
 * W tle bazy danych rozwiązania Cosmos Azure udostępnia potrzebny, aby obsługiwać partycje `T` żądania/s. Jeśli `T` jest większa niż maksymalna przepustowość dla każdej partycji `t`, następnie bazy danych Azure rozwiązania Cosmos przepisy `N`  =  `T/t` partycji.
-* Azure DB rozwiązania Cosmos klawiszy skrótów obszaru klucza partycji są przydziela równomiernie w poprzek `N` partycji. Tak każda partycja (partycji fizycznej) obsługuje wartości klucza partycji 1-N (partycji logicznej).
+* Azure DB rozwiązania Cosmos klawiszy skrótów obszaru klucza partycji są przydziela równomiernie w poprzek `N` partycji. Dlatego każdy hostów partition (partycji fizycznej) `1/N` (partycje logiczne) wartości klucza partycji.
 * Gdy partycji fizycznej `p` osiągnie limit magazynu bazy danych rozwiązania Cosmos Azure bezproblemowo dzieli `p` do dwóch nowych partycji, `p1` i `p2`. Rozpowszechnia wartości odpowiadających około połowa klucze do każdej partycji. Tę samą operację jest niewidoczny dla aplikacji.
 * Podobnie, podczas udostępniania przepływności wyższy niż `t*N`, bazy danych Azure rozwiązania Cosmos dzieli jedną lub więcej partycji do obsługi wyższej przepustowości.
 
@@ -49,10 +49,10 @@ Semantyka kluczy partycji są nieco inne odpowiadające semantykę każdego API,
 
 | Interfejs API | Klucz partycji | Klucz wiersza |
 | --- | --- | --- |
-| Azure Cosmos DB | Ścieżka do klucza partycji niestandardowych | stałe`id` | 
-| MongoDB | Niestandardowy klucz udostępniony  | stałe`_id` | 
-| Graph | Właściwość klucza partycji niestandardowych | stałe`id` | 
-| Tabela | stałe`PartitionKey` | stałe`RowKey` | 
+| Azure Cosmos DB | Ścieżka do klucza partycji niestandardowych | Naprawiono polecenie `id` | 
+| MongoDB | Niestandardowy klucz udostępniony  | Naprawiono polecenie `_id` | 
+| Graph | Właściwość klucza partycji niestandardowych | Naprawiono polecenie `id` | 
+| Tabela | Naprawiono polecenie `PartitionKey` | Naprawiono polecenie `RowKey` | 
 
 Azure DB rozwiązania Cosmos używa skrótu na podstawie partycjonowania. Podczas zapisywania elementu bazy danych Azure rozwiązania Cosmos skróty wartość klucza partycji i używa skrótu wynik w celu określenia, które partycji do przechowywania elementu w. Azure DB rozwiązania Cosmos przechowuje wszystkie elementy z tym samym kluczem partycji w tej samej partycji fizycznej. Wybór klucza partycji jest ważnych decyzji, które należy podjąć w czasie projektowania. Należy wybrać nazwę właściwości, który ma szeroki zakres wartości i ma nawet wzorce dostępu.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Utwórz bramę aplikacji przy użyciu routingu opartego na ścieżce
 
@@ -55,7 +55,7 @@ W poniższym przykładzie brama aplikacji w pełni ruchu dla domeny contoso.com 
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-Różnica między przy użyciu klasycznego portalu Azure i usługi Azure Resource Manager jest kolejność, w którym utworzyć bramę aplikacji i elementy, które trzeba skonfigurować.
+Różnica między przy użyciu klasycznego modelu wdrażania i usługi Azure Resource Manager jest kolejność, w którym utworzyć bramę aplikacji i elementy, które trzeba skonfigurować.
 
 W usłudze Resource Manager wszystkie elementy składające się na bramę aplikacji są konfigurowane osobno, a następnie składane w celu utworzenia zasobu bramy aplikacji.
 

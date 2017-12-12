@@ -4,7 +4,7 @@ description: "Uzyskaj pomoc dotyczącą rozwiązywania problemów związanych z 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Komunikatami o błędach z rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe Azure
 
@@ -27,7 +27,7 @@ Jeśli wystąpią błędy z rozszerzeniem NPS uwierzytelnianie wieloskładnikowe
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Kroki rozwiązywania problemów dotyczących typowych błędów
 
-| Kod błędu: | Kroki rozwiązywania problemów |
+| Kod błędu | Rozwiązywanie problemów |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Skontaktuj się z pomocą techniczną](#contact-microsoft-support)i opisz lista czynności do zbierania dzienników. Podaj te informacje, które można o co się stało przed wystąpieniem błędu, w tym identyfikator dzierżawcy i główna nazwa użytkownika (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Może to być problem z jak certyfikat klienta został zainstalowany lub skojarzony z dzierżawą. Postępuj zgodnie z instrukcjami [Rozwiązywanie problemów z rozszerzenia serwera NPS MFA](multi-factor-authentication-nps-extension.md#troubleshooting) do badania problemów certyfikatu klienta. |
@@ -44,7 +44,7 @@ Jeśli wystąpią błędy z rozszerzeniem NPS uwierzytelnianie wieloskładnikowe
 
 ### <a name="alternate-login-id-errors"></a>Alternatywnego Identyfikatora błędów
 
-| Kod błędu: | Komunikat o błędzie | Kroki rozwiązywania problemów |
+| Kod błędu | Komunikat o błędzie | Rozwiązywanie problemów |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Błąd: userObjectSid wyszukiwania nie powiodło się | Sprawdź, czy użytkownik istnieje w lokalnym wystąpieniu usługi Active Directory. Jeśli używane są relacje zaufania między lasami, [się z pomocą techniczną](#contact-microsoft-support) Aby uzyskać dalszą pomoc. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Błąd: Wyszukiwanie alternatywny LoginId nie powiodło się. | Sprawdź, czy wartość jest LDAP_ALTERNATE_LOGINID_ATTRIBUTE [atrybut prawidłowe usługi active directory](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG ma wartość True lub LDAP_LOOKUP_FORESTS jest skonfigurowany z niepustą wartość, sprawdź skonfigurowano wykazu globalnego oraz że atrybut AlternateLoginId został dodany do niego. <br><br> Jeśli LDAP_LOOKUP_FORESTS jest skonfigurowana z wartością niepustym, sprawdź, czy wartość jest poprawna. Jeśli istnieje więcej niż jedną nazwę lasu, nazwy muszą być oddzielone średnikami, nie spacji. <br><br> Jeśli te czynności nie rozwiąże problemu, [się z pomocą techniczną](#contact-microsoft-support) Aby uzyskać dalszą pomoc. |
@@ -53,7 +53,7 @@ Jeśli wystąpią błędy z rozszerzeniem NPS uwierzytelnianie wieloskładnikowe
 
 ## <a name="errors-your-users-may-encounter"></a>Mogą wystąpić błędy użytkowników
 
-| Kod błędu: | Komunikat o błędzie | Kroki rozwiązywania problemów |
+| Kod błędu | Komunikat o błędzie | Rozwiązywanie problemów |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Dzierżawy obiekt wywołujący nie ma uprawnień dostępu do uwierzytelniania użytkownika | Sprawdź, czy domena dzierżawy i domena główna nazwa użytkownika (UPN) są takie same. Na przykład, upewnij się, że user@contoso.com próby uwierzytelnienia dzierżawie Contoso. Nazwa UPN jest adresem prawidłowego użytkownika dzierżawcy na platformie Azure. |
 | **AuthenticationMethodNotConfigured** | Podanej metody uwierzytelniania nie zostało skonfigurowane dla użytkownika | Użytkownik dodania lub sprawdzenia ich metod weryfikacji, zgodnie z instrukcjami w [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-manage-settings.md). |
@@ -72,7 +72,7 @@ Jeśli wystąpią błędy z rozszerzeniem NPS uwierzytelnianie wieloskładnikowe
 
 Czasami użytkownicy mogą pobrać wiadomości z usługi Multi-Factor Authentication, ponieważ żądanie ich uwierzytelnianie nie powiodło się. Te nie są błędy w produkcie konfiguracji, ale są zamierzone ostrzeżenia wyjaśniający, dlaczego żądanie uwierzytelniania zostało odrzucone.
 
-| Kod błędu: | Komunikat o błędzie | Zalecane czynności | 
+| Kod błędu | Komunikat o błędzie | Zalecane czynności | 
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | Nieprawidłowy kod entered\OATH niepoprawny kod | To nie jest błąd, użytkownik wprowadził nieprawidłowy kod. | Użytkownik wprowadził nieprawidłowy kod. Niech ponów żądanie o nowy kod lub zaloguj się ponownie. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Osiągnięto ponawiania maksymalny dozwolony kodu | Użytkownik nie powiodło się żądanie weryfikacji zbyt wiele razy. W zależności od ustawień może muszą teraz zostać odblokowany przez administratora.  |
@@ -82,7 +82,7 @@ Czasami użytkownicy mogą pobrać wiadomości z usługi Multi-Factor Authentica
 
 Jeśli wystąpią jeden z tych błędów, zaleca się możesz [się z pomocą techniczną](#contact-microsoft-support) diagnostycznego pomocy. Brak nie standardowy zestaw czynności rozwiązujących te błędy. Kontakt z pomocą techniczną, należy uwzględnić jako dużej ilości informacji jak to możliwe o czynnościach, które spowodowały błąd, a informacje o Twojej dzierżawy.
 
-| Kod błędu: | Komunikat o błędzie |
+| Kod błędu | Komunikat o błędzie |
 | ---------- | ------------- |
 | **InvalidParameter** | Żądanie nie może mieć wartości null |
 | **InvalidParameter** | Identyfikator obiektu nie może być zerowe ani puste dla ReplicationScope: {0} |

@@ -1,6 +1,6 @@
 ---
-title: "Azure DB rozwiązania Cosmos: Przykłady .NET dla interfejsu API usługi DocumentDB | Dokumentacja firmy Microsoft"
-description: "Znajdź przykłady w języku C# .NET w witrynie github dla typowych zadań w usłudze DocumentDB, w tym operacji CRUD."
+title: "Azure rozwiązania Cosmos bazy danych: Przykłady .NET interfejsu API SQL | Dokumentacja firmy Microsoft"
+description: "Znajdź przykłady w języku C# .NET w witrynie github dla typowych zadań przy użyciu rozwiązania Cosmos bazy danych SQL interfejsu API Azure, w tym operacji CRUD."
 keywords: "Przykład NoSQL"
 services: cosmos-db
 author: rnagpal
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: bc019e50ba72adc8b399579d623a63e86f21f92c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c15440d78c43fce4613953c5151ff76729f28a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure DB rozwiązania Cosmos: Przykłady .NET dla interfejsu API usługi DocumentDB
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure rozwiązania Cosmos bazy danych: Przykłady .NET interfejsu API SQL
 > [!div class="op_single_selector"]
 > * [Przykłady .NET](documentdb-dotnet-samples.md)
 > * [Przykłady środowiska node.js](documentdb-nodejs-samples.md)
 > * [Przykłady dla języka Python](documentdb-python-samples.md)
-> * [Galeria próbki kodu platformy Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Galeria próbki kodu platformy Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Najnowsze rozwiązania próbki, wykonujących operacje CRUD i innymi typowymi operacjami zasobów bazy danych Azure rozwiązania Cosmos znajdują się w [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) repozytorium GitHub. Ten artykuł zawiera:
 

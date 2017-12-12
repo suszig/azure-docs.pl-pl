@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: rozpoczęcie pracy z interfejsem API usługi DocumentDB na platformie .NET Core — samouczek | Microsoft Docs"
-description: "Samouczek, który pokazuje tworzenie bazy danych w trybie online i aplikacji konsolowej C# przy użyciu zestawu SDK dla platformy .NET Core interfejsu API DocumentDB usługi Azure Cosmos DB."
+title: "Azure DB rozwiązania Cosmos: Wprowadzenie do korzystania z samouczka .NET Core interfejsu API SQL | Dokumentacja firmy Microsoft"
+description: "Samouczek, który powoduje utworzenie bazy danych w trybie online i aplikacji konsolowej C# za pomocą usługi Azure rozwiązania Cosmos bazy danych SQL interfejsu API platformy .NET Core SDK."
 services: cosmos-db
 documentationcenter: .net
 author: arramac
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 2bf77f1df1dfaea8978f0f1b046baf58f4c9f8d5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 974869cf4176bcb5cc0f7a67f23f9df66e910aab
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB: rozpoczęcie pracy z interfejsem API usługi DocumentDB i platformą .NET Core
+# <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure rozwiązania Cosmos bazy danych: Wprowadzenie do korzystania z interfejsu API SQL i .NET Core
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,9 +32,11 @@ ms.lasthandoff: 10/20/2017
 >  
 > 
 
-Dla bazy danych rozwiązania Cosmos Azure Wprowadzenie — samouczek platformy .NET Core — Zapraszamy interfejsu API usługi DocumentDB! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi Azure Cosmos DB i wykonuje dla nich zapytania.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Omówione zostaną następujące czynności:
+Zapraszamy do interfejsu API SQL dla bazy danych rozwiązania Cosmos Azure Wprowadzenie — samouczek platformy .NET Core! W ramach tego samouczka zostanie utworzona aplikacja konsolowa, która tworzy zasoby usługi Azure Cosmos DB i wykonuje dla nich zapytania.
+
+Ten samouczek obejmuje:
 
 * Tworzenie konta usługi Azure Cosmos DB i łączenie się z nim
 * Konfigurowanie rozwiązania Visual Studio
@@ -48,7 +50,7 @@ Omówione zostaną następujące czynności:
 
 Nie masz czasu? Nie martw się! Kompletne rozwiązanie jest dostępne w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Przeskocz do sekcji [Pobieranie kompletnego rozwiązania](#GetSolution), aby uzyskać krótkie instrukcje.
 
-Chcesz tworzyć Xamarin iOS, Android lub formularzy aplikacji przy użyciu interfejsu API usługi DocumentDB i .NET Core SDK? Zobacz [tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos](mobile-apps-with-xamarin.md).
+Chcesz tworzyć Xamarin iOS, Android lub formularzy aplikacji przy użyciu interfejsu API SQL i .NET Core SDK? Zobacz [tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos](mobile-apps-with-xamarin.md).
 
 > [!NOTE]
 > Rozwiązania Cosmos DB .NET Core zestaw SDK usługi Azure używana w tym samouczku nie jest jeszcze zgodne z aplikacjami systemu Windows platformy Uniwersalnej. Aby uzyskać wersję zapoznawczą zestawu SDK dla platformy .NET Core obsługującą aplikacje platformy UWP, wyślij w wiadomość e-mail na adres [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
@@ -56,19 +58,18 @@ Chcesz tworzyć Xamarin iOS, Android lub formularzy aplikacji przy użyciu inter
 Teraz do dzieła!
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Upewnij się, że masz:
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz zarejestrować się w celu [utworzenia bezpłatnego konta](https://azure.microsoft.com/free/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
-    * Jeśli pracujesz na komputerze z systemem MacOS lub Linux, możesz opracowywać aplikacje platformy .NET Core z poziomu wiersza polecenia, instalując [zestaw SDK platformy .NET Core](https://www.microsoft.com/net/core#macos) dla wybranej platformy. 
-    * Jeśli pracujesz na komputerze z systemem Windows, możesz opracowywać aplikacje platformy .NET Core z poziomu wiersza polecenia, instalując [zestaw SDK platformy .NET Core](https://www.microsoft.com/net/core#windows). 
-    * Możesz użyć własnego edytora lub pobrać bezpłatny program [Visual Studio Code](https://code.visualstudio.com/) działający na komputerach z systemem Windows, Linux i MacOS. 
+    * Jeśli pracujesz nad MacOS lub Linux, można tworzyć aplikacje .NET Core w wierszu polecenia, instalując [.NET Core SDK](https://www.microsoft.com/net/core#macos) platformy wybranych przez użytkownika. 
+    * Podczas pracy w systemie Windows, można tworzyć aplikacje .NET Core w wierszu polecenia, instalując [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
+    * Możesz użyć własnych edytora lub pobrać [Visual Studio Code](https://code.visualstudio.com/), który jest wolny i działa w systemach Windows, Linux i MacOS. 
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Krok 1. Tworzenie konta usługi Azure Cosmos DB
-Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Konfigurowanie rozwiązania Visual Studio](#SetupVS). Jeśli używasz emulatora usługi Azure Cosmos DB, wykonaj czynności opisane w temacie [Emulator usługi Azure Cosmos DB](local-emulator.md), aby skonfigurować emulator, a następnie przejdź do sekcji [Konfigurowanie rozwiązania programu Visual Studio](#SetupVS).
+Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz użyć, możesz przejść od razu do kroku [Konfigurowanie rozwiązania Visual Studio](#SetupVS). Jeśli używasz emulatora usługi Azure rozwiązania Cosmos bazy danych, wykonaj kroki opisane w temacie [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) skonfigurować emulatora i przejść od razu do [konfigurowanie rozwiązania Visual Studio](#SetupVS).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -84,10 +85,10 @@ Utwórzmy konto usługi Azure Cosmos DB. Jeśli masz już konto, którego chcesz
    ![Zrzut ekranu przedstawiający menu projektu kliknięte prawym przyciskiem myszy](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na karcie **NuGet** kliknij pozycję **Przeglądaj** w górnej części okna i wpisz ciąg **azure documentdb** w polu wyszukiwania.
 7. W wynikach znajdź pozycję **Microsoft.Azure.DocumentDB.Core** i kliknij przycisk **Zainstaluj**.
-   Identyfikator pakietu Biblioteka kliencka usługi DocumentDB dla programu .NET Core to [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Jeśli elementem docelowym jest wersja programu .NET Framework (na przykład net461), która nie jest obsługiwana przez ten pakiet .NET Core NuGet, użyj elementu [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) obsługującego wszystkie wersje programu .NET Framework, począwszy od wersji .NET Framework 4.5.
+   Identyfikator pakietu dla biblioteki jest [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Jeśli elementem docelowym jest wersja programu .NET Framework (na przykład net461), która nie jest obsługiwana przez ten pakiet .NET Core NuGet, użyj elementu [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) obsługującego wszystkie wersje programu .NET Framework, począwszy od wersji .NET Framework 4.5.
 8. Po wyświetleniu monitów zaakceptuj instalacje pakietów NuGet i umowę licencyjną.
 
-Wspaniale! Teraz, po zakończeniu konfigurowania, zacznijmy pisanie kodu. Ukończony projekt kodu z tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
+Wspaniale! Teraz, że instalacja została ukończona, Zacznijmy pisanie kodu. Ukończony projekt kodu z tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a id="Connect"></a>Krok 3. Łączenie się z kontem usługi Azure Cosmos DB
 Najpierw dodaj te odwołania na początku aplikacji C# w pliku Program.cs:
@@ -124,7 +125,7 @@ W portalu Azure, przejdź do swojego konta bazy danych rozwiązania Cosmos platf
 
 Skopiuj identyfikator URI z portalu i wklej go w miejsce `<your endpoint URI>` w pliku program.cs. Następnie skopiuj KLUCZ PODSTAWOWY z portalu i wklej go w miejsce `<your key>`. Jeśli używasz emulatora usługi Azure Cosmos DB, użyj `https://localhost:8081` jako punktu końcowego i dobrze zdefiniowanego klucza autoryzacji z tematu [How to develop using the Azure Cosmos DB Emulator](local-emulator.md) (Programowanie przy użyciu emulatora usługi Azure Cosmos DB). Upewnij się, że zostały usunięte znaki < i >, ale pozostawiono podwójny cudzysłów wokół punktu końcowego i klucza.
 
-![Zrzut ekranu przedstawiający portal Azure używany przez samouczek NoSQL do tworzenia aplikacji konsolowej C#. Przedstawia konto usługi Azure Cosmos DB z wyróżnionym AKTYWNYM centrum, przyciskiem KLUCZE wyróżnionym w bloku konta usługi Azure Cosmos DB oraz wartościami IDENTYFIKATOR URI, KLUCZ PODSTAWOWY i KLUCZ POMOCNICZY wyróżnionymi w bloku Klucze][keys]
+![Zrzut ekranu przedstawiający portal Azure używany przez samouczek NoSQL do tworzenia aplikacji konsolowej C#. Przedstawia konto bazy danych Azure rozwiązania Cosmos z wyróżnionym AKTYWNYM Centrum, przyciskiem KLUCZE wyróżnionym na stronie konta bazy danych Azure rozwiązania Cosmos oraz wartościami identyfikator URI, klucz podstawowy i klucz POMOCNICZY wyróżnione na stronie kluczy][keys]
 
 Zaczniemy tworzenie aplikacji rozpoczynania pracy, tworząc nowe wystąpienie klasy **DocumentClient**.
 
@@ -142,7 +143,7 @@ private async Task GetStartedDemo()
 }
 ```
 
-Dodaj następujący kod w celu uruchomienia zadania asynchronicznego z metody **Main**. Metoda **Main** będzie przechwytywać wyjątki i zapisywać je w konsoli.
+Dodaj następujący kod w celu uruchomienia zadania asynchronicznego z metody **Main**. **Main** — metoda przechwytuje wyjątki i zapisywać je w konsoli.
 
 ```csharp
 static void Main(string[] args)
@@ -208,7 +209,7 @@ Gratulacje! Pomyślnie utworzono bazę danych usługi Azure Cosmos DB.
 
 ## <a id="CreateColl"></a>Krok 5. Tworzenie kolekcji
 > [!WARNING]
-> Metoda **CreateDocumentCollectionAsync** utworzy nową kolekcję z zarezerwowaną przepływnością, co ma wpływ na cenę. Aby uzyskać więcej informacji, odwiedź naszą [stronę cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **CreateDocumentCollectionAsync** tworzy nową kolekcję z zarezerwowaną przepływnością, co ma implikacje cenowe. Aby uzyskać więcej informacji, odwiedź naszą [stronę cennika](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 [Kolekcję](documentdb-resources.md#collections) można utworzyć za pomocą metody [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) klasy **DocumentClient**. Kolekcja jest kontenerem dokumentów JSON i skojarzonej logiki aplikacji JavaScript.
 
@@ -452,7 +453,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki składnia zapytania SQL us
 
 ![Diagram pokazujący zakres i znaczenie zapytania używanego przez samouczek NoSQL do utworzenia aplikacji konsolowej C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-[FROM](documentdb-sql-query.md#FromClause) — słowo kluczowe jest opcjonalne w zapytaniu, ponieważ zapytania bazy danych Azure rozwiązania Cosmos mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Usługa DocumentDB będzie wnioskowała, że zmienne Families, root lub wybrana nazwa zmiennej domyślnie odwołują się do bieżącej kolekcji.
+[FROM](documentdb-sql-query.md#FromClause) — słowo kluczowe jest opcjonalne w zapytaniu, ponieważ zapytania bazy danych Azure rozwiązania Cosmos mają już zakres określony jako jedna kolekcja. W związku z tym klauzula "FROM Families f" może być zamieniona na "FROM root r" lub dowolną inną wybraną nazwę zmiennej. Azure DB rozwiązania Cosmos wnioskuje rodzin, root lub nazwę zmiennej, która została wybrana opcja odwołanie do bieżącej kolekcji domyślnie.
 
 ## <a id="ReplaceDocument"></a>Krok 8. Zastępowanie dokumentu JSON
 Usługa Azure Cosmos DB obsługuje zastępowanie dokumentów JSON.  
@@ -587,12 +588,12 @@ Do utworzenia rozwiązania GetStarted, które zawiera wszystkie przykłady w tym
 * [Konta bazy danych Azure rozwiązania Cosmos][create-documentdb-dotnet.md#create-account].
 * Rozwiązanie [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) dostępne w witrynie GitHub.
 
-Aby przywrócić odwołania do interfejsu API usługi DocumentDB dla platformy Azure rozwiązania Cosmos DB .NET Core SDK w programie Visual Studio, kliknij prawym przyciskiem myszy **GetStarted** rozwiązania w Eksploratorze rozwiązań, a następnie kliknij przycisk **Włącz Przywracanie pakietu NuGet**. Następnie w pliku Program.cs zaktualizuj wartości EndpointUrl i AuthorizationKey zgodnie z opisem w [Połącz z konta bazy danych Azure rozwiązania Cosmos](#Connect).
+Aby przywrócić odwołania do interfejsu API SQL Azure rozwiązania Cosmos DB .NET Core SDK w programie Visual Studio, kliknij prawym przyciskiem myszy **GetStarted** rozwiązania w Eksploratorze rozwiązań, a następnie kliknij przycisk **Włącz Przywracanie pakietu NuGet**. Następnie w pliku Program.cs zaktualizuj wartości EndpointUrl i AuthorizationKey zgodnie z opisem w [Połącz z konta bazy danych Azure rozwiązania Cosmos](#Connect).
 
 ## <a name="next-steps"></a>Następne kroki
 * Potrzebujesz bardziej złożonego samouczka platformy ASP.NET MVC? Zobacz [samouczek programu ASP.NET MVC: opracowywanie aplikacji z bazy danych Azure rozwiązania Cosmos sieci Web](documentdb-dotnet-application.md).
-* Aby opracować Xamarin iOS, Android lub formularzy aplikacji przy użyciu interfejsu API usługi DocumentDB dla platformy Azure rozwiązania Cosmos DB .NET Core SDK? Zobacz [tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos](mobile-apps-with-xamarin.md).
-* Czy chcesz wykonać testowanie wydajności i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md)
+* Aby opracować Xamarin iOS, Android lub formularzy aplikacji przy użyciu interfejsu API SQL dla zestawu SDK usługi Azure rozwiązania Cosmos DB .NET Core? Zobacz [tworzenie aplikacji dla urządzeń przenośnych dzięki platformie Xamarin i usłudze Azure DB rozwiązania Cosmos](mobile-apps-with-xamarin.md).
+* Czy chcesz wykonać testowanie wydajnościowe i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md)
 * Dowiedz się, jak [żądań, użycia i magazynu bazy danych rozwiązania Cosmos Azure Monitor](monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).
 * Aby dowiedzieć się więcej na temat modelu programowania, zobacz [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/).

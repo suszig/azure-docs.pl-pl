@@ -4,7 +4,7 @@ description: "Jest to strony uwierzytelnianie wieloskładnikowe Azure, którą o
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 336c8b3b607c9a6ba7a2fe9686ab835f015c1adf
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -39,14 +39,14 @@ Ten artykuł ułatwia zarządzanie Azure Multi-Factor Authentication, skoro masz
 ## <a name="block-and-unblock"></a>Blokować i odblokowywać
 Zablokuj/Odblokuj użytkownikom można uniemożliwić użytkownikom odbieranie żądań uwierzytelniania. Wszelkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Zablokowanych użytkowników zostaną zablokowane do 90 dni od czasu są zablokowane.
 
-### <a name="block-a-user"></a>Zablokuj użytkownika
+### <a name="block-a-user"></a>Blokuj użytkownika
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
 2. Przejdź do **usługi Azure Active Directory** > **serwera usługi MFA** > **Zablokuj/Odblokuj użytkowników**.
 3. Kliknij przycisk **Dodaj** aby uniemożliwić użytkownikowi.
 4. Wybierz **grupy replikacji**, wprowadź zablokowanych username jako  **username@domain.com** i wprowadź komentarz w **Przyczyna** pola.
 5. Kliknij przycisk **Dodaj** na zakończenie zablokowania użytkownika.
 
-### <a name="unblock-a-user"></a>Odblokuj użytkownika
+### <a name="unblock-a-user"></a>Odblokowanie użytkownika
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
 2. Przejdź do **usługi Azure Active Directory** > **serwera usługi MFA** > **Zablokuj/Odblokuj użytkowników**.
 3. Kliknij przycisk **Odblokuj** w **akcji** kolumnę obok użytkownika, którą chcesz odblokować.
@@ -84,7 +84,7 @@ Alert o oszustwie można konfigurować i skonfigurować, aby użytkownicy mogą 
 8. Określ zakres dat, którą chcesz wyświetlić w raporcie. Można również określić nazwy użytkowników, numerów telefonów i stanu użytkownika.
 9. Kliknij przycisk **Uruchom** można wyświetlić raportu alertów oszustwa. Kliknij przycisk **Eksportuj do pliku CSV** Jeśli chcesz wyeksportować raport.
 
-## <a name="one-time-bypass"></a>Jednokrotne obejście
+## <a name="one-time-bypass"></a>Jednorazowe obejście
 Jednorazowe obejście pozwala na uwierzytelnianie jeden raz bez przeprowadzania weryfikacji dwuetapowej. Obejście jest tymczasowe i wygasa po upływie określonej liczby sekund. W sytuacjach, w którym aplikacji mobilnej lub telefon nie odbiera powiadomienia lub połączeń telefonicznych można włączyć jednorazowe obejście, więc użytkownik ma dostęp do żądanego zasobu.
 
 ### <a name="create-a-one-time-bypass"></a>Utwórz jednorazowe obejście
@@ -92,7 +92,7 @@ Jednorazowe obejście pozwala na uwierzytelnianie jeden raz bez przeprowadzania 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator.
 2. Przejdź do **usługi Azure Active Directory** > **serwera usługi MFA** > **jednorazowe obejście**.
 
-   ![Jednokrotne obejście](./media/multi-factor-authentication-whats-next/onetimebypass.png)
+   ![Jednorazowe obejście](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Wybierz pozycję **Dodaj**.
 4. Jeśli to konieczne, wybierz grupę replikacji tego obejścia.
 5. Wprowadź nazwę użytkownika (w postaci username@domain.com), liczba sekund, które powinny trwać obejście i przyczynę obejścia. 

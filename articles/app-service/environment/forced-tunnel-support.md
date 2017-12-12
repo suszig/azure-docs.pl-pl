@@ -1,6 +1,6 @@
 ---
-title: "Konfigurowanie środowiska usługi aplikacji Azure jako życie tunelowane"
-description: "Włącz środowiska usługi aplikacji do pracy w przypadku ruchu wychodzącego życie tunelowane"
+title: "Konfigurowanie wymuszonego tunelowania środowiska Azure App Service Environment"
+description: "Umożliwianie działania środowiska App Service Environment w przypadku wymuszonego tunelowania ruchu wychodzącego"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,96 +10,97 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: ccompy
-ms.openlocfilehash: f5f099042cefe666e22a9d561afeb4584db3d92c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurowanie środowiska usługi aplikacji przy użyciu tunelowania wymuszonego
+# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania środowiska App Service Environment
 
-Środowiska usługi aplikacji to wdrożenie usługi Azure App Service w wystąpieniu klienta sieci wirtualnej platformy Azure. Wielu klientów, skonfigurować ich sieci wirtualnych za rozszerzeń swoich sieciach lokalnych, z sieci VPN lub rozwiązania Azure ExpressRoute połączenia. Ze względu na zasady firmowe lub inne ograniczenia zabezpieczeń skonfigurowano trasy do wysłania wszystkich ruch wychodzący lokalnej przed korzystaniem z niego z Internetem. Zmiana routingu sieci wirtualnej, aby ruch wychodzący z siecią wirtualną przechodzi przez połączenie sieci VPN i ExpressRoute lokalnymi nazywa się wymuszanie tunelowania. 
+Środowisko Azure App Service Environment to wdrożenie usługi Azure App Service w należącym do klienta wystąpieniu sieci Azure Virtual Network. Wielu klientów konfiguruje sieci wirtualne jako rozszerzenia sieci lokalnych za pomocą sieci VPN lub połączeń usługi Azure ExpressRoute. Ze względu na zasady firmowe lub inne ograniczenia zabezpieczeń konfigurują oni dla tras wysyłanie całego ruchu wychodzącego do środowiska lokalnego, zanim trafi on do Internetu. Zmiana routingu sieci wirtualnej w taki sposób, aby ruch wychodzący z sieci wirtualnej przechodził przez sieć VPN lub połączenie usługi ExpressRoute ze środowiskiem lokalnym, jest nazywana wymuszaniem tunelowania. 
 
-Wymuszanie tunelowania może powodować problemy dla środowiska usługi aplikacji. Środowiska usługi aplikacji zawiera szereg zależności zewnętrznych, które są wymienione w [architektury sieci środowiska usługi aplikacji] [ network] dokumentu. Środowiska usługi aplikacji, domyślnie wymaga, aby cała komunikacja wychodząca przechodzi przez VIP jest udostępniane z środowiska usługi aplikacji.
+Wymuszanie tunelowania może powodować problemy ze środowiskiem App Service Environment. Środowisko App Service Environment jest zależne od szeregu elementów zewnętrznych, które wymieniono w dokumencie [App Service Environment network architecture][network] (Architektura sieci w środowisku App Service Environment). Domyślnie środowisko App Service Environment wymaga, aby cała komunikacja wychodząca przechodziła przez wirtualny adres IP, dla którego zainicjowano obsługę tego środowiska.
 
-Trasy są krytyczne aspekt jakie wymuszanie tunelowania jest oraz sposób postępowania z nim. W sieci wirtualnej platformy Azure routing odbywa się oparciu o najdłuższe dopasowanie prefiksu (LPM). Jeśli istnieje więcej niż jedna trasa z tym samym dopasowaniem LPM, wybór trasy odbywa się w następującej kolejności:
+Trasy mają kluczowe znaczenie dla wymuszonego tunelowania i sposobu jego obsługi. W sieci wirtualnej platformy Azure routing odbywa się na podstawie najdłuższego dopasowania prefiksu (LPM, Longest Prefix Match). Jeśli istnieje więcej niż jedna trasa z tym samym dopasowaniem LPM, wybór trasy odbywa się według następującej kolejności:
 
-* Trasy zdefiniowane przez użytkownika (przez)
+* Trasa zdefiniowana przez użytkownika
 * Trasa protokołu BGP (jeśli używane są połączenia ExpressRoute)
 * Trasa systemowa
 
-Aby dowiedzieć się więcej na temat routingu w sieci wirtualnej, przeczytaj [trasy zdefiniowane przez użytkownika i przesyłanie dalej IP][routes]. 
+Aby dowiedzieć się więcej na temat routingu w sieci wirtualnej, przeczytaj [User-defined routes and IP forwarding][routes] (Trasy zdefiniowane przez użytkownika i przesyłanie pakietów IP dalej). 
 
-Jeśli chcesz środowiska usługi aplikacji do działania w sieci wirtualnej tunelowania wymuszonego, dostępne są dwie opcje:
+Jeśli środowisko App Service Environment ma działać w sieci wirtualnej z wymuszaniem tunelowania, dostępne są dwie opcje:
 
-* Włącz środowiska usługi aplikacji na bezpośredni dostęp do Internetu.
-* Zmień punkt końcowy wyjście dla środowiska usługi aplikacji.
+* Zapewnienie środowisku App Service Environment bezpośredniego dostępu do Internetu.
+* Zmiana punktu końcowego ruchu wychodzącego dla środowiska App Service Environment.
 
-## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Włącz środowiska usługi aplikacji na bezpośredni dostęp do Internetu
+## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Zapewnianie środowisku App Service Environment bezpośredniego dostępu do Internetu
 
-Dla środowiska usługi aplikacji pracę podczas sieci wirtualnej jest skonfigurowana z połączenia ExpressRoute można:
+Co można zrobić, aby środowisko App Service Environment działało, gdy dla sieci wirtualnej skonfigurowano połączenie usługi ExpressRoute:
 
-* Konfigurowanie usługi ExpressRoute anonsowanie 0.0.0.0/0. Domyślnie go wymusić tuneli wszystkie wychodzący ruch lokalnymi.
-* Utwórz przez. Zastosować go do podsieci, która zawiera środowiska usługi aplikacji z prefiksem adresu 0.0.0.0/0 i typ następnego przeskoku w Internecie.
+* Skonfiguruj w usłudze ExpressRoute anonsowanie adresów 0.0.0.0/0. Domyślnie powoduje to wymuszenie tunelowania całego ruchu wychodzącego do środowiska lokalnego.
+* Utwórz trasę zdefiniowaną przez użytkownika. Zastosuj ją do podsieci zawierającej środowisko App Service Environment z prefiksem adresu 0.0.0.0/0 i następnym przeskokiem typu Internet.
 
-Jeśli te dwie zmiany, ruch kierowany przez internet pochodzący z podsieci środowiska usługi aplikacji nie jest wymuszone połączenie ExpressRoute, i działa środowiska usługi aplikacji.
+Po wprowadzeniu tych dwóch zmian ruch kierowany do Internetu pochodzący z podsieci środowiska App Service Environment nie będzie w sposób wymuszony kierowany do połączenia usługi ExpressRoute i środowisko ASE będzie działać.
 
 > [!IMPORTANT]
-> Trasy zdefiniowane w przez musi być wystarczająco konkretny, aby mają pierwszeństwo względem dowolnego trasy anonsowane przez konfiguracji usługi ExpressRoute. W poprzednim przykładzie użyto 0.0.0.0/0 szerokiego zakresu adresów. Go może potencjalnie być przypadkowo zastąpione anonsów tras, korzystających z bardziej szczegółowych zakresów adresów.
+> Trasy zdefiniowane przez użytkownika muszą być wystarczająco szczegółowe, aby miały pierwszeństwo względem wszelkich tras anonsowanych przez konfigurację usługi ExpressRoute. W poprzednim przykładzie użyto szerokiego zakresu adresów 0.0.0.0/0. Może to zostać przypadkowo zastąpione przez anonsy tras z bardziej szczegółowymi zakresami adresów.
 >
-> Środowiska usługi aplikacji nie są obsługiwane w przypadku konfiguracji usługi ExpressRoute, które między anonsować tras z publicznej komunikacji równorzędnej ścieżki do ścieżki prywatnej komunikacji równorzędnej. Konfiguracji usługi ExpressRoute z publicznej komunikacji równorzędnej skonfigurowane otrzymywać anonsów tras od firmy Microsoft. Anonse zawiera zbiór duże zakresy adresów IP firmy Microsoft Azure. W przypadku zakresów adresów między anonsowany w ścieżce prywatnej komunikacji równorzędnej, wszystkie pakiety wychodzącego z podsieci środowiska usługi aplikacji są życie tunel do infrastruktury sieci lokalnej klienta. Ten przepływ sieci nie jest obecnie obsługiwane przez wartość domyślną środowiska usługi App Service. Jedno rozwiązanie tego problemu jest zatrzymanie tras między reklamy ze ścieżki publicznej komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej. Innym rozwiązaniem jest umożliwienie środowiska usługi aplikacji do pracy w konfiguracji tunelowania wymuszonego.
+> Środowiska App Service Environment nie są obsługiwane w przypadku konfiguracji usługi ExpressRoute z anonsowaniem krzyżowym tras ze ścieżki publicznej komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej. Konfiguracje usługi ExpressRoute ze skonfigurowaną publiczną komunikacją równorzędną otrzymują anonsy tras od firmy Microsoft. Te anonse zawierają duży zestaw zakresów adresów IP platformy Microsoft Azure. W przypadku anonsowania krzyżowego zakresów adresów w ścieżce prywatnej komunikacji równorzędnej wszystkie pakiety sieciowe wychodzące z podsieci środowiska App Service Environment będą w sposób wymuszony tunelowane do lokalnej infrastruktury sieciowej klienta. Ten przepływ sieciowy nie jest obecnie domyślnie obsługiwany w przypadku środowisk App Service Environment. Jednym z rozwiązań tego problemu jest zatrzymanie anonsowania krzyżowego tras ze ścieżki publicznej komunikacji równorzędnej do ścieżki prywatnej komunikacji równorzędnej. Innym jest umożliwienie środowisku App Service Environment działania w przypadku konfiguracji wymuszonego tunelowania.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Zmiana punktu końcowego wyjście środowiska usługi aplikacji ##
+## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Zmienianie punktu końcowego ruchu wychodzącego dla środowiska App Service Environment ##
 
-W tej sekcji opisano sposób włączania środowiska usługi aplikacji na działanie w ramach konfiguracji tunelowania wymuszonego, zmieniając wyjście punktu końcowego używane przez środowisko usługi aplikacji. Jeśli ruch wychodzący z środowiska usługi aplikacji jest życie tunneled do sieci lokalnej, należy zezwolić ruch do źródła z adresów IP innego niż adres VIP środowiska usługi aplikacji.
+W tej sekcji opisano, jak umożliwić środowisku App Service Environment działanie w przypadku konfiguracji wymuszonego tunelowania przez zmianę punktu końcowego ruchu wychodzącego używanego przez to środowisko. Jeśli ruch wychodzący ze środowiska App Service Environment jest w sposób wymuszony tunelowany do sieci lokalnej, należy zezwolić na pochodzenie tego ruchu z adresów IP innych niż wirtualny adres IP tego środowiska.
 
-Środowiska usługi aplikacji nie tylko zależności zewnętrzne, ale również musi nasłuchiwania dla ruchu przychodzącego i odpowiadać na takie ruchu. Nie można wysłać odpowiedzi z innego adresu, ponieważ który dzieli TCP. Istnieją trzy kroki wymagane do zmiany wyjście punktu końcowego dla środowiska usługi aplikacji:
+Środowisko App Service Environment nie tylko jest zależne od elementów zewnętrznych, ale również musi nasłuchiwać w oczekiwaniu na ruch przychodzący i odpowiadać na taki ruch. Te odpowiedzi nie mogą być odsyłane spod innego adresu, ponieważ spowoduje to przerwanie toku komunikacji TCP. Zmiana punktu końcowego ruchu wychodzącego dla środowiska App Service Environment wymaga wykonania trzech kroków:
 
-1. Ustaw tabelę tras, aby upewnić się, że ruch związany z zarządzaniem przychodzącej można powrocie z tego samego adresu IP.
+1. Ustaw tabelę tras w taki sposób, aby ruch przychodzący związany z zarządzaniem mógł powracać spod tego samego adresu IP.
 
-2. Dodaj adresy IP, które mają być używane za wyjście do zapory środowiska usługi aplikacji.
+2. Dodaj adresy IP, które mają być używane do obsługi ruchu wychodzącego, do zapory środowiska App Service Environment.
 
-3. Ustaw tras na ruch wychodzący z środowiska usługi aplikacji, aby być tunel.
+3. Skonfiguruj trasy, aby tunelować ruch wychodzący ze środowiska App Service Environment.
 
-   ![Wymuszone tunelu sieci przepływu][1]
+   ![Przepływ sieciowy z wymuszonym tunelowaniem][1]
 
-Środowiska usługi aplikacji można skonfigurować przy użyciu różnych wyjście adresów po środowiska usługi aplikacji jest już w górę i operacyjne lub mogą być ustawione podczas wdrażania środowiska usługi aplikacji.
+Po włączeniu i potwierdzeniu działania środowiska App Service Environment można skonfigurować dla niego inne adresy ruchu wychodzącego. Ewentualnie można je skonfigurować w trakcie wdrażania tego środowiska.
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Zmień adres Wyjście po działa środowiska usługi aplikacji ###
-1. Uzyskaj adresy IP, które mają zostać użyte jako wyjście adresów IP dla środowiska usługi aplikacji. Jeśli podczas wykonywania wymuszanie tunelowania, te adresy pochodzą z translatorami adresów sieciowych lub adresów IP bramy. Można przekierować ruch wychodzący środowiska usługi aplikacji za pośrednictwem NVA należy adres wyjście jest publiczny adres IP analizę NVA.
+### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Zmienianie adresu ruchu wychodzącego po potwierdzeniu działania środowiska App Service Environment ###
+1. Uzyskaj adresy IP, które mają być używane jako adresy IP ruchu wychodzącego środowiska App Service Environment. Jeśli jest używane wymuszanie tunelowania, te adresy pochodzą z translatora adresów sieciowych (NAT) lub są adresami IP bramy. Jeśli ruch wychodzący środowiska App Service Environment ma być kierowany przez urządzenie NVA, adres ruchu wychodzącego to publiczny adres IP urządzenia NVA.
 
-2. Ustaw adres wyjście w informacje o konfiguracji środowiska usługi aplikacji. Przejdź do resource.azure.com i przejdź do subskrypcji /<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Następnie można zobaczyć JSON, który opisuje środowiska usługi aplikacji. Upewnij się, że wyświetlany jest tekst **odczytu/zapisu** u góry. Wybierz **Edytuj**. Przewiń w dół, a następnie zmień **userWhitelistedIpRanges** wartość z **null** podobną następujące. Użyj adresów, które chcesz ustawić jako zakres adresów wyjście. 
+2. Skonfiguruj adresy ruchu wychodzącego w informacjach o konfiguracji środowiska App Service Environment. Przejdź do witryny resource.azure.com, a następnie do obszaru Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Znajdziesz tam informacje w formacie JSON z opisem Twojego środowiska App Service Environment. Upewnij się, że u góry jest wyświetlana informacja **read/write** (odczyt/zapis). Wybierz pozycję **Edit** (Edytuj). Przewiń do samego dołu i zmień ustawienie pozycji **userWhitelistedIpRanges** z wartości **null** na wartość podobną do następującej. Użyj adresów, które chcesz ustawić jako zakres adresów ruchu wychodzącego. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
-   Wybierz **PUT** u góry. Ta opcja wyzwala operację skalowania środowiska usługi aplikacji i dostosowuje zapory.
+   Wybierz pozycję **PUT** u góry. Ta opcja wyzwala operację skalowania środowiska App Service Environment i dostosowanie zapory.
  
-3. Utwórz lub Edytuj tabelę tras i wypełnić reguły, aby zezwolić na dostęp z adresów zarządzania, które mapują do lokalizacji środowiska usługi aplikacji. Aby znaleźć adres zarządzania, zobacz [adresy zarządzania środowiska usługi aplikacji][management].
+3. Utwórz lub edytuj tabelę tras i dodaj reguły, aby zezwolić na dostęp do/z adresów zarządzania zamapowanych na lokalizację środowiska App Service Environment. Aby znaleźć adresy zarządzania, zobacz [App Service Environment management addresses][management] (Adresy zarządzania środowiska App Service Environment).
 
-4. Dostosuj trasy stosowana do podsieci środowiska usługi aplikacji z tabelą tras lub trasy protokołu BGP. 
+4. Dostosuj trasy zastosowane do podsieci środowiska App Service Environment za pomocą tabeli tras lub tras BGP. 
 
-Jeśli środowisko usługi aplikacji przestanie odpowiadać z portalu, występuje problem ze zmianami. Może to oznaczać listy adresów wyjście nie zostało ukończone, ruch zostało utracone lub ruch został zablokowany. 
+Jeśli środowisko App Service Environment przestanie reagować z poziomu portalu, występuje problem dotyczący wprowadzonych zmian. Problem może polegać na tym, że lista adresów ruchu wychodzącego jest niepełna, występuje utrata ruchu lub ruch jest blokowany. 
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Tworzenie nowego środowiska usługi aplikacji za pomocą różnych wyjście adresu ###
+### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Tworzenie nowego środowiska App Service Environment z innym adresem ruchu wychodzącego ###
 
-Jeśli w Twojej sieci wirtualnej jest już skonfigurowana tak, aby wymusić tunelu cały ruch, należy wykonać dodatkowe kroki, aby utworzyć środowiska usługi aplikacji, dzięki czemu może ona pomyślnie. Należy korzystać z innym punktem końcowym wyjście podczas tworzenia środowiska usługi aplikacji. Aby to zrobić, należy utworzyć środowiska usługi aplikacji z szablonu, który określa adresy dozwolonych wyjście.
+Jeśli w używanej sieci wirtualnej skonfigurowano już wymuszanie tunelowania całego ruchu, należy wykonać dodatkowe kroki, aby utworzyć takie środowisko App Service Environment, które zostanie pomyślnie włączone. W trakcie tworzenia środowiska App Service Environment należy umożliwić używanie innego punktu końcowego ruchu wychodzącego. Aby to zrobić, należy utworzyć środowisko App Service Environment za pomocą szablonu określającego dozwolone adresy ruchu wychodzącego.
 
-1. Uzyskaj adresy IP do użycia jako adresy wyjście dla środowiska usługi aplikacji.
+1. Uzyskaj adresy IP, które mają być używane jako adresy ruchu wychodzącego środowiska App Service Environment.
 
-2. Utwórz wstępnie podsieci, które mają być używane przez środowisko usługi aplikacji. Będzie potrzebny, dzięki czemu można ustawić tras, a także ponieważ szablon wymaga.
+2. Utwórz wstępnie podsieć, której będzie używać środowisko App Service Environment. Jest ona potrzebna, aby można było skonfigurować trasy, a także dlatego, że wymaga jej szablon.
 
-3. Utwórz tabelę tras z zarządzaniem adresów IP, które są mapowane do lokalizacji środowiska usługi aplikacji. Przypisz je do środowiska usługi aplikacji.
+3. Utwórz tabelę tras z adresami IP zarządzania zamapowanymi na lokalizację środowiska App Service Environment. Przypisz ją do środowiska App Service Environment.
 
-4. Postępuj zgodnie z instrukcjami w [tworzenie środowiska usługi aplikacji przy użyciu szablonu][template]. Rozwiń odpowiedni szablon.
+4. Postępuj zgodnie z instrukcjami podanymi w temacie [Create an App Service Environment with a template][template] (Tworzenie środowiska App Service Environment przy użyciu szablonu). Uzyskaj odpowiedni szablon.
 
-5. Edytuj plik azuredeploy.json sekcji "zasoby". Uwzględnij wiersz dla **userWhitelistedIpRanges** własnymi wartościami następująco:
+5. Edytuj sekcję „resources” (zasoby) w pliku azuredeploy.json. Uwzględnij wiersz elementu **userWhitelistedIpRanges** z własnymi wartościami, podobny do następującego:
 
        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
-Jeśli ta sekcja jest prawidłowo skonfigurowany, środowiska usługi aplikacji powinny rozpoczynać żadnych problemów. 
+Jeśli ta sekcja jest skonfigurowana poprawnie, środowisko App Service Environment powinno zostać uruchomione bez żadnych problemów. 
 
 
 <!--IMAGES-->

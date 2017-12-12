@@ -4,7 +4,7 @@ description: "Odwołanie deklaratywne wyrażenia inicjowania obsługi administra
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizacja programu Azure AD Connect: odwołanie do funkcji
 W programie Azure AD Connect funkcje są używane do modyfikowania wartości atrybutu podczas synchronizacji.  
@@ -879,7 +879,7 @@ Funkcja LCase konwertuje wszystkie znaki w ciągu na małe litery.
 Zwraca "test".
 
 - - -
-### <a name="left"></a>Do lewej
+### <a name="left"></a>Po lewej
 **Opis:**  
 Po lewej stronie funkcja zwraca określoną liczbę znaków z lewej strony ciągu.
 
@@ -1130,7 +1130,7 @@ Zwraca Raksmorgas
 Zwraca "ONeil", jeden znacznik zdefiniowano do usunięcia.
 
 - - -
-### <a name="right"></a>Do prawej
+### <a name="right"></a>Prawo
 **Opis:**  
 Funkcja PRAWY zwraca określoną liczbę znaków z prawej strony (Zakończ), ciągu.
 

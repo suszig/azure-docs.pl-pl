@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Porady dotyczące wydajności dla bazy danych Azure rozwiązania Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure DB rozwiązania Cosmos jest szybkie i elastyczne rozproszoną bazę danych, która skaluje bezproblemowo gwarantowane opóźnienia i przepływności. Nie trzeba wprowadzić zmiany w najważniejszych architektura lub pisania złożonego kodu można skalować bazy danych za pomocą rozwiązania Cosmos bazy danych. Skalowanie w górę i w dół sprowadza się do jednego wywołania interfejsu API lub [zestawu SDK wywołania metody](set-throughput.md#set-throughput-sdk). Jednak ponieważ DB rozwiązania Cosmos jest dostępny za pośrednictwem połączeń sieci istnieją optymalizacje po stronie klienta, wprowadzone aby osiągnąć najwyższą wydajność.
 
 Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć pod uwagę następujące opcje:
@@ -96,7 +99,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
     Żądania rozwiązania cosmos bazy danych są wykonywane za pośrednictwem protokołu HTTPS/REST podczas korzystania z trybu bramy i są poddawane domyślny limit połączeń na nazwę hosta lub adres IP. Konieczne może być ustawioną MaxConnections wyższa wartość (100-1000), aby biblioteka klienta może korzystać z wielu równoczesnych połączeń DB rozwiązania Cosmos. W zestawie SDK .NET 1.8.0 i powyżej wartości domyślnej dla [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) wynosi 50 i zmienić wartość, można ustawić [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) wyższej wartości.   
 4. **Dostrajanie równoległe zapytania dla kolekcji partycjonowanych**
 
-     Zestaw SDK .NET usługi DocumentDB wersji 1.9.0 i powyżej zapytania równoległe pomocy technicznej, które umożliwiają kwerenda dotycząca kolekcji partycjonowanych równolegle (zobacz [Praca z zestawów SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) i powiązane [przykłady kodu](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Aby uzyskać więcej informacji). Zapytania równoległe są przeznaczone do poprawy opóźnienia zapytania i przepływności za pośrednictwem ich odpowiednika szeregowego. Zapytania równoległe podać dwa parametry, które użytkownicy można dostosować do dopasowania niestandardowe ich wymaganiami, () MaxDegreeOfParallelism: do formantu maksymalną liczbę partycji następnie można tworzyć zapytania równoległe i (b) MaxBufferedItemCount: Aby kontrolować liczbę wyników pobranych wstępnie.
+     SQL .NET SDK w wersji 1.9.0 lub nowszym zapytania równoległe pomocy technicznej, które umożliwiają kwerenda dotycząca kolekcji partycjonowanych równoległe (zobacz [Praca z zestawów SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) i pokrewnych [przykłady kodu](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) Aby uzyskać więcej informacji). Zapytania równoległe są przeznaczone do poprawy opóźnienia zapytania i przepływności za pośrednictwem ich odpowiednika szeregowego. Zapytania równoległe podać dwa parametry, które użytkownicy można dostosować do dopasowania niestandardowe ich wymaganiami, () MaxDegreeOfParallelism: do formantu maksymalną liczbę partycji następnie można tworzyć zapytania równoległe i (b) MaxBufferedItemCount: Aby kontrolować liczbę wyników pobranych wstępnie.
 
     () ***dostrajanie MaxDegreeOfParallelism\:***  równoległe zapytania działa badając równocześnie wiele partycji. Jednak dane z poszczególnych zbieranie podzielonym na partycje jest pobierana szeregowo względem zapytania. Tak ustawienie MaxDegreeOfParallelism liczbę partycji przewiduje maksymalną prawdopodobieństwo osiągnięcia większości kwerend wydajność, wszystkie warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji MaxDegreeOfParallelism można ustawić wyższy i co najmniej (liczba partycji, dane wejściowe podane przez użytkownika) jako MaxDegreeOfParallelism wybierana przez system.
 
@@ -110,7 +113,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
     W niektórych przypadkach może pomóc zmniejszyć częstotliwość operacji wyrzucania elementów bezużytecznych. W środowisku .NET, należy ustawić [gcserver —](https://msdn.microsoft.com/library/ms229357.aspx) na wartość true.
 6. **Implementowanie wycofywania odstępach RetryAfter**
 
-    Podczas testowania wydajności, należy zwiększyć obciążenie dopóki mała liczba żądań pobrania ograniczany. Jeśli ograniczany, aplikacja kliencka powinna wycofywania na ograniczania dla interwału ponawiania określić serwer. Przestrzeganie wycofywania zapewnia spędzają na skraca czas oczekiwania między kolejnymi próbami. Obsługa zasad ponawiania znajduje się w wersji 1.8.0 lub nowszym z usługi DocumentDB [.NET](documentdb-sdk-dotnet.md) i [Java](documentdb-sdk-java.md), wersja 1.9.0 i nowszymi wersjami z [Node.js](documentdb-sdk-node.md) i [Python](documentdb-sdk-python.md), i wszystkie obsługiwane wersje [.NET Core](documentdb-sdk-dotnet-core.md) zestawów SDK. Aby uzyskać więcej informacji, zobacz [Exceeding zastrzeżone ograniczenia przepływności](request-units.md#RequestRateTooLarge) i [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Podczas testowania wydajności, należy zwiększyć obciążenie dopóki mała liczba żądań pobrania ograniczany. Jeśli ograniczany, aplikacja kliencka powinna wycofywania na ograniczania dla interwału ponawiania określić serwer. Przestrzeganie wycofywania zapewnia spędzają na skraca czas oczekiwania między kolejnymi próbami. Obsługa zasad ponawiania znajduje się w wersji 1.8.0 lub nowszym programu SQL Server [.NET](documentdb-sdk-dotnet.md) i [Java](documentdb-sdk-java.md), wersja 1.9.0 i nowszymi wersjami z [Node.js](documentdb-sdk-node.md) i [Python](documentdb-sdk-python.md), a wszystkie obsługiwane wersje [.NET Core](documentdb-sdk-dotnet-core.md) zestawów SDK. Aby uzyskać więcej informacji, zobacz [Exceeding zastrzeżone ograniczenia przepływności](request-units.md#RequestRateTooLarge) i [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Skalowanie w poziomie obciążenia klientami**
 
     Jeśli testujesz na poziomach wysokiej przepływności (> 50 000 RU/s), może stać się aplikacja kliencka "wąskie gardło" z powodu maszyny nakładanie się na użycie procesora CPU lub sieci. Jeśli osiągnąć tego punktu, można nadal push dodatkowe konto bazy danych rozwiązania Cosmos przez skalowania aplikacji klienta na wielu serwerach.
@@ -120,7 +123,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
    <a id="tune-page-size"></a>
 9. **Dostosuj rozmiar strony dla źródła danych zapytania/odczytu w celu poprawy wydajności**
 
-    Podczas wykonywania masowego odczytać dokumentów za pomocą funkcji (na przykład ReadDocumentFeedAsync) źródło odczytu lub, jeśli zapytania SQL usługi DocumentDB, wyniki są zwracane w sposób segmentu, jeśli zestaw wyników jest zbyt duży. Domyślnie są zwracane w fragmentów 100 elementów lub 1 MB, jednego z tych limitów trafień pierwszej.
+    Podczas wykonywania masowego odczytać dokumentów za pomocą funkcji (na przykład ReadDocumentFeedAsync) źródło odczytu lub, jeśli zapytania SQL, wyniki są zwracane w sposób segmentu, jeśli zestaw wyników jest zbyt duży. Domyślnie są zwracane w fragmentów 100 elementów lub 1 MB, jednego z tych limitów trafień pierwszej.
 
     Aby zmniejszyć liczbę sieci przekazywanych wymagany do pobrania wszystkich odpowiednich wyników, można zwiększyć rozmiar strony przy użyciu nagłówek żądania x-ms-max elementu count do maksymalnie 1000. W przypadkach, gdy konieczne jest wyświetlenie tylko kilka wyniki, na przykład jeśli użytkownik interfejsu lub aplikacji interfejsu API zwraca tylko 10 powoduje przez czas, można także zmniejszyć rozmiar strony do 10 do zmniejszenia przepustowości używane dla operacji odczytu i zapytań.
 
@@ -133,7 +136,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
 11. **Użyj przetwarzania przez hosta 64-bitowych**
 
-    Zestaw SDK usługi DocumentDB działa w procesie 32-bitowego hosta, gdy używasz zestawu SDK .NET usługi DocumentDB w wersji 1.11.4 lub nowszym. Jeśli używasz krzyżowego partycji zapytania przetwarzania przez hosta 64-bitowych jest zalecane zwiększonej wydajności. Następujących typów aplikacji ma procesu 32-bitowego hosta jako domyślne, tak aby można było zmienić do 64-bitowy, wykonaj następujące czynności na podstawie typu aplikacji:
+    SQL SDK działa w procesie 32-bitowego hosta, gdy używasz zestawu SDK .NET SQL w wersji 1.11.4 lub nowszym. Jeśli używasz krzyżowego partycji zapytania przetwarzania przez hosta 64-bitowych jest zalecane zwiększonej wydajności. Następujących typów aplikacji ma procesu 32-bitowego hosta jako domyślne, tak aby można było zmienić do 64-bitowy, wykonaj następujące czynności na podstawie typu aplikacji:
 
     - Dla pliku wykonywalnego aplikacji, można to zrobić przez zaznaczenie pola wyboru **preferowane jest 32-bitowych** opcji **właściwości projektu** okna na **kompilacji** kartę.
 

@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie i publikowanie aplikacji zarządzanych katalogu usługi Azure | Dokumentacja firmy Microsoft"
-description: "Przedstawia sposób tworzenia platformy Azure zarządzanych aplikacji, która jest przeznaczony dla członków organizacji."
+description: "Przedstawia sposób tworzenia aplikacji zarządzanej platformy Azure przeznaczonej dla członków Twojej organizacji."
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publikowanie aplikacji zarządzanych na użytek wewnętrzny
 
@@ -32,7 +32,7 @@ W tym artykule zarządzanych aplikacji zawiera konta magazynu. Jest ona zilustro
 
 ## <a name="create-the-resource-template"></a>Tworzenie szablonu zasobów
 
-Definicja każdej zarządzanej aplikacji zawiera plik o nazwie **mainTemplate.json**. W, można zdefiniować zasobów platformy Azure, aby udostępnić. Szablon nie różni się od regularne szablonu usługi Resource Manager.
+Definicja każdej zarządzanej aplikacji zawiera plik o nazwie **mainTemplate.json**. W, można zdefiniować zasobów platformy Azure, aby udostępnić. Szablon nie różni się niczym od zwykłego szablonu usługi Resource Manager.
 
 Utwórz plik o nazwie **mainTemplate.json**. Nazwa jest rozróżniana wielkość liter.
 
@@ -83,7 +83,7 @@ Zapisz plik mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Tworzenie definicji interfejsu użytkownika
 
-Azure portal używa **createUiDefinition.json** plik do generowania interfejsu użytkownika dla użytkowników, którzy tworzenie zarządzanych aplikacji. Zdefiniuj, jak użytkownicy podawanie danych wejściowych dla każdego parametru. Można użyć opcji, takie jak listy rozwijanej, pole tekstowe, pole hasła i inne dane wejściowe narzędzia. Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla zarządzanych aplikacji, zobacz [wprowadzenie CreateUiDefinition](create-uidefinition-overview.md).
+Azure portal używa **createUiDefinition.json** plik do generowania interfejsu użytkownika dla użytkowników, którzy tworzenie zarządzanych aplikacji. Zdefiniuj, jak użytkownicy podawanie danych wejściowych dla każdego parametru. Można użyć opcji, takie jak listy rozwijanej, pole tekstowe, pole hasła i inne dane wejściowe narzędzia. Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla aplikacji zarządzanej, zobacz [Rozpoczynanie pracy z plikiem CreateUiDefinition](create-uidefinition-overview.md).
 
 Utwórz plik o nazwie **createUiDefinition.json**. Nazwa jest rozróżniana wielkość liter.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Utwórz definicję zarządzanej aplikacji
+## <a name="create-the-managed-application-definition"></a>Tworzenie definicji aplikacji zarządzanej
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Tworzenie grupy użytkowników usługi Azure Active Directory lub aplikacji
 
@@ -176,13 +176,13 @@ Potrzebny jest identyfikator obiektu grupy użytkowników na potrzeby zarządzan
 
 ### <a name="get-the-role-definition-id"></a>Pobierz identyfikator definicji roli
 
-Następnie należy identyfikator definicji roli roli wbudowanych RBAC chcesz udzielić dostępu dla użytkownika, grupy użytkowników lub aplikacji. Zwykle można użyć roli właściciela lub współautora lub czytelnika. Polecenie pokazano, jak uzyskać identyfikator definicji roli dla roli właściciela:
+Następnie należy identyfikator definicji roli roli wbudowanych RBAC chcesz udzielić dostępu dla użytkownika, grupy użytkowników lub aplikacji. Zwykle można użyć roli właściciela lub współautora lub czytelnika. W następującym poleceniu przedstawiono sposób uzyskiwania identyfikatora definicji dla roli Właściciel:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Utwórz definicję zarządzanej aplikacji
+### <a name="create-the-managed-application-definition"></a>Tworzenie definicji aplikacji zarządzanej
 
 Jeśli grupy zasobów nie jest już ma do przechowywania definicji aplikacji zarządzanych, utwórz ją teraz:
 
@@ -190,7 +190,7 @@ Jeśli grupy zasobów nie jest już ma do przechowywania definicji aplikacji zar
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Teraz Utwórz zasób definicji zarządzanej aplikacji.
+Teraz utwórz zasób definicji aplikacji zarządzanej.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ Po zakończeniu wdrożenia zarządzanych aplikacji istnieje w grupie zasobów o 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejrzeć wprowadzenie do aplikacji zarządzanych, zobacz [Omówienie aplikacji zarządzanych](overview.md).
+* Zobacz artykuł [Omówienie aplikacji zarządzanych](overview.md) zawierający wprowadzenie do aplikacji zarządzanych.
 * Na przykład projektów, zobacz [przykładowe projekty dla platformy Azure zarządzanych aplikacji](sample-projects.md).
-* Informacje dotyczące publikowania zarządzanych aplikacji w portalu Azure Marketplace, zobacz [Azure zarządzanych aplikacji w witrynie Marketplace](publish-marketplace-app.md).
-* Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla zarządzanych aplikacji, zobacz [wprowadzenie CreateUiDefinition](create-uidefinition-overview.md).
+* Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla aplikacji zarządzanej, zobacz [Rozpoczynanie pracy z plikiem CreateUiDefinition](create-uidefinition-overview.md).

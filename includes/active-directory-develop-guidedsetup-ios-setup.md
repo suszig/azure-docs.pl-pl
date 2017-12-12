@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>Konfigurowanie aplikacji systemu iOS
 
 Ta sekcja zawiera instrukcje krok po kroku dotyczące sposobu tworzenia nowego projektu aby zademonstrować sposób integracji aplikacji systemu iOS (Swift) z *logowania z firmą Microsoft* aby mogła zbadać interfejsów API sieci Web, które wymagają tokenu.

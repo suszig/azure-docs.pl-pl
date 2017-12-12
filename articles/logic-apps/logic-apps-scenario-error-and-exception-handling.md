@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenariusz: Obsługa wyjątków i rejestrowania błędów dla usługi logic apps
 
@@ -45,7 +45,7 @@ Projekt ma dwa główne wymagania:
 
 ## <a name="how-we-solved-the-problem"></a>Jak możemy rozwiązuje problem
 
-Wybraliśmy [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/ "bazy danych Azure rozwiązania Cosmos") jako repozytorium dla rekordów dziennika i błąd (DB rozwiązania Cosmos odwołuje się do rekordów jako dokumentów). Ponieważ aplikacje logiki platformy Azure ma standardowy szablon wszystkie odpowiedzi, nie mamy utworzyć schematu niestandardowego. Można utworzyć aplikację interfejsu API do **Wstaw** i **zapytania** rekordów zarówno błędu, jak i dziennika. Również definiowania schematu dla każdego z nich w aplikacji interfejsu API.  
+Wybraliśmy [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/ "bazy danych Azure rozwiązania Cosmos") jako repozytorium dla rekordów dziennika i błąd (DB rozwiązania Cosmos odwołuje się do rekordów jako dokumentów). Ponieważ aplikacje logiki platformy Azure ma standardowy szablon wszystkie odpowiedzi, nie mamy utworzyć schematu niestandardowego. Można utworzyć aplikację interfejsu API do **Wstaw** i **zapytania** rekordów zarówno błędu, jak i dziennika. Również definiowania schematu dla każdego z nich w aplikacji interfejsu API.  
 
 Innym wymogiem było przeczyścić rekordów po określonej dacie. Rozwiązania cosmos bazy danych ma właściwość o nazwie [czas wygaśnięcia](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "czas wygaśnięcia") (TTL), które mogą nam można ustawić **czas wygaśnięcia** wartość dla każdego rekordu lub kolekcji. Ta funkcja została wyeliminowana trzeba ręcznie usunąć rekordy w bazie danych rozwiązania Cosmos.
 
@@ -58,7 +58,7 @@ Pierwszym krokiem jest utworzenie aplikacji logiki i Otwórz w Projektancie apli
 
 Ponieważ zamierzamy rekord wystawała Dynamics CRM Online dziennika, Zacznijmy u góry. Możemy użyć **żądania** wyzwolenia ponieważ aplikacji logiki nadrzędnego wyzwala tego dziecka.
 
-### <a name="logic-app-trigger"></a>Wyzwalaczem aplikacji logiki
+### <a name="logic-app-trigger"></a>Wyzwalacz aplikacji logiki
 
 Używamy **żądania** wyzwalania, jak pokazano w poniższym przykładzie:
 
@@ -107,7 +107,7 @@ Firma Microsoft muszą się logować źródła (żądanie) pacjenta rekordu z po
    Wyzwalacz pochodzące z CRM zapewnia nam z **CRM PatentId**, **typu rekordu**, **nowe lub zaktualizowane rekordu** (nowej lub zaktualizuj wartość logiczna), i **SalesforceId**. **SalesforceId** może mieć wartości null, ponieważ jest ona używana tylko dla aktualizacji.
    Uzyskujemy rekordu CRM przy użyciu programu CRM **PatientID** i **typu rekordu**.
 
-2. Następnie należy dodać naszej aplikacji interfejsu API usługi DocumentDB **InsertLogEntry** operacji, jak pokazano w Projektancie aplikacji logiki.
+2. Następnie należy dodać aplikacji interfejsu API Azure rozwiązania Cosmos bazy danych SQL **InsertLogEntry** operacji, jak pokazano w Projektancie aplikacji logiki.
 
    **Wstaw wpis dziennika**
 
@@ -400,7 +400,7 @@ Po uzyskaniu odpowiedzi, należy przekazać odpowiedź z powrotem do aplikacji l
 
 ## <a name="cosmos-db-repository-and-portal"></a>Repozytorium rozwiązania cosmos bazy danych i portal
 
-Nasze rozwiązanie dodane możliwości za pomocą [DB rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb).
+Nasze rozwiązanie dodane możliwości za pomocą [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Błąd portalu zarządzania
 
@@ -430,14 +430,14 @@ Aby wyświetlić dzienniki, również utworzono aplikację sieci web MVC. Poniż
 
 Open source aplikacji interfejsu API zarządzania wyjątek usługi Azure Logic Apps udostępnia funkcje, zgodnie z opisem w tym miejscu — istnieją dwa kontrolery:
 
-* **ErrorController** wstawia rekord błędu (dokument) w kolekcji usługi DocumentDB.
-* **LogController** wstawia rekordu dziennika (dokument) w kolekcji usługi DocumentDB.
+* **ErrorController** wstawia rekord błędu (dokument) w kolekcji usługi Azure DB rozwiązania Cosmos.
+* **LogController** wstawia rekordu dziennika (dokument) w kolekcji usługi Azure DB rozwiązania Cosmos.
 
 > [!TIP]
-> Zarówno kontrolery `async Task<dynamic>` czynności operacji rozwiązywać w czasie wykonywania, dlatego utworzymy schematu usługi DocumentDB w treści operacji. 
+> Zarówno kontrolery `async Task<dynamic>` czynności operacji rozwiązywać w czasie wykonywania, dlatego utworzymy schematu bazy danych Azure rozwiązania Cosmos w treści operacji. 
 > 
 
-Każdy dokument w usłudze DocumentDB musi mieć unikatowy identyfikator. Używamy `PatientId` i Dodawanie znaczników czasu, który jest konwertowany na wartość sygnatury czasowej systemu Unix (o podwójnej precyzji). Firma Microsoft obciąć wartość na usuwanie ułamkowa wartość.
+Każdy dokument w usłudze Azure DB rozwiązania Cosmos musi mieć unikatowy identyfikator. Używamy `PatientId` i Dodawanie znaczników czasu, który jest konwertowany na wartość sygnatury czasowej systemu Unix (o podwójnej precyzji). Firma Microsoft obciąć wartość na usuwanie ułamkowa wartość.
 
 Można wyświetlić kodu źródłowego kontrolera błąd interfejsu API [z usługi GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -474,12 +474,12 @@ Nazywamy interfejsu API z aplikacji logiki przy użyciu następującej składni:
  }
 ```
 
-Sprawdza, czy wyrażenie w poprzednim przykładzie kodu *Create_NewPatientRecord* stan **niepowodzenie**.
+Sprawdza, czy wyrażenie w poprzednim przykładzie kodu *Create_NewPatientRecord* stan.
 
 ## <a name="summary"></a>Podsumowanie
 
 * Można łatwo zaimplementować rejestrowania i obsługi błędów w aplikacji logiki.
-* Usługi DocumentDB można użyć jako repozytorium rekordów dziennika i błąd (dokumentów).
+* Bazy danych rozwiązania Cosmos Azure można użyć jako repozytorium rekordów dziennika i błąd (dokumentów).
 * MVC umożliwia tworzenie portalu do wyświetlania rekordów dziennika i błędów.
 
 ### <a name="source-code"></a>Kod źródłowy

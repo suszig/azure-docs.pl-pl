@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testowanie kodu
 
 Aby przetestować aplikację w programie Visual Studio, naciśnij klawisz **F5** do uruchomienia projektu. **Właściwości MainWindow** aplikacji zostanie wyświetlony:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Tworzenie i zarządzanie nimi zadania elastycznej bazy danych SQL przy użyciu programu PowerShell (wersja zapoznawcza)
 
@@ -203,7 +203,7 @@ Otwórz połączenie zadania elastycznej bazy danych:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Zaszyfrowane poświadczenia w ramach zadania elastycznej bazy danych
 Poświadczenia bazy danych można wstawiać do zadania *bazy danych kontroli* jego hasłem, szyfrowane. Należy zapisać poświadczenia na potrzeby uruchomienia zadania do wykonania w późniejszym czasie (przy użyciu harmonogramy zadań).
 
-Szyfrowanie działa za pośrednictwem utworzone jako część skrypt instalacji certyfikatu. Skrypt instalacji tworzy i wysyła certyfikat do usługi w chmurze Azure do odszyfrowywania przechowywane hasła szyfrowane. Usługi w chmurze Azure później przechowuje klucz publiczny w ramach zadania *bazy danych kontroli* co pozwala interfejsu API programu PowerShell lub klasycznego portalu Azure do zaszyfrowania podanego hasła bez konieczności certyfikatu lokalnie zainstalowana.
+Szyfrowanie działa za pośrednictwem utworzone jako część skrypt instalacji certyfikatu. Skrypt instalacji tworzy i wysyła certyfikat do usługi w chmurze Azure do odszyfrowywania przechowywane hasła szyfrowane. Usługi w chmurze Azure później przechowuje klucz publiczny w ramach zadania *bazy danych kontroli* co pozwala interfejsu API programu PowerShell lub Azure interfejs portalu do zaszyfrowania podanego hasła bez konieczności lokalnie instalacji certyfikatu .
 
 Hasła poświadczenia są szyfrowane i bezpieczne od użytkowników z dostępem tylko do odczytu do obiektów zadania elastycznej bazy danych. Ale istnieje możliwość, że złośliwy użytkownik z dostępem do odczytu i zapisu do obiektów zadania elastyczne bazy danych można wyodrębnić hasła. Poświadczenia są przeznaczone do ponownie wykorzystać w odniesieniu do wykonania zadania. Poświadczenia są przekazywane do docelowej bazy danych podczas ustanawiania połączenia. Obecnie nie istnieją żadne ograniczenia dotyczące z docelowymi bazami danych używane dla każdego poświadczenia, złośliwy użytkownik może dodać element docelowy bazy danych dla bazy danych pod kontrolą złośliwy użytkownik. Użytkownik może następnie uruchomić zadanie przeznaczonych dla tej bazy danych, aby uzyskać poświadczenia: hasło.
 

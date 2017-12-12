@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Zalecenia dotyczące wydajności
 
@@ -57,7 +57,12 @@ Ułatwić oszacowanie wpływu tego zalecenia, można uzyskać z porównanie rzec
 
 Gdy zastosujesz zalecenie spowoduje włączenie parametryzacja wymuszone w ciągu minut bazy danych i rozpoczyna proces monitorowania, które trwa około 24 godzin. Po upływie tego czasu można wyświetlić raportu weryfikacji, który pokazuje użycie procesora CPU bazy danych, 24 godzin przed i po zastosowaniu zalecenia. Doradca bazy danych programu SQL ma mechanizm bezpieczeństwa, który automatycznie przywrócona zalecenie zastosowane w przypadku, gdy wykryto regresji wydajności.
 
-## <a name="fix-schema-issues-recommendations"></a>Usuń zalecenia dotyczące problemów schematu
+## <a name="fix-schema-issues-recommendations-preview"></a>Usuń zalecenia dotyczące problemów schematu (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Microsoft trwa wycofano "Napraw problem schematu" zalecenia. Należy zacząć korzystać [Insights inteligentnego](sql-database-intelligent-insights.md) automatyczne monitorowania sieci problemy z wydajnością bazy danych, które obejmują schemat problemy, które poprzednio objęte zalecenia "Napraw problem schematu".
+> 
+
 **Rozwiązywanie problemów schematu** zalecenia są wyświetlane po usługi SQL Database powiadomienia anomalii w liczba błędów SQL dotyczące schematu wykonywanych na bazie danych SQL Azure. To zalecenie jest zwykle wyświetlany, gdy bazy danych wystąpi wiele błędów związanych z schematu (Nieprawidłowa nazwa kolumny, nieprawidłowa nazwa obiektu itp.) w ciągu godziny.
 
 "Problemy z schematu" jest klasą błędy składniowe w programie SQL Server, które się zdarzyć, gdy nie są wyrównane definicji zapytania SQL, jak i definicja schematu bazy danych. Na przykład jedna z kolumn oczekiwany przez zapytanie może brakować w tabeli docelowej lub na odwrót. 

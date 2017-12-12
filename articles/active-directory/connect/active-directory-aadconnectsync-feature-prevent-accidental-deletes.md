@@ -4,7 +4,7 @@ description: "W tym temacie opisano funkcję zapobiegania przypadkowemu usuwaniu
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu
 W tym temacie opisano funkcję zapobiegania przypadkowemu usuwaniu (zapobieganie przypadkowym usunięciu) w programie Azure AD Connect.
@@ -32,7 +32,7 @@ Typowe scenariusze Zobacz wiele usuwa obejmują:
 * Wszystkie obiekty w jednostce Organizacyjnej zostaną usunięte.
 * Jednostka Organizacyjna zostanie zmieniona, więc wszystkie obiekty w nim są traktowane jako poza zakresem synchronizacji.
 
-Wartość domyślna 500 obiektów można zmienić przy użyciu programu PowerShell przy użyciu `Enable-ADSyncExportDeletionThreshold`. Należy skonfigurować tę wartość do rozmiaru Twojej organizacji. Ponieważ harmonogramu synchronizacji jest uruchamiane co 30 minut, wartość jest liczba usuwa występuje w ciągu 30 minut.
+Wartość domyślna 500 obiektów można zmienić przy użyciu programu PowerShell przy użyciu `Enable-ADSyncExportDeletionThreshold`, która jest częścią tego modułu AD Sync zainstalowane za pomocą usługi Azure Active Directory Connect. Należy skonfigurować tę wartość do rozmiaru Twojej organizacji. Ponieważ harmonogramu synchronizacji jest uruchamiane co 30 minut, wartość jest liczba usuwa występuje w ciągu 30 minut.
 
 W przypadku zbyt wielu usunięcia umieszczone mają być eksportowane do usługi Azure AD zatrzymywany eksportu i otrzymasz wiadomość e-mail w następujący sposób:
 

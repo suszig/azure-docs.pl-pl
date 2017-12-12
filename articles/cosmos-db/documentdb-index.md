@@ -1,6 +1,6 @@
 ---
-title: "Azure DB rozwiązania Cosmos: Artykuły DocumentDB interfejsu API | Dokumentacja firmy Microsoft"
-description: "Lista wszystkich artykułów określonych do tworzenia baz danych dokumentu przy użyciu interfejsu API usługi DocumentDB w usłudze Azure DB rozwiązania Cosmos."
+title: "Azure DB rozwiązania Cosmos: Artykuły interfejsu API SQL | Dokumentacja firmy Microsoft"
+description: "Lista wszystkich artykułów określonych do tworzenia baz danych dokumentu przy użyciu interfejsu API SQL w usłudze Azure DB rozwiązania Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure rozwiązania Cosmos bazy danych: Dokumentacja interfejsu API usługi DocumentDB
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure rozwiązania Cosmos bazy danych: Dokumentacja interfejsu API SQL
 
-Ten artykuł zawiera łącza do określonych cała zawartość bazy danych Azure rozwiązania Cosmos do interfejsu API usługi DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Ten artykuł zawiera łącza do określonych cała zawartość bazy danych Azure rozwiązania Cosmos do interfejsu API SQL.
 
 Te artykuły nie dotyczą interfejsu API programu Graph, interfejsu API tabeli lub interfejsu API bazy danych MongoDB. 
 
 ## <a name="introduction-and-concepts"></a>Wprowadzenie i pojęć
 
-Są to musi przeczytaj tematy i zasobów, aby uruchomić szkoleniowe dotyczące interfejsu API usługi DocumentDB dla bazy danych Azure rozwiązania Cosmos.
+Są to musi przeczytaj tematy i zasobów, aby uruchomić szkoleniowe dotyczące interfejsu API SQL dla bazy danych Azure rozwiązania Cosmos.
 
-- [Wprowadzenie do interfejsu API usługi DocumentDB](documentdb-introduction.md)
+- [Wprowadzenie do interfejsu API SQL](documentdb-introduction.md)
 - [Model zasobów bazy danych](documentdb-resources.md)
 - Witryny sieci Web: [Plac zabaw dla zapytań](https://www.documentdb.com/sql/demo)
 - Ściągawka: [gramatyki SQL](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ Azure DB rozwiązania Cosmos udostępnia wiele zestawów SDK, aby umożliwić tw
 
 ## <a name="samples"></a>Przykłady
 
-Te przykładowe strony znajdują się łącza do interfejsów API i przykładowy kod odwołania zawartości dla najbardziej typowych zadań interfejsu API usługi DocumentDB.
+Te przykładowe strony znajdują się łącza do interfejsów API i przykładowy kod odwołania zawartości dla najbardziej typowych zadań interfejsu API SQL.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

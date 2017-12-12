@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uruchom klaster Cassandra w systemie Linux na platformie Azure za pomocą języka Node.js
 
@@ -134,7 +134,7 @@ W tym kroku procesu zostanie utworzony obraz Ubuntu z wstępnie wymagane oprogra
 Platforma Azure wymaga X509 klucza publicznego, który jest PEM lub DER zakodowane w czasie inicjowania obsługi administracyjnej. Generowanie pary kluczy publiczny/prywatny, korzystając z instrukcji znajdujący się w sposób używanie SSH z systemem Linux na platformie Azure. Jeśli planujesz użyć putty.exe jako klienta SSH w systemie Windows lub Linux, należy przekonwertować PEM zakodowane RSA klucz prywatny do formatu PPK, używając puttygen.exe; odpowiednie instrukcje znajdują się w powyższym strony sieci web.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>Krok 2: Tworzenie Ubuntu szablonu maszyny Wirtualnej
-Aby utworzyć szablon maszyny Wirtualnej, zaloguj się do klasycznego portalu Azure i użyj następującej procedury: kliknij przycisk Nowy, obliczeń, maszyny WIRTUALNEJ, z GALERII, UBUNTU, Ubuntu Server 14.04 LTS, a następnie kliknij strzałkę w prawo. Samouczek, który opisuje metodę utworzyć Maszynę wirtualną systemu Linux, zobacz Tworzenie maszyny wirtualnej systemem Linux.
+Aby utworzyć szablon maszyny Wirtualnej, zaloguj się do portalu Azure i użyj następującej procedury: kliknij przycisk Nowy, obliczeń, maszyny WIRTUALNEJ, z GALERII, UBUNTU, Ubuntu Server 14.04 LTS, a następnie kliknij strzałkę w prawo. Samouczek, który opisuje metodę utworzyć Maszynę wirtualną systemu Linux, zobacz Tworzenie maszyny wirtualnej systemem Linux.
 
 Na ekranie "konfiguracja maszyny wirtualnej" #1, wprowadź następujące informacje:
 

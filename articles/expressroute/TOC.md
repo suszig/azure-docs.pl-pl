@@ -28,6 +28,7 @@
 ### [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
+## [Konfigurowanie sieci VPN typu lokacja-lokacja do komunikacji równorzędnej firmy Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurowanie bramy sieci wirtualnej dla usługi ExpressRoute
 ### [Witryna Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)

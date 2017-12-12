@@ -38,6 +38,7 @@
 
 ## Integracja
 ### [Omówienie](sql-data-warehouse-overview-integrate.md)
+### [Zapytanie elastyczne w usłudze SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Monitorowanie i dostrajanie
@@ -100,9 +101,8 @@
 
 
 ## Integracja
-###  [Konfigurowanie zapytania elastycznego z usługi SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Konfigurowanie zapytania elastycznego z usługi SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Dodawanie zadania usługi Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Konfigurowanie zapytania elastycznego](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Korzystanie z uczenia maszynowego](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Wizualizowanie przy użyciu usługi Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

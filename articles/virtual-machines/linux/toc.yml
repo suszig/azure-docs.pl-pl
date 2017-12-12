@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Optymalizacja pod kątem pamięci
           href: sizes-memory.md
+          items:
+            - name: Procesory wirtualne z ograniczeniami
+              href: constrained-vcpu.md
         - name: Optymalizacja pod kątem magazynu
           href: sizes-storage.md
         - name: Optymalizacja pod kątem procesora GPU
@@ -164,6 +167,8 @@
       items:
         - name: Przedpłaty dotyczące maszyn wirtualnych — wystąpienia zarezerwowane
           href: prepay-reserved-vm-instances.md
+        - name: Użycie maszyny wirtualnej
+          href: vm-usage.md
         - name: Typowe zadania interfejsu wiersza polecenia
           href: cli-manage.md
         - name: Przenoszenie maszyny wirtualnej

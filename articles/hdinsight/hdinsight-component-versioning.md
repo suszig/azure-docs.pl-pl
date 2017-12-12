@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie są składniki platformy Hadoop i wersje dostępne w usłudze HDInsight?
 
@@ -77,7 +77,7 @@ Zobacz [informacje o wersji usługi HDInsight](hdinsight-release-notes.md) dodat
 W poniższej tabeli wymieniono wersje usługi HDInsight, które są obecnie dostępne w portalu Azure. Wersje HDP, które odpowiadają każdej wersji usługi HDInsight są wyświetlane wraz z dat wersji produktu. Obsługa daty wygaśnięcia i wycofania podawane są również, gdy są one znane.
 
 > [!NOTE]
-> Po pomocy technicznej dla wersji, może nie być dostępne za pośrednictwem klasycznego portalu Microsoft Azure. Jednak nadal być dostępny za pomocą wersji klastra `Version` parametru w programie Windows PowerShell [AzureRmHDInsightCluster nowy](https://msdn.microsoft.com/library/mt619331.aspx) polecenia i zestawu .NET SDK do wersji dacie wycofania.
+> Po pomocy technicznej dla wersji, może nie być dostępne za pośrednictwem portalu Microsoft Azure. Jednak nadal być dostępny za pomocą wersji klastra `Version` parametru w programie Windows PowerShell [AzureRmHDInsightCluster nowy](https://msdn.microsoft.com/library/mt619331.aspx) polecenia i zestawu .NET SDK do wersji dacie wycofania.
 > 
 > Klastry wysokiej dostępności z dwóch węzłów głównych są wdrażane domyślnie dla usługi HDInsight w wersji 2.1 i nowszymi. Nie są one dostępne dla klastrów usługi HDInsight w wersji 1.6.
 
@@ -181,12 +181,12 @@ W poniższej tabeli wymieniono typy klastrów, które są obsługiwane w HDInsig
 
 | Typ klastra | Standardowa | Premium (wersja zapoznawcza) |
 | --- | --- | --- |
-| Usługa Hadoop |Tak |Tak (tylko HDInsight 3,6) |
+| Hadoop |Tak |Tak (tylko HDInsight 3,6) |
 | platforma Spark |Tak |Nie |
 | HBase |Tak |Nie |
 | Storm |Tak |Nie |
 | R Server |Tak |Nie |
-| Interakcyjne zapytania |Tak |Nie |
+| Zapytanie interakcyjne |Tak |Nie |
 | Kafka (wersja zapoznawcza) |Tak |Nie | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Obsługa usługi Azure Data Lake Store w HDInsight Premium
@@ -206,7 +206,7 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
 
 * Wszystkie obsługiwane regiony, z wyjątkiem Brazylia Południowa i Japonia Zachodnia:
 
-  | Typ klastra | Usługa Hadoop | HBase | Storm | platforma Spark | R Server |
+  | Typ klastra | Hadoop | HBase | Storm | platforma Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
   | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
   | HEAD: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3 I A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -218,7 +218,7 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
   | Krawędź: zalecany rozmiar maszyny Wirtualnej | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazylia Południowa i Japonii tylko zachodnie (nie rozmiary v2):
 
-  | Typ klastra | Usługa Hadoop | HBase | Storm | platforma Spark | R Server |
+  | Typ klastra | Hadoop | HBase | Storm | platforma Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
   | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 |D3 |A3 |D12 |D12 |
   | HEAD: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4, |A3 I A4, A5 |D14 D12, D13, |D14 D12, D13, |

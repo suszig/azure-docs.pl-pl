@@ -1,8 +1,8 @@
 ---
-title: "Samouczek usługi Azure DB rozwiązania Cosmos dystrybucji globalne dla interfejsu API usługi DocumentDB | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak skonfigurować bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API usługi DocumentDB."
+title: "Samouczek usługi Azure DB rozwiązania Cosmos dystrybucji globalne dla interfejsu API SQL | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API SQL."
 services: cosmos-db
-keywords: "globalne dystrybucji, z usługi documentdb"
+keywords: Globalne dystrybucji
 documentationcenter: 
 author: mimig1
 manager: jhubbard
@@ -16,31 +16,33 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 11b6edb811c6e88941db63cb22f1d2308dd31f66
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API usługi DocumentDB
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API SQL
 
-W tym artykule zostanie przedstawiony sposób instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API usługi DocumentDB za pomocą portalu Azure.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+W tym artykule zostanie przedstawiony sposób instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API SQL za pomocą portalu Azure.
 
 W tym artykule opisano następujące zadania: 
 
 > [!div class="checklist"]
 > * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfigurować globalne dystrybucji za pomocą [interfejsów API usługi DocumentDB](documentdb-introduction.md)
+> * Skonfigurować globalne dystrybucji za pomocą [SQL interfejsów API](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Łączenie z preferowanego regionu przy użyciu interfejsu API usługi DocumentDB
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Łączenie z preferowanego regionu przy użyciu interfejsu API SQL
 
-Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje klienckie można określić listy uporządkowanej preferencji regionów ma być używany do wykonywania operacji dokumentu. Można to zrobić przez ustawienie zasad połączenia. Na podstawie konfiguracji konta bazy danych Azure rozwiązania Cosmos, bieżącej dostępności regionalnych i na liście preferencji określone, optymalny punkt końcowy zostanie wybrany przez zestaw SDK usługi DocumentDB do wykonywania zapisu i operacji odczytu.
+Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje klienckie można określić listy uporządkowanej preferencji regionów ma być używany do wykonywania operacji dokumentu. Można to zrobić przez ustawienie zasad połączenia. Na podstawie konfiguracji konta bazy danych Azure rozwiązania Cosmos, bieżącej dostępności regionalnych i na liście preferencji określone, optymalny punkt końcowy zostanie wybrany przez zestaw SDK SQL, aby wykonać zapisu i operacji odczytu.
 
-Ta lista preferencji został określony podczas inicjowania połączenia przy użyciu zestawów SDK usługi DocumentDB. Zestawy SDK zaakceptować opcjonalny parametr "PreferredLocations" oznacza to uporządkowana lista regionów platformy Azure.
+Ta lista preferencji został określony podczas inicjowania połączenia przy użyciu zestawów SDK SQL. Zestawy SDK zaakceptować opcjonalny parametr "PreferredLocations" oznacza to uporządkowana lista regionów platformy Azure.
 
 Zestaw SDK będzie automatycznie wysyłać zapisuje wszystkie dane w bieżącej zapisu regionu.
 
@@ -169,7 +171,7 @@ W tym samouczku wykonaniu następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API usługi DocumentDB
+> * Skonfiguruj globalne dystrybucji przy użyciu interfejsów API SQL
 
 Możesz teraz przejść do następnym samouczku, aby dowiedzieć się, jak opracowywać lokalnie przy użyciu emulatora lokalnej bazy danych Azure rozwiązania Cosmos.
 

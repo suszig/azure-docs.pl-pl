@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia bazy danych Azure rozwiązania Cosmos
 Ten artykuł zawiera omówienie kilka typowe przypadki użycia dla bazy danych Azure rozwiązania Cosmos.  Zalecenia przedstawione w tym artykule służyć jako punktu wyjścia podczas opracowywania aplikacji DB rozwiązania Cosmos.   
@@ -33,9 +33,7 @@ Po przeczytaniu tego artykułu, będziesz mieć możliwość odpowiedzieć na na
 ## <a name="introduction"></a>Wprowadzenie
 [Azure DB rozwiązania Cosmos](../cosmos-db/introduction.md) jest usługą globalnie rozproszoną bazę danych firmy Microsoft. Usługa umożliwia klientom elastycznie (i niezależnie) Skala przepływność i magazyn na dowolną liczbę regionów geograficznych. Azure DB rozwiązania Cosmos jest pierwszej usługi globalnie rozproszoną bazę danych dostępnych na rynku dzisiaj oferuje kompleksowe [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/cosmos-db/) obejmujące przepływności, opóźnienia, dostępności i spójności. 
 
-Projekt bazy danych Azure rozwiązania Cosmos rozpoczął 2011 jako "Florencji projektu" adres developer słabe punkty, które muszą stawiać czoła dużych aplikacji internetowych skali w firmie Microsoft. Przestrzeganie tych problemów nie są unikatowe dla aplikacji firmy Microsoft, zdecydowaliśmy się udostępnić bazy danych Azure rozwiązania Cosmos zwykle deweloperzy zewnętrznych w 2015 w formie [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Usługa jest używana ubiquitously wewnętrznie w ramach firmy Microsoft i jest jednym z najszybciej rozwijających usługi używane przez Azure deweloperzy zewnętrznie. 
-
-Azure DB rozwiązania Cosmos jest globalne rozproszone i wiele modeli bazy danych, która jest używana w wielu aplikacji oraz przypadki użycia. Jest dobrym rozwiązaniem dla każdego [niekorzystającą](http://azure.com/serverless) aplikacji, która wymaga czasy odpowiedzi kolejności z milisekund niski i musi szybko i globalnie. Obsługuje wiele modeli danych (klucz wartość, dokumentów, wykresów i kolumnowy) i uzyskiwać dostęp do wielu interfejsów API dla danych, w tym [API bazy danych MongoDB](mongodb-introduction.md), [interfejsu API usługi DocumentDB (SQL)](documentdb-introduction.md), [interfejsu API programu Graph (Gremlin)](graph-introduction.md), i [API tabel](table-introduction.md) natywnie i w sposób rozszerzonego. 
+Azure DB rozwiązania Cosmos jest globalne rozproszone i wiele modeli bazy danych, która jest używana w wielu aplikacji oraz przypadki użycia. Jest dobrym rozwiązaniem dla każdego [niekorzystającą](http://azure.com/serverless) aplikacji, która wymaga czasy odpowiedzi kolejności z milisekund niski i musi szybko i globalnie. Obsługuje wiele modeli danych (klucz wartość, dokumentów, wykresów i kolumnowy) i uzyskiwać dostęp do wielu interfejsów API dla danych, w tym [API bazy danych MongoDB](mongodb-introduction.md), [interfejsu API SQL](documentdb-introduction.md), [interfejsu API programu Graph (Gremlin)](graph-introduction.md), i [API tabel](table-introduction.md) natywnie i w sposób rozszerzonego. 
 
 Poniżej przedstawiono niektóre atrybuty bazy danych Azure rozwiązania Cosmos, wchodzące nadają się do wysokiej wydajności aplikacji za pomocą ambicji globalnego.
 

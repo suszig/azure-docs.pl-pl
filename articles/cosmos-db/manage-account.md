@@ -1,7 +1,7 @@
 ---
 title: "Zarządzaj kontem bazy danych rozwiązania Cosmos Azure za pośrednictwem portalu Azure | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak Zarządzanie kontem bazy danych Azure rozwiązania Cosmos w portalu Azure. Przewodnik na wyświetlanie, kopiowanie, usuwanie i dostęp do kont za pomocą portalu Azure."
-keywords: Portal Azure documentdb, azure, platformy Microsoft azure
+keywords: Azure portalu azure, programu Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Jak zarządzać konta bazy danych Azure rozwiązania Cosmos
 Dowiedz się, jak ustawić globalne spójności, pracy z kluczy oraz usunąć konto bazy danych Azure rozwiązania Cosmos w portalu Azure.

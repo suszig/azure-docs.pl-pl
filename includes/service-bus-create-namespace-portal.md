@@ -3,7 +3,7 @@ Aby rozpocząć korzystanie z obsługi wiadomości usługi Service Bus na platfo
 Aby utworzyć przestrzeń nazw:
 
 1. Zaloguj się w witrynie [Azure Portal][Azure portal].
-2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Service Bus**.
+2. W okienku nawigacji po lewej stronie portalu kliknij **+ Utwórz zasób**, następnie kliknij przycisk **integracji przedsiębiorstwa**, a następnie kliknij przycisk **usługi Service Bus**.
 3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
 5. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
@@ -14,14 +14,14 @@ Aby utworzyć przestrzeń nazw:
 8. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
-Utworzenie nowej przestrzeni nazw spowoduje automatyczne wygenerowanie początkowej reguły sygnatury dostępu współdzielonego ze skojarzoną parą kluczy podstawowego i pomocniczego, która przyznaje pełną kontrolę nad wszystkimi aspektami przestrzeni nazw. Zapoznaj się z artykułem [Uwierzytelnianie i autoryzacja w usłudze Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md), aby dowiedzieć się, jak utworzyć dodatkowe reguły z bardziej ograniczonymi prawami dla zwykłych nadawców i odbiorców. Aby skopiować początkową regułę, wykonaj następujące kroki: 
+Automatyczne tworzenie nowej przestrzeni nazw generuje początkowej reguły dostępu sygnatury dostępu Współdzielonego przy skojarzone pary kluczy podstawowych i pomocniczych, że każdy przyznaje pełną kontrolę nad wszystkimi aspektami przestrzeni nazw. Zobacz [magistrali usług uwierzytelniania i autoryzacji](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) informacji o tym, jak tworzyć dodatkowe reguły z więcej ograniczone prawa do regularnych nadawcami a odbiornikami. Aby skopiować początkową regułę, wykonaj następujące kroki: 
 
 1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
-2. W bloku przestrzeni nazw usługi Service Bus kliknij pozycję **Zasady dostępu współdzielonego**.
-3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
+2. W oknie przestrzeni nazw kliknij **zasady dostępu współużytkowanego**.
+3. W **zasady dostępu współużytkowanego** kliknij **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
+4. W **zasad: RootManageSharedAccessKey** , kliknij kopię przycisk Dalej, aby **połączenia ciąg — podstawowy klucz**, aby skopiować parametry połączenia do Schowka do późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
    
     ![connection-string][connection-string]
 

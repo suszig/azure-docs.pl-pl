@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 608222da9cbe2895914e14c9f76cc5629ef65684
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
@@ -30,7 +30,7 @@ Użyj tego samouczka, aby rozpocząć korzystanie z bazy danych rozwiązania Cos
 
 ## <a name="what-is-logged"></a>Co to jest rejestrowane?
 
-* Wszystkie uwierzytelnione żądania usługi DocumentDB REST (SQL) interfejsu API są rejestrowane, w tym żądań zakończonych niepowodzeniem w wyniku uprawnienia dostępu, błędów systemu lub błędów w żądaniach. Obsługa bazy danych MongoDB, wykres i tabelę interfejsów API nie jest obecnie dostępna.
+* Wszystkie uwierzytelnione żądania interfejsu API REST SQL są rejestrowane, która obejmuje żądań zakończonych niepowodzeniem w wyniku uprawnienia dostępu, błędów systemu lub błędów w żądaniach. Obsługa bazy danych MongoDB, wykres i tabelę interfejsów API nie jest obecnie dostępna.
 * Operacje w bazie danych, w tym operacji CRUD na wszystkie dokumenty, kontenery i baz danych.
 * Operacje na klucze konta, które obejmują tworzenie, modyfikowanie lub usuwanie tych kluczy.
 * Nieuwierzytelnione żądania, które powodują uzyskanie odpowiedzi 401. Na przykład żądania, które nie mają tokenu elementu nośnego, są nieprawidłowo sformułowane, wygasły lub mają nieprawidłowy token.
@@ -54,9 +54,9 @@ Do ukończenia tego samouczka, musi mieć następujące zasoby:
     * **Archiwum na konto magazynu**. Aby użyć tej opcji, należy istniejące konto magazynu, aby nawiązać połączenie. Aby utworzyć nowe konto magazynu w portalu, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md) i postępuj zgodnie z instrukcjami, aby utworzyć Resource Manager konta ogólnego przeznaczenia. Następnie wróć do tej strony w portalu, aby wybrać konta magazynu. Może upłynąć kilka minut dla kont magazynu nowo utworzony pojawią się w menu rozwijanym.
     * **Strumień do Centrum zdarzeń**. Aby użyć tej opcji, należy istniejących Centrum zdarzeń przestrzeni nazw i zdarzenia koncentratora do nawiązania połączenia. Aby utworzyć przestrzeń nazw usługi Event Hubs, zobacz [tworzenie przestrzeni nazw usługi Event Hubs i Centrum zdarzeń za pomocą portalu Azure](../event-hubs/event-hubs-create.md). Następnie wróć do tej strony w portalu, aby wybrać nazwę przestrzeni nazw i zasad Centrum zdarzeń.
     * **Wyślij do analizy dzienników**.     Aby użyć tej opcji, użyj istniejący obszar roboczy lub utworzyć nowy obszar roboczy analizy dzienników, wykonując następujące kroki, aby [Utwórz nowy obszar roboczy](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) w portalu. Aby uzyskać więcej informacji o wyświetlaniu dzienników w analizy dzienników, zobacz [Wyświetl dzienniki w analizy dzienników](#view-in-loganalytics).
-    * **Zaloguj się DataPlaneRequests**. Wybierz tę opcję, aby rejestrować diagnostyki dla konta usługi DocumentDB, wykres i tabelę interfejsu API. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
+    * **Zaloguj się DataPlaneRequests**. Wybierz tę opcję, aby rejestrować diagnostyki dla konta programu SQL, wykres i tabelę interfejsu API. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
     * **Zaloguj się MongoRequests**. Wybierz tę opcję, aby dziennika diagnostyki dla kont API bazy danych MongoDB. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
-    * **Metryka żądania**. Wybierz tę opcję, aby przechowywać pełne dane w [metryki Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
+    * **Metryka żądania**. Wybierz tę opcję, aby przechowywać pełne dane w [metryki Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
 
 3. Kliknij pozycję **Zapisz**.
 

@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testowanie kodu
 
 1. Wdrażanie kodu na urządzeniu/emulatorze.

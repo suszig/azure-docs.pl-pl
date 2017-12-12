@@ -1,5 +1,5 @@
 ---
-title: "Aplikacji node.js za pomocą użyciu biblioteki Socket.io | Dokumentacja firmy Microsoft"
+title: "Aplikacji node.js za pomocą użyciu biblioteki Socket.io - Azure"
 description: "Dowiedz się, jak używać użyciu biblioteki socket.io w aplikacji node.js hostowanej na platformie Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usłudze chmury Azure
-Użyciu biblioteki Socket.IO zapewnia czasu rzeczywistego komunikacji między między serwerem środowiska node.js i klientami. W tym samouczku opisano za pośrednictwem obsługi gniazda. We/Wy na podstawie rozmów aplikacji na platformie Azure. Aby uzyskać więcej informacji o użyciu biblioteki Socket.IO, zobacz <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Tworzenie aplikacji czatu Node.js przy użyciu biblioteki Socket.IO w usługi w chmurze platformy Azure
+
+Użyciu biblioteki Socket.IO zapewnia czasu rzeczywistego komunikację między serwerem środowiska node.js i klientami. Ten samouczek przedstawia za pośrednictwem obsługi gniazda. We/Wy na podstawie rozmów aplikacji na platformie Azure. Aby uzyskać więcej informacji o użyciu biblioteki Socket.IO, zobacz [użyciu biblioteki socket.io](http://socket.io).
 
 Zrzut ekranu przedstawiający ukończona aplikacja znajduje się poniżej:
 

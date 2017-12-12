@@ -4,7 +4,7 @@ description: "W tym artykule opisano sposób użycia wiadomości HTTP do autoryz
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoryzacja dostępu do aplikacji sieci web przy użyciu protokołu OpenID Connect i Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) to warstwa proste tożsamości oparty na protokole OAuth 2.0. OAuth 2.0 definiuje mechanizmy do użycia **tokenów dostępu** dostęp do chronionych zasobów, ale nie definiują standardowe metody w celu zapewnienia informacji o tożsamości. OpenID Connect implementuje uwierzytelnianie jako rozszerzenie procesu autoryzacji OAuth 2.0. Zawiera informacje na temat użytkownika końcowego w formie `id_token` weryfikuje tożsamość użytkownika i udostępnia informacje podstawowe profilu użytkownika.
@@ -90,8 +90,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Zalecane |Redirect_uri aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania.  Go musi dokładnie pasować redirect_uris, który został zarejestrowany w portalu, z wyjątkiem musi być zakodowane w adresie url. |
 | response_mode |Zalecane |Określa metodę, które mają być używane do odesłania wynikowy authorization_code do aplikacji.  Obsługiwane wartości to `form_post` dla *HTTP post formularza* lub `fragment` dla *fragmentu adresu URL*.  Dla aplikacji sieci web, zaleca się używanie `response_mode=form_post` zapewnienie najbardziej bezpieczny transfer tokenów do aplikacji. |
 | state |Zalecane |Wartość zawarte w żądaniu, który jest zwracany w odpowiedzi tokenu.  Można go ciągiem zawartość, która ma.  Losowo generowany unikatową wartość jest zazwyczaj używana w przypadku [zapobieganie fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12).  Stan służy także do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
-| wiersz |Opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  Obecnie jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Wymusza na użytkowniku, aby wprowadzić swoje poświadczenia w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - gwarantuje, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punkt końcowy zwraca błąd.  `prompt=consent`Wyzwalacze uwierzytelniania OAuth zgoda okna dialogowego po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
-| login_hint |Opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika strony logowania dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często tego parametru należy użyć podczas ponownego uwierzytelniania, już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
+| wiersz |opcjonalne |Wskazuje typ interakcji z użytkownikiem, który jest wymagany.  Obecnie jedynymi prawidłowymi wartościami są "login", "none", "wyrazić zgodę".  `prompt=login`Wymusza na użytkowniku, aby wprowadzić swoje poświadczenia w tym żądaniu Negacja jednokrotnego.  `prompt=none`jest to odwrotność wzorca - gwarantuje, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego.  Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem jednokrotnego, punkt końcowy zwraca błąd.  `prompt=consent`Wyzwalacze uwierzytelniania OAuth zgoda okna dialogowego po użytkownik się zaloguje, użytkownikowi uprawnienia do aplikacji. |
+| login_hint |opcjonalne |Można wstępnie wypełnić pole adresu e-mail/nazwa użytkownika strony logowania dla użytkownika, jeśli znasz swoją nazwę użytkownika wcześniejsze.  Aplikacje często tego parametru należy użyć podczas ponownego uwierzytelniania, już o wyodrębnić nazwy użytkownika z poprzedniej logowania przy użyciu `preferred_username` oświadczeń. |
 
 W tym momencie użytkownik jest proszony o wprowadzenie poświadczeń i wykonania uwierzytelnienia.
 
@@ -130,7 +130,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Kody błędów dla błędów punktu końcowego autoryzacji
 W poniższej tabeli opisano różne kody błędów, które mogą być zwracane w `error` parametr odpowiedzi na błąd.
 
-| Kod błędu: | Opis | Akcja klienta |
+| Kod błędu | Opis | Akcja klienta |
 | --- | --- | --- |
 | invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie. Jest to błąd programowanie i zwykle zostanie przechwycony podczas testowania początkowej. |
 | unauthorized_client |Aplikacja kliencka nie jest dozwolone przy kod autoryzacji żądania. |Dzieje się tak zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowany w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD przez użytkownika. Aplikację można monitować użytkownika z instrukcji dotyczących instalowania aplikacji i dodanie go do usługi Azure AD. |

@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Użyj usługi Azure Media Encoder Standard, aby automatycznie wygenerować drabinę szybkości transmisji bitów
 
 ## <a name="overview"></a>Omówienie
 
-W tym temacie przedstawiono sposób Media Encoder Standard (rynkowej) umożliwia automatyczne generowanie drabinę szybkości transmisji bitów (pary rozpoznawania szybkości transmisji bitów) na podstawie rozdzielczość i szybkość transmisji bitów. Nigdy nie przekroczy ustawienie generowane automatycznie, rozdzielczość i szybkość transmisji bitów. Na przykład jeśli dane wejściowe są 720p w 3 MB/s, dane wyjściowe będą pozostawać w najlepszym 720p i rozpocznie stawkami niższa niż 3 MB/s.
+W tym artykule przedstawiono sposób Media Encoder Standard (rynkowej) umożliwia automatyczne generowanie drabinę szybkości transmisji bitów (pary rozpoznawania szybkości transmisji bitów) na podstawie rozdzielczość i szybkość transmisji bitów. Nigdy nie przekroczy ustawienie generowane automatycznie, rozdzielczość i szybkość transmisji bitów. Na przykład jeśli dane wejściowe są 720p 3 MB/s, dane wyjściowe w najlepszym pozostaje 720p i rozpocznie stawkami niższa niż 3 MB/s.
 
 ### <a name="encoding-for-streaming-only"></a>Kodowanie tylko przesyłania strumieniowego
 
-Jeśli Twoje zamierzeniu zakodować źródłowy plik wideo tylko do przesyłania strumieniowego, powinny można użyć "Adaptacyjne przesyłanie strumieniowe" ustawienia wstępnego podczas tworzenia zadania kodowania. Korzystając z **adaptacyjne przesyłanie strumieniowe** zdefiniowane, koder rynkowej sposób inteligentny będzie cap drabinę szybkości transmisji bitów. Jednak nie będzie mogła kontroli kodowanie koszty, ponieważ usługa określa, jak wiele warstw do użycia i jakie rozdzielczości. Zawiera przykłady warstw wyjściowego utworzonego przez rynkowej wyniku z kodowaniem **adaptacyjne przesyłanie strumieniowe** ustawień wstępnych. na końcu tego tematu. Nie jest przeplatana dane wyjściowe zasobów będzie zawierać pliki MP4, gdzie audio i wideo.
+Jeśli Twoje zamierzeniu zakodować źródłowy plik wideo tylko do przesyłania strumieniowego, następnie należy użyć "Adaptacyjne przesyłanie strumieniowe" ustawienia wstępnego podczas tworzenia zadania kodowania. Korzystając z **adaptacyjne przesyłanie strumieniowe** zdefiniowane, koder rynkowej sposób inteligentny będzie cap drabinę szybkości transmisji bitów. Jednak nie będzie mogła kontroli kodowanie koszty, ponieważ usługa określa, jak wiele warstw do użycia i jakie rozdzielczości. Zawiera przykłady warstw wyjściowego utworzonego przez rynkowej wyniku z kodowaniem **adaptacyjne przesyłanie strumieniowe** ustawień wstępnych. na końcu tego artykułu. Dane wyjściowe zawartości zawiera pliki MP4, gdzie audio i wideo nie ma przeplotu.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Kodowanie używane do przesyłania strumieniowego i pobierania progresywnego
 
-Jeśli Twoje celem jest, aby zakodować źródłowy plik wideo do przesyłania strumieniowego, a także do tworzenia plików MP4 do pobierania progresywnego, powinny można użyć "zawartości adaptacyjną wielu szybkości transmisji bitów MP4" ustawienia wstępnego podczas tworzenia zadania kodowania. Korzystając z **zawartości adaptacyjną wielu MP4 szybkości transmisji bitów** zdefiniowane, koder rynkowej będzie stosowana ta sama logika kodowania, jak powyżej, ale teraz elementu zawartości wyjściowej będzie zawierać pliki MP4, gdzie audio i wideo jest przeplatana. Można użyć jednego z tych plików MP4 (na przykład najwyższa wersja szybkości transmisji bitów) jako plik pobierania progresywnego.
+Z celem jest, aby zakodować źródłowy plik wideo do przesyłania strumieniowego, a także do tworzenia plików MP4 do pobierania progresywnego, należy użyć "zawartości adaptacyjną wielu szybkości transmisji bitów MP4" ustawienia wstępnego podczas tworzenia zadania kodowania. Korzystając z **zawartości adaptacyjną wielu MP4 szybkości transmisji bitów** zdefiniowane, koder rynkowej stosuje tej samej logiki kodowania, powyżej, ale teraz elementu zawartości wyjściowej będzie zawierać pliki MP4, gdzie audio i wideo jest przeplatana. Można użyć jednego z tych plików MP4 (na przykład najwyższa wersja szybkości transmisji bitów) jako plik pobierania progresywnego.
 
 ## <a id="encoding_with_dotnet"></a>Kodowanie w usłudze Media Services zestawu .NET SDK
 
@@ -41,7 +40,7 @@ Poniższy przykład kodu wykorzystuje .NET SDK usługi Media Services do wykonyw
 - Utwórz zadania kodowania.
 - Pobierz odwołanie do kodera Media Encoder Standard.
 - Dodaj zadanie kodowania zadania i określanie użycia **adaptacyjne przesyłanie strumieniowe** wstępnie zdefiniowane. 
-- Utwórz zasób danych wyjściowych, który będzie zawierać zakodowanym elementem zawartości.
+- Tworzenie zasobu wyjściowy, który zawiera zakodowanym elementem zawartości.
 - Dodaj program obsługi zdarzeń, aby sprawdzić postęp zadania.
 - Przesłać zadanie.
 
@@ -51,28 +50,37 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
 
 #### <a name="example"></a>Przykład
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu info
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Dane wyjściowe
 

@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Podział na partycje w usłudze Azure DB rozwiązania Cosmos przy użyciu interfejsu API usługi DocumentDB
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Podział na partycje w usłudze Azure DB rozwiązania Cosmos przy użyciu interfejsu API SQL
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Bazy danych programu Microsoft Azure rozwiązania Cosmos](../cosmos-db/introduction.md) jest usługą bazy danych globalnych, rozproszone i wiele modeli pomaga osiągnąć szybkie, przewidywalną wydajność i skalę bezproblemowo wraz z aplikacji jako ich przyrostu. 
 
-Ten artykuł zawiera omówienie sposobu pracy z partycjonowania DB rozwiązania Cosmos kontenerów przy użyciu interfejsu API usługi DocumentDB. Zobacz [partycjonowania i skalowanie w poziomie](../cosmos-db/partition-data.md) omówienie pojęć i najlepsze rozwiązania dotyczące partycjonowania z jakiegokolwiek interfejsu API Azure rozwiązania Cosmos bazy danych. 
+Ten artykuł zawiera omówienie sposobu pracy z partycjonowania DB rozwiązania Cosmos kontenerów przy użyciu interfejsu API SQL. Zobacz [partycjonowania i skalowanie w poziomie](../cosmos-db/partition-data.md) omówienie pojęć i najlepsze rozwiązania dotyczące partycjonowania z jakiegokolwiek interfejsu API Azure rozwiązania Cosmos bazy danych. 
 
 Aby rozpocząć pracę z kodem, Pobierz projektu z [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +46,7 @@ Aby rozpocząć pracę z kodem, Pobierz projektu z [Azure rozwiązania Cosmos DB
 
 ## <a name="partition-keys"></a>Klucze partycji
 
-W interfejsie API usługi DocumentDB należy określić definicję klucza partycji w formie ścieżkę JSON. W poniższej tabeli przedstawiono przykłady definicji klucza partycji oraz odpowiadający każdej wartości. Klucz partycji jest określony jako ścieżkę, np. `/department` reprezentuje dział właściwości. 
+W interfejsu API SQL należy określić definicję klucza partycji w formie ścieżce JSON. W poniższej tabeli przedstawiono przykłady definicji klucza partycji oraz odpowiadający każdej wartości. Klucz partycji jest określony jako ścieżkę, np. `/department` reprezentuje dział właściwości. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +108,7 @@ await client.CreateDocumentCollectionAsync(
 Ta metoda powoduje interfejsu API REST wywołania w celu rozwiązania Cosmos bazy danych i usługi Obsługa będzie inicjowana liczba partycji na podstawie przepływności żądanej. W razie rozwoju potrzeb wydajność można zmienić przepływności kontenera. 
 
 ### <a name="reading-and-writing-items"></a>Odczytywanie i zapisywanie elementów
-Teraz Dodajmy danych w bazie danych rozwiązania Cosmos. Oto przykładowe klasa zawierająca urządzenia odczytywania i wywołanie CreateDocumentAsync Wstaw nowe urządzenie odczytu do kontenera. To jest przykład korzystania z interfejsu API usługi DocumentDB:
+Teraz Dodajmy danych w bazie danych rozwiązania Cosmos. Oto przykładowe klasa zawierająca urządzenia odczytywania i wywołanie CreateDocumentAsync Wstaw nowe urządzenie odczytu do kontenera. To jest przykład korzystania z interfejsu API SQL:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +225,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 W następnej sekcji opisano, jak można przenieść do kontenerów podzielonym na partycje z jedną partycją kontenerów.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule podaliśmy omówienie sposobu pracy z partycji bazy danych Azure rozwiązania Cosmos kontenerów przy użyciu interfejsu API usługi DocumentDB. Zobacz też [partycjonowania i skalowanie w poziomie](../cosmos-db/partition-data.md) omówienie pojęć i najlepsze rozwiązania dotyczące partycjonowania z jakiegokolwiek interfejsu API Azure rozwiązania Cosmos bazy danych. 
+W tym artykule podaliśmy omówienie sposobu pracy z partycji bazy danych Azure rozwiązania Cosmos kontenerów przy użyciu interfejsu API SQL. Zobacz też [partycjonowania i skalowanie w poziomie](../cosmos-db/partition-data.md) omówienie pojęć i najlepsze rozwiązania dotyczące partycjonowania z jakiegokolwiek interfejsu API Azure rozwiązania Cosmos bazy danych. 
 
 * Należy przeprowadzić testowanie z bazy danych Azure rozwiązania Cosmos wydajności i skalowania. Zobacz [wydajności i skalowania testowania z bazy danych Azure rozwiązania Cosmos](performance-testing.md) przykładowe.
 * Rozpoczynanie pracy kodowanie dzięki funkcjom [zestawów SDK](documentdb-sdk-dotnet.md) lub [interfejsu API REST](/rest/api/documentdb/)

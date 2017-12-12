@@ -1,6 +1,6 @@
 ---
-title: "Poziomy wydajności interfejsu API usługi DocumentDB | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat sposobu poziomy wydajności usługi DocumentDB interfejsu API umożliwiają zarezerwować przepływności na podstawie kontenera na."
+title: "Wycofane poziomów wydajności bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat S1, S2 i S3 poziomy wydajności dostępnej w usłudze Azure DB rozwiązania Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofanie poziomy wydajności S1, S2 i S3
 
 > [!IMPORTANT] 
-> Poziomy wydajności S1, S2 i S3 omówione w tym artykule jest wycofana i nie będą już dostępne dla nowych kont usługi DocumentDB interfejsu API.
+> Poziomy wydajności S1, S2 i S3 omówione w tym artykule jest wycofana i nie będą już dostępne dla nowego konta bazy danych Azure rozwiązania Cosmos.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Ten artykuł zawiera omówienie poziomów wydajności S1, S2 i S3 i opisano, jak kolekcje, korzystających z tych poziomów wydajności będą migrowane do kolekcje z jedną partycją w 2017. Po przeczytaniu tego artykułu, będziesz mieć możliwość odpowiedzieć na następujące pytania:
 
@@ -44,7 +46,7 @@ Ten artykuł zawiera omówienie poziomów wydajności S1, S2 i S3 i opisano, jak
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Dlaczego są wydajności S1, S2 i S3 poziomy wycofana?
 
-Poziomy wydajności S1, S2 i S3 nie oferują elastyczność oferta kolekcje tego interfejsu API usługi DocumentDB. S1, S2, poziomy wydajności S3, zarówno przepustowość i pojemność pamięci masowej zostały wstępnie ustawiony i nie zaproponował elastyczność. Azure DB rozwiązania Cosmos oferuje możliwość dostosowywania Twojej przepływność i Magazyn, oferuje znacznie większą elastyczność i możliwość skalować stosownie do potrzeb.
+Poziomy wydajności S1, S2 i S3 nie oferują elastyczność, która udostępnia standardowy oferty Azure DB rozwiązania Cosmos. S1, S2, poziomy wydajności S3, zarówno przepustowość i pojemność pamięci masowej zostały wstępnie ustawiony i nie zaproponował elastyczność. Azure DB rozwiązania Cosmos oferuje możliwość dostosowywania Twojej przepływność i Magazyn, oferuje znacznie większą elastyczność i możliwość skalować stosownie do potrzeb.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ Można przeprowadzić migrację z poziomów wydajności S1, S2 i S3 do kolekcje 
 
 **Aby przeprowadzić migrację do kolekcje z jedną partycją przy użyciu zestawu .NET SDK**
 
-Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest za pomocą zestawów SDK z bazy danych Azure rozwiązania Cosmos. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu [interfejsu API platformy .NET usługi DocumentDB](documentdb-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
+Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest za pomocą zestawów SDK z bazy danych Azure rozwiązania Cosmos. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu [interfejs API .NET SQL](documentdb-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
 
 Oto fragment kodu dla zmiana przepływność kolekcji do 5000 jednostek żądań na sekundę:
     

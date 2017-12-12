@@ -4,7 +4,7 @@ description: "Indeks usługi Azure Active Directory, przykłady kodu, uporządko
 services: active-directory
 documentationcenter: dev-center-name
 author: msmbaldwin
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: 19d71e65dc2c78663d94c74228dcff038566391b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-code-samples"></a>Przykłady kodu usługi Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Współtworzenie naszej próbki w witrynie GitHub: [Microsoft Azure Active Direc
 ## <a name="web-browser-to-web-application"></a>Przeglądarki sieci Web do aplikacji sieci Web
 Te przykłady pokazują, jak napisać aplikację sieci web kierujący przeglądarki użytkownika do logowania do usługi Azure AD.
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | C# / .NET |[Aplikacja sieci Web OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) |Użyj protokołu OpenID Connect (ASP.Net OpenID Connect OWIN oprogramowanie pośredniczące) do uwierzytelniania użytkowników w dzierżawie usługi Azure AD. |
 | C# / .NET |[Aplikacja sieci Web wielodostępnej OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect) |Wielodostępne aplikacji sieci web .NET MVC, która używa protokołu OpenID Connect (ASP.Net OpenID Connect OWIN oprogramowanie pośredniczące) do uwierzytelniania użytkowników z wieloma dzierżawcami usługi Azure AD. |
@@ -42,14 +42,14 @@ Te przykłady pokazują, jak napisać aplikację sieci web kierujący przegląda
 ## <a name="single-page-application-spa"></a>Jednostronicowej aplikacji JEDNOSTRONICOWEJ
 Ten przykład przedstawia sposób tworzenia aplikacji jednej strony zabezpieczonego za pomocą usługi Azure AD.  
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | JavaScript, C# / .NET |[SinglePageApp DotNet](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |ADAL dla języka JavaScript i Azure AD umożliwia zabezpieczanie realizowana za pomocą programu ASP.NET web API zaplecza aplikacji na podstawie AngularJS jednej strony. |
 
 ## <a name="native-application-to-web-api"></a>Aplikacji natywnej do interfejsu API sieci Web
 Te przykłady kodu pokazują, jak tworzyć aplikacje klientami, które wywołania interfejsów API, które są zabezpieczone przez usługę Azure AD w sieci web. Używają [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) i [OAuth 2.0 w usłudze Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | Javascript |[NativeClient-MultiTarget-Cordova](https://github.com/Azure-Samples/active-directory-cordova-multitarget) |Umożliwia tworzenie aplikacji oprogramowania Apache Cordova, który wywołuje interfejs API sieci web i używa usługi Azure AD do uwierzytelniania ADAL wtyczki dla oprogramowania Apache Cordova. |
 | C# / .NET |[NativeClient DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) |Aplikacji programu .NET WPF, która wywołuje interfejs API sieci web, która jest chroniona za pomocą usługi Azure AD. |
@@ -67,7 +67,7 @@ Te przykłady kodu pokazują, jak tworzyć aplikacje klientami, które wywołani
 ## <a name="web-application-to-web-api"></a>Aplikacja sieci Web do interfejsu API sieci Web
 Te przykłady kodu, jak używać Pokaż [OAuth 2.0 w usłudze Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) do tworzenia aplikacji sieci web tego wywołania interfejsów API sieci web, które są zabezpieczone przez usługę Azure AD.
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | C# / .NET |[Aplikacja sieci Web WebAPI-OpenIDConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect) |Wywoływanie interfejsu API sieci web z uprawnieniami zalogowanego użytkownika. |
 | C# / .NET |[Aplikacja sieci Web WebAPI-OAuth2-AppIdentity-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity) |Wywoływanie interfejsu API sieci web z uprawnieniami aplikacji. |
@@ -78,7 +78,7 @@ Te przykłady kodu, jak używać Pokaż [OAuth 2.0 w usłudze Azure AD](https://
 ## <a name="server-or-daemon-application-to-web-api"></a>Serwera lub demon aplikacji interfejsu API sieci Web
 Te przykłady kodu przedstawiają sposób tworzenia demon lub serwera aplikacji, która pobiera zasoby z interfejsu API sieci web przy użyciu [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) i [OAuth 2.0 w usłudze Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | C# / .NET |[Demon DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |Aplikacja konsolowa wywołuje interfejs API sieci web. Poświadczenie klienta jest hasłem. |
 | C# / .NET |[Demon CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |Aplikacja konsolowa, która wywołuje interfejs API sieci web. Poświadczenie klienta jest certyfikat. |
@@ -86,7 +86,7 @@ Te przykłady kodu przedstawiają sposób tworzenia demon lub serwera aplikacji,
 ## <a name="calling-azure-ad-graph-api"></a>Wywołanie interfejsu API programu Graph usługi Azure AD
 Te przykładowy kod pokazują, jak tworzyć aplikacje, które wywołania interfejsu API Azure AD Graph do odczytywania i zapisywania danych katalogu.
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | Java |[Aplikacja sieci Web GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Aplikacja sieci web, która używa interfejsu API programu Graph dostępu do danych katalogu usługi Azure AD. |
 | PHP |[Aplikacja sieci Web GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |Aplikacja sieci web, która używa interfejsu API programu Graph dostępu do danych katalogu usługi Azure AD. |
@@ -99,7 +99,7 @@ Te przykładowy kod pokazują, jak tworzyć aplikacje, które wywołania interfe
 ## <a name="authorization"></a>Autoryzacja
 Te przykłady pokazują, jak przy użyciu usługi Azure AD do autoryzacji.
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | C# / .NET |[Aplikacja sieci Web GroupClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) |Wykonaj kontroli dostępu opartej na rolach (RBAC) przy użyciu usługi Azure Active Directory oświadczenia grupy w aplikacji, która jest zintegrowany z usługą Azure AD. |
 | C# / .NET |[Aplikacja sieci Web RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) |Wykonaj kontroli dostępu opartej na rolach (RBAC) przy użyciu ról aplikacji usługi Azure Active Directory w aplikacji, która jest zintegrowany z usługą Azure AD. |
@@ -107,7 +107,7 @@ Te przykłady pokazują, jak przy użyciu usługi Azure AD do autoryzacji.
 ## <a name="legacy-walkthroughs"></a>Wskazówki dotyczące starszej wersji
 Te wskazówki używać technologii nieco starsze, ale nadal mogą być przydatne.
 
-| Język/Platform | Przykład | Opis |
+| Język/Platform | Sample | Opis |
 | --- | --- | --- |
 | C# / .NET |[Autoryzacji opartej na rolach i na podstawie listy ACL w aplikacji Microsoft Azure AD](http://go.microsoft.com/fwlink/?LinkId=331694) |Wykonaj autoryzacji opartej na rolach (RBAC) i autoryzacji na podstawie listy ACL w aplikacji, która jest zintegrowany z usługą Azure AD. |
 | C# / .NET |[Uwierzytelnianie — w Sklepie Windows do usługi REST - AAL](http://go.microsoft.com/fwlink/?LinkId=330605) |Użyj [Azure AD Authentication Library (ADAL)](active-directory-authentication-libraries.md) (dawniej AAL) dla umożliwiające dodanie funkcji uwierzytelniania użytkownika do aplikacji ze Sklepu Windows w wersji Beta Sklepu Windows. |

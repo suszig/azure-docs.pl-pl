@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Łączenie z usługi Azure Search przy użyciu indeksatorów DB rozwiązania Cosmos
 
@@ -29,7 +29,7 @@ Aby skonfigurować indeksator rozwiązania Cosmos bazy danych, musisz mieć [us�
 Jeśli wybierzesz portalu, [Kreatora importu danych](search-import-data-portal.md) prowadzi użytkownika przez utworzenie wszystkich tych zasobów.
 
 > [!NOTE]
-> Rozwiązania cosmos bazy danych to nowa generacja usługi documentdb. Mimo że nazwa produktu została zmieniona, składnia jest taka sama jak przed. Przejdź dalej, aby określić `documentdb` zgodnie ze wskazówkami zawartymi w tym artykule indeksatora. 
+> Azure DB rozwiązania Cosmos jest generacji usługi DocumentDB. Mimo że nazwa produktu została zmieniona, składnia jest taka sama jak przed. Przejdź dalej, aby określić `documentdb` zgodnie ze wskazówkami zawartymi w tym artykule indeksatora. 
 
 > [!TIP]
 > Możesz uruchomić **importowania danych** kreatora z poziomu pulpitu nawigacyjnego rozwiązania Cosmos DB uprościć indeksowania dla tego źródła danych. Aby rozpocząć, w obszarze nawigacyjnym po lewej stronie przejdź do pozycji **Kolekcje** > **Dodaj usługę Azure Search**.
@@ -295,5 +295,5 @@ Poniższy przykład tworzy źródła danych za pomocą zasad usuwania nietrwałe
 ## <a name="NextSteps"></a>Następne kroki
 Gratulacje! Znasz sposobu integracji bazy danych Azure rozwiązania Cosmos z usługi Azure Search przy użyciu indeksatora rozwiązania Cosmos bazy danych.
 
-* Aby dowiedzieć się, jak więcej informacji na temat bazy danych rozwiązania Cosmos platformy Azure, zobacz [stronę usługi DB rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/).
+* Aby dowiedzieć się, jak więcej informacji na temat bazy danych rozwiązania Cosmos platformy Azure, zobacz [stronę usługi bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/).
 * Aby dowiedzieć się, jak więcej informacji na temat usługi Azure Search, zobacz [strony usługi wyszukiwania](https://azure.microsoft.com/services/search/).

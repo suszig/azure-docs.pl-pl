@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Tożsamość usługi fabryka danych Azure
 
@@ -172,3 +172,5 @@ Zobacz następujące tematy, które wprowadzenie, kiedy i jak używać tożsamo�
 
 - [Przechowywania poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md)
 - [Skopiuj dane z/do usługi Azure Data Lake Store przy użyciu uwierzytelniania tożsamości zarządzanych usług](connector-azure-data-lake-store.md)
+
+Zobacz [omówienie MSI](~/articles/active-directory/msi-overview.md) więcej tła na tożsamość usługi zarządzane, na podstawie jest tożsamość usługi fabryka danych. 

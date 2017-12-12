@@ -4,7 +4,7 @@ description: "Przewodnik dla opis i ocena oświadczenia w tokenach SAML 2.0 i to
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2151ed6c95e8cb65917654e54133e98912011c00
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Odwołania do usługi Azure AD tokenu
 Azure Active Directory (Azure AD) emituje kilka typów tokenów zabezpieczających do przetworzenia każdy przepływ uwierzytelniania. Ten dokument zawiera opis format właściwości zabezpieczeń i zawartości każdego typu tokenu.
@@ -71,7 +71,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `sub` |Temat |Identyfikuje podmiot zabezpieczeń, o której token potwierdzeń informacje, takie jak użytkownik aplikacji. Ta wartość jest niezmienne i nie może zostać przypisany lub używane ponownie, więc może służyć do wykonywania sprawdzeń autoryzacji bezpiecznie. Ponieważ podmiot zawsze jest obecny w tokenach problemy z usługą Azure AD, zaleca się korzystanie z tej wartości w systemie autoryzacji ogólnego przeznaczenia. <br> `SubjectConfirmation`nie jest oświadczenie. Opisuje sposób przedmiotem token jest weryfikowany. `Bearer`Wskazuje, czy podmiot potwierdza zapoznały tokenu. <br><br> **Przykładowa wartość SAML**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Przykładowa wartość JWT**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |Identyfikator dzierżawy |Identyfikator niezmienne, jednorazowego, który identyfikuje dzierżawy katalogu, który wystawił token. Ta wartość umożliwia dostęp do zasobów dzierżawy katalog w aplikacji wielodostępnej. Na przykład tej wartości można użyć, aby zidentyfikować dzierżawy w wywołaniu interfejsu API programu Graph. <br><br> **Przykładowa wartość SAML**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Przykładowa wartość JWT**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Okres istnienia tokenu |Określa przedział czasu, w którym token jest prawidłowy. Usługa, która weryfikuje token powinien Sprawdź bieżącą datę w okres istnienia tokenu, else powinien odrzucenie tokenu. Usługi mogą zezwalać na maksymalnie pięć minut poza zakresem okres istnienia tokenu na dowolnym różnice w zegarze ("czas zegara") między usługami Azure AD i usługi. <br><br> **Przykładowa wartość SAML**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Przykładowa wartość JWT**: <br> `"nbf":1363289634, "exp":1363293234` |
-| `upn` |Główna nazwa użytkownika |Przechowuje nazwę głównej nazwy użytkownika.<br><br> **Przykładowa wartość JWT**: <br> `"upn": frankm@contoso.com` |
+| `upn` |Nazwa główna użytkownika |Przechowuje nazwę głównej nazwy użytkownika.<br><br> **Przykładowa wartość JWT**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Wersja |Przechowuje numer wersji tokenu. <br><br> **Przykładowa wartość JWT**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Tokeny dostępu

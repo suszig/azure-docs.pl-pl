@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiowanie danych do lub z bazy danych rozwiązania Cosmos Azure przy użyciu fabryki danych Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 > * [Wersja 1 — ogólnie dostępna](v1/data-factory-azure-documentdb-connector.md)
 > * [Wersja 2 — wersja zapoznawcza](connector-azure-cosmos-db.md)
 
-W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do bazy danych Azure rozwiązania Cosmos (interfejsu API usługi DocumentDB). Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
+W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych Azure, aby skopiować dane z i do bazy danych Azure rozwiązania Cosmos (interfejsu API SQL). Opiera się na [skopiuj omówienie działania](copy-activity-overview.md) artykułu, który przedstawia ogólny przegląd działanie kopiowania.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [connnector bazy danych rozwiązania Cosmos Azure w wersji 1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Możesz skopiować dane z bazy danych Azure rozwiązania Cosmos do żadnych obs�
 
 W szczególności ten łącznik Azure DB rozwiązania Cosmos obsługuje:
 
-- Rozwiązania cosmos DB [DocumentDB interfejsu API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Rozwiązania cosmos DB [interfejsu API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Importowania/eksportowania dokumentów JSON jako — jest lub kopiowanie danych z i do zestawu danych tabelarycznych np. Baza danych SQL, pliki CSV itp.
 
 Aby skopiować dokumenty jako — jest do/z pliki w formacie JSON lub innej kolekcji rozwiązania Cosmos bazy danych, zobacz [dokumentów JSON importu/eksportu](#importexport-json-documents).

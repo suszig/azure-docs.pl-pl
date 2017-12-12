@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Narzędzia wprowadzanie danych maszyny wirtualnej nauki danych
 
@@ -62,11 +62,11 @@ Poniżej przedstawiono niektóre narzędzia przepływu danych, które firma Micr
 | Pokrewne narzędzia na DSVM      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure rozwiązania Cosmos bazy danych: Narzędzia migracji danych interfejsu API usługi DocumentDB
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure narzędzia migracji danych DB rozwiązania Cosmos
 
 |    |           |
 | ------------- | ------------- |
-| Co to jest?   | Narzędzie do importowania danych z różnych źródeł, takich jak pliki w formacie JSON, CSV plików SQL, bazy danych MongoDB, Magazyn tabel Azure, Amazon DynamoDB i interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB kolekcje do bazy danych rozwiązania Cosmos Azure lub usługi Azure DocumentDB.      |
+| Co to jest?   | Narzędzie do importowania danych z różnych źródeł, takich jak pliki w formacie JSON, CSV plików SQL, bazy danych MongoDB, Magazyn tabel Azure, Amazon DynamoDB i interfejsu API Azure rozwiązania Cosmos bazy danych SQL kolekcje do bazy danych Azure rozwiązania Cosmos.      |
 | DSVM obsługiwane wersje      | Windows      |
 | Typowe zastosowania      | Importowanie plików z maszyny Wirtualnej do CosmosDB, importowanie danych z magazynu tabel platformy Azure do CosmosDB lub importowanie danych z bazy danych programu SQL Server do CosmosDB.     |
 |  Jak używać / uruchom go?    |   Aby użyć wiersza polecenia wersji, otwórz wiersz polecenia, wpisz `dt`. Aby użyć narzędzia graficznego interfejsu użytkownika, otwórz wiersz polecenia, wpisz `dtui`.    |

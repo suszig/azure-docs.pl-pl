@@ -4,7 +4,7 @@ description: "Przedstawiono sposób zmiany w konfiguracji synchronizacji Azure A
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: jak wprowadzić zmianę do konfiguracji domyślnej
 W tym temacie ma na celu zademonstrować sposób wprowadzania zmian w domyślnej konfiguracji synchronizacji Azure AD Connect. Ona instrukcje dla niektórych typowych scenariuszy. Z tym wiedzy należy wprowadzać pewne zmiany do własnych konfiguracji na podstawie własnych reguł biznesowych.
@@ -279,7 +279,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na wartość atrybutu mogą
     | Połączony System typu obiektu | **Użytkownika** |  |
     | Typ obiektu Metaverse | **Osoby** |  |
     | Typ łącza | **Dołącz** |  |
-    | Priorytet | *Wybierz liczbę z zakresu od 1 – 99* | 1 – 99 jest zarezerwowana dla reguły synchronizacji niestandardowych. Odbiera wartość, która jest używana przez inną regułę synchronizacji. |
+    | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 – 99* | 1 – 99 jest zarezerwowana dla reguły synchronizacji niestandardowych. Odbiera wartość, która jest używana przez inną regułę synchronizacji. |
 
 5. Przejdź do **filtru Scoping** karta i Dodaj **pojedynczego grupę ustalania zakresu filtru z następującą klauzulę**:
  
@@ -318,7 +318,7 @@ Reguła synchronizacji ruchu wychodzącego zezwala na wartość atrybutu mogą p
     | Połączony System typu obiektu | Użytkownik ||
     | Typ obiektu Metaverse | **Osoby** ||
     | Typ łącza | **Dołącz** ||
-    | Priorytet | *Wybierz liczbę z zakresu od 1 – 99* | 1 – 99 jest zarezerwowana dla reguły synchronizacji niestandardowych. YDo odbiera wartość, która jest używana przez inną regułę synchronizacji. |
+    | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 – 99* | 1 – 99 jest zarezerwowana dla reguły synchronizacji niestandardowych. YDo odbiera wartość, która jest używana przez inną regułę synchronizacji. |
 
 5. Przejdź do **filtru Scoping** karta i Dodaj **pojedynczego grupę ustalania zakresu filtru z klauzulami dwóch**:
  

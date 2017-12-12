@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Rozwiązywanie problemów z połączeniem z bazą danych SQL Azure
 Podczas połączenia z bazą danych SQL Azure nie powiedzie się, zostanie wyświetlony [komunikaty o błędach](sql-database-develop-error-messages.md). W tym artykule jest scentralizowane temat, który pomaga w rozwiązywaniu problemów z połączeniem bazy danych SQL Azure. Podaj [typowe przyczyny](#cause) problemów połączenie zaleca [rozwiązywania problemów](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) pomaga tożsamości problemu i instrukcje dotyczące rozwiązywania problemów do rozwiązania [przejściowej błędy](#troubleshoot-transient-errors) i [trwałe lub nieprzejściowego błędów](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Jeśli aplikacja trwale nie może nawiązać połączenia z bazą danych SQL Azu
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Czynności umożliwiające rozwiązywanie problemów z łącznością trwałych
 1. Konfigurowanie [reguły zapory](sql-database-configure-firewall-settings.md) umożliwia adres IP klienta. Dla tymczasowych do celów testowych Skonfiguruj regułę zapory przy użyciu 0.0.0.0 jako początkowy zakres adresów IP i 255.255.255.255 jako końcową zakresu adresów IP. Spowoduje to otwarcie serwera dla wszystkich adresów IP. Jeśli to rozwiązuje problem z łącznością, należy usunąć tę regułę i utworzyć regułę zapory odpowiednio ograniczone adres IP lub zakres adresów. 
 2. Upewnij się, że port 1433 jest otwarty dla połączeń wychodzących na wszystkie zapory między klientem a Internetem. Przegląd [konfigurowania Zapory systemu Windows, aby umożliwić dostępu programu SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) i [hybrydowego tożsamości wymagane porty i protokoły](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) dla dodatkowych wskaźników związane z dodatkowych portów, które należy otworzyć na platformie Azure Uwierzytelnianie usługi Active Directory.
-3. Sprawdź ciąg połączenia i inne ustawienia połączenia. W sekcji parametrów połączenia w [tematu problemy z łącznością](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Sprawdź ciąg połączenia i inne ustawienia połączenia. W sekcji parametrów połączenia w [tematu problemy z łącznością](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Sprawdź kondycję usług na pulpicie nawigacyjnym. Jeśli uważasz, że istnieje regionalnej awarii, zobacz [odzyskiwanie po awarii](sql-database-disaster-recovery.md) dla czynności, aby odzyskać do nowego regionu.
 
 ## <a name="next-steps"></a>Następne kroki

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importowanie danych do usługi Azure Machine Learning Studio z różnych źródeł danych w trybie online za pomocą modułu importu danych
 W tym artykule opisano obsługę importowanie danych z różnych źródeł i informacje potrzebne do przenoszenia danych z tych źródeł w eksperymencie usługi Azure Machine Learning.
@@ -43,7 +43,7 @@ Za pomocą [i zaimportuj dane] [ import-data] modułu, są dostępne dane z jedn
 * Azure SQL database lub SQL Server na maszynie Wirtualnej Azure
 * Lokalną bazą danych programu SQL Server
 * Strumieniowe źródło OData obecnie dostawcy danych
-* Azure CosmosDB (wcześniej nazywane usługi DocumentDB)
+* Azure Cosmos DB
 
 Aby uzyskać dostęp do źródeł danych w trybie online w eksperymencie Studio, Dodaj [i zaimportuj dane] [ import-data] modułu do sieci, wybierz **źródła danych**, a następnie podaj parametry niezbędne do uzyskania dostępu dane. Źródła danych w trybie online, które są obsługiwane są wymienione w poniższej tabeli. Ta tabela zawiera podsumowanie, formaty plików, które są obsługiwane i parametrów, które są używane do uzyskiwania dostępu do danych.
 

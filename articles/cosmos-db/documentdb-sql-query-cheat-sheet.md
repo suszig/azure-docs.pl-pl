@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure DB rozwiązania Cosmos: SQL interfejsu API usługi DocumentDB zapytania ściągawka PDF
-**Bazy danych Azure rozwiązania Cosmos: arkusz Cheat kwerendy SQL interfejsu API usługi DocumentDB** ułatwia szybkie pisanie zapytań dotyczących danych interfejsu API usługi DocumentDB za pomocą wyświetlania wspólnej zapytań bazy danych, słowa kluczowe funkcje wbudowane i operatory w łatwy do drukowania pliku PDF odwołania arkusza. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure DB rozwiązania Cosmos: SQL kwerendy ściągawka PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+**Bazy danych Azure rozwiązania Cosmos: arkusz Cheat kwerendy SQL** ułatwia szybkie pisanie zapytań dotyczących danych interfejsu API SQL za pomocą wyświetlania wspólnej zapytań bazy danych, słowa kluczowe funkcje wbudowane i operatory w łatwy do drukowania pliku PDF odwołania arkusza. 
 
 Obsługuje rozwiązania cosmos bazy danych relacyjnych, hierarchicznych i przestrzennych wyszukiwanie JSON dokumentów za pomocą [SQL](documentdb-sql-query.md) bez określenia schematu lub indeksów pomocniczych. Oprócz standardowych ANSI SQL słów kluczowych i operatory DB rozwiązania Cosmos obsługuje JavaScript — funkcje zdefiniowane przez użytkownika (UDF), JavaScript — operatory i wieloma funkcji wbudowanych.
 
@@ -38,7 +41,7 @@ Zapis szybsze zapytań przez pobranie arkusza cheat kwerendy SQL i używać go j
 
 ## <a name="more-help-with-writing-sql-queries"></a>Aby uzyskać pomoc w pisaniu zapytań SQL
 * Dla przechodzenia za pomocą opcji zapytań dostępnych w bazie danych rozwiązania Cosmos [DB rozwiązania Cosmos zapytania](documentdb-sql-query.md).
-* Dokumentacja powiązanego odwołania w temacie [interfejsu API Azure rozwiązania Cosmos bazy danych DocumentDB: odwołania do składni SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Dokumentacja powiązanego odwołania w temacie [interfejsu API Azure rozwiązania Cosmos bazy danych SQL: odwołania do składni SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Informacje o wersji
 Zaktualizowana na 7/29/2016, aby uwzględnić TOP.

@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB rozwiązania Cosmos DB interfejsu API: Składnia SQL | Dokumentacja firmy Microsoft"
-description: "Dokumentacja referencyjna dla języka kwerend SQL interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB."
+title: "Azure DB rozwiązania Cosmos: Odwołania do zapytań składni SQL | Dokumentacja firmy Microsoft"
+description: "Dokumentacja referencyjna dla języka zapytań usługi Azure rozwiązania Cosmos bazy danych SQL."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DocumentDB rozwiązania Cosmos DB interfejsu API: Odwołania do składni SQL
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Odwołania do składni rozwiązania Cosmos bazy danych SQL Azure
 
-Interfejs API Azure rozwiązania Cosmos bazy danych DocumentDB obsługuje tworzenie zapytań dla dokumentów za pomocą znanych SQL (Structured Query Language) jak gramatyki przez hierarchiczna dokumentów JSON bez konieczności jawnego schematu lub tworzenia indeksów pomocniczych. Ten temat zawiera dokumentację referencyjną dla języka zapytań SQL usługi DocumentDB interfejsu API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Aby uzyskać wskazówki język zapytań SQL usługi DocumentDB interfejsu API, zobacz [kwerendy SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych usługi DocumentDB](documentdb-sql-query.md).  
+Azure obsługuje rozwiązania Cosmos DB badania dokumentów za pomocą znanych SQL (Structured Query Language), takich jak gramatyki za pośrednictwem hierarchiczna dokumentów JSON bez konieczności jawnego schematu lub tworzenia indeksów pomocniczych. Ten temat zawiera dokumentację referencyjną dla język zapytań SQL, które są zgodne z interfejsu API SQL kont.
+
+Aby uzyskać wskazówki język zapytań SQL, zobacz [kwerendy SQL dla bazy danych Azure rozwiązania Cosmos](documentdb-sql-query.md).  
   
 Również zachęcamy do odwiedzenia [Plac zabaw dla zapytań](http://www.documentdb.com/sql/demo) gdzie spróbuj bazy danych rozwiązania Cosmos Azure i wykonywania kwerend SQL do naszego zestawu danych.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Konwencje składni**  
   
-     W poniższej tabeli opisano konwencje używana do opisu składni w odwołaniu język zapytań usługi DocumentDB interfejsu API.  
+     W poniższej tabeli opisano konwencje używana do opisu składni w następujące odwołanie SQL.  
   
     |**Konwencja**|**Używany do**|  
     |-|-|    

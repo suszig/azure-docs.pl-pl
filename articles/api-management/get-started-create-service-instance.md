@@ -1,55 +1,76 @@
 ---
-title: "Utwórz wystąpienie usługi Azure API Management | Dokumentacja firmy Microsoft"
-description: "Wykonaj kroki tego samouczka do utworzenia nowego wystąpienia usługi Azure API Management."
+title: "Tworzenie wystąpienia usługi Azure API Management | Microsoft Docs"
+description: "Wykonaj kroki tego samouczka, aby utworzyć nowe wystąpienie usługi Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: anneta
+author: juliako
+manager: cflower
 editor: 
 ms.service: api-management
 ms.workload: integration
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6433ea1f0eb6ad375402b998b4dfa80bded35c4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Tworzenie nowego wystąpienia usługi Azure API Management
 
-W tym samouczku opisano kroki tworzenia nowego wystąpienia usługi API Management, przy użyciu [portalu Azure](https://portal.azure.com/).
+Usługa Azure API Management (APIM) pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę. Usługa APIM pozwala tworzyć nowoczesne bramy interfejsów API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz zarządzać tymi bramami. Aby uzyskać więcej informacji, zobacz temat [Omówienie](api-management-key-concepts.md).
 
-## <a name="prerequisites"></a>Wymagania wstępne
+W tym przewodniku Szybki start opisano procedurę tworzenia nowego wystąpienia usługi API Management za pomocą witryny Azure Portal.
 
-+ Aktywna subskrypcja platformy Azure.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+![nowe wystąpienie](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
+
+Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Tworzenie nowej usługi
 
-1. W [portalu Azure](https://portal.azure.com/), wybierz pozycję **nowy** > **integracji przedsiębiorstwa** > **zarządzanie interfejsami API**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz pozycję **Nowy** > **Integracja w przedsiębiorstwie** > **API Management**.
 
-    Możesz też wybrać **nowy**, typ `API management` w polu wyszukiwania, a następnie naciśnij klawisz Enter. Kliknij przycisk **Utwórz**.
+    Możesz też wybrać pozycję **Nowy**, wpisać `API management` w polu wyszukiwania i nacisnąć klawisz Enter. Kliknij przycisk **Utwórz**.
 
-2. W **usługi Zarządzanie interfejsami API** okna, wprowadź unikatową **nazwa** usługi Zarządzanie interfejsami API. Ta nazwa nie można zmienić później.
+2. Wprowadź ustawienia w oknie **Usługa API Management**.
+
+    ![nowe wystąpienie](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
+
+    | Ustawienie      | Sugerowana wartość  | Opis              |
+    | ------------ |  ------- | ---------------------------------|
+    |**Nazwa**|Unikatowa nazwa dla usługi API Management| Nazwy nie można później zmienić. Nazwa usługi jest używana do generowania domyślnej nazwy domeny w postaci *{nazwa}.azure-api.net.* Jeśli chcesz użyć niestandardowej nazwy domeny, zobacz [Konfigurowanie domeny niestandardowej](configure-custom-domain.md). <br/> Nazwa usługi jest używana do odwoływania się do usługi i odpowiedniego zasobu platformy Azure.|
+    |**Subskrypcja**|Twoja subskrypcja | Subskrypcja, w ramach której zostanie utworzone to nowe wystąpienie usługi. Możesz wybrać jedną z różnych subskrypcji Azure, do których masz dostęp.|
+    |**Grupa zasobów**|*apimResourceGroup*|Możesz wybrać nowy lub istniejący zasób. Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).|
+    |**Lokalizacja**|*Zachodnie stany USA*|Wybierz region geograficzny w pobliżu. Na liście rozwijanej są wyświetlane tylko regiony dostępne w usłudze API Management. |
+    |**Nazwa organizacji**|Nazwa organizacji|Ta nazwa jest używana w wielu miejscach, w tym w tytule portalu dla deweloperów i nadawcy wiadomości e-mail z powiadomieniem.|
+    |**Adres e-mail administratora**|*admin@org.com*|Ustaw adres e-mail, na który będą wysyłane wszystkie powiadomienia z usługi **API Management**.|
+    |**Warstwa cenowa**|*Developer*|Skonfiguruj warstwę **Developer**, aby ocenić usługę. Ta warstwa nie jest do użytku produkcyjnego. Aby uzyskać więcej informacji na temat skalowania warstw usługi API Management, zobacz [Upgrade and scale](upgrade-and-scale.md) (Uaktualnianie i skalowanie).|
+3. Wybierz pozycję **Utwórz**.
 
     > [!TIP]
-    > Nazwa usługi jest używana do generowania domyślna nazwa domeny w postaci *.azure-api.net {nazwa}.* Jeśli chcesz użyć niestandardowej nazwy domeny, zobacz [skonfigurować własną domenę niestandardową](configure-custom-domain.md). <br/>
-    > Nazwa usługi jest używana do odwoływania się do usługi i odpowiednich zasobów platformy Azure.
+    > Zazwyczaj utworzenie usługi API Management trwa 20–30 minut. Wybranie pozycji **Przypnij do pulpitu nawigacyjnego** ułatwia znajdowanie nowo utworzonej usługi.
 
-5. Wybierz **subskrypcji** między mających dostęp do różnych subskrypcji platformy Azure.
-6. W polu **Grupa zasobów** wybierz nowy lub istniejący zasób.  Grupa zasobów jest kolekcją zasobów, które mają ten sam cykl życia, uprawnienia i zasady. Więcej informacji można znaleźć [tutaj](../azure-resource-manager/resource-group-overview.md#resource-groups).
-7. W **lokalizacji**, wybierz region geograficzny, w którym jest tworzony usługi Zarządzanie interfejsami API. W polu listy rozwijanej są wyświetlane tylko dostępne regiony usługi Zarządzanie interfejsami API. 
-9. Wprowadź **nazwa organizacji**. Ta nazwa jest używana w wielu miejscach. Na przykład, tytuł portalu dla deweloperów i nadawcy wiadomości e-mail z powiadomieniem.
-10. W **e-mail administratora**Ustaw adres e-mail, na które wszystkie powiadomienia z **zarządzanie interfejsami API** będą wysyłane.
-11. W **warstwa cenowa**ustaw **Developer** warstwę, aby korzystać z usługi. Ta warstwa nie jest do użytku produkcyjnego. Aby uzyskać więcej informacji na temat skalowania warstwy usługi API Management, zobacz [uaktualnienia i skalować](upgrade-and-scale.md).
-12. Wybierz pozycję **Utwórz**.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-    > [!TIP]
-    > Zazwyczaj trwa między 20-30 minut na utworzenie usługi Zarządzanie interfejsami API. Wybieranie **Przypnij do pulpitu nawigacyjnego** sprawia, że znajdowanie nowo utworzony usługi.
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć, wykonując następujące kroki:
+
+
+1. W witrynie Azure Portal wybierz ![strzałkę](./media/get-started-create-service-instance/arrow.png).
+2. Wybierz pozycję **Grupy zasobów**.
+3. Znajdź swoją grupę zasobów.
+4. Kliknij pozycję „. . .” i usuń grupę.
+
+![oczyszczanie](./media/get-started-create-service-instance/cleanup.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Publikowanie interfejsu API za pomocą usługi Azure API Management](#api-management-getstarted-publish-api.md)
+> [!div class="nextstepaction"]
+> [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md)

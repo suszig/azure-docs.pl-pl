@@ -1,7 +1,7 @@
 ---
 title: "Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Storage platformy Azure"
 description: "Dowiedz się, jak zarządzać Azure DB rozwiązania Cosmos w Eksploratorze usługi Storage platformy Azure."
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)
 
-Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje konta bazy danych MongoDB i SQL (DocumentDB).
+Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje konta SQL i bazy danych MongoDB.
 
 W tym artykule możesz dowiedzieć się, jak zarządzać bazy danych rozwiązania Cosmos Azure za pomocą Eksploratora usługi Storage.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Konto bazy danych rozwiązania Cosmos Azure SQL (DocumentDB) lub baza danych MongoDB. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API usługi DocumentDB z usług .NET i portalu Azure](create-documentdb-dotnet.md).
+Konto bazy danych Azure rozwiązania Cosmos interfejsu API SQL lub bazy danych MongoDB interfejsu API. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL z usług .NET i portalu Azure](create-documentdb-dotnet.md).
 
 ## <a name="installation"></a>Instalacja
 

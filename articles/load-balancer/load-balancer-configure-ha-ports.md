@@ -1,6 +1,6 @@
 ---
 title: "Konfigurowanie wysokiej dostępności portów dla usługi równoważenia obciążenia Azure | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie korzystania z portów wysokiej dostępności do wewnętrznego ruchu na wszystkich portach równoważenia obciążenia"
+description: "Informacje o sposobie korzystania z wysokiej dostępności portów do wewnętrznego ruchu na wszystkich portach równoważenia obciążenia"
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,54 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Jak skonfigurować porty wysokiej dostępności dla wewnętrznego modułu równoważenia obciążenia
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Konfigurowanie wysokiej dostępności portów dla wewnętrznego modułu równoważenia obciążenia
 
-W tym artykule przedstawiono przykładowe wdrożenie wysokiej dostępności (HA) porty na wewnętrzny moduł równoważenia obciążenia. Określonej konfiguracji sieci wirtualnych urządzeń (NVAs) można znaleźć odpowiedniej witryny sieci Web dostawcy.
+W tym artykule przedstawiono przykładowe wdrożenie wysokiej dostępności porty na wewnętrzny moduł równoważenia obciążenia. Aby uzyskać więcej informacji na temat konfiguracji specyficznych dla sieci wirtualnych urządzeń (NVAs) Zobacz odpowiedniej witryny sieci Web dostawcy.
 
 >[!NOTE]
-> Funkcja wysokiej dostępności portów jest obecnie w przeglądzie. W okresie obowiązywania wersji zapoznawczej ta funkcja może nie oferować dostępności i niezawodności na tym samym poziomie, co funkcje w wersji ogólnodostępnej. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Funkcję wysokiej dostępności portów jest obecnie w przeglądzie. W wersji zapoznawczej funkcja może nie mieć taki sam poziom dostępności i niezawodności jako funkcje, które są zwykle dostępności wersji. Aby uzyskać więcej informacji, zobacz [Dodatkowe warunki użytkowania dotyczące wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Rysunek 1 pokazuje następującą konfigurację przykład wdrożenia, opisane w tym artykule:
-- NVAs są wdrażane w puli zaplecza wewnętrznego modułu równoważenia obciążenia za konfiguracji portów wysokiej dostępności. 
-- PRZEZ stosowane na trasach podsieci DMZ cały ruch do NVAs dokonując następnego przeskoku jako wewnętrznego wirtualnego IP usługi równoważenia obciążenia. 
-- Wewnętrzny moduł równoważenia obciążenia dystrybuuje ruch do jednego z active NVAs zgodnie z algorytmem LB.
-- Analizę NVA przetwarza ruchu i przekazuje je do początkowego miejsca docelowego w podsieci wewnętrznej bazy danych.
-- Ścieżka zwracanego mogą również czerpać tej samej ścieżki, jeśli odpowiednie przez jest skonfigurowany w podsieci wewnętrznej bazy danych. 
+Na ilustracji przedstawiono następującą konfigurację przykład wdrożenia, opisane w tym artykule:
 
-![ha porty Przykładowe wdrożenie](./media/load-balancer-configure-ha-ports/haports.png)
+- NVAs są wdrażane w puli zaplecza modułu równoważenia obciążenia wewnętrznego za konfiguracji wysokiej dostępności portów. 
+- Trasy zdefiniowane przez użytkownika (przez) stosowane na trasach podsieci DMZ cały ruch do NVAs dokonując następnego przeskoku jako wewnętrznego wirtualnego adresu IP usługi równoważenia obciążenia. 
+- Wewnętrzny moduł równoważenia obciążenia dystrybuuje ruch do jednego z active NVAs zgodnie z algorytmem usługi równoważenia obciążenia.
+- Analizę NVA przetwarza ruchu i przekazuje je do początkowego miejsca docelowego w podsieci wewnętrznej.
+- Ścieżka zwracanego może zająć tej samej ścieżki, jeśli odpowiednie przez jest skonfigurowany w podsieci wewnętrznej. 
 
-Rysunek 1 — wirtualnych urządzeń sieciowych wdrożony za wewnętrzny moduł równoważenia obciążenia z portami wysokiej dostępności 
+![Wysokiej dostępności porty Przykładowe wdrożenie](./media/load-balancer-configure-ha-ports/haports.png)
+
 
 ## <a name="preview-sign-up"></a>Podgląd rejestracji
 
-Aby wziąć udział w wersji zapoznawczej funkcji porty wysokiej dostępności w standardowe usługi równoważenia obciążenia, Zarejestruj swoją subskrypcję do uzyskania dostępu za pomocą 2.0 interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Zarejestruj subskrypcję dla [standardowe usługi równoważenia obciążenia w wersji zapoznawczej](https://aka.ms/lbpreview#preview-sign-up).
+Aby wziąć udział w wersji zapoznawczej funkcji wysokiej dostępności portów w standardowe usługi równoważenia obciążenia Azure zarejestrować subskrypcję, aby uzyskać dostęp za pomocą 2.0 interfejsu wiersza polecenia platformy Azure lub programu PowerShell. Zarejestruj subskrypcję dla [standardowe usługi równoważenia obciążenia w wersji zapoznawczej](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Rejestracja podglądów standardowe usługi równoważenia obciążenia może potrwać do godziny.
+>Rejestracji standardowe Podgląd usługi równoważenia obciążenia może potrwać do godziny.
 
-## <a name="configuring-ha-ports"></a>Konfigurowanie portów wysokiej dostępności
+## <a name="configure-high-availability-ports"></a>Konfigurowanie wysokiej dostępności portów
 
-Konfiguracja portów HA obejmuje Konfigurowanie wewnętrzny moduł równoważenia obciążenia, z NVAs w puli zaplecza odpowiedniej konfiguracji usługi równoważenia obciążenia kondycji sondowania wykrywanie kondycji NVA i reguły równoważenia obciążenia z portami wysokiej dostępności. Ogólne elementami konfiguracji usługi równoważenia obciążenia jest objęte [wprowadzenie](load-balancer-get-started-ilb-arm-portal.md). W tym artykule omówiono konfiguracji portów wysokiej dostępności.
+Aby skonfigurować wysokiej dostępności porty, skonfigurować wewnętrzny moduł równoważenia obciążenia z NVAs w puli zaplecza. Konfigurowanie odpowiedniej konfiguracji sondy kondycji modułu równoważenia obciążenia, wykrywanie kondycji NVA i reguły modułu równoważenia obciążenia o wysokiej dostępności portów. Omówiono konfiguracji odnoszące się do usługi równoważenia obciążenia ogólne [wprowadzenie](load-balancer-get-started-ilb-arm-portal.md). W tym artykule omówiono Konfigurowanie wysokiej dostępności portów.
 
-Konfiguracja obejmuje zasadniczo, ustawiając wartość portu portu i wewnętrznej bazy danych serwera sieci Web **0**i wartość protokołu **wszystkich**. W tym artykule opisano sposób konfigurowania portów wysokiej dostępności przy użyciu portalu Azure, programu PowerShell i Azure CLI 2.0.
+Zasadniczo obejmuje konfiguracji ustawień portów frontonu i wartość portu zaplecza do **0**. Ustaw wartość protokołu **wszystkich**. W tym artykule opisano sposób konfigurowania wysokiej dostępności portów przy użyciu portalu Azure, programu PowerShell i Azure CLI 2.0.
 
-### <a name="configure-ha-ports-load-balancer-rule-with-the-azure-portal"></a>Skonfiguruj reguły modułu równoważenia obciążenia porty wysokiej dostępności przy użyciu portalu Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Konfigurowanie wysokiej dostępności porty reguły modułu równoważenia obciążenia z portalu Azure
 
-Azure portal zawiera **HA porty** opcji za pomocą pola wyboru dla tej konfiguracji. Po wybraniu elementami konfiguracji portu i protokołu jest wypełniane automatycznie. 
+Aby skonfigurować wysokiej dostępności portów za pomocą portalu Azure, wybierz **HA porty** pole wyboru. Po wybraniu elementami konfiguracji portu i protokołu jest wypełniane automatycznie. 
 
-![ha porty konfiguracji za pomocą portalu Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Konfigurowanie wysokiej dostępności portów za pośrednictwem portalu Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-Rysunek 2 - HA konfiguracji portów za pomocą portalu
 
-### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Skonfiguruj regułę LB porty wysokiej dostępności za pomocą szablonu usługi Resource Manager
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Skonfiguruj regułę równoważenia obciążenia wysokiej dostępności portów za pomocą szablonu usługi Resource Manager
 
-Można skonfigurować porty wysokiej dostępności przy użyciu wersji interfejsu API 2017-08-01 Microsoft.Network/loadBalancers w zasobie usługi równoważenia obciążenia. Poniższy fragment kodu JSON przedstawia zmiany w konfiguracji usługi równoważenia obciążenia dla portów HA za pośrednictwem interfejsu API REST.
+Wysokiej dostępności portów można skonfigurować przy użyciu wersji interfejsu API 2017-08-01 dla Microsoft.Network/loadBalancers w zasobie usługi równoważenia obciążenia. Poniższy fragment kodu JSON przedstawia zmiany w konfiguracji usługi równoważenia obciążenia dla wysokiej dostępności portów za pomocą interfejsu API REST:
 
 ```json
     {
@@ -93,17 +92,17 @@ Można skonfigurować porty wysokiej dostępności przy użyciu wersji interfejs
     }
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Skonfiguruj reguły modułu równoważenia obciążenia porty wysokiej dostępności przy użyciu programu PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Skonfiguruj reguły modułu równoważenia obciążenia wysokiej dostępności portów przy użyciu programu PowerShell
 
-Aby utworzyć regułę HA portów usługi równoważenia obciążenia podczas tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu programu PowerShell, użyj następującego polecenia:
+Aby utworzyć regułę modułu równoważenia obciążenia wysokiej dostępności portów podczas tworzenia wewnętrznego modułu równoważenia obciążenia przy użyciu programu PowerShell, użyj następującego polecenia:
 
 ```powershell
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-azure-cli-20"></a>Skonfiguruj reguły modułu równoważenia obciążenia porty HA 2.0 interfejsu wiersza polecenia platformy Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Konfigurowanie wysokiej dostępności porty reguły modułu równoważenia obciążenia Azure CLI 2.0
 
-W kroku nr 4 [tworzenia wewnętrznego obciążenia równoważenia ustawić](load-balancer-get-started-ilb-arm-cli.md), użyj następującego polecenia, można utworzyć porty HA reguły modułu równoważenia obciążenia.
+W kroku 4 [utworzenie zestawu modułu równoważenia obciążenia wewnętrznego](load-balancer-get-started-ilb-arm-cli.md), użyj następującego polecenia, aby utworzyć regułę modułu równoważenia obciążenia wysokiej dostępności porty:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -111,4 +110,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [porty wysokiej dostępności](load-balancer-ha-ports-overview.md)
+Dowiedz się więcej o [wysokiej dostępności porty](load-balancer-ha-ports-overview.md).

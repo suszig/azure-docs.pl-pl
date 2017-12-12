@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Praca z daty w Azure rozwiązania Cosmos bazy danych
 Azure DB rozwiązania Cosmos zapewnia elastyczność schematu i rozbudowane indeksowanie za pomocą natywny [JSON](http://www.json.org) modelu danych. Wszystkie zasoby bazy danych rozwiązania Cosmos platformy Azure, w tym baz danych, kolekcji, dokumentów i procedury składowane są modelowane i przechowywane jako dokumenty JSON. Jako wymaganiem jest portable JSON (i bazy danych Azure rozwiązania Cosmos) obsługuje tylko niewielki zestaw typów podstawowych: ciąg, Number, Boolean, tablicy, obiektu i wartości Null. Jednak JSON jest elastyczny i umożliwia deweloperom i platformy, do reprezentowania bardziej złożonych typów przy użyciu tych elementów podstawowych i tworzenia ich jako obiekty i tablice. 
@@ -75,7 +75,7 @@ Zakres zapytania są często używane z wartości daty/godziny. Na przykład je�
 Dowiedz się więcej na temat sposobu konfigurowania zasad indeksowania w [zasady indeksowania bazy danych Azure rozwiązania Cosmos](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Wykonywanie zapytania dat i godzin w składniku LINQ
-Zestaw SDK .NET usługi DocumentDB obsługuje automatycznie zapytywanie o dane przechowywane w bazie danych rozwiązania Cosmos Azure za pomocą LINQ. Na przykład poniższy fragment kodu przedstawia zapytania LINQ tego zamówienia filtry, które zostały wysłane w ciągu ostatnich trzech dni.
+Zestaw SDK .NET SQL obsługuje automatycznie zapytywanie o dane przechowywane w bazie danych rozwiązania Cosmos Azure za pomocą LINQ. Na przykład poniższy fragment kodu przedstawia zapytania LINQ tego zamówienia filtry, które zostały wysłane w ciągu ostatnich trzech dni.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ W tym artykule analizujemy przechowywania, indeksu i zapytania dat i godzin w us
 
 ## <a name="next-steps"></a>Następne kroki
 * Pobierz i uruchom [przykłady w serwisie GitHub kodu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Dowiedz się więcej o [zapytania interfejsu API usługi DocumentDB](documentdb-sql-query.md)
+* Dowiedz się więcej o [zapytania SQL](documentdb-sql-query.md)
 * Dowiedz się więcej o [zasady indeksowania bazy danych Azure rozwiązania Cosmos](indexing-policies.md)

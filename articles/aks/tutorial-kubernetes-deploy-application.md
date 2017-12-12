@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3a6a75a324987b82a08219217407ad7ad14db9f8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 1433fce61bc26a6aa0e4742195e623329eb5f0cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Uruchamianie aplikacji w usługi kontenera platformy Azure (AKS)
 
@@ -26,7 +26,7 @@ W tym samouczku część cztery osiem, przykładowa aplikacja jest wdrażana w k
 
 W kolejnych samouczkach tej aplikacji jest skalowana, aktualizacji, oraz Operations Management Suite jest skonfigurowana do monitorowania Kubernetes klastra.
 
-Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje o Zobacz Kubernetes [dokumentacji Kubernetes](https://kubernetes.io/docs/home/).
+Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje o Zobacz Kubernetes [dokumentacji Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -34,13 +34,13 @@ W poprzednim samouczki aplikacji zostało umieszczone w obrazie kontenera, ten o
 
 Do ukończenia tego samouczka, należy wstępnie utworzone `azure-vote-all-in-one-redis.yml` Kubernetes pliku manifestu. Ten plik został pobrany z kodu źródłowego aplikacji w poprzednim samouczka. Sprawdź, czy zostały sklonowane repozytorium i że zostały zmienione katalogi do sklonowanego repozytorium.
 
-Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazów](./tutorial-kubernetes-prepare-app.md). 
+Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Aktualizacja pliku manifestu
 
 W tym samouczku rejestru kontenera platformy Azure (ACR) został użyty do przechowywania obrazu kontenera. Przed uruchomieniem aplikacji, nazwa ACR logowania serwera musi zostać zaktualizowany w pliku manifestu Kubernetes.
 
-Pobierz nazwę serwera ACR logowania z [listy acr az](/cli/azure/acr#list) polecenia.
+Pobierz nazwę serwera ACR logowania z [listy acr az] [ az-acr-list] polecenia.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -64,7 +64,7 @@ Zapisz i zamknij plik.
 
 ## <a name="deploy-application"></a>Wdrażanie aplikacji
 
-Użyj polecenia [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create), aby uruchomić aplikację. To polecenie analizuje pliku manifestu i tworzenia zdefiniowanych obiektów Kubernetes.
+Użyj [utworzyć kubectl] [ kubectl-create] polecenie do uruchomienia aplikacji. To polecenie analizuje pliku manifestu i tworzenia zdefiniowanych obiektów Kubernetes.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -81,9 +81,9 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testowanie aplikacji
 
-A [usługi Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) jest tworzony, który udostępnia aplikacji w Internecie. Może to potrwać kilka minut. 
+A [usługi Kubernetes] [ kubernetes-service] jest tworzony, który udostępnia aplikacji w Internecie. Może to potrwać kilka minut. 
 
-Aby monitorować postęp, użyj polecenia [kubectl get-service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) z argumentem `--watch`.
+Aby monitorować postęp, należy użyć [kubectl pobrać usługi] [ kubectl-get] z `--watch` argumentu.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -117,4 +117,15 @@ W tym samouczku aplikacji Azure głos został wdrożony do klastra Kubernetes w 
 Przejdź do następnego samouczka, aby dowiedzieć się więcej na temat skalowania aplikacji Kubernetes jak podstawowej infrastruktury Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Skala Kubernetes aplikacji i infrastruktury](./tutorial-kubernetes-scale.md)
+> [Skala Kubernetes aplikacji i infrastruktury][aks-tutorial-scale]
+
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
+[az-acr-list]: /cli/azure/acr#list

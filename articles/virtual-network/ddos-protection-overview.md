@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Omówienie usługi Azure Standard ochrony przed atakami DDoS
 
@@ -33,7 +33,7 @@ Ochrona przed atakami DDoS Azure, w połączeniu z najlepszymi rozwiązaniami pr
 ![Standard ochrony przed atakami DDoS Azure](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Standardowa ochrony przed atakami DDoS Azure jest obecnie w wersji zapoznawczej. Zapewnia ochronę zasobów platformy Azure, który ma Azure publicznego adresu IP skojarzonego, takich jak maszyny wirtualne, usługi równoważenia obciążenia i bramy aplikacji. Musisz [zarejestrować](http://aka.ms/ddosprotection) usługi przed włączeniem ochrony przed atakami DDoS — standardowe dla Twojej subskrypcji. Po zarejestrowaniu Azure DDoS zespołu conacts możesz i przewodniki dotyczące użytkownika przez proces aktywacji. Ochrona przed atakami DDoS — standardowe są dostępne w wschodnie stany USA, wschodnie stany USA 2, zachodnie stany USA, zachodnie centralnej nam, Europa Północna, Europa Zachodnia, Japonia Zachodnia, Japonia Wschodnia, Azja Wschodnia i Azja południowo-wschodnia regionów tylko. Podczas udostępniania wersji zapoznawczej są nie naliczane opłaty za korzystanie z usługi.
+> Standardowa ochrony przed atakami DDoS Azure jest obecnie w wersji zapoznawczej. Zapewnia ochronę zasobów platformy Azure, który ma Azure publicznego adresu IP skojarzonego, takich jak maszyny wirtualne, usługi równoważenia obciążenia i bramy aplikacji. Musisz [zarejestrować](http://aka.ms/ddosprotection) usługi przed włączeniem ochrony przed atakami DDoS — standardowe dla Twojej subskrypcji. Po zarejestrowaniu zespołu Azure DDoS skontaktuje się i prowadzi użytkownika przez proces aktywacji. Ochrona przed atakami DDoS — standardowe są dostępne w wschodnie stany USA, wschodnie stany USA 2, zachodnie stany USA, zachodnie centralnej nam, Europa Północna, Europa Zachodnia, Japonia Zachodnia, Japonia Wschodnia, Azja Wschodnia i Azja południowo-wschodnia regionów tylko. Podczas udostępniania wersji zapoznawczej są nie naliczane opłaty za korzystanie z usługi.
 
 Zachęcamy do wypróbowania DDoS ochrony standardowe w środowiskach rozwoju, testów lub produkcji. Aby przesłać opinię dotyczącą komfort pracy, należy korzystać z następujących zasobów:
 - [Ochrona przed atakami DDoS Azure na Forum usługi Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection). 

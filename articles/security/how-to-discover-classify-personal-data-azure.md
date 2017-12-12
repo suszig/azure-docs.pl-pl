@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Wykryj, identyfikowanie i klasyfikowania danych osobowych w Microsoft Azure
 
@@ -185,7 +185,7 @@ Rozpoczynać się od znaku podstawy, odwiedź stronę [bazy danych Azure CosmosD
 
 Więcej szczegółowe wskazówki dotyczące tworzenia zapytania SQL, odwiedź stronę [kwerendy SQL dla interfejsu API Azure rozwiązania Cosmos bazy danych dokumentów bazy danych.](../cosmos-db/documentdb-sql-query.md)
 
-Jeśli nowych do bazy danych Azure rozwiązania Cosmos i chcesz dowiedzieć się, jak utworzyć bazę danych, kolekcji, Dodaj i dodać dane, odwiedź witrynę [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API usługi DocumentDB](../cosmos-db/create-documentdb-dotnet.md) samouczek Szybki Start. Jeśli chcesz to zrobić w języku innym niż .NET, takie jak Java lub Python, wystarczy wybrać preferowany język po przejść do witryny.
+Jeśli nowych do bazy danych Azure rozwiązania Cosmos i chcesz dowiedzieć się, jak utworzyć bazę danych, kolekcji, Dodaj i dodać dane, odwiedź witrynę [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL](../cosmos-db/create-documentdb-dotnet.md) samouczek Szybki Start. Jeśli chcesz to zrobić w języku innym niż .NET, takie jak Java lub Python, wystarczy wybrać preferowany język po przejść do witryny.
 
 ## <a name="next-steps"></a>Następne kroki
 

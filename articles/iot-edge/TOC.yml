@@ -49,6 +49,8 @@
       href: iot-edge-as-gateway.md
     - name: Bezpieczeństwo
       href: security.md
+    - name: Słownik usługi IoT Edge
+      href: iot-edge-glossary.md
 - name: Zasoby
   items:
     - name: Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń

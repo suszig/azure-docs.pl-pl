@@ -15,37 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 05fdf1e20efd129cdfc27e1d37bc9e124edf5dcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Jak utworzyć zadanie przetwarzania analizy danych dla usługi analiza strumienia
 Zasób najwyższego poziomu w Azure Stream Analytics jest zadania usługi analiza strumienia.  Składa się z co najmniej jedno źródło danych wejściowych, zapytania, przedstawiając przekształcania danych i co najmniej jeden wyjściowy obiektów docelowych, które wyniki są zapisywane do. Razem te umożliwiają użytkownikowi wykonywać analizy danych przetwarzania do strumieniowego przesyłania danych.
 
 Aby rozpocząć korzystanie z usługi Stream Analytics, Rozpocznij od utworzenia nowego zadania usługi analiza strumienia.  Należy zauważyć, że ta akcja nie daje żadnych skutków rozliczeń do momentu rozpoczęcia zadania.
 
-1. Zaloguj się na online [klasycznego portalu Azure](http://manage.windowsazure.com) lub [portalu Azure](https://portal.azure.com/).
-2. W portalu: **kliknij nowy**, następnie kliknij przycisk **usług danych** lub **analizy danych** w zależności od portalu, a następnie kliknij przycisk **Azure Stream Analytics**lub **strumienia Analytics** , a następnie **szybkie tworzenie**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz **nowy** > **dane i analiza** > **zadanie usługi Stream Analytics**.
+3. Wybierz pozycję **Utwórz**.
    
-   ![Kreator zadania przetwarzania analizy danych](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
-   
-   ![Utwórz zadanie przetwarzania analizy danych](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
 3. Określ odpowiednią konfigurację zadania usługi analiza strumienia.
    
    * W **Nazwa zadania** wprowadź nazwę identyfikującą zadania usługi analiza strumienia. Gdy **Nazwa zadania** jest weryfikowane, w polu Nazwa zadania zostanie wyświetlony zielony znacznik wyboru. **Nazwa zadania** może zawierać tylko znaki alfanumeryczne oraz '-' znaków i musi zawierać od 3 do 63 znaków.
-   * Użyj **Region** w portalu Azure lub **lokalizacji** w portalu Azure, aby określić lokalizację geograficzną, w którym chcesz uruchomić zadanie.
-   * Jeśli używasz portalu Azure, wybierz lub Utwórz konto magazynu do użycia jako **konto magazynu monitorowania regionalnego**. To konto magazynu jest używany do przechowywania danych monitorowania dla wszystkich zadań usługi Stream Analytics uruchomione w tym regionie.
-   * Jeśli przy użyciu portalu Azure, określić nową lub istniejącą **grupy zasobów** do przechowywania powiązane zasoby aplikacji.
-4. Po skonfigurowaniu opcji zadania Stream Analytics kliknij **utworzyć zadania usługi analiza strumienia**. Może upłynąć kilka minut, aż zadanie usługi analiza strumienia, który ma zostać utworzony. Aby sprawdzić stan, można monitorować postęp w Centrum powiadomień.
-   
-   ![Centrum powiadomień zadania przetwarzania analizy danych](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
-   
+   * Użyj **lokalizacji** można określić lokalizację geograficzną, w którym chcesz uruchomić zadanie.
+   * Określ nową lub istniejącą **grupy zasobów** do przechowywania powiązane zasoby aplikacji.
+4. Wybierz pozycję **Utwórz**.
+Może upłynąć kilka minut, aż zadanie usługi analiza strumienia, który ma zostać utworzony. Aby sprawdzić stan, można monitorować postęp w Centrum powiadomień.
+    
    ![Azure w portalu analityka danych przetwarzania zadania tworzenia zadania](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
 5. Nowe zadanie będzie wyświetlany stan **utworzony**. Zwróć uwagę, że **Start** przycisk jest niedostępny. Przed rozpoczęciem zadania, należy skonfigurować dane wejściowe zadania, zapytań i danych wyjściowych.
-   
-   ![Zadanie przetwarzania analizy danych stanu](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
+
    
    ![Azure w portalu analityka danych przetwarzania stanu zadania](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Dlatego chcesz Dowiedz się więcej o sieci szkieletowej usług?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Sieć szkieletowa usług ma dużej powierzchni, jednak i jest dużo, aby dowiedzieć się więcej.  Ten artykuł przedstawia streszczenie sieci szkieletowej usług oraz podstawowe koncepcje programowania modeli, cyklem życia aplikacji, testowania, klastrami i monitorowanie kondycji. Odczyt [omówienie](service-fabric-overview.md) i [co to są mikrousług?](service-fabric-overview-microservices.md) wprowadzenie i jak sieci szkieletowej usług może służyć do tworzenia mikrousług. W tym artykule nie zawiera pełną listę zawartości, ale łącze do omówienie i pobieranie rozpoczęte artykułów dla każdej części sieci szkieletowej usług. 
@@ -103,7 +103,7 @@ A [pliku wykonywalnego gościa](service-fabric-deploy-existing-app.md) jest istn
 ## <a name="application-lifecycle"></a>Cykl życia aplikacji
 Ponieważ z innych platform, aplikacji w sieci szkieletowej usług zwykle przechodzi przez następujących faz: projekt, rozwoju, testowania, wdrożenia, uaktualniania, obsługi i usuwania. Sieć szkieletowa usług zawiera najwyższej jakości pomoc techniczną dla pełnej aplikacji cyklem życia aplikacji w chmurze, od projektowania do wdrożenia, codziennego zarządzania i konserwacji do likwidacji ostatecznego. Model usługi umożliwia kilku różnych ról niezależnie uczestniczyć w cyklu życia aplikacji. [Cykl życia aplikacji usługi sieć szkieletowa](service-fabric-application-lifecycle.md) zawiera omówienie interfejsów API i jak są używane przez różne role w etapy cyklu życia aplikacji sieci szkieletowej usług. 
 
-Cykl życia całej aplikacji można zarządzać za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [interfejsów API języka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/system.fabric._application_management_client), i [interfejsów API REST](/rest/api/servicefabric/). Można także skonfigurować ciągłej integracji/ciągłego potoki wdrożenia za pomocą narzędzi takich jak [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) lub [Wpięć](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Cykl życia całej aplikacji można zarządzać za pomocą [poleceń cmdlet programu PowerShell](/powershell/module/ServiceFabric/), [polecenia interfejsu wiersza polecenia](service-fabric-sfctl.md), [interfejsów API języka C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [interfejsów API języka Java](/java/api/system.fabric._application_management_client), i [ Interfejsy API REST](/rest/api/servicefabric/). Można także skonfigurować ciągłej integracji/ciągłego potoki wdrożenia za pomocą narzędzi takich jak [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) lub [Wpięć](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 W poniższym filmie Microsoft Virtual Academy opisano sposób zarządzania cyklu użytkowania Twojej aplikacji:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -124,7 +124,7 @@ Aby utworzyć naprawdę skali chmury usługi, jest krytyczne, aby zweryfikować,
 * [Scenariusz chaos](service-fabric-controlled-chaos.md)-symuluje błędów stałego, przeplotem (bezpieczne i nieprawidłowego) w całym klastrze przez dłuższy czas.
 * [Scenariusz trybu failover](service-fabric-testability-scenarios.md#failover-test)— wersja scenariusza testu chaos przeznaczonego partycji określonej usługi, pozostawiając nie dotyczy innych usług.
 
-## <a name="clusters"></a>Klastrów
+## <a name="clusters"></a>Klastry
 [Klaster usługi Service Fabric](service-fabric-deploy-anywhere.md) jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym wdraża się mikrousługi i nimi zarządza. Klastrów można skalować do tysięcy komputerów. Komputer lub maszynę Wirtualną, która jest częścią klastra jest nazywany węzłem klastra. Każdy węzeł przypisano nazwę węzła (ciąg). Węzły mają właściwości, takie jak właściwości umieszczania. Każdy komputer lub maszyna wirtualna jest automatycznie uruchamiana usługa `FabricHost.exe`, której zacznie działać po rozruchu, a następnie uruchamia dwa pliki wykonywalne: Fabric.exe i FabricGateway.exe. Te dwa pliki wykonywalne składają się na węźle. Dla scenariuszy testowania, może obsługiwać wiele węzłów na jednym komputerze lub maszynie Wirtualnej, uruchamiając wiele wystąpień `Fabric.exe` i `FabricGateway.exe`.
 
 Klastrów sieci szkieletowej usług mogą być tworzone na maszynach wirtualnych lub fizycznych z systemem Windows Server lub Linux. Możliwe jest wdrażanie i uruchamianie aplikacji sieci szkieletowej usług w każdym środowisku, w którym znajduje się zestaw komputerów systemu Windows Server lub Linux, które są połączone ze sobą: lokalnymi, Microsoft Azure lub u innego dostawcy chmury.
@@ -184,12 +184,31 @@ Fabrycznej składniki sieci szkieletowej usług Raport kondycji na wszystkich je
 
 Sieć szkieletowa usług oferuje wiele sposobów [wyświetlanie raportów kondycji](service-fabric-view-entities-aggregated-health.md) zagregowane w magazynie kondycji:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lub innych narzędzi wizualizacji.
-* Zapytań o kondycję (za pośrednictwem [PowerShell](/powershell/module/ServiceFabric/), [C# interfejsów API klienta fabricclient z rolą](/dotnet/api/system.fabric.fabricclient.healthclient) i [interfejsów API klienta fabricclient z rolą Java](/java/api/system.fabric._health_client), lub [interfejsów API REST](/rest/api/servicefabric)).
-* Ogólne wysyła zapytanie to zwracany listę obiektów, które mają kondycji jako jedna z właściwości (przy użyciu programu PowerShell, interfejsu API lub REST).
+* Zapytań o kondycję (za pośrednictwem [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# interfejsów API klienta fabricclient z rolą](/dotnet/api/system.fabric.fabricclient.healthclient) i [interfejsów API klienta fabricclient z rolą Java](/java/api/system.fabric._health_client), lub [REST Interfejsy API](/rest/api/servicefabric)).
+* Ogólne wysyła zapytanie to zwracany listę obiektów, które mają kondycji jako jedna z właściwości (przy użyciu programu PowerShell, interfejsu wiersza polecenia, interfejsy API lub REST).
 
 W poniższym filmie Microsoft Virtual Academy opisano model kondycji sieci szkieletowej usług i sposobie ich użycia:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka
+[Monitorowania i diagnostyki](service-fabric-diagnostics-overview.md) są krytyczne dla programowania, testowania i wdrażania aplikacji i usług w każdym środowisku. Rozwiązania sieci szkieletowej usług najlepiej podczas planowanie i implementowanie monitorowania i diagnostyki, które pomagają upewnij się, aplikacji i usług działają zgodnie z oczekiwaniami w środowisku projektowym lokalnej lub w środowisku produkcyjnym.
+
+Główne cele monitorowania i diagnostyki są:
+
+- Wykrywanie i diagnozowanie problemów dotyczących sprzętu i infrastruktury
+- Wykrywaj problemy związane z oprogramowania i aplikacji, skrócić przestoje związane z usługi
+- Podejmowanie świadomych zasobów i zmniejsza zużycie dysku operacje decyzji
+- Optymalizowanie aplikacji, usług i infrastruktury
+- Generuj informacje biznesowe i zidentyfikuj obszary wymagające poprawy
+ 
+Ogólny przepływ pracy monitorowania i diagnostyki obejmuje trzy kroki:
+
+1. Generowanie zdarzeń: na poziomie aplikacji / usługi infrastruktury (klaster), platformy i obejmuje to zdarzenia (dzienników, śledzenie zdarzeń niestandardowych)
+2. Agregacja zdarzeń: generowanych zdarzeń muszą być zbierane i agregować przed mogą być wyświetlane
+3. Analiza: zdarzeń muszą być wizualizowanego i jest dostępna w niektórych formacie, aby umożliwić analizę i wyświetlane w razie potrzeby
+
+Wiele produktów są dostępne, który obejmuje te trzy obszary i wolnych do wyboru różnych technologii dla każdego. Aby uzyskać więcej informacji, przeczytaj [monitorowania i diagnostyki dla sieci szkieletowej usług Azure](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak utworzyć [klaster na platformie Azure](service-fabric-cluster-creation-via-portal.md) lub [autonomiczny klaster w systemie Windows](service-fabric-cluster-creation-for-windows-server.md).

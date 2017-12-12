@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Wprowadzenie do platformy Microsoft Azure
 Microsoft Azure to platforma aplikacji firmy Microsoft dla chmury publicznej.  Celem tego artykułu jest zapewniają podstawę dla zrozumienia podstaw dotyczących platformy Azure, nawet jeśli nie wiesz nic o chmury obliczeniowej.
@@ -40,7 +40,7 @@ W tym artykule będzie używać **innej organizacji** porozmawiać na temat usł
  *Rysunek: Azure zapewnia dostęp do Internetu usług aplikacji uruchomionych w centrach danych platformy Azure.*
 
 ## <a name="management-portal"></a>Portal zarządzania
-Platforma Azure ma interfejs sieci web o nazwie [portalu zarządzania](http://manage.windowsazure.com) która pozwala administratorom na dostęp i zarządzać nim funkcje większości, ale nie wszystkie platformy Azure.  Firma Microsoft udostępnia zwykle nowszej interfejsu użytkownika portalu w wersji beta przed jego wycofaniem stary. Jest nazywana nowszą ["Portalu Azure w wersji zapoznawczej"](https://portal.azure.com/).
+Platforma Azure ma interfejs sieci web o nazwie [portalu zarządzania](http://manage.windowsazure.com) która pozwala administratorom na dostęp i zarządzać nim funkcje większości, ale nie wszystkie platformy Azure.  Firma Microsoft udostępnia zwykle nowszej interfejsu użytkownika portalu w wersji beta przed jego wycofaniem stary. Jest nazywana nowszą ["Azure Portal"](https://portal.azure.com/).
 
 Istnieje zwykle długie nakładają się na siebie, gdy oba portali są aktywne. Gdy w obu portalach pojawi się podstawowe usługi, nie wszystkie funkcje mogą być dostępne w obu. Nowsza usług mogą wyświetlani w nowszej portalu usługi pierwszy i starszych i funkcjonalność może istnieć tylko w przypadku starszych.  Tutaj komunikat jest który Jeżeli nie można znaleźć elementu w portalu starsze Sprawdź nowszą i na odwrót.
 
@@ -218,7 +218,7 @@ Właściciel aplikacji definiuje reguły określające, jak żądania od użytko
 Menedżer ruchu używa katalogu Name Service (DNS) użytkownikom trasy do punktów końcowych usługi, ale dalsze ruch przechodzi przez Menedżera ruchu po ustanowieniu tego połączenia. Dzięki temu Menedżera ruchu jest wąskie gardło, może to spowolnić komunikacji usługi.
 
 ## <a name="developer-services"></a>Usługi dla deweloperów
-System Azure oferuje wiele narzędzi do deweloperów i informatyków, tworzyć i obsługiwać aplikacje w chmurze.  
+Platforma Azure oferuje wiele narzędzi, aby pomóc deweloperom i informatykom tworzyć i obsługiwać aplikacje w chmurze.  
 
 ### <a name="azure-sdk"></a>Zestaw Azure SDK
 Wstecz w 2008 pierwszego wstępną wersję platformy Azure obsługiwane tylko .NET — rozwój. Już dziś jednak można utworzyć aplikacje platformy Azure w niemal dowolnym języku. Firma Microsoft udostępnia obecnie specyficzny dla języka zestawy SDK dla platformy .NET, Java, PHP, Node.js, Ruby i Python. Istnieje również ogólne zestawu Azure SDK, który zapewnia podstawową pomocą techniczną dla dowolnego języka, takich jak C++.  
@@ -368,7 +368,7 @@ Dane jest bezpieczniejsza, ponieważ szyfrowane są kopie zapasowe przed transmi
 
 **Scenariusze dotyczące kopii zapasowej systemu Azure**
 
-Jeśli możesz już przy użyciu systemu Windows Server lub programu System Center, fizycznych rozwiązania do tworzenia kopii zapasowych serwerów systemu plików, maszyn wirtualnych i baz danych programu SQL Server jest kopia zapasowa Azure.  Działa on z pliki zaszyfrowane, rozrzedzonych i skompresowane. Istnieją pewne ograniczenia, zaleca się [Sprawdź wymagania wstępne usługi Kopia zapasowa Azure](http://technet.microsoft.com/library/dn296608.aspx) pierwszy.
+Jeśli już używasz programu Windows Server lub programu System Center, kopia zapasowa Azure jest fizyczną rozwiązania do tworzenia kopii zapasowych serwerów systemu plików, maszyn wirtualnych i baz danych programu SQL Server.  Działa on z pliki zaszyfrowane, rozrzedzonych i skompresowane. Istnieją pewne ograniczenia, zaleca się [Sprawdź wymagania wstępne usługi Kopia zapasowa Azure](http://technet.microsoft.com/library/dn296608.aspx) pierwszy.
 
 ## <a name="messaging-and-integration"></a>Komunikaty i integracja
 Niezależnie od tego, co wykonywanie operacji kod często wymaga interakcji z innego kodu.  W niektórych sytuacjach potrzebne jest podstawowej obsługi wiadomości w kolejce. W innych przypadkach wymagane są bardziej złożone interakcji. Platforma Azure udostępnia na kilka różnych sposobów, aby rozwiązać te problemy. Rysunek 5 przedstawia możliwości.
@@ -424,11 +424,11 @@ W każdej chwili konfigurujesz gdzie istnieje wiele komunikatów, które są wsz
 ![Usługi BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Rysunek: Usługi BizTalk Services pozwala na przekształcanie XML formaty komunikatów w chmurze.*
 
-Czasami należy połączyć z systemów, które komunikują się przy użyciu różnych formatach obsługi wiadomości. Jest typowe dla firm, które mają innej bazy danych, schematów i XML wiadomości formatów, nawet jeśli dostępny jest common standard. Zamiast zapisu partii niestandardowego kodu lokalnej BizTalk Server umożliwia integrowanie różnych systemów.  Usługi BizTalk Azure zawiera ten sam typ usługi, ale w chmurze. Możesz zapłacić tylko co używane i nie martw się o skali, tak jak będzie musiał lokalnymi.
+Czasami trzeba Podłączaj systemów, które komunikują się przy użyciu różnych formatach obsługi wiadomości. Jest typowe dla firm, które mają innej bazy danych, schematów i XML wiadomości formatów, nawet jeśli dostępny jest common standard. Zamiast zapisu partii niestandardowego kodu lokalnej BizTalk Server umożliwia integrowanie różnych systemów.  Usługi BizTalk Azure zawiera ten sam typ usługi, ale w chmurze. Możesz zapłacić tylko co używane i nie martw się o skali, tak jak będzie musiał lokalnymi.
 
 **Scenariusze usługi BizTalk**
 
-Interakcje między firmami (B2B) zwykle wymagają tego typu tłumaczenia.  Na przykład firma tworzenia samolotów musi zamówień części z jego różnych dostawców części. Będzie mieć wielu dostawców części.  Aby przejść bezpośrednio z systemów konstruktorów samolotowy do systemów dostawców powinno zostać zautomatyzowane zamówień.  Żadna firm chce zmienić ich core systemów i formaty wiadomości i jest bardzo mało prawdopodobne, że te formaty są takie same. Usługi BizTalk Services może zająć wiadomości i tłumaczenia nowych formatów obu kierunkach. Dostawca samolotowy można wykonywać zadania do tłumaczenia lub różnych dostawców można, w zależności od kto chce większą kontrolę i ilość tłumaczenia potrzebne.     
+Interakcje między firmami (B2B) zwykle wymagają tego typu tłumaczenia.  Na przykład firma tworzenia samolotów musi części kolejność od różnych dostawców części. Będzie mieć wielu dostawców części.  Aby przejść bezpośrednio z systemów konstruktorów samolotowy do systemów dostawców powinno zostać zautomatyzowane zamówień.  Żadna firm chce zmienić ich core systemów i formaty wiadomości i jest bardzo mało prawdopodobne, że te formaty są takie same. Usługi BizTalk Services może zająć wiadomości i tłumaczenia nowych formatów obu kierunkach. Dostawca samolotowy można wykonywać zadania do tłumaczenia lub różnych dostawców można, w zależności od kto chce większą kontrolę i ilość tłumaczenia potrzebne.     
 
 ## <a name="compute-assistance"></a>Obliczenia bazy danych pomocy
 Platforma Azure udostępnia pomocy dla usług, które nie mają zostać uruchomione przez cały czas.  
@@ -437,7 +437,7 @@ Platforma Azure udostępnia pomocy dla usług, które nie mają zostać uruchomi
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Rysunek: Harmonogram Azure umożliwia planowanie zadań w określonym czasie o określony czas.*
 
-Czasami aplikacji tylko należy uruchomić w określonym czasie. Na platformie Azure można zapisać pieniędzy tego typu aplikacji, zamiast czekać po prostu działanie 24 x 7 oczekiwanie na dane do przetwarzania aplikacji. Harmonogram systemu Azure umożliwia Zaplanuj, kiedy aplikacja powinna uruchomione na podstawie interwału czasu lub kalendarza. Jest niezawodne i sprawdź, czy proces działa nawet w przypadku awarii Centrum sieci, komputera i danych. Zarządzanie te akcje za pomocą interfejsu API REST harmonogramu.
+Czasami aplikacji tylko należy uruchomić w określonym czasie. Na platformie Azure można zapisać pieniędzy tego typu aplikacji, zamiast czekać po prostu działanie 24 x 7 oczekiwanie na dane do przetwarzania aplikacji. Harmonogram systemu Azure umożliwia zaplanowanie podczas uruchamiania na podstawie aplikacji w odstępach czasu lub kalendarza. Jest niezawodne i sprawdź, czy proces działa nawet w przypadku awarii Centrum sieci, komputera i danych. Zarządzanie te akcje za pomocą interfejsu API REST harmonogramu.
 
 W przypadku zaplanowanego alarm harmonogramu wysyła komunikaty HTTP lub HTTPS do określonego punktu końcowego lub można umieścić wiadomości w kolejce magazynu.  Dlatego musisz mieć aplikacji mają dostępnym punkcie końcowym lub została ona monitorowania kolejki magazynu. Następnie po pobiera wiadomości, można wykonać akcji, niezależnie od jej zaplanowano do.
 
@@ -493,7 +493,7 @@ HDInsight to nazwa usługi Apache Hadoop systemem Azure. HDInsight umożliwia HD
 HDinsight obsługuje inne składniki ekosystemu platformy Hadoop oraz, w tym Hive i Pig. Firma Microsoft opracowała również składników, które ułatwiają pracę z danymi utworzone przez usługi HDInsight przy użyciu tradycyjnych narzędzi do analizy Biznesowej, takie jak karta HiveODBC i Eksplorator danych, który pracy przy użyciu programu Excel.
 
 ### <a name="high-performance-computing-big-compute"></a>Wysokiej wydajności przetwarzania danych (Big obliczeniowe)
-Jedną z najbardziej atrakcyjne sposoby używania platformy w chmurze jest uruchomienie wysokiej wydajności (HPC) obliczeniowych i innych aplikacjach "Obliczeniowe Big". Przykładami specjalistyczne aplikacje engineering zaprojektowane do korzystania z standardowy komunikat interfejsu (Passing Interface), a także tak zwane embarrassingly równoległych aplikacje, takie modele finansowych ryzyka.
+Jedną z najbardziej atrakcyjne sposoby używania platformy w chmurze jest uruchomienie wysokiej wydajności (HPC) obliczeniowych i innych aplikacjach "Obliczeniowe Big". Przykładami specjalistyczne aplikacje engineering zaprojektowane do korzystania z standardowy komunikat interfejsu (Passing Interface), a także tak zwane embarrassingly równoległych aplikacji, takich jak modele finansowych ryzyka.
 
 Właśnie Big obliczeniowe wykonuje kod na wielu komputerach jednocześnie. Na platformie Azure oznacza to, uruchomione wiele wirtualnych maszyn jednocześnie, wszystkie działające równolegle, aby rozwiązać problem. Wymaga to jednak sposób do zasobów i zaplanować aplikacji, tj., rozpraszających w tych wystąpieniach. Bezpłatne firmy Microsoft HPC Pack i innych rozwiązań klastra obliczeniowego mogą wykonywać również w Azure, korzystając z usług Azure obliczeniowych i infrastruktury do dodania do klastra obliczeniowego lokalnymi lub uruchamianie aplikacji Big obliczeniowe całkowicie w chmurze pojemności na żądanie.
 
@@ -515,7 +515,7 @@ Jak pokazano na rysunku, Media Services udostępnia zestaw składników dla apli
 
 Na platformie Azure lub w innym miejscu, można uruchomić aplikacji, które używają tej platformy. Na przykład aplikacja dla domu wideo produkcji zezwolić użytkownikom na jego przekazać wideo do usługi Media Services, następnie go przetworzyć na różne sposoby. Alternatywnie usługi opartej na chmurze zarządzanie zawartością działających na platformie Azure mogą polegać na usługi Media Services do przetwarzania i rozpowszechniania wideo. Wszędzie tam, gdzie działa i tak jest, każda aplikacja wybiera składniki, które należy go używać, dostępu do nich za pośrednictwem interfejsów RESTful.
 
-Do dystrybucji, co powoduje, aplikacji można użyć usługi Azure CDN innego CDN lub po prostu wyślij bitów bezpośrednio do użytkowników. Jednak pobiera, wideo, utworzone za pomocą usługi Media Services może być zużyte przez różnych systemów klienckich, w tym systemu Windows, Macintosh HTML 5, iOS, Android, Windows Phone, Flash i Silverlight. Celem jest ułatwiają tworzenie nowoczesnych aplikacji.
+Do dystrybucji, co powoduje, aplikacji można użyć usługi Azure CDN innego CDN lub po prostu wyślij bitów bezpośrednio do użytkowników. Jednak pobiera, mogą być używane przez różne systemy klienta, w tym systemu Windows, Macintosh HTML 5, iOS, Android, Windows Phone, Flash i Silverlight wideo utworzone za pomocą usługi Media Services. Celem jest ułatwiają tworzenie nowoczesnych aplikacji.
 
 **Odwołania**
 

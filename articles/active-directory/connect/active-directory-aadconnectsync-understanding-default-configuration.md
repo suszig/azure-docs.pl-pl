@@ -4,7 +4,7 @@ description: "W tym artykule opisano domyślnej konfiguracji synchronizacji Azur
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule opisano reguły konfiguracji out-of-box. Dokumenty go zasady i wpływ tych reguł konfiguracji. On również przeprowadzi Cię przez domyślną konfigurację synchronizacji usługi Azure AD Connect. Celem jest czytnik rozumie, jak model konfiguracji o nazwie aprowizacją deklaratywną działa w przykładzie rzeczywistych. W tym artykule założono, że zainstalowano i skonfiguruj synchronizację programu Azure AD Connect przy użyciu Kreatora instalacji.
@@ -134,7 +134,7 @@ SRE jest narzędziem do zestawu zasobów i zainstalować go z synchronizacji Azu
 
 W tym okienku zobacz temat wszystkie reguły synchronizacji utworzone dla danej konfiguracji. Każdy wiersz w tabeli jest jedna reguła synchronizacji. Po lewej stronie w obszarze typów reguł, są wyświetlane dwa różne typy: przychodzących i wychodzących. Ruchu przychodzącego i wychodzącego jest z widoku metaverse. Przede wszystkim ma skoncentrować się na reguł ruchu przychodzącego w tym omówieniu. Rzeczywista lista reguł synchronizacji zależy od wykrytych schematu w usłudze AD. W powyższym rysunku lasu kont (fabrikamonline.com) nie ma żadnych usług, takich jak Exchange i Lync, i zostały utworzone żadne reguły synchronizacji dla tych usług. Jednak w lesie zasobów (res.fabrikamonline.com) można znaleźć reguły synchronizacji dla tych usług. Zawartość reguły jest różne w zależności od wykryto wersję. Na przykład w przypadku wdrożenia z programu Exchange 2013 istnieje więcej przepływów atrybutów skonfigurowane niż w Exchange 2010 2007.
 
-### <a name="synchronization-rule"></a>Reguły synchronizacji
+### <a name="synchronization-rule"></a>Reguła synchronizacji
 Reguła synchronizacji jest obiekt konfiguracji przy użyciu zestawu atrybutów przepływu po spełnieniu warunku. Służy również opisano, jak obiekt przestrzeni łącznika jest powiązane z obiektem w magazynie metaverse, znany jako **sprzężenia** lub **odpowiada**. Reguły synchronizacji mają pierwszeństwo przed wartość wskazującą, jaki sposób są powiązane ze sobą. Reguła synchronizacji z niższą wartość liczbową ma wyższy priorytet i konflikt przepływu atrybutu wyższy priorytet wins rozwiązywania konfliktów.
 
 Na przykład przyjrzeć się reguły synchronizacji **w z usługi Active Directory — AccountEnabled użytkownika**. Oznacz ten wiersz w SRE i wybierz **Edytuj**.
@@ -207,7 +207,7 @@ NULL
 
 Zobacz [opis deklaratywne inicjowania obsługi administracyjnej wyrażenia](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) Aby uzyskać więcej informacji na temat język wyrażeń dla przepływów atrybutów.
 
-### <a name="precedence"></a>Priorytet
+### <a name="precedence"></a>Pierwszeństwo
 Teraz przeglądał niektórych poszczególne reguły synchronizacji, ale zasady współpracują ze sobą w konfiguracji. W niektórych przypadkach wartość atrybutu jest z wielu reguł synchronizacji przyczyniły się do powstania tego samego atrybutu docelowego. W takim przypadku pierwszeństwo atrybutów jest używany do określenia, który atrybut wins. Na przykład sprawdzić atrybut sourceAnchor. Ten atrybut jest atrybutem ważne, aby móc zalogować się do usługi Azure AD. Dla tego atrybutu w dwie różne reguły synchronizacji, można znaleźć przepływu atrybutu **w z usługi Active Directory — AccountEnabled użytkownika** i **w z usługi Active Directory — typowe użytkownika**. Z powodu pierwszeństwo reguły synchronizacji atrybut sourceAnchor jest przyczyniły się do lasu z włączonym kontem najpierw przypadku wiele obiektów dołączonych do obiektu metaverse. Jeśli nie ma żadnych kont włączone, a następnie reguły synchronizacji wychwytywania korzysta z aparatu synchronizacji **w z usługi Active Directory — typowe użytkownika**. Taka konfiguracja powoduje, że nawet w przypadku konta, które są wyłączone, jest nadal sourceAnchor.
 
 ![Reguły synchronizacji ruchu przychodzącego](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)

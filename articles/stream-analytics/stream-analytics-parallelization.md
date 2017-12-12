@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Korzystać z zapytania paralelizacja w Azure Stream Analytics
 W tym artykule przedstawiono sposób wykorzystać paralelizacja Azure Stream Analytics. Sposób skalowania zadania usługi analiza strumienia, konfigurując wejściowych partycji i dostrajania analytics definicji zapytania.
@@ -39,12 +39,12 @@ Wszystkie dane wejściowe Azure Stream Analytics można wykorzystać partycjonow
 -   Centrum IoT (należy jawnie ustawić klucz partycji)
 -   Blob Storage
 
-### <a name="outputs"></a>dane wyjściowe
+### <a name="outputs"></a>Dane wyjściowe
 
 Podczas pracy z usługi Stream Analytics, możesz korzystać z partycji w danych wyjściowych:
 -   Azure Data Lake Storage
 -   Stan usługi Funkcje Azure
--   Tabeli platformy Azure
+-   Tabela platformy Azure
 -   Blob Storage
 -   CosmosDB (należy jawnie ustawić klucz partycji)
 -   EventHub (należy jawnie ustawić klucz partycji)
@@ -241,7 +241,6 @@ Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Anal
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

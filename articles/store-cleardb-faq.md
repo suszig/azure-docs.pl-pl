@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Często zadawane pytania dotyczące baz danych ClearDB MySQL w usłudze Azure App Service
 Często zadawane pytania odpowiedzi na często zadawane pytania dotyczące przy użyciu i zakup ClearDB MySQL baz danych na potrzeby aplikacji sieci Web Azure.
@@ -68,7 +68,7 @@ Użyj podstawowego lub wyższej warstwy cenowej dla aplikacji sieci Web. ClearDB
 W [portalu Azure](https://portal.azure.com), można zwiększać ClearDB udostępnionej hostingu bazy danych. Przeczytaj [artykułu](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) Aby dowiedzieć się więcej. Obecnie nie obsługujemy uaktualnienia ClearDB Premium klastrów w portalu Azure.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Nie widzę mojego baza danych ClearDB w portalu Azure?
-Jeśli utworzony ClearDB bazy danych przy użyciu usługi Azure Resource Manager lub [nowego portalu Azure](https://portal.azure.com), nie będą widoczne w [starego portalu Azure](https://manage.windowsazure.com). Do obejścia to jest łącze bazę danych ręcznie do aplikacji sieci web. Podobnie jeśli utworzyć bazę danych ClearDB w [starego portalu](https://manage.windowsazure.com) nie będzie mógł wyświetlić bazy danych w [nowego portalu Azure](https://portal.azure.com). Nie istnieje żadne obejście ostatnie scenariusza.
+Jeśli utworzono bazę danych ClearDB w klasycznym, nie będzie mógł wyświetlić bazy danych w [Azure Portal](https://portal.azure.com). Nie ma żadnych obejścia dla tego scenariusza.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Kto I skontaktuj się z pomocy technicznej, gdy baza danych działa?
 Skontaktuj się z [Obsługa ClearDB](https://www.cleardb.com/developers/help/support) dla dowolnej bazy danych problemy związane z. Przygotuj się na udostępnienie je z informacjami o subskrypcji platformy Azure.

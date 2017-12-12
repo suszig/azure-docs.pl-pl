@@ -4,7 +4,7 @@ description: "Dowiedz się więcej informacji na temat wdrożenia usługi Azure 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Opis przepływu niejawne Przyznaj OAuth2 w usłudze Azure Active Directory (AD)
 Przyznanie niejawne OAuth2 jest odpowiedzialne za jest przyznanie z najdłuższym lista problemy z zabezpieczeniami w specyfikacji protokołu OAuth2. I jeszcze, który jest podejście przez ADAL JS i które zalecamy podczas pisania aplikacji JEDNOSTRONICOWEJ. Co daje? Jest to kwestia kompromisów: i jak okaże się niejawne Przyznaj jest najlepszym podejściem może prowadzić do aplikacji, które wykorzystują interfejs API sieci Web za pośrednictwem kodu JavaScript w przeglądarce.

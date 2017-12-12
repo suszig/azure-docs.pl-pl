@@ -3,8 +3,8 @@ title: "Połącz Azure stosu | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak połączyć Azure stosu"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Nawiązywanie połączenia z usługą Azure Stack
 
-Aby zarządzać zasobami, należy połączyć Azure stosu Development Kit. Szczegóły tego tematu kroki wymagane do nawiązania połączenia z zestawem deweloperskim. Możesz użyć dowolnej z następujących opcji połączenia:
+Aby zarządzać zasobami, należy połączyć Azure stosu Development Kit. Szczegóły tego artykułu kroki wymagane do nawiązania połączenia z zestawem deweloperskim. Możesz użyć dowolnej z następujących opcji połączenia:
 
 * [Pulpit zdalny](#connect-with-remote-desktop): umożliwia pojedynczego użytkownika równoczesnych szybko nawiązywanie połączenia z zestaw deweloperski.
 * [Wirtualnej sieci prywatnej (VPN)](#connect-with-vpn): umożliwia łączenie wielu równoczesnych użytkowników z klientów poza infrastruktury Azure stosu (wymaga konfiguracji).
@@ -51,7 +51,7 @@ Można utworzyć tunel podziału połączenia wirtualnej sieci prywatnej (VPN) A
 
 ### <a name="configure-vpn-connectivity"></a>Konfigurowanie połączeń sieci VPN
 
-Aby utworzyć połączenie sieci VPN w taki sposób, aby zestaw deweloperski, otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z komputera lokalnego z systemem Windows i uruchom następujący skrypt (Upewnij się zaktualizować wartości adresów i haseł IP dla danego środowiska):
+Aby utworzyć połączenie sieci VPN w taki sposób, aby zestaw deweloperski, otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z komputera lokalnego z systemem Windows i uruchom następujący skrypt (Pamiętaj zaktualizować wartości adresów i haseł IP dla danego środowiska):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Jeśli ustawienie zakończy się powodzeniem, powinny pojawić się **azurestack** na liście połączeń sieci VPN.
+Jeśli konfiguracja zakończy się pomyślnie, powinien zostać wyświetlony **azurestack** na liście połączeń sieci VPN.
 
 ![Połączenia sieciowe](media/azure-stack-connect-azure-stack/image3.png)  
 

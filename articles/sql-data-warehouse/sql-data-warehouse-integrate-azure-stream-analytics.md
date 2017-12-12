@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Użyj usługi Azure Stream Analytics z usługą Magazyn danych SQL
 Usługa Azure Stream Analytics to w pełni zarządzana usługa dostarczanie przetwarzanie złożonych zdarzeń małe opóźnienia, skalowalne, wysoko dostępne za pośrednictwem przesyłania strumieniowego danych w chmurze. Dowiedz się podstawy odczytując [wprowadzenie do usługi Azure Stream Analytics][Introduction to Azure Stream Analytics]. Następnie Dowiedz się jak utworzyć rozwiązanie end-to-end z usługi Stream Analytics, postępując [rozpocząć korzystanie z usługi Azure Stream Analytics] [ Get started using Azure Stream Analytics] samouczka.
@@ -53,7 +53,7 @@ Na następnej stronie, wprowadź następujące wartości:
   * Jeśli w bazie danych magazynu danych SQL jest w tej samej subskrypcji co zadanie usługi Stream Analytics, wybierz opcję Użyj bazy danych SQL z bieżącej subskrypcji.
   * Jeśli baza danych jest w innej subskrypcji, wybierz Użyj bazy danych SQL z innej subskrypcji.
 * *Baza danych*: Określ nazwę docelowej bazy danych.
-* *Nazwa serwera*: Określ nazwę serwera bazy danych, właśnie zostało określone. Aby znaleźć tę wartość, można użyć klasycznego portalu Azure.
+* *Nazwa serwera*: Określ nazwę serwera bazy danych, właśnie zostało określone. Aby znaleźć tę wartość, można użyć portalu Azure.
 
 ![][server-name]
 

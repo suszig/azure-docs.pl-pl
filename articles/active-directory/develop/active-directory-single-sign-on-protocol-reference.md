@@ -4,7 +4,7 @@ description: "W tym artykule opisano protokołu SAML na znak pojedynczego w usł
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Jeden protokół logowania jednokrotnego SAML
 W tym artykule omówiono SAML 2.0 uwierzytelniania żądań i odpowiedzi, które obsługuje usługi Azure Active Directory (Azure AD) dla logowania jednokrotnego.
@@ -47,15 +47,15 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID |Wymagane |Usługi Azure AD użyje tego atrybutu, aby wypełnić `InResponseTo` atrybutu zwrócona odpowiedź. Identyfikator nie musi rozpoczynać się od numeru, więc wspólnej strategii jest dołączenie wartości ciągu, takich jak "id" na końcu reprezentacji ciągu identyfikatora GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest poprawnym identyfikatorem. |
 | Wersja |Wymagane |To pole powinno być **2.0**. |
 | IssueInstant |Wymagane |Jest to ciąg daty/godziny z wartości UTC i [obustronne formatu ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Usługi Azure AD oczekuje wartości typu DateTime tego typu, ale nie oceny lub użyj wartości. |
-| AssertionConsumerServiceUrl |Opcjonalne |Jeśli zostanie podana, musi on być zgodny `RedirectUri` usługi w chmurze w usłudze Azure AD. |
-| ForceAuthn |Opcjonalne | Jest to wartość logiczna. Jeśli PRAWDA, oznacza to, że użytkownik zostanie wymuszone ponownego uwierzytelnienia, nawet jeśli mają prawidłowy sesji z usługą Azure AD. |
-| IsPassive |Opcjonalne |Jest to wartość logiczna określająca, czy usługi Azure AD powinien uwierzytelnić użytkownika w trybie dyskretnym, bez interakcji użytkownika, przy użyciu pliku cookie sesji, jeśli taka istnieje. Jeśli to PRAWDA, usługi Azure AD będzie podejmować próby uwierzytelnienia przy użyciu pliku cookie sesji użytkownika. |
+| AssertionConsumerServiceUrl |opcjonalne |Jeśli zostanie podana, musi on być zgodny `RedirectUri` usługi w chmurze w usłudze Azure AD. |
+| ForceAuthn |opcjonalne | Jest to wartość logiczna. Jeśli PRAWDA, oznacza to, że użytkownik zostanie wymuszone ponownego uwierzytelnienia, nawet jeśli mają prawidłowy sesji z usługą Azure AD. |
+| IsPassive |opcjonalne |Jest to wartość logiczna określająca, czy usługi Azure AD powinien uwierzytelnić użytkownika w trybie dyskretnym, bez interakcji użytkownika, przy użyciu pliku cookie sesji, jeśli taka istnieje. Jeśli to PRAWDA, usługi Azure AD będzie podejmować próby uwierzytelnienia przy użyciu pliku cookie sesji użytkownika. |
 
 Wszystkie inne `AuthnRequest` atrybutów, takich jak zgody, miejsce docelowe, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex i ProviderName są **ignorowane**.
 
 Ignoruje także usługi Azure AD `Conditions` element `AuthnRequest`.
 
-### <a name="issuer"></a>Wystawcy
+### <a name="issuer"></a>Wystawca
 `Issuer` Element `AuthnRequest` musi dokładnie pasować **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle ta jest równa **identyfikator URI aplikacji** określonym podczas rejestracji aplikacji.
 
 Zawierające fragment SAML próbki `Issuer` element wygląda następująco:
@@ -148,7 +148,7 @@ Gdy żądane jednokrotnego zakończy się pomyślnie, usługi Azure AD zapisuje 
 * `Destination`: Podczas logowania jednokrotnego zakończy się pomyślnie, to ma ustawioną wartość `RedirectUri` dostawcy usług (usługi w chmurze).
 * `InResponseTo`: Ta wartość jest równa `ID` atrybutu `AuthnRequest` element, który zainicjował odpowiedzi.
 
-### <a name="issuer"></a>Wystawcy
+### <a name="issuer"></a>Wystawca
 Azure AD zestawy `Issuer` elementu `https://login.microsoftonline.com/<TenantIDGUID>/` gdzie <TenantIDGUID> jest identyfikator dzierżawcy dzierżawy usługi Azure AD.
 
 Na przykład przykładowa odpowiedź z elementem wystawcy może wyglądać następująco:
@@ -180,7 +180,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ### <a name="assertion"></a>Potwierdzenia
 Oprócz `ID`, `IssueInstant` i `Version`, usługi Azure AD ustawia następujące elementy w `Assertion` element odpowiedzi.
 
-#### <a name="issuer"></a>Wystawcy
+#### <a name="issuer"></a>Wystawca
 Ta wartość jest równa `https://sts.windows.net/<TenantIDGUID>/`gdzie <TenantIDGUID> jest identyfikator dzierżawcy dzierżawy usługi Azure AD.
 
 ```

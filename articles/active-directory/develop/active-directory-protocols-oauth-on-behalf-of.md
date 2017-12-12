@@ -4,7 +4,7 @@ description: "W tym artykule opisano sposób użycia wiadomości HTTP do zaimple
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Usługi w celu wywołania usługi za pomocą delegowanego tożsamość użytkownika w imieniu — z przepływu
 OAuth On-Behalf-Of 2.0, którego przepływ służy przypadek użycia, w którym aplikacja wywołuje usługi/składnika web API, który z kolei musi wywołać inny usługi/interfejs API sieci web. Będzie propagację uprawnień za pomocą łańcucha żądań i tożsamości użytkowników delegowanego. Dla usługi warstwy środkowej na wysyłanie żądań uwierzytelnionych usługi podrzędne należy go secure token dostępu z usługi Azure Active Directory (Azure AD), w imieniu użytkownika.
@@ -80,7 +80,7 @@ Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawier
 | Potwierdzenia |Wymagane | Wartość tokenu użytego w żądaniu. |
 | client_id |Wymagane | Identyfikator aplikacji przypisany do wywoływania usługi podczas rejestracji w usłudze Azure AD. Aby znaleźć identyfikator aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**, kliknij katalog, a następnie kliknij nazwę aplikacji. |
 | client_secret |Wymagane | Klucz jest zarejestrowany dla wywołania usługi w usłudze Azure AD. Ta wartość powinna zauważyć w chwili rejestracji. |
-| Zasobów |Wymagane | Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij nazwę aplikacji, kliknij przycisk **wszystkie ustawienia** , a następnie kliknij przycisk **właściwości**. |
+| zasób |Wymagane | Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij nazwę aplikacji, kliknij przycisk **wszystkie ustawienia** , a następnie kliknij przycisk **właściwości**. |
 | requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
 | Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Dla protokołu OpenID Connect, zakres **openid** musi być określona.|
 
@@ -113,7 +113,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | client_id |Wymagane | Identyfikator aplikacji przypisany do wywoływania usługi podczas rejestracji w usłudze Azure AD. Aby znaleźć identyfikator aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**, kliknij katalog, a następnie kliknij nazwę aplikacji. |
 | client_assertion_type |Wymagane |Wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Wymagane | (JSON Web Token) potwierdzenia, że musisz utworzyć i podpisać przy użyciu certyfikatu został zarejestrowany jako poświadczeń dla aplikacji.  Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) informacje na temat rejestracji certyfikatu i format potwierdzenia.|
-| Zasobów |Wymagane | Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij nazwę aplikacji, kliknij przycisk **wszystkie ustawienia** , a następnie kliknij przycisk **właściwości**. |
+| zasób |Wymagane | Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). Aby znaleźć identyfikator URI aplikacji w portalu zarządzania Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij nazwę aplikacji, kliknij przycisk **wszystkie ustawienia** , a następnie kliknij przycisk **właściwości**. |
 | requested_token_use |Wymagane | Określa sposób przetwarzania żądania. W strumieniu w imieniu-z, wartość musi być **on_behalf_of**. |
 | Zakres |Wymagane | Lista zakresów dla żądania tokenu rozdzielonych spacją. Dla protokołu OpenID Connect, zakres **openid** musi być określona.|
 
@@ -148,7 +148,7 @@ Odpowiedź sukcesu jest odpowiedź JSON OAuth 2.0 z następującymi parametrami.
 | Zakres |Zakres dostępu przyznane w tokenie. |
 | expires_in |Czas token dostępu jest nieprawidłowy (w sekundach). |
 | expires_on |Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów. |
-| Zasobów |Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). |
+| zasób |Identyfikator URI aplikacji odbierającej usługi (zabezpieczonych zasobów). |
 | ' access_token ' |Żądany dostęp token. Wywołanie usługi umożliwia ten token uwierzytelniania w usłudze odbierania. |
 | żądaniu |Token żądanym identyfikatorem. Wywołanie usługi służy to do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. |
 | refresh_token |Token odświeżania dla tokenu żądany dostęp. Wywołanie usługi umożliwia żądania inny token dostępu po wygaśnięciu tokenu dostępu bieżącego ten token. |

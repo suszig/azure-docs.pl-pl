@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Ramka zabezpieczeń: Sprawdzanie poprawności danych wejściowych | Środki zaradcze 
 | Produktów i usług | Artykuł |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplikacja sieci Web** | <ul><li>[Wyłącz XSLT skryptów dla wszystkich przekształceń przy użyciu arkuszy stylów niezaufanych](#disable-xslt)</li><li>[Upewnij się, że każdej strony, która może zawierać zawartość sterowane użytkownika zdecyduje się poza automatyczne wykrywanie MIME](#out-sniffing)</li><li>[Ograniczenia funkcjonalności lub wyłączyć rozpoznawanie jednostek XML](#xml-resolution)</li><li>[Aplikacje przy użyciu pliku http.sys przeprowadzenia weryfikacji zapewniania kanoniczności adresu URL](#app-verification)</li><li>[Upewnij się, że odpowiednie formanty są stosowane podczas akceptowania plików od użytkowników](#controls-users)</li><li>[Upewnij się, że bezpieczny parametry są używane w aplikacji sieci Web dla dostępu do danych](#typesafe)</li><li>[Użyj modelu oddzielne powiązanie klasy lub listy filtrów powiązanie, aby zapobiec MVC masowej przypisania](#binding-mvc)</li><li>[Dane wyjściowe niezaufanych sieci web przed renderowaniem kodowania](#rendering)</li><li>[Sprawdzania poprawności danych wejściowych i filtrowanie na typ ciągu wszystkie właściwości modelu](#typemodel)</li><li>[Ich oczyszczania powinny być stosowane na pola formularza, które akceptują znaków, np., Edytor tekstu sformatowanego](#richtext)</li><li>[Nie należy przypisywać elementy modelu DOM wychwytywanie, które nie mają wbudowane kodowania](#inbuilt-encode)</li><li>[Sprawdź poprawność wszystkich przekierowania aplikacji zostały zamknięte lub wykonywane w sposób bezpieczny](#redirect-safe)</li><li>[Implementowanie sprawdzania poprawności danych wejściowych na wszystkie parametry typu ciąg zaakceptowane przez metody kontrolera](#string-method)</li><li>[Ustawić limitu górnego limitu czasu dla wyrażenia regularnego przetwarzania, aby zapobiec DoS z powodu nieprawidłowych wyrażeń regularnych](#dos-expression)</li><li>[Należy unikać używania Html.Raw w widokami Razor](#html-razor)</li></ul> | 
 | **Baza danych** | <ul><li>[Nie używaj zapytań dynamicznych procedury składowane](#stored-proc)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Upewnij się, że weryfikacja modelu jest wykonywana na metody interfejsu API sieci Web](#validation-api)</li><li>[Implementowanie sprawdzania poprawności danych wejściowych na wszystkie parametry typu ciąg zaakceptowane przez metody interfejsu API sieci Web](#string-api)</li><li>[Upewnij się, czy bezpieczny parametry są używane w interfejsie API sieci Web dla dostępu do danych](#typesafe-api)</li></ul> | 
-| **Dokumentów w usłudze Azure DB** | <ul><li>[Użyj sparametryzowanego zapytania SQL usługi documentdb](#sql-docdb)</li></ul> | 
+| **Dokumentów w usłudze Azure DB** | <ul><li>[Użyj sparametryzowanego zapytania SQL dla bazy danych Azure rozwiązania Cosmos](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Sprawdzanie poprawności danych wejściowych WCF przez powiązanie ze schematem](#schema-binding)</li><li>[Sprawdzanie poprawności wejściowy WCF za pomocą parametru inspektorzy](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Wyłącz XSLT skryptów dla wszystkich przekształceń przy użyciu arkuszy stylów niezaufanych
@@ -660,8 +660,8 @@ W poprzednim przykładzie kodu wartość wejściowa nie może być dłuższa ni�
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Anonsowanie parametryzacja SQL w usłudze DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Kroki** | Chociaż usługa DocumentDB obsługuje tylko zapytania tylko do odczytu, iniekcja kodu SQL jest nadal możliwe, jeśli zapytania zostały utworzone przez łączenie z danych wejściowych użytkownika. Może się zdarzyć, aby użytkownik mógł uzyskać dostęp do danych, której nie powinien mieć dostęp w ramach tej samej kolekcji przez obsługuje tworzenie zapytań SQL złośliwego. Użyj sparametryzowane zapytania SQL Jeśli zbudowanych zapytania oparte na danych wejściowych użytkownika. |
+| **Odwołania**              | [Anonsowanie parametryzacja SQL w Azure rozwiązania Cosmos bazy danych](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Kroki** | Mimo że bazy danych rozwiązania Cosmos Azure obsługuje tylko zapytania tylko do odczytu, iniekcja kodu SQL jest nadal możliwe, gdy zapytania są wykonane przez łączenie z danych wejściowych użytkownika. Może się zdarzyć, aby użytkownik mógł uzyskać dostęp do danych, której nie powinien mieć dostęp w ramach tej samej kolekcji przez obsługuje tworzenie zapytań SQL złośliwego. Użyj sparametryzowane zapytania SQL Jeśli zbudowanych zapytania oparte na danych wejściowych użytkownika. |
 
 ## <a id="schema-binding"></a>Sprawdzanie poprawności danych wejściowych WCF przez powiązanie ze schematem
 

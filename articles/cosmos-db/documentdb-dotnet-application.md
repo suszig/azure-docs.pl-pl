@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: b7c967550f9f89eec29288b24525b5f043615437
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 619886d129c6b9fca62376e366ce3a78d57c56c0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395809351"></a>Samouczek platformy ASP.NET MVC: Opracowywanie aplikacji internetowych za pomocą usługi Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/20/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Aby podkreślić, jak możesz efektywnie wykorzystać usługę Azure Cosmos DB do zapisywania i odpytywania dokumentów JSON, ten artykuł przedstawia kompletny przewodnik tworzenia aplikacji listy rzeczy do zrobienia używającej usługi Azure Cosmos DB. Zadania będą przechowywane jako dokumenty JSON w usłudze Azure Cosmos DB.
 
@@ -55,7 +57,7 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz nast
 Wszystkie zrzuty ekranu w tym artykule wykonano za pomocą programu Microsoft Visual Studio Community 2017. Jeśli system jest skonfigurowany za pomocą innej wersji jest możliwe, że Twoje ekrany i opcje nie będą całkiem zgodne, lecz jeśli spełniasz powyższe wymagania wstępne to rozwiązanie powinno działać.
 
 ## <a name="_Toc395637761"></a>Krok 1. Tworzenie konta bazy danych usługi Azure Cosmos DB
-Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto SQL (DocumentDB) dla bazy danych Azure rozwiązania Cosmos lub jeśli używasz emulatora usługi Azure DB rozwiązania Cosmos w tym samouczku, możesz przejść do [Tworzenie nowej aplikacji ASP.NET MVC](#_Toc395637762).
+Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto SQL dla bazy danych Azure rozwiązania Cosmos lub jeśli używasz emulatora usługi Azure DB rozwiązania Cosmos w tym samouczku, możesz przejść do [Tworzenie nowej aplikacji ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -99,7 +101,7 @@ Teraz większość podstaw dotyczących platformy ASP.NET MVC potrzebnych dla ro
    
     Z wyników, należy zainstalować **Microsoft.Azure.DocumentDB przez firmę Microsoft** pakietu. To spowoduje Pobierz i zainstaluj pakiet Azure DB rozwiązania Cosmos, a także wszystkie zależności, takich jak Newtonsoft.Json. Kliknij przycisk **OK** w oknie **Podgląd** i **Akceptuję** w oknie **Akceptacja licencji**, aby zakończyć instalację.
    
-    ![Zrzut ekranu okna Zarządzanie pakietami NuGet z wyróżnioną pozycją Biblioteka kliencka usługi Microsoft Azure DocumentDB](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Zrzut ekranu okna Zarządzanie pakietami NuGet z wyróżnioną pozycją Biblioteka kliencka DB przez rozwiązania Cosmos Microsoft Azure](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Inna możliwość to zainstalowanie pakietu za pomocą konsoli menedżera pakietów. W tym celu w menu **Narzędzia** kliknij pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **Konsola menedżera pakietów**. W wierszu polecenia wpisz następujące polecenie.
    

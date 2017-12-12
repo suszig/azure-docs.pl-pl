@@ -6,19 +6,18 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Zarządzanie nośnikiem usług zasobów przez wiele kont magazynu
 Począwszy od programu Microsoft Azure Media Services 2.2, można dołączyć wiele kont magazynu do jednego konta usługi Media Services. Możliwość dołączyć wiele kont magazynu do konta usługi Media Services zapewnia następujące korzyści:
@@ -26,7 +25,7 @@ Począwszy od programu Microsoft Azure Media Services 2.2, można dołączyć wi
 * Równoważenie obciążenia zasobów w wielu kont magazynu.
 * W przypadku dużych ilości przetwarzania zawartości usługi multimediów skalowania, (zgodnie z obecnie konto jednego magazynu ma maksymalną dozwoloną liczbę 500 TB). 
 
-W tym temacie pokazano, jak dołączyć wiele kont magazynu do konta usługi Media Services przy użyciu [interfejsów API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) i [Powershell](/powershell/module/azurerm.media). Widoczny jest również sposób określić różnych kont magazynu podczas tworzenia zasobów przy użyciu zestawu SDK usługi multimediów. 
+W tym artykule pokazano, jak dołączyć wiele kont magazynu do konta usługi Media Services przy użyciu [interfejsów API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) i [Powershell](/powershell/module/azurerm.media). Widoczny jest również sposób określić różnych kont magazynu podczas tworzenia zasobów przy użyciu zestawu SDK usługi multimediów. 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Podczas podłączania wielu kont magazynu do konta usługi Media Services, zastosuj następujące kwestie:
@@ -42,7 +41,7 @@ Usługa Media Services używa wartości **IAssetFile.Name** właściwości podcz
 
 ## <a name="to-attach-storage-accounts"></a>Aby dołączyć kont magazynu  
 
-Aby dołączyć konta magazynu do konta usługi AMS, użyj [interfejsów API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) i [Powershell](/powershell/module/azurerm.media), jak pokazano w poniższym przykładzie.
+Aby dołączyć konta magazynu do konta usługi AMS, użyj [interfejsów API usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) i [Powershell](/powershell/module/azurerm.media), jak pokazano w poniższym przykładzie:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

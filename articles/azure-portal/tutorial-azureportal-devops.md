@@ -7,18 +7,18 @@ author: mlearned
 manager: douge
 editor: mlearned
 ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Samouczek: metodyka DevOps w witrynie Azure Portal
 Platforma Azure zawiera wiele elastycznych przepływów pracy metodyki DevOps. Niniejszy samouczek zawiera informacje na temat możliwości witryny Azure Portal, które pozwalają opracowywać, testować, wdrażać i monitorować uruchomione aplikacje oraz zarządzać nimi, a także rozwiązywać problemy z nimi związane. W tym samouczku omówiono następujące kwestie:
@@ -84,7 +84,7 @@ Aplikacja sieci Web zostanie utworzona za pomocą usługi [Azure App Service](ht
     Włączanie ciągłego wdrażania w witrynie Azure Portal jest proste. Możesz również tworzyć bardziej złożone potoki tworzenia wersji i korzystać z wielu innych rozwiązań, takich jak systemy automatycznej kompilacji i zarządzania wersjami, umożliwiających wdrażanie na platformie Azure istniejących systemów kontroli źródła i ciągłej integracji.
 
 ## <a name="develop-and-test-an-app"></a>Tworzenie i testowanie aplikacji
-Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdrożone. Zostanie również skonfigurowane testowanie wydajności aplikacji sieci Web.
+Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdrożone. Zostanie również skonfigurowane testowanie wydajnościowe aplikacji internetowej.
 
 1. W witrynie Azure Portal w okienku nawigacji wybierz pozycję App Services i znajdź swoją usługę aplikacji.
    
@@ -121,15 +121,15 @@ Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdr
     ![image26][image26]
     
     ![image27][image27]
-12. Wróć do bloku narzędzi i kliknij pozycję Test wydajności w obszarze Tworzenie.
+12. Wróć do bloku narzędzi i kliknij pozycję Test wydajnościowy w obszarze Tworzenie.
     
     ![image28][image28]
 13. Musisz skonfigurować konto usług Team Services. Więcej informacji można znaleźć w artykule [Create a Team Services Account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) (Tworzenie konta usług Team Services).
-14. Kliknij pozycję Nowy, aby utworzyć test wydajności.
+14. Kliknij pozycję Nowy, aby utworzyć test wydajnościowy.
     
     ![image29][image29]
     
-    Skonfiguruj odpowiednie wartości i kliknij przycisk Uruchom test u dołu okna dialogowego, aby zainicjować test wydajności.
+    Skonfiguruj odpowiednie wartości i kliknij przycisk Uruchom test u dołu okna dialogowego, aby zainicjować test wydajnościowy.
     
     ![image30][image30]
     
@@ -141,7 +141,7 @@ Teraz w bazie kodu zostaną wprowadzone pewne zmiany, które zostaną szybko wdr
     Gdy test zostanie zakończony, kliknij wynik, aby wyświetlić więcej szczegółów.
     
     ![image33][image33]
-16. Przebieg testowy utworzony w tym przykładzie nie jest obszerny, dlatego zestaw danych przeznaczonych do analizy jest ograniczony. Możesz jednak wyświetlić różne metryki oraz ponownie uruchomić test z poziomu tego widoku. Witryna Azure Portal umożliwia łatwe tworzenie, przeprowadzanie i analizowanie testów wydajności aplikacji sieci Web. Na poniższych zrzutach ekranu przedstawiono dane dotyczące wydajności.
+16. Przebieg testowy utworzony w tym przykładzie nie jest obszerny, dlatego zestaw danych przeznaczonych do analizy jest ograniczony. Możesz jednak wyświetlić różne metryki oraz ponownie uruchomić test z poziomu tego widoku. Witryna Azure Portal umożliwia łatwe tworzenie, przeprowadzanie i analizowanie testów wydajnościowych aplikacji internetowych. Na poniższych zrzutach ekranu przedstawiono dane dotyczące wydajności.
     
     ![image34][image34]
     

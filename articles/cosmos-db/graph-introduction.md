@@ -2,7 +2,7 @@
 title: "Wprowadzenie do platformy Azure rozwiązania Cosmos DB Graph API | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak można użyć bazy danych rozwiązania Cosmos Azure do przechowywania, kwerendy i przechodzenia ogromną wykresów z niskim opóźnieniem przy użyciu języka zapytań wykres Gremlin Apache TinkerPop."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API programu Graph
 
@@ -98,7 +98,7 @@ Azure DB rozwiązania Cosmos oferuje następujące możliwości zróżnicowanych
 
 * Dostosowywalne poziomy spójności
 
- Wybierz z pięciu dobrze zdefiniowane poziomy spójności, aby osiągnąć optymalną zależności między wydajnością a spójnością. Dla zapytań i operacji odczytu usługa Azure Cosmos DB oferuje pięć różnych poziomów spójności: „silna”, „powiązana nieaktualność”, „sesja”, „spójny prefiks” i „ostateczna”. Te poziomy spójności szczegółowe, dokładnie zdefiniowane umożliwiają dźwięku kompromisy między spójności, dostępnością i opóźnieniem. Aby dowiedzieć się więcej, zobacz [Maksymalizowanie dostępności i wydajności za pomocą poziomów spójności w usłudze DocumentDB](consistency-levels.md).
+ Wybierz z pięciu dobrze zdefiniowane poziomy spójności, aby osiągnąć optymalną zależności między wydajnością a spójnością. Dla zapytań i operacji odczytu usługa Azure Cosmos DB oferuje pięć różnych poziomów spójności: „silna”, „powiązana nieaktualność”, „sesja”, „spójny prefiks” i „ostateczna”. Te poziomy spójności szczegółowe, dokładnie zdefiniowane umożliwiają dźwięku kompromisy między spójności, dostępnością i opóźnieniem. Dowiedz się więcej w [danych dostosowywalne poziomy spójności w usłudze Azure DB rozwiązania Cosmos](consistency-levels.md).
 
 Azure DB rozwiązania Cosmos można również użyć wielu modeli, takie jak dokument i wykres w tej samej kontenery lub bazy danych. Kolekcja dokumentów służy do przechowywania danych wykresu równolegle z dokumentów. Zarówno zapytania SQL w formacie JSON i zapytań Gremlin umożliwia kwerendy te same dane w postaci wykresu.
 
@@ -113,7 +113,7 @@ W poniższej tabeli przedstawiono popularne sterowniki Gremlin korzystających z
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin języka JavaScript w witrynie Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsoli](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentów](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure DB rozwiązania Cosmos zawiera także biblioteki .NET, która zawiera metody rozszerzenia Gremlin nad [zestawów SDK DB rozwiązania Cosmos Azure](documentdb-sdk-dotnet.md) za pośrednictwem pakietu NuGet. Ta biblioteka zawiera serwer Gremlin "w toku", który umożliwia bezpośrednie łączenie się z partycji danych usługi DocumentDB.
+Azure DB rozwiązania Cosmos zawiera także biblioteki .NET, która zawiera metody rozszerzenia Gremlin nad [zestawów SDK DB rozwiązania Cosmos Azure](documentdb-sdk-dotnet.md) za pośrednictwem pakietu NuGet. Ta biblioteka zawiera serwer Gremlin "w toku", który umożliwia bezpośrednie łączenie się z partycji danych.
 
 | Do pobrania | Dokumentacja |
 | --- | --- |

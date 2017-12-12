@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
@@ -121,62 +121,6 @@ Upewnij się, że serwer DHCP jest dostępny w sieci, z którą łączy się kar
 
 ### <a name="internet-access"></a>Dostęp do Internetu
 Stos Azure wymaga dostępu do Internetu, bezpośrednio lub za pośrednictwem przezroczystego obiektu pośredniczącego. Stos Azure nie obsługuje konfiguracji serwera proxy sieci web, aby umożliwić dostęp do Internetu. IP hosta i nowego adresu IP przypisane do MAS BGPNAT01 (DHCP lub statyczny adres IP) musi mieć możliwość dostępu do Internetu. Porty 80 i 443 są używane w domenach graph.windows.net i login.microsoftonline.com.
-
-## <a name="telemetry"></a>Telemetria
-
-Dane telemetryczne pomoże nam kształtu przyszłych wersji Azure stosu. Umożliwia nam szybko uwzględniał opinie użytkowników, udostępnia nowe funkcje i poprawy jakości. Microsoft Azure stosu obejmuje systemu Windows Server 2016 i SQL Server 2014. Żadna z tych produktów nie zostaną zmienione ustawienia domyślne i opisano zarówno przez Microsoft Enterprise zachowania poufności informacji. Stos Azure zawiera również oprogramowanie typu open source, który nie został zmodyfikowany w celu wysyłania danych telemetrycznych do firmy Microsoft. Oto przykładowe dane telemetryczne Azure stosu:
-
-- informacje o rejestracji wdrożenia
-- Gdy alert jest otwarte i zamknięte
-- Liczba zasobów sieciowych
-
-Aby zapewnić obsługę przepływu danych telemetrii, port 443 (HTTPS), należy otworzyć w sieci. Punktem końcowym klienta jest https://vortex-win.data.microsoft.com.
-
-Jeśli nie chcesz przewidzieć telemetrii stosu Azure, można go wyłączyć na hoście zestawu programowanie i maszyn wirtualnych infrastruktury, co zostało opisane poniżej.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Wyłączanie telemetrii na hoście development kit (opcjonalnie)
-
->[!NOTE]
-Jeśli chcesz wyłączyć telemetrię dla rozwoju zestawu hosta, należy to zrobić przed uruchomieniem skryptu wdrażania.
-
-Przed [uruchomienie skryptu asdk installer.ps1]() do wdrożenia hostów zestawu programowanie, rozruch w CloudBuilder.vhdx i uruchom następujący skrypt w oknie programu PowerShell z podwyższonym poziomem uprawnień:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Ustawienie **AllowTelemetry** na 0 spowoduje wyłączenie dane telemetryczne dla systemów Windows i stosu Azure wdrożenia. Wysyłane są tylko zdarzenia krytyczne zabezpieczeń systemu operacyjnego. Ustawienie kontrolki Windows telemetrii we wszystkich hostów i maszyn wirtualnych infrastruktury, a następnie jest stosowana do nowych węzłów/maszyn wirtualnych, po operacji skalowania w poziomie.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Wyłączanie telemetrii w przypadku maszyn wirtualnych infrastruktury (opcjonalnie)
-
-Po pomyślnym wdrożeniu na hoście development kit Uruchom następujący skrypt w oknie programu PowerShell z podwyższonym poziomem uprawnień (przy użyciu konta użytkownika AzureStack\AzureStackAdmin):
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Aby skonfigurować dane telemetryczne programu SQL Server, zobacz [sposób konfigurowania programu SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Raportowanie użycia
-
-Za pomocą rejestracji stosu Azure skonfigurowano również informacje o użyciu do przodu na platformie Azure. Raportowanie użycia jest kontrolowany niezależnie od telemetrii. Można wyłączyć raportowanie podczas użycia [rejestrowanie](azure-stack-register.md) za pomocą skryptu w witrynie Github. Ustaw wartość **$reportUsage** parametr **$false**.
-
-Dane użycia są sformatowane jako szczegółowe w [stosu Azure raport danych użycia do platformy Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Azure użytkowników stosu Development Kit faktycznie nie pobiera. Ta funkcja znajduje się w zestawie, aby przeprowadzić test, aby zobaczyć, jak działa raportowanie użycia. 
 
 
 ## <a name="next-steps"></a>Następne kroki
