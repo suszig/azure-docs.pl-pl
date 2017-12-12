@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentacja usług Azure Location Based Services (wersja zapoznawcza)
+title: "Dokumentacja usług Azure Location Based Services (wersja zapoznawcza)"
 metadata:
-  document_id: null
-  title: Dokumentacja usług Azure Location Based Services (wersja zapoznawcza) | Microsoft Docs
+  document_id: 
+  title: "Dokumentacja usług Azure Location Based Services (wersja zapoznawcza) | Microsoft Docs"
   meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
@@ -14,27 +14,32 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
+  ms.openlocfilehash: fa69448296105ce8fd3cc1b885c3aa793882f909
+  ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 11/28/2017
 abstract:
-  description: 'Usługi Azure Location Based Services (wersja zapoznawcza) udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Ta usługa to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest łatwe i elastyczne, a rezultaty można przenosić na różne platformy.'
+  description: "Usługi Azure Location Based Services (wersja zapoznawcza) udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Ta usługa to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest łatwe i elastyczne, a rezultaty można przenosić na różne platformy."
 sections:
-  - title: 5-minutowe przewodniki Szybki start
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Uruchom aplikację z przeszukiwaniem mapy, używając usług Azure Location Based Services (wersja zapoznawcza)."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Uruchom aplikację z przeszukiwaniem mapy, używając usług Azure Location Based Services (wersja zapoznawcza).'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Uruchom demonstracyjną aplikację z mapą
-            href: /azure/location-based-services/quick-demo-map-app
-  - title: Samouczki krok po kroku
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Uruchom demonstracyjną aplikację z mapą"
+      href: /azure/location-based-services/quick-demo-map-app
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Utwórz aplikację internetową z funkcjami geoprzestrzennymi, aby szukać punktów orientacyjnych i wyznaczać trasy do miejsc za pomocą usług Azure Location Based Services (wersja zapoznawcza)."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Utwórz aplikację internetową z funkcjami geoprzestrzennymi, aby szukać punktów orientacyjnych i wyznaczać trasy do miejsc za pomocą usług Azure Location Based Services (wersja zapoznawcza).'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/location-based-services/tutorial-search-location">Wyszukiwanie punktów orientacyjnych</a>
-          - html: <a href="/azure/location-based-services/tutorial-route-location">Wyznaczanie trasy do punktu orientacyjnego</a>
-          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Trasy zależne od środka transportu</a>
+    - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">Wyszukiwanie punktów orientacyjnych</a>"
+    - html: <a href="/azure/location-based-services/tutorial-route-location">Wyznaczanie trasy do punktu orientacyjnego</a>
+    - html: "<a href=\"/azure/location-based-services/tutorial-prioritized-routes\">Trasy zależne od środka transportu</a>"
