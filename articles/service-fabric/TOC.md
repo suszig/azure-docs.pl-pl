@@ -75,6 +75,7 @@
 ##### [Serializacja typów](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Model aplikacji](service-fabric-application-model.md)
+### [Manifesty aplikacji i usługi](service-fabric-application-and-service-manifests.md)
 ### [Model hostingu](service-fabric-hosting-model.md)
 
 ### Usługi
@@ -184,7 +185,7 @@
 ##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Rozpoczęcie pracy
+#### Rozpoczynanie pracy
 ##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
 ##### [Create C# application on Linux (Tworzenie aplikacji w języku C# w systemie Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)

@@ -4,8 +4,8 @@ description: "Więcej informacji na temat konfigurowania połączenia danych do 
 keywords: "strumień danych, połączenie danych strumienia zdarzeń"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Połączenie danych: Dowiedz się więcej o danych strumienia danych wejściowych ze zdarzeń w celu usługi analiza strumienia
 Połączenie danych do zadania usługi Stream Analytics jest strumienia zdarzeń źródła danych, które są określone jako zadanie *wejściowych*. Analiza strumienia ma najwyższej jakości integracji z źródeł strumienia danych Azure, w tym [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Centrum IoT Azure](https://azure.microsoft.com/services/iot-hub/), i [magazynu obiektów Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Tych źródeł danych wejściowych można z tej samej subskrypcji platformy Azure jako zadanie analizy lub innej subskrypcji.
@@ -37,9 +37,9 @@ Aby dowiedzieć się, jak utworzyć odwołanie do danych wejściowych danych, zo
 
 ## <a name="compression"></a>Kompresja
 
-Usługa Azure Stream Analytics obsługuje kompresję we wszystkich strumienia wejściowego źródeł danych (magazyn centra zdarzeń, Centrum IoT i obiektów Blob). Ta funkcja dodaje nową opcję listy rozwijanej **wprowadzania nowych** bloku w portalu Azure, co umożliwia opcjonalnie do skompresowania strumienie danych. Obsługiwane typy są aktualnie żaden GZip i kompresję Deflate. 
+Usługa Azure Stream Analytics obsługuje kompresję we wszystkich strumienia wejściowego źródeł danych (magazyn centra zdarzeń, Centrum IoT i obiektów Blob). Ta funkcja dodaje nową opcję listy rozwijanej **wprowadzania nowych** bloku w portalu Azure, co umożliwia opcjonalnie do skompresowania strumienie danych. Obecnie obsługiwane są typy odwołanie - Brak GZip i kompresję Deflate. Obsługa kompresji nie jest dostępna dla danych referencyjnych.
 
-Kompresja nie jest obsługiwana w połączeniu z Avro serializacji i nie ma zastosowania do danych referencyjnych. 
+Nie trzeba określać typ kompresji serializacji Avro. Jeśli dane wejściowe Avro jest skompresowany, jest obsługiwane przezroczysty. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Tworzenie elementu wejściowego strumienia danych z usługi Event Hubs
 

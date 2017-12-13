@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Dostosuj sposób rozwiązania połączonych fabryki wyświetlania danych z serwerów OPC UA
 
@@ -48,7 +48,7 @@ Rozwiązanie połączonych fabryki wyświetla dane z serwerów OPC UA nawiązani
 
 Możesz przejść elementów danych, które połączony serwer OPC Agent użytkownika może wysłać do rozwiązania na pulpicie nawigacyjnym:
 
-1. Przejdź do **wybierz serwer OPC UA** widoku:
+1. Wybierz **przeglądarki** można przejść do **wybierz serwer OPC UA** widoku:
 
     ![Przejdź do wybierz Widok serwera OPC UA][img-select-server]
 
@@ -57,7 +57,7 @@ Możesz przejść elementów danych, które połączony serwer OPC Agent użytko
     > [!NOTE]
     > To ostrzeżenie występuje raz dla każdego serwera i tylko ustanawia relację zaufania między pulpit nawigacyjny rozwiązania i serwer.
 
-1. Możesz teraz przeglądać elementów danych, które serwer może wysłać do rozwiązania. Elementy, które są wysyłane do rozwiązania mają zielony znacznik wyboru:
+1. Możesz teraz przeglądać elementów danych, które serwer może wysłać do rozwiązania. Zaznaczono elementów, które są wysyłane do rozwiązania:
 
     ![Opublikowane elementy][img-published]
 
@@ -155,7 +155,7 @@ W poniższej tabeli przedstawiono podsumowanie innych wartości skojarzonych z k
 | Kod operacji     | Jak dane są agregowane. |
 | Jednostki      | Jednostki do użycia na pulpicie nawigacyjnym.  |
 | Widoczne    | Określa, czy wyświetlaj tej wartości na pulpicie nawigacyjnym. Niektóre wartości są używane w obliczeniach, ale nie wyświetlany.  |
-| Maksymalna    | Maksymalna wartość wyzwalania alertu na pulpicie nawigacyjnym. |
+| Maksimum    | Maksymalna wartość wyzwalania alertu na pulpicie nawigacyjnym. |
 | MaximumAlertActions | Akcja do wykonania w odpowiedzi na alert. Na przykład wysyłać polecenia do stacji. |
 | ConstValue | Stała wartość używana w obliczeniach. |
 

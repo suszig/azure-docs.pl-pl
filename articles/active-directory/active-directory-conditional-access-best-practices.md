@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Najlepsze rozwiązania dotyczące dostępu warunkowego w usłudze Azure Active Directory
 
@@ -100,86 +100,18 @@ W środowisku należy unikać następujące konfiguracje:
 
 ## <a name="policy-migration"></a>Migracja zasad
 
-Jeśli masz zasady w klasycznym portalu Azure skonfigurowane migracji ich do portalu Azure ponieważ:
+Należy rozważyć Migrowanie zasad, które nie zostały utworzone w portalu Azure ponieważ:
+
+- Można teraz adresów scenariusze, które nie może obsłużyć przed.
+
+- Pozwala zmniejszyć liczbę zasad, które trzeba zarządzać konsolidując je.   
+
+- Można zarządzać z zasad dostępu warunkowego w jednej centralnej lokalizacji.
+
+- Klasycznym portalu Azure zostaną wycofane.   
 
 
-- Użytkownik, który znajduje się w zasadach Azure portalu klasycznego i zasad portalu Azure musi spełniać wymagania w przypadku obu zasad 
-
-- Nie w przypadku migrowania istniejących zasad, nie będziesz w stanie wdrożenia zasad, które są udzielanie dostępu
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migracja z klasycznego portalu Azure
-
-W tym scenariuszu: 
-
-- W Twojej [klasycznego portalu Azure](https://manage.windowsazure.com), zostały skonfigurowane:
-
-    - SharePoint Online
-
-    ![Dostęp warunkowy](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Zasady dostępu warunkowego opartego na urządzeniu
-
-    ![Dostęp warunkowy](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Aby skonfigurować zasady dostępu warunkowego do zarządzania aplikacjami mobilnymi w portalu Azure 
- 
-
-#### <a name="configuration"></a>Konfiguracja 
-
-- Przejrzyj zasady dostępu warunkowego opartego na urządzeniu
-
-- Migrowanie ich do portalu Azure 
-
-- Dodawanie zasad dostępu warunkowego do zarządzania aplikacjami mobilnymi
-
-
-### <a name="migrating-from-intune"></a>Migrowanie z usługi Intune 
-
-W tym scenariuszu:
-
-- W [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), możesz mieć zasady dostępu warunkowego do zarządzania aplikacjami mobilnymi dla każdej usługi Exchange Online lub skonfigurować usługi SharePoint Online
-
-    ![Dostęp warunkowy](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Użytkownik chce migrować przy użyciu dostępu warunkowego zarządzania aplikacjami mobilnymi w portalu Azure
-
-
-#### <a name="configuration"></a>Konfiguracja 
- 
-- Przejrzyj zasady dostępu warunkowego opartego na urządzeniu
-
-- Migrowanie ich do portalu Azure 
-
-- Przejrzyj zostanie skonfigurowany dla usługi Exchange Online lub SharePoint Online w usłudze Intune zasady dostępu warunkowego do zarządzania aplikacjami mobilnymi
-
-- Dodawanie formantu do **wymagają zatwierdzonych aplikacji** oprócz sterowania opartego na urządzeniach 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migracja z klasycznego portalu Azure i usługi Intune
-
-W tym scenariuszu:
-
-- Masz skonfigurowano następujące elementy:
-
-    - **Klasycznego portalu Azure:** warunkowego opartego na urządzeniach 
-
-    - **Usługa Intune:** zasad dostępu warunkowego do zarządzania aplikacjami mobilnymi 
-    
-- Użytkownik chce migrować obie zasady przy użyciu zasad dostępu warunkowego do zarządzania aplikacjami mobilnymi w portalu Azure
-
-
-#### <a name="configuration"></a>Konfiguracja
-
-- Przejrzyj zasady dostępu warunkowego opartego na urządzeniu
-
-- Migrowanie ich do portalu Azure 
-
-- Przejrzyj zostanie skonfigurowany dla usługi Exchange Online lub SharePoint Online w usłudze Intune zasady dostępu warunkowego zarządzania aplikacjami mobilnymi
-
-- Dodawanie formantu do **wymagają zatwierdzonych aplikacji** oprócz oparta na urządzeniach 
-
-
+Aby uzyskać więcej informacji, zobacz [migracji klasycznego zasad w portalu Azure](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

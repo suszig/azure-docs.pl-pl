@@ -1,6 +1,6 @@
 ---
-title: Tworzenie maszyny wirtualnej z programem SQL Server 2017 i systemem Windows na platformie Azure | Microsoft Docs
-description: "W tym samouczku pokazano sposób tworzenia maszyny wirtualnej z programem SQL Server 2017 i systemem Windows na platformie Azure."
+title: Konfigurowanie maszyn wirtualnych systemu Windows programu SQL Server 2017 w portalu Azure | Dokumentacja firmy Microsoft
+description: Ten przewodnik opisuje opcje tworzenia maszyn wirtualnych systemu Windows programu SQL Server 2017 w portalu Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server i systemem Windows w witrynie Azure Portal
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Jak utworzyć maszynę wirtualną systemu Windows programu SQL Server w portalu Azure
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Ten przewodnik przeprowadzi Cię przez różne opcje dostępne podczas tworzenia maszyny wirtualnej systemu Windows programu SQL Server w portalu Azure. Można wykonaj kroki, aby utworzyć maszynę Wirtualną własnego programu SQL Server podczas nauki o różnych opcji. Alternatywnie można przejść do określonej sekcji odwołania na konkretnym kroku w portalu.
 
-W tym samouczku szybkiego startu użyjesz witryny Azure Portal do utworzenia maszyny wirtualnej z systemem Windows i zainstalowanym programem SQL Server.
+> [!TIP]
+> Aby szybko rozpocząć pracę z portalu wartości domyślne, zobacz [Szybki Start Azure — tworzenie maszyny Wirtualnej serwera SQL w portalu](quickstart-sql-vm-create-portal.md).
 
-W tym samouczku zostaną wykonane następujące czynności:
-
-* [Wybieranie obrazu maszyny wirtualnej SQL z galerii](#select)
-* [Konfigurowanie i tworzenie maszyny wirtualnej](#configure)
-* [Otwieranie maszyny wirtualnej przy użyciu pulpitu zdalnego](#remotedesktop)
-* [Zdalne ustanawianie połączenia z programem SQL Server](#connect)
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a id="select"></a> Wybieranie obrazu maszyny wirtualnej SQL z galerii
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu swojego konta.
-
-   > [!NOTE]
-   > Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. W witrynie Azure Portal kliknij pozycję **Nowe**. Portal otworzy okno **Nowe**.
 
@@ -277,19 +267,11 @@ Możesz monitorować wdrożenie z poziomu witryny Azure Portal. Przycisk **Powia
 
 Wykonaj następujące kroki, aby ustanowić połączenie z maszyną wirtualną programu SQL Server przy użyciu pulpitu zdalnego:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Po ustanowieniu połączenia z maszyną wirtualną programu SQL Server możesz uruchomić narzędzie SQL Server Management Studio i ustanowić połączenie przy użyciu uwierzytelniania systemu Windows i poświadczeń administratora lokalnego. Jeśli opcja Uwierzytelnianie programu SQL Server została włączona, możesz też ustanowić połączenie przy użyciu uwierzytelniania SQL oraz identyfikatora logowania i hasła skonfigurowanego podczas aprowizowania.
 
 Korzystając z dostępu do maszyny, możesz bezpośrednio zmienić ustawienia maszyny i programu SQL Server, w zależności od wymagań. Na przykład możesz skonfigurować ustawienia zapory lub zmienić ustawienia konfiguracji programu SQL Server.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Włączanie protokołu TCP/IP dla wersji Developer i Express
-
-Podczas aprowizacji nowej maszyny wirtualnej z programem SQL Server platforma Azure nie włącza automatycznie protokołu TCP/IP dla wersji Developer i Express programu SQL Server. W poniższych krokach omówiono, jak ręcznie włączyć protokół TCP/IP w celu zdalnego nawiązania połączenia przy użyciu adresu IP.
-
-W poniższych krokach włączono protokół TCP/IP dla wersji Developer i Express programu SQL Server przy użyciu **Menedżera konfiguracji programu SQL Server**.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Zdalne ustanawianie połączenia z programem SQL Server
 
@@ -300,7 +282,7 @@ W tym samouczku wybrano opcję dostępu **Publiczne** dla maszyny wirtualnej i o
 
 Poniższe sekcje pokazują, jak nawiązać połączenie z wystąpieniem programu SQL Server na maszynie wirtualnej z innego komputera za pośrednictwem Internetu.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

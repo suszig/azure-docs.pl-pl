@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Zapytanie dla baz danych chmury z różnych schematach (wersja zapoznawcza)
 ![Zapytanie między tabelami w różnych baz danych][1]
@@ -43,7 +43,7 @@ W pionie na partycje bazy danych używać różnych zestawów tabel na różnych
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Tworzenie klucza głównego bazy danych i poświadczeń
 Poświadczenie jest używany przez elastycznej zapytania do nawiązania połączenia zdalnego baz danych.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ Następujące zapytanie wykonuje trzystopniowego sprzężenie dwóch tabel lokal
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Przechowywana procedura zdalne wykonywanie kodu T-SQL: sp\_execute_remote
-Elastyczne zapytania wprowadza również procedury przechowywanej, która zapewnia bezpośredni dostęp do fragmentów. Procedura składowana jest nazywany [sp\_wykonania \_zdalnego](https://msdn.microsoft.com/library/mt703714) i może służyć do wykonania zdalnego procedur składowanych lub kod T-SQL na zdalnym baz danych. Go przyjmuje następujące parametry: 
+Elastyczne zapytania wprowadza również procedury przechowywanej, która zapewnia bezpośredni dostęp do zdalnej bazy danych. Procedura składowana jest nazywany [sp\_wykonania \_zdalnego](https://msdn.microsoft.com/library/mt703714) i może służyć do wykonania zdalnego procedur składowanych lub kod T-SQL na ze zdalną bazą danych. Go przyjmuje następujące parametry: 
 
 * Nazwa źródła danych (nvarchar): Nazwa źródła danych zewnętrznych typu RDBMS. 
-* Zapytania (nvarchar): zapytania T-SQL do wykonania na każdej niezależnego fragmentu. 
+* Zapytania (nvarchar): zapytania T-SQL do wykonania na ze zdalną bazą danych. 
 * Deklaracja parametru (nvarchar) - opcjonalne: ciąg zawierający definicje typów danych parametrów parametr zapytania (na przykład sp_executesql). 
 * Lista wartości parametrów - opcjonalne: rozdzielana przecinkami lista wartości parametrów (na przykład sp_executesql).
 
-PS\_wykonania\_zdalnego używa zewnętrzne źródło danych podane w parametrów wywołania do wykonania danej instrukcji T-SQL na zdalnym baz danych. Łączenie się z bazy danych Menedżera shardmap i zdalnymi bazami danych używa poświadczeń do zewnętrznego źródła danych.  
+PS\_wykonania\_zdalnego korzysta z zewnętrznym źródłem danych w parametrów wywołania do wykonania danej instrukcji T-SQL na ze zdalną bazą danych. Aby nawiązać połączenie ze zdalną bazą danych używa poświadczeń do zewnętrznego źródła danych.  
 
 Przykład: 
 

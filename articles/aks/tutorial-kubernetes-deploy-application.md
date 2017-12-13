@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1433fce61bc26a6aa0e4742195e623329eb5f0cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Uruchamianie aplikacji w usługi kontenera platformy Azure (AKS)
 
@@ -64,7 +64,7 @@ Zapisz i zamknij plik.
 
 ## <a name="deploy-application"></a>Wdrażanie aplikacji
 
-Użyj [utworzyć kubectl] [ kubectl-create] polecenie do uruchomienia aplikacji. To polecenie analizuje pliku manifestu i tworzenia zdefiniowanych obiektów Kubernetes.
+Użyj [utworzyć kubectl] [ kubectl-create] polecenie do uruchomienia aplikacji. To polecenie analizuje pliku manifestu i tworzy obiekty Kubernetes zdefiniowane.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -81,7 +81,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testowanie aplikacji
 
-A [usługi Kubernetes] [ kubernetes-service] jest tworzony, który udostępnia aplikacji w Internecie. Może to potrwać kilka minut. 
+A [usługi Kubernetes] [ kubernetes-service] jest tworzony, który udostępnia aplikacji w Internecie. Ten proces może potrwać kilka minut. 
 
 Aby monitorować postęp, należy użyć [kubectl pobrać usługi] [ kubectl-get] z `--watch` argumentu.
 
@@ -95,7 +95,7 @@ Początkowo adres *EXTERNAL-IP* dla usługi *azure-vote-front* pojawia się jako
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Raz *IP zewnętrznego* adres zmienił się z *oczekujące* do *adres IP*, użyj `CTRL-C` można zatrzymać procesu czujki kubectl. 
+Po zmianie adresu *EXTERNAL-IP* z *oczekującego* na *adres IP*, zatrzymaj proces śledzenia narzędzia kubectl za pomocą polecenia `CTRL-C`. 
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m

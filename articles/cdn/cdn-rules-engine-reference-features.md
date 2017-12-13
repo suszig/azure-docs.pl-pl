@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 35bae19deb6d4a79367c171aea5d74b6698e023b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
 W tym artykule przedstawiono szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
@@ -162,6 +162,7 @@ Nazwa | Przeznaczenie
 -----|--------
 [Metody HTTP buforowalnej](#cacheable-http-methods) | Określa zestaw dodatkowych metod HTTP, które mogą być buforowane w sieci.
 [Rozmiar treści żądania buforowalnej](#cacheable-request-body-size) | Określa próg do określenia, czy odpowiedź POST mogą być buforowane.
+[Zmienna użytkownika](#user-variable) | Używane primarity ze skryptami Lua.
 
  
 ## <a name="url-features"></a>Adres URL funkcji
@@ -178,6 +179,7 @@ Nazwa | Przeznaczenie
 
 ## <a name="azure-cdn-rules-engine-features-reference"></a>Odwołanie do funkcji aparatu reguły Azure CDN
 
+---
 ### <a name="age-response-header"></a>Nagłówek odpowiedzi wieku
 **Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
 Wartość|Wynik
@@ -187,6 +189,11 @@ Disabled (Wyłączony) | Nagłówek odpowiedzi wieku został wykluczony z odpowi
 
 **Domyślne zachowanie**: wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bandwidth-parameters"></a>Parametry przepustowości
 **Cel:** Określa, czy przepustowości parametrów (na przykład ec_rate i ec_prebuf) będzie aktywny.
 
@@ -198,7 +205,12 @@ Enabled (Włączony)|Umożliwia serwerom krawędzi uwzględnić żądania ograni
 Disabled (Wyłączony)|Powoduje, że serwery krawędzi zignorować parametry ograniczania przepustowości. Żądana zawartość zostanie obsłużona zwykle (czyli bez ograniczania przepustowości).
 
 **Domyślne zachowanie:** włączone.
+ 
+[Powrót do początku](#azure-cdn-rules-engine-features)
 
+</br>
+
+---
 ### <a name="bandwidth-throttling"></a>Ograniczanie przepustowości
 **Cel:** ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
 
@@ -207,10 +219,15 @@ Obie z poniższych opcji, należy zdefiniować Aby poprawnie skonfigurować ogra
 Opcja|Opis
 --|--
 KB na sekundę|Ustaw tę opcję, aby maksymalnej przepustowości (Kb na sekundę), które mogą być używane w celu dostarczenia odpowiedzi.
-Prebuf sekund|Ustaw tę opcję, aby liczbę sekund, które serwery krawędzi będzie czekać do ograniczania przepustowości. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
+Prebuf sekund|Ustaw tę opcję na liczbę sekund dla serwerów krawędzi, poczekać, aż przepustowości jest ograniczany. Przepustowości nieograniczony okres ten ma na celu uniemożliwić Windows media player występują problemy z przestoje w odtwarzaniu lub buforowania z powodu ograniczania przepustowości.
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bypass-cache"></a>Pomiń pamięć podręczną
 **Cel:** Określa, czy żądanie należy pominąć buforowanie.
 
@@ -225,21 +242,31 @@ Disabled (Wyłączony)|Powoduje, że serwery krawędzi do pamięci podręcznej z
 
 <!---
 - **ADN:** Enabled
+
 --->
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-http-methods"></a>Metody HTTP buforowalnej
 **Cel:** określa zestaw dodatkowych metod HTTP, które mogą być buforowane w sieci.
 
 Informacje o kluczu:
 
 - Ta funkcja przyjęto założenie, że zawsze mają być buforowane odpowiedzi GET. W związku z tym metodę GET HTTP nie należy włączyć podczas ustawiania tej funkcji.
-- Ta funkcja obsługuje tylko metodę POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji: POST 
-- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb będą buforowane. Użyj funkcji Buforowalnej rozmiar treści żądania, aby ustawić żądania maksymalny rozmiar treści.
+- Ta funkcja obsługuje metodę POST HTTP. Włącz buforowanie odpowiedzi POST przez ustawienie dla tej funkcji `POST`.
+- Domyślnie tylko żądania, których treść jest mniejszy niż 14 Kb są buforowane. Użyj funkcji Buforowalnej rozmiar treści żądania, aby ustawić żądania maksymalny rozmiar treści.
 
-**Domyślne zachowanie:** tylko GET odpowiedzi będą buforowane.
+**Domyślne zachowanie:** tylko odpowiedzi GET są buforowane.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-request-body-size"></a>Rozmiar treści żądania buforowalnej
-
 **Cel:** określa próg do określenia, czy odpowiedź POST mogą być buforowane.
 
 Wartość progu jest określana przez określania rozmiaru treści żądania maksymalna. Żądań zawierających większą treści żądania nie będą buforowane.
@@ -256,6 +283,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** 14 Kb
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-control-header-treatment"></a>Traktowanie nagłówek Cache-Control
 **Cel:** kontroluje Generowanie `Cache-Control` nagłówki przez serwer graniczny, gdy zewnętrzne funkcji Max-Age jest aktywny.
 
@@ -263,13 +295,18 @@ Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w 
 
 Wartość|Wynik
 --|--
-Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age nigdy nie zostanie dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia `Cache-Control` nagłówka, jego przechodziła przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie tworzy `Cache-Control` nagłówek, a następnie ta opcja może spowodować nagłówek odpowiedzi nie będzie zawierał `Cache-Control` nagłówka.
-Jeśli brakuje dodać|Jeśli `Cache-Control` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane `Cache-Control` nagłówka.
+Zastąp|Zapewnia, że są wykonywane następujące akcje:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
+Przekazuj|Zapewnia, że `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age nigdy nie zostanie dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia `Cache-Control` nagłówka, przechodzą przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie tworzy `Cache-Control` nagłówek, a następnie ta opcja może spowodować nagłówek odpowiedzi nie będzie zawierał `Cache-Control` nagłówka.
+Jeśli brakuje dodać|Jeśli `Cache-Control` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby będą są przypisane `Cache-Control` nagłówka.
 Remove| Tej opcji zapewnia, że `Cache-Control` nagłówka nie jest dołączony do odpowiedzi nagłówek. Jeśli `Cache-Control` nagłówka została już przypisana, a następnie go zostanie usunięta z nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastąpić.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-query-string"></a>Ciąg zapytania klucz pamięci podręcznej
 **Cel:** Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
 
@@ -338,6 +375,11 @@ Ten typ konfiguracji będzie generowania następujące kwerendy ciąg parametru 
 
     /800001/Origin/folder/asset.htm
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-rewrite"></a>Napisz ponownie klucz pamięci podręcznej
 **Cel:** ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
 
@@ -351,6 +393,11 @@ Oryginalna ścieżka| Zdefiniuj ścieżkę względną do typów żądań, który
 Nowa ścieżka|Zdefiniuj ścieżkę względną nowy klucz pamięci podręcznej. Ścieżka względna mogą być definiowane przez wybranie ścieżka do podstawowego źródła, a następnie wzorzec wyrażenia regularnego. Ta ścieżka względna można dynamicznie utworzyć przy użyciu protokołu HTTP, zmiennych
 **Domyślne zachowanie:** klucz pamięci podręcznej żądania jest określana przez identyfikator URI żądania.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="comment"></a>Komentarz
 **Cel:** umożliwia Uwaga do dodania w regule.
 
@@ -362,12 +409,18 @@ Informacje o kluczu:
 - Używaj tylko znaków alfanumerycznych.
 - Ta funkcja nie ma wpływu na zachowanie reguły. Go jedynie ma zapewnić obszaru, w którym można podać informacje do przyszłego wykorzystania lub które mogą ułatwić podczas rozwiązywania problemów reguły.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="complete-cache-fill"></a>Zakończenie wypełnienie pamięci podręcznej
 **Cel:** Określa, co się dzieje, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe, na serwerze granicznym.
 
 Chybienia pamięci podręcznej częściowe opisuje stan pamięci podręcznej dla zasobu, który nie został całkowicie pobrana do serwer graniczny. W przypadku zasobów są tylko częściowo buforowane na serwerze granicznym, następnie następnego żądania dla tego zasobu zostanie przekazany ponownie do serwera pochodzenia.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 Chybienia pamięci podręcznej częściowe zazwyczaj występuje po użytkownik porzuca pobieranie lub trwałych żądanych wyłącznie przy użyciu żądania range HTTP. Ta funkcja jest najbardziej przydatny w przypadku dużych zasobów, których użytkownicy nie zwykle pobierze je od początku do końca (na przykład pliki wideo). W związku z tym ta funkcja jest włączona domyślnie na platformie dużych HTTP. Jest ona wyłączona w innych platform.
 
@@ -382,6 +435,11 @@ Disabled (Wyłączony)|Serwer graniczny uniemożliwia wykonywanie pobieranie w t
 
 **Domyślne zachowanie:** włączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="compress-file-types"></a>Kompresuj typów plików
 **Cel:** definiuje formatów plików, które będą kompresowane na serwerze.
 
@@ -402,12 +460,17 @@ Informacje o kluczu:
 - Symbole wieloznaczne, takie jak gwiazdek, nie są obsługiwane.
 - Przed dodaniem tej funkcji do reguły upewnij się, że ustawieniu opcji kompresji wyłączone na stronie kompresji dla platformy, do której zostanie zastosowana ta reguła.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="custom-log-field-1"></a>Pole niestandardowe dziennika 1
 **Cel:** Określa format i zawartość, która zostanie przypisana do pola dziennik niestandardowy w pierwotnych pliku dziennika.
 
-Głównym celem za to pole niestandardowe jest pozwala określić, które żądania i wartości nagłówka odpowiedzi będą przechowywane w plikach dziennika.
+To pole niestandardowe pozwala określić, które wartości nagłówka żądania i odpowiedzi są przechowywane w plikach dziennika.
 
-Domyślnie pole dziennik niestandardowy jest nazywany "x-ec_custom-1." Jednak można dostosować nazwę tego pola z [strony pierwotnych ustawień dziennika]().
+Domyślnie pole dziennik niestandardowy jest nazywany "x-ec_custom-1." Jednak ze strony pierwotnych ustawień dziennika można dostosować nazwę tego pola.
 
 Formatowanie, że należy używać do określania nagłówki żądań i odpowiedzi jest zdefiniowana poniżej.
 
@@ -426,6 +489,11 @@ Informacje o kluczu:
 
 **Wartość domyślna:** -
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="debug-cache-response-headers"></a>Debugowanie nagłówki odpowiedzi pamięci podręcznej
 **Cel:** Określa, czy odpowiedź może obejmować nagłówka odpowiedzi we-X-Debug, który zawiera informacje dotyczące zasady pamięci podręcznej dla żądanego zasobu.
 
@@ -449,6 +517,11 @@ Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z od
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="default-internal-max-age"></a>Max-Age wewnętrzny domyślne
 **Cel:** określa maksymalny wiek domyślny interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny sprawdzi, czy buforowanych zasobów zgodny zasobów przechowywanych na serwerze źródłowym.
 
@@ -474,6 +547,11 @@ Informacje o kluczu:
 
 **Wartość domyślna:** 7 dni
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="deny-access-403"></a>Odmowa dostępu (403)
 **Cel**: Określa, czy wszystkie żądania są odrzucane odpowiedź 403 Zabroniony.
 
@@ -487,6 +565,11 @@ Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem j
 > [!TIP]
    > Jedno możliwe użycie tej funkcji jest aby skojarzyć ją z warunkiem dopasowania nagłówek żądania, aby zablokować dostęp do odwołań HTTP, korzystających z wbudowanym łącza do zawartości.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
 **Cel:** kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
 
@@ -501,6 +584,11 @@ Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nag�
 
 **Domyślne zachowanie:** zastępowania
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="external-max-age"></a>Max-Age zewnętrznych
 **Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi. Innymi słowy nowej wersji zasób z serwer graniczny sprawdzić ilość czasu, jaki upłynie przed przeglądarki.
 
@@ -515,6 +603,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** wyłączone
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="follow-redirects"></a>Wykonaj przekierowania
 **Cel:** Określa, czy nazwa hosta zdefiniowane w nagłówku lokalizacji zwróconych przez serwer pochodzenia klienta można przekierować żądania.
 
@@ -529,6 +622,11 @@ Disabled (Wyłączony)|Nie będzie można przekierować żądania.
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="force-internal-max-age"></a>Wymuszanie wewnętrznych Max-Age.
 **Cel:** określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia. Innymi słowy ilość czasu, jaki upłynie przed serwer graniczny można sprawdzić, czy zasób pamięci podręcznej odpowiada zasobów przechowywanych na serwerze źródłowym.
 
@@ -553,6 +651,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** wyłączone
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="h264-support-http-progressive-download"></a>Obsługa H.264 (pobierania progresywnego HTTP)
 **Cel:** Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
 
@@ -563,6 +666,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** pobierania progresywnego HTTP obsługuje nośników MP4 i F4V domyślnie.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="honor-no-cache-request"></a>Honoruj No-Cache żądania
 **Cel:** Określa, czy klient HTTP przez nie pamięci podręcznej żądań zostaną przekazane do serwera pochodzenia.
 
@@ -579,6 +687,11 @@ Stan pamięci podręcznej, która będzie zgłaszana dla żądania, który może
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-origin-no-cache"></a>Ignoruj pochodzenia No-Cache
 **Cel:** Określa, czy sieć CDN będzie ignorować następujące dyrektywy udostępniane przez serwer pochodzenia:
 
@@ -603,6 +716,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** domyślne zachowanie to uwzględnić dyrektywy powyżej.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignoruj Unsatisfiable zakresów 
 **Cel:** określa odpowiedź, który będzie zwracanych do klientów, gdy żądanie generuje 416 żądany zakres nie niewłaściwego kod stanu.
 
@@ -615,6 +733,11 @@ Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem je
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="internal-max-stale"></a>Wewnętrzny odświeżona maksymalna
 **Cel:** kontroli, jak długo późniejsza niż godzina wygaśnięcia normalne, zasobów pamięci podręcznej mogą być udostępniane przez serwer graniczny, gdy serwer graniczny nie może ponownie sprawdź poprawność buforowanych zasobów w serwerze źródłowym.
 
@@ -644,6 +767,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** dwie minuty
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="log-query-string"></a>Ciąg zapytania dziennika
 **Cel:** Określa, czy ciąg zapytania będą przechowywane wraz z adresu URL w dziennikach dostępu.
 
@@ -654,6 +782,11 @@ Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem je
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="maximum-keep-alive-requests"></a>Maksymalna liczba żądań Keep-Alive
 **Cel:** określa maksymalną liczbę żądań Keep-Alive połączenia przed jego zamknięciem.
 
@@ -666,6 +799,11 @@ Informacje o kluczu:
 
 **Wartość domyślna:** 10000 żądań
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-request-header"></a>Modyfikowanie nagłówek żądania klienta
 **Cel:** każdego żądania zawiera zestaw nagłówków żądań, które zawiera jego opis. Ta funkcja może być:
 
@@ -699,6 +837,11 @@ Informacje o kluczu:
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-response-header"></a>Modyfikowanie nagłówka odpowiedzi klienta
 Każda odpowiedź zawiera zestaw opisujące go nagłówków odpowiedzi. Ta funkcja może być:
 
@@ -740,6 +883,11 @@ Informacje o kluczu:
     - ostrzeżenie
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="partial-cache-sharing"></a>Udostępnianie częściowe pamięci podręcznej
 **Cel:** Określa, czy żądanie może wygenerować częściowo buforowaną zawartość.
 
@@ -752,6 +900,11 @@ Disabled (Wyłączony)|Żądania można generować tylko pełni buforowanej wers
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="prevalidate-cached-content"></a>Prevalidate zawartości w pamięci podręcznej
 **Cel:** Określa, czy przed wygaśnięciem wartość TTL będzie kwalifikuje się do wcześniejszego ponowna Walidacja zawartości w pamięci podręcznej.
 
@@ -763,6 +916,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** Off. Ponowna Walidacja może mieć miejsce tylko, po upływie czas wygaśnięcia zawartości pamięci podręcznej.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="proxy-special-headers"></a>Serwer proxy specjalnych nagłówków
 **Cel:** definiuje zestaw specyficzne dla usługi CDN nagłówków żądań, które serwer graniczny zostaną natychmiast przekazane do serwera pochodzenia.
 
@@ -773,6 +931,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** wszystkie nagłówki żądania specyficzne dla usługi CDN zostaną przekazane do serwera pochodzenia.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="refresh-zero-byte-cache-files"></a>Odśwież Zero bajtów pamięci podręcznej plików
 **Cel:** określa sposób obsługi żądań klienta HTTP dla trwałego 0 bajtów pamięci podręcznej przez serwery krawędzi.
 
@@ -788,6 +951,11 @@ takie zawartości następnie tej funkcji uniemożliwia tych typów zasobów jest
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-cacheable-status-codes"></a>Kody stanu Buforowalnej zestawu
 **Cel:** definiuje zestaw kodów stanu, które mogą skutkować zawartości w pamięci podręcznej.
 
@@ -803,6 +971,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** buforowanie jest włączone tylko w przypadku odpowiedzi generujących kod 200 OK stanu.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-client-ip-custom-header"></a>Wartość niestandardowego nagłówka adresu IP klienta
 **Cel:** dodaje niestandardowy nagłówek, który identyfikuje klienta za pomocą adresu IP na żądanie.
 
@@ -822,6 +995,11 @@ Upewnij się, że nazwa określonego nagłówka nie pasuje do żadnego z następ
     - x przekazywane do
     - Wszystkie nazwy nagłówka rozpoczynających się od "x WE" są zastrzeżone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-content-delivery-on-error"></a>Stałe dostarczanie zawartości w przypadku błędu
 **Cel:** Określa, czy po wystąpieniu błędu podczas ponownego sprawdzania poprawności pamięci podręcznej lub podczas pobierania żądanej zawartości z serwera pochodzenia odbiorcy będą dostarczane wygasłej zawartości pamięci podręcznej.
 
@@ -832,6 +1010,11 @@ Disabled (Wyłączony)|Błąd na serwerze źródłowym jest przekazywany do zlec
 
 **Domyślne zachowanie:** wyłączone
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-while-revalidate"></a>Nieaktualne podczas Revalidate
 **Cel:** zwiększa wydajność, zezwalając serwerów krawędzi, z obsługą starych zawartości do zleceniodawcy podczas ponownego sprawdzania poprawności ma miejsce.
 
@@ -844,6 +1027,11 @@ Informacje o kluczu:
 
 **Domyślne zachowanie:** Off. Ponowna Walidacja musi odbywać się przed żądanej zawartości mogą być udostępniane.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth"></a>Token uwierzytelniania
 **Cel:** Określa, czy uwierzytelnianie na podstawie tokenu zostaną zastosowane do żądania.
 
@@ -858,6 +1046,11 @@ Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem j
 
 **Domyślne zachowanie:** wyłączone.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-denial-code"></a>Kod odmowa tokenu uwierzytelniania
 **Cel:** Określa typ odpowiedzi, który zostanie zwrócony użytkownikowi, gdy żądanie zostanie odrzucone z powodu uwierzytelniania opartego na tokenie.
 
@@ -898,6 +1091,11 @@ Powyższej konfiguracji można osiągnąć, wykonując następujące czynności:
 
 Nagłówek WWW-Authenticate dotyczy tylko kodów odpowiedzi 401.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-ignore-url-case"></a>Token uwierzytelniania Ignoruj wielkość liter adresu URL
 **Cel:** Określa, czy wprowadzone przez uwierzytelniania opartego na tokenie porównania adres URL jest rozróżniana wielkość liter.
 
@@ -915,7 +1113,12 @@ Enabled (Włączony)|Powoduje, że serwer graniczny ignorowanie wielkości liter
 Disabled (Wyłączony)|Przywraca domyślne zachowanie. Domyślnym zachowaniem jest adres URL porównania dla tokenu uwierzytelniania będzie uwzględniana wielkość liter.
 
 **Domyślne zachowanie:** wyłączone.
- 
+
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-parameter"></a>Parametr tokenu uwierzytelniania
 **Cel:** Określa, czy parametr ciągu zapytania uwierzytelniania opartego na tokenie powinny zostać zmienione.
 
@@ -932,6 +1135,11 @@ Disabled (Wyłączony)|Tokenu można określić jako parametr ciągu zapytania n
 
 **Domyślne zachowanie:** wyłączone. Tokenu można określić jako parametr ciągu zapytania niezdefiniowana w adresie URL żądania.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-redirect"></a>Adres URL przekierowania
 **Cel:** przekierowuje żądania za pośrednictwem nagłówek lokalizacji.
 
@@ -967,7 +1175,12 @@ Ten adres URL przekierowania można osiągnąć za pomocą następującej konfig
         - Adres URL żądania (po przekierowania): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - Zmienna żądania schematu (% {schemat}) była wykorzystywana w opcji docelowej. Dzięki temu, że schemat żądania nie jest zmieniany po przekierowaniu.
 - Segmenty adresu URL, które są przechwytywane żądania są dołączane do nowego adresu URL za pośrednictwem "$1."
- 
+
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-rewrite"></a>Ponowne zapisywanie adresów URL
 **Cel:** ponownie zapisuje adresu URL żądania.
 
@@ -1021,6 +1234,14 @@ Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, 
 - Adres URL parametru zapytania
 - Adres URL zapytania Regex
 - Adres URL zapytania z symboli wieloznacznych
+
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
+### <a name="user-variable"></a>Zmienna użytkownika
+**Cel:** używana primarity ze skryptami Lua. Dzięki funkcji zmiennej użytkownika umożliwia funkcjonalności przypominającej skrótu secure adresy URL pobierania za pomocą skryptu Lua.
 
 
 ## <a name="next-steps"></a>Następne kroki

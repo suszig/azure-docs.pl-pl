@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ Aplikacja jest teraz ukończona i może przechowywać zestawu kategorii w magazy
 2. Włącz co najmniej jeden przełącza kategorie, a następnie kliknij przycisk **Subskrybuj**.
    
     Konwertuje wybranych kategorii do tagów i żąda nowej rejestracji urządzeń dla wybranych tagów z Centrum powiadomień aplikacji. Zarejestrowany kategorie są zwracane i wyświetlane w wyskakujące powiadomienie.
-3. Wyślij nowe powiadomienie za pomocą aplikacji konsoli .NET.  Alternatywnie możesz wysłać oznakowanych szablonu powiadomienia za pomocą karty debugowanie w Centrum powiadomień [klasycznego portalu Azure].
+3. Wyślij nowe powiadomienie za pomocą aplikacji konsoli .NET.  Alternatywnie możesz wysłać oznakowanych szablonu powiadomienia za pomocą karty debugowanie w Centrum powiadomień [portalu Azure].
    
     Powiadomienia dotyczące wybranych kategorii są wyświetlane jako wyskakujące powiadomienia.
 
@@ -302,5 +302,5 @@ W tym samouczku opisano sposób emisji najważniejszych wiadomości według kate
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[klasycznego portalu Azure]: https://manage.windowsazure.com
+[portalu Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

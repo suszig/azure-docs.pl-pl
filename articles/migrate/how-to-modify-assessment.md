@@ -1,24 +1,16 @@
 ---
 title: Dostosuj ustawienia migracji Azure oceny | Dokumentacja firmy Microsoft
 description: "Opisuje sposób ustawiania i uruchamiania ocenę do migrowania maszyn wirtualnych VMware do platformy Azure przy użyciu usługi Azure planowania migracji"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-an-assessment"></a>Dostosowywanie oceny
 
@@ -32,9 +24,9 @@ ms.lasthandoff: 11/29/2017
 
     **Ustawienie** | **Szczegóły** | **Domyślne**
     --- | --- | ---
-    **Lokalizacja docelowa** | Lokalizacja platformy Azure, do którego chcesz przeprowadzić migrację. |  Zachodnie stany USA 2 jest domyślną lokalizacją.
-    **Nadmiarowość magazynu** | Typ magazynu, który będzie używany przez maszyny wirtualne Azure po zakończeniu migracji. | Tylko [magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikacji jest obecnie obsługiwany.
-    **Współczynnik komfort** | Współczynnik komfort jest buforu, który jest używany podczas oceny. Umożliwia ona konta dla elementów, takich jak użycie okresach, krótka historia wydajności, może się zwiększyć w przyszłości użycia. | Ustawienie domyślne to 1.3 x.
+    **Lokalizacja docelowa** | Lokalizacja platformy Azure, do której chcesz przeprowadzić migrację. |  Zachodnie stany USA 2 jest domyślną lokalizacją.
+    **Nadmiarowość magazynu** | Typ magazynu, który będzie używany przez maszyny wirtualne platformy Azure po zakończeniu migracji. | Tylko [magazyn lokalnie nadmiarowy (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikacji jest obecnie obsługiwany.
+    **Współczynnik komfortu** | Współczynnik komfort jest buforu, który jest używany podczas oceny. Umożliwia ona konta dla elementów, takich jak użycie okresach, krótka historia wydajności, może się zwiększyć w przyszłości użycia. | Ustawienie domyślne to 1.3 x.
     **Historia wydajności** | Czas używany podczas obliczania Historia wydajności. | Domyślny to jeden miesiąc.
     **Procentowy wykorzystania** | Wartość percentylu wziąć pod uwagę historii wydajności. | Domyślnie jest to 95%.
     **Warstwa cenowa** | Można określić [warstwy cenowej](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) dla maszyny Wirtualnej.  | Domyślnie [standardowe](../virtual-machines/windows/sizes-general.md) warstwy jest używany.

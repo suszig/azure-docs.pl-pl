@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06b77ce5b6f15e3dae4a7d4bad76def949774678
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną za pomocą przyspieszony sieci
 
@@ -46,13 +46,13 @@ Korzyści wynikające z przyspieszonego sieci dotyczą tylko maszynę Wirtualną
 Podczas przy użyciu tej możliwości istnieją następujące ograniczenia:
 
 * **Tworzenie interfejsu sieci:** akcelerowanego sieci można włączyć tylko dla nowych kart sieciowych. Nie można włączyć dla istniejącej karty sieciowej.
-* **Tworzenie maszyny Wirtualnej:** A kart interfejsu Sieciowego z włączoną obsługą przyspieszonego sieci może zostać dołączona tyko do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Nie można dołączyć karty Sieciowej do istniejącej maszyny Wirtualnej.
-* **Regiony:** maszyn wirtualnych systemu Windows z przyspieszonego w sieci jest oferowanych w regionach najbardziej platformy Azure. Maszyn wirtualnych systemu Linux z przyspieszonego sieci są dostępne w wielu regionach. Rozwija regionów, w których ta funkcja jest dostępna w. Zobacz blog Azure aktualizacje dla sieci wirtualnej poniżej najnowsze informacje.   
-* **Obsługiwane systemy operacyjne:** systemu Windows: Microsoft Windows Server 2012 R2 Datacenter i Windows Server 2016. Linux: Ubuntu Server 16.04 LTS i 4.4.0-77 jądra lub nowszą, SLES 12 z dodatkiem SP2, RHEL 7.3 i CentOS 7.3 (opublikowanej przez "Nieautoryzowanego Wave oprogramowanie").
+* **Tworzenie maszyny Wirtualnej:** A kart interfejsu Sieciowego z włączoną obsługą przyspieszonego sieci może zostać dołączona tyko do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Nie można dołączyć karty Sieciowej do istniejącej maszyny Wirtualnej. Jeśli dodawanie maszyny Wirtualnej do istniejących danych o dostępności, wszystkich maszyn wirtualnych w zestawie dostępności muszą również przyspieszyć sieci włączone.
+* **Regiony:** maszyn wirtualnych systemu Windows z przyspieszonego w sieci jest oferowanych w regionach najbardziej platformy Azure. Maszyn wirtualnych systemu Linux z przyspieszonego sieci są dostępne w wielu regionach. Rozwija regionów, w których ta funkcja jest dostępna w. Aby uzyskać najnowsze informacje, zobacz [Azure aktualizacje dla sieci wirtualnej](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogu.   
+* **Obsługiwane systemy operacyjne:** systemu Windows: Microsoft Windows Server 2012 R2 Datacenter i Windows Server 2016. Linux: Ubuntu Server 16.04 LTS i 4.4.0-77 jądra lub nowszą, SLES 12 SP2 RHEL 7.3 i CentOS 7.3 (opublikowanej przez "Nieautoryzowanego Wave oprogramowanie").
 * **Rozmiar maszyny Wirtualnej:** ogólnego przeznaczenia i rozmiary obliczeniowe są zoptymalizowane pod kątem wystąpienia z co najmniej osiem rdzeni. Aby uzyskać więcej informacji, zobacz [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykuły rozmiary maszyny Wirtualnej. Zbiór rozmiarów maszyn wirtualnych obsługiwanych w wystąpieniu rozwinie w przyszłości.
 * **Tylko wdrożenia za pośrednictwem usługi Azure Resource Manager (ARM):** przyspieszony sieci nie jest dostępny do wdrożenia za pomocą funkcji ASM/frontonu REDDOG.
 
-Zmiany tych ograniczeń są ogłaszane za pośrednictwem [sieci wirtualnych Azure aktualizuje](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) strony.
+Zmiany tych ograniczeń są ogłaszane za pośrednictwem [sieci wirtualnych Azure aktualizuje](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) strony.
 
 ## <a name="create-a-windows-vm"></a>Tworzenie maszyny wirtualnej z systemem Windows
 Możesz użyć portalu Azure lub Azure [PowerShell](#windows-powershell) do utworzenia maszyny Wirtualnej.
@@ -164,7 +164,7 @@ Po utworzeniu maszyny Wirtualnej na platformie Azure, należy zainstalować ster
 9. Przyspieszone sieci jest teraz włączony dla maszyny Wirtualnej.
 
 ## <a name="create-a-linux-vm"></a>Tworzenie maszyny wirtualnej z systemem Linux
-Możesz użyć portalu Azure lub Azure [PowerShell](#linux-powershell) do utworzenia Ubuntu lub SLES maszyny Wirtualnej. RHEL i maszyny wirtualnej CentOS istnieje inny przepływ pracy.  Zapoznaj się z poniższymi instrukcjami.
+Możesz użyć portalu Azure lub Azure [PowerShell](#linux-powershell) do utworzenia Ubuntu lub SLES maszyny Wirtualnej. Aby uzyskać instrukcje RHEL i CentOS, zobacz [RHEL i CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. Zarejestruj przyspieszonego sieci dla systemu Linux w wersji zapoznawczej, wykonując kroki 1-5 [utworzyć Maszynę wirtualną systemu Linux - PowerShell](#linux-powershell) sekcji tego artykułu.  Nie można zarejestrować w portalu w wersji zapoznawczej.
@@ -183,7 +183,7 @@ Możesz użyć portalu Azure lub Azure [PowerShell](#linux-powershell) do utworz
 2. Uruchom sesję programu PowerShell, klikając przycisk Start systemu Windows, wpisując **powershell**, klikając **programu PowerShell** w wynikach wyszukiwania.
 3. W oknie programu PowerShell, wprowadź `login-azurermaccount` polecenie, aby zalogować się przy użyciu platformy Azure [konta](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Jeśli nie masz już konto, możesz zarejestrować się w celu [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Rejestr przyspieszonego sieci platformy Azure w wersji zapoznawczej, wykonując następujące czynności:
-    - Wyślij wiadomość e-mail do [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) identyfikator subskrypcji platformy Azure i zamierzonego użycia. Poczekaj, aż wiadomość e-mail z potwierdzeniem od firmy Microsoft dotyczące włączania subskrypcji.
+    - Wyślij wiadomość e-mail do [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) identyfikator subskrypcji platformy Azure i zamierzonego użycia. Nie wykonaj następujące kroki, dopóki, po otrzymaniu wiadomości e-mail z potwierdzeniem od firmy Microsoft czy subskrypcja została włączona dla przyspieszonego sieci.
     - Wprowadź następujące polecenie, aby potwierdzić, że są rejestrowane w wersji zapoznawczej:
     
         ```powershell
@@ -201,7 +201,7 @@ Możesz użyć portalu Azure lub Azure [PowerShell](#linux-powershell) do utworz
       >[!NOTE]
       >Jeśli użytkownik brał udział w sieci akcelerowanego podglądu maszyn wirtualnych systemu Windows (nie jest już konieczne Zarejestruj, aby użyć akcelerowanego sieci dla maszyn wirtualnych systemu Windows), możesz nie zostały automatycznie zarejestrowane akcelerowanego sieci dla maszyn wirtualnych systemu Linux w wersji preview. Należy zarejestrować sieciach akcelerowanego dla maszyn wirtualnych systemu Linux w wersji zapoznawczej do udziału w niej.
       >
-5. W przeglądarce Skopiuj poniższy skrypt, zastępując Ubuntu lub SLES zgodnie z potrzebami.  Ponownie Redhat i CentOS ma inny przepływ pracy przedstawione poniżej:
+5. W przeglądarce Skopiuj poniższy skrypt, zastępując Ubuntu lub SLES zgodnie z potrzebami.  Ponownie, Redhat i CentOS zostały szczegółowo opisane w innym przepływie pracy [RHEL i CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ W tym momencie instrukcje różnić w zależności od używanego dystrybucji.
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. Po uruchomieniu skryptu, maszyna wirtualna zostanie ponownie uruchomiona po wstrzymać 60 sekund.
+3. Po uruchomieniu skryptu, maszyna wirtualna zostanie ponownie uruchomiona po wstrzymaniu 60 sekund.
 4. Po ponownym uruchomieniu maszyny Wirtualnej należy połączyć się z nim, wykonując kroki 5-7.
 5. Uruchom `ifconfig` polecenie i Potwierdź, że została znaleziona bond0 i interfejs jest wyświetlany jako zapasowe. 
  
  >[!NOTE]
       >Aplikacje przy użyciu przyspieszonego sieci muszą komunikować się za pośrednictwem *bond0* interfejs nie *eth0*.  Nazwa interfejsu może się zmienić przed przyspieszonego sieci osiągnie ogólnej dostępności.
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+#### <a name="rhel-and-centos"></a>RHEL i CentOS
 
 Tworzenie Red Hat Enterprise Linux lub wirtualna 7.3 CentOS wymaga kilka dodatkowych czynności, aby załadować sterowników wymaganych dla funkcji SR-IOV i sterownik funkcji wirtualnej funkcji (Wirtualnej) dla karty sieciowej. Pierwszą fazę instrukcji przygotowuje obraz, który można utworzyć jeden lub więcej maszyn wirtualnych, które są wstępnie załadowane sterowniki.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Pierwszej fazy: przygotowanie Red Hat Enterprise Linux lub CentOS 7.3 obrazu podstawowego. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Faza 1: Przygotowanie obrazu podstawowego systemu Red Hat Enterprise Linux lub CentOS 7.3 
 
 1.  Udostępnianie nie - funkcji SR-IOV CentOS 7.3 Maszynę wirtualną na platformie Azure
 
@@ -352,9 +352,9 @@ Tworzenie Red Hat Enterprise Linux lub wirtualna 7.3 CentOS wymaga kilka dodatko
 
 5.  Z portalu Azure Zatrzymaj tę maszynę Wirtualną; i przejdź do maszyny Wirtualnej "dyskami", identyfikator URI dysku VHD OSDisk przechwytywania. Ten identyfikator URI zawiera nazwę dysku VHD obrazu podstawowego i jego konta magazynu. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>Dwie fazy: obsługi administracyjnej nowych maszyn wirtualnych na platformie Azure
+##### <a name="phase-2-provision-new-vms-on-azure"></a>Faza 2: Obsługi administracyjnej nowych maszyn wirtualnych na platformie Azure
 
-1.  Zainicjuj obsługę nowych maszyn wirtualnych na podstawie New-AzureRMVMConfig przy użyciu obrazu podstawowego przechwycone w fazie jedną, z AcceleratedNetworking włączona na karcie vNIC wirtualnego dysku twardego:
+1.  Zainicjuj obsługę nowych maszyn wirtualnych na podstawie New-AzureRMVMConfig przy użyciu obrazu wirtualnego dysku twardego przechwycone w fazie 1, z AcceleratedNetworking włączona na karcie vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,7 +394,7 @@ Tworzenie Red Hat Enterprise Linux lub wirtualna 7.3 CentOS wymaga kilka dodatko
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
@@ -430,7 +430,7 @@ Tworzenie Red Hat Enterprise Linux lub wirtualna 7.3 CentOS wymaga kilka dodatko
      -VM $VmConfig
     ```
 
-2.  Po rozruchu maszyn wirtualnych, urządzenia funkcji Wirtualnej przez "lspci" i Sprawdź wpis Mellanox. Na przykład możemy powinien zostać wyświetlony ten element w danych wyjściowych lspci:
+2.  Po rozruchu maszyn wirtualnych, urządzenia funkcji Wirtualnej przez "lspci" i Sprawdź wpis Mellanox. Na przykład powinny być widoczne w danych wyjściowych lspci następującego tekstu:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

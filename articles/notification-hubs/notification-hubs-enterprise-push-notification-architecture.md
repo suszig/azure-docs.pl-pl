@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
 Dzisiaj przedsiębiorstwa są stopniowo przenoszenie do tworzenia aplikacji dla urządzeń przenośnych dla dowolnego użytkownikom końcowym (zewnętrzne) lub dla pracowników (wewnętrzny). Mają one istniejących systemów zaplecza w miejscu Komputery mainframe firmy i niektóre aplikacje LoB, które muszą zostać włączone do architektury aplikacji mobilnej. W tym przewodniku będzie się komunikował o jak najlepszym rozwiązaniem tej integracji rekomendowanie możliwe rozwiązanie typowych scenariuszy.
@@ -212,7 +212,7 @@ Kod pełny przykład jest dostępny w [przykłady Centrum powiadomień]. Są one
    
     ![][3]
    
-    g. Skonfiguruj zadania jako "Uruchom stale", aby po zalogowaniu się do [klasycznego portalu Azure] powinny zostać wyświetlone informacje takie jak następujące:
+    g. Skonfiguruj zadania jako "Uruchom stale", aby po zalogowaniu się do [portalu Azure] powinny zostać wyświetlone informacje takie jak następujące:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ Kod pełny przykład jest dostępny w [przykłady Centrum powiadomień]. Są one
 3. Uruchom **EnterprisePushBackendSystem** aplikacji konsoli, która będzie symulować LoB wewnętrznej bazy danych i rozpocznie się wysyłanie wiadomości i powinna zostać wyświetlona wyskakujące powiadomienia znajdujących się podobnie do następującej:
    
     ![][5]
-4. Wiadomości zostały pierwotnie wysyłane do tematów usługi Service Bus, które monitorowanym przez subskrypcje usługi Service Bus w zadanie sieci Web. Po Odebrano komunikat powiadomienia została tworzonych i wysyłanych do aplikacji mobilnej. Można przeglądać dzienniki zadania WebJob, aby potwierdzić przetwarzania po przejściu do konsolidacji dzienników w [klasycznego portalu Azure] dla zadania sieci Web:
+4. Wiadomości zostały pierwotnie wysyłane do tematów usługi Service Bus, które monitorowanym przez subskrypcje usługi Service Bus w zadanie sieci Web. Po Odebrano komunikat powiadomienia została tworzonych i wysyłanych do aplikacji mobilnej. Można przeglądać dzienniki zadania WebJob, aby potwierdzić przetwarzania po przejściu do konsolidacji dzienników w [portalu Azure] dla zadania sieci Web:
    
     ![][6]
 
@@ -264,4 +264,4 @@ Kod pełny przykład jest dostępny w [przykłady Centrum powiadomień]. Są one
 [programowania magistrali usługi Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [zadań WebJob Azure]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs — samouczek aplikacji uniwersalnych systemu Windows]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[klasycznego portalu Azure]: https://manage.windowsazure.com/
+[portalu Azure]: https://portal.azure.com/

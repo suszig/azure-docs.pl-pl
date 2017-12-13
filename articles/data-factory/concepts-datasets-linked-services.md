@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Zestawy danych i usług połączonych w fabryce danych Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,10 +31,10 @@ W tym artykule opisano, jakie zestawy danych są, jak są definiowane w formacie
 
 Jeśli jesteś nowym użytkownikiem usługi fabryka danych, zobacz [wprowadzenie do fabryki danych Azure](introduction.md) omówienie. 
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 Fabryka danych może obejmować jeden lub wiele potoków. A **potoku** to logiczne grupowanie **działania** który razem wykonania zadania. Działania w potoku definiują akcje do wykonania na danych. Na przykład można użyć działania kopiowania można skopiować danych z lokalnego serwera SQL do magazynu obiektów Blob Azure. Następnie należy użyć działania Hive, które uruchamia skrypt Hive w klastrze usługi HDInsight Azure do przetwarzania danych z magazynu obiektów Blob wygenerowało danych wyjściowych. Ponadto można użyć drugiej działanie kopiowania można skopiować danych wyjściowych do usługi Azure SQL Data Warehouse, na które raportowania są wbudowane rozwiązania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działania, zobacz [potoków i działania](concepts-pipelines-activities.md) w fabryce danych Azure.
 
-Teraz **dataset** jest nazwane widoku danych, która po prostu punktów lub odwołuje się do danych mają być używane w sieci **działania** jako danych wejściowych i wyjściowych. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów Blob platformy Azure określa folder i kontener obiektów blob w magazynie obiektów Blob, w którym działanie odczytywane dane.
+Teraz **dataset** jest nazwane widoku danych, która po prostu punktów lub odwołuje się do danych mają być używane w sieci **działania** jako danych wejściowych i wyjściowych. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Blob Storage, z których działanie ma odczytywać dane.
 
 Przed utworzeniem zestawu danych, należy utworzyć **połączona usługa** do łączenia z magazynu danych z fabryką danych. Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji wymaganych przez usługę Data Factory do nawiązywania połączeń z zasobami zewnętrznymi. Należy traktować go w ten sposób; zestaw danych reprezentuje struktury danych w ramach połączonych magazynów, a połączona usługa definiuje połączenie ze źródłem danych. Na przykład usługi Azure Storage połączone usługi łączy konta magazynu z fabryką danych. Zestaw danych obiektów Blob platformy Azure reprezentuje kontener obiektów blob oraz folder, w ramach tego konta magazynu platformy Azure, zawierającą wejściowych obiekty BLOB do przetworzenia.
 
@@ -43,6 +43,56 @@ Oto przykładowy scenariusz. Aby skopiować dane z magazynu obiektów Blob do ba
 Na poniższym diagramie przedstawiono relacje między potoku, działania, zestawu danych i połączonej usługi z fabryki danych:
 
 ![Relacja między potoku, działania, zestaw danych, połączone usługi](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>Notacja JSON połączonej usługi
+W formacie JSON połączonej usługi z fabryki danych jest zdefiniowany w następujący sposób:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+W poniższej tabeli opisano właściwości w powyższym JSON:
+
+Właściwość | Opis | Wymagane |
+-------- | ----------- | -------- |
+name | Nazwa połączonej usługi. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Tak |
+type | Typ połączonej usługi. Na przykład: AzureStorage (magazyn danych) lub AzureBatch (obliczeniowe). Zobacz opis typeProperties. | Tak |
+typeProperties | Właściwości typu są różne dla każdego magazynu danych lub obliczeniowe. <br/><br/> Obsługiwane dane można przechowywać w typów i ich właściwości typu, zobacz [typ zestawu](#dataset-type) tabeli w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu określonego w magazynie danych. <br/><br/> Dla typów obliczeń obsługiwane i ich właściwości typu, zobacz [obliczeniowe połączonych usług](compute-linked-services.md). | Tak |
+connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie
+
+## <a name="linked-service-example"></a>Przykład połączonej usługi
+Następujące połączonej usługi jest połączoną usługą magazynu Azure. Należy zauważyć, że typ ma ustawioną wartość AzureStorage. Właściwości typu połączoną usługą magazynu Azure obejmują parametry połączenia. Usługi fabryka danych używa tego ciągu połączenia do połączenia z magazynem danych w czasie wykonywania. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>JSON dla zestawu danych
 Zestaw danych z fabryki danych jest zdefiniowany w formacie JSON w następujący sposób:
@@ -72,12 +122,12 @@ Zestaw danych z fabryki danych jest zdefiniowany w formacie JSON w następujący
 ```
 W poniższej tabeli opisano właściwości w powyższym JSON:
 
-Właściwość | Opis | Wymagane | Domyślny
--------- | ----------- | -------- | -------
-name | Nazwa zestawu danych. | Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). | Tak | Nie dotyczy
-type | Typ zestawu danych. | Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawu danych typów](#dataset-types). | Tak | Nie dotyczy
-Struktura | Schemat zestawu danych. | Aby uzyskać więcej informacji, zobacz [struktury zestawu danych](#dataset-structure). | Nie | Nie dotyczy
-typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#dataset-type). | Tak | Nie dotyczy
+Właściwość | Opis | Wymagane |
+-------- | ----------- | -------- |
+name | Nazwa zestawu danych. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Tak |
+type | Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawu danych typów](#dataset-types). | Tak |
+Struktura | Schemat zestawu danych. Aby uzyskać więcej informacji, zobacz [struktury zestawu danych](#dataset-structure). | Nie |
+typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#dataset-type). | Tak |
 
 ## <a name="dataset-example"></a>Przykład zestawu danych
 W poniższym przykładzie zestawu danych reprezentuje tabeli o nazwie MyTable w bazie danych SQL.
@@ -104,28 +154,6 @@ Pamiętaj o następujących kwestiach:
 - Typ jest ustawiony na AzureSqlTable.
 - Typ właściwości tableName (specyficzne dla typu AzureSqlTable) ma ustawioną MyTable.
 - linkedServiceName odwołuje się do połączonej usługi typu AzureSqlDatabase, który został zdefiniowany w następnym fragment kodu JSON.
-
-## <a name="linked-service-example"></a>Przykład połączonej usługi
-AzureSqlLinkedService jest zdefiniowane w następujący sposób:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-W poprzednim fragment kodu JSON:
-
-- **Typ** ma ustawioną wartość AzureSqlDatabase.
-- **connectionString** właściwość type określa informacje do połączenia z bazą danych SQL.
-
-Jak widać, połączonej usługi definiuje sposób nawiązywania połączenia z bazą danych SQL. Zestaw danych definiuje, jakie tabeli jest używane jako dane wejściowe i wyjściowe działania w potoku.
 
 ## <a name="dataset-type"></a>Typ zestawu danych
 Istnieje wiele różnych typów zestawów danych, w zależności od źródła danych, którego używasz. Zobacz poniższą tabelę listę magazynów danych obsługiwane przez fabryki danych. Kliknij magazyn danych, aby dowiedzieć się, jak utworzyć połączonej usługi i zestawu danych dla tego magazynu danych.

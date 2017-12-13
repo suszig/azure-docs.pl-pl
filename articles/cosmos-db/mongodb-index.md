@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure rozwiązania Cosmos bazy danych: Dokumentacją usługi MongoDB interfejsu API
 
@@ -31,16 +31,18 @@ Są to musi przeczytaj tematy i zasobów, aby uruchomić szkoleniowe dotyczące 
 
 - [Wprowadzenie do interfejsu API bazy danych MongoDB](mongodb-introduction.md)
 - [Łączenie ze swoim kontem MongoDB](connect-mongodb-account.md)
+- [Obsługa funkcji bazy danych MongoDB i składni](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Przewodniki Szybki start
 
 Tematy szybkiego startu to najszybszy sposób, aby utworzyć działającą aplikację Azure DB rozwiązania Cosmos. W każdym szybkiego startu Dowiedz się jak używać interfejsu użytkownika portalu Azure i Ulubione języka programowania do tworzenia rozwiązań bazy danych z bazy danych Azure rozwiązania Cosmos. Aplikacje sieci web klonowalne z obszaru GitHub dostępne dla każdego typu Szybki Start. 
 
 
-- [Bazy danych MongoDB Express + AngularJS + Node.js + aplikacji sieci Web](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + aplikacji sieci Web](create-mongodb-nodejs.md)
 - [.NET + portalu azure i aplikacji sieci Web](create-mongodb-dotnet.md)
 - [Java + portalu Azure i aplikacji sieci Web](create-mongodb-java.md)
 - [Przejdź + portalu Azure przejdź](create-mongodb-golang.md)
+- [Python Flask + portalu Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Samouczki
 

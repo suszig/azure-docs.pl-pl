@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Rozwiązywanie problemów: Nie można usunąć sieci wirtualnej na platformie Azure
 
@@ -35,7 +35,7 @@ Błędy może pojawić się podczas próby usunięcia sieci wirtualnej na platfo
 5. [Sprawdź, czy maszyna wirtualna nadal działa w sieci wirtualnej](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 6. [Sprawdź, czy sieć wirtualna utkwiła w automatycznej migracji](#check-whether-the-virtual-network-is-stuck-in-migration).
 
-## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+## <a name="troubleshooting-steps"></a>Rozwiązywanie problemów
 
 ### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Sprawdź, czy brama sieci wirtualnej jest uruchomiony w sieci wirtualnej
 
@@ -65,13 +65,7 @@ Jeśli usług domenowych w usłudze Active Directory jest włączony i podłącz
 
 ![Sprawdź podłączonym urządzeniu](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Aby wyłączyć usługę, wykonaj następujące kroki:
-
-1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W okienku po lewej stronie wybierz **usługi Active Directory**.
-3. Wybierz katalog usługi Azure Active Directory (Azure AD), który ma usług domenowych Active Directory włączone.
-4. Wybierz kartę **Konfigurowanie**.
-5. W obszarze **usług domenowych w usłudze**, zmień **włączyć usługi domenowe dla tego katalogu** opcji w celu **nr**.  
+Aby wyłączyć usługę, zobacz [wyłączyć usługi Azure Active Directory Domain Services przy użyciu portalu Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sprawdź, czy sieci wirtualnej jest podłączona do innego zasobu
 

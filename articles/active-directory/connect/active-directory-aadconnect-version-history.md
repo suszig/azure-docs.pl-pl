@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
-
-W tym artykule jest przeznaczona do informacji o wersji, które zostały wydane i zrozumieć, czy należy zaktualizować do najnowszej wersji, czy nie.
+"W tym artykule jest przeznaczona do informacji o wersji, które zostały wydane i zrozumieć, czy należy zaktualizować do najnowszej wersji, czy nie.
 
 Jest to lista Tematy pokrewne:
+
 
 
 Temat |  Szczegóły
 --------- | --------- |
 Kroki do uaktualnienia programu Azure AD Connect | Różnych metod na [uaktualnianie z poprzedniej wersji do najnowszej wersji](active-directory-aadconnect-upgrade-previous-version.md) wersji Azure AD Connect.
 Wymagane uprawnienia | Uprawnienia wymagane do zastosowania aktualizacji, zobacz [konta i uprawnienia](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Do pobrania| [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Pobierz | [Pobieranie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Stan:, 12 grudnia 2017
+
+>[!NOTE]
+>Jest to zabezpieczenie powiązanej poprawki programu Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Program Azure AD Connect
+Po zainstalowaniu usługi Azure AD Connect, nowe konto utworzeniem używanego do uruchamiania usługi Azure AD Connect. Przed tej wersji konto zostało utworzone przy użyciu ustawień, które mogą użytkownikiem z hasłem prawa adminsitrator wiedzieć, możliwość zmiany hasła do wartości dla nich.  Można się zalogować za pomocą tego konta, a to będzie stanowić podniesienie uprawnień naruszenia zabezpieczeń. Ta wersja napina taśmę ustawienia na koncie, który jest tworzony i usuwa tę lukę w zabezpieczeniach.
+
+>[!NOTE]
+>Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. Exisating instalacji lub w przypadku, gdy samodzielnie konta możesz sould upewnij się, tę lukę w zabezpieczeniach nie istnieje.
+
+Aby zwiększyć ustawienia konta usługi, możesz uruchomić [ten skrypt programu PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Zostanie zwiększyć ustawienia na koncie usługi do usunięcia luki poniżej wartości:
+
+*   Wyłączyć funkcję dziedziczenia w określonym obiekcie
+*   Usuń wszystkie wpisy kontroli dostępu dla określonego obiektu, z wyjątkiem ACE określonych do siebie. Chcemy zachować uprawnienia domyślne po przejściu do siebie.
+*   Przypisz te określone uprawnienia:
+
+Typ     | Nazwa                          | Dostęp               | Dotyczy
+---------|-------------------------------|----------------------|--------------|
+Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obiekt  |
+Zezwalaj    | Administratorzy przedsiębiorstwa             | Pełna kontrola         | Ten obiekt  |
+Zezwalaj    | Administratorzy domeny                 | Pełna kontrola         | Ten obiekt  |
+Zezwalaj    | Administratorzy                | Pełna kontrola         | Ten obiekt  |
+Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Wyświetlanie zawartości        | Ten obiekt  |
+Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Odczyt wszystkich właściwości  | Ten obiekt  |
+Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Uprawnienia do odczytu     | Ten obiekt  |
+Zezwalaj    | Użytkownicy uwierzytelnieni           | Wyświetlanie zawartości        | Ten obiekt  |
+Zezwalaj    | Użytkownicy uwierzytelnieni           | Odczyt wszystkich właściwości  | Ten obiekt  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Skrypt programu PowerShell, aby zwiększyć istniejącego konta usługi
+
+Aby użyć skryptu programu PowerShell, aby zastosować te ustawienia do istniejącego konta usługi (ether udostępniane przez organizację lub utworzone przez wcześniejszą instalację programu Azure AD Connect, Pobierz skrypt z linku podanego powyżej.
+
+##### <a name="usage"></a>Użycie:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+gdzie 
+
+$ObjectDN = konto usługi Active Directory, w której uprawnienia należy zwiększyć.
+$Credential = poświadczenia używane do uwierzytelniania klienta, gdy rozmowie z usługi Active Directory. Zazwyczaj jest używany do utworzenia konta, którego uprawnienia wymaga dokręcania poświadczenia administratora przedsiębiorstwa.
+
+>[!NOTE] 
+>$credential. Nazwa użytkownika powinna być w formacie domena azwa_użytkownika.  
+
+##### <a name="example"></a>Przykład:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Ta luka w zabezpieczeniach zostało użyte do uzyskania nieautoryzowanego dostępu?
+
+Aby zobaczyć, czy tę lukę w zabezpieczeniach został użyty do naruszenia bezpieczeństwa usługi Azure AD Connect konfiguracji należy sprawdzić hasło ostatnio zresetować daty konta usługi.  Jeśli sygnaturą czasową w nieoczekiwany, dalszych badań, za pomocą dziennika zdarzeń dla zdarzenia resetowania tego hasła, należy podjąć.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Stanu: 2017 27 października
+
+>[!NOTE]
+>Ta kompilacja nie jest dostępna dla klientów za pośrednictwem funkcji Azure AD Connect automatycznego uaktualniania
 
 ## <a name="116490"></a>1.1.649.0
 Stanu: 2017 27 października

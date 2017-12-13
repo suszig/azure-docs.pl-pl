@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemy z wdrażaniem usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -75,3 +75,8 @@ Ponieważ usługa w chmurze jest zasobem klasycznym, które nie są bezpośredni
 
     To będzie działać z [portalu Azure](https://portal.azure.com) , ponieważ wywołanie przechodzi przez serwer proxy/podkładki, która umożliwia komunikację między zasobami usługi Azure Resource Manager i model klasyczny. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Dlaczego portalu Azure wymaga mnie o podanie konta magazynu dla wdrożenia? 
+
+W klasycznym portalu pakiet został przekazany do warstwy interfejsu API zarządzania bezpośrednio, a następnie warstwę interfejsu API tymczasowo czy umieść pakiet do konta wewnętrznego magazynu.  Ten proces powoduje problemy z wydajnością i skalowalnością, ponieważ warstwę interfejsu API nie został zaprojektowany jako usługa przekazywania plików.  W portalu Azure (modelu wdrażania usługi Resource Manager) firma Microsoft ma pominąć tymczasowe kroku wcześniejszego przekazania do warstwy interfejsu API, co w przypadku wdrożeń szybszy i bardziej niezawodny. 
+
+Podobnie jak w przypadku koszt jest bardzo mała i we wszystkich wdrożeniach można ponownie użyć tego samego konta magazynu. Można użyć [Kalkulator magazynu koszt](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ustalić koszt do przekazania pakietu usługi (CSPKG), Pobierz CSPKG, a następnie usuń CSPKG. 

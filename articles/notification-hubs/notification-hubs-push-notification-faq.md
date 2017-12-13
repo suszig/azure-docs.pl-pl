@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Wypychanie powiadomień z usług Azure Notification Hubs: często zadawane pytania
 ## <a name="general"></a>Ogólne
@@ -179,14 +179,14 @@ Jeśli nie masz zaplecze, po uruchomieniu aplikacji na urządzeniach docelowych,
 Będą w czasie, gdy urządzenia z aplikacjami nieotwarte nie będą otrzymywać powiadomienia.
 
 ### <a name="is-there-audit-log-capability"></a>Istnieje możliwość dziennika inspekcji?
-Wszystkie operacje zarządzania usługi Notification Hubs, przejdź do dzienników operacji, które są widoczne w [klasycznego portalu Azure].
+Wszystkie operacje zarządzania usługi Notification Hubs, przejdź do dzienników operacji, które są widoczne w [portalu Azure].
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorowanie i rozwiązywanie problemów
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Jakie funkcje do rozwiązywania problemów są dostępne?
 Centra powiadomień Azure zapewnia kilka funkcji rozwiązywania problemów, szczególnie w przypadku najbardziej typowym scenariuszem porzuconych powiadomienia. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z usługą Notification Hubs] oficjalny dokument.
 
 ### <a name="what-telemetry-features-are-available"></a>Jakie funkcje dane telemetryczne są dostępne?
-Azure umożliwia usługi Notification Hubs wyświetlania danych telemetrycznych w [klasycznego portalu Azure]. Szczegóły miar są dostępne na [metryki centra powiadomień] strony.
+Azure umożliwia usługi Notification Hubs wyświetlania danych telemetrycznych w [portalu Azure]. Szczegóły miar są dostępne na [metryki centra powiadomień] strony.
 
 > [!NOTE]
 > Powiadomienia o pomyślnym po prostu oznacza, że powiadomienia wypychane zostały dostarczone do zewnętrznego systemu powiadomień platformy (na przykład APN do firmy Apple) lub usługi GCM dla usług Google. Jest odpowiedzialny za systemu powiadomień platformy do dostarczenia powiadomienia do urządzeń docelowych. Zazwyczaj systemu powiadomień platformy nie ujawnia metryki dostarczania osobom trzecim.  
@@ -195,7 +195,7 @@ Azure umożliwia usługi Notification Hubs wyświetlania danych telemetrycznych 
 
 Firma Microsoft udostępnia również możliwość eksportowania danych telemetrycznych programowo (w warstwie standardowej). Aby uzyskać więcej informacji, zobacz [Przykładowe metryki centra powiadomień].
 
-[klasycznego portalu Azure]: https://manage.windowsazure.com
+[portalu Azure]: https://portal.azure.com
 [Notification Hubs — cennik]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Analiza przypadku: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Firma Microsoft udostępnia również możliwość eksportowania danych telemetr
 [metryki centra powiadomień]: https://msdn.microsoft.com/library/dn458822.aspx
 [Przykładowe metryki centra powiadomień]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [rejestracje eksportu/importu]: https://msdn.microsoft.com/library/dn790624.aspx
-[portalu Azure]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [App Service — ceny]: https://azure.microsoft.com/pricing/details/app-service/

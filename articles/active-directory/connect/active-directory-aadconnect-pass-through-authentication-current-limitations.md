@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0b86be1c1b26079aee33bcf8e861f679f4cbe11e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/11/2017
 Pełni są obsługiwane następujące scenariusze:
 
 - Logowania użytkownika do wszystkich aplikacji opartej na przeglądarce sieci web
-- Logowania użytkowników dla aplikacji klienckich usługi Office 365, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga)
-- Pakiet Office 2016 i Office 2013 _z_ nowoczesnego uwierzytelniania
+- Logowania użytkownika do aplikacji pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga): pakiet Office 2016 i Office 2013 _z_ nowoczesnego uwierzytelniania
+- Użytkownik logowania do usługi Skype dla firm tego Obsługa nowoczesnego uwierzytelniania, w tym Online i hybrydowych topologii. Dowiedz się więcej na temat obsługiwanych topologii [tutaj](https://technet.microsoft.com/library/mt803262.aspx).
 - Dołącza domenowych Azure AD dla urządzeń z systemem Windows 10
 - Obsługa programu Exchange ActiveSync
 
@@ -40,11 +40,11 @@ Pełni są obsługiwane następujące scenariusze:
 Poniższe scenariusze są _nie_ obsługiwane:
 
 - Logowania użytkownika do starszych aplikacjach klienckich pakietu Office: pakiet Office 2010 i Office 2013 _bez_ nowoczesnego uwierzytelniania. Organizacje zaleca się przełączyć do nowoczesnego uwierzytelniania, jeśli to możliwe. Umożliwia obsługę uwierzytelniania przekazywanego nowoczesnego uwierzytelniania. Pomaga również Zabezpieczanie kont użytkowników przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) funkcje, takie jak uwierzytelnianie wieloskładnikowe Azure.
-- Użytkownik logowania do usługi Skype dla firm klienta aplikacji, w tym usługi Skype dla firm 2016.
+- Użytkownik logowania do usługi Skype dla firm aplikacje klienckie _bez_ nowoczesnego uwierzytelniania.
 - Użytkownik logowania do programu PowerShell w wersji 1.0. Firma Microsoft zaleca użycie programu PowerShell w wersji 2.0.
-- Azure Active Directory Domain Services.
 - Hasła aplikacji w usłudze Multi-Factor Authentication.
 - Wykrywanie użytkownikom [ujawnione poświadczenia](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Usługi domenowe Azure AD wymaga synchronizacji skrótu hasła w dzierżawie. W związku z tym dzierżawcami, które korzystają z uwierzytelniania przekazywanego _tylko_ nie działa w przypadku scenariuszy, które wymagają usług domenowych Azure AD.
 
 >[!IMPORTANT]
 >Jako obejścia nieobsługiwane scenariusze _tylko_, włączanie synchronizacji skrótów haseł na [funkcje opcjonalne](active-directory-aadconnect-get-started-custom.md#optional-features) strony kreatora programu Azure AD Connect.

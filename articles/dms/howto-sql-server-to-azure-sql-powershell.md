@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrowanie lokalnej instalacji programu SQL Server do bazy danych SQL Azure przy użyciu programu Azure PowerShell
-W tym artykule, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 lub nowszy z bazą danych SQL Azure za pomocą programu Microsoft Azure PowerShell bazy danych.  Można migrować baz danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure za pomocą `AzureRM.DataMigration` moduł w programie Microsoft Azure PowerShell.
+W tym artykule, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 lub nowszy z bazą danych SQL Azure za pomocą programu Microsoft Azure PowerShell bazy danych. Można migrować baz danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure za pomocą `AzureRM.DataMigration` moduł w programie Microsoft Azure PowerShell.
 
 W tym artykule dowiesz się, jak:
 > [!div class="checklist"]
@@ -26,7 +26,6 @@ W tym artykule dowiesz się, jak:
 > * Utwórz wystąpienie usługi migracji bazy danych Azure.
 > * Utwórz projekt migracji w wystąpieniu usługi migracji bazy danych Azure.
 > * Uruchom migrację.
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby wykonać te kroki, potrzebne są:
@@ -36,15 +35,15 @@ Aby wykonać te kroki, potrzebne są:
 - Aby skonfigurować Twoje [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Wystąpienie bazy danych SQL Azure. Można utworzyć wystąpienia bazy danych SQL Azure, wykonując szczegółowo w artykule [tworzenie bazy danych Azure SQL w portalu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Dane migracji Asystenta](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 lub nowszym.
-- Usługa Azure migracji bazy danych wymaga utworzony przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia połączenie lokacja lokacja z serwerami lokalnymi źródła przy użyciu sieci Wirtualnej [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [ Sieć VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Usługa Azure bazy danych migracji wymaga utworzony przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia połączenie lokacja lokacja z serwerami lokalnymi źródła przy użyciu sieci Wirtualnej [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [ Sieć VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Ukończono ocenę migracji bazy danych i schemat lokalnymi przy użyciu Asystenta migracji danych, zgodnie z opisem w artykule [ wykonywania oceny migracji programu SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-- Pobierz i zainstaluj moduł AzureRM.DataMigration z galerii programu PowerShell przy użyciu [polecenia cmdlet programu PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- Pobierz i zainstaluj moduł AzureRM.DataMigration z bu galerii programu PowerShell przy użyciu [polecenia cmdlet programu PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
 - Poświadczenia użyte do nawiązania połączenia źródła wystąpienia programu SQL Server musi mieć [serwera kontroli](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) uprawnienia.
-- Poświadczenia użyte do nawiązania połączenia docelowego wystąpienia bazy danych SQL Azure wymagane uprawnienie bazy danych kontroli z docelowymi bazami danych bazy danych SQL Azure.
+- Poświadczenia użyte do nawiązania połączenia docelowego wystąpienia bazy danych SQL Azure musi mieć uprawnienia do kontroli bazy danych na docelowymi bazami danych bazy danych SQL Azure.
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Zaloguj się do subskrypcji platformy Microsoft Azure
 Użyj wskazówek w następującym artykule w [Zaloguj się przy użyciu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) logować się do subskrypcji platformy Azure przy użyciu programu PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów, aby można było utworzyć maszynę wirtualną.
@@ -56,7 +55,6 @@ Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *EastUS*
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Utwórz wystąpienie usługi migracji bazy danych Azure 
 Można utworzyć nowego wystąpienia usługi migracji bazy danych platformy Azure przy użyciu `New-AzureRmDataMigrationService` polecenia cmdlet. Aplet polecenia oczekuje następujące wymagane parametry:
 - *Nazwa grupy zasobów platformy Azure*. Można użyć [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) polecenie, aby utworzyć grupę zasobów Azure pokazano wcześniej i podać jego nazwę, jako parametr.
@@ -130,11 +128,9 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Tworzenie i uruchamianie zadania migracji
-
 Na koniec Utwórz i uruchom zadania migracji bazy danych Azure. Zadania migracji bazy danych Azure wymaga informacji o poświadczeniach połączenia na serwerze źródłowym i docelowym i listy tabel bazy danych do migracji oprócz informacji dostępnych już w projekcie utworzony jako warunek wstępny. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Utwórz poświadczenia parametry źródłowe i docelowe
-
 Poświadczenia zabezpieczeń połączenia może zostać utworzony jako [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) obiektu. 
 
 W poniższym przykładzie pokazano tworzenie *PSCredential* obiektów dla źródła i celu połączeń podanie hasła jako zmiennych ciągu *$sourcePassword* i *$ Hasło_docelowe*. 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 Możesz monitorować zadanie migracji z zapytania dotyczącego właściwości Stan zadania, jak pokazano w poniższym przykładzie:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-- Przejrzyj wskazówki dotyczące migracji w [Przewodnik po migracji bazy danych firmy Microsoft](https://datamigration.microsoft.com/)
+- Przejrzyj wskazówki dotyczące migracji w programie Microsoft [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/).

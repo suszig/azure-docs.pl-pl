@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiowanie danych z/do Dynamics 365 / Dynamics CRM przy użyciu fabryki danych Azure
 
@@ -46,7 +46,7 @@ Dynamics 365 w szczególności następujące typy aplikacji są obsługiwane:
 - Dynamics 365 Marketing
 
 > [!NOTE]
-> Używanie łącznika Dynamics przechowywania hasła w usłudze Azure Key Vault i umożliwić ADF kopiowania działaniach ściągania stamtąd podczas wykonywania kopii danych. Zobacz, jak skonfigurować w [połączona usługa właściwości](#linked-service-properties) sekcji.
+> Używanie łącznika Dynamics przechowywania hasła w usłudze Azure Key Vault i umożliwić ściągania działaniach kopiowania stamtąd podczas wykonywania kopii danych. Zobacz, jak skonfigurować w [połączona usługa właściwości](#linked-service-properties) sekcji.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -322,7 +322,7 @@ Aby skopiować dane do programu Dynamics, należy ustawić typ ujścia w działa
 
 Podczas kopiowania danych z programu Dynamics, następujące mapowania są używane z Dynamics typów danych do typów danych tymczasowych fabryki danych Azure. Zobacz [schemat i dane typu mapowania](copy-activity-schema-and-type-mapping.md) Aby poznać sposób działania kopiowania mapowania typu źródłowego: schemat i dane sink.
 
-Skonfiguruj odpowiedni typ danych ADF w strukturze zestawu danych, w oparciu o Twoje źródło danych Dynamics typu przy użyciu poniższej tabeli mapowania:
+Skonfiguruj odpowiedni typ danych fabryki danych w oparciu o Twoje źródło danych Dynamics strukturze zestawu danych typu przy użyciu poniższej tabeli mapowania:
 
 | Dynamics — typ danych | Typ danych tymczasowych fabryki danych | Obsługiwane jako źródło | Obsługiwane jako odbioru |
 |:--- |:--- |:--- |:--- |

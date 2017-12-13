@@ -1,31 +1,33 @@
 ---
 title: "Rozwiązywanie problemów z migracji Azure | Dokumentacja firmy Microsoft"
 description: "Zawiera omówienie znanych problemów dotyczących usługi Azure migracji i rozwiązywania problemów wskazówki dotyczące typowych błędów."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="troubleshoot-azure-migrate"></a>Rozwiązywanie problemów z Azure migracji
+# <a name="troubleshoot-azure-migrate"></a>Rozwiązywanie problemów z usługą Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Rozwiąż typowe błędy
 
 [Azure migracji](migrate-overview.md) ocenia obciążeń lokalnych do migracji do usługi Azure. W tym artykule umożliwiają rozwiązywanie problemów podczas wdrażania i przy użyciu migracji Azure.
 
+
+**Moduł zbierający nie jest w stanie nawiązać połączenia z Internetem**
+
+Może to nastąpić, gdy maszyny, którego używasz znajduje się za serwerem proxy. Upewnij się, że podajesz poświadczenia autoryzacji, jeśli serwer proxy wymaga jednego.
+Jeśli używasz dowolnego zapora oparta na adres URL serwera proxy do sterowania łączność wychodząca, upewnij się listą dozwolonych adresów IP są wymagane adresów URL:
+
+**ADRES URL** | **Cel**  
+--- | ---
+*. portal.azure.com | Wymagane sprawdzenie połączenia z usługą Azure i sprawdzić poprawności synchronizacji czasu problemy.
+*. oneget.org | Wymagany do pobrania programu powershell na podstawie modułu PowerCLI vCenter.
 
 **Moduł zbierający nie może połączyć się projektu za pomocą Identyfikatora projektu i klucza I skopiowany z portalu.**
 
