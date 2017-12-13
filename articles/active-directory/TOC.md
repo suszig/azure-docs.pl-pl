@@ -283,8 +283,9 @@
 #### [Wprowadzenie](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)
+#### [Migrowanie zasad klasycznych](active-directory-conditional-access-migration.md)
 #### Zadania
-##### [Migrowanie zasad klasycznych](active-directory-conditional-access-migration.md)
+##### [Migrowanie klasycznych zasad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na aplikacji](active-directory-conditional-access-mam.md)
 ##### [Podawanie warunków użytkowania dla użytkowników i aplikacji](active-directory-tou.md)

@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: Zarządzanie dostępem
       href: log-analytics-manage-access.md
+    - name: Monitorowanie środowisk hybrydowych
+      href: log-analytics-concept-hybrid.md
     - name: Funkcje dla dostawców usług
       href: log-analytics-service-providers.md
     - name: Przeszukiwanie dzienników
@@ -58,11 +60,7 @@
         - name: Połączone źródła
           items:
             - name: Agenci dla systemu Windows
-              href: log-analytics-windows-agents.md
-            - name: Agenci dla systemu Linux
-              href: log-analytics-agent-linux.md
-            - name: Maszyny wirtualne platformy Azure
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Zasoby platformy Azure
               href: log-analytics-azure-storage.md
             - name: Zasoby usługi Azure PaaS
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: Brama pakietu OMS
               href: log-analytics-oms-gateway.md
+            - name: Rozwiązywanie problemów z agentem systemu Linux
+              href: log-analytics-agent-linux-support.md
         - name: Źródła danych
           items:
             - name: Omówienie źródeł danych
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: Zarządzanie
       items:
+        - name: Agent zarządzania
+          href: log-analytics-agent-manage.md
         - name: Zarządzanie kosztami obszaru roboczego
           href: log-analytics-manage-cost-storage.md
         - name: Usuwanie obszaru roboczego
