@@ -11,7 +11,8 @@
 ## [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 
 # Dokumentacja
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [Interfejs API REST](https://docs.microsoft.com/rest/api/advisor)
+## [Interfejs wiersza polecenia](https://docs.microsoft.com/cli/azure/advisor)
 
 # Powiązane
 ## [Centrum zabezpieczeń](https://azure.microsoft.com/services/security-center/)
