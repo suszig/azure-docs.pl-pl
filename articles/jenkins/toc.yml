@@ -26,6 +26,9 @@
     - name: Skalowanie przy użyciu agentów maszyn wirtualnych platformy Azure
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Tworzenie za pomocą usługi Azure Container Instances
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Porady
   items:
     - name: Zabezpieczanie usługi Jenkins na platformie Azure
