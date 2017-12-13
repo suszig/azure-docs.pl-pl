@@ -11,7 +11,6 @@
 ## Tworzenie rekordu i strefy DNS
 ### [Witryna Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-getstarted-cli.md)
 
 ## Tworzenie prywatnego rekordu i strefy DNS
@@ -24,13 +23,11 @@
 ## Zarządzanie strefami DNS
 ### [Witryna Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 
 ## Zarządzanie rekordami DNS
 ### [Witryna Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](dns-operations-recordsets-cli.md)
 
 ## Zarządzanie odwrotnym systemem DNS
