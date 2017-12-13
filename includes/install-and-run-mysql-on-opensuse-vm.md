@@ -35,12 +35,12 @@
    
         mysql -u root -p
    
-    Wprowadź hasło głównego MySQL (które można zmienić w poprzednim kroku) i zostanie wyświetlony wraz z monitem o których możesz wykonywać instrukcje SQL do interakcji z bazą danych.
-7. Aby utworzyć nowy użytkownik MySQL, uruchom następujące polecenie w **mysql >** wiersza:
+    Wprowadź hasło głównego MySQL (które można zmienić w poprzednim kroku) i jest wyświetlana wraz z monitem o których możesz wykonywać instrukcje SQL do interakcji z bazą danych.
+7. Aby utworzyć nowego użytkownika MySQL, uruchom następujące polecenie w **mysql >** wiersza:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Uwaga: średnikami (;) na końcu wiersza, które są istotne dla zakończenia polecenia.
+    Uwaga: średnikami (;) na końcu wiersza jest kluczowa dla zakończenia polecenia.
 8. Aby utworzyć bazę danych i udzielić `mysqluser` uprawnienia użytkownika do niego, wydawać następujące polecenia:
    
         CREATE DATABASE testdatabase;
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    gdzie `ip-address` to adres IP komputera, z którym połączy się MySQL.
+    gdzie `ip-address` to adres IP komputera, z którym nawiązywane jest MySQL.
 10. Aby zamknąć narzędzie administracyjne bazy danych MySQL, wpisz:
     
         quit
 
 ## <a name="add-an-endpoint"></a>Dodawanie punktu końcowego
-1. Po zainstalowaniu MySQL, musisz skonfigurować punkt końcowy do zdalnego dostępu MySQL. Zaloguj się do [klasycznego portalu Azure][AzurePortal]. Kliknij przycisk **maszyn wirtualnych**, kliknij nazwę nowej maszyny wirtualnej, a następnie kliknij przycisk **punkty końcowe**.
+1. Po zainstalowaniu MySQL, musisz skonfigurować punkt końcowy do zdalnego dostępu MySQL. Zaloguj się do [portalu Azure][AzurePortal]. Kliknij przycisk **maszyn wirtualnych**, kliknij nazwę nowej maszyny wirtualnej, a następnie kliknij przycisk **punkty końcowe**.
 2. Kliknij przycisk **Dodaj** w dolnej części strony.
 3. Dodawanie punktu końcowego o nazwie "MySQL" z protokołem **TCP**, i **publicznego** i **prywatnej** porty ustawioną wartość "3306".
 4. Zdalne połączenia z maszyną wirtualną z komputera, wpisz:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Na przykład przy użyciu maszyny wykorzystanie wirtualnej utworzone w tym samouczku, wpisz następujące polecenie:
+    Na przykład przy użyciu maszyny wirtualnej utworzone w tym samouczku, wpisz następujące polecenie:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure rozwiązania Cosmos bazy danych: Za pomocą usługi Azure Functions obliczeniowych bez serwera bazy danych
 
@@ -44,7 +44,7 @@ W następujących kombinacji można wyzwalacza bazy danych Azure rozwiązania Co
 * Powiązania wejściowego do kontenera Azure DB rozwiązania Cosmos można użyć w tej samej funkcji jako wyzwalacz bazy danych Azure rozwiązania Cosmos i mogą być używane z lub bez wyjścia również powiązania. Ta kombinacja do stosowania aktualne waluty wymiany informacji (pobierane za pomocą powiązania wejściowego do kontenera programu exchange) można użyć do zmiany źródła nowych zamówień w usługą koszyka zakupów. Zaktualizowano łączną koszyka zakupów, z bieżącej konwersja zastosowane, mogą być zapisywane na trzeci kontener używanie powiązania danych wyjściowych.
 
 > [!NOTE]
-> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta SQL, tabel i interfejsu API programu Graph.
+> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta interfejsu API SQL i interfejsu API programu Graph.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
@@ -86,14 +86,14 @@ Na poniższych ilustracjach przedstawiono kod w portalu Azure w tym scenariuszu.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Gier przypadkach - DB rozwiązania Cosmos Azure wyzwalacza i powiązania wyjściowego
 
-W gier, podczas tworzenia nowego użytkownika można wyszukiwać innych użytkowników, którzy mogą znać je za pomocą [interfejsu API programu Graph usługi Azure rozwiązania Cosmos DB](graph-introduction.md). Następnie można zapisać wyniki w [bazy danych w tabeli bazy danych Azure rozwiązania Cosmos](table-introduction.md) ułatwia ich odnalezienie.
+W gier, podczas tworzenia nowego użytkownika można wyszukiwać innych użytkowników, którzy mogą znać je za pomocą [interfejsu API programu Graph usługi Azure rozwiązania Cosmos DB](graph-introduction.md). [Azure rozwiązania Cosmos bazy danych SQL database] ułatwia ich odnalezienie może następnie zapisać wyniki.
 
 **Implementacja:** wyzwalacz bazy danych Azure rozwiązania Cosmos i powiązania danych wyjściowych
 
 1. Przy użyciu bazy danych Azure rozwiązania Cosmos [bazy danych wykresu](graph-introduction.md) do przechowywania wszystkich użytkowników, można utworzyć nową funkcję z wyzwalaczem bazy danych Azure rozwiązania Cosmos. 
 2. Zawsze, gdy nowy użytkownik zostanie wstawiony, funkcja jest wywoływana i następnie wynik jest przechowywany przy użyciu **powiązania wyjściowego**.
 3. Funkcja wysyła zapytanie do bazy danych wykresu, aby wyszukać wszystkich użytkowników, którzy są bezpośrednio związane z nowego użytkownika i zwraca ten zestaw danych do funkcji.
-4. Dane te są następnie przechowywane w usłudze Azure DB rozwiązania Cosmos [tabeli bazy danych](table-introduction.md) jako klucz wartość zestaw par, które następnie mogą być w łatwy sposób pobierany przez aplikację zewnętrzną, pokazujący swoich znajomych połączonych nowego użytkownika.
+4. Dane te są następnie przechowywane w usłudze Azure DB rozwiązania Cosmos, które następnie mogą być w łatwy sposób pobierany przez aplikację zewnętrzną, pokazujący swoich znajomych połączonych nowego użytkownika.
 
 ### <a name="retail-use-case---multiple-functions"></a>Przypadek użycia detalicznej — wiele funkcji
 

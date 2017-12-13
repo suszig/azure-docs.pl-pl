@@ -1,3 +1,4 @@
+
 1. Po utworzeniu i uruchomieniu maszyny wirtualnej platformy Azure kliknij ikonę Maszyny wirtualne w witrynie Azure Portal, aby wyświetlić swoje maszyny wirtualne.
 
 1. Kliknij przycisk wielokropka (**...** ) dla nowej maszyny wirtualnej.

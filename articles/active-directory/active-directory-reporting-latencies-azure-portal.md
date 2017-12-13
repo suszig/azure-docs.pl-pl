@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f4b3e59cb6cec5ac4ca771818e5eca8509a43d82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Usługa Azure Active Directory opóźnienia raportowania
 
@@ -37,13 +37,15 @@ Istnieją dwa obszary działania raportowania:
 
 Poniższa tabela zawiera informacje opóźnienia raporty aktywności.
 
-| Raport | Minimalne | Średni | Maksimum |
-| :-- | --- | --- | --- |
-| Dzienniki inspekcji             | 30 minut  | 1 godzina | 2 godziny     |
-| Logowania               | 15 minut  | 2 godziny * | 24 godziny  |
+| Raport | Minimalne | Średni |
+| :-- | --- | --- |
+| Dzienniki inspekcji | 30 minut  | 1 godzina  |
+| Logowania | 15 minut  | 2 godziny |
 
->[!NOTE]
-> W przypadku niektórych danych operacji logowania pochodzących ze starszych wersji aplikacji pakietu Office dane raportowania mogą pojawić się po 8 godzinach. 
+W niektórych przypadkach krawędzi można wykonać:
+
+- 2 godziny dla inspekcji dane o aktywności wyświetlone.
+- 24 godziny dla danych logowania działania wyświetlone. W tym dane o aktywności logowania pochodzące z aplikacji starszej wersji pakietu office. 
 
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń

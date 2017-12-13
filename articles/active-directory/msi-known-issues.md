@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: cfb78594821a58b7873b8e71608edf2dde78c2f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1dc4ad3dd383e8927be73bcd0a064b6c36a9bc54
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Często zadawane pytania i znane problemy z zarządzania usługi tożsamości (MSI) dla usługi Azure Active Directory
 
@@ -32,7 +32,7 @@ Nie, nie ma żadnych planów obsługi MSI w usługi w chmurze Azure.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI działa z biblioteki uwierzytelniania usługi Active Directory (ADAL) lub biblioteki uwierzytelniania firmy Microsoft (MSAL)?
 
-Nie, MSI nie jest jeszcze zintegrowana z biblioteką ADAL lub MSAL.
+Nie, MSI nie jest jeszcze zintegrowana z biblioteką ADAL lub MSAL. Aby uzyskać więcej informacji na temat pozyskiwania token MSI przy użyciu punktu końcowego MSI REST, zobacz [sposobu użycia Azure VM zarządzane usługi tożsamości (MSI) do przejęcia tokenu](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Co to są obsługiwane dystrybucje systemu Linux?
 

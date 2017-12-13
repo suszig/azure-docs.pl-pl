@@ -4,7 +4,7 @@ description: "Dowiedz się, jak zarządzać Azure DB rozwiązania Cosmos w Ekspl
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)
 
-Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje konta SQL i bazy danych MongoDB.
+Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje konta SQL i bazy danych MongoDB. Eksplorator magazynu Azure nie działa z emulatora lokalnej bazy danych Azure rozwiązania Cosmos. 
 
 W tym artykule możesz dowiedzieć się, jak zarządzać bazy danych rozwiązania Cosmos Azure za pomocą Eksploratora usługi Storage.
 

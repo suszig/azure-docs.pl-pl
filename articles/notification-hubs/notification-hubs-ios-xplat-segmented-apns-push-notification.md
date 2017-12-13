@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do Twoje istni
 Aplikacja może teraz przechowywać zestaw kategorii w magazynie lokalnym urządzenia używane do rejestrowania w Centrum powiadomień przy każdym uruchomieniu aplikacji.  Użytkownik może zmienić wybór kategorii środowiska uruchomieniowego i kliknij przycisk **subskrypcji** metodę, aby zaktualizować rejestrację urządzenia. Następnie zostanie zaktualizowania aplikacji można wysłać powiadomienia o najważniejszych wiadomościach bezpośrednio w aplikacji.
 
 ## <a name="optional-sending-tagged-notifications"></a>(opcjonalnie) Wysyłanie powiadomień oznakowany
-Jeśli nie masz dostępu do programu Visual Studio, można przejść do następnej sekcji i wysyłania powiadomień z samej aplikacji. Możesz również wysłać powiadomienie prawidłowego szablonu z [klasycznego portalu Azure] za pomocą karty debugowanie w Centrum powiadomień. 
+Jeśli nie masz dostępu do programu Visual Studio, można przejść do następnej sekcji i wysyłania powiadomień z samej aplikacji. Możesz również wysłać powiadomienie prawidłowego szablonu z [portalu Azure] za pomocą karty debugowanie w Centrum powiadomień. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ W tym samouczku opisano sposób emisji najważniejszych wiadomości według kate
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[klasycznego portalu Azure]: https://manage.windowsazure.com
+[portalu Azure]: https://portal.azure.com

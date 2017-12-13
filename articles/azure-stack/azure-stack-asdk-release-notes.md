@@ -3,7 +3,7 @@ title: Informacje o wersji zestawu Microsoft Azure stosu Development Kit | Dokum
 description: "Ulepszenia, poprawki i znane problemy dotyczące Azure stosu Development Kit."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
-ms.author: mabrigg
-ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 12/11/2017
+ms.author: andredm
+ms.openlocfilehash: 49d26defef56e6fc174cda57b24a126cd77227e4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Informacje o wersji platformy Azure stosu Development Kit
 
@@ -76,6 +76,7 @@ Te informacje o wersji zawierają informacje dotyczące ulepszeń, poprawki i zn
 - W obszarze **sieci**, jeśli klikniesz przycisk **połączenia** do skonfigurowania połączenia sieci VPN, **do wirtualnymi** jest wymieniony jako typ połączenia to możliwe. Nie należy zaznaczać tej opcji. Obecnie tylko **lokacja lokacja (IPsec)** opcja jest obsługiwana.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
 - Operatory stosu Azure może być niemożliwe do wdrożenia, usuwanie, modyfikowanie, sieciami wirtualnymi lub grup zabezpieczeń sieci. Ten problem występuje przede wszystkim prób kolejnych aktualizacji tego samego pakietu. Jest to spowodowane problemem pakietów za pomocą aktualizacji, który jest obecnie badanym.
+- Wewnętrzny równoważenia obciążenia (ILB) nieprawidłowo obsługuje adresów MAC dla maszyn wirtualnych zaplecza, które dzieli wystąpień systemu Linux.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Może potrwać do godziny dzierżawców można utworzyć bazy danych w nowym SQL lub MySQL jednostki SKU. 

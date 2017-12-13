@@ -3,7 +3,7 @@ title: "Zarządzanie strefami DNS w usłudze Azure DNS - Azure CLI 2.0 | Dokumen
 description: "Możesz zarządzać stref DNS używa interfejsu wiersza polecenia platformy Azure w wersji 2.0. W tym artykule pokazano, jak aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 988f6ff5158eb754cbedeb58a45fcc31f0026f03
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Jak zarządzać stref DNS w usłudze Azure DNS za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md)
 
 
 W tym przewodniku pokazano, jak zarządzać stref DNS przy użyciu wiersza polecenia platformy Azure i platform, która jest dostępna dla systemu Windows, Mac i Linux. Można również zarządzać stref DNS przy użyciu [programu Azure PowerShell](dns-operations-dnszones.md) lub w portalu Azure.
-
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
-
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
-
-* [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami.
-* [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami.
 
 ## <a name="introduction"></a>Wprowadzenie
 

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d785c70dff331f2c5050fd07c65812a4cbc983b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Co to są hasła aplikacji w usłudze Azure Multi-Factor Authentication?
-Niektóre aplikacje korzystające z przeglądarki, takie jak klienta natywnego poczty e-mail firmy Apple, który używa programu Exchange Active Sync aktualnie nie obsługują uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe jest włączone dla użytkownika. Oznacza to, że jeśli użytkownik został włączony dla usługi Multi-Factor authentication i próbuje korzystać z aplikacji korzystających z przeglądarki, będą mogli w tym celu. Hasła aplikacji umożliwia to możliwe.
+Niektóre aplikacje korzystające z przeglądarki, takie jak klienta natywnego poczty e-mail firmy Apple, który używa programu Exchange Active Sync aktualnie nie obsługują uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe jest włączone dla użytkownika. Oznacza to, że jeśli użytkownik został włączony dla usługi Multi-Factor authentication i próbuje korzystać z aplikacji korzystających z przeglądarki, będą mogli w tym celu. Hasła aplikacji umożliwia to możliwe. Jeśli wymusić uwierzytelnianie wieloskładnikowe za pośrednictwem zasad dostępu warunkowego, a nie za pomocą usługi MFA dla poszczególnych użytkowników, nie można utworzyć hasła aplikacji. Aplikacje używające zasad dostępu warunkowego do kontroli dostępu nie ma potrzeby haseł aplikacji.
 
 Po utworzeniu haseł aplikacji, możesz użyć tego zamiast oryginalnemu hasłu z tych aplikacji korzystających z przeglądarki. Jest to spowodowane podczas rejestrowania na potrzeby weryfikacji dwuetapowej jest informacją o Microsoft nie pozwala każdy Zaloguj się przy użyciu hasła, jeśli nie mogą również wykonywać drugi weryfikacji. Apple klienta natywnego poczty e-mail na telefonie nie można zalogować się jako użytkownik, ponieważ nie można żądać na potrzeby weryfikacji dwuetapowej. Rozwiązanie tego problemu jest do tworzenia bardziej bezpieczne hasło aplikacji, które nie są używane bieżące, ale tylko dla tych aplikacji, które nie obsługują weryfikacji dwuetapowej. Użyj hasła aplikacji, dzięki czemu aplikacje mogą obejść usługę Multi-Factor authentication i kontynuować pracę.
 

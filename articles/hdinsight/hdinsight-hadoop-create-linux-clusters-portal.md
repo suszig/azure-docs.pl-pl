@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Tworzenie klastrów z systemem Linux w usłudze HDInsight przy użyciu portalu Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,27 +52,20 @@ Azure portal udostępnia większość właściwości klastra. Przy użyciu szabl
 
     * Z **subskrypcji** listy rozwijanej, wybierz subskrypcję platformy Azure, który będzie używany dla klastra.
 
-    * Kliknij przycisk **typ klastra**, a następnie wybierz opcję:
-   
-        * **Typ klastra**: Jeśli nie masz pewności co do wyboru, wybierz pozycję **Hadoop**. Jest to najbardziej popularny typ klastra.
+    * Kliknij przycisk **typ klastra**, a następnie wybierz typ klastra (Hadoop, Spark, itp.), do którego chcesz utworzyć. Aby uzyskać **systemu operacyjnego**, kliknij przycisk **Linux** , a następnie wybierz wersję. Użyj wersji domyślnej, jeśli nie wiesz, co do wyboru. Więcej informacji można znaleźć w temacie [HDInsight cluster versions](hdinsight-component-versioning.md) (Wersje klastrów usługi HDInsight).
      
-            > [!IMPORTANT]
-            > HDInsight mogą mieć różnych typów, które odpowiadają obciążenia lub technologii, która jest dostosowana klastra na potrzeby klastrów. Nie istnieje metoda obsługiwanych do utworzenia klastra, który łączy wiele typów, takie jak Storm i bazy danych HBase w jednym klastrze. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > HDInsight mogą mieć różnych typów, które odpowiadają obciążenia lub technologii, która jest dostosowana klastra na potrzeby klastrów. Nie istnieje metoda obsługiwanych do utworzenia klastra, który łączy wiele typów, takie jak Storm i bazy danych HBase w jednym klastrze. 
+        > 
+        > 
         
-        * **System operacyjny**: wybierz pozycję **Linux**.
-        
-        * **Wersja**: Użyj wersji domyślnej, jeśli nie wiesz, co wybrać. Więcej informacji można znaleźć w temacie [HDInsight cluster versions](hdinsight-component-versioning.md) (Wersje klastrów usługi HDInsight).
-        
-
     * Aby uzyskać **nazwa użytkownika logowania klastra** i **hasło logowania klastra**, podaj nazwę użytkownika i hasło użytkownika dla administratora.
 
     * Wprowadź **nazwa użytkownika SSH** , a jeśli chcesz, aby hasło SSH, wybierz pozycję takie samo jak hasło administratora, określony wcześniej **Użyj tego samego hasła jak logowania do klastra** pole wyboru. Jeśli nie, wprowadź wartość **hasło** lub **klucz PUBLICZNY**, który będzie używany do uwierzytelniania użytkownika SSH. Zaleca się użycie klucza publicznego. Kliknij pozycję **Wybierz** u dołu, aby zapisać konfigurację poświadczeń.
    
-        Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Aby uzyskać informacje, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    * Aby uzyskać **grupy zasobów**, określ, czy chcesz utworzyć nową grupę zasobów lub użyć istniejącego.
+    * W obszarze **Grupa zasobów** określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej.
 
     * Określ centrum danych **lokalizacji** gdzie można utworzyć klastra.
 

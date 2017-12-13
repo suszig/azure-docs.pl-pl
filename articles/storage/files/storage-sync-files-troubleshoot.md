@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 91958b14d3e73677b30bbc8f46eb9eada3afde84
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -101,6 +101,9 @@ Aby określić, czy rola konto użytkownika ma wymagane uprawnienia:
 4. W **dostawcy zasobów** listy, wybierz **Authorization Microsoft**. 
     * **Przypisanie roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
     * **Definicja roli** powinien mieć **odczytu** i **zapisu** uprawnienia.
+
+<a id="server-endpoint-createjobfailed"></a>**Utworzenie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobFailed" (kod błędu:-2134375898)**                                                                                                                           
+Ten problem występuje, jeśli ścieżka punktu końcowego serwera znajduje się na woluminie systemowym i w chmurze jest włączona obsługa poziomów. Chmura obsługi nie jest obsługiwana w woluminie systemowym. Można utworzyć punktu końcowego serwera w woluminie systemowym, wyłącz chmury, dodając funkcje warstw podczas tworzenia serwera punktu końcowego.
 
 <a id="server-endpoint-deletejobexpired"></a>**Usuwanie punktu końcowego serwera nie powiedzie się, z powodu następującego błędu: "MgmtServerJobExpired"**                
 Ten problem występuje, gdy serwer działa w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępna, należy wyrejestrować serwera w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w [Wyrejestruj serwer z funkcją synchronizacji plików Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

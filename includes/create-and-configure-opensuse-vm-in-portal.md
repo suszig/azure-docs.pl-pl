@@ -1,9 +1,7 @@
-1. Zaloguj się do [klasycznej witryny Azure Portal](http://manage.windowsazure.com).  
-2. Na pasku poleceń w dolnej części okna kliknij **nowy**.
-3. W obszarze **obliczeniowe**, kliknij przycisk **maszyny wirtualnej**, a następnie kliknij przycisk **z galerii**.
+1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com).  
+2. Kliknij przycisk **nowy** > **obliczeniowe** > **Zobacz wszystkie** , a następnie wpisz **SUSE**.
    
-    ![Tworzenie nowej maszyny wirtualnej][Image1]
-4. W obszarze **SUSE** grupy, wybierz OpenSUSE obraz maszyny wirtualnej, a następnie kliknij strzałkę, aby kontynuować.
+3. Wybieranie obrazu maszyny wirtualnej OpenSUSE, a następnie kliknij strzałkę, aby kontynuować.
 5. W pierwszym **konfiguracji maszyny wirtualnej** strony:
    
    * Wpisz **nazwę maszyny wirtualnej**, takie jak "testlinuxvm". Nazwa musi zawierać od 3 do 15 znaków, może zawierać tylko litery, cyfry i łączniki, musi zaczynać się literą i kończyć literą lub cyfrą.
@@ -49,7 +47,5 @@ Do nawiązania połączenia dla maszyny wirtualnej, w zależności od systemu op
 3. Po zakończeniu instalacji wybierz **Zakończ**.  System jest już aktualny.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

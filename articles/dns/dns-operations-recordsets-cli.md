@@ -3,7 +3,7 @@ title: "Zarządzanie rekordami DNS w usłudze Azure DNS za pomocą 2.0 interfejs
 description: "Zarządzanie zestawów rekordów DNS i rekordy w usłudze Azure DNS, gdy hosting domeny w usłudze Azure DNS. Wszystkie polecenia 2.0 interfejsu wiersza polecenia dla operacji na zestawów rekordów i rekordów."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Zarządzanie rekordami DNS i zestawy rekordów w usłudze Azure DNS za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 W tym artykule przedstawiono sposób zarządzania rekordy DNS dla strefy DNS przy użyciu interfejsu wiersza polecenia platformy Azure i platform (CLI) 2.0, który jest dostępny dla systemu Windows, Mac i Linux. Można również zarządzać rekordami DNS przy użyciu [programu Azure PowerShell](dns-operations-recordsets.md) lub [portalu Azure](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
-
-Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
-
-* [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami.
-* [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami.
 
 Przykłady w tym artykule założono, że masz już [zainstalowane 2.0 interfejsu wiersza polecenia Azure, zalogowany i utworzyć strefę DNS](dns-operations-dnszones-cli.md).
 

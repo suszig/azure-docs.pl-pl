@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1a20b9c6981125895ecd6952135ec4f365bb8d45
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b88567616e0a8c46494ae0af367f4deb4506be43
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie wiadomości Centrum IoT
 
@@ -28,7 +28,7 @@ Aby obsługiwać bezproblemowe współdziałanie różnych protokołów, Centrum
 * Zestaw *właściwości aplikacji*. Słownik właściwości ciągu, definiujące aplikacji i dostępu, bez konieczności wykonywania deserializacji treści komunikatu. Centrum IoT nigdy nie modyfikuje tych właściwości.
 * Nieprzezroczysta treść binarnego.
 
-Nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne ASCII, oraz ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` podczas możesz:
+Nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne ASCII, oraz ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` podczas możesz:  
 
 * Wysyłanie wiadomości urządzenia do chmury przy użyciu protokołu HTTPS.
 * Wysyłanie wiadomości chmury do urządzenia.
@@ -45,7 +45,7 @@ Poniższa lista zawiera zbiór właściwości systemu w komunikatach Centrum IoT
 | ExpiryTimeUtc |Data i godzina wygaśnięcia wiadomości. |
 | EnqueuedTime |Data i godzina [chmury do urządzenia] [ lnk-c2d] wiadomość została odebrana przez Centrum IoT. |
 | CorrelationId |Właściwości ciągu w komunikacie odpowiedzi, zazwyczaj zawierający identyfikator komunikatu żądania wzorce żądanie odpowiedź. |
-| UserId |Identyfikator używany do określenia pochodzenia wiadomości. Komunikaty są generowane przez Centrum IoT, jest ustawiona `{iot hub name}`. |
+| Nazwa użytkownika |Identyfikator używany do określenia pochodzenia wiadomości. Komunikaty są generowane przez Centrum IoT, jest ustawiona `{iot hub name}`. |
 | ACK. |Generator komunikat opinii. Ta właściwość jest używana w komunikatach chmury do urządzenia do Centrum IoT można wygenerować opinii komunikaty w wyniku użycia komunikatu żądania przez urządzenie. Możliwe wartości: **Brak** (domyślnie): żaden komunikat opinii jest generowany, **dodatnią**: Jeśli wiadomość została ukończona, wyświetlony komunikat opinii **ujemna**: odbierania wiadomość wygasł (lub osiągnięto dostarczania maksymalna liczba) bez przez urządzenia, lub **pełne**: zarówno dodatnie i ujemne. Aby uzyskać więcej informacji, zobacz [komunikatu opinii][lnk-feedback]. |
 | ConnectionDeviceId |Identyfikator ustawione przez Centrum IoT na wiadomości urządzenia do chmury. Zawiera on **deviceId** urządzenia wysyłającego wiadomość. |
 | ConnectionDeviceGenerationId |Identyfikator ustawione przez Centrum IoT na wiadomości urządzenia do chmury. Zawiera on **generationId** (zgodnie [właściwości tożsamości urządzenia][lnk-device-properties]) urządzenia, która wysłała wiadomość. |

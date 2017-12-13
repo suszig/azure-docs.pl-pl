@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Struktura i składni szablonów usługi Azure Resource Manager
 W tym artykule opisano strukturę szablonu usługi Azure Resource Manager. Stanowi różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Samouczek krok po kroku dotyczące tworzenia szablonu, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md).
@@ -44,7 +44,7 @@ W swojej najprostszej strukturze szablonu zawiera następujące elementy:
 | parameters |Nie |Wartości, które są podane podczas wdrażania jest wykonywany w celu dostosowania wdrożenia zasobów. |
 | zmienne |Nie |Wartości, które są używane jako fragmenty JSON w szablonie, aby uprościć wyrażeń języka szablonu. |
 | zasoby |Tak |Typy zasobów, które są wdrożone lub zaktualizowane w grupie zasobów. |
-| dane wyjściowe |Nie |Wartości, które są zwracane po wdrożeniu. |
+| wyjścia |Nie |Wartości, które są zwracane po wdrożeniu. |
 
 Każdy element zawiera właściwości, które można ustawić. Poniżej przedstawiono przykład zawierający pełnej składni szablonu:
 
@@ -159,227 +159,33 @@ Aby uzyskać pełną listę funkcji szablonu, zobacz [funkcje szablonu usługi A
 ## <a name="parameters"></a>Parametry
 W sekcji Parametry szablonu można określić wartości, które można wprowadzić podczas wdrażania zasobów. Wartości tych parametrów umożliwiają dostosowanie wdrożenie, podając wartości, które są dostosowane określonym środowisku (na przykład deweloperów, testowego i produkcyjnego). Nie musisz podać parametry w szablonie, ale bez parametrów szablonu będzie zawsze wdrażać te same zasoby z tej samej nazwy, lokalizacji i właściwości.
 
-Definiuje parametry o następującej strukturze:
+W poniższym przykładzie przedstawiono definicję parametru prosty:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Nazwa elementu | Wymagane | Opis |
-|:--- |:--- |:--- |
-| Nazwa parametru |Tak |Nazwa parametru. Musi być prawidłowym identyfikatorem języka JavaScript. |
-| type |Tak |Typ wartości parametru. Zobacz listę dozwolonych typów pod tą tabelą. |
-| Wartość domyślna |Nie |Wartość domyślna parametru, jeśli wartość nie zostanie podana dla parametru. |
-| allowedValues |Nie |Tablica dozwolonych wartości tego parametru upewnić się, że podano wartość prawej strony. |
-| Wartość MinValue |Nie |Minimalna wartość parametrów typu int, ta wartość jest włącznie. |
-| MaxValue |Nie |Maksymalna wartość dla parametrów typu int, ta wartość jest włącznie. |
-| Element minLength |Nie |Minimalna długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
-| Element maxLength |Nie |Maksymalna długość ciągu, secureString i parametrów typu tablicy, ta wartość jest włącznie. |
-| description |Nie |Opis parametru, który będzie wyświetlany użytkownikom za pośrednictwem portalu. |
-
-Są dozwolonymi typami i wartości:
-
-* **ciąg**
-* **secureString**
-* **int**
-* **wartość logiczna**
-* **obiekt** 
-* **secureObject**
-* **Tablica**
-
-Aby określić parametr jako opcjonalne, należy podać właściwość defaultValue (może być ciągiem pustym). 
-
-Jeśli określono nazwę parametru w szablonie parametr w poleceniu, aby wdrożyć szablon jest zgodny, jest potencjalnych niejednoznaczności wartości podane przez użytkownika. Menedżer zasobów usuwa to pomyłka, dodając przyrostek **FromTemplate** do parametru szablonu. Na przykład, jeśli zawiera parametr o nazwie **ResourceGroupName** w szablonie, powoduje konflikt z **ResourceGroupName** parametru w [AzureRmResourceGroupDeployment nowy](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) polecenia cmdlet. Podczas wdrażania, monit o podanie wartości **ResourceGroupNameFromTemplate**. Ogólnie rzecz biorąc należy unikać to pomyłka nie nadawanie nazw parametrów o takiej samej nazwie jako parametry używane dla operacji wdrożenia.
-
-> [!NOTE]
-> Wszystkie hasła, klucze i innych informacji poufnych, należy użyć **secureString** typu. W przypadku przekazania danych poufnych w obiekcie JSON, użyj **secureObject** typu. Nie można odczytać parametrów szablonu z typami secureString lub secureObject po wdrożeniu zasobów. 
-> 
-> Na przykład następujący wpis w historii wdrożenia zawiera wartość dla ciągu lub obiektu, ale nie dla secureString i secureObject.
->
-> ![Pokaż wartości wdrożenia](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-Poniższy przykład przedstawia sposób definiowania parametrów:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Jak wartości parametrów wejściowych podczas wdrażania, zobacz [wdrażania aplikacji przy użyciu szablonu usługi Azure Resource Manager](resource-group-template-deploy.md). 
+Aby uzyskać informacji na temat definiowania parametrów, zobacz [sekcji parametrów szablonów usługi Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Zmienne
 W sekcji variables można skonstruować wartości, które mogą być używane w szablonie. Nie trzeba zdefiniować zmienne, ale one często uprościć szablonu zmniejszając złożonych wyrażeń.
 
-Można zdefiniować zmienne o następującej strukturze:
+W poniższym przykładzie przedstawiono prosty definicji zmiennej:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-Poniższy przykład przedstawia sposób zdefiniowania zmiennej, który jest tworzony z dwóch wartości parametrów:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-W kolejnym przykładzie pokazano zmiennej, która jest typem złożonym JSON i zmienne, które są tworzone na podstawie innych zmiennych:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-Można użyć **kopiowania** składni, aby utworzyć zmienną z tablicą wiele elementów. Wynik jest podanie liczby elementów. Każdy element zawiera właściwości w **wejściowych** obiektu. Możesz użyć kopii w zmiennej lub można utworzyć zmiennej. W poniższym przykładzie przedstawiono obu podejść:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-Można również określić więcej niż jeden obiekt, w przypadku używania kopii do tworzenia zmiennych. W poniższym przykładzie zdefiniowano dwie tablice jako zmienne. Jedną o nazwie **dysków top poziom tablicy** i ma pięć elementów. Druga o nazwie **a inną tablicy** i ma trzy elementy.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Aby uzyskać informacji na temat definiowania zmiennych, zobacz [sekcji zmiennych szablonów usługi Azure Resource Manager](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Zasoby
 W sekcji zasobów można zdefiniować zasoby, które są wdrożone lub aktualizowane. W tej sekcji można uzyskać skomplikowane, ponieważ należy zrozumieć typy, które jest wdrażany w celu zapewnienia właściwych wartości. Dla określonych zasobów wartości (apiVersion, typ i właściwości), które należy ustawić, zobacz [zdefiniować zasoby w szablonach usługi Azure Resource Manager](/azure/templates/). 
@@ -427,14 +233,14 @@ Można zdefiniować zasoby o następującej strukturze:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| Warunek | Nie | Wartość logiczna wskazująca, czy zasób jest wdrażany. |
+| warunek | Nie | Wartość logiczna wskazująca, czy zasób jest wdrażany. |
 | apiVersion |Tak |Wersja interfejsu API REST do użycia podczas tworzenia zasobu. |
 | type |Tak |Typ zasobu. Ta wartość jest kombinacją przestrzeń nazw dostawcy zasobów i typu zasobu (takich jak **magazyn.Microsoft/kontamagazynu**). |
 | name |Tak |Nazwa zasobu. Nazwa musi występować po zdefiniowane w RFC3986 ograniczenia składnika identyfikatora URI. Ponadto usług platformy Azure, które udostępniają poza strony zweryfikować nazwę, aby zapewnić, że nazwa zasobu nie jest próba podszywają się pod innego tożsamości. |
 | location |Zmienia się |Obsługiwane lokalizacje geograficzne podane zasobu. Można wybrać dowolny z dostępnych lokalizacji, ale zazwyczaj warto wybrać, który znajduje się w pobliżu użytkowników. Zazwyczaj również dobrym rozwiązaniem jest umieszczenie zasoby, które współdziałają ze sobą w tym samym regionie. Większość typów zasobów wymaga lokalizacji, ale nie wymagają lokalizację niektórych typów (takich jak przypisanie roli). Zobacz [Ustaw lokalizację zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-location.md). |
 | tags |Nie |Tagi, które są skojarzone z zasobem. Zobacz [tagów zasobów w szablonach usługi Azure Resource Manager](resource-manager-template-tags.md). |
 | Komentarze |Nie |Notatki za dokumentację zasobów w szablonie |
-| Kopiuj |Nie |Jeśli wymagane jest więcej niż jedno wystąpienie, liczba zasobów do utworzenia. Domyślnym trybem jest równoległe. Określ tryb serial gdy nie ma wszystkich lub zasoby w celu wdrożenia w tym samym czasie. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
+| kopiuj |Nie |Jeśli wymagane jest więcej niż jedno wystąpienie, liczba zasobów do utworzenia. Domyślnym trybem jest równoległe. Określ tryb serial gdy nie ma wszystkich lub zasoby w celu wdrożenia w tym samym czasie. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nie |Zasoby, które należy wdrożyć przed wdrożeniem tego zasobu. Menedżer zasobów ocenia zależności między zasobami i wdraża je w odpowiedniej kolejności. Zasoby nie są zależne od siebie, są wdrożone równolegle. Wartość może być rozdzielaną przecinkami listą zasobu nazwy lub unikatowych identyfikatorów zasobów. Tylko listy zasobów, które są wdrażane w tym szablonie. Zasoby, które nie są zdefiniowane w tym szablonie musi już istnieć. Unikaj Dodawanie zależności niepotrzebne, jak mogą spowalniać wdrożenia i utworzyć zależności cykliczne. Aby uzyskać wskazówki dotyczące zależności ustawienia, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md). |
 | properties |Nie |Ustawienia konfiguracji określonych zasobów. Wartości właściwości są takie same jak wartości podane w treści żądania dla operacji interfejsu API REST (metody PUT) do utworzenia zasobu. Można również określić tablicy kopiowania, aby utworzyć wiele wystąpień właściwości. Aby uzyskać więcej informacji, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md). |
 | zasoby |Nie |Zasoby podrzędne, które zależą od zasobu został określony. Podaj tylko typy zasobów, które są dozwolone w schemacie zasobu nadrzędnego. Pełny typ zasobu podrzędnych obejmuje nadrzędny typ zasobu, takich jak **Microsoft.Web/sites/extensions**. Zależność od zasobu nadrzędnego nie jest oznaczany. Jawnie zdefiniuj tej zależności. |

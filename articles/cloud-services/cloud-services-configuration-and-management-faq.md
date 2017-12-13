@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurowanie i zarządzanie problemy dotyczące usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -257,9 +257,9 @@ Aby odnowić certyfikaty zarządzania służy następujących poleceń programu 
 
 ## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Jak można skonfigurować oparty na pamięci metryki automatycznego skalowania
 
-W oparciu metryki pamięci dla usługi w chmurze automatycznego skalowania nie jest obecnie obsługiwane. 
+Oparciu metryki pamięci dla usług w chmurze automatycznego skalowania nie jest obecnie obsługiwane. 
 
-Aby obejść ten problem, można użyć usługi Application Insights, dzięki czemu diagnostycznych agenta może kierować metryk do usługi Application Insights. Automatyczne skalowanie obsługuje usługi Application Insights jako źródło metryki i można go skalować liczbę wystąpień roli w oparciu metryki gościa, takich jak "Pamięci".  Należy skonfigurować usługi Application Insights w pliku pakietu (*.cspkg) projektu usługi w chmurze i włączyć rozszerzenie Azure Diagnostics na usługę, aby zaimplementować to feat.
+Aby obejść ten problem, można użyć usługi Application Insights. Automatyczne skalowanie obsługuje usługi Application Insights jako źródło metryki i można go skalować liczbę wystąpień roli w oparciu metryki gościa, takich jak "Pamięci".  Należy skonfigurować usługi Application Insights w pliku pakietu (*.cspkg) projektu usługi w chmurze i włączyć rozszerzenie Azure Diagnostics na usługę, aby zaimplementować to feat.
 
 Aby uzyskać więcej informacji na temat sposobu korzystania niestandardowa Metryka za pomocą usługi Application Insights, aby skonfigurować automatyczne skalowanie na usługi w chmurze, zobacz [Rozpoczynanie pracy z Skalowanie automatyczne według metryki niestandardowe na platformie Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -270,16 +270,10 @@ Aby uzyskać więcej informacji o włączenie usługi Application Insights dla u
 
 Aby uzyskać więcej informacji o sposobie włączania rejestrowania diagnostyki Azure dla usługi w chmurze, zobacz [Ustaw diagnostyki dla usług Azure Cloud Services i maszyny wirtualne](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Jak zautomatyzować główny certyfikat SSL (.pfx) i Instalacja certyfikatu pośredniego certificate(.p7b)?
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Jak zautomatyzować instalację główny certyfikat SSL (.pfx) i pośredniego certificate(.p7b)?
 
 Można zautomatyzować to zadanie za pomocą skryptu uruchomieniowego (partii cmd/PowerShell) i zarejestrować tego skryptu do uruchomienia w pliku definicji usługi. Dodaj zarówno uruchomienia skryptu, jak i certyfikat (plik p7b) w folderze projektu w tym samym katalogu skryptu uruchomieniowego.
 
 Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Jak skonfigurować i uruchomić zadania uruchamiania dla usługi w chmurze](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Typowe zadania uruchamiania usługi w chmurze](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Dlaczego portalu Azure wymaga mnie o podanie konta magazynu dla wdrożenia?
-
-W klasycznym portalu pakiet został przekazany do warstwy interfejsu API zarządzania bezpośrednio, a następnie warstwę interfejsu API tymczasowo czy umieść pakiet do konta wewnętrznego magazynu.  Ten proces powoduje problemy z wydajnością i skalowalnością, ponieważ warstwę interfejsu API nie został zaprojektowany jako usługa przekazywania plików.  W portalu Azure (modelu wdrażania usługi Resource Manager) firma Microsoft ma pominąć tymczasowe kroku wcześniejszego przekazania do warstwy interfejsu API, co w przypadku wdrożeń szybszy i bardziej niezawodny.
- 
-Podobnie jak w przypadku koszt jest bardzo mała i we wszystkich wdrożeniach można ponownie użyć tego samego konta magazynu. Można użyć [Kalkulator magazynu koszt](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ustalić koszt do przekazania pakietu usługi (CSPKG), Pobierz CSPKG, a następnie usuń CSPKG.

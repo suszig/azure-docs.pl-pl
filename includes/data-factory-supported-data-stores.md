@@ -1,10 +1,10 @@
 | Kategoria | Magazyn danych | Obsługiwany jako źródło | Obsługiwany jako ujście |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
-| &nbsp; |[Azure Cosmos DB (interfejs API DocumentDB)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
+| &nbsp; |[Azure rozwiązania Cosmos bazy danych (interfejsu API SQL)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Store](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
-| &nbsp; |[Magazyn danych SQL Azure](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
+| &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Indeks usługi Azure Search](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
 | &nbsp; |[Azure Table storage](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **Bazy danych** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Aby skopiować dane z Amazon Redshift, należy ustawić typ źródła w przypadk
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AmazonRedshiftSource** | Tak |
 | query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 | redshiftUnloadSettings | Grupa właściwości używając Amazon Redshift UNLOAD. | Nie |
-| s3LinkedServiceName | Odwołuje się do Amazon S3 do-być używane jako magazyn tymczasowy, określając ADF nazwy połączonej usługi typu "AmazonS3". | Tak, jeśli przy użyciu zwolnienia |
+| s3LinkedServiceName | Odwołuje się do Amazon S3 do-być używane jako magazyn tymczasowy, określając nazwę połączonej usługi typu "AmazonS3". | Tak, jeśli przy użyciu zwolnienia |
 | bucketName | Wskazuje przedział S3 do przechowywania danych tymczasowych. Jeśli nie zostanie podana, usługi fabryka danych generuje go automatycznie.  | Tak, jeśli przy użyciu zwolnienia |
 
 **Przykład: Amazon Redshift źródła w przypadku działania kopiowania za pomocą zwolnienia**

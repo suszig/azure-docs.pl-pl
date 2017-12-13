@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak dane indeksu bazy danych rozwiązania Cosmos Azure?
 
@@ -258,9 +258,9 @@ Jednak można przenieść opóźnieniem lub brak indeksowania tryb podczas przek
 * Przesunięcie Lazy indeksu zasad zmian skuteczne natychmiast i bazy danych Azure rozwiązania Cosmos rozpoczyna asynchronicznie ponownego tworzenia indeksu. 
 * W przypadku przenoszenia None, następnie indeksu zostało porzucone skuteczne natychmiast. Przenoszenie None jest przydatne, gdy chcesz anulować toku transformacji i rozpocząć o różnych zasady indeksowania. 
 
-Jeśli używasz zestawu .NET SDK, należy rozpocząć poza indeksowania zmian zasad przy użyciu nowego **ReplaceDocumentCollectionAsync** — metoda i Śledź postęp procent przekształcania indeks, używając **IndexTransformationProgress** właściwość odpowiedzi z **ReadDocumentCollectionAsync** wywołania. Inne zestawy SDK i interfejsu API REST obsługuje równoważne właściwości i metod do indeksowania zmiany zasad.
-
 Oto fragment kodu, pokazujący sposób zmodyfikować zasady indeksowania kolekcji z spójne trybu indeksowania do opóźnieniem.
+
+Jeśli używasz zestawu .NET SDK, należy rozpocząć poza indeksowania zmian zasad przy użyciu nowego **ReplaceDocumentCollectionAsync** metody.
 
 **Zmodyfikuj zasady indeksowania z spójne do opóźnieniem**
 
@@ -271,10 +271,9 @@ Oto fragment kodu, pokazujący sposób zmodyfikować zasady indeksowania kolekcj
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-Można sprawdzić postęp transformację indeksu przez wywołanie metody ReadDocumentCollectionAsync, na przykład, jak pokazano poniżej.
-
 **Śledź postęp przekształcania indeksu**
+
+Można śledzić postęp procent transformacji indeksu spójne indeksu przy użyciu **IndexTransformationProgress** właściwość odpowiedzi z **ReadDocumentCollectionAsync** wywołania. Inne zestawy SDK i interfejsu API REST, obsługuje równoważne właściwości i metod do indeksowania zmiany zasad. Możesz sprawdzić postęp przekształcenia indeksu spójne indeksu przez wywołanie metody **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -288,6 +287,14 @@ Można sprawdzić postęp transformację indeksu przez wywołanie metody ReadDoc
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> Właściwość IndexTransformationProgress ma zastosowanie tylko wtedy, gdy Przekształcanie spójne indeksu. Użyj właściwości ResourceResponse.LazyIndexingProgress śledzenia przekształceń do indeksu opóźnieniem.
+>
+
+> [!NOTE]
+> Właściwości LazyIndexingProgress i IndexTransformationProgress są wypełniane tylko w przypadku kolekcji niepartycjonowany, oznacza to, że kolekcja, która została utworzona bez klucza partycji.
+>
 
 Przenosząc None indeksowania w trybie, musisz porzucić indeksu dla kolekcji. Może to być przydatne narzędzie operational, jeśli chcesz anulować transformację w toku i natychmiast rozpocząć nową.
 

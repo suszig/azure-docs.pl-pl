@@ -1,6 +1,6 @@
 ---
-title: SAP HANA operacje na platformie Azure | Dokumentacja firmy Microsoft
-description: Operacje SAP HANA na maszynach wirtualnych Azure natywnego
+title: Operacje SAP HANA na platformie Azure | Dokumentacja firmy Microsoft
+description: "Przewodnik obsługi programu SAP HANA systemów, które zostały wdrożone na maszynach wirtualnych Azure."
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: 
 author: juergent
@@ -16,132 +16,133 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab609fe9e7b01d7087dd00c22c19e69a471f6599
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA w podręczniku obsługi platformy Azure
-Ten przewodnik zawiera wskazówki dotyczące systemów SAP HANA, które zostały wdrożone na maszynach wirtualnych platformy Azure. Ten dokument nie ma zastąpić dowolne standardowe dokumentacji SAP. Przewodniki programu SAP i informacje można znaleźć w następujących lokalizacjach:
+Ten dokument zawiera wskazówki dotyczące systemów SAP HANA, które zostały wdrożone na Azure macierzysty maszynach wirtualnych (VM). Ten dokument nie ma zastąpić dokumentacji SAP standardowe zawiera następującą zawartość:
 
 - [Przewodnik administracji programu SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Przewodnik po instalacji programu SAP](https://service.sap.com/instguides)
-- [Uwaga SAP](https://sservice.sap.com/notes)
+- [Uwagi dotyczące SAP](https://sservice.sap.com/notes)
 
-Warunkiem wstępnym jest, że dysponujesz podstawową wiedzą na różne składniki platformy Azure:
+## <a name="prerequisites"></a>Wymagania wstępne
+Aby użyć tego przewodnika, należy podstawową wiedzę na temat usługi Azure następujące składniki:
 
 - [Maszyny wirtualne platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Sieć platformy Azure i sieci wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Dodatkową dokumentację SAP NetWeaver i inne składniki SAP na platformie Azure można znaleźć w [SAP na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) sekcji [dokumentacji platformy Azure](https://docs.microsoft.com/azure/).
+Aby dowiedzieć się więcej na temat programu SAP NetWeaver i inne składniki SAP na platformie Azure, zobacz [SAP na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) sekcji [dokumentacji platformy Azure](https://docs.microsoft.com/azure/).
 
 ## <a name="basic-setup-considerations"></a>Zagadnienia dotyczące konfiguracji
-### <a name="connecting-into-azure"></a>Łączenie na platformie Azure
-Zgodnie z opisem w [maszyny wirtualne Azure planowania i wdrażania dla programu SAP NetWeaver] [-Podręcznik planowania], istnieją dwie podstawowe metody połączenie do maszyn wirtualnych Azure. 
+W poniższych sekcjach opisano podstawowe ustawienia zagadnienia dotyczące wdrażania systemów SAP HANA na maszynach wirtualnych Azure.
 
-- Łączenie za pośrednictwem Internetu i publiczne punkty końcowe na przejście maszyny Wirtualnej lub maszyny Wirtualnej uruchomionej SAP HANA
-- Łączących się za pośrednictwem [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) lub Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+### <a name="connect-into-azure-virtual-machines"></a>Połączenie z maszyn wirtualnych platformy Azure
+Zgodnie z opisem w [maszyn wirtualnych platformy Azure przewodnik planowania](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide), istnieją dwie podstawowe metody łączenia w maszynach wirtualnych platformy Azure:
 
-W środowisku produkcyjnym scenariuszy lub scenariuszy których nieprodukcyjnych scenariusze źródła danych do produkcji scenariuszy w połączeniu z oprogramowania SAP, należy mieć połączenie lokacja lokacja, za pośrednictwem sieci VPN lub usługi ExpressRoute, jak pokazano na rysunku:
+- Łączenie się za pośrednictwem Internetu i publiczne punkty końcowe na maszynie Wirtualnej szybkiego dostępu lub na maszynie Wirtualnej z systemem SAP HANA.
+- Łączenie się za pośrednictwem [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) lub Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+
+Połączenie lokacja lokacja za pośrednictwem sieci VPN i ExpressRoute jest niezbędne w scenariuszach produkcji. Dla źródła danych w scenariuszach produkcji, gdzie jest używane oprogramowanie SAP scenariusze nieprodukcyjnych wymagany jest również połączenia tego typu. Na poniższej ilustracji przedstawiono przykład łączności między lokacjami:
 
 ![Łączność między lokacjami](media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png)
 
 
-### <a name="choice-of-azure-vm-types"></a>Wybór typu maszyny Wirtualnej Azure
-Można przeszukiwać Azure typach maszyn wirtualnych, które mogą być używane w scenariuszach produkcji [tutaj](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). W przypadku scenariuszy nieprodukcyjnych można szeroką gamę macierzysty maszynach wirtualnych platformy Azure. Jednak należy ograniczyć się do typów maszyny Wirtualnej, które są [SAP Uwaga #1928533](https://launchpad.support.sap.com/#/notes/1928533). Wdrożenie tych maszyn wirtualnych na platformie Azure można zrobić za pomocą:
+### <a name="choose-azure-vm-types"></a>Wybierz typy maszyny Wirtualnej Azure
+Typy maszyny Wirtualnej platformy Azure, które mogą być używane w scenariuszach produkcji są wymienione w [SAP dokumentacji IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). W przypadku scenariuszy nieprodukcyjnych różnych typach natywnych maszyny Wirtualnej platformy Azure jest dostępna.
 
-- Azure Portal
-- Polecenia cmdlet programu Powershell systemu Azure
-- Interfejs wiersza polecenia platformy Azure
+>[!NOTE]
+>W przypadku scenariuszy nieprodukcyjnych Użyj typów maszyny Wirtualnej, które są wymienione w [Uwaga SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-Również można wdrożyć pełną zainstalowanej na usługi maszyny wirtualne Azure, za pośrednictwem platformy SAP HANA [platformy w chmurze SAP](https://cal.sap.com/) zgodnie z opisem [tutaj](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+Wdrażanie maszyn wirtualnych na platformie Azure przy użyciu:
 
-### <a name="choice-of-azure-storage"></a>Wybór magazynu Azure
-Platforma Azure oferuje dwa typy magazynu głównego odpowiedni w przypadku maszyn wirtualnych platformy Azure systemem SAP HANA
+- Portalu Azure.
+- Polecenia cmdlet programu PowerShell systemu Azure.
+- Interfejs wiersza polecenia platformy Azure.
+
+Również można wdrożyć pełną zainstalowanej platformy SAP HANA na usługach maszyny Wirtualnej platformy Azure za pośrednictwem [platformy w chmurze SAP](https://cal.sap.com/). Proces instalacji jest opisana w [wdrożenia SAP S/4HANA lub BW/4HANA na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+
+### <a name="choose-azure-storage-type"></a>Wybierz typ usługi Azure Storage
+Platforma Azure oferuje dwa typy magazynu, które są odpowiednie dla maszyn wirtualnych platformy Azure, które działają SAP HANA:
 
 - [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
 - [Magazyn w warstwie Premium systemu Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
-System Azure oferuje dwie metody wdrażania dla dysków VHD na Azure Standard i Premium Storage. Pozwala na ogólną scenariusz, zaleca się wykorzystać [dysku zarządzanego Azure](https://azure.microsoft.com/services/managed-disks/) wdrożeń.
+System Azure oferuje dwie metody wdrażania dla dysków VHD na Azure Standard i Premium Storage. Jeśli zezwala na scenariusz ogólnej, skorzystać z [Azure zarządzanych dysku](https://azure.microsoft.com/services/managed-disks/) wdrożeń.
 
-Typy magazynu dokładne i umów SLA wokół tych typów magazynu można znaleźć [tej dokumentacji](https://azure.microsoft.com/pricing/details/managed-disks/)
+Lista typów magazynów i umowach SLA, [dokumentacji platformy Azure do zarządzanych dysków](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Zaleca się używać dysków Premium Azure /hana/data i /hana/log woluminów. Możliwe jest tworzenie RAID LVM przez wiele dysków Premium Storage i użyć tych woluminu RAID jako /hana/data oraz /hana/log woluminu.
+Azure dysków w warstwie Premium jest zalecany do /hana/data i /hana/log woluminów. Możesz skompilować RAID LVM przez wiele dysków Premium Storage i używać woluminu RAID jako /hana/data oraz /hana/log woluminów.
 
-Możliwych konfiguracji dla różnych typowych typów maszyny Wirtualnej, które klientów do tej pory używane do obsługi SAP HANA na maszynach wirtualnych Azure może wyglądać jak:
+W poniższej tabeli przedstawiono konfigurację typach maszyn wirtualnych, których klienci często używają do hosta SAP HANA na maszynach wirtualnych Azure:
 
 | JEDNOSTKA SKU MASZYNY WIRTUALNEJ | Pamięć RAM | / hana/danych i dziennika/hana /<br /> paski LVM lub MDADM | / hana/udostępnionych | wolumin/root | / usr/sap | Hana lub tworzenia kopii zapasowej |
 | --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
+| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
 | M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
 | M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
 
 
-### <a name="azure-networking"></a>Sieć platformy Azure
-Przy założeniu, że masz sieci VPN lub ExpressRoute połączenie lokacja lokacja na platformie Azure, co najmniej czy posiadasz [sieci wirtualnej Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) podłączonego za pośrednictwem bramy sieci wirtualnej z obwodem sieci VPN lub usługi ExpressRoute. Wirtualna brama znajduje się w podsieci w sieci wirtualnej platformy Azure. Aby można było zainstalować HANA, należy utworzyć inny dwie podsieci w sieci wirtualnej. Czy hosty wirtualne, które uruchomione wystąpienia SAP HANA i innej podsieci, która uruchamia ostatecznego Jumpbox lub wirtualne zarządzania, który może obsługiwać SAP HANA Studio lub inne oprogramowanie do zarządzania jedną podsieć.
-Po zainstalowaniu maszyn wirtualnych, które należy uruchomić HANA powinny mieć maszyn wirtualnych:
+### <a name="set-up-azure-virtual-networks"></a>Konfigurowanie sieci wirtualnych platformy Azure
+Gdy masz połączenie lokacja lokacja na platformie Azure za pośrednictwem sieci VPN lub usługi ExpressRoute, musi mieć co najmniej jeden [sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) podłączonego za pośrednictwem bramy sieci wirtualnej z obwodem sieci VPN lub usługi ExpressRoute. Wirtualna brama znajduje się w podsieci sieci wirtualnej platformy Azure. Aby zainstalować SAP HANA, należy utworzyć dwa dodatkowe podsieci w sieci wirtualnej. W jednej podsieci hosty maszyn wirtualnych do uruchomienia wystąpień SAP HANA. Inne podsieci uruchamia Jumpbox lub zarządzania maszyn wirtualnych do hostów SAP HANA Studio lub inne oprogramowanie do zarządzania.
 
-- Dwie wirtualne karty sieciowe zainstalowane z których jeden łączy się z podsieci zarządzania i jednej karcie Sieciowej jest używany do łączenia z zarówno na lokalnym lub w innych sieciach z wystąpieniem SAP HANA w maszynie Wirtualnej platformy Azure.
-- Statyczne prywatnych adresów IP wdrożonych dla obu vNICs
+Po zainstalowaniu maszyn wirtualnych do uruchomienia SAP HANA maszyn wirtualnych, należy:
 
-Omówienie różnych możliwości przypisywania adresów IP można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+- Zainstalowane dwie wirtualne karty sieciowe: jedną kartę Sieciową do nawiązania połączenia z podsiecią zarządzania i jednej karcie Sieciowej do połączenia z siecią lokalną lub innych sieci wystąpieniem SAP HANA w maszynie Wirtualnej platformy Azure.
+- Statyczne prywatne adresy IP, które są wdrażane dla obu wirtualnych kart sieciowych.
 
-Routing ruchu do bezpośrednio do wystąpienia SAP HANA lub jumpbox jest kierowany przez [grup zabezpieczeń sieci Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) skojarzonych podsieci HANA i podsieci zarządzania.
+Aby uzyskać przegląd różnych metod do przypisywania adresów IP, zobacz [adresów IP, typy i metody alokacji na platformie Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-Ogólny schemat nierównej wdrożenia wyglądałyby tak jak:
+[Azure grup zabezpieczeń sieci (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) służą do kierowania ruchu, który jest kierowany do Jumpbox lub wystąpienia SAP HANA. Grupy NSG są skojarzone z podsiecią SAP HANA i podsieci zarządzania.
+
+Na poniższej ilustracji przedstawiono omówienie wdrożenia nierównej schematu dla programu SAP HANA:
 
 ![Schemat nierównej wdrożenia SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
 
 
-Tylko w przypadku wdrożenia SAP HANA na platformie Azure, bez konieczności lokacja lokacja (sieć VPN lub ExpressRoute na platformie Azure), chociaż publiczny adres IP, który jest przypisany do maszyny Wirtualnej Azure z systemem Jumpbox maszyny Wirtualnej może uzyskać dostęp z wystąpieniem SAP HANA. W przypadku prostego możesz również polegać na wbudowanych usług DNS platformy Azure w celu rozpoznania nazwy hostów. Szczególnie, gdy przy użyciu publiczne adresy IP połączonej, chcesz użyć grup zabezpieczeń sieci Azure, aby ograniczyć otwartych portów lub zakresy adresów IP, które mogą łączyć się w podsieci platformy Azure z uruchomionymi zasoby z publicznych adresów IP połączonej. Schemat takie wdrożenie może wyglądać jak:
+Aby wdrożyć SAP HANA na platformie Azure, bez połączenia lokacja lokacja, dostępu do wystąpienia SAP HANA, chociaż publicznego adresu IP. Adres IP muszą być przypisane do działającej maszyny Wirtualnej Jumpbox maszyny Wirtualnej Azure. W tym scenariuszu podstawowego wdrożenia zależy od Azure wbudowanych usług DNS do rozpoznawania nazwy hostów. W przypadku bardziej złożonych wdrożenia gdzie publicznych adresów IP są używane usługi Azure DNS wbudowanych są szczególnie istotne. Grupy NSG Azure umożliwia ograniczenie otwartych portów lub zakresów adresów IP, które mogą nawiązywać połączenia w podsieci platformy Azure z zasobów, które mają publicznych adresów IP. Na poniższej ilustracji przedstawiono nierównej schema wdrażania SAP HANA bez połączenia lokacja lokacja:
   
 ![Schemat nierównej wdrożenia SAP HANA bez połączenia lokacja lokacja](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
 
-## <a name="operations"></a>Operacje
-### <a name="backup-and-restore-operations-on-azure-vms"></a>Kopia zapasowa i przywracanie operacje na maszynach wirtualnych Azure
-W tych dokumentach opisano możliwości SAP HANA tworzenia kopii zapasowej i przywracania:
+## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Operacje wdrażania SAP HANA na maszynach wirtualnych Azure
+W poniższych sekcjach opisano niektóre operacje związane z wdrażaniem systemów SAP HANA na maszynach wirtualnych platformy Azure.
 
-- [Omówienie tworzenia kopii zapasowej SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [Kopia zapasowa oprogramowania SAP HANA na poziomie plików](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Testu porównawczego migawki SAP HANA magazynu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+### <a name="back-up-and-restore-operations-on-azure-vms"></a>Tworzenie kopii zapasowej i przywracanie operacji na maszynach wirtualnych Azure
+Poniższe dokumenty zawierają opis kopii zapasowej i przywracania wdrożenia SAP HANA:
 
-
-
-### <a name="start-and-restart-of-vms-containing-sap-hana"></a>Uruchom i ponowne uruchomienie maszyn wirtualnych zawierających SAP HANA
-Jednym z sile chmurze publicznej systemu Azure jest fakt, że są naliczane tylko wtedy minut obliczeniowe, które są wydatków. Oznacza to, że wyłączenie maszyny Wirtualnej z SAP HANA uruchomione w nim tylko koszty przechowywania są rozliczane w tym czasie. Uruchom maszynę Wirtualną z SAP HANA w niej ponownie, maszyna wirtualna będzie mogła się uruchomić ponownie i będzie mieć tych samych adresów IP (jeśli została wdrożona przy użyciu statycznych adresów IP). 
+- [Omówienie kopii zapasowych oprogramowania SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [SAP HANA poziomie plików z kopii zapasowej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+- [SAP HANA pamięci masowej migawki testu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
-### <a name="saprouter-enabling-sap-remote-support"></a>Włączanie obsługi zdalnego SAPRouter SAP
-Jeśli masz połączenie lokacja lokacja między lokalizacje w sieci lokalnej i platformy Azure i uruchomieniem już składniki SAP, istnieje duże prawdopodobieństwo, że już uruchamiasz SAProuter już. W takim przypadku nie ma nic potrzebnych do wykonania SAP HANA wystąpienia, które można wdrożyć na platformie Azure. Z wyjątkiem Obsługa obsługującego HANA w konfiguracji SAPRouter prywatne i statyczny adres IP maszyny Wirtualnej i mieć NSG obsługi podsieci maszyny Wirtualnej HANA dostosowane (ruch przez port TCP/IP portu 3299 dozwolone).
-
-Jeśli wdrażasz SAP HANA i połączyć na platformie Azure za pośrednictwem Internetu, nie masz Router SAP zainstalowane w sieci wirtualnej z systemem Maszynę wirtualną z SAP HANA SAPRouter należy zainstalować w osobnych maszyn wirtualnych w podsieci zarządzania, jak pokazano poniżej :
+### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Uruchom i ponowne uruchomienie maszyn wirtualnych, które zawierają SAP HANA
+Funkcja poświęcone chmurze publicznej Azure jest że są pobierane tylko w przypadku sieci komputerowych minut. Na przykład podczas zamykania maszyny Wirtualnej, który działa SAP HANA opłaty są naliczane tylko w przypadku kosztów magazynowania w tym czasie. Inna funkcja jest dostępna po określeniu statycznych adresów IP dla maszyn wirtualnych we wdrożeniu wstępnym. Po ponownym uruchomieniu maszyny Wirtualnej, która ma SAP HANA maszyny Wirtualnej jest uruchamiany z jego wcześniejszego adresów IP. 
 
 
-![Schemat nierównej wdrożenia SAP HANA bez połączenia lokacja lokacja i SAPRouter](media/hana-vm-operations/hana-simple-networking3.PNG)
+### <a name="use-saprouter-for-sap-remote-support"></a>Użyj SAProuter obsługę zdalnego SAP
+Jeśli połączenie lokacja lokacja między lokalnymi lokalizacji i Azure i używasz składniki SAP, jest prawdopodobnie już uruchomione SAProuter. W takim przypadku należy wykonać następujące elementy dla zdalnej pomocy technicznej:
 
-Należy zainstalować SAPRouter w oddzielnych maszyny Wirtualnej, a nie w Jumpbox maszyny Wirtualnej. Oddzielne maszyna wirtualna musi mieć statyczny adres IP. Aby można było nawiązać połączenia z SAPRouter SAPRouter obsługującego SAP (odpowiednik wystąpienia SAPRouter zainstalować maszyny Wirtualnej), musisz skontaktować się z programu SAP, aby uzyskać adres IP z SAP, które należy skonfigurować wystąpienie SAPRouter. Port tylko niezbędne jest TCP port 3299.
-Aby uzyskać więcej informacji na temat sposobu Konfiguracja i konserwacja zdalnego obsługują połączenia za pośrednictwem SAPRouter Sprawdź [źródła SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
+- Obsługa prywatnych i statyczny adres IP maszyny Wirtualnej w konfiguracji SAProuter hosta SAP HANA.
+- Skonfiguruj grupy NSG podsieci, który jest hostem maszyny Wirtualnej HANA, aby zezwalać na ruch przez TCP/IP port 3299.
+
+Jeśli łączysz się Azure za pośrednictwem Internetu, a nie masz SAP router dla maszyny Wirtualnej z SAP HANA, następnie należy zainstalować składnik. Zainstaluj SAProuter w oddzielnych maszyny Wirtualnej w ramach zarządzania podsieci. Na poniższej ilustracji przedstawiono nierównej schema wdrażania SAP HANA bez połączenia lokacja lokacja i SAProuter:
+
+![Nieuprawianych schema wdrażania dla SAP HANA bez połączenia lokacja lokacja i SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
+
+Pamiętaj zainstalować SAProuter w oddzielnych maszyny Wirtualnej, a nie w Jumpbox maszyny Wirtualnej. Oddzielne maszyna wirtualna musi mieć statyczny adres IP. Aby połączyć Twoje SAProuter SAProuter, która jest hostowana przez SAP, skontaktuj się z programu SAP adresu IP. (SAProuter, która jest hostowana przez SAP jest odpowiednikiem wystąpienia SAProuter, które należy zainstalować na maszynie Wirtualnej). Umożliwia skonfigurowanie wystąpienia SAProuter adres IP z SAP. W ustawieniach konfiguracji portu tylko niezbędne jest TCP port 3299.
+
+Aby uzyskać więcej informacji na temat konfiguracji i utrzymania połączenia zdalnej pomocy technicznej za pośrednictwem SAProuter, zobacz [dokumentacji SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Wysokiej dostępności z SAP HANA na maszynach wirtualnych Azure natywnego
-SUSE Linux 12 z dodatkiem SP1 i nowszej można utworzyć klastra rozrusznik z urządzeniami STONITH, aby ustawić konfigurację SAP HANA, korzystającego z replikacji synchronicznej replikacji systemu HANA i automatycznej pracy awaryjnej. Procedura instalacji została opisana w artykule [dostępności wysokiej programu SAP HANA na maszynach wirtualnych Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
- 
-
-
-
-
-
-
-
-
-
-
+Jeśli pracujesz w systemie SUSE Linux 12 z dodatkiem SP1 lub później, można utworzyć klastra rozrusznik z urządzeniami STONITH. Aby ustawić konfigurację SAP HANA korzystającego z replikacji synchronicznej replikacji systemu HANA i automatycznej pracy awaryjnej, mogą używać urządzeń. Aby uzyskać więcej informacji na temat procedury instalacji, zobacz [wysoką dostępność SAP HANA na maszynach wirtualnych Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).

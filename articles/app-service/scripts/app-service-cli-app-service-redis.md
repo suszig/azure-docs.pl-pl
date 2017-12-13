@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 08/30/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b8ae453ca73ae69c34ff785dc619433035257a6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Łączenie aplikacji sieci web z pamięci podręcznej redis
 
-W tym scenariuszu dowiesz się, jak tworzyć pamięć podręczna Azure redis i aplikacji sieci web platformy Azure. Następnie połączy pamięć podręczna redis do aplikacji sieci web, przy użyciu ustawień aplikacji.
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+Ten przykładowy skrypt tworzy pamięć podręczna Azure redis i aplikacji sieci web platformy Azure. Następnie łączy pamięć podręczna redis do aplikacji sieci web, przy użyciu ustawień aplikacji.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+Istnieje możliwość instalacji i używania interfejsu wiersza polecenia lokalnie, należy najpierw wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -40,16 +40,16 @@ W tym scenariuszu dowiesz się, jak tworzyć pamięć podręczna Azure redis i a
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa następujących poleceń, aby utworzyć grupę zasobów, aplikacji sieci web, redis pamięci podręcznej i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
+Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, aplikacji sieci web, pamięć podręczna redis i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
-| [Tworzenie grupy az](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
-| [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Tworzy plan usługi App Service. Przypomina farmy serwerów aplikacji sieci web platformy Azure. |
-| [Tworzenie aplikacji sieci Web az](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Tworzenie aplikacji sieci web platformy Azure. |
-| [Tworzenie pamięci podręcznej redis az](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Utwórz nowe wystąpienie pamięci podręcznej Redis. Jest to, gdzie będą przechowywane dane. |
-| [klucze listy az redis](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Wyświetla klucze dostępu do wystąpienia pamięci podręcznej redis. |
-| [AZ aplikacji sieci Web config appsettings zestawu](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure. Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Tworzy plan usługi App Service. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Tworzenie aplikacji sieci web platformy Azure. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | Utwórz nowe wystąpienie pamięci podręcznej Redis. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Wyświetla klucze dostępu do wystąpienia pamięci podręcznej redis. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure. Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji. |
 
 ## <a name="next-steps"></a>Następne kroki
 

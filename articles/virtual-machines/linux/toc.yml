@@ -124,6 +124,8 @@
       items:
         - name: Wytyczne dotyczące infrastruktury
           href: infrastructure-example.md
+        - name: Limity przydziału procesorów wirtualnych
+          href: quotas.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie maszyn wirtualnych

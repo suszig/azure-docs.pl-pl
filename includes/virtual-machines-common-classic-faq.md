@@ -58,7 +58,7 @@ Jeśli masz problemy z pulpitem zdalnym lub protokołem SSH, zainstaluj rozszerz
 
 Dla maszyn wirtualnych z systemem Windows dostępne są następujące opcje dodatkowe:
 
-* W klasycznym portalu Azure znajdź maszynę wirtualną, a następnie kliknij pozycję **Resetuj dostęp zdalny** na pasku poleceń.
+* W portalu Azure można znaleźć maszyny Wirtualnej, a następnie kliknij przycisk **Resetuj dostęp zdalny** z paska poleceń.
 * Zapoznaj się z tematem [Rozwiązywanie problemów z połączeniami pulpitu zdalnego nawiązywanymi z maszyną wirtualną platformy Azure z systemem Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Użyj funkcji komunikacji zdalnej programu Windows PowerShell, aby połączyć się z maszyną wirtualną, lub utwórz dodatkowe punkty końcowe dla innych zasobów, aby nawiązać połączenie z maszyną wirtualną. Aby uzyskać szczegółowe informacje, zobacz [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Jak skonfigurować punkty końcowe do maszyny wirtualnej).
 
@@ -85,7 +85,7 @@ Jeśli nie pamiętasz nazwy użytkownika lub hasła, a został zainstalowany age
 
 Dodatkowe szczegóły:
 
-* W przypadku obrazów systemu Linux, jeśli korzystasz z klasycznego portalu Azure, domyślna nazwa użytkownika to „azureuser”. Możesz ją jednak zmienić, używając pozycji „Z galerii” zamiast „Szybkie tworzenie” do tworzenia maszyny wirtualnej. Użycie pozycji „Z galerii” umożliwia również podjęcie decyzji co do tego, czy do logowania użyć hasła, klucza SSH, czy też ich obu. Konto użytkownika jest kontem użytkownika bez uprawnień, który ma dostęp „sudo” do uruchamiania poleceń uprzywilejowanych. Konto użytkownika „root” jest wyłączone.
+* Jeśli używasz portalu Azure na obrazy systemu Linux "azureuser" jest podawana jako domyślna nazwa użytkownika, ale można to zmienić za pomocą "Z galerii" zamiast "Szybkie tworzenie" jako taki sposób, aby utworzyć maszynę wirtualną. Użycie pozycji „Z galerii” umożliwia również podjęcie decyzji co do tego, czy do logowania użyć hasła, klucza SSH, czy też ich obu. Konto użytkownika jest kontem użytkownika bez uprawnień, który ma dostęp „sudo” do uruchamiania poleceń uprzywilejowanych. Konto użytkownika „root” jest wyłączone.
 * W przypadku obrazów systemu Windows podczas tworzenia maszyny wirtualnej musisz podać nazwę użytkownika i hasło. Konto jest dodawane do grupy Administratorzy.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Czy platforma Azure może uruchamiać oprogramowanie antywirusowe na moich maszynach wirtualnych?
@@ -105,7 +105,7 @@ Na platformie Azure obowiązuje cena za godzinę, która jest określana na pods
 
 Opłaty są naliczane, gdy stan maszyny wirtualnej to Uruchomiona lub Zatrzymana, ale nie są naliczane, gdy stan maszyny wirtualnej to Zatrzymana (cofnięty przydział). Aby umieścić maszynę wirtualną w stanie Zatrzymana (cofnięty przydział), wykonaj jedną z następujących czynności:
 
-* Wyłącz lub usuń maszynę wirtualną z klasycznego portalu Azure.
+* Wyłączanie lub usuwanie maszyny Wirtualnej w portalu Azure.
 * Użyj polecenia cmdlet Stop-AzureVM dostępnego w module Azure PowerShell.
 * Użyj operacji zamknięcia roli w interfejsie API REST zarządzania usługi i określ wartość StoppedDeallocated dla elementu PostShutdownAction.
 
@@ -118,7 +118,7 @@ Nieplanowane zdarzenia konserwacji mogą wystąpić, gdy platforma Azure wykryje
 
 Dla dowolnej autonomicznej maszyny wirtualnej (tzn. gdy maszyna wirtualna nie jest częścią zestawu dostępności) platforma Azure powiadamia administratora usługi subskrypcji za pośrednictwem poczty e-mail co najmniej tydzień przed zaplanowaną konserwacją, ponieważ maszyny wirtualne mogą zostać ponownie uruchomione podczas aktualizacji. Może nastąpić przestój w działaniu aplikacji uruchomionych na maszynach wirtualnych.
 
-Możesz też użyć klasycznego portalu Azure lub programu Azure PowerShell, aby wyświetlić dzienniki ponownego uruchomienia komputera, gdy ponowne uruchomienie nastąpiło z powodu zaplanowanej konserwacji. Aby uzyskać szczegółowe informacje, zobacz [Wyświetlanie dzienników ponownego uruchamiania maszyny wirtualnej](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Możesz również umożliwia portalu Azure lub programu Azure PowerShell Sprawdź dzienniki z rozruchu po ponownym uruchomieniu komputera wystąpiły z powodu zaplanowanej konserwacji. Aby uzyskać szczegółowe informacje, zobacz [Wyświetlanie dzienników ponownego uruchamiania maszyny wirtualnej](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Aby zapewnić nadmiarowość, umieść co najmniej dwie podobnie skonfigurowane maszyny wirtualne w tym samym zestawie dostępności. Pomaga to w zapewnieniu, że co najmniej jedna maszyna wirtualna jest dostępna podczas planowanej lub nieplanowanej konserwacji. Platforma Azure gwarantuje pewne poziomy dostępności maszyny wirtualnej dla tej konfiguracji. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d6e8f123dd04b98df10b5a941396d7140bcc023
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Korzystanie z szablonów połączonych w przypadku wdrażania zasobów platformy Azure
 
@@ -478,59 +478,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Przykład szablonów
 
-### <a name="hello-world-from-linked-template"></a>Witaj świecie z połączonego szablonu
+Poniższe przykłady przedstawiają typowe zastosowania szablonów połączonych.
 
-Aby wdrożyć [szablonu nadrzędnego](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) i [połączonego szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json), za pomocą programu PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-Lub interfejsu wiersza polecenia platformy Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>Moduł równoważenia obciążenia z publicznym adresem IP w szablonie połączonego
-
-Aby wdrożyć [szablonu nadrzędnego](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) i [połączonego szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json), za pomocą programu PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-Lub interfejsu wiersza polecenia platformy Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-### <a name="multiple-public-ip-addresses-in-linked-template"></a>Wiele publicznych adresów IP w szablonie połączonego
-
-Aby wdrożyć [szablonu nadrzędnego](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) i [połączonego szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json), za pomocą programu PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
-
-Lub interfejsu wiersza polecenia platformy Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
+|Główny szablonu  |Połączone szablonu |Opis  |
+|---------|---------| ---------|
+|[Witaj, świecie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Zwraca ciąg z połączonego szablonu. |
+|[Moduł równoważenia obciążenia z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z szablonów połączonych i ustawia tę wartość w usłudze równoważenia obciążenia. |
+|[Wiele adresów IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Tworzy wiele publicznych adresów IP w szablonie połączony.  |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure rozwiązania Cosmos interfejs API .NET tabeli bazy danych: Pobierz i informacje o wersji
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Bieżąca platforma obsługiwane**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> Jeśli utworzono konto tabeli interfejsu API w wersji zapoznawczej, Utwórz [nowe konto interfejsu API tabeli](create-table-dotnet.md#create-a-database-account) do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli.
+> Jeśli utworzono konto interfejsu API tabel w trakcie okresu próbnego, utwórz [nowe konto interfejsu API tabel](create-table-dotnet.md#create-a-database-account), aby móc korzystać z ogólnie dostępnych zestawów SDK interfejsu API tabel.
 >
 
 ## <a name="release-notes"></a>Informacje o wersji
@@ -50,6 +50,8 @@ ms.lasthandoff: 11/20/2017
 ## <a name="release-and-retirement-dates"></a>Wersja i wycofania dat
 Firma Microsoft udostępnia powiadomienia co najmniej **12 miesięcy** klienta z wyprzedzeniem wycofanie SDK w celu złagodzenia przejścia do nowszej/nieobsługiwaną wersję.
 
+[WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) pakietu w wersji zapoznawczej został przestarzałe i zastępowane [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) pakietu. Zestaw SDK WindowsAzure.Storage PremiumTable zostaną wycofane na 15 listopada 2018, w tym czasie żądania do wycofane zestawu SDK nie otrzyma zezwolenia.
+
 Nowe funkcje i funkcjonalność i optymalizację, które są dodawane tylko do bieżącego zestawu SDK, w związku jest zalecane, zawsze Uaktualnij zestaw SDK najnowszą tak szybko jak to możliwe. 
 
 Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyciu wycofane zestawu SDK są odrzucane przez usługę.
@@ -58,7 +60,7 @@ Wszystkie żądania dotyczące bazy danych rozwiązania Cosmos Azure przy użyci
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 listopada 2017 r.|--- |
-| [0.9.0-Preview](#0.1.0-preview) |11 listopada 2017 r. |--- |
+| [0.9.0-Preview](#0.9.0-preview) |11 listopada 2017 r. |--- |
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

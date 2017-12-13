@@ -1,24 +1,16 @@
 ---
 title: "Wizualizacja zależności w migracji Azure | Dokumentacja firmy Microsoft"
 description: "Zawiera omówienie obliczeń oceny w usłudze Azure migracji."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 78e52157-edfd-4b09-923f-f0df0880e0e0
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="dependency-visualization"></a>Wizualizacja zależności
 
@@ -37,7 +29,7 @@ Azure używa migracji [mapy usługi](../operations-management-suite/operations-m
 - Przejdź do obszaru roboczego analizy dzienników z **Essentials** sekcji projektu **omówienie** strony.
 - Obszar roboczy utworzony zostanie oznaczony przy użyciu klucza **MigrateProject**i wartość **Nazwa projektu**. Te umożliwia wyszukiwanie w portalu Azure.  
 
-    ![Obszar roboczy analizy dzienników](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Obszar roboczy usługi Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Aby korzystać z wizualizacji zależności, musisz pobrać i zainstalować agentów na każdej maszynie lokalnej, które mają być analizowane.  
 

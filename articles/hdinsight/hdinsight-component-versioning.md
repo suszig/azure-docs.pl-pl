@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie są składniki platformy Hadoop i wersje dostępne w usłudze HDInsight?
 
@@ -206,28 +206,28 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
 
 * Wszystkie obsługiwane regiony, z wyjątkiem Brazylia Południowa i Japonia Zachodnia:
 
-  | Typ klastra | Hadoop | HBase | Storm | platforma Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3 I A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2 |D3 v2 |System Windows: D12 v2; Systemu Linux: V2 D4 |System Windows: D12 v2; Systemu Linux: V2 D4 |
-  | Pracownik: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A3 |A2 | | |
-  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A3 I A4, A5 |A2 DO A3, A4 | | |
-  | Krawędź: domyślny rozmiar maszyny Wirtualnej | | | | |System Windows: D12 v2; Systemu Linux: V2 D4 |
-  | Krawędź: zalecany rozmiar maszyny Wirtualnej | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Typ klastra | Hadoop | HBase | Zapytanie interakcyjne | Storm | platforma Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3 I A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 v2 |D3 v2  | D13, D14 |D3 v2 |System Windows: D12 v2; Systemu Linux: V2 D4 |System Windows: D12 v2; Systemu Linux: V2 D4 |
+  | Pracownik: zalecane rozmiary maszyn wirtualnych |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A3 | |A2 | | |
+  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A3 I A4, A5 | | A2 DO A3, A4 | | |
+  | Krawędź: domyślny rozmiar maszyny Wirtualnej | | | | | |System Windows: D12 v2; Systemu Linux: V2 D4 |
+  | Krawędź: zalecany rozmiar maszyny Wirtualnej | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazylia Południowa i Japonii tylko zachodnie (nie rozmiary v2):
 
-  | Typ klastra | Hadoop | HBase | Storm | platforma Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 |D3 |A3 |D12 |D12 |
-  | HEAD: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4, |A3 I A4, A5 |D14 D12, D13, |D14 D12, D13, |
-  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 |D3 |D3 |System Windows: D12; Linux: D4 |System Windows: D12; Linux: D4 |
-  | Pracownik: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4, |D12 D3, D4, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
-  | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A2 |A2 | | |
-  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A2 DO A3, A4 |A2 DO A3, A4 | | |
-  | Krawędź: rozmiary maszyny Wirtualnej domyślne | | | | |System Windows: D12; Linux: D4 |
-  | Krawędź: zalecane rozmiary maszyn wirtualnych | | | | |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | Typ klastra | Hadoop | HBase | Zapytanie interakcyjne |Storm | platforma Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: domyślny rozmiar maszyny Wirtualnej |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | HEAD: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4,  | D13, D14 |A3 I A4, A5 |D14 D12, D13, |D14 D12, D13, |
+  | Pracownik: domyślny rozmiar maszyny Wirtualnej |D3 |D3  | D13, D14 |D3 |System Windows: D12; Linux: D4 |System Windows: D12; Linux: D4 |
+  | Pracownik: zalecane rozmiary maszyn wirtualnych |D12 D3, D4, |D12 D3, D4,  | D13, D14 |D12 D3, D4, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | Dozorcy: domyślny rozmiar maszyny Wirtualnej | |A2 | | A2 | | |
+  | Dozorcy: zalecane rozmiary maszyn wirtualnych | |A2 DO A3, A4 | |A2 DO A3, A4 | | |
+  | Krawędź: rozmiary maszyny Wirtualnej domyślne | | | | | |System Windows: D12; Linux: D4 |
+  | Krawędź: zalecane rozmiary maszyn wirtualnych | | | | | |System Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
 
 > [!NOTE]
 > - HEAD nosi nazwę *Nimbus* Storm typ klastra.

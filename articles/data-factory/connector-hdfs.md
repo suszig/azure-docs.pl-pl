@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopiowanie danych z i do systemu plików HDFS przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ System plików HDFS połączone usługi obsługiwane są następujące właściw
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Hdfs**. | Tak |
-| adres URL |Adres URL do systemu plików HDFS |Tak |
+| adres url |Adres URL do systemu plików HDFS |Tak |
 | Typ authenticationType | Dozwolone wartości to: **anonimowe**, lub **Windows**. <br><br> Umożliwia **uwierzytelnianie Kerberos** łącznika systemu plików HDFS, można znaleźć w temacie [w tej sekcji](#use-kerberos-authentication-for-hdfs-connector) do odpowiednio skonfigurowane w lokalnym środowisku. |Tak |
 | Nazwa użytkownika |Uwierzytelnianie nazwy użytkownika dla systemu Windows. Aby uwierzytelnianie Kerberos, określ `<username>@<domain>.com`. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | hasło |Hasło dla uwierzytelniania systemu Windows. Zaznacz to pole jako SecureString. |Tak (w przypadku uwierzytelniania systemu Windows) |
@@ -162,7 +162,7 @@ Aby skopiować dane z systemu plików HDFS, Ustaw typ źródła w przypadku dzia
 | Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 | distcpSettings | Grupy właściwości, korzystając z narzędzia DistCp systemu plików HDFS. | Nie |
 | resourceManagerEndpoint | Punkt końcowy Yarn ResourceManager | Tak, jeśli za pomocą narzędzia DistCp |
-| tempScriptPath | Ścieżka folderu, używany do przechowywania tymczasowego narzędzia DistCp polecenia skryptu. Plik skryptu jest generowany przez ADF i zostaną usunięte po zakończeniu zadania kopiowania. | Tak, jeśli za pomocą narzędzia DistCp |
+| tempScriptPath | Ścieżka folderu, używany do przechowywania tymczasowego narzędzia DistCp polecenia skryptu. Plik skryptu jest generowany przez fabryki danych i zostaną usunięte po zakończeniu zadania kopiowania. | Tak, jeśli za pomocą narzędzia DistCp |
 | distcpOptions | Dodatkowe opcje przekazane do narzędzia DistCp polecenia. | Nie |
 
 **Przykład: Źródło systemu plików HDFS w przypadku działania kopiowania za pomocą zwolnienia**
