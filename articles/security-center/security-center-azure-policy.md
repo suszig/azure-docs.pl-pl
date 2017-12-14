@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integracja zasad zabezpieczeń w usłudze Security Center z usługą Azure Policy
 Ten artykuł zawiera informacje pomocne podczas konfigurowania w usłudze Azure Security Center zasad zabezpieczeń obsługiwanych przez usługę Azure Policy. 
@@ -30,7 +30,7 @@ Usługa Security Center automatycznie tworzy domyślne zasady zabezpieczeń dla 
 * Monitorowanie zgodności zasad.
 
 > [!NOTE]
-> Usługa Azure Policy jest dostępna w ograniczonej wersji zapoznawczej. W celu dołączenia przejdź na stronę [tworzenia nowego konta usługi Azure Policy](https://aka.ms/getpolicy). Aby uzyskać więcej informacji na temat usługi Azure Policy, zobacz [Create and manage policies to enforce compliance (Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności)](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Usługa Azure Policy jest dostępna w ograniczonej wersji zapoznawczej. W celu dołączenia przejdź na stronę [tworzenia nowego konta usługi Azure Policy](https://aka.ms/getpolicy). Aby uzyskać więcej informacji na temat usługi Azure Policy, zobacz [Create and manage policies to enforce compliance (Tworzenie zasad i zarządzanie nimi w celu wymuszenia zgodności)](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Edytowanie zasad zabezpieczeń
 W usłudze Security Center możesz edytować domyślne zasady zabezpieczeń dla każdej Twojej subskrypcji platformy Azure. Aby zmodyfikować zasady zabezpieczeń, musisz być właścicielem, współautorem lub administratorem zabezpieczeń tej subskrypcji lub zawierającej ją grupy zarządzania. Aby wyświetlić zasady bezpieczeństwa w usłudze Security Center, wykonaj następujące czynności:

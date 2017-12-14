@@ -15,11 +15,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ca6507fba0895b4f551ead5341d4febbd402b8f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych do urządzeń z systemem iOS przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -45,7 +45,7 @@ Dla tego samouczka wymagane są następujące elementy:
 * [zestaw SDK usługi Mobile Services systemu iOS w wersji 1.2.4]
 * Najnowsza wersja środowiska [Xcode]
 * Urządzenie zgodne z systemem iOS 8 (lub nowszą wersją)
-* Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/)
+* Członkostwo w [programie dla deweloperów firmy Apple](https://developer.apple.com/programs/).
   
   > [!NOTE]
   > Ze względu na wymagania dotyczące konfiguracji powiadomień wypychanych należy wdrożyć i przetestować powiadomienia wypychane na fizycznym urządzeniu z systemem iOS (telefonie iPhone lub tablecie iPad), a nie w symulatorze systemu iOS.
@@ -98,7 +98,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą APNs i 
    > 
    
     ![Rozpakowywanie zestawu SDK platformy Azure][10]
-5. Dodaj nowy plik nagłówka do projektu o nazwie `HubInfo.h`. Ten plik będzie zawierać stałe dla centrum powiadomień.  Dodaj następujące definicje i zastąp symbole zastępcze literału ciągu przy użyciu *nazwy centrum* i wartości *DefaultListenSharedAccessSignature* zanotowanej wcześniej.
+5. Dodaj nowy plik nagłówkowy do projektu o nazwie `HubInfo.h`. Ten plik będzie zawierać stałe dla centrum powiadomień.  Dodaj następujące definicje i zastąp symbole zastępcze literału ciągu przy użyciu *nazwy centrum* i wartości *DefaultListenSharedAccessSignature* zanotowanej wcześniej.
    
         #ifndef HubInfo_h
         #define HubInfo_h
@@ -471,7 +471,6 @@ Ogólne informacje o usłudze Notification Hubs zawiera temat [Wskazówki dotycz
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [Wskazówki dotyczące usługi Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456

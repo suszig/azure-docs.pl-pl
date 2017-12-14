@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
 
@@ -81,7 +81,7 @@ W dniu i o godzinie określonych we wdrożeniu aktualizacji komputery docelowe w
     > Agent usługi OMS dla systemu Linux skonfigurowany pod kątem raportowania do wielu obszarów roboczych usługi OMS nie jest obsługiwany przez to rozwiązanie.  
     >
 
-Aby uzyskać dodatkowe informacje na temat instalowania agenta usługi OMS dla systemu Linux i pobierania najnowszej wersji, zapoznaj się z tematem [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent usługi Operations Management Suite dla systemu Linux).  Aby uzyskać informacje na temat sposobu instalowania agenta usługi OMS dla systemu Windows, przejrzyj temat [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agents.md) (Agent usługi Operations Management Suite dla systemu Windows).  
+Aby uzyskać dodatkowe informacje na temat instalowania agenta usługi OMS dla systemu Linux i pobierania najnowszej wersji, zapoznaj się z tematem [Operations Management Suite Agent for Linux](https://github.com/microsoft/oms-agent-for-linux) (Agent usługi Operations Management Suite dla systemu Linux).  Aby uzyskać informacje na temat sposobu instalowania agenta usługi OMS dla systemu Windows, przejrzyj temat [Operations Management Suite Agent for Windows](../log-analytics/log-analytics-windows-agent.md) (Agent usługi Operations Management Suite dla systemu Windows).  
 
 ### <a name="permissions"></a>Uprawnienia
 Aby tworzyć wdrożenia aktualizacji, musisz mieć nadaną rolę współautora zarówno na swoim koncie usługi Automation, jak i w obszarze roboczym usługi Log Analytics.  
@@ -126,7 +126,7 @@ Na komputerze z systemem Windows możesz przejrzeć następujące informacje, ab
 1.  Otwórz program Microsoft Monitoring Agent w Panelu sterowania. Na karcie **Azure Log Analytics (OMS)** agent wyświetla komunikat z następującą informacją: **Program Microsoft Monitoring Agent pomyślnie połączył się z usługą Microsoft Operations Management Suite**.   
 2.  Otwórz Dziennik zdarzeń systemu Windows, przejdź do pozycji **Dzienniki aplikacji i usług\Operacje** i wyszukaj identyfikatory zdarzeń 3000 i 5002 ze źródła Service Connector.  Te zdarzenia wskazują, że komputer został zarejestrowany w obszarze roboczym usługi OMS i odbiera konfigurację.  
 
-Jeśli agent nie może komunikować się z usługą OMS i jest skonfigurowany do komunikacji z Internetem przez zaporę lub serwer proxy, potwierdź, że zapora lub serwer proxy ma prawidłową konfigurację, przeglądając artykuł [Network configuration for Windows agent (Konfiguracja sieci dla agenta systemu Windows)](../log-analytics/log-analytics-windows-agents.md#network) lub [Network configuration for Linux agent (Konfiguracja sieci dla agenta systemu Linux)](../log-analytics/log-analytics-agent-linux.md#network).
+Jeśli agent nie może komunikować się z usługą OMS i jest skonfigurowany do komunikacji z Internetem przez zaporę lub serwer proxy, potwierdź, że zapora lub serwer proxy ma prawidłową konfigurację, przeglądając artykuł [Network configuration for Windows agent (Konfiguracja sieci dla agenta systemu Windows)](../log-analytics/log-analytics-windows-agent.md) lub [Network configuration for Linux agent (Konfiguracja sieci dla agenta systemu Linux)](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Jeśli Twoje systemy Linux są skonfigurowane do komunikowania się z serwerem proxy lub bramą usługi OMS i dołączasz to rozwiązanie, zaktualizuj uprawnienia *proxy.conf* tak, aby przyznać grupie omiuser uprawnienie do odczytu pliku, uruchamiając następujące polecenia:  

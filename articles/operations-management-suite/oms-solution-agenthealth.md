@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Rozwiązanie Agent Health w usłudze OMS
 Rozwiązanie Agent Health w usłudze OMS pomaga zrozumieć, dla wszystkich agentów raportujących bezpośrednio do obszaru roboczego usługi OMS lub grupy zarządzania programu System Center Operations Manager połączonej z usługą OMS, które z nich nie odpowiadają, a które przesyłają dane operacyjne.  Można także śledzić liczbę wdrożonych agentów i ich geograficzne rozmieszczenie oraz wykonywać inne zapytania dające informacje na temat rozmieszczenia agentów wdrożonych na platformie Azure, w innych środowiskach w chmurze i lokalnie.    
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed wdrożeniem tego rozwiązania potwierdź, że masz aktualnie obsługiwanych [agentów systemu Windows](../log-analytics/log-analytics-windows-agents.md) raportujących do obszaru roboczego usługi OMS lub do [grupy zarządzania programu Operations Manager](../log-analytics/log-analytics-om-agents.md) zintegrowanej z Twoim obszarem roboczym usługi OMS.    
+Przed wdrożeniem tego rozwiązania potwierdź, że masz aktualnie obsługiwanych [agentów systemu Windows](../log-analytics/log-analytics-windows-agent.md) raportujących do obszaru roboczego usługi OMS lub do [grupy zarządzania programu Operations Manager](../log-analytics/log-analytics-om-agents.md) zintegrowanej z Twoim obszarem roboczym usługi OMS.    
 
 ## <a name="solution-components"></a>Składniki rozwiązania
 To rozwiązanie składa się z następujących zasobów, które są dodawane do Twojego obszaru roboczego, i bezpośrednio połączonych agentów lub grupy zarządzania połączonej z programem Operations Manager.

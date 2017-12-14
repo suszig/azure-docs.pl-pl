@@ -5,7 +5,7 @@ keywords: "wdrażanie usług AD FS na platformie Azure, wdrażanie azure adfs, a
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Wdrażanie usług Active Directory Federation Services na platformie Azure
 Usługi AD FS udostępniają uproszczone, zabezpieczone funkcje federacji tożsamości i logowania jednokrotnego (SSO) w sieci Web. Federacja z usługą Azure AD lub O365 umożliwia użytkownikom uwierzytelnianie się przy użyciu poświadczeń lokalnych i uzyskiwanie dostępu do wszystkich zasobów w chmurze. Tym samym ważne staje się zapewnienie infrastruktury usług AD FS o wysokiej dostępności, która gwarantuje dostęp zarówno do zasobów lokalnych, jak i przechowywanych w chmurze. Wdrożenie usług AD FS na platformie Azure może pomóc w osiągnięciu wymaganej wysokiej dostępności w prosty sposób.

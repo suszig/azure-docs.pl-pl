@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn
 
@@ -84,7 +84,7 @@ Rozwiązanie Update Management zostanie włączone dla maszyny wirtualnej.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Włączanie rozwiązania Update Management dla maszyn wirtualnych i komputerów spoza platformy Azure
 
-Aby uzyskać instrukcje dotyczące włączania rozwiązania Update Management dla maszyn wirtualnych i komputerów z systemem Windows spoza platformy Azure, zobacz [Łączenie komputerów z systemem Windows z usługą Log Analytics na platformie Azure](../log-analytics/log-analytics-windows-agents.md).
+Aby uzyskać instrukcje dotyczące włączania rozwiązania Update Management dla maszyn wirtualnych i komputerów z systemem Windows spoza platformy Azure, zobacz [Łączenie komputerów z systemem Windows z usługą Log Analytics na platformie Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Aby uzyskać instrukcje dotyczące włączania rozwiązania Update Management dla maszyn wirtualnych i komputerów z systemem Linux spoza platformy Azure, zobacz [Łączenie komputerów z systemem Linux z usługą Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 

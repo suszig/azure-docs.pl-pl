@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Tworzenie i wdrażanie aplikacji zarządzanej platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -121,5 +121,4 @@ Po pomyślnym zakończeniu wdrażania aplikacja zarządzana zostanie utworzona w
 
 * Zobacz artykuł [Omówienie aplikacji zarządzanych](overview.md) zawierający wprowadzenie do aplikacji zarządzanych.
 * Przykładowe pliki znajdują się na stronie [Przykłady aplikacji zarządzanych](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* Aby uzyskać informacje dotyczące publikowania aplikacji zarządzanych w witrynie Azure Marketplace, zobacz [Tworzenie aplikacji w witrynie Marketplace](publish-marketplace-app.md).
 * Aby dowiedzieć się, jak utworzyć plik definicji interfejsu użytkownika dla aplikacji zarządzanej, zobacz [Rozpoczynanie pracy z plikiem CreateUiDefinition](create-uidefinition-overview.md).

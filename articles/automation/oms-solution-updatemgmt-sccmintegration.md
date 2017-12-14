@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integracja programu System Center Configuration Manager z programem OMS Update Management
 
@@ -41,7 +41,7 @@ To, w jaki sposób zarządzasz klientami hostowanymi w usłudze Azure IaaS za po
 
 Jeśli chcesz kontynuować zarządzanie wdrożeniami aktualizacji z programu Configuration Manager, wykonaj następujące kroki.  Pakiet OMS łączy się z programem Configuration Manager w celu zastosowania aktualizacji na komputerach klienckich podłączonych do Twojego obszaru roboczego usługi Log Analytics. Zawartość aktualizacji jest dostępna w pamięci podręcznej komputera klienckiego tak, jakby wdrożenie było zarządzane przez program Configuration Manager.  
 
-1. Tworzenie wdrożenia aktualizacji oprogramowania z lokacji najwyższego poziomu w hierarchii programu Configuration Manager przy użyciu procesu opisanego w [procesie wdrażania aktualizacji oprogramowania](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Jedynym ustawieniem, które musi być skonfigurowane inaczej niż dla standardowego wdrożenia, jest opcja **Nie instaluj aktualizacji oprogramowania** służąca do sterowania zachowaniem pakietu wdrożeniowego podczas pobierania. To zachowanie jest zarządzane przez rozwiązanie do zarządzania aktualizacjami pakietu OMS poprzez utworzenie planowego wdrożenia aktualizacji w następnym kroku.  
+1. Tworzenie wdrożenia aktualizacji oprogramowania z lokacji najwyższego poziomu w hierarchii programu Configuration Manager przy użyciu procesu opisanego w [procesie wdrażania aktualizacji oprogramowania](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Jedynym ustawieniem, które musi być skonfigurowane inaczej niż dla standardowego wdrożenia, jest opcja **Nie instaluj aktualizacji oprogramowania** służąca do sterowania zachowaniem pakietu wdrożeniowego podczas pobierania. To zachowanie jest zarządzane przez rozwiązanie do zarządzania aktualizacjami pakietu OMS poprzez utworzenie planowego wdrożenia aktualizacji w następnym kroku.  
 
 1. W portalu pakietu OMS otwórz pulpit nawigacyjny zarządzania aktualizacjami.  Utwórz nowe wdrożenie, postępując zgodnie z krokami opisanymi w temacie [Creating an Update Deployment](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) (Tworzenie wdrożenia aktualizacji), i wybierz z listy rozwijanej odpowiednią kolekcję programu Configuration Manager reprezentowaną jako grupa komputerów pakietu OMS.  Należy pamiętać o następujących ważnych kwestiach:
     1. Jeśli okno obsługi jest zdefiniowane w wybranej kolekcji urządzeń programu Configuration Manager, składowe kolekcji uznają je zamiast ustawienia **Czas trwania** zdefiniowanego w zaplanowanym wdrożeniu w pakiecie OMS.
