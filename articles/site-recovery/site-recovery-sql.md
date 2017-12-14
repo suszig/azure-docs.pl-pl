@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Ochrona programu SQL Server przy użyciu odzyskiwanie po awarii programu SQL Server i usługi Azure Site Recovery
 
@@ -50,6 +50,7 @@ Usługa Site Recovery może chronić programu SQL Server, zgodnie z opisem w tab
 **Funkcja Hyper-V** | Tak | Tak
 **VMware** | Tak | Tak
 **Serwer fizyczny** | Tak | Tak
+**Azure**|Nie dotyczy| Tak
 
 ### <a name="supported-sql-server-versions"></a>Obsługiwane wersje programu SQL Server
 Te wersje programu SQL Server są obsługiwane dla obsługiwanych scenariuszach:

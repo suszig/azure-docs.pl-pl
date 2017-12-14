@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorowanie bazy danych SQL Azure przy użyciu analiza SQL Azure (wersja zapoznawcza) w analizy dzienników
 
@@ -43,7 +43,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Pomoc techniczna | Opis |
 | --- | --- | --- |
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Nie | Bezpośrednie agentów systemu Windows nie są używane przez to rozwiązanie. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie | Bezpośrednie agentów systemu Windows nie są używane przez to rozwiązanie. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Bezpośrednie agentów systemu Linux nie są używane przez to rozwiązanie. |
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Nie | Bezpośrednie połączenie z agenta programu SCOM Log Analytics nie jest używany przez rozwiązanie. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Analiza dzienników nie odczytuje dane z konta magazynu. |

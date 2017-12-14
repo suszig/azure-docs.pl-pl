@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Wykonaj zaawansowanego monitorowania przy użyciu zdalnego rozwiązanie monitorowania
 
@@ -90,9 +90,6 @@ Mapy wyróżnia urządzeń w bieżący filtr z **alarmy** i **ostrzeżenia**. **
 Można użyć **alarmy systemu** filtr, aby dopasować przedział czasu dla ostatnich alarmy. Domyślnie panelu wyświetla alarmy z ostatniej godziny:
 
 ![Filtrowanie wg czasu alarmy](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> Przewiń w prawo, aby wyświetlić filtru zakresu czasu.
 
 ## <a name="view-the-system-kpis"></a>Wyświetlanie systemu wskaźników KPI
 

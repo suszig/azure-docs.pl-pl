@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optymalizowanie środowiska usługi Active Directory z rozwiązaniem Active Directory kondycji Sprawdź w analizy dzienników
 
@@ -52,7 +52,7 @@ Po dodaniu rozwiązania i sprawdzenie jest zakończone, podsumowanie informacji 
 
 Aby przeprowadzić sprawdzenie kondycji na kontrolerach domeny, które są członkami domeny, która ma zostać obliczone, wymagają one agenta i łączności do analizy dzienników przy użyciu jednej z następujących obsługiwanych metod:
 
-1. Zainstaluj [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) Jeśli kontroler domeny nie jest już monitorowany przez System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2.
+1. Zainstaluj [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) Jeśli kontroler domeny nie jest już monitorowany przez System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2.
 2. Jeśli grupa zarządzania nie jest zintegrowany z usługą analizy dzienników jest monitorowany z System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2, kontroler domeny może być wieloadresowego z analizy dzienników do zbierania danych i przekazywać je do usługi i nadal monitorowane przez program Operations Manager.  
 3. W przeciwnym razie, jeśli grupę zarządzania programu Operations Manager jest zintegrowany z usługą, należy dodać kontrolerów domeny na potrzeby zbierania danych przez usługę następujące kroki w obszarze [dodać komputery zarządzane z wykorzystaniem agentów](log-analytics-om-agents.md#connecting-operations-manager-to-oms) po włączeniu rozwiązanie w obszarze roboczym.  
 
@@ -62,7 +62,7 @@ Agenta na kontrolerze domeny, które raporty z grupą zarządzania programu Oper
 
 Active Directory kondycji Sprawdź zbiera dane z następujących źródeł przy użyciu agenta, która została włączona:
 
-- Rejestru 
+- Rejestr 
 - LDAP 
 - .NET framework
 - Dziennik zdarzeń 
@@ -108,8 +108,8 @@ Po jego zainstalowaniu, można wyświetlić podsumowanie zaleceń za pomocą kaf
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com). 
-2. W portalu Azure kliknij **więcej usług** znaleziono w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **dziennika analizy**.
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
+2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
 4. Na **omówienie** kliknij przycisk **sprawdzania kondycji AD** kafelka. 
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.

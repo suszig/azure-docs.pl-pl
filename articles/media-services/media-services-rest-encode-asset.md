@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: c7650fe4e10b9dcfe6068152398922723587a658
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Jak kodowanie elementu zawartości przy użyciu standardu Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -57,8 +57,6 @@ Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API us�
 > Podczas pracy z interfejsu API REST usług Media następujące kwestie:
 >
 > Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ustawić określonych pól nagłówka i wartości w Twoich żądań HTTP. Aby uzyskać więcej informacji, zobacz [ustawień dla rozwoju interfejsu API REST usług Media](media-services-rest-how-to-use.md).
->
-> Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI. Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > Po użyciu JSON i określając do użycia **__metadata** — słowo kluczowe w żądaniu (na przykład do odwołania obiektu połączonego), należy ustawić **Zaakceptuj** nagłówka do [formatu JSON pełne](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Zaakceptuj: application/json; odata = pełne.
 >

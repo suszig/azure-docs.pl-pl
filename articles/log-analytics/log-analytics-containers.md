@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kontener rozwiązania monitorowanie analizy dzienników
 
@@ -52,7 +52,7 @@ W poniższej tabeli przedstawiono aranżacji Docker i monitorowania obsługę ko
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Usługa<br>Sieć szkieletowa | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Otwórz<br>SHIFT | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Otwórz<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomiczna) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serwer systemu Linux<br>(autonomiczna) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -113,7 +113,7 @@ Przegląd [aparatem platformy Docker w systemie Windows](https://docs.microsoft.
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalowanie i konfigurowanie hostów kontenera systemu Linux
 
-Po zainstalowaniu Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z Docker. Najpierw należy OMS identyfikator i klucz, który można znaleźć w portalu Azure. W obszarze roboczym, kliknij przycisk **Szybki Start** > **komputerów** do wyświetlania Twojego **identyfikator obszaru roboczego** i **klucz podstawowy**.  Skopiuj i Wklej zarówno do Twojego ulubionego edytora.
+Po zainstalowaniu Docker Użyj następujących ustawień dla hosta kontenera, aby skonfigurować agenta do użycia z Docker. Najpierw należy OMS identyfikator i klucz, który można znaleźć w portalu Azure. W obszarze roboczym, kliknij przycisk **Szybki Start** > **komputerów** do wyświetlania Twojego **identyfikator obszaru roboczego** i **klucz podstawowy**.  Skopiuj i wklej obie wartości do ulubionego edytora.
 
 **Dla wszystkich hostów kontenera Linux z wyjątkiem CoreOS:**
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Zmiana typu zapytania z przy użyciu zainstalowanych agentów systemu Linux na jedną w kontenerze**
 
-Jeśli wcześniej używana bezpośrednio zainstalować agenta i chcesz zamiast tego użyć agenta uruchomionego w kontenerze, należy najpierw usunąć agenta pakietu OMS dla systemu Linux. Zobacz [odinstalowanie agenta pakietu OMS Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) zrozumienie, jak pomyślnie odinstalowania agenta.  
+Jeśli wcześniej używana bezpośrednio zainstalować agenta i chcesz zamiast tego użyć agenta uruchomionego w kontenerze, należy najpierw usunąć agenta pakietu OMS dla systemu Linux. Zobacz [odinstalowanie agenta pakietu OMS Linux](log-analytics-agent-linux.md) zrozumienie, jak pomyślnie odinstalowania agenta.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Konfigurowanie agenta pakietu OMS dla rozwiązania Docker Swarm
 
@@ -515,9 +515,9 @@ Aby uzyskać więcej informacji na temat konfiguracji demon Docker używane z ko
 
 #### <a name="install-windows-agents"></a>Zainstaluj agentów systemu Windows
 
-Aby włączyć monitorowania kontenera systemu Windows i funkcji Hyper-V, należy zainstalować program Microsoft Monitoring Agent (MMA) na komputerach z systemem Windows, które są hostami kontenera. Na komputerach z systemem Windows w środowisku lokalnym, zobacz [połączyć komputery do analizy dzienników](log-analytics-windows-agents.md). W przypadku maszyn wirtualnych działających na platformie Azure, podłącz je do analizy dzienników przy użyciu [rozszerzenie maszyny wirtualnej](log-analytics-azure-vm-extension.md).
+Aby włączyć monitorowania kontenera systemu Windows i funkcji Hyper-V, należy zainstalować program Microsoft Monitoring Agent (MMA) na komputerach z systemem Windows, które są hostami kontenera. Na komputerach z systemem Windows w środowisku lokalnym, zobacz [połączyć komputery do analizy dzienników](log-analytics-windows-agent.md). W przypadku maszyn wirtualnych działających na platformie Azure, podłącz je do analizy dzienników przy użyciu [rozszerzenie maszyny wirtualnej](log-analytics-azure-vm-extension.md).
 
-Można monitorować kontenery systemu Windows uruchomiona na sieć szkieletowa usług. Jednak tylko [maszyn wirtualnych działających na platformie Azure](log-analytics-azure-vm-extension.md) i [komputery z systemem Windows w środowisku lokalnym](log-analytics-windows-agents.md) są obecnie obsługiwane dla sieci szkieletowej usług.
+Można monitorować kontenery systemu Windows uruchomiona na sieć szkieletowa usług. Jednak tylko [maszyn wirtualnych działających na platformie Azure](log-analytics-azure-vm-extension.md) i [komputery z systemem Windows w środowisku lokalnym](log-analytics-windows-agent.md) są obecnie obsługiwane dla sieci szkieletowej usług.
 
 Możesz sprawdzić, czy to rozwiązanie monitorowanie kontenera jest prawidłowo dla systemu Windows. Aby sprawdzić, czy pakiet administracyjny został poprawnie pobierania, należy wyszukać *ContainerManagement.xxx*. Pliki powinny być w folderze C:\Program Files\Microsoft Monitoring Agent\Agent\Health usługi State\Management pakietów.
 
@@ -534,7 +534,7 @@ To rozwiązanie monitorowanie kontenera zbiera różne metryki i dziennika dane 
 Dane są zbierane co 3 minuty przez następujące typy agenta.
 
 - [Agent pakietu OMS dla systemu Linux](log-analytics-linux-agents.md)
-- [Agent systemu Windows](log-analytics-windows-agents.md)
+- [Agent systemu Windows](log-analytics-windows-agent.md)
 - [Rozszerzenia maszyny Wirtualnej analizy dzienników](log-analytics-azure-vm-extension.md)
 
 

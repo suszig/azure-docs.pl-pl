@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: d889fda72f54af3a5f6db24f7ee6632f72eacb88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f55d64d08a9c3ed98a47aa4ba00a6b1f698144e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie systemu Windows hybrydowego Runbook Worker
 
@@ -96,7 +96,7 @@ Postępuj zgodnie z instrukcjami w [można dodać za pomocą galerii rozwiązań
 
 Microsoft Monitoring Agent łączy komputery do usługi Operations Management Suite.  Po zainstalowaniu agenta na komputerze lokalnym i podłącz go do swojego obszaru roboczego, będzie automatycznie pobierał składniki wymagane dla hybrydowego procesu roboczego elementu Runbook.
 
-Postępuj zgodnie z instrukcjami w [połączyć komputery do analizy dzienników](../log-analytics/log-analytics-windows-agents.md) do zainstalowania agenta na komputerze lokalnym.  Można powtórzyć ten proces dla wielu komputerów do dodania wielu pracowników w danym środowisku.
+Postępuj zgodnie z instrukcjami w [połączyć komputery do analizy dzienników](../log-analytics/log-analytics-windows-agent.md) do zainstalowania agenta na komputerze lokalnym.  Można powtórzyć ten proces dla wielu komputerów do dodania wielu pracowników w danym środowisku.
 
 Gdy agent połączył się pomyślnie Operations Management Suite, będzie wymieniony na **połączonych źródeł** kartę Operations Management Suite **ustawienia** okienka.  Możesz sprawdzić, czy agent poprawnie pobrał rozwiązania Automatyzacja po folder o nazwie **AzureAutomationFiles** w C:\Program Files\Microsoft Monitoring Agent\Agent.  Aby sprawdzić wersję hybrydowy proces roboczy elementu Runbook, można przejść do C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ i zanotuj \\ *wersji* podfolderu.   
 

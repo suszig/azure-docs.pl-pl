@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Alert rozwiązania do zarządzania w Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Pomoc techniczna | Opis |
 |:--- |:--- |:--- |
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Nie |Bezpośrednie agentów systemu Windows nie generują alerty.  Można tworzyć alerty analizy dziennika zdarzeń i zebrać danych wydajności z systemu Windows agentów. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie |Bezpośrednie agentów systemu Windows nie generują alerty.  Można tworzyć alerty analizy dziennika zdarzeń i zebrać danych wydajności z systemu Windows agentów. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie |Bezpośrednie agentów systemu Linux nie generują alerty.  Dziennik analizy alerty mogą być tworzone z zdarzenia i dane wydajności zebrane z agentów systemu Linux.  Nagios i Zabbix alerty są zbierane z tych serwerów, które wymagają agenta systemu Linux. |
 | [Grupa zarządzania programu System Center Operations Manager](log-analytics-om-agents.md) |Tak |Alerty, które są generowane na agenty programu Operations Manager są dostarczane do grupy zarządzania i następnie przekazywane do analizy dzienników.<br><br>Połączenie bezpośrednie agenty programu Operations Manager do analizy dzienników nie jest wymagane. Dane alertów jest przekazywany z grupy zarządzania do repozytorium analizy dzienników. |
 

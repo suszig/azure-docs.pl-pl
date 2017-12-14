@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Rozwiązanie aplikacji łącznik usługi Insights (wersja zapoznawcza) w Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników nie je
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Linux. |
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów w podłączonej grupy zarządzania SCOM. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Rozwiązanie nie nie zbierają informacje z usługi Azure storage. |
@@ -247,7 +247,7 @@ Rekord z *typu* z *ApplicationInsights* jest tworzony dla każdego typu danych w
 | Identyfikator żądania | Identyfikator do unikatowego identyfikowania żądania |
 | RequestName | GET/POST + baza adresów URL |
 | RequestDuration | Czas w sekundach czas trwania żądania |
-| ADRES URL | Adres URL żądania, z wyłączeniem hosta |
+| Adres URL | Adres URL żądania, z wyłączeniem hosta |
 | Host | Hosta serwera sieci Web |
 | URLBase | Pełny adres URL żądania |
 | ApplicationProtocol | Typ protokołu używanego przez aplikację |

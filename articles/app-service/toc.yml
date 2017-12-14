@@ -89,6 +89,8 @@
       items:
         - name: Wdrażanie aplikacji
           items:
+            - name: Wdrażanie plików ZIP
+              href: app-service-deploy-zip.md
             - name: Wdrażanie przy użyciu protokołu FTP
               href: app-service-deploy-ftp.md
             - name: Wdrażanie za pośrednictwem synchronizacji chmury

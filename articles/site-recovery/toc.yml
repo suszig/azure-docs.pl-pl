@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Konfigurowanie ustawień replikacji oprogramowania VMware na platformie Azure
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Wykluczanie dysków z replikacji
+        - name: Wykluczanie dysków z replikacji VMware–Azure
           href: site-recovery-exclude-disk.md
+        - name: Wykluczanie dysków z replikacji Hyper-V–Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: Wdrażanie usługi mobilności na potrzeby replikacji oprogramowania VMware
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
