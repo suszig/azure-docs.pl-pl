@@ -3,7 +3,7 @@ title: "Podrzędne elementy runbook automatyzacji Azure | Dokumentacja firmy Mic
 description: "W tym artykule opisano różne metody udostępniania informacji między nimi i uruchamianie elementu runbook automatyzacji Azure z innego elementu runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Podrzędne elementy runbook automatyzacji Azure
 Jest najlepszym rozwiązaniem w automatyzacji Azure zapisu wielokrotnego użytku, moduły elementów runbook zawierających osobne funkcje, które mogą być używane przez inne elementy runbook. Nadrzędny element runbook często wywołuje jeden lub więcej podrzędnych elementów runbook do wykonania wymaganej funkcjonalności. Istnieją dwa sposoby do wywoływania podrzędnego elementu runbook, a każdy odznacza się istotnymi różnicami, które należy zrozumieć, dzięki czemu można określić, który będzie najlepiej w różnych sytuacjach.
@@ -77,7 +77,7 @@ Poniższa tabela zawiera podsumowanie różnic między obiema metodami wywoływa
 |  | Wbudowany | Polecenie cmdlet |
 |:--- |:--- |:--- |
 | Zadanie |Podrzędne elementy runbook uruchomione w tym samym zadaniu co element nadrzędny. |Tworzone jest osobne zadanie dla podrzędnego elementu runbook. |
-| Wykonanie |Nadrzędny element runbook czeka na zakończenie przed kontynuowaniem podrzędnego elementu runbook. |Nadrzędny element runbook kontynuuje działanie od razu po uruchomieniu podrzędnego elementu runbook *lub* nadrzędny element runbook czeka na zakończenie zadania podrzędne. |
+| Wykonywanie |Nadrzędny element runbook czeka na zakończenie przed kontynuowaniem podrzędnego elementu runbook. |Nadrzędny element runbook kontynuuje działanie od razu po uruchomieniu podrzędnego elementu runbook *lub* nadrzędny element runbook czeka na zakończenie zadania podrzędne. |
 | Dane wyjściowe |Nadrzędny element runbook może bezpośrednio pobierać dane wyjściowe z podrzędnego elementu runbook. |Nadrzędny element runbook musi pobrać dane wyjściowe z zadania podrzędnego elementu runbook *lub* nadrzędny element runbook może bezpośrednio pobierać dane wyjściowe z podrzędnego elementu runbook. |
 | Parametry |Wartości parametrów podrzędnego elementu runbook są określane oddzielnie i mogą mieć dowolny typ danych. |Wartości parametrów podrzędnego elementu runbook muszą być połączone w jedną tablicę skrótów i może zawierać tylko proste, tablicy i typy danych obiektu tym korzystają z serializacji JSON. |
 | Konto usługi Automation |Nadrzędny element runbook można używać tylko podrzędnego elementu runbook na tym samym koncie automatyzacji. |Nadrzędny element runbook można użyć podrzędnego elementu runbook z dowolnego konta automatyzacji z tej samej subskrypcji platformy Azure i innej subskrypcji, jeśli masz połączenia z nią. |

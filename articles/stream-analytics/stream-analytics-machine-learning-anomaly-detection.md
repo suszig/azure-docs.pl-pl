@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Przy użyciu operatora ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ Opcjonalnie może przetwarzać grup zdarzeń klucz określony w oparciu o oddzie
 
 ## <a name="syntax"></a>Składnia
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Przykład użycia
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argumenty
@@ -56,7 +56,7 @@ Opcjonalnie może przetwarzać grup zdarzeń klucz określony w oparciu o oddzie
 
 - **partition_by_clause** 
 
-  `PARTITION BY \<partition key\>` Klauzuli dzieli uczenie i szkolenia w osobnych partycji. Innymi słowy, oddzielne modelu będzie służyć za wartości `\<partition key\>` i tylko zdarzenia z daną wartością mają być używane do nauki i szkolenia w tym modelu. Na przykład:
+  `PARTITION BY <partition key>` Klauzuli dzieli uczenie i szkolenia w osobnych partycji. Innymi słowy, oddzielne modelu będzie służyć za wartości `<partition key>` i tylko zdarzenia z daną wartością mają być używane do nauki i szkolenia w tym modelu. Na przykład:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ Funkcja zwraca rekord zawierający wszystkie trzy wyniki jako dane wyjściowe. W
 
 Aby wyodrębnić poszczególne wartości poza rekordu, użyj **funkcji GetRecordPropertyValue** funkcji. Na przykład:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Anomalii określonego typu została wykryta, gdy jeden z tych wyników anomalii przekracza próg. Próg może być żadnych zmiennoprzecinkową numer punktu \>= 0. Próg wynosi zależności między czułość i zaufania. Na przykład niższego progu wprowadzić bardziej podatna na zmiany wykrywania i generowanie więcej alertów wyższa wartość progową można wprowadzić wykrywania mniej poufne i większa pewność, ale zamaskować niektórych anomalii. Wartość progowa dokładnie do użycia zależy od scenariusza. Nie ma żadnego limitu górnego, ale zalecane zakres jest 3,25 5.
@@ -160,12 +160,12 @@ Nie należy pomijać wspomnianego przed `FillInMissingValuesStep` krok teraz. Po
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Dokumentacja

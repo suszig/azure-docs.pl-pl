@@ -3,7 +3,7 @@ title: "Rozwiązywanie typowych problemów z usługi Automatyzacja Azure | Dokum
 description: "Ten artykuł zawiera informacje ułatwiające rozwiązywanie problemów i Rozwiąż typowe błędy usługi Automatyzacja Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c958bc149cc617b5c9e99a2d3fc6fb2d425b2772
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Rozwiązywanie typowych problemów w usłudze Automatyzacja Azure 
 Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić w automatyzacji Azure, a także sugeruje możliwe rozwiązania, aby je rozwiązać.
@@ -142,7 +142,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Typowe błędy podczas pracy z konfiguracji żądanego stanu (DSC)
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Scenariusz: Węzeł jest w stanie błędu z powodu błędu "Nie została odnaleziona"
-**Błąd:** węzeł ma raport o **niepowodzenie** stanu i zawierające błąd "próba pobrania akcji z serwera https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``) lub GetDscAction nie powiodła się ponieważ prawidłowej konfiguracji ``<guid>`` nie można odnaleźć."
+**Błąd:** węzeł ma raport o **** stanu i zawierające błąd "próba pobrania akcji z serwera https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``) lub GetDscAction nie powiodła się ponieważ prawidłowej konfiguracji ``<guid>`` nie można odnaleźć."
 
 **Przyczyną tego błędu:** ten błąd występuje zazwyczaj gdy węzeł jest przypisany do nazwy konfiguracji (na przykład ABC) zamiast Nazwa konfiguracji węzła (na przykład ABC. Serwer sieci Web).  
 
