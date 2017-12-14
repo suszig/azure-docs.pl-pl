@@ -3,7 +3,7 @@ title: "Harmonogramów w usłudze Automatyzacja Azure | Dokumentacja firmy Micro
 description: "Harmonogramy automatyzacji służą do planowania elementów runbook automatyzacji Azure do automatycznego uruchamiania. Opisuje sposób tworzenia i zarządzania nimi harmonogramu w, dzięki czemu może automatycznie uruchomić element runbook o określonej godzinie lub zgodnie z harmonogramem cyklicznym."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planowanie elementu Runbook w usłudze Azure Automation
 Aby zaplanować elementu runbook automatyzacji Azure można uruchomić w określonym czasie, łącze do co najmniej jeden harmonogram. Harmonogram można skonfigurować do uruchamiania raz lub pojawiał co godzinę lub codziennie harmonogramu dla elementów runbook w klasycznym portalu Azure i elementów runbook w portalu Azure, można również zaplanować je na co tydzień, co miesiąc, określone dni tygodnia lub dni miesiąca lub określony dzień miesiąca.  Element runbook może odnosić się do wielu harmonogramów i harmonogram może mieć wielu elementów runbook z nim połączone.

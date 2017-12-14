@@ -3,7 +3,7 @@ title: "Trwałe połączenie z usługi Automatyzacja Azure | Dokumentacja firmy 
 description: "Trwałe połączenie z usługi Automatyzacja Azure zawiera informacje wymagane do połączenia z zewnętrznej usługi lub aplikacji z elementu runbook lub konfiguracji DSC. W tym artykule szczegółowo opisano połączenia i jak pracować z nimi w tworzeniu zarówno tekstową i graficznego."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="connection-assets-in-azure-automation"></a>Trwałe połączenie z usługi Automatyzacja Azure
 

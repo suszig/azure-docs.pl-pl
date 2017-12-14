@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Tworzenie zadania eksportu dla usługi Import/Eksport Azure
 Tworzenie zadania eksportu przy użyciu interfejsu API REST usługi Import/Eksport Microsoft Azure obejmuje następujące kroki:
@@ -57,7 +57,7 @@ Przed utworzeniem zadania eksportu, należy uzyskać wysyłanie nazwy lokalizacj
 
 Wykonaj poniższe kroki, aby uzyskać lokalizacji wysyłki:
 
--   Określ nazwę lokalizacji konta magazynu. Tę wartość można znaleźć w **lokalizacji** na konto magazynu **pulpitu nawigacyjnego** w klasycznym portalu lub, którego dotyczy kwerenda dla za pomocą operacji interfejsu API zarządzania usługami [Get właściwości konta magazynu](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Określ nazwę lokalizacji konta magazynu. Tę wartość można znaleźć w **lokalizacji** na konto magazynu **pulpitu nawigacyjnego** na platformie Azure, w portalu lub, którego dotyczy kwerenda dla za pomocą operacji interfejsu API zarządzania usługami [Get właściwości konta magazynu](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Pobieranie lokalizacji, w której są dostępne do przetworzenia tego konta magazynu przez wywołanie metody `Get Location` operacji.
 

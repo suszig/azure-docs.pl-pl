@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Najlepsze rozwiązania dotyczące automatycznego skalowania
 Ten artykuł zawiera najlepsze rozwiązania w celu skalowania automatycznego na platformie Azure. Azure Monitor skalowania automatycznego ma zastosowanie tylko do [zestawy skalowania maszyny wirtualnej](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [usługi w chmurze](https://azure.microsoft.com/services/cloud-services/), i [usługi aplikacji — aplikacje sieci Web](https://azure.microsoft.com/services/app-service/web/). Innymi usługami Azure, użyj metod skalowania.
@@ -44,9 +44,6 @@ Jeśli liczba wystąpień jest ręcznie zaktualizować wartość powyżej lub po
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Zawsze używaj połączenia skalowalnego w poziomie i w skali reguł, które wykonuje wzrostu i zmniejszenie
 Jeśli używasz tylko jednej części kombinacja dostęp do skalowania automatycznego skalowania — w tym pojedynczy przy, aż do maksymalnej lub minimalnej, zostanie osiągnięty.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Nie przełączać się między portalu Azure i klasycznego portalu Azure podczas zarządzania skalowania automatycznego
-Usługi w chmurze i usług aplikacji (aplikacje sieci Web) Użyj portalu Azure (portal.azure.com) do tworzenia i zarządzania ustawieniami automatycznego skalowania. Dla zestawów skali maszyny wirtualnej należy użyć programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST do tworzenia i zarządzania nimi w ustawieniu skalowania automatycznego. Nie przełączać się między klasycznego portalu Azure (manage.windowsazure.com) i portalu Azure (portal.azure.com) podczas zarządzania konfiguracjami skalowania automatycznego. Klasycznym portalu Azure i jego podstawowym wewnętrznej bazy danych ma pewne ograniczenia. Przejdź do portalu Azure, aby zarządzać skalowania automatycznego przy użyciu graficznego interfejsu użytkownika. Dostępne opcje to używać automatycznego skalowania programu PowerShell, interfejsu wiersza polecenia lub interfejsu API REST (za pomocą Eksploratora zasobów Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Wybierz odpowiednie dane statystyczne Twoje metryki diagnostyki
 Diagnostyka miar, można wybierać między *średni*, *co najmniej*, *maksymalna* i *całkowita* jako metryki skalowania przez. Statystyka najczęściej jest *średni*.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Skalowanie liczby wystąpień ręcznie lub automatycznie
 W [Azure Portal](https://portal.azure.com/), możesz ręcznie ustawić liczbę wystąpień usługi lub można ustawić parametry, aby go automatycznie na podstawie zapotrzebowania skali. To jest zwykle nazywany *skalowanie* lub *skalować w*.
@@ -26,11 +26,6 @@ W [Azure Portal](https://portal.azure.com/), możesz ręcznie ustawić liczbę w
 Przed skalowanie na podstawie liczby wystąpień, należy rozważyć, czy skalowania dotyczy **warstwa cenowa** oprócz liczba wystąpień. Różnych warstw cenowych może mieć różne liczby rdzeni i ilości pamięci, a więc będą miały lepszą wydajność w przypadku taką samą liczbę wystąpień (czyli *skalowanie w górę* lub *dół*). W tym artykule szczegółowo omówiono *skalować w* i *limit*.
 
 Możesz skalować w portalu i umożliwia także [interfejsu API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) lub [zestawu .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) dostosowanie skali ręcznie lub automatycznie.
-
-> [!NOTE]
-> W tym artykule opisano sposób tworzenia ustawieniu skalowania automatycznego Portal pod adresem [http://portal.azure.com](http://portal.azure.com). Ustawienia skalowania automatycznego utworzonych w tym portalu nie może być edytowany klasyczny portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Skalowanie ręcznie
 1. W [Azure Portal](https://portal.azure.com/), kliknij przycisk **Przeglądaj**, a następnie przejdź do zasobu, aby skalować, takich jak **planu usługi aplikacji**.

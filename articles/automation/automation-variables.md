@@ -3,7 +3,7 @@ title: Zasoby zmiennej automatyzacji Azure | Dokumentacja firmy Microsoft
 description: "Zmienna zasoby są wartości, które są dostępne dla wszystkich elementów runbook i konfiguracji DSC automatyzacji Azure.  W tym artykule szczegółowo opisano zmienne i sposobu pracy z nimi w tworzeniu zarówno tekstową i graficznego."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d3b04dcc856d4637cf7029701a5e169d3096d15c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e642a63486317387d66a9403b8276d2e0bd38fb6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Zasoby zmiennej usługi Automatyzacja Azure
 
@@ -47,9 +47,9 @@ Poniżej przedstawiono listę typów zmiennych, które są dostępne w automatyz
 
 * Ciąg
 * Liczba całkowita
-* Data i godzina
+* Data/godzina
 * Wartość logiczna
-* Wartość null
+* Null
 
 ## <a name="scripting-the-creation-and-management-of-variables"></a>Obsługa skryptów, tworzenie i zarządzanie zmiennych
 
