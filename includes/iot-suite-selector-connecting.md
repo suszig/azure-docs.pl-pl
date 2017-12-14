@@ -7,8 +7,8 @@
 
 W tym samouczku zaimplementowaniem **Chłodnica** urządzenia, które wysyła następujące dane telemetryczne do monitorowania zdalnego [wstępnie skonfigurowane rozwiązanie](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
-* Temperatury
-* wykorzystania
+* Temperatura
+* Ciśnienie
 * Wilgotność
 
 Dla uproszczenia kodu generuje przykładowe wartości telemetrii **Chłodnica**. Można rozszerzyć próbki przez połączenie czujników rzeczywistego urządzenia i wysyła rzeczywistych danych telemetrycznych.
@@ -54,7 +54,7 @@ Aby zlokalizować poświadczeń, których urządzenie musi używać do łączeni
 
 1. Znajdź grupę zasobów, która zawiera usług Azure, których używa zdalnego rozwiązanie monitorowania. Grupa zasobów ma taką samą nazwę jak zdalnego rozwiązanie monitorowania, aprowizowanej.
 
-1. Przejdź do Centrum IoT w tej grupie zasobów. Następnie wybierz pozycję **explorer urządzenia**:
+1. Przejdź do Centrum IoT w tej grupie zasobów. Następnie wybierz pozycję **urządzenia IoT**:
 
     ![Eksplorator urządzenia](media/iot-suite-selector-connecting/deviceexplorer.png)
 

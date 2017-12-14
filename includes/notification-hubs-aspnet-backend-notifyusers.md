@@ -148,7 +148,7 @@ W tej sekcji możesz dodać nowego kontrolera do WebAPI zaplecza do obsługi ż�
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Zastąp `Notifications` klasy definicji z następującym kodem, a następnie zastąp symbole zastępcze dwa parametry połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora (dostępne pod adresem [klasycznego portalu Azure](http://manage.windowsazure.com)):
+6. Zastąp `Notifications` klasy definicji z następującym kodem, a następnie zastąp symbole zastępcze dwa parametry połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora (dostępne pod adresem [portalu Azure](http://portal.azure.com)):
    
         public class Notifications
         {

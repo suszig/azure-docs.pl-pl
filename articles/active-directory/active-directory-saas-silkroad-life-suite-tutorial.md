@@ -2,272 +2,280 @@
 title: "Samouczek: Azure Active Directory integracji z pakietem życia SilkRoad | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SilkRoad życia pakietu."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
-manager: mtillman
-editor: 
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c469c08a719b268b3da51d09f5ea11658f9ac6a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d6af7af7d6b28ff3ea9d518a65b8267a83b71b4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: Azure Active Directory integracji z pakietem życia SilkRoad
-Celem tego samouczka jest pokazanie sposobu integracji SilkRoad Suite użytkowania z usługą Azure Active Directory (Azure AD). 
 
-Integrowanie SilkRoad Suite użytkowania z usługą Azure AD zapewnia następujące korzyści: 
+Z tego samouczka dowiesz integrowanie SilkRoad Suite użytkowania z usługą Azure Active Directory (Azure AD).
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do zestawu życia SilkRoad 
-* Umożliwia użytkownikom automatycznie pobrać zalogowane do SilkRoad życia pakiet rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
+Integrowanie SilkRoad Suite użytkowania z usługą Azure AD zapewnia następujące korzyści:
+
+- Można kontrolować w usłudze Azure AD, który ma dostęp do zestawu życia SilkRoad.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane SilkRoad życia pakietu (logowanie jednokrotne) z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Aby skonfigurować integrację usługi Azure AD z pakietem życia SilkRoad, potrzebne są następujące elementy:
 
-* Subskrypcję usługi Azure AD
-* Subskrypcja SilkRoad życia Suite logowanie Jednokrotne włączone
+- Subskrypcję usługi Azure AD
+- Pakiet życia SilkRoad jednokrotnego włączone subskrypcji
 
->[!NOTE]
->Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego. 
-> 
+> [!NOTE]
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
-* Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
-* Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać [miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/). 
+- Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie test rejestracji Jednokrotnej programu Azure AD w środowisku testowym.
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+1. Dodawanie pakietu życia SilkRoad z galerii
+2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-1. Dodawanie pakietu życia SilkRoad z galerii 
-2. Konfigurowanie i testowania logowania jednokrotnego programu Azure AD
-
-## <a name="add-silkroad-life-suite-from-the-gallery"></a>Dodawanie zestawu życia SilkRoad z galerii
+## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Dodawanie pakietu życia SilkRoad z galerii
 Aby skonfigurować integrację usługi Azure AD SilkRoad życia pakietu, należy dodać pakiet życia SilkRoad z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać pakiet życia SilkRoad z galerii, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
-   
-    ![Usługa Active Directory][1]
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+    ![Przycisk usługi Azure Active Directory][1]
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
-    ![Aplikacje][2]
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
-   
-    ![Aplikacje][3]
+    ![Blok aplikacje przedsiębiorstwa][2]
+    
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
-   
-    ![Aplikacje][4]
+    ![Nowy przycisk aplikacji][3]
 
-6. W polu wyszukiwania wpisz **Suite życia SilkRoad**.
-   
-    ![Aplikacje][5]
+4. W polu wyszukiwania wpisz **Suite życia SilkRoad**, wybierz pozycję **SilkRoad życia pakietu** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-7. W okienku wyników wybierz **Suite życia SilkRoad**, a następnie kliknij przycisk **Complete** można dodać aplikację.
-   
-    ![Aplikacje][50]
+    ![Pakiet życia SilkRoad na liście wyników](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
-Jest celem tej sekcji opisano, jak skonfigurować i przetestować Azure AD SSO z pakietem życia SilkRoad w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla logowania jednokrotnego do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownikowi pakietu życia SilkRoad użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi pakietu życia SilkRoad musi określone.
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** SilkRoad życia pakietu.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednikiem pakietu życia SilkRoad jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi pakietu życia SilkRoad musi określone.
+
+SilkRoad życia pakietu, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
 Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zestawu życia SilkRoad](#creating-a-silkroad-life-suite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SilkRoad życia pakiet, który jest połączony z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego zestawu życia SilkRoad](#create-a-silkroad-life-suite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SilkRoad życia pakiet, który jest połączony z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-Celem tej sekcji jest do włączenia funkcji logowania jednokrotnego usługi Azure AD w klasycznym portalu Azure i konfigurowania rejestracji Jednokrotnej w SilkRoad życia pakietu aplikacji.
+
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w SilkRoad życia pakietu aplikacji.
 
 **Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, wykonaj następujące czynności:**
 
-1. Logowanie do witryny firmy SilkRoad jako administrator. 
+1. W portalu Azure na **Suite życia SilkRoad** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-  >[!NOTE] 
-  > Aby uzyskać dostęp do aplikacji uwierzytelniania Suite życia SilkRoad Konfigurowanie Federacji przy użyciu usługi Microsoft Azure AD, skontaktuj się z SilkRoad pomocy technicznej lub Twoim przedstawicielem SilkRoad usług.
-  > 
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Przejdź do **usługodawcy**, a następnie kliknij przycisk **szczegóły federacyjnego**. 
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+ 
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_samlbase.png)
+
+3. Na **SilkRoad życia Suite domeny i adres URL** sekcji, wykonaj następujące czynności:
+
+    ![Adresy URL i SilkRoad życia Suite domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
+
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.silkroad-eng.com/Authentication/`
+
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca: 
+    | |
+    |--|
+    | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
+    | `https://<subdomain>.silkroad.com/Authentication/SP` |
+
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca: 
+    | |
+    |--|
+    | `https://<subdomain>.silkroad-eng.com/Authentication/` |
+    | `https://<subdomain>.silkroad.com/Authentication/` |
+     
+    > [!NOTE] 
+    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej SilkRoad życia pakietu klienta](https://www.silkroad.com/locations/) uzyskać te wartości. 
+
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_certificate.png) 
+
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_400.png)
+    
+6. Na **SilkRoad życia pakietu konfiguracji** , kliknij przycisk **skonfigurować pakiet życia SilkRoad** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+
+    ![SilkRoad życia pakietu konfiguracji](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_configure.png) 
+
+7. Logowanie do witryny firmy SilkRoad jako administrator. 
+ 
+    >[!NOTE] 
+    > Aby uzyskać dostęp do aplikacji uwierzytelniania Suite życia SilkRoad Konfigurowanie Federacji przy użyciu usługi Microsoft Azure AD, skontaktuj się z SilkRoad pomocy technicznej lub Twoim przedstawicielem SilkRoad usług.
+
+8. Przejdź do **usługodawcy**, a następnie kliknij przycisk **szczegóły federacyjnego**. 
    
-    ![Azure AD rejestracji jednokrotnej][10] 
+    ![Azure AD rejestracji jednokrotnej][10]
 
-3. Kliknij przycisk **pobierania metadanych Federacji**, a następnie zapisz plik metadanych na tym komputerze.
+9. Kliknij przycisk **pobierania metadanych Federacji**, a następnie zapisz plik metadanych na tym komputerze.
    
     ![Azure AD rejestracji jednokrotnej][11] 
 
-4. W klasycznym portalu Azure na **Suite życia SilkRoad** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][6] 
-
-5. Na **jak chcesz użytkownikom zalogować się do zestawu życia SilkRoad** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
-   
-    ![Azure AD rejestracji jednokrotnej][7] 
-
-6. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Azure AD rejestracji jednokrotnej][8]   
- 1. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania do witryny SilkRoad życia pakietu (np.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).  
- 2. Otwórz pobrany **Silkroad** pliku metadanych. 
- 3. Zlokalizuj **AssertionConsumerService** tag, a następnie skopiuj **lokalizacji** atrybutu.         
-   
-    ![Azure AD rejestracji jednokrotnej][21] 
- 4. Wklej wartości do **adres URL odpowiedzi** pola tekstowego.  
- 5. Kliknij przycisk **Dalej**.
-
-6. Na **skonfigurować logowanie jednokrotne w SilkRoad życia Suite** wykonaj następujące czynności:
-   
-    ![Azure AD rejestracji jednokrotnej][9]  
- 1. Kliknij przycisk Pobierz certyfikat, a następnie zapisz plik na komputerze.  
- 2. Kliknij przycisk **Dalej**.
-
-7. W Twojej **SilkRoad** aplikacji, kliknij przycisk **źródeł uwierzytelniania**.
+10. W Twojej **SilkRoad** aplikacji, kliknij przycisk **źródeł uwierzytelniania**.
    
     ![Azure AD rejestracji jednokrotnej][12] 
 
-8. Kliknij przycisk **Dodawanie uwierzytelniania źródła**. 
+11. Kliknij przycisk **Dodawanie uwierzytelniania źródła**. 
    
     ![Azure AD rejestracji jednokrotnej][13] 
 
-9. W **Dodaj źródło uwierzytelniania** sekcji, wykonaj następujące czynności: 
+12. W **Dodaj źródło uwierzytelniania** sekcji, wykonaj następujące czynności: 
    
-    ![Azure AD rejestracji jednokrotnej][14]  
- 1. W obszarze **opcja 2 — plik metadanych**, kliknij przycisk **Przeglądaj** można przekazać pliku pobranego metadanych.  
- 2. Kliknij przycisk **dostawcy tożsamości utworzyć przy użyciu danych pliku**.
+    ![Azure AD rejestracji jednokrotnej][14]
+  
+    a. W obszarze **opcja 2 — plik metadanych**, kliknij przycisk **Przeglądaj** można przekazać pliku metadanych pobranych z portalu Azure.
+  
+    b. Kliknij przycisk **dostawcy tożsamości utworzyć przy użyciu danych pliku**.
 
-10. W **źródeł uwierzytelniania** kliknij **Edytuj**. 
+13. W **źródeł uwierzytelniania** kliknij **Edytuj**. 
     
      ![Azure AD rejestracji jednokrotnej][15] 
 
-11. Na **Edytuj źródło uwierzytelniania** okna dialogowego, wykonaj następujące czynności: 
+14. Na **Edytuj źródło uwierzytelniania** okna dialogowego, wykonaj następujące czynności: 
     
      ![Azure AD rejestracji jednokrotnej][16] 
- 1. Jako **włączone**, wybierz pozycję **tak**.   
- 2. W **opis IdP** tekstowym, wpisz opis dla danej konfiguracji (np.: *logowania jednokrotnego programu Azure AD*).  
- 3. W **nazwa IdP** tekstowym, wpisz nazwę, która jest specyficzna dla konfiguracji (np.: *Azure SP*).  
- 4. Kliknij pozycję **Zapisz**.
 
-12. Wyłącz wszystkie źródła uwierzytelniania. 
+    a. Jako **włączone**, wybierz pozycję **tak**.
+
+    b. W **EntityId** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
+   
+    c. W **opis IdP** tekstowym, wpisz opis dla danej konfiguracji (na przykład: *logowania jednokrotnego programu Azure AD*).
+
+    d. W **pliku metadanych** pole tekstowe, Przekaż **metadanych** pliku, który został pobrany z portalu Azure.
+  
+    e. W **nazwa IdP** tekstowym, wpisz nazwę, która jest specyficzna dla konfiguracji (na przykład: *Azure SP*).
+  
+    f. W **adres URL wylogowania usługi** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
+
+    g. W **adres URL usługi logowania jednokrotnego w** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+
+    h. Kliknij pozycję **Zapisz**.
+
+15. Wyłącz wszystkie źródła uwierzytelniania. 
     
      ![Azure AD rejestracji jednokrotnej][17]
 
-13. W klasycznym portalu Azure na **pojedynczy znak na potwierdzenie** kliknij przycisk **dalej**.  
-    
-     ![Azure AD rejestracji jednokrotnej][18]
-
-14. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
-    
-     ![Azure AD rejestracji jednokrotnej][19]
+> [!TIP]
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.
 
-![Tworzenie użytkowników usługi Azure AD][20]
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)  
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_01.png)
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_02.png)
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności: 
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
- 1. Jako typ użytkownika wybierz nowego użytkownika w organizacji.  
- 2. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**. 
- 3. Kliknij przycisk **Dalej**.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)  
- 1. W **imię** pole tekstowe, typ **Britta**.    
- 2. W **nazwisko** pole tekstowe, typ **Simona**. 
- 3. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**. 
- 4. W **roli** listy, wybierz **użytkownika**.
- 5. Kliknij przycisk **Dalej**.
+    ![Przycisk Dodaj](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png)
 
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) 
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png)  
- 1. Zanotuj wartość **nowe hasło**. 
- 2. Kliknij przycisk **Complete** (Zakończ).   
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png)
 
+    a. W **nazwa** wpisz **BrittaSimon**.
+
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
+
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+
+    d. Kliknij przycisk **Utwórz**.
+ 
 ### <a name="create-a-silkroad-life-suite-test-user"></a>Tworzenie użytkownika testowego SilkRoad życia pakietu
-Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta SilkRoad życia pakietu. Britta firmy musi mieć identyfikator logowania jednokrotnego (czasami określane jako *AuthParam*), które odpowiadają na Britta **emailaddress** w usłudze Azure AD.
 
-**Aby utworzyć użytkownika o nazwie Simona Britta SilkRoad życia pakietu, wykonaj następujące czynności:**
-
-- Skontaktuj się z zespołem pomocy technicznej SilkRoad życia pakietu można utworzyć użytkownika, takiej jak **identyfikator logowania jednokrotnego** atrybutu taką samą wartość jak **emailaddress** z Simona Britta w usłudze Azure AD.
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta SilkRoad życia pakietu. Praca z [zespołem pomocy technicznej SilkRoad życia pakietu klienta](https://www.silkroad.com/locations/) Aby dodać użytkowników na platformie SilkRoad życia pakietu. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
-Celem tej sekcji jest umożliwienie Simona Britta się za pomocą logowania jednokrotnego Azure przez udostępnienie jej SilkRoad życia pakietu.
 
-![Przypisz użytkownika][200] 
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do zestawu życia SilkRoad.
+
+![Przypisanie roli użytkownika][200] 
 
 **Aby przypisać Simona Britta SilkRoad życia pakietu, wykonaj następujące czynności:**
 
-1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
-   
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+
     ![Przypisz użytkownika][201] 
 
 2. Na liście aplikacji zaznacz **Suite życia SilkRoad**.
-   
-    ![Przypisz użytkownika][202] 
 
-3. W menu u góry kliknij **użytkowników**.
-   
-    ![Przypisz użytkownika][203] 
+    ![Łącze SilkRoad życia pakietu na liście aplikacji](./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_app.png)  
 
-4. Na liście użytkowników wybierz **Simona Britta**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
-   
-    ![Przypisz użytkownika][205]
+    ![Łącze "Użytkownicy i grupy"][202]
 
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+
+    ![W okienku Dodaj przydziału][203]
+
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+    
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.  
+
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
 Po kliknięciu kafelka SilkRoad życia pakietu w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane SilkRoad życia pakietu aplikacji.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
+
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -275,13 +283,13 @@ Po kliknięciu kafelka SilkRoad życia pakietu w panelu dostępu użytkownik pow
 [2]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_01.png
-[50]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_02.png
 
-[6]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_05.png
-[7]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_03.png
-[8]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_04.png
-[9]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_05.png
+[100]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
 [10]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_06.png
 [11]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_07.png
 [12]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_08.png
@@ -290,22 +298,3 @@ Po kliknięciu kafelka SilkRoad życia pakietu w panelu dostępu użytkownik pow
 [15]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_11.png
 [16]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_12.png
 [17]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_13.png
-[18]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_06.png
-[19]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_07.png
-
-
-[20]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_100.png
-[21]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_15.png
-
-
-[200]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_silkroad_14.png
-[203]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
-
-
-
-
-

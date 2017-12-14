@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzy funkcję, która integruje się z usługą Azure Logic Apps
 
@@ -72,28 +72,31 @@ Kognitywnych interfejsów API usługi są dostępne na platformie Azure jako poj
  
     ![Klucze](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Tworzenie funkcji
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Tworzenie aplikacji — funkcja
 
 Funkcje zapewnia to dobry sposób na rozwiązanie odciążania zadań przetwarzania w przepływie pracy aplikacji logiki. W tym samouczku korzysta z funkcji HTTP wyzwalane przetwarzanie wyników wskaźniki nastrojów klientów tweet z kognitywnych usług i zwracać wartość kategorii.  
 
-1. Kliknij przycisk **nowy** i wybrać **obliczeniowe** > **aplikacji funkcji**. Następnie należy użyć ustawienia określone w poniższej tabeli. Zaakceptuj postanowienia, a następnie wybierz **Przypnij do pulpitu nawigacyjnego**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Tworzenie aplikacji Azure — funkcja](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Tworzenie funkcji wyzwalane HTTP  
 
-    | Ustawienie      |  Sugerowana wartość   | Opis       |
-    | --- | --- | --- |
-    | **Nazwa** | MyFunctionApp | Wybierz unikatową nazwę konta. |
-    | **Grupa zasobów** | myResourceGroup | Użyj tej samej grupy zasobów dla wszystkich usług, w tym samouczku.|
-    | **Plan hostingu** | Plan Zużycie | Definiuje z alokacji kosztów i użycia.
-    | **Lokalizacja** | Zachodnie stany USA | Użycie lokalizacji najbliższego. |
-    | **Storage** | Create New (Utwórz nowe) | Automatycznie generuje nowe konto magazynu.|
-    | **Warstwa cenowa** | F0 | Rozpocznij od najniższej warstwy. Po uruchomieniu poza wywołania skalować do wyższego poziomu.|
+1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
 
-2. Wybierz aplikację funkcji z pulpitu nawigacyjnego i rozwiń listę funkcji, kliknij przycisk  **+**  znajdujący się obok **funkcje**, kliknij przycisk **element Webhook i interfejs API**,  **CSharp**, następnie **tworzenia tej funkcji**. Spowoduje to utworzenie funkcji za pomocą szablonu HTTPTrigger C#. Kod zostanie wyświetlony w nowym oknie jako`run.csx`
+    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Funkcja blok aplikacje, funkcje +](media/functions-twitter-email/add_fun.png)
+2. W polu wyszukiwania wpisz `http` , a następnie wybierz **C#** szablonu wyzwalacza HTTP. 
 
-3. Zastąp zawartość `run.csx` pliku następującym kodem, a następnie kliknij przycisk **zapisać**:
+    ![Wybierz wyzwalacza HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Wpisz **nazwa** dla funkcji, wybierz `Function` dla  **[poziom uwierzytelniania](functions-bindings-http-webhook.md#http-auth)**, a następnie wybierz **Utwórz**. 
+
+    ![Tworzenie funkcji wyzwalane HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Spowoduje to utworzenie funkcji skryptu C# przy użyciu szablonu wyzwalacza HTTP. Kod zostanie wyświetlony w nowym oknie jako `run.csx`.
+
+4. Zastąp zawartość `run.csx` pliku następującym kodem, a następnie kliknij przycisk **zapisać**:
 
     ```csharp
     using System.Net;

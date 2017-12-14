@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>WebAPI projektu
 1. W programie Visual Studio Otwórz **AppBackend** projektu, który został utworzony w **Powiadom użytkowników** samouczka.
-2. W Notifications.cs, Zastąp cały **powiadomienia** klasy następującym kodem. Należy zastąpić symbole zastępcze ciąg połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora. Możesz uzyskać te wartości z [klasycznego portalu Azure](http://manage.windowsazure.com). Ten moduł teraz reprezentuje inną bezpieczne powiadomień, które będą wysyłane. W pełnej implementacji powiadomienia będą przechowywane w bazie danych; dla uproszczenia w tym przypadku są przechowywane ich w pamięci.
+2. W Notifications.cs, Zastąp cały **powiadomienia** klasy następującym kodem. Należy zastąpić symbole zastępcze ciąg połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora. Możesz uzyskać te wartości z [portalu Azure](http://portal.azure.com). Ten moduł teraz reprezentuje inną bezpieczne powiadomień, które będą wysyłane. W pełnej implementacji powiadomienia będą przechowywane w bazie danych; dla uproszczenia w tym przypadku są przechowywane ich w pamięci.
    
         public class Notification
         {

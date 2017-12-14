@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Windows Phone Silverlight Engagement SDK Integration
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Jeśli chcesz określić je w czasie wykonywania, należy wywołać metodę nast
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-Ciąg połączenia dla aplikacji jest wyświetlany w klasycznym portalu Azure.
+Ciąg połączenia dla aplikacji jest wyświetlana w portalu Azure.
 
 ### <a name="engagement-initialization"></a>Inicjowania usługi Engagement
 Podczas tworzenia nowego projektu `App.xaml.cs` plik został wygenerowany. Ta klasa dziedziczy `Application` i zawiera wiele metod ważne. Będzie można również używany do inicjowania usługi Engagement SDK.

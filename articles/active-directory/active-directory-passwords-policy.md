@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Ograniczenia w usłudze Azure Active Directory i zasad haseł
 
@@ -97,7 +97,7 @@ W poniższej tabeli opisano ustawienia zasad dostępne hasła, które można zas
 | --- | --- |
 | Znaki są dozwolone |<ul><li>A-Z</li><li>- z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Znaki nie są dozwolone |<ul><li>Znaki Unicode.</li><li>Spacje.</li><li> Silne hasła tylko: nie może zawierać znaku kropki "." bezpośrednio przed "@" symbolu.</li></ul> |
-| Ograniczenia haseł |<ul><li>Co najmniej 8 znaków i maksymalnie 16 znaków.</li><li>Silne hasła tylko: wymaga trzech spośród czterech następujących:<ul><li>Małe litery character.s</li><li>Wielkie litery.</li><li>Cyfry (0 – 9).</li><li>Symbole (patrz poprzednie ograniczeń hasła).</li></ul></li></ul> |
+| Ograniczenia haseł |<ul><li>Co najmniej 8 znaków i maksymalnie 16 znaków.</li><li>Silne hasła tylko: wymaga trzech spośród czterech następujących:<ul><li>Małe litery.</li><li>Wielkie litery.</li><li>Cyfry (0 – 9).</li><li>Symbole (patrz poprzednie ograniczeń hasła).</li></ul></li></ul> |
 | Okres wygasania haseł |<ul><li>Wartość domyślna: **90** dni.</li><li>Wartość jest można skonfigurować przy użyciu `Set-MsolPasswordPolicy` polecenia cmdlet programu Azure Active Directory modułu dla Windows PowerShell.</li></ul> |
 | Powiadomienie o wygaśnięciu hasła |<ul><li>Wartość domyślna: **14** dni (do wygaśnięcia hasła).</li><li>Wartość jest można skonfigurować przy użyciu `Set-MsolPasswordPolicy` polecenia cmdlet.</li></ul> |
 | Wygaśnięcia hasła |<ul><li>Wartość domyślna: **false** dni (wskazuje, że wygaśnięcie hasła jest włączona).</li><li>Wartość można skonfigurować dla poszczególnych kont użytkowników przy użyciu `Set-MsolUser` polecenia cmdlet.</li></ul> |

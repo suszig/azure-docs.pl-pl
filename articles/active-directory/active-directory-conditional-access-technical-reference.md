@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory dostępu warunkowego techniczne | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak za pomocą kontroli dostępu warunkowego w usłudze Azure Active Directory. Określ warunki uwierzytelniania użytkowników i kontrolowanie dostępu do aplikacji. Gdy określone warunki są spełnione, użytkownicy są uwierzytelnieni i uzyskuje dostęp do aplikacji."
+title: "Dokumentacja ustawień dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Omówienie obsługiwanych ustawień w zasadach dostępu warunkowego usługi Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory dostępu warunkowego techniczne
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Informacje dotyczące ustawień dostępu warunkowego w usłudze Azure Active Directory
 
-Można użyć [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) do dopasowania, w jaki sposób autoryzowani użytkownicy mają dostęp do zasobów.   
+Można użyć [dostępu warunkowego w usłudze Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) do kontrolowania sposobu autoryzowani użytkownicy mogą uzyskać dostępu do zasobów.   
 
-Ten artykuł zawiera informacje o pomocy technicznej dla następujące opcje konfiguracji zasad dostępu warunkowego: 
+Ten artykuł zawiera informacje o pomocy technicznej dla opcji konfiguracji zasad dostępu warunkowego: 
 
 - Przydziały aplikacji w chmurze
 
@@ -35,6 +35,7 @@ Ten artykuł zawiera informacje o pomocy technicznej dla następujące opcje kon
 - Wymagania aplikacji zatwierdzonych klienta
 
 
+Jeśli nie jest to informacje, które użytkownik chce się dowiedzieć, zostaw komentarz na końcu tego artykułu.
 
 ## <a name="cloud-apps-assignments"></a>Przydziały aplikacji w chmurze
 

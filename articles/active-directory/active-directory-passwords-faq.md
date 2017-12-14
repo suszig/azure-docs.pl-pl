@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -41,6 +41,11 @@ Często zadawane pytania jest podzielony na następujące sekcje:
 * **Pytanie: czy Moi użytkownicy rejestrowanie własnych danych resetowania hasła?**
 
   > **Odpowiedź:** tak. Tak długo, jak resetowania hasła jest włączona i są one licencjonowane, użytkowników można przejść do portalu rejestracji resetowania haseł (http://aka.ms/ssprsetup) do rejestrowania informacji o ich uwierzytelnianie. Użytkownicy mogą również zarejestrować za pomocą panelu dostępu (http://myapps.microsoft.com). Można zarejestrować za pomocą panelu dostępu, muszą wybrać obraz ich profilu, wybierz **profilu**, a następnie wybierz **zarejestrować do resetowania hasła** opcji.
+  >
+  >
+* **Pytanie: czy włączyć hasła zresetowanie grupy i zdecydować włączyć ją dla wszystkich są moje użytkowników wymagane ponownie zarejestrować?**
+
+  > **Odpowiedź:** Nie. Użytkownicy, którzy mają wypełnione dane uwierzytelniania nie jest konieczne ponowne zarejestrowanie.
   >
   >
 * **Q: czy można zdefiniować dane resetowania hasła w imieniu użytkowników?**

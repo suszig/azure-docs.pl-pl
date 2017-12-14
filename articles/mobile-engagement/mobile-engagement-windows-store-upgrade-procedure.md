@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedury uaktualniania uniwersalnych aplikacji systemu Windows SDK
 Jeśli już jest zintegrowany starszą wersję programu zaangażowania do aplikacji, należy wziąć pod uwagę następujące kwestie, podczas uaktualniania zestawu SDK.
@@ -294,7 +294,7 @@ Jeśli chcesz określić je w czasie wykonywania, należy wywołać metodę nast
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-Ciąg połączenia dla aplikacji jest wyświetlany w klasycznym portalu Azure.
+Ciąg połączenia dla aplikacji jest wyświetlana w portalu Azure.
 
 ### <a name="items-name-change"></a>Zmiana nazwy elementów
 Wszystkie elementy o nazwie *capptain* została nazwana *engagement*. Podobnie dla *Capptain* do *Engagement*.

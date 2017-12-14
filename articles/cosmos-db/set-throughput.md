@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/13/2017
 ms.author: mimig
-ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ba24ee0926928503b3f466405d8651b1dab6fb95
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Ustaw przepustowość dla kontenerów bazy danych Azure rozwiązania Cosmos
 
@@ -36,7 +36,7 @@ W poniższej tabeli wymieniono dostępne dla kontenerów przepływności:
         <tr>
             <td valign="top"><p>Przepustowość minimalna</p></td>
             <td valign="top"><p>400 jednostek żądań na sekundę</p></td>
-            <td valign="top"><p>2500 jednostki żądania na sekundę</p></td>
+            <td valign="top"><p>1000 jednostek żądania na sekundę</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maksymalna przepustowość</p></td>
@@ -51,7 +51,7 @@ W poniższej tabeli wymieniono dostępne dla kontenerów przepływności:
 1. Otwórz w nowym oknie, [portalu Azure](https://portal.azure.com).
 2. Na pasku po lewej stronie kliknij **bazy danych Azure rozwiązania Cosmos**, lub kliknij przycisk **więcej usług** u dołu, następnie przewiń do **baz danych**, a następnie kliknij przycisk **bazy danych Azure rozwiązania Cosmos**.
 3. Wybierz konto DB rozwiązania Cosmos.
-4. W nowym oknie kliknij **Eksploratora danych (wersja zapoznawcza)** w menu nawigacji.
+4. W nowym oknie kliknij **Eksploratora danych** w menu nawigacji.
 5. W nowym oknie, rozwiń węzeł bazy danych i kontener, a następnie kliknij przycisk **& Ustawienia skalowania**.
 6. W nowym oknie, wpisz nową wartość przepływności w **przepływności** , a następnie kliknij przycisk **zapisać**.
 
@@ -60,7 +60,7 @@ W poniższej tabeli wymieniono dostępne dla kontenerów przepływności:
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Aby ustawić przepływność przy użyciu interfejsu API SQL dla platformy .NET
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -69,7 +69,7 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
@@ -77,7 +77,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Można ustawić Moje przepływności na mniej niż 400 RU/s?**
 
-400 RU/s jest minimalna przepływność dostępne na kolekcje z jedną partycją DB rozwiązania Cosmos (minimum dla kolekcji partycjonowanych to 2500 RU/s). Żądanie jednostki są ustawiane w 100 RU/s odstępach czasu, ale przepływności nie można ustawić na 100 RU/s lub dowolną wartość mniejszą niż 400 RU/s. Jeśli szukasz ekonomiczne metody umożliwiające opracowanie i przetestowanie rozwiązania Cosmos DB mogą korzystać z BEZPŁATNEJ [Azure rozwiązania Cosmos DB emulatora](local-emulator.md), które można wdrożyć lokalnie bez ponoszenia kosztów. 
+400 RU/s jest minimalna przepływność DB rozwiązania Cosmos kontenerów jednej partycji (minimum dla kontenerów podzielonym na partycje jest 1000 RU/s). Żądanie jednostki są ustawiane w 100 RU/s odstępach czasu, ale przepływności nie można ustawić na 100 RU/s lub dowolną wartość mniejszą niż 400 RU/s. Jeśli szukasz ekonomiczne metody umożliwiające opracowanie i przetestowanie rozwiązania Cosmos DB mogą korzystać z BEZPŁATNEJ [Azure rozwiązania Cosmos DB emulatora](local-emulator.md), które można wdrożyć lokalnie bez ponoszenia kosztów. 
 
 **Jak ustawić througput przy użyciu interfejsu API bazy danych MongoDB?**
 

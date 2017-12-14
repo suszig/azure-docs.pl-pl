@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Zestawach skali maszyny wirtualnej platformy Azure — często zadawane pytania
 
@@ -219,7 +219,7 @@ Klucze publiczne SSH w postaci zwykłego tekstu można podać podczas tworzenia 
 Nazwa elementu linuxConfiguration | Wymagane | Typ | Opis
 --- | --- | --- | --- |  ---
 SSH | Nie | Collection | Określa konfigurację kluczy SSH w systemie operacyjnym Linux
-Ścieżka | Tak | Ciąg | Określa ścieżkę pliku Linux, gdzie kluczy SSH lub certyfikat powinien być zlokalizowany
+ścieżka | Tak | Ciąg | Określa ścieżkę pliku Linux, gdzie kluczy SSH lub certyfikat powinien być zlokalizowany
 Kontenerem | Tak | Ciąg | Określa klucz publiczny SSH algorytmem Base64
 
 Na przykład zobacz [szablonów szybki start GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -291,7 +291,7 @@ Ten problem nie wystąpić w trakcie skalowania, ponieważ nie istnieje w pamię
  
 Dokumentacja usługi Azure Key Vault stany, Pobierz klucz tajny interfejsu API REST powinien zwrócić najnowszą wersję klucza tajnego, jeśli nie określono wersji.
  
-Metoda | ADRES URL
+Metoda | Adres URL
 --- | ---
 POBIERZ | https://mykeyvault.Vault.Azure.NET/secrets/ {klucz tajny name} / {klucz tajny version}? api-version = {wersja interfejsu api}
 
@@ -369,7 +369,13 @@ Aby dowiedzieć się więcej na temat sekwencjonowania rozszerzenia w zestawy sk
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Sposób resetowania hasła dla maszyn wirtualnych w zestawu skali maszyny wirtualnej
 
-Aby zresetować hasło dla maszyn wirtualnych do zestawu skalowania maszyny wirtualnej, użyj rozszerzenia dostępu do maszyny Wirtualnej. 
+Istnieją dwa sposoby zmiany hasła dla maszyn wirtualnych w zestawach skali.
+
+1. Zmień VMSS model bezpośrednio. Dostępne z obliczeniowe interfejsu API 2017-12-01 lub nowszy.
+
+Zaktualizuj poświadczenia administratora bezpośrednio w modelu zestawu skali (na przykład za pomocą Eksploratora zasobów Azure, programu PowerShell lub interfejsu wiersza polecenia). Po zestaw skalowania jest zaktualizowane, wszystkie nowe maszyny wirtualne będą miały nowe poświadczenia. Istniejące maszyny wirtualne będzie miał tylko nowe poświadczenia, jeśli ich są odtworzyć z obrazu. 
+
+2. Resetowanie hasła przy użyciu rozszerzenia dostępu do maszyny Wirtualnej.
 
 Użyj poniższego przykładu z programu PowerShell:
 

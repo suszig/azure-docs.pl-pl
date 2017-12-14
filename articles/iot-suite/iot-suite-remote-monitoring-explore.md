@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Poznaj możliwości zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -101,11 +101,11 @@ Uprawnienia operatora można są wyświetlane na pulpicie nawigacyjnym alarmu do
 
 1. Zamknij **szczegółów urządzenia**.
 
-1. Aby przejść do **konserwacji** kliknij przycisk **...**  w **Eksploruj Alarm** kolumnę obok alarmowych w siatce alarm.
+1. Aby przejść do **konserwacji** wybierz pozycję **konserwacji** w menu nawigacji.
 
 Na **konserwacji** strony, można wyświetlić szczegóły reguły, która wyzwoliła Chłodnica alarm wykorzystania.
 
-1. Widać, ile razy wyzwolił alarmu, potwierdzenia i alarmy otwarte i zamknięte:
+1. Na liście powiadomień pokazuje, ile razy wyzwolił alarmu, potwierdzenia i alarmy otwarte i zamknięte:
 
     ![Strona konserwacji listą alarmów, które ma być wywołany](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Możesz teraz zidentyfikować problem, która wyzwoliła alarm i skojarzone urz�
 
     ![Wybierz urządzenie i Zaplanuj akcji](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Aby wyświetlić stan zadania, wróć do **konserwacji** i Wyświetl listę zadań w **stan systemu** widoku. Można zauważyć, że zadanie zostało uruchomione zwolnienia zawór nacisku Chłodnica:
+1. Aby wyświetlić stan zadania, wróć do **konserwacji** i Wyświetl listę zadań w **zadania** widoku. Można zauważyć, że zadanie zostało uruchomione zwolnienia zawór nacisku Chłodnica:
 
-    ![Stan zadań w stan systemu](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![Stan zadania w widoku zadania](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Na koniec Potwierdź wartości danych telemetrycznych z Chłodnica na normalne.
 
@@ -159,7 +159,7 @@ Aby wykonywać zadania zarządzania niezbędne urządzenia, należy użyć **urz
     ![Planowanie aktualizacji oprogramowania układowego na urządzeniu](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Z symulowanego urządzenia można użyć dowolnego adresu URL jako, takich jak **Firemware URI** wartość. Symulowane urządzeń nie dostępu do adresu URL.
+    > Z symulowanego urządzenia można użyć dowolnego adresu URL jako, takich jak **URI oprogramowania układowego** wartość. Symulowane urządzeń nie dostępu do adresu URL.
 
 1. Należy pamiętać, ile urządzeń ma wpływ na zadania i wybierz polecenie **Zastosuj**:
 
@@ -167,13 +167,13 @@ Aby wykonywać zadania zarządzania niezbędne urządzenia, należy użyć **urz
 
 Można użyć **konserwacji** stronę, aby śledzić zadania, jak to działa.
 
-1. Aby wyświetlić listę zadań, przejdź do **konserwacji** i kliknij przycisk **stan systemu**.
+1. Aby wyświetlić listę zadań, przejdź do **konserwacji** i kliknij przycisk **zadania**.
 
 1. Znajdź zdarzenie związane z zadania, który został utworzony. Upewnij się, że proces aktualizacji oprogramowania układowego zostało poprawnie zainicjowane.
 
-Można utworzyć filtr, aby sprawdzić wersję aktualizacji oprogramowania układowego poprawnie.
+Można utworzyć filtr, aby sprawdzić, wersja oprogramowania układowego poprawnie aktualizowany.
 
-1. Aby utworzyć filtr, przejdź do **urządzeń** i wybrać opcję **Zarządzaj**:
+1. Aby utworzyć filtr, przejdź do **urządzeń** i wybrać opcję **Zarządzanie filtrami**:
 
     ![Zarządzanie filtrami urządzenia](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Można utworzyć nazwy tagów do użycia z urządzeń.
 
     ![Wybierz urządzenia prototypu i ciężarówka](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Wybierz **Tag** , a następnie utwórz nowy znacznik ciągu o nazwie **FieldService** z wartością **ConnectedVehicle**. Wybierz nazwę dla zadania. Następnie kliknij przycisk **Zastosuj**:
+1. Wybierz **Tag** , a następnie utwórz nowy znacznik tekst o nazwie **FieldService** z wartością **ConnectedVehicle**. Wybierz nazwę dla zadania. Następnie kliknij przycisk **Zastosuj**:
 
     ![Dodaj tag prototypu i ciężarówka urządzeń](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Można utworzyć nazwy tagów do użycia z urządzeń.
 
     ![Wybierz urządzenia chłodnica, aparatu i krótka](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Wybierz **Tag** , a następnie utwórz nowy znacznik o nazwie **FieldService** z wartością **SmartBuilding**. Wybierz nazwę dla zadania. Następnie kliknij przycisk **zapisać**:
+1. Wybierz **Tag** , a następnie utwórz nowy znacznik tekst o nazwie **FieldService** z wartością **SmartBuilding**. Wybierz nazwę dla zadania. Następnie kliknij przycisk **zapisać**:
 
     ![Dodaj tag chłodnica, aparatu i krótka urządzeń](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Utwórz definicję OpenAPI dla funkcji
 Przy użyciu definicji OpenAPI często opisano interfejsów API REST (wcześniej znane jako [Swagger](http://swagger.io/) pliku). Ta definicja zawiera informacje, jakie operacje są dostępne w interfejsie API i struktury danych żądań i odpowiedzi dla interfejsu API.
@@ -48,9 +48,17 @@ Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Funkcja umożl
 
 W tym samouczku korzysta z funkcji wyzwalane HTTP, który przyjmuje dwa parametry: szacowany czas na dokonanie turbiny napraw (w godzinach); i pojemność turbiny (w kilowatach). Następnie oblicza ilość naprawy koszt, oraz przychodów turbiny można utworzyć w okresie 24 godzin.
 
-1. Rozwiń funkcji aplikacji, kliknij przycisk  **+**  znajdujący się obok **funkcje**, kliknij przycisk **HTTPTrigger** szablonu. Wprowadź `TurbineRepair` dla funkcji **nazwa** i kliknij przycisk **Utwórz**.
+1. Rozwiń aplikacji funkcji i wybierz  **+**  znajdujący się obok **funkcji**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji. 
 
-    ![Funkcja blok aplikacje, funkcje +](media/functions-openapi-definition/add-function.png)
+    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](media/functions-openapi-definition/add-first-function.png)
+
+2. W polu wyszukiwania wpisz `http` , a następnie wybierz **C#** szablonu wyzwalacza HTTP. 
+ 
+    ![Wybierz wyzwalacza HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Typ `TurbineRepair` dla funkcji **nazwa**, wybierz `Function` dla  **[poziom uwierzytelniania](functions-bindings-http-webhook.md#http-auth)**, a następnie wybierz **Utwórz**.  
+
+    ![Tworzenie funkcji wyzwalane HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Zastąp zawartość pliku run.csx następującym kodem, a następnie kliknij przycisk **zapisać**:
 

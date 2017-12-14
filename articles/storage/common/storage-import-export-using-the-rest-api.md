@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure Import/Export
 
-Usługa Import/Eksport Microsoft Azure udostępnia interfejs API REST umożliwiające sterowanie programowe zadań importu i eksportu. Służy do wykonywania operacji importu/eksportu, które można wykonać za pomocą interfejsu API REST [portalu Azure](https://portal.azure.com/). Ponadto można użyć interfejsu API REST wykonywania pewnych operacji szczegółowych, takich jak badania procent zakończenia zadania, która nie jest obecnie dostępna w klasycznym portalu Azure.
+Usługa Import/Eksport Microsoft Azure udostępnia interfejs API REST umożliwiające sterowanie programowe zadań importu i eksportu. Służy do wykonywania operacji importu/eksportu, które można wykonać za pomocą interfejsu API REST [portalu Azure](https://portal.azure.com/). Ponadto można użyć interfejsu API REST wykonywania pewnych operacji szczegółowych, takich jak badania procent zakończenia zadania, która nie jest obecnie dostępna w portalu Azure.
 
-Zobacz [za pomocą usługi Import/Eksport Microsoft Azure przesyłanie danych do magazynu obiektów Blob](../storage-import-export-service.md) Omówienie usługi Import/Eksport i samouczek, który demonstruje sposób tworzenia i zarządzania importowanie i eksportowanie zadań za pomocą portalu klasycznego.
+Zobacz [za pomocą usługi Import/Eksport Microsoft Azure przesyłanie danych do magazynu obiektów Blob](../storage-import-export-service.md) omówienie samouczek, który demonstruje sposób tworzenia i zarządzania importowanie i eksportowanie zadań za pomocą portalu i usługi Import/Eksport.
 
 ## <a name="service-endpoints"></a>Punkty końcowe usługi
 

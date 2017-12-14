@@ -4,7 +4,7 @@ description: "Dowiedz się, jak otworzyć port / utworzyć punktu końcowego mas
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
@@ -12,23 +12,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d176187fe465264b5f433260de5178b48ca9dd4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Otwórz porty i punktów końcowych do maszyny Wirtualnej systemu Linux z wiersza polecenia platformy Azure
 Otwarcie portu lub utworzyć punkt końcowy z maszyną wirtualną (VM) na platformie Azure, tworząc filtr sieci w podsieci lub interfejsu sieciowego maszyny Wirtualnej. Te filtry, które kontrolują ruchu przychodzącego i wychodzącego, można umieścić na grupę zabezpieczeń sieci dołączony do tego zasobu, który odbiera ruch. Użyjmy typowym przykładem ruchu w sieci web na porcie 80. W tym artykule przedstawiono sposób Otwórz port do maszyny Wirtualnej z 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](nsg-quickstart-nodejs.md).
 
-
-## <a name="quick-commands"></a>Szybkie polecenia
 Można utworzyć grupy zabezpieczeń sieci i zasad należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login).
 
 W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *myNetworkSecurityGroup*, i *myVnet*.
 
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Szybko otwarcie portu dla maszyny Wirtualnej
+Jeśli chcesz szybko otwarcie portu dla maszyny Wirtualnej w scenariuszu: tworzenie i testowanie, można użyć [port Otwórz az maszyny wirtualnej](/cli/azure/vm#az_vm_open_port) polecenia. To polecenie tworzy sieciową grupę zabezpieczeń, dodaje regułę i stosuje je do maszyny Wirtualnej lub podsieci. Poniższy przykład powoduje otwarcie portu *80* na Maszynie wirtualnej o nazwie *myVM* w grupie zasobów o nazwie *myResourceGroup*.
+
+```azure-cli
+az vm open-port --resource-group myResourceGroup --name myVM --port 80
+```
+
+Kontynuuj dodatkowe kroki opisane w tym artykule uzyskać większą kontrolę nad reguły, takie jak definiowanie źródłowego zakresu adresów IP.
+
+
+## <a name="create-a-network-security-group-and-rules"></a>Utwórz grupę zabezpieczeń sieci i reguł
 Utwórz grupę zabezpieczeń sieci z [utworzyć nsg sieci az](/cli/azure/network/nsg#create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup* w *eastus* lokalizacji:
 
 ```azurecli
@@ -50,6 +60,8 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
+
+## <a name="apply-network-security-group-to-vm"></a>Zastosowanie grupy zabezpieczeń sieci do maszyny Wirtualnej
 Skojarzenia sieciowej grupy zabezpieczeń z maszyny Wirtualnej interfejsu sieciowego (NIC) z [aktualizacji kart sieciowych az](/cli/azure/network/nic#update). Poniższy przykład powoduje skojarzenie istniejącej karty NIC o nazwie *myNic* z sieciową grupą zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```azurecli

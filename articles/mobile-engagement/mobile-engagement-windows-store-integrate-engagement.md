@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Integracja zestawu SDK zaangażowania uniwersalnych aplikacji systemu Windows
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Jeśli chcesz określić je w czasie wykonywania, należy wywołać metodę nast
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-Ciąg połączenia dla aplikacji jest wyświetlany w klasycznym portalu Azure.
+Ciąg połączenia dla aplikacji jest wyświetlana w portalu Azure.
 
 ### <a name="engagement-initialization"></a>Inicjowania usługi Engagement
 Podczas tworzenia nowego projektu `App.xaml.cs` plik został wygenerowany. Ta klasa dziedziczy `Application` i zawiera wiele metod ważne. Będzie można również używany do inicjowania usługi Engagement SDK.

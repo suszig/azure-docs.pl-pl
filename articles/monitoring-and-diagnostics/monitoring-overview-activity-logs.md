@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorowanie aktywności subskrypcji z dziennika aktywności platformy Azure
 **Dziennika aktywności platformy Azure** jest Dziennik subskrypcji, która zapewnia wgląd w zdarzenia na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym zakresie danych z usługi Azure Resource Manager danych operacyjnych do aktualizacji na zdarzenia kondycji usługi. Dziennik aktywności była wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki", ponieważ zdarzenia płaszczyzny kontroli Raporty Kategoria administracyjna dla subskrypcji. Korzystając z dziennika aktywności, można określić ", co, która i kiedy" dla żadnego zapisu (PUT, POST, DELETE) podejmowaną w odniesieniu do zasobów w ramach subskrypcji. Można także zrozumienie stanu operacji i inne odpowiednie właściwości. Dziennik nie zawiera operacje odczytu (GET) lub operacji dla zasobów korzystających z klasycznego / modelu "RDFE".
@@ -33,7 +33,7 @@ Można pobrać zdarzenia z dziennika aktywności przy użyciu portalu Azure, int
 
 
 > [!WARNING]
-> Dziennik aktywności platformy Azure jest przeznaczone głównie dla działania wykonywane w usłudze Azure Resource Manager. Nie śledzi zasobów przy użyciu modelu klasycznego/frontonu REDDOG. Niektóre typy zasobów Classic ma dostawcy zasobów serwera proxy w usłudze Azure Resource Manager (na przykład obszar Microsoft.ClassicCompute). Jeśli w interakcję z typem zasobu Classic za pośrednictwem usługi Azure Resource Manager przy użyciu tych dostawców zasobów serwera proxy, operacje pojawiają się w dzienniku aktywności. Jeśli w interakcję z typem zasobu klasycznej w klasycznym portalu lub w inny sposób poza serwerów proxy usługi Azure Resource Manager, czynności użytkownika tylko są rejestrowane w dzienniku operacji. Dziennik operacji można przeglądać w oddzielnym części portalu.
+> Dziennik aktywności platformy Azure jest przeznaczone głównie dla działania wykonywane w usłudze Azure Resource Manager. Nie śledzi zasobów przy użyciu modelu klasycznego/frontonu REDDOG. Niektóre typy zasobów Classic ma dostawcy zasobów serwera proxy w usłudze Azure Resource Manager (na przykład obszar Microsoft.ClassicCompute). Jeśli w interakcję z typem zasobu Classic za pośrednictwem usługi Azure Resource Manager przy użyciu tych dostawców zasobów serwera proxy, operacje pojawiają się w dzienniku aktywności. Jeśli w interakcję z typem zasobu Classic poza serwerów proxy usługi Azure Resource Manager, czynności użytkownika tylko są rejestrowane w dzienniku operacji. Dziennik operacji można przeglądać w oddzielnym części portalu.
 >
 >
 
@@ -172,7 +172,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | serviceBusRuleId |Nie |Identyfikator reguły magistrali usługi chcesz mieć centra zdarzeń utworzonych w przestrzeni nazw usługi Service Bus. Ciąg w formacie: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Lokalizacje |Tak |Rozdzielana przecinkami lista regionów, dla których chcesz zbierać zdarzenia dziennika aktywności. |
 | retentionInDays |Tak |Liczba dni dla zdarzenia, które mają być przechowywane, od 1 do 2147483647. Wartość zero przechowuje dzienniki w nieskończoność (zawsze). |
-| Kategorie |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które powinny być zbierane. Możliwe wartości to zapisu, usuwania i akcji. |
+| kategorie |Nie |Rozdzielana przecinkami lista kategorii zdarzeń, które powinny być zbierane. Możliwe wartości to zapisu, usuwania i akcji. |
 
 #### <a name="remove-a-log-profile"></a>Usuń profil dziennika
 ```

@@ -3,7 +3,7 @@ title: Kompilowanie konfiguracji DSC automatyzacji Azure | Dokumentacja firmy Mi
 description: "W tym artykule opisano, jak skompilować konfiguracje konfiguracji żądanego stanu (DSC) dla usługi Automatyzacja Azure."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilowanie konfiguracji DSC automatyzacji Azure
 
-Konfiguracje konfiguracji żądanego stanu (DSC) na dwa sposoby automatyzacji Azure można kompilować: w portalu Azure i przy użyciu programu Windows PowerShell. Poniższa tabela pomoże określić, kiedy należy używać które metody w zależności od właściwości każdej:
+Konfiguracje konfiguracji żądanego stanu (DSC) na dwa sposoby automatyzacji Azure można kompilować: w portalu Azure i przy użyciu programu Windows PowerShell. Poniższa tabela ułatwia określenie, kiedy należy używać które metody w zależności od właściwości każdej:
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -47,7 +47,7 @@ Po podjęciu decyzji dotyczącej Metoda kompilacji, można użyć odpowiednich p
 1. Twoje konto usługi Automatyzacja kliknij **konfiguracji DSC**.
 2. Kliknij pozycję Konfiguracja, aby otworzyć jego blok.
 3. Kliknij przycisk **skompilować**.
-4. Jeśli konfiguracja nie ma parametrów, pojawi się monit o potwierdzenie, czy chcesz go skompilować. Jeśli konfiguracja ma parametry, **skompilować konfiguracji** zostanie otwarty blok, więc można podać wartości parametrów. Zobacz [ **podstawowe parametry** ](#basic-parameters) sekcji poniżej, aby uzyskać więcej informacji o parametrach.
+4. Jeśli konfiguracja nie ma parametrów, monit o potwierdzenie, czy chcesz go skompilować. Jeśli konfiguracja ma parametry, **skompilować konfiguracji** zostanie otwarty blok, więc można podać wartości parametrów. Zobacz [ **podstawowe parametry** ](#basic-parameters) sekcji poniżej, aby uzyskać więcej informacji o parametrach.
 5. **Zadania kompilacji** bloku jest otwarty, dzięki czemu można śledzić stan zadania kompilacji i konfiguracje węzłów (MOF konfiguracji dokumenty) powodowała ona być umieszczone na serwerze ściągania usługi Konfiguracja DSC automatyzacji Azure.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Kompilowanie konfiguracji DSC, przy użyciu programu Windows PowerShell
@@ -131,16 +131,16 @@ Aby dowiedzieć się, jak przekazywanie PSCredentials jako parametrów, zobacz <
 
 ## <a name="composite-resources"></a>Złożone zasobów
 
-**Złożone zasobów** umożliwiają używanie konfiguracji DSC jako zagnieżdżonych zasobów w ramach konfiguracji.  Dzięki temu można zastosować konfiguracji z wieloma do pojedynczego zasobu.  Zobacz [zasobów złożonego: przy użyciu konfiguracji DSC jako zasób](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Aby dowiedzieć się więcej o **złożonego zasobów**
+**Złożone zasobów** umożliwiają używanie konfiguracji DSC jako zagnieżdżonych zasobów w ramach konfiguracji. Dzięki temu można zastosować konfiguracji z wieloma do pojedynczego zasobu.  Zobacz [zasobów złożonego: przy użyciu konfiguracji DSC jako zasób](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) Aby dowiedzieć się więcej o **złożonego zasobów**
 
 > [!NOTE]
 > Aby **złożonego zasobów** skompilować poprawnie, należy najpierw upewnić czy wszystkie zasoby DSC, które złożone opiera się na pierwszej instalacji w repozytorium modułów konto usługi Automatyzacja Azure lub nie zostanie prawidłowo zaimportować.
 
-Aby dodać DSC **złożonego zasobów**, należy dodać moduł zasobów do archiwum (* .zip). Przejdź do repozytorium modułów na Twoje konto usługi Automatyzacja Azure.  Kliknij przycisk "Dodaj moduł".
+Aby dodać DSC **złożonego zasobów**, należy dodać moduł zasobów do archiwum (* .zip). Przejdź do repozytorium modułów na Twoje konto usługi Automatyzacja Azure. Kliknij przycisk "Dodaj moduł".
 
 ![Dodaj moduł](./media/automation-dsc-compile/add_module.png)
 
-Przejdź do katalogu, w którym znajduje się archiwum.  Wybierz plik archiwum, a następnie kliknij przycisk OK.
+Przejdź do katalogu, w którym znajduje się archiwum. Wybierz plik archiwum, a następnie kliknij przycisk OK.
 
 ![Wybierz moduł](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importowanie konfiguracji węzła
 
-Możesz również zaimportować configuratons węzła (za), który ma być kompilowana poza platformą Azure. Jedną z zalet tego jest konfiguracje węzłów może być podpisana.
+Możesz również zaimportować konfiguracje węzłów (za), które ma być kompilowana poza platformą Azure. Jedną z zalet tego jest konfiguracje węzłów może być podpisana.
 Konfiguracja węzła podpisem jest weryfikowany lokalnie w węźle zarządzanym przez agenta DSC, zapewniając, że konfiguracji są stosowane do węzeł pochodzi z autoryzowanego źródła.
 
 > [!NOTE]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 85ea328bdea1aad28765712e3639f6719deab7e2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Przegląd zabezpieczeń zarządzania tożsamość platformy Azure
 Pomocy firmy Microsoft tożsamościami i dostępem zarządzania rozwiązań IT ochrony dostępu do aplikacji i zasobów w firmowym centrum danych i w chmurze, włączanie dodatkowe poziomy sprawdzania poprawności, takich jak uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Monitorowania podejrzanych działań przez zaawansowane zabezpieczenia raportowania, inspekcji i alerty, pomaga ograniczyć potencjalne problemy. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) zapewnia jednokrotnego do tysięcy chmury aplikacji (SaaS) i dostęp do aplikacji sieci web, możesz uruchomić lokalnie.
@@ -81,7 +81,7 @@ Więcej informacji:
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorowanie zabezpieczeń, alertów i raportów na podstawie learning maszyny
 Monitorowanie zabezpieczeń i alertów i machine learning raportów na podstawie identyfikujące niespójne wzorce dostępu ułatwia ochronę firmy. Dostęp do usługi Azure Active Directory i raporty użycia umożliwia wgląd we integralności i bezpieczeństwa katalogu organizacji. Dzięki tym informacjom administratora katalogu można lepiej określić, gdzie może znajdować się możliwe zagrożenia bezpieczeństwa, tak aby ich odpowiednio zaplanować ich eliminowania.
 
-W klasycznym portalu Azure raporty są podzielone na następujące sposoby:
+W portalu Azure raporty są podzielone na następujące sposoby:
 
 * Raporty anomalii — zawiera zdarzenia znajdujące się nietypowe logowania. Naszym celem jest uświadomić możesz takiego działania i umożliwiają mieć możliwość określenia, czy jest podejrzane zdarzenia.
 * Raporty aplikacji zintegrowanego — wgląd w sposób aplikacji w chmurze są używane w organizacji. Usługa Azure Active Directory oferuje integrację z tysiącami aplikacji w chmurze.

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -113,7 +113,7 @@ Niestety jest nie łatwe poprawkę na tym typie. Należy wykonać następujące 
    - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
    - Pobierz https://aka.ms/azureml-wb-msi Instalatora i zainstaluj ponownie.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Zostać zablokowane na ekranie "Sprawdzanie konta eksperymenty" po zalogowaniu
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Zablokowana na ekranie "Sprawdzanie konta eksperymenty" po zalogowaniu
 Po zalogowaniu aplikacji Workbench może zatrzymywane w pusty ekran z komunikatem "Sprawdzanie eksperymenty konto" kółkiem Obracająca przedstawiający. Aby rozwiązać ten problem, wykonaj następujące czynności:
 1. Zamknięcie aplikacji
 2. Usunąć następujący plik:
@@ -147,6 +147,13 @@ Jeśli masz twórców spadek 10 usługi Windows Update, a projektu jest tworzony
 
 ## <a name="file-name-too-long-on-windows"></a>Nazwa pliku zbyt długo w systemie Windows
 Jeśli używasz narzędzia Workbench w systemie Windows może działać na domyślny limit długości nazwy maksymalną pliku 260 znaków, które można powierzchni jako błąd "system nie może odnaleźć określonej ścieżki". Można zmodyfikować ustawienie klucza rejestru, aby umożliwić znacznie dłużej nazwa ścieżki pliku. Przegląd [w tym artykule](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) Aby uzyskać więcej informacji na temat ustawiania _MAX_PATH_ klucza rejestru.
+
+## <a name="interrupt-cli-execution-output"></a>Przerwanie dane wyjściowe wykonania interfejsu wiersza polecenia
+Jeśli należy rozpocząć poza eksperymenty uruchomić przy użyciu `az ml experiment submit` lub `az ml notebook start` i chcesz przerwać dane wyjściowe: 
+- W systemie Windows, użyj kombinacji klawiszy Ctrl-Break z klawiatury
+- Na macOS użyj klawiszy Ctrl-C.
+
+Należy pamiętać, to tylko przerwań strumienia wyjściowego w oknie interfejsu wiersza polecenia. Nie faktycznie Zatrzymuje zadanie, które jest wykonywana. Aby anulować bieżące zadanie, należy użyć `az ml experiment cancel -r <run_id> -t <target name>` polecenia.
 
 ## <a name="docker-error-read-connection-refused"></a>Błąd docker "do odczytu: połączenie zostało odrzucone"
 Podczas wykonywania przed lokalnego kontenera Docker, czasami może pojawić następujący błąd: 

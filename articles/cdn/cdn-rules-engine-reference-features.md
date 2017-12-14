@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Zasady usługi Azure CDN aparat funkcji
 W tym artykule przedstawiono szczegółowe opisy funkcji dostępnych dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Nazwa | Przeznaczenie
 [Parametry przepustowości](#bandwidth-parameters) | Określa, czy parametry ograniczania przepustowości (na przykład ec_rate i ec_prebuf) są aktywne.
 [Ograniczanie przepustowości](#bandwidth-throttling) | Ogranicza przepustowość dla odpowiedzi udostępniane przez serwery krawędzi.
 [Pomiń pamięć podręczną](#bypass-cache) | Określa, czy żądanie należy pominąć buforowanie.
-[Traktowanie nagłówek Cache-Control](#cache-control-header-treatment) | Kontroluje Generowanie nagłówki Cache-Control przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
+[Traktowanie nagłówek Cache-Control](#cache-control-header-treatment) | Kontroluje Generowanie `Cache-Control` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
 [Ciąg zapytania klucz pamięci podręcznej](#cache-key-query-string) | Określa, czy klucz pamięci podręcznej zostaną dołączone lub wykluczone parametrów ciągu zapytania skojarzonego z żądaniem.
 [Napisz ponownie klucz pamięci podręcznej](#cache-key-rewrite) | Ponownie zapisuje klucz pamięci podręcznej skojarzonej z żądaniem.
 [Zakończenie wypełnienie pamięci podręcznej](#complete-cache-fill) | Określa, co się stanie, gdy żądanie powoduje Chybienie pamięci podręcznej częściowe na serwer graniczny.
 [Kompresuj typów plików](#compress-file-types) | Definiuje formatów plików, które będą kompresowane na serwerze.
 [Max-Age wewnętrzny domyślne](#default-internal-max-age) | Określa domyślny interwał maksymalny wiek serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
-[Wygasa traktowania nagłówka](#expires-header-treatment) | Kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywna.
+[Wygasa traktowania nagłówka](#expires-header-treatment) | Kontroluje Generowanie `Expires` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
 [Max-Age zewnętrznych](#external-max-age) | Określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi.
 [Wymuszanie wewnętrznych Max-Age.](#force-internal-max-age) | Określa maksymalny wiek interwał serwer graniczny do ponowna Walidacja buforu serwera pochodzenia.
 [Obsługa H.264 (pobierania progresywnego HTTP)](#h264-support-http-progressive-download) | Określa typy H.264 formatów plików, które mogą służyć do strumieniowego przesyłania zawartości.
@@ -162,7 +162,7 @@ Nazwa | Przeznaczenie
 -----|--------
 [Metody HTTP buforowalnej](#cacheable-http-methods) | Określa zestaw dodatkowych metod HTTP, które mogą być buforowane w sieci.
 [Rozmiar treści żądania buforowalnej](#cacheable-request-body-size) | Określa próg do określenia, czy odpowiedź POST mogą być buforowane.
-[Zmienna użytkownika](#user-variable) | Używane primarity ze skryptami Lua.
+[Zmienna użytkownika](#user-variable) | Tylko do użytku wewnętrznego.
 
  
 ## <a name="url-features"></a>Adres URL funkcji
@@ -181,7 +181,7 @@ Nazwa | Przeznaczenie
 
 ---
 ### <a name="age-response-header"></a>Nagłówek odpowiedzi wieku
-**Cel**: Określa, czy nagłówek odpowiedzi wieku zostaną uwzględnione w odpowiedzi wysyłane do zleceniodawcy.
+**Cel**: Określa, czy nagłówek odpowiedzi wieku są uwzględniane w odpowiedzi wysyłane do zleceniodawcy.
 Wartość|Wynik
 --|--
 Enabled (Włączony) | Nagłówek odpowiedzi wieku znajduje się w odpowiedzi wysyłane do zleceniodawcy.
@@ -295,10 +295,10 @@ Najprostszym sposobem uzyskania tego typu konfiguracji jest można umieścić w 
 
 Wartość|Wynik
 --|--
-Zastąp|Zapewnia, że są wykonywane następujące akcje:<br/> -Zastępuje nagłówek Cache-Control generowane przez serwer pochodzenia. <br/>-Dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
+Zastąp|Zapewnia, że są wykonywane następujące akcje:<br/> -Zastępuje `Cache-Control` nagłówka wygenerowane przez serwer pochodzenia. <br/>-Dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
 Przekazuj|Zapewnia, że `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age nigdy nie zostanie dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia `Cache-Control` nagłówka, przechodzą przez użytkownika końcowego. <br/> Jeśli na serwerze źródłowym nie tworzy `Cache-Control` nagłówek, a następnie ta opcja może spowodować nagłówek odpowiedzi nie będzie zawierał `Cache-Control` nagłówka.
-Jeśli brakuje dodać|Jeśli `Cache-Control` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby będą są przypisane `Cache-Control` nagłówka.
-Remove| Tej opcji zapewnia, że `Cache-Control` nagłówka nie jest dołączony do odpowiedzi nagłówek. Jeśli `Cache-Control` nagłówka została już przypisana, a następnie go zostanie usunięta z nagłówka odpowiedzi.
+Jeśli brakuje dodać|Jeśli `Cache-Control` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Cache-Control` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby są przypisane `Cache-Control` nagłówka.
+Remove| Tej opcji zapewnia, że `Cache-Control` nagłówka nie jest dołączony do odpowiedzi nagłówek. Jeśli `Cache-Control` nagłówka została już przypisana, a następnie jest usuwany z nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastąpić.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 Chybienia pamięci podręcznej częściowe zazwyczaj występuje po użytkownik porzuca pobieranie lub trwałych żądanych wyłącznie przy użyciu żądania range HTTP. Ta funkcja jest najbardziej przydatny w przypadku dużych zasobów, których użytkownicy nie zwykle pobierze je od początku do końca (na przykład pliki wideo). W związku z tym ta funkcja jest włączona domyślnie na platformie dużych HTTP. Jest ona wyłączona w innych platform.
 
-Zalecane jest pozostawienie konfigurację domyślną dla dużych HTTP platformy, ponieważ spowoduje zmniejszenie obciążenia klientów serwera pochodzenia i zwiększenia szybkości, w którym klienci pobierania zawartości.
+Zachowaj konfigurację domyślną dla dużych HTTP platformy, ponieważ zmniejsza obciążenie serwera pochodzenia klienta i przyspiesza, w którym klienci pobierania zawartości.
 
 Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone, ta funkcja nie może być skojarzony z następujących warunków dopasowania: Cname krawędzi, literału nagłówka żądania wieloznaczny nagłówek żądania, adres URL zapytania literału i adres URL zapytania z symboli wieloznacznych.
 
@@ -527,15 +527,15 @@ Disabled (Wyłączony)|Nagłówka X-WE-Debug odpowiedzi zostaną wykluczone z od
 
 Informacje o kluczu:
 
-- Ta akcja ma miejsce tylko dla odpowiedzi z serwera pochodzenia, które nie zostały przypisane oznaczenie maksymalny wiek w nagłówek Cache-Control lub Expires.
+- Ta akcja ma miejsce tylko dla odpowiedzi z serwera pochodzenia, które nie zostały przypisane oznaczenie maksymalny wiek w `Cache-Control` lub `Expires` nagłówka.
 - Ta akcja nie zostanie przeprowadzone zasobów, które nie są uważane za buforowalnej.
-- Ta akcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez Cache-Control lub Expires nagłówki wysyłany do przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
+- Ta akcja nie ma wpływu na przeglądarce revalidations pamięci podręcznej serwera krawędzi. Tego rodzaju revalidations są określane przez `Cache-Control` lub `Expires` nagłówki wysyłany do przeglądarki, które można dostosować za pomocą funkcji Max-Age zewnętrznych.
 - Wyniki tej akcji nie mają zauważalne wpływ na nagłówki odpowiedzi i zwraca zawartość z serwerów krawędzi dla zawartości, ale może mieć wpływ na ilość ruchu sieciowego ponowna Walidacja wysyłane z serwerów krawędzi do serwera pochodzenia.
 - Konfigurowanie tej funkcji przez:
     - Wybieranie kod stanu, dla którego można zastosować domyślnego wewnętrzny max wieku.
     - Określanie wartość całkowitą, a następnie wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.). Ta wartość Określa domyślny interwał maksymalny wiek wewnętrznego.
 
-- Ustawienie jednostkę czasu na wartość "Off" zostanie przypisany domyślny wewnętrzny maksymalny wiek interwał 7 dni dla żądań, które nie zostały przypisane oznaczenie maksymalny wiek w ich nagłówek Cache-Control lub Expires.
+- Ustawienie jednostkę czasu na wartość "Off" przypisze domyślny wewnętrzny maksymalny wiek interwał 7 dni dla żądań, które nie zostały przypisane oznaczenie maksymalny wiek w ich `Cache-Control` lub `Expires` nagłówka.
 - Ze względu na sposób, w których pamięci podręcznej ustawienia są śledzone ta funkcja nie może być skojarzony z następujących warunków dopasowania: 
     - Edge 
     - CNAME
@@ -571,16 +571,16 @@ Disabled (Wyłączony)| Przywraca domyślne zachowanie. Domyślnym zachowaniem j
 
 ---
 ### <a name="expires-header-treatment"></a>Wygasa traktowania nagłówka
-**Cel:** kontroluje Generowanie Expires headers przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
+**Cel:** kontroluje Generowanie `Expires` nagłówki przez serwer graniczny, gdy funkcja zewnętrznych Max-Age jest aktywny.
 
 Najprostszym sposobem uzyskania tego typu konfiguracji jest umieścić zewnętrznych maksymalny wiek i funkcje wygasa traktowania nagłówka w tej samej instrukcji.
 
 Wartość|Wynik
 --|--
-Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/>-Zastępuje nagłówek Expires generowane przez serwer pochodzenia.<br/>-Dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
-Przekazuj|Zapewnia, że nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age nigdy nie został dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia generuje nagłówek Expires, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie generuje nagłówek Expires, ta opcja może spowodować nagłówek odpowiedzi nie zawiera nagłówek Expires.
-Jeśli brakuje dodać| Jeśli nie odebrano nagłówek Expires z serwera pochodzenia, ta opcja dodaje nagłówek Expires utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane nagłówek Expires.
-Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nagłówek. Jeśli już przypisano nagłówek Expires, następnie go będzie być usunięte z nagłówka odpowiedzi.
+Zastąp|Zapewnia, że będzie zostaną wykonane następujące czynności:<br/>-Zastępuje `Expires` nagłówka wygenerowane przez serwer pochodzenia.<br/>-Dodaje `Expires` nagłówka utworzonej przez funkcję zewnętrznych Max-Age do odpowiedzi.
+Przekazuj|Zapewnia, że `Expires` nagłówka utworzonej przez funkcję zewnętrznych Max-Age nigdy nie zostanie dodany do odpowiedzi. <br/> Jeśli serwer pochodzenia `Expires` nagłówka, jego przechodziła przez użytkownika końcowego. <br/>Jeśli na serwerze źródłowym nie tworzy `Expires` nagłówek, a następnie ta opcja może spowodować nagłówek odpowiedzi nie będzie zawierał `Expires` nagłówka.
+Jeśli brakuje dodać| Jeśli `Expires` nagłówka nie odebrano z serwera pochodzenia, a następnie ta opcja dodaje `Expires` nagłówka utworzonej przez funkcję zewnętrznych Max-Age. Ta opcja jest przydatna do zapewnienia, że wszystkie zasoby zostaną przypisane `Expires` nagłówka.
+Remove| Zapewnia, że `Expires` nagłówka nie jest dołączony do odpowiedzi nagłówek. Jeśli `Expires` nagłówka została już przypisana, a następnie jest usuwany z nagłówka odpowiedzi.
 
 **Domyślne zachowanie:** zastępowania
 
@@ -592,14 +592,14 @@ Remove| Zapewnia, że nagłówek Expires nie jest dołączony do odpowiedzi nag�
 ### <a name="external-max-age"></a>Max-Age zewnętrznych
 **Cel:** określa maksymalny wiek interwał przeglądarce ponowna Walidacja buforu serwer krawędzi. Innymi słowy nowej wersji zasób z serwer graniczny sprawdzić ilość czasu, jaki upłynie przed przeglądarki.
 
-Włączenie tej funkcji spowoduje wygenerowanie pamięci podręcznej-kontrolki: Maksymalna liczba-okres ważności wygasa nagłówków z serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
+Włączenie tej funkcji spowoduje wygenerowanie `Cache-Control: max-age` i `Expires` nagłówków z serwerów krawędzi i wysyłać je do klienta HTTP. Domyślnie te nagłówki spowoduje zastąpienie utworzone przez serwer pochodzenia. Jednak traktowania nagłówek Cache-Control i funkcje wygasa traktowania nagłówka pozwala zmienić to zachowanie.
 
 Informacje o kluczu:
 
-- Ta akcja nie wpływa na serwer graniczny do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane na podstawie nagłówków pamięci podręcznej-formant/Expires otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
+- Ta akcja nie wpływa na serwer graniczny do revalidations pamięci podręcznej serwera pochodzenia. Tego rodzaju revalidations są określane przez `Cache-Control` i `Expires` nagłówki otrzymany z serwera pochodzenia i można dostosować za pomocą domyślnych wewnętrznych Max-Age i funkcji Force wewnętrzny Max-Age.
 - Tej funkcji można skonfigurować, określając wartość całkowitą i wybierając jednostkę żądany czas (na przykład sekundy, minuty, godziny itd.).
-- Ustawienie ujemnej wartości tej funkcji powoduje, że serwery krawędzi do wysyłania pamięci podręcznej-Control: no-pamięci podręcznej i czas wygaśnięcia ustawioną w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na serwery krawędzi możliwość buforowania odpowiedzi z serwera pochodzenia.
-- Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. Nagłówki Expires-formant/pamięci podręcznej w pamięci podręcznej z odpowiedzią serwera pochodzenia mają być przekazywane do przeglądarki.
+- Ustawienie tej funkcji na wartość ujemna powoduje serwerów krawędzi wysłać `Cache-Control: no-cache` i `Expires` czas, które są ustawione w przeszłości z każdym odpowiedzi do przeglądarki. Mimo że klient HTTP nie będzie buforować odpowiedzi, to ustawienie nie wpłynie na serwery krawędzi możliwość buforowania odpowiedzi z serwera pochodzenia.
+- Ustawienie jednostkę czasu na wartość "Off" spowoduje wyłączenie tej funkcji. `Cache-Control` i `Expires` nagłówków pamięci podręcznej z odpowiedzią serwera pochodzenia mają być przekazywane do przeglądarki.
 
 **Domyślne zachowanie:** wyłączone
 
@@ -674,7 +674,7 @@ Informacje o kluczu:
 ### <a name="honor-no-cache-request"></a>Honoruj No-Cache żądania
 **Cel:** Określa, czy klient HTTP przez nie pamięci podręcznej żądań zostaną przekazane do serwera pochodzenia.
 
-Żądania pamięci podręcznej nie występuje, gdy klient HTTP wysyła pamięci podręcznej-Control: no-pamięci podręcznej i/lub Pragma:no — pamięci podręcznej nagłówka w żądaniu HTTP.
+Żądanie pamięci podręcznej nie występuje po wysłaniu klienta HTTP `Cache-Control: no-cache` i/lub `Pragma: no-cache` nagłówka w żądaniu HTTP.
 
 Wartość|Wynik
 --|--
@@ -747,7 +747,7 @@ Jeśli serwer graniczny nie może nawiązać połączenia z serwerem pochodzenia
 
 Należy pamiętać, że dany interwał czasu zaczyna się po wygaśnięciu wieku max elementu zawartości, nie, jeśli nie powiodło się ponowna Walidacja występuje. Dlatego maksymalny okres, w którym mogą być przekazywane zasób bez pomyślnego ponownego sprawdzania poprawności jest określone przez kombinację maksymalny wiek plus odświeżona maksymalny czas. Na przykład jeśli zasób był buforowany 9:00, maksymalny wiek 30 minut i max przestarzały 15 minut, następnie ponowna Walidacja nie powiodło się próba 9:44 w rezultacie użytkownik końcowy odbieranie starych zasobów pamięci podręcznej, podczas ponownego sprawdzania poprawności nie powiodło się próba 9:46 spowodowałoby en Użytkownik d odbieranie 504 Limit czasu bramy.
 
-Dowolna wartość skonfigurowane dla tej funkcji są zastępowane przez `Cache-Control:must-revalidate` lub `Cache-Control:proxy-revalidate` nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie może ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek zasobów, serwer graniczny zwraca 504 błąd upływu limitu czasu bramy.
+Dowolna wartość skonfigurowane dla tej funkcji są zastępowane przez `Cache-Control: must-revalidate` lub `Cache-Control: proxy-revalidate` nagłówki otrzymany z serwera pochodzenia. Odebranie jednej z tych nagłówków z serwera pochodzenia kiedy zasób początkowo są buforowane, następnie serwer graniczny nie będzie obsługiwać starych zasobów pamięci podręcznej. W takim przypadku jeśli serwer graniczny nie może ponownie zatwierdzać ze źródła, gdy wygaśnie interwał maksymalny wiek zasobów, serwer graniczny zwraca 504 błąd upływu limitu czasu bramy.
 
 Informacje o kluczu:
 
@@ -823,7 +823,7 @@ Usuwanie|Usuwa określonego nagłówka żądania.|**Wartość nagłówka (klient
 Informacje o kluczu:
 
 - Upewnij się, że wartość określona w opcji Nazwa jest dokładnym odpowiednikiem nagłówka odpowiednie żądania.
-- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian nazwy nagłówka Cache-Control może służyć do identyfikowania:
+- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian `Cache-Control` nazwa nagłówka może służyć do identyfikowania:
     - Kontrola pamięci podręcznej
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Usuwanie|Usuwa określonego nagłówka odpowiedzi.|**Wartość nagłówka odpowi
 Informacje o kluczu:
 
 - Upewnij się, że wartość określona w opcji Nazwa jest dokładnym odpowiednikiem dla nagłówka odpowiedzi żądany. 
-- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian nazwy nagłówka Cache-Control może służyć do identyfikowania:
+- Case nie jest brana pod uwagę w celu zidentyfikowania nagłówka. Na przykład żadnego z następujących zmian `Cache-Control` nazwa nagłówka może służyć do identyfikowania:
     - Kontrola pamięci podręcznej
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Ta funkcja obejmuje spełniających kryteria, które muszą zostać spełnione, 
 
 ---
 ### <a name="user-variable"></a>Zmienna użytkownika
-**Cel:** używana primarity ze skryptami Lua. Dzięki funkcji zmiennej użytkownika umożliwia funkcjonalności przypominającej skrótu secure adresy URL pobierania za pomocą skryptu Lua.
+**Cel:** tylko do użytku wewnętrznego.
 
+[Powrót do początku](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Następne kroki
 * [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)

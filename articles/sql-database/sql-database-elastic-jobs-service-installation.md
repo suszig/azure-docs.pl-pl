@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalowanie omówienie zadania elastycznej bazy danych
 [**Zadania elastyczne bazy danych** ](sql-database-elastic-jobs-overview.md) można zainstalować za pomocą programu PowerShell lub za pośrednictwem portalu Azure. Możliwość uzyskania dostępu do utworzenia zadania i zarządzać nimi przy użyciu interfejsu API środowiska PowerShell, tylko w przypadku instalowania pakietu programu PowerShell. Ponadto API środowiska PowerShell stanowią znacznie więcej funkcji niż portalu w tym momencie.
@@ -155,7 +155,7 @@ Po utworzeniu [utworzyć puli elastycznej](sql-database-elastic-pool-manage-port
 
 **Szacowany czas trwania:** 10 minut.
 
-1. W widoku pulpitu nawigacyjnego puli elastycznej za pośrednictwem [Azure Portal](https://portal.azure.com/#) , kliknij przycisk **Utwórz zadanie**.
+1. W widoku pulpitu nawigacyjnego puli elastycznej za pośrednictwem [portalu Azure](https://portal.azure.com/#) , kliknij przycisk **Utwórz zadanie**.
 2. W przypadku tworzenia zadania po raz pierwszy, musisz zainstalować **zadania elastycznej bazy danych** klikając **warunki dotyczące**.
 3. Klikając pole wyboru, należy zaakceptować postanowienia.
 4. W widoku "Zainstalować usługi" kliknij **POŚWIADCZENIA zadania**.
