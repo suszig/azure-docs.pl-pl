@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Co to jest pakiet Operations Management Suite (OMS)?
 Ten artykuł zawiera wprowadzenie do pakietu Operations Management Suite (OMS), łącznie z krótkim omówieniem korzyści biznesowych związanych z korzystaniem z tego pakietu, zawartych w nim usług i rozwiązań do zarządzania oraz ofert obejmujących różne usługi i rozwiązania.  Dołączono linki do szczegółowej dokumentacji dotyczące wdrażania i używania poszczególnych usług oraz rozwiązań.
@@ -64,7 +64,7 @@ Usługa [Log Analytics](http://azure.microsoft.com/documentation/services/log-an
 #### <a name="collecting-data"></a>Zbieranie danych
 Istnieje wiele sposobów przekazywania danych do repozytorium na potrzeby analizy w usłudze Log Analytics.
 
-- **Maszyny wirtualne i komputery z systemem Windows lub Linux.**  Zainstaluj program Microsoft Monitoring Agent na maszynach wirtualnych lub komputerach z systemami [Windows](../log-analytics/log-analytics-windows-agents.md) i [Linux](../log-analytics/log-analytics-linux-agents.md), z których mają być zbierane dane.  Agent automatycznie pobierze dane z konfiguracji usługi Log Analytics, w której określono zdarzenia i dane wydajności do zebrania.  Możesz łatwo zainstalować agenta na maszynach wirtualnych działających na platformie Azure za pomocą witryny Azure Portal.  Jeśli masz istniejące środowisko programu Operations Manager, możesz połączyć grupę zarządzania z usługą Log Analytics i automatycznie zacząć zbierać dane ze wszystkich istniejących agentów.
+- **Maszyny wirtualne i komputery z systemem Windows lub Linux.**  Zainstaluj program Microsoft Monitoring Agent na maszynach wirtualnych lub komputerach z systemami [Windows](../log-analytics/log-analytics-windows-agent.md) i [Linux](../log-analytics/log-analytics-linux-agents.md), z których mają być zbierane dane.  Agent automatycznie pobierze dane z konfiguracji usługi Log Analytics, w której określono zdarzenia i dane wydajności do zebrania.  Możesz łatwo zainstalować agenta na maszynach wirtualnych działających na platformie Azure za pomocą witryny Azure Portal.  Jeśli masz istniejące środowisko programu Operations Manager, możesz połączyć grupę zarządzania z usługą Log Analytics i automatycznie zacząć zbierać dane ze wszystkich istniejących agentów.
 - **Usługi platformy Azure.**  Usługa Log Analytics zbiera dane telemetryczne z [usług diagnostyki i monitorowania platformy Azure](../log-analytics/log-analytics-azure-storage.md), a następnie zapisuje je w repozytorium, aby umożliwić monitorowanie zasobów platformy Azure.
 - **Interfejs API modułu zbierającego dane.**  Usługa Log Analytics zawiera [interfejs API REST umożliwiający wypełnianie danych z dowolnego klienta](../log-analytics/log-analytics-data-collector-api.md).  Pozwala to zbierać dane z aplikacji innych firm lub Implementować niestandardowe scenariusze zarządzania.  Częstym rozwiązaniem jest zbieranie danych za pomocą elementu runbook w usłudze Azure Automation, a następnie zapisywanie danych w repozytorium za pomocą interfejsu API modułu zbierającego dane.
 

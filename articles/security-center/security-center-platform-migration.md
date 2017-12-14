@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migracja platformy usługi Azure Security Center
 
@@ -36,7 +36,7 @@ Teraz usługa Security Center korzysta z programu Microsoft Monitoring Agent —
 
 ## <a name="agent"></a>Agent
 
-W ramach przejścia program Microsoft Monitoring Agent (dla systemu [Windows](../log-analytics/log-analytics-windows-agents.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md)) jest instalowany na wszystkich maszynach wirtualnych platformy Azure, z których obecnie są zbierane dane.  Jeśli na maszynie wirtualnej jest już zainstalowany program Microsoft Monitoring Agent, usługa Security Center korzysta z zainstalowanego agenta.
+W ramach przejścia program Microsoft Monitoring Agent (dla systemu [Windows](../log-analytics/log-analytics-windows-agent.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md)) jest instalowany na wszystkich maszynach wirtualnych platformy Azure, z których obecnie są zbierane dane.  Jeśli na maszynie wirtualnej jest już zainstalowany program Microsoft Monitoring Agent, usługa Security Center korzysta z zainstalowanego agenta.
 
 Przez pewien okres (zazwyczaj kilka dni) obaj agenci będą uruchamiani równolegle, aby zapewnić płynne przejście bez utraty danych. Umożliwi to firmie Microsoft sprawdzenie, czy nowy potok danych działa, przed zaprzestaniem korzystania z bieżącego potoku. Po zweryfikowaniu poprawnego działania nowego potoku program Azure Monitoring Agent zostanie usunięty z maszyn wirtualnych. Nie jest wymagane żadne działanie ze strony użytkownika. Po przeprowadzeniu migracji wszystkich klientów otrzymasz wiadomość e-mail z powiadomieniem.
  
