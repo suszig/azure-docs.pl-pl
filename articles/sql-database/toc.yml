@@ -60,9 +60,8 @@
 - name: Pojęcia
   items:
     - name: Funkcje usługi
+      href: sql-database-servers-databases.md
       items:
-        - name: Omówienie
-          href: sql-database-servers-databases.md
         - name: Warstwy usług
           href: sql-database-service-tiers.md
         - name: Limity zasobów
@@ -106,9 +105,8 @@
         - name: Popularne funkcje programu SQL Server
           href: sql-database-features.md
     - name: Bezpieczeństwo
+      href: sql-database-security-overview.md
       items:
-        - name: Omówienie
-          href: sql-database-security-overview.md
         - name: Kontrola dostępu
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Maskowanie danych
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Wysoka dostępność
+      href: sql-database-high-availability.md
     - name: Ciągłość działalności biznesowej
+      href: sql-database-business-continuity.md
       items:
-        - name: Omówienie
-          href: sql-database-business-continuity.md
         - name: Odzyskiwanie bazy danych
           href: sql-database-recovery-using-backups.md
         - name: Konfigurowanie zabezpieczeń
@@ -140,9 +139,8 @@
         - name: Wykonywanie próbnego odzyskiwania
           href: sql-database-disaster-recovery-drills.md
     - name: Migracja do bazy danych SQL
+      href: sql-database-cloud-migrate.md
       items:
-        - name: Migracja bazy danych programu SQL Server
-          href: sql-database-cloud-migrate.md
         - name: Zmiany języka T-SQL
           href: sql-database-transact-sql-information.md
         - name: Zarządzanie bazą danych po migracji
@@ -158,9 +156,8 @@
         - name: Synchronizowanie danych
           href: sql-database-sync-data.md
     - name: Monitorowanie i dostrajanie
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Omówienie
-          href: sql-database-troubleshoot-performance.md
         - name: Monitorowanie wydajności
           href: sql-database-single-database-monitor.md
         - name: Zalecenia dotyczące wydajności
@@ -180,9 +177,8 @@
         - name: Monitorowanie w pamięci
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skalowanie w poziomie
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Omówienie
-          href: sql-database-elastic-scale-introduction.md
         - name: Dzielenie map na fragmenty
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routing zapytań
@@ -220,9 +216,8 @@
         - name: Konfigurowanie przetwarzania w pamięci
           href: sql-database-in-memory-oltp-migration.md
     - name: Tworzenie aplikacji
+      href: sql-database-develop-overview.md
       items:
-        - name: Omówienie
-          href: sql-database-develop-overview.md
         - name: Łączność
           href: sql-database-libraries.md
         - name: Uwierzytelnianie aplikacji

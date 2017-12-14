@@ -15,17 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Wprowadzenie do platformy Spark w usłudze HDInsight
 
 Ten artykuł przedstawia wprowadzenie do platformy Spark w usłudze HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> to platforma przetwarzania równoległego typu open source, która obsługuje przetwarzanie w pamięci w celu zwiększania wydajności aplikacji do analizy danych big data. Klaster Spark w usłudze HDInsight jest zgodny z usługami Azure Storage (WASB) i Azure Data Lake Store. Dzięki temu istniejące dane przechowywane na platformie Azure można łatwo przetwarzać za pomocą klastra Spark.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe platformy Azure z zainstalowaną i skonfigurowaną platformą Spark. Utworzenie klastra Spark w usłudze HDInsight trwa tylko około 10 minut. Dane, które mają być przetwarzane, są przechowywane w usłudze Azure Storage lub Azure Data Lake Store. Zobacz temat [Korzystanie z usługi Azure Storage z usługą HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 

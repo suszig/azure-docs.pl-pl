@@ -3,7 +3,7 @@ title: "Tworzenie kont Uruchom jako usługi Azure Automation | Microsoft Docs"
 description: "W tym artykule opisano sposób aktualizowania konta usługi Automation i tworzenia kont Uruchom jako przy użyciu programu PowerShell lub w portalu."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 28bfa54c263388d91057118878a3109ec467894a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizowanie uwierzytelniania konta usługi Automation przy użyciu kont Uruchom jako 
 Istniejące konto usługi Automation można zaktualizować w witrynie Azure Portal lub przy użyciu programu PowerShell, gdy:

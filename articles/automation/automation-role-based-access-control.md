@@ -3,7 +3,7 @@ title: "Kontrola dostępu oparta na rolach w usłudze Azure Automation | Microso
 description: "Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Ten artykuł zawiera opis sposobu konfigurowania funkcji RBAC w usłudze Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "automation rbac, kontrola dostępu oparta na rolach, azure rbac"
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59ec4000645583b8cd35f7e8e475b95ea5499232
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Kontrola dostępu oparta na rolach w usłudze Azure Automation
 ## <a name="role-based-access-control"></a>Kontrola dostępu oparta na rolach
