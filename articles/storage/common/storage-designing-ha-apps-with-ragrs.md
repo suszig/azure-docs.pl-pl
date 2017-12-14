@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Projektowanie wysokiej dostępności aplikacji przy użyciu RA-GRS
 
@@ -26,7 +26,7 @@ Typową funkcją oparte na chmurze infrastruktury, takich jak usługi Azure Stor
 
 Magazyn Azure oferuje cztery opcje nadmiarowość danych na koncie magazynu:
 
-— LRS (lokalnie Refdundant magazyn)
+— LRS (magazyn lokalnie nadmiarowy)
 - Magazyn ZRS (strefy nadmiarowego magazynu) 
 - GRS (magazynu geograficznie nadmiarowego)
 - RA-GRS (dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu). 
@@ -209,7 +209,7 @@ W poniższej tabeli przedstawiono przykład co może się zdarzyć, gdy aktualiz
 | T0       | Transakcja A: <br> Wstaw pracownika <br> jednostki w podstawowej |                                   |                    | Dodaje podstawowym, A transakcji<br> nie jeszcze zreplikowane. |
 | T1       |                                                            | Transakcja A <br> Replikacja<br> dodatkowej | T1 | Replikowane do dodatkowej A transakcji. <br>Czas ostatniej synchronizacji aktualizacji.    |
 | T2       | Transakcja B:<br>Aktualizacja<br> Jednostka pracownika<br> w podstawowej  |                                | T1                 | Transakcja B zapisywane w podstawowym<br> nie jeszcze zreplikowane.  |
-| T3       | Transakcja C:<br> Aktualizacja <br>Administrator<br>Jednostka roli w<br>podstawowy |                    | T1                 | Transakcja zapisywane do podstawowych, C<br> nie jeszcze zreplikowane.  |
+| T3       | Transakcja C:<br> Aktualizacja <br>Administrator<br>Jednostka roli w<br>podstawowe |                    | T1                 | Transakcja zapisywane do podstawowych, C<br> nie jeszcze zreplikowane.  |
 | *T4*     |                                                       | Transakcja C <br>Replikacja<br> dodatkowej | T1         | Transakcja C replikowane do dodatkowej.<br>Nie zaktualizowano ponieważ LastSyncTime <br>Transakcja B nie został jeszcze zreplikowany.|
 | *T5*     | Odczyt jednostek <br>pomocniczej                           |                                  | T1                 | Przestarzała wartość dla pracowników <br> jednostki, ponieważ nie transakcji B <br> jeszcze zreplikowane. Pobierz nową wartość<br> Administrator roli jednostki, ponieważ ma C<br> zreplikowane. Czas ostatniej synchronizacji nadal nie.<br> zostały zaktualizowane, ponieważ transakcja B<br> nie replikowane. Można określić<br>Jednostka roli administratora jest niespójna <br>ponieważ entity Data/godzina jest po <br>Czas ostatniej synchronizacji. |
 | *T6*     |                                                      | Transakcja B<br> Replikacja<br> dodatkowej | T6                 | *T6* — wszystkie transakcje za pomocą C <br>zostały zreplikowane, czas ostatniej synchronizacji<br> jest aktualizowana. |

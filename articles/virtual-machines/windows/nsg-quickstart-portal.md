@@ -4,7 +4,7 @@ description: "Dowiedz się, jak otworzyć port / utworzyć punktu końcowego mas
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Jak otworzyć porty do maszyny wirtualnej z portalu Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Wybierz nową grupę zabezpieczeń sieci. Wybierz "Reguły zabezpieczeń ruchu p
 
 ![Dodaj regułę ruchu przychodzącego](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Wybierz popularne **usługi** z menu rozwijanego, takich jak *HTTP*. Możesz też wybrać *niestandardowy* zapewnienie określonego portu do użycia. W razie potrzeby można zmienić priorytet lub nazwy. Priorytet ma wpływ na kolejność, w której reguły są stosowane - niższa wartość liczbową, wcześniejszej jest stosowana reguła. Możesz też wybrać **zaawansowane** u góry tego ekranu, aby wprowadzić określonego źródłowego adresu IP bloku lub portu zakres, np. Gdy wszystko będzie gotowe, wybierz **OK** Aby utworzyć regułę:
+Aby utworzyć regułę, która zezwala na ruch:
+
+- Wybierz **podstawowe** przycisku. Domyślnie **zaawansowane** okna udostępnia kilka dodatkowych opcji konfiguracji, tak aby zdefiniować zakres bloku lub portu IP określonego źródła.
+- Wybierz popularne **usługi** z menu rozwijanego, takich jak *HTTP*. Możesz też wybrać *niestandardowy* zapewnienie określonego portu do użycia. 
+- W razie potrzeby można zmienić priorytet lub nazwy. Priorytet ma wpływ na kolejność, w której reguły są stosowane - niższa wartość liczbową, wcześniejszej jest stosowana reguła.
+- Gdy wszystko będzie gotowe, wybierz **OK** Aby utworzyć regułę:
 
 ![Utwórz regułę ruchu przychodzącego](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

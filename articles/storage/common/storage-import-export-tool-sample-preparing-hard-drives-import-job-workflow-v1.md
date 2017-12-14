@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Przykładowy przepływ pracy przygotowywania dysków twardych do zadania importu
 W tym temacie przedstawiono Zakończ proces przygotowywania dysków dla zadania importu.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Skopiuj zakończenia sesji
 
-Po sesji kopiowania została ukończona, można odłączyć dwóch dysków z komputera, kopiowania i wysyłać je do odpowiednich centrum danych systemu Windows Azure. Przekazywanie plików dziennika dwóch `FirstDrive.jrn` i `SecondDrive.jrn`, podczas tworzenia zadania importu w [portalu Windows Azure](https://manage.windowsazure.com/).  
+Po sesji kopiowania została ukończona, można odłączyć dwóch dysków z komputera, kopiowania i wysyłać je do odpowiednich centrum danych systemu Windows Azure. Przekazywanie plików dziennika dwóch `FirstDrive.jrn` i `SecondDrive.jrn`, podczas tworzenia zadania importu w [portalu Azure](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Następne kroki
 

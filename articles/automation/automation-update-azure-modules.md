@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: ce249694035c48d3f626006e63724f47fee3d877
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Jak zaktualizować modułów programu Azure PowerShell w usłudze Automatyzacja Azure
 
@@ -28,11 +28,11 @@ Ponieważ moduły są regularnie aktualizowane przez grupę, zmiany mogą być u
 
 ## <a name="updating-azure-modules"></a>Aktualizowanie Azure modułów
 
-1. W modułach bloku Twoje konto usługi Automatyzacja jest opcję o nazwie **modułów Azure aktualizacji**.  Jest zawsze włączone.<br><br> ![Aktualizowanie opcji Azure modułów w bloku modułów](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. Na stronie moduły konto automatyzacji jest opcję o nazwie **modułów Azure aktualizacji**. Jest zawsze włączone.<br><br> ![Zaktualizuj opcja modułów Azure na stronie moduły](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Kliknij przycisk **modułów Azure aktualizacji** i użytkownik zostanie wyświetlone powiadomienie z potwierdzeniem z pytaniem, czy chcesz kontynuować.<br><br> ![Zaktualizuj powiadomień Azure modułów](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Kliknij przycisk **modułów Azure aktualizacji** i otrzymasz powiadomienie z potwierdzeniem z pytaniem, czy chcesz kontynuować.<br><br> ![Zaktualizuj powiadomień Azure modułów](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Kliknij przycisk **tak** i rozpocznie się proces aktualizacji modułu.  Proces aktualizacji trwa około 15-20 minut, można zaktualizować następujących modułów:
+3. Kliknij przycisk **tak** i rozpocznie się proces aktualizacji modułu. Proces aktualizacji trwa około 15-20 minut, można zaktualizować następujących modułów:
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ Ponieważ moduły są regularnie aktualizowane przez grupę, zmiany mogą być u
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Jeśli moduły są już aktualne, proces zostanie zakończony w ciągu kilku sekund.  Po zakończeniu procesu aktualizacji otrzymasz powiadomienie.<br><br> ![Zaktualizuj stan aktualizacji modułów Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Jeśli moduły są już aktualne, proces zostanie zakończony w ciągu kilku sekund. Po zakończeniu procesu aktualizacji, otrzymasz powiadomienie.<br><br> ![Zaktualizuj stan aktualizacji modułów Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Automatyzacja Azure użyje najnowszej modułów na Twoim koncie automatyzacji po uruchomieniu nowego zaplanowanego zadania.    
+> Po uruchomieniu nowe zadanie zaplanowane usługi Automatyzacja Azure korzysta z modułów najnowszego na Twoim koncie automatyzacji.    
 
-Jeśli używasz poleceń cmdlet z tych modułów programu Azure PowerShell w elementach runbook do zarządzania zasobami Azure, następnie należy przeprowadzić proces aktualizacji co miesiąc lub tak, aby mieć pewność, że masz najnowszą modułów.
+Jeśli używasz poleceń cmdlet z tych modułów programu Azure PowerShell w elementach runbook do zarządzania zasobami Azure, następnie chcesz przeprowadzić proces aktualizacji co miesiąc lub tak, aby mieć pewność, że masz najnowszą modułów.
 
 ## <a name="next-steps"></a>Następne kroki
 

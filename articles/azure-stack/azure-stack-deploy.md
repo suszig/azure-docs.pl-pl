@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Wymagania wstępne dotyczące wdrożenia usługi Azure Stack
 
@@ -85,7 +85,7 @@ Aby wdrożyć stosu Azure przy użyciu konta usługi Azure AD, należy przygotow
 
 1. Utwórz konto usługi Azure AD, który jest administratorem katalogu dla co najmniej jednej usługi Azure AD. Jeśli masz już takie konto, możesz go użyć. W przeciwnym razie możesz utworzyć je bezpłatnie w [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (w Chinach, odwiedź stronę <http://go.microsoft.com/fwlink/?LinkID=717821> zamiast niego). Jeśli zamierzasz później [zarejestrować stosu Azure w usłudze Azure](azure-stack-register.md), musi również mieć subskrypcji w tym nowo utworzone konto.
    
-    Zapisz te poświadczenia do użycia w kroku 6 [wdrażanie zestaw deweloperski](azure-stack-run-powershell-script.md#deploy-the-development-kit). Za pomocą tego konta *administratora usługi* można skonfigurować zasoby chmury, konta użytkowników, plany dzierżawy, limity przydziału oraz ceny i zarządzać nimi. W portalu umożliwia ono tworzenie chmur witryn sieci Web, chmur prywatnych maszyn wirtualnych, tworzenie planów i zarządzanie subskrypcjami użytkowników.
+    Zapisz te poświadczenia do użycia w kroku 6 [wdrażanie zestaw deweloperski](azure-stack-run-powershell-script.md). Za pomocą tego konta *administratora usługi* można skonfigurować zasoby chmury, konta użytkowników, plany dzierżawy, limity przydziału oraz ceny i zarządzać nimi. W portalu umożliwia ono tworzenie chmur witryn sieci Web, chmur prywatnych maszyn wirtualnych, tworzenie planów i zarządzanie subskrypcjami użytkowników.
 2. [Utwórz](azure-stack-add-new-user-aad.md) co najmniej jedno konto, aby móc zalogować się zestaw deweloperski dzierżawcy w.
    
    | **Konto usługi Azure Active Directory** | **Obsługiwane?** |

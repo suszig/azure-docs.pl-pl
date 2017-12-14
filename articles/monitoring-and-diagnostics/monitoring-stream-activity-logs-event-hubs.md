@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Strumień dziennika aktywności platformy Azure do usługi Event Hubs
 [ **Dziennika aktywności platformy Azure** ](monitoring-overview-activity-logs.md) mogą być przesyłane strumieniowo w najbliższym czasie rzeczywistym do aplikacji przy użyciu wbudowanych opcji "Eksportuj", w portalu lub przez włączenie identyfikator reguły magistrali usług w profilu dziennika za pomocą poleceń cmdlet Azure PowerShell lub interfejsu wiersza polecenia Azure.
@@ -30,7 +30,7 @@ Poniżej przedstawiono kilka sposobów można na przykład możliwość przesył
 * **Tworzenie niestandardowych telemetrii i rejestrowanie platformy** — Jeśli masz już platformy telemetrii niestandardowej lub są tylko pomyśleć o jeden wysoce skalowalna tworzenia charakter publikowania / subskrypcji usługi Event hubs umożliwia elastyczne pozyskiwania dziennik aktywności. [Zobacz Przewodnik Dan Rosanova przy użyciu usługi Event Hubs w skali globalnej platformy telemetrii w tym miejscu.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Przesyłania strumieniowego dziennika aktywności
-Umożliwiają przesyłanie strumieniowe dziennika aktywności programowo lub za pośrednictwem portalu. W obu przypadkach wybierz Namespace magistrali usługi i zasady dostępu współdzielonego dla tej przestrzeni nazw i Centrum zdarzeń jest tworzony w tej przestrzeni nazw, po wystąpieniu zdarzenia pierwszy nowy dziennik aktywności. Jeśli nie masz Namespace magistrali usług, należy najpierw utworzyć bramę. Jeśli zostały wcześniej przesyłane strumieniowo zdarzenia dziennika aktywności do tej usługi magistrali Namespace, Centrum zdarzeń, która została wcześniej utworzona zostanie ono użyte ponownie. Zasady dostępu współdzielonego definiuje uprawnienia, które ma mechanizm przesyłania strumieniowego. Obecnie wymaga przesyłania strumieniowego usługi Event Hubs **Zarządzaj**, **wysyłania**, i **nasłuchiwania** uprawnienia. Można utworzyć lub zmodyfikować zasady dostępu Namespace magistrali usług udostępnionych w klasycznym portalu na karcie "Konfiguruj" dla użytkownika Namespace magistrali usługi. Aby zaktualizować profil dziennika dziennik aktywności, aby uwzględnić przesyłania strumieniowego, użytkownik wprowadzenie zmian musi mieć uprawnienie ListKey, w tym reguły autoryzacji magistrali usługi.
+Umożliwiają przesyłanie strumieniowe dziennika aktywności programowo lub za pośrednictwem portalu. W obu przypadkach wybierz Namespace magistrali usługi i zasady dostępu współdzielonego dla tej przestrzeni nazw i Centrum zdarzeń jest tworzony w tej przestrzeni nazw, po wystąpieniu zdarzenia pierwszy nowy dziennik aktywności. Jeśli nie masz Namespace magistrali usług, należy najpierw utworzyć bramę. Jeśli zostały wcześniej przesyłane strumieniowo zdarzenia dziennika aktywności do tej usługi magistrali Namespace, Centrum zdarzeń, która została wcześniej utworzona zostanie ono użyte ponownie. Zasady dostępu współdzielonego definiuje uprawnienia, które ma mechanizm przesyłania strumieniowego. Obecnie wymaga przesyłania strumieniowego usługi Event Hubs **Zarządzaj**, **wysyłania**, i **nasłuchiwania** uprawnienia. Można utworzyć lub zmodyfikować zasady dostępu Namespace magistrali usług udostępnionych w portalu Azure na karcie "Konfiguruj" dla użytkownika Namespace magistrali usługi. Aby zaktualizować profil dziennika dziennik aktywności, aby uwzględnić przesyłania strumieniowego, użytkownik wprowadzenie zmian musi mieć uprawnienie ListKey, w tym reguły autoryzacji magistrali usługi.
 
 Bus lub event hub przestrzeni nazw usługi nie musi znajdować się w tej samej subskrypcji co subskrypcji emitowanie dzienniki, dopóki użytkownik, który konfiguruje ustawienia ma odpowiedni dostęp RBAC do obu subskrypcji.
 

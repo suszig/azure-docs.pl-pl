@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testowanie rozwiązania z symulowanego urządzenia
 
-Ten samouczek przedstawia sposób użycia dostosować mikrousługi symulator urządzeń ze zdalnego wstępnie skonfigurowane rozwiązanie monitorowania. Aby pokazać możliwości symulator urządzeń dwa scenariusze w tym samouczku jest używany w aplikacji Contoso IoT.
+Ten samouczek przedstawia sposób dostosowywania mikrousługi symulator urządzeń w zdalnym wstępnie skonfigurowane rozwiązanie monitorowania. Aby pokazać możliwości symulator urządzeń dwa scenariusze w tym samouczku jest używany w aplikacji Contoso IoT.
 
 W pierwszego scenariusza firma Contoso chce przetestować nowe urządzenie żarówka inteligentne. Aby wykonać testów, należy utworzyć nowe symulowane urządzenie o następującej charakterystyce:
 
@@ -34,7 +34,7 @@ W pierwszego scenariusza firma Contoso chce przetestować nowe urządzenie żar�
 
 *Telemetrii*
 
-W poniższej tabeli przedstawiono dane ligthbulb raportów w chmurze jako strumień danych:
+W poniższej tabeli przedstawiono dane żarówka raportów w chmurze jako strumień danych:
 
 | Nazwa   | Wartości      |
 | ------ | ----------- |
@@ -177,11 +177,11 @@ Najprostszym sposobem tworzenia nowego typu urządzenia w symulacji mikrousługi
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
-1. Zapisz `lightbulb-01.json` pliku.
+1. Zapisz plik `lightbulb-01.json`.
 
 ### <a name="simulate-custom-device-behavior"></a>Symulowanie zachowanie urządzeń niestandardowych
 
@@ -227,7 +227,7 @@ Najprostszym sposobem tworzenia nowego typu urządzenia w symulacji mikrousługi
     }
     ```
 
-1. Zapisz `scripts/lightbulb-01-state.js` pliku.
+1. Zapisz plik `scripts/lightbulb-01-state.js`.
 
 `scripts/SwitchOn-method.js` Pliku implementuje **przełącznika na** metody w **żarówka** urządzenia. Następujące kroki aktualizacji `scripts/SwitchOn-method.js` pliku:
 
@@ -249,7 +249,7 @@ Najprostszym sposobem tworzenia nowego typu urządzenia w symulacji mikrousługi
     }
     ```
 
-1. Zapisz `scripts/SwitchOn-method.js` pliku.
+1. Zapisz plik `scripts/SwitchOn-method.js`.
 
 1. Utwórz kopię `scripts/SwitchOn-method.js` plik o nazwie `scripts/SwitchOff-method.js`.
 
@@ -263,7 +263,7 @@ Najprostszym sposobem tworzenia nowego typu urządzenia w symulacji mikrousługi
     }
     ```
 
-1. Zapisz `scripts/SwitchOff-method.js` pliku.
+1. Zapisz plik `scripts/SwitchOff-method.js`.
 
 ### <a name="test-the-lightbulb-device-type"></a>Typ urządzenia żarówka testu
 
@@ -273,9 +273,9 @@ Do testowania i debugowania zmiany lokalnie, zobacz [omówienie symulacji urząd
 
 Konfigurowanie projektu, aby skopiować nowe **żarówka** plików urządzeń do katalogu wyjściowego:
 
-* Jeśli używasz programu Visual Studio, upewnij się, Dodaj trzy nowe pliki żarówka utworzony w poprzedniej sekcji, aby **usług** projektu w rozwiązaniu. Następnie użyj **Eksploratora rozwiązań** do oznaczania ich ma zostać skopiowany do katalogu wyjściowego.
+* Jeśli używasz programu Visual Studio, upewnij się, możesz dodać cztery nowe pliki żarówka utworzony w poprzedniej sekcji, aby **usług** projektu w rozwiązaniu. Następnie użyj **Eksploratora rozwiązań** do oznaczania ich ma zostać skopiowany do katalogu wyjściowego.
 
-* Jeśli używasz programu Visual Studio Code, otwórz **Services.csproj** pliku, a następnie dodaj trzy nowe pliki żarówka utworzony w poprzedniej sekcji. Zobacz istniejące wpisy pliku modelu urządzenia w **Services.csproj** pliku jako przykłady.
+* Jeśli używasz programu Visual Studio Code, otwórz **Services.csproj** plik i dodać cztery nowe pliki żarówka utworzony w poprzedniej sekcji. Zobacz istniejące wpisy pliku modelu urządzenia w **Services.csproj** pliku jako przykłady.
 
 Aby przetestować nowe urządzenie w rozwiązaniu wdrożone, zobacz jedną z opcji:
 
@@ -350,7 +350,7 @@ Następujących krokach przedstawiono sposób dodawania nowego **temperatury wew
     },
     ```
 
-1. Zapisz `chiller-01.json` pliku.
+1. Zapisz plik `chiller-01.json`.
 
 1. Otwórz plik `scripts/chiller-01-state.js`.
 
@@ -367,7 +367,7 @@ Następujących krokach przedstawiono sposób dodawania nowego **temperatury wew
     state.internal_temperature = vary(65, 2, 15, 125);
     ```
 
-1. Zapisz `scripts/chiller-01-state.js` pliku.
+1. Zapisz plik `scripts/chiller-01-state.js`.
 
 ### <a name="test-the-chiller-device-type"></a>Typ urządzenia Chłodnica testu
 

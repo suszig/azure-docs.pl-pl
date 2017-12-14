@@ -2,55 +2,55 @@
 title: "Samouczek: Integracji Azure Active Directory z SciQuest spędzają na katalog | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SciQuest spędzają na katalog."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
-manager: mtillman
-editor: 
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fe4d6a5fdaeebac142e28a72eced9556ef86795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be9b17f31bedca1ae5704b484760c3ad24fbb14d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Samouczek: Integracji Azure Active Directory z SciQuest spędzają na katalog
-Celem tego samouczka jest pokazanie sposobu integracji SciQuest spędzają na katalog w usłudze Azure Active Directory (Azure AD).  
-Integracja z usługą Azure AD SciQuest spędzają na katalog zapewnia następujące korzyści: 
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do SciQuest spędzają na katalog 
-* Umożliwia użytkownikom automatycznie pobrać zalogowane SciQuest spędzają dyrektora (logowanie jednokrotne) z konta usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+Z tego samouczka dowiesz się integrowanie SciQuest spędzają na katalog w usłudze Azure Active Directory (Azure AD).
+
+Integracja z usługą Azure AD SciQuest spędzają na katalog zapewnia następujące korzyści:
+
+- Można kontrolować w usłudze Azure AD, który ma dostęp do SciQuest spędzają na katalog.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane SciQuest spędzają dyrektora (logowanie jednokrotne) z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Aby skonfigurować integrację usługi Azure AD z SciQuest spędzają na katalog, potrzebne są następujące elementy:
 
-* Subskrypcję usługi Azure AD
-* Dyrektor spędzają SciQuest jednokrotnego włączone subskrypcji
+- Subskrypcję usługi Azure AD
+- Dyrektor spędzają SciQuest logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
-> 
-> 
 
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
-* Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
-* Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/). 
+- Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie umożliwia testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie SciQuest spędzają na katalog z galerii 
+1. Dodawanie SciQuest spędzają na katalog z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
 ## <a name="adding-sciquest-spend-director-from-the-gallery"></a>Dodawanie SciQuest spędzają na katalog z galerii
@@ -58,205 +58,175 @@ Aby skonfigurować integrację usługi Azure AD SciQuest spędzają na katalog, 
 
 **Aby dodać SciQuest spędzają na katalog z galerii, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
-   
-    ![Usługa Active Directory][1]
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+    ![Przycisk usługi Azure Active Directory][1]
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
-    ![Aplikacje][2]
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
-   
-    ![Aplikacje][3]
+    ![Blok aplikacje przedsiębiorstwa][2]
+    
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
-   
-    ![Aplikacje][4]
+    ![Nowy przycisk aplikacji][3]
 
-6. W polu wyszukiwania wpisz **sciQuest spędzają na katalog**.
-   
-    ![Aplikacje][5]
+4. W polu wyszukiwania wpisz **SciQuest spędzają na katalog**, wybierz pozycję **SciQuest spędzają na katalog** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-7. W okienku wyników wybierz **SciQuest spędzają na katalog**, a następnie kliknij przycisk **Complete** można dodać aplikację.
-   
-    ![Aplikacje][6]
+    ![Dyrektor SciQuest spędzają na liście wyników](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-Jest celem tej sekcji opisano, jak skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SciQuest Dyrektor spędzają na podstawie użytkownika testowego, nazywany "Britta Simona".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownika w SciQuest spędzają na katalog do użytkownika w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SciQuest spędzają na katalog.  
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w SciQuest spędzają na katalog.
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SciQuest Dyrektor spędzają na podstawie użytkownika testowego, nazywany "Britta Simona".
+
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w SciQuest spędzają na katalog jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SciQuest spędzają na katalog.
+
+W SciQuest spędzają na katalog, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
 Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD pojedynczego rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego SciQuest spędzają na katalog](#creating-a-halogen-software-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta spędzają na katalog SciQuest, połączonej z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego SciQuest spędzają na katalog](#create-a-sciquest-spend-director-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta spędzają na katalog SciQuest, połączonej z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configuring-azure-ad-single-single-sign-on"></a>Konfigurowanie usługi Azure AD pojedynczej rejestracji jednokrotnej
-Celem tej sekcji jest można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu Azure i skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog aplikacji.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
+
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog aplikacji.
 
 **Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z SciQuest spędzają na katalog, wykonaj następujące czynności:**
 
-1. W klasycznym portalu Azure na **SciQuest spędzają na katalog** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne**  okno dialogowe.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][8]
+1. W portalu Azure na **SciQuest spędzają na katalog** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-2. Na **jak chcesz użytkownikom zalogować się na SciQuest spędzają na katalog** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
-   
-    ![Azure AD rejestracji jednokrotnej][9]
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-3. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności: 
-   
-    ![Konfiguruj ustawienia aplikacji][10]
-   
-     a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania się SciQuest spędzają na katalog aplikacji przy użyciu następującego wzorca: *https://.* SciQuest.com/.**
-   
-     b. W **adres URL odpowiedzi** pole tekstowe, należy wpisać taką samą wartość wpisana do **na adres URL logowania** pola tekstowego. 
-   
-     c. Kliknij przycisk **Dalej**.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+ 
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_samlbase.png)
 
-4. Na **skonfigurować logowanie jednokrotne w SciQuest spędzają na katalog** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik metadanych lokalnie na komputerze.
-   
-    ![Co to jest program Azure AD Connect][11]
+3. Na **SciQuest spędzają na katalog domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-5. Skontaktuj się z pomocą SciQuest obsługuje Aby włączyć tę metodę uwierzytelniania przy użyciu metadanych pobranych powyżej.
+    ![Adresy URL i SciQuest spędzają na katalog domeny pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
-6. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego. 
-   
-    ![Co to jest program Azure AD Connect][15]
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-7. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.sciquest.com`
 
-### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+
+    > [!NOTE] 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania, identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Dyrektor spędzają SciQuest](https://www.jaggaer.com/contact-us/) uzyskać te wartości. 
+
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
+
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_certificate.png) 
+
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_400.png)
+
+6. Do konfigurowania rejestracji jednokrotnej na **SciQuest spędzają na katalog** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej SciQuest spędzają na katalog](https://www.jaggaer.com/contact-us/).
+
+> [!TIP]
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
-   
-    ![Co to jest program Azure AD Connect][100] 
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_01.png)
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
-   
-    ![Co to jest program Azure AD Connect][101] 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
-   
-    ![Co to jest program Azure AD Connect][102] 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_02.png)
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Co to jest program Azure AD Connect][103] 
-   
-    a. Jako **typ użytkownika**, wybierz pozycję **nowy użytkownik w organizacji**.
-   
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
-   
-    c. Kliknij przycisk **Dalej**.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
-   
-    ![Co to jest program Azure AD Connect][104] 
-   
-    a. W **imię** pole tekstowe, typ **Britta**.  
-   
-    b. W **nazwisko** txtbox, typ **Simona**.
-   
-    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-   
-    d. W **roli** listy, wybierz **użytkownika**.
-   
-    e. Kliknij przycisk **Dalej**.
+    ![Przycisk Dodaj](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_03.png)
 
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
-   
-    ![Co to jest program Azure AD Connect][105]  
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Co to jest program Azure AD Connect][106]   
-   
-    a. Zanotuj wartość **nowe hasło**.
-   
-    b. Kliknij przycisk **Complete** (Zakończ).   
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_04.png)
 
-### <a name="creating-a-sciquest-spend-director-test-user"></a>Tworzenie użytkownika testowego SciQuest spędzają na katalog
+    a. W **nazwa** wpisz **BrittaSimon**.
+
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
+
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+
+    d. Kliknij przycisk **Utwórz**.
+ 
+### <a name="create-a-sciquest-spend-director-test-user"></a>Tworzenie użytkownika testowego SciQuest spędzają na katalog
+
 Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w SciQuest spędzają na katalog.
 
-Należy skontaktować się z zespołem pomocy technicznej SciQuest spędzają na katalog i dostarczać szczegółowe informacje o Twoim koncie testu, aby został utworzony.
+Należy skontaktować się z [zespołem pomocy technicznej SciQuest spędzają na katalog](https://www.jaggaer.com/contact-us/) i dostarczać szczegółowe informacje o Twoim koncie testu, aby został utworzony.
 
 Alternatywnie można też skorzystać w czasie inicjowania obsługi administracyjnej, pojedynczego logowania jednokrotnego funkcja, która jest obsługiwana przez SciQuest spędzają na katalog.  
 Po włączeniu w czasie inicjowania obsługi użytkowników są tworzone automatycznie przez SciQuest spędzają na katalog podczas jednego próba logowania jednokrotnego, jeśli nie istnieją. Ta funkcja eliminuje potrzebę ręcznie utworzyć użytkowników odpowiednikiem rejestracji jednokrotnej.
 
-Można uzyskać w czasie inicjowania obsługi administracyjnej włączone, musisz skontaktować się z korzystania z zespołem pomocy technicznej SciQuest spędzają na katalog.
+Można uzyskać w czasie inicjowania obsługi administracyjnej włączone, należy skontaktować się z [zespołem pomocy technicznej SciQuest spędzają na katalog](https://www.jaggaer.com/contact-us/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest włączenie Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu jej SciQuest spędzają na katalog.
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-![Co to jest program Azure AD Connect][200]
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu SciQuest spędzają na katalog.
+
+![Przypisanie roli użytkownika][200] 
 
 **Aby przypisać Simona Britta SciQuest spędzają na katalog, wykonaj następujące czynności:**
 
-1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
-   
-    ![Co to jest program Azure AD Connect][201]
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+
+    ![Przypisz użytkownika][201] 
 
 2. Na liście aplikacji zaznacz **SciQuest spędzają na katalog**.
-   
-    ![Co to jest program Azure AD Connect][202]
 
-3. W menu u góry kliknij **użytkowników**.
-   
-    ![Co to jest program Azure AD Connect][203]
+    ![Łącze SciQuest Dyrektor spędzają na liście aplikacji](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
 
-4. Na liście użytkowników wybierz **Simona Britta**.
-   
-    ![Co to jest program Azure AD Connect][204]
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
-   
-    ![Co to jest program Azure AD Connect][205]
+    ![Łącze "Użytkownicy i grupy"][202]
 
-### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+
+    ![W okienku Dodaj przydziału][203]
+
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+    
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
+
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+
 Po kliknięciu kafelka SciQuest spędzają na katalog, w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane SciQuest spędzają na katalog aplikacji.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
+
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
+
 [1]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_01.png
-[6]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_05.png
-[8]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_06.png
-[9]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_07.png
-[10]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_08.png
-[11]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_03.png
-[15]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_04.png
 
-[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_09.png 
-[101]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_10.png 
-[102]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_11.png 
-[103]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_12.png 
-[104]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_13.png 
-[105]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_14.png 
-[106]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_15.png 
-[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_16.png 
-[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_17.png 
-[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_06.png
-[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
-[204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
-[205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
+[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_203.png
 

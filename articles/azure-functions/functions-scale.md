@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala funkcji platformy Azure i hostingu
 
 Można uruchomić usługi Azure Functions w dwóch różnych trybach: plan zużycia i plan usługi aplikacji Azure. Plan zużycie automatycznie przydzieli moc obliczeniową, gdy kod działa, skaluje się wymagane do obsługi obciążenia, a następnie skalowany w dół, gdy kodu nie jest uruchomiona. Nie trzeba płacić za maszyny wirtualne w stanie bezczynności i nie trzeba wydajność rezerwowa z wyprzedzeniem. Ten artykuł skupia się na plan zużycie [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) modelu aplikacji. Aby uzyskać szczegółowe informacje dotyczące sposobu działania plan usługi aplikacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Hosting systemu Linux jest obecnie dostępny tylko na plan usługi aplikacji.
+> [Linux hosting](functions-create-first-azure-function-azure-cli-linux.md) jest obecnie dostępny tylko na plan usługi aplikacji.
 
 Jeśli nie znasz usługi Azure Functions, zobacz [Azure Functions — omówienie](functions-overview.md).
 
@@ -46,7 +46,7 @@ W planie usługi aplikacji można skalować między warstwami przydzielić róż
 Podczas korzystania z planu zużycia, wystąpienia usługi Azure Functions hosta są dynamicznie dodawane i usuwane zależności od liczby zdarzeń przychodzących. Ten plan skaluje automatycznie, a użytkownik naliczane są opłaty za zasoby obliczeniowe tylko wtedy, gdy są uruchomione funkcji. Na plan użycie funkcji można uruchomić maksymalnie 10 minut. 
 
 > [!NOTE]
-> Domyślny limit czasu dla funkcji w planie zużycie wynosi 5 minut. Wartość można zwiększyć do 10 minut dla aplikacji funkcja, zmieniając właściwość `functionTimeout` w [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Domyślny limit czasu dla funkcji w planie zużycie wynosi 5 minut. Wartość można zwiększyć do 10 minut dla aplikacji funkcja, zmieniając właściwość `functionTimeout` w [host.json](functions-host-json.md#functiontimeout) pliku projektu.
 
 Karta jest oparta na liczbę wykonaniami, czas wykonywania i używanej pamięci. Karta jest zagregowane we wszystkich funkcji w aplikacji funkcji. Aby uzyskać więcej informacji, zobacz [usługi Azure Functions cennikiem].
 

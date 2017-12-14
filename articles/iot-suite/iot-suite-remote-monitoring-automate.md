@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Wykrywanie problemów przy użyciu reguły progu
 
@@ -40,7 +40,7 @@ Jeśli jeszcze tego nie wdrożono rozwiązanie monitorowania zdalnego jeszcze, n
 
 ## <a name="view-the-rules-in-your-solution"></a>Wyświetlanie reguł w rozwiązaniu
 
-**Reguły & Akcje** w rozwiązaniu zostanie wyświetlona lista wszystkich istniejących zasad:
+**Reguł i akcje** w rozwiązaniu zostanie wyświetlona lista wszystkich istniejących zasad:
 
 ![Strona reguł i akcji](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,16 +67,16 @@ Aby utworzyć regułę, należy użyć następujących wartości:
 | Ustawienie          | Wartość                                 |
 | ---------------- | ------------------------------------- |
 | Nazwa             | Ostrzeżenie Chłodnica                       |
-| Element źródłowy           | **Chłodnica** grupy urządzeń              |
-| Pole wyzwalacza    | wykorzystania                              |
+| Element źródłowy           | **Chłodniach** grupy urządzeń             |
+| Pole wyzwalacza    | pressure                              |
 | Operator wyzwalacza | Więcej niż                          |
 | Wartość wyzwalacza    | 150                                   |
 | Poziom ważności   | Ostrzeżenie                               |
-| Tekst zdarzenia alarmu | Wykorzystanie Chłodnica przekracza 150 PSI |
+| Opis      | Wykorzystanie Chłodnica przekracza 150 PSI |
 
 Aby zapisać nową regułę, wybierz **Zastosuj**.
 
-Można wyświetlić, gdy reguła jest wyzwalana na **reguły & Akcje** strony lub na **pulpitu nawigacyjnego** strony.
+Można wyświetlić, gdy reguła jest wyzwalana na **reguł i akcje** strony lub na **pulpitu nawigacyjnego** strony.
 
 ## <a name="edit-an-existing-rule"></a>Edytuj istniejącą regułę
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -42,12 +42,16 @@ Stan:, 12 grudnia 2017
 >Jest to zabezpieczenie powiązanej poprawki programu Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Program Azure AD Connect
-Po zainstalowaniu usługi Azure AD Connect, nowe konto utworzeniem używanego do uruchamiania usługi Azure AD Connect. Przed tej wersji konto zostało utworzone przy użyciu ustawień, które mogą użytkownikiem z hasłem prawa adminsitrator wiedzieć, możliwość zmiany hasła do wartości dla nich.  Można się zalogować za pomocą tego konta, a to będzie stanowić podniesienie uprawnień naruszenia zabezpieczeń. Ta wersja napina taśmę ustawienia na koncie, który jest tworzony i usuwa tę lukę w zabezpieczeniach.
+Poprawa został dodany do programu Azure AD Connect wersji 1.1.654.0 (i po) aby upewnić się, że zalecane uprawnienia zmiany opisane w sekcji [blokowania dostępu do konta usług AD DS](#lock) są automatycznie stosowane podczas usługi Azure AD Połącz tworzy konto usług AD DS. 
+
+- Podczas konfigurowania usługi Azure AD Connect, instalowanie administratora można podać istniejące konto usług AD DS, lub pozwól automatycznie utworzyć konto usługi Azure AD Connect. Zmiany uprawnień są automatycznie stosowane do konta usług AD DS, które jest tworzona przy użyciu usługi Azure AD Connect podczas instalacji. Nie są stosowane do istniejącego konta usług AD DS dostarczonego przez administratora instalowania.
+- Dla klientów, którzy korzystają ze starszej wersji programu Azure AD Connect do 1.1.654.0 (lub po) uprawnienie zmiany będą nie wstecz zastosowane do istniejących kont usługi AD DS utworzone przed uaktualnieniem. Tylko zostaną one zastosowane do nowych kont usług AD DS, utworzonych po uaktualnieniu. Dzieje się tak podczas dodawania nowych lasów usługi AD do synchronizacji usługi Azure AD.
 
 >[!NOTE]
->Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. Exisating instalacji lub w przypadku, gdy samodzielnie konta możesz sould upewnij się, tę lukę w zabezpieczeniach nie istnieje.
+>Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. W przypadku istniejących instalacji lub w przypadku, gdy samodzielnie konta możesz sould upewnij się, tę lukę w zabezpieczeniach nie istnieje.
 
-Aby zwiększyć ustawienia konta usługi, możesz uruchomić [ten skrypt programu PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Zostanie zwiększyć ustawienia na koncie usługi do usunięcia luki poniżej wartości:
+#### <a name="lock"></a>Zablokowanie dostępu do konta usług AD DS
+Blokowanie dostępu do konta usług AD DS, implementując następujące zmiany uprawnień w lokalnej usługi AD:  
 
 *   Wyłączyć funkcję dziedziczenia w określonym obiekcie
 *   Usuń wszystkie wpisy kontroli dostępu dla określonego obiektu, z wyjątkiem ACE określonych do siebie. Chcemy zachować uprawnienia domyślne po przejściu do siebie.
@@ -64,10 +68,13 @@ Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Odczyt wszystkich właściwo
 Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Uprawnienia do odczytu     | Ten obiekt  |
 Zezwalaj    | Użytkownicy uwierzytelnieni           | Wyświetlanie zawartości        | Ten obiekt  |
 Zezwalaj    | Użytkownicy uwierzytelnieni           | Odczyt wszystkich właściwości  | Ten obiekt  |
+Zezwalaj    | Użytkownicy uwierzytelnieni           | Uprawnienia do odczytu     | Ten obiekt  |
+
+Aby zwiększyć ustawienia dla konta usługi AD DS, należy uruchomić [ten skrypt programu PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Skrypt programu PowerShell przypisze uprawnienia wymienionych powyżej konta usług AD DS.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Skrypt programu PowerShell, aby zwiększyć istniejącego konta usługi
 
-Aby użyć skryptu programu PowerShell, aby zastosować te ustawienia do istniejącego konta usługi (ether udostępniane przez organizację lub utworzone przez wcześniejszą instalację programu Azure AD Connect, Pobierz skrypt z linku podanego powyżej.
+Aby użyć skryptu programu PowerShell, aby zastosować te ustawienia do istniejącego konta usług AD DS, (ether udostępniane przez organizację lub utworzone przez wcześniejszą instalację programu Azure AD Connect, Pobierz skrypt z linku podanego powyżej.
 
 ##### <a name="usage"></a>Użycie:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Aby zobaczyć, czy tę lukę w zabezpieczeniach został użyty do naruszenia bezpieczeństwa usługi Azure AD Connect konfiguracji należy sprawdzić hasło ostatnio zresetować daty konta usługi.  Jeśli sygnaturą czasową w nieoczekiwany, dalszych badań, za pomocą dziennika zdarzeń dla zdarzenia resetowania tego hasła, należy podjąć.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Stanu: 2017 27 października
-
->[!NOTE]
->Ta kompilacja nie jest dostępna dla klientów za pośrednictwem funkcji Azure AD Connect automatycznego uaktualniania
+Aby uzyskać więcej informacji, zobacz [4056318 poradnik zabezpieczeń firmy Microsoft](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Stanu: 2017 27 października

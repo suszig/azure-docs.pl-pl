@@ -3,7 +3,7 @@ title: Tworzenia graficznego w automatyzacji Azure | Dokumentacja firmy Microsof
 description: "Tworzenia graficznego służy do tworzenia elementów runbook automatyzacji Azure bez Praca z kodem. Ten artykuł zawiera wprowadzenie do tworzenia graficznego i wszelkie informacje potrzebne do uruchomienia tworzenia graficznego elementu runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Graficzny tworzenia w programie usługi Automatyzacja Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -122,7 +122,7 @@ Podczas określania wartości dla parametru wybraniu źródła danych, aby okre�
 | Zasób certyfikatu |Wybierz certyfikat usługi Automatyzacja jako dane wejściowe. |
 | Zasób połączenia |Wybierz połączenie automatyzacji jako dane wejściowe. |
 | Wyrażenie programu PowerShell |Określ prosty [wyrażenie programu PowerShell](#powershell-expressions).  Wyrażenie, które zostanie obliczone przed działania i wynik używany dla wartości parametru.  Aby odwołać się do danych wyjściowych działania lub parametr wejściowy elementu runbook można używać zmiennych. |
-| Nieskonfigurowane |Czyści żadnej wartości, który został wcześniej skonfigurowany. |
+| Nie skonfigurowano |Czyści żadnej wartości, który został wcześniej skonfigurowany. |
 
 #### <a name="optional-additional-parameters"></a>Dodatkowe parametry opcjonalne
 Wszystkie polecenia cmdlet będzie mieć opcję, aby zapewnić dodatkowe parametry.  Są to typowe parametry programu PowerShell lub inne parametry niestandardowe.  Jest wyświetlane pole tekstowe, w którym można podać parametry, używając składni programu PowerShell.  Na przykład, aby użyć **pełne** wspólnego parametru należy określić **"-Verbose: $True"**.

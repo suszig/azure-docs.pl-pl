@@ -1,56 +1,54 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z SuccessFactors | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak używać SuccessFactors usłudze Azure Active Directory w celu włączenia logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SuccessFactors."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: d206298f8c0af6c3f96740594c6ff904228ee48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b9545599b4ac02927c38931777a3cee623a4e940
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Samouczek: Integracji Azure Active Directory z SuccessFactors
-Celem tego samouczka jest pokazanie sposobu integracji SuccessFactors z usługi Azure Active Directory (Azure AD).
+
+Z tego samouczka dowiesz się integrowanie SuccessFactors z usługi Azure Active Directory (Azure AD).
 
 Integracja z usługą Azure AD SuccessFactors zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do SuccessFactors
-* Umożliwia użytkownikom automatycznie pobrać zalogowane do SuccessFactors (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do SuccessFactors.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do SuccessFactors (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
 Aby skonfigurować integrację usługi Azure AD z SuccessFactors, potrzebne są następujące elementy:
 
-* Ważnej subskrypcji platformy Azure
-* Dzierżawcy w SuccessFactors
+- Subskrypcję usługi Azure AD
+- SuccessFactors jednokrotnego włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
-> 
-> 
 
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
-* Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
-* Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
+- Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem tego samouczka jest umożliwienie umożliwia testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym.
-
-Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
 1. Dodawanie SuccessFactors z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
@@ -60,104 +58,126 @@ Aby skonfigurować integrację usługi Azure AD SuccessFactors, należy dodać S
 
 **Aby dodać SuccessFactors z galerii, wykonaj następujące czynności:**
 
-1. W klasycznym portalu Azure, na panelu nawigacyjnym po lewej stronie kliknij **usługi Active Directory**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][1]
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][2]
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
-   
-    ![Aplikacje][3]
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][4]
-6. W **pole wyszukiwania**, typ **SuccessFactors**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][5]
-7. W panelu wyników wybierz **SuccessFactors**, a następnie kliknij przycisk **Complete** można dodać aplikację.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][6]
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-Jest celem tej sekcji opisano, jak skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SuccessFactors w oparciu o nazwie "Britta Simona" użytkownika testowego.
+    ![Przycisk usługi Azure Active Directory][1]
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownikowi w SuccessFactors użytkownika w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SuccessFactors musi się.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w SuccessFactors.
+    ![Blok aplikacje przedsiębiorstwa][2]
+    
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
+
+    ![Nowy przycisk aplikacji][3]
+
+4. W polu wyszukiwania wpisz **SuccessFactors**, wybierz pozycję **SuccessFactors** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
+
+    ![SuccessFactors na liście wyników](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
+
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SuccessFactors w oparciu o nazwie "Britta Simona" użytkownika testowego.
+
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w SuccessFactors jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w SuccessFactors musi się.
+
+W SuccessFactors, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
 Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z SuccessFactors, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego SuccessFactors](#creating-a-successfactors-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SuccessFactors połączonego z jej reprezentacji usługi Azure AD.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego SuccessFactors](#create-a-successfactors-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SuccessFactors połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu i skonfigurować logowanie jednokrotne w aplikacji SuccessFactors.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
+
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji SuccessFactors.
 
 **Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z SuccessFactors, wykonaj następujące czynności:**
 
-1. W klasycznym portalu Azure na **SuccessFactors** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować rejestrację jednokrotną** okna dialogowego.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][7]
-2. Na **jak chcesz użytkownikom zalogować się na SuccessFactors** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][8]
-3. Na **Konfigurowanie adresu URL aplikacji** , wykonaj następujące czynności, a następnie kliknij przycisk **dalej**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][9]
-   
-    a. W **na adres URL logowania** tekstowym, wpisz adres URL przy użyciu jednej z następujących wzorców: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-   
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL przy użyciu jednej z następujących wzorców: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-    | `https://<company name>.sapsf.eu/<company name>` |
-   
-    c. Kliknij przycisk **Dalej**. 
+1. W portalu Azure na **SuccessFactors** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-    > [!NOTE]
-    > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości rzeczywistych na adres URL logowania i adres URL odpowiedzi. Aby uzyskać te wartości, skontaktuj się z [SuccessFactors obsługuje zespołu](https://www.successfactors.com/en_us/support.html).
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-1. Na **skonfigurować logowanie jednokrotne w SuccessFactors** kliknij przycisk **pobierania certyfikatu**, a następnie zapisz plik certyfikatu lokalnie na komputerze.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][10]
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
+ 
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_samlbase.png)
 
-2. W oknie przeglądarki innej witryny sieci web, zaloguj się do Twojego **portalu administracyjnego SuccessFactors** jako administrator.
+3. Na **SuccessFactors domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-3. Odwiedź stronę **zabezpieczeń aplikacji** i macierzysty **pojedynczy znak w funkcji**. 
+    ![Adresy URL i domeny SuccessFactors pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_url.png)
 
-4. Umieść wszystkie wartości w **zresetować tokenu** i kliknij przycisk **zapisać tokenu** do włączenia funkcji logowania jednokrotnego SAML.
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:
+    | |
+    |--|
+    | `https://www.successfactors.com/<companyname>`|
+    | `https://www.successfactors.com`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://www.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://hcm4preview.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://www.successfactors.cn`|
+    | `https://www.successfactors.cn/<companyname>`|
+
+    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.successfactors.com`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://<companyname>.sapsf.eu/<companyname>`|
+    | `https://<companyname>.sapsf.cn`|
+    | `https://<companyname>.sapsf.cn/<companyname>`|
+         
+    > [!NOTE] 
+    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator, adres URL odpowiedzi i adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta SuccessFactors](https://www.successfactors.com/en_us/support.html) uzyskać te wartości. 
+
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
+
+5. Kliknij przycisk **zapisać** przycisku.
+
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-successfactors-tutorial/tutorial_general_400.png)
+    
+6. Na **konfiguracji SuccessFactors** , kliknij przycisk **skonfigurować SuccessFactors** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
+
+7. W oknie przeglądarki innej witryny sieci web, zaloguj się do Twojego **portalu administracyjnego SuccessFactors** jako administrator.
+    
+8. Odwiedź stronę **zabezpieczeń aplikacji** i macierzysty **pojedynczy znak w funkcji**. 
+
+9. Umieść wszystkie wartości w **zresetować tokenu** i kliknij przycisk **zapisać tokenu** do włączenia funkcji logowania jednokrotnego SAML.
    
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji][11]
 
     > [!NOTE] 
-    > Ta wartość jest używana tylko jako przełącznika wł. / wył. Po zapisaniu wartości logowania jednokrotnego SAML jest włączone. Po zapisaniu pustego logowania jednokrotnego SAML jest wyłączona.
+    > Ta wartość jest używana jako przełącznika wł. / wył. Po zapisaniu wartości logowania jednokrotnego SAML jest włączone. Po zapisaniu pustego logowania jednokrotnego SAML jest wyłączona.
 
-1. Macierzysty poniżej zrzut ekranu i wykonaj następujące czynności.
+10. Macierzysty poniżej zrzut ekranu i wykonaj następujące czynności:
    
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji][12]
    
     a. Wybierz **logowania jednokrotnego SAML v2** przycisk radiowy
    
-    b. Ustaw Name(e.g. SAml issuer + company name) strona zostanie SAML.
+    b. Ustaw **nazwa jednostki zostanie SAML**(na przykład wystawcy SAML + nazwa firmy).
    
-    c. W **wystawcy SAML** pole tekstowe umieścić wartość elementu **adres URL wystawcy** z Kreatora konfiguracji aplikacji usługi Azure AD.
+    c. W **adres URL wystawcy** pole tekstowe, Wklej **identyfikator jednostki SAML** wartość, która została skopiowana z portalu Azure.
    
     d. Wybierz **odpowiedzi (odbiorcy wygenerowanych/IdP/AP)** jako **wymagają podpisu obowiązkowe**.
    
@@ -169,18 +189,18 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w klasy
    
     h. Wybierz **nr** jako **wymusić nieprawidłowy okres certyfikatu**.
    
-    i. Skopiuj zawartość pliku pobranego certyfikatu, a następnie wklej go do **certyfikatu weryfikacji SAML** pola tekstowego.
+    i. Skopiuj zawartość pliku certyfikatu pobrany z portalu Azure, a następnie wklej go do **certyfikatu weryfikacji SAML** pola tekstowego.
 
     > [!NOTE] 
     > Zawartość certyfikatu musi mieć rozpocząć certyfikatu i na końcu tagi certyfikatu.
 
-1. Przejdź do SAML V2, a następnie wykonaj następujące czynności:
+11. Przejdź do SAML V2, a następnie wykonaj następujące czynności:
    
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji][13]
    
     a. Wybierz **tak** jako **inicjowane SP wylogowania globalnego obsługują**.
    
-    b. W **globalne wylogowania adres URL usługi (LogoutRequest docelowy)** pole tekstowe umieścić wartość elementu **zdalnego adresu URL wylogowania** z Kreatora konfiguracji aplikacji usługi Azure AD.
+    b. W **globalne wylogowania adres URL usługi (LogoutRequest docelowy)** pole tekstowe, Wklej **Sign-Out URL** wartość, która została skopiowana tworzą portalu Azure.
    
     c. Wybierz **nr** jako **wymagają sp należy szyfrować wszystkie element NameID**.
    
@@ -188,145 +208,125 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w klasy
    
     e. Wybierz **tak** jako **Włącz sp zainicjował logowania (AuthnRequest)**.
    
-    f. W **żądanie wysłania jako wystawca firmie** pole tekstowe umieścić wartość elementu **zdalnego adresu URL logowania** z Kreatora konfiguracji aplikacji usługi Azure AD.
-2. Wykonaj następujące kroki, aby wprowadzić nazwy logowania użytkowników bez uwzględniania wielkości liter,.
+    f. W **żądanie wysłania jako wystawca firmie** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z portalu Azure.
+
+12. Wykonaj następujące kroki, aby wprowadzić nazwy logowania użytkowników bez uwzględniania wielkości liter.
    
+    ![Konfigurowanie rejestracji jednokrotnej][29]
+    
     a. Odwiedź stronę **ustawienia firmy**(w dolnej).
    
     b. Zaznacz pole wyboru obok **włączyć Username Non-uwzględniana wielkość liter**.
    
     c.Click **zapisać**.
    
-    ![Konfigurowanie rejestracji jednokrotnej][29]
-
     > [!NOTE] 
-    > Jeśli spróbujesz je włączyć, system sprawdza, czy spowoduje utworzenie zduplikowanej nazwy logowania SAML. Na przykład, jeśli klient ma nazw użytkowników Użytkownik1 i Użytkownik1. Zdjęciu uwzględniana wielkość liter powoduje, że te duplikaty. System otrzymasz komunikat o błędzie i nie włączy tę funkcję. Klienta należy zmienić jedną z nazw użytkowników, tak faktycznie Pisownia jest inny. 
+    > Próba włączenia to system sprawdza, czy tworzy duplikat nazwy logowania SAML. Na przykład, jeśli klient ma nazw użytkowników Użytkownik1 i Użytkownik1. Zdjęciu uwzględniana wielkość liter powoduje, że te duplikaty. System umożliwia komunikat o błędzie i nie obsługuje tę funkcję. Klient musi Zmień jedną z nazw użytkowników, aby została wpisana inny.
 
-1. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego.
-   
-    ![Aplikacje][14]
-2. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
-   
-    ![Aplikacje][15]
+> [!TIP]
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu o nazwie Simona Britta.
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-![Tworzenie użytkowników usługi Azure AD][16]
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
+
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][17]
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][18]
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][19]
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][20]
-   
-    a. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
-   
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
-   
-    c. Kliknij przycisk **Dalej**.
-6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][21]
-   
-    a. W **imię** pole tekstowe, typ **Britta**.  
-   
-    b. W **nazwisko** pole tekstowe, typ **Simona**.
-   
-    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-   
-    d. W **roli** listy, wybierz **użytkownika**.
-   
-    e. Kliknij przycisk **Dalej**.
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][22]
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
-   
-    ![Tworzenie użytkownika testowego usługi Azure AD][23]
-   
-    a. Zanotuj wartość **nowe hasło**.
-   
-    b. Kliknij przycisk **Complete** (Zakończ).  
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-### <a name="creating-a-successfactors-test-user"></a>Tworzenie użytkownika testowego SuccessFactors
-Aby włączyć użytkowników usługi Azure AD zalogować się do SuccessFactors, musi być przygotowana do SuccessFactors.  
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png)
+
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png)
+
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
+
+    ![Przycisk Dodaj](./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png)
+
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
+
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png)
+
+    a. W **nazwa** wpisz **BrittaSimon**.
+
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
+
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+
+    d. Kliknij przycisk **Utwórz**.
+ 
+### <a name="create-a-successfactors-test-user"></a>Tworzenie użytkownika testowego SuccessFactors
+
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do SuccessFactors, musi być przygotowana do SuccessFactors.  
 W przypadku SuccessFactors Inicjowanie obsługi to zadanie ręczne.
 
 Aby uzyskać użytkownicy utworzeni w SuccessFactors, należy skontaktować się [SuccessFactors obsługuje zespołu](https://www.successfactors.com/en_us/support.html).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
-Celem tej sekcji jest włączenie Simona Britta do udostępnienia jej SuccessFactors za pomocą usługi Azure rejestracji jednokrotnej.
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-![Przypisz użytkownika][24]
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu SuccessFactors.
+
+![Przypisanie roli użytkownika][200] 
 
 **Aby przypisać Simona Britta SuccessFactors, wykonaj następujące czynności:**
 
-1. W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
-   
-    ![Przypisz użytkownika][25]
-2. Na liście aplikacji zaznacz **SuccessFactors**.
-   
-    ![Konfigurowanie rejestracji jednokrotnej][26]
-3. W menu u góry kliknij **użytkowników**.
-   
-    ![Przypisz użytkownika][27]
-4. Na liście użytkowników wybierz **Simona Britta**.
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
-   
-    ![Przypisz użytkownika][28]
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
-### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
+    ![Przypisz użytkownika][201] 
+
+2. Na liście aplikacji zaznacz **SuccessFactors**.
+
+    ![Łącze SuccessFactors na liście aplikacji](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_app.png)  
+
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
+
+    ![Łącze "Użytkownicy i grupy"][202]
+
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
+
+    ![W okienku Dodaj przydziału][203]
+
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
+
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
+
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
+    
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
+
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
 Po kliknięciu kafelka SuccessFactors w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji SuccessFactors.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
+
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
+
+
 <!--Image references-->
 
-[0]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_00.png
 [1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_01.png
-[6]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_02.png
-[7]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_03.png
-[8]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_04.png
-[9]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_05.png
-[10]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_06.png
 
 [11]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_07.png
 [12]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_08.png
 [13]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_09.png
 [14]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_05.png
 [15]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_06.png
-
-[16]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_00.png
-[17]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png
-[18]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png
-[19]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png
-[20]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png
-[21]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_05.png
-[22]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_06.png
-[23]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_07.png
-
-[24]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_07.png
-[25]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_08.png
-[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_11.png
-[27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
-[28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+
+[100]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_203.png
+

@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Projektowanie usługi wysokiej dostępności przy użyciu bazy danych SQL Azure
 
 Podczas tworzenia i wdrażania usług wysokiej dostępności w bazie danych SQL Azure, użyj [trybu failover grupy i aktywna replikacja geograficzna](sql-database-geo-replication-overview.md) zapewnienie odporności na awarie regionalnych i poważnej awarii. Umożliwia również szybkie odzyskiwanie do dodatkowej baz danych. Ten artykuł skupia się na typowe wzorce aplikacji i omówiono korzyści i kompromisy każdej z nich. Informacje aktywna replikacja geograficzna z pule elastyczne, zobacz [strategii odzyskiwania danych w puli elastycznej](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenariusz 1: Za pomocą dwóch regionach platformy Azure dla ciągłość prowadzenia działalności biznesowej z minimalnym czasem przestojów
-W tym scenariuszu aplikacje o następujących cechach: 
+W tym scenariuszu aplikacje mają następującą charakterystykę: 
 *   Aplikacja jest aktywna w jednym regionie Azure
 *   Wszystkie sesje bazy danych wymagają odczytu i zapisu (RW) do danych
 *   Warstwa sieci Web i warstwą danych musi być zlokalizowana na zmniejszenie kosztów opóźnienia i ruchu 
@@ -151,7 +152,7 @@ Brak niektórych, ale **wady i zalety**:
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Planowanie ciągłości biznesowej: Wybierz projekt aplikacji do chmury odzyskiwania po awarii
 Strategię odzyskiwania po awarii określonej chmury można łączyć lub rozszerzyć te wzorce projektowe, aby najlepiej odpowiadać potrzebom aplikacji.  Jak wspomniano wcześniej, strategii wybrane opiera się na umowie SLA chcesz zaoferować klientom i topologii wdrożenia aplikacji. W celu ułatwienia decyzji w poniższej tabeli porównano opcje, w zależności od celu punktu odzyskiwania (RPO) i odzyskiwania szacowany czas (Wstaw).
 
-| wzorzec | CEL PUNKTU ODZYSKIWANIA | WSTAW |
+| Wzorce | CEL PUNKTU ODZYSKIWANIA | WSTAW |
 |:--- |:--- |:--- |
 | Aktywny / pasywny wdrożenia dla odzyskiwania po awarii z dostępem do tej samej lokalizacji bazy danych |Dostęp do odczytu zapisu < 5 s |Czas wykrywania awarii + czas wygaśnięcia DNS |
 | Aktywny aktywny wdrożenia aplikacji Równoważenie obciążenia sieciowego |Dostęp do odczytu zapisu < 5 s |Czas wykrywania awarii + czas wygaśnięcia DNS |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurowanie usługi mapy w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -26,7 +26,7 @@ Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i 
 W tym artykule opisano konfigurowanie agentów mapy usługi i przechodzenia do szczegółów. Uzyskać przy użyciu mapy usługi, zobacz [programu rozwiązania mapy usługi Operations Management Suite](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Zależności agenta pliki do pobrania
-| Plik | System operacyjny | Wersja | ALGORYTM SHA-256 |
+| Plik | System operacyjny | Wersja | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
 | [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
@@ -35,9 +35,9 @@ W tym artykule opisano konfigurowanie agentów mapy usługi i przechodzenia do s
 ## <a name="connected-sources"></a>Połączone źródła
 Mapa usług dane są pobierane z Microsoft Dependency Agent. Agent zależności zależy od agenta pakietu OMS dla jego połączenia z pakietem Operations Management Suite. Oznacza to, że serwer musi mieć zainstalowany i skonfigurowany najpierw Agent pakietu OMS, a następnie może być zainstalowany Agent zależności. W poniższej tabeli opisano połączonych źródeł, które obsługuje rozwiązania mapy usługi.
 
-| Źródło połączenia | Obsługiwane | Opis |
+| Połączone źródło | Obsługiwane | Opis |
 |:--|:--|:--|
-| Agenci dla systemu Windows | Tak | Mapa usług analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-windows-agents.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Agenci dla systemu Windows | Tak | Mapa usług analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
 | Agenci dla systemu Linux | Tak | Mapa usług analizuje i zbiera dane z komputerów z systemem Linux agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-linux-agents.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
 | Grupa zarządzania programu System Center Operations Manager | Tak | Mapa usług analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Bezpośrednie połączenie z komputera agenta programu System Center Operations Manager Operations Management Suite jest wymagana. Dane są przesyłane dalej z grupy zarządzania do repozytorium usługi Operations Management Suite.|
 | Konto magazynu Azure | Nie | Mapy usługi zbiera dane z komputerami agenta, więc nie ma żadnych danych z niego do zbierania z usługi Azure Storage. |
@@ -74,7 +74,7 @@ Dependency Agent jest zainstalowany na komputerach z systemem Windows za pośred
 
 Aby zainstalować agenta zależności na każdym komputerze z systemem Windows, wykonaj następujące kroki:
 
-1.  Zainstaluj agenta pakietu OMS zgodnie z instrukcjami podanymi w [komputery Windows połączenia z usługą analizy dzienników na platformie Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  Zainstaluj agenta pakietu OMS zgodnie z instrukcjami podanymi w [komputery Windows połączenia z usługą analizy dzienników na platformie Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Pobierz agenta systemu Windows i uruchom go za pomocą następującego polecenia: <br>`InstallDependencyAgent-Windows.exe`
 3.  Użyj kreatora, aby zainstalować agenta.
 4.  Jeśli Dependency Agent nie powiedzie się, sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. Agentów systemu Windows katalog dziennika jest %Programfiles%\Microsoft Agent\logs zależności. 
@@ -388,7 +388,7 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 |:--|:--|
 | Z DODATKIEM SP4 10 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>dane diagnostyczne i użycia
+## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i dane użycia
 Firma Microsoft automatycznie zbiera dane użycia i wydajności przez korzystanie z usługi mapy usługi. Firma Microsoft używa tych danych do udostępniania i ulepszania jakości, bezpieczeństwa i integralności usługi mapy usługi. Dane obejmują informacje o konfiguracji oprogramowania, takie jak wersja systemu operacyjnego i. Zawiera także adres IP, nazwę DNS i nazwę stacji roboczej zapewnić dokładne i skuteczne funkcje do rozwiązywania problemów. Nie gromadzimy nazwisk, adresów ani innych informacji kontaktowych.
 
 Aby uzyskać więcej informacji dotyczących zbierania i użycia danych, zobacz [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).

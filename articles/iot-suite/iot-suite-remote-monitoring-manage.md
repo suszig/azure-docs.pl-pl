@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Konfigurowanie urządzeń oraz zarządzanie nimi
 
@@ -40,13 +40,13 @@ Aby użyć tego samouczka, należy wdrożone wystąpienie zdalnego rozwiązanie 
 
 Jeśli jeszcze tego nie wdrożono rozwiązanie monitorowania zdalnego jeszcze, należy wykonać [wdrożyć zdalnego wstępnie skonfigurowane rozwiązanie monitorowania](iot-suite-remote-monitoring-deploy.md) samouczka.
 
-## <a name="provision-a-simulated-device"></a>Zainicjuj obsługę symulowane urządzenie
+## <a name="add-a-simulated-device"></a>Dodaj symulowane urządzenie
 
-Przejdź do **urządzeń** strony w rozwiązaniu, a następnie wybierz pozycję **udostępniania**. W **udostępniania** panelu, wybierz polecenie **symulowane**:
+Przejdź do **urządzeń** strony w rozwiązaniu, a następnie wybierz pozycję **nowe urządzenie**. W **nowe urządzenie** panelu, wybierz polecenie **symulowane**:
 
 ![Zainicjuj obsługę symulowane urządzenie](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Pozostaw liczbę urządzeń do świadczenia ustawioną **1**. Wybierz **aparat** jako **model urządzenia**, a następnie wybierz pozycję **Zastosuj** Aby utworzyć symulowane urządzenie:
+Pozostaw liczbę urządzeń do świadczenia ustawioną **1**. Wybierz **błędny aparat** jako **model urządzenia**, a następnie wybierz pozycję **Zastosuj** Aby utworzyć symulowane urządzenie:
 
 ![Zainicjuj obsługę aparatu symulowane urządzenie](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Aby wyświetlić szczegółowe diagnostyki, przewiń w dół do widoku **diagnos
 
 ## <a name="act-on-a-device"></a>Działania na urządzeniu
 
-Do działania na urządzeniu, wybierz go na liście urządzeń, a następnie wybierz pozycję **harmonogram**. **Aparat** model urządzenia określa cztery metody musi obsługiwać urządzenia:
+Do działania na co najmniej jedno urządzenie, wybierz je z listy urządzeń, a następnie wybierz pozycję **harmonogram**. **Aparat** model urządzenia określa cztery metody musi obsługiwać urządzenia:
 
 ![Metody aparatu](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Wybierz **Uruchom ponownie**, ustaw nazwę zadania **RestartEngine**, a następn
 
 ![Zaplanuj metodę ponownego uruchomienia](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Aby śledzić stan zadania na **konserwacji** wybierz pozycję **stan systemu**:
+Aby śledzić stan zadania na **konserwacji** wybierz pozycję **zadania**:
 
 ![Monitor zadania harmonogramów](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Aby wprowadzić zmiany, Dodaj nazwę zadania, zaktualizować wartości właściw
 
 ![Zaktualizuj wartość właściwości urządzenia](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Aby śledzić stan zadania na **konserwacji** wybierz pozycję **stan systemu**.
+Aby śledzić stan zadania na **konserwacji** wybierz pozycję **zadania**.
 
 ## <a name="next-steps"></a>Następne kroki
 
