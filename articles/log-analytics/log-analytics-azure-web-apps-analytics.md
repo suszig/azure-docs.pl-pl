@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Wyświetl dane analityczne metryki różnych zasobów aplikacji sieci Web Azure
 
@@ -39,7 +39,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników danych
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Linux. |
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów w podłączonej grupy zarządzania SCOM. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Rozwiązanie nie nie zbierają informacje z usługi Azure storage. |
@@ -58,7 +58,7 @@ Wykonaj poniższe kroki, aby skonfigurować rozwiązanie Analytics aplikacji sie
 Rozwiązania Azure Web Apps Analytics zbiera dwóch zestawów metryki z platformy Azure:
 
 - Metryki aplikacji sieci Web platformy Azure
-  - Pamięć średni zestaw roboczy
+  - Średni zestaw roboczy pamięci
   - Średni czas odpowiedzi
   - Odebrano wysłane bajty
   - Czas procesora CPU

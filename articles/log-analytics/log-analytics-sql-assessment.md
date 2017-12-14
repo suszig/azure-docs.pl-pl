@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optymalizuj środowisko SQL z rozwiązaniem sprawdzania kondycji serwera SQL w analizy dzienników
 
@@ -52,7 +52,7 @@ Po dodaniu rozwiązania i ocenę jest zakończone, podsumowanie informacji o obs
 
 Aby przeprowadzić sprawdzenie kondycji na serwerach programu SQL Server, wymagają one agenta i łączności do analizy dzienników przy użyciu jednej z następujących obsługiwanych metod:
 
-1. Zainstaluj [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) Jeśli serwer nie jest już monitorowany przez System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2.
+1. Zainstaluj [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) Jeśli serwer nie jest już monitorowany przez System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2.
 2. Jeśli grupa zarządzania nie jest zintegrowany z usługą analizy dzienników jest monitorowany z System Center 2016 - Operations Manager lub programu Operations Manager 2012 R2, serwer może być wieloadresowego z analizy dzienników do zbierania danych i przekazywać je do usługi i jest nadal monitorowane przez program Operations Manager.  
 3. W przeciwnym razie, jeśli grupę zarządzania programu Operations Manager jest zintegrowany z usługą, należy dodać kontrolerów domeny na potrzeby zbierania danych przez usługę następujące kroki w obszarze [dodać komputery zarządzane z wykorzystaniem agentów](log-analytics-om-agents.md#connecting-operations-manager-to-oms) po włączeniu rozwiązanie w obszarze roboczym.  
 
@@ -64,7 +64,7 @@ Jeśli serwer SQL jest monitorowane przez program Operations Manager, należy sk
 Sprawdzanie kondycji SQL zbiera dane z następujących źródeł przy użyciu agenta, która została włączona: 
 
 * Instrumentacja zarządzania Windows (WMI) 
-* Rejestru 
+* Rejestr 
 * Liczniki wydajności
 * Wyniki widoku dynamicznego zarządzania programu SQL Server 
 
@@ -163,8 +163,8 @@ Zanim użyjesz rozwiązanie do oceny w analizy dzienników, musi mieć zainstalo
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do portalu Azure pod adresem [https://portal.azure.com](https://portal.azure.com). 
-2. W portalu Azure kliknij **więcej usług** znaleziono w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **dziennika analizy**.
+1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
+2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
 3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
 4. Na **omówienie** kliknij przycisk **SQL kondycji Sprawdź** kafelka. 
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
@@ -245,7 +245,7 @@ Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowe
 
 * Zbierane są następujące typy danych:
   * USŁUGI WMI
-  * Rejestru
+  * Rejestr
   * Liczniki wydajności
   * SQL dynamicznych widoków zarządzania (DMV).
 

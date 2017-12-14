@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platforma poziomu generowania zdarzeń i dzienników
 
@@ -105,7 +105,7 @@ Aby uzyskać listę liczników wydajności do zebrania po przy użyciu usługi S
 
 Istnieją dwa sposoby typowych, w których można skonfigurować zbieranie danych wydajności dla klastra:
 
-* Przy użyciu agenta: jest to preferowany sposób zbierania wydajności z komputera, ponieważ agenci mają zwykle listę metryki wydajności możliwości, które mogą być zbierane i jest stosunkowo łatwa procesu, aby wybrać metryki, aby zbierać lub je zmienić. Przeczytaj informacje o [sposobu konfigurowania sieci szkieletowej usług OMS](service-fabric-diagnostics-event-analysis-oms.md) i [konfigurowania agenta systemu Windows OMS](../log-analytics/log-analytics-windows-agents.md) artykuły, aby dowiedzieć się więcej o agenta pakietu OMS to jeden taki agent monitorowania, który może podnieść wydajność dane dla maszyn wirtualnych klastra i wdrożone kontenery.
+* Przy użyciu agenta: jest to preferowany sposób zbierania wydajności z komputera, ponieważ agenci mają zwykle listę metryki wydajności możliwości, które mogą być zbierane i jest stosunkowo łatwa procesu, aby wybrać metryki, aby zbierać lub je zmienić. Przeczytaj informacje o [sposobu konfigurowania sieci szkieletowej usług OMS](service-fabric-diagnostics-event-analysis-oms.md) i [konfigurowania agenta systemu Windows OMS](../log-analytics/log-analytics-windows-agent.md) artykuły, aby dowiedzieć się więcej o agenta pakietu OMS to jeden taki agent monitorowania, który może podnieść wydajność dane dla maszyn wirtualnych klastra i wdrożone kontenery.
 
 * Konfigurowanie diagnostykę, aby zapisać liczniki wydajności do tabeli: w przypadku klastrów w systemie Azure, oznacza to, zmienianie konfiguracji diagnostyki Azure do odebrania liczniki wydajności odpowiednie z maszyn wirtualnych w klastrze, a następnie włączenie go do odebrania Statystyka docker, jeśli wdrażania żadnych kontenerów. Przeczytaj informacje o konfigurowaniu [liczniki wydajności w WAD](service-fabric-diagnostics-event-aggregation-wad.md) w sieci szkieletowej usług, aby skonfigurować zbieranie danych licznika wydajności.
 

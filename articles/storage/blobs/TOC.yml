@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Praca z obiektami blob — Python
       href: storage-quickstart-blobs-python.md
+    - name: Praca z obiektami blob — Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Praca z obiektami blob — Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: Praca z obiektami blob — Eksplorator usługi Storage
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Przeszukiwanie danych bez struktury w magazynie w chmurze
       href: storage-unstructured-search.md
+    - name: Optymalizowanie wydajności i skalowalności aplikacji magazynowej
+      items:
+        - name: Tworzenie maszyny wirtualnej i konta magazynu
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Przekazywanie dużych ilości danych na konto usługi Azure Storage
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Pobieranie dużych ilości danych z konta usługi Azure Storage
+          href: storage-blob-scalable-app-download-files.md
+        - name: Weryfikowanie metryk przepływności i opóźnienia
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Przykłady
   items:
     - name: .NET

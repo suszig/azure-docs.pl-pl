@@ -3,7 +3,7 @@ title: "Galerie elementów Runbook i modułów w automatyzacji Azure | Dokumenta
 description: "Elementy Runbook i modułów firmy Microsoft i społecznością są dostępne, można zainstalować i używać w środowisku usługi Automatyzacja Azure.  W tym artykule opisano, jak można dostęp do tych zasobów i do ich współtworzenia elementy runbook do galerii."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e46c09a0cfecf07514f85b5801129fbd8162510f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galeria elementów Runbook i modułów dla usługi Automatyzacja Azure
 Zamiast tworzenia własnych elementów runbook i modułów w automatyzacji Azure, można uzyskać dostępu do szerokiej gamy scenariuszy, które zostały już utworzone przez firmę Microsoft i społecznością.  Możesz użyć tych scenariuszy bez żadnych modyfikacji lub można ich używać jako punktu wyjścia i edytować je do swoich specyficznych wymagań.
@@ -79,7 +79,7 @@ Firma Microsoft zaleca dodanie elementów runbook do galerii elementu Runbook, k
   * Monitorowanie
   * Stosowanie poprawek
   * Inicjowanie obsługi
-  * Korygowania
+  * Korygowanie
   * Zarządzanie cyklem życia maszyny Wirtualnej
 * Automatyzacja aktualizuje galerii raz na godzinę, nie będą widzieć Twój wkład natychmiast.
 

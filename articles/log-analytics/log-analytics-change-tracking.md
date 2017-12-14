@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Śledzenie zmian w oprogramowaniu w Twoim środowisku z rozwiązaniem do śledzenia zmian
 
@@ -32,7 +32,7 @@ Należy zainstalować rozwiązanie, aby zaktualizować typu agenta, który zosta
 ## <a name="installing-and-configuring-the-solution"></a>Instalowanie i konfigurowanie rozwiązania
 Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiązania.
 
-* Musi mieć [Windows](log-analytics-windows-agents.md), [programu Operations Manager](log-analytics-om-agents.md), lub [Linux](log-analytics-linux-agents.md) agenta na każdym komputerze, na którym mają być monitorowane zmian.
+* Musi mieć [Windows](log-analytics-windows-agent.md), [programu Operations Manager](log-analytics-om-agents.md), lub [Linux](log-analytics-linux-agents.md) agenta na każdym komputerze, na którym mają być monitorowane zmian.
 * Dodaj rozwiązanie śledzenia zmian na obszar roboczy OMS z [witrynę Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Można dodać rozwiązania, korzystając z informacji w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md). Jest wymagana żadna dalsza konfiguracja.
 
 ### <a name="configure-linux-files-to-track"></a>Konfiguruj pliki Linux do śledzenia

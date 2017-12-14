@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planowanie pojemności maszyn wirtualnych funkcji Hyper-V z rozwiązaniem pojemność i wydajność (wersja zapoznawcza)
 
@@ -45,7 +45,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Pomoc techniczna | Opis |
 |---|---|---|
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Tak | Rozwiązania zbiera informacje o danych pojemność i wydajność z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Tak | Rozwiązania zbiera informacje o danych pojemność i wydajność z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie    | Rozwiązanie nie zbiera pojemność i wydajność, informacje o danych z bezpośredniej agentów systemu Linux.|
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Tak |Rozwiązania zbiera dane pojemność i wydajność z agentów w podłączonej grupy zarządzania SCOM. Bezpośrednie połączenie z agenta programu SCOM OMS nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS.|
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Usługa Azure storage nie zawiera danych pojemność i wydajność.|

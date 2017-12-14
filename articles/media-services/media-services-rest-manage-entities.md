@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: e322e79c0a11278a6a7d186cfab6b6d6c271ce1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Zarządzanie jednostki usługi Media Services z REST 
 > [!div class="op_single_selector"]
@@ -41,9 +41,6 @@ Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ust
 ## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="adding-entities"></a>Dodawanie jednostek
 Każdy podmiot w usłudze Media Services jest dodawane do zestawu jednostek, takich jak zasoby, za pomocą żądania POST HTTP.

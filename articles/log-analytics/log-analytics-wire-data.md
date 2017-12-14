@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Podczas transmisji danych 2.0 (wersja zapoznawcza) rozwiązania analizy dzienników
 
@@ -58,7 +58,7 @@ Podczas transmisji danych dane są pobierane z Microsoft Dependency Agent. Agent
 
 | **Źródło połączenia** | **Obsługiwane** | **Opis** |
 | --- | --- | --- |
-| Agenci dla systemu Windows | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> Oprócz [Agent pakietu OMS](log-analytics-windows-agents.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Agenci dla systemu Windows | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> Oprócz [Agent pakietu OMS](log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
 | Agenci dla systemu Linux | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Linux agenta.<br><br> Oprócz [Agent pakietu OMS](log-analytics-quick-collect-linux-computer.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
 | Grupa zarządzania programu System Center Operations Manager | Tak | Podczas transmisji danych analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Połączenie bezpośrednie z komputera agenta programu System Center Operations Manager do analizy dzienników jest wymagana. Dane są przesyłane dalej z grupy zarządzania do analizy dzienników. |
 | Konto magazynu Azure | Nie | Podczas transmisji danych zbiera dane z komputery agenta, więc nie ma żadnych danych z niego do zbierania z usługi Azure Storage. |
@@ -208,7 +208,7 @@ Dependency Agent jest zainstalowany na komputerach z systemem Windows za pośred
 
 Aby zainstalować agenta zależności na każdy komputer z systemem Windows, wykonaj następujące kroki:
 
-1. Zainstaluj agenta pakietu OMS zgodnie z krokami w [zbierania danych z komputerów z systemem Windows w środowisku](log-analytics-windows-agents.md).
+1. Zainstaluj agenta pakietu OMS zgodnie z krokami w [zbierania danych z komputerów z systemem Windows w środowisku](log-analytics-windows-agent.md).
 2. Pobierz agenta zależności systemu Windows przy użyciu łącza w poprzedniej sekcji, a następnie uruchom go za pomocą następującego polecenia:`InstallDependencyAgent-Windows.exe`
 3. Użyj kreatora, aby zainstalować agenta.
 4. Jeśli Dependency Agent nie powiedzie się, sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Windows katalog dziennika jest %Programfiles%\Microsoft Agent\logs zależności.

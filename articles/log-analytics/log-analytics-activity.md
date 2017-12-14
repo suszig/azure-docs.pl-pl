@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Wyświetl dzienniki aktywności platformy Azure
 
@@ -52,7 +52,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników danych
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| [Agenci dla systemu Windows](log-analytics-windows-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów systemu Linux. |
 | [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Nie | Rozwiązanie nie zbiera informacje z agentów w podłączonej grupy zarządzania SCOM. |
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Rozwiązanie nie zbiera informacje z usługi Azure storage. |
@@ -88,7 +88,7 @@ Kliknij przycisk **Dzienniki aktywności Azure** Kafelek, aby otworzyć **Dzienn
 
 Dane dziennika aktywności jest wyświetlany tylko *po* skonfigurowaniu Dzienniki aktywności można przejść do rozwiązania, więc nie można wyświetlić danych, przed upływem.
 
-| Blok | Opis |
+| Blade | Opis |
 | --- | --- |
 | Wpisy dziennika aktywności platformy Azure | Przedstawia wykres słupkowy TOP wpis dziennika aktywności platformy Azure rekordów sumy wybranego zakresu i pokazuje listę top wywołań 10 działania. Kliknij na wykresie słupkowym, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity</code>. Kliknij element wywołujący, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla danego elementu. |
 | Dzienniki aktywności według stanu | Przedstawia wykres pierścieniowy stanu dziennika aktywności platformy Azure wybranego zakresu. Również listy to lista top rekordów stanu 10. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Kliknij element stanu, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla tego rekordu stanu. |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Centrum zabezpieczeń platformy migracji — często zadawane pytania
 W wczesne 2017 czerwca Centrum zabezpieczeń Azure rozpoczęło się przy użyciu programu Microsoft Monitoring Agent do gromadzenia i przechowywania danych. Aby dowiedzieć się więcej, zobacz [migracji Platform Centrum zabezpieczeń Azure](security-center-platform-migration.md). Często zadawane pytania odpowiedzi na pytania dotyczące migracji platform.
@@ -175,7 +175,7 @@ Można zrezygnować z automatycznego inicjowania obsługi administracyjnej, jeś
 Po zakończeniu migracji Centrum zabezpieczeń nie będzie mógł zbierać dane zabezpieczeń z maszyny Wirtualnej, a niektóre zalecenia dotyczące zabezpieczeń i alertów są niedostępne. Jeśli możesz zrezygnować, należy zainstalować ręcznie programu Microsoft Monitoring Agent. Zobacz [zalecane kroki w przypadku rezygnację](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Co to są zalecane kroki podczas Rezygnacja z automatycznego inicjowania obsługi?
-Należy ręcznie zainstalować agenta monitorowania firmy Microsoft, Centrum zabezpieczeń można zbierać dane z maszyn wirtualnych i zaleceń i alertami. Zobacz [komputery Windows połączenia z usługą analizy dzienników na platformie Azure](../log-analytics/log-analytics-windows-agents.md) wskazówki dotyczące instalacji.
+Należy ręcznie zainstalować agenta monitorowania firmy Microsoft, Centrum zabezpieczeń można zbierać dane z maszyn wirtualnych i zaleceń i alertami. Zobacz [komputery Windows połączenia z usługą analizy dzienników na platformie Azure](../log-analytics/log-analytics-windows-agent.md) wskazówki dotyczące instalacji.
 
 Połącz agenta z istniejącego niestandardowego obszaru roboczego lub obszar roboczy utworzony Centrum zabezpieczeń. Jeśli niestandardowego obszaru roboczego nie ma rozwiązania "Zabezpieczenia" lub "SecurityCenterFree" włączone, a następnie należy zastosować rozwiązanie. Aby zastosować, wybierz niestandardowego obszaru roboczego lub subskrypcji i zastosować warstwy cenowej za pośrednictwem **zasady zabezpieczeń — warstwa cenowa** bloku.
 

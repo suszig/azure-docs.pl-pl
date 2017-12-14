@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4d2a027a4e803dd68fba5f7fe130066fb7bd1232
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 391190c48c8ea5996d579db26a1b05ccff861d10
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurowanie zasad dostarczania zasobów
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -68,9 +68,6 @@ Aby uzyskać instrukcje dotyczące sposobu publikowania elementów zawartości i
 ## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="clear-asset-delivery-policy"></a>Zasady dostarczania elementu zawartości wyczyść
 ### <a id="create_asset_delivery_policy"></a>Tworzenie zasad dostarczania elementów zawartości

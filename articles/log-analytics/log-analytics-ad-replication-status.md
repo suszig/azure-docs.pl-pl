@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitoruje stan replikacji usługi Active Directory z analizy dzienników
 
@@ -32,7 +32,7 @@ Stan replikacji AD pakiet rozwiązania regularnie monitoruje środowiska usługi
 ## <a name="installing-and-configuring-the-solution"></a>Instalowanie i konfigurowanie rozwiązania
 Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiązania.
 
-* Należy zainstalować agentów na kontrolerach domeny, które są członkami domeny, która ma zostać obliczone. Lub, musisz zainstalować agentów na serwerach członkowskich i konfigurowanie agentów na wysyłanie danych replikacji AD z usługą OMS. Aby poznać sposób nawiązywania połączenia z usługą OMS komputerów z systemem Windows, zobacz [połączyć komputery do analizy dzienników](log-analytics-windows-agents.md). Jeśli kontroler domeny jest już częścią istniejącego środowiska System Center Operations Manager, który chcesz połączyć z usługą OMS, zobacz [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md).
+* Należy zainstalować agentów na kontrolerach domeny, które są członkami domeny, która ma zostać obliczone. Lub, musisz zainstalować agentów na serwerach członkowskich i konfigurowanie agentów na wysyłanie danych replikacji AD z usługą OMS. Aby poznać sposób nawiązywania połączenia z usługą OMS komputerów z systemem Windows, zobacz [połączyć komputery do analizy dzienników](log-analytics-windows-agent.md). Jeśli kontroler domeny jest już częścią istniejącego środowiska System Center Operations Manager, który chcesz połączyć z usługą OMS, zobacz [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md).
 * Dodaj rozwiązanie stan replikacji usługi Active Directory na obszar roboczy OMS zastosowanie procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).  Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Szczegóły kolekcji danych stanu replikacji usługi AD
@@ -47,7 +47,7 @@ Jeśli nie chcesz do poszczególnych kontrolerów domeny bezpośrednie łączeni
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Aby włączyć kontrolera domeny z systemem innym niż do wysyłania danych AD z usługą OMS
 1. Sprawdź, czy komputer jest członkiem domeny, którą chcesz monitorować za pomocą rozwiązania stan replikacji usługi AD.
-2. [Podłącz komputer z systemem Windows z usługą OMS](log-analytics-windows-agents.md) lub [podłącz go przy użyciu istniejącego środowiska programu Operations Manager z usługą OMS](log-analytics-om-agents.md), jeśli nie jest już połączony.
+2. [Podłącz komputer z systemem Windows z usługą OMS](log-analytics-windows-agent.md) lub [podłącz go przy użyciu istniejącego środowiska programu Operations Manager z usługą OMS](log-analytics-om-agents.md), jeśli nie jest już połączony.
 3. Na tym komputerze należy ustawić następujący klucz rejestru:
 
    * Klucz: **grup wartość HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management\<ManagementGroupName > \Solutions\ADReplication**
@@ -148,7 +148,7 @@ Odpowiedź: normalnymi uprawnieniami użytkownika do usługi Active Directory s�
 ## <a name="troubleshoot-data-collection-problems"></a>Rozwiązywanie problemów zbierania danych
 Aby zbierać dane, stan replikacji AD pakiet rozwiązania wymaga co najmniej jeden kontroler domeny połączyć się z obszarem roboczym pakietu OMS. Dopiero po nawiązaniu połączenia kontrolera domeny, pojawi się komunikat wskazujący, że **nadal są zbierane dane**.
 
-Jeśli potrzebujesz pomocy przy podłączaniu jeden z kontrolerów domeny, można wyświetlić dokumentację w [połączyć komputery do analizy dzienników](log-analytics-windows-agents.md). Alternatywnie, jeśli kontroler domeny jest już połączony z istniejącym środowiskiem programu System Center Operations Manager, można wyświetlić dokumentację w [połączyć System Center Operations Manager do analizy dzienników](log-analytics-om-agents.md).
+Jeśli potrzebujesz pomocy przy podłączaniu jeden z kontrolerów domeny, można wyświetlić dokumentację w [połączyć komputery do analizy dzienników](log-analytics-windows-agent.md). Alternatywnie, jeśli kontroler domeny jest już połączony z istniejącym środowiskiem programu System Center Operations Manager, można wyświetlić dokumentację w [połączyć System Center Operations Manager do analizy dzienników](log-analytics-om-agents.md).
 
 Jeśli nie chcesz do połączenia wszystkich kontrolerów domeny bezpośrednio z usługą OMS lub SCOM, zobacz [umożliwiające kontrolera domeny z systemem innym niż do wysyłania danych AD z usługą OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

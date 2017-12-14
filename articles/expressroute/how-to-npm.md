@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute (wersja zapoznawcza)
 
@@ -129,7 +129,7 @@ Zaleca się zainstalowanie co najmniej dwóch agentów po obu stronach połącze
 
 ### <a name="proxy"></a>2.3: Konfigurowanie ustawień serwera proxy (opcjonalnie)
 
-Jeśli używasz serwera proxy sieci web do uzyskania dostępu do Internetu, następujące kroki umożliwiają konfigurowanie ustawień serwera proxy dla programu Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [skonfigurować ustawienia serwera proxy dla programu Microsoft Monitoring Agent za pomocą skryptu](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Jeśli używasz serwera proxy sieci web do uzyskania dostępu do Internetu, następujące kroki umożliwiają konfigurowanie ustawień serwera proxy dla programu Microsoft Monitoring Agent. Wykonaj te kroki dla każdego serwera. Jeśli masz wiele serwerów, które trzeba skonfigurować, łatwiejszym rozwiązaniem może być użycie skryptu automatyzującego ten proces. Jeśli tak, zobacz [skonfigurować ustawienia serwera proxy dla programu Microsoft Monitoring Agent za pomocą skryptu](../log-analytics/log-analytics-windows-agent.md).
 
 Aby skonfigurować ustawienia serwera proxy dla programu Microsoft Monitoring Agent w Panelu sterowania:
 
@@ -200,7 +200,7 @@ Po ukończeniu poprzedniej sekcji i sprawdź, czy zostały białej, można skonf
   ![Ustawienia funkcji](.\media\how-to-npm\npm2.png)
 3. Na stronie konfiguracji przejdź do karty "ExpressRoute komunikacji równorzędnych", znajduje się w okienku po lewej stronie. Kliknij przycisk **odnajdywanie teraz**.
 
-  ![Odnajdywanie](.\media\how-to-npm\13.png)
+  ![odnajdź](.\media\how-to-npm\13.png)
 4. Po zakończeniu odnajdowania, zostanie wyświetlony reguły unikatowy obwodu i nazwy sieci wirtualnej. Początkowo te zasady są wyłączone. Włącz reguły, a następnie wybierz agenci monitorowania i wartości progowe.
 
   ![rules](.\media\how-to-npm\14.png)

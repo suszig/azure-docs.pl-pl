@@ -4,7 +4,7 @@
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
 ## [Nadzór subskrypcji](resource-manager-subscription-governance.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Szablon tworzenia i wdrażania](resource-manager-create-first-template.md)
 ## [Rozszerzenia kodu VS dla szablonów](resource-manager-vscode-extension.md)
 ## [Program Visual Studio z usługą Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -14,6 +14,7 @@
 ### [Sekcje szablonu](resource-group-authoring-templates.md)
 #### [Parametry](resource-manager-templates-parameters.md)
 #### [Zmienne](resource-manager-templates-variables.md)
+#### [Zasoby](resource-manager-templates-resources.md)
 ### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)

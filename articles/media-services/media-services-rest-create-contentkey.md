@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Tworzenie kluczy zawartości z REST
 > [!div class="op_single_selector"]
@@ -77,9 +77,6 @@ W tym artykule nie opisano do wygenerowania klucza AES, szyfrowania klucza i obl
 ## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
 Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Pobrać ProtectionKeyId
 Poniższy przykład pokazuje, jak pobrać ProtectionKeyId, odcisk palca certyfikatu, dla certyfikatu, którego należy użyć w przypadku szyfrowania kluczem zawartości. Wykonaj ten krok, aby się upewnić, że już ma odpowiedniego certyfikatu na tym komputerze.

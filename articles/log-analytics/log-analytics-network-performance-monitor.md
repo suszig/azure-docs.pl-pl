@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Monitor wydajności rozwiązania analizy dzienników sieci
 
@@ -46,7 +46,7 @@ Jeśli chcesz monitorować wiersza aplikacji biznesowej, można użyć rozwiąza
 Ponadto jeśli już inwestycji w inne narzędzia do monitorowania sieci, następnie rozwiązania można uzupełnić te narzędzia ponieważ najbardziej tradycyjnych rozwiązań monitorowania sieci nie zapewniają wgląd w sieci end-to-end metryki wydajności, takich jak utraty i opóźnienia.  Rozwiązanie monitora wydajności sieci może pomóc wypełnienia tego odstępu.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Instalowanie i konfigurowanie agentów dla rozwiązania
-Należy zainstalować agentów na podstawowy proces [połączyć komputery do analizy dzienników](log-analytics-windows-agents.md) i [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md).
+Należy zainstalować agentów na podstawowy proces [połączyć komputery do analizy dzienników](log-analytics-windows-agent.md) i [połączenie programu Operations Manager do analizy dzienników](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Należy zainstalować co najmniej 2 agentów w celu ma za mało danych do odnajdywania i monitorowania zasobów sieciowych. W przeciwnym razie rozwiązania pozostanie w stanie konfigurowanie do momentu zainstalowania i skonfigurowania dodatkowych czynników.

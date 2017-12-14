@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji usługi Azure Media Services
 Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znane problemy.
@@ -324,13 +324,6 @@ SDK usługi Media Services dla platformy .NET jest teraz wersji 3.0.0.7
 * **Pochodzenie** została zmieniona na [StreamingEndpoint].
 * Zmiany w domyślnym zachowaniem podczas używania **portalu Azure** do kodowania, a następnie opublikować pliki MP4.
 
-Wcześniej, gdy przy użyciu klasycznego portalu Azure, aby opublikować element zawartości wideo MP4 adres URL SAS pojedynczego pliku zostałyby utworzone (adresy URL sygnatury dostępu Współdzielonego umożliwiają pobieranie wideo z magazynu obiektów blob). Obecnie korzystając z klasycznego portalu Azure do kodowania, a następnie opublikować element zawartości wideo pojedynczego pliku MP4, wygenerowany adres URL wskazuje punktu końcowego przesyłania strumieniowego usługi Azure Media Services.  Ta zmiana nie wpływa na wideo MP4, które bezpośrednio są przekazywane do usługi Media Services i jest publikowany bez kodowany w usłudze Azure Media Services.
-
-Obecnie masz poniższych dwóch opcji, aby rozwiązać problem.
-
-* Włącz jednostki przesyłania strumieniowego i użyj dynamicznego tworzenia pakietów do strumienia zasobów plik MP4 jako prezentację płynnego przesyłania strumieniowego.
-* Utwórz adres url SAS do pobrania (lub stopniowo odtwarzania) plik MP4. Aby uzyskać więcej informacji na temat tworzenia lokalizatora SAS, zobacz [dostarczanie zawartości].
-
 ### <a id="sept_14_GA_changes"></a>Nowych funkcji/scenariuszy, które są częścią wersja Ogólnodostępna
 * **Procesor multimediów indeksatora**. Aby uzyskać więcej informacji, zobacz [indeksowania plików multimedialnych na pliki z usługi Azure Media indeksatora].
 * [StreamingEndpoint] jednostki umożliwia teraz dodać nazwy domen niestandardowych (hosta).
@@ -443,7 +436,7 @@ Zmiany wymienione w tej sekcji są aktualizacje zawarte w wersjach czerwca 2013 
 
 * Możliwość łączenia wielu kont magazynu do konta usługi Media. 
   
-    StorageAccount
+    Konto magazynu
   
     Asset.StorageAccountName i Asset.StorageAccount
 * Możliwość Job.Priority aktualizacji. 
@@ -561,7 +554,7 @@ Następujące funkcje to nowość w wersji listopada zestawu SDK.
 [szczegóły cennika usługi Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [metadanych danych wejściowych]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [metadanych dane wyjściowe]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[dostarczanie zawartości]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [indeksowania plików multimedialnych na pliki z usługi Azure Media indeksatora]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Praca z usługi Azure Media Services transmisji strumieniowej na żywo]: http://msdn.microsoft.com/library/azure/dn783466.aspx
