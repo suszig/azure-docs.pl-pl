@@ -10,7 +10,7 @@ Tak, można użyć własnych publicznych lub prywatnych numerów ASN dla sieci l
 ### <a name="are-there-asns-reserved-by-azure"></a>Czy istnieją numery ASN zarezerwowane przez platformę Azure?
 Tak, następujące numery ASN są zarezerwowane przez platformę Azure zarówno dla wewnętrznej, jak i zewnętrznej komunikacji równorzędnej:
 
-* Publiczne numery ASN: 8075, 8076, 12076
+* Publicznych numerów ASN: 8074 8075, 12076
 * Prywatne numery ASN: 65515, 65517, 65518, 65519, 65520
 
 Tych numerów ASN nie można określać dla lokalnych urządzeń sieci VPN podczas nawiązywania połączenia z bramami sieci VPN platformy Azure.

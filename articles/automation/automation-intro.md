@@ -3,7 +3,7 @@ title: "Co to jest usługa Azure Automation | Microsoft Docs"
 description: "Dowiedz się, jakie korzyści oferuje usługa Azure Automation, i uzyskaj odpowiedzi na typowe pytania, aby móc rozpocząć tworzenie przy użyciu elementów Runbook i konfiguracji DSC usługi Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "co to jest usługa automation, azure automation, przykłady usługi azure automation"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Omówienie usługi Azure Automation
 Usługa Microsoft Azure Automation umożliwia użytkownikom automatyzowanie wykonywanych ręcznie, czasochłonnych, podatnych na błędy i często powtarzanych zadań, które najczęściej są wykonywane w chmurze i środowisku przedsiębiorstwa. Można dzięki niej zaoszczędzić czas i zwiększyć niezawodność regularnie wykonywanych zadań administracyjnych, a nawet zaplanować ich wykonywanie w regularnych odstępach czasu. Można automatyzować procesy za pomocą elementów Runbook lub automatyzować zarządzanie konfiguracją za pomocą konfiguracji żądanego stanu. Ten artykuł zawiera krótkie omówienie usługi Azure Automation i odpowiedzi na często zadawane pytania. Aby uzyskać szczegółowe informacje dotyczące innych tematów, możesz zapoznać się z innymi artykułami w tej bibliotece.
