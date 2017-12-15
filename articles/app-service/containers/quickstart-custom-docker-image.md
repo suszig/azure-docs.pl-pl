@@ -1,10 +1,10 @@
 ---
-title: "Uruchom Centrum Docker obraz niestandardowy w aplikacji sieci Web dla kontenerów | Dokumentacja firmy Microsoft"
-description: "Jak używać niestandardowego obrazu Docker dla aplikacji sieci Web dla kontenerów."
-keywords: "Usługa aplikacji Azure, aplikacji sieci web, linux, docker, kontenera"
+title: "Uruchamianie niestandardowego obrazu usługi Docker Hub w usłudze Azure Web App for Containers | Microsoft Docs"
+description: "Używanie niestandardowego obrazu Docker dla usługi Azure Web App for Containers."
+keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Uruchom Centrum Docker obraz niestandardowy w aplikacji sieci Web dla kontenerów
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Uruchamianie niestandardowego obrazu usługi Docker Hub w usłudze Azure Web App for Containers
 
-Usługi aplikacji umożliwia stosy wstępnie zdefiniowanych aplikacji w systemie Linux obsługę dla określonej wersji, takich jak PHP w wersji 7.0 i Node.js 4.5. Aby wdrożyć aplikację sieci web stosu aplikacji, która nie jest już zdefiniowana w Azure umożliwia także niestandardowego obrazu Docker. Ta opcja szybkiego startu pokazano, jak utworzyć aplikację sieci web i wdrażanie Python, na podstawie obrazu platformy Docker. Można utworzyć aplikacji sieci web w programie [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Usługa App Service zapewnia wstępnie zdefiniowane stosy aplikacji w systemie Linux z obsługą określonych wersji, takich jak środowisko PHP 7.0 i Node.js 4.5. Można także użyć niestandardowego obrazu platformy Docker, aby uruchamiać aplikację internetową na stosie aplikacji, który nie jest zdefiniowany na platformie Azure. W tym przewodniku Szybki start pokazano, jak utworzyć aplikację internetową i wdrożyć w niej [oficjalny obraz platformy Docker dla kontenera Nginx](https://hub.docker.com/r/_/nginx/). Do tworzenia aplikacji internetowej używany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+
+![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -34,17 +36,17 @@ Usługi aplikacji umożliwia stosy wstępnie zdefiniowanych aplikacji w systemie
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-for-container"></a>Tworzenie aplikacji sieci Web dla kontenera
+## <a name="create-a-web-app-for-container"></a>Tworzenie aplikacji internetowej dla kontenerów
 
-Utwórz [aplikację sieci Web](../app-service-web-overview.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/webapp#create). Nie zapomnij Zastąp `<app name>` przy użyciu unikatowej nazwy aplikacji.
+Utwórz [aplikację sieci Web](../app-service-web-overview.md) w `myAppServicePlan`planie usługi App Service za pomocą polecenia [az webapp create](/cli/azure/webapp#create). Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-W poprzednim poleceniu `--deployment-container-image-name` wskazuje publicznego obraz Centrum Docker [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Możesz sprawdzić jej zawartość w [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
+W poprzednim poleceniu `--deployment-container-image-name` wskazuje publiczny obraz usługi Docker Hub [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
-Po utworzeniu aplikacji sieci web, Azure CLI przedstawia dane wyjściowe podobne do poniższego przykładu:
+Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone dane wyjściowe podobne do następujących:
 
 ```json
 {
@@ -63,7 +65,7 @@ Po utworzeniu aplikacji sieci web, Azure CLI przedstawia dane wyjściowe podobne
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
-Przejdź do następującego adresu URL za pomocą przeglądarki sieci web.
+W przeglądarce internetowej przejdź do następującego adresu URL.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -71,9 +73,9 @@ http://<app_name>.azurewebsites.net
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Gratulacje!** Obraz niestandardowy Docker została wdrożona do aplikacji sieci Web dla kontenerów.
+**Gratulacje!** Niestandardowy obraz platformy Docker został wdrożony w usłudze Web App for Containers.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji sieci web Docker Python i PostgreSQL na platformie Azure](tutorial-docker-python-postgresql-app.md)
+> [Używanie niestandardowego obrazu platformy Docker](tutorial-custom-docker-image.md)

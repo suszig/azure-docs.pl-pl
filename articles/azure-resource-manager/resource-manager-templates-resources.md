@@ -13,9 +13,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 468a6bc77b354f2e0fbe981c3d4a5691eac4ec4d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/14/2017
 ---
@@ -140,7 +140,7 @@ Dla typów zasobów, które przede wszystkim uzyskują dostęp za pomocą innego
 }
 ```
 
-## <a name="resource-location"></a>Lokalizacja zasobu
+## <a name="location"></a>Lokalizacja
 W przypadku wdrażania szablonu, należy podać lokalizację każdego zasobu. Różne typy zasobów są obsługiwane w różnych lokalizacjach. Aby wyświetlić listę lokalizacje, które są dostępne dla subskrypcji dla określonego typu zasobu, użyj programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. 
 
 W poniższym przykładzie użyto programu PowerShell, aby pobrać lokalizacji dla `Microsoft.Web\sites` typu zasobu:

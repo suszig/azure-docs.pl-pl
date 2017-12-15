@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie pierwszej funkcji platformy Azure z języka Java i Maven | Dokumentacja firmy Microsoft"
-description: "Tworzenie i publikowanie proste funkcja HTTP wyzwalane na platformie Azure za pomocą języka Java i Maven."
+title: "Tworzenie pierwszej funkcji na platformie Azure przy użyciu języka Java i narzędzia Maven | Microsoft Docs"
+description: "Tworzenie prostej funkcji wyzwalanej przez protokół HTTP i publikowanie jej na platformie Azure przy użyciu języka Java i narzędzia Maven."
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -16,47 +16,47 @@ ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Tworzenie pierwszej funkcji przy użyciu języka Java i Maven (wersja zapoznawcza)
+# <a name="create-your-first-function-with-java-and-maven-preview"></a>Tworzenie pierwszej funkcji przy użyciu języka Java i narzędzia Maven (wersja zapoznawcza)
 
 > [!NOTE] 
-> Java dla usługi Azure Functions jest obecnie w przeglądzie.
+> Język Java dla usługi Azure Functions jest obecnie w wersji zapoznawczej.
 
-Ta opcja szybkiego startu prowadzi przez proces tworzenia [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) funkcja projekt Maven, testowanie go lokalnie i wdrażania go do usługi Azure Functions. Gdy wszystko będzie gotowe, masz działające na platformie Azure aplikacji funkcji wyzwalanej przez HTTP.
+Ten przewodnik Szybki start przeprowadzi Cię przez tworzenie projektu funkcji [bezserwerowej](https://azure.microsoft.com/overview/serverless-computing/) za pomocą narzędzia Maven, testowanie jej lokalnie i wdrażanie w usłudze Azure Functions. Po zakończeniu będziesz mieć działającą na platformie Azure funkcję wyzwalaną przez protokół HTTP.
 
-![Dostęp do funkcji Hello World z wiersza polecenia cURL](media/functions-create-java-maven/hello-azure.png)
+![Uzyskiwanie dostępu do funkcji Hello world z poziomu wiersza polecenia za pomocą programu cURL](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby opracować funkcje aplikacji za pomocą języka Java, musi być zainstalowane następujące elementy:
+Aby opracowywać aplikacje funkcji przy użyciu języka Java, trzeba mieć zainstalowane następujące składniki:
 
--  [Oprogramowanie .NET core](https://www.microsoft.com/net/core), najnowszej wersji.
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), w wersji 8.
+-  Oprogramowanie [.NET Core](https://www.microsoft.com/net/core), najnowsza wersja.
+-  Zestaw [Java Developer Kit](https://www.azul.com/downloads/zulu/), wersja 8.
 -  [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowszej.
--  [Node.js](https://nodejs.org/download/), wersji 8.6 lub nowszej.
+-  Narzędzie [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowsza.
+-  Środowisko [Node.js](https://nodejs.org/download/), wersja 8.6 lub nowsza.
 
 > [!IMPORTANT] 
-> Zmienna środowiskowa JAVA_HOME musi mieć ustawioną w lokalizacji instalacji zestawu JDK do ukończenia tego przewodnika Szybki Start.
+> Aby wykonać wszystkie czynności opisane w tym przewodniku Szybki start, dla zmiennej środowiskowej JAVA_HOME należy ustawić lokalizację instalacji zestawu JDK.
 
-## <a name="install-the-azure-functions-core-tools"></a>Zainstaluj usługę Azure Functions podstawowe narzędzia
+## <a name="install-the-azure-functions-core-tools"></a>Instalowanie podstawowych narzędzi usługi Azure Functions
 
-[Azure funkcje podstawowe narzędzia 2.0](https://www.npmjs.com/package/azure-functions-core-tools) zapewniają środowisko rozwoju lokalnego służący do zapisywania, uruchamiania i debugowanie funkcji platformy Azure. Instalowanie narzędzi z [npm](https://www.npmjs.com/)znajdujący się w [Node.js](https://nodejs.org/).
+[Podstawowe narzędzia usługi Azure Functions w wersji 2.0](https://www.npmjs.com/package/azure-functions-core-tools) zapewniają lokalne środowisko deweloperskie do pisania, uruchamiania i debugowania usługi Azure Functions. Zainstaluj te narzędzia za pomocą menedżera [npm](https://www.npmjs.com/) dołączonego do środowiska [Node.js](https://nodejs.org/).
 
 ```
 npm install -g azure-functions-core-tools@core
 ```
 
 > [!NOTE]
-> Jeśli masz problemy podczas instalowania narzędzi podstawowych funkcji Azure w wersji 2.0, zobacz [środowiska uruchomieniowego 2.x wersji](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> Jeśli podczas instalowania podstawowych narzędzi usługi Azure Functions w wersji 2.0 występują problemy, zobacz [Środowisko uruchomieniowe w wersji 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
-## <a name="generate-a-new-functions-project"></a>Generowanie nowego projektu funkcji
+## <a name="generate-a-new-functions-project"></a>Generowanie nowego projektu usługi Functions
 
-W pustym folderze, uruchom następujące polecenie, aby wygenerować projektu funkcji z [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usługi Functions z [archetypu narzędzia Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 ### <a name="linuxmacos"></a>Linux/MacOS
 
@@ -66,14 +66,14 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows-cmd"></a>Systemu Windows (CMD)
+### <a name="windows-cmd"></a>Windows (CMD)
 ```cmd
 mvn archetype:generate ^
     -DarchetypeGroupId=com.microsoft.azure ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven wyświetla monit o podanie wartości wymagane do zakończenia, generowanie projektu. Dla _groupId_, _artifactId_, i _wersji_ wartości, zobacz [konwencje nazewnictwa Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html) odwołania. _AppName_ wartość musi być unikatowa w obrębie platformy Azure, więc Maven generuje nazwę aplikacji oparte na wcześniej wprowadzonych _artifactId_ jako domyślny. _PackageName_ wartość określa Java pakietu dla kodu generowanej funkcji.
+W narzędziu Maven zostanie wyświetlony monit o podanie wartości wymaganych do ukończenia generowania projektu. Aby uzyskać informacje o wartościach _groupId_, _artifactId_ i _version_, zobacz materiały referencyjne [Konwencja nazewnictwa narzędzia Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Wartość _appName_ musi być unikatowa w obrębie platformy Azure, dlatego narzędzie Maven generuje domyślną nazwę aplikacji na podstawie wprowadzonej wcześniej wartości _artifactId_. Wartość _packageName_ określa pakiet Java dla generowanego kodu funkcji.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -84,7 +84,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_. Wygenerowany kod w projekcie jest prostą [HTTP wyzwalane](/azure/azure-functions/functions-bindings-http-webhook) funkcji, która zwraca treść żądania:
+Narzędzie Maven tworzy pliki projektu w nowym folderze o nazwie wartości _artifactId_. Kod wygenerowany w projekcie jest prostą funkcją [wyzwalaną przez protokół HTTP](/azure/azure-functions/functions-bindings-http-webhook), która zwraca treść żądania:
 
 ```java
 public class Function {
@@ -96,9 +96,9 @@ public class Function {
 }
 ```
 
-## <a name="run-the-function-locally"></a>Uruchom funkcję lokalnie
+## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
 
-Zmień katalog na folder nowo utworzonego projektu i skompilować i uruchomić funkcję z Maven:
+Zmień katalog na nowo utworzony folder projektu, a następnie skompiluj i uruchom funkcję za pomocą narzędzia Maven:
 
 ```
 cd fabrikam-function
@@ -106,7 +106,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-Te dane wyjściowe zostanie wyświetlony po uruchomieniu funkcji:
+Po uruchomieniu funkcji zostaną wyświetlone następujące dane wyjściowe:
 
 ```Output
 Listening on http://localhost:7071
@@ -117,7 +117,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Funkcja z wiersza polecenia przy użyciu programu curl w terminalu nowego wyzwalacza:
+Wyzwól funkcje z poziomu wiersza polecenia, używając programu curl w nowym terminalu:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -127,18 +127,18 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 Hello LocalFunction!
 ```
 
-Użyj `Ctrl-C` w terminalu, aby zatrzymać kodu funkcji.
+Aby zatrzymać wykonywanie kodu funkcji, użyj polecenia `Ctrl-C` w oknie terminala.
 
 ## <a name="deploy-the-function-to-azure"></a>Wdrażanie funkcji na platformie Azure
 
-Proces wdrażania usługi Azure Functions używa poświadczeń konta z wiersza polecenia platformy Azure. [Zaloguj się przy użyciu interfejsu wiersza polecenia Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) , a następnie wdrożyć kod w nowej aplikacji funkcji, za pomocą `azure-functions:deploy` Maven docelowej.
+Proces wdrażania w usłudze Azure Functions korzysta z poświadczeń konta z interfejsu wiersza polecenia platformy Azure. [Zaloguj się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), a następnie wdróż swój kod w nowej aplikacji usługi Functions, używając elementu docelowego `azure-functions:deploy` narzędzia Maven.
 
 ```
 az login
 mvn azure-functions:deploy
 ```
 
-Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwia dostęp do aplikacji Azure funkcji:
+Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwiający uzyskanie dostępu do aplikacji funkcji platformy Azure:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -148,7 +148,7 @@ Po zakończeniu wdrażania zostanie wyświetlony adres URL umożliwia dostęp do
 [INFO] ------------------------------------------------------------------------
 ```
 
-Testowanie aplikacji funkcji działających na platformie Azure przy użyciu programu curl:
+Przetestuj działanie aplikacji funkcji na platformie Azure, używając programu curl:
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
@@ -160,11 +160,11 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Następne kroki
 
-Utworzono funkcji aplikacji Java z prostego wyzwalacza HTTP i wdrożyć ją do usługi Azure Functions.
+Utworzyliśmy aplikację funkcji języka Java z prostym wyzwalaczem HTTP i wdrożyliśmy ją w usłudze Azure Functions.
 
-- Przegląd [przewodnik dewelopera funkcji Java](functions-reference-java.md) Aby uzyskać więcej informacji na temat tworzenia funkcji języka Java.
-- Dodaj dodatkowe funkcje za pomocą różnych wyzwalaczy na Twój projekt używający `azure-functions:add` docelowej Maven.
-- Debugowanie funkcji lokalnie z kodem Visual Studio. Z [pakiet rozszerzenia języka Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) zainstalowane i Otwórz projekt funkcji w programie Visual Studio Code, [dołączyć debuger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) do portu 5005. Następnie ustaw punkt przerwania w edytorze i wyzwalanie funkcji uruchomionej lokalnie: ![debugowanie funkcji w programie Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
+- Zapoznaj się z [Przewodnikiem dewelopera po funkcjach języka Java](functions-reference-java.md), aby uzyskać więcej informacji na temat tworzenia funkcji języka Java.
+- Dodaj do swojego projektu kolejne funkcje z różnymi wyzwalaczami, używając elementu docelowego `azure-functions:add` narzędzia Maven.
+- Przeprowadź lokalne debugowanie funkcji za pomocą programu Visual Studio Code. Po zainstalowaniu [pakietu rozszerzenia języka Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) i otworzeniu projektu usługi Functions w programie Visual Studio Code [dołącz debuger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) do portu 5005. Następnie ustaw punkt przerwania w edytorze i wyzwól swoją funkcję, gdy będzie uruchomiona lokalnie: ![Debugowanie funkcji w programie Visual Studio Code](media/functions-create-java-maven/vscode-debug.png).
 
 
 

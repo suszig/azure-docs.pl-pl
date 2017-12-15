@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie społecznościowych z bazy danych Azure rozwiązania Cosmos
 Życia społeczeństwa ogromną skalę połączenia oznacza, że w pewnym momencie życia staje się częścią **sieci społecznościowych**. Korzystamy z sieciami społecznościowymi Utrzymuj znajomych, współpracowników, rodziny, lub czasami udostępniać naszym męczennicy osobom wspólnych zainteresowań.
@@ -103,7 +103,7 @@ Tworzenie źródła danych jest wystarczy tworzenie dokumentów zawierających l
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Firma Microsoft może mieć "najnowszej" strumienia z wpisów uporządkowanych według daty utworzenia, strumień "najnowszych" tych wpisów z bardziej lubi w ostatnich 24 godzin, może nawet wprowadzania niestandardowych strumieni dla każdego użytkownika opartych na logice, takich jak adherentami i udziałów i będą nadal z wykazem. Jest to kwestia sposobu tworzenia tych list, ale wydajność odczytu pozostaje swobodnego. Po możemy uzyskać jeden z tych list, możemy wystawić pojedynczego zapytania przy użyciu rozwiązania Cosmos DB [w operatorze](documentdb-sql-query.md#WhereClause) uzyskać stron wpisów w czasie.
+Firma Microsoft może mieć "najnowszej" strumienia z wpisów uporządkowanych według daty utworzenia, strumień "najnowszych" tych wpisów z bardziej lubi w ostatnich 24 godzin, może nawet wprowadzania niestandardowych strumieni dla każdego użytkownika opartych na logice, takich jak adherentami i udziałów i będą nadal z wykazem. Jest to kwestia sposobu tworzenia tych list, ale wydajność odczytu pozostaje swobodnego. Po możemy uzyskać jeden z tych list, możemy wystawić pojedynczego zapytania przy użyciu rozwiązania Cosmos DB [w operatorze](sql-api-sql-query.md#WhereClause) uzyskać stron wpisów w czasie.
 
 Mogą być zbudowane strumieni źródła przy użyciu [usługi aplikacji Azure](https://azure.microsoft.com/services/app-service/) procesów w tle: [Webjob](../app-service/web-sites-create-web-jobs.md). Utworzone stanowiska proces przetwarzania w tle może zostać zainicjowany przy użyciu [usługi Azure Storage](https://azure.microsoft.com/services/storage/) [kolejek](../storage/queues/storage-dotnet-how-to-use-queues.md) i wyzwalane za pomocą zadania Webjob [zestaw SDK zadań Webjob Azure](https://github.com/Azure/azure-webjobs-sdk/wiki), implementacja propagacji wpisu wewnątrz strumieni oparte na własnej logiki niestandardowej. 
 
@@ -237,7 +237,7 @@ Co się stanie, jeśli elementy pojawiają się lepiej użytkownicy z innego reg
 
 Czekaj..., ale wkrótce realizować ich obsługi platformy nie są optymalne; są one wykonanej do tej pory od regionu operacyjne opóźnienie jest olbrzymich, czy oczywiście nie chcesz je zamknąć. Jeśli tylko było łatwo z **rozszerzanie zasięg globalny**..., ale istnieje!
 
-Rozwiązania cosmos DB umożliwia [replikowany globalnie danych](../cosmos-db/tutorial-global-distribution-documentdb.md) i niewidocznie za pomocą paru kliknięć i automatycznie wybrać spośród dostępnych regionów, z Twojego [kodu klienta](../cosmos-db/tutorial-global-distribution-documentdb.md). Oznacza to również, że może mieć [kilka obszarów failover](regional-failover.md). 
+Rozwiązania cosmos DB umożliwia [replikowany globalnie danych](../cosmos-db/tutorial-global-distribution-sql-api.md) i niewidocznie za pomocą paru kliknięć i automatycznie wybrać spośród dostępnych regionów, z Twojego [kodu klienta](../cosmos-db/tutorial-global-distribution-sql-api.md). Oznacza to również, że może mieć [kilka obszarów failover](regional-failover.md). 
 
 Podczas danych jest replikowany globalnie, należy się upewnić, że klienci mogą wykorzystać go. Jeśli używasz frontonu sieci web lub w celu dostępu interfejsy API z klientów mobilnych, można wdrożyć [usługi Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) i klonowanie usługi aplikacji Azure we wszystkich obszarach żądaną przy użyciu konfiguracji wydajności do obsługi sieci rozszerzonej globalne pokrycie. Gdy klienci dostępu z frontonu lub interfejsów API, one będą kierowane do najbliższego usługi aplikacji, która z kolei będą łączyć się z lokalnej repliki bazy danych rozwiązania Cosmos.
 

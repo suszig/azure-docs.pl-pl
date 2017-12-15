@@ -1,6 +1,6 @@
-Za pomocą polecenia [az webapp create](/cli/azure/webapp#az_webapp_create) można utworzyć [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie usługi App Service `myAppServicePlan` w usłudze Cloud Shell. 
+Za pomocą polecenia [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) można utworzyć [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie usługi App Service `myAppServicePlan` w usłudze Cloud Shell. 
 
-W poniższym przykładzie Zastąp `<app_name>` z globalnie unikatowej nazwy aplikacji (prawidłowe znaki to `a-z`, `0-9`, i `-`). Środowisko wykonawcze ma ustawioną wartość `dotnetcore|1.1`. Aby wyświetlić wszystkie obsługiwanych środowisk uruchomieniowych, uruchom [az aplikacji sieci Web listy runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
+W poniższym przykładzie Zastąp `<app_name>` z globalnie unikatowej nazwy aplikacji (prawidłowe znaki to `a-z`, `0-9`, i `-`). Środowisko wykonawcze ma ustawioną wartość `dotnetcore|1.1`. Aby wyświetlić wszystkie obsługiwanych środowisk uruchomieniowych, uruchom [az aplikacji sieci Web listy runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git

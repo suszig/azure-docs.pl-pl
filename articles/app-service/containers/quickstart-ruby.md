@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie aplikacji Ruby i wdrożyć w usłudze App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Informacje dotyczące sposobu tworzenia dopisków fonetycznych aplikacji z usługi aplikacji w systemie Linux."
-keywords: "Usługa aplikacji Azure, linux, oss, ruby"
+title: "Tworzenie aplikacji Ruby i wdrażanie jej w usłudze App Service w systemie Linux | Microsoft Docs"
+description: "Informacje na temat tworzenia aplikacji Ruby w usłudze App Service w systemie Linux."
+keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -18,26 +18,26 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Tworzenie aplikacji dopisków fonetycznych w usłudze App Service w systemie Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Tworzenie aplikacji Ruby w usłudze App Service w systemie Linux
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. Ta opcja szybkiego startu pokazuje, jak utworzyć podstawowy Ruby szyny aplikacji można następnie wdrożyć go na Azure jako aplikacji sieci Web w systemie Linux.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie. Ten przewodnik szybkiego startu pokazuje, jak utworzyć podstawową aplikację Ruby on Rails, a następnie wdrożyć ją na platformie Azure jako aplikację internetową w systemie Linux.
 
-![Witaj świecie](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Zainstaluj Ruby 2.4.1 lub nowszej</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Zainstaluj oprogramowanie Ruby 2.4.1 lub nowsze</a>
 * <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-W oknie terminalu, uruchom następujące polecenie, aby klonowanie repozytorium przykładowej aplikacji na komputerze lokalnym:
+W oknie terminala uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -45,20 +45,20 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
 
-Serwer szyny są uruchamiane w kolejności dla aplikacji do pracy. Zmień na *hello world* katalogu i `rails server` polecenie uruchamia serwer.
+Uruchom serwer rails, aby umożliwić działanie aplikacji. Zmień katalog na *hello-world*, a polecenie `rails server` uruchomi serwer.
 
 ```bash
 cd hello-world\bin
 rails server
 ```
 
-Przy użyciu przeglądarki sieci web, przejdź do `http://localhost:3000` Aby przetestować aplikację lokalnie.
+Przy użyciu przeglądarki internetowej przejdź pod adres `http://localhost:3000`, aby przetestować aplikację lokalnie.
 
-![Witaj świecie](./media/quickstart-ruby/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
-## <a name="modify-app-to-display-welcome-message"></a>Modyfikowanie aplikacji, aby wyświetlić komunikat powitalny
+## <a name="modify-app-to-display-welcome-message"></a>Modyfikowanie aplikacji w celu wyświetlania komunikatu powitalnego
 
-Modyfikowanie aplikacji, dlatego wyświetla komunikat powitalny. Najpierw należy skonfigurować trasy, modyfikując *~/workspace/ruby-docs-hello-world/config/routes.rb* pliku, aby uwzględnić trasa o nazwie `hello`.
+Zmodyfikuj aplikację, aby wyświetlała komunikat powitalny. Najpierw musisz skonfigurować trasę, modyfikując plik *~/workspace/ruby-docs-hello-world/config/routes.rb*, tak aby zawierał trasę o nazwie `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -67,9 +67,9 @@ Modyfikowanie aplikacji, dlatego wyświetla komunikat powitalny. Najpierw należ
   end
   ```
 
-Umożliwia zmianę kontrolera aplikacji, tak aby zwracało komunikatu jako HTML do przeglądarki. 
+Zmień kontroler aplikacji, aby zwracał komunikat w formie kodu HTML do przeglądarki. 
 
-Otwórz *~/workspace/hello-world/app/controllers/application_controller.rb* do edycji. Modyfikowanie `ApplicationController` klasy do przeszukania, takich jak w poniższym przykładzie kodu:
+Otwórz plik *~/workspace/hello-world/app/controllers/application_controller.rb* do edycji. Zmodyfikuj klasę `ApplicationController`, aby wyglądała jak poniższy przykład kodu:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -80,49 +80,49 @@ Otwórz *~/workspace/hello-world/app/controllers/application_controller.rb* do e
   end
   ```
 
-Aplikacja jest teraz skonfigurowany. Przy użyciu przeglądarki sieci web, przejdź do `http://localhost:3000` o potwierdzenie strony docelowej głównego.
+Aplikacja jest teraz skonfigurowana. Przy użyciu przeglądarki internetowej przejdź pod adres `http://localhost:3000`, aby potwierdzić główną stronę początkową.
 
-![Witaj świecie skonfigurowane](./media/quickstart-ruby/hello-world-configured.png)
+![Skonfigurowana aplikacja Hello World](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Tworzenie aplikacji sieci web dopisków fonetycznych na platformie Azure
+## <a name="create-a-ruby-web-app-on-azure"></a>Tworzenie aplikacji internetowej Ruby na platformie Azure
 
-Grupa zasobów jest wymagana do zawiera zasoby potrzebne dla aplikacji sieci web. Aby utworzyć grupę zasobów, użyj [Tworzenie grupy az]() polecenia.
+Wymagana jest grupa zasobów, która zawiera zasoby wymagane przez aplikację internetową. Aby utworzyć grupę zasobów, użyj polecenia [az group create]().
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Użyj [Tworzenie planu usług aplikacji az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) polecenie, aby utworzyć plan usługi app service dla aplikacji sieci web.
+Użyj polecenia [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create), aby utworzyć plan usługi aplikacji dla swojej aplikacji internetowej.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Następnie wystawiania [tworzenie aplikacji sieci Web az](https://docs.microsoft.com/cli/azure/webapp) polecenie, aby utworzyć aplikacji sieci web, który używa usługi nowo utworzony plan. Należy zauważyć, że środowisko wykonawcze ma ustawioną wartość `ruby|2.3`. Nie zapomnij Zastąp `<app name>` przy użyciu unikatowej nazwy aplikacji.
+Następnie wydaj polecenie [az webapp create](https://docs.microsoft.com/cli/azure/webapp), aby utworzyć aplikację internetową korzystającą z nowo utworzonego planu usługi. Zauważ, że środowisko uruchomieniowe ma ustawioną wartość `ruby|2.3`. Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
 --runtime "ruby|2.3" --deployment-local-git
 ```
 
-Dane wyjściowe polecenia ujawnia informacje o nowo utworzonej aplikacji sieci web, a także adres URL wdrożenia. Powinien wyglądać podobnie do poniższego przykładu. Skopiuj adres URL do późniejszego użycia, w tym samouczku.
+Dane wyjściowe polecenia ujawniają informacje o nowo utworzonej aplikacji internetowej, a także adres URL wdrożenia. Powinny one wyglądać podobnie do poniższego przykładu. Skopiuj adres URL do późniejszego użycia w tym samouczku.
 
 ```bash
 https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 ```
 
-Po utworzeniu aplikacji sieci web **omówienie** strona jest dostępny do wyświetlenia. Przejdź do niego. Następująca strona powitalny jest wyświetlane:
+Po utworzeniu aplikacji internetowej można wyświetlić stronę **Omówienie**. Przejdź do tej strony. Wyświetlana jest następująca strona powitalna:
 
-![Strony powitalnej](./media/quickstart-ruby/splash-page.png)
+![Strona powitalna](./media/quickstart-ruby/splash-page.png)
 
 
 ## <a name="deploy-your-application"></a>Wdrażanie aplikacji
 
-Uruchom następujące polecenia w celu wdrożenia lokalnej aplikacji do witryny sieci Web platformy Azure:
+Uruchom następujące polecenia w celu wdrożenia lokalnej aplikacji w witrynie internetowej platformy Azure:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -131,7 +131,7 @@ git commit -m "Initial deployment commit"
 git push azure master
 ```
 
-Upewnij się, że operacje zdalnego wdrażania raportu Powodzenie. Polecenia tworzy dane wyjściowe podobne do następującego tekstu:
+Upewnij się, że operacje zdalnego wdrażania raportują powodzenie. Polecenia tworzą dane wyjściowe podobne do następującego tekstu:
 
 ```bash
 remote: Using sass-rails 5.0.6
@@ -147,26 +147,26 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Po zakończeniu wdrożenia należy ponownie uruchomić aplikacji sieci web do wdrożenia, które zostały wprowadzone za pomocą [ponowne uruchomienie aplikacji sieci Web az](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) polecenia, jak pokazano poniżej:
+Po zakończeniu wdrożenia uruchom ponownie swoją aplikację internetową, aby wdrożenie weszło w życie, korzystając z polecenia [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart), jak pokazano poniżej:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
-Przejdź do witryny i sprawdź wyniki.
+Przejdź do swojej witryny i sprawdź wyniki.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-![zaktualizowano aplikację sieci web](./media/quickstart-ruby/hello-world-updated.png)
+![uaktualniona aplikacja internetowa](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
-> Podczas ponownego uruchamiania aplikacji próby przeglądania wyników witryny w kod stanu HTTP `Error 503 Server unavailable`. Może upłynąć kilka minut w pełni ponowne uruchomienie.
+> Podczas ponownego uruchamiania aplikacji próba przeglądania wyników witryny powoduje wyświetlenie kodu stanu HTTP `Error 503 Server unavailable`. Proces ponownego uruchamiania może potrwać kilka minut.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Usługa aplikacji Azure w systemie Linux — często zadawane pytania](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Azure App Service on Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md) (Usługa Azure App Service w systemie Linux — często zadawane pytania)

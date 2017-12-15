@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
@@ -66,7 +66,7 @@ Uruchom aplikację lokalnie, otwierając okno terminala i korzystając z polecen
 python main.py
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do przykładowej aplikacji w `http://localhost:5000`.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000`.
 
 Na stronie zostanie wyświetlony komunikat **Witaj, świecie** z przykładowej aplikacji.
 
@@ -86,7 +86,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ przy użyciu unikatowej nazwy aplikacji.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp ciąg _&lt;nazwa aplikacji>_ unikatową nazwą aplikacji.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Za pomocą lokalnego edytora tekstów otwórz plik `main.py` w aplikacji w języ
 return 'Hello, Azure!'
 ```
 
-W lokalnej okno terminalu Zatwierdź zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+W oknie lokalnego terminala zatwierdź zmiany w usłudze Git, a następnie wypchnij zmiany kodu na platformę Azure.
 
 ```bash
 git commit -am "updated output"

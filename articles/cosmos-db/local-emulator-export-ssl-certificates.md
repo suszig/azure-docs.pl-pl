@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Wyeksportowanie certyfikatów emulatora DB rozwiązania Cosmos Azure do użycia z programem Java, Python i Node.js
 
@@ -87,11 +87,11 @@ Po "CosmosDBEmulatorCertificate" SSL jest instalowany certyfikat aplikacji powin
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Sposób użycia certyfikatu w języku Python
 
-Domyślnie [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) interfejsu API SQL nie będą spróbuj i użyć certyfikatu SSL, podczas nawiązywania połączenia z lokalnym emulatora. Jeśli jednak chcesz używać protokołu SSL weryfikacji można wykonać w przykładach w [Python gniazda otoki](https://docs.python.org/2/library/ssl.html) dokumentacji.
+Domyślnie [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) interfejsu API SQL nie będą spróbuj i użyć certyfikatu SSL, podczas nawiązywania połączenia z lokalnym emulatora. Jeśli jednak chcesz używać protokołu SSL weryfikacji można wykonać w przykładach w [Python gniazda otoki](https://docs.python.org/2/library/ssl.html) dokumentacji.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Sposób użycia certyfikatu w środowisku Node.js
 
-Domyślnie [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) interfejsu API SQL nie będą spróbuj i użyć certyfikatu SSL, podczas nawiązywania połączenia z lokalnym emulatora. Jeśli jednak chcesz używać protokołu SSL weryfikacji można wykonać w przykładach w [dokumentacji Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Domyślnie [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) interfejsu API SQL nie będą spróbuj i użyć certyfikatu SSL, podczas nawiązywania połączenia z lokalnym emulatora. Jeśli jednak chcesz używać protokołu SSL weryfikacji można wykonać w przykładach w [dokumentacji Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Następne kroki
 

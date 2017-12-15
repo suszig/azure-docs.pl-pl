@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Wdrażanie aplikacji przy użyciu elementu konfiguracji/CD do klastra sieci szkieletowej usług
 W tym samouczku jest częścią trzy serii i zawiera opis sposobu konfigurowania ciągłej integracji i wdrażania aplikacji sieci szkieletowej usług Azure przy użyciu programu Visual Studio Team Services.  Istniejącej aplikacji usługi sieć szkieletowa jest potrzebna, aplikacji utworzony w [tworzenia aplikacji .NET](service-fabric-tutorial-create-dotnet-app.md) służy jako przykład.
@@ -44,12 +44,11 @@ Przed rozpoczęciem tego samouczka:
 - Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) i zainstaluj **Azure programowanie** i **ASP.NET i sieć web development** obciążeń.
 - [Zainstaluj zestaw SDK sieci szkieletowej usług](service-fabric-get-started.md)
-- Tworzenie aplikacji usługi Service Fabric, na przykład przez [tego samouczka](service-fabric-tutorial-create-dotnet-app.md). 
 - Tworzenie klastra sieci szkieletowej usług systemu Windows na platformie Azure, na przykład przez [tego samouczka](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Utwórz [konta usługi Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Pobierz aplikację przykładową głosowania
-Jeśli nie zbudować głosowania przykładowej aplikacji [część jednego z tego samouczka serii](service-fabric-tutorial-create-dotnet-app.md), można go pobrać. W oknie poleceń uruchom następujące polecenie sklonować repozytorium przykładowej aplikacji na komputerze lokalnym.
+Jeśli nie zbudować głosowania przykładowej aplikacji [część jednego z tego samouczka serii](service-fabric-tutorial-create-dotnet-app.md), można go pobrać. W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -83,39 +82,49 @@ Definicja kompilacji Team Services zawiera opis przepływu pracy, który składa
 Definicja wersji Team Services opisano przepływ pracy, który wdraża pakiet aplikacji do klastra. Razem definicję kompilacji i wersji definicji wykonać całego przepływu pracy, zaczynając od plików źródłowych z uruchomioną aplikację w klastrze. Dowiedz się więcej na temat usługi Team Services [wersji definicji](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Tworzenie definicji kompilacji
-Otwórz przeglądarkę sieci web i przejdź do nowego projektu zespołowego na: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Otwórz przeglądarkę sieci web i przejdź do nowego projektu zespołowego na: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Wybierz **kompilacji i wydania** karcie następnie **kompilacje**, następnie **+ nową definicję**.  W **wybierz szablon**, wybierz pozycję **aplikacji sieci szkieletowej usług Azure** szablon i kliknij przycisk **Zastosuj**. 
 
 ![Wybierz szablon kompilacji][select-build-template] 
 
-Aplikację do głosowania zawiera projekt .NET Core, a więc Dodaj zadanie, które przywraca zależności. W **zadania** widok, wybierz opcję **+ Dodaj zadanie** w lewym dolnym rogu. Wyszukaj frazę "Wiersza polecenia" Znajdź zadania wiersza polecenia, a następnie kliknij pozycję **Dodaj**. 
+W **zadania**, wprowadź "VS2017 hostowanej" jako **kolejki agenta**. 
 
-![Dodaj zadanie][add-task] 
+![Wybierz zadania][save-and-queue]
 
-W nowych zadań, wprowadź "Uruchom dotnet.exe" w **Nazwa wyświetlana**, "dotnet.exe" w **narzędzie**, a "Przywróć" w **argumenty**. 
+W obszarze **wyzwalaczy**, Włącz ciągłej integracji, ustawiając **wyzwolenia stan**.  Wybierz **Zapisz i kolejka** ręcznie uruchomić kompilację.  
 
-![Nowe zadanie][new-task] 
+![Wybierz wyzwalacze][save-and-queue2]
 
-W **wyzwalaczy** wyświetlić, kliknij przycisk **włączyć tego wyzwalacza** przełącznika w obszarze **ciągłej integracji**. 
-
-Wybierz **Zapisz & kolejka** , a następnie wprowadź "VS2017 hostowanej" jako **kolejki agenta**. Wybierz **kolejki** ręcznie uruchomić kompilację.  Opisano również wyzwalacze wypychania lub zaewidencjonowania.
-
-Aby sprawdzić postęp kompilacji, Przełącz **kompilacje** kartę.  Po upewnieniu się, że Kompilacja została wykonana pomyślnie, należy zdefiniować definicji wersji, która wdraża aplikację do klastra. 
+Opisano również wyzwalacza wypychania lub zaewidencjonowania. Aby sprawdzić postęp kompilacji, Przełącz **kompilacje** kartę.  Po upewnieniu się, że Kompilacja została wykonana pomyślnie, należy zdefiniować definicji wersji, która wdraża aplikację do klastra. 
 
 ### <a name="create-a-release-definition"></a>Utwórz definicję zlecenia  
 
-Wybierz **kompilacji i wydania** karcie następnie **wersje**, następnie **+ nową definicję**.  W **Tworzenie wersji definicji**, wybierz pozycję **wdrażania usługi Azure Service Fabric** szablon z listy i kliknij przycisk **dalej**.  Wybierz **kompilacji** źródła, sprawdź **ciągłe wdrażanie** i kliknij **Utwórz**. 
+Wybierz **kompilacji i wydania** karcie następnie **wersje**, następnie **+ nową definicję**.  W **wybierz szablon**, wybierz pozycję **wdrażania usługi Azure Service Fabric** szablon z listy, a następnie **Zastosuj**.  
 
-W **środowisk** wyświetlić, kliknij przycisk **Dodaj** z prawej strony **połączenia klastra**.  Określ nazwę połączenia "mysftestcluster", punkt końcowy klastra o "tcp://mysftestcluster.westus.cloudapp.azure.com:19000" i usługi Azure Active Directory lub poświadczeń certyfikatu dla klastra. Dla poświadczeń usługi Azure Active Directory, należy zdefiniować poświadczeń ma być używana do łączenia się z klastrem w **Username** i **hasło** pola. Do uwierzytelniania opartego na certyfikatach, zdefiniuj kodowania Base64 plik certyfikatu klienta w **certyfikatu klienta** pola.  Zapoznaj się z pomocą wyskakującego o to pole, aby uzyskać informacje dotyczące sposobu uzyskania tej wartości.  Jeśli certyfikat jest chroniony hasłem, należy określić hasło w **hasło** pola.  Kliknij przycisk **zapisać** można zapisać definicji wersji.
+![Wybierz szablon zlecenia][select-release-template]
 
-![Dodaj połączenie klastra][add-cluster-connection] 
+Wybierz **zadania**->**1 środowiska** , a następnie **+ nowy** można dodać nowego połączenia klastra.
 
-Kliknij przycisk **Uruchom agenta**, a następnie wybierz pozycję **hostowane VS2017** dla **kolejki wdrożenia**. Kliknij przycisk **zapisać** można zapisać definicji wersji.
+![Dodaj połączenie klastra][add-cluster-connection]
 
-![Uruchom agenta][run-on-agent]
+W **Dodaj nowe połączenia z usługą sieci szkieletowej** wyświetlić wybierz **na podstawie certyfikatu** lub **usługi Azure Active Directory** uwierzytelniania.  Określ nazwę połączenia "mysftestcluster" i punkt końcowy klastra o "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (lub punktu końcowego klastra, który jest wdrażany z). 
 
-Wybierz **+ wersji** -> **Tworzenie wersji** -> **Utwórz** ręczne tworzenie zlecenia.  Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja jest uruchomiona w klastrze.  Otwórz przeglądarkę sieci web i przejdź do [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Należy pamiętać, wersja aplikacji, w tym przykładzie jest "1.0.0.20170616.3". 
+W przypadku uwierzytelniania opartego na certyfikatach, dodać **odcisk palca certyfikatu serwera** certyfikatu serwera, używane do tworzenia klastra.  W **certyfikatu klienta**, Dodaj kodowanie base-64 plik certyfikatu klienta. Zobacz okno Pomocy o to pole, aby uzyskać informacje dotyczące sposobu uzyskania tego base-64 reprezentacja zakodowanego certyfikatu. Dodaj również **hasło** certyfikatu.  Jeśli nie masz certyfikatu klienta w osobnym, można użyć certyfikatu klastra lub serwera. 
+
+Poświadczenia usługi Azure Active Directory, można dodać **odcisk palca certyfikatu serwera** certyfikatu serwera używany do tworzenia klastra i poświadczenia ma być używana do łączenia się z klastrem w **nazwyużytkownika** i **hasło** pola. 
+
+Kliknij przycisk **Dodaj** można zapisać połączenia klastra.
+
+Następnie dodaj artefaktów kompilacji do potoku, więc definicji wersji można znaleźć dane wyjściowe kompilacji. Wybierz **potoku** i **artefakty**->**+ Dodaj**.  W **źródła (definicja kompilacji)**, wybierz wcześniej utworzony definicji kompilacji.  Kliknij przycisk **Dodaj** zapisać artefaktów kompilacji.
+
+![Dodaj artefaktów][add-artifact]
+
+Wyzwalacz ciągłego wdrażania należy włączyć, dzięki czemu zlecenia zostało automatycznie utworzone po zakończeniu kompilacji. Kliknij ikonę w artefaktu, Włącz wyzwalacza, a następnie kliknij przycisk **zapisać** można zapisać definicji wersji.
+
+![Włącz wyzwalacza][enable-trigger]
+
+Wybierz **+ wersji** -> **Tworzenie wersji** -> **Utwórz** ręczne tworzenie zlecenia.  Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja jest uruchomiona w klastrze.  Otwórz przeglądarkę sieci web i przejdź do [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Należy pamiętać, wersja aplikacji, w tym przykładzie jest "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Zatwierdź i Wypchnij zmiany, wyzwalanie wydania
 Aby sprawdzić, czy działa potoku ciągłej integracji, sprawdzając w pewnych zmian kodu usługi Team Services.    
@@ -134,7 +143,7 @@ Wypychanie zmiany do usługi Team Services automatycznie wyzwala kompilacji.  Po
 
 Aby sprawdzić postęp kompilacji, Przełącz **kompilacje** karcie **Team Explorer** w programie Visual Studio.  Po upewnieniu się, że Kompilacja została wykonana pomyślnie, należy zdefiniować definicji wersji, która wdraża aplikację do klastra.
 
-Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja jest uruchomiona w klastrze.  Otwórz przeglądarkę sieci web i przejdź do [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Należy pamiętać, wersja aplikacji, w tym przykładzie jest "1.0.0.20170815.3".
+Sprawdź, czy wdrożenie zakończyło się pomyślnie, a aplikacja jest uruchomiona w klastrze.  Otwórz przeglądarkę sieci web i przejdź do [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Należy pamiętać, wersja aplikacji, w tym przykładzie jest "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Przejdź do następnego samouczek:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Przejdź do następnego samouczek:
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc
 ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
@@ -55,7 +55,7 @@ Uruchom aplikację lokalnie, otwierając okno terminala i korzystając z polecen
 php -S localhost:8080
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do przykładowej aplikacji w `http://localhost:8080`.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8080`.
 
 Na stronie zostanie wyświetlony komunikat **Hello World!** z przykładowej aplikacji.
 
@@ -75,7 +75,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
 
-Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ przy użyciu unikatowej nazwy aplikacji.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp ciąg _&lt;nazwa aplikacji>_ unikatową nazwą aplikacji.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -132,7 +132,7 @@ Za pomocą lokalnego edytora tekstów otwórz plik `index.php` w aplikacji w ję
 echo "Hello Azure!";
 ```
 
-W lokalnej okno terminalu Zatwierdź zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+W oknie lokalnego terminala zatwierdź zmiany w usłudze Git, a następnie wypchnij zmiany kodu na platformę Azure.
 
 ```bash
 git commit -am "updated output"

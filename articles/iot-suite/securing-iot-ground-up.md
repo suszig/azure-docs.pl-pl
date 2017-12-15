@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Zabezpieczeń Internetu rzeczy od podstaw
 Internet rzeczy (IoT) stanowi wyjątkowe wyzwanie zabezpieczeń, prywatności i zgodności dla firm na całym świecie. W przeciwieństwie do tradycyjnych przez technologii gdzie te problemy koncentrują się wokół oprogramowania i jak jest implementowane IoT dotyczy, co się stanie po zbieżne ataków i względem fizycznych. Ochrona rozwiązania IoT wymaga zapewnienia bezpiecznego inicjowania obsługi urządzeń i bezpieczna łączność między tymi urządzeniami i chmurą i ochronę danych w chmurze podczas przetwarzania i przechowywania. Jednak działać z takich funkcji, są ograniczone zasobów urządzeń, rozmieszczenie geograficzne wdrożeń i dużej liczby urządzeń w ramach rozwiązania.
@@ -84,7 +84,7 @@ Z szyfrowanie komunikacji do przetwarzania danych w chmurze pakiet IoT Azure pom
 
 Gdy dane znajdują się w chmurze, można przetwarzania i przechowywania w przepływie pracy użytkownika. Dostęp do każdej części danych jest kontrolowany w usłudze Azure Active Directory, w zależności od usługi magazynu używane.
 
-Wszystkich kluczy używanych przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przerzucane na wypadek klucze muszą być ponownie elastycznie. Dane mogą być przechowywane w [bazy danych Azure rozwiązania Cosmos](../documentdb/documentdb-introduction.md) lub [baz danych](../sql-database/sql-database-faq.md), włączenie definicji poziom zabezpieczeń potrzebne. Ponadto platforma Azure udostępnia sposób monitorowania i kontroli dostępu do danych, aby ostrzec o dowolnym nieautoryzowanego dostępu lub nieautoryzowanego dostępu.
+Wszystkich kluczy używanych przez infrastrukturę IoT są przechowywane w chmurze w bezpiecznym magazynie, z możliwością przerzucane na wypadek klucze muszą być ponownie elastycznie. Dane mogą być przechowywane w [bazy danych Azure rozwiązania Cosmos](../cosmos-db/introduction.md) lub [baz danych](../sql-database/sql-database-faq.md), włączenie definicji poziom zabezpieczeń potrzebne. Ponadto platforma Azure udostępnia sposób monitorowania i kontroli dostępu do danych, aby ostrzec o dowolnym nieautoryzowanego dostępu lub nieautoryzowanego dostępu.
 
 ## <a name="conclusion"></a>Podsumowanie
 Internet rzeczy rozpoczyna się od sieci rzeczy — co najważniejsze dla firm. IoT mogą dostarczać wartość niesamowite firmy przez zmniejszenie kosztów, zwiększenie przychodów i przekształcanie biznesowych. Powodzenie tej transformacji zależy przede wszystkim Wybieranie prawo dostawcy oprogramowania i usługi IoT. Oznacza to, znajdowanie dostawcę, który nie tylko catalyzes tej transformacji zrozumienie potrzeb biznesowych i wymagania dotyczące, ale udostępnia również wbudowane pomocą zabezpieczeń, prywatności i zgodności jako główne projektowania przezroczystości oprogramowania i usług. Firma Microsoft zbiorczych doświadczeń tworzenie i wdrażanie bezpiecznych oprogramowania i usług i pozostaje znaki wiodące w tej nowej wieku Internetu rzeczy. 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programowanie po stronie serwera w usłudze Azure DB rozwiązania Cosmos: procedury składowane, wyzwalacze bazy danych i funkcji UDF
 
@@ -56,7 +56,7 @@ To podejście *"JavaScript jako nowoczesnego dzień T-SQL"* zwalnia deweloperzy 
   * Dodaje warstwy abstrakcji na pierwotnych danych, co umożliwia architektów danych podlegać ewolucji swoich aplikacji niezależnie od danych. Jest to szczególnie korzystne w przypadku, gdy dane są schematu bez, z powodu łamliwa założeń, które może być konieczne rozszerzania do aplikacji, jeśli mają dotyczyć dane bezpośrednio.  
   * Ta warstwa abstrakcji umożliwia przedsiębiorstwom chronić swoje dane usprawnienie dostęp ze skryptów.  
 
-Tworzenie i wykonywanie wyzwalaczy bazy danych, procedur składowanych i operatory zapytań niestandardowych jest obsługiwana przez [portalu Azure](https://portal.azure.com), [interfejsu API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), i [zestawów SDK klienta](documentdb-sdk-dotnet.md) na wielu platformach, w tym .NET, Node.js oraz JavaScript.
+Tworzenie i wykonywanie wyzwalaczy bazy danych, procedur składowanych i operatory zapytań niestandardowych jest obsługiwana przez [portalu Azure](https://portal.azure.com), [interfejsu API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), i [zestawów SDK klienta](sql-api-sdk-dotnet.md) na wielu platformach, w tym .NET, Node.js oraz JavaScript.
 
 W tym samouczku używana [Node.js SDK z ze zobowiązania Q](http://azure.github.io/azure-documentdb-node-q/) w celu zilustrowania składni i użycia procedur składowanych, wyzwalaczy i funkcji UDF.   
 
@@ -654,7 +654,7 @@ Procedury składowane JavaScript i wyzwalacze są w trybie piaskownicy tak, aby 
 Procedur składowanych, wyzwalaczy i funkcji UDF są niejawnie prekompilowany do formatu kodu bajtów, aby uniknąć kosztów kompilacji w czasie każde wywołanie skryptu. Dzięki temu wywołań procedury składowane są szybkie i ma niewielki rozmiar.
 
 ## <a name="client-sdk-support"></a>Obsługa zestawu SDK klienta
-Oprócz Azure DB rozwiązania Cosmos [Node.js](documentdb-sdk-node.md) interfejsu API, bazy danych Azure rozwiązania Cosmos ma [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), i [zestawów SDK Python](documentdb-sdk-python.md) dla funkcji API SQL. Procedur składowanych, wyzwalaczy i funkcji UDF można tworzyć i wykonywane przy użyciu dowolnej z tych zestawów SDK oraz. Poniższy przykład przedstawia sposób tworzenia i wykonywanie procedury przechowywanej za pomocą klienta programu .NET. Należy zwrócić uwagę, jak przekazany do procedury składowanej w formacie JSON i odczytywania typów .NET.
+Oprócz Azure DB rozwiązania Cosmos [Node.js](sql-api-sdk-node.md) interfejsu API, bazy danych Azure rozwiązania Cosmos ma [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), i [zestawów SDK Python](sql-api-sdk-python.md) dla funkcji API SQL. Procedur składowanych, wyzwalaczy i funkcji UDF można tworzyć i wykonywane przy użyciu dowolnej z tych zestawów SDK oraz. Poniższy przykład przedstawia sposób tworzenia i wykonywanie procedury przechowywanej za pomocą klienta programu .NET. Należy zwrócić uwagę, jak przekazany do procedury składowanej w formacie JSON i odczytywania typów .NET.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +708,7 @@ Ten przykład przedstawia sposób użycia [interfejs API .NET SQL](/dotnet/api/o
         });
 
 
-I w poniższym przykładzie pokazano, jak utworzyć funkcja zdefiniowana przez użytkownika (UDF) i użyć go w [zapytania SQL](documentdb-sql-query.md).
+I w poniższym przykładzie pokazano, jak utworzyć funkcja zdefiniowana przez użytkownika (UDF) i użyć go w [zapytania SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -805,7 +805,7 @@ Po utworzeniu jednego lub więcej procedur składowanych, wyzwalaczy i funkcji z
 
 Można również znaleźć następujące odwołania i zasoby przydatne w ścieżce, aby dowiedzieć się więcej na temat programowania po stronie serwera bazy danych Azure rozwiązania Cosmos:
 
-* [Zestawy SDK Azure rozwiązania Cosmos bazy danych](documentdb-sdk-dotnet.md)
+* [Zestawy SDK Azure rozwiązania Cosmos bazy danych](sql-api-sdk-dotnet.md)
 * [Studio usługi DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

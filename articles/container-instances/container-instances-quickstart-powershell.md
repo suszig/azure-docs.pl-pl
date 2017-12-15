@@ -1,6 +1,6 @@
 ---
-title: "Szybki Start — tworzenie Twojego pierwszego kontenera wystąpień kontenera platformy Azure przy użyciu programu PowerShell"
-description: "Wprowadzenie do wystąpień kontenera Azure przez utworzenie wystąpienia kontenera systemu Windows przy użyciu programu PowerShell."
+title: "Szybki start — Tworzenie pierwszego kontenera usługi Azure Container Instances za pomocą programu PowerShell"
+description: "Rozpocznij pracę z usługą Azure Container Instances, tworząc wystąpienie kontenera systemu Windows przy użyciu programu PowerShell."
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,15 +19,15 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Tworzenie pierwszego kontenera w usłudze Azure Container Instances
 
-Wystąpień kontenera Azure ułatwia tworzenie i zarządzanie nimi kontenery Docker na platformie Azure, bez konieczności umieszczanie maszyn wirtualnych lub wdrożyć usługę wyższego poziomu usługi.
+Usługa Azure Container Instances ułatwia tworzenie kontenerów Docker na platformie Azure oraz zarządzanie nimi bez konieczności inicjowania obsługi maszyn wirtualnych czy adoptowania usługi wyższego poziomu.
 
-Tego przewodnika Szybki Start służy do tworzenia kontenera systemu Windows na platformie Azure i uwidacznia go do Internetu za pomocą publicznego adresu IP. Ta operacja jest wykonywana za pomocą jednego polecenia. W ciągu kilku minut można wyświetlić działającej aplikacji przeglądarki:
+Podczas pracy z tym przewodnikiem Szybki start utworzysz kontener systemu Windows na platformie Azure i uwidocznisz go w Internecie przy użyciu publicznego adresu IP. Ta operacja jest wykonywana za pomocą jednego polecenia. W ciągu zaledwie kilku minut działająca aplikacja będzie widoczna w przeglądarce:
 
 ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances][qs-powershell-01]
 
@@ -39,7 +39,7 @@ Jeśli postanowisz zainstalować program PowerShell i używać go lokalnie, ten 
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 
-Tworzenie grupy zasobów platformy Azure z [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
+Utwórz grupę zasobów platformy Azure za pomocą polecenia [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -47,19 +47,19 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Można utworzyć kontener, podając nazwę obrazu Docker i grupy zasobów platformy Azure do [AzureRmContainerGroup nowy] [ New-AzureRmContainerGroup] polecenia cmdlet. Opcjonalnie można ujawnić kontener w Internecie za pomocą publicznego adresu IP. W tym przypadku użyjemy kontener Windows Nano Server systemem Internet Information Services (IIS).
+Kontener można utworzyć, podając nazwę, obraz usługi Docker i grupę zasobów platformy Azure w poleceniu cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Opcjonalnie można ujawnić kontener w Internecie za pomocą publicznego adresu IP. W tym przypadku użyjemy kontenera z systemem Windows Nano Server, na którym działają usługi Internet Information Services (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-W ciągu kilku sekund można uzyskać odpowiedzi na żądanie. Początkowo kontenera jest w **tworzenie** stanu, ale powinna być uruchamiana w minutę lub dwie. Możesz sprawdzić stan, za pomocą [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup] polecenia cmdlet:
+W ciągu kilku sekund otrzymasz odpowiedź na żądanie. Początkowo kontener ma stan **Tworzenie**, ale powinien zostać uruchomiony w ciągu jednej lub dwóch minut. Stan możesz sprawdzić za pomocą polecenia cmdlet [Get-AzureRmContainerGroupp][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Stan inicjowania obsługi administracyjnej i adres IP kontenera są wyświetlane w danych wyjściowych polecenia cmdlet:
+Stan aprowizowania i adres IP kontenera będą widoczne w danych wyjściowych polecenia cmdlet:
 
 ```
 ResourceGroupName        : myResourceGroup
@@ -78,13 +78,13 @@ OsType                   : Windows
 Volumes                  :
 ```
 
-Raz kontenera **ProvisioningState** przenosi `Succeeded`, przejdziesz go w przeglądarce przy użyciu adresu IP, pod warunkiem.
+Gdy właściwość **ProvisioningState** kontenera będzie miała wartość `Succeeded`, możesz uzyskiwać do niego dostęp w przeglądarce przy użyciu podanego adresu IP.
 
-![Usługi IIS wdrażane za pomocą wystąpień kontenera platformy Azure w przeglądarce][qs-powershell-01]
+![Widziana w przeglądarce usługa IIS wdrożona za pomocą usługi Azure Container Instances][qs-powershell-01]
 
 ## <a name="delete-the-container"></a>Usuwanie kontenera
 
-Po zakończeniu z kontenerem, możesz je usunąć za pomocą [AzureRmContainerGroup Usuń] [ Remove-AzureRmContainerGroup] polecenia cmdlet:
+Po zakończeniu pracy z kontenerem możesz go usunąć przy użyciu polecenia cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,10 +92,10 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym Szybki Start rozpoczęty kontener Windows wbudowanych w wystąpień kontenera platformy Azure. Jeśli chcesz spróbuj samodzielnie tworzenia kontenera i wdrażania go do wystąpień kontenera Azure za pomocą rejestru kontenera platformy Azure, przejdź do samouczka wystąpień kontenera platformy Azure.
+W tym przewodniku Szybki start uruchomiliśmy wstępnie skompilowany kontener systemu Windows w usłudze Azure Container Instances. Jeśli chcesz spróbować samodzielnie skompilować kontener i wdrożyć go w usłudze Azure Container Instances za pomocą usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Samouczek wystąpień kontenera platformy Azure](./container-instances-tutorial-prepare-app.md)
+> [Samouczek dotyczący usługi Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup

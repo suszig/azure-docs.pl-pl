@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Przewodnik dla początkujących deweloperów platformy Azure
 
@@ -108,7 +108,7 @@ Większość aplikacji muszą być przechowywane dane, tak niezależnie od tego,
 -   **Azure DB rozwiązania Cosmos**: usługą globalnie rozproszone i wiele modeli bazy danych, która umożliwia elastycznie skalować przepływność i Magazyn przez dowolną liczbę regionów geograficznych z kompleksowe umowy SLA. 
     >**Kiedy należy używać:** gdy aplikacja wymaga dokumentu, tabeli lub baz danych wykresu, w tym baz danych MongoDB, wielu modeli dobrze zdefiniowany spójności. 
 
-    >**Rozpoczynanie pracy**: [tworzenie aplikacji sieci web platformy Azure DB rozwiązania Cosmos](../../cosmos-db/create-documentdb-dotnet.md). Jeśli jesteś deweloperem bazy danych MongoDB, zobacz [tworzenie aplikacji sieci web bazy danych MongoDB z bazy danych Azure rozwiązania Cosmos](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Rozpoczynanie pracy**: [tworzenie aplikacji sieci web platformy Azure DB rozwiązania Cosmos](../../cosmos-db/create-sql-api-dotnet.md). Jeśli jesteś deweloperem bazy danych MongoDB, zobacz [tworzenie aplikacji sieci web bazy danych MongoDB z bazy danych Azure rozwiązania Cosmos](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Usługa Azure Storage**: oferuje trwałe, wysokiej dostępności magazynu obiektów blob, kolejek, plików oraz innych typów danych nonrelational. Magazynu stanowi podstawę magazynu dla maszyn wirtualnych.
 

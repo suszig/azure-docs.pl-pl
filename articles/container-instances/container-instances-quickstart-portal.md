@@ -1,5 +1,5 @@
 ---
-title: "Szybki Start — tworzenie Twojego pierwszego kontenera wystąpień kontenera platformy Azure przy użyciu portalu Azure"
+title: "Szybki start — Tworzenie pierwszego kontenera usługi Azure Container Instances w witrynie Azure Portal"
 description: "Wdrażaj i rozpocznij pracę z usługą Azure Container Instances"
 services: container-instances
 documentationcenter: 
@@ -19,13 +19,13 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Tworzenie pierwszego kontenera w usłudze Azure Container Instances
 
-Usługa Azure Container Instances ułatwia tworzenie kontenerów i zarządzanie nimi na platformie Azure. Tego przewodnika Szybki Start służy do tworzenia kontenera na platformie Azure i uwidacznia go do Internetu za pomocą publicznego adresu IP. Ta operacja trwa za pomocą portalu Azure. Za pomocą kilku kliknięć zostanie wyświetlony to w przeglądarce:
+Usługa Azure Container Instances ułatwia tworzenie kontenerów i zarządzanie nimi na platformie Azure. Podczas pracy z tym przewodnikiem Szybki start utworzysz kontener na platformie Azure i ujawnisz go w Internecie przy użyciu publicznego adresu IP. Te czynności wykonywane są w witrynie Azure Portal. Wystarczy kilka kliknięć, a w przeglądarce zobaczysz następujący wynik:
 
 ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances][aci-app-browser]
 
@@ -33,39 +33,39 @@ Usługa Azure Container Instances ułatwia tworzenie kontenerów i zarządzanie 
 
 Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
-## <a name="create-a-container-instance"></a>Utwórz wystąpienie kontenera
+## <a name="create-a-container-instance"></a>Tworzenie wystąpienia kontenera
 
-Wybierz **nowy** > **kontenery** > **wystąpień kontenera platformy Azure (wersja zapoznawcza)**.
+Wybierz kolejno pozycje **Nowe** > **Kontenery** > **Azure Container Instances (wersja zapoznawcza)**.
 
-![Rozpocznij tworzenie nowego wystąpienia kontenera w portalu Azure][aci-portal-01]
+![Rozpoczynanie tworzenia nowego wystąpienia kontenera w witrynie Azure Portal][aci-portal-01]
 
-Wprowadź następujące wartości w **nazwa kontenera**, **obrazu kontenera**, i **grupy zasobów** pól tekstowych. Pozostaw pozostałe wartości domyślne, a następnie kliknij przycisk **OK**.
+Wprowadź następujące wartości w polach tekstowych **Nazwa kontenera**, **Obraz kontenera** oraz **Grupa zasobów**. Pozostaw domyślne wartości w pozostałych polach i kliknij przycisk **OK**.
 
-* Nazwa kontenera:`mycontainer`
-* Kontener obrazu:`microsoft/aci-helloworld`
-* Grupa zasobów:`myResourceGroup`
+* Nazwa kontenera: `mycontainer`
+* Obraz kontenera: `microsoft/aci-helloworld`
+* Grupa zasobów: `myResourceGroup`
 
-![Konfigurowanie ustawień podstawowych dla nowego wystąpienia kontenera w portalu Azure][aci-portal-03]
+![Konfigurowanie podstawowych ustawień nowego wystąpienia kontenera w witrynie Azure Portal][aci-portal-03]
 
-Kontenery w systemach Windows i Linux można tworzyć w wystąpień kontenera platformy Azure. W tym szybkiego startu, pozostanie domyślne ustawienie **Linux** od nas określony kontener opartych na systemie Linux (`microsoft/aci-helloworld`) w poprzednim kroku.
+Usługa Azure Container Instances umożliwia tworzenie kontenerów systemów Windows i Linux. W tym przewodniku Szybki start pozostawimy ustawienie domyślne **Linux**, ponieważ w poprzednim kroku wskazaliśmy kontener systemu Linux (`microsoft/aci-helloworld`).
 
-Pozostaw ustawienia w **konfiguracji** konfiguracji domyślnej, następnie kliknij przycisk **OK** do sprawdzenia poprawności konfiguracji.
+Pozostaw domyślne wartości pozostałych ustawień w obszarze **Konfiguracja**, a następnie kliknij przycisk **OK**, aby zweryfikować konfigurację.
 
-![Konfigurowanie nowego wystąpienia kontenera w portalu Azure][aci-portal-04]
+![Konfigurowanie nowego wystąpienia kontenera w witrynie Azure Portal][aci-portal-04]
 
-Po zakończeniu sprawdzania poprawności, przedstawiono podsumowanie ustawień kontenera. Wybierz **OK** Aby przesłać żądanie wdrożenia kontenera.
+Po zakończeniu weryfikacji zostanie wyświetlone podsumowanie ustawień kontenera. Wybierz przycisk **OK**, aby przesłać żądanie wdrożenia kontenera.
 
-![Ustawienia podsumowania dla nowego wystąpienia kontenera w portalu Azure][aci-portal-05]
+![Podsumowanie ustawień nowego wystąpienia kontenera w witrynie Azure Portal][aci-portal-05]
 
-Po uruchomieniu wdrożenia kafelka znajduje się na pulpicie nawigacyjnym portalu wskazujący postęp wdrażania. Po zakończeniu wdrażania, Kafelek jest aktualizowana w celu wyświetlenia nowego **myc1 mojkontener** grupy kontenerów.
+Po rozpoczęciu wdrażania na pulpicie nawigacyjnym portalu pojawi się kafelek wskazujący postęp wdrażania. Po zakończeniu wdrażania ten kafelek zostanie zaktualizowany i będzie zawierał nową grupę kontenerów **mycontainer-myc1**.
 
-![Postęp tworzenia nowego wystąpienia kontenera w portalu Azure][aci-portal-08]
+![Postęp tworzenia nowego wystąpienia kontenera w witrynie Azure Portal][aci-portal-08]
 
-Wybierz **myc1 mojkontener** grupy kontenerów, aby wyświetlić właściwości grupy kontenera. Zwróć uwagę na **adres Ip** grupy kontenera, jak również **stanu** Twojego kontenera.
+Wybierz grupę kontenerów **mycontainer-myc1**, aby wyświetlić jej właściwości. Zwróć uwagę na **Adres IP** grupy kontenerów oraz **STAN** kontenera.
 
-![Kontener grupy — omówienie w portalu Azure][aci-portal-06]
+![Przegląd grupy kontenerów w witrynie Azure Portal][aci-portal-06]
 
-Gdy przesuwa kontenera **systemem** stanu, przejdź do adresu IP, możesz zauważyć, że w poprzednim kroku, aby wyświetlić hostowanej aplikacji w Twojej nowy kontener.
+Gdy stan kontenera zmieni się na **Uruchomiono**, przejdź do adresu IP ustalonego w poprzednim kroku, aby wyświetlić aplikację hostowaną w nowym kontenerze.
 
 ![Widziana w przeglądarce aplikacja wdrożona za pomocą usługi Azure Container Instances][aci-app-browser]
 
@@ -81,7 +81,7 @@ Gdy przesuwa kontenera **systemem** stanu, przejdź do adresu IP, możesz zauwa�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tego przewodnika Szybki Start utworzono wystąpienie kontenera platformy Azure z obrazu w publicznych repozytorium Centrum Docker. Jeśli chcesz spróbować tworzenia kontenera samodzielnie, a następnie wdrożyć go do wystąpień kontenera Azure za pomocą rejestru kontenera platformy Azure, przejdź do samouczka wystąpień kontenera Azure.
+Podczas pracy z tym przewodnikiem Szybki start utworzono wystąpienie kontenera usługi Azure Container Instances na podstawie obrazu z publicznego repozytorium Docker Hub. Jeśli chcesz spróbować samodzielnie skompilować kontener i wdrożyć go w usłudze Azure Container Instances za pomocą usługi Azure Container Registry, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Container Instances](./container-instances-tutorial-prepare-app.md)

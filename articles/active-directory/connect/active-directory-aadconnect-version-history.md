@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 gdzie 
 
-$ObjectDN = konto usługi Active Directory, w której uprawnienia należy zwiększyć.
-$Credential = poświadczenia używane do uwierzytelniania klienta, gdy rozmowie z usługi Active Directory. Zazwyczaj jest używany do utworzenia konta, którego uprawnienia wymaga dokręcania poświadczenia administratora przedsiębiorstwa.
+**$ObjectDN** = konto usługi Active Directory, w której uprawnienia należy zwiększyć.
+
+**$Credential** = poświadczeniami administratora, które ma niezbędne uprawnienia, aby ograniczyć uprawnienia do konta $ObjectDN. Jest to zazwyczaj administratora przedsiębiorstwa lub domeny. Użyj w pełni kwalifikowaną nazwę konta administratora, aby uniknąć błędów wyszukiwania konta. Przykład: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Nazwa użytkownika powinna być w formacie domena azwa_użytkownika.  
+>$credential. Nazwa użytkownika powinna mieć format FQDN\username. Przykład: contoso.com\admin 
 
 ##### <a name="example"></a>Przykład:
 

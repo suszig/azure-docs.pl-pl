@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurowanie lokalnego dostępu warunkowego przy użyciu rejestracji urządzeń usługi Azure Active Directory
 Jeśli wymagane jest użytkownikom Dołącz do miejsca pracy swoje urządzenia osobiste do usługi rejestracji urządzeń usługi Azure Active Directory (Azure AD), urządzeń może być oznaczony znane w organizacji. Poniżej przedstawiono krok po kroku dotyczące włączania dostępu warunkowego do aplikacji lokalnych przy użyciu usługi Active Directory Federation Services (AD FS) w systemie Windows Server 2012 R2.
@@ -101,19 +101,13 @@ Wdrażanie zostało ukończone i można wypróbować niektóre scenariusze. Uży
 | Teraz, gdy użytkownicy mogą zarejestrować swoje urządzenia, aplikację można utworzyć zasady dostępu w usługach AD FS, który zezwala tylko zarejestrowane urządzenia. To zadanie służy do tworzenia reguł dostępu do aplikacji i niestandardowy komunikat odmowy dostępu. |[Tworzenie zasad dostępu do aplikacji i niestandardowego komunikatu o odmowie dostępu](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Integrowanie usługi Azure Active Directory z lokalną usługą Active Directory
-Ten krok umożliwia zintegrowanie dzierżawy usługi Azure AD z lokalnej usługi Active Directory za pomocą usługi Azure AD Connect. Chociaż kroki są dostępne w klasycznym portalu Azure, Zanotuj wszelkie specjalne instrukcje, które są wymienione w tej sekcji.
 
-1. Zaloguj się do klasycznego portalu Azure przy użyciu konta, które jest administratorem globalnym w usłudze Azure AD.
-2. W lewym okienku wybierz pozycję **Active Directory**.
-3. Na karcie **Katalog** wybierz swój katalog.
-4. Wybierz **integracji katalogów** kartę.
-5. W obszarze **wdrażania i zarządzania nimi** sekcji, wykonaj kroki od 1 do 3, aby zintegrować usługę Azure Active Directory z katalogiem lokalnym.
-   
-   1. Dodawanie domeny.
-   2. Zainstaluj i uruchom usługi Azure AD Connect przy użyciu instrukcji w [Instalacja niestandardowa programu Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Sprawdź i zarządzaj nimi synchronizacji katalogów. Instrukcje rejestracji jednokrotnej są dostępne w ramach tego kroku.
-   
-   Ponadto, konfigurowanie federacji z usługami AD FS w sposób opisany w [Instalacja niestandardowa programu Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**Zobacz:**
+
+- [Integrowanie katalogów lokalnych z usługą Azure Active Directory](./connect/active-directory-aadconnect.md) — Aby przejrzeć informacje o pojęciach.
+
+- [Instalacja niestandardowa programu Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) — instrukcje dotyczące instalacji.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Uaktualnienia schematu do usług domenowych w usłudze Active Directory
 > [!NOTE]

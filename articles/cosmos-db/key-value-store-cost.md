@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure DB rozwiązania Cosmos jako magazyn wartości klucza — koszt — omówienie
 
-Azure DB rozwiązania Cosmos jest usługą bazy danych globalnie rozproszone i wiele modeli łatwe tworzenie aplikacji na dużą skalę, wysoko dostępne. Domyślnie program Azure DB rozwiązania Cosmos automatycznie indeksuje wszystkie dane, które go wysyła strumień, wydajnie. Umożliwia to szybkie i spójne [SQL](documentdb-sql-query.md) (i [JavaScript](programming.md)) kwerendy dla każdego typu danych. 
+Azure DB rozwiązania Cosmos jest usługą bazy danych globalnie rozproszone i wiele modeli łatwe tworzenie aplikacji na dużą skalę, wysoko dostępne. Domyślnie program Azure DB rozwiązania Cosmos automatycznie indeksuje wszystkie dane, które go wysyła strumień, wydajnie. Umożliwia to szybkie i spójne [SQL](sql-api-sql-query.md) (i [JavaScript](programming.md)) kwerendy dla każdego typu danych. 
 
 Tym artykule opisano koszt bazy danych Azure rozwiązania Cosmos do zapisu proste i operacje odczytu, gdy jest używany jako magazyn kluczy i wartości. Zapisu operacji zalicza się wstawienia, zastępuje, usuwa i upserts dokumentów. Oprócz zagwarantowania 99,99% dostępności umowy SLA dla wszystkich kont w pojedynczym regionie i wszystkich kont w przypadku swobodna spójności i 99,999% odczytu dostępności na wszystkich kontach w przypadku bazy danych, bazy danych rozwiązania Cosmos Azure oferuje gwarantowane < opóźnienie 10 ms odczytuje i < 15 ms opóźnień (indeksowane), zapisuje na 99-ty percentyl. 
 

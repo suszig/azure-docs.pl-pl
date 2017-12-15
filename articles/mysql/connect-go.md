@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie względem nich zapytań za pomocą języka Go
-Tego przewodnika Szybki Start przedstawiono sposób nawiązywania połączenia z bazą danych Azure dla programu MySQL z systemu Windows, Ubuntu Linux i Apple platform system macOS przy użyciu kodu napisanego w [Przejdź](https://golang.org/) języka. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że znasz Programowanie przy użyciu Przejdź i że jesteś nowym użytkownikiem pracy z bazą danych Azure dla programu MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) na platformach Windows, Ubuntu Linux i Apple macOS. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Instalowanie środowiska języka Go i łącznika bazy danych MySQL
-Zainstaluj [Przejdź](https://golang.org/doc/install) i [Przejdź sterownik sql dla programu MySQL](https://github.com/go-sql-driver/mysql#installation) na komputerze lokalnym. W zależności od platformy wykonaj kroki opisane w odpowiedniej sekcji:
+Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) na swoim komputerze. W zależności od używanej platformy wykonaj kroki w odpowiedniej sekcji:
 
 ### <a name="windows"></a>Windows
 1. [Pobierz](https://golang.org/dl/) i zainstaluj środowisko języka Go dla systemu Microsoft Windows zgodnie z [instrukcjami dotyczącymi instalacji](https://golang.org/doc/install).
@@ -49,7 +49,7 @@ Zainstaluj [Przejdź](https://golang.org/doc/install) i [Przejdź sterownik sql 
 2. Zainstaluj środowisko języka Go, uruchamiając polecenie `sudo apt-get install golang-go`.
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
-5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. Z powłoki Bash, uruchom `export GOPATH=~/go` można dodać katalogu Przejdź jako GOPATH dla bieżącej sesji powłoki.
+5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
 6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
 
    Podsumowując: uruchom te polecenia programu Bash:
@@ -62,11 +62,11 @@ Zainstaluj [Przejdź](https://golang.org/doc/install) i [Przejdź sterownik sql 
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Pobierz i zainstaluj Go zgodnie z [instrukcje dotyczące instalacji](https://golang.org/doc/install) platformy do dopasowania. 
+1. Pobierz i zainstaluj język Go zgodnie z [instrukcjami dotyczącymi instalacji](https://golang.org/doc/install) odpowiedniej platformy. 
 2. Uruchom powłokę Bash.
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
-5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. Z powłoki Bash, uruchom `export GOPATH=~/go` można dodać katalogu Przejdź jako GOPATH dla bieżącej sesji powłoki.
+5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
 6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
 
    Podsumowując: zainstaluj środowisko języka Go, następnie uruchom te polecenia programu Bash:
@@ -81,27 +81,27 @@ Zainstaluj [Przejdź](https://golang.org/doc/install) i [Przejdź sterownik sql 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** , a następnie wyszukaj serwera ma wydłużało (takich jak **myserver4demo**).
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **myserver4demo**.
 3. Kliknij nazwę serwera **myserver4demo**.
-4. Wybierz serwer **właściwości** strony, a następnie zanotuj **nazwy serwera** i **nazwę logowania administratora serwera**.
+4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
  ![Azure Database for MySQL — dane logowania administratora serwera](./media/connect-go/1_server-properties-name-login.png)
-5. Jeśli użytkownik zapomni swoje informacje logowania serwera, przejdź do **omówienie** strony, aby wyświetlić nazwę logowania administratora serwera, a w razie potrzeby zresetowania hasła.
+5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
    
 
 ## <a name="build-and-run-go-code"></a>Kompilowanie i uruchamianie kodu języka Go 
-1. Do pisania kodu w języku Golang można użyć prostego edytora tekstów, takiego jak Notatnik w systemie Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) lub [Nano](https://www.nano-editor.org/) w systemie Ubuntu lub TextEdit w systemie macOS. Jeśli chcesz bardziej zaawansowane funkcje interaktywne programowanie środowiska (IDE), spróbuj [Gogland](https://www.jetbrains.com/go/) przez Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) przez firmę Microsoft lub [Atom](https://atom.io/).
-2. Wklej kod Go z sekcji poniżej do plików tekstowych, a następnie zapisz je w folderze projektu z rozszerzeniem pliku \*.go (takich jak ścieżki systemu Windows `%USERPROFILE%\go\src\mysqlgo\createtable.go` lub ścieżka systemu Linux `~/go/src/mysqlgo/createtable.go`).
-3. Zlokalizuj `HOST`, `DATABASE`, `USER`, i `PASSWORD` stałe w kodu, a następnie zastąp przykładowe wartości z własne wartości. 
-4. Uruchom wiersz polecenia lub powłoki Bash. Przejdź do folderu projektu. Na przykład w systemie Windows uruchom polecenie `cd %USERPROFILE%\go\src\mysqlgo\`. W systemie Linux: `cd ~/go/src/mysqlgo/`.  Niektóre z wymienionych edytorów IDE oferują możliwości debugowania i uruchamiania bez konieczności używania poleceń powłoki.
+1. Do pisania kodu w języku Golang można użyć prostego edytora tekstów, takiego jak Notatnik w systemie Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) lub [Nano](https://www.nano-editor.org/) w systemie Ubuntu lub TextEdit w systemie macOS. Jeśli wolisz bardziej zaawansowane środowisko IDE, wypróbuj rozwiązanie [Gogland](https://www.jetbrains.com/go/) firmy Jetbrains, edytor [Visual Studio Code](https://code.visualstudio.com/) firmy Microsoft lub [Atom](https://atom.io/).
+2. Wklej kod języka Go z poniższych sekcji do plików tekstowych i zapisz pliki w folderze projektu z rozszerzeniem pliku \*.go. Na przykład ścieżka w systemie Windows: `%USERPROFILE%\go\src\mysqlgo\createtable.go`, ścieżka w systemie Linux: `~/go/src/mysqlgo/createtable.go`.
+3. Zlokalizuj zmienne `HOST`, `DATABASE`, `USER` i `PASSWORD` w kodzie i zastąp przykładowe wartości wybranymi samodzielnie wartościami. 
+4. Uruchom wiersz polecenia lub powłokę bash. Przejdź do folderu projektu. Na przykład w systemie Windows uruchom polecenie `cd %USERPROFILE%\go\src\mysqlgo\`. W systemie Linux: `cd ~/go/src/mysqlgo/`.  Niektóre z wymienionych edytorów IDE oferują możliwości debugowania i uruchamiania bez konieczności używania poleceń powłoki.
 5. Uruchom kod, wpisując polecenie `go run createtable.go`, aby skompilować aplikację i uruchomić ją. 
 6. Alternatywnie, aby skompilować kod w aplikację natywną, uruchom polecenie `go build createtable.go`, a następnie uruchom plik `createtable.exe` w celu uruchomienia aplikacji.
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
-Użyć poniższego kodu do łączenia się z serwerem, Utwórz tabelę i załadować dane przy użyciu **Wstaw** instrukcji SQL. 
+Użyj poniższego kodu, aby nawiązać połączenie z serwerem, utworzyć tabelę i załadować dane przy użyciu instrukcji **INSERT** języka SQL. 
 
 Kod importuje trzy pakiety: [pakiet sql](https://golang.org/pkg/database/sql/), [pakiet go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) jako sterownik do komunikacji z usługą Azure Database for MySQL i [pakiet fmt](https://golang.org/pkg/fmt/) na potrzeby drukowanych danych wejściowych i wyjściowych w wierszu polecenia.
 
-Kod wywołuje metodę [sql. Metody Open()](http://go-database-sql.org/accessing.html) nawiązać połączenia z bazą danych Azure dla MySQL który umożliwia sprawdzenie połączenia przy użyciu metody [bazy danych. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Kod wywołuje metodę [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) kilka razy, aby uruchomić kilka poleceń DDL. Kod używa również [Prepare()](http://go-database-sql.org/prepared.html) i Exec() do uruchomienia przygotowanych instrukcji o innych parametrach, aby wstawić trzy wiersze. Zawsze, metoda checkError() niestandardowych służy do sprawdzania, jeśli wystąpił błąd i awaryjne, aby zakończyć.
+Kod wywołuje metodę [sql.Open()](http://go-database-sql.org/accessing.html), aby nawiązać połączenie z usługą Azure Database for MySQL, i sprawdza połączenie przy użyciu metody [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Używane jest [dojście do bazy danych](https://golang.org/pkg/database/sql/#DB), które utrzymuje pulę połączeń dla serwera bazy danych. Kod wywołuje metodę [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) kilka razy, aby uruchomić kilka poleceń DDL. Kod używa również metod [Prepare()](http://go-database-sql.org/prepared.html) i Exec() w celu uruchomienia przygotowanych instrukcji z różnymi parametrami, aby wstawić trzy wiersze. Za każdym razem jest wywoływana niestandardowa metoda checkError() w celu sprawdzenia, czy wystąpił błąd, i awaryjnego zakończenia pracy.
 
 Zastąp stałe `host`, `database`, `user` i `password` własnymi wartościami. 
 
@@ -174,7 +174,7 @@ func main() {
 ```
 
 ## <a name="read-data"></a>Odczyt danych
-Użyć poniższego kodu do łączenia i odczytywanie danych przy użyciu **wybierz** instrukcji SQL. 
+Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. 
 
 Kod importuje trzy pakiety: [pakiet sql](https://golang.org/pkg/database/sql/), [pakiet go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) jako sterownik do komunikacji z usługą Azure Database for MySQL i [pakiet fmt](https://golang.org/pkg/fmt/) na potrzeby drukowanych danych wejściowych i wyjściowych w wierszu polecenia.
 

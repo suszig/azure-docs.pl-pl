@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Dodaj serwery hostingu do użycia przez kartę SQL
 
@@ -28,11 +28,9 @@ Można użyć wystąpienia programu SQL na maszynach wirtualnych wewnątrz sieci
 * Wystąpienie programu SQL muszą być przeznaczone wyłącznie do użytku przez obciążeń planu odzyskiwania i użytkownika. Nie można użyć wystąpienia SQL, który jest używany przez innego użytkownika, łącznie z usługi aplikacji.
 * Karta planu odzyskiwania nie jest przyłączony do domeny i można połączyć wyłącznie przy użyciu uwierzytelniania SQL.
 * Należy skonfigurować konto z odpowiednimi uprawnieniami do użycia przez planu odzyskiwania.
-* Ruch sieciowy z planu odzyskiwania na SQL używa portu 1433, a nie można zmienić.
 * Planu odzyskiwania i użytkowników, takich jak aplikacje sieci Web należy używać sieci użytkownika, dlatego łączność do wystąpienia serwera SQL w tej sieci jest wymagana. To wymaganie zwykle oznacza, że adres IP dla swoich wystąpień SQL musi być w sieci publicznej.
 * Zarządzanie wystąpień programu SQL i ich hostów zależy od użytkownika; RP nie wykonać stosowania poprawek, tworzenia kopii zapasowej, poświadczeń, obracanie itp.
 * Jednostki SKU może służyć do tworzenia różnych klas możliwości SQL, takich jak wydajność, zawsze na itp.
-
 
 
 Liczba obrazów maszyn wirtualnych SQL IaaS są dostępne za pośrednictwem funkcji zarządzania Marketplace. Upewnij się, że zawsze pobieranie najnowszej wersji rozszerzenia IaaS SQL, przed wdrożeniem maszyny Wirtualnej przy użyciu elementu portalu Marketplace. Obrazy SQL są takie same jak SQL maszyn wirtualnych, które są dostępne w systemie Azure. Dla maszyn wirtualnych SQL utworzony na podstawie tych obrazów, rozszerzenia IaaS i odpowiedniego rozszerzenia portalu udostępnia funkcje, takie jak automatyczne stosowanie poprawek i możliwości tworzenia kopii zapasowej.
@@ -73,6 +71,8 @@ Aby dodać autonomicznego hostem serwera, która została już przydzielona, wyk
 
   ![Nowy serwer hostingu](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Można opcjonalnie dołączyć nazwę wystąpienia oraz numer portu może zostać podany, jeśli wystąpienie nie jest przypisany do domyślnego portu 1433.
+
   > [!NOTE]
   > Tak długo, jak przez użytkownika, a administrator usługi Azure Resource Manager można uzyskać dostępu do wystąpienia serwera SQL, mogą być umieszczone pod kontrolą dostawcy zasobów. Wystąpienie programu SQL __musi__ można przydzielić wyłącznie do planu odzyskiwania.
 
@@ -86,10 +86,10 @@ Aby dodać autonomicznego hostem serwera, która została już przydzielona, wyk
 
     Przykład:
 
-    ![Jednostki SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![Jednostki SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-Jednostki SKU może potrwać do godziny mają być wyświetlane w portalu. Nie można utworzyć bazy danych, dopóki nie zostanie całkowicie utworzona jednostka SKU.
+> Jednostki SKU może potrwać do godziny mają być wyświetlane w portalu. Użytkownicy nie można utworzyć bazy danych, dopóki nie zostanie całkowicie utworzona jednostka SKU.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Zapewniają pojemność przy użyciu SQL zawsze włączone grupy dostępności
 Konfigurowanie SQL zawsze włączone wystąpienia wymaga wykonania dodatkowych kroków i obejmuje co najmniej trzech maszyn wirtualnych (lub maszyn fizycznych).
@@ -126,7 +126,7 @@ Aby dodać SQL AlwaysOn serwerami hostingu, wykonaj następujące kroki:
     **Hosting serwerów SQL** bloku jest podłączenia dostawcy zasobów programu SQL Server do rzeczywistego wystąpień programu SQL Server, które służyć jako wewnętrznej bazy danych dostawcy zasobów.
 
 
-3. Wypełnienie formularza Szczegóły połączenia z wystąpienia programu SQL Server, jest użycie nazwy FQDN lub IPv4 adres zawsze na odbiornika. Podaj informacje o koncie dla konta skonfigurowanego z uprawnieniami administratora systemu.
+3. Wypełnienie formularza Szczegóły połączenia z wystąpienia programu SQL Server, jest użycie nazwy FQDN lub IPv4 adres zawsze na odbiornika (i opcjonalnie port numer). Podaj informacje o koncie dla konta skonfigurowanego z uprawnieniami administratora systemu.
 
 4. Zaznacz to pole, aby włączyć obsługę wystąpienia SQL zawsze włączonej grupy dostępności.
 
@@ -137,7 +137,7 @@ Aby dodać SQL AlwaysOn serwerami hostingu, wykonaj następujące kroki:
 
 ## <a name="making-sql-databases-available-to-users"></a>Udostępnianie użytkownikom bazy danych SQL
 
-Tworzenie planów i oferty, aby udostępnić baz danych SQL dla użytkowników. Dodaj usługę Microsoft.SqlAdapter planu i dodać przydział istniejącą lub Utwórz nową. Jeśli tworzysz limit przydziału, można określić pojemność, aby zezwolić użytkownikowi.
+Tworzenie planów i oferty, aby udostępnić baz danych SQL dla użytkowników. Dodaj usługę Microsoft.SqlAdapter planu i dodawania istniejącego przydziału lub Utwórz nową. Jeśli tworzysz przydział, należy określić pojemność, aby zezwolić użytkownikowi.
 
 ![Tworzenie planów i ofert do dołączenia bazy danych](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

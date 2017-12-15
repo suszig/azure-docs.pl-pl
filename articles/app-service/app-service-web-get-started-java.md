@@ -17,15 +17,15 @@ ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Tworzenie pierwszej aplikacji internetowej w środowisku Java na platformie Azure
 
-Azure [aplikacje sieci Web](app-service-web-overview.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web. W tym przewodniku Szybki start pokazano, jak wdrożyć aplikację internetową w języku Java przy użyciu środowiska [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+Usługa Azure [Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie. W tym przewodniku Szybki start pokazano, jak wdrożyć aplikację internetową w języku Java przy użyciu środowiska [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
 
-Po ukończeniu tego przewodnika Szybki Start, aplikacja będzie wyglądać podobnie do poniższej ilustracji, podczas wyświetlania w przeglądarce sieci web:
+Po ukończeniu tego przewodnika Szybki start aplikacja będzie wyglądać podobnie do poniższej ilustracji podczas wyświetlania jej w przeglądarce internetowej:
 
 ![„Hello Azure!” — przykładowa aplikacja internetowa](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

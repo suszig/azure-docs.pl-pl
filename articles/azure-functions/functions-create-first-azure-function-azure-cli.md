@@ -14,13 +14,13 @@ ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 4356d00b2694224f52a9359cd4a57d3a70a34d18
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Tworzenie pierwszej funkcji z poziomu interfejsu wiersza polecenia platformy Azure
 
-W tym temacie szybkiego startu przedstawiono sposób użycia usługi Azure Functions można utworzyć swoją pierwszą funkcję. Użyj wiersza polecenia platformy Azure do tworzenia aplikacji funkcji, która jest [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) infrastruktury, który jest hostem funkcji. Sam kod funkcji jest wdrażany z repozytorium przykładów GitHub.    
+W tym temacie szybkiego startu omówiono tworzenie pierwszej funkcji przy użyciu usługi Azure Functions. Za pomocą interfejsu wiersza polecenia platformy Azure zostanie utworzona aplikacja funkcji, która jest [bezserwerową](https://azure.microsoft.com/overview/serverless-computing/) infrastrukturą hostującą funkcję. Sam kod funkcji jest wdrażany z repozytorium przykładów GitHub.    
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux. 
 
@@ -35,7 +35,7 @@ Przed uruchomieniem tego przykładu należy dysponować następującymi elementa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym temacie wymaga wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom `az --version` można znaleźć wersją. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, z jakiej wersji korzystasz. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
@@ -46,13 +46,13 @@ Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lok
 
 Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funkcji zapewnia środowisko do bezserwerowego wykonywania kodu funkcji. Umożliwia ona grupowanie funkcji w ramach jednostki logicznej, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi. Utwórz aplikację funkcji przy użyciu polecenia [az functionapp create](/cli/azure/functionapp#create). 
 
-W poniższym poleceniu Zastąp unikatowe funkcja Nazwa aplikacji, której występuje `<app_name>` symbolu zastępczego i konto magazynu nazwy `<storage_name>`. Nazwa `<app_name>` jest używana jako domyślna domena DNS aplikacji funkcji, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. _Adres url źródła wdrożenia_ parametr to repozytorium przykładowej w usłudze GitHub, która zawiera funkcję "Hello World" HTTP wyzwolone.
+W poniższym poleceniu w miejsce symbolu zastępczego `<app_name>` wstaw unikatową nazwę aplikacji funkcji, a w miejsce symbolu zastępczego `<storage_name>` wstaw nazwę konta magazynu. Nazwa `<app_name>` jest używana jako domyślna domena DNS aplikacji funkcji, więc nazwa ta musi być unikatowa wśród wszystkich aplikacji na platformie Azure. Parametr _deployment-source-url_ to przykładowe repozytorium GitHub, które zawiera funkcję „Hello world” wyzwalaną za pośrednictwem protokołu HTTP.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
 ```
-Ustawienie _zużycie plan lokalizacji_ parametru oznacza, że funkcja aplikacji znajduje się w plan hostingu zużycia. W tym planie zasoby są dodawane dynamicznie, co jest wymagane przez funkcji i płacisz tylko po uruchomieniu funkcji. Aby uzyskać więcej informacji, zobacz [Wybieranie odpowiedniego planu hostingu](functions-scale.md). 
+Ustawienie parametru _consumption-plan-location_ oznacza, że funkcja aplikacji jest hostowana w planie hostingu Zużycie. W tym planie zasoby są dodawane dynamicznie zgodnie z wymogami Twoich funkcji i płacisz tylko wtedy, kiedy funkcje są uruchomione. Aby uzyskać więcej informacji, zobacz [Wybieranie odpowiedniego planu hostingu](functions-scale.md). 
 
 Po utworzeniu aplikacji funkcji interfejs wiersza polecenia platformy Azure wyświetli informacje podobne do następujących:
 

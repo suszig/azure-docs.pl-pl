@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
@@ -51,7 +51,7 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Wybierz **GitHub WebHook** szablon odpowiedni język. **Nadaj nazwę funkcji**, a następnie wybierz pozycję **Utwórz**.
+2. Wybierz szablon **GitHub WebHook** dla odpowiedniego języka. **Nadaj nazwę funkcji**, a następnie wybierz pozycję **Utwórz**.
 
      ![Tworzenie funkcji wyzwalanej przez element webhook GitHub w witrynie Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

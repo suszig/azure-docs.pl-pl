@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
@@ -99,7 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
-W przeglądarce przejdź do adresu URL aplikacji sieci web platformy Azure: `http://<app_name>.azurewebsites.net`.
+W przeglądarce przejdź do adresu URL aplikacji internetowej na platformie Azure: `http://<app_name>.azurewebsites.net`.
 
 Strona działa jako aplikacja sieci Web usługi Azure App Service.
 
@@ -111,7 +111,7 @@ Strona działa jako aplikacja sieci Web usługi Azure App Service.
 
 Otwórz plik *index.html* w edytorze tekstów i wprowadź zmianę. Na przykład zmień nagłówek H1 z „Azure App Service - Sample Static HTML Site” na „Azure App Service”.
 
-W lokalnej okno terminalu Zatwierdź zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+W oknie lokalnego terminala zatwierdź zmiany w usłudze Git, a następnie wypchnij zmiany kodu na platformę Azure.
 
 ```bash
 git commit -am "updated HTML"

@@ -1,6 +1,6 @@
 ---
-title: "Zarejestrowane za pomocą informacje o partnerze dostawcy usług Kryptograficznych z usługą Azure Management koszt | Dokumentacja firmy Microsoft"
-description: "Używać Twoich informacji partnera dostawcy usług Kryptograficznych, aby zarejestrować w usłudze Azure kosztów zarządzania przez Cloudyn."
+title: "Rejestrowanie przy użyciu informacji o partnerze programu CSP w usłudze Azure Cost Management | Microsoft Docs"
+description: "Zarejestruj się w usłudze Azure Cost Management firmy Cloudyn przy użyciu informacji o partnerze programu CSP."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -12,66 +12,66 @@ ms.service: cost-management
 manager: carmonm
 ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
 ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2017
 ---
-# <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Zarejestruj program partnerski dostawcy usług Kryptograficznych i widoku danych kosztów
+# <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Rejestrowanie w programie partnerskim programu CSP i wyświetlanie danych kosztów
 
-Jako serwer partnerski dostawcy usług Kryptograficznych można zarejestrować usługi Azure Management koszt przez Cloudyn. Rejestracja umożliwia dostęp do portalu Cloudyn. Szczegóły tego szybkiego startu procesu rejestracji potrzebne do tworzenia subskrypcji wersji próbnej Cloudyn i zaloguj się do portalu Cloudyn. On również pokazano, jak zacząć od razu wyświetlanie danych kosztów.
+Jako partner programu CSP możesz zarejestrować się w usłudze Azure Cost Management firmy Cloudyn. Rejestracja zapewnia dostęp do portalu firmy Cloudyn. W tym przewodniku Szybki start opisano szczegółowo proces rejestracji niezbędny do utworzenia subskrypcji wersji próbnej rozwiązania Cloudyn i zalogowania w portalu Cloudyn. Przedstawiono w nim także, jak od razu rozpocząć wyświetlanie danych kosztów.
 
 
 >[!NOTE]
 
->Tylko partnerzy bezpośredniego dostawcy usług Kryptograficznych i dostawcy usług Kryptograficznych pośrednie dostawcy można wykonać Cloudyn rejestracji.
+>Rejestracji w rozwiązaniu Cloudyn mogą dokonać tylko partnerzy programu CSP Direct i dostawcy programu CSP Indirect.
 >
->Konfigurowanie interfejsu API Center partnera jest wymagane do uwierzytelniania i dostępu do danych. Konto administratora globalnego Center partnera jest potrzebny do inicjują obsługę dostępu do interfejsu API.
-Aby uzyskać więcej informacji, zobacz [Połącz z interfejsu API Centrum partnerskiego](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>W przypadku uwierzytelniania i dostępu do danych wymagana jest konfiguracja interfejsu API Centrum partnerskiego. Do aprowizowania dostępu przez interfejs API potrzebne jest konto administratora globalnego Centrum partnerskiego.
+Aby uzyskać więcej informacji, zobacz [Nawiązywanie połączenia z interfejsem API Centrum partnerskiego](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
 >
->Dostęp do Cloudyn można udostępniane odsprzedawców pośrednie dostawcy usług Kryptograficznych po zarejestrowaniu ich pośrednie dostawcy usług Kryptograficznych z Cloudyn. Pośrednie odsprzedawców dostawcy usług Kryptograficznych mogą udzielić im dostępu Cloudyn klientów platformy Azure i subskrypcji.
+>Dostęp do rozwiązania Cloudyn można zapewnić odsprzedawcom programu CSP Indirect po ich zarejestrowaniu w rozwiązaniu Cloudyn przez dostawcę programu CSP Indirect. Odsprzedawcy programu CSP Indirect mogą wtedy zapewniać dostęp do rozwiązania Cloudyn posiadaczom subskrypcji oraz klientom platformy Azure.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 - Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Tworzenie wersji próbnej rejestracji
+## <a name="create-a-trial-registration"></a>Tworzenie rejestracji wersji próbnej
 
-1. W portalu Azure kliknij **kosztów zarządzania + rozliczeń** na liście usług.
-2. W obszarze **omówienie**, kliknij przycisk **koszt zarządzania**  
-    ![Koszt strony zarządzania](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. Na **kosztów zarządzania** kliknij przycisk **przejdź do zarządzania koszt** aby otworzyć stronę rejestracji Cloudyn w nowym oknie.
-4. Na stronie portalu rejestracji wersji próbnej Cloudyn wpisz nazwę firmy, wybierz **Administrator programu partnera dostawcy usług Kryptograficznych Microsoft**, a następnie kliknij przycisk **dalej**.  
-5. Wprowadź **identyfikator aplikacji**, **Identyfikatora Commerce**, **klucz tajny aplikacji**i wybierz **domyślne cennik Planowanie**. Jeśli nie masz informacje przydatne, zaloguj się do portalu Centrum partnerskiego pod adresem [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) głównej administratora konta, a następnie wykonaj następujące czynności:
-  1. Przejdź do **pulpitu nawigacyjnego** > **ustawienia konta** > **Zarządzanie aplikacjami**.
-  2. Jeśli uprzednio utworzono aplikację sieci Web, Pomiń ten krok. W przeciwnym razie kliknij przycisk **Dodaj nową aplikację sieci web** w **aplikacji sieci Web** sekcji.
-  3. Kopiuj **identyfikator aplikacji** identyfikatora GUID z aplikacji sieci web.
-  4. Kopiuj **Identyfikatora Commerce** identyfikatora GUID z aplikacji sieci web.
-  5. Wybierz okres ważności klucza jako jeden lub dwa lata, zgodnie z potrzebami. Wybierz **Dodaj klucz** , a następnie skopiuj i Zapisz wartość klucza tajnego.  
-    ![Centrum partnerskiego dostawcy usług Kryptograficznych](./media/quick-register-csp/csp-partner-center.png)
-  6. Wróć do strony rejestracji i Wklej informacje.  
-      ![Poświadczenia konta dostawcy usług Kryptograficznych](./media/quick-register-csp/csp-reg.png)
-6. Akceptuję warunki użytkowania, a następnie sprawdź poprawność informacji. Kliknij przycisk **dalej** do autoryzacji Cloudyn zbierać dane zasobów platformy Azure. Zbierane dane obejmują użycia i wydajności, rozliczeń i dane znacznika z subskrypcji.  
-7. W obszarze **zapraszanie innych uczestników**, możesz dodać użytkowników, wpisując ich adresów e-mail. Po zakończeniu kliknij przycisk **dalej**. Trwa około dwie godziny dla wszystkich danych rozliczeń do zostaną dodane do Cloudyn.
-8. Kliknij przycisk **przejdź do Cloudyn** aby otworzyć Cloudyn portal, a następnie na **Zarządzanie kontami chmury** strony, powinny pojawić się zarejestrowanego dostawcy usług Kryptograficznych informacje o Twoim koncie.
+1. W witrynie Azure Portal kliknij pozycję **Zarządzanie kosztami i rozliczenia** na liście usług.
+2. W obszarze **Przegląd** kliknij pozycję **Zarządzanie kosztami**  
+    ![Strona Zarządzanie kosztami](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. Na stronie **Zarządzanie kosztami** kliknij pozycję **Przejdź do zarządzania kosztami**, aby otworzyć stronę rejestracji rozwiązania Cloudyn w nowym oknie.
+4. Na stronie rejestracji wersji próbnej rozwiązania Cloudyn wpisz nazwę swojej firmy, wybierz pozycję **Microsoft CSP Partner Program Administrator** (Administrator programu partnerskiego programu Microsoft CSP), a następnie kliknij przycisk **Next** (Dalej).  
+5. Wypełnij pola **Application ID** (Identyfikator aplikacji), **Commerce ID** (Identyfikator handlowy) i **Application Secret key**(Klucz tajny aplikacji), a następnie wybierz pozycję **Default Pricing Plan** (Domyślny plan cenowy). Jeśli w tej chwili nie posiadasz tych informacji, zaloguj się do portalu Centrum partnerskiego na stronie [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) za pomocą swojego głównego konta administratora i wykonaj następujące czynności:
+  1. Przejdź do pozycji **Pulpit nawigacyjny** > **Ustawienia konta** > **Zarządzanie aplikacjami**.
+  2. Jeśli poprzednio utworzono aplikację internetową, pomiń ten krok. W przeciwnym razie kliknij pozycję **Dodaj nową aplikację internetową** w sekcji **Aplikacja internetowa**.
+  3. Skopiuj identyfikator GUID **Identyfikator aplikacji** aplikacji internetowej.
+  4. Skopiuj identyfikator GUID **Identyfikator handlowy** aplikacji internetowej.
+  5. Wybierz 1-roczny lub 2-letni okres ważności klucza, zgodnie z potrzebami. Wybierz pozycję **Dodaj klucz**, następnie skopiuj i zapisz wartość klucza tajnego.  
+    ![Centrum partnerskie programu CSP](./media/quick-register-csp/csp-partner-center.png)
+  6. Wróć do strony rejestracji i wklej skopiowane informacje.  
+      ![Poświadczenia konta programu CSP](./media/quick-register-csp/csp-reg.png)
+6. Zaakceptuj warunki użytkowania i zweryfikuj swoje informacje. Kliknij przycisk **Next** (Dalej), aby autoryzować rozwiązanie Cloudyn do zbierania danych zasobów platformy Azure. Te dane obejmują dane dotyczące użycia, wydajności, rozliczeń i tagów z Twoich subskrypcji.  
+7. W obszarze **Invite other stakeholders** (Zaproś innych uczestników projektu) możesz dodać użytkowników, wpisując ich adresy e-mail. Po zakończeniu kliknij przycisk **Next** (Dalej). Dodanie wszystkich danych dotyczących rozliczeń do rozwiązania Cloudyn potrwa około 2 godzin.
+8. Kliknij pozycję **Go to Cloudyn** (Przejdź do rozwiązania Cloudyn), aby otworzyć portal Cloudyn, a następnie na stronie **Cloud Accounts Management** (Zarządzanie kontami w chmurze) powinny zostać wyświetlone dane Twojego zarejestrowanego konta programu CSP.
 
-## <a name="configure-indirect-csp-access-in-cloudyn"></a>Skonfiguruj bezpośredni dostęp do dostawcy usług Kryptograficznych w Cloudyn
+## <a name="configure-indirect-csp-access-in-cloudyn"></a>Konfigurowanie dostępu do pośredniego programu CSP w rozwiązaniu Cloudyn
 
-Domyślnie interfejsu API Center partnera jest dostępny tylko do kierowania dostawców usług kryptograficznych. Jednak dla ich pośrednie dostawcy usług Kryptograficznych klientów lub partnerów za pośrednictwem grupy jednostek w Cloudyn dostępu można skonfigurować bezpośrednie dostawcy usług Kryptograficznych.
+Domyślnie interfejs API Centrum partnerskiego jest dostępny tylko dla bezpośrednich programów CSP. Jednak dostawca bezpośredniego programu CSP może skonfigurować dostęp dla swoich klientów lub partnerów pośredniego programu CSP, używając grup jednostek w rozwiązaniu Cloudyn.
 
-Aby włączyć dostęp do pośredniego dostawcy usług Kryptograficznych klientów lub partnerów, postępuj zgodnie z instrukcjami [tworzenia wersji próbnej rejestracji](#create-a-trial-registration) do konfigurowania rejestracji wersji próbnej. Następnie wykonaj następujące kroki do segmentu pośrednich danych dostawcy usług Kryptograficznych za pomocą Cloudyn grupy jednostek. Następnie można przypisać odpowiednie uprawnienia do grupy jednostek.
+Aby włączyć dostęp dla partnerów lub klientów bezpośredniego programu CSP, wykonaj czynności opisane w sekcji [Tworzenie rejestracji wersji próbnej](#create-a-trial-registration) i skonfiguruj rejestrację wersji próbnej. Następnie wykonaj następujące czynności, aby posegmentować dane pośredniego programu CSP przy użyciu grup jednostek rozwiązania Cloudyn. Przypisz odpowiednie uprawnienia użytkowników do grup jednostek.
 
-1. Utwórz grupę jednostki z informacjami o [utworzenie jednostek](tutorial-user-access.md#create-entities).
-2. Wykonaj kroki opisane w temacie [przypisywanie subskrypcji do jednostek koszt](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Skojarzenie konta pośrednie klienta dostawcy usług Kryptograficznych i ich subskrypcji platformy Azure do wcześniej utworzonej jednostki.
-3. Wykonaj kroki opisane w temacie [utworzyć użytkownika mającego uprawnienia administratora](tutorial-user-access.md#create-a-user-with-admin-access) się tworzenie konta użytkownika z uprawnienia administratora. Następnie upewnij się, że konto użytkownika ma dostęp administratora do poszczególne osoby, które zostały utworzone wcześniej dla pośredniego konta.
+1. Utwórz grupę jednostek, korzystając z informacji zawartych w sekcji [Tworzenie jednostek](tutorial-user-access.md#create-entities).
+2. Wykonaj czynności opisane w artykule [Przypisywanie subskrypcji do jednostek kosztów](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Skojarz konto klienta pośredniego programu CSP i jego subskrypcje z uprzednio utworzoną jednostką.
+3. Wykonaj czynności opisane w sekcji [Tworzenie użytkownika z dostępem administratora](tutorial-user-access.md#create-a-user-with-admin-access), aby utworzyć konto użytkownika z dostępem administratora. Następnie upewnij się, że konto użytkownika ma dostęp administratora do określonych jednostek, które utworzono wcześniej dla konta pośredniego.
 
-Pośrednie partnerów dostawcy usług Kryptograficznych Zaloguj się do portalu Cloudyn przy użyciu konta, które zostały utworzone dla nich.
+Partnerzy pośredniego programu CSP mogą logować się do portalu Cloudyn przy użyciu utworzonych dla nich kont.
 
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybkiego startu informacje o dostawcy usług Kryptograficznych jest używane do rejestrowania przy kosztów zarządzania. Również zalogowaniem się do portalu Cloudyn i uruchomić, wyświetlanie danych kosztów. Aby dowiedzieć się więcej na temat zarządzania koszt Azure przez Cloudyn, nadal samouczka kosztów zarządzania.
+W tym przewodniku Szybki start opisano rejestrację w usłudze Cost Management przy użyciu informacji programu CSP. Przedstawiono także logowanie się do portalu Cloudyn i rozpoczęcie wyświetlania danych kosztów. Aby dowiedzieć się więcej na temat usługi Azure Cost Management firmy Cloudyn, przejdź do samouczka usługi Cost Management.
 
 > [!div class="nextstepaction"]
-> [Przejrzyj użycia i kosztów](./tutorial-review-usage.md)
+> [Przeglądanie użycia i kosztów](./tutorial-review-usage.md)

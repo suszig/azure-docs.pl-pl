@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics zdarzeń kolejności brany pod uwagę
+# <a name="azure-stream-analytics-event-order-considerations"></a>Zagadnienia dotyczące usługi Azure Stream Analytics zdarzeń kolejności
 
-## <a name="understand-arrival-time-and-application-time"></a>Dowiedz się, Godzina nadejścia i czas aplikacji.
+## <a name="arrival-time-and-application-time"></a>Godzina nadejścia i czas aplikacji
 
-W strumieniu danych czasowych zdarzeń każdego zdarzenia jest przypisany sygnatury czasowej. Usługa Azure Stream Analytics przypisuje sygnatury czasowej każdego zdarzenia przy użyciu Godzina nadejścia lub czasu aplikacji. Kolumna "System.Timestamp" ma sygnaturę czasową przypisany do zdarzenia. Godzina nadejścia jest przypisywany w źródła danych wejściowych, gdy zdarzenie osiągnie źródła. Godzina nadejścia jest EventEnqueuedTime reakcję Centrum zdarzeń i [obiektu blob Data ostatniej modyfikacji](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) dla obiekt blob danych wejściowych. Czas aplikacji jest przypisany, gdy zostanie wygenerowane zdarzenie i jest częścią ładunku. Do przetworzenia zdarzenia według czasu aplikacji, użyj klauzuli "Sygnatury czasowej przez" w wykonywania zapytania select. Jeśli w klauzuli "Sygnatury czasowej przez" jest nieobecne, zdarzenia są przetwarzane przez Godzina nadejścia. Godzina nadejścia jest możliwy przy użyciu właściwości EventEnqueuedTime dla Centrum zdarzeń i właściwości BlobLastModified dla obiekt blob danych wejściowych. Usługa Azure Stream Analytics generuje dane wyjściowe w kolejności znaczników czasu i udostępnia kilka ustawień radzenia sobie z danych poza kolejnością.
+W strumieniu danych czasowych zdarzeń każdego zdarzenia jest przypisane sygnatury czasowej. Usługa Azure Stream Analytics przypisuje sygnatury czasowej każdego zdarzenia przy użyciu przyjęcia czasu albo czasu aplikacji. **System.Timestamp** kolumna zawiera sygnaturę czasową przypisany do zdarzenia. 
+
+Godzina nadejścia jest przypisywany w źródła danych wejściowych, gdy zdarzenie osiągnie źródła. Godzina nadejścia mogą korzystać za pomocą **EventEnqueuedTime** właściwości dla wejścia Centrum zdarzeń i przy użyciu [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) właściwości dla obiektu blob danych wejściowych. 
+
+Czas aplikacji jest przypisany, gdy zostanie wygenerowane zdarzenie i jest częścią ładunku. Aby przetwarzać zdarzenia według czasu aplikacji, należy użyć **sygnatury czasowej przez** klauzuli w wykonywania zapytania select. Jeśli **sygnatury czasowej przez** klauzula jest nieobecny, zdarzenia są przetwarzane przez Godzina nadejścia. 
+
+Usługa Azure Stream Analytics generuje dane wyjściowe w kolejności sygnaturę czasową i udostępnia ustawienia radzenia sobie z danych poza kolejnością.
 
 
-## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics obsługę wielu strumieni
+## <a name="handling-of-multiple-streams"></a>Obsługa wielu strumieni
 
-Zadania usługi analiza strumienia Azure łączy zdarzenia z wielu osi czasu w kilku przypadkach, także w przypadku,
+Zadanie usługi analiza strumienia Azure łączy zdarzenia z wielu osi czasu w przypadkach, takich jak następujące:
 
-* Generuje danych wyjściowych z wielu partycji. Łączenie zdarzeń z wszystkich partycji musi zapytań, które nie mają explicit "partycja przez PartitionId".
+* Generuje danych wyjściowych z wielu partycji. Zapytania, które nie mają jawnie **partycji według identyfikatora PartitionId** klauzuli połączyć zdarzenia ze wszystkich partycji.
 * Złożenie dwóch lub więcej różnych źródeł danych wejściowych.
 * Sprzęganie źródeł danych wejściowych.
 
-W scenariuszach, w którym są łączone wiele osi czasu, usługi Azure Stream Analytics będzie generowania danych wyjściowych dla sygnatury czasowej *t1* tylko wtedy, gdy wszystkie źródła, które są łączone są co najmniej w czasie *t1*.
-Na przykład, jeśli zapytanie odczytuje z *Centrum zdarzeń* partycji, która ma dwie partycje i jedną z partycji *P1* ma zdarzeń do czasu *t1* i innych partycji  *P2* ma zdarzeń do czasu *t1 + x*, do czasu wygenerowania danych wyjściowych *t1*.
-Jednak jeśli został jawnie *"Partycja przez PartitionId"* postępów zarówno partycji w klauzuli, niezależnie.
-Późne przyjęcia tolerancja służy do postępowania w przypadku braku danych w niektórych partycji.
+W scenariuszach, w którym są łączone wiele osi czasu, analiza strumienia Azure generuje dane wyjściowe dla sygnatury czasowej *t1* tylko wtedy, gdy wszystkie źródła, które są łączone są co najmniej w czasie *t1*. Na przykład przypuśćmy, że zapytanie odczytuje z partycji Centrum zdarzeń, które ma dwie partycje. Jedną z partycji, *P1*, ma zdarzeń do czasu *t1*. Partycja innych *P2*, ma zdarzeń do czasu *t1 + x*. Następnie wygenerowania danych wyjściowych do czasu *t1*. Ale w przypadku jawnego **partycji według identyfikatora PartitionId** klauzuli zarówno partycje postępu niezależnie.
 
-## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Konfigurowanie późne tolerancji przyjęcia i odporność na awarie poza kolejnością
+Ustawienie późne tolerancji przyjęcia służy do postępowania w przypadku braku danych w niektórych partycji.
+
+## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Konfigurowanie późne tolerancji przyjęcia i odporność na awarie poza kolejnością.
 Strumienie wejściowe, które nie znajdują się w kolejności są:
-* Sortowane (i w związku z tym **opóźnione**).
-* Dostosowane przez system, zgodnie z zasadami określonymi przez użytkownika.
+* Sortowane (i w związku z tym opóźnienie)
+* Skorygowane przez system, zgodnie z zasadami określonymi przez użytkownika
 
-Analiza strumienia zaakceptować późne i poza kolejnością zdarzenia podczas przetwarzania przez **czas aplikacji**. Następujące ustawienia są dostępne w **kolejność zdarzeń** opcji w portalu Azure: 
+Analiza strumienia zaakceptować późne i poza kolejnością zdarzenia, gdy jest przetwarzanie czasu aplikacji. Następujące ustawienia są dostępne w **kolejność zdarzeń** opcji w portalu Azure: 
 
 ![Obsługa zdarzeń usługi analiza strumienia](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-**Późne tolerancji przyjęcia**
-* To ustawienie ma zastosowanie tylko wtedy, gdy przetwarzania przez czas aplikacji, w przeciwnym razie zostanie zignorowana.
-* Jest to maksymalna różnica między Godzina nadejścia i czas aplikacji. Jeśli czas aplikacji przed (Godzina nadejścia - późne okna odbioru), ustawiono (Godzina nadejścia - późne okna odbioru)
-* Gdy wiele partycji z tego samego strumienia wejściowego lub wiele strumieni wejściowych są połączone ze sobą, późne tolerancji przyjęcia jest maksymalną ilość czasu oczekiwania każdej partycji dla nowych danych. 
+### <a name="late-arrival-tolerance"></a>Późne tolerancji przyjęcia
+Późne tolerancji przyjęcia ma zastosowanie tylko wtedy, gdy jest przetwarzanie czasu aplikacji. W przeciwnym razie ustawienie jest ignorowane.
 
-Krótko mówiąc późne okno odbioru jest maksymalne opóźnienie od wygenerowania zdarzenia do odbierania zdarzeń w źródła danych wejściowych.
-Dostosowanie oparte na opóźnione tolerancji przyjęcia odbywa się najpierw i poza kolejnością odbywa się obok. **System.Timestamp** kolumny będzie mieć końcowego sygnatury czasowej przypisany do zdarzenia.
+Późne tolerancja przyjęcia to maksymalna różnica między Godzina nadejścia i czas aplikacji. Jeśli zdarzenie dociera później niż późne tolerancja przybyciu (na przykład czas aplikacji *app_t* < Godzina nadejścia *arr_t* -późne tolerancji zasad przyjęcia *late_t*), zdarzenia jest dostosowana do maksymalnie późne tolerancja przybyciu (*arr_t* - *late_t*). Późne okno odbioru jest maksymalne opóźnienie od wygenerowania zdarzenia do przyjęcia zdarzenia w źródła danych wejściowych. 
 
-**Tolerancja poza kolejnością**
-* Zdarzenia przychodzące poza kolejnością, ale w zestawie "poza kolejnością tolerancji" są **ponownie uporządkowane według znaczników czasu**. 
-* Zdarzenia przychodzące później niż uszkodzenia są **porzucony albo dostosowana**.
-    * **Dostosowana**: dostosowana do wydają się przybyły najnowszych akceptowalnego czasu. 
-    * **Porzucone**: odrzucone.
+Gdy są łączone wiele partycji z tego samego strumienia wejściowego lub wiele strumieni wejściowych późne tolerancji przyjęcia jest maksymalną ilość czasu oczekiwania każdej partycji dla nowych danych. 
 
-Aby zmienić kolejność zdarzeń w ciągu "poza kolejnością tolerancji", jest wyniki kwerendy **opóźniony o poza kolejnością tolerancji**.
+Dostosowanie oparte na opóźnione tolerancji przyjęcia odbywa się najpierw. Następną korekty oparte na uszkodzenia poza kolejnością. **System.Timestamp** kolumna zawiera sygnaturę czasową końcowego przypisany do zdarzenia.
 
-**Przykład**
+### <a name="out-of-order-tolerance"></a>Tolerancja poza kolejnością.
+Zdarzenia, które pojawiają się poza kolejnością, ale w ramach zestawu poza kolejnością tolerancji zostaną ponownie uporządkowane według sygnatury czasowej. Zdarzenia przychodzące później niż tolerancji są:
+* **Dostosowana**: dostosowana do wydają się przybyły najnowszych akceptowalnego czasu. 
+* **Porzucone**: odrzucone.
+
+Gdy analiza strumienia zmienia kolejność zdarzeń, które są odbierane poza kolejnością tolerancji, wyniki kwerendy jest opóźniony o tolerancji poza kolejnością.
+
+### <a name="example"></a>Przykład
 
 * Późne tolerancji przyjęcia = 10 minut<br/>
-* Poza tolerancji kolejności = 3 minuty<br/>
+* Tolerancja poza kolejnością = 3 minuty<br/>
 * Przetwarzanie przez czas aplikacji<br/>
 * Wydarzenia:
-   * Zdarzenia 1 _czas aplikacji_ = 00:00:00, _Godzina nadejścia_ = 00:10:01 _System.Timestamp_ = 00:00:01, dostosowane, ponieważ (_Godzina nadejścia_  -  _Czas aplikacji_) jest większa niż późne tolerancji przyjęcia.
-   * Zdarzenia 2 _czas aplikacji_ = 00:00:01 _Godzina nadejścia_ = 00:10:01 _System.Timestamp_ = 00:00:01, nie dostosowana, ponieważ w ramach spóźnione otrzymanie czas aplikacji okno.
-   * Zdarzenia 3 _czas aplikacji_ = 00:10:00, _Godzina nadejścia_ = 00:10:02 _System.Timestamp_ = 00:10:00, nie dostosowana, ponieważ w oknie przyjęcia późne czas aplikacji .
-   * Zdarzenie 4 _czas aplikacji_ = 00:09:00, _Godzina nadejścia_ = 00:10:03 _System.Timestamp_ = 00:09:00, zaakceptowane z oryginalnego sygnatury czasowej w granicach poza czas aplikacji kolejność na uszkodzenia.
-   * Zdarzenie 5 _czas aplikacji_ = 00:06:00, _Godzina nadejścia_ = 00:10:04 _System.Timestamp_ = 00:07:00, dostosowane, ponieważ czas aplikacji jest starsza niż poza kolejnością Tolerancja.
+   1. **Czas aplikacji** = 00:00:00, **Godzina nadejścia** = 00:10:01 **System.Timestamp** = 00:00:01, dostosowane, ponieważ (**Godzina nadejścia — czas aplikacji**) jest więcej niż późne tolerancji przyjęcia.
+   2. **Czas aplikacji** = 00:00:01 **Godzina nadejścia** = 00:10:01 **System.Timestamp** = 00:00:01, nie dostosowana, ponieważ czas aplikacji jest opóźnione okna odbioru.
+   3. **Czas aplikacji** = 00:10:00, **Godzina nadejścia** = 00:10:02 **System.Timestamp** = 00:10:00, nie dostosowana, ponieważ czas aplikacji jest opóźnione okna odbioru.
+   4. **Czas aplikacji** = 00:09:00, **Godzina nadejścia** = 00:10:03 **System.Timestamp** = 00:09:00, zaakceptowane z oryginalnego sygnaturę czasową, ponieważ czas aplikacji w ramach poza kolejnością Tolerancja.
+   5. **Czas aplikacji** = 00:06:00, **Godzina nadejścia** = 00:10:04 **System.Timestamp** = 00:07:00, dostosowane, ponieważ czas aplikacji jest starsza niż tolerancja poza kolejnością.
 
 ### <a name="practical-considerations"></a>Kwestie praktyczne
-Jak wspomniano powyżej, *późne tolerancji przyjęcia* jest maksymalną różnicę czasu aplikacji i Godzina nadejścia.
-Również przetwarzania przez aplikację do czasu, zdarzenia, które są nowsze niż skonfigurowanego *późne tolerancji przyjęcia* są ustawiane przed *tolerancji poza kolejnością* ustawienie jest stosowane. Tak minimalnym późne tolerancji przyjęcia i odporność poza kolejnością jest obowiązującej poza kolejnością.
+Jak wspomniano wcześniej, późne tolerancji przyjęcia jest maksymalną różnicę czasu aplikacji i Godzina nadejścia. Po jest przetwarzanie przez czas aplikacji zdarzenia, które są nowsze niż z późnym tolerancją przyjęcia zostaną skorygowane przed zastosowaniem tolerancja poza kolejnością. Tak minimalnym późne tolerancji przyjęcia i odporność poza kolejnością jest obowiązującej poza kolejnością.
 
-Poza kolejnością zdarzeń z przyczyn, w tym, w ramach strumienia
-* Niedokładność zegara między nadawcy.
+Zdarzenia poza kolejnością w strumieniu przyczyny:
+* Zegara między nadawcy.
 * Zmienne opóźnienie między nadawcą i źródło zdarzenia wejściowe.
 
-Późne przyjęcia się dzieje z przyczyn, w tym,
-* Nadawców partii i wysłać zdarzenia dla interwału później, po upływie interwału.
-* Opóźnienie między wysyłanie zdarzeń przez nadawcę i odbieranie zdarzeń na źródło danych wejściowych.
+Późne przyjęcia przyczyny:
+* Nadawców przetwarzania wsadowego i wysyłania zdarzeń dla interwału później, po upływie interwału.
+* Opóźnienie między wysyłanie zdarzeń przez nadawcę i odbieranie zdarzeń na źródła danych wejściowych.
 
-Podczas konfigurowania *późne tolerancji przyjęcia* i *poza kolejnością tolerancji* dla danego zadania, poprawności, opóźnienia i powyżej czynników należy traktować jako.
+Podczas konfiguracji późne uszkodzenia przyjęcia i tolerancję poza kolejnością dla danego zadania, należy wziąć pod uwagę poprawności, opóźnienia i poprzedniego czynników.
 
-Poniżej przedstawiono kilka przykładów
+Poniżej przedstawiono kilka przykładów.
 
-#### <a name="example-1"></a>Przykład 1: 
-Zapytanie zawiera klauzulę "Partycja przez PartitionId" i w obrębie jednej partycji, zdarzenia są wysyłane przy użyciu metod synchronicznych wysyłania. Synchroniczne wysłać bloku metody do momentu zdarzenia są wysyłane.
-W takim przypadku poza kolejnością wynosi zero, ponieważ zdarzenia są wysyłane w kolejności z jawnym potwierdzenie przed wysłaniem następne zdarzenie. Późne przyjęcia jest maksymalne opóźnienie między generowania zdarzenia i wysyłanie zdarzeń + maksymalnego czasu oczekiwania między nadawcą i źródła danych wejściowych
+#### <a name="example-1"></a>Przykład 1 
+Kwerenda ma **partycji według identyfikatora PartitionId** klauzuli. W ramach jednej partycji zdarzenia są wysyłane za pomocą metod synchronicznych wysyłania. Synchroniczne wysłać bloku metody do momentu zdarzenia są wysyłane.
 
-#### <a name="example-2"></a>Przykład 2:
-Zapytanie zawiera klauzulę "Partycja przez PartitionId" i w obrębie jednej partycji, zdarzenia są wysyłane przy użyciu metody asynchronicznego wysyłania. Metody asynchronicznego wysyłania można inicjować wielu wysyła w tym samym czasie, co może powodować zdarzenia poza kolejnością.
-W takim przypadku przyjęcia zarówno poza kolejnością i późne są co najmniej maksymalne opóźnienie między generowania zdarzenia i wysyłanie zdarzeń + maksymalnego czasu oczekiwania między nadawcą i źródła danych wejściowych.
+W takim przypadku poza kolejnością wynosi zero, ponieważ zdarzenia są wysyłane w kolejności z jawnym potwierdzenie przed wysłaniem następne zdarzenie. Późne przyjęcia jest maksymalne opóźnienie między generowania zdarzenia i wysyła zdarzenia, a także maksymalnego czasu oczekiwania między nadawcą i źródła danych wejściowych.
 
-#### <a name="example-3"></a>Przykład 3:
-Zapytanie nie ma "Partycja przez PartitionId" i istnieją co najmniej dwie partycje.
-Konfiguracja jest taki sam jak przykład 2. Jednak brak danych w jednej partycji można opóźnić dane wyjściowe o dodatkowe * późne tolerancji przyjęcia "okna.
+#### <a name="example-2"></a>Przykład 2
+Kwerenda ma **partycji według identyfikatora PartitionId** klauzuli. W ramach jednej partycji zdarzenia są wysyłane za pośrednictwem metody asynchronicznego wysyłania. Metody asynchronicznego wysyłania można inicjować wielu wysyła w tym samym czasie, co może powodować zdarzenia poza kolejnością.
+
+W takim przypadku przyjęcia zarówno poza kolejnością i późne są co najmniej maksymalne opóźnienie między generowania zdarzenia i wysyła zdarzenia, a także maksymalnego czasu oczekiwania między nadawcą i źródła danych wejściowych.
+
+#### <a name="example-3"></a>Przykład 3
+Zapytanie nie ma **partycji według identyfikatora PartitionId** klauzuli, i czy istnieją co najmniej dwie partycje.
+
+Konfiguracja jest taka sama jak przykład 2. Jednak brak danych w jednej partycji można opóźnić danych wyjściowych przez dodatkowe późne przyjęcia tolerancji.
 
 ## <a name="handling-event-producers-with-differing-timelines"></a>Obsługa producentów zdarzeń z różnych osi czasu
-Strumień pojedyncze zdarzenie wejściowe często zawierają zdarzeń pochodzących od wielu producentów zdarzeń (np. poszczególne urządzenia).  Zdarzenia te mogą dotrzeć poza kolejnością z powodu omówionych wcześniej przyczyn. W tych scenariuszach pogorszenie przez producentów zdarzeń może być duży, pogorszenie w zdarzeniach z pojedynczego producenta będzie małe (lub nawet nieistniejącego).
-Azure Stream Analytics zawiera ogólne mechanizmy zajmujących się zdarzenia poza kolejnością, natomiast takich mechanizmów spowodować albo opóźnienia w przetwarzaniu (podczas oczekiwania na straggling zdarzenia do osiągnięcia system), porzucić lub dostosowywana zdarzenia lub oba.
-Jeszcze w wielu scenariuszach żądanego zapytania przetwarzania zdarzeń z różnych zdarzeń producentów niezależnie.  Na przykład go może być agregowanie zdarzenia na okna na urządzenie.  W takich przypadkach jest niepotrzebna opóźnienia odpowiadający producent jedno zdarzenie podczas oczekiwania na innych producentów zdarzeń uwzględnić dane wyjściowe.  Innymi słowy nie istnieje potrzeba radzenia sobie z czasu pochylenia między producentami i można go po prostu zignorować.
-Oczywiście oznacza to, że zdarzeniach wyjściowych się będzie poza kolejnością względem ich sygnatury czasowe; podrzędne konsument musi mieć możliwość postępowania w przypadku takiego zachowania.  Ale każde zdarzenie w danych wyjściowych jest poprawny.
+Strumień pojedyncze zdarzenie wejściowe często zawiera zdarzenia, które pochodzą od wielu producentów zdarzeń, takich jak poszczególnych urządzeń. Zdarzenia te mogą dotrzeć poza kolejnością z powodu omówionych wcześniej przyczyn. W tych scenariuszach chociaż pogorszenie przez producentów zdarzeń może być duży, pogorszenie w zdarzeniach z pojedynczego producenta jest mały (lub nawet nieistniejącego).
 
-Usługa Azure Stream Analytics implementuje przy użyciu tej funkcji [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) klauzuli.
+Usługa Azure Stream Analytics zawiera ogólne mechanizmy zajmujących się zdarzenia poza kolejnością. Tych mechanizmów doprowadzi do przetwarzania opóźnień (podczas oczekiwania na straggling zdarzenia do osiągnięcia system), porzucić lub dostosowywana zdarzenia lub oba.
 
+Jeszcze w wielu scenariuszach żądanego zapytania przetwarzania zdarzeń z różnych zdarzeń producentów niezależnie. Na przykład go może być agregowanie zdarzeń na okna na urządzenie. W takich przypadkach jest niepotrzebna opóźnienia umożliwiająca producent jedno zdarzenie podczas oczekiwania na innych producentów zdarzeń uwzględnić dane wyjściowe. Innymi słowy jest niepotrzebna radzenia sobie z pochylenia między producentami czasu. Można je zignorować.
 
+Oczywiście oznacza to, że zdarzeniach wyjściowych, same są poza kolejnością względem ich sygnatury czasowe. Podrzędne konsument musi mieć możliwość postępowania w przypadku takiego zachowania. Ale każde zdarzenie w danych wyjściowych jest poprawna.
 
-## <a name="to-summarize"></a>Podsumowując
-* Późne tolerancji przyjęcia poza kolejnością okno powinno być skonfigurowane w oparciu poprawności, opóźnienia i należy również rozważyć, jak zdarzenia są wysyłane.
+Usługa Azure Stream Analytics implementuje tę funkcję za pomocą [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) klauzuli.
+
+## <a name="summary"></a>Podsumowanie
+* Skonfiguruj późne tolerancji przyjęcia i okno poza kolejnością na podstawie prawidłowości i opóźnień. Należy również rozważyć, jak zdarzenia są wysyłane.
 * Zaleca się, że poza kolejnością na uszkodzenia jest mniejszy niż późne tolerancji przyjęcia.
-* W przypadku łączenia wielu osi czasu, Brak danych w jednym źródeł lub partycji może opóźnić danych wyjściowych przez dodatkowe późne przyjęcia tolerancji.
-* Kolejność jest tylko ważne w osi czasu zdarzeń producenta, jest możliwe do przetwarzania każdego producenta zdarzeń jako niezależne podstrumienia klauzulę TIMESTAMP BY OVER.
+* Podczas łączenia wielu osi czasu, Brak danych w jednym źródeł lub partycji może opóźnić danych wyjściowych przez dodatkowe późne przyjęcia tolerancji.
 
 ## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Aby uzyskać dodatkową pomoc, spróbuj [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do usługi analiza strumienia](stream-analytics-introduction.md)

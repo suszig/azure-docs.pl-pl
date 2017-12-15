@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie funkcji platformy Azure wyzwalane przez ogólny element webhook | Dokumentacja firmy Microsoft"
-description: "Użyj usługi Azure Functions, aby utworzyć pliki funkcji, który jest wywoływany przez element webhook na platformie Azure."
+title: "Tworzenie funkcji na platformie Azure wyzwalanej przez ogólny element webhook | Microsoft Docs"
+description: "Użyj usługi Azure Functions, aby utworzyć bezserwerową funkcję wywoływaną za pomocą elementu webhook na platformie Azure."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -18,15 +18,15 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Utwórz funkcję wyzwalane przez ogólny element webhook
+# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Tworzenie funkcji wyzwalanej przez ogólny element webhook
 
-Usługa Azure Functions umożliwia wykonywanie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. Na przykład można skonfigurować funkcję, która ma być wyzwalany przez alertu zgłoszonego przez Azure Monitor. W tym temacie przedstawiono sposób wykonania kodu C#, gdy grupa zasobów jest dodawane do subskrypcji.   
+Usługa Azure Functions umożliwia wykonywanie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. Możesz na przykład skonfigurować wyzwalanie funkcji przez alert z usługi Azure Monitor. Z tego tematu dowiesz się, jak wykonywać kod języka C# w przypadku dodania grupy zasobów do subskrypcji.   
 
-![Ogólny element webhook wyzwalane funkcji w portalu Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
+![Funkcja wyzwalana przez ogólny element webhook w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
@@ -42,66 +42,66 @@ W celu ukończenia tego samouczka:
 
 Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
-## <a name="create-function"></a>Utwórz funkcję ogólny element webhook wyzwalane
+## <a name="create-function"></a>Tworzenie funkcji wyzwalanej przez ogólny element webhook
 
-1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli ta funkcja jest pierwsza z nich w aplikacji funkcji, wybierz **Niestandardowa funkcja**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
+1. Rozwiń aplikację funkcji i kliknij przycisk **+** obok pozycji **Funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **Funkcja niestandardowa**. Spowoduje to wyświetlenie pełnego zestawu szablonów funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Wybierz **ogólny element WebHook - C#** szablonu. Wpisz nazwę dla funkcji języka C#, a następnie wybierz **Utwórz**.
+2. Wybierz szablon **Ogólny element webhook — C#**. Wpisz nazwę funkcji języka C#, a następnie wybierz pozycję **Utwórz**.
 
-     ![Utwórz funkcję ogólny element webhook wyzwalane w portalu Azure](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Tworzenie funkcji wyzwalanej przez ogólny element webhook w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
-2. W nowych funkcji, kliknij przycisk **adres URL funkcji <> / Get**, następnie skopiuj i Zapisz wartość. Ta wartość służy do konfigurowania elementu webhook. 
+2. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartość. Będzie ona używana do skonfigurowania elementu webhook. 
 
     ![Sprawdzanie kodu funkcji](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
-Następnie należy utworzyć punkt końcowy elementu webhook w alertu dziennika aktywności w monitorze Azure. 
+Następnie należy utworzyć punkt końcowy elementu webhook w alercie dziennika aktywności w usłudze Azure Monitor. 
 
-## <a name="create-an-activity-log-alert"></a>Utwórz alert dziennika aktywności
+## <a name="create-an-activity-log-alert"></a>Tworzenie alertu dziennika aktywności
 
-1. W portalu Azure, przejdź do **Monitor** usługi, wybierz opcję **alerty**i kliknij przycisk **alert dziennika aktywności Dodaj**.   
+1. W witrynie Azure Portal przejdź do usługi **Monitor**, wybierz pozycję **Alerty** i kliknij polecenie **Dodaj alert dziennika aktywności**.   
 
     ![Monitorowanie](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
 2. Użyj ustawień określonych w tabeli:
 
-    ![Utwórz alert dziennika aktywności](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
+    ![Tworzenie alertu dziennika aktywności](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
     | Ustawienie      |  Sugerowana wartość   | Opis                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nazwa alertu dziennika aktywności** | zasobów grupy Tworzenie alertu | Nazwa alertu dziennika aktywności. |
-    | **Subskrypcja** | Twoja subskrypcja | Subskrypcja używanego na potrzeby tego samouczka. | 
-    |  **Grupa zasobów** | myResourceGroup | Grupy zasobów, które są wdrażane zasoby alertu. Przy użyciu tej samej grupie zasobów co aplikacja funkcja ułatwia oczyszczanie po ukończeniu samouczka. |
-    | **Kategoria zdarzenia** | Administracyjne | Ta kategoria zawiera zmiany wprowadzone do zasobów platformy Azure.  |
-    | **Typ zasobu** | Grupy zasobów | Filtruje alerty do działań grupy zasobów. |
-    | **Grupa zasobów**<br/>i **zasobów** | Wszystkie | Monitoruj wszystkie zasoby. |
-    | **Nazwa operacji** | Tworzenie grupy zasobów | Filtry alertów do tworzenia operacji. |
-    | **Poziom** | Informacyjny | Obejmują alerty informacyjne poziomu. | 
-    | **Stan** | Powodzenie | Filtruje alerty do akcji, które zostały ukończone pomyślnie. |
-    | **Grupy akcji** | Nowy | Utwórz nową grupę akcji, który definiuje przyjmuje akcji, gdy zostanie zgłoszony alert. |
-    | **Nazwa grupy akcji** | Element webhook — funkcja | Nazwę identyfikującą grupy akcji.  | 
-    | **Krótka nazwa** | funcwebhook | Krótka nazwa grupy działań. |  
+    | **Nazwa alertu dziennika aktywności** | resource-group-create-alert | Nazwa alertu dziennika aktywności. |
+    | **Subskrypcja** | Twoja subskrypcja | Subskrypcja używana z tym samouczkiem. | 
+    |  **Grupa zasobów** | myResourceGroup | Grupa zasobów, w której wdrażane są zasoby alertów. Użycie tej samej grupy zasobów, której użyto w aplikacji funkcji, ułatwia wyczyszczenie zasobów po zakończeniu pracy z samouczkiem. |
+    | **Kategoria zdarzenia** | Administracyjne | Ta kategoria obejmuje zmiany w zasobach platformy Azure.  |
+    | **Typ zasobu** | Grupy zasobów | Filtruje alerty pod kątem działań związanych z grupami zasobów. |
+    | **Grupa zasobów**<br/>i **Zasób** | Wszystkie | Monitorowanie wszystkich zasobów. |
+    | **Nazwa operacji** | Tworzenie grupy zasobów | Filtruje alerty pod kątem operacji tworzenia. |
+    | **Poziom** | Informacyjne | Uwzględnia alerty o poziomie Informacyjne. | 
+    | **Stan** | Powodzenie | Filtruje alerty pod kątem pomyślnie ukończonych akcji. |
+    | **Grupa akcji** | Nowa | Tworzy nową grupę akcji, służącą do definiowania akcji wykonywanych po aktywowaniu alertu. |
+    | **Nazwa grupy akcji** | function-webhook | Nazwa identyfikująca grupę akcji.  | 
+    | **Krótka nazwa** | funcwebhook | Krótka nazwa grupy akcji. |  
 
-3. W **akcje**, Dodaj akcję przy użyciu ustawień określonych w tabeli: 
+3. W obszarze **Akcje** dodaj akcję, używając ustawień wymienionych w tabeli: 
 
-    ![Dodaj grupę](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
+    ![Dodawanie grupy akcji](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
 
     | Ustawienie      |  Sugerowana wartość   | Opis                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nazwa** | CallFunctionWebhook | Nazwa akcji. |
-    | **Typ akcji** | Webhook | Odpowiedzi na alert jest, że adres URL elementu Webhook jest wywoływana. |
-    | **Szczegóły** | Adres URL funkcji | Wklej adres URL elementu webhook funkcji, które wcześniej zostały skopiowane. |v
+    | **Typ akcji** | Webhook | Reakcją na alert będzie wywołanie adresu URL elementu webhook. |
+    | **Szczegóły** | Adres URL funkcji | Wklej skopiowany wcześniej adres URL elementu webhook funkcji. |v
 
-4. Kliknij przycisk **OK** Aby utworzyć grupę alertów i akcji.  
+4. Kliknij przycisk **OK**, aby utworzyć alert i grupę akcji.  
 
-Element webhook nosi teraz, po utworzeniu grupy zasobów w ramach subskrypcji. Następnie zaktualizuj kod w funkcji do obsługi danych dziennika JSON w treści żądania.   
+Element webhook będzie teraz wywoływany w przypadku utworzenia grupy zasobów w ramach subskrypcji. Następnie należy zaktualizować kod funkcji w celu obsługi danych dziennika JSON w treści żądania.   
 
 ## <a name="update-the-function-code"></a>Aktualizacja kodu funkcji
 
-1. Przejdź z powrotem do aplikacji funkcji w portalu, a następnie rozwiń funkcji. 
+1. Wróć do aplikacji funkcji w portalu i rozwiń funkcję. 
 
-2. Zastąp kod skryptu C# w funkcji w portalu następujący kod:
+2. Zastąp kod skryptu języka C# funkcji w portalu następującym kodem:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -141,19 +141,19 @@ Element webhook nosi teraz, po utworzeniu grupy zasobów w ramach subskrypcji. N
     }
     ```
 
-Teraz można przetestować funkcji przez utworzenie nowej grupy zasobów w ramach subskrypcji.
+Możesz przetestować funkcję, tworząc nową grupę zasobów w ramach subskrypcji.
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
-1. Kliknij ikonę grupy zasobów w lewej części portalu Azure, wybierz opcję **+ Dodaj**, wpisz **Nazwa grupy zasobów**i wybierz **Utwórz** można utworzyć pustej grupy zasobów.
+1. Kliknij ikonę grupy zasobów po lewej stronie witryny Azure Portal, wybierz pozycję **+ Dodaj**, wprowadź **Nazwę grupy zasobów** i wybierz polecenie **Utwórz**, aby utworzyć pustą grupę zasobów.
     
     ![Utwórz grupę zasobów.](./media/functions-create-generic-webhook-triggered-function/functions-create-resource-group.png)
 
-2. Wróć do funkcji, a następnie rozwiń węzeł **dzienniki** okna. Po utworzeniu grupy zasobów, alert dziennika aktywności wyzwala elementu webhook i wykonuje funkcji. Możesz wyświetlić nazwę nowej grupy zasobów zapisywane w dziennikach.  
+2. Wróć do funkcji i rozwiń okno **Dzienniki**. Po utworzeniu grupy zasobów alert dziennika aktywności wyzwala element webhook, powodując wykonanie funkcji. Zobaczysz, że nazwa nowej grupy zasobów została zapisana w dziennikach.  
 
-    ![Dodaj ustawienie aplikacji testu.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
+    ![Dodawanie ustawienia aplikacji testowej.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (Opcjonalnie) Przejdź wstecz i usunąć utworzoną grupę zasobów. Należy pamiętać, że to działanie nie powoduje wyzwolenia funkcji. Jest to spowodowane Usuń operacje są odfiltrowywane przez alert. 
+3. (Opcjonalnie) Wróć do utworzonej grupy zasobów i usuń ją. Zwróć uwagę, że to działanie nie spowoduje wyzwolenia funkcji. Dzieje się tak, ponieważ operacje usuwania są odfiltrowywane przez alert. 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -161,9 +161,9 @@ Teraz można przetestować funkcji przez utworzenie nowej grupy zasobów w ramac
 
 ## <a name="next-steps"></a>Następne kroki
 
-Funkcja, która jest uruchamiana, gdy żądanie zostanie odebrane z ogólny element webhook został utworzony. 
+Utworzono funkcję, która jest uruchamiana w momencie otrzymania żądania od ogólnego elementu webhook. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Aby uzyskać więcej informacji na temat wyzwalaczy elementów webhook, zobacz temat [Powiązania protokołu HTTP i elementów webhook w usłudze Azure Functions](functions-bindings-http-webhook.md). Aby dowiedzieć się więcej o wdrażaniu funkcji w języku C#, zobacz [dokumentacja dla deweloperów usług Azure funkcje C# skrypt](functions-reference-csharp.md).
+Aby uzyskać więcej informacji na temat wyzwalaczy elementów webhook, zobacz temat [Powiązania protokołu HTTP i elementów webhook w usłudze Azure Functions](functions-bindings-http-webhook.md). Aby dowiedzieć się więcej na temat tworzenia funkcji w języku C#, zobacz [Azure Functions C# script developer reference](functions-reference-csharp.md) (Dokumentacja dla deweloperów skryptów języka C# dla usługi Azure Functions).
 

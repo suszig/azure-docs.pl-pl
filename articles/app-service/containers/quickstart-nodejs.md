@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie środowiska Node.js w usłudze Azure App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Wdrażanie Twojego pierwszego Node.js Hello World w usłudze Azure App Service w systemie Linux w minutach."
+title: "Tworzenie aplikacji internetowej platformy Node.js w usłudze Azure App Service w systemie Linux | Microsoft Docs"
+description: "Wdróż swoją pierwszą aplikację Hello World platformy Node.js w usłudze Azure App Service w systemie Linux w ciągu kilku minut."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web Node.js w usłudze Azure App Service w systemie Linux
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji internetowej platformy Node.js w usłudze Azure App Service w systemie Linux
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. Ta opcja szybkiego startu pokazano, jak wdrożyć aplikację Node.js w usłudze App Service w systemie Linux przy użyciu wbudowanych obrazu. Tworzenie aplikacji sieci web z wbudowanych obrazu przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), i użyj narzędzia Git do wdrożenia kodu Node.js w aplikacji sieci web.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik Szybki start pokazuje, jak wdrożyć aplikację platformy Node.js w usłudze App Service w systemie Linux przy użyciu wbudowanego obrazu. Aplikację internetową z wbudowanym obrazem można utworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy Node.js w aplikacji internetowej.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -40,7 +40,7 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-W okno terminalu na komputerze uruchom następujące polecenie, aby klonowanie repozytorium przykładowej aplikacji na komputerze lokalnym.
+W oknie terminala na maszynie uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -62,7 +62,7 @@ Uruchom aplikację lokalnie, otwierając okno terminala i korzystając ze skrypt
 npm start
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do przykładowej aplikacji w `http://localhost:1337`.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:1337`.
 
 Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplikacji.
 
@@ -82,7 +82,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ nazwą aplikacji sieci web.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp ciąg _&lt;nazwa aplikacji>_ nazwą swojej aplikacji internetowej.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,15 +134,15 @@ Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 http://<app_name>.azurewebsites.net
 ```
 
-Przykładowy kod Node.js działa w aplikacji sieci web przy użyciu wbudowanych obrazu.
+Przykładowy kod platformy Node.js jest uruchamiany w aplikacji internetowej z wbudowanym obrazem.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Gratulacje!** Pierwszą aplikację Node.js została wdrożona w usłudze App Service w systemie Linux.
+**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację platformy Node.js w usłudze App Service w systemie Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
-W katalogu lokalnym, otwórz `index.js` plików w aplikacji Node.js i wprowadzić niewielkie zmiany w tekście w wywołaniu `response.end`:
+W katalogu lokalnym otwórz plik `index.js` w aplikacji Node.js i wprowadź niewielką zmianę w tekście w wywołaniu `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

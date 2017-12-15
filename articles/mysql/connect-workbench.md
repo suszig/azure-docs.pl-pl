@@ -1,6 +1,6 @@
 ---
-title: "Łączenia z bazą danych Azure dla programu MySQL z MySQL Workbench | Dokumentacja firmy Microsoft"
-description: "Ta opcja szybkiego startu zawiera czynności w celu MySQL Workbench do nawiązywania połączeń i zapytania na danych z bazy danych platformy Azure dla programu MySQL."
+title: "Nawiązywanie połączeń z usługą Azure Database for MySQL za pomocą aplikacji MySQL Workbench | Microsoft Docs"
+description: "Ten przewodnik Szybki start zawiera działania umożliwiające wykorzystanie aplikacji MySQL Workbench do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -12,42 +12,42 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Bazy danych platformy Azure dla programu MySQL: MySQL Workbench używany do nawiązywania połączeń i zapytania na danych
-Ta opcja szybkiego startu pokazuje, jak nawiązać połączenia z bazą danych Azure dla programu MySQL przy użyciu aplikacji MySQL Workbench. 
+# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań przy użyciu aplikacji MySQL Workbench
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą witryny Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-## <a name="install-mysql-workbench"></a>Zainstaluj narzędzia Workbench MySQL
-Pobierz i zainstaluj MySQL Workbench na komputerze z [MySQL witryny sieci Web](https://dev.mysql.com/downloads/workbench/).
+## <a name="install-mysql-workbench"></a>Instalacja aplikacji MySQL Workbench
+Pobierz i zainstaluj aplikację MySQL Workbench na komputerze przy użyciu [witryny internetowej MySQL](https://dev.mysql.com/downloads/workbench/).
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-2. Z menu po lewej stronie w portalu Azure, kliknij przycisk **wszystkie zasoby**, a następnie wyszukaj utworzono serwera (takich jak **myserver4demo**).
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **myserver4demo**.
 
 3. Kliknij nazwę serwera.
 
-4. Wybierz serwer **właściwości** strony, a następnie zanotuj **nazwy serwera** i **nazwę logowania administratora serwera**.
+4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
 
- ![Bazy danych platformy Azure dla nazwy serwera MySQL](./media/connect-workbench/1-server-properties-name-login.png)
+ ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-workbench/1-server-properties-name-login.png)
  
-5. Jeśli użytkownik zapomni swoje informacje logowania serwera, przejdź do **omówienie** strony, aby wyświetlić nazwę logowania administratora serwera, a w razie potrzeby zresetowania hasła.
+5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
-## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Połączyć się z serwerem przy użyciu narzędzia MySQL Workbench 
-Aby podłączyć się do serwera usługi MySQL Azure przy użyciu graficznego interfejsu użytkownika narzędzia MySQL Workbench:
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Nawiązywanie połączenia z serwerem za pomocą aplikacji MySQL Workbench 
+Aby nawiązać połączenie z serwerem usługi Azure MySQL za pomocą narzędzia z graficznym interfejsem użytkownika MySQL Workbench:
 
-1.  Uruchamianie aplikacji MySQL Workbench na komputerze. 
+1.  Uruchom aplikację MySQL Workbench na swoim komputerze. 
 
-2.  W **instalacji nowego połączenia** okna dialogowego wprowadź następujące informacje **parametry** karty:
+2.  W oknie dialogowym **Setup New Connection** (Konfigurowanie nowego połączenia) wprowadź poniższe informacje na karcie **Parameters** (Parametry):
 
     ![konfigurowanie nowego połączenia](./media/connect-workbench/2-setup-new-connection.png)
 
@@ -58,23 +58,23 @@ Aby podłączyć się do serwera usługi MySQL Azure przy użyciu graficznego in
     | Nazwa hosta | *nazwa serwera* | Określ wartość nazwy serwera, która została użyta wcześniej podczas tworzenia usługi Azure Database for MySQL. Pokazany przykładowy serwer to myserver4demo.mysql.database.azure.com. Użyj w pełni kwalifikowanej nazwy domeny (\*.mysql.database.azure.com) tak jak pokazano w przykładzie. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy serwera.  |
     | Port | 3306 | Zawsze używaj portu 3306 podczas łączenia z usługą Azure Database for MySQL. |
     | Nazwa użytkownika |  *nazwa logowania administratora serwera* | Wpisz nazwę logowania administratora serwera, którą podano wcześniej podczas tworzenia usługi Azure Database for MySQL. Przykładowa nazwa użytkownika to myadmin@myserver4demo. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy użytkownika. Format to *username@servername*.
-    | Hasło | Twoje hasło | Kliknij przycisk **magazynu w magazynie...**  przycisk, aby zapisać hasło. |
+    | Hasło | Twoje hasło | Aby zapisać hasło, kliknij przycisk **Store in Vault...** (Zapisz w magazynie...). |
 
-3.   Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane. 
+3.   Kliknij przycisk **Test Connection** (Testuj połączenie), aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane. 
 
-4.   Kliknij przycisk **OK** można zapisać połączenia. 
+4.   Kliknij przycisk **OK**, aby zapisać połączenie. 
 
-5.   Na liście z **połączeń MySQL**kliknij Kafelek odpowiadający serwera, a następnie poczekaj, aby ustanowić połączenie.
+5.   Na liście **MySQL Connections** (Połączenia MySQL) kliknij kafelek odpowiadający serwerowi, a następnie poczekaj na ustanowienie połączenia.
 
-        Otwiera nową kartę SQL za pomocą edytora puste można wpisać zapytań.
+        Zostanie otwarta nowa karta SQL z pustym edytorem, w którym można wpisać swoje zapytania.
     
         > [!NOTE]
-        > Domyślnie zabezpieczeń połączenia SSL jest wymagany i wymuszane MySQL serwera bazy danych Azure. Zwykle dodatkowa konfiguracja, z certyfikatów SSL nie jest wymagane dla środowiska roboczego MySQL, aby połączyć się z serwerem. Aby uzyskać więcej informacji dotyczących protokołu SSL, zobacz [łączności Konfigurowanie protokołu SSL w celu bezpiecznego łączenia z bazą danych Azure dla programu MySQL aplikacji](./howto-configure-ssl.md).  Jeśli potrzebujesz wyłączyć protokół SSL, można znaleźć w portalu Azure, a następnie kliknij przycisk Strona zabezpieczeń połączeń wyłączenie przycisku przełącznika połączenia SSL wymuszania.
+        > Domyślnie wymagane i wymuszane są zabezpieczenia połączenia SSL serwera Azure Database for MySQL. Zazwyczaj nawiązanie połączenia aplikacji MySQL Workbench z serwerem nie wymaga dodatkowej konfiguracji przy użyciu certyfikatów SSL. Aby uzyskać więcej informacji na temat protokołu SSL, zobacz [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Konfigurowanie łączności SSL w aplikacji w celu bezpiecznego nawiązywania połączeń z usługą Azure Database for MySQL)](./howto-configure-ssl.md).  Jeśli chcesz wyłączyć protokół SSL, przejdź do witryny Azure Portal, kliknij stronę Zabezpieczenia połączeń i kliknij przycisk przełączania Wymuszaj połączenie SSL.
 
-## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Utwórz tabelę, wstawiania danych, odczytywanie danych, aktualizowanie danych i usuwanie danych
-1. Skopiuj i wklej przykładowy kod SQL w puste karcie SQL w celu zilustrowania przykładowych danych.
+## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Tworzenie tabeli, wstawianie danych, odczyt danych, aktualizowanie danych, usuwanie danych
+1. Skopiuj i wklej przykładowy kod SQL w pustej karcie SQL w celu zilustrowania przykładowych danych.
 
-    Ten kod tworzy pustą bazę danych o nazwie quickstartdb, a następnie tworzy Przykładowa tabela o nazwie spisu. Następnie niektóre wiersze do wstawienia odczytuje wiersze. Zmiany danych za pomocą instrukcji update i odczytuje wiersze ponownie. Koniec go usuwa wiersz, a następnie ponownie odczytuje wiersze.
+    Ten kod tworzy pustą bazę danych o nazwie quickstartdb, a następnie tworzy przykładową tabelę o nazwie inventory. Wstawia pewne wiersze, a następnie odczytuje wiersze. Zmienia dane za pomocą instrukcji update i odczytuje wiersze ponownie. Na końcu usuwa wiersz, po czym ponownie odczytuje wiersze.
     
     ```sql
     -- Create a database
@@ -101,15 +101,15 @@ Aby podłączyć się do serwera usługi MySQL Azure przy użyciu graficznego in
     SELECT * FROM inventory;
     ```
 
-    Zrzut ekranu przedstawia przykładowy kod SQL w SQL Workbench i dane wyjściowe po uruchomieniu.
+    Zrzut ekranu przedstawia przykładowy kod SQL w aplikacji SQL Workbench i dane wyjściowe po jego uruchomieniu.
     
-    ![MySQL Workbench SQL kartę, aby uruchomić przykładowy kod SQL](media/connect-workbench/3-workbench-sql-tab.png)
+    ![Karta SQL aplikacji MySQL Workbench umożliwia uruchamianie przykładowego kodu SQL](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. Aby uruchomić przykładowy kod SQL, kliknij przycisk rozjaśnianego ikonę na pasku narzędzi **pliku SQL** kartę.
-3. Zwróć uwagę, trzy karty wyników w **Siatka wyników** sekcji środku strony. 
-4. Powiadomienie **dane wyjściowe** listy w dolnej części strony. Zostanie wyświetlony stan każdego polecenia. 
+2. Aby uruchomić przykładowy kod SQL, kliknij ikonę pioruna na pasku narzędzi karty **SQL File** (Plik SQL).
+3. Zwróć uwagę na trzy karty wyników w sekcji **Result Grid** (Siatka wyników) pośrodku strony. 
+4. Zwróć uwagę na listę **Output** (Dane wyjściowe) w dolnej części strony. Zawiera ona stan każdego polecenia. 
 
-Teraz połączeniu się z bazą danych Azure dla programu MySQL przy użyciu narzędzia MySQL Workbench i wykonano zapytanie danych przy użyciu języka SQL.
+Nawiązano połączenie z usługą Azure Database for MySQL przy użyciu aplikacji MySQL Workbench i wykonano zapytanie o dane przy użyciu języka SQL.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

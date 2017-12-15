@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Omówienie zagadnień dotyczących ciągłości działalności biznesowej zapewnianej przez usługę Azure SQL Database
 
@@ -129,7 +129,7 @@ Niezależnie od używanej funkcji zapewniania ciągłości działalności biznes
 Jeżeli nie poprawnie, Przywracanie aplikacji online po przejściu w tryb failover i odzyskiwanie bazy danych zajmuje dodatkowy czas i może również wymagać rozwiązywania problemów w czasie akcent — Nieprawidłowa kombinacja.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Awaryjnie pomocniczej bazy danych replikacją geograficzną
-Jeśli używasz aktywna replikacja geograficzna i pracy awaryjnej automatycznie grupy (w podglądzie) jako mechanizm Twojej odzyskiwania można skonfigurować zasady automatycznej pracy awaryjnej lub użyć [ręcznego przełączania trybu failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Po zainicjowaniu tryb failover powoduje, że pomocniczy nową podstawową i gotowe do rejestrowania nowych transakcji i odpowiadały na zapytania — przy minimalnej utracie danych nie zostały przekazane. Aby uzyskać informacje dotyczące projektowania proces trybu failover, zobacz [projektowania aplikacji do chmury odzyskiwania po awarii](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Jeśli używasz aktywna replikacja geograficzna i pracy awaryjnej automatycznie grupy (w podglądzie) jako mechanizm Twojej odzyskiwania można skonfigurować zasady automatycznej pracy awaryjnej lub użyć [ręcznego przełączania trybu failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Po zainicjowaniu tryb failover powoduje, że pomocniczy nową podstawową i gotowe do rejestrowania nowych transakcji i odpowiadały na zapytania — przy minimalnej utracie danych nie zostały przekazane. Aby uzyskać informacje dotyczące projektowania proces trybu failover, zobacz [projektowania aplikacji do chmury odzyskiwania po awarii](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Gdy centrum danych powróci do trybu online starego kolory podstawowe automatycznie ponownie połączyć się z nową podstawową i stają się pomocniczej bazy danych. Konieczne jest przeniesienie głównej wstecz do oryginalnego regionu, możesz ręcznie zainicjować planowanego trybu failover (powrót po awarii). 

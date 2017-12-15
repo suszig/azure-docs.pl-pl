@@ -1,6 +1,6 @@
 ---
-title: "Skalowanie klastra usługi kontenera platformy Azure (AKS) | Dokumentacja firmy Microsoft"
-description: "Skalowanie klastra usługi kontenera platformy Azure (AKS)."
+title: "Skalowanie klastra usługi Azure Container Service (AKS) | Microsoft Docs"
+description: "Skalowanie klastra usługi Azure Container Service (AKS)."
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -19,17 +19,17 @@ ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Skalowanie klastra usługi kontenera platformy Azure (AKS)
+# <a name="scale-an-azure-container-service-aks-cluster"></a>Skalowanie klastra usługi Azure Container Service (AKS)
 
-Jest łatwy do skalowania liczby węzłów klastra AKS.  Wybierz liczbę węzłów i uruchom `az aks scale` polecenia.  Podczas skalowania, węzły będą dokładnie [cordoned i opróżnione](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) aby zminimalizować zakłócenia dla aplikacji.  Podczas skalowania w górę, `az` polecenie ma czekać, aż węzły są oznaczone `Ready` przez klaster Kubernetes.
+Skalowanie klastra usługi AKS do innej liczby węzłów jest łatwe.  Wybierz żądaną liczbę węzłów i uruchom polecenie `az aks scale`.  Podczas skalowania w dół węzły będą dokładnie [odizolowywane i opróżniane](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), aby zminimalizować zakłócenia dla działających aplikacji.  Podczas skalowania w górę polecenie `az` czeka, aż węzły zostaną oznaczone jako `Ready` przez klaster Kubernetes.
 
 ## <a name="scale-the-cluster-nodes"></a>Skalowanie węzłów klastra
 
-Użyj `az aks scale` polecenie, aby skalować węzłów klastra. Poniższy przykład skaluje klastra o nazwie *myK8SCluster* do jednego węzła.
+Użyj polecenia `az aks scale` w celu skalowania węzłów klastra. W poniższym przykładzie pokazano skalowanie klastra o nazwie *myK8SCluster* do jednego węzła.
 
 ```azurecli-interactive
 az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
@@ -93,7 +93,7 @@ Dane wyjściowe:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat wdrażania i zarządzania nimi AKS z samouczki AKS.
+Dowiedz się więcej na temat wdrażania usługi AKS i zarządzania nią z samouczków usługi AKS.
 
 > [!div class="nextstepaction"]
-> [Samouczek AKS](./tutorial-kubernetes-prepare-app.md)
+> [Samouczek usługi AKS](./tutorial-kubernetes-prepare-app.md)

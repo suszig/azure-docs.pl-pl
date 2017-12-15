@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Przewodnik po zabezpieczeniach magazynu Azure
 ## <a name="overview"></a>Omówienie
@@ -295,7 +295,7 @@ To ustawienie, które stosuje się kontem całego magazynu. Można włączyć i 
 
 W tej chwili klucze szyfrowania są zarządzane przez firmę Microsoft. Firma Microsoft pierwotnie generowania kluczy i zarządzaj nimi bezpieczny magazyn kluczy, a także regularne obrót, zgodnie z definicją w wewnętrznych zasad firmy Microsoft. W przyszłości będzie umożliwia zarządzanie kluczami szyfrowania i podaj ścieżkę migracji z kluczy zarządzany przez firmę Microsoft do kluczy zarządzany przez klienta.
 
-Ta funkcja jest dostępna dla kont Standard i Premium Storage utworzonych przy użyciu modelu wdrażania usługi Resource Manager. SSE dotyczy tylko blokowe obiekty BLOB, stronicowe obiekty BLOB i uzupełnialnych obiektów blob. Typy danych, w tym tabel, kolejek i plików, nie będą szyfrowane.
+Ta funkcja jest dostępna dla kont Standard i Premium Storage utworzonych przy użyciu modelu wdrażania usługi Resource Manager. SSE ma zastosowanie do każdego typu danych: blokowe obiekty BLOB, stronicowe, uzupełnialne obiekty BLOB, tabel, kolejek i plików.
 
 Dane są szyfrowane tylko wtedy, gdy jest włączone SSE i zapisywania danych do magazynu obiektów Blob. Włączanie lub wyłączanie SSE nie wpływa na istniejących danych. Innymi słowy włączenie szyfrowania nie wrócić do poprzedniej strony i szyfrowania danych, która już istnieje; nie powoduje odszyfrowania danych, która już istnieje po wyłączeniu SSE.
 
@@ -380,7 +380,7 @@ Szyfrowanie po stronie klienta jest większe obciążenie na kliencie, a muszą 
 #### <a name="storage-service-encryption-sse"></a>Szyfrowanie usługi Magazyn (SSE)
 SSE jest zarządzana przez usługi Azure Storage. Przy użyciu SSE nie zapewniają bezpieczeństwo danych podczas przesyłania, ale szyfrowania danych, ponieważ jest ona zapisywana w usłudze Azure Storage. Nie ma żadnych wpływu na wydajność podczas używania tej funkcji.
 
-Można tylko szyfrowania blokowych obiektów blob, uzupełnialnych obiektów blob i stronicowe przy użyciu SSE. Jeśli potrzebujesz do szyfrowania danych, tabeli lub kolejki, należy rozważyć przy użyciu szyfrowania po stronie klienta.
+Można zaszyfrować każdego typu danych konta magazynu przy użyciu SSE (blokowe obiekty BLOB, Dołącz obiektów blob, stronicowe obiekty BLOB, tabeli danych, kolejki danych i plików).
 
 Jeśli masz archiwum lub biblioteka plików VHD, które używa jako podstawy do tworzenia nowych maszyn wirtualnych, Utwórz nowe konto magazynu, włączyć SSE, a następnie przekazać pliki wirtualnego dysku twardego do tego konta. Te pliki VHD będą szyfrowane przez Magazyn Azure.
 

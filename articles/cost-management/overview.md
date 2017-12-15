@@ -1,5 +1,5 @@
 ---
-title: "Omówienie usługi Azure koszt zarządzania przez Cloudyn | Dokumentacja firmy Microsoft"
+title: "Omówienie usługi Azure Cost Management firmy Cloudyn | Microsoft Docs"
 description: "Azure Cost Management firmy Cloudyn to rozwiązanie do zarządzania kosztami wielu chmur, które ułatwia korzystanie z platformy Azure i innych zasobów w chmurze."
 services: cost-management
 keywords: 
@@ -12,45 +12,45 @@ manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="what-is-azure-cost-management"></a>Co to jest Azure kosztów zarządzania?
+# <a name="what-is-azure-cost-management"></a>Co to jest usługa Azure Cost Management?
 
-Azure kosztów zarządzania Cloudyn umożliwia śledzenie użycia chmury i wydatków zasobów platformy Azure i innych dostawców chmury, w tym usług AWS i Google. Łatwe do zrozumienia pulpitu nawigacyjnego raporty uzyskać pomoc dotyczącą alokacji kosztów i showbacks/obciążeń zwrotnych również. Kosztów zarządzania ułatwia, optymalizację wydatków na technologie, określając niedostatecznie zasobów, które można następnie zarządzać i dostosować chmury.
+Usługa Azure Cost Management firmy Cloudyn umożliwia śledzenie użycia chmury i wydatków na zasoby platformy Azure i innych dostawców rozwiązań w chmurze, w tym AWS i Google. Łatwe do zrozumienia raporty pulpitu nawigacyjnego ułatwiają alokację kosztów oraz obsługę przewidywanych kosztów i obciążeń zwrotnych. Zarządzanie kosztami ułatwia optymalizację wydatków związanych z chmurą przez identyfikowanie niedostatecznie używanych zasobów, którymi można później zarządzać oraz je dostosowywać.
 
-Aby obejrzeć wprowadzenie wideo, zobacz [wprowadzenie do usługi Azure Management koszt przez Cloudyn](https://youtu.be/NWIRny6Wpsk).
+Aby obejrzeć klip wideo z wprowadzeniem, zobacz [Wprowadzenie do usługi Azure Cost Management firmy Cloudyn](https://youtu.be/NWIRny6Wpsk).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorowanie użycia i wydatków
 
-Monitorowanie użycie i wydatków jest krytycznie ważne w przypadku infrastruktury chmury, ponieważ organizacje płacić za zasoby, które wykorzystują one wraz z upływem czasu. Nieoczekiwany koszt nadwyżki szybko może wystąpić, gdy użycie przekroczy próg umowy. Kilka ważnych czynników może utrudnić ad hoc monitorowania. Najpierw projekcji kosztów na podstawie użycia średni przyjęto założenie użycia spójność w danym okresie rozliczeniowym. Po drugie kosztów zbliża się lub przekracza budżetu, ważne jest uzyskiwanie powiadomień z wyprzedzeniem, aby dostosować wydatki. I dostawcom usług w chmurze nie może oferować projekcji koszt porównanie wartości progowe lub raporty okresach porównania.
+Monitorowanie użycia i wydatków ma kluczowe znaczenie dla infrastruktur w chmurze, ponieważ organizacje płacą za zasoby wykorzystywane w czasie. Gdy użycie przekroczy progi umowy, mogą zostać szybko naliczone nieoczekiwane koszty za użycie nadwyżkowe. Monitorowanie ad-hoc może utrudnić kilka ważnych czynników. Po pierwsze, planowanie kosztów na podstawie średniego użycia zakłada, że zużycie pozostaje na stałym poziomie przez określony okres rozliczeniowy. Po drugie, bardzo ważne jest proaktywne otrzymywanie powiadomień, gdy koszty zbliżają się do ustalonego budżetu lub go przekraczają. Dostawcy usług w chmurze mogą nie oferować projekcji kosztów względem progów lub raportów porównawczych okresów.
 
-Raporty ułatwiają monitorowanie, wydatków do analizowania i śledzić użycie w chmurze, koszty i trendów. Zgłasza przy użyciu w miarę upływu czasu, można wykryć anomalii, które różnią się od normalnego trendów. Wydajność w danym wdrożeniu chmury są widoczne w raportach optymalizacji. Można także zauważyć wydajność w raportach analizy kosztów.
+Raporty ułatwiają monitorowanie wydatków w celu analizowania i śledzenia użycia chmury, kosztów i trendów. Używając raportów w czasie, możesz wykrywać anomalie różniące się od normalnych trendów. Czynniki niskiej wydajności we wdrożeniu w chmurze są widoczne w raportach optymalizacji. Czynniki niskiej wydajności możesz także zobaczyć w raportach analizy kosztów.
 
-![Raport koszt w czasie](media\overview\cost-over-time-rpt.png)
+![Raport kosztu w czasie](media\overview\cost-over-time-rpt.png)
 
 
 ## <a name="manage-costs"></a>Zarządzanie kosztami
 
-Dane historyczne ułatwiają zarządzanie kosztami podczas analizowania wraz z upływem czasu, aby zidentyfikować trendy użycia i koszty. Trendy są następnie używane do Prognozowanie wydatków w przyszłości. Koszt zarządzania obejmuje również przydatne szacowany koszt raportów.
+Dane historyczne mogą ułatwiać zarządzanie kosztami, gdy przeanalizuje się użycie i koszty w czasie, aby zidentyfikować trendy. Przyszłe wydatki są następnie prognozowane przy użyciu trendów. Usługa Cost Management zawiera także przydatne raporty kosztów planowanych.
 
-Alokacja kosztu zarządza koszty analizy kosztów na podstawie Twojej znakowania zasad. Tagi na niestandardowe konta, zasobów i jednostek służą do zaktualizowania alokacji kosztów. Menedżer kategorii organizuje tagów w celu uzyskania dodatkowych ładu. I użyj alokacji kosztów dla ogólnej analizy kosztów/opłaty zwrotne do wyświetlenia wykorzystania zasobów i koszty wpłynąć na zachowania dotyczące lub nałożyć dzierżawy klientów.
+Alokacja kosztów zarządza kosztami, analizując koszty na podstawie zasad tagowania. Możesz używać tagów w swoich kontach niestandardowych, zasobach i jednostkach w celu doprecyzowania alokacji kosztów. Menedżer kategorii organizuje tagi, aby ułatwić uzyskanie dodatkowego ładu. Alokacji kosztów można użyć na potrzeby przewidywanych kosztów i obciążeń zwrotnych, aby uwidocznić wykorzystanie zasobów i związane z tym koszty oraz wpływać na zachowania zużycia lub obciążać klientów dzierżawy.
 
-Kontrola dostępu ułatwia zarządzanie kosztami przez zapewnienie, że użytkownicy i zespoły dostępu tylko kosztów zarządzania dane, które są potrzebne. Umożliwia struktury jednostek, zarządzanie użytkownikami i zaplanowane raporty z listy adresatów przypisywanie dostępu.
+Kontrola dostępu ułatwia zarządzanie kosztami, zapewniając, że użytkownicy i zespoły mają dostęp tylko do potrzebnych im danych zarządzania kosztami. Możesz przypisywać dostęp przy użyciu struktury jednostki, zarządzania użytkownikami i zaplanowanych raportów z listami adresatów.
 
-Alerty pomaga zarządzać kosztami przez powiadamianie użytkownika automatycznie nietypowe wydatków lub przekroczenia wydatków. Alerty mogą również wyświetlać powiadomienia inni uczestnicy projektu automatycznie dla anomalii wydatków i ryzyka przekroczenie wydatków. Różne raporty obsługuje alerty oparte na budżetu, a jego kosztem progów. Jednak alertów nie są obecnie obsługiwane dla dostawcy usług Kryptograficznych partnera kont lub subskrypcji.
+Generowanie alertów ułatwia zarządzanie kosztami, automatycznie powiadamiając Cię, gdy występują nietypowe lub nadmiarowe wydatki. Alerty mogą także automatycznie powiadamiać innych uczestników projektu o anomaliach wydatków i ryzykach związanych z nadmiarowymi wydatkami. Różne raporty obsługują alerty oparte na budżecie i progach kosztów. Alerty nie są jednak obecnie obsługiwane w przypadku kont partnerów lub subskrypcji programu CSP.
 
 ## <a name="improve-efficiency"></a>Poprawa wydajności
 
-Można ustalić optymalne użycie maszyny Wirtualnej i zidentyfikować bezczynnych maszyn wirtualnych lub usuń bezczynnych maszyn wirtualnych i odłączyć dysków o kosztów zarządzania. Korzystając z informacji w optymalizacji rozmiaru i raporty nieefektywne podejście, można utworzyć plan rozmiar w dół lub usunąć bezczynności maszyny wirtualnej. Jednak optymalizacji raporty nie są obecnie obsługiwane dla dostawcy usług Kryptograficznych partnera kont lub subskrypcji.
+Za pomocą usługi Cost Management możesz określić optymalne użycie maszyny wirtualnej i zidentyfikować bezczynne maszyny wirtualne lub usunąć bezczynne maszyny wirtualne oraz niedołączone dyski. Korzystając z informacji zawartych w obszarach Optymalizacja rozmiaru i Raporty dotyczące nieefektywności, możesz sporządzić plan zmniejszenia rozmiaru lub usunięcia bezczynnych maszyn wirtualnych. Raporty dotyczące optymalizacji nie są jednak obecnie obsługiwane w przypadku kont partnerów lub subskrypcji programu CSP.
 
-![Zalecenia dotyczące zmiany rozmiaru](.\media\overview\sizing.png)
+![Zalecenia dotyczące ustalania rozmiaru](.\media\overview\sizing.png)
 
-Jeśli zainicjowano obsługę administracyjną usług AWS zastrzeżone wystąpień, można zwiększenie wykorzystanie zastrzeżone wystąpienia przy użyciu funkcji raportów optymalizacji, gdzie można wyświetlić zalecenia dotyczące kupowania, modyfikowania zastrzeżenia nieużywane i plan obsługi.
+Jeśli zaaprowizowano wystąpienia zarezerwowane usługi AWS, możesz zwiększyć użycie wystąpień zarezerwowanych przy użyciu raportów dotyczących optymalizacji, dzięki którym możesz zobaczyć zalecenia dotyczące zakupów, modyfikować nieużywane rezerwacje i planować aprowizację.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy znasz koszt zarządzania, następnym krokiem jest Zarejestruj środowiska chmury i rozpocząć eksplorowanie danych.
+Kolejnym krokiem po zapoznaniu się z usługą Cost Management jest zarejestrowanie środowiska chmury i rozpoczęcie eksplorowania danych.
 
-- [Zarejestruj poszczególnych subskrypcji platformy Azure](quick-register-azure-sub.md)
+- [Rejestrowanie indywidualnej subskrypcji platformy Azure](quick-register-azure-sub.md)

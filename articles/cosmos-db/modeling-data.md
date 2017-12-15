@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelowanie danych dokumentów NoSQL baz danych
 Podczas schematu baz danych bez, takich jak Azure DB rozwiązania Cosmos, stał się bardzo łatwe obejmuje zmiany w modelu danych powinien nadal spędzonego niektórych planowania czasu dotyczące danych. 
@@ -39,7 +39,7 @@ Po uruchomieniu modelowania danych w magazynie dokumentu, takie jak bazy danych 
 
 Przed zajrzyj mamy dostęp zbyt dużo więcej Daj nam Zabierz kilka kroków i przyjrzeć jak firma Microsoft może coś relacyjnej bazy danych, temat, który wiele osób zna już modelu. W poniższym przykładzie pokazano, jak osoby mogą być przechowywane w relacyjnej bazie danych. 
 
-![Model relacyjnej bazy danych](./media/documentdb-modeling-data/relational-data-model.png)
+![Model relacyjnej bazy danych](./media/sql-api-modeling-data/relational-data-model.png)
 
 Podczas pracy z relacyjnych baz danych, firma Microsoft już został nauczanych lat do normalizacji normalizacji, normalizacji.
 
@@ -290,7 +290,7 @@ W powyższym przykładzie mamy porzucona niepowiązany kolekcji w dokumencie wyd
 ### <a name="how-do-i-model-manymany-relationships"></a>Jak model relacje wiele: wiele?
 Relacyjnej bazy danych *wiele: wiele* relacje są często modelowane sprzężenie tabel, które właśnie ze sobą połączone rekordy z innych tabel. 
 
-![Dołącz do tabel](./media/documentdb-modeling-data/join-table.png)
+![Dołącz do tabel](./media/sql-api-modeling-data/join-table.png)
 
 Może się wydawać do replikowania samo używanie dokumentów oraz tworzenia modelu danych, która wygląda podobnie do następującego.
 
@@ -395,4 +395,4 @@ Podobnie jak nie istnieje jeden sposób reprezentujący element danych na ekrani
 
 Aby dowiedzieć się więcej o usłudze Azure DB rozwiązania Cosmos, należy zapoznać się z usługi [dokumentacji](https://azure.microsoft.com/documentation/services/cosmos-db/) strony. 
 
-Aby zrozumieć, jak do niezależnego fragmentu danych między wieloma partycjami się [partycjonowanie danych w usłudze Azure DB rozwiązania Cosmos](documentdb-partition-data.md). 
+Aby zrozumieć, jak do niezależnego fragmentu danych między wieloma partycjami się [partycjonowanie danych w usłudze Azure DB rozwiązania Cosmos](sql-api-partition-data.md). 

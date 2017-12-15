@@ -1,6 +1,6 @@
 ---
 title: "Szybki start — klaster Azure Kubernetes dla systemu Linux | Microsoft Docs"
-description: "Dowiedz się szybko utworzyć klaster Kubernetes dla systemu Linux kontenerów w AKS z wiersza polecenia platformy Azure."
+description: "Szybka nauka tworzenia klastra Kubernetes dla kontenerów systemu Linux w usłudze AKS za pomocą interfejsu wiersza polecenia platformy Azure."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -19,30 +19,30 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 84f542340f62194a31817a8e358d75c0d0f103ee
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi kontenera platformy Azure (AKS)
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
-W tym Szybki Start AKS klastra jest wdrażany przy użyciu wiersza polecenia platformy Azure. Następnie uruchomieniu aplikacji kontenera wielu składające się z frontonu sieci web oraz wystąpienia pamięci podręcznej Redis w klastrze. Po ukończeniu aplikacja będzie dostępna w Internecie.
+W tym przewodniku Szybki start klaster AKS jest wdrażany za pomocą interfejsu wiersza polecenia platformy Azure. Następnie w klastrze jest uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis. Po ukończeniu aplikacja będzie dostępna w Internecie.
 
 ![Obraz przedstawiający przechodzenie do aplikacji Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Tego przewodnika Szybki Start założono podstawową wiedzę na temat pojęć Kubernetes, aby uzyskać szczegółowe informacje o Zobacz Kubernetes [dokumentacji Kubernetes]( https://kubernetes.io/docs/home/).
+Na potrzeby tego przewodnika Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać szczegółowe informacje na jego temat, zapoznaj się z [dokumentacją rozwiązania Kubernetes]( https://kubernetes.io/docs/home/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli do zainstalowania i używania interfejsu wiersza polecenia lokalnie tego przewodnika Szybki Start, wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Włączenie subskrypcji platformy Azure w wersji zapoznawczej AKS
-Gdy AKS jest w wersji zapoznawczej, tworzenia nowych klastrów wymaga flagi funkcji w ramach subskrypcji. Aby zażądać tej funkcji dla dowolnej liczby subskrypcje, które chcesz użyć. Użyj `az provider register` polecenie, aby zarejestrować dostawcę AKS:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Włączanie wersji zapoznawczej usługi AKS dla subskrypcji platformy Azure
+W przypadku usługi AKS w wersji zapoznawczej tworzenie nowych klastrów wymaga flagi funkcji w ramach subskrypcji. Możesz zażądać tej funkcji dla dowolnej liczby subskrypcji, z których chcesz skorzystać. Użyj polecenia `az provider register`, aby zarejestrować dostawcę usług AKS:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-Po zarejestrowaniu możesz teraz przystąpić do tworzenia klastra Kubernetes z AKS.
+Po zarejestrowaniu możesz przystąpić do tworzenia klastra Kubernetes za pomocą usługi AKS.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -71,7 +71,7 @@ Dane wyjściowe:
 
 ## <a name="create-aks-cluster"></a>Tworzenie klastra AKS
 
-W poniższym przykładzie tworzony klaster o nazwie *myK8sCluster* z jednym węzłem.
+W poniższym przykładzie pokazano tworzenie klastra o nazwie *myK8sCluster* z jednym węzłem.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -83,14 +83,14 @@ Po kilku minutach polecenie zostanie zakończone i zwróci informacje o klastrze
 
 Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes, narzędzia [kubectl](https://kubernetes.io/docs/user-guide/kubectl/).
 
-Jeśli używasz powłoki chmury Azure kubectl jest już zainstalowana. Jeśli użytkownik chce go zainstalować lokalnie, uruchom następujące polecenie.
+Jeśli korzystasz z usługi Azure Cloud Shell, narzędzie kubectl jest już zainstalowane. Jeśli chcesz zainstalować je lokalnie, uruchom następujące polecenie.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Aby skonfigurować kubectl do nawiązania połączenia z klastrem Kubernetes, uruchom następujące polecenie. Ten krok umożliwia pobranie poświadczeń i skonfigurowanie interfejsu wiersza polecenia Kubernetes do ich użycia.
+Aby skonfigurować narzędzie kubectl w celu łączenia się z klastrem Kubernetes, uruchom następujące polecenie. Ten krok umożliwia pobranie poświadczeń i skonfigurowanie interfejsu wiersza polecenia Kubernetes do ich użycia.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Plik manifestu rozwiązania Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenera, które powinny zostać uruchomione. W tym przykładzie manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote.
 
-Utwórz plik o nazwie `azure-vote.yml` i skopiuj do niego następujący kod yaml programu. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik można utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym.
+Utwórz plik o nazwie `azure-vote.yml` i skopiuj go do poniższego kodu YAML. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik można utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,7 +208,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Raz *IP zewnętrznego* adres zmienił się z *oczekujące* do *adres IP*, użyj `CTRL-C` można zatrzymać procesu czujki kubectl.
+Po zmianie adresu *EXTERNAL-IP* z *oczekującego* na *adres IP*, zatrzymaj proces śledzenia narzędzia kubectl za pomocą polecenia `CTRL-C`.
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -227,7 +227,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-W tym szybkiego startu obrazy utworzone wcześniej kontenera użyto w celu utworzenia wdrożenia Kubernetes. Powiązany kod aplikacji, plik Dockerfile i plik manifestu rozwiązania Kubernetes są dostępne w serwisie GitHub.
+W tym przewodniku Szybki start jest tworzone wdrożenie rozwiązania Kubernetes za pomocą utworzonych wcześniej obrazów kontenerów. Powiązany kod aplikacji, plik Dockerfile i plik manifestu rozwiązania Kubernetes są dostępne w serwisie GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
@@ -235,7 +235,7 @@ W tym szybkiego startu obrazy utworzone wcześniej kontenera użyto w celu utwor
 
 W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim aplikację obsługującą wiele kontenerów.
 
-Aby dowiedzieć się więcej o AKS i przeprowadzenie kompletny kod, na przykład wdrożenia, nadal Kubernetes samouczek klastra.
+Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Zarządzanie klastrem AKS](./tutorial-kubernetes-prepare-app.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Praca z daty w Azure rozwiązania Cosmos bazy danych
 Azure DB rozwiązania Cosmos zapewnia elastyczność schematu i rozbudowane indeksowanie za pomocą natywny [JSON](http://www.json.org) modelu danych. Wszystkie zasoby bazy danych rozwiązania Cosmos platformy Azure, w tym baz danych, kolekcji, dokumentów i procedury składowane są modelowane i przechowywane jako dokumenty JSON. Jako wymaganiem jest portable JSON (i bazy danych Azure rozwiązania Cosmos) obsługuje tylko niewielki zestaw typów podstawowych: ciąg, Number, Boolean, tablicy, obiektu i wartości Null. Jednak JSON jest elastyczny i umożliwia deweloperom i platformy, do reprezentowania bardziej złożonych typów przy użyciu tych elementów podstawowych i tworzenia ich jako obiekty i tablice. 
@@ -26,7 +26,7 @@ Azure DB rozwiązania Cosmos zapewnia elastyczność schematu i rozbudowane inde
 Oprócz podstawowych typów wiele aplikacji muszą [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) typu do reprezentowania daty i czasu. W tym artykule opisano sposób deweloperzy można przechowywać, pobieranie i zapytania dat w usłudze Azure DB rozwiązania Cosmos przy użyciu zestawu .NET SDK.
 
 ## <a name="storing-datetimes"></a>Przechowywanie dat i godzin
-Domyślnie [zestawu SDK usługi Azure rozwiązania Cosmos DB](documentdb-sdk-dotnet.md) serializuje wartości daty/godziny jako [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) ciągów. Większość aplikacji można użyć domyślnej reprezentacji ciągu dla typu DateTime z następujących powodów:
+Domyślnie [zestawu SDK usługi Azure rozwiązania Cosmos DB](sql-api-sdk-dotnet.md) serializuje wartości daty/godziny jako [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) ciągów. Większość aplikacji można użyć domyślnej reprezentacji ciągu dla typu DateTime z następujących powodów:
 
 * Można porównać ciągów i względne uporządkowanie wartości daty/godziny jest zachowywana, gdy są one przekształcone na ciągi. 
 * Takie podejście nie wymaga żadnych niestandardowy kod lub atrybuty konwersji do formatu JSON.
@@ -83,11 +83,11 @@ Zestaw SDK .NET SQL obsługuje automatycznie zapytywanie o dane przechowywane w 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Dowiedz się więcej o język zapytań SQL Azure rozwiązania Cosmos DB i dostawcy LINQ w [zapytań DB rozwiązania Cosmos](documentdb-sql-query.md).
+Dowiedz się więcej o język zapytań SQL Azure rozwiązania Cosmos DB i dostawcy LINQ w [zapytań DB rozwiązania Cosmos](sql-api-sql-query.md).
 
 W tym artykule analizujemy przechowywania, indeksu i zapytania dat i godzin w usłudze Azure DB rozwiązania Cosmos.
 
 ## <a name="next-steps"></a>Następne kroki
 * Pobierz i uruchom [przykłady w serwisie GitHub kodu](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Dowiedz się więcej o [zapytania SQL](documentdb-sql-query.md)
+* Dowiedz się więcej o [zapytania SQL](sql-api-sql-query.md)
 * Dowiedz się więcej o [zasady indeksowania bazy danych Azure rozwiązania Cosmos](indexing-policies.md)

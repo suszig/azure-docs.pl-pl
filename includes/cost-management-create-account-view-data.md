@@ -32,4 +32,4 @@ Kliknij prawym przyciskiem myszy typ zasobu i wybierz pozycję **Jednostki koszt
 
 ![jednostki kosztów i usługi](./media/cost-management-create-account-view-data/actual-cost-05.png)
 
-Aby obejrzeć film samouczka o wyświetlaniu chmury rozliczeń danych, zobacz [analizowanie chmury rozliczeń danych za pomocą usługi Azure Management koszt przez Cloudyn](https://youtu.be/G0pvI3iLH-Y).
+Aby obejrzeć wideo dotyczące wyświetlania danych rozliczeń dla chmury, zobacz [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Analizowanie danych rozliczeń dla chmury przy użyciu rozwiązania Azure Cost Management firmy Cloudyn).

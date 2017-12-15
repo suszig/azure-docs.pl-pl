@@ -1,7 +1,7 @@
 ---
-title: "Tworzenie aplikacji sieci web platformy .NET Core i wdrożyć w usłudze App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Wdrażanie pierwszej aplikacji .NET Core Hello World w usłudze App Service w systemie Linux w minutach."
-keywords: "Usługa aplikacji Azure, aplikacji sieci web, dotnet, core, linux, oss"
+title: "Tworzenie aplikacji internetowej .NET Core i wdrażanie jej w usłudze App Service w systemie Linux | Microsoft Docs"
+description: "Wdróż swoją pierwszą aplikację Hello World na platformie .NET Core w usłudze App Service w systemie Linux w ciągu kilku minut."
+keywords: azure app service, aplikacja internetowa, dotnet, core, linux, oss
 services: app-service
 documentationCenter: 
 author: cephalin
@@ -18,13 +18,13 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Tworzenie aplikacji sieci web platformy .NET Core w usłudze App Service w systemie Linux
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Tworzenie aplikacji internetowej platformy .NET Core w usłudze App Service w systemie Linux
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. Ta opcja szybkiego startu przedstawia sposób tworzenia [.NET Core](https://docs.microsoft.com/aspnet/core/) aplikacji w usłudze aplikacji w systemie Linux. Można utworzyć aplikacji sieci web w programie [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), i Git umożliwia wdrażanie kodu platformy .NET Core aplikacji sieci web.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](https://docs.microsoft.com/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację internetową możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji internetowej.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -35,20 +35,20 @@ Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows 
 Aby ukończyć ten przewodnik Szybki Start:
 
 * <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">Zainstaluj oprogramowanie .NET Core SDK</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">Zainstaluj zestaw SDK platformy .NET Core</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>Tworzenie aplikacji lokalnie
+## <a name="create-the-app-locally"></a>Lokalne tworzenie aplikacji
 
-W oknie terminalu na komputerze, należy utworzyć katalog o nazwie `hellodotnetcore` i zmień bieżący katalog.
+W oknie terminala na komputerze utwórz katalog o nazwie `hellodotnetcore` i zmień bieżący katalog na niego.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
 ```
 
-Utwórz nową aplikację sieci web .NET Core.
+Utwórz nową aplikację internetową platformy .NET Core.
 
 ```bash
 dotnet new web
@@ -56,18 +56,18 @@ dotnet new web
 
 ## <a name="run-the-app-locally"></a>Lokalne uruchamianie aplikacji
 
-Przywracanie pakietów NuGet i uruchom aplikację.
+Przywróć pakiety NuGet i uruchom aplikację.
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do aplikacji w `http://localhost:5000`.
+Otwórz przeglądarkę internetową i przejdź do aplikacji pod adresem `http://localhost:5000`.
 
 Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplikacji.
 
-![Test z przeglądarki](media/quickstart-dotnetcore/dotnet-browse-local.png)
+![Test przy użyciu przeglądarki](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
 W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć serwer sieci Web. Inicjowanie repozytorium Git dla projektu platformy .NET Core.
 
@@ -89,7 +89,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Przejdź do aplikacji sieci web nowo utworzony. Zastąp  _&lt;Nazwa aplikacji >_ nazwą aplikacji sieci web.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp ciąg _&lt;nazwa aplikacji>_ nazwą swojej aplikacji internetowej.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -136,15 +136,15 @@ Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 http://<app_name>.azurewebsites.net
 ```
 
-Przykładowy kod Node.js działa w aplikacji sieci web za pomocą wbudowanego obrazu.
+Przykładowy kod platformy Node.js jest uruchamiany w aplikacji internetowej z wbudowanym obrazem.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Gratulacje!** Pierwszą aplikację Node.js została wdrożona w usłudze App Service w systemie Linux.
+**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację platformy Node.js w usłudze App Service w systemie Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Aktualizowanie i ponowne wdrażanie kodu
 
-W katalogu lokalnym, otwórz _Startup.cs_ pliku. Zmiany tekstu w wywołaniu metody małych `context.Response.WriteAsync`:
+W katalogu lokalnym otwórz plik _Startup.cs_. Wprowadź niewielką zmianę w tekście wywołania metody `context.Response.WriteAsync`:
 
 ```csharp
 await context.Response.WriteAsync("Hello Azure!");
@@ -180,4 +180,4 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji sieci web platformy .NET Core i bazy danych SQL w usłudze Azure App Service w systemie Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tworzenie aplikacji internetowej platformy .NET Core i bazy danych SQL w usłudze Azure App Service w systemie Linux](tutorial-dotnetcore-sqldb-app.md)

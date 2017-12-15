@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatyczne regionalnej pracy w trybie failover ciągłość prowadzenia działalności biznesowej w usłudze Azure DB rozwiązania Cosmos
 Azure DB rozwiązania Cosmos upraszcza globalne rozkład danych oferując do pełnego zarządzania, [konta bazy danych w przypadku](distribute-data-globally.md) zawierających wyczyść wady i zalety między spójności, dostępność i wydajność, wszystkie z odpowiednimi gwarancje. Rozwiązania cosmos DB kont oferują wysoką dostępność, opóźnienia ms w pojedynczą cyfrą [dobrze zdefiniowane poziomy spójności](consistency-levels.md), przezroczysty regionalnej pracy awaryjnej z wielu interfejsów API oraz możliwość elastycznie skalować przepływność i Magazyn między globu. 
@@ -141,6 +141,6 @@ W tym artykule firma Microsoft przeglądowi sposób ręcznego i automatycznego p
 ## <a id="NextSteps"></a>Następne kroki
 * Dowiedz się więcej o sposobie obsługi DB rozwiązania Cosmos [dystrybucji globalne](distribute-data-globally.md)
 * Dowiedz się więcej o [globalne spójności z bazy danych Azure rozwiązania Cosmos](consistency-levels.md)
-* Tworzenie z wielu regionach, przy użyciu usługi Azure rozwiązania Cosmos DB [interfejsu API SQL](tutorial-global-distribution-documentdb.md)
+* Tworzenie z wielu regionach, przy użyciu usługi Azure rozwiązania Cosmos DB [interfejsu API SQL](tutorial-global-distribution-sql-api.md)
 * Dowiedz się, jak tworzyć [architektury w przypadku zapisywania](multi-region-writers.md) z bazy danych Azure rozwiązania Cosmos
 

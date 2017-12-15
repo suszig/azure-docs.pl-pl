@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -111,12 +111,12 @@ Po ustawieniu regionu, należy pamiętać, że bazy danych Azure rozwiązania Co
 ## <a name="develop-against-the-sql-api"></a>Tworzenie interfejsu API SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Jak rozpocząć tworzenie oprogramowania dla interfejsu API SQL?
-Najpierw musisz zarejestrować subskrypcji platformy Azure. Po utworzeniu konta dla subskrypcji platformy Azure, możesz dodać kontener interfejsu API SQL do subskrypcji platformy Azure. Aby uzyskać instrukcje dotyczące dodawania konta bazy danych rozwiązania Cosmos platformy Azure, zobacz [Tworzenie konta bazy danych Azure DB rozwiązania Cosmos](create-documentdb-dotnet.md#create-account). 
+Najpierw musisz zarejestrować subskrypcji platformy Azure. Po utworzeniu konta dla subskrypcji platformy Azure, możesz dodać kontener interfejsu API SQL do subskrypcji platformy Azure. Aby uzyskać instrukcje dotyczące dodawania konta bazy danych rozwiązania Cosmos platformy Azure, zobacz [Tworzenie konta bazy danych Azure DB rozwiązania Cosmos](create-sql-api-dotnet.md#create-account). 
 
-[Zestawy SDK](documentdb-sdk-dotnet.md) są dostępne dla języków .NET, Python, Node.js, JavaScript i Java. Deweloperzy mogą również używać [interfejsy API RESTful protokołu HTTP](/rest/api/documentdb/) do interakcji z zasobami Azure DB rozwiązania Cosmos z różnych platform i języków.
+[Zestawy SDK](sql-api-sdk-dotnet.md) są dostępne dla platformy .NET, Python, Node.js, JavaScript i Java. Deweloperzy mogą również używać [interfejsy API RESTful protokołu HTTP](/rest/api/documentdb/) do interakcji z zasobami Azure DB rozwiązania Cosmos z różnych platform i języków.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Można uzyskać dostęp do niektórych gotowe próbek, aby utworzyć?
-Przykłady dotyczące interfejsu API SQL [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), i [Python](documentdb-python-samples.md) zestawów SDK są dostępne w serwisie GitHub.
+Przykłady dotyczące interfejsu API SQL [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), i [Python](sql-api-python-samples.md) zestawów SDK są dostępne w serwisie GitHub.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>Baza danych SQL API obsługuje dane bez schematu?
@@ -131,16 +131,16 @@ Kolekcja jest grupą dokumentów i ich skojarzonej logiki aplikacji JavaScript. 
 Kolekcje są również jednostkami rozliczeniowymi dla bazy danych Azure rozwiązania Cosmos. Każda kolekcja jest rozliczane godzinowo, oparta na udostępnionej przepływności i używać miejsca do magazynowania. Aby uzyskać więcej informacji, zobacz [cennik usługi Azure rozwiązania Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Jak utworzyć bazę danych?
-Bazy danych można tworzyć przy użyciu [portalu Azure](https://portal.azure.com), zgodnie z opisem w [dodania kolekcji](create-documentdb-dotnet.md#create-collection), jednego z [zestawów SDK DB rozwiązania Cosmos Azure](documentdb-sdk-dotnet.md), lub [interfejsów API REST](/rest/api/documentdb/). 
+Bazy danych można tworzyć przy użyciu [portalu Azure](https://portal.azure.com), zgodnie z opisem w [dodania kolekcji](create-sql-api-dotnet.md#create-collection), jednego z [zestawów SDK DB rozwiązania Cosmos Azure](sql-api-sdk-dotnet.md), lub [interfejsów API REST](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Jak skonfigurować użytkowników i uprawnienia?
-Można utworzyć użytkowników i uprawnień przy użyciu jednej z [zestawów SDK interfejsu API DB rozwiązania Cosmos](documentdb-sdk-dotnet.md) lub [interfejsów API REST](/rest/api/documentdb/).  
+Można utworzyć użytkowników i uprawnień przy użyciu jednej z [zestawów SDK interfejsu API DB rozwiązania Cosmos](sql-api-sdk-dotnet.md) lub [interfejsów API REST](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>Interfejsu API SQL obsługuje SQL?
 Język zapytań SQL, które są obsługiwane przez interfejs API SQL konta jest rozszerzonym podzbiorem funkcji zapytań, który jest obsługiwany przez program SQL Server. Języka zapytań usługi Azure rozwiązania Cosmos bazy danych SQL zawiera sformatowanego operatorów hierarchicznej i rozszerzalność dzięki funkcji oparte na języku JavaScript, zdefiniowane przez użytkownika (UDF). Gramatyka JSON umożliwia modelowanie dokumentów JSON jako drzewa z etykietami węzły, które są używane zarówno przez techniki automatycznego indeksowania bazy danych Azure rozwiązania Cosmos i dialekt zapytań SQL Azure DB rozwiązania Cosmos. Aby uzyskać informacji dotyczących używania gramatyki SQL, zobacz [zapytania SQL] [ query] artykułu.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Interfejsu API SQL obsługuje funkcje agregacji SQL?
-Interfejs API SQL obsługuje agregacji o małych opóźnieniach na dowolnym poziomie za pomocą funkcji agregujących `COUNT`, `MIN`, `MAX`, `AVG`, i `SUM` za pośrednictwem gramatyki SQL. Aby uzyskać więcej informacji, zobacz [funkcje agregujące](documentdb-sql-query.md#Aggregates).
+Interfejs API SQL obsługuje agregacji o małych opóźnieniach na dowolnym poziomie za pomocą funkcji agregujących `COUNT`, `MIN`, `MAX`, `AVG`, i `SUM` za pośrednictwem gramatyki SQL. Aby uzyskać więcej informacji, zobacz [funkcje agregujące](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>W jaki sposób interfejsu API SQL zapewnia współbieżność?
 Interfejs API SQL obsługuje optymistycznej współbieżności sterowanie Współbieżnością za za pomocą tagów jednostki HTTP lub elementów ETag. Każdy zasób interfejsu API SQL ma element ETag i element ETag jest ustawiony na serwerze każdej aktualizacji dokumentu. Nagłówek ETag i bieżącą wartość są uwzględnione w wszystkie wiadomości odpowiedzi. Elementy etag może służyć nagłówka If-Match, aby serwer mógł zdecydować, czy można zaktualizować zasobu. Wartość If-Match jest wartość ETag do porównania. Jeśli wartość ETag odpowiada serwera wartość ETag, zasób jest aktualizowana. Jeśli element ETag nie jest już aktualny, serwer odrzuca operację, podając "HTTP 412 niepowodzenie warunku wstępnego" Kod odpowiedzi. Następnie klient pobiera ponownie zasobów w celu uzyskania bieżącej wartości ETag dla zasobu. Ponadto elementy etag można nagłówka If-None-Match do określenia, czy ponownie pobrać zasobu jest wymagana.
@@ -292,7 +292,7 @@ Tak, tego samego interfejsu API jest obsługiwane.
 Nie można tworzyć i korzystać z istniejących zasobów magazynu tabel Azure bez przeszkód dowolnego rodzaju. Jednak jeśli nie używasz interfejsu API tabeli, nie mogą korzystać z automatycznego indeksu, spójności dodatkowych opcji lub globalnego dystrybucji. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Jak dodać replikacji danych w interfejsie API tabeli w różnych regionach platformy Azure?
-Przy użyciu portalu Azure DB rozwiązania Cosmos [ustawienia globalne replikacji](tutorial-global-distribution-documentdb.md#portal) Aby dodać obszary, które są odpowiednie dla twojej aplikacji. Do opracowywania aplikacji globalnie rozproszone, należy również dodać aplikacji z informacjami o PreferredLocation ustawioną lokalny region zapewniające małych opóźnieniach odczytu. 
+Przy użyciu portalu Azure DB rozwiązania Cosmos [ustawienia globalne replikacji](tutorial-global-distribution-sql-api.md#portal) Aby dodać obszary, które są odpowiednie dla twojej aplikacji. Do opracowywania aplikacji globalnie rozproszone, należy również dodać aplikacji z informacjami o PreferredLocation ustawioną lokalny region zapewniające małych opóźnieniach odczytu. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Jak zmienić regionu podstawowego zapisu dla konta w interfejsie API tabeli?
 W okienku portalu globalnej replikacji bazy danych Azure rozwiązania Cosmos umożliwia dodawanie regionu, a następnie przełączyć się do regionu wymagane. Aby uzyskać instrukcje, zobacz [programowania z użyciem konta bazy danych Azure rozwiązania Cosmos w przypadku](regional-failover.md). 
@@ -368,7 +368,7 @@ Z zestawu SDK .NET mogą być dostarczane w pliku app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure DB rozwiązania Cosmos jako platforma wydaje się, że ma wiele funkcji, takich jak sortowanie, agregacje, hierarchii oraz innych funkcji. Będzie można dodawanie tych funkcji do interfejsu API tabeli? 
-Interfejs API tabeli zawiera te same funkcje zapytania jako magazynu tabel Azure. Azure DB rozwiązania Cosmos obsługuje również sortowanie, agregacje, dane geograficzne zapytania hierarchii i szeroki zakres funkcji wbudowanych. Firma Microsoft udostępni dodatkowe funkcje w interfejsie API tabeli w przyszłej aktualizacji. Aby uzyskać więcej informacji, zobacz [zapytania SQL](documentdb-sql-query.md).
+Interfejs API tabeli zawiera te same funkcje zapytania jako magazynu tabel Azure. Azure DB rozwiązania Cosmos obsługuje również sortowanie, agregacje, dane geograficzne zapytania hierarchii i szeroki zakres funkcji wbudowanych. Firma Microsoft udostępni dodatkowe funkcje w interfejsie API tabeli w przyszłej aktualizacji. Aby uzyskać więcej informacji, zobacz [zapytania SQL](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Podczas zmiany TableThroughput dla interfejsu API tabeli?
 Należy zmienić TableThroughput, gdy stosuje się jeden z następujących warunków:
@@ -540,4 +540,4 @@ Interfejs API Cassandra Apache zapewnia te same funkcje CQL jako Apache Cassandr
 Wyrazić swoją opinię przy użyciu [opinii z witryny uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

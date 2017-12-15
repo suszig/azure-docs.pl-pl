@@ -1,6 +1,6 @@
 ---
-title: "Szybki Start — tworzenie prywatnych rejestru Docker na platformie Azure przy użyciu portalu Azure"
-description: "Dowiedz się szybko utworzyć prywatnego rejestru kontenera Docker z portalu Azure."
+title: "Szybki start — tworzenie rejestru prywatnego platformy Docker na platformie Azure przy użyciu witryny Azure Portal"
+description: "Szybka nauka tworzenia rejestru prywatnego platformy Docker przy użyciu witryny Azure Portal."
 services: container-registry
 documentationcenter: 
 author: mmacy
@@ -19,79 +19,79 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Tworzenie rejestru kontenerów za pomocą witryny Azure Portal
 
-Rejestr kontenera platformy Azure jest prywatny rejestru Docker na platformie Azure, gdzie można przechowywać i zarządzanie prywatnej obrazy usługi Docker kontenera. Z tego przewodnika Szybki Start utworzysz rejestru kontenera przy użyciu portalu Azure.
+Usługa Azure Container Registry to rejestr prywatny platformy Docker na platformie Azure, w którym można przechowywać prywatne obrazy kontenerów Docker i zarządzać nimi. W tym przewodniku Szybki start utworzysz rejestr kontenerów za pomocą witryny Azure Portal.
 
-Aby ukończyć tego przewodnika Szybki Start, musi mieć zainstalowane lokalnie Docker. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Aby ukończyć ten przewodnik Szybki start, musisz mieć platformę Docker zainstalowaną lokalnie. Środowisko Docker zawiera pakiety, które umożliwiają łatwe konfigurowanie platformy Docker w systemie [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) lub [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
+Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Tworzenie rejestru kontenerów
 
-Wybierz **nowe** > **kontenery** > **rejestru kontenera platformy Azure**.
+Wybierz pozycje **Nowy** > **Kontenery** > **Azure Container Registry**.
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-01]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-01]
 
-Wprowadź wartości w polach **nazwa rejestru** i **grupy zasobów**. Nazwa rejestru musi być unikatowe w obrębie platformy Azure i może zawierać znaki alfanumeryczne 5 – 50. Utwórz nową grupę zasobów o nazwie `myResourceGroup`oraz **SKU**, wybierz "Basic". Wybierz **Utwórz** wdrażania wystąpienia ACR.
+Wprowadź wartości w polach **Nazwa rejestru** i **Grupa zasobów**. Nazwa rejestru musi być unikatowa w obrębie platformy Azure i może zawierać od 5 do 50 znaków alfanumerycznych. Utwórz nową grupę zasobów o nazwie `myResourceGroup`, a w polu **SKU** wybierz opcję „Basic” (Podstawowa). Wybierz przycisk **Utwórz**, aby wdrożyć wystąpienie usługi ACR.
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-03]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-03]
 
-W tym szybkiego startu, utworzymy *podstawowe* rejestru. Rejestru kontenera platformy Azure jest dostępna w kilku różne jednostki magazynowe, krótko opisane w poniższej tabeli. Rozszerzone szczegółowe na każdym, patrz [rejestru kontenera jednostek SKU](container-registry-skus.md).
+W tym przewodniku Szybki start utworzymy rejestr w ramach jednostki *Podstawowa*. Usługa Azure Container Registry jest dostępna w ramach kilku różnych jednostek SKU, krótko opisanych w poniższej tabeli. Aby uzyskać szczegółowe informacji o każdej z nich, zobacz [Jednostki SKU rejestru kontenerów](container-registry-skus.md).
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Gdy **wdrożenie zakończyło się pomyślnie** pojawi się komunikat, wybierz rejestru kontenera w portalu, a następnie wybierz **klucze dostępu**.
+Kiedy pojawi się komunikat **Wdrażanie zakończyło się pomyślnie**, wybierz rejestru kontenerów w portalu, a następnie wybierz pozycję **Klucze dostępu**.
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-05]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-05]
 
-W obszarze **administrator**, wybierz pozycję **włączyć**. Zwróć uwagę na następujące wartości:
+W obszarze **Administrator** wybierz pozycję **Włącz**. Zanotuj następujące wartości:
 
 * Serwer logowania
 * Nazwa użytkownika
 * hasło
 
-Te wartości jest użycie w poniższych krokach podczas pracy z rejestru z poziomu interfejsu wiersza polecenia Docker.
+Te wartości będą używane w poniższych krokach podczas pracy z rejestrem z poziomu interfejsu wiersza polecenia platformy Docker.
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-06]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-06]
 
-## <a name="log-in-to-acr"></a>Zaloguj się do awaryjnego
+## <a name="log-in-to-acr"></a>Zaloguj się do usługi ACR
 
-Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. Aby to zrobić, użyj [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) polecenia. Zastąp *username*, *hasło*, i *logowania serwera* wartości z wartościami zanotowaną w poprzednim kroku.
+Przed wypychaniem i ściąganiem obrazów kontenerów musisz zalogować się do wystąpienia usługi ACR. Aby to zrobić, użyj polecenia [docker login](https://docs.docker.com/engine/reference/commandline/login/). Zastąp wartości *username*, *password* i *login server* wartościami zanotowanymi w poprzednim kroku.
 
 ```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-Polecenie zwraca `Login Succeeded` po ukończeniu. Ostrzeżenie o zabezpieczeniach rekomendowania stosowania może być również wyświetlany `--password-stdin` parametru. Gdy wykorzystanie przez niego wykracza poza zakres tego artykułu, zaleca się po tym najlepszym rozwiązaniem. Zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) polecenia odwołania, aby uzyskać więcej informacji.
+Po ukończeniu polecenie zwraca ciąg `Login Succeeded`. Może także zostać wyświetlone ostrzeżenie o zabezpieczeniach zalecające użycie parametru `--password-stdin`. Użycie tego parametru wykracza poza zakres tego artykułu, jednak zalecamy zastosowanie tego najlepszego rozwiązania. Zobacz polecenie [docker login](https://docs.docker.com/engine/reference/commandline/login/), aby uzyskać więcej informacji.
 
-## <a name="push-image-to-acr"></a>Obraz wypychania do awaryjnego
+## <a name="push-image-to-acr"></a>Wypychanie obrazu do usługi ACR
 
-Aby wypchnąć obrazu do rejestru kontenera platformy Azure, najpierw musi mieć obraz. W razie potrzeby, uruchom następujące polecenie, aby pobierać istniejącego obrazu z Centrum Docker.
+Aby wypchnąć obrazu do usługi Azure Container Registry, najpierw musisz mieć obraz. W razie potrzeby uruchom poniższe polecenie, aby ściągnąć istniejący obraz z usługi Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Przed naciśnięciu obraz do rejestru musi tag obrazu z nazwą serwera ACR logowania. Tag przy użyciu obrazu [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) polecenia. Zastąp *logowania serwera* z nazwą serwera logowania wcześniej zapisane.
+Przed wypchnięciem obrazu do rejestru musisz otagować obraz przy użyciu nazwy serwera logowania usługi ACR. Aby dodać tag do obrazu, użyj polecenia [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Zastąp element *login server* zapisaną wcześniej nazwą serwera logowania.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Na koniec użyj [wypychania docker](https://docs.docker.com/engine/reference/commandline/push/) do dystrybuowania obrazu do wystąpienia ACR. Zastąp *logowania serwera* z nazwą serwera logowania wystąpienia ACR.
+Na koniec użyj polecenia [docker push](https://docs.docker.com/engine/reference/commandline/push/), aby wypchnąć obraz do wystąpienia usługi ACR. Zastąp element *login server* nazwą serwera logowania wystąpienia usługi ACR.
 
 ```
 docker push <login server>/aci-helloworld:v1
 ```
 
-Dane wyjściowe z pomyślnym `docker push` jest podobne do polecenia:
+Dane wyjściowe z pomyślnie ukończonego polecenia `docker push` są podobne do następujących:
 
 ```
 The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
@@ -106,21 +106,21 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ## <a name="list-container-images"></a>Tworzenie listy obrazów kontenerów
 
-Aby wyświetlić listę obrazów w wystąpieniu ACR, przejdź do rejestru w portalu i wybierz **repozytoria**, następnie wybierz utworzony z repozytorium `docker push`.
+Aby wyświetlić listę obrazów w wystąpieniu usługi ACR, przejdź do rejestru w portalu i wybierz pozycję **Repozytoria**, następnie wybierz repozytorium utworzone za pomocą `docker push`.
 
-W tym przykładzie mamy wybierz **aci helloworld** repozytorium i firma Microsoft mogą przeglądać `v1`-TIFF w obszarze **tagi**.
+W tym przykładzie wybierz repozytorium **aci-helloworld**. Zobaczysz obraz z tagiem `v1` w obszarze **TAGS** (tagi).
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-09]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-09]
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebny, Usuń **myResourceGroup** grupy zasobów. To spowoduje usunięcie grupy zasobów, wystąpienie ACR i wszystkie obrazy kontenera.
+Gdy grupa zasobów **myResourceGroup** nie jest już potrzebna, można ją usunąć. Spowoduje to usunięcie grupy zasobów, wystąpienia usługi ACR i wszystkich obrazów kontenerów.
 
-![Tworzenie rejestru kontenera w portalu Azure][qs-portal-08]
+![Tworzenie rejestru kontenerów w witrynie Azure Portal][qs-portal-08]
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ta opcja szybkiego startu została utworzona rejestru kontenera platformy Azure z wiersza polecenia platformy Azure. Jeśli chcesz rejestru kontenera Azure za pomocą wystąpień kontenera platformy Azure, przejdź do samouczka wystąpień kontenera platformy Azure.
+W tym samouczku Szybki start utworzono usługę Azure Container Registry za pomocą interfejsu wiersza polecenia platformy Azure. Jeśli chcesz używać usługi Azure Container Registry z usługą Azure Container Instances, przejdź do samouczka dotyczącego usługi Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Samouczki dotyczące usługi Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

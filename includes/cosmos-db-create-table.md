@@ -1,21 +1,21 @@
-Można teraz używać narzędzia Eksplorator danych w portalu Azure, można utworzyć bazy danych i tabeli. 
+Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych i tabelę. 
 
-1. Kliknij przycisk **Eksploratora danych** > **nową tabelę**. 
+1. Kliknij pozycję **Eksplorator danych** > **Nowa tabela**. 
     
-    **Dodaj tabelę** obszar jest wyświetlany po prawej, konieczne może być przewiń w prawo, aby go wyświetlić.
+    Obszar **Dodaj tabelę** zostanie wyświetlony po prawej stronie. Aby go zobaczyć, być może trzeba będzie przewinąć w prawo.
 
     ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
 
-2. W **Dodaj tabelę** wprowadź ustawienia dla nowej tabeli.
+2. Na stronie **Dodawanie tabeli** wprowadź ustawienia dla nowej tabeli.
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
     Identyfikator tabeli|sample-table|Identyfikator nowej tabeli. W przypadku nazw tabel obowiązują takie same wymagania dotyczące znaków, jak dla identyfikatorów baz danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków `/ \ # ?` ani mieć spacji na końcu.
-    Pojemność magazynu| Stała (10 GB)|Zmień wartość na **stałe (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
-    Przepływność|400 jednostek żądania|Zmień przepływność 400 jednostek żądań na sekundę (RU/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.
+    Pojemność magazynu| Stała (10 GB)|Zmień wartość na **Stała (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
+    Przepływność|400 jednostek żądania|Zmień przepływność na 400 jednostek żądania na sekundę (RU/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.
 
     Kliknij przycisk **OK**.
 
-    Eksplorator danych wyświetla nową bazę danych i tabeli.
+    W Eksploratorze danych zostanie wyświetlona nowa baza danych i tabela.
 
-    ![Eksplorator danych, wyświetlanie nowej bazy danych i kolekcji w portalu Azure](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)
+    ![Eksplorator danych w witrynie Azure Portal z widoczną nową bazą danych i kolekcją](./media/cosmos-db-create-table/azure-cosmos-db-new-table.png)

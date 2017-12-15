@@ -7,12 +7,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/13/2017
+ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aerial-image-classification"></a>Klasyfikacja satelitarnej obrazu
 
@@ -157,14 +157,14 @@ Teraz utworzymy konta magazynu, że hosty projektu pliki, które muszą być dos
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Oczekiwany transferu plików do zająć maksymalnie 20 minut. Podczas oczekiwania, możesz przejść do poniższej sekcji: Otwórz innego interfejsu wiersza polecenia za pomocą narzędzia Workbench i ponownie zdefiniować zmienne tymczasowe może być konieczne.
+    Oczekiwany transferu plików do zająć około jednej godziny. Podczas oczekiwania, możesz przejść do poniższej sekcji: Otwórz innego interfejsu wiersza polecenia za pomocą narzędzia Workbench i ponownie zdefiniować zmienne tymczasowe może być konieczne.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Tworzenie klastra Spark w usłudze HDInsight
 
 Nasze zalecana metoda tworzenia klastra usługi HDInsight używa szablonu Menedżera zasobów klastra Spark w usłudze HDInsight zawarte w podfolderze "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" tego projektu.
 
 1. Szablon klastra Spark w usłudze HDInsight jest "template.json" plik w podfolderze "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" tego projektu. Domyślnie szablon tworzy klaster Spark z 40 węzłów procesu roboczego. Jeśli należy dostosować tę liczbę, otwórz szablon w w ulubionym edytorze tekstów i Zastąp wszystkie wystąpienia "40" numer węzła procesu roboczego wybranych przez użytkownika.
-    - Jeśli liczba węzłów procesu roboczego, którą wybierzesz jest mały, mogą wystąpić błędy braku pamięci. Zwalczania błędów pamięci, mogą uruchamiać skrypty szkolenia i operationalization w podzestawie dostępnych danych, zgodnie z opisem w dalszej części tego dokumentu.
+    - Mogą wystąpić błędy braku pamięci później, jeśli jest mniejsza liczba węzłów procesu roboczego, którą wybierzesz. Zwalczania błędów pamięci, mogą uruchamiać skrypty szkolenia i operationalization w podzestawie dostępnych danych, zgodnie z opisem w dalszej części tego dokumentu.
 2. Wybierz unikatową nazwę i hasło dla usługi HDInsight klastra i zapisanie ich w przypadku, gdy wskazane następujące polecenie: następnie utworzyć klaster, wysyłając polecenia:
 
     ```
@@ -248,12 +248,10 @@ W razie potrzeby można potwierdzić, że transfer danych podjęła zgodnie z pl
 
 #### <a name="create-a-batch-ai-cluster"></a>Tworzenie klastra partii AI
 
-1. Utworzenie klastra przez wydanie następujących poleceń:
+1. Tworzenia klastra, wykonując następujące polecenie:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Użyj następującego polecenia w celu sprawdzenia, czy stanu do udostępniania klastra:
@@ -304,7 +302,7 @@ Po zakończeniu tworzenia klastra usługi HDInsight zarejestrować klastra jako 
 1.  Wydać z usługi Azure Machine Learning interfejsu wiersza polecenia następujące polecenie:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     To polecenie dodaje dwa pliki `myhdi.runconfig` i `myhdi.compute`, do projektu `aml_config` folderu.

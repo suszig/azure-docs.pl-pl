@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web Node.js i bazy danych MongoDB w usłudze Azure App Service w systemie Linux
+
+> [!NOTE]
+> W tym artykule wdraża aplikację usługi aplikacji w systemie Linux. Aby wdrożyć usługi aplikacji na _Windows_, zobacz [tworzenie aplikacji sieci web Node.js i bazy danych MongoDB na platformie Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
 
 [Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację sieci web Node.js, lokalnie podłącz go do bazy danych MongoDB, a następnie wdrożyć na platformie Azure, połączony z bazą danych CosmosDB przy użyciu interfejsu API bazy danych MongoDB. Gdy wszystko będzie gotowe, będziesz mieć średniej aplikacji (bazy danych MongoDB, Express AngularJS i Node.js) działające w usłudze aplikacji w systemie Linux. Dla uproszczenia Przykładowa aplikacja korzysta z [platforma sieci web MEAN.js](http://meanjs.org/).
 
@@ -126,7 +130,7 @@ Bazy danych mongodb, w tym samouczku używana [bazy danych Azure rozwiązania Co
 
 ### <a name="create-a-cosmos-db-account"></a>Tworzenie konta bazy danych rozwiązania Cosmos
 
-W powłoce chmury, Utwórz konto DB rozwiązania Cosmos z [az cosmosdb utworzyć](/cli/azure/cosmosdb#create) polecenia.
+W powłoce chmury, Utwórz konto DB rozwiązania Cosmos z [az cosmosdb utworzyć](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) polecenia.
 
 W poniższym poleceniu zastąp unikatową nazwę bazy danych rozwiązania Cosmos  *\<cosmosdb_name >* symbolu zastępczego. Ta nazwa jest używana jako część rozwiązania Cosmos DB punkt końcowy, `https://<cosmosdb_name>.documents.azure.com/`, więc nazwa musi być unikatowa na wszystkich kontach DB rozwiązania Cosmos w programie Azure. Nazwa musi zawierać tylko małe litery, cyfry i znaki łącznika (-) i musi mieć długość od 3 do 50 znaków.
 
@@ -160,7 +164,7 @@ W tym kroku połączenie aplikacji przykładowej MEAN.js do bazy danych DB rozwi
 
 ### <a name="retrieve-the-database-key"></a>Pobierz klucz bazy danych
 
-Do połączenia z bazą danych rozwiązania Cosmos bazy danych, należy klucza bazy danych. W powłoce chmury za pomocą [az cosmosdb listy kluczy](/cli/azure/cosmosdb#list-keys) polecenie, aby pobrać klucz podstawowy.
+Do połączenia z bazą danych rozwiązania Cosmos bazy danych, należy klucza bazy danych. W powłoce chmury za pomocą [az cosmosdb listy kluczy](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) polecenie, aby pobrać klucz podstawowy.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ W tym kroku możesz wdrożyć aplikację Node.js połączenia bazy danych MongoD
 
 Domyślnie przechowuje projektu MEAN.js _config/env/local-production.js_ poza repozytorium Git. Tak dla aplikacji sieci web platformy Azure, aplikacji ustawienia używane do definiowania parametrów połączenia bazy danych MongoDB.
 
-Aby określić ustawienia aplikacji, należy użyć [zaktualizować appsettings konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/appsettings#update) polecenie w powłoce chmury.
+Aby określić ustawienia aplikacji, należy użyć [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenie w powłoce chmury.
 
 Poniższy przykład konfiguruje `MONGODB_URI` ustawienie aplikacji w aplikacji sieci web platformy Azure. Zastąp  *\<nazwa_aplikacji >*,  *\<cosmosdb_name >*, i  *\<primary_master_key >* symbole zastępcze.
 

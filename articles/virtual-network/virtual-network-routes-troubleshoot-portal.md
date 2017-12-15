@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Rozwiązywanie problemów z tras przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Podczas w przykładzie użyto tylko tras systemowych, te same kroki może służ
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Widok skuteczne trasy dla maszyny wirtualnej
 Aby wyświetlić trasy agregacji, które są stosowane do maszyny Wirtualnej, wykonaj następujące kroki:
 
-1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com.
+1. Zaloguj się do portalu Azure pod adresem https://portal.azure.com. Konto musi mieć przypisaną *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operacji interfejsu sieciowego. Aby dowiedzieć się, jak przypisać operacje do kont, zobacz [Tworzenie niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Kliknij przycisk **więcej usług**, następnie kliknij przycisk **maszyn wirtualnych** na liście.
 3. Wybierz maszynę Wirtualną, aby rozwiązać problemy z listy, która pojawia się i zostanie wyświetlony blok maszyny Wirtualnej, z opcjami.
 4. Kliknij przycisk **Diagnozuj & rozwiązywania problemów** , a następnie wybierz powszechny problem. Na przykład **nie mogę połączyć się z maszyną Wirtualną z systemem Windows** jest zaznaczone.

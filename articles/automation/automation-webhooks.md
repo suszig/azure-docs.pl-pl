@@ -3,7 +3,7 @@ title: "Uruchamianie elementu runbook usługi Automatyzacja Azure z elementu web
 description: "Element webhook, która umożliwia klientowi uruchomienia elementu runbook automatyzacji Azure z wywołania HTTP.  W tym artykule opisano sposób tworzenia elementu webhook i wywoływanie jednego uruchomienia elementu runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Uruchamianie elementu runbook usługi Automatyzacja Azure z elementu webhook
 A *webhook* umożliwia uruchomienie określonego elementu runbook automatyzacji Azure za pomocą pojedynczego żądania HTTP. Dzięki temu usług zewnętrznych, takich jak Visual Studio Team Services, GitHub, analizy dzienników Microsoft Operations Management Suite lub niestandardowych aplikacji do uruchamiania elementów runbook bez wdrażania pełnego rozwiązania przy użyciu interfejsu API usługi Automatyzacja Azure.  
@@ -32,7 +32,7 @@ W poniższej tabeli opisano właściwości, które należy skonfigurować dla el
 | Właściwość | Opis |
 |:--- |:--- |
 | Nazwa |Możesz podać dowolną nazwę wybranego dla elementu webhook, ponieważ to nie jest widoczne dla klientów.  Tylko służy do należy do identyfikacji elementu runbook automatyzacji Azure. <br>  Najlepszym rozwiązaniem należy nadać elementu webhook nazwę związane z klienta, który zostanie użyty. |
-| ADRES URL |Adres URL elementu webhook jest unikatowy adres, który klient wywołuje z POST protokołu HTTP, aby uruchomić element runbook połączone z elementu webhook.  Jest ona generowana automatycznie podczas tworzenia elementu webhook.  Nie można określić niestandardowy adres URL. <br> <br>  Adres URL zawiera token zabezpieczający, który umożliwia elementu runbook do wywołania przez system innej firmy bez dalszego uwierzytelniania. Z tego powodu powinny być traktowane jak hasło.  Ze względów bezpieczeństwa możesz jedynie wyświetlić adres URL w portalu Azure w czasie tworzenia elementu webhook. Należy zauważyć, adres URL w bezpiecznej lokalizacji do użytku w przyszłości. |
+| Adres URL |Adres URL elementu webhook jest unikatowy adres, który klient wywołuje z POST protokołu HTTP, aby uruchomić element runbook połączone z elementu webhook.  Jest ona generowana automatycznie podczas tworzenia elementu webhook.  Nie można określić niestandardowy adres URL. <br> <br>  Adres URL zawiera token zabezpieczający, który umożliwia elementu runbook do wywołania przez system innej firmy bez dalszego uwierzytelniania. Z tego powodu powinny być traktowane jak hasło.  Ze względów bezpieczeństwa możesz jedynie wyświetlić adres URL w portalu Azure w czasie tworzenia elementu webhook. Należy zauważyć, adres URL w bezpiecznej lokalizacji do użytku w przyszłości. |
 | Data wygaśnięcia |Takie jak certyfikat każdy element webhook ma datę wygaśnięcia, które go można już używać.  Ta data wygaśnięcia można zmodyfikować po utworzeniu elementu webhook. |
 | Enabled (Włączony) |Elementu webhook jest domyślnie włączona po jego utworzeniu.  Jeśli zostanie ustawiona na wyłączone, a następnie klienta nie będzie można go użyć.  Można ustawić **włączone** właściwości po utworzeniu elementu webhook lub w każdej chwili po jego utworzeniu. |
 
@@ -85,10 +85,10 @@ Kolejną strategią jest runbook weryfikowania niektórych warunków zewnętrzny
 ## <a name="creating-a-webhook"></a>Tworzenie elementu webhook
 Użyj poniższej procedury, aby utworzyć nowy element webhook powiązany element runbook w portalu Azure.
 
-1. Z **bloku elementów Runbook** w portalu Azure kliknij element runbook, aby wyświetlić jego szczegóły blok uruchomienia elementu webhook.
-2. Kliknij przycisk **Webhook** w górnej części bloku, aby otworzyć **Dodawanie elementu Webhook** bloku. <br>
+1. Z **strony elementów Runbook** w portalu Azure kliknij element runbook, aby wyświetlić jego stronę szczegółów uruchomienia elementu webhook.
+2. Kliknij przycisk **Webhook** w górnej części strony, aby otworzyć **Dodawanie elementu Webhook** strony. <br>
    ![Przycisk elementów Webhook](media/automation-webhooks/webhooks-button.png)
-3. Kliknij przycisk **tworzenia nowego elementu webhook** otworzyć **bloku Utwórz elementu webhook**.
+3. Kliknij przycisk **tworzenia nowego elementu webhook** otworzyć **tworzenia elementu webhook strony**.
 4. Określ **nazwa**, **Data wygaśnięcia** dla elementu webhook i określa, czy powinno być włączone. Zobacz [szczegóły elementu webhook](#details-of-a-webhook) Aby uzyskać więcej informacji tych właściwości.
 5. Kliknij ikonę kopiowania, a następnie naciśnij klawisze Ctrl + C, aby skopiować adres URL elementu webhook.  Następnie zapisz go w bezpiecznym miejscu.  **Po utworzeniu elementu webhook nie można ponownie pobrać adresu URL.** <br>
    ![Adres URL elementu Webhook](media/automation-webhooks/copy-webhook-url.png)
@@ -104,9 +104,9 @@ Klient zostanie wyświetlony jeden z następujących kody powrotu z żądania PO
 
 | Kod | Tekst | Opis |
 |:--- |:--- |:--- |
-| 202 |Zaakceptowane |Żądanie zostało zaakceptowane, a element runbook został pomyślnie w kolejce. |
+| 202 |Zaakceptowano |Żądanie zostało zaakceptowane, a element runbook został pomyślnie w kolejce. |
 | 400 |Nieprawidłowe żądanie |Nie zaakceptowano żądanie dla jednego z następujących powodów. <ul> <li>Element webhook wygasł.</li> <li>Elementu webhook jest wyłączona.</li> <li>Token w adresie URL jest nieprawidłowy.</li>  </ul> |
-| 404 |Nie można odnaleźć |Nie zaakceptowano żądanie dla jednego z następujących powodów. <ul> <li>Nie można odnaleźć elementu webhook.</li> <li>Nie znaleziono elementu runbook.</li> <li>Nie można odnaleźć konta.</li>  </ul> |
+| 404 |Nie znaleziono |Nie zaakceptowano żądanie dla jednego z następujących powodów. <ul> <li>Nie można odnaleźć elementu webhook.</li> <li>Nie znaleziono elementu runbook.</li> <li>Nie można odnaleźć konta.</li>  </ul> |
 | 500 |Wewnętrzny błąd serwera |Adres URL jest prawidłowy, ale wystąpił błąd.  Prześlij żądanie. |
 
 Zakładając, że żądanie zakończy się pomyślnie, odpowiedzi elementu webhook zawiera identyfikator zadania w formacie JSON w następujący sposób. Będzie zawierać identyfikator pojedyncze zadanie, ale umożliwia potencjalne przyszłe ulepszenia formatu JSON.
@@ -189,7 +189,7 @@ Włączone elementu Webhook elementów runbook może służyć do reagowania na 
 
 Oprócz za pomocą usługi Azure alerty jako system powiadomień, należy również rozpocząć się poza elementów runbook w odpowiedzi na alerty. Automatyzacja Azure oferuje możliwość uruchamiania włączone elementu webhook elementów runbook z alertami platformy Azure. Jeśli Metryka przekracza wartość skonfigurowany próg następnie reguły alertu staje się aktywny i wyzwala webhook usługi Automatyzacja, który z kolei wykonuje element runbook.
 
-![elementów webhook](media/automation-webhooks/webhook-alert.jpg)
+![Elementy webhook](media/automation-webhooks/webhook-alert.jpg)
 
 ### <a name="alert-context"></a>Kontekst alertu
 Należy rozważyć zasobów platformy Azure, takich jak maszyny wirtualnej, użycie procesora CPU tego komputera jest jednym z metryki wydajności. Jeśli wykorzystanie procesora CPU jest 100% lub więcej niż określonym przez długi czas, możesz uruchomić ponownie maszynę wirtualną, aby rozwiązać ten problem. To będzie możliwe przez skonfigurowanie reguły alertu do maszyny wirtualnej i procent użycia procesora CPU, jako jego metryka ma ta reguła. Procent użycia procesora CPU w tym miejscu jest po prostu wykonywanej na przykład, ale istnieje wiele innych metryk, które można skonfigurować do zasobów platformy Azure i ponownego uruchamiania maszyny wirtualnej jest akcja, która jest wykonywana, aby rozwiązać ten problem, można skonfigurować element runbook, aby wykonywać inne czynności.

@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Dostosuj sposób rozwiązania połączonych fabryki wyświetlania danych z serwerów OPC UA
 
@@ -72,92 +72,7 @@ Możesz użyć pliku konfiguracji do:
 - Edytowanie istniejącego fabryki symulowane, linii produkcyjnych i stacji.
 - Mapowanie danych rzeczywistych serwerów OPC UA, których połączenia z rozwiązaniem.
 
-Klonowanie kopię połączonych fabryki rozwiązania Visual Studio, użyj następującego polecenia git:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-Plik **ContosoTopologyDescription.json** definiuje mapowanie z elementów danych serwera OPC UA widoków na pulpicie nawigacyjnym rozwiązania fabryka połączenia. Możesz znaleźć tego pliku konfiguracji w **Contoso\Topology** folderu w **aplikacji sieci Web** projektu w rozwiązaniu Visual Studio.
-
-Zawartość pliku JSON jest zorganizowana jako hierarchię fabryki, wiersza produkcyjnym i węzły stacji. Ta hierarchia definiuje hierarchii nawigacji na pulpicie nawigacyjnym fabryka połączenia. Wartości w każdym węźle hierarchii określają informacje wyświetlane na pulpicie nawigacyjnym. Na przykład plik JSON zawiera następujące wartości dla fabryki we Wrocławiu:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-Nazwa, opis oraz lokalizację są wyświetlane w tym widoku na pulpicie nawigacyjnym:
-
-![Dane we Wrocławiu na pulpicie nawigacyjnym][img-munich]
-
-Każdej fabryki wiersza produkcyjnym i stacji mają właściwość obrazu. Te pliki JPEG w można znaleźć **Content\img** folderu w **aplikacji sieci Web** projektu. Te pliki obrazów wyświetlenia na pulpicie nawigacyjnym fabryka połączenia.
-
-Każda stacja obejmuje kilka szczegółowe właściwości, które definiują mapowanie OPC UA elementów danych. Te właściwości są opisane w poniższych sekcjach:
-
-### <a name="opcuri"></a>OpcUri
-
-**OpcUri** OPC identyfikator URI aplikacji Agent użytkownika, który unikatowo identyfikuje serwer OPC UA jest wartość. Na przykład **OpcUri** wartość dla stacji zestawu wiersza produkcyjnym 1 w we Wrocławiu wygląda następująco: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-Identyfikatory URI połączonych serwerów OPC UA można wyświetlić na pulpicie nawigacyjnym rozwiązania:
-
-![Wyświetl OPC UA serwer identyfikatorów URI][img-server-uris]
-
-### <a name="simulation"></a>Symulacja
-
-Informacje zawarte w **symulacji** węzeł jest specyficzne dla symulacji OPC UA uruchamiana na serwerach OPC UA, które są udostępniane domyślnie. Nie służy do rzeczywistego serwera OPC UA.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 i Kpi2
-
-Te węzły opisano, jak dane ze stacji przyczynia się do dwóch wartości wskaźnika KPI w pulpicie nawigacyjnym. We wdrożeniu domyślne wartości tych wskaźników KPI są jednostki na godzinę i kWh na godzinę. Rozwiązanie oblicza vales wskaźnik KPI na poziomie stacji i agregowanie ich na poziomach fabryki i wiersza produkcyjnym.
-
-Każdy wskaźnik KPI ma minimum, maksimum i wartości docelowej. Każda wartość wskaźnika KPI można również zdefiniować akcje alertu dla rozwiązania fabryki podłączonej do wykonania. Poniższy fragment kodu przedstawia definicje kluczowy wskaźnik wydajności dla stacji zestawu wiersza produkcyjnym 1 w we Wrocławiu:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-Poniższy zrzut ekranu przedstawia dane wskaźnik KPI na pulpicie nawigacyjnym.
-
-![Informacje dotyczące KPI na pulpicie nawigacyjnym][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-**OpcNodes** węzłów zidentyfikować elementy opublikowanych danych z serwera OPC UA i określ sposób przetwarzania danych.
-
-**ID. węzła** wartość identyfikuje określonych OPC UA ID. węzła z serwera OPC UA. Pierwszy węzeł w stacji zestawu dla wiersza produkcyjnym 1 w we Wrocławiu ma wartość **ns = 2; i = 385**. A **ID. węzła** wartość określa, że element danych do odczytu z serwera OPC UA i **SymbolicName** zapewnia przyjazna nazwa do użycia na pulpicie nawigacyjnym dla tych danych.
-
-W poniższej tabeli przedstawiono podsumowanie innych wartości skojarzonych z każdym węźle:
-
-| Wartość | Opis |
-| ----- | ----------- |
-| Trafność  | Wskaźnik KPI i OEE wartości tych danych przyczynia się do. |
-| Kod operacji     | Jak dane są agregowane. |
-| Jednostki      | Jednostki do użycia na pulpicie nawigacyjnym.  |
-| Widoczne    | Określa, czy wyświetlaj tej wartości na pulpicie nawigacyjnym. Niektóre wartości są używane w obliczeniach, ale nie wyświetlany.  |
-| Maksimum    | Maksymalna wartość wyzwalania alertu na pulpicie nawigacyjnym. |
-| MaximumAlertActions | Akcja do wykonania w odpowiedzi na alert. Na przykład wysyłać polecenia do stacji. |
-| ConstValue | Stała wartość używana w obliczeniach. |
+Aby uzyskać więcej informacji dotyczących mapowania i agregowanie danych do własnych wymagań, zobacz [Konfigurowanie połączonych fabryki wstępnie skonfigurowane rozwiązanie ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Wdrażanie zmiany
 

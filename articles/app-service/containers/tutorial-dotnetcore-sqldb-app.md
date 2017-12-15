@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web platformy .NET Core i bazy danych SQL w usłudze Azure App Service w systemie Linux
 
@@ -93,7 +93,7 @@ Bazy danych SQL, w tym samouczku używana [bazy danych SQL Azure](/azure/sql-dat
 
 ### <a name="create-a-sql-database-logical-server"></a>Tworzenie serwera logicznego bazy danych SQL
 
-W powłoce chmury Tworzenie serwera logicznego bazy danych SQL z [az programu sql server Utwórz](/cli/azure/sql/server#create) polecenia.
+W powłoce chmury Tworzenie serwera logicznego bazy danych SQL z [az programu sql server Utwórz](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) polecenia.
 
 Zastąp  *\<nazwa_serwera >* symbolu zastępczego o unikatowej nazwie bazy danych SQL. Ta nazwa jest używana jako część punktu końcowego bazy danych SQL `<server_name>.database.windows.net`, więc nazwa musi być unikatowa na wszystkich serwerach logiczne w systemie Azure. Nazwa musi zawierać tylko małe litery, cyfry i znaki łącznika (-) i musi mieć długość od 3 do 50 znaków. Ponadto Zastąp  *\<db_username >* i  *\<db_password >* przy użyciu nazwy użytkownika i hasła wybranych przez użytkownika. 
 
@@ -124,7 +124,7 @@ Podczas tworzenia serwera logicznego bazy danych SQL Azure CLI zawiera informacj
 
 ### <a name="configure-a-server-firewall-rule"></a>Konfigurowanie reguły zapory serwera
 
-Utwórz [regułę zapory na poziomie serwera Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) za pomocą polecenia [az sql server firewall create](/cli/azure/sql/server#create). Gdy IP początkowy i końcowy IP są wartość 0.0.0.0, Zapora tylko został otwarty do innych zasobów platformy Azure. 
+Utwórz [regułę zapory na poziomie serwera Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) za pomocą polecenia [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Gdy IP początkowy i końcowy IP są wartość 0.0.0.0, Zapora tylko został otwarty do innych zasobów platformy Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Tworzenie bazy danych
 
-Utwórz bazę danych [o poziomie wydajności S0](../../sql-database/sql-database-service-tiers.md) na serwerze za pomocą polecenia [az sql db create](/cli/azure/sql/db#create).
+Utwórz bazę danych [o poziomie wydajności S0](../../sql-database/sql-database-service-tiers.md) na serwerze za pomocą polecenia [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ W tym kroku w przypadku wdrażania aplikacji połączonej bazy danych SQL platfo
 
 ### <a name="configure-an-environment-variable"></a>Skonfigurować zmienną środowiskową
 
-Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [zaktualizować appsettings konfiguracji aplikacji sieci Web az](/cli/azure/webapp/config/appsettings#update) polecenie w powłoce chmury. W poniższym poleceniu zastąp  *\<Nazwa aplikacji >*, jak również  *\<ciągu łączącym >* parametru utworzoną wcześniej parametrami połączenia.
+Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenie w powłoce chmury. W poniższym poleceniu zastąp  *\<Nazwa aplikacji >*, jak również  *\<ciągu łączącym >* parametru utworzoną wcześniej parametrami połączenia.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

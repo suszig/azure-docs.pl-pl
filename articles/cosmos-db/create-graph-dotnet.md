@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji Azure rozwiązania Cosmos bazy danych .NET Framework lub Core przy użyciu interfejsu API programu Graph | Dokumentacja firmy Microsoft"
-description: "Przedstawia informacje o .NET Framework/Core przykładowy kod, który służy do nawiązania połączenia i wykonywać zapytania bazy danych Azure rozwiązania Cosmos"
+title: "Tworzenie aplikacji .NET Framework lub Core usługi Azure Cosmos DB za pomocą interfejsu API programu Graph | Microsoft Docs"
+description: "Przykładowy kod programu .NET Framework/Core, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -17,13 +17,13 @@ ms.date: 10/06/2017
 ms.author: denlee
 ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie aplikacji .NET Framework lub Core za pomocą interfejsu API programu Graph
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: tworzenie aplikacji .NET Framework lub Core za pomocą interfejsu API programu Graph
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafowe. 
 
 Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych i grafu (kontenera) przy użyciu witryny Azure Portal. Następnie przy użyciu [interfejsu API programu Graph](graph-sdk-dotnet.md) (wersja zapoznawcza) zostanie utworzona i uruchomiona aplikacja konsolowa.  
 
@@ -31,7 +31,7 @@ Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Co
 
 Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
-Jeśli masz już Visual Studio 2017 r zainstalowane, upewnij się, że można zainstalować do [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+Jeśli masz już zainstalowany program Visual Studio 2017, upewnij się, że zainstalowano wersję [Visual Studio 2017 z aktualizacją Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Jeśli masz już Visual Studio 2017 r zainstalowane, upewnij się, że można za
 
 Teraz sklonujemy aplikację interfejsu API programu Graph z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-Ten przykładowy projekt używa formatu projektu platformy .NET Core i został skonfigurowany pod kątem następujące struktury:
+W tym przykładowym projekcie użyto formatu projektu .NET Core i jest on przeznaczony do pracy z następującymi strukturami:
  - netcoreapp2.0
  - net461
 
@@ -108,13 +108,13 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
 
-1. W programie Visual Studio 2017 r Otwórz plik appsettings.json. 
+1. W programie Visual Studio 2017 otwórz plik appsettings.json. 
 
 2. W witrynie Azure Portal, korzystając ze swojego konta usługi Azure Cosmos DB, kliknij pozycję **Klucze** na lewym panelu nawigacyjnym. 
 
     ![Wyświetlanie i kopiowanie klucza podstawowego w witrynie Azure Portal, na stronie Klucze](./media/create-graph-dotnet/keys.png)
 
-3. Kopiowanie z **identyfikatora URI** wartości z portalu i przydzielić mu wartość klucza punktu końcowego w appsettings.json. Aby skopiować wartość, możesz użyć przycisku kopiowania, jak pokazano na poprzednim zrzucie ekranu.
+3. Skopiuj wartość **Identyfikator URI** z portalu i przypisz ją do klucza punktu końcowego w pliku appsettings.json. Aby skopiować wartość, możesz użyć przycisku kopiowania, jak pokazano na poprzednim zrzucie ekranu.
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
@@ -126,13 +126,13 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
 
-Przed uruchomieniem aplikacji, zaleca się zaktualizowanie *Microsoft.Azure.Graphs* pakietu do najnowszej wersji.
+Przed uruchomieniem aplikacji zalecane jest uaktualnienie pakietu *Microsoft.Azure.Graphs* do najnowszej wersji.
 
 1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **GraphGetStarted** w **Eksploratorze rozwiązań**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
 
-2. Menedżer pakietów NuGet **aktualizacje** , wpisz *Microsoft.Azure.Graphs* i sprawdź **zawiera wersję wstępną** pole. 
+2. Na karcie **Aktualizacje** menedżera pakietów NuGet wpisz ciąg *Microsoft.Azure.Graphs* i zaznacz pole **Obejmuje wersje wstępne**. 
 
-3. Z wyników, należy zaktualizować **Microsoft.Azure.Graphs** biblioteki do najnowszej wersji pakietu. Spowoduje to zainstalowanie pakietu biblioteki rozszerzenia grafu usługi Azure Cosmos DB oraz wszystkich jego zależności.
+3. Na liście wyników zaktualizuj bibliotekę **Microsoft.Azure.Graphs** do najnowszej wersji pakietu. Spowoduje to zainstalowanie pakietu biblioteki rozszerzenia grafu usługi Azure Cosmos DB oraz wszystkich jego zależności.
 
     Jeśli zostanie wyświetlony komunikat dotyczący przejrzenia zmian wprowadzonych w rozwiązaniu, kliknij przycisk **OK**. Jeśli wyświetlany jest komunikat o akceptacji licencji, kliknij pozycję **Akceptuję**.
 

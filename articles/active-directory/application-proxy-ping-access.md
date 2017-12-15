@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Nagłówek uwierzytelniania dla logowania jednokrotnego z serwera Proxy aplikacji i PingAccess
 
@@ -73,6 +73,10 @@ Wykonaj następujące kroki, aby opublikować aplikację. Bardziej szczegółowe
 4. Wybierz **lokalnej aplikacji**.
 5. Wypełnij wymagane pola informacje o nowej aplikacji. Użyj poniższych wskazówek dla ustawienia:
    - **Wewnętrzny adres URL**: zwykle Podaj adres URL, który przyjmuje stronę logowania aplikacji podczas pracy w sieci firmowej. W tym scenariuszu łącznik musi traktować PingAccess proxy jako pierwsza strona aplikacji. Użyj tego formatu: `https://<host name of your PA server>:<port>`. Numer portu to 3000 domyślnie, ale można go skonfigurować w PingAccess.
+
+    > [!WARNING]
+    > Dla tego typu logowania jednokrotnego wewnętrzny adres URL musi używać protokołu https i nie można użyć protokołu http.
+
    - **Metoda wstępnego uwierzytelnienia**: Azure Active Directory
    - **Tłumaczenie adresów URL w nagłówkach**: nie
 
@@ -135,7 +139,7 @@ Wykonaj następujące kroki, aby opublikować aplikację. Bardziej szczegółowe
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcjonalne - GraphAPI aktualizacji do wysyłania niestandardowych pól
 
-Aby uzyskać listę tokeny zabezpieczające, które wysyła usługi Azure AD do uwierzytelniania, zobacz [odwołania do tokenu usługi Azure AD](./develop/active-directory-token-and-claims.md). Jeśli potrzebujesz niestandardowych oświadczenie, które wysyła innych tokenów, użyj GraphAPI, aby ustawić pole aplikacji *acceptMappedClaims* do **True**. Azure AD Graph Explorer umożliwia tylko ta konfiguracja. 
+Aby uzyskać listę tokeny zabezpieczające, które wysyła usługi Azure AD do uwierzytelniania, zobacz [odwołania do tokenu usługi Azure AD](./develop/active-directory-token-and-claims.md). Niestandardowe oświadczenie, które wysyła innych tokenów, należy użyć wykresu Eksploratora lub manifestu dla aplikacji w portalu Azure można ustawić pole aplikacji *acceptMappedClaims* do **True**.    
 
 W tym przykładzie użyto wykres Explorer:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+W tym przykładzie użyto [portalu Azure](https://portal.azure.com) do udpate *acceptedMappedClaims* pola:
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) jako administrator globalny.
+2. Wybierz **usługi Azure Active Directory** > **rejestracji aplikacji**.
+3. Wybierz aplikację > **manifestu**.
+4. Wybierz **Edytuj**, wyszukaj *acceptedMappedClaims* pól i zmień wartość na **true**.
+![Manifest aplikacji](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Wybierz pozycję **Zapisz**.
 
 >[!NOTE]
 >Aby użyć niestandardowej oświadczenia, musi mieć również zasady niestandardowe definiowane i przypisywane do aplikacji.  Ta zasada powinna zawierać wszystkie wymagane atrybuty niestandardowe.

@@ -1,20 +1,20 @@
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Utwórz konto magazynu przy użyciu portalu Azure
+## <a name="create-a-storage-account-using-the-azure-portal"></a>Tworzenie konta magazynu w witrynie Azure Portal
 
 Najpierw utwórz nowe konto magazynu ogólnego przeznaczenia na potrzeby tego przewodnika Szybki Start. 
 
-1. Przejdź do [portalu Azure](https://portal.azure.com) i zaloguj się za pomocą konta platformy Azure. 
-2. W menu Centrum wybierz **nowy** > **magazynu** > **konta magazynu — obiekt blob, plików, tabeli, kolejki**. 
-3. Wprowadź unikatową nazwę konta magazynu. Pamiętać te reguły nazewnictwa konta magazynu:
-    - Nazwa musi być w zakresie od 3 do 24 znaków długości.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure. 
+2. W menu Centrum wybierz kolejno pozycje **Nowy** > **Magazyn** > **Konto magazynu — obiekt blob, plik, tabela, kolejka**. 
+3. Wprowadź unikatową nazwę konta magazynu. Podczas określania nazwy konta magazynu należy pamiętać o następujących regułach:
+    - Nazwa musi mieć długość od 3 do 24 znaków.
     - Nazwa może zawierać tylko cyfry i małe litery.
 4. Upewnij się, że są ustawione następujące wartości domyślne: 
-    - **Model wdrażania** ustawiono **Menedżera zasobów**.
-    - **Konto rodzaju** ustawiono **ogólnego przeznaczenia**.
-    - **Wydajność** ustawiono **standardowe**.
-    - **Replikacja** ustawiono **magazyn lokalnie nadmiarowy (LRS)**.
+    - Właściwość **Model wdrażania** jest ustawiona na wartość **Usługa Resource Manager**.
+    - Właściwość **Rodzaj konta** jest ustawiona na wartość **Zastosowania ogólne**.
+    - Właściwość **Wydajność** jest ustawiona na wartość **Standardowa**.
+    - Właściwość **Replikacja** jest ustawiona na wartość **Magazyn lokalnie nadmiarowy (LRS)**.
 5. Wybierz subskrypcję. 
-6. Aby uzyskać **grupy zasobów**, Utwórz nową i nadaj unikatową nazwę. 
-7. Wybierz **lokalizacji** dla konta magazynu.
-8. Sprawdź **Przypnij do pulpitu nawigacyjnego** i kliknij przycisk **Utwórz** można utworzyć konta magazynu. 
+6. Dla elementu **Grupa zasobów** utwórz nową grupę zasobów i nadaj jej unikatową nazwę. 
+7. Wybierz **Lokalizację**, która ma być używana dla tego konta magazynu.
+8. Zaznacz pozycję **Przypnij do pulpitu nawigacyjnego** i kliknij przycisk **Utwórz**, aby utworzyć konto magazynu. 
 
-Po utworzeniu konta magazynu jest przypięta do pulpitu nawigacyjnego. Kliknij go, aby go otworzyć. W obszarze **ustawienia**, kliknij przycisk **klucze dostępu**. Wybierz klucz podstawowy i skopiuj skojarzony **ciąg połączenia** do Schowka, następnie wklej go w edytorze tekstu do późniejszego użycia.
+Po utworzeniu konto magazynu zostaje przypięte do pulpitu nawigacyjnego. Kliknij je, aby je otworzyć. W obszarze **Ustawienia** kliknij pozycję **Klucze dostępu**. Wybierz klucz podstawowy i skopiuj skojarzone **parametry połączenia** do schowka, a następnie wklej je w edytorze tekstu do późniejszego użytku.

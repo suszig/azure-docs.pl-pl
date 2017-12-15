@@ -18,13 +18,13 @@ ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
 ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
-Środowisko Azure Functions umożliwia wykonywanie kodu w [niekorzystającą](https://azure.microsoft.com/overview/serverless-computing/) środowiska bez konieczności najpierw utworzyć Maszynę wirtualną lub opublikować aplikację sieci web. W tym temacie opisano tworzenie funkcji „hello world” w witrynie Azure Portal przy użyciu usługi Functions.
+Usługa Azure Functions umożliwia wykonywanie kodu w środowisku [bezserwerowym](https://azure.microsoft.com/overview/serverless-computing/) bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji internetowej. W tym temacie opisano tworzenie funkcji „hello world” w witrynie Azure Portal przy użyciu usługi Functions.
 
 ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
