@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej OMS dla systemu Windows
 
@@ -80,7 +80,7 @@ Następujące JSON zawiera schemat rozszerzenia Agent pakietu OMS. Rozszerzenie 
 
 Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu szablonów usługi Azure Resource Manager. Schematu JSON szczegółowo opisane w poprzedniej sekcji można w szablonie usługi Azure Resource Manager rozszerzenia Agent pakietu OMS są uruchamiane podczas wdrażania szablonu usługi Azure Resource Manager. Przykładowy szablon, który uwzględnia również rozszerzenie maszyny Wirtualnej agenta pakietu OMS można znaleźć w [Azure Szybki Start galerii](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-JSON dla rozszerzenia maszyny wirtualnej mogą być zagnieżdżone wewnątrz zasobu maszyny wirtualnej lub umieszczony w katalogu głównego lub najwyższego poziomu szablonu usługi Resource Manager JSON. Umieszczanie JSON ma wpływ na wartość nazwy zasobów i typu. Aby uzyskać więcej informacji, zobacz [Ustaw nazwę i typ zasoby podrzędne](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+JSON dla rozszerzenia maszyny wirtualnej mogą być zagnieżdżone wewnątrz zasobu maszyny wirtualnej lub umieszczony w katalogu głównego lub najwyższego poziomu szablonu usługi Resource Manager JSON. Umieszczanie JSON ma wpływ na wartość nazwy zasobów i typu. Aby uzyskać więcej informacji, zobacz [Ustaw nazwę i typ zasoby podrzędne](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
 Poniższy przykład przyjęto założenie, że rozszerzenie OMS jest zagnieżdżona zasobu maszyny wirtualnej. Podczas zagnieżdżania rozszerzenia zasobu, JSON jest umieszczany w `"resources": []` obiektu maszyny wirtualnej.
 

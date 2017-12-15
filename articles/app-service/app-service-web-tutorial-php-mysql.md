@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web PHP i MySQL na platformie Azure
+
+> [!NOTE]
+> W tym artykule wdraża aplikację usługi aplikacji w systemie Windows. Aby wdrożyć w usłudze App Service na _Linux_, zobacz [tworzenie aplikacji sieci web PHP i MySQL w usłudze Azure App Service w systemie Linux](./containers/tutorial-php-mysql-app.md).
+>
 
 Usługa [Azure Web Apps](app-service-web-overview.md) oferuje wysoce skalowalną i samonaprawialną usługę hostowaną w Internecie. W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web PHP na platformie Azure i podłącz go do bazy danych MySQL. Po zakończeniu będziesz mieć [Laravel](https://laravel.com/) aplikacji uruchomionej na aplikacje sieci Web usługi aplikacji Azure.
 
@@ -158,7 +162,7 @@ W tym kroku utworzysz bazę danych MySQL w [bazy danych Azure dla programu MySQL
 
 ### <a name="create-a-mysql-server"></a>Utwórz serwer MySQL
 
-W powłoce chmury Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) przy użyciu [utworzenie przez serwer mysql az](/cli/azure/mysql/server#create) polecenia.
+W powłoce chmury Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) przy użyciu [utworzenie przez serwer mysql az](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) polecenia.
 
 W poniższym poleceniu zastąp nazwę serwera MySQL, w której występuje  _&lt;mysql_server_name >_ symbolu zastępczego (prawidłowe znaki to `a-z`, `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.database.windows.net`), musi on być globalnie unikatowe.
 
@@ -188,7 +192,7 @@ Po utworzeniu serwer MySQL, interfejsu wiersza polecenia Azure zawiera informacj
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
-W powłoce chmury Tworzenie reguły zapory dla serwera MySQL zezwolić na połączenia klientów przy użyciu [az mysql reguły zapory serwera — Utwórz](/cli/azure/mysql/server/firewall-rule#create) polecenia.
+W powłoce chmury Tworzenie reguły zapory dla serwera MySQL zezwolić na połączenia klientów przy użyciu [az mysql reguły zapory serwera — Utwórz](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) polecenia.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -341,7 +345,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 Jak wskazano wcześniej, można połączyć się do bazy danych MySQL na platformie Azure przy użyciu zmiennych środowiskowych w usłudze App Service.
 
-W powłoce chmury, ustaw zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia.
+W powłoce chmury, ustaw zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenia.
 
 Następujące polecenie konfiguruje ustawienia aplikacji `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, i `DB_PASSWORD`. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;mysql_server_name >_.
 
@@ -372,7 +376,7 @@ W lokalnej okno terminalu, użyj `php artisan` aby wygenerować nowy klucz aplik
 php artisan key:generate --show
 ```
 
-W powłoce chmury, Ustaw klucz aplikacji w usłudze App Service aplikacji sieci web przy użyciu [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#set) polecenia. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;outputofphpartisankey: generowanie >_.
+W powłoce chmury, Ustaw klucz aplikacji w usłudze App Service aplikacji sieci web przy użyciu [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenia. Zastąp symbole zastępcze  _&lt;nazwa_aplikacji >_ i  _&lt;outputofphpartisankey: generowanie >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -447,7 +451,7 @@ W tym kroku zostaną wprowadzone zmiany proste do `task` modelu danych i aplikac
 
 W scenariuszu zadań modyfikowania aplikacji tak, aby oznaczyć zadanie jako ukończone.
 
-### <a name="add-a-column"></a>Dodaj kolumnę
+### <a name="add-a-column"></a>Dodawanie kolumny
 
 W lokalnej okno terminalu przejdź do katalogu głównego repozytorium Git.
 
@@ -587,7 +591,7 @@ Jeśli dodano żadnych zadań one zostaną zachowane w bazie danych. Aktualizacj
 
 Podczas wykonywania aplikacji PHP w usłudze Azure App Service można uzyskać dzienniki konsoli w potoku do terminalu. W ten sposób można uzyskać tego samego komunikaty diagnostyczne w celu ułatwienia debugowania błędów aplikacji.
 
-Aby rozpocząć przesyłanie strumieniowe dziennika, użyj [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/webapp/log#tail) polecenie w powłoce chmury.
+Aby rozpocząć przesyłanie strumieniowe dziennika, użyj [końcowego fragmentu dziennika aplikacji sieci Web az](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) polecenie w powłoce chmury.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

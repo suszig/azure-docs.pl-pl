@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Przenoszenie danych do i z bazy danych rozwiązania Cosmos Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ Azure DB rozwiązania Cosmos jest magazynem NoSQL dla dokumentów JSON, których
 2. **Pytanie:** jak ponowienie kopię bazy danych Azure rozwiązania Cosmos przeciwdziałania już skopiowane rekordy?
 
     **Odpowiedź:** rekordów zawiera pola "ID", próbuje operacji kopiowania do wstawienia rekordu o tym samym identyfikatorze operacji kopiowania zgłasza błąd.  
-3. **Pytanie:** fabryki danych obsługuje [zakres lub partycjonowanie danych opartych na skrót](../../cosmos-db/documentdb-partition-data.md)?
+3. **Pytanie:** fabryki danych obsługuje [zakres lub partycjonowanie danych opartych na skrót](../../cosmos-db/sql-api-partition-data.md)?
 
     **Odpowiedź:** nie.
 4. **Pytanie:** można określić więcej niż jednej bazy danych Azure rozwiązania Cosmos kolekcji dla tabeli?

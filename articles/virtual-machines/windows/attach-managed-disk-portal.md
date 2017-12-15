@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Jak można dołączyć dysku danych zarządzanych do maszyny Wirtualnej systemu Windows, w portalu Azure
 
@@ -35,26 +35,26 @@ Możesz również [dołączenie dysku danych przy użyciu programu Powershell](a
 ## <a name="add-a-data-disk"></a>Dodaj dysk danych
 1. W menu po lewej stronie kliknij **maszyn wirtualnych**.
 2. Wybierz maszynę wirtualną z listy.
-3. W bloku maszyny wirtualnej, kliknij polecenie **dysków**.
-   4. Na **dysków** bloku, kliknij przycisk **+ Dodaj dysk danych**.
-5. Z listy rozwijanej dla nowego dysku, wybierz **utworzyć pusty**.
-6. W **dysków zarządzanych w Utwórz** bloku, wpisz nazwę dla dysku i Dostosuj pozostałe ustawienia odpowiednio do potrzeb. Gdy wszystko będzie gotowe, kliknij przycisk **Utwórz**.
-7. W **dysków** bloku, kliknij przycisk Zapisz, aby zapisać nową konfigurację dysku dla maszyny Wirtualnej.
+3. Na stronie maszyny wirtualnej, kliknij przycisk **dysków**.
+4. Na **dysków** kliknij przycisk **+ Dodaj dysk danych**.
+5. Z listy rozwijanej dla nowego dysku, wybierz **Tworzenie dysku**.
+6. W **dysków zarządzanych w Utwórz** strony, wpisz nazwę dla dysku i odpowiednio inne ustawienia w razie potrzeby. Gdy wszystko będzie gotowe, kliknij przycisk **Utwórz**.
+7. W **dysków** kliknij przycisk **zapisać** Aby zapisać nową konfigurację dysku dla maszyny Wirtualnej.
 6. Po Azure utworzy dysk i dołącza go do maszyny wirtualnej, nowy dysk ma na liście ustawień dysku maszyny wirtualnej w obszarze **dysków z danymi**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Zainicjuj nowy dysk danych
 
 1. Połączenie z maszyną Wirtualną.
-1. Kliknij menu start wewnątrz maszyny Wirtualnej i typ **diskmgmt.msc** i trafień **Enter**. Spowoduje to uruchomienie przystawki Zarządzanie dyskami.
-2. Zarządzanie dyskami rozpozna, że znajduje się dysk nowy, które nie zostały zainicjowane i będzie wyskakujące okno Inicjowanie dysku.
+1. Kliknij menu start wewnątrz maszyny Wirtualnej i typ **diskmgmt.msc** i trafień **Enter**. Zostanie otwarta przystawka Zarządzanie dyskami.
+2. Zarządzanie dyskami rozpoznaje, że znajduje się dysk nowy, które nie zostały zainicjowane i **Inicjowanie dysku** wyświetlone okno podręczne.
 3. Upewnij się, że wybrano nowy dysk i kliknij przycisk **OK** można go zainicjować.
-4. Nowy dysk będą teraz wyświetlane jako **nieprzydzielonego**. Kliknij prawym przyciskiem myszy w dowolnym miejscu na dysku i wybierz **nowy wolumin prosty**. **Kreatorze nowych woluminów prostych** zostanie uruchomiona.
+4. Nowy dysk zostanie wyświetlony jako **nieprzydzielonego**. Kliknij prawym przyciskiem myszy w dowolnym miejscu na dysku i wybierz **nowy wolumin prosty**. **Kreatorze nowych woluminów prostych** otwiera.
 5. Przejdź przez kreatora, przechowywanie ustawień domyślnych, po zakończeniu wybierz **Zakończ**.
 6. Zamknij program Zarządzanie dyskami.
-7. Zostanie wyświetlone okno podręczne, które należy sformatować nowy dysk przed jego użyciem. Kliknij przycisk **Format dysku**.
+7. Możesz uzyskać okno podręczne, które należy sformatować nowy dysk przed jego użyciem. Kliknij przycisk **Format dysku**.
 8. W **Format nowy dysk** okna dialogowego, sprawdź ustawienia, a następnie kliknij przycisk **Start**.
-9. Zostanie wyświetlone ostrzeżenie, że formatowanie dysków spowoduje wymazanie wszystkich danych, kliknij przycisk **OK**.
+9. Zostanie wyświetlone ostrzeżenie, że formatowanie dysków na partycje powoduje usunięcie wszystkich danych, kliknij przycisk **OK**.
 10. Po zakończeniu format kliknij **OK**.
 
 ## <a name="use-trim-with-standard-storage"></a>PRZYCINANIE za pomocą magazynu w warstwie standardowa
@@ -81,4 +81,4 @@ defrag.exe <volume:> -l
 Ponadto upewnij się, że cały wolumin jest ograniczona przez formatowania woluminu.
 
 ## <a name="next-steps"></a>Następne kroki
-Jeśli użytkownik aplikacji musi używać D: dysków do przechowywania danych, możesz [zmienić literę dysku tymczasowym systemu Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Jeśli aplikacja musi używać D: dysków do przechowywania danych, możesz [zmienić literę dysku tymczasowym systemu Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

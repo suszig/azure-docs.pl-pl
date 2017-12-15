@@ -5,7 +5,7 @@ keywords: "SSH połączenia zostało odrzucone, ssh błędu, platforma azure ssh
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/06/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH szczegółowe kroki rozwiązywania problemów dotyczących problemów, połączenie z maszyną wirtualną systemu Linux na platformie Azure
 Istnieje wiele przyczyn, które klient SSH mogą nie być możliwe nawiązanie łączności usługi SSH na maszynie Wirtualnej. Jeśli wykonano za pomocą bardziej [SSH ogólne kroki rozwiązywania problemów](troubleshoot-ssh-connection.md), należy rozwiązać problem z połączeniem. W tym artykule przedstawiono szczegółowe kroki rozwiązywania problemów, aby określić, gdzie kończy się niepowodzeniem połączenia SSH i sposobu rozwiązania go.
@@ -39,14 +39,14 @@ Poniższe etapy ułatwiają wyizolować źródło problemu i ustalić rozwiązan
 
 2. Wybierz **ustawienia** zbadanie punktów końcowych, adresy IP, grup zabezpieczeń sieci i innych ustawień.
 
-   Maszyna wirtualna ma punkt końcowy zdefiniowany dla ruchu protokołu SSH, który można wyświetlić w **punkty końcowe** lub  **[sieciowej grupy zabezpieczeń](../../virtual-network/virtual-networks-nsg.md)**. Punkty końcowe na maszynach wirtualnych, które zostały utworzone za pomocą Menedżera zasobów są przechowywane w grupie zabezpieczeń sieci. Sprawdź także, że zasady zostały zastosowane do grupy zabezpieczeń sieci i czy jest przywoływany w podsieci.
+   Maszyna wirtualna ma punkt końcowy zdefiniowany dla ruchu protokołu SSH, który można wyświetlić w **punkty końcowe** lub  **[sieciowej grupy zabezpieczeń](../../virtual-network/virtual-networks-nsg.md)**. Punkty końcowe na maszynach wirtualnych, które zostały utworzone za pomocą Menedżera zasobów są przechowywane w grupie zabezpieczeń sieci. Sprawdź, czy zasady zostały zastosowane do grupy zabezpieczeń sieci i odwołuje się w podsieci.
 
-Aby sprawdzić łączność sieciową, sprawdź skonfigurowane punkty końcowe i zobacz, jeżeli można osiągnąć maszyny Wirtualnej za pomocą innego protokołu, na przykład HTTP lub innej usługi.
+Aby sprawdzić łączność sieciową, sprawdź skonfigurowane punkty końcowe i zobacz, jeśli można połączyć się z maszyną Wirtualną za pomocą innego protokołu, na przykład HTTP lub innej usługi.
 
 Po wykonaniu tych kroków ponów próbę połączenia SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Znajdowanie źródła problemu
-Na komputerze klienta SSH może zakończyć się niepowodzeniem do dotarcia do usługi SSH na maszynie Wirtualnej Azure z powodu problemów lub błędy konfiguracji w następujących obszarach:
+Na komputerze klienta SSH może się nie powieść się połączyć z usługą SSH na maszynie Wirtualnej Azure z powodu problemów lub błędy konfiguracji w następujących obszarach:
 
 * [Komputer kliencki SSH](#source-1-ssh-client-computer)
 * [Urządzenie brzegowe organizacji](#source-2-organization-edge-device)
@@ -76,11 +76,11 @@ Jeśli korzystasz z uwierzytelniania certyfikatów, sprawdź ma te uprawnienia d
 * Chmod 644 ~/.ssh/known_hosts (zawiera hosty, które zostały połączone za pośrednictwem protokołu SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Źródło 2: Urządzenie brzegowe organizacji
-Aby wyeliminować urządzenie brzegowe organizacji jako źródło problemu, sprawdź, czy komputera, który jest bezpośrednio połączony z Internetem mogą nawiązywać połączenia SSH do maszyny Wirtualnej Azure. Jeśli uzyskują dostęp do maszyny Wirtualnej za pośrednictwem sieci VPN lokacja lokacja lub połączenia Azure ExpressRoute, przejdź do [źródła 4: sieciowej grupy zabezpieczeń](#nsg).
+Aby wyeliminować urządzenie brzegowe organizacji jako źródło problemu, sprawdź, czy komputer bezpośrednio połączony z Internetem mogą nawiązywać połączenia SSH do maszyny Wirtualnej Azure. Jeśli uzyskują dostęp do maszyny Wirtualnej za pośrednictwem sieci VPN lokacja lokacja lub połączenia Azure ExpressRoute, przejdź do [źródła 4: sieciowej grupy zabezpieczeń](#nsg).
 
 ![Diagram, który prezentuje urządzenie brzegowe organizacji](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Jeśli nie masz komputera, który jest bezpośrednio połączony z Internetem, Utwórz nową maszynę Wirtualną platformy Azure w jego własnej grupy zasobów lub usługi w chmurze i używać go. Aby uzyskać więcej informacji, zobacz [Utwórz maszynę wirtualną z systemem Linux na platformie Azure](quick-create-cli.md). Po zakończeniu testowania Usuń grupę zasobów lub usługi maszyny Wirtualnej i w chmurze.
+Jeśli nie masz komputera, który jest bezpośrednio połączony z Internetem, tworzenie nowej maszyny Wirtualnej Azure własne grupy zasobów lub usługi w chmurze i użyć tej nowej maszyny Wirtualnej. Aby uzyskać więcej informacji, zobacz [Utwórz maszynę wirtualną z systemem Linux na platformie Azure](quick-create-cli.md). Po zakończeniu testowania Usuń grupę zasobów lub usługi maszyny Wirtualnej i w chmurze.
 
 Jeśli tworzysz połączenie SSH z komputerem, który jest bezpośrednio połączony z Internetem, sprawdź urządzenie brzegowe organizacji dla:
 
@@ -94,7 +94,7 @@ Skontaktować się z administratorem sieci, aby poprawić ustawienia urządzenia
 > [!NOTE]
 > To źródło dotyczą tylko maszyn wirtualnych, które zostały utworzone przy użyciu klasycznego modelu wdrażania. Dla maszyn wirtualnych, które zostały utworzone przy użyciu usługi Resource Manager, przejdź do [źródła 4: sieciowej grupy zabezpieczeń](#nsg).
 
-Aby usunąć punkt końcowy usługi w chmurze i listy ACL jako źródło błędu, sprawdź, czy innej maszyny Wirtualnej platformy Azure w tej samej sieci wirtualnej mogą nawiązywać połączenia SSH do maszyny Wirtualnej.
+Aby usunąć punkt końcowy usługi w chmurze i listy ACL jako źródło błędu, należy sprawdzić, czy innej maszyny Wirtualnej platformy Azure w tej samej sieci wirtualnej można połączyć przy użyciu protokołu SSH.
 
 ![Diagram, który prezentuje punktu końcowego usługi w chmurze i listy kontroli dostępu](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 

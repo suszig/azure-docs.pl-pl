@@ -1,6 +1,6 @@
 ---
-title: "Szybki Start: Cassandra interfejsu API za pomocą języka Python — rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
-description: "Tego przewodnika Szybki Start przedstawia sposób użycia interfejsu API Cassandra Apache DB rozwiązania Cosmos Azure do utworzenia aplikacji profilu języka Python"
+title: "Szybki start: interfejs API bazy danych Cassandra z językiem Python — Azure Cosmos DB | Microsoft Docs"
+description: "W tym przewodniku Szybki start przedstawiono używanie interfejsu API bazy danych Apache Cassandra w usłudze Azure Cosmos DB do tworzenia aplikacji profilów przy użyciu języka Python do tworzenia aplikacji profilów przy użyciu języka Python"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -17,38 +17,38 @@ ms.date: 11/15/2017
 ms.author: govindk
 ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
 ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/17/2017
 ---
-# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra Python i Azure rozwiązania Cosmos bazy danych
+# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API bazy danych Cassandra przy użyciu języka Python i usługi Azure Cosmos DB
 
-Ta opcja szybkiego startu przedstawia sposób użycia języka Python i usłudze Azure DB rozwiązania Cosmos [Cassandra API](cassandra-introduction.md) do tworzenia aplikacji profil w klonowania przykład z usługi GitHub. Ta opcja szybkiego startu również przeprowadzi Cię przez tworzenie konta bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure opartej na sieci web.
+W tym przewodniku Szybki start przedstawiono używanie języka Python i [interfejsu API bazy danych Cassandra](cassandra-introduction.md) w usłudze Azure Cosmos DB do tworzenia aplikacji profilów przez sklonowanie przykładu z usługi GitHub. Ten przewodnik Szybki start przeprowadzi Cię również przez tworzenie konta usługi Azure Cosmos DB przy użyciu internetowej witryny Azure Portal.
 
-Azure DB rozwiązania Cosmos jest usługa globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Można szybko tworzyć i kwerend dokumentu, tabeli, klucz wartość i baz danych wykresu, które korzystają z globalnego dystrybucji i skalowanie w poziomie możliwości fundament bazy danych Azure rozwiązania Cosmos.   
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu globalnego rozproszenia i możliwości skalowania w poziomie w usłudze Azure Cosmos DB można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, tabel, par klucz/wartość i grafowe.   
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Można też [bezpłatnie spróbuj Azure DB rozwiązania Cosmos](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure, bez opłat ani zobowiązań.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Można też [bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure — nie wymaga to opłat ani zobowiązań.
 
-Dostęp do interfejsu API Azure rozwiązania Cosmos DB Cassandra program w wersji zapoznawczej. Jeśli nie zostały zastosowane do dostępu jeszcze [Zamów teraz](cassandra-introduction.md#sign-up-now).
+Uzyskaj dostęp do programu wersji zapoznawczej interfejsu API bazy danych Cassandra w usłudze Azure Cosmos DB. Jeśli jeszcze nie został wysłany wniosek o dostęp, [zarejestruj się teraz](cassandra-introduction.md#sign-up-now).
 
 Ponadto:
-* [Python](https://www.python.org/downloads/) v2.7.14 wersji
+* Język [Python](https://www.python.org/downloads/) w wersji 2.7.14
 * [Git](http://git-scm.com/)
-* [Sterownik Python Apache Cassandra](https://github.com/datastax/python-driver)
+* [Sterownik języka Python dla bazy danych Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
-Przed utworzeniem bazy danych dokumentów, musisz utworzyć konto Cassandra z bazy danych Azure rozwiązania Cosmos.
+Przed utworzeniem bazy danych dokumentów musisz utworzyć konto bazy danych Cassandra z użyciem usługi Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
-Teraz załóżmy aplikacji w klonowania Cassandra API z serwisu github, Ustaw ciąg połączenia i uruchom go. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz sklonujemy aplikację interfejsu API bazy danych Cassandra z usługi GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej. 
+1. Otwórz okno terminala usługi Git, na przykład git bash, i użyj polecenia `cd`, aby przejść do folderu instalacji aplikacji przykładowej. 
 
     ```bash
     cd "C:\git-samples"
@@ -62,9 +62,9 @@ Teraz załóżmy aplikacji w klonowania Cassandra API z serwisu github, Ustaw ci
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, można przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z `pyquickstart.py` pliku. W przeciwnym razie możesz przejść od razu do [zaktualizować parametry połączenia](#update-your-connection-string). 
+Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. Fragmenty kodu są pobierane z pliku `pyquickstart.py`. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizowanie parametrów połączenia](#update-your-connection-string). 
 
-* Nazwa użytkownika i hasła jest ustawiona, za pomocą strony ciągu połączenia w portalu Azure. Zastąp path\to\cert ze ścieżką do X509 Twojego certyfikatu.
+* Nazwę użytkownika i hasło można ustawić przy użyciu strony parametrów połączenia w witrynie Azure Portal. Zastąp fragment path\to\cert ścieżką do swojego certyfikatu X509.
 
    ```python
     ssl_opts = {
@@ -77,31 +77,31 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
    
    ```
 
-* `cluster` Jest inicjowany z contactPoint informacji. ContactPoint są pobierane z portalu Azure.
+* Element `cluster` jest inicjowany przy użyciu informacji contactPoint. Dane contactPoint są pobierane z witryny Azure Portal.
 
     ```python
    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider)
     ```
 
-* `cluster` Łączy do interfejsu API Azure rozwiązania Cosmos DB Cassandra.
+* Element `cluster` łączy się z interfejsem API bazy danych Cassandra w usłudze Azure Cosmos DB.
 
     ```python
     session = cluster.connect()
     ```
 
-* Tworzony jest nowy przestrzeni kluczy.
+* Tworzona jest nowa przestrzeń kluczy.
 
     ```python
    session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
     ```
 
-* Nowa tabela została utworzona.
+* Tworzona jest nowa tabela.
 
    ```
    session.execute('CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)');
    ```
 
-* Dodaje się klucza i wartości jednostki.
+* Wstawiane są jednostki klucz-wartość.
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
@@ -114,13 +114,13 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
     session.execute(batch)
     ```
 
-* Zapytanie, aby uzyskać Pobierz wszystkie wartości klucza.
+* Zapytanie o pobranie wszystkich wartości kluczy.
 
     ```Python
     rows = session.execute('SELECT * FROM uprofile.user')
     ```  
     
-* Zapytanie, aby uzyskać klucz wartość.
+* Zapytanie o pobranie pary klucz-wartość.
 
     ```Python
     
@@ -129,47 +129,47 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Dzięki temu aplikacja do komunikacji z bazą danych hostowanej.
+Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych.
 
-1. W [portalu Azure](http://portal.azure.com/), kliknij przycisk **ciąg połączenia**. 
+1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Parametry połączenia**. 
 
-    Użyj ![Przycisk Kopiuj](./media/create-cassandra-python/copy.png) przycisk po prawej stronie ekranu, aby skopiować wartość górnego punktu kontaktu.
+    Użyj przycisku ![Kopiuj](./media/create-cassandra-python/copy.png) po prawej stronie ekranu, aby skopiować górną wartość, PUNKT KONTAKTOWY.
 
-    ![Wyświetlanie i kopiowanie użytkownika nazwę, hasło i skontaktuj się z punktem dostępu w bloku Azure ciąg połączenia portalu,](./media/create-cassandra-python/keys.png)
+    ![Wyświetlanie i kopiowanie nazwy użytkownika, hasła i punktu kontaktowego w witrynie Azure Portal, blok parametrów połączenia](./media/create-cassandra-python/keys.png)
 
 2. Otwórz plik `config.py`. 
 
-3. Wklej wartość punktu kontaktu z portalu za pośrednictwem `<FILLME>` w wierszu 10.
+3. Wklej wartość PUNKT KONTAKTOWY z portalu do lokalizacji `<FILLME>` w wierszu 10.
 
-    Teraz powinien wyglądać podobnie do wiersza 10 
+    Wiersz 10 powinien teraz wyglądać podobnie do: 
 
     `'contactPoint': 'cosmos-db-quickstarts.documents.azure.com:10350'`
 
-4. Skopiuj wartości nazwy użytkownika z portalu i wklej go za pośrednictwem `<FILLME>` w wierszu 6.
+4. Skopiuj wartość NAZWA UŻYTKOWNIKA z portalu do lokalizacji `<FILLME>` w wierszu 6.
 
-    Wiersz 6 powinna wyglądać podobnie do 
+    Wiersz 6 powinien teraz wyglądać podobnie do: 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Skopiuj wartość HASŁA z portalu i wklej go za pośrednictwem `<FILLME>` w wierszu 8.
+5. Skopiuj wartość HASŁO z portalu do lokalizacji `<FILLME>` w wierszu 8.
 
-    Wiersz 8 powinna wyglądać podobnie do
+    Wiersz 8 powinien teraz wyglądać podobnie do:
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
 6. Zapisz plik config.py.
     
-## <a name="use-the-x509-certificate"></a>Użyj X509 certyfikatu
+## <a name="use-the-x509-certificate"></a>Używanie certyfikatu X509
 
-1. Jeśli konieczne jest dodanie Baltimore CyberTrust Root, ma numer seryjny 02:00:00:b9 i c d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2 odcisk palca SHA1: 78:db:28:52:ca:e4:74. Można go pobrać z https://cacert.omniroot.com/bc2025.crt zapisywane w lokalnym pliku z rozszerzeniem cer
+1. Jeśli musisz dodać certyfikat Baltimore CyberTrust Root, jego numer to 02:00:00:b9, a odcisk palca SH1 to d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Można go pobrać ze strony https://cacert.omniroot.com/bc2025.crt i zapisać w pliku lokalnym z rozszerzeniem .cer
 
-2. Otwórz pyquickstart.py i zmień "path\to\cert" aby wskazywały nowy certyfikat.
+2. Otwórz plik pyquickstart.py i zmień element „path\to\cert” tak, aby wskazywał nowy certyfikat.
 
-3. Zapisz pyquickstart.py.
+3. Zapisz plik pyquickstart.py.
 
 ## <a name="run-the-app"></a>Uruchomienie aplikacji
 
-1. Należy użyć polecenia cd w terminalu git, aby zmienić do folderu azure-cosmos-db-cassandra-python-getting-started. 
+1. Użyj polecenia cd w terminalu git, aby zmienić folder na azure-cosmos-db-cassandra-python-getting-started. 
 
 2. Uruchom następujące polecenia, aby zainstalować wymagane moduły:
 
@@ -180,19 +180,19 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     python -m pip install pyopenssl
     ```
 
-2. Uruchom następujące polecenie, aby uruchomić aplikację węzła:
+2. Uruchom poniższe polecenie, aby uruchomić aplikację węzła:
 
     ```
     python pyquickstart.py
     ```
 
-3. Sprawdź wyniki, zgodnie z oczekiwaniami w wierszu polecenia.
+3. W wierszu polecenia sprawdź, czy wyniki są zgodne z oczekiwaniami.
 
-    Naciśnij klawisze CTRL + C, aby zatrzymać exection program i zamknąć okno konsoli. 
+    Naciśnij klawisze CTRL+C, aby zatrzymać działanie programu i zamknąć okno konsoli. 
 
-    ![Wyświetlanie i sprawdź dane wyjściowe](./media/create-cassandra-python/output.png)
+    ![Wyświetlanie i weryfikowanie danych wyjściowych](./media/create-cassandra-python/output.png)
     
-    Teraz możesz otworzyć Eksploratora danych w portalu Azure, aby wyświetlić zapytania, modyfikować i pracy z tym nowych danych. 
+    Teraz możesz otworzyć Eksploratora danych w witrynie Azure Portal, aby wyświetlać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
     ![Wyświetlanie danych w Eksploratorze danych](./media/create-cassandra-python/data-explorer.png)
 
@@ -209,5 +209,5 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kolekcji za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importowanie danych Cassandra do bazy danych Azure rozwiązania Cosmos](cassandra-import-data.md)
+> [Importowanie danych bazy danych Cassandra do usługi Azure Cosmos DB](cassandra-import-data.md)
 

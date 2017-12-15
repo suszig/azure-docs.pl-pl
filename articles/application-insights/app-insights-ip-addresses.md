@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79ead157dc7509f035c491f9a4c4290eb4d70334
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresy IP używane przez usługę Application Insights i analizy dzienników
 [Azure Application Insights](app-insights-overview.md) usługa używa liczba adresów IP. Może być konieczne, jeśli aplikacja, która monitorowanych znajduje się za zaporą informacje tych adresów.
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="outgoing-ports"></a>Porty wychodzące
 Należy otworzyć niektóre wychodzących porty zapory serwera umożliwia zestaw SDK usługi Application Insights lub Monitor stanu wysyłania danych do portalu:
 
-| Przeznaczenie | ADRES URL | Adres IP | Porty |
+| Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Telemetria |DC.Services.VisualStudio.com<br/>DC.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Metryki strumień na żywo |RT.Services.VisualStudio.com<br/>RT.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
@@ -39,7 +39,7 @@ Należy otworzyć niektóre wychodzących porty zapory serwera umożliwia zestaw
 ## <a name="status-monitor"></a>Monitor stanu
 Stan monitora konfiguracji — potrzebne tylko podczas wprowadzania zmian.
 
-| Przeznaczenie | ADRES URL | Adres IP | Porty |
+| Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Konfiguracja |`management.core.windows.net` | |`443` |
 | Konfiguracja |`management.azure.com` | |`443` |
@@ -51,7 +51,7 @@ Stan monitora konfiguracji — potrzebne tylko podczas wprowadzania zmian.
 | Instalacja |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
-| Przeznaczenie | ADRES URL | Adres IP | Porty |
+| Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Dane dotyczące awarii |GATE.hockeyapp.NET |104.45.136.42 |80, 443 |
 
@@ -76,6 +76,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -83,6 +87,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153
@@ -205,21 +213,21 @@ US : VA-Ashburn
 ```  
 
 ## <a name="application-insights-api"></a>Usługa Application Insights interfejsu API
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Interfejs API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.IO<br/>api3.applicationinsights.IO<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
 | Dokumentacja interfejsu API |dev.applicationinsights.IO<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.VisualStudio.com<br/>www.applicationinsights.IO<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.VisualStudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Wewnętrzny interfejsu API |aigs.aisvc.VisualStudio.com<br/>aigs1.aisvc.VisualStudio.com<br/>aigs2.aisvc.VisualStudio.com<br/>aigs3.aisvc.VisualStudio.com<br/>aigs4.aisvc.VisualStudio.com<br/>aigs5.aisvc.VisualStudio.com<br/>aigs6.aisvc.VisualStudio.com |dynamiczne|443 |
 
 ## <a name="log-analytics-api"></a>Interfejs API dziennika analityka
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Interfejs API |API.loganalytics.IO<br/>*. api.loganalytics.io |dynamiczne |80,443 |
 | Dokumentacja interfejsu API |dev.loganalytics.IO<br/>docs.loganalytics.IO<br/>www.loganalytics.IO |dynamiczne |80,443 |
 
 ## <a name="application-insights-analytics"></a>Application Insights analityka
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Portal analityka | Analytics.applicationinsights.IO | dynamiczne | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamiczne | 80,443 |
@@ -229,7 +237,7 @@ Uwaga: *. applicationinsights.io domeny należy do zespołu usługi Application 
 
 ## <a name="log-analytics-portal"></a>Portal analityka dziennika
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Portal | Portal.loganalytics.IO | dynamiczne | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamiczne | 80,443 |
@@ -238,21 +246,21 @@ Uwaga: *. loganalytics.io domeny należy do zespołu analizy dzienników.
 
 ## <a name="application-insights-azure-portal-extension"></a>Usługa Application Insights rozszerzenie portalu Azure
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Rozszerzenie usługi Application Insights | stamp2.App.insightsportal.VisualStudio.com | dynamiczne | 80,443 |
 | Rozszerzenie usługi Application Insights CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamiczne | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Zestaw SDK aplikacji Insights JS CDN | az416426.Vo.msecnd.NET | dynamiczne | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.Core.Windows.NET | dynamiczne | 80,443 |
 
 ## <a name="profiler"></a>Profiler
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | dynamiczne | 443
 | Portal | Gateway.azureserviceprofiler.NET | dynamiczne | 443
@@ -260,7 +268,7 @@ Uwaga: *. loganalytics.io domeny należy do zespołu analizy dzienników.
 
 ## <a name="snapshot-debugger"></a>Debuger migawek
 
-| Przeznaczenie | IDENTYFIKATOR URI | Adres IP | Porty |
+| Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
 | Agent | PPE.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | dynamiczne | 443
 | Portal | PPE.Gateway.azureserviceprofiler.NET | dynamiczne | 443

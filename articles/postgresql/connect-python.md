@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/06/2017
 ---
@@ -50,23 +50,23 @@ Zainstaluj pakiet [psycopg2](http://initd.org/psycopg/docs/install.html), który
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby** i wyszukaj **mypgserver 20170401** (utworzonego serwera).
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer **mypgserver-20170401**.
 3. Kliknij nazwę serwera **mypgserver 20170401**.
 4. Wybierz stronę **Przegląd** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
  ![Azure Database for PostgreSQL — dane logowania administratora serwera](./media/connect-python/1-connection-string.png)
 5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
 ## <a name="how-to-run-python-code"></a>Jak uruchomić kod języka Python
-Ten artykuł zawiera sumę cztery przykłady kodu, które wykonuje określoną funkcję. Następujące instrukcje określają, jak należy utworzyć plik tekstowy, wstawić blok kodu, a następnie zapisać plik, aby można było uruchomić go później. Pamiętaj, aby utworzyć cztery oddzielne pliki — po jednym dla każdego bloku kodu.
+Ten artykuł zawiera łącznie cztery przykłady kodu, z których każdy wykonuje konkretną funkcję. Następujące instrukcje określają, jak należy utworzyć plik tekstowy, wstawić blok kodu, a następnie zapisać plik, aby można było uruchomić go później. Pamiętaj, aby utworzyć cztery oddzielne pliki — po jednym dla każdego bloku kodu.
 
 - W swoim ulubionym edytorze tekstów utwórz nowy plik.
 - Skopiuj i wklej jeden z przykładów kodu w poniższych sekcjach do pliku tekstowego. Zastąp parametry **host**, **dbname**, **user** i **password** wartościami, które zostały określone podczas tworzenia serwera i bazy danych.
-- Zapisz plik z rozszerzeniem py (na przykład postgres.py) w folderze projektu. Jeśli korzystasz z systemu Windows, należy wybrać podczas zapisywania pliku kodowania UTF-8. 
-- Uruchom powłokę wiersza polecenia, Terminal lub Bash, a następnie zmień katalog na folder projektu, na przykład `cd postgres`.
+- Zapisz plik z rozszerzeniem py (na przykład postgres.py) w folderze projektu. Jeśli używasz systemu Windows, upewnij się, że wybrano kodowanie UTF-8 podczas zapisywania pliku. 
+- Uruchom wiersz polecenia, program Terminal lub powłokę Bash, a następnie zmień katalog na folder projektu, na przykład `cd postgres`.
 -  Aby uruchomić kod, wpisz polecenie Python, a po nim nazwę pliku, na przykład `Python postgres.py`.
 
 > [!NOTE]
-> Począwszy od języka Python w wersji 3, zostanie wyświetlony błąd `SyntaxError: Missing parentheses in call to 'print'` podczas uruchamiania poniższe bloki kodu: Jeśli tak się stanie, Zastąp każde wywołanie polecenia `print "string"` z wywołania funkcji przy użyciu nawias, takich jak `print("string")`.
+> Od wersji 3 języka Python może zostać wyświetlony błąd `SyntaxError: Missing parentheses in call to 'print'` podczas uruchamiania poniższych bloków kodu. Jeśli tak się stanie, zastąp każde wywołanie polecenia `print "string"` wywołaniem funkcji, używając nawiasów, na przykład `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
 Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu funkcji [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) z instrukcją **INSERT** języka SQL. Funkcja [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) jest używana do wykonywania zapytania SQL względem bazy danych PostgreSQL. Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych.

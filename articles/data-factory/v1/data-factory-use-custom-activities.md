@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,11 @@ Istnieją dwa typy działań, które można używać w potoku fabryki danych Azu
 
 Aby przenieść dane do/z magazynem danych, który nie obsługuje fabryki danych, należy utworzyć **działania niestandardowego** z własnych logiki przenoszenia danych i użyj działania w potoku. Podobnie aby proces/transformacji danych w taki sposób, który nie jest obsługiwany przez fabrykę danych, tworzenie niestandardowego działania na własną logikę przekształcania danych i użyj działania w potoku. 
 
-Można skonfigurować niestandardowe działania do uruchamiania na **partii zadań Azure** puli maszyn wirtualnych lub z systemem Windows **Azure HDInsight** klastra. Korzystając z partii zadań Azure, można użyć tylko istniejącej puli partii zadań Azure. Natomiast podczas korzystania z usługi HDInsight, można użyć istniejącego klastra usługi HDInsight lub w klastrze, który jest automatycznie tworzony należy na żądanie w czasie wykonywania.  
+Można skonfigurować niestandardowe działania do uruchamiania na **partii zadań Azure** puli maszyn wirtualnych. Korzystając z partii zadań Azure, można użyć tylko istniejącej puli partii zadań Azure.
 
-Następujący przewodnik zawiera instrukcje krok po kroku dotyczące tworzenia działań niestandardowych .NET i używania działań niestandardowych w potoku. Użyto **partii zadań Azure** połączonej usługi. Aby użyć usługi Azure HDInsight połączone usługi zamiast tego, tworzenie połączonej usługi typu **HDInsight** (własnego klastra usługi HDInsight) lub **HDInsightOnDemand** (fabryka danych tworzy HDInsight klastra na żądanie). Następnie należy skonfigurować działań niestandardowych do korzystania z usługi HDInsight połączone. Zobacz [użycia usługi Azure HDInsight połączone usługi](#use-hdinsight-compute-service) sekcji, aby uzyskać więcej informacji na temat używania usługi Azure HDInsight do uruchamiania działań niestandardowych.
+Następujący przewodnik zawiera instrukcje krok po kroku dotyczące tworzenia działań niestandardowych .NET i używania działań niestandardowych w potoku. Użyto **partii zadań Azure** połączonej usługi. 
 
 > [!IMPORTANT]
-> - Niestandardowe działania .NET działać tylko w klastrach HDInsight opartych na systemie Windows. Obejście tego ograniczenia jest działanie zmniejszyć mapy służy do uruchamiania niestandardowego kodu języka Java w klastrze usługi HDInsight opartej na systemie Linux. Innym rozwiązaniem jest używane do puli partii zadań Azure maszyn wirtualnych do uruchamiania działań niestandardowych zamiast klastra usługi HDInsight.
 > - Nie jest możliwe użycie bramę zarządzania danymi z działań niestandardowych dostęp do lokalnych źródeł danych. Obecnie [brama zarządzania danymi](data-factory-data-management-gateway.md) obsługuje tylko działania kopiowania i działania procedury składowanej w fabryce danych.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Wskazówki: Tworzenie niestandardowego działania
@@ -479,8 +478,6 @@ Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką
 
        Aby uzyskać **poolName** właściwości, można również określić identyfikator puli zamiast nazwy puli.
 
-      > [!IMPORTANT]
-      > Usługi fabryka danych nie obsługuje opcji na żądanie dla partii zadań Azure, w przeciwieństwie do usługi HDInsight. Pulę partii zadań Azure można używać tylko w fabryce danych Azure.   
     
 
 ### <a name="step-3-create-datasets"></a>Krok 3: Tworzenie zestawów danych
@@ -786,115 +783,6 @@ Zobacz [automatycznie skali obliczeniowe węzłów w puli partii zadań Azure](.
 
 Jeśli w puli jest przy użyciu domyślnego [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), usługa partia zadań może zająć 15 do 30 minut, aby przygotować maszyny Wirtualnej przed uruchomieniem działania niestandardowego.  Jeśli pula używa innego autoScaleEvaluationInterval, usługa partia zadań może zająć autoScaleEvaluationInterval + 10 minut.
 
-## <a name="use-hdinsight-compute-service"></a>Korzystanie z usługi obliczeniowe HDInsight
-W tym przewodnikiem obliczeniowych partii zadań Azure jest używane do uruchamiania działań niestandardowych. Można również użyć klastra usługi HDInsight opartej na systemie Windows lub ma fabryki danych tworzenia klastra usługi HDInsight opartej na systemie Windows na żądanie i mieć uruchamiania w klastrze usługi HDInsight działania niestandardowego. Poniżej przedstawiono ogólne kroki dotyczące korzystania z klastra usługi HDInsight.
-
-> [!IMPORTANT]
-> Niestandardowe działania .NET działać tylko w klastrach HDInsight opartych na systemie Windows. Obejście tego ograniczenia jest działanie zmniejszyć mapy służy do uruchamiania niestandardowego kodu języka Java w klastrze usługi HDInsight opartej na systemie Linux. Innym rozwiązaniem jest używane do puli partii zadań Azure maszyn wirtualnych do uruchamiania działań niestandardowych zamiast klastra usługi HDInsight.
- 
-
-1. Tworzenie usługi Azure HDInsight połączone.   
-2. HDInsight Użyj połączonej usługi zamiast **AzureBatchLinkedService** w potoku JSON.
-
-Jeśli chcesz przetestować go z przewodnikiem, zmień **start** i **zakończenia** razy dla potoku, dzięki czemu można przetestować scenariusza za pomocą usługi Azure HDInsight.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Tworzenie połączonej usługi Azure HDInsight
-Usługi fabryka danych Azure obsługuje tworzenie klastra na żądanie i używać go do przetwarzania danych wejściowych wygenerowało danych wyjściowych. Własnego klastra umożliwia również wykonywać takie same. Korzystając z klastrem usługi HDInsight na żądanie, klaster pobiera utworzone dla każdego wycinka. Jeśli korzystasz z klastrem usługi HDInsight, klaster jest gotowe do przetworzenia wycinka natychmiast. W związku z tym korzystając z klastra na żądanie, nie widać danych wyjściowych tak szybko, jak kiedy używać własnego klastra.
-
-> [!NOTE]
-> W czasie wykonywania wystąpienia działania .NET działa tylko na jednym węźle procesu roboczego w klastrze HDInsight; Nie można przeskalować do uruchamiania na wielu węzłach. Wiele wystąpień programu .NET działania można uruchomić równolegle w różnych węzłach klastra usługi HDInsight.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>Aby użyć klastra usługi HDInsight na żądanie
-1. W **portalu Azure**, kliknij przycisk **Utwórz i wdróż** na stronie głównej fabryki danych.
-2. W edytorze fabryki danych, kliknij polecenie **nowych obliczeń** z paska poleceń i wybierz **klastra usługi HDInsight na żądanie** z menu.
-3. Do skryptu JSON, należy wprowadzić następujące zmiany:
-
-   1. Aby uzyskać **wartość clusterSize** właściwości, określ rozmiar klastra usługi HDInsight.
-   2. Aby uzyskać **timeToLive** właściwości, określ, jak długo klient może być bezczynne, zanim został usunięty.
-   3. Dla **wersji** właściwości, określ wersję HDInsight, którego chcesz użyć. Jeśli należy wykluczyć tę właściwość, jest używana najnowsza wersja.  
-   4. Aby uzyskać **linkedServiceName**, określ **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > Niestandardowe działania .NET działać tylko w klastrach HDInsight opartych na systemie Windows. Obejście tego ograniczenia jest działanie zmniejszyć mapy służy do uruchamiania niestandardowego kodu języka Java w klastrze usługi HDInsight opartej na systemie Linux. Innym rozwiązaniem jest używane do puli partii zadań Azure maszyn wirtualnych do uruchamiania działań niestandardowych zamiast klastra usługi HDInsight.
-
-4. Kliknij przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Do korzystania z klastrem usługi HDInsight:
-1. W **portalu Azure**, kliknij przycisk **Utwórz i wdróż** na stronie głównej fabryki danych.
-2. W **Edytor fabryki danych**, kliknij przycisk **nowych obliczeń** z paska poleceń i wybierz **klastra usługi HDInsight** z menu.
-3. Do skryptu JSON, należy wprowadzić następujące zmiany:
-
-   1. Aby uzyskać **clusterUri** właściwości, wprowadź adres URL Twojej usługi HDInsight. Na przykład: https://<clustername>.azurehdinsight.net/     
-   2. Aby uzyskać **UserName** właściwości, wprowadź nazwę użytkownika, który ma dostęp do klastra usługi HDInsight.
-   3. Aby uzyskać **hasło** właściwości, wprowadź hasło dla użytkownika.
-   4. Aby uzyskać **LinkedServiceName** właściwości, wprowadź **AzureStorageLinkedService**.
-4. Kliknij przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
-
-Zobacz [obliczeniowe połączonych usług](data-factory-compute-linked-services.md) szczegółowe informacje.
-
-W **potoku JSON**, używanie usługi HDInsight (na żądanie lub własne) połączonej usługi:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Tworzenie niestandardowego działania przy użyciu zestawu .NET SDK
 W przewodniku, w tym artykule Tworzenie fabryki danych z potok, który używa działań niestandardowych za pomocą portalu Azure. Poniższy kod przedstawia sposób tworzenia fabryki danych przy użyciu zestawu .NET SDK zamiast tego. Można znaleźć więcej szczegółów na temat przy użyciu zestawu SDK do programowego tworzenia potoków w [utworzyć potok z działania kopiowania przy użyciu interfejsu API platformy .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md) artykułu. 
@@ -1141,7 +1029,7 @@ namespace DataFactoryAPITestApp
 
 
 ## <a name="sample-custom-activities-on-github"></a>Przykład niestandardowych działań w witrynie GitHub
-| Przykład | Jakie niestandardowe działanie robi |
+| Sample | Jakie niestandardowe działanie robi |
 | --- | --- |
 | [Narzędzie do pobierania danych HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Pobiera dane z punktu końcowego HTTP do magazynu obiektów Blob Azure przy użyciu działań niestandardowych C# w fabryce danych. |
 | [Przykładowe wskaźniki nastrojów klientów analizy w usłudze Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Wywołuje model usługi uczenie Maszynowe Azure i analizy wskaźniki nastrojów klientów oceniania, prognozowania itp. |

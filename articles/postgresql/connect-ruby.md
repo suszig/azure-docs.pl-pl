@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Ruby
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [Ruby](https://www.ruby-lang.org). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. Kroki opisane w tym artykule założono, że znasz tworzenie przy użyciu Ruby i są nowe do pracy z bazą danych Azure dla PostgreSQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka [Ruby](https://www.ruby-lang.org). Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Ruby, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -53,7 +53,7 @@ Zainstaluj język Ruby na swojej maszynie.
 - Skompiluj moduł pg języka Ruby przy użyciu rozwiązania Gem, uruchamiając polecenie `sudo gem install pg`.
 
 ## <a name="run-ruby-code"></a>Uruchamianie kodu w języku Ruby 
-- Zapisz kod do pliku tekstowego z .rb rozszerzenie pliku, a następnie zapisz plik do folderu projektu, takie jak `C:\rubypostgres\read.rb` lub`/home/username/rubypostgres/read.rb`
+- Zapisz kod w pliku tekstowym z rozszerzeniem RB, a następnie zapisz plik w folderze projektu, takim jak `C:\rubypostgres\read.rb` lub `/home/username/rubypostgres/read.rb`.
 - Aby uruchomić kod, uruchom wiersz polecenia lub powłokę bash. Zmień katalog na folder projektu `cd rubypostgres`, a następnie wpisz polecenie `ruby read.rb` w celu uruchomienia aplikacji.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu

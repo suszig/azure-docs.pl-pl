@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Często zadawane pytania dla fabryki połączonych pakiet IoT wstępnie skonfigurowane rozwiązanie
 
@@ -42,7 +42,7 @@ OPC Ujednolicona architektura (UA), wydane w ramach 2008, jest niezależne od pl
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Dlaczego Microsoft został wybrany OPC UA dla połączonych fabryki wstępnie skonfigurowane rozwiązanie?
 
-Microsoft postanowiono OPC UA, ponieważ jest to platforma otwarty, niezastrzeżonych, standard niezależne, branży i sprawdzone. Jest wymagane dla rozwiązań architektura odwołanie Industrie 4.0 (RAMI4.0) zapewniające współdziałanie szeroką gamę wytwarzania i urządzeń. Microsoft widzi żądania klientów do tworzenia rozwiązań Industrie 4.0. Obsługa OPC UA pomaga zmniejszyć bariery dla klientów do ich celach i udostępnia natychmiastowe wartość do nich.
+Microsoft postanowiono OPC UA, ponieważ jest to platforma otwarty, niezastrzeżonych, standard niezależne, branży i sprawdzone. Jest wymagane dla rozwiązań architektura odwołanie Industrie 4.0 (RAMI4.0) zapewniające współdziałanie szeroką gamę wytwarzania i urządzeń. Microsoft widzi żądanie z klientów do tworzenia rozwiązań Industrie 4.0. Obsługa OPC UA pomaga zmniejszyć bariery dla klientów do ich celach i udostępnia natychmiastowe wartość do nich.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Jak dodać publicznego adresu IP na symulacyjnych maszyny Wirtualnej?
 
@@ -143,6 +143,64 @@ Sprawdź dane wysyłane przez jednego z urządzeń wydawcy:
 * Publisher.Seattle.corp.contoso
 
 Jeśli zostanie wyświetlone żadne dane wysyłane do Centrum IoT, oznacza to, że wystąpił problem z symulacji. Pierwszym krokiem analizy powinien analizowanie plików dziennika składników symulacji. Zobacz [jak można uzyskać danych dziennika z składniki symulacji?](#how-can-i-get-log-data-from-the-simulation-components) Spróbuj dalej zatrzymać i uruchomić symulacji i jeśli nie ma jeszcze żadnych danych wysyłane, zaktualizuj symulacji całkowicie. Zobacz [jak zaktualizować symulacji w maszynie Wirtualnej?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Jak włączyć mapy interakcyjnej w Moje rozwiązanie fabryka połączenia?
+
+Aby włączyć mapy interakcyjnej w rozwiązaniu połączonych fabryki, musi mieć istniejącego interfejsu API map Bing planu przedsiębiorstwa. Jeśli masz interfejsu API map Bing planu Enterprise podczas wdrażania rozwiązania fabryki połączonych z www.azureiotsuite.com, mapy interakcyjnej jest automatycznie włączone automatycznie.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Jak utworzyć interfejsu API map Bing dla konta organizacji?
+
+Możesz uzyskać bezpłatne *wewnętrzne transakcje poziom 1 mapy Bing dla przedsiębiorstwa* planu. Jednak można tylko dodać dwa te plany z subskrypcją platformy Azure. Jeśli nie masz interfejsu API map Bing dla konta organizacji, utworzyć w portalu Azure, klikając **+ Utwórz zasób**. Następnie wyszukaj **interfejsu API map Bing dla przedsiębiorstwa** i postępuj zgodnie z monitami, aby go utworzyć.
+
+![Klucz usługi Bing](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Jak uzyskać interfejsu API map Bing dla QueryKey przedsiębiorstwa
+
+Po utworzeniu interfejsu API map Bing planu przedsiębiorstwa, należy dodać mapy Bing dla zasobów przedsiębiorstwa do grupy zasobów rozwiązania fabryki połączonych w portalu Azure.
+
+1. W portalu Azure przejdź do grupy zasobów, zawierającą interfejsu API map Bing planu przedsiębiorstwa.
+
+1. Kliknij przycisk **wszystkie ustawienia**, następnie **zarządzanie kluczami**.
+
+1. Dostępne są dwa klucze: **umożliwia** i **QueryKey**. Kopiuj **QueryKey** wartości.
+
+1. Do pobrania przez klucz `build.ps1` skryptów, ustaw zmienną środowiskową `$env:MapApiQueryKey` w środowisku PowerShell w celu **QueryKey** planu. Skrypt kompilacji następnie automatycznie dodaje wartość do ustawienia usługi App Service.
+
+1. Uruchom lokalnie lub w chmurze przy użyciu wdrożenia `build.ps1` skryptu.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Jak włączyć mapy interakcyjnej przy debugowaniu lokalnym?
+
+Aby włączyć interakcyjne mapy, podczas lokalnego debugowania, ustaw wartość ustawienia `MapApiQueryKey` w plikach `local.user.config` i `<yourdeploymentname>.user.config` w katalogu wdrożenia z wartością **QueryKey** skopiowane wcześniej.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Jak używać innego obrazu na stronie głównej Mój pulpit nawigacyjny?
+
+Aby zmienić statyczny obraz wyświetlany we/wy strony głównej pulpitu nawigacyjnego, Zamień obraz `WebApp\Content\img\world.jpg`. Następnie ponowne skompilowanie i wdrożenie aplikacji sieci Web.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Jak używać urządzeń z systemem innym niż UA OPC z fabryką połączenia?
+
+Do wysyłania danych telemetrycznych z innych niż UA OPC urządzeń podłączonych fabryką:
+
+1. [Konfigurowanie nowej stacji w topologii połączonych fabryki](iot-suite-connected-factory-configure.md) w `ContosoTopologyDescription.json` pliku.
+
+1. Pozyskiwania danych telemetrii w formacie JSON zgodne fabryka połączenia:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. Format `<timestamp>` jest:`2017-12-08T19:24:51.886753Z`
+
+1. Uruchom ponownie fabryki podłączonej usługi aplikacji.
 
 ### <a name="next-steps"></a>Następne kroki
 

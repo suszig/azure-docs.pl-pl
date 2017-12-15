@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń maszyny Wirtualnej Azure
 
@@ -51,7 +51,7 @@ Pierwszym środkiem ochrony maszyny Wirtualnej jest zapewnienie, że tylko autor
 
 Maszyny wirtualne, które należą do grupy zasobów naturalnie dziedziczą jego zasadami. Mimo że firma Microsoft zaleca to rozwiązanie do zarządzania maszynami wirtualnymi, można także kontrolować dostęp do poszczególnych zasad maszyny Wirtualnej za pomocą [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Po włączeniu zasady Resource Manager i RBAC kontrolować dostęp do maszyny Wirtualnej, można zwiększyć ogólne bezpieczeństwo maszyny Wirtualnej. Firma Microsoft zaleca konsolidować maszyn wirtualnych z tego samego cyklu życia w tej samej grupie zasobów. Za pomocą grup zasobów, można wdrożyć, monitorowania i rzutowanie rozliczeń kosztów zasobów. Aby umożliwić użytkownikom dostęp i konfigurowanie maszyn wirtualnych, należy użyć [najniższych uprawnień podejście](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). A jeśli uprawnienia są przypisane do użytkowników, będą używane następujące role wbudowane Azure:
+Po włączeniu zasady Resource Manager i RBAC kontrolować dostęp do maszyny Wirtualnej, można zwiększyć ogólne bezpieczeństwo maszyny Wirtualnej. Firma Microsoft zaleca konsolidować maszyn wirtualnych z tego samego cyklu życia w tej samej grupie zasobów. Za pomocą grup zasobów, można wdrożyć, monitorowania i rzutowanie rozliczeń kosztów zasobów. Aby umożliwić użytkownikom dostęp i konfigurowanie maszyn wirtualnych, należy użyć [najniższych uprawnień podejście](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). A jeśli uprawnienia są przypisane do użytkowników, będą używane następujące role wbudowane Azure:
 
 - [Maszyny wirtualnej współautora](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): można zarządzać maszynami wirtualnymi, ale nie wirtualnych sieci lub magazynu konto z którym jest połączony.
 - [Klasycznym współautora maszyny wirtualnej](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): można zarządzać maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania, ale nie z wirtualnych sieci lub magazynu konta połączenie maszyn wirtualnych.
@@ -80,7 +80,7 @@ Organizacje, które nie Wymuszaj ograniczenia dostępu do sieci maszyn wirtualny
 
 Można zastosować szyfrowanie dysków, które zapewni ochronę danych w celu spełnienia zabezpieczeń organizacji i wymagań dotyczących zgodności. Organizacji należy wziąć pod uwagę przy użyciu szyfrowania w celu zmniejszenia ryzyka danych związanych z nieautoryzowanego dostępu. Zalecamy również szyfrowania dysków, przed przystąpieniem do napisania poufne dane do nich.
 
-Pamiętaj zaszyfrować woluminach danych maszyny Wirtualnej, aby je chronić, przechowywane na koncie magazynu Azure. Ochrona przy użyciu kluczy szyfrowania i klucz tajny [usługi Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Pamiętaj zaszyfrować woluminach danych maszyny Wirtualnej, aby je chronić, przechowywane na koncie magazynu Azure. Ochrona przy użyciu kluczy szyfrowania i klucz tajny [usługi Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Organizacje, które nie wymuszania szyfrowania danych są bardziej widoczne dla problemy z integralnością danych. Na przykład złośliwe lub nieautoryzowanym użytkownikom może kradzieży danych, którego bezpieczeństwo zostało naruszone konta lub uzyskania nieautoryzowanego dostępu do danych w ClearFormat na stałe. Oprócz biorąc na tego ryzyka, w celu zapewnienia przestrzegania przepisów branżowych firm musi udowodnić, że są wykonywania starannością oraz za pomocą formantów poprawnych zabezpieczeń, aby zwiększyć ich bezpieczeństwo danych.
 
@@ -122,7 +122,7 @@ Organizacje, które nie wymuszają postawie silne zabezpieczenie ich maszyn wirt
 
 Nadużycia zasobu może to stanowić problem, gdy maszyna wirtualna procesów zużywać więcej zasobów niż powinni. Problemy z wydajnością z maszyny Wirtualnej może prowadzić do przerw w działaniu usługi, która narusza zasady zabezpieczeń dostępności. Z tego powodu konieczne jest nie tylko rozbudowy monitorować dostęp maszyny Wirtualnej, gdy występuje problem, ale również aktywnego względem linii bazowej wydajności mierzony podczas normalnego działania.
 
-Analizując [pliki dzienników diagnostycznych platformy Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), możesz monitorować zasobów maszyny Wirtualnej i zidentyfikuj potencjalne problemy, które mogą negatywnie wpłynąć na wydajność i dostępność. Rozszerzenie diagnostyki Azure udostępnia możliwości monitorowania i diagnostyki na maszynach wirtualnych z systemem Windows. Możesz włączyć te możliwości, wraz z rozszerzeniem jako część [szablonu usługi Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+Analizując [pliki dzienników diagnostycznych platformy Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), możesz monitorować zasobów maszyny Wirtualnej i zidentyfikuj potencjalne problemy, które mogą negatywnie wpłynąć na wydajność i dostępność. Rozszerzenie diagnostyki Azure udostępnia możliwości monitorowania i diagnostyki na maszynach wirtualnych z systemem Windows. Możesz włączyć te możliwości, wraz z rozszerzeniem jako część [szablonu usługi Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Można również użyć [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) wgląd w kondycję Twojego zasobów.
 

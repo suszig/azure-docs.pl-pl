@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Jak dane indeksu bazy danych rozwiązania Cosmos Azure?
 
@@ -229,7 +229,7 @@ Można wybrać, czy ma kolekcję do automatycznego indeksowania wszystkie dokume
 
 Z automatycznego indeksowania wyłączone, nadal selektywnie można dodać tylko dokumenty do indeksu. Z drugiej strony można pozostawić automatycznego indeksowania na i selektywnie wykluczyć wybrany tylko określonych dokumentów. Indeksowanie lub wyłącza konfiguracje są przydatne, jeśli masz tylko podzbiór dokumentów, które trzeba można wykonać zapytania.
 
-Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
+Na przykład poniższy przykład przedstawia sposób obejmują dokumentu jawnie za pomocą [zestawu SDK .NET interfejsu API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) i [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) właściwości.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ Skorzystaj z łączy poniżej dla indeksu zasad zarządzania przykładów i dowi
 
 1. [Przykłady kodu SQL interfejs API .NET indeksu zarządzania](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operacje kolekcji REST API SQL](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Zapytania SQL](documentdb-sql-query.md)
+3. [Zapytania SQL](sql-api-sql-query.md)
 

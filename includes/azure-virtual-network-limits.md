@@ -32,7 +32,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Interfejsy sieciowe (karta sieciowa) |350 |20000 |
 | Sieciowe grupy zabezpieczeń (NSG) |100 |5000 |
 | Reguły sieciowej grupy zabezpieczeń na sieciową grupę zabezpieczeń |200 |500 |
-| Adresy IP i zakresów określony dla źródła lub miejsca docelowego w regułę zabezpieczeń |2000 |4000 |
+| Adresy IP i zakresów określony dla źródła lub miejsca docelowego w grupie zabezpieczeń |2000 |4000 |
 | Grupy zabezpieczeń aplikacji |200 |500 |
 | Stosowanie grup zabezpieczeń dla konfiguracji IP dla karty Sieciowej |10 |20 |
 | Konfiguracje adresów IP na grupy zabezpieczeń aplikacji |1000 |4000 |

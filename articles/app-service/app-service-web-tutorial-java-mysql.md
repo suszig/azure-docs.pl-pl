@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web Java i MySQL na platformie Azure
+
+> [!NOTE]
+> W tym artykule wdraża aplikację usługi aplikacji w systemie Windows. Aby wdrożyć aplikację usługi na _Linux_, zobacz [wdrażania konteneryzowanych aplikacji rozruchu Spring Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci web Java na platformie Azure i podłącz go do bazy danych MySQL. Po zakończeniu, konieczne będzie [Spring rozruchu](https://projects.spring.io/spring-boot/) przechowywania danych w aplikacji [bazy danych Azure dla programu MySQL](https://docs.microsoft.com/azure/mysql/overview) systemem [aplikacji sieci Web usługi aplikacji Azure](app-service-web-overview.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Użyj interfejsu wiersza polecenia Azure, aby utworzyć przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku platformy Azure | Dokumentacja firmy Microsoft"
-description: "Utwórz przypisanie zasad Azure do identyfikacji niezgodnych zasobów za pomocą programu PowerShell."
+title: "Tworzenie przypisania zasad za pomocą interfejsu wiersza polecenia platformy Azure w celu zidentyfikowania niezgodnych zasobów w środowisku Azure | Microsoft Docs"
+description: "Używając programu PowerShell, utwórz przypisanie usługi Azure Policy, aby zidentyfikować niezgodne zasoby."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -11,15 +11,15 @@ ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Utwórz przypisanie zasad w celu identyfikacji niezgodnych zasobów w środowisku platformy Azure z wiersza polecenia platformy Azure
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
-Pierwszym etapem opis zgodności w usłudze Azure jest znajomość, gdzie autonomiczna z zasobami bieżącej. Ta opcja szybkiego startu przeprowadza użytkownika przez proces tworzenia przypisanie zasad do identyfikacji maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
+Pierwszym krokiem na drodze do zrozumienia pojęcia zgodności na platformie Azure jest uświadomienie sobie obecnej sytuacji dotyczącej Twoich zasobów. Ten przewodnik Szybki start przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
 
-Po zakończeniu tego procesu zostanie pomyślnie zidentyfikowano maszyn wirtualnych, które nie korzystają z dysków zarządzanych i dlatego *niezgodnych*.
+Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny wirtualne, które nie korzystają z dysków zarządzanych, w związku z czym są *niezgodne*.
 .
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
@@ -28,69 +28,69 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="opt-in-to-azure-policy"></a>Zgódź się na Azure zasad
+## <a name="opt-in-to-azure-policy"></a>Zgoda na korzystanie z usługi Azure Policy
 
-Zasady usługi Azure jest teraz dostępna w publicznej wersji zapoznawczej i należy zarejestrować, aby zażądać dostępu.
+Usługa Azure Policy jest teraz dostępna w publicznej wersji zapoznawczej i musisz się zarejestrować, aby zawnioskować o dostęp.
 
-1. Przejdź do zasad Azure https://aka.ms/getpolicy i wybierz **Utwórz konto** w okienku po lewej stronie.
+1. Przejdź do usługi Azure Policy pod adresem https://aka.ms/getpolicy i wybierz pozycję **Zarejestruj się** w okienku po lewej stronie.
 
-   ![Wyszukaj zasady](media/assign-policy-definition/sign-up.png)
+   ![Wyszukiwanie zasad](media/assign-policy-definition/sign-up.png)
 
-2. Zapoznać się zasadami Azure po wybraniu subskrypcji w **subskrypcji** chcesz pracować z listy. Następnie wybierz **zarejestrować**.
+2. Wyraź zgodę na korzystanie z usługi Azure Policy, wybierając na liście **Subskrypcja** subskrypcje, z którymi chcesz pracować. Następnie wybierz pozycję **Zarejestruj**.
 
-   ![Zezwól na przy użyciu zasad usługi Azure](media/assign-policy-definition/preview-opt-in.png)
+   ![Zgoda na korzystanie z usługi Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Żądanie zostało automatycznie zatwierdzone podglądu. Może potrwać do 30 minut, systemu przetwarzania rejestracji.
+   Twój wniosek dotyczący wersji zapoznawczej zostanie automatycznie zatwierdzony. Przetworzenie rejestracji przez system może potrwać do 30 minut.
 
-## <a name="create-a-policy-assignment"></a>Utwórz przypisanie zasad
+## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
-W tego przewodnika Szybki Start możemy utworzyć przypisanie zasad i przypisanie inspekcji maszyny wirtualne bez dysków zarządzanych definicji. Ta definicja zasad identyfikuje zasoby, które nie spełniają warunków ustawionych w definicji zasad.
+W tym przewodniku Szybki start utworzymy przypisanie zasad i przypiszemy definicję Audit Virtual Machines without Managed Disks (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych). Ta definicja zasad identyfikuje zasoby, które nie spełniają warunków określonych w definicji zasad.
 
-Wykonaj następujące kroki, aby utworzyć nowe przypisanie zasad.
+Wykonaj poniższe kroki, aby utworzyć nowe przypisanie zasad.
 
-Wyświetl wszystkie definicje zasad i znaleźć definicji zasad "Inspekcji maszyn wirtualnych bez zarządzania dyskami":
+Wyświetl wszystkie definicje zasad i znajdź definicję „Audit Virtual Machines without Managed Disks” (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych):
 
 ```azurecli
 az policy definition list
 ```
 
-Zasady Azure zawiera już wbudowanych w definicji zasad można użyć. Definicje wbudowanych zasad będą widoczne takie jak:
+Usługa Azure Policy zawiera już wbudowane definicje zasad, których możesz używać. Widoczne są m.in. wbudowane definicje zasad:
 
-- Wymuszanie tagu i jego wartość
-- Stosuje tag i jego wartość
-- Wymaga programu SQL Server w wersji 12.0
+- Enforce tag and its value (Wymuś tag i jego wartość)
+- Apply tag and its value (Zastosuj tag i jego wartość)
+- Require SQL Server Version 12.0 (Wymagaj programu SQL Server w wersji 12.0)
 
-Następnie podaj następujące informacje i uruchom następujące polecenie, aby przypisać definicji zasad:
+Następnie podaj następujące informacje i uruchom następujące polecenie, aby przypisać definicję zasad:
 
-- Wyświetl **nazwa** dla przypisania zasad. W takim przypadku można użyć *inspekcji maszyny wirtualne bez dysków zarządzanych*.
-- **Zasady** — jest to definicja zasad, na podstawie off, którego używasz utworzyć przypisanie. W takim przypadku jest definicji zasad — *inspekcji maszyny wirtualne bez dysków zarządzanych*
-- A **zakres** — zakres Określa, jakie zasoby lub grupowanie zasobów przypisania zasad pobiera wymuszane na. Mogą obejmować z subskrypcji z grupami zasobów.
+- **Nazwa** wyświetlana przypisania zasad. W tym przypadku użyjmy nazwy *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
+- **Zasady** — jest to definicja zasad, na podstawie której tworzysz przypisanie. W tym przypadku jest to definicja zasad *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych)
+- **Zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów.
 
-  Użyj subskrypcji (lub grupy zasobów), zostały wcześniej zarejestrowane podczas zgłoszono do zasad usługi Azure w tym przykładzie używamy ten identyfikator subskrypcji - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** i nazwę grupy zasobów - **FabrikamOMS**. Pamiętaj zmienić identyfikator subskrypcji i nazwę grupy zasobów, której pracujesz.
+  Użyj subskrypcji (lub grupy zasobów), która została wcześniej zarejestrowana podczas wyrażania zgody na korzystanie z usługi Azure Policy. W tym przykładzie używamy identyfikatora subskrypcji **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** i nazwy grupy zasobów **FabrikamOMS**. Pamiętaj, aby zamienić te dane na identyfikator subskrypcji i nazwę grupy zasobów, z którymi pracujesz.
 
-Jest to, jak powinna wyglądać polecenia:
+Polecenie powinno wyglądać tak:
 
 ```azurecli
 az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
-Przypisania zasad jest zasada, która została przypisana do odbywać się w określonym zakresie. Ten zakres można również należeć do zakresu od grupy zarządzania do grupy zasobów.
+Przypisanie zasad to zasady, które zostały przypisane do określonego zakresu. Zakresem tym również może być zarówno grupa zarządzania, jak i grupa zasobów.
 
-## <a name="identify-non-compliant-resources"></a>Zidentyfikuj zasoby niezgodnych
+## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 
-Aby wyświetlić zasoby, które nie są zgodne, w tym nowe przypisanie:
+Aby wyświetlić zasoby, które są niezgodne w tym nowym przypisaniu:
 
-1. Przejdź z powrotem do strony zasad Azure.
-2. Wybierz **zgodności** w okienku po lewej stronie i poszukaj **przypisania zasad** utworzony.
+1. Przejdź z powrotem do strony usługi Azure Policy.
+2. Wybierz pozycję **Zgodność** w okienku po lewej stronie i wyszukaj utworzone **przypisanie zasad**.
 
-   ![Zasady zgodności](media/assign-policy-definition/policy-compliance.png)
+   ![Zgodność zasad](media/assign-policy-definition/policy-compliance.png)
 
-   W przypadku istniejących zasobów, które nie są zgodne z tym nowe przypisanie one widoczne w obszarze **niezgodne zasoby** karcie, jak pokazano powyżej.
+   Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, są one wyświetlane na karcie **Niezgodne zasoby**, jak pokazano powyżej.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Przewodnikach w tej kolekcji zależą od tego przewodnika Szybki Start. Jeśli zamierzasz kontynuować pracę z kolejnych samouczkach nie wyczyścić zasoby utworzone w tym Szybki Start. Jeśli nie planujesz kontynuować, Usuń przypisanie utworzone przez uruchomienie tego polecenia:
+Inne przewodniki w tej kolekcji bazują na tym przewodniku Szybki start. Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie zamierzasz kontynuować, usuń utworzone przypisanie, uruchamiając to polecenie:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
@@ -98,9 +98,9 @@ az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-
 
 ## <a name="next-steps"></a>Następne kroki
 
-Tego przewodnika Szybki Start możesz przypisać definicję zasad w celu identyfikacji niezgodnych zasobów w środowisku platformy Azure.
+W tym przewodniku Szybki start została przypisana definicja zasad mających na celu zidentyfikowanie niezgodnych zasobów w środowisku platformy Azure.
 
-Aby dowiedzieć się więcej o przypisanie zasad, aby upewnić się, że zasoby, należy utworzyć w **przyszłych** są zgodne, w dalszym ciągu samouczek dotyczący:
+Aby dowiedzieć się więcej na temat przypisywania zasad w celu zapewnienia zgodności zasobów tworzonych w **przyszłości**, przejdź do samouczka:
 
 > [!div class="nextstepaction"]
-> [Tworzenie i zarządzanie zasadami](./create-manage-policy.md)
+> [Tworzenie zasad i zarządzanie nimi](./create-manage-policy.md)

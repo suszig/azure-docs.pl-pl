@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ab2ee7dc91dbcb5c933554eea6cd239750885e22
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ae60cb03d9777b607a6df77155d7f50faaab1de1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Interfejs API Graph w .NET opracowywania
-Azure DB rozwiązania Cosmos jest usługa globalnie rozproszone wielu modelu bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
 
 W tym samouczku przedstawiono tworzenie konta bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure oraz do tworzenia bazy danych wykresu i kontenera. Następnie aplikacja tworzy prosty sieci społecznościowych cztery osoby korzystające z [interfejsu API programu Graph](graph-sdk-dotnet.md) (wersja zapoznawcza), a następnie przechodzi przez i zapytanie przy użyciu Gremlin wykresu.
 
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Tworzenie bazy danych 
 
-Teraz Utwórz bazę danych Azure rozwiązania Cosmos [bazy danych](documentdb-resources.md#databases) za pomocą [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody  **DocumentClient** klasę z [zestawu .NET SDK SQL](documentdb-sdk-dotnet.md).  
+Teraz Utwórz bazę danych Azure rozwiązania Cosmos [bazy danych](sql-api-resources.md#databases) za pomocą [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metody lub [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metody  **DocumentClient** klasę z [zestawu .NET SDK SQL](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

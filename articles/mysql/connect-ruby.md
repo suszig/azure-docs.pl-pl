@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Ruby
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [Ruby](https://www.ruby-lang.org) i rozwiązania gem [mysql2](https://rubygems.org/gems/mysql2) na platformach Windows, Ubuntu Linux i Mac. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że znasz Programowanie przy użyciu Ruby i czy masz doświadczenia w pracy z bazą danych Azure dla programu MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu aplikacji języka [Ruby](https://www.ruby-lang.org) i rozwiązania gem [mysql2](https://rubygems.org/gems/mysql2) na platformach Windows, Ubuntu Linux i Mac. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka Ruby, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-ruby"></a>Instalowanie języka Ruby
-Zainstaluj Ruby, Gem i biblioteki MySQL2 na komputerze lokalnym. 
+Zainstaluj język Ruby, rozwiązanie Gem i bibliotekę MySQL2 na własnym komputerze. 
 
 ### <a name="windows"></a>Windows
 1. Pobierz i zainstaluj wersję 2.3 języka [Ruby](http://rubyinstaller.org/downloads/).
@@ -55,20 +55,20 @@ Zainstaluj Ruby, Gem i biblioteki MySQL2 na komputerze lokalnym.
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w portalu Azure kliknij **wszystkie zasoby**, a następnie wyszukaj serwera ma wydłużało (takich jak **myserver4demo**).
+2. W menu po lewej stronie w witrynie Azure Portal kliknij pozycję **Wszystkie zasoby** i wyszukaj utworzony serwer, taki jak **myserver4demo**.
 3. Kliknij nazwę serwera **myserver4demo**.
-4. Wybierz serwer **właściwości** strony, a następnie zanotuj **nazwy serwera** i **nazwę logowania administratora serwera**.
+4. Wybierz stronę **Właściwości** serwera, a następnie zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**.
  ![Azure Database for MySQL — dane logowania administratora serwera](./media/connect-ruby/1_server-properties-name-login.png)
-5. Jeśli użytkownik zapomni swoje informacje logowania serwera, przejdź do **omówienie** strony, aby wyświetlić nazwę logowania administratora serwera, a w razie potrzeby zresetowania hasła.
+5. Jeśli nie pamiętasz informacji logowania do serwera, przejdź do strony **Przegląd**, aby wyświetlić nazwę logowania administratora serwera oraz w razie konieczności zresetować hasło.
 
 ## <a name="run-ruby-code"></a>Uruchamianie kodu w języku Ruby 
-1. Wklej kod dopisków fonetycznych z sekcji poniżej do plików tekstowych, a następnie zapisz pliki do folderu projektu z .rb rozszerzenia plików (takich jak `C:\rubymysql\createtable.rb` lub `/home/username/rubymysql/createtable.rb`).
-2. Aby uruchomić kod, uruchom wiersz polecenia lub powłoki Bash. Zmień katalog na folder projektu `cd rubymysql`
-3. Następnie wpisz polecenie dopisków fonetycznych i nazwa pliku, takich jak `ruby createtable.rb` do uruchomienia aplikacji.
-4. Na system operacyjny Windows Jeśli dopisków fonetycznych aplikacji nie znajduje się w sieci zmiennej środowiskowej path, konieczne może być użyj pełnej ścieżki, aby uruchomić aplikację w węźle, takich jak`"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
+1. Wklej kod języka Ruby z sekcji poniżej do plików tekstowych i zapisz pliki w folderze projektu z rozszerzeniem pliku rb, takim jak `C:\rubymysql\createtable.rb` lub `/home/username/rubymysql/createtable.rb`.
+2. Aby uruchomić kod, uruchom wiersz polecenia lub powłokę Bash. Zmień katalog na folder projektu `cd rubymysql`
+3. Następnie wpisz polecenie Ruby, a po nim nazwę pliku, taką jak `ruby createtable.rb`, aby uruchomić aplikację.
+4. W systemie operacyjnym Windows, jeśli aplikacja języka Ruby nie znajduje się w zmiennej środowiskowej path, może być konieczne użycie pełnej ścieżki w celu uruchomienia aplikacji Node, takiej jak `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
-Poniższy kod umożliwia łączenie i tworzenie tabeli za pomocą **CREATE TABLE** instrukcji SQL, a następnie **INSERT INTO** instrukcji SQL, aby dodać wiersze do tabeli.
+Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL, a następnie instrukcji **INSERT INTO** języka SQL, aby dodać wiersze do tabeli.
 
 Kod używa metody .new() klasy [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) w celu nawiązania połączenia z usługą Azure Database for MySQL. Następnie kilka razy wywołuje metodę [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) w celu uruchomienia poleceń DROP, CREATE TABLE i INSERT INTO. W kolejnym kroku kod wywołuje metodę [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
@@ -113,9 +113,9 @@ end
 ```
 
 ## <a name="read-data"></a>Odczyt danych
-Użyć poniższego kodu do łączenia i odczytywanie danych przy użyciu **wybierz** instrukcji SQL. 
+Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. 
 
-W kodzie użyto [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) metody class.new() nawiązać połączenia z bazą danych Azure dla programu MySQL. Następnie wywołuje metodę [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) w celu uruchomienia poleceń SELECT. W kolejnym kroku kod wywołuje metodę [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
+Kod używa metody .new() klasy [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) w celu nawiązania połączenia z usługą Azure Database for MySQL. Następnie wywołuje metodę [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) w celu uruchomienia poleceń SELECT. W kolejnym kroku kod wywołuje metodę [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
 Zastąp ciągi `host`, `database`, `username` i `password` własnymi wartościami. 
 
@@ -152,7 +152,7 @@ end
 ```
 
 ## <a name="update-data"></a>Aktualizowanie danych
-Użyć poniższego kodu do łączenia i aktualizowanie danych za pomocą **aktualizacji** instrukcji SQL.
+Użyj poniższego kodu, aby nawiązać połączenie i zaktualizować dane za pomocą instrukcji **UPDATE** języka SQL.
 
 Kod używa metody .new() klasy [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) w celu nawiązania połączenia z usługą Azure Database for MySQL. Następnie wywołuje metodę [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) w celu uruchomienia poleceń UPDATE. W kolejnym kroku kod wywołuje metodę [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
@@ -189,7 +189,7 @@ end
 
 
 ## <a name="delete-data"></a>Usuwanie danych
-Użyć poniższego kodu do łączenia i odczytywanie danych przy użyciu **usunąć** instrukcji SQL. 
+Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. 
 
 Kod używa metody .new() klasy [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) w celu nawiązania połączenia z usługą Azure Database for MySQL. Następnie wywołuje metodę [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) w celu uruchomienia poleceń DELETE. W kolejnym kroku kod wywołuje metodę [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 

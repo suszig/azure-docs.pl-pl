@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Wprowadzenie do platformy Azure rozwiązania Cosmos DB: interfejs API programu Graph
 
@@ -102,7 +102,7 @@ Azure DB rozwiązania Cosmos oferuje następujące możliwości zróżnicowanych
 
 Azure DB rozwiązania Cosmos można również użyć wielu modeli, takie jak dokument i wykres w tej samej kontenery lub bazy danych. Kolekcja dokumentów służy do przechowywania danych wykresu równolegle z dokumentów. Zarówno zapytania SQL w formacie JSON i zapytań Gremlin umożliwia kwerendy te same dane w postaci wykresu.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Rozpoczynanie pracy
 Służy Azure interfejsu wiersza polecenia (CLI), programu Azure PowerShell lub w portalu Azure z obsługą interfejsu API Graph do utworzenia konta Azure DB rozwiązania Cosmos. Po utworzeniu konta w portalu Azure tak samo, jak zawiera punkt końcowy usługi `https://<youraccount>.graphs.azure.com`, Gremlin zapewnia frontonu protokołu WebSocket. Tak samo, jak skonfigurować narzędziami TinkerPop zgodnego [konsoli Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), aby podłączyć się do tego punktu końcowego i tworzenie aplikacji w języku Java, Node.js lub dowolnego Gremlin sterownika klienta.
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin korzystających z bazy danych rozwiązania Cosmos Azure:
@@ -113,7 +113,7 @@ W poniższej tabeli przedstawiono popularne sterowniki Gremlin korzystających z
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin języka JavaScript w witrynie Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsoli](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokumentów](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure DB rozwiązania Cosmos zawiera także biblioteki .NET, która zawiera metody rozszerzenia Gremlin nad [zestawów SDK DB rozwiązania Cosmos Azure](documentdb-sdk-dotnet.md) za pośrednictwem pakietu NuGet. Ta biblioteka zawiera serwer Gremlin "w toku", który umożliwia bezpośrednie łączenie się z partycji danych.
+Azure DB rozwiązania Cosmos zawiera także biblioteki .NET, która zawiera metody rozszerzenia Gremlin nad [zestawów SDK DB rozwiązania Cosmos Azure](sql-api-sdk-dotnet.md) za pośrednictwem pakietu NuGet. Ta biblioteka zawiera serwer Gremlin "w toku", który umożliwia bezpośrednie łączenie się z partycji danych.
 
 | Do pobrania | Dokumentacja |
 | --- | --- |

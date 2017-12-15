@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Wprowadzenie do usługi Azure Event siatki
 
@@ -20,9 +20,18 @@ Azure siatki zdarzeń umożliwia łatwe tworzenie aplikacji za pomocą architekt
 
 Filtry służy do kierowania określonych zdarzeń do różnych punktów końcowych, multiemisji do wielu punktów końcowych i upewnij się, że niezawodnie dostarczania zdarzeń. Siatki zdarzeń również ma wbudowaną obsługą dla firm i niestandardowych zdarzeń.
 
-W wersji zapoznawczej usługa Event Grid obsługuje lokalizacje **westus2** i **westcentralus**. Zostanie dodany innych regionów.
+Siatka zdarzeń obsługuje obecnie następujących regionach:
 
-Ten artykuł zawiera omówienie Azure zdarzeń siatki. Jeśli chcesz rozpocząć pracę z siatki zdarzeń, zobacz [tworzenie i tras niestandardowych zdarzeń siatki zdarzeń Azure](custom-event-quickstart.md).
+* Środkowe stany USA
+*   Wschodnie stany USA
+*   Wschodnie stany USA 2
+*   Środkowo-zachodnie stany USA
+*   Zachodnie stany USA
+*   Zachodnie stany USA 2
+
+Zostanie dodany innych regionów.
+
+Ten artykuł zawiera omówienie Azure zdarzeń siatki. Jeśli chcesz rozpocząć pracę z siatki zdarzeń, zobacz [tworzenie i tras niestandardowych zdarzeń siatki zdarzeń Azure](custom-event-quickstart.md). Na poniższej ilustracji przedstawiono, jak siatki zdarzeń łączy wydawcy i programy obsługi, ale nie zapewnia kompleksowe opcje są obsługiwane.
 
 ![Model funkcjonalności siatki zdarzeń](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Ten artykuł zawiera omówienie Azure zdarzeń siatki. Jeśli chcesz rozpocząć
 
 Obecnie następujących usług platformy Azure są wbudowane wydawcy obsługę zdarzeń siatki:
 
-* Grupy zasobów (operacje zarządzania)
 * Subskrypcje platformy Azure (operacje zarządzania)
-* Usługa Event Hubs
-* Obiektu Blob magazynu
 * Niestandardowe — tematy
+* Usługa Event Hubs
+* Grupy zasobów (operacje zarządzania)
+* Obiektu Blob magazynu
 
 Innymi usługami Azure zostaną dodane tego roku.
 
@@ -42,11 +51,12 @@ Innymi usługami Azure zostaną dodane tego roku.
 
 Obecnie następujących usług platformy Azure są wbudowana obsługa siatki zdarzeń: 
 
-* Stan usługi Funkcje Azure
-* Logic Apps
 * Azure Automation
-* Elementów Webhook
+* Stan usługi Funkcje Azure
+* Usługa Event Hubs
+* Logic Apps
 * Przepływ firmy Microsoft
+* Elementy webhook
 
 Innymi usługami Azure zostaną dodane tego roku.
 

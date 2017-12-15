@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych SQL Microsoft Azure stosu
 
@@ -47,7 +47,11 @@ Należy utworzyć jeden (lub więcej) serwerów SQL lub zapewniają dostęp do z
 
     a. W instalacjach Azure stosu Development Kit (ASDK) Zaloguj się do hosta fizycznego.
 
-    b. W systemach z wieloma węzłami host musi być systemu, w którym można uzyskać dostępu do uprzywilejowanych punktu końcowego.
+    b. W systemach z wieloma węzłami host musi być systemu, w którym można uzyskać dostępu do uprzywilejowanych punktu końcowego. 
+    
+    >[!NOTE]
+    > System, w którym skrypt jest uruchamiany *musi* jako system Windows 10 lub Windows Server 2016 z najnowszą wersją środowiska uruchomieniowego .NET zainstalowane. Instalacja zakończy się niepowodzeniem, w przeciwnym razie wartość. ASDK host spełnia te kryteria.
+
 
 3. Pobierz dostawcę zasobów SQL binarne i wykonaj samorozpakowujący się plik typu wyodrębnienie zawartości do katalogu tymczasowego.
 
@@ -56,16 +60,19 @@ Należy utworzyć jeden (lub więcej) serwerów SQL lub zapewniają dostęp do z
 
     | Azure stosu kompilacji | Instalator SQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [RP SQL w wersji 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [RP SQL w wersji 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [RP SQL w wersji 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [RP SQL w wersji 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. Certyfikat główny stos Azure są pobierane z punktu końcowego uprzywilejowanych. ASDK, aby uzyskać certyfikat z podpisem własnym jest tworzony w ramach tego procesu. Wieloma węzłami trzeba podać odpowiedni certyfikat.
 
-    Jeśli musisz dostarczyć własny certyfikat, konieczne jest następujący certyfikat:
+    Jeśli musisz dostarczyć własny certyfikat, należy umieścić w pliku PFX **DependencyFilesLocalPath** (patrz poniżej) w następujący sposób:
 
-    Certyfikat uniwersalny dla \*.dbadapter.\< region\>.\< nazwy fqdn zewnętrznej\>. Ten certyfikat musi być zaufany, takie jak czy wystawiony przez urząd certyfikacji. Oznacza to łańcuch zaufania musi istnieć bez konieczności używania certyfikatów pośrednich. Certyfikat w jednej lokacji może służyć z jawną nazwę maszyny Wirtualnej [sqladapter] używane podczas instalacji.
+    - Certyfikat uniwersalny dla \*.dbadapter.\< region\>.\< nazwy fqdn zewnętrznej\> lub certyfikat w jednej lokacji z nazwą pospolitą sqladapter.dbadapter.\< region\>.\< nazwy fqdn zewnętrznej\>
+    - Ten certyfikat musi być zaufany, takie jak czy wystawiony przez urząd certyfikacji. Oznacza to łańcuch zaufania musi istnieć bez konieczności używania certyfikatów pośrednich.
+    - Istnieje tylko jeden certyfikat plik w DependencyFilesLocalPath.
+    - Nazwa pliku nie może zawierać żadnych znaków specjalnych.
 
 
 5. Otwórz **nowe** z podwyższonym poziomem uprawnień (administracyjnych) konsoli programu PowerShell i zmian w katalogu, w którym zostały wyodrębnione pliki. Użyj nowego okna, aby uniknąć problemów, które mogą wystąpić podczas niepoprawne już załadowanych modułów programu PowerShell w systemie.

@@ -1,6 +1,6 @@
 ---
-title: "Zarejestruj subskrypcji platformy Azure z usługą Azure Management koszt | Dokumentacja firmy Microsoft"
-description: "Użyj subskrypcji platformy Azure do rejestracji w usłudze Azure kosztów zarządzania przez Cloudyn."
+title: "Rejestracja subskrypcji platformy Azure w rozwiązaniu Azure Cost Management | Microsoft Docs"
+description: "Zarejestruj się w usłudze Azure Cost Management firmy Cloudyn przy użyciu subskrypcji platformy Azure."
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -12,41 +12,41 @@ ms.service: cost-management
 manager: carmonm
 ms.openlocfilehash: 4fed181a004ba6a5ea35dcbe1366e7d48342c96d
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Zarejestruj poszczególnych subskrypcji platformy Azure i wyświetlanie kosztów danych
+# <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Rejestrowanie indywidualnej subskrypcji platformy Azure i wyświetlanie informacji o koszcie
 
-Subskrypcji platformy Azure jest używany do rejestrowania usługi Azure Management koszt przez Cloudyn. Rejestracja umożliwia dostęp do portalu Cloudyn. Szczegóły tego szybkiego startu procesu rejestracji potrzebne do tworzenia subskrypcji wersji próbnej Cloudyn i zaloguj się do portalu Cloudyn. On również pokazano, jak zacząć od razu wyświetlanie danych kosztów.
+Do rejestrowania w usłudze Azure Cost Management firmy Cloudyn służy subskrypcja platformy Azure. Rejestracja zapewnia dostęp do portalu firmy Cloudyn. W tym przewodniku Szybki start opisano szczegółowo proces rejestracji niezbędny do utworzenia subskrypcji wersji próbnej rozwiązania Cloudyn i zalogowania w portalu Cloudyn. Przedstawiono w nim także, jak od razu rozpocząć wyświetlanie danych kosztów.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 - Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Tworzenie wersji próbnej rejestracji
+## <a name="create-a-trial-registration"></a>Tworzenie rejestracji wersji próbnej
 
-1. W portalu Azure kliknij **kosztów zarządzania + rozliczeń** na liście usług.
-2. W obszarze **omówienie**, kliknij przycisk **koszt zarządzania**  
-    ![Koszt strony zarządzania](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
-3. Na **kosztów zarządzania** kliknij przycisk **przejdź do zarządzania koszt** aby otworzyć stronę rejestracji Cloudyn w nowym oknie.
-4. Na stronie portalu rejestracji wersji próbnej Cloudyn wpisz nazwę firmy, a następnie wybierz **poszczególnych właściciel subskrypcji Azure** , a następnie kliknij przycisk **dalej**. Nazwa konta i identyfikator dzierżawcy jest automatycznie dodawany do formularza.  
-    ![Wersja próbna rejestracji](./media/quick-register-azure-sub/trial-reg-ind.png)
-5. Wybierz użytkownika **oferują Identyfikatora — nazwa** skojarzonych z Twoją subskrypcją. Jeśli masz pewności, co to jest identyfikator szybkości dla Twojej subskrypcji, można wyświetlić rachunku Azure i wyszukaj **identyfikator oferty**.
-6. Akceptuję warunki użytkowania, a następnie zweryfikować informacje, a następnie kliknij przycisk **dalej**.
-7. W **zebrać dodatkowe dane** kliknij przycisk **dalej** do autoryzacji Cloudyn zbierać dane zasobów platformy Azure. Zbierane dane obejmują użycia i wydajności, rozliczeń i dane znacznika z subskrypcji.  
+1. W witrynie Azure Portal kliknij pozycję **Zarządzanie kosztami i rozliczenia** na liście usług.
+2. W obszarze **Przegląd** kliknij pozycję **Zarządzanie kosztami**  
+    ![Strona Zarządzanie kosztami](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+3. Na stronie **Zarządzanie kosztami** kliknij pozycję **Przejdź do zarządzania kosztami**, aby otworzyć stronę rejestracji rozwiązania Cloudyn w nowym oknie.
+4. Na stronie rejestracji wersji próbnej rozwiązania Cloudyn wpisz nazwę swojej firmy i wybierz pozycję **Azure Individual Subscription Owner** (Posiadacz indywidualnej subskrypcji platformy Azure), a następnie kliknij przycisk **Next** (Dalej). Nazwa konta i identyfikator dzierżawy są automatycznie dodawane do formularza.  
+    ![rejestracja wersji próbnej](./media/quick-register-azure-sub/trial-reg-ind.png)
+5. Wybierz wartość **Offer ID - Name** (Identyfikator oferty —Nazwa) skojarzoną z Twoją subskrypcją. Jeśli nie masz pewności co do identyfikatora stawki dla swojej subskrypcji, możesz sprawdzić rachunek za platformę Azure i wyszukać pozycję **Offer ID** (Identyfikator oferty).
+6. Zaakceptuj warunki użytkowania, zweryfikuj swoje informacje i kliknij przycisk **Next** (Dalej).
+7. Na stronie **Gather additional data** (Zbierz dodatkowe dane) kliknij przycisk **Next** (Dalej), aby autoryzować rozwiązanie Cloudyn do zbierania danych zasobów platformy Azure. Te dane obejmują dane dotyczące użycia, wydajności, rozliczeń i tagów z Twoich subskrypcji.  
     ![zbieranie dodatkowych danych](./media/quick-register-azure-sub/gather-additional.png)
-8. Przeglądarkę przejście na stronę logowania dla Cloudyn. Zaloguj się przy użyciu poświadczeń subskrypcji platformy Azure.
-9. Kliknij przycisk **przejdź do Cloudyn** aby otworzyć Cloudyn portal, a następnie na **Zarządzanie kontami** strony, powinny pojawić się dane konta subskrypcji platformy Azure.  
+8. Przeglądarka przeniesie Cię do strony logowania w usłudze Cloudyn. Zaloguj się przy użyciu poświadczeń subskrypcji platformy Azure.
+9. Kliknij pozycję **Go to Cloudyn** (Przejdź do rozwiązania Cloudyn), aby otworzyć portal Cloudyn, a następnie na stronie **Accounts Management** (Zarządzanie kontami) powinny zostać wyświetlone dane Twojego konta subskrypcji platformy Azure.  
     ![Zarządzanie kontami](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Aby obejrzeć film samouczek dotyczący rejestrowania subskrypcji platformy Azure, zobacz [znajdowanie do użycia w Azure kosztów zarządzania przez Cloudyn Twojego katalogu identyfikator GUID i identyfikator szybkość](https://youtu.be/PaRjnyaNGMI).
+Aby wyświetlić wideo z samouczkiem dotyczącym rejestrowania subskrypcji platformy Azure, zobacz [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI) (Wyszukiwanie identyfikatora GUID katalogu i identyfikatora stawki do korzystania z rozwiązaniem Azure Cost Management firmy Cloudyn).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybkiego startu informacji o subskrypcji platformy Azure jest używane do rejestrowania przy kosztów zarządzania. Również zalogowaniem się do portalu Cloudyn i uruchomić, wyświetlanie danych kosztów. Aby dowiedzieć się więcej na temat zarządzania koszt Azure przez Cloudyn, nadal samouczka kosztów zarządzania.
+W tym przewodniku Szybki start opisano rejestrację w usłudze Cost Management przy użyciu danych subskrypcji platformy Azure. Przedstawiono także logowanie się do portalu Cloudyn i rozpoczęcie wyświetlania danych kosztów. Aby dowiedzieć się więcej na temat usługi Azure Cost Management firmy Cloudyn, przejdź do samouczka usługi Cost Management.
 
 > [!div class="nextstepaction"]
-> [Przejrzyj użycia i kosztów](./tutorial-review-usage.md)
+> [Przeglądanie użycia i kosztów](./tutorial-review-usage.md)

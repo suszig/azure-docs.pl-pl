@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
@@ -63,7 +63,7 @@ Uruchom aplikację lokalnie, otwierając okno terminala i korzystając ze skrypt
 npm start
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do przykładowej aplikacji w `http://localhost:1337`.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:1337`.
 
 Na stronie zostanie wyświetlony komunikat **Hello World** z przykładowej aplikacji.
 
@@ -141,7 +141,7 @@ Za pomocą edytora tekstów otwórz plik `index.js` w aplikacji Node.js i wprowa
 response.end("Hello Azure!");
 ```
 
-W lokalnej okno terminalu Zatwierdź zmiany w usłudze Git, a następnie Wypchnij zmiany kodu na platformie Azure.
+W oknie lokalnego terminala zatwierdź zmiany w usłudze Git, a następnie wypchnij zmiany kodu na platformę Azure.
 
 ```bash
 git commit -am "updated output"

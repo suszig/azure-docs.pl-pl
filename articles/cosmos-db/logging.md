@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
@@ -38,7 +38,7 @@ Użyj tego samouczka, aby rozpocząć korzystanie z bazy danych rozwiązania Cos
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka, musi mieć następujące zasoby:
 
-* Istniejące bazy danych Azure rozwiązania Cosmos konta bazy danych i kontenera. Aby uzyskać instrukcje tworzenia tych zasobów, zobacz [Tworzenie konta bazy danych przy użyciu portalu Azure](create-documentdb-dotnet.md#create-a-database-account), [przykłady interfejsu wiersza polecenia](cli-samples.md), lub [przykłady środowiska PowerShell](powershell-samples.md).
+* Istniejące bazy danych Azure rozwiązania Cosmos konta bazy danych i kontenera. Aby uzyskać instrukcje tworzenia tych zasobów, zobacz [Tworzenie konta bazy danych przy użyciu portalu Azure](create-sql-api-dotnet.md#create-a-database-account), [przykłady interfejsu wiersza polecenia](cli-samples.md), lub [przykłady środowiska PowerShell](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Włącz rejestrowanie w portalu Azure

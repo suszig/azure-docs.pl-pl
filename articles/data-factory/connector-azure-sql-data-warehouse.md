@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -296,7 +296,6 @@ Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawien
 
 3. Brak nie `skipHeaderLineCount` w obszarze **BlobSource** lub **AzureDataLakeStore** dla działania kopiowania w potoku.
 4. Brak nie `sliceIdentifierColumnName` w obszarze **SqlDWSink** dla działania kopiowania w potoku. (PolyBase gwarantuje, że wszystkie dane są aktualizowane lub nic nie jest aktualizowana w jednym przebiegu. Aby osiągnąć **powtarzalności**, można użyć `sqlWriterCleanupScript`).
-5. Brak nie `columnMapping` używane w skojarzonych w kopii działania.
 
 ```json
 "activities":[
@@ -423,7 +422,7 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | Binarne |Byte] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| data |Data/godzina |
+| Data |Data/godzina |
 | Data/godzina |Data/godzina |
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |

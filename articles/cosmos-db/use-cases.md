@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Typowe przypadki użycia bazy danych Azure rozwiązania Cosmos
 Ten artykuł zawiera omówienie kilka typowe przypadki użycia dla bazy danych Azure rozwiązania Cosmos.  Zalecenia przedstawione w tym artykule służyć jako punktu wyjścia podczas opracowywania aplikacji DB rozwiązania Cosmos.   
@@ -105,7 +105,7 @@ JSON, format jest obsługiwany przez DB rozwiązania Cosmos jest skuteczne forma
 ![Architektura referencyjna aplikacji sieci web Azure DB rozwiązania Cosmos](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Aby rozpocząć pracę z bazy danych rozwiązania Cosmos platformy Azure, wykonaj naszych [Szybki Start](create-documentdb-dotnet.md), który przeprowadzi użytkownika przez proces tworzenia konta i wprowadzenie do korzystania z bazy danych rozwiązania Cosmos. 
+Aby rozpocząć pracę z bazy danych rozwiązania Cosmos platformy Azure, wykonaj naszych [Szybki Start](create-sql-api-dotnet.md), który przeprowadzi użytkownika przez proces tworzenia konta i wprowadzenie do korzystania z bazy danych rozwiązania Cosmos. 
 
 Lub, jeśli chcesz dowiedzieć się więcej o klienci korzystający z rozwiązania Cosmos DB, dostępne są następujące scenariusze klienta:
 

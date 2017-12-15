@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Uruchom zadanie Apache Hive, Pig lub Hadoop przy użyciu bazy danych rozwiązania Cosmos Azure i usługi HDInsight
 W tym samouczku przedstawiono sposób uruchamiania [Apache Hive][apache-hive], [Apache Pig][apache-pig], i [Apache Hadoop] [ apache-hadoop] zadań MapReduce w usłudze Azure HDInsight z łącznikiem usługi Hadoop DB rozwiązania Cosmos. Łącznik usługi Hadoop DB rozwiązania cosmos umożliwia rozwiązania Cosmos bazy danych, które będą działać jako źródło i ujście zadań Hive, Pig i MapReduce. W tym samouczku będzie używać rozwiązania Cosmos bazy danych jako źródła danych i docelowy zadania usługi Hadoop.
@@ -161,7 +161,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
 
     ![Diagram do programu Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Krok 3: Uruchomienie zadania Hive za pomocą rozwiązania Cosmos bazę danych i usługi HDInsight
+## <a name="RunHive"></a>Krok 3: Uruchomienie zadania Hive przy użyciu bazy danych rozwiązania Cosmos Azure i usługi HDInsight
 > [!IMPORTANT]
 > Wszystkie zmienne określają < > musi być wypełnione przy użyciu ustawień konfiguracji.
 >
@@ -187,7 +187,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -207,7 +207,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -286,7 +286,7 @@ Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
 
     Dokumenty będą okrężnego rozproszonych w wielu kolekcjach. Wsadowe dokumentów będą przechowywane w jednej kolekcji, a następnie drugi partii dokumenty będą przechowywane w następnej kolekcji i tak dalej.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -397,7 +397,7 @@ Mamy Otwórz powierzając jej ich konserwację naszych łącznika usługi Hadoop
 
 Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
-* [Tworzenie aplikacji Java z usługi Documentdb][documentdb-java-application]
+* [Tworzenie aplikacji Java z bazy danych Azure rozwiązania Cosmos][sql-api-java-application]
 * [Tworzenie programów Java MapReduce dla platformy Hadoop w usłudze HDInsight][hdinsight-develop-deploy-java-mapreduce]
 * [Rozpocząć korzystanie z usługi Hadoop przy użyciu Hive w usłudze HDInsight do analizy użycia przenośnych słuchawki][hdinsight-get-started]
 * [Korzystać z usługi MapReduce z usługą HDInsight][hdinsight-use-mapreduce]
@@ -409,14 +409,14 @@ Aby dowiedzieć się więcej, zobacz następujące artykuły:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji sieci web PHP i wdrożyć w usłudze App Service w systemie Linux | Dokumentacja firmy Microsoft"
-description: "Wdrażanie Twojego pierwszego PHP Hello World w usłudze App Service w systemie Linux w minutach."
+title: "Tworzenie aplikacji internetowej w języku PHP i wdrażanie jej w usłudze App Service w systemie Linux | Microsoft Docs"
+description: "Wdróż swoją pierwszą aplikację Hello World w języku PHP w usłudze App Service w systemie Linux w ciągu kilku minut."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -17,15 +17,15 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Tworzenie aplikacji sieci web PHP w usłudze App Service w systemie Linux
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Tworzenie aplikacji internetowej w języku PHP w usłudze App Service w systemie Linux
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. Ten samouczek Szybki Start pokazano, jak wdrożyć aplikację PHP w usłudze Azure App Service w systemie Linux. Tworzenie aplikacji sieci web z wbudowanych obrazu przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) powłoki usługi w chmurze i wdrażanie kodu PHP w aplikacji sieci web przy użyciu narzędzia Git.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten samouczek Szybki start przedstawia sposób wdrażania aplikacji PHP w usłudze Azure App Service w systemie Linux. Aplikację internetową z wbudowanym obrazem możesz utworzyć przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) w usłudze Cloud Shell, a usługa Git umożliwia wdrażanie kodu w języku PHP w aplikacji internetowej.
 
-! [Przykładowej aplikacji działających na platformie Azure]] (media/quickstart-php/hello-world-in-browser.png)
+![Przykładowa aplikacja działająca na platformie Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 Poniższe kroki możesz wykonać przy użyciu komputera z systemem Mac, Windows lub Linux.
 
@@ -40,7 +40,7 @@ Aby ukończyć ten przewodnik Szybki Start:
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-W oknie terminalu, uruchom następujące polecenia w klonowania przykładowej aplikacji na komputerze lokalnym i przejdź do katalogu zawierającego przykładowy kod.
+W oknie terminala uruchom następujące polecenia, aby sklonować aplikację przykładową na maszynę lokalną, a następnie przejść do katalogu zawierającego przykład kodu.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -55,7 +55,7 @@ Uruchom aplikację lokalnie, otwierając okno terminala i korzystając z polecen
 php -S localhost:8080
 ```
 
-Otwórz przeglądarkę sieci web i przejdź do przykładowej aplikacji w `http://localhost:8080`.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:8080`.
 
 Na stronie zostanie wyświetlony komunikat **Hello World!** z przykładowej aplikacji.
 
@@ -75,7 +75,7 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Przejdź do witryny, aby wyświetlić aplikację sieci web nowo utworzony przy użyciu wbudowanych obrazu. Zastąp  _&lt;Nazwa aplikacji >_ nazwą aplikacji sieci web.
+Przejdź do witryny, aby zobaczyć nowo utworzoną aplikację internetową z wbudowanym obrazem. Zastąp ciąg _&lt;nazwa aplikacji>_ nazwą swojej aplikacji internetowej.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -118,15 +118,15 @@ Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 http://<app_name>.azurewebsites.net
 ```
 
-W przykładowym kodzie PHP jest uruchomiony w aplikacji sieci web przy użyciu wbudowanych obrazu.
+Przykładowy kod w języku PHP jest uruchamiany w aplikacji internetowej z wbudowanym obrazem.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Gratulacje!** Pierwszą aplikację PHP została wdrożona w usłudze App Service w systemie Linux.
+**Gratulacje!** Udało Ci się wdrożyć pierwszą własną aplikację w języku PHP w usłudze App Service w systemie Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Lokalne aktualizowanie i ponowne wdrażanie kodu
 
-W katalogu lokalnym, otwórz `index.php` pliku w aplikacji PHP i dalej, aby wprowadzić niewielkie zmiany na tekst w ciągu `echo`:
+W katalogu lokalnym otwórz plik `index.php` w aplikacji w języku PHP i wprowadź niewielką zmianę w tekście ciągu obok polecenia `echo`:
 
 ```php
 echo "Hello Azure!";

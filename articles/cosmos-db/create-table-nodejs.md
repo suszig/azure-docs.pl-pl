@@ -1,6 +1,6 @@
 ---
-title: "Szybki Start: Tabela interfejsu API za pomocą języka Node.js — rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
-description: "Ta opcja szybkiego startu przedstawia sposób użycia interfejsu API Azure rozwiązania Cosmos DB tabeli do tworzenia aplikacji z portalu Azure i Node.js"
+title: "Szybki start: interfejs API tabeli z platformą Node.js — Azure Cosmos DB | Microsoft Docs"
+description: "Ten przewodnik szybkiego startu przedstawia wykorzystanie interfejsu API tabeli usługi Azure Cosmos DB do tworzenia aplikacji przy użyciu witryny Azure Portal i platformy Node.js"
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -17,15 +17,15 @@ ms.date: 11/20/2017
 ms.author: arramac
 ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki Start: Tworzenie tabeli aplikacji interfejsu API środowiska Node.js i Azure rozwiązania Cosmos bazy danych
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabeli przy użyciu platformy Node.js i usługi Azure Cosmos DB
 
-Ta opcja szybkiego startu przedstawia sposób użycia środowiska Node.js i Azure DB rozwiązania Cosmos [API tabeli](table-introduction.md) do tworzenia aplikacji w klonowania przykład z usługi GitHub. Tego przewodnika Szybki Start również pokazano, jak utworzyć konto bazy danych Azure rozwiązania Cosmos oraz sposobie używania Eksploratora danych do tworzenia tabel i jednostek w sieci web portalu Azure.
+Ten przewodnik szybkiego startu pokazuje, jak używać platformy Node.js i [interfejsu API tabeli](table-introduction.md) usługi Azure Cosmos DB do tworzenia aplikacji przez sklonowanie przykładu z serwisu GitHub. Ten przewodnik Szybki start pokazuje również, jak utworzyć konto usługi Azure Cosmos DB i jak korzystać z Eksploratora danych do tworzenia tabel i jednostek w witrynie internetowej Azure Portal.
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Można szybko utworzyć i wyszukiwać dokumentu, klucz/wartość kolumny całej i baz danych wykresu, które korzystają z globalnego dystrybucji i skalowanie w poziomie możliwości fundament bazy danych Azure rozwiązania Cosmos. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość, szerokokolumnowe i grafowe. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Ponadto:
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
 > [!IMPORTANT] 
-> Musisz utworzyć nowe konto tabeli interfejsu API do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli. Konta interfejsu API Tabela utworzona w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK.
+> Musisz utworzyć nowe konto interfejsu API tabeli, aby pracować z ogólnie dostępnymi zestawami SDK interfejsu API tabeli. Konta interfejsu API tabeli utworzone w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -56,7 +56,7 @@ Teraz możesz dodać dane do swojej nowej tabeli za pomocą Eksploratora danych.
 1. W Eksploratorze danych rozwiń węzeł **sample-table**, kliknij pozycję **Jednostki**, a następnie kliknij przycisk **Dodaj jednostkę**.
 
    ![Tworzenie nowych jednostek w Eksploratorze danych w witrynie Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Teraz Dodaj PartitionKey wartości pól oraz RowKey wartości pola danych i kliknij przycisk **Dodaj jednostki**.
+2. Teraz dodaj dane do pól wartości PartitionKey i RowKey, a następnie kliknij przycisk **Dodaj jednostkę**.
 
    ![Ustawianie klucza partycji i klucza wiersza dla nowej jednostki](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -66,7 +66,7 @@ Teraz możesz dodać dane do swojej nowej tabeli za pomocą Eksploratora danych.
 
 Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej. 
+1. Otwórz okno terminala usługi Git, na przykład git bash, i użyj polecenia `cd`, aby przejść do folderu instalacji aplikacji przykładowej. 
 
     ```bash
     cd "C:\git-samples"
@@ -80,18 +80,18 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Dzięki temu aplikacja do komunikacji z bazą danych hostowanej. 
+Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. W [portalu Azure](http://portal.azure.com/), kliknij przycisk **ciąg połączenia**. 
+1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Parametry połączenia**. 
 
-    ![Wyświetlanie i kopiowanie informacji o ciągu wymagane połączenie z okienka parametry połączenia](./media/create-table-nodejs/connection-string.png)
+    ![Wyświetlanie i kopiowanie wymaganych parametrów połączeń z okienka Parametry połączenia](./media/create-table-nodejs/connection-string.png)
 
-2. Skopiuj podstawowy parametry połączenia za pomocą przycisku Kopiuj po prawej stronie.
+2. Skopiuj PODSTAWOWE PARAMETRY POŁĄCZENIA przy użyciu przycisku kopiowania po prawej stronie.
 
-3. Otwórz plik app.config i wkleić wartość connectionString w wierszu trzech. 
+3. Otwórz plik app.config i wklej wartość connectionString w wierszu trzecim. 
 
     > [!IMPORTANT]
-    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli.
+    > Jeśli dany punkt końcowy korzysta z adresu documents.azure.com, oznacza to, że masz konto w wersji zapoznawczej i musisz utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account), aby korzystać z dostępnego ogólnie zestawu SDK API tabeli.
     >
 
 3. Zapisz plik app.config.
@@ -100,25 +100,25 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 ## <a name="run-the-app"></a>Uruchomienie aplikacji
 
-1. W oknie terminalu git `cd` do folderu magazynu tabeli java-getting-started.
+1. W oknie terminala usługi Git za pomocą polecenia `cd` przejdź do folderu storage-table-java-getting-started.
 
     ```
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Uruchom następujące polecenie, aby zainstalować [azure], [uuid węzła], [nconf] i [async] moduły lokalnie również jako, aby zapisać wpis ich do pliku package.json
+2. Uruchom następujące polecenie, aby zainstalować lokalnie moduły [azure], [node-uuid], [nconf] i [async], a także zapisać ich pozycje w pliku package.json
 
    ```
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. W usłudze git okno terminalu, uruchom następujące polecenia, aby uruchomić uruchomienie aplikacji węzła.
+2. W oknie terminala usługi Git uruchom następujące polecenia, aby uruchomić aplikację Node.
 
     ```
     node ./tableSample.js 
     ```
 
-    W oknie konsoli wyświetla dane w tabeli dodawane do nowej tabeli bazy danych w usłudze Azure DB rozwiązania Cosmos.
+    W oknie konsoli zostaną wyświetlone dane tabeli dodawane do nowej bazy danych tabel w usłudze Azure Cosmos DB.
 
     Teraz można wrócić do Eksploratora danych i zobaczyć, jak się pracuje z nowymi danymi, modyfikuje je i tworzy zapytania o nie. 
 
@@ -135,4 +135,4 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia tabeli za pomocą Eksploratora danych i uruchamiania aplikacji.  Teraz można tworzyć zapytania do danych przy użyciu interfejsu API tabel.  
 
 > [!div class="nextstepaction"]
-> [Importowanie danych z tabeli do interfejsu API tabeli](table-import.md)
+> [Importowanie danych tabeli do interfejsu API tabeli](table-import.md)

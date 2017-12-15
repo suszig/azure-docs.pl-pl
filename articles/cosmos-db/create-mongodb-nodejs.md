@@ -17,17 +17,17 @@ ms.date: 06/19/2017
 ms.author: mimig
 ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migracja istniejącej aplikacji sieci Web MongoDB w środowisku Node.js 
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafowe. 
 
 Ten przewodnik Szybki Start wyjaśnia, jak użyć istniejącej aplikacji [MongoDB](mongodb-introduction.md) napisanej w języku Node.js i połączyć ją z bazą danych usługi Azure Cosmos DB obsługującą połączenia klientów MongoDB. Innymi słowy, aplikacja Node.js wie jedynie, że łączy się z bazą danych przy użyciu interfejsów API MongoDB. Aplikacja nie wie, że dane są przechowywane w bazie danych usługi Azure Cosmos DB.
 
-Gdy wszystko będzie gotowe, będzie miał uruchomionej aplikacji średniej (bazy danych MongoDB, Express kątową i Node.js) na [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/). 
+Gdy wszystko będzie gotowe, aplikacja MEAN (MongoDB, Express, Angular i Node.js) będzie uruchomiona dla bazy danych [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![Aplikacja MEAN.js uruchomiona w usłudze Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -63,7 +63,7 @@ cd mean
 npm install
 npm start
 ```
-Aplikacja próbuje połączyć się ze źródłem bazy danych MongoDB i zakończyć się niepowodzeniem, przejdź dalej i zamknij aplikację w przypadku zwraca dane wyjściowe "[MongoError: Połącz ECONNREFUSED 127.0.0.1:27017]".
+Aplikacja podejmie próbę połączenia się ze źródłem bazy danych MongoDB, która zakończy się niepowodzeniem. Zamknij aplikację w przypadku zwrócenia przez dane wyjściowe błędu „[MongoError: connect ECONNREFUSED 127.0.0.1:27017]”.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 

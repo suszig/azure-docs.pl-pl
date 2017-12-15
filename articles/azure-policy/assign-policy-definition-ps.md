@@ -1,6 +1,6 @@
 ---
-title: "Utwórz przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku platformy Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Utwórz przypisanie zasad Azure do identyfikacji niezgodnych zasobów za pomocą programu PowerShell."
+title: "Tworzenie przypisania zasad za pomocą programu PowerShell w celu zidentyfikowania niezgodnych zasobów w środowisku Azure | Microsoft Docs"
+description: "Używając programu PowerShell, utwórz przypisanie usługi Azure Policy, aby zidentyfikować niezgodne zasoby."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -11,64 +11,64 @@ ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 5c00d50817e40de0a43d05eb85662b494247d8fa
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Utwórz przypisanie zasad w celu identyfikacji niezgodnych zasobów w środowisku platformy Azure przy użyciu programu PowerShell
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku Azure za pomocą programu PowerShell
 
-Pierwszym etapem opis zgodności w usłudze Azure jest znajomość, gdzie autonomiczna z zasobami bieżącej. Ta opcja szybkiego startu przeprowadza użytkownika przez proces tworzenia przypisanie zasad do identyfikacji maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
+Pierwszym krokiem na drodze do zrozumienia pojęcia zgodności na platformie Azure jest uświadomienie sobie obecnej sytuacji dotyczącej Twoich zasobów. Ten przewodnik Szybki start przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
 
-Po zakończeniu tego procesu zostanie pomyślnie zidentyfikowano maszyn wirtualnych, które nie korzystają z dysków zarządzanych i dlatego *niezgodnych*.
+Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny wirtualne, które nie korzystają z dysków zarządzanych, w związku z czym są *niezgodne*.
 
 
-Program PowerShell umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. Szczegóły ten przewodnik przy użyciu programu PowerShell, aby utworzyć przypisanie zasad, aby zidentyfikować niezgodnych zasobów w środowisku platformy Azure.
+Program PowerShell umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów. W tym przewodniku szczegółowo opisano tworzenie przypisania zasad za pomocą programu PowerShell w celu zidentyfikowania niezgodnych zasobów w środowisku Azure.
 
-W tym przewodniku wymaga programu Azure PowerShell modułu w wersji 4.0 lub nowszej. Uruchom ```Get-Module -ListAvailable AzureRM``` można znaleźć wersji. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Dla tego przewodnika jest wymagany moduł Azure PowerShell w wersji 4.0 lub nowszej. Uruchom polecenie  ```Get-Module -ListAvailable AzureRM``` , aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 Przed rozpoczęciem upewnij się, że masz zainstalowaną najnowszą wersję programu PowerShell. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
-## <a name="opt-in-to-azure-policy"></a>Zgódź się na Azure zasad
+## <a name="opt-in-to-azure-policy"></a>Zgoda na korzystanie z usługi Azure Policy
 
-Zasady usługi Azure jest teraz dostępna w publicznej wersji zapoznawczej i należy zarejestrować, aby zażądać dostępu.
+Usługa Azure Policy jest teraz dostępna w publicznej wersji zapoznawczej i musisz się zarejestrować, aby zawnioskować o dostęp.
 
-1. Przejdź do zasad Azure https://aka.ms/getpolicy i wybierz **Utwórz konto** w okienku po lewej stronie.
+1. Przejdź do usługi Azure Policy pod adresem https://aka.ms/getpolicy i wybierz pozycję **Zarejestruj się** w okienku po lewej stronie.
 
-   ![Wyszukaj zasady](media/assign-policy-definition/sign-up.png)
+   ![Wyszukiwanie zasad](media/assign-policy-definition/sign-up.png)
 
-2. Zapoznać się zasadami Azure po wybraniu subskrypcji w **subskrypcji** chcesz pracować z listy. Następnie wybierz **zarejestrować**.
+2. Wyraź zgodę na korzystanie z usługi Azure Policy, wybierając na liście **Subskrypcja** subskrypcje, z którymi chcesz pracować. Następnie wybierz pozycję **Zarejestruj**.
 
-   ![Zgódź się na przy użyciu zasad usługi Azure](media/assign-policy-definition/preview-opt-in.png)
+   ![Zgoda na korzystanie z usługi Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Żądanie zostało automatycznie zatwierdzone podglądu. Może potrwać do 30 minut, systemu przetwarzania rejestracji.
+   Twój wniosek dotyczący wersji zapoznawczej zostanie automatycznie zatwierdzony. Przetworzenie rejestracji przez system może potrwać do 30 minut.
 
-## <a name="create-a-policy-assignment"></a>Utwórz przypisanie zasad
+## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
-W tego przewodnika Szybki Start, możemy utworzyć przypisania zasad i przypisać *inspekcji maszyny wirtualne bez dysków zarządzanych* definicji. Ta definicja zasad identyfikuje zasoby, które nie spełniają warunków ustawionych w definicji zasad.
+W tym przewodniku Szybki start utworzymy przypisanie zasad i przypiszemy definicję *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych). Ta definicja zasad spowoduje zidentyfikowanie zasobów, które nie spełniają warunków określonych w definicji zasad.
 
-Wykonaj następujące kroki, aby utworzyć nowe przypisanie zasad.
+Wykonaj poniższe kroki, aby utworzyć nowe przypisanie zasad.
 
-Uruchom następujące polecenie, aby wyświetlić wszystkie definicje zasad i odnaleźć, który chcesz przypisać:
+Uruchom następujące polecenie, aby wyświetlić wszystkie definicje zasad i znaleźć tę, którą chcesz przypisać:
 
 ```powershell
 $definition = Get-AzureRmPolicyDefinition
 ```
 
-Zasady usługi Azure zawiera definicje zasad już wbudowanych, których można użyć. Definicje wbudowanych zasad będą widoczne takie jak:
+Usługa Azure Policy zawiera już wbudowane definicje zasad, których możesz używać. Widoczne są m.in. wbudowane definicje zasad:
 
-- Wymuszanie tagu i jego wartość
-- Stosuje tag i jego wartość
-- Wymaga programu SQL Server w wersji 12.0
+- Enforce tag and its value (Wymuś tag i jego wartość)
+- Apply tag and its value (Zastosuj tag i jego wartość)
+- Require SQL Server Version 12.0 (Wymagaj programu SQL Server w wersji 12.0)
 
-Następnie przydzielić definicji zasad przy użyciu żądany zakres `New-AzureRmPolicyAssignment` polecenia cmdlet.
+Następnie przypisz definicję zasad do żądanego zakresu, używając polecenia cmdlet `New-AzureRmPolicyAssignment`.
 
-W tym samouczku zapewniamy następujące informacje dotyczące polecenia:
-- Wyświetl **nazwa** dla przypisania zasad. W takim przypadku Użyjmy inspekcji maszyny wirtualne bez dysków zarządzanych.
-- **Zasady** — jest to definicja zasad, na podstawie off, którego używasz utworzyć przypisanie. W takim przypadku jest definicji zasad — *inspekcji maszyny wirtualne bez dysków zarządzanych*
-- A **zakres** — zakres Określa, jakie zasoby lub grupowanie zasobów przypisania zasad pobiera wymuszane na. Mogą obejmować z subskrypcji z grupami zasobów. W tym przykładzie mamy przypisywanie definicji zasad do **FabrikamOMS** grupy zasobów.
-- **$definition** — należy podać identyfikator zasobu w definicji zasad — w takim przypadku używamy identyfikator definicji zasad - *inspekcji maszyny wirtualne bez dysków zarządzanych*.
+W tym samouczku dostarczamy następujące informacje dla polecenia:
+- **Nazwa** wyświetlana przypisania zasad. W tym przypadku użyjmy nazwy Audit Virtual Machines without Managed Disks (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
+- **Zasady** — jest to definicja zasad, na podstawie której tworzysz przypisanie. W tym przypadku jest to definicja zasad *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych)
+- **Zakres** — zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów. W tym przykładzie przypisujemy definicję zasad do grupy zasobów **FabrikamOMS**.
+- **$definition** — musisz podać identyfikator zasobu definicji zasad. W tym przypadku używamy identyfikatora definicji zasad *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
@@ -76,20 +76,20 @@ $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization
 New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Teraz możesz zidentyfikować niezgodnych zasobów, aby zrozumieć stan zgodności danego środowiska.
+Teraz możesz zidentyfikować niezgodne zasoby, aby poznać stan zgodności Twojego środowiska.
 
-## <a name="identify-non-compliant-resources"></a>Zidentyfikuj zasoby niezgodnych
+## <a name="identify-non-compliant-resources"></a>Identyfikowanie niezgodnych zasobów
 
-1. Przejdź z powrotem do strony docelowej Azure zasad.
-2. Wybierz **zgodności** w okienku po lewej stronie i poszukaj **przypisania zasad** utworzony.
+1. Przejdź z powrotem do strony docelowej usługi Azure Policy.
+2. Wybierz pozycję **Zgodność** w okienku po lewej stronie i wyszukaj utworzone **przypisanie zasad**.
 
-   ![Zasady zgodności](media/assign-policy-definition/policy-compliance.png)
+   ![Zgodność zasad](media/assign-policy-definition/policy-compliance.png)
 
-   W przypadku istniejących zasobów, które nie są zgodne z tym nowe przypisanie one będą widoczne w obszarze **niezgodne zasoby** karcie, jak pokazano powyżej.
+   Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone na karcie **Niezgodne zasoby**, jak pokazano powyżej.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Przewodnikach w tej kolekcji zależą od tego przewodnika Szybki Start. Jeśli zamierzasz kontynuować pracę z kolejnych samouczkach nie wyczyścić zasoby utworzone w tym Szybki Start. Jeśli nie planujesz kontynuować, Usuń przypisanie utworzone przez uruchomienie tego polecenia:
+Inne przewodniki w tej kolekcji bazują na tym przewodniku Szybki start. Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie zamierzasz kontynuować, usuń utworzone przypisanie, uruchamiając to polecenie:
 
 ```powershell
 Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
@@ -97,9 +97,9 @@ Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed D
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybki start można przypisać definicję zasad w celu identyfikacji niezgodnych zasobów w środowisku platformy Azure.
+W tym przewodniku Szybki start została przypisana definicja zasad mających na celu zidentyfikowanie niezgodnych zasobów w środowisku platformy Azure.
 
-Aby dowiedzieć się więcej o przypisanie zasad, aby upewnić się, że **przyszłych** zasobów, które tworzone są zgodne, w dalszym ciągu samouczek dotyczący:
+Aby dowiedzieć się więcej na temat przypisywania zasad w celu zapewnienia zgodności zasobów tworzonych w **przyszłości**, przejdź do samouczka:
 
 > [!div class="nextstepaction"]
-> [Tworzenie i zarządzanie zasadami](./create-manage-policy.md)
+> [Tworzenie zasad i zarządzanie nimi](./create-manage-policy.md)

@@ -1,4 +1,4 @@
-W powłoce chmury, Utwórz plan usługi aplikacji w grupie zasobów z [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan#az_appservice_plan_create) polecenia.
+W powłoce chmury, Utwórz plan usługi aplikacji w grupie zasobów z [Tworzenie planu usług aplikacji az](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) polecenia.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

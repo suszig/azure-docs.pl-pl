@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Docelowej bazy danych rozwiązania Cosmos Azure dla danych wyjściowych JSON z usługi Stream Analytics
 Analiza strumienia może kierować [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/documentdb/) dla danych wyjściowych JSON, włączanie archiwizacji i małych opóźnieniach kwerend danych na dane JSON bez struktury. W tym dokumencie opisano najważniejsze wskazówki dotyczące implementowania tej konfiguracji.
@@ -48,7 +48,7 @@ Rozwiązania cosmos DB [kolekcje partycjonowane](../cosmos-db/partition-data.md)
 
 Dla jednej kolekcji rozwiązania Cosmos DB Stream Analytics nadal umożliwia partycji danych na podstawie wzorców zapytań i wymagania dotyczące wydajności aplikacji. Każda kolekcja może zawierać maksymalnie 10GB danych (maksymalnie), a obecnie nie istnieje sposób skalowanie w górę (lub przepełnienie) kolekcji. Do skalowania, Stream Analytics umożliwia pisanie w wielu kolekcjach z danego prefiksu (zobacz poniżej szczegóły obciążenia). Stream Analytics korzysta z spójne [rozpoznawania partycji skrótu](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategii na podstawie użytkownika podane kolumny PartitionKey do partycjonowania jego rekordów danych wyjściowych. Liczba kolekcji z danego prefiksu podczas uruchamiania zadania przesyłania strumieniowego jest używany jako dane wyjściowe liczba partycji, do którego zadanie zapisuje równoległe (kolekcje DB rozwiązania Cosmos = partycje dane wyjściowe). Dla jednej kolekcji z opóźnieniem indeksowania czynności tylko wstawia, można oczekiwać o 0,4 przepływność zapisu MB/s. Przy użyciu wielu kolekcji umożliwiają osiągnięcie wyższej przepustowości i zwiększenia pojemności.
 
-Jeśli planujesz zwiększyć liczbę partycji w przyszłości, może być konieczne zatrzymanie zadania, partycje danych z istniejącej kolekcji do nowej kolekcji, a następnie ponownie uruchom zadanie usługi Stream Analytics. Więcej informacji na temat przy użyciu PartitionResolver i ponownie partycjonowania wraz z przykładowym kodzie będą uwzględniane w kolejnych post. Artykuł [dzielenia na partycje i skalowania w bazie danych rozwiązania Cosmos](../documentdb/documentdb-partition-data.md) także szczegółowe informacje na ten.
+Jeśli planujesz zwiększyć liczbę partycji w przyszłości, może być konieczne zatrzymanie zadania, partycje danych z istniejącej kolekcji do nowej kolekcji, a następnie ponownie uruchom zadanie usługi Stream Analytics. Więcej informacji na temat przy użyciu PartitionResolver i ponownie partycjonowania wraz z przykładowym kodzie będą uwzględniane w kolejnych post. Artykuł [dzielenia na partycje i skalowania w bazie danych rozwiązania Cosmos](../cosmos-db/sql-api-partition-data.md) także szczegółowe informacje na ten.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Ustawienia rozwiązania cosmos bazy danych dla danych wyjściowych JSON
 Tworzenie rozwiązania Cosmos bazy danych jako dane wyjściowe w Stream Analytics generuje monit o podanie informacji, jak pokazano poniżej. Ta sekcja zawiera wyjaśnienie definicji właściwości.

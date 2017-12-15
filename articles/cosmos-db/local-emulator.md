@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Użyj emulatora usługi Azure rozwiązania Cosmos bazy danych dla lokalnych projektowania i testowania
 
@@ -136,7 +136,7 @@ W sieci lokalnej, możesz uruchomić emulatora. Aby włączyć dostęp do sieci,
 Aby włączyć dostęp do sieci po raz pierwszy użytkownik powinien zamknięcia emulatora i usunąć katalog danych emulatora (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Tworzenie w emulatorze
-Po utworzeniu emulatora DB rozwiązania Cosmos Azure uruchomiony na pulpicie, można użyć dowolnego obsługiwane [zestawu SDK usługi Azure rozwiązania Cosmos DB](documentdb-sdk-dotnet.md) lub [interfejsu API REST Azure rozwiązania Cosmos DB](/rest/api/documentdb/) wchodzić w interakcje z emulatora. Emulator DB rozwiązania Cosmos Azure obejmuje również wbudowane Eksploratora danych, który umożliwia tworzenie kolekcji SQL, interfejsy API bazy danych MongoDB i widoku i edycji dokumentów bez pisania żadnego kodu.   
+Po utworzeniu emulatora DB rozwiązania Cosmos Azure uruchomiony na pulpicie, można użyć dowolnego obsługiwane [zestawu SDK usługi Azure rozwiązania Cosmos DB](sql-api-sdk-dotnet.md) lub [interfejsu API REST Azure rozwiązania Cosmos DB](/rest/api/documentdb/) wchodzić w interakcje z emulatora. Emulator DB rozwiązania Cosmos Azure obejmuje również wbudowane Eksploratora danych, który umożliwia tworzenie kolekcji SQL, interfejsy API bazy danych MongoDB i widoku i edycji dokumentów bez pisania żadnego kodu.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

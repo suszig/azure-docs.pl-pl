@@ -1,6 +1,6 @@
 ---
-title: "Inspekcja i otrzymywanie powiadomień o ważne akcje w ramach subskrypcji platformy Azure | Dokumentacja firmy Microsoft"
-description: "Zrozumienie historii zarządzania zasobami, usługa kondycji i innych działań subskrypcji w dzienniku aktywności, a następnie użyj alert dziennik aktywności otrzymywać wiadomość e-mail z powiadomieniem po wykonaniu operacji uprawnieniach w ramach subskrypcji."
+title: "Inspekcja i otrzymywanie powiadomień dotyczących ważnych działań związanych z subskrypcją platformy Azure | Microsoft Docs"
+description: "Informacje na temat historii zarządzania zasobami, kondycji usług i innych działań związanych z subskrypcją w Dzienniku aktywności oraz korzystanie z alertów Dziennika aktywności w celu otrzymania powiadomienia e-mail w przypadku wykonania działań wymagających wysokiego poziomu uprawnień w ramach subskrypcji."
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.author: johnkem
 ms.custom: mvc
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Inspekcja i otrzymywanie powiadomień o ważne akcje w ramach subskrypcji platformy Azure
+# <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Inspekcja i otrzymywanie powiadomień dotyczących ważnych działań związanych z subskrypcją platformy Azure
 
-**Dziennika aktywności platformy Azure** zawiera historię zdarzenia na poziomie subskrypcji platformy Azure. Zapewnia informacje o *kto* utworzone, zaktualizować lub usunąć *co* zasobów i *podczas* ich działanie. Można utworzyć **alert dziennik aktywności** do odbierania wiadomości e-mail, SMS lub elementu webhook powiadomienia, gdy występuje działania, która odpowiada warunki alertu. Ta procedura szybkiego startu poprzez tworzenie prostego sieciowej grupy zabezpieczeń, przeglądanie dziennika aktywności, aby zrozumieć zdarzeń, który wystąpił i następnie tworzenia alert dziennik aktywności, aby stać się powiadomienie, gdy wszystkie grupy zabezpieczeń sieci jest tworzony przekazuje będzie.
+**Dziennik aktywności platformy Azure** zawiera historię zdarzeń na poziomie subskrypcji na platformie Azure. Informuje o tym, *kto* utworzył, zaktualizował lub usunął zasoby, *jakich* zasobów dotyczyło to działanie i *kiedy* miało miejsce. Możesz utworzyć **alert Dziennika aktywności**, aby otrzymywać powiadomienia o działaniach spełniających warunki alertu w formie wiadomości e-mail, SMS lub elementu webhook. W tym przewodniku Szybki start opisano kroki tworzenia prostej sieciowej grupy zabezpieczeń, przeglądania Dziennika aktywności w celu uzyskania informacji o zdarzeniu, które wystąpiło, oraz tworzenia alertu Dziennika aktywności w celu otrzymania powiadomienia o utworzeniu sieciowej grupy zabezpieczeń w przyszłości.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -26,76 +26,76 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-network-security-group"></a>Utwórz grupę zabezpieczeń sieci
+## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
 1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Wybierz **sieci**, wybierz pozycję **sieciowej grupy zabezpieczeń**.
+2. Wybierz kolejno pozycje **Sieć** i **Sieciowa grupa zabezpieczeń**.
 
-3. Wprowadź "myNetworkSG" jako **nazwa** i utworzyć nową grupę zasobów o nazwie **myResourceGroup**. Kliknij przycisk **Utwórz**.
+3. Wprowadź ciąg „myNetworkSG” w polu **Nazwa** i utwórz nową grupę zasobów o nazwie **myResourceGroup**. Kliknij przycisk **Utwórz**.
 
-    ![Utwórz grupę zabezpieczeń sieci w portalu](./media/monitor-quick-audit-notify-action-in-subscription/create-network-security-group.png)
+    ![Tworzenie sieciowej grupy zabezpieczeń w portalu](./media/monitor-quick-audit-notify-action-in-subscription/create-network-security-group.png)
 
-## <a name="browse-the-activity-log-in-the-portal"></a>Przeglądanie dziennika aktywności w portalu
+## <a name="browse-the-activity-log-in-the-portal"></a>Przeglądanie Dziennika aktywności w portalu
 
-Teraz dodano zdarzenie do dziennika aktywności opisujący Tworzenie grupy zabezpieczeń sieci. Użyj poniższych instrukcji, aby zidentyfikować tego zdarzenia.
+Do Dziennika aktywności zostało właśnie dodane zdarzenie opisujące utworzenie sieciowej grupy zabezpieczeń. Skorzystaj z poniższych instrukcji, aby zidentyfikować to zdarzenie.
 
-1. Kliknij przycisk **Monitor** znaleziono na liście nawigacji po lewej stronie przycisku. Zostanie otwarta sekcja dziennik aktywności. Ta sekcja zawiera historię wszystkie akcje, które użytkownicy wykonali zasobów w ramach subskrypcji, można filtrować według właściwości kilka takich jak **grupy zasobów**, **Timespan**, i  **Kategoria**.
+1. Kliknij przycisk **Monitoruj** na liście w okienku nawigacji po lewej stronie. Zostanie otwarta sekcja Dziennik aktywności. Ta sekcja zawiera historię wszystkich działań wykonanych przez użytkowników w związku z zasobami w ramach subskrypcji, z możliwością filtrowania według różnych właściwości, takich jak **Grupa zasobów**, **Przedział czasu** i **Kategoria**.
 
-2. W **dziennik aktywności** kliknij **grupy zasobów** listy rozwijanej i wybierz **myResourceGroup**. Zmień **Timespan** listy rozwijanej, aby **ostatni 1 godzina**. Kliknij przycisk **Zastosuj**.
+2. W sekcji **Dziennik aktywności** kliknij listę rozwijaną **Grupa zasobów** i wybierz pozycję **myResourceGroup**. Zmień wybraną wartość na liście **Przedział czasu** na **Ostatnia godzina**. Kliknij przycisk **Zastosuj**.
 
     ![Filtrowanie dziennika aktywności](./media/monitor-quick-audit-notify-action-in-subscription/browse-activity-log.png)
 
-3. Polecenie **zapisu Networksecuritygroup** zdarzeń w tabeli przedstawianych zdarzeń.
+3. Kliknij zdarzenie **Write NetworkSecurityGroups** w wyświetlonej tabeli zdarzeń.
 
-## <a name="browse-an-event-in-the-activity-log"></a>Przeglądaj zdarzenia w dzienniku aktywności
+## <a name="browse-an-event-in-the-activity-log"></a>Przeglądanie zdarzenia w Dzienniku aktywności
 
-Sekcja, która pojawia się zawiera podstawowe informacje na temat operacji, która została wykonana, w tym nazwę, timestamp, użytkownika lub aplikacji, która go wykonać.
+Wyświetlona sekcja zawiera podstawowe informacje o wykonanej operacji, w tym jej nazwę, znacznik czasu oraz wykonawcę operacji — użytkownika lub aplikację.
 
-![Wyświetl zdarzenie w dzienniku aktywności podsumowania](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+![Wyświetlanie podsumowania zdarzenia w Dzienniku aktywności](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
 
-Polecenie **JSON** kartę, aby wyświetlić szczegóły zdarzenia pełna. Obejmuje to szczegóły jak użytkownik lub aplikacja został autoryzowany do wykonania operacji, kategorię zdarzenia i poziom oraz stan operacji.
+Kliknij kartę **JSON**, aby wyświetlić wszystkie szczegóły zdarzenia. Są to między innymi informacje o sposobie przyznania użytkownikowi lub aplikacji uprawnień do wykonania tej operacji, o kategorii i poziomie zdarzenia oraz o stanie operacji.
 
-![Wyświetl szczegóły zdarzenia w dzienniku aktywności](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-json.png)
+![Wyświetlanie szczegółów zdarzenia w Dzienniku aktywności](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-json.png)
 
-## <a name="create-an-activity-log-alert"></a>Utwórz alert dziennik aktywności
+## <a name="create-an-activity-log-alert"></a>Tworzenie alertu Dziennika aktywności
 
-1. Polecenie **podsumowania** kartę, aby powrócić do podsumowania zdarzeń.
+1. Kliknij kartę **Podsumowanie**, aby wrócić do podsumowania zdarzenia.
 
-2. W sekcji podsumowania jest wyświetlany, kliknij przycisk **alert dziennika aktywności Dodaj**.
+2. W wyświetlonej sekcji podsumowania kliknij pozycję **Dodaj alert dziennika aktywności**.
 
-    ![Utwórz grupę zabezpieczeń sieci w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+    ![Tworzenie sieciowej grupy zabezpieczeń w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
 
-3. W sekcji nadaj alert dziennik aktywności, nazwę i opis.
+3. W wyświetlonej sekcji wprowadź nazwę i opis alertu Dziennika aktywności.
 
-4. W obszarze **kryteria** upewnij się, że **kategorii zdarzeń** ustawiono **administracyjne**, **typu zasobu** ustawiono **sieci grupy zabezpieczeń**, **nazwy operacji** ustawiono **Tworzenie lub aktualizacja sieciowej grupy zabezpieczeń**, **stan** ma ustawioną wartość  **Pomyślnie** i wszystkich innych pól kryteriów są puste lub ustawić do **wszystkich**. Kryteria zdefiniować reguły używane do określenia, czy alert powinien aktywowany, gdy jest to nowe zdarzenie zostanie wyświetlony w dzienniku aktywności.
+4. W obszarze **Kryteria** upewnij się, że w polu **Kategoria zdarzenia** ustawiono pozycję **Administracyjne**, w polu **Typ zasobu** — **Sieciowe grupy zabezpieczeń**, w polu **Nazwa operacji** — **Tworzenie lub aktualizowanie sieciowej grupy zabezpieczeń**, w polu **Stan** — **Powodzenie**, a wszystkie pozostałe pola kryteriów są puste lub ustawione na **Wszystkie**. Te kryteria definiują reguły używane do określania, czy nowe zdarzenie w Dzienniku aktywności powinno aktywować alert.
 
-    ![Utwórz grupę zabezpieczeń sieci w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-criteria.png)
+    ![Tworzenie sieciowej grupy zabezpieczeń w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-criteria.png)
 
-5. W obszarze **alertów za pośrednictwem** wybierz **nowy** akcji grupy i podaj **nazwa** i **krótką nazwę** grupy działań. Grupa działań określa zbiór akcje wykonywane, gdy alert jest aktywny (gdy kryteria zgodne nowe zdarzenie).
+5. W obszarze **Metoda dostarczenia alertu** wybierz pozycję **Nowa** grupa akcji, a następnie wprowadź **nazwę** i **krótką nazwę** grupy akcji. Grupa akcji służy do zdefiniowania zestawu akcji wykonywanych po aktywowaniu alertu (spełnieniu kryteriów przez nowe zdarzenie).
 
-6. W obszarze **akcje** Dodaj 1 lub więcej akcji, zapewniając **nazwa** dla akcji, **typ akcji** (na przykład wiadomości e-mail lub SMS) i **szczegóły**dla tego typu określonej akcji (na przykład adres URL elementu webhook, adres e-mail lub numer SMS).
+6. W obszarze **Akcje** dodaj co najmniej 1 akcję, wprowadzając **Nazwę** akcji, **Typ akcji** (na przykład wiadomość e-mal lub SMS) oraz **Szczegóły** wybranego typu akcji (na przykład adres URL elementu webhook, adres e-mail, numer do wysłania wiadomości SMS).
 
-    ![Utwórz grupę zabezpieczeń sieci w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
+    ![Tworzenie sieciowej grupy zabezpieczeń w portalu](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
-7. Kliknij przycisk **Ok** można zapisać alertu dziennik aktywności.
+7. Kliknij przycisk **OK**, aby zapisać alert Dziennika aktywności.
 
-## <a name="test-the-activity-log-alert"></a>Testowanie alertu dziennik aktywności
+## <a name="test-the-activity-log-alert"></a>Testowanie alertu Dziennika aktywności
 
 > [!NOTE]
-> Trwa około 10 minut alert dziennik aktywności, aby stać się w pełni włączone. Nowe zdarzenia, które wystąpić, zanim alert dziennik aktywności jest całkowicie włączone nie generują powiadomienia.
+> Alert Dziennika aktywności zostanie w pełni włączony w ciągu około 10 minut. Nowe zdarzenia występujące przed pełnym włączeniem alertu Dziennika aktywności nie spowodują wygenerowania powiadomienia.
 >
 >
 
-Aby przetestować alertu, powtórz poprzedniej sekcji, aby **Utwórz grupę zabezpieczeń sieci**, ale mieć inną nazwę tej grupy zabezpieczeń sieci i ponowne użycie istniejącej grupy zasobów. W ciągu kilku minut otrzymasz powiadomienie, że została utworzona grupa zabezpieczeń sieci.
+Aby przetestować alert, powtórz czynności opisane w poprzedniej sekcji aż do etapu **Tworzenie sieciowej grupy zabezpieczeń**, nadając nowej sieciowej grupie zabezpieczeń inną nazwę i używając ponownie istniejącej grupy zasobów. W ciągu kilku minut otrzymasz powiadomienie o utworzeniu tej sieciowej grupy zabezpieczeń.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, Usuń grupę zasobów i grupy zabezpieczeń sieci. Aby to zrobić, wpisz nazwę grupy zasobów utworzonej w polu wyszukiwania w górnej części portalu, a następnie kliknij nazwę grupy zasobów. W sekcji, która jest wyświetlana, kliknij przycisk **Usuń grupę zasobów** przycisku, wpisz nazwę grupy zasobów, a następnie kliknij przycisk **usunąć**.
+Gdy grupa zasobów i sieciowa grupa zabezpieczeń nie będą już potrzebne, usuń je. W tym celu wpisz nazwę utworzonej grupy zasobów w polu wyszukiwania w górnej części portalu, a następnie kliknij nazwę grupy zasobów. W wyświetlonej sekcji kliknij przycisk **Usuń grupę zasobów**, wpisz nazwę grupy zasobów i kliknij polecenie **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybki start wykonana operacja generują zdarzenie dziennika aktywności, a następnie tworzone alert dziennik aktywności, aby stać się powiadomienie, gdy ta operacja odbywa się ponownie w przyszłości. Następnie alert został przetestowany przez wykonanie tej operacji ponownie. Azure sprawia, że dostępne zdarzenia dziennika aktywności w ciągu ostatnich 90 dni. Jeśli chcesz zachować zdarzeń dłużej niż 90 dni, spróbuj archiwizowanie danych dziennika aktywności obok innych danych monitorowania.
+Podczas pracy z tym przewodnikiem Szybki start wykonano operację powodującą wygenerowanie zdarzenia Dziennika aktywności, a następnie utworzono alert Dziennika aktywności w celu otrzymywania powiadomień w przypadku ponownego wystąpienia takiej operacji w przyszłości. Następnie przetestowano alert, wykonując ponownie tę operację. Dziennik aktywności platformy Azure zawiera zdarzenia z ostatnich 90 dni. Jeśli chcesz przechowywać informacje o zdarzeniach dłużej niż przez 90 dni, możesz zarchiwizować dane Dziennika aktywności wraz z innymi danymi monitorowania.
 
 > [!div class="nextstepaction"]
 > [Archiwizowanie danych monitorowania](./monitor-tutorial-archive-monitoring-data.md)

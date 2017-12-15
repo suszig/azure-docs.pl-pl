@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Praca z zmiany źródła pomocy technicznej w usłudze Azure DB rozwiązania Cosmos
 
@@ -90,11 +90,11 @@ Wyzwalacze mogą być tworzone w portalu Azure Functions w portalu Azure DB rozw
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Przy użyciu zestawu SDK
 
-[SQL SDK](documentdb-sdk-dotnet.md) dla bazy danych rozwiązania Cosmos Azure udostępnia wszystkie uprawnienia do odczytu i zarządzanie nimi zmiany źródła danych. Jednak z dużą zasilania pochodzi zbyt wiele zadań. Jeśli chcesz zarządzać punktami kontrolnymi, postępowania w przypadku numerów sekwencji dokumentów i mają kontrolę nad kluczy partycji przy użyciu zestawu SDK może być odpowiednie podejście.
+[SQL SDK](sql-api-sdk-dotnet.md) dla bazy danych rozwiązania Cosmos Azure udostępnia wszystkie uprawnienia do odczytu i zarządzanie nimi zmiany źródła danych. Jednak z dużą zasilania pochodzi zbyt wiele zadań. Jeśli chcesz zarządzać punktami kontrolnymi, postępowania w przypadku numerów sekwencji dokumentów i mają kontrolę nad kluczy partycji przy użyciu zestawu SDK może być odpowiednie podejście.
 
 W tej sekcji przedstawiono sposób użycia zestawu SDK SQL do pracy z zmiany źródła danych.
 
-1. Początek przeczytaj następujące zasoby z appconfig. Instrukcje dotyczące pobierania klucza punktu końcowego i autoryzacji są dostępne w [zaktualizować parametry połączenia](create-documentdb-dotnet.md#update-your-connection-string).
+1. Początek przeczytaj następujące zasoby z appconfig. Instrukcje dotyczące pobierania klucza punktu końcowego i autoryzacji są dostępne w [zaktualizować parametry połączenia](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Tak tablica punkt kontrolny tylko przechowywanie numeru LSN dla każdej partycji
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Za pomocą biblioteki zmiany źródła procesora 
 
-[Biblioteki Azure rozwiązania Cosmos DB zmiany źródła procesora](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) pomoże Ci łatwo rozpowszechniają przetwarzania zdarzeń wielu klientów. Ta biblioteka upraszcza odczytu zmiany na partycje i wiele wątków działające równolegle.
+[Biblioteki Azure rozwiązania Cosmos DB zmiany źródła procesora](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) pomoże Ci łatwo rozpowszechniają przetwarzania zdarzeń wielu klientów. Ta biblioteka upraszcza odczytu zmiany na partycje i wiele wątków działające równolegle.
 
 Największą zaletą biblioteki zmiany źródła procesora jest nie trzeba zarządzać każdej partycji oraz token kontynuacji i nie trzeba ręcznie sondowania każdej kolekcji.
 
@@ -276,11 +276,11 @@ Aby uzyskać więcej informacji dotyczących korzystania z bazy danych Azure roz
 
 Aby uzyskać więcej informacji na temat używania biblioteki zmiany procesora źródła danych użyj następujących zasobów:
 
-* [Strona informacji o](documentdb-sdk-dotnet-changefeed.md) 
+* [Strona informacji o](sql-api-sdk-dotnet-changefeed.md) 
 * [Pakiet Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Przykładowy kod, przedstawiający kroki od 1 do 6 powyżej](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Dodatkowe przykłady z witryny GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Aby uzyskać więcej informacji na temat używania zmiany źródła danych za pomocą zestawu SDK Użyj następujących zasobów:
 
-* [Strona informacji o zestawie SDK](documentdb-sdk-dotnet.md)
+* [Strona informacji o zestawie SDK](sql-api-sdk-dotnet.md)

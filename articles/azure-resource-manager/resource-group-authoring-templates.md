@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Struktura i składni szablonów usługi Azure Resource Manager
 W tym artykule opisano strukturę szablonu usługi Azure Resource Manager. Stanowi różne sekcje szablonu i właściwości, które są dostępne w tych sekcjach. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Samouczek krok po kroku dotyczące tworzenia szablonu, zobacz [Tworzenie pierwszego szablonu usługi Azure Resource Manager](resource-manager-create-first-template.md).
@@ -139,7 +139,7 @@ Każdy element zawiera właściwości, które można ustawić. Poniżej przedsta
 
 W tym artykule opisano części szablonu większej liczby szczegółów.
 
-## <a name="expressions-and-functions"></a>Wyrażeń i funkcji
+## <a name="syntax"></a>Składnia
 Podstawowa składnia szablonu jest JSON. Jednak wyrażeń i funkcji rozszerzyć dostępnych w szablonie wartości JSON.  Wyrażenia są zapisywane w literałach ciągu JSON, których pierwszy i ostatnie znaki są nawiasy: `[` i `]`odpowiednio. Wartość wyrażenia jest oceniane podczas wdrażania szablonu. Podczas zapisywania jako literału ciągu, wynik obliczania wyrażenia może być innego typu JSON, takich jak tablicy lub liczba całkowita, w zależności od rzeczywistej wyrażenia.  Mieć literałem rozpoczynać nawiasu `[`, ale nie została ona interpretowana jako wyrażenie, Dodaj dodatkowe nawiasu zacząć ciąg z `[[`.
 
 Zazwyczaj umożliwia wyrażenia funkcji wykonywać operacje związane z konfigurowaniem wdrażania. Po prostu, tak jak w języku JavaScript, wywołania funkcji są sformatowane jako `functionName(arg1,arg2,arg3)`. Możesz odwoływać się do właściwości przy użyciu operatorów kropka i [Indeks].
@@ -148,9 +148,7 @@ Poniższy przykład przedstawia użycie kilku funkcji podczas tworzenia wartośc
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -209,35 +207,16 @@ Aby uzyskać więcej informacji, zobacz [sekcja zasobów szablonów usługi Azur
 ## <a name="outputs"></a>Dane wyjściowe
 W sekcji danych wyjściowych można określić wartości, które są zwracane z wdrożenia. Na przykład można zwrócić identyfikator URI do uzyskania dostępu do zasobu wdrożone.
 
-W poniższym przykładzie przedstawiono struktura definicji danych wyjściowych:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Nazwa elementu | Wymagane | Opis |
-|:--- |:--- |:--- |
-| outputName |Tak |Nazwa wartości danych wyjściowych. Musi być prawidłowym identyfikatorem języka JavaScript. |
-| type |Tak |Typ wartości danych wyjściowych. Dane wyjściowe wartości obsługuje te same typy tablic jako parametrów wejściowych szablonu. |
-| wartość |Tak |Wyrażenia języka szablonu, który jest obliczany i zwracany, jako wartość wyjściowa. |
-
-W poniższym przykładzie przedstawiono wartość, która jest zwracana w sekcji danych wyjściowych.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-Aby uzyskać więcej informacji na temat pracy z danych wyjściowych, zobacz [udostępniania stanu w szablonach usługi Azure Resource Manager](best-practices-resource-manager-state.md).
+Aby uzyskać więcej informacji, zobacz [danych wyjściowych sekcji szablonów usługi Azure Resource Manager](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Limity szablonu
 

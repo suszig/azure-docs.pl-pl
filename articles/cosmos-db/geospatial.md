@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Praca z dane geograficzne i danych lokalizacji GeoJSON w usłudze Azure DB rozwiązania Cosmos
 Ten artykuł obejmuje wprowadzenie do funkcji geograficzne w [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/). Po przeczytaniu tego, będzie mógł odpowiedzieć na następujące pytania:
@@ -155,7 +155,7 @@ Jeśli nie ma informacji współrzędne geograficzne, ale ma adresów fizycznych
 Teraz, gdy firma Microsoft zajęło przyjrzeć się jak wstawić dane geograficzne, Spójrzmy na sposób tworzenia zapytań te dane przy użyciu bazy danych rozwiązania Cosmos Azure przy użyciu programu SQL i LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Przestrzenne wbudowanych funkcji SQL
-Azure DB rozwiązania Cosmos obsługuje następujące funkcje wbudowane Otwórz geograficzne konsorcjum (OGC) na potrzeby zapytań o dane geograficzne. Aby uzyskać więcej szczegółów na pełny zestaw funkcji wbudowanych w języku SQL, zobacz [kwerendy bazy danych z rozwiązania Cosmos Azure](documentdb-sql-query.md).
+Azure DB rozwiązania Cosmos obsługuje następujące funkcje wbudowane Otwórz geograficzne konsorcjum (OGC) na potrzeby zapytań o dane geograficzne. Aby uzyskać więcej szczegółów na pełny zestaw funkcji wbudowanych w języku SQL, zobacz [kwerendy bazy danych z rozwiązania Cosmos Azure](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -396,6 +396,6 @@ Nolearned, które zostały wcześniej o tym, jak rozpocząć pracę z obsługą 
 
 * Rozpoczęcie kodowania z [przykłady kodu .NET dane geograficzne w witrynie GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Uzyskać ręce na z geograficzne zapytań w [Plac zabaw dla Azure rozwiązania Cosmos DB zapytań](http://www.documentdb.com/sql/demo#geospatial)
-* Dowiedz się więcej o [kwerendy bazy danych Azure rozwiązania Cosmos](documentdb-sql-query.md)
+* Dowiedz się więcej o [kwerendy bazy danych Azure rozwiązania Cosmos](sql-api-sql-query.md)
 * Dowiedz się więcej o [zasady indeksowania bazy danych Azure rozwiązania Cosmos](indexing-policies.md)
 

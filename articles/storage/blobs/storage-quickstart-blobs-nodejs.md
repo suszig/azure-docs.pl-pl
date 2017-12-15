@@ -1,6 +1,6 @@
 ---
-title: "Szybki Start Azure - obiektów transferu do/z magazynu obiektów Blob platformy Azure przy użyciu Node.js| Dokumentacja firmy Microsoft"
-description: "Szybko poznać, aby przenieść obiekty z magazynu obiektów Blob platformy Azure przy użyciu środowiska Node.js"
+title: "Szybki start platformy Azure — Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js | Microsoft Docs"
+description: "Skrócona instrukcja transferowania obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js"
 services: storage
 documentationcenter: storage
 author: georgewallace
@@ -17,13 +17,13 @@ ms.date: 10/30/2017
 ms.author: gwallace
 ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
 ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/13/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Obiekty transferu do/z magazynu obiektów Blob platformy Azure przy użyciu środowiska Node.js
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą środowiska Node.js
 
-Z tego przewodnika Szybki Start dowiesz się przekazywanie, pobieranie i listy blokowych obiektów blob w kontenerze w magazynie obiektów Blob platformy Azure przy użyciu środowiska Node.js.
+Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą środowiska Node.js przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,19 +37,19 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 ## <a name="download-the-sample-application"></a>Pobieranie przykładowej aplikacji
 
-[Przykładowa aplikacja](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) używane w tym szybkiego startu jest aplikacji konsoli podstawowe. 
+[Przykładowa aplikacja](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) używana w tym przewodniku Szybki start to podstawowa aplikacja konsoli. 
 
-Użyj [git](https://git-scm.com/) do pobrania kopii aplikacji w środowisku deweloperskim.
+Użyj narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-To polecenie klonów repozytorium do folderu lokalnego git. Aby otworzyć aplikacji Wyszukaj folder magazynu — obiekty BLOB — węzeł — Szybki Start, otwórz go i kliknij dwukrotnie index.js.
+To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć tę aplikację, wyszukaj folder storage-blobs-node-quickstart, otwórz go i kliknij dwukrotnie plik index.js.
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
 
-W aplikacji musisz podać parametry połączenia dla konta magazynu. Otwórz `index.js` pliku, Znajdź `connectionString` zmiennej. Zastąp wartość całą wartość parametrów połączenia, który został zapisany w portalu Azure. Parametry połączenia magazynu powinien wyglądać podobnie do następującego:
+W aplikacji należy wprowadzić parametry połączenia konta magazynu. Otwórz plik `index.js` i znajdź zmienną `connectionString`. Zastąp jej wartość, obejmującą całą wartość parametru połączenia, wartością skopiowaną z witryny Azure Portal. Parametry połączenia magazynu powinny wyglądać podobnie do poniższych:
 
 ```javascript
 // Create a blob client for interacting with the blob service from connection string
@@ -60,17 +60,17 @@ var blobService = storage.createBlobService(connectionString);
 
 ## <a name="install-required-packages"></a>Instalowanie wymaganych pakietów
 
-W katalogu aplikacji, uruchom `npm install` z instalowaniem dowolnej wymagane pakiety wymienione w `package.json` pliku.
+W katalogu aplikacji uruchom polecenie `npm install`, aby zainstalować wszystkie wymagane pakiety wymienione w pliku `package.json`.
 
 ```javascript
 npm install
 ```
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-Ten przykład tworzy plik testowy w folderze Moje dokumenty, przekazanie jej do magazynu obiektów Blob, zawiera listę obiektów blob w kontenerze, a następnie pobiera plik z nową nazwą, możesz porównać starych i nowych plików.
+Ta aplikacja przykładowa tworzy plik testowy w folderze Moje dokumenty, przesyła go do usługi Blob Storage, tworzy listę obiektów blob w kontenerze, a następnie pobiera plik z nową nazwą, tak aby można było porównać stary i nowy plik.
 
-Uruchom próbkę wpisując `node index.js`. Następujące dane wyjściowe pochodzi z systemem Windows.  Jeśli przy użyciu systemu Linux można oczekiwać podobne dane wyjściowe ze ścieżkami odpowiedniego pliku.
+Uruchom aplikację przykładową, wpisując ciąg `node index.js`. Poniższe dane wyjściowe pochodzą z systemu Windows.  W przypadku używania systemu Linux można spodziewać się podobnych danych wyjściowych z odpowiednimi ścieżkami plików.
 
 ```
 Azure Storage Node.js Client Library Blobs Quick Start
@@ -97,25 +97,25 @@ Azure Storage Node.js Client Library Blobs Quick Start
 Sample finished running. When you hit <ENTER> key, the temporary files will be deleted and the sample application will exit.
 ```
 
-Przed kontynuowaniem sprawdź Moje dokumenty dwa pliki. Można je otworzyć i sprawdzić, czy są one takie same.
+Przed kontynuowaniem sprawdź folder Moje dokumenty pod kątem tych dwóch plików. Możesz je otworzyć i sprawdzić, czy są identyczne.
 
-Można również użyć narzędzia takie jak [Eksploratora usługi Storage Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) do wyświetlania plików w magazynie obiektów Blob. Eksplorator usługi Storage platformy Azure to bezpłatne narzędzie i platform umożliwiający dostęp do danych konta magazynu.
+Możesz również wyświetlić pliki w usłudze Blob Storage za pomocą narzędzia takiego jak [Eksplorator usługi Azure Storage](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Eksplorator usługi Azure Storage to darmowe narzędzie międzyplatformowe, które umożliwia dostęp do informacji na koncie magazynu.
 
-Po zweryfikowaniu pliki naciśnij dowolny klawisz, aby zakończyć pokaz i usuwanie plików testowych. Teraz, znając prezentowanym przykładzie, otwórz plik index.js, aby przyjrzeć się kodu. 
+Po zweryfikowaniu plików naciśnij dowolny klawisz, aby zakończyć demonstrację i usunąć pliki testowe. Teraz, gdy wiesz już, jak działa aplikacja przykładowa, otwórz plik index.js i przyjrzyj się kodowi. 
 
-## <a name="understand-the-sample-code"></a>Zrozumienie przykładowy kod
+## <a name="understand-the-sample-code"></a>Omówienie przykładowego kodu
 
-Następnie możemy przeprowadzenie przykładowy kod, dzięki czemu można zrozumieć, jak to działa.
+W kolejnej części omówimy przykładowy kod, aby wyjaśnić, w jaki sposób działa.
 
-### <a name="get-references-to-the-storage-objects"></a>Pobierz odwołania do obiektów magazynu
+### <a name="get-references-to-the-storage-objects"></a>Pobieranie odwołań do obiektów magazynu
 
-Jest najpierw musisz utworzyć odwołania do `BlobService` używane do uzyskania dostępu i zarządzania magazynem obiektów Blob. Te obiekty kompilacji na każdym z nich — są używane przez kolejnego na liście.
+Najpierw należy utworzyć odwołanie do obiektu `BlobService` używane w celu uzyskania dostępu do usługi Blob Storage i zarządzania nią. Te obiekty są powiązane — każdy obiekt jest używany przez kolejny na liście.
 
-* Utwórz wystąpienie  **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**  obiektu, który wskazuje usługi obiektów Blob na koncie magazynu.
+* Utwórz wystąpienie obiektu **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, które wskazuje na usługę Blob service na koncie magazynu.
 
-* Utwórz nowy kontener, a następnie ustaw uprawnienia w kontenerze obiektów blob są publiczne i jest możliwy tylko adres URL. Kontener, który rozpoczyna się od **quickstartcontainer -**.
+* Utwórz nowy kontener, a następnie skonfiguruj uprawnienia w kontenerze, tak aby obiekty blob były publiczne i można było do nich uzyskać dostęp za pomocą samego adresu URL. Kontener zaczyna się od ciągu **quickstartcontainer -**.
 
-W tym przykładzie użyto [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) ponieważ chcemy, aby utworzyć nowy kontener za każdym razem próbki jest uruchamiany. W środowisku produkcyjnym, której używasz tego samego kontenera w całej aplikacji, lepiej praktyką jest tylko jeden raz wywołać CreateIfNotExists. Można również utworzyć kontenera wcześniejsze, więc nie trzeba go utworzyć w kodzie.
+W tym przykładzie użyto metody [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists), ponieważ chcemy utworzyć nowy kontener za każdym razem, gdy jest uruchamiana aplikacja przykładowa. W środowisku produkcyjnym, w którym korzystasz z tego samego kontenera w całej aplikacji, lepiej jest wywołać metodę CreateIfNotExists tylko raz. Możesz również utworzyć kontener wcześniej, aby nie było konieczne tworzenie go w kodzie.
 
 ```javascript
 // Create a container for organizing blobs within the storage account.
@@ -124,13 +124,13 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-### <a name="upload-blobs-to-the-container"></a>Przekaż obiekty BLOB do kontenera
+### <a name="upload-blobs-to-the-container"></a>Przekazywanie obiektów blob do kontenera
 
-Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty BLOB są najczęściej używane. Doskonale nadają się do przechowywania tekstu i danych binarnych, czyli przyczyny, które są używane w tym Szybki Start.
+Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Blokowe obiekty blob są używane najczęściej. Doskonale nadają się do przechowywania tekstu i danych binarnych, dlatego zostały użyte w tym przewodniku Szybki start.
 
-Aby przekazać plik do obiektu blob, należy użyć [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) metody. Ta operacja tworzy obiektu blob, jeśli jeszcze nie istnieje lub zastąpiony, jeśli już istnieje.
+Aby przekazać plik do obiektu blob, należy użyć metody [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile). Ta operacja tworzy obiekt blob, jeśli jeszcze nie istnieje, lub zastępuje go, jeśli już istnieje.
 
-Przykładowy kod tworzy plik lokalny do zastosowania w przypadku przekazywania i pobierania, przechowywanie plików do przekazania jako **localPath** i nazwa obiektu blob w **localFileToUpload**. Poniższy przykład powoduje przekazanie pliku z kontenera rozpoczynających się od **quickstartcontainer -**.
+Przykładowy kod tworzy plik lokalny do zastosowania w przypadku przekazywania i pobierania, przechowujący plik do przekazania jako **localPath** i nazwę obiektu blob w **localFileToUpload**. Następujący kod przykładowy przekazuje plik do kontenera, którego nazwa zaczyna się od ciągu **quickstartcontainer-**.
 
 ```javascript
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
@@ -143,13 +143,13 @@ handleError(error);
 console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BLOB_NAME), '\n');
 ```
 
-Istnieje kilka metod przekazywania, korzystających z magazynu obiektów Blob. Na przykład, jeśli masz strumienia pamięci, można użyć [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) metody zamiast [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
+Istnieje kilka metod przekazywania, których można użyć z usługą Blob Storage. Na przykład jeśli masz strumień pamięci, możesz użyć metody [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) zamiast metody [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
 ### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Następnie aplikacja pobiera listę plików za pomocą kontenera [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Poniższy kod pobiera listę obiektów blob, a następnie w pętli, przedstawiający identyfikatorów URI obiektów blob znalezionych. Można skopiować identyfikator URI w oknie polecenia i wklej go w przeglądarce, aby wyświetlić plik.
+Następnie aplikacja pobiera listę plików w kontenerze za pomocą metody [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Poniższy kod umożliwia pobranie listy obiektów blob, a następnie przetwarza je w pętli, wyświetlając identyfikatory URI odnalezionych obiektów blob. Możesz skopiować identyfikator URI z okna polecenia i wkleić go do przeglądarki, aby wyświetlić plik.
 
-Jeśli masz 5000 lub mniej obiektów blob w kontenerze, wszystkie nazwy obiektów blob są pobierane w jednym wywołaniu [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Jeśli masz więcej niż 5000 obiekty BLOB w kontenerze, usługa pobiera listę w zestawach 5000, dopóki wszystkie nazwy obiektów blob zostały pobrane. Dlatego po raz pierwszy wywołać tego interfejsu API, zwraca pierwszy nazwy 5000 obiektów blob i token kontynuacji. Drugim, podaj token, usługa pobiera następnego zestawu nazwy obiektów blob i itd., dopóki token kontynuacji ma wartość null, co oznacza, że wszystkie nazwy obiektów blob zostały pobrane.
+Jeśli kontener zawiera 5000 lub mniej obiektów blob, wszystkie nazwy obiektów blob są pobierane w jednym wywołaniu metody [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Jeśli kontener zawiera więcej niż 5000 obiektów blob, usługa pobiera listę w zestawach po 5000 do momentu pobrania wszystkich nazw obiektów blob. Dlatego pierwsze wywołanie tego interfejsu API zwraca 5000 pierwszych nazw obiektów blob i token kontynuacji. Za drugim razem należy podać token, a usługa pobierze następny zestaw nazw obiektów blob i tak dalej, aż do momentu, gdy wartość tokenu kontynuacji wyniesie null, co oznacza pobranie wszystkich nazw obiektów blob.
 
 ```javascript
 console.log('4. Listing blobs in container\n');
@@ -164,9 +164,9 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
 
 ### <a name="download-blobs"></a>Pobieranie obiektów blob
 
-Pobieranie obiektów blob przy użyciu dysku lokalnym [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
+Pobierz obiekty blob na dysk lokalny, używając metody [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
-Poniższy kod pobiera blob przekazany w poprzedniej sekcji, dodanie sufiksu "_DOWNLOADED" Nazwa obiektu blob, dzięki czemu oba pliki na dysku lokalnym. 
+Następujący kod pobiera obiekty blob przekazane w poprzedniej sekcji, dodając sufiks „_DOWNLOADED” do nazwy obiektu blob, tak aby oba pliki były widoczne na dysku lokalnym. 
 
 ```javascript
 console.log('5. Downloading blob\n');
@@ -177,7 +177,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 ### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Przekazane w tego przewodnika Szybki Start obiektów blob nie są już potrzebne, można usunąć za pomocą całego kontenera [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) i [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). To również usunięcie plików utworzony, jeśli nie są już potrzebne. To jest poświęcony na obsługę aplikacji po naciśnięciu klawisza enter, aby zakończyć działanie aplikacji.
+Jeśli nie potrzebujesz już obiektów blob przekazanych podczas pracy z tym przewodnikiem Szybki start, możesz usunąć cały kontener, korzystając z metod [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) i [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Usuń także utworzone pliki, jeśli nie są już potrzebne. Te czynności są wykonywane w aplikacji po naciśnięciu klawisza Enter w celu zakończenia działania aplikacji.
 
 ```javascript
 console.log('6. Deleting block Blob\n');
@@ -194,9 +194,9 @@ console.log('6. Deleting block Blob\n');
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybkiego startu przedstawiono sposób przesyłania plików między magazynem obiektów Blob platformy Azure przy użyciu środowiska Node.js i dysku lokalnego. Aby dowiedzieć się więcej na temat pracy z magazynem obiektów Blob, nadal do magazynu obiektów Blob, jak to zrobić.
+W tym przewodniku Szybki start przedstawiono metodę transferowania plików między dyskiem lokalnym i usługą Azure Blob Storage przy użyciu środowiska Node.js. Aby dowiedzieć się więcej na temat pracy z usługą Blob Storage, przejdź do instrukcji dotyczących magazynu obiektów blob.
 
 > [!div class="nextstepaction"]
-> [Porada operacje magazynu obiektów blob](storage-nodejs-how-to-use-blob-storage.md)
+> [Instrukcje: Operacje wykonywane w usłudze Blob Storage](storage-nodejs-how-to-use-blob-storage.md)
 
-Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zobacz [zasobami magazynu obiektów Blob platformy Azure zarządzać za pomocą Eksploratora usługi Storage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Microsoft Azure Storage).

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ee6a91a22d84ba938423c04edc6f8be795b46ebb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i
 
@@ -98,6 +98,10 @@ Aby uzyskać więcej informacji, zobacz [domyślne rozmiary maszyn wirtualnych i
 
 ### <a name="hdinsight-version"></a>Wersja usługi HDInsight
 Wybierz wersję HDInsight dla tego klastra. Aby uzyskać więcej informacji, zobacz [HDInsight obsługiwane wersje](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+### <a name="enterprise-security-package"></a>Pakiet zabezpieczeń przedsiębiorstwa
+
+Dla typów klastra usługi Hadoop, Spark i interaktywne zapytania, możesz włączyć **pakiet zabezpieczeń Enterprise**. Ten pakiet zawiera opcję, aby bezpieczniejsza Konfiguracja klastra przy użyciu zakres Apache i integracja z usługi Azure Active Directory. Aby uzyskać więcej informacji, zobacz [pakiet zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Logowania do klastra i nazwy użytkownika SSH
 Z klastrami usługi HDInsight można skonfigurować dwa konta użytkownika, podczas tworzenia klastra:

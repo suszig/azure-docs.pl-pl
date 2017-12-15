@@ -1,6 +1,6 @@
 ---
-title: Szybki Start - Eksplorator Azure Insights serii czasu | Dokumentacja firmy Microsoft
-description: "Ta opcja szybkiego startu pokazano, jak rozpocząć pracę z Eksploratora Azure czas serii wgląd w przeglądarce sieci web do wizualizacji dużych ilości danych IoT. Samouczek najważniejsze funkcje w środowisku demonstracyjnej."
+title: "Szybki start — Eksplorator usługi Azure Time Series Insights | Microsoft Docs"
+description: "W tym przewodniku Szybki start pokazano, jak rozpocząć pracę z eksploratorem usługi Azure Time Series Insights w przeglądarce internetowej, aby wizualizować duże ilości danych IoT. Poznaj najważniejsze funkcje w środowisku pokazu."
 services: time-series-insights
 ms.service: time-series-insights
 author: MarkMcGeeAtAquent
@@ -14,64 +14,64 @@ ms.custom: mvc
 ms.date: 11/15/2017
 ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Szybki Start: Poznaj Insights serii czasu Azure
-Tego przewodnika Szybki Start pokazano, jak rozpocząć pracę z Eksploratora Azure czas serii wgląd w środowisku pokaz wolne. Możesz dowiedzieć się, jak można używać przeglądarki sieci web wizualizacji dużych ilości danych IoT i samouczek kluczowych funkcji usługi Eksplorator Insights serii czasu. 
+# <a name="quickstart-explore-azure-time-series-insights"></a>Szybki start: poznawanie usługi Azure Time Series Insights
+W tym przewodniku Szybki start pokazano, jak rozpocząć pracę z eksploratorem usługi Azure Time Series Insights w bezpłatnym środowisku pokazowym. Dowiesz się, jak przy użyciu przeglądarki internetowej wizualizować duże ilości danych IoT, i poznasz najważniejsze funkcje eksploratora usługi Time Series Insights. 
 
-Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować w tym samym momencie miliardy zdarzeń IoT. Umożliwia globalny widoku danych, co pozwala szybko sprawdzić rozwiązania IoT i uniknąć kosztownych przestojów urządzeniom krytycznym, pomaga odnajdywanie ukryte trendów wykrywania anomalii i przeprowadzanie analizy głównej przyczyny problemu w najbliższym czasie rzeczywistym.  Jeśli tworzysz aplikację, która wymaga danych serii godzina magazynu lub zapytania można tworzyć przy użyciu interfejsów API REST czasu serii szczegółowych informacji.
+Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować miliardy zdarzeń IoT jednocześnie. Usługa ta zapewnia globalny wgląd w dane i umożliwia szybkie weryfikowanie rozwiązań IoT. Ponadto zapobiega kosztownym przestojom w pracy urządzeń o krytycznym znaczeniu, pomagając w odkrywaniu ukrytych trendów, wykrywaniu anomalii i przeprowadzaniu analiz głównych przyczyn w czasie zbliżonym do rzeczywistego.  Jeśli tworzysz aplikację, która wymaga przechowywania danych szeregów czasowych lub wykonywania na nich zapytań, możesz programować przy użyciu interfejsów API REST usługi Time Series Insights.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Poznaj Eksploratora czasu serii wgląd w środowisku pokaz
+## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Poznawanie eksploratora usługi Time Series Insights w środowisku pokazowym
 
-1. W przeglądarce przejdź do [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+1. W przeglądarce przejdź do witryny [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
-2. W przypadku wyświetlenia monitu zaloguj się do Eksploratora Insights serii czasu przy użyciu poświadczeń konta platformy Azure. 
+2. Jeśli zostanie wyświetlony monit, zaloguj się do eksploratora usługi Time Series Insights przy użyciu poświadczeń konta platformy Azure. 
  
-3. Zostanie wyświetlona strona szybki przegląd Insights serii czasu. Kliknij przycisk **dalej** zacząć krótki przewodnik.
+3. Zostanie wyświetlona strona szybkiego przewodnika po usłudze Time Series Insights. Kliknij przycisk **Dalej**, aby zacząć szybki przewodnik.
 
    ![Kliknij przycisk Dalej](media/quickstart/quickstart1.png)
 
-4. **Panelu wyboru czas** jest wyświetlany. Wybierz przedział czasu do wizualizacji za pomocą tego panelu.
+4. Zostanie wyświetlony **panel wyboru czasu**. Użyj tego panelu, aby wybrać przedział czasu do wizualizacji.
 
    ![Panel wyboru czasu](media/quickstart/quickstart2.png)
 
-5. Kliknij i przeciągnij w regionie, a następnie kliknij przycisk **wyszukiwania** przycisku.
+5. Kliknij i przeciągnij w wybranym regionie, a następnie kliknij przycisk **Wyszukaj**.
  
-   ![Wybierz przedział czasu](media/quickstart/quickstart3.png) 
+   ![Wybieranie przedziału czasu](media/quickstart/quickstart3.png) 
 
-   Czas serii Insights Wyświetla wizualizację wykresu dla określony przedział czasu. Można wykonywać różne akcje w ramach z wykres liniowy, takich jak filtrowanie, przypinanie, sortowania i stosu. 
+   Usługa Time Series Insights wyświetli wizualizację wykresu dla określonego przedziału czasu. W ramach wykresu liniowego możesz wykonywać różne czynności, takie jak filtrowanie, przypinanie, sortowania i nakładanie. 
 
-   Aby powrócić do **panelu wyboru czas**, kliknij strzałkę w dół, jak pokazano:
+   Aby powrócić do **panelu wyboru czasu**, kliknij strzałkę w dół, jak pokazano na ilustracji:
 
    ![Wykres](media/quickstart/quickstart4.png)
 
-6. Kliknij przycisk **Dodaj** w **panelu warunki** można dodać nowego terminu wyszukiwania.
+6. Kliknij przycisk **Dodaj** na **panelu terminów**, aby dodać nowy termin wyszukiwania.
 
-   ![Dodaj element](media/quickstart/quickstart5.png)
+   ![Dodawanie elementu](media/quickstart/quickstart5.png)
 
-7. Na wykresie, można wybrać region, kliknij prawym przyciskiem myszy obszar i wybierz **Eksploruj zdarzenia**.
+7. Na wykresie możesz wybrać region, kliknąć prawym przyciskiem myszy ten region i wybrać polecenie **Eksploruj zdarzenia**.
  
    ![Eksploruj zdarzenia](media/quickstart/quickstart6.png)
 
-   Siatka danych pierwotnych jest wyświetlana w regionie, w którym są eksploracji:
+   Zostanie wyświetlona siatka danych pierwotnych z badanego regionu:
 
    ![Widok siatki](media/quickstart/quickstart7.png)
 
-8. Edytowanie warunków w celu zmiany wartości na wykresie, a następnie dodaj inny termin do cross korelując różnych typów wartości:
+8. Edytuj terminy, aby zmienić wartości na wykresie, oraz dodaj kolejny termin w celu krzyżowej korelacji różnych typów wartości:
 
-   ![Dodaj warunek](media/quickstart/quickstart8.png)
+   ![Dodaj termin](media/quickstart/quickstart8.png)
 
-9. Wprowadź warunku filtru w **filtrować serii...**  pole do filtrowania serii ad hoc. W przypadku szybkiego startu, wprowadź **Station5** do korelując między temperatury i wykorzystania dla tej stacji.
+9. Wprowadź termin filtrowania w polu **Filtruj szeregi...**, aby wykonać filtrowanie szeregów ad hoc. Na potrzeby tego przewodnika Szybki start wprowadź termin **Station5** (Stacja5), aby skorelować temperaturę i ciśnienie dla tej stacji.
  
-   ![Filtr serii](media/quickstart/quickstart9.png)
+   ![Filtrowanie szeregów](media/quickstart/quickstart9.png)
 
-Po zakończeniu procedury szybkiego startu, możesz eksperymentować z zestawem danych przykładowych, aby utworzyć różne wizualizacje. 
+Po zakończeniu przewodnika Szybki start możesz poeksperymentować z zestawem danych przykładowych, aby tworzyć różne wizualizacje. 
 
 ### <a name="next-steps"></a>Następne kroki
-Wszystko jest gotowe do tworzenia własnego środowiska Insights serii czasu:
+Teraz możesz utworzyć własne środowisko usługi Time Series Insights:
 > [!div class="nextstepaction"]
-> [Planowanie środowiska Insights serii czasu](time-series-insights-environment-planning.md)
+> [Planowanie środowiska usługi Time Series Insights](time-series-insights-environment-planning.md)

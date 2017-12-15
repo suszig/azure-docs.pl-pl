@@ -10,7 +10,7 @@
 | Czas procesora CPU (dzień)<sup>6</sup> |60 minut |240 minut |Nieograniczone, płatności na standardowy [stawki](https://azure.microsoft.com/pricing/details/app-service/)</a> |Bez ograniczeń, płatności stawkami standardowymi |Bez ograniczeń, płatności stawkami standardowymi |
 | Pamięć (1 godz.) |1024 MB na plan usługi aplikacji |1024 MB dla aplikacji |Nie dotyczy |Nie dotyczy |Nie dotyczy |
 | Przepustowość |165 MB |Nieograniczone, [szybkości transferu danych](https://azure.microsoft.com/pricing/details/data-transfers/) Zastosuj |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |Bez ograniczeń, transfer danych, które opłaty |
-| Architektura aplikacji |32-bitowa |32-bitowa |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
+| Architektura aplikacji |32-bitowy |32-bitowy |32-bitowe/64-bitowych |32-bitowe/64-bitowych |32-bitowe/64-bitowych |
 | Dla każdego wystąpienia w sieci Web Sockets<sup>7</sup> |5 |35 |350 |Nieograniczona liczba |Nieograniczona liczba |
 | Współbieżne [debugera połączeń](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) według aplikacji |1 |1 |1 |5 |5 |
 | [poddomeny azurewebsites.NET FTP/S i protokołu SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
@@ -29,7 +29,7 @@
 
 <sup>1</sup>aplikacji i przydziały pamięci masowej są na plan usługi aplikacji, o ile nie zaznaczono inaczej.  
 <sup>2</sup>rzeczywista liczba aplikacji, które mogą być hostowane na tych komputerach zależy działanie aplikacji, rozmiar wystąpień maszyn i odpowiednie wykorzystania zasobów.  
-<sup>3</sup>dedykowanego wystąpienia może być o różnych rozmiarach. Zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) więcej szczegółów.  
+<sup>3</sup>dedykowanego wystąpienia może być o różnych rozmiarach. Zobacz [App Service — ceny](https://azure.microsoft.com/pricing/details/app-service/) więcej szczegółów.  
 <sup>4</sup>warstwy premium umożliwia maksymalnie 50 oblicza wystąpień (pod warunkiem dostępności) i 500 GB miejsca na dysku, używając środowiska usługi App Service i 20 obliczeniowe inaczej wystąpień i 250 GB pamięci masowej.  
 <sup>5</sup>limit magazynu jest łączny rozmiar zawartości przez wszystkie aplikacje w tym samym planie usługi aplikacji. Więcej opcji magazynu są dostępne w [środowiska usługi aplikacji](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>te zasoby są ograniczone przez fizyczne zasoby dedykowanego wystąpienia (rozmiar wystąpienia i liczba wystąpień).  

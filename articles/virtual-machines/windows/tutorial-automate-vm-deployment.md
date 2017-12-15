@@ -4,7 +4,7 @@ description: "Dowiedz się, jak dostosować maszyn wirtualnych systemu Windows n
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e0503cef234b01c4eefb1c1de3d88d9a812c4c39
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 17a6c243aaf73fcd88261870fbdd9e8c936471b8
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Dostosowywanie maszyny wirtualnej systemu Windows na platformie Azure
 Aby skonfigurować maszynach wirtualnych (VM) w sposób szybki i spójny, wymagane jest zwykle jakiegoś automatyzacji. Typowym podejściem dostosować Maszynę wirtualną systemu Windows jest użycie [niestandardowe rozszerzenie skryptu systemu Windows](extensions-customscript.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -143,7 +143,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -VMName myVM `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
-    -TypeHandlerVersion 1.4 `
+    -TypeHandlerVersion 1.8 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
     -Location EastUS
 ```

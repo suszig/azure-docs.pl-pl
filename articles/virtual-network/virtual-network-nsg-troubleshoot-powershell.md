@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Rozwiązywanie problemów z grup zabezpieczeń sieci przy użyciu programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Podczas tego przykładu korzysta z portu 3389 protokołu TCP, następujące czyn
 ## <a name="detailed-troubleshooting-steps"></a>Szczegółowe kroki rozwiązywania problemów
 Wykonaj poniższe kroki, aby rozwiązać grup NSG dla maszyny Wirtualnej:
 
-1. Uruchom sesję programu PowerShell systemu Azure i logowania do platformy Azure. Jeśli nie masz doświadczenia w obsłudze przy użyciu programu Azure PowerShell, przeczytaj [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
+1. Uruchom sesję programu PowerShell systemu Azure i logowania do platformy Azure. Jeśli nie masz doświadczenia w obsłudze przy użyciu programu Azure PowerShell, przeczytaj [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu. Konto musi mieć przypisaną *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operacji interfejsu sieciowego. Aby dowiedzieć się, jak przypisać operacje do kont, zobacz [Tworzenie niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Wprowadź następujące polecenie, aby zwrócić wszystkie reguły NSG stosowana do karty Sieciowej o nazwie *VM1 NIC1* w grupie zasobów *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Tworzenie maszyny wirtualnej z systemem Linux za pomocą programu PowerShell
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Szczegóły tego szybkiego startu przy użyciu modułu Azure PowerShell, aby wdrożyć maszynę wirtualną z systemem Ubuntu server. Po wdrożeniu serwera zostanie utworzone połączenie SSH i zostanie zainstalowany serwer sieci Web NGINX.
+Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. W tym przewodniku Szybki start zawarto szczegółowe instrukcje korzystania z modułu Azure PowerShell w celu wdrożenia maszyny wirtualnej z systemem Ubuntu Server. Po wdrożeniu serwera zostanie utworzone połączenie SSH i zostanie zainstalowany serwer sieci Web NGINX.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -139,7 +139,7 @@ Po wyświetleniu monitu podaj nazwę logowania użytkownika *azureuser*. Jeśli 
 
 ## <a name="install-nginx"></a>Instalowanie serwera NGINX
 
-Użyj następujących poleceń, aby zaktualizować źródła pakietów i zainstaluj najnowszy pakiet NGINX. 
+Użyj poniższych poleceń w celu zaktualizowania źródeł pakietów i zainstalowania najnowszego pakietu NGINX. 
 
 ```bash 
 # update package source

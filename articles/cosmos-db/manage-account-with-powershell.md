@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Tworzenie konta bazy danych rozwiązania Cosmos Azure przy użyciu programu PowerShell
 
-Następujący przewodnik zawiera opis polecenia do automatyzacji zarządzania konta bazy danych DB rozwiązania Cosmos Azure przy użyciu programu Azure Powershell. Zawiera także polecenia do zarządzania klucze konta i priorytetów trybu failover w [konta bazy danych w przypadku][scaling-globally]. Aktualizacja konta bazy danych służy do modyfikowania zasad zgodności i Dodaj lub usuń regionów. Do zarządzania i platform konta bazy danych rozwiązania Cosmos platformy Azure, możesz użyć dowolnej [interfejsu wiersza polecenia Azure](cli-samples.md), [interfejsu API REST dostawcy zasobów][rp-rest-api], lub [portalu Azure ](create-documentdb-dotnet.md#create-account).
+Następujący przewodnik zawiera opis polecenia do automatyzacji zarządzania konta bazy danych DB rozwiązania Cosmos Azure przy użyciu programu Azure Powershell. Zawiera także polecenia do zarządzania klucze konta i priorytetów trybu failover w [konta bazy danych w przypadku][scaling-globally]. Aktualizacja konta bazy danych służy do modyfikowania zasad zgodności i Dodaj lub usuń regionów. Do zarządzania i platform konta bazy danych rozwiązania Cosmos platformy Azure, możesz użyć dowolnej [interfejsu wiersza polecenia Azure](cli-samples.md), [interfejsu API REST dostawcy zasobów][rp-rest-api], lub [portalu Azure ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -194,8 +194,7 @@ Przykład:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby połączyć się przy użyciu platformy .NET, zobacz [Connect i zapytania z platformą .NET](create-documentdb-dotnet.md).
-* Nawiązywanie połączenia przy użyciu platformy .NET Core, zobacz [Connect i zapytania z platformą .NET Core](create-documentdb-dotnet-core.md).
+* Aby połączyć się przy użyciu platformy .NET, zobacz [Connect i zapytania z platformą .NET](create-sql-api-dotnet.md).
 * Nawiązywanie połączenia przy użyciu środowiska Node.js, zobacz [Connect i zapytania przy użyciu środowiska Node.js i aplikacji bazy danych MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

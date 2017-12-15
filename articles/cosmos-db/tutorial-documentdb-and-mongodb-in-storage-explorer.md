@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)
 
@@ -32,7 +32,7 @@ W tym artykule możesz dowiedzieć się, jak zarządzać bazy danych rozwiązani
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Konto bazy danych Azure rozwiązania Cosmos interfejsu API SQL lub bazy danych MongoDB interfejsu API. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL z usług .NET i portalu Azure](create-documentdb-dotnet.md).
+Konto bazy danych Azure rozwiązania Cosmos interfejsu API SQL lub bazy danych MongoDB interfejsu API. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL z usług .NET i portalu Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalacja
 
@@ -137,7 +137,7 @@ Aby utworzyć nowy dokument, otwórz **dokumenty** w oknie po lewej stronie klik
 #### <a name="delete-a-document"></a>Usuwanie dokumentu
 Kliknij przycisk **usunąć** przycisk, aby usunąć wybrany dokument.
 #### <a name="query-for-documents"></a>Zapytanie dla dokumentów
-Edytuj filtr dokumentu, wprowadzając [zapytania SQL](documentdb-sql-query.md) , a następnie kliknij przycisk **Zastosuj**.
+Edytuj filtr dokumentu, wprowadzając [zapytania SQL](sql-api-sql-query.md) , a następnie kliknij przycisk **Zastosuj**.
 
 ![Filtr](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak na potrzeby chmury init i Key Vault customze mas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Dostosowywanie maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera
 W poprzednich samouczka przedstawiono sposób, aby SSH z maszyną wirtualną (VM) oraz ręcznie zainstalować NGINX. Do tworzenia maszyn wirtualnych w sposób szybki i spójny, wymagane jest zwykle jakiegoś automatyzacji. Typowym podejściem dostosować Maszynę wirtualną po pierwszym uruchomieniu komputera jest użycie [init chmury](https://cloudinit.readthedocs.io). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -39,7 +39,7 @@ Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lok
 
 
 
-## <a name="cloud-init-overview"></a>Init chmury — omówienie
+## <a name="cloud-init-overview"></a>Omówienie pakietu cloud-init
 [Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Podczas inicjowania chmury działania podczas początkowego procesu rozruchu, nie ma, nie dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.
 
 Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
@@ -51,6 +51,8 @@ Pracujemy nad z naszych partnerów uzyskanie init chmury uwzględnione i Praca w
 | UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |najnowsza |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |
 | CoreOS |CoreOS |CoreOS |Stable |najnowsza |
+| | OpenLogic | CentOS | 7-CI | najnowsza |
+| | RedHat | RHEL | 7-RAW-CI | najnowsza
 
 
 ## <a name="create-cloud-init-config-file"></a>Utwórz plik konfiguracji init chmury

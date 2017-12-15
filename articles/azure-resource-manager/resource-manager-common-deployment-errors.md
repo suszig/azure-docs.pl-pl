@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager
 
@@ -34,7 +34,7 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | AllocationFailed | Klaster lub regionie nie ma dostępu do zasobów lub nie może obsługiwać żądany rozmiar maszyny Wirtualnej. Ponów żądanie w późniejszym czasie, lub zwróć inny rozmiar maszyny Wirtualnej. | [Problemy z inicjowaniem obsługi administracyjnej i alokacji dla systemu Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) i [problemy z inicjowaniem obsługi administracyjnej i alokacji dla systemu Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Poczekaj na zakończenie operacji współbieżnych. | |
 | AuthorizationFailed | Twoje konto lub nazwy głównej usługi nie ma wystarczające prawa dostępu do wdrażania. Sprawdź używane konto należy do roli, a jego dostępu dla zakresu wdrożenia. | [Kontrola dostępu oparta na rolach na platformie Azure](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Wysłano wartości wdrożenia, które nie są zgodne, czego oczekuje się za pomocą Menedżera zasobów. Sprawdź komunikat o stanie wewnętrzny Aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołanie do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-manager-template-location.md) |
+| BadRequest | Wysłano wartości wdrożenia, które nie są zgodne, czego oczekuje się za pomocą Menedżera zasobów. Sprawdź komunikat o stanie wewnętrzny Aby uzyskać pomoc dotyczącą rozwiązywania problemów. | [Odwołanie do szablonu](/azure/templates/) i [obsługiwane lokalizacje](resource-manager-templates-resources.md#location) |
 | Konflikt | Zażądano operacji, które nie są dozwolone w bieżącym stanie zasobu. Na przykład zmiana rozmiaru dysku jest dozwolona tylko w przypadku tworzenia maszyny Wirtualnej lub po cofnięciu przydziału maszyny Wirtualnej. | |
 | DeploymentActive | Poczekaj, aż równoczesnych wdrożenia do tej grupy zasobów, aby zakończyć. | |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Podaj inną nazwę, albo zmodyfikować istniejący rekord. | |
@@ -51,7 +51,7 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | InvalidTemplate | Sprawdź składnię szablonu błędów. | [Nieprawidłowy szablon rozwiązania](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Sprawdź, czy używane konto należy do tej samej dzierżawy jako grupa zasobów, które wdrażasz. | |
 | LinkedInvalidPropertyId | Identyfikator zasobu dla zasobu nie jest poprawnie rozpoznawania. Sprawdź, podaj wartości wszystkich wymaganych identyfikatorów zasobów, w tym identyfikator subskrypcji, nazwa grupy zasobów, typ zasobu, nazwa zasobu nadrzędnego (Jeśli to konieczne) i nazwa zasobu. | |
-| LocationRequired | Podaj lokalizację dla zasobu. | [Ustawianie lokalizacji](resource-manager-template-location.md) |
+| LocationRequired | Podaj lokalizację dla zasobu. | [Ustawianie lokalizacji](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Sprawdź stan rejestracji dostawcy zasobów i obsługiwane lokalizacje. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Zarejestrować subskrypcji u dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Sprawdzaj stan rejestracji dostawcy zasobów. | [Rozwiąż rejestracji](resource-manager-register-provider-errors.md) |

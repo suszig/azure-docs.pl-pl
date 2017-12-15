@@ -1,6 +1,6 @@
 ---
-title: "Azure wystąpień kontenera regionu i zasobu dostępności | Dokumentacja platformy Azure"
-description: "Odnajdywanie, w których regionach platformy Azure obsługuje wdrażanie wystąpień kontenera i limity czasu Procesora i pamięci dla tych wystąpień."
+title: "Region usługi Azure Container Instances i dostępność zasobów | Azure Docs"
+description: "Dowiedz się, które regiony platformy Azure obsługują wdrażanie wystąpień kontenerów, i poznaj limity dotyczące procesora CPU oraz pamięci dla tych wystąpień."
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,25 +19,25 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 2b9b1b864bbfd73383759212dd7d91f8e4941544
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-availability-for-azure-container-instances"></a>Dostępność wystąpień kontenera platformy Azure w danym regionie
+# <a name="region-availability-for-azure-container-instances"></a>Dostępność regionów dla usługi Azure Container Instances
 
-Podczas udostępniania wersji zapoznawczej wystąpień kontenera platformy Azure są dostępne w następujących regionach, przy użyciu określonego procesora CPU i limity pamięci.
+W okresie zapoznawczym usługa Azure Container Instances będzie dostępna w następujących regionach z określonymi limitami dotyczącymi procesora CPU i pamięci.
 
 | Lokalizacja | System operacyjny | Procesor CPU | Pamięć (GB) |
 | -------- | -- | :---: | :-----------: |
-| Europa Zachodnia, zachodnie stany USA, wschodnie stany USA | Linux | 2 | 7 |
-| Europa Zachodnia, zachodnie stany USA, wschodnie stany USA | Windows | 2 | 3,5 |
+| Europa Zachodnia, Zachodnie stany USA, Wschodnie stany USA | Linux | 2 | 7 |
+| Europa Zachodnia, Zachodnie stany USA, Wschodnie stany USA | Windows | 2 | 3,5 |
 
 ## <a name="resource-availability"></a>Dostępność zasobów
 
-Wystąpień kontenera utworzone w tych granicach zasobów podlegają dostępności w ramach regionu wdrożenia. Jeśli region jest mocno obciążony, może wystąpić błąd podczas wdrażania wystąpienia.
+Wystąpienia kontenerów utworzone w ramach tych limitów zasobów podlegają dostępności w obrębie regionu wdrożenia. Gdy region jest mocno obciążony, wdrażanie wystąpień może zakończyć się niepowodzeniem.
 
-Aby uniknąć niepowodzenia wdrożenia, spróbuj wdrażanie wystąpień z niższym Procesora i pamięci wirtualnej, lub wdrożenia w późniejszym czasie.
+Aby uniknąć niepowodzenia wdrażania, spróbuj wdrożyć wystąpienia z niższymi ustawieniami procesora CPU i pamięci lub spróbuj przeprowadzić wdrożenie w późniejszym terminie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na rozwiązywanie problemów z wdrażaniem wystąpienia kontenera, zobacz [Rozwiązywanie problemów dotyczących wdrożenia z wystąpień kontenera Azure](container-instances-troubleshooting.md).
+Aby uzyskać więcej informacji dotyczących rozwiązywania problemów z wdrażaniem wystąpienia kontenera, zobacz [Rozwiązywanie problemów z wdrażaniem przy użyciu usługi Azure Container Instances](container-instances-troubleshooting.md).

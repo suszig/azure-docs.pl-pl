@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Rozwiązywanie problemów z tras za pomocą programu Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Aby wyświetlić trasy agregacji, które są stosowane do maszyny Wirtualnej, wy
 ### <a name="view-effective-routes-for-a-network-interface"></a>Widok skuteczne trasy dla interfejsu sieciowego
 Aby wyświetlić trasy agregacji, które są stosowane do interfejsu sieciowego, wykonaj następujące kroki:
 
-1. Uruchom sesję programu PowerShell systemu Azure i logowania do platformy Azure. Jeśli nie masz doświadczenia w obsłudze programu Azure PowerShell, przeczytaj [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
+1. Uruchom sesję programu PowerShell systemu Azure i logowania do platformy Azure. Jeśli nie masz doświadczenia w obsłudze programu Azure PowerShell, przeczytaj [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu. Konto musi mieć przypisaną *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operacji interfejsu sieciowego. Aby dowiedzieć się, jak przypisać operacje do kont, zobacz [Tworzenie niestandardowych ról dla kontroli dostępu](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Poniższe polecenie zwraca wszystkie trasy stosowany do karty sieciowej o nazwie *VM1 NIC1* w grupie zasobów *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

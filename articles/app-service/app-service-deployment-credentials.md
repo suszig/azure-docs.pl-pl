@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla usługi Azure App Service
 [Usługa aplikacji Azure](http://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa rodzaje poświadczenia [lokalnego wdrożenia Git](app-service-deploy-local-git.md) i [wdrożenia FTP/S](app-service-deploy-ftp.md). Nie są takie same, jak poświadczenia usługi Azure Active Directory.
 
-* **Poświadczenia użytkownika na poziomie**: jeden zestaw poświadczeń dla całego konta platformy Azure. Może służyć do wdrożenia do usługi App Service dla dowolnej aplikacji, w żadnej subskrypcji z uprawnień dostępu do konta platformy Azure. Są to domyślny zestaw poświadczeń, skonfigurowanym w **usługi aplikacji** > **&lt;nazwa_aplikacji >** > **poświadczenia wdrażania**. Jest to domyślny zestaw, który jest wyświetlana w portalu graficznego interfejsu użytkownika (takich jak **— omówienie** i **właściwości** aplikacji [bloku zasobów](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Poświadczenia użytkownika na poziomie**: jeden zestaw poświadczeń dla całego konta platformy Azure. Może służyć do wdrożenia do usługi App Service dla dowolnej aplikacji, w żadnej subskrypcji z uprawnień dostępu do konta platformy Azure. Są to domyślny zestaw poświadczeń, skonfigurowanym w **usługi aplikacji** > **&lt;nazwa_aplikacji >** > **poświadczenia wdrażania**. Jest to domyślny zestaw, który jest wyświetlana w portalu graficznego interfejsu użytkownika (takich jak **— omówienie** i **właściwości** aplikacji sieci [zasobu strony](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > Podczas delegować dostęp do zasobów platformy Azure przy użyciu kontroli dostępu na podstawie ról (RBAC) lub współadministratora uprawnienia, każdy użytkownik usługi Azure, który uzyskuje dostęp do aplikacji można użyć jego osobistych poświadczeń na poziomie użytkownika do momentu dostęp został odwołany. Te poświadczenia wdrożenia nie powinny być udostępniać innym użytkownikom Azure.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Ustaw i zresetowanie poświadczeń na poziomie użytkownika
 
-Poświadczenia na poziomie użytkownika można skonfigurować w dowolnej aplikacji [bloku zasobów](../azure-resource-manager/resource-group-portal.md#manage-resources). Niezależnie od tego w aplikacji należy skonfigurować te poświadczenia, ma to zastosowanie do wszystkich aplikacji i dla wszystkich subskrypcji na koncie Azure. 
+Poświadczenia na poziomie użytkownika można skonfigurować w dowolnej aplikacji [zasobu strony](../azure-resource-manager/resource-group-portal.md#manage-resources). Niezależnie od tego w aplikacji należy skonfigurować te poświadczenia, ma to zastosowanie do wszystkich aplikacji i dla wszystkich subskrypcji na koncie Azure. 
 
 Aby skonfigurować poświadczeń na poziomie użytkownika:
 
 1. W [portalu Azure](https://portal.azure.com), kliknij opcję usługi aplikacji >  **&lt;any_app >** > **poświadczenia wdrażania**.
 
     > [!NOTE]
-    > W portalu musi mieć co najmniej jedną aplikację, aby dostęp do bloku poświadczenia wdrożenia. Jednak w przypadku [interfejsu wiersza polecenia Azure](/cli/azure/webapp/deployment/user#set), można skonfigurować poświadczeń na poziomie użytkownika bez istniejącej aplikacji.
+    > W portalu musi mieć co najmniej jedną aplikację w celu uzyskania dostępu do strony poświadczeń wdrożenia. Jednak w przypadku [interfejsu wiersza polecenia Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), można skonfigurować poświadczeń na poziomie użytkownika bez istniejącej aplikacji.
 
 2. Konfigurowanie nazwy użytkownika i hasła, a następnie kliknij przycisk **zapisać**.
 

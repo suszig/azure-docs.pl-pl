@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Tworzenie klastra sieci szkieletowej usług za pomocą usługi Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl jest domyślny punkt końcowy zwracające usługi Azure A
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-Zostanie wyświetlony monit Zaloguj się do konta z uprawnieniami administratora dla dzierżawy usługi Azure AD. Po zalogowaniu, skrypt tworzy sieć web i natywnych aplikacji do reprezentowania klastra sieci szkieletowej usług. Jeśli przyjrzymy się aplikacji dzierżawcy w [klasycznego portalu Azure][azure-classic-portal], powinny pojawić się dwa nowe wpisy:
+Zostanie wyświetlony monit Zaloguj się do konta z uprawnieniami administratora dla dzierżawy usługi Azure AD. Po zalogowaniu, skrypt tworzy sieć web i natywnych aplikacji do reprezentowania klastra sieci szkieletowej usług. Jeśli przyjrzymy się aplikacji dzierżawcy w [portalu Azure][azure-portal], powinny pojawić się dwa nowe wpisy:
 
    * *ClusterName*\_klastra
    * *ClusterName*\_klienta
@@ -615,7 +615,7 @@ W przypadku napotkania problemów i pobieranie wiadomości one niezrozumiałe, n
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Przypisywanie użytkowników do ról
-Po utworzeniu aplikacji do reprezentowania klastra przypisać użytkowników do ról obsługiwane przez usługi Service Fabric: tylko do odczytu i administratora. Role można przypisać za pomocą [klasycznego portalu Azure][azure-classic-portal].
+Po utworzeniu aplikacji do reprezentowania klastra przypisać użytkowników do ról obsługiwane przez usługi Service Fabric: tylko do odczytu i administratora. Role można przypisać za pomocą [portalu Azure][azure-portal].
 
 1. W portalu Azure, przejdź do swojej dzierżawy, a następnie wybierz **aplikacji**.
 2. Wybierz aplikację sieci web, która zawiera nazwę jak `myTestCluster_Cluster`.
@@ -693,7 +693,7 @@ W tym momencie masz bezpiecznego klaster o udostępnienie uwierzytelniania zarz�
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

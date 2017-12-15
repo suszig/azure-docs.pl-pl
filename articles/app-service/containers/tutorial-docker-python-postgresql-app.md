@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Tworzenie aplikacji sieci web Docker Python i PostgreSQL na platformie Azure
 
@@ -121,7 +121,7 @@ W tym kroku utworzysz bazę danych PostgreSQL na platformie Azure. Po wdrożeniu
 
 ### <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-Teraz ma Azure CLI 2.0 umożliwia tworzenie zasobów niezbędnych do hostowania aplikacji języka Python w aplikacji sieci Web dla kontenerów.  Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/#az_login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
+Teraz ma Azure CLI 2.0 umożliwia tworzenie zasobów niezbędnych do hostowania aplikacji języka Python w aplikacji sieci Web dla kontenerów.  Zaloguj się do subskrypcji platformy Azure za pomocą polecenia [az login](/cli/azure/?view=azure-cli-latest#az_login) i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz [grupę zasobów](../../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [az group create](/cli/azure/group#az_group_create).
+Utwórz [grupę zasobów](../../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ Poniższy przykład tworzy grupę zasobów regionu zachodnie stany USA:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Użyj [appservice az listy lokalizacje](/cli/azure/appservice#az_appservice_list_locations) polecenia wiersza polecenia platformy Azure do listy dostępnych lokalizacji.
+Użyj [appservice az listy lokalizacje](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) polecenia wiersza polecenia platformy Azure do listy dostępnych lokalizacji.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Tworzenie serwera usługi Azure Database for PostgreSQL
 
-Utwórz serwer PostgreSQL z [utworzenie przez serwer postgres az](/cli/azure/postgres/server#az_postgres_server_create) polecenia.
+Utwórz serwer PostgreSQL z [utworzenie przez serwer postgres az](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) polecenia.
 
 W poniższym poleceniu zastąp unikatową nazwą serwera dla  *\<postgresql_name >* nazw dla symbolu zastępczego i użytkownik  *\<admin_username >* symbolu zastępczego. Nazwa serwera jest używana jako część PostgreSQL punktu końcowego (`https://<postgresql_name>.postgres.database.azure.com`), więc nazwa musi być unikatowa na wszystkich serwerach w systemie Azure. Nazwa użytkownika jest dla konta użytkownika administracyjnego początkowej bazy danych. Zostanie wyświetlony monit wybierz hasło dla tego użytkownika.
 
@@ -364,7 +364,7 @@ W tym kroku, w przypadku wdrażania rozwiązania Docker na podstawie kontenera p
 
 ### <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
-Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Utwórz plan usługi App Service za pomocą polecenia [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Po utworzeniu planu usługi aplikacji Azure CLI pokazuje informacje podobne do p
 
 ### <a name="create-a-web-app"></a>Tworzenie aplikacji sieci Web
 
-Tworzenie aplikacji sieci web w *myAppServicePlan* planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp#az_webapp_create) polecenia.
+Tworzenie aplikacji sieci web w *myAppServicePlan* planu usługi aplikacji z [tworzenie aplikacji sieci Web az](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) polecenia.
 
 Aplikacja sieci web udostępnia hostingu miejsca, aby wdrożyć kod i zawiera adres URL do wyświetlania wdrożonej aplikacji. Służy do tworzenia aplikacji sieci web.
 
@@ -445,7 +445,7 @@ Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy A
 
 Wcześniej w samouczku zdefiniowano zmiennych środowiskowych w celu połączenia z bazą danych PostgreSQL.
 
-W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) polecenia.
+W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenia.
 
 W poniższym przykładzie szczegóły połączenia bazy danych jako ustawienia aplikacji. Ponadto użyto *portu* zmienną do mapy PORT 5000 z Twojej kontenera Docker na odbieranie ruchu HTTP na porcie 80.
 

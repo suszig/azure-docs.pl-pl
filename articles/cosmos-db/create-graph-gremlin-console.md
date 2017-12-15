@@ -15,13 +15,13 @@ ms.date: 07/27/2017
 ms.author: denlee
 ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Tworzenie elementów, wykonywanie zapytań i przechodzenie grafu w konsoli Gremlin
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafowe. 
 
 Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych i grafu (kontenera) przy użyciu witryny Azure Portal oraz korzystania z [konsoli Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) z platformy [Apache TinkerPop](http://tinkerpop.apache.org) do pracy z danymi interfejsu API programu Graph (wersja zapoznawcza). W tym samouczku utworzysz wierzchołki i krawędzie oraz wykonasz względem nich zapytania, zaktualizujesz właściwość wierzchołka, przejdziesz graf i usuniesz wierzchołek.
 
@@ -46,7 +46,7 @@ Należy również zainstalować [konsolę Gremlin](http://tinkerpop.apache.org/)
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Łączenie z usługą aplikacji
-1. Przed rozpoczęciem konsoli Gremlin, Utwórz lub zmodyfikuj plik konfiguracji zdalnego secure.yaml w `apache-tinkerpop-gremlin-console-3.2.5/conf` katalogu.
+1. Przed uruchomieniem konsoli Gremlin utwórz lub zmodyfikuj plik konfiguracji remote-secure.yaml w katalogu `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Wypełnij ustawienia konfiguracji *host*, *port*, *username*, *password*, *connectionPool* i *serializer*:
 
     Ustawienie|Sugerowana wartość|Opis
@@ -62,7 +62,7 @@ Należy również zainstalować [konsolę Gremlin](http://tinkerpop.apache.org/)
 
     Jako wartość hasła skopiuj **Klucz podstawowy** ze strony **Klucze**: ![Wyświetl i skopiuj klucz podstawowy w witrynie Azure Portal, strona Klucze](./media/create-graph-gremlin-console/keys.png)
 
-Pliku zdalnego secure.yaml powinna wyglądać następująco:
+Zdalny plik secure.yaml powinien wyglądać następująco:
 
 ```
 hosts: [your_database_server.graphs.azure.com]
@@ -280,7 +280,7 @@ Dane wyjściowe:
 
 ## <a name="drop-a-vertex"></a>Usuwanie wierzchołka
 
-Usuńmy teraz wierzchołek z bazy danych grafu.
+Usuńmy teraz wierzchołek z grafowej bazy danych.
 
 Dane wejściowe (usunięcie wierzchołka Jacka):
 

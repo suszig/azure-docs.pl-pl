@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie tabeli interfejsu API programu .NET
 
@@ -65,7 +65,7 @@ Aby dowiedzieć się więcej o skomplikowanych zadaniach magazynu tabel Azure, z
 ### <a name="about-this-tutorial"></a>Informacje o tym samouczku
 W tym samouczku jest dla deweloperów, którzy są zaznajomieni z magazynem tabel Azure SDK i chcesz korzystać z funkcji premium dostępne przy użyciu bazy danych Azure rozwiązania Cosmos. Jest on oparty na [Rozpoczynanie pracy z magazynem tabel Azure przy użyciu platformy .NET](table-storage-how-to-use-dotnet.md) i pokazuje, jak korzystać z dodatkowych funkcji, takich jak indeksów pomocniczych, udostępnionej przepływności i wielu. Firma Microsoft opisano, jak utworzyć konto bazy danych Azure rozwiązania Cosmos, a następnie utworzyć i wdrożyć aplikację tabeli za pomocą portalu Azure. Przeprowadzenie możemy również przykłady .NET do tworzenia i usuwania tabeli, wstawianie, aktualizowanie, usuwanie i przeszukiwaniem danych w tabeli. 
 
-Jeśli nie masz jeszcze programu Visual Studio 2017 r zainstalowany, możesz pobrać i użyć **wolnego** [programu Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pobrać program [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) i używać go **bezpłatnie**. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,13 +83,13 @@ Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.
 
 Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminala git, np. git bash i użyj `cd` polecenie, aby przejść do folderu instalacji aplikacji przykładowej. 
+1. Otwórz okno terminala usługi Git, na przykład git bash, i użyj polecenia `cd`, aby przejść do folderu instalacji aplikacji przykładowej. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
+2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię aplikacji przykładowej na komputerze. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -99,9 +99,9 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
-Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Dzięki temu aplikacja do komunikacji z bazą danych hostowanej. 
+Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 
 
-1. W [portalu Azure](http://portal.azure.com/), kliknij przycisk **ciąg połączenia**. 
+1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Parametry połączenia**. 
 
     Przyciski Kopiuj po prawej stronie ekranu do skopiuj parametry połączenia podstawowej.
 
@@ -301,7 +301,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure DB rozwiązania Cosmos obsługuje te same funkcje zapytania jako magazynu tabel Azure, interfejsu API tabeli. Azure DB rozwiązania Cosmos obsługuje również sortowanie, agregacje, dane geograficzne zapytania hierarchii i szeroki zakres funkcji wbudowanych. Dodatkowe funkcje będzie dostępna w interfejsie API tabeli w przyszłej aktualizacji. Zobacz [kwerendy bazy danych Azure rozwiązania Cosmos](documentdb-sql-query.md) omówienie tych funkcji. 
+Azure DB rozwiązania Cosmos obsługuje te same funkcje zapytania jako magazynu tabel Azure, interfejsu API tabeli. Azure DB rozwiązania Cosmos obsługuje również sortowanie, agregacje, dane geograficzne zapytania hierarchii i szeroki zakres funkcji wbudowanych. Dodatkowe funkcje będzie dostępna w interfejsie API tabeli w przyszłej aktualizacji. Zobacz [kwerendy bazy danych Azure rozwiązania Cosmos](sql-api-sql-query.md) omówienie tych funkcji. 
 
 ## <a name="replace-an-entity"></a>Zastępowanie jednostki
 Aby zaktualizować jednostkę, pobierz ją z usługi tabel, zmodyfikuj obiekt jednostki, a następnie zapisz zmiany w usłudze tabel. Poniższy kod zmienia istniejący numer telefonu klienta. 

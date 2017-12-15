@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofanie poziomy wydajności S1, S2 i S3
 
@@ -95,7 +95,7 @@ Wykonując zawiera 10 kolekcji S1, 1 GB pamięci masowej dla każdego regionu na
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Co zrobić, jeśli potrzebna jest więcej niż 10 GB przestrzeni dyskowej?
 
-Czy masz kolekcję o poziomie wydajności S1, S2 lub S3 lub mieć Kolekcja jednej partycji, które mają 10 GB dostępnego miejsca, służy narzędzie do migracji danych DB rozwiązania Cosmos do migracji danych do kolekcji partycjonowanych z niemal nieograniczonego magazynu. Aby uzyskać informacje o zaletach kolekcję partycjonowaną, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](documentdb-partition-data.md). 
+Czy masz kolekcję o poziomie wydajności S1, S2 lub S3 lub mieć Kolekcja jednej partycji, które mają 10 GB dostępnego miejsca, służy narzędzie do migracji danych DB rozwiązania Cosmos do migracji danych do kolekcji partycjonowanych z niemal nieograniczonego magazynu. Aby uzyskać informacje o zaletach kolekcję partycjonowaną, zobacz [dzielenia na partycje i skalowania w usłudze Azure DB rozwiązania Cosmos](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,7 +134,7 @@ Można przeprowadzić migrację z poziomów wydajności S1, S2 i S3 do kolekcje 
 
 4. Kliknij przycisk **zapisać** Aby zapisać zmiany.
 
-    Jeśli okaże się, że potrzebujesz więcej przepływności (większe niż 10 000 RU/s) lub więcej pamięci masowej (większe niż 10 GB) można utworzyć kolekcję partycjonowaną. Aby przeprowadzić migrację kolekcji jednej partycji do kolekcji podzielone na partycje, zobacz [migracji z jednej partycji do kolekcji partycjonowanych](documentdb-partition-data.md#migrating-from-single-partition).
+    Jeśli okaże się, że potrzebujesz więcej przepływności (większe niż 10 000 RU/s) lub więcej pamięci masowej (większe niż 10 GB) można utworzyć kolekcję partycjonowaną. Aby przeprowadzić migrację kolekcji jednej partycji do kolekcji podzielone na partycje, zobacz [migracji z jednej partycji do kolekcji partycjonowanych](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Zmiana na standardowe S1, S2 lub S3 może zająć do dwóch minut.
@@ -143,7 +143,7 @@ Można przeprowadzić migrację z poziomów wydajności S1, S2 i S3 do kolekcje 
 
 **Aby przeprowadzić migrację do kolekcje z jedną partycją przy użyciu zestawu .NET SDK**
 
-Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest za pomocą zestawów SDK z bazy danych Azure rozwiązania Cosmos. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu [interfejs API .NET SQL](documentdb-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
+Inną opcją w przypadku zmiany poziomów wydajności z kolekcji jest za pomocą zestawów SDK z bazy danych Azure rozwiązania Cosmos. W tej sekcji opisano tylko zmiana wydajności kolekcji poziomu przy użyciu [interfejs API .NET SQL](sql-api-sdk-dotnet.md), ale proces jest podobny do naszych innych zestawów SDK.
 
 Oto fragment kodu dla zmiana przepływność kolekcji do 5000 jednostek żądań na sekundę:
     
@@ -177,6 +177,6 @@ Umowa EA klienci będą cen chronione aż do zakończenia ich bieżący kontrakt
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o cenach i zarządzanie danymi z bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:
 
-1.  [Partycjonowanie danych w bazie danych rozwiązania Cosmos](documentdb-partition-data.md). Opis różnicy między kontenera jednej partycji i kontenery podzielonym na partycje, a także wskazówki dotyczące implementowania strategii partycjonowania bezproblemowo skalowania.
+1.  [Partycjonowanie danych w bazie danych rozwiązania Cosmos](sql-api-partition-data.md). Opis różnicy między kontenera jednej partycji i kontenery podzielonym na partycje, a także wskazówki dotyczące implementowania strategii partycjonowania bezproblemowo skalowania.
 2.  [Cennik rozwiązania cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Więcej informacji na temat kosztów obsługi przepływności i korzystanie z magazynu.
 3.  [Jednostek żądania](request-units.md). Zrozumienie zużycie przepustowości dla różnych operacji typów, na przykład Odczyt, zapis zapytania.

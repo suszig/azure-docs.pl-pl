@@ -1,6 +1,6 @@
 Za pomocą polecenia [az webapp create](/cli/azure/webapp#create) można utworzyć [aplikację internetową](../articles/app-service/app-service-web-overview.md) w planie usługi App Service `myAppServicePlan` w usłudze Cloud Shell. 
 
-W poniższym przykładzie Zastąp  *\<nazwa_aplikacji >* z globalnie unikatowej nazwy aplikacji (prawidłowe znaki to `a-z`, `0-9`, i `-`). 
+W poniższym przykładzie zastąp ciąg *\<nazwa_aplikacji>* globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -24,13 +24,13 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Zostanie utworzona pusta aplikacja sieci web platformy, z włączonym wdrażaniem git.
+Utworzona została pusta aplikacja internetowa z włączonym wdrażaniem git.
 
 > [!NOTE]
-> Adres URL zdalnego Git jest wyświetlany w `deploymentLocalGitUrl` właściwości w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
+> Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
 
-Przejdź do nowo utworzonej aplikacji sieci web.
+Przejdź do nowo utworzonej aplikacji internetowej.
 
 ```bash
 http://<app_name>.azurewebsites.net

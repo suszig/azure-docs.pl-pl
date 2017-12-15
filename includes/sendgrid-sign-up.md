@@ -1,7 +1,7 @@
 W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. Pozwala to uzyskać dostęp do zaawansowanych raportów i analiz oraz [wszystkich interfejsów API][all APIs] (np. sieci Web, protokołu SMTP, zdarzeń czy analizy). Informacje o dodatkowych usługach SendGrid można znaleźć na stronie z [rozwiązaniami usługi SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aby utworzyć konto usługi SendGrid
-1. Zaloguj się do [portalu zarządzania platformy Azure][Azure Management Portal].
+1. Zaloguj się do [portalu Azure][Azure portal].
 2. W menu po lewej stronie kliknij pozycję **Nowy**.
 
     ![command-bar-new][command-bar-new]
@@ -82,7 +82,7 @@ Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarz
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

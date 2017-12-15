@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 473b8d1a735f4b6b1dfd0935f9d6950431f3d245
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Łączenie komputerów z systemem Windows z usługą analizy dzienników na platformie Azure
 
@@ -32,6 +32,8 @@ Agent może być zainstalowana za pomocą jednej z poniższych metod. Większoś
 * Automatyzacja Azure Konfiguracja żądanego stanu (DSC). Przy użyciu usługi Konfiguracja DSC automatyzacji Azure za pomocą skryptu już wdrożony w środowisku komputerów z systemem Windows.  
 * Skrypt programu PowerShell.
 * Szablon Menedżera zasobów dla maszyn wirtualnych z systemem Windows lokalnymi w stosie Azure.  
+
+Aby poznać wymagania sieci i systemu w celu wdrażania agenta systemu Windows, przejrzyj [zbierać dane ze środowiska z Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Uzyskiwanie identyfikatora i klucza obszaru roboczego
 Przed zainstalowaniem programu Microsoft Monitoring Agent dla systemu Windows, należy identyfikator i klucz obszaru roboczego analizy dzienników.  Te informacje są wymagane podczas instalacji z każdej metody instalacji, aby poprawnie skonfigurować agenta i upewnij się, że mogą się komunikować z analizy dzienników.  

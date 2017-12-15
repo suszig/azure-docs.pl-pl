@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Enterprise mobilnego ustawienia stanu, chmury systemu windows, często zadawane pytania na roamingu stanu przedsiębiorstwa"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
 W tym temacie odpowiedzi na pytania Administratorzy IT mogą mieć o ustawieniach i synchronizacji danych aplikacji.
@@ -72,7 +72,7 @@ W wersjach listopada 2015 lub nowszego systemu Windows 10 roamingu stanu przedsi
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Czy ustawienia synchronizacji dla konta usługi Azure AD z wieloma dzierżawcami?
 Kiedy usługi Azure AD wielu kont z różnych dzierżaw usługi Azure AD znajdują się na tym samym urządzeniu, należy zaktualizować rejestru urządzenia do komunikowania się z usługi Azure Rights Management (Azure RMS) dla każdego dzierżawcy usługi Azure AD.  
 
-1. Znajdź identyfikator GUID dla każdego dzierżawcy usługi Azure AD. Otwórz klasyczny portal Azure i wybierz dzierżawa usługi Azure AD. Identyfikator GUID dzierżawy jest w adresie URL na pasku adresu przeglądarki. Na przykład: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Znajdź identyfikator GUID dla każdego dzierżawcy usługi Azure AD. Otwórz Azure portal i wybierz dzierżawa usługi Azure AD. Identyfikator GUID dzierżawy jest w adresie URL na pasku adresu przeglądarki. Na przykład: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Po utworzeniu identyfikatora GUID, konieczne będzie dodanie klucza rejestru **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<dzierżawy Identyfikatora GUID >**.
    Z **dzierżawy Identyfikatora GUID** kluczy, Utwórz nową wartość ciągu wielokrotnego (REG-MULTI-SZ) o nazwie **AllowedRMSServerUrls**. Danych określ licencjonowania punktu dystrybucji, adresy URL innych dzierżawców Azure, które uzyskuje dostęp do urządzenia.
 3. Adresy URL licencjonowania punktu dystrybucji można znaleźć, uruchamiając **Get-AadrmConfiguration** polecenia cmdlet. Jeśli wartości **LicensingIntranetDistributionPointUrl** i **LicensingExtranetDistributionPointUrl** są różne, określ obie wartości. Jeśli wartości są takie same, określ wartość tylko raz.

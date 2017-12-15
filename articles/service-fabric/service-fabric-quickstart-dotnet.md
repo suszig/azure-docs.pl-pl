@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie aplikacji sieci szkieletowej usług .NET na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji .NET na platformie Azure przy użyciu usługi Service Fabric — przykład szybki start."
+title: "Tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure | Microsoft Docs"
+description: "Tworzenie aplikacji platformy .NET dla platformy Azure przy użyciu usługi Service Fabric — przykład Szybki start."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -17,190 +17,190 @@ ms.author: mikhegn
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/09/2017
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji sieci szkieletowej usług .NET na platformie Azure
+# <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
 
-Ta opcja szybkiego startu przedstawia sposób wdrażanie pierwszej aplikacji .NET sieci szkieletowej usług. Po zakończeniu, masz aplikację do głosowania z frontonu, który zapisuje wyniki głosowania stanowe usługi zaplecza w klastrze sieci web platformy ASP.NET Core.
+W tym przewodniku Szybki start pokazano, jak wdrożyć pierwszą aplikację platformy .NET w usłudze Service Fabric. Po zakończeniu będziesz mieć aplikację do głosowania z usługą internetową frontonu ASP.NET Core, która zapisuje wyniki głosowania w stanowej usłudze zaplecza w klastrze.
 
 ![Zrzut ekranu aplikacji](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
-Za pomocą tej aplikacji, możesz dowiedzieć się, jak:
+Korzystając z tej aplikacji, nauczysz się wykonywać następujące czynności:
 > [!div class="checklist"]
-> * Tworzenie aplikacji przy użyciu platformy .NET i sieci szkieletowej usług
-> * Użyj jako frontonu sieci web platformy ASP.NET core
-> * Przechowywanie danych aplikacji w usługi stanowej
+> * Tworzenie aplikacji przy użyciu platformy .NET i usługi Service Fabric
+> * Używanie platformy ASP.NET Core jako frontonu sieci Web
+> * Przechowywanie danych aplikacji w usłudze stanowej
 > * Debugowanie aplikacji lokalnie
-> * Wdrażanie aplikacji do klastra w systemie Azure
-> * Skalowalny w poziomie aplikacji w różnych węzłach
-> * Uaktualnienie stopniowe aplikacji
+> * Wdrażanie aplikacji w klastrze na platformie Azure
+> * Skalowanie aplikacji w poziomie na wiele węzłów
+> * Przeprowadzanie stopniowego uaktualnienia aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć ten przewodnik Szybki Start:
-1. [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) z **Azure programowanie** i **ASP.NET i sieć web development** obciążeń.
+1. [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) z obciążeniami **Programowanie na platformie Azure** i **Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych**.
 2. [Zainstaluj oprogramowanie Git](https://git-scm.com/)
-3. [Zainstaluj zestaw SDK sieci szkieletowej usług Microsoft Azure](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
-4. Uruchom następujące polecenie w celu włączenia programu Visual Studio do wdrożenia na lokalny klaster sieci szkieletowej usług:
+3. [Zainstaluj zestaw SDK usługi Microsoft Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
+4. Uruchom następujące polecenie, aby umożliwić programowi Visual Studio wdrażanie w lokalnym klastrze usługi Service Fabric:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
 
 ## <a name="download-the-sample"></a>Pobierz przykład
-W oknie poleceń uruchom następujące polecenie sklonować repozytorium przykładowej aplikacji na komputerze lokalnym.
+W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="run-the-application-locally"></a>Uruchamianie aplikacji lokalnie
-Kliknij prawym przyciskiem myszy ikonę programu Visual Studio w Start Menu i wybierz polecenie **Uruchom jako administrator**. Aby dołączyć debuger do usługi, należy uruchomić program Visual Studio jako administrator.
+Kliknij prawym przyciskiem myszy ikonę programu Visual Studio w menu Start i wybierz polecenie **Uruchom jako administrator**. Aby dołączyć debuger do usług, musisz uruchomić program Visual Studio jako administrator.
 
-Otwórz **Voting.sln** rozwiązania Visual Studio z sklonowanego repozytorium.  
+Otwórz rozwiązanie **Voting.sln** programu Visual Studio ze sklonowanego repozytorium.  
 
-Aplikacja głosowania domyślnie nasłuchiwanie na porcie 8080.  Port aplikacji jest ustawiony w */VotingWeb/PackageRoot/ServiceManifest.xml* pliku.  W przypadku zmiany portu aplikacji, aktualizując **portu** atrybutu **punktu końcowego** elementu.  Aby wdrożyć i uruchomić aplikację lokalnie, port aplikacji musi być otwartego i dostępnego na komputerze.  W przypadku zmiany portu aplikacji, zastąp wartość port aplikacji "8080" w tym artykule.
+Domyślnie aplikacja do głosowania nasłuchuje na porcie 8080.  Port aplikacji jest ustawiony w pliku */VotingWeb/PackageRoot/ServiceManifest.xml*.  Port aplikacji możesz zmienić, aktualizując atrybut **Port** elementu **Punkt końcowy**.  Aby wdrożyć i uruchomić aplikację lokalnie, port aplikacji musi być otwarty i dostępny na komputerze.  Jeśli zmieniono port aplikacji, podstaw nową wartość portu aplikacji za wartość „8080” w tym artykule.
 
 Aby wdrożyć aplikację, naciśnij klawisz **F5**.
 
 > [!NOTE]
-> Podczas pierwszego uruchomienia i wdrażanie aplikacji Visual Studio tworzy lokalny klaster na potrzeby debugowania. Ta operacja może potrwać pewien czas. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.  W danych wyjściowych zostanie wyświetlony komunikat "Adres URL aplikacji nie jest ustawiona lub nie jest adres URL protokołu HTTP/HTTPS, więc nie zostanie otwarta przeglądarka do aplikacji".  Ten komunikat nie wskazuje błąd, ale ten przeglądarki zostanie nie automatyczne uruchamianie.
+> Przy pierwszym uruchamianiu i wdrażaniu aplikacji program Visual Studio tworzy lokalny klaster na potrzeby debugowania. Ta operacja może trochę potrwać. Stan tworzenia klastra jest wyświetlany w oknie danych wyjściowych programu Visual Studio.  W danych wyjściowych zostanie wyświetlony komunikat „Adres URL aplikacji nie jest ustawiony lub nie jest adresem URL określającym protokół HTTP/HTTPS, więc aplikacja nie zostanie otwarta przez przeglądarkę”.  Ten komunikat nie wskazuje błędu, ale oznacza, że przeglądarka nie zostanie automatyczne uruchomiona.
 
-Po zakończeniu wdrażania Uruchom przeglądarkę i otwórz tę stronę: `http://localhost:8080` -frontonu aplikacji sieci web.
+Po zakończeniu wdrażania uruchom przeglądarkę i otwórz tę stronę: `http://localhost:8080` — fronton internetowy aplikacji.
 
-![Aplikacji frontonu](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Fronton aplikacji](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
-Można teraz dodać zestaw głosowania opcje i Rozpocznij tworzenie głosów. Aplikacja jest uruchamiana i przechowuje wszystkie dane w klastrze usługi sieć szkieletowa, bez konieczności oddzielnej bazy danych.
+Teraz możesz dodać zestaw opcji głosowania i rozpocząć obsługę głosów. Aplikacja zostanie uruchomiona i będzie przechować wszystkie dane w klastrze usługi Service Fabric, bez konieczności używania oddzielnej bazy danych.
 
-## <a name="walk-through-the-voting-sample-application"></a>Przewodnik po głosowanie przykładowej aplikacji
-Aplikację do głosowania składa się z dwóch usług:
-- Usługa frontonu (VotingWeb) sieci Web — ASP.NET Core usługa frontonu, który służy do strony sieci web i ujawnia sieci web API, aby komunikować się z usługą wewnętrznej bazy danych.
-- Usługi zaplecza (VotingData) — usługi sieci web platformy ASP.NET Core, która uwidacznia interfejs API do przechowywania wyników głosowanie w słowniku niezawodnej utrwalony na dysku.
+## <a name="walk-through-the-voting-sample-application"></a>Szczegółowe omówienie przykładowej aplikacji do głosowania
+Aplikacja do głosowania składa się z dwóch usług:
+- Usługa internetowa frontonu (VotingWeb) — usługa internetowa frontonu platformy ASP.NET Core, obsługująca stronę internetową i ujawniająca interfejsy API sieci Web na potrzeby komunikacji z usługą zaplecza.
+- Usługi zaplecza (VotingData) — usługa internetowa platformy ASP.NET Core, która uwidacznia interfejs API do przechowywania wyników głosowania w niezawodnym słowniku utrwalonym na dysku.
 
 ![Diagram aplikacji](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-Po głosowanie w aplikacji występują następujące zdarzenia:
-1. JavaScript wysyła żądanie głosowania dotyczącego do interfejsu API sieci web usługi frontonu sieci web jako żądanie HTTP PUT.
+Podczas głosowania w aplikacji występują następujące zdarzenia:
+1. Plik JavaScript wysyła żądanie głosowania do internetowego interfejsu API w usłudze internetowej frontonu jako żądanie HTTP PUT.
 
-2. Usługa frontonu sieci web używa serwera proxy, aby zlokalizować i przesyła żądanie HTTP PUT do usługi zaplecza.
+2. Usługa internetowa frontonu używa serwera proxy w celu zlokalizowania i przesłania żądania HTTP PUT do usługi zaplecza.
 
-3. Usługi zaplecza przyjmuje żądania przychodzącego, a następnie przechowuje zaktualizowanego wyniku w niezawodnej słownik, który pobiera replikowane na wielu węzłach w klastrze i utrwalony na dysku. Dane wszystkich aplikacji znajduje się w klastrze, więc nie bazy danych nie jest wymagane.
+3. Usługa zaplecza przyjmuje żądanie przychodzące i przechowuje zaktualizowany wynik w niezawodnym słowniku, który jest replikowany do wielu węzłów w klastrze i utrwalany na dysku. Wszystkie dane aplikacji są przechowywane w klastrze, więc baza danych nie jest wymagana.
 
 ## <a name="debug-in-visual-studio"></a>Debugowanie w programie Visual Studio
-Podczas debugowania aplikacji w programie Visual Studio, czy używasz klastra lokalnego Projektowanie sieci szkieletowej usług. Użytkownik może dostosować środowiska debugowania do danego scenariusza. W tej aplikacji dane są przechowywane w usłudze zaplecza przy użyciu niezawodnych słownika. Po zatrzymaniu debugera programu Visual Studio spowoduje usunięcie aplikacji na domyślne. Usunięcie aplikacji powoduje, że dane w usłudze zaplecza do także zostaną usunięte. Aby zachować dane między sesji debugowania, można zmienić **tryb debugowania aplikacji** jako właściwość **głosowania** projektu programu Visual Studio.
+Podczas debugowania aplikacji w programie Visual Studio używany jest lokalny klaster projektowy usługi Service Fabric. Możesz opcjonalnie dostosować środowisko debugowania do danego scenariusza. W tej aplikacji dane są przechowywane w usłudze zaplecza przy użyciu niezawodnego słownika. Program Visual Studio domyślnie usuwa aplikację po zatrzymaniu debugera. Usunięcie aplikacji spowoduje, że dane w usłudze zaplecza także zostaną usunięte. Aby zachować dane między sesjami debugowania, możesz zmienić **Tryb debugowania aplikacji** jako właściwość w projekcie **Voting (Głosowanie)** w programie Visual Studio.
 
-Aby przyjrzeć się, co się stanie w kodzie, wykonaj następujące kroki:
-1. Otwórz **/VotingWeb/Controllers/VotesController.cs** pliku i ustaw punkt przerwania w sieci web interfejsu API **Put** — metoda (linii 47) — możesz wyszukać plik w Eksploratorze rozwiązań w programie Visual Studio.
+Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
+1. Otwórz plik **/VotingWeb/Controllers/VotesController.cs** i ustaw punkt przerwania w metodzie **Put** internetowego interfejsu API (wiersz 47) — możesz wyszukać ten plik w Eksploratorze rozwiązań w programie Visual Studio.
 
-2. Otwórz **/VotingData/ControllersVoteDataController.cs** pliku i ustaw punkt przerwania w tym składnika web API **Put** — metoda (wiersz 50).
+2. Otwórz plik **/VotingData/ControllersVoteDataController.cs** i ustaw punkt przerwania w metodzie **Put** tego internetowego interfejsu API (wiersz 50).
 
-3. Wróć do przeglądarki i kliknij opcję głosu lub dodać nową opcję głosu. Trafień jest pierwszy punkt przerwania w kontroler interfejsu api sieci web przodu end firmy.
-    - Jest to, gdzie JavaScript w przeglądarce wysyła żądanie do kontrolera interfejsu API sieci web frontonu usługi.
+3. Wróć do przeglądarki i kliknij opcję głosowania lub dodaj nową opcję głosowania. Zostanie trafiony pierwszy punkt przerwania w kontrolerze interfejsu API frontonu internetowego.
+    - Jest to punkt, w którym skrypt JavaScript w przeglądarce wysyła żądanie do kontrolera internetowego interfejsu API w usłudze frontonu.
     
-    ![Dodawanie usługi frontonu głosu](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+    ![Dodawanie usługi frontonu Vote (Głosowanie)](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Najpierw należy utworzyć adres URL, który ReverseProxy dla naszej usługi zaplecza **(1)**.
-    - Następnie należy wysłać umieść żądanie HTTP do ReverseProxy **(2)**.
-    - Na koniec wróć do klienta odpowiedź z usługi zaplecza **(3)**.
+    - Najpierw skonstruuj adres URL do elementu ReverseProxy dla naszej usługi zaplecza **(1)**.
+    - Następnie wyślij żądanie HTTP PUT do elementu ReverseProxy **(2)**.
+    - Na koniec zwróć odpowiedź z usługi zaplecza do klienta **(3)**.
 
-4. Naciśnij klawisz **F5** aby kontynuować
-    - To jest punkt przerwania w usłudze zaplecza.
+4. Naciśnij klawisz **F5**, aby kontynuować
+    - Jesteś teraz w punkcie przerwania w usłudze zaplecza.
     
-    ![Dodawania usługi zaplecza głosu](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Dodawanie usługi zaplecza Vote](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - W pierwszym wierszu w metodzie **(1)** `StateManager` pobiera lub dodaje słownik niezawodnej o nazwie `counts`.
-    - Wszystkie interakcje z wartości w słowniku niezawodnej wymagają transakcji, za pomocą tej instrukcji **(2)** tworzy tej transakcji.
-    - W transakcji, zaktualizuj tę wartość klucza odpowiednich opcji głosu i zatwierdź operacji **(3)**. Po aktualizacji w słowniku zwraca metoda zatwierdzania, dane i replikowane do innych węzłów w klastrze. Dane, teraz są bezpiecznie przechowywane w klastrze, a usługi zaplecza może zostać przeniesiony do innych węzłów, nadal o dostępnych danych.
-5. Naciśnij klawisz **F5** aby kontynuować
+    - W pierwszym wierszu metody**(1)** element `StateManager` pobiera lub dodaje niezawodny słownik o nazwie `counts`.
+    - Wszystkie interakcje z wartościami w niezawodnym słowniku wymagają transakcji — ta instrukcja using **(2)** tworzy tę transakcję.
+    - W transakcji zaktualizuj wartość odpowiedniego klucza dla opcji głosowania i zatwierdź operację **(3)**. Po powrocie z metody zatwierdzania dane są aktualizowane w słowniku i replikowane do innych węzłów w klastrze. Dane są bezpiecznie przechowywane w klastrze, a usługa zaplecza może zostać przełączona w tryb failover do innych węzłów, które nadal mają dostępne dane.
+5. Naciśnij klawisz **F5**, aby kontynuować
 
-Aby zatrzymać sesję debugowania, naciśnij klawisz **Shift + F5**.
+Aby zatrzymać sesję debugowania, naciśnij klawisze **Shift+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Wdrażanie aplikacji na platformie Azure
-Aby wdrożyć aplikację na platformie Azure, należy klaster sieci szkieletowej usług, w którym jest uruchomiona aplikacja. 
+Aby wdrożyć aplikację na platformie Azure, potrzebny jest klaster usługi Service Fabric używany do uruchamiania aplikacji. 
 
-### <a name="join-a-party-cluster"></a>Dołącz do klastra strony
+### <a name="join-a-party-cluster"></a>Dołączanie do klastra testowego
 Klastry testowe to bezpłatne, ograniczone czasowo klastry usługi Service Fabric hostowane na platformie Azure i uruchamiane przez zespół usługi Service Fabric, w których każdy może wdrażać aplikacje i poznawać platformę. 
 
-Zaloguj się i [przyłączyć do klastra z systemem Windows](http://aka.ms/tryservicefabric). Należy pamiętać, **punktu końcowego połączenia** wartość, która jest używana w następujących krokach.
+Zaloguj się i [dołącz do klastra z systemem Windows](http://aka.ms/tryservicefabric). Zapamiętaj wartość parametru **Punkt końcowy połączenia**, która będzie używana w poniższych krokach.
 
 > [!Note]
-> Domyślnie usługi frontonu sieci web jest skonfigurowane do nasłuchiwania na porcie 8080 dla ruchu przychodzącego. Port 8080 jest otwarty w klastrze strony.  Jeśli musisz zmienić port aplikacji, zmień go na jeden z portów, które są otwarte w klastrze strony.
+> Domyślnie usługa internetowa frontonu jest skonfigurowana do nasłuchiwania ruchu przychodzącego na porcie 8080. Port 8080 jest otwarty w klastrze testowym.  Jeśli musisz zmienić port aplikacji, zmień go na jeden z portów, które są otwarte w klastrze testowym.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Wdrażanie aplikacji przy użyciu programu Visual Studio
 Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze bezpośrednio z programu Visual Studio.
 
-1. Kliknij prawym przyciskiem myszy **głosowania** w Eksploratorze rozwiązań i wybierz polecenie **publikowania**. Zostanie wyświetlone okno dialogowe Publikowanie.
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Publikuj**. Zostanie wyświetlone okno dialogowe Publikowanie.
 
     ![Okno dialogowe Publikowanie](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Kopiuj **punktu końcowego połączenia** ze strony firmy klastra do **punktu końcowego połączenia** a następnie kliknij przycisk **publikowania**. Na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Skopiuj **punkt końcowy połączenia** ze strony klastra testowego do pola **Punkt końcowy połączenia**, a następnie kliknij przycisk **Publikuj**. Na przykład `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-    Każda aplikacja w klastrze musi mieć unikatową nazwę.  Klastry firm są jednak środowiska publicznego, udostępnionych i może być konflikt z istniejącą aplikacją.  Jeśli występuje konflikt nazw, Zmień nazwę projektu Visual Studio i Wdróż ponownie.
+    Każda aplikacja w klastrze musi mieć unikatową nazwę.  Klastry testowe są jednak publicznym, udostępnionym środowiskiem i może wystąpić konflikt z istniejącą aplikacją.  Jeśli występuje konflikt nazw, zmień nazwę projektu programu Visual Studio i wdróż ponownie.
 
-3. Otwórz przeglądarkę i wprowadź adres klastra następuje ": 8080', aby uzyskać dostęp do aplikacji w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Powinna zostać wyświetlona aplikacja była uruchomiona w klastrze na platformie Azure.
+3. Otwórz przeglądarkę i wpisz adres klastra, a po nim ciąg „:8080”, aby uzyskać dostęp do aplikacji w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Aplikacja powinna zostać teraz wyświetlona jako uruchomiona w klastrze na platformie Azure.
 
-![Aplikacji frontonu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Fronton aplikacji](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
-Łatwo można skalować usługi Service Fabric w klastrze, aby uwzględnić zmiany w obciążenia w ramach usług. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usługi, możesz użyć skryptów lub poleceń programu PowerShell lub interfejsu wiersza polecenia usługi sieci szkieletowej (sfctl). W tym przykładzie użyj Eksploratora usługi sieć szkieletowa.
+Usługi Service Fabric można łatwo skalować w klastrze w celu dostosowania do zmiany obciążenia w usługach. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Można użyć skryptów lub poleceń programu PowerShell lub interfejsu wiersza polecenia usługi Service Fabric (sfctl). W tym przykładzie używane jest narzędzie Service Fabric Explorer.
 
-Service Fabric Explorer działa we wszystkich klastrach sieci szkieletowej usług i jest dostępny z poziomu przeglądarki, przechodząc do portu zarządzania klastrami HTTP (19080), na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Narzędzie Service Fabric Explorer działa we wszystkich klastrach usługi Service Fabric i można do niego uzyskać dostęp z przeglądarki, przechodząc do portu HTTP zarządzania klastrami (19080), na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
 1. Otwórz narzędzie Service Fabric Explorer w klastrze — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-2. Kliknij wielokropek (wielokropek) obok pozycji **fabric: / głosowania/VotingWeb** węzła w elemencie treeview i wybierz polecenie **skali usługi**.
+2. Kliknij wielokropek (trzy kropki) obok węzła **fabric:/Voting/VotingWeb** w widoku drzewa i wybierz pozycję **Skaluj usługę**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
     Teraz możesz skalować liczbę wystąpień usługi internetowej frontonu.
 
 3. Zmień liczbę na **2** i kliknij pozycję **Skaluj usługę**.
-4. Polecenie **fabric: / głosowania/VotingWeb** węzeł w widoku drzewa i rozwiń węzeł partycji (reprezentowane przez identyfikator GUID).
+4. Kliknij węzeł **fabric:/Voting/VotingWeb** w widoku drzewa i rozwiń węzeł partycji (reprezentowany przez identyfikator GUID).
 
-    ![Usługa skalowania Eksploratora sieci szkieletowej usług](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
+    ![Usługa skalowania narzędzia Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    Z opóźnieniem widać, że usługa ma dwa wystąpienia.  W widoku drzewa można zobaczyć węzły, których wystąpienia Uruchom na.
+    Po chwili można zobaczyć, że usługa ma dwa wystąpienia.  W widoku drzewa widać, w których węzłach uruchomiono wystąpienia.
 
-Przez to zadanie proste zarządzanie dostępnych zasobów podwójny do przetworzenia obciążenie użytkownikami usługi frontonu. Ważne jest, aby zrozumieć, że nie musisz mieć wielu wystąpień usługi, aby działała ona niezawodnie. W przypadku niepowodzenia usługi usługa Service Fabric zapewnia, że nowe wystąpienie usługi jest uruchamiane w klastrze.
+Wykonując to proste zadanie zarządzania, podwoiliśmy zasoby dostępne dla usługi frontonu w celu przetworzenia obciążenia użytkownika. Ważne jest, aby zrozumieć, że nie musisz mieć wielu wystąpień usługi, aby działała ona niezawodnie. W przypadku niepowodzenia usługi usługa Service Fabric zapewnia, że nowe wystąpienie usługi jest uruchamiane w klastrze.
 
-## <a name="perform-a-rolling-application-upgrade"></a>Uaktualnienie stopniowe aplikacji
-Podczas wdrażania nowych aktualizacji aplikacji, usługi Service Fabric zbiera i wydaje aktualizację w bezpieczny sposób. Uaktualnień stopniowych daje bez przestojów podczas uaktualniania oraz automatycznego wycofywania powinien wystąpić błędy.
+## <a name="perform-a-rolling-application-upgrade"></a>Przeprowadzanie stopniowego uaktualnienia aplikacji
+Podczas wdrażania nowych aktualizacji aplikacji usługa Service Fabric wprowadza aktualizację w bezpieczny sposób. Uaktualnienia stopniowe zapewniają brak przestojów podczas uaktualniania, a także automatyczne wycofywanie w razie wystąpienia błędów.
 
 Aby uaktualnić aplikację, wykonaj następujące czynności:
 
-1. Otwórz **/VotingWeb/Views/Home/Index.cshtml** pliku w programie Visual Studio.
-2. Zmiany <h2> Nagłówek na stronie przez dodanie lub aktualizowanie tekstu. Na przykład zmienić pozycji do "V2 próbki głosowania sieci szkieletowej usług".
+1. Otwórz plik **/VotingWeb/Views/Home/Index.cshtml** w programie Visual Studio.
+2. Zmień nagłówek <h2> na stronie przez dodanie lub zaktualizowanie tekstu. Na przykład zmień nagłówek na „Service Fabric Voting Sample v2”.
 3. Zapisz plik.
-4. Kliknij prawym przyciskiem myszy **głosowania** w Eksploratorze rozwiązań i wybierz polecenie **publikowania**. Zostanie wyświetlone okno dialogowe Publikowanie.
-5. Kliknij przycisk **wersji manifestu** przycisk, aby zmienić wersję usługi i aplikacje.
-6. Zmień wersję **kod** elementu w obszarze **VotingWebPkg** do "2.0.0", na przykład, a następnie kliknij przycisk **zapisać**.
+4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Publikuj**. Zostanie wyświetlone okno dialogowe Publikowanie.
+5. Kliknij przycisk **Wersja manifestu**, aby zmienić wersję usługi i aplikacji.
+6. Zmień wersję elementu **Kod** w obszarze **VotingWebPkg** na „2.0.0” (na przykład), a następnie kliknij przycisk **Zapisz**.
 
-    ![Zmiana wersji w oknie dialogowym](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. W **publikowania aplikacji sieci szkieletowej usług** okna dialogowego wyboru uaktualnienia wyboru aplikacji i kliknij **publikowania**.
+    ![Okno dialogowe zmiany wersji](./media/service-fabric-quickstart-dotnet/change-version.png)
+7. W oknie dialogowym **Publikowanie aplikacji usługi Service Fabric** zaznacz pole wyboru Uaktualnij aplikację, a następnie kliknij przycisk **Publikuj**.
 
-    ![Okno dialogowe publikowania uaktualnienia ustawienie](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Otwórz przeglądarkę i przejdź do adresu klastra na porcie 19080 — na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Polecenie **aplikacji** węzeł w widoku drzewa, a następnie **uaktualnień w toku** w okienku po prawej stronie. Możesz sprawdzić sposób uaktualniania przedstawia za pośrednictwem domen uaktualnienia w klastrze, upewniając się, że każdej domeny jest w dobrej kondycji przed przejściem do następnej. Domeny uaktualnienia na pasku postępu jest wyświetlany zielony, gdy kondycji domeny zostały zweryfikowane.
-    ![Uaktualnij widok w narzędziu Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
+    ![Okno dialogowe publikowania — ustawienie uaktualnienia](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+8. Otwórz przeglądarkę i przejdź do adresu klastra na porcie 19080, na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+9. W widoku drzewa kliknij węzeł **Aplikacje**, a następnie kliknij pozycję **Uaktualnienia w toku** w okienku po prawej stronie. Możesz zobaczyć, jak uaktualnienie jest wprowadzane w domenach uaktualnienia w klastrze, upewniając się, że każda domena jest w dobrej kondycji przed przejściem do następnej. Domena uaktualnienia na pasku postępu będzie wyświetlana w kolorze zielonym po zweryfikowaniu kondycji domeny.
+    ![Widok uaktualniania w narzędziu Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
-    Sieć szkieletowa usług pozwala uaktualnienia bezpieczne oczekuje dwóch minut po uaktualnieniu usługi na każdym węźle w klastrze. Oczekiwać, że cały aktualizacji zajmie około osiem minut.
+    Usługa Service Fabric zapewnia bezpieczeństwo uaktualnień dzięki oczekiwaniu przez dwie minuty po uaktualnieniu usługi na każdym węźle w klastrze. Całe uaktualnienie zajmuje około ośmiu minut.
 
-10. Podczas uaktualniania, można nadal używać aplikacji. Ponieważ dwa wystąpienia usługi uruchomiona w klastrze, niektóre żądania mogą wystąpić uaktualnionej wersji aplikacji, podczas gdy inne osoby, może nadal otrzymywać starą wersję.
+10. Podczas uaktualniania można nadal korzystać z aplikacji. Ponieważ masz dwa wystąpienia usługi uruchomione w klastrze, niektóre żądania mogą trafiać do uaktualnionej wersji aplikacji, podczas gdy inne mogą nadal otrzymywać starą wersję.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym przewodniku Szybki start zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie aplikacji przy użyciu platformy .NET i sieci szkieletowej usług
-> * Użyj jako frontonu sieci web platformy ASP.NET core
-> * Przechowywanie danych aplikacji w usługi stanowej
+> * Tworzenie aplikacji przy użyciu platformy .NET i usługi Service Fabric
+> * Używanie platformy ASP.NET Core jako frontonu sieci Web
+> * Przechowywanie danych aplikacji w usłudze stanowej
 > * Debugowanie aplikacji lokalnie
-> * Wdrażanie aplikacji do klastra w systemie Azure
-> * Skalowalny w poziomie aplikacji w różnych węzłach
-> * Uaktualnienie stopniowe aplikacji
+> * Wdrażanie aplikacji w klastrze na platformie Azure
+> * Skalowanie aplikacji w poziomie na wiele węzłów
+> * Przeprowadzanie stopniowego uaktualnienia aplikacji
 
-Aby dowiedzieć się więcej na temat sieci szkieletowej usług i .NET, Przyjrzyjmy się w tym samouczku:
+Aby dowiedzieć się więcej o usłudze Service Fabric i platformie .NET, zapoznaj się z tym samouczkiem:
 > [!div class="nextstepaction"]
-> [Aplikacji .NET w sieci szkieletowej usług](service-fabric-tutorial-create-dotnet-app.md)
+> [Aplikacja platformy .NET w usłudze Service Fabric](service-fabric-tutorial-create-dotnet-app.md)

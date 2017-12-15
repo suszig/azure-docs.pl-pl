@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Przechowywania poświadczeń w usłudze Azure Key Vault
 
-Można zapisać poświadczeń magazyny danych w [usługi Azure Key Vault](../key-vault/key-vault-whatis.md). Fabryka danych Azure pobiera poświadczeń podczas wykonywania działania, który używa magazynu danych. Obecnie tylko [łącznika Dynamics](connector-dynamics-crm-office-365.md) i [łącznika usług Salesforce](connector-salesforce.md) obsługuje tę funkcję.
+Można zapisać poświadczeń magazyny danych w [usługi Azure Key Vault](../key-vault/key-vault-whatis.md). Fabryka danych Azure pobiera poświadczeń podczas wykonywania działania, który używa magazynu danych.
+
+Obecnie [łącznika Dynamics](connector-dynamics-crm-office-365.md), [łącznika usług Salesforce](connector-salesforce.md) i kilka nowo włączyć obsługę łączniki tej funkcji. Oczekiwany więcej przesyłanych później. Możesz sprawdzić każdego tematu łącznika na szczegóły. Dla pola tajne, które obsługują tę funkcję, zobaczysz notatki w zawierający opis komunikat "*można Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF, lub przechowywanie haseł w usługa Azure Key Vault oraz umożliwić ściągania działaniach kopiowania z tego miejsca Podczas wykonywania kopii danych — Dowiedz się więcej z magazynu poświadczeń w magazynie kluczy.* "
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji dla fabryki danych version1](v1/data-factory-introduction.md).
@@ -70,7 +72,7 @@ Po skonfigurowaniu pola w połączonej usłudze odwołujące się do magazynu kl
 | type | Musi mieć ustawioną właściwość Typ pola: **AzureKeyVaultSecret**. | Tak |
 | secretName | Nazwa klucza tajnego w magazynie kluczy azure. | Tak |
 | secretVersion | Wersja klucza tajnego w magazynie kluczy azure.<br/>Jeśli nie zostanie określony, zawsze używa najnowszą wersję klucza tajnego.<br/>Jeśli zostanie określona, następnie go systemu danej wersji.| Nie |
-| Magazyn | Odwołuje się do usługi Azure Key Vault połączone, które służy do przechowywania poświadczeń. | Tak |
+| sklep | Odwołuje się do usługi Azure Key Vault połączone, które służy do przechowywania poświadczeń. | Tak |
 
 **Przykład: (zobacz sekcję "password")**
 

@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi Azure Application Insights dla DevOps | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak używać usługi Application Insights w środowisku Ops deweloperów."
+title: "Omówienie usługi Azure Application Insights dla metodyki DevOps | Microsoft Docs"
+description: "Dowiedz się, jak korzystać z usługi Application Insights w środowisku DevOps."
 author: mrbullwinkle
 services: application-insights
 documentationcenter: 
@@ -16,99 +16,99 @@ ms.date: 06/26/2017
 ms.author: mbullwin
 ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 11/01/2017
 ---
-# <a name="overview-of-application-insights-for-devops"></a>Omówienie usługi Application Insights dla opracowywania oprogramowania
+# <a name="overview-of-application-insights-for-devops"></a>Omówienie usługi Azure Application Insights dla metodyki DevOps
 
-Z [usługi Application Insights](app-insights-overview.md), można szybko znaleźć się, jak aplikacja działa i jest używany w przypadku na żywo. W przypadku problemu go informuje o go, pomaga ocenić wpływ i pomaga ustalić przyczynę.
+Dzięki usłudze [Application Insights](app-insights-overview.md) możesz szybko dowiedzieć się, jaka jest wydajność aktywnej aplikacji i jak jest używana. Jeśli wystąpi problem, usługa powiadomi Cię o tym, pomoże ocenić skutki problemu i ustalić jego przyczynę.
 
-Oto konta od zespołu rozwija aplikacji sieci web:
+Oto historia zespołu, który zajmuje się opracowywaniem aplikacji internetowych:
 
-* *"Kilku dni temu, wdrożyliśmy"drobna"poprawki. Firma Microsoft nie został uruchomiony przebiegu testowego szerokie, ale Niestety niektórych nieoczekiwane zmiany otrzymano scalone ładunek, co powoduje niezgodność między z przodu i zaplecza. Natychmiast uruchamiany naszych alert wzrósł wyjątki serwera, i zostały wprowadziliśmy świadome sytuacji. Kilka kliknięć optymalizacji w portalu usługi Application Insights dotarliśmy wystarczających informacji z callstacks wyjątek, aby zawęzić problem. Firma Microsoft niezwłocznie wycofana i ograniczone szkody. Application Insights wprowadził ta część devops cykl bardzo łatwe i możliwością."*
+* *„Kilka dni temu wdrożyliśmy »drobną« poprawkę. Nie przeprowadziliśmy szerokiego testu i niestety w ładunku została scalona nieoczekiwana zmiana, co doprowadziło do niezgodności pomiędzy frontonem a zapleczem. Natychmiast lawinowo wystąpiły wyjątki serwera, został uruchomiony alert, a my zostaliśmy powiadomieni o sytuacji. Wystarczyło kilka kliknięć w portalu Application Insights, aby uzyskać ze stosu wywołań wyjątków informacje wystarczające do identyfikacji problemu. Niezwłocznie wycofaliśmy poprawkę i ograniczyliśmy szkody. Usługa Application Insights znacznie ułatwiła tę część cyklu DevOps i zapewniła nam swobodę działania”.*
 
-W tym artykule możemy wykonaj zespołu w banku firmy Fabrikam, który rozwija system banku online (OBS), aby zobaczyć, jak korzystają z usługi Application Insights szybkie odpowiadanie na klientów i aktualizacje.  
+W tym artykule poznamy zespół banku Fabrikam Bank, który opracowuje system bankowości internetowej, i dowiemy się, w jaki sposób korzysta on z usługi Application Insights, aby szybko reagować na potrzeby klientów i tworzyć aktualizacje.  
 
-Zespół działa w cyklu opracowywania oprogramowania, przedstawione na poniższej ilustracji:
+Zespół działa według cyklu DevOps przedstawionego na poniższej ilustracji:
 
-![Cyklu opracowywania oprogramowania](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+![Cykl DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Wymagania dotyczące źródła danych do ich programowanie zaległości (Lista zadań). Funkcje te działają w skrócie przebiegów, które często dostarczają oprogramowania pracy — zwykle w postaci ulepszenia i rozszerzenia do istniejącej aplikacji. Aktywnej aplikacji jest często aktualizowana o nowe funkcje. Mimo że jest na żywo, zespół monitoruje wydajności i użycia za pomocą usługi Application Insights. Źródła danych APM do ich zaległości programowanie.
+Wymagania zostają wprowadzone na listę prac programistycznych (listę zadań). Członkowie zespołu pracują w krótkich przebiegach, często dostarczając działające oprogramowanie — zwykle w formie poprawek i rozszerzeń istniejącej aplikacji. Działająca aplikacja jest często aktualizowana w celu dodania nowych funkcji. Gdy działa, zespół monitoruje jej wydajność i użycie za pomocą usługi Application Insights. Te dane APM są ponownie wprowadzane na listę prac programistycznych.
 
-Zespół używa usługi Application Insights do aplikacji sieci web na żywo uważnie monitorować:
+Zespół korzysta z usługi Application Insights, aby uważnie monitorować aktywną aplikację pod kątem następujących elementów:
 
-* Wydajność. Chcą, aby zrozumieć, jak czas reakcji zależy od liczby żądań; ile procesora CPU, sieci, dysku i inne zasoby są używane; Kod aplikacji, w których spowolnieniu wydajności; i wąskich gardeł.
-* Błędy. Jeśli istnieją wyjątki lub nieudanych żądań, lub jeśli licznik wydajności nie jest poza zakresem doświadczenia, zespół musi znać szybko, aby potencjalnie akcji.
-* Użycie. Przypadku nową funkcję, zespół chce dowiedzieć się, w jakim jest używany i czy użytkownicy mają trudności z nim.
+* Wydajność. Chcą wiedzieć, jak różnią się czasy odpowiedzi w zależności od liczby żądań; w jakim stopniu wykorzystywany jest procesor, dysk i inne zasoby; który kod aplikacji zmniejsza wydajność; gdzie znajdują się wąskie gardła.
+* Błędy. Jeśli pojawią się wyjątki lub żądania zakończone niepowodzeniem lub jeśli licznik wydajności wykroczy poza bezpieczny zakres, zespół musi się o tym dowiedzieć jak najszybciej, aby podjąć odpowiednie działania.
+* Użycie. Po udostępnieniu nowych funkcji zespół chce wiedzieć, w jakim stopniu są używane i czy użytkownicy mają trudności z ich obsługą.
 
-Ta funkcja pozwala skupić się na opinie część cyklu:
+Skupmy się na części cyklu dotyczącej informacji zwrotnej:
 
-![Wykryj klasyfikacji diagnozowanie](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Wykrycie — klasyfikacja — diagnoza](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
-## <a name="detect-poor-availability"></a>Wykryj niską dostępności
-Marcela Markova jest starszy developer zespołu OBS i Trwa liderem monitorowania wydajności w trybie online. Użytkownik konfiguruje kilka [testów dostępności](app-insights-monitor-web-app-availability.md):
+## <a name="detect-poor-availability"></a>Wykrywanie niskiej dostępności
+Marcela Markova jest starszym deweloperem w zespole ds. systemu bankowości internetowej i jest główną osobą monitorującą wydajność w trybie online. Skonfigurowała kilka [testów dostępności](app-insights-monitor-web-app-availability.md):
 
-* Adres URL jednym testu dla strony głównej docelowej dla aplikacji, http://fabrikambank.com/onlinebanking/. Ustawia ona kryteria HTTP o kodzie 200 i tekst "Witaj!". W przypadku niepowodzenia tego testu jest poważny problem z siecią lub serwerów lub może być problem wdrażania. (Lub ktoś zmienił Zapraszamy! komunikat na stronie bez umożliwienie jej znanych).
-* Lepszy badanie wieloetapowych, loguje i pobiera bieżącego konta wyświetlania, sprawdzanie kilku szczegółów klucza na każdej stronie. Ten test sprawdza, czy działa łącze do bazy danych kont. Używa identyfikatora klienta fikcyjne: niektóre z nich, które są obsługiwane dla celów testowych.
+* Test pojedynczego adresu URL dla głównej strony docelowej aplikacji — http://fabrikambank.com/onlinebanking/. Ustawia kryteria kodu HTTP 200 i tekst „Witaj!”. Jeśli test zakończy się niepowodzeniem, powodem może być poważna awaria sieci lub serwerów albo problem z wdrożeniem. Ewentualnie ktoś mógł zmienić komunikat „Witaj!” na stronie bez jej wiedzy.
+* Pogłębiony kilkustopniowy test, obejmujący zalogowanie i pobranie aktualnej listy kont oraz sprawdzenie określonych kluczowych szczegółów na każdej stronie. Ten test sprawdza, czy działa link do bazy danych kont. Marcela korzysta z fikcyjnego identyfikatora klienta: ma kilka do dyspozycji do celów testowych.
 
-Te testy Konfigurowanie Marcela to pewność, że zespół będzie szybko wiedzieć o wszelkich awarii.  
+Po skonfigurowaniu tych testów Marcela jest pewna, że zespół szybko dowie się o ewentualnej awarii.  
 
-Błędy wyświetlane jako czerwone kropki na wykresie testu sieci web:
+Błędy wyświetlane są jako czerwone kropki na wykresie testu internetowego:
 
-![Wyświetl testy sieci web, które zostały uruchomione w poprzednim okresie](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Widok testów internetowych uruchomionych w okresie poprzedzającym](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ale co ważniejsze, pocztą e-mail alert o niezgodności zespół deweloperów. W ten sposób wiedzą o tym przed niemal wszystkich klientów.
+Ale co ważniejsze, zespół deweloperów otrzymuje wiadomość e-mail z alertem dotyczącym wszelkich błędów. Dzięki temu wiedzą o nich wcześniej niż niemal wszyscy klienci.
 
 ## <a name="monitor-performance"></a>Monitorowanie wydajności
-Na stronie Przegląd w usłudze Application Insights jest wykres przedstawiający różnych [kluczowe metryki](app-insights-web-monitor-performance.md).
+Na stronie Przegląd usługi Application Insights znajduje się wykres przedstawiający różne [kluczowe metryki](app-insights-web-monitor-performance.md).
 
-![Różnych metryk](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Różne metryki](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Czas ładowania strony przeglądarki jest pochodną telemetrii wysyłane bezpośrednio ze stron sieci web. Czas odpowiedzi serwera, liczba żądań na serwerze i liczba żądań zakończonych niepowodzeniem są wszystkie mierzony na serwerze sieci web i wysyłane do usługi Application Insights z tego miejsca.
+Czas ładowania strony w przeglądarce jest uzyskiwany na podstawie danych telemetrycznych wysłanych bezpośrednio ze stron internetowych. Czas odpowiedzi serwera, liczba żądań serwera i liczba żądań zakończonych niepowodzeniem są mierzone na serwerze internetowym i wysyłane z niego do usługi Application Insights.
 
-Marcela jest nieco związane z wykres odpowiedzi serwera. Ten wykres pokazuje średni czas od kiedy serwer odbiera żądanie HTTP z przeglądarki użytkownika i kiedy zwraca odpowiedź. Nie jest rzadko zobaczyć zmianę na tym wykresie, jak obciążenia w systemie. Ale w takim przypadku wydaje się być korelacja małych wzrostu liczby żądań, a big wzrośnie w czasie odpowiedzi. Który może wskazywać system działa tylko podczas pracy z maksymalną wydajnością.
+Marcela jest nieco zaniepokojona wykresem odpowiedzi serwera. Ten wykres pokazuje średni czas pomiędzy otrzymaniem przez serwer żądania HTTP z przeglądarki użytkownika a zwróceniem odpowiedzi. Zmienność na tym wykresie nie jest niczym niezwykłym, ponieważ obciążenie systemu może być różne. Jednak w tym przypadku wydaje się, że istnieje korelacja pomiędzy niewielkimi wzrostami liczby żądań a znacznym wydłużeniem czasu odpowiedzi. Może to wskazywać, że system niemal osiągnął swój limit wydajności.
 
-Użytkownik otwiera wykresy serwerów:
+Marcela otwiera wykresy serwerów:
 
-![Różnych metryk](./media/app-insights-detect-triage-diagnose/06.png)
+![Różne metryki](./media/app-insights-detect-triage-diagnose/06.png)
 
-Wydaje się nie logowania ograniczenia zasobów, dlatego może być nierówności na wykresach odpowiedzi serwera są po prostu zbieżność.
+Nic nie wskazuje, że występują ograniczenia zasobów, więc być może nagłe skoki na wykresach odpowiedzi serwera są przypadkowe.
 
-## <a name="set-alerts-to-meet-goals"></a>Ustaw alerty w celu spełnienia celów
-Niemniej jednak użytkownik chce śledzić na czas odpowiedzi. Komputery przechodzą zbyt duże, chce od razu wiedzieć o nim.
+## <a name="set-alerts-to-meet-goals"></a>Ustawianie alertów odpowiednio do celów
+Niemniej jednak Marcela chce śledzić czas odpowiedzi. Jeśli będzie zbyt długi, chce natychmiast o tym wiedzieć.
 
-Dlatego użytkownik ustawia [alert](app-insights-metrics-explorer.md), dla większy niż próg typowy czas odpowiedzi. Dzięki temu jej pewność, że użytkownik będzie wiadomo o nim gdy czas reakcji wolno.
+Dlatego ustawia [alert](app-insights-metrics-explorer.md) dla czasów odpowiedzi, które są dłuższe niż typowy czas odpowiedzi. Dzięki temu ma pewność, że jeśli czasy odpowiedzi będą zbyt długie, dowie się o tym.
 
 ![Dodawanie bloku alertu](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Alerty można ustawić na różnych innych metryk. Na przykład można otrzymywać wiadomości e-mail, jeśli wzrośnie liczba wyjątków lub niski przechodzi ilość dostępnej pamięci lub brak szczytu w żądań klientów.
+Alerty można ustawiać na podstawie różnych innych metryk. Możesz na przykład otrzymać wiadomość e-mail, jeśli liczba wyjątków będzie zbyt duża, jeśli będzie zbyt mało wolnej pamięci lub jeśli nastąpi nagły wzrost liczby żądań klientów.
 
-## <a name="stay-informed-with-smart-detection-alerts"></a>Poinformują Cię o alerty o wykryciu inteligentne
-Następnego dnia alertów e-mail odbierane z usługi Application Insights. Jednak gdy użytkownik otwiera, użytkownik stwierdza, że nie jest ona ustawiona alert czas odpowiedzi. Zamiast tego informuje o tym jej czy został nagły wzrost nieudanych żądań — to znaczy żądań, które zwrócone kodów błędu 500 lub więcej.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Bieżące informacje dzięki alertom inteligentnego wykrywania
+Następnego dnia usługa Application Insights faktycznie wysyła wiadomość e-mail z alertem. Po otwarciu okazuje się jednak, że nie jest to alert czasu odpowiedzi, który ustawiła Marcela. Zamiast tego wiadomość informuje o nagłym wzroście liczby żądań zakończonych niepowodzeniem, czyli żądań, które zwróciły kody błędu 500 i wyższe.
 
-Żądań zakończonych niepowodzeniem są, gdzie użytkownicy jak już wspomniano błędu — zwykle po wyjątek w kodzie. Może być zobaczy komunikat informujący o tym "Niestety nie można teraz zaktualizować szczegóły". Lub na bezwzględne najgorszy Zakłopotanie, zrzut stosu jest wyświetlany na ekranie użytkownika, dzięki uprzejmości: serwer sieci web.
+Żądania zakończone niepowodzeniem to takie, w przypadku których użytkownicy zobaczyli błąd — zwykle w następstwie wyjątku zgłoszonego w kodzie. Mogą na przykład zobaczyć komunikat: „Niestety, nie można teraz zaktualizować danych”. Lub — jeszcze gorzej — na ekranie użytkownika może pojawić się zrzut stosu przekazany przez serwer.
 
-Ten alert jest zaskoczeniem, ponieważ czasu, gdy użytkownik przeglądał, liczba nieudanych żądań encouragingly niski. Mała liczba błędów jest w zajęty serwer.
+Ten alert zaskakuje Marcelę, ponieważ gdy sprawdzała ostatnim razem, liczba żądań zakończonych niepowodzeniem była dobra, czyli niska. Na najbardziej aktywnych serwerach można spodziewać się pewnej niewielkiej liczby błędów.
 
-Również nieco zaskoczeniem dla jej ponieważ użytkownik nie ma do konfigurowania tego alertu. Usługa Application Insights obejmują wykrywanie inteligentne. Automatycznie go można dostosować do wzorca zwykle awarii aplikacji i "jest używany do" błędów na konkretnej stronie lub mocno obciążony lub z innych metryk. Alarm uruchamia tylko wtedy, gdy wzrost powyżej pochodzi mogą się spodziewać.
+Zaskoczyło ją to również dlatego, że nie musiała konfigurować tego alertu. Usługa Application Insights obejmuje również funkcję wykrywania inteligentnego. Automatycznie dostosowuje się ona do typowego wzorca błędów aplikacji i „przyzwyczaja się” do błędów na konkretnej stronie lub podczas dużego obciążenia lub w związku z innymi metrykami. Uruchamia alarm tylko wtedy, gdy nastąpi wzrost powyżej oczekiwanego poziomu.
 
-![proaktywna Diagnostyka poczty e-mail](./media/app-insights-detect-triage-diagnose/21.png)
+![wiadomość e-mail zawierająca proaktywną diagnostykę](./media/app-insights-detect-triage-diagnose/21.png)
 
-Jest to bardzo przydatne wiadomości e-mail. Go nie tylko podnieść alarmu. Robi zbyt wiele klasyfikacji i diagnostycznych pracy.
+Jest to bardzo przydatna wiadomość e-mail. Pełni nie tylko funkcję alarmową. Odpowiada również w znacznym stopniu za klasyfikację i diagnostykę.
 
-Przedstawia on dotyczy ilu użytkowników i strony sieci web lub operacji. Marcela można zdecydować, czy użytkownik musi pobrać całego zespołu pracujących na tym, jak szczegółowego fire lub czy można go zignorować dopiero w następnym tygodniu.
+Pokazuje, ilu klientów dotyczy problem i na jakich stronach internetowych lub podczas wykonywania jakich operacji występuje. Marcela może zdecydować, czy musi zebrać cały zespół pracujący nad projektem do gaszenia pożaru, czy też można odłożyć rozwiązanie problemu do kolejnego tygodnia.
 
-Wiadomości e-mail zawiera także określonego wyjątek wystąpił czy — nawet więcej interesujące — że błędu jest skojarzony z niepowodzeniem wywołania określonej bazy danych. W tej sekcji wyjaśniono, dlaczego usterki nagle pojawił się nawet zespołu w Marcela ostatnio nie wdrożono żadnych aktualizacji.
+Wiadomość e-mail pokazuje również, że wystąpił określony wyjątek, i co ciekawsze, że błąd jest związany z zakończonymi niepowodzeniem wywołaniami do określonej bazy danych. To wyjaśnia, dlaczego błąd wystąpił nagle, mimo że zespół Marceli nie wdrożył w ostatnim czasie żadnych aktualizacji.
 
-Marcella wysyła polecenie ping wiodące zespołu bazy danych na podstawie tej wiadomości e-mail. Użytkownik uzyskuje informacje o ich zwolnienie poprawki w ciągu ostatnich pół godziny; i Niestety, może być mogło być zmiany schematu pomocnicza...
+Marcela po otrzymaniu tej wiadomości e-mail kontaktuje się z liderem zespołu ds. bazy danych. Dowiaduje się, że ten zespół w ciągu ostatnich 30 minut udostępnił poprawkę — i niestety mogła wystąpić niewielka zmiana schematu.
 
-Dlatego problemu znajduje się na sposobem jest ustalany, nawet przed badania dzienników i w ciągu 15 minut, jego wynikające. Jednak Marcela kliknie łącze, aby otworzyć usługę Application Insights. Użytkownik może uzyskać bazy danych nie powiodło się wywołanie w skojarzonej listy wywołania zależności i otwiera bezpośrednio na żądanie nie powiodło się.
+Zatem problem zaraz zostanie naprawiony, w ciągu 15 minut od jego wystąpienia, jeszcze przed sprawdzeniem dzienników. Marcela klika jednak link, aby otworzyć usługę Application Insights. Otwiera się od razu na żądaniu zakończonym niepowodzeniem i wyświetla zakończone niepowodzeniem wywołanie do bazy danych na skojarzonej liście wywołań zależności.
 
-![żądanie nie powiodło się](./media/app-insights-detect-triage-diagnose/23.png)
+![żądanie zakończone niepowodzeniem](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detect-exceptions"></a>Wykryj wyjątków
-Z niewielki instalacji [wyjątki](app-insights-asp-net-exceptions.md) zgłoszony do usługi Application Insights automatycznie. One również można przechwycić jawnie przez wstawianie wywołania do [funkcji TrackException()](app-insights-api-custom-events-metrics.md#trackexception) do kodu:  
+## <a name="detect-exceptions"></a>Wykrywanie wyjątków
+Po wykonaniu kilku prostych czynności konfiguracyjnych [wyjątki](app-insights-asp-net-exceptions.md) są automatycznie zgłaszane do usługi Application Insights. Można je również rejestrować jawnie, wstawiając wywołania metody [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) w kodzie:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -129,9 +129,9 @@ Z niewielki instalacji [wyjątki](app-insights-asp-net-exceptions.md) zgłoszony
     }
 
 
-Zespołu Fabrikam Bank powstał praktyka zawsze wysyłania danych telemetrycznych z powodu wyjątku, chyba że istnieje oczywiste odzyskiwania.  
+Zespół banku Fabrikam Bank wypracował zwyczaj wysyłania danych telemetrycznych dotyczących wszystkich wyjątków, o ile problem nie został na pewno rozwiązany.  
 
-W rzeczywistości jest szersze niż ich strategii: wysyłają dane telemetryczne w każdym przypadku, gdy klient jest sfrustrowani w ich potrzeb w celu czy lub nie odpowiada wyjątek w kodzie. Na przykład jeśli system zewnętrzny transferu między bank zwraca komunikat "nie można ukończyć tej transakcji" jakiegoś powodu operacyjne (nie błąd klienta) następnie śledzą tego zdarzenia.
+Tak naprawdę ta strategia ma jeszcze szerszy zakres: dane telemetryczne są wysyłane zawsze, gdy użytkownikowi nie udaje się zrobić tego, co zamierzał, bez względu na to, czy jest to związane z wyjątkiem w kodzie, czy nie. Na przykład jeśli zewnętrzny system przelewów międzybankowych zwróci komunikat „Nie można ukończyć tej transakcji” z jakichkolwiek przyczyn operacyjnych (nie z winy klienta), to zdarzenie jest śledzone.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -143,96 +143,96 @@ W rzeczywistości jest szersze niż ich strategii: wysyłają dane telemetryczne
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException jest używane do zgłaszania wyjątkami, ponieważ wysyła kopię stosu. TrackEvent jest używane do zgłaszania inne zdarzenia. Możesz dołączyć wszystkie właściwości, które mogą być przydatne do rozpoznania.
+Metoda TrackException jest używana do zgłaszania wyjątków, ponieważ wysyła kopię stosu. Funkcja TrackEvent jest używana do zgłaszania innych zdarzeń. Możesz dołączyć wszelkie właściwości, które mogą być przydatne w procesie diagnozowania.
 
-Wyjątki i zdarzenia wyświetlane w [diagnostycznych wyszukiwania](app-insights-diagnostic-search.md) bloku. Aby przejść do szczegółów w je, aby wyświetlić dodatkowe właściwości i ślad stosu.
+Wyjątki i zdarzenia pojawiają się w bloku [Wyszukiwanie diagnostyczne](app-insights-diagnostic-search.md). Możesz przejść do szczegółów, aby wyświetlić dodatkowe właściwości i ślad stosu.
 
-![W wyszukiwaniu diagnostycznych za pomocą filtrów można wyświetlić określonego typu danych](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![W wyszukiwaniu diagnostycznym za pomocą filtrów można wyświetlić określone typy danych.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Aktywne monitorowanie
-Marcela nie tylko znajdują się wokół oczekiwanie na alerty. Wkrótce po każdym ponownego wdrażania, klika przedstawia [czas reakcji](app-insights-web-monitor-performance.md) — zarówno rysunek ogólny, jak i tabeli najwolniejsze żądania, a także liczby wyjątków.  
+Marcela nie chce tylko siedzieć bezczynnie i czekać na alerty. Wkrótce po każdym ponownym wdrożeniu zapoznaje się z [czasami odpowiedzi](app-insights-web-monitor-performance.md) — zarówno z ogólną wartością, jak i z tabelą najwolniejszych żądań i liczbą wyjątków.  
 
-![Wykres czasu odpowiedzi i siatki czas odpowiedzi serwera.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Wykres czasu odpowiedzi i siatka czasu odpowiedzi serwera.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Ona ocenić wpływ wydajności każdego wdrożenia zwykle porównanie każdej tydzień z ostatniego. W przypadku nagłego pogorszenia, klika który zgłasza z odpowiednimi deweloperów.
+Może ocenić wpływ każdego wdrożenia na wydajność, zwykle porównując dany tydzień z poprzednim. W przypadku nagłego pogorszenia wyników zgłasza to deweloperom.
 
-## <a name="triage-issues"></a>Klasyfikacji problemów
-Klasyfikacja — ocenę ważności i zakres problem — jest to pierwszy etap po wykryciu. Należy nazywamy limit zespołu o północy? Lub może on pozostać aż do następnego wygodny przerwa w zaległości? Istnieją pewne ważne pytania w klasyfikacji.
+## <a name="triage-issues"></a>Klasyfikacja problemów
+Klasyfikacja — ocena ważności i zakresu problemu — to pierwszy etap postępowania po jego wykryciu. Czy powinniśmy zwołać zespół o północy? Czy może lepiej poczekać do kolejnej dogodnej przerwy na liście prac? Podczas klasyfikacji należy zadać kilka kluczowych pytań.
 
-Jak często jest wykonywane? Wykresy w bloku omówienie nadaj niektóre perspektywy problemu. Na przykład aplikacji firmy Fabrikam wygenerowanych cztery alerty testu sieci web co noc. Patrzeć na wykresie w nocy, zespół mogliby zobaczyć wystąpiły rzeczywiście niektórych punktów czerwony, chociaż większość nadal testy zostały zielony. Przechodzenia do wykresu dostępności szczegółów, jest jasne, czy zostały wszystkie te sporadyczne problemy z lokalizacji jeden test. Oczywiście była wpływające na tylko jedną trasę problem z siecią i najprawdopodobniej będzie wyczyść samej siebie.  
+Jak często występuje problem? Wykresy w bloku Przegląd przedstawiają ogólną sytuację. Na przykład pewnej nocy aplikacja banku Fabrikam wygenerowała cztery alerty testu internetowego. Przyglądając się wykresowi następnego ranka, zespół mógł zaobserwować, że faktycznie wystąpiło kilka czerwonych kropek, ale większość testów miała wynik zielony. Po przejściu do szczegółów wykresu dostępności stało się jasne, że wszystkie sporadycznie występujące problemy pochodziły z jednej testowanej lokalizacji. Był to oczywiście problem z siecią, który miał wpływ tylko na jedną trasę i najprawdopodobniej rozwiązałby się sam.  
 
-Z kolei znacznej i stabilna wzrostu na wykresie wyjątek razy liczby lub odpowiedzi jest oczywiście coś do awaryjne o.
+Z kolei poważny i stabilny wzrost na wykresie liczby wyjątków lub czasów odpowiedzi to oczywiście powód do większego niepokoju.
 
-Działanie przydatne Klasyfikacja jest spróbuj ją samodzielnie. Jeśli napotkasz ten sam problem, wiadomo, że jest prawdziwe.
+Przydatną taktyką klasyfikacji jest taktyka Spróbuj sam. Jeśli napotkasz ten sam problem, będzie wiadomo, że jest prawdziwy.
 
-Jaka część użytkowników dotyczy? Uzyskanie odpowiedzi nierównej dzielenia współczynnik awaryjności przez liczba sesji.
+Jakiej części użytkowników dotyczy problem? Aby uzyskać przybliżoną odpowiedź, podziel liczbę błędów przez liczbę sesji.
 
-![Wykresy sesji i żądań zakończonych niepowodzeniem](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
+![Wykresy żądań zakończonych niepowodzeniem i sesji](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-W przypadku odpowiedzi powolne porównać tabeli najwolniejsze odpowiada żądań z częstotliwością użycia każdej strony.
+Jeśli czas odpowiedzi jest długi, porównaj tabelę najwolniej odpowiadających żądań z częstotliwością korzystania z każdej strony.
 
-Jak ważna jest zablokowane scenariusz? Jeśli jest to problem funkcjonalności blokuje konkretnego scenariusza, czy ma znaczenie znacznie? Jeśli klienci nie mogą ich rachunków, jest to poważny; Jeśli nie mogą zmieniać swoje preferencje kolorów ekranu, może być go wykonać. Szczegóły zdarzenia lub wyjątek lub tożsamość powolne strony informuje o którym występują problemy dotyczące klientów.
+Jak ważny jest zablokowany scenariusz? Jeśli jest to problem z funkcjonalnością, który blokuje konkretny scenariusz użytkownika, to czy ma to duże znaczenie? Jeśli klient nie może zapłacić rachunku, jest to poważne. Jeśli jednak nie może zmienić preferencji koloru ekranu, problem może poczekać. Szczegóły każdego zdarzenia lub wyjątku oraz tożsamość wolno działającej strony wskazują, gdzie klienci napotykają problemy.
 
 ## <a name="diagnose-issues"></a>Diagnozowanie problemów
-Diagnostyka nie jest dość taki sam, jak debugowania. Przed rozpoczęciem śledzenia przez kod powinien mieć wstępne informacje o tym, dlaczego, gdzie i kiedy występuje problem.
+Diagnostyka to nie to samo co debugowanie. Zanim zaczniesz przeglądać kod, musisz mieć ogólne pojęcie dlaczego, gdzie i kiedy pojawia się problem.
 
-**Gdy jest wykonywana?** Widok historycznych oferowany przez zdarzenia i metryki wykresy ułatwia służące do skorelowania efekty z możliwych przyczyn. Jeśli występują sporadyczne pików kursów czas lub wyjątku odpowiedzi, obejrzyj liczbę żądań: Jeśli pików go w tym samym czasie, a następnie prawdopodobnie problem z zasobów. Czy trzeba przypisać więcej procesorów ani pamięci? Czy jest zależność, która nie może zarządzać obciążenia?
+**Kiedy się to dzieje?** Widok historyczny zapewniany przez wykresy zdarzeń i metryk ułatwia zaobserwowanie korelacji pomiędzy skutkami a możliwymi przyczynami. Jeśli czas odpowiedzi lub liczba wyjątków sporadycznie nagle wzrasta, przyjrzyj się bliżej liczbie żądań: jeśli maksymalna wartość jest osiągana w tym samym momencie, to problem może być związany z zasobami. Czy trzeba przypisać więcej mocy procesora lub pamięci? Czy chodzi o to, że określona zależność nie jest w stanie zarządzać obciążeniem?
 
-**Jest to nam?**  Ma gwałtowny spadek wydajności danego typu żądania — na przykład jeśli odbiorca chce otrzymywać instrukcji konta -, istnieje możliwość może być zewnętrzny podsystemu zamiast aplikacji sieci web. W Eksploratorze metryk wybierz współczynnik awaryjności zależności i czas trwania zależności stawki i porównać ich historii w ciągu ostatnich kilku godzin lub dni z tym problemem, których zostało wykryte. Jeśli są korelowanie zmiany, zewnętrznych podsystemu może być stronę.  
-
-
-![Wykresy zależności błędu i czas trwania wywołania zależności](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
-
-Niektóre problemy powolne zależności są problemy używanie funkcji geolokalizacji. Bank firmy Fabrikam używa maszyn wirtualnych platformy Azure i wykryte, że ma przypadkowo się one serwera sieci web i serwer kont w różnych krajach. Znacznej poprawy został przełączony w tryb przy użyciu funkcji migracji jeden z nich.
-
-**Do czego możemy?** Jeśli problem nie zostanie wyświetlone w zależności, a jeśli go nie zawsze istnieje, prawdopodobnie jest spowodowany przez ostatnich zmian. Historyczne perspektywy podał wykresów metryki i zdarzenia ułatwia służące do skorelowania nagłym zmiany z wdrożeniami. Który zawęża wyszukiwania dla problemu. Aby zidentyfikować, które wiersze w kodzie aplikacji spowolnieniu wydajności, należy włączyć Application Insights profilera. Zapoznaj się z [profilowania aplikacji sieci web platformy Azure na żywo za pomocą usługi Application Insights](./app-insights-profiler.md). Po włączeniu profilera, zobaczysz śledzenia podobny do następującego. W tym przykładzie jest widoczny która metoda *GetStorageTableData* spowodował problem.  
-
-![App Insights profilera śledzenia](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
-
-**Co się dzieje?** Niektóre problemy występują rzadko i może być trudne do śledzenia podczas testów w trybie offline. To wszystko, co można zrobić próba przechwytywania błędu, jeśli występuje on na żywo. Możesz sprawdzić zrzuty stosu w raportach wyjątku. Ponadto można napisać śledzenia wywołań, Twoje struktury rejestrowania ulubionych albo TrackTrace() lub funkcji TrackEvent().  
-
-Firma Fabrikam miał problem tymczasowy w przypadku transferów między kontami, ale tylko w przypadku niektórych typów kont. Aby lepiej zrozumieć, co zostało dzieje, wstawiane one wywołania TrackTrace() w punktach klucza w kodzie dołączanie typu konta jako właściwość dla każdego wywołania. Który ułatwić filtrowanie tylko te dane śledzenia diagnostycznego wyszukiwania. Wartości parametrów jako właściwości i środki one również dołączone do śledzenia wywołań.
-
-## <a name="respond-to-discovered-issues"></a>Odpowiadanie na wykryte problemy
-Gdy już zdiagnozować problem, możesz wprowadzić planu, aby go rozwiązać. Może być należy wycofać zmiany lub może być tylko Przejdź dalej i rozwiąż problem. Po zakończeniu poprawkę usługi Application Insights informuje, czy powiodło się.  
-
-Zespół deweloperów Fabrikam Bank podjąć bardziej ustrukturyzowanymi podejście do pomiaru wydajności niż kiedyś przed ich użyciem usługi Application Insights.
-
-* Na stronie przeglądu usługi Application Insights one Ustaw cele wydajności pod względem określonej miary.
-* Projekt miary wydajności do aplikacji od początku, takich jak metryki pomiaru postępu użytkownika za pośrednictwem "lejki."  
+**Czy problem leży po naszej stronie?**  Jeśli zaobserwujesz nagły spadek wydajności danego typu żądania — na przykład gdy użytkownik chce uzyskać wyciąg z konta — istnieje możliwość, że źródłem problemu może być zewnętrzny podsystem, a nie Twoja aplikacja internetowa. W Eksploratorze metryk zaznacz wskaźniki błędów zależności oraz czasów trwania zależności i porównaj ich historie w ciągu kilku ostatnich godzin lub dni z wykrytym problemem. Jeśli zmiany są skorelowane, oznacza to, że winę może ponosić zewnętrzny podsystem.  
 
 
-## <a name="monitor-user-activity"></a>Monitorowanie aktywności użytkownika
-Gdy czas odpowiedzi jest stale prawidłowy i istnieje kilka wyjątków, zespół deweloperów można przejść do użyteczność. Ich można traktować temat poprawić komfort użytkowników oraz zachęcają więcej użytkowników w celach żądany.
+![Wykresy niepowodzenia zależności i czasu trwania wywołań do zależności](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
-Usługa Application Insights można również co zrobić przez użytkowników z aplikacją. Po działa bez problemów, zespół chce wiedzieć, funkcji, które są najbardziej popularnych co użytkowników, takich jak lub mieć trudności z i jak często wracają. Która będzie ułatwiała ich priorytety nadchodzących pracy. I można zaplanować zmierzenie powodzenia każdej funkcji w ramach cyklu programowania.
+Wolne działanie zależności czasem jest związane z problemami geolokalizacji. Fabrikam Bank korzysta z maszyn wirtualnych platformy Azure i okazało się, że nieumyślnie zlokalizowano serwer internetowy oraz serwer konta w różnych krajach. Osiągnięto znaczną poprawę, migrując jeden z nich.
 
-Na przykład podróży typowy użytkownik za pośrednictwem witryny sieci web ma Wyczyść "lejka." Wielu klientów przyjrzeć się stawki różnego rodzaju pożyczki. Mniejsza liczba przejdź do wypełnienia formularza oferty. Tych, którzy pobrać oferty kilka Przejdź dalej i wyjmij pożyczki.
+**Co zrobiliśmy?** Jeśli wydaje się, że problem nie jest kwestią zależności i nie zawsze występował, został prawdopodobnie wywołany przez niedawną zmianę. Perspektywa historyczna, którą zapewniają wykresy metryk i zdarzeń, ułatwia odnalezienie korelacji pomiędzy gwałtownymi zmianami a wdrożeniami. To zawęża obszar poszukiwań przyczyny problemu. Aby określić, które wiersze w kodzie aplikacji spowodowały spowolnienie działania, należy włączyć narzędzie Application Insights Profiler. Zapoznaj się z artykułem [Profiling live Azure web apps with Application Insights](./app-insights-profiler.md) (Profilowanie aktywnych aplikacji internetowych platformy Azure za pomocą usługi Application Insights). Po włączeniu narzędzia Profiler zostanie wyświetlony ślad podobny do widocznego poniżej. W tym przykładzie można łatwo zauważyć, że to metoda *GetStorageTableData* spowodowała problem.  
 
-![Zlicza widoku strony](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Ślad narzędzia App Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-Biorąc pod uwagę, gdy największej liczby klientów porzucić, firmy mogą pracować się, jak mogą uzyskać większą liczbę użytkowników za pomocą do dołu lejka. W niektórych przypadkach może być błąd środowiska (UX) użytkownika — na przykład przycisk 'Dalej' jest trudne do znalezienia lub zgodnie z instrukcjami nie są oczywiste. Bardziej prawdopodobne są bardziej znaczących powodów biznesowych do listy dokumentów: może być stawki pożyczki są zbyt duże.
+**Co się dzieje?** Niektóre problemy występują rzadko i wykrycie ich podczas testów w trybie offline może być trudne. Można jedynie próbować wychwycić błąd, kiedy wystąpi w aktywnej aplikacji. Można sprawdzić zrzuty stosu w raportach dotyczących wyjątków. Ponadto można zapisać wywołania śledzenia przy użyciu preferowanej struktury rejestrowania albo metody TrackTrace() lub TrackEvent().  
 
-Niezależnie od przyczyny, dane pomaga zespołu wyglądają co robią użytkownicy. Kolejnych wywołań śledzenia mogą być wstawiane do pracy szczegółowe. Funkcji TrackEvent() może służyć do liczby wszystkie akcje użytkownika, z dokładniej kliknięć poszczególnych przycisku do znaczących osiągnięć, takich jak płatności poza pożyczki.
+Fabrikam Bank miał sporadyczne problemy z przelewami pomiędzy kontami, ale tylko w przypadku niektórych rodzajów kont. Aby lepiej zrozumieć, co się dzieje, wstawiono wywołania metody TrackTrace() w kluczowych punktach kodu, dołączając rodzaj konta jako właściwość do każdego wywołania. To ułatwiło odnalezienie tylko tych śladów w wyszukiwaniu diagnostycznym. Dołączono również wartości parametrów jako właściwości i miary do śledzenia wywołań.
 
-Pobieranie umożliwia zespołu o informacje dotyczące działań użytkownika. Dzisiaj zawsze, gdy projekt nową funkcję, działają się, jak będzie uzyskują swoją opinię na temat jej użycia. Projekt śledzenia wywołań funkcji od początku. Używają opinii zwiększające funkcję w każdym cyklu programowania.
+## <a name="respond-to-discovered-issues"></a>Reagowanie na wykryte problemy
+Po zdiagnozowaniu problemu możesz stworzyć plan rozwiązania go. Być może należy wycofać ostatnią zmianę — a może wystarczy ją poprawić. Po wprowadzeniu poprawki usługa Application Insights informuje, czy działania były skuteczne.  
 
-[Przeczytaj więcej na temat śledzenia użycia](app-insights-usage-overview.md).
+Odkąd zespół deweloperów Fabrikam Bank korzysta z usługi Application Insights, ma bardziej ustrukturyzowane podejście do pomiaru wydajności.
 
-## <a name="apply-the-devops-cycle"></a>Zastosuj cyklu opracowywania oprogramowania
-Jest tak jak jedno użycie zespołu usługi Application Insights nie tylko w celu rozwiązywania problemów z poszczególnych, ale aby zwiększyć ich cyklu programistycznym. Mam nadzieję, że jej została podana sugestii dotyczących sposobu usługi Application Insights ułatwia zarządzanie aplikacjami wydajności w aplikacjach.
+* Na stronie Przegląd w usłudze Application Insights zespół skonfigurował cele wydajności przy użyciu określonych miar.
+* Od początku tworzenia aplikacji umieszczane są w niej miary wydajności, takie jak metryki, które mierzą postęp użytkownika przy użyciu „lejków”.  
+
+
+## <a name="monitor-user-activity"></a>Monitorowanie działań użytkowników
+Jeśli czas odpowiedzi jest na ogół prawidłowy i występuje niewiele wyjątków, zespół deweloperów może przejść do kwestii użyteczności. Może zastanawiać się, w jaki sposób poprawić doświadczenia użytkowników i jak zachęcić większą liczbę użytkowników do osiągania zamierzonych celów.
+
+Usługi Application Insights można również użyć, aby dowiedzieć się, co użytkownicy robią z aplikacją. Gdy aplikacja działa już bez problemów, zespół chciałby się dowiedzieć, jakie funkcje są najbardziej popularne, co podoba się użytkownikom, a z czym mają problemy, i jak często wracają. To pomoże ustalić priorytety podczas planowania dalszej pracy. Zespół planuje mierzyć popularność poszczególnych funkcji w ramach cyklu tworzenia oprogramowania.
+
+Na przykład podróż typowego użytkownika przez witrynę internetową tworzy widoczny „lejek”. Wielu klientów zapoznaje się z kosztami różnych typów pożyczek. Mniejsza liczba zdecyduje się na wypełnienie formularza wyceny. Spośród tych, którzy otrzymają wycenę, kilku zdecyduje się na zaciągnięcie pożyczki.
+
+![Liczba wyświetleń strony](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+
+Dzięki określeniu, na którym etapie rezygnuje największa liczba klientów, firma może wypracować metody przyciągnięcia większej liczby użytkowników do końcowej części lejka. W niektórych przypadkach może być to kwestia złego środowiska użytkownika — na przykład jeśli trudno znaleźć przycisk „Dalej” lub instrukcje nie są czytelne. Jest również bardzo prawdopodobne, że klienci opuszczają stronę z przyczyn ściśle biznesowych: być może oprocentowanie pożyczek jest zbyt wysokie.
+
+Bez względu na powód dane pomagają zespołowi dowiedzieć się, co robią użytkownicy. Aby uzyskać bardziej szczegółowe informacje, można wstawić więcej wywołań śledzenia. Można użyć metody TrackEvent(), aby policzyć dowolne działania użytkownika, od szczegółowych informacji dotyczących pojedynczych kliknięć, po znaczące osiągnięcia, takie jak spłacenie pożyczki.
+
+Zespół przyzwyczaja się do posiadania informacji na temat aktywności użytkowników. Teraz, opracowując nowe funkcje, planują sposób zbierania informacji zwrotnych na temat korzystania z nich. Od samego początku tworzenia funkcji umieszczają w niej wywołania śledzenia. Korzystają z informacji zwrotnych, aby poprawić działanie funkcji w każdym cyklu tworzenia oprogramowania.
+
+[Dowiedz się więcej na temat śledzenia użycia](app-insights-usage-overview.md).
+
+## <a name="apply-the-devops-cycle"></a>Stosowanie cyklu DevOps
+W ten oto sposób jeden zespół korzysta z usługi Application Insights, aby nie tylko naprawiać pojedyncze błędy, ale też doskonalić cały cykl tworzenia oprogramowania. Mam nadzieję, że udało mi się podsunąć Ci kilka pomysłów na skorzystanie z usługi Application Insights w celu lepszego zarządzania wydajnością aplikacji.
 
 ## <a name="video"></a>Połączenia wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Następne kroki
-Możesz rozpocząć pracę na kilka sposobów, w zależności od właściwości aplikacji. Wybierz, co dogodny:
+Możesz rozpocząć pracę na kilka sposobów, w zależności od właściwości aplikacji. Wybierz interesujący Cię temat:
 
-* [Aplikacja sieci web ASP.NET](app-insights-asp-net.md)
-* [Aplikacja sieci web Java](app-insights-java-get-started.md)
-* [Aplikacja sieci web node.js](app-insights-nodejs.md)
-* Już wdrożone aplikacje hostowane na [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), lub [Azure](app-insights-azure.md).
-* [Strony sieci Web](app-insights-javascript.md) -jednej strony, aplikacji lub strony sieci web zwykłej — Użyj tej samodzielnie lub oprócz opcje serwera.
-* [Badania dostępności](app-insights-monitor-web-app-availability.md) do testowania aplikacji z publicznego Internetu.
+* [Aplikacja internetowa platformy ASP.NET](app-insights-asp-net.md)
+* [Aplikacja internetowa Java](app-insights-java-get-started.md)
+* [Aplikacja internetowa Node.js](app-insights-nodejs.md)
+* Już wdrożone aplikacje hostowane w usługach [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) lub [Azure](app-insights-azure.md).
+* [Strony internetowe](app-insights-javascript.md) — aplikacja jednostronicowa lub zwykła strona internetowa — używane samodzielnie lub jako dodatek do dowolnych opcji serwerowych.
+* [Testy dostępności](app-insights-monitor-web-app-availability.md) do testowania aplikacji w publicznym Internecie.

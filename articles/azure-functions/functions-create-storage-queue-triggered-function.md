@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 10/11/2017
 ---
@@ -68,7 +68,7 @@ Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz kolejk
 
 ## <a name="create-the-queue"></a>Tworzenie kolejki
 
-1. W funkcji kliknij pozycję **Integracja**, rozwiń pozycję **Dokumentacja** i skopiuj wartości pól **Nazwa konta** oraz **Klucz konta**. Można używać tych poświadczeń do nawiązania połączenia konta magazynu w Eksploratorze usługi Storage platformy Azure. Jeśli już nawiązano połączenie z kontem magazynu, przejdź do kroku 4.
+1. W funkcji kliknij pozycję **Integracja**, rozwiń pozycję **Dokumentacja** i skopiuj wartości pól **Nazwa konta** oraz **Klucz konta**. Te poświadczenia służą do nawiązywania połączenia z kontem magazynu w Eksploratorze usługi Azure Storage. Jeśli już nawiązano połączenie z kontem magazynu, przejdź do kroku 4.
 
     ![Uzyskiwanie poświadczeń połączenia konta magazynu.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
@@ -80,7 +80,7 @@ Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz kolejk
 
     ![Wprowadzanie poświadczeń magazynu i nawiązywanie połączenia.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Rozwiń konto magazynu, kliknij prawym przyciskiem myszy **kolejek**, kliknij przycisk **Utwórz kolejkę**, typ `myqueue-items`, a następnie naciśnij klawisz enter.
+1. Rozwiń dołączone konto magazynu, kliknij prawym przyciskiem myszy pozycję **Queues** (Kolejki), kliknij polecenie **Create queue** (Utwórz kolejkę), wpisz nazwę `myqueue-items`, a następnie naciśnij klawisz Enter.
 
     ![Tworzenie kolejki magazynu.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -88,7 +88,7 @@ Teraz, gdy masz już kolejkę magazynu, możesz przetestować funkcję, dodając
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
-1. Ponownie w portalu Azure, przejdź do funkcji, a następnie rozwiń **dzienniki** w dolnej części strony i upewnij się, że ten dziennik przesyłania strumieniowego nie jest wstrzymana.
+1. Wróć do witryny Azure Portal, przejdź do swojej funkcji, rozwiń pozycję **Dzienniki** w dolnej części strony i upewnij się, że strumieniowe przesyłanie dzienników nie jest wstrzymane.
 
 1. W programie Storage Explorer rozwiń swoje konto magazynu, wybierz kolejno pozycje **Queues** (Kolejki) i **myqueue-items**, a następnie kliknij pozycję **Add message** (Dodaj komunikat).
 
