@@ -19,11 +19,7 @@
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
-### [Ustawianie lokalizacji](resource-manager-template-location.md)
-### [Przypisywanie tagów](resource-manager-template-tags.md)
-### [Ustawianie nazwy i typu zasobu podrzędnego](resource-manager-template-child-resource.md)
 ### [Aktualizowanie zasobu](resource-manager-update.md)
-### [Używanie obiektów dla parametrów](resource-manager-objects-as-parameters.md)
 ### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 
