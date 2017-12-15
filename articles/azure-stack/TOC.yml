@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Zarządzanie zasobami magazynu
           href: azure-stack-manage-storage-accounts.md
+        - name: Zarządzanie wydajnością magazynu
+          href: azure-stack-manage-storage-shares.md
         - name: Zarządzanie maszynami wirtualnymi pakietu Microsoft Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Wymiana sprzętu
