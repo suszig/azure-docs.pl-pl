@@ -3,7 +3,7 @@
 ## [Porównanie opcji usługi Azure IoT](iot-suite-options.md)
 ## [Omówienie wstępnie skonfigurowanych rozwiązań](iot-suite-what-are-preconfigured-solutions.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## Zdalne monitorowanie
 ### [Wdrażanie wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-deploy.md)
 ### [Obsługa wstępnie skonfigurowanego rozwiązania](iot-suite-remote-monitoring-explore.md)
@@ -71,6 +71,7 @@
 ### [Wdrażanie bramy dla połączonej fabryki](iot-suite-connected-factory-gateway-deployment.md)
 ### [Dostosowywanie połączonej fabryki](iot-suite-connected-factory-customize.md)
 ### [Korzystanie z wydawcy OPC na potrzeby połączonej fabryki](iot-suite-connected-factory-publisher.md)
+### [Konfigurowanie połączonej fabryki](iot-suite-connected-factory-configure.md)
 ## [Uprawnienia w witrynie azureiotsuite.com](iot-suite-permissions.md)
 
 # Dokumentacja

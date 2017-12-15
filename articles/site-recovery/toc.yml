@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Zarządzanie serwerami vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Zarządzanie wielodostępnością za pomocą programu CSP
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Usuwanie serwerów i wyłączanie ochrony
           href: site-recovery-manage-registration-and-protection.md
         - name: Usuwanie magazynu

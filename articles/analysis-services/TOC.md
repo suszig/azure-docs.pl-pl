@@ -21,6 +21,7 @@
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
 ## [Konfigurowanie zwiększania skali w poziomie](analysis-services-scale-out.md)
+## [Konfigurowanie aliasu nazwy serwera](analysis-services-server-alias.md)
 ## [Łączenie z programem Excel](analysis-services-connect-excel.md)
 ## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
 ## [Tworzenie pliku odc](analysis-services-odc.md)

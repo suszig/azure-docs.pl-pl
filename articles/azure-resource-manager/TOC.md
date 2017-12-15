@@ -15,12 +15,11 @@
 #### [Parametry](resource-manager-templates-parameters.md)
 #### [Zmienne](resource-manager-templates-variables.md)
 #### [Zasoby](resource-manager-templates-resources.md)
-### [Najlepsze rozwiązania dotyczące szablonów](resource-manager-template-best-practices.md)
+#### [Dane wyjściowe](resource-manager-templates-outputs.md)
 ### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
-### [Aktualizowanie zasobu](resource-manager-update.md)
-### [Udostępnianie stanu między połączonymi szablonami](best-practices-resource-manager-state.md)
+### [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Wzorce projektowania szablonów](best-practices-resource-manager-design-templates.md)
 
 
