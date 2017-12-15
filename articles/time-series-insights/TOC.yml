@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: Skalowanie środowiska
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: Zarządzanie zasobami za pomocą szablonów
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: Dokumentacja
   items:
     - name: Interfejs API zapytań

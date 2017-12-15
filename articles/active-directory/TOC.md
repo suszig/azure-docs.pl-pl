@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -265,6 +265,7 @@
 #### [Przypisywanie ról administratora](active-directory-users-assign-role-azure-portal.md)
 ### [Jednostki administracyjne](active-directory-administrative-units-management.md)
 ### [Konfigurowanie okresów istnienia tokenu](active-directory-configurable-token-lifetimes.md)
+### [Zarządzanie kontami administracyjnymi z dostępem awaryjnym](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Przeglądy dostępu
 ### [Omówienie przeglądów dostępu](active-directory-azure-ad-controls-access-reviews-overview.md)
