@@ -4,6 +4,16 @@
   items:
     - name: Co to jest usługa Azure Stack?
       href: azure-stack-poc.md
+    - name: Informacje o wersji
+      items:
+        - name: Informacje o wersji Development kit
+          href: azure-stack-asdk-release-notes.md
+        - name: Informacje o wersji zintegrowanych systemów
+          items:
+            - name: Aktualizacja 1711
+              href: azure-stack-update-1711.md
+            - name: Aktualizacja 1710
+              href: azure-stack-update-1710.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: Obsługa zasad
       href: azure-stack-servicing-policy.md
-    - name: Informacje o wersji
-      items:
-        - name: Informacje o wersji Development kit
-          href: azure-stack-asdk-release-notes.md
-        - name: Informacje o wersji zintegrowanych systemów
-          items:
-            - name: Aktualizacja 1711
-              href: azure-stack-update-1711.md
-            - name: Aktualizacja 1710
-              href: azure-stack-update-1710.md
     - name: Kluczowe funkcje i pojęcia
       href: azure-stack-key-features.md
     - name: Architektura zestawu programowanie
