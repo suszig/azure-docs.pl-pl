@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
 W tym artykule opisano sposób użycia dynamicznych widoków zarządzania (widoków DMV) do monitorowania obciążenia i zbadaj wykonywania zapytania w usłudze Azure SQL Data Warehouse.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Jeśli zapytanie jest aktywnie oczekiwania na zasoby z innego zapytania, a następnie stan będzie **AcquireResources**.  Jeśli zapytanie ma wszystkie wymagane zasoby, a następnie stan będzie **przyznany**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-Tempdb wysokie wykorzystanie można przyczynę niską wydajnością i poza problemy z pamięcią. Najpierw sprawdź, czy masz rowgroups pochylenia lub niska jakość danych i podjąć odpowiednie działania. Należy rozważyć skalowania magazynu danych, jeśli okaże się osiągnięcia limitów jego podczas wykonywania kwerendy w bazie danych tempdb. Poniżej opisano sposób identyfikacji użycia bazy danych tempdb na zapytanie w każdym węźle. 
+Tempdb wysokie wykorzystanie można przyczynę niską wydajnością i poza problemy z pamięcią. Należy rozważyć skalowania magazynu danych, jeśli okaże się osiągnięcia limitów jego podczas wykonywania kwerendy w bazie danych tempdb. Poniżej opisano sposób identyfikacji użycia bazy danych tempdb na zapytanie w każdym węźle. 
 
 Utwórz następujący widok do skojarzenia identyfikator odpowiedniego węzła sys.dm_pdw_sql_requests. Pozwoli to korzystać z innych przekazujące widoków DMV i Dołącz do tych tabel z sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Monitor pamięci
 
-Pamięć może być przyczynę niską wydajnością i poza problemy z pamięcią. Najpierw sprawdź, czy masz rowgroups pochylenia lub niska jakość danych i podjąć odpowiednie działania. Należy rozważyć skalowania magazynu danych, jeśli okaże się użycie pamięci programu SQL Server osiągnięcia limitów jego podczas wykonywania zapytania.
+Pamięć może być przyczynę niską wydajnością i poza problemy z pamięcią. Należy rozważyć skalowania magazynu danych, jeśli okaże się użycie pamięci programu SQL Server osiągnięcia limitów jego podczas wykonywania zapytania.
 
 Następujące zapytanie zwraca programu SQL Server wykorzystania użycia i pamięci pamięci na węzeł:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Rozmiar dziennika transakcji monitora
-Następujące zapytanie zwraca rozmiar dziennika transakcji na poszczególnych dystrybucji. Sprawdź, czy masz rowgroups pochylenia lub niska jakość danych i podjąć odpowiednie działania. Jeśli jeden z plików dziennika wkrótce osiągnie 160GB, należy rozważyć skalowaniu wystąpienia lub ograniczenie rozmiar transakcji. 
+Następujące zapytanie zwraca rozmiar dziennika transakcji na poszczególnych dystrybucji. Jeśli jeden z plików dziennika wkrótce osiągnie 160GB, należy rozważyć skalowaniu wystąpienia lub ograniczenie rozmiar transakcji. 
 ```sql
 -- Transaction log size
 SELECT

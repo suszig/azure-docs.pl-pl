@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: e23789d966716b9255d0b9ec62ab26d2666f3ec5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b5c6c6e06f6e4173730e6b030b86f443c58aa0f0
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Jak można zresetować usług pulpitu zdalnego lub jego hasło logowania na maszynie wirtualnej systemu Windows
-Jeśli nie można połączyć z maszyną wirtualną (VM) systemu Windows, można zresetować hasła administratora lokalnego lub zresetowanie konfiguracji usługi pulpitu zdalnego. Aby zresetować hasło, można użyć portalu Azure lub rozszerzenia dostępu do maszyny Wirtualnej w programie Azure PowerShell. Jeśli używasz programu PowerShell, upewnij się, że masz [najnowsze modułu PowerShell zainstalowany i skonfigurowany](/powershell/azure/overview) i jest zalogowany do subskrypcji platformy Azure. Możesz również [wykonaj te kroki dla maszyn wirtualnych utworzonych za pomocą klasycznego modelu wdrożenia](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+Jeśli nie można połączyć z maszyną wirtualną (VM) systemu Windows, można zresetować hasła administratora lokalnego lub zresetowanie konfiguracji usługi pulpitu zdalnego (nieobsługiwane na kontrolerach domeny z systemem Windows). Aby zresetować hasło, można użyć portalu Azure lub rozszerzenia dostępu do maszyny Wirtualnej w programie Azure PowerShell. Jeśli używasz programu PowerShell, upewnij się, że masz [najnowsze modułu PowerShell zainstalowany i skonfigurowany](/powershell/azure/overview) i jest zalogowany do subskrypcji platformy Azure. Możesz również [wykonaj te kroki dla maszyn wirtualnych utworzonych za pomocą klasycznego modelu wdrożenia](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Sposoby resetowania konfiguracji lub poświadczeń
 Można zresetować usług pulpitu zdalnego i poświadczenia na kilka różnych sposobów, w zależności od potrzeb:
@@ -63,7 +63,8 @@ $cred=Get-Credential
 ```
 
 > [!NOTE] 
-> Jeśli wpiszesz nazwę inną niż bieżące konto administratora lokalnego na maszynie Wirtualnej, rozszerzenia VMAccess zmienia nazwę konta administratora lokalnego, przypisuje określonego hasła do konta i wystawia zdarzenia wylogowania pulpitu zdalnego. Wyłączenie konta administratora lokalnego na maszynie Wirtualnej rozszerzenia VMAccess włączy ją.
+> Jeśli wpiszesz nazwę inną niż bieżące konto administratora lokalnego na maszynie Wirtualnej, rozszerzenia VMAccess Dodaj konto administratora lokalnego o takiej nazwie i przypisać określonego hasła do tego konta. Jeśli konto administratora lokalnego na maszynie Wirtualnej istnieje, spowoduje zresetowanie hasła i wyłączenie konta rozszerzenia VMAccess włączy ją.
+
 
 Poniższy przykład aktualizuje maszyny Wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` do określonych poświadczeń.
 

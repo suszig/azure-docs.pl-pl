@@ -4,7 +4,7 @@ description: "Dowiedz się, jak używać usługi równoważenia obciążenia Azu
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Jak załadować saldo maszyn wirtualnych systemu Windows na platformie Azure, aby utworzyć aplikację wysokiej dostępności
 Równoważenie obciążenia sieciowego zapewnia wyższy poziom dostępności dzięki rozproszeniu przychodzące żądania między wieloma maszynami wirtualnymi. W tym samouczku opisano różne składniki usługi równoważenia obciążenia Azure dystrybucji ruchu, które zapewniają wysoką dostępność. Omawiane kwestie:
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
-Utwórz na adres IP frontonu [AzureRmLoadBalancerFrontendIpConfig nowy](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Poniższy przykład tworzy adresu IP serwera sieci Web o nazwie *myFrontEndPool*: 
+Tworzenie puli adresów IP frontonu, z [AzureRmLoadBalancerFrontendIpConfig nowy](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Poniższy przykład tworzy pula IP frontonu, o nazwie *myFrontEndPool* i dołącza *myPublicIP* adres: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Utwórz pulę adresów zaplecza z [AzureRmLoadBalancerBackendAddressPoolConfig nowy](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Poniższy przykład tworzy puli adresów zaplecza, o nazwie *myBackEndPool*:
+Utwórz pulę adresów zaplecza z [AzureRmLoadBalancerBackendAddressPoolConfig nowy](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Maszyny wirtualne dołączyć do tej puli zaplecza w pozostałych kroków. Poniższy przykład tworzy puli adresów zaplecza, o nazwie *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Teraz Utwórz moduł równoważenia obciążenia z [AzureRmLoadBalancer nowy](/powershell/module/azurerm.network/new-azurermloadbalancer). Poniższy przykład tworzy moduł równoważenia obciążenia o nazwie *myLoadBalancer* przy użyciu *myPublicIP* adres:
+Teraz Utwórz moduł równoważenia obciążenia z [AzureRmLoadBalancer nowy](/powershell/module/azurerm.network/new-azurermloadbalancer). Poniższy przykład tworzy moduł równoważenia obciążenia o nazwie *myLoadBalancer* przy użyciu pule adresów IP frontonu i wewnętrznej bazy danych utworzone w poprzednich krokach:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Aby zezwolić usłudze równoważenia obciążenia do monitorowania stanu aplika
 
 Poniższy przykład tworzy sondowaniem TCP. Można również utworzyć niestandardowe sond HTTP więcej kontroli kondycji szczegółowe. Podczas korzystania z niestandardowego badanie HTTP, należy utworzyć strona sprawdzania kondycji, takich jak *healthcheck.aspx*. Sonda musi zwracać **HTTP 200 OK** odpowiedzi dla usługi równoważenia obciążenia zachować hosta w obrotu.
 
-Aby utworzyć sondy kondycji TCP, należy użyć [AzureRmLoadBalancerProbeConfig Dodaj](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Poniższy przykład tworzy badanie kondycji o nazwie *myHealthProbe* który monitoruje każdej maszyny Wirtualnej:
+Aby utworzyć sondy kondycji TCP, należy użyć [AzureRmLoadBalancerProbeConfig Dodaj](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Poniższy przykład tworzy badanie kondycji o nazwie *myHealthProbe* który monitoruje każdej maszyny Wirtualnej na *TCP* portu *80*:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Aktualizacja usługi równoważenia obciążenia z [AzureRmLoadBalancer zestaw](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Aby zastosować sondy kondycji, należy zaktualizować modułu równoważenia obciążenia z [AzureRmLoadBalancer zestaw](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Tworzenie reguły modułu równoważenia obciążenia
 Reguły modułu równoważenia obciążenia jest używany do definiowania rozkład ruchu do maszyn wirtualnych. Należy zdefiniować konfiguracji IP frontonu dla ruchu przychodzącego i puli adresów IP zaplecza, aby odbierać ruch, wraz z wymagany port źródłowy i docelowy. Aby upewnij się, że tylko dobrej kondycji maszyn wirtualnych odbieranie ruchu, również zdefiniować sondy kondycji do użycia.
 
-Tworzenie reguły modułu równoważenia obciążenia z [AzureRmLoadBalancerRuleConfig Dodaj](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Poniższy przykład tworzy regułę równoważenia obciążenia o nazwie *myLoadBalancerRule* i równoważy ruch na porcie *80*:
+Tworzenie reguły modułu równoważenia obciążenia z [AzureRmLoadBalancerRuleConfig Dodaj](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Poniższy przykład tworzy regułę równoważenia obciążenia o nazwie *myLoadBalancerRule* i równoważy ruchu na *TCP* portu *80*:
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe

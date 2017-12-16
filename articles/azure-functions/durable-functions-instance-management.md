@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 399bad6f00b61d582fdb077f33000b6c55cf8904
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Zarządzanie wystąpieniami w funkcjach trwałe (usługi Azure Functions)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/30/2017
 
 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metoda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) uruchamia nowe wystąpienie funkcji programu orchestrator. Wystąpienia tej klasy można uzyskać za pomocą `orchestrationClient` powiązania. Wewnętrznie, ta metoda enqueues wiadomości do kolejki kontroli, następnie wyzwala początku funkcji o określonej nazwie, która używa `orchestrationTrigger` wyzwolenia powiązania.
 
-Dostępne są następujące parametry:
+Parametry [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) są następujące:
 
 * **Nazwa**: Nazwa funkcji programu orchestrator do zaplanowania.
 * **Wejściowy**: wszystkie dane serializacji JSON, który powinien zostać przekazany jako dane wejściowe do funkcji programu orchestrator.
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Wystąpienie zapytania jest obecnie obsługiwany tylko w przypadku funkcji języka C#.
+> Wystąpienie zapytania jest obecnie obsługiwany tylko w przypadku funkcji orchestrator C#.
 
 ## <a name="terminating-instances"></a>Trwa przerywanie działania wystąpień
 
@@ -115,11 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Przerwanie wystąpienia jest obecnie obsługiwany tylko w przypadku funkcji języka C#.
+> Przerwanie wystąpienia jest obecnie obsługiwany tylko w przypadku funkcji orchestrator C#.
 
 ## <a name="sending-events-to-instances"></a>Wysyłanie zdarzeń do wystąpień
 
-Mogą być wysyłane powiadomienia o zdarzeniach do uruchomienia wystąpień przy użyciu [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metody [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy. Wystąpienia, które może obsłużyć te zdarzenia są tymi, które oczekują na wywołanie [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). Dane wejściowe są:
+Mogą być wysyłane powiadomienia o zdarzeniach do uruchomienia wystąpień przy użyciu [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metody [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasy. Wystąpienia, które może obsłużyć te zdarzenia są tymi, które oczekują na wywołanie [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+
+Parametry [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) są następujące:
 
 * **Identyfikator wystąpienia**: Unikatowy identyfikator wystąpienia.
 * **EventName**: Nazwa zdarzenia do wysłania.
@@ -139,7 +141,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Wywoływanie zdarzeń jest obecnie obsługiwany tylko w przypadku funkcji języka C#.
+> Wywoływanie zdarzeń jest obecnie obsługiwane tylko dla funkcji programu orchestrator C#.
 
 > [!WARNING]
 > Jeśli żadne wystąpienie aranżacji z określonym *identyfikator wystąpienia* lub jeśli wystąpienie nie oczekuje na określonym *Nazwa zdarzenia*, komunikaty o zdarzeniach zostaną odrzucone. Aby uzyskać więcej informacji dotyczących tego zachowania, zobacz [problem GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

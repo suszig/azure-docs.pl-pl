@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Store
 Dowiedz się włączyć diagnostyczne dla konta usługi Data Lake Store i sposób wyświetlania dzienników zbierane dla Twojego konta.
@@ -177,7 +177,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
 | StreamName |Ciąg |Ścieżka operacja została wykonana na |
 
 ## <a name="samples-to-process-the-log-data"></a>Przykłady do przetwarzania danych dziennika
-Podczas wysyłania dzienników z usługi Azure Data Lake Store monitorowania Azure (zobacz [widoku lub analizowania danych zebranych przez wyszukiwania dziennika analizy dzienników](../log-analytics/log-analytics-tutorial-viewdata.md) szczegółowe informacje na temat używania analizy dzienników), następujące zapytanie zwraca tabelę zawierającą listę użytkowników Wyświetlanie nazw, czas zdarzenia, a liczba zdarzeń czasu dla zdarzeń oraz visual wykresu. Łatwo możesz to modyfikować, aby wyświetlić identyfikator GUID użytkownika lub innych atrybutów:
+Podczas wysyłania dzienników z usługi Azure Data Lake Store Analiza dzienników Azure (zobacz [widoku lub analizowania danych zebranych przez wyszukiwania dziennika analizy dzienników](../log-analytics/log-analytics-tutorial-viewdata.md) szczegółowe informacje na temat używania analizy dzienników), następujące zapytanie zwraca tabelę zawierającą listę użytkowników Wyświetlanie nazw, czas zdarzenia, a liczba zdarzeń czasu dla zdarzeń oraz visual wykresu. Łatwo możesz to modyfikować, aby wyświetlić identyfikator GUID użytkownika lub innych atrybutów:
 
 ```
 search *

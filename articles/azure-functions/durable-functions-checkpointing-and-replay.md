@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Punkty kontrolne i powtarzania w funkcjach trwałe (usługi Azure Functions)
 
@@ -63,10 +63,10 @@ Po zakończeniu punktu kontrolnego funkcji programu orchestrator jest bezpłatna
 
 Po zakończeniu historii funkcji przedstawiona wcześniej wygląda następujące w usłudze Azure Table Storage (skrót w celach ilustracyjnych):
 
-| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Znacznik czasu               | Dane wejściowe | Nazwa             | wynik                                                    | Stan | 
+| PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Sygnatura czasowa               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Wartość null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -79,7 +79,7 @@ Po zakończeniu historii funkcji przedstawiona wcześniej wygląda następujące
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Hello Londynie!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokio!" ",""Hello Seattle!" ",""Hello Londynie!" "]" | ukończone           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokio!" ",""Hello Seattle!" ",""Hello Londynie!" "]" | Ukończony           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Kilka uwagi o wartości kolumn:
@@ -90,7 +90,7 @@ Kilka uwagi o wartości kolumn:
     * **TaskScheduled**: funkcja działanie zostało zaplanowane. Nazwa funkcji działania są przechwytywane w `Name` kolumny.
     * **TaskCompleted**: funkcja działania została ukończona. Wynik funkcji jest `Result` kolumny.
     * **TimerCreated**: utworzono trwałe czasomierza. `FireAt` Kolumna zawiera zaplanowanego czasu UTC, jaką wygaśnięciu czasomierza.
-    * **TimerFired**: czasomierz trwałe wygasł.
+    * **TimerFired**: wywoływane trwałe czasomierza.
     * **EventRaised**: zdarzenie zewnętrzne został wysłany do wystąpienia aranżacji. `Name` Kolumny przechwytuje Nazwa zdarzenia i `Input` kolumny przechwytuje ładunek zdarzenia.
     * **OrchestratorCompleted**: funkcja orchestrator oczekiwane.
     * **ContinueAsNew**: funkcja orchestrator ukończone i ponownego uruchomienia się nowy stan. `Result` Kolumna zawiera wartości, który jest używany jako dane wejściowe w wystąpieniu uruchomić ją ponownie.
@@ -98,7 +98,7 @@ Kilka uwagi o wartości kolumn:
 * **Sygnatura czasowa**: znacznik czasu UTC zdarzenia historii.
 * **Nazwa**: Nazwa funkcji, który został wywołany.
 * **Wejściowy**: formacie JSON dane wejściowe funkcji.
-* **Dane wyjściowe**: dane wyjściowe funkcji; oznacza to jego wartości zwracanej.
+* **Wynik**: dane wyjściowe funkcji; oznacza to jego wartości zwracanej.
 
 > [!WARNING]
 > Mimo że jest użyteczne jako narzędzie debugowania, nie wykonuj żadnych zależności w tej tabeli. Mogą ulec zmianie w miarę rozwoju środowisko rozszerzenie funkcji trwałe.

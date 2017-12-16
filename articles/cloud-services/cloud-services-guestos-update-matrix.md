@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure wersji systemu operacyjnego gościa i zgodność pakietu SDK
 Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego gościa Azure wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli konfigurujesz role do użycia *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
@@ -42,6 +42,8 @@ Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego g
 Nie wiesz, o jaką systemu operacyjnego gościa jest lub jak systemu operacyjnego gościa wersje robocze? Odczyt [to](#how-it-works) sekcji.
 
 ## <a name="news-updates"></a>Wiadomości
+###### <a name="december-14-2017"></a>**14 grudnia 2017 r.**
+Wydała listopada systemu operacyjnego gościa.
 
 ###### <a name="november-8-2017"></a>**8 listopada 2017 r.**
 Wydała października systemu operacyjnego gościa.
@@ -88,16 +90,16 @@ Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-5.13_201711-01 |14 grudnia 2017 r. |Post 5.15 |TBD |
 | WA-GOŚCIA-OS-5.12_201710-02 |8 listopada 2017 r. |Post 5.14 |TBD |
-| WA-GOŚCIA-OS-5.11_201709-01 |6 października 2017 r. |Post 5.13 |TBD |
-| WA-GOŚCIA-OS-5.10_201708-01 |24 sierpnia 2017 r. |Post 5.12 |TBD |
+|~~WA-GOŚCIA-OS-5.11_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
+|~~WA-GOŚCIA-OS-5.10_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.9_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.8_201706-01~~ |7 lipca 2017 r. |6 października 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.7_201705-01~~ |5 czerwca 2017 r. |24 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.6_201704-01~~ |9 maja 2017 r. |3 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.5_201703-01~~ |10 kwietnia 2017 r. |7 lipca 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.4_201612-01~~ |10 stycznia 2017 r. |5 czerwca 2017 r.|TBD |
-|~~WA-GOŚCIA-OS-5.3_201611-01~~ |14 grudnia 2016 r. |9 maja 2017 r. |TBD |
 
 ## <a name="family-4-releases"></a>Zwalnia rodziny 4
 **Windows Server 2012 R2**
@@ -111,16 +113,16 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-4.48_201711-01 |14 grudnia 2017 r. |Post 4.50 |TBD |
 | WA-GOŚCIA-OS-4.47_201710-02 |8 listopada 2017 r. |Post 4.49 |TBD |
-| WA-GOŚCIA-OS-4.46_201709-01 |6 października 2017 r. |Post 4.48 |TBD |
-| WA-GOŚCIA-OS-4.45_201708-01 |24 sierpnia 2017 r. |Post 4.47 |TBD |
+|~~WA-GOŚCIA-OS-4.46_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
+|~~WA-GOŚCIA-OS-4.45_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.44_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.43_201706-01~~ |7 lipca 2017 r. |6 października 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.42_201705-01~~ |5 czerwca 2017 r. |24 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.41_201704-01~~ |9 maja 2017 r. |3 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.40_201703-01~~ |10 kwietnia 2017 r. |7 lipca 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.39_201612-01~~ |10 stycznia 2017 r. |5 czerwca 2017 r. |TBD |
-|~~WA-GOŚCIA-OS-4.38_201611-01~~ |14 grudnia 2016 r. |9 maja 2017 r. |TBD |
 
 ## <a name="family-3-releases"></a>Zwalnia rodziny 3
 **Windows Server 2012**
@@ -134,16 +136,16 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-3.55_201711-01 |14 grudnia 2017 r. |Post 3.57 |TBD |
 | WA-GOŚCIA-OS-3.54_201710-02 |8 listopada 2017 r. |Post 3.56 |TBD |
-| WA-GOŚCIA-OS-3.53_201709-01 |6 października 2017 r. |Post 3,55 |TBD |
-| WA-GOŚCIA-OS-3.52_201708-01 |24 sierpnia 2017 r. |Post 3.54 |TBD |
+|~~WA-GOŚCIA-OS-3.53_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
+|~~WA-GOŚCIA-OS-3.52_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.51_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.50_201706-01~~ |7 lipca 2017 r. |6 października 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.49_201705-01~~ |5 czerwca 2017 r. |24 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.48_201704-01~~ |9 maja 2017 r. |3 sierpnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.47_201703-01~~ |10 kwietnia 2017 r. |7 lipca 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.46_201612-01~~ |10 stycznia 2017 r. |5 czerwca 2017 r. |TBD |
-|~~WA-GOŚCIA-OS-3.45_201611-01~~ |14 grudnia 2016 r. |9 maja 2017 r. |TBD |
 
 ## <a name="family-2-releases"></a>Zwalnia rodziny 2
 **Windows Server 2008 R2 z dodatkiem SP1**
@@ -157,9 +159,10 @@ Zainstalowany program .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-2.68_201710-01 |14 grudnia 2017 r. |Post 2.70 |TBD |
 | WA-GOŚCIA-OS-2.67_201710-02 |8 listopada 2017 r. |Post 2,69 |TBD |
-| WA-GOŚCIA-OS-2.66_201709-01 |6 października 2017 r. |Post 2.68 |TBD |
-| WA-GOŚCIA-OS-2.65_201708-01 |24 sierpnia 2017 r. |Post 2.67 |TBD |
+|~~WA-GOŚCIA-OS-2.66_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
+|~~WA-GOŚCIA-OS-2.65_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.64_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.63_201706-01~~ |7 lipca 2017 r. |6 października 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.62_201705-01~~ |5 czerwca 2017 r. |24 sierpnia 2017 r. |TBD |
@@ -167,7 +170,6 @@ Zainstalowany program .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GOŚCIA-OS-2.60_201703-01~~ |10 kwietnia 2017 r. |7 lipca 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.59_201701-01~~ |10 stycznia 2017 r. |5 czerwca 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.58_201612-01~~ |10 stycznia 2017 r. |9 maja 2017 r.|TBD |
-|~~WA-GOŚCIA-OS-2.57_201611-01~~ |14 grudnia 2016 r. |10 kwietnia 2017 r. |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC poprawek i aktualizacji

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Wdrażanie wielu wystąpień zasobów lub właściwości w szablonach usługi Azure Resource Manager
 W tym artykule przedstawiono warunkowo wdrażanie zasobu i porady dotyczące iteracji po do szablonu usługi Azure Resource Manager, aby utworzyć wiele wystąpień zasobu.
@@ -395,140 +395,19 @@ W poniższym przykładzie przedstawiono implementacji:
 }]
 ```
 
-## <a name="deploy-example-templates"></a>Wdrażanie szablonów przykład
+## <a name="example-templates"></a>Przykład szablonów
 
-### <a name="resource-iteration"></a>Iteracja zasobów
+Poniżej przedstawiono typowe scenariusze dotyczące tworzenia wielu zasobów lub właściwości.
 
-[Skopiować magazynu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) szablonu wdraża wiele kont magazynu o numerze indeksu w nazwie.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-### <a name="serial-resource-iteration"></a>Iteracja Serial zasobów
-
-[Magazynu kopii Serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) szablonu wdraża wiele kont magazynu co w czasie. Nazwa zawiera numer indeksu.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-### <a name="resource-iteration-from-array"></a>Iteracja zasobów z tablicy
-
-[Skopiować magazynu z tablicy](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) szablonu wdraża wiele kont magazynu. Nazwa zawiera wartość z tablicy.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-### <a name="conditionally-deploy-resources"></a>Warunkowo wdrażanie zasobów
-
-[Maszynę Wirtualną za pomocą nowej lub istniejącej sieci wirtualnej, magazynu i publicznego adresu IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) szablonu wdrażania nowych lub istniejących zasobów z maszyną wirtualną.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-### <a name="property-iteration"></a>Właściwość iteracji
-
-[Wdrożenia maszyny Wirtualnej ze zmienną liczbą dysków z danymi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) szablonu wdraża wiele dysków z danymi z maszyną wirtualną.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-### <a name="variable-iteration"></a>Zmiennej iteracji
-
-[Skopiuj zmienne](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) szablonu przedstawiono różne sposoby iteracja na zmiennych.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-W przypadku interfejsu wiersza polecenia platformy Azure użyj polecenia:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-### <a name="variable-iteration-to-create-resources"></a>Zmiennej iteracji, aby utworzyć zasobów
-
-[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) szablonu wdraża wiele reguł zabezpieczeń grupy zabezpieczeń sieci. Tworzy ona zasady zabezpieczeń z parametrem.
-
-W przypadku programu PowerShell użyj polecenia:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
-```
+|Szablon  |Opis  |
+|---------|---------|
+|[Magazyn kopii](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Wdraża wiele kont magazynu o numerze indeksu w nazwie. |
+|[Magazyn kopii szeregowe](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Wdraża wiele kont magazynu co w czasie. Nazwa zawiera numer indeksu. |
+|[Skopiuj magazynu z tablicy](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Wdraża wiele kont magazynu. Nazwa zawiera wartość z tablicy. |
+|[Maszyna wirtualna z nowej lub istniejącej sieci wirtualnej, magazynu i publicznego adresu IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Warunkowo wdraża nowych lub istniejących zasobów z maszyną wirtualną. |
+|[Wdrażanie maszyny Wirtualnej ze zmienną liczbą dysków z danymi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Wdraża wiele dysków z danymi z maszyną wirtualną. |
+|[Skopiuj zmiennych](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Przedstawia różne sposoby iteracja na zmiennych. |
+|[Wiele reguł zabezpieczeń](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Wdraża wiele reguł zabezpieczeń grupy zabezpieczeń sieci. Tworzy ona zasady zabezpieczeń z parametrem. |
 
 ## <a name="next-steps"></a>Następne kroki
 * Jeśli chcesz dowiedzieć się więcej o części szablonu, zobacz [Authoring Azure Resource Manager szablony](resource-group-authoring-templates.md).

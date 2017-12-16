@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Ten temat zawiera najlepsze rozwiązania dotyczące optymalizacji wydajności programu SQL Server w maszynie wirtualnej platformy Azure firmy Microsoft. Podczas uruchamiania programu SQL Server w maszynach wirtualnych platformy Azure, zaleca się kontynuować przy użyciu tej samej bazy danych opcje dostrajania wydajności mających zastosowanie do programu SQL Server w środowisku serwera lokalnego. Jednak wydajność relacyjnej bazy danych w chmurze publicznej zależy od wielu czynników, takich jak rozmiar maszyny wirtualnej, a konfiguracja dysków z danymi.
 
-Podczas tworzenia obrazów programu SQL Server [należy wziąć pod uwagę inicjowania obsługi administracyjnej maszyn wirtualnych w portalu Azure](virtual-machines-windows-portal-sql-server-provision.md). Udostępnione w portalu za pomocą Menedżera zasobów serwera SQL w maszynach wirtualnych implementuje wszystkie następujące najlepsze rozwiązania, w tym konfiguracji magazynu.
+Podczas tworzenia obrazów programu SQL Server [należy wziąć pod uwagę inicjowania obsługi administracyjnej maszyn wirtualnych w portalu Azure](virtual-machines-windows-portal-sql-server-provision.md). Udostępnione w portalu za pomocą Menedżera zasobów serwera SQL w maszynach wirtualnych należy stosować najlepsze rozwiązania.
 
 Ten artykuł koncentruje się na pobieranie *najlepsze* wydajności programu SQL Server na maszynach wirtualnych Azure. Jeżeli obciążenie jest mniej wymagająca, nie mogą wymagać co optymalizacji wymienionych poniżej. Twoje potrzeby w zakresie wydajności i obciążenia wzorce wziąć pod uwagę oceny tych zaleceń.
 
@@ -90,6 +90,9 @@ Dla maszyn wirtualnych, które obsługują magazyn w warstwie Premium (serii DS,
 ### <a name="data-disks"></a>Dyski danych
 
 * **Użyć dysków danych dla plików danych i dziennika**: co najmniej, użyj 2 magazyn w warstwie Premium [dysków P30](../premium-storage.md#scalability-and-performance-targets) gdzie jeden dysk zawiera pliki dziennika, a drugi zawiera dane i pliki bazy danych TempDB. Każdy dysk magazyn w warstwie Premium zawiera pewną liczbę IOPs i przepustowości (MB/s) w zależności od rozmiaru, zgodnie z opisem w artykule: [przy użyciu magazyn w warstwie Premium dla dysków](../premium-storage.md).
+
+   > [!NOTE]
+   > Podczas obsługi administracyjnej maszyny Wirtualnej programu SQL Server w portalu, istnieje możliwość edytowania konfigurację magazynu. W zależności od konfiguracji Azure umożliwia skonfigurowanie co najmniej jeden dysk. Wiele dysków są łączone w puli magazynu jednego z rozkładanie. W tej konfiguracji, a nie dwa oddzielne dyski plików danych i dziennika znajdują się ze sobą. Aby uzyskać więcej informacji, zobacz [konfiguracji magazynu dla maszyn wirtualnych programu SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Rozkładanie**: więcej przepustowości, można dodać dodatkowego dysku z danymi i używać rozkładanie. Aby określić liczbę dysków z danymi, należy przeanalizować liczbę IOPS i przepustowość wymagana Twoje pliki dziennika i dane i pliki bazy danych TempDB. Zwróć uwagę, że różne rozmiary maszyny Wirtualnej mają różne limity liczby IOPs, jak i przepustowość obsługiwane, zobacz tabel na IOPS na [rozmiar maszyny Wirtualnej](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Skorzystaj z poniższych wskazówek:
 

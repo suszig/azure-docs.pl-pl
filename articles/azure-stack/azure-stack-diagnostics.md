@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Narzędzia diagnostyki stosu Azure
 
@@ -29,11 +29,11 @@ Upewnij się, że mechanizm kolekcji dziennika jest łatwe i skuteczne pomoc do 
  
 ## <a name="trace-collector"></a>Moduł zbierający śledzenia
  
-Moduł zbierający śledzenia jest domyślnie włączona i działa w sposób ciągły w tle, aby zbierać wszystkie dzienniki zdarzeń śledzenia dla systemu Windows (ETW) z usługi składowe stosu Azure. Dzienniki zdarzeń systemu Windows są przechowywane w udziale lokalnym wspólnej limit wieku pięć dni. Po osiągnięciu tego limitu najstarsze pliki są usuwane, ponieważ są tworzone nowe. Domyślny maksymalny rozmiar dozwolony dla każdego pliku jest 200MB. Sprawdź rozmiar występuje okresowo (co 2 minuty) i jest bieżący plik > = 200 MB jest zapisywany i utworzony nowy plik. Na rozmiar pliku generowane zdarzenie sesji istnieje również limit 8GB. 
+Moduł zbierający śledzenia jest domyślnie włączona i działa w sposób ciągły w tle, aby zbierać wszystkie dzienniki zdarzeń śledzenia dla systemu Windows (ETW) z usługi składowe stosu Azure. Dzienniki zdarzeń systemu Windows są przechowywane w udziale lokalnym wspólnej limit wieku pięć dni. Po osiągnięciu tego limitu najstarsze pliki są usuwane, ponieważ są tworzone nowe. Domyślny maksymalny rozmiar dozwolony dla każdego pliku jest 200 MB. Sprawdzanie rozmiaru występuje co 2 minuty, a jeśli bieżący plik jest > = 200 MB jest zapisywany i utworzony nowy plik. Na rozmiar pliku generowane zdarzenie sesji istnieje również limit 8 GB. 
 
 ## <a name="log-collection-tool"></a>Narzędzie do zbierania dzienników
  
-Polecenia cmdlet programu PowerShell **Get-AzureStackLog** może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli nasz zespół pomocy technicznej potrzebuje dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
+Polecenia cmdlet programu PowerShell **Get-AzureStackLog** może służyć do zbierania dzienników z wszystkich składników w środowisku Azure stosu. Zapisuje je w plikach zip w lokalizacji zdefiniowanej przez użytkownika. Jeśli zespołowi pomocy technicznej platformy Azure stos musi dzienników rozwiązywania problemu, ich może poprosić o uruchamianiu tego narzędzia.
 
 > [!CAUTION]
 > Te pliki dziennika może zawierać dane osobowe (dane osobowe). To brać pod uwagę przed publicznie post wszystkie pliki dziennika.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Zbieranie dzienników przy użyciu graficznego interfejsu użytkownika
-Zamiast dostarczanie wymaganych parametrów polecenia cmdlet Get-AzureStackLog pobrać dzienników stosu Azure, można też skorzystać narzędzia Azure stosu dostępne typu open source, znajduje się w głównym repozytorium GitHub narzędzia Azure stosu w http://aka.ms/AzureStackTools.
+Zamiast dostarczanie wymaganych parametrów polecenia cmdlet Get-AzureStackLog pobrać dzienników stosu Azure, można też skorzystać narzędzia Azure stosu dostępne typu open source, znajduje się w głównym stosu Azure narzędzia narzędzia repozytorium GitHub na http://aka.ms/AzureStackTools.
 
-**ERCS_AzureStackLogs.ps1** skrypt programu PowerShell znajduje się w repozytorium GitHub narzędzia i są aktualizowane na bieżąco. Uruchomiony administracyjne sesji programu PowerShell, skrypt nawiązuje połączenie z punktem końcowym uprzywilejowanych i uruchamia Get AzureStackLog z podanych parametrów. Jeśli są podane żadne parametry, skrypt domyślnie monitowania parametrów za pomocą graficznego interfejsu użytkownika.
+**ERCS_AzureStackLogs.ps1** skrypt programu PowerShell znajduje się w repozytorium GitHub narzędzia i są aktualizowane na bieżąco. Aby upewnić się, że masz najnowszej dostępnej wersji, należy pobrać go bezpośrednio z http://aka.ms/ERCS. Uruchomiony administracyjne sesji programu PowerShell, skrypt nawiązuje połączenie z punktem końcowym uprzywilejowanych i uruchamia Get AzureStackLog z podanych parametrów. Jeśli są podane żadne parametry, skrypt domyślnie monitowania parametrów za pomocą graficznego interfejsu użytkownika.
 
-Aby dowiedzieć się więcej na temat środowiska PowerShell ERCS_AzureStackLogs.ps1 skryptu można obserwować [krótki film](https://www.youtube.com/watch?v=Utt7pLsXEBc) i wyświetlanie skryptu [plik readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) znajduje się w repozytorium GitHub narzędzia Azure stosu. 
+Aby dowiedzieć się więcej na temat skryptów środowiska PowerShell ERCS_AzureStackLogs.ps1, obejrzyj [krótki film](https://www.youtube.com/watch?v=Utt7pLsXEBc) i wyświetlanie skryptu [plik readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) znajduje się w repozytorium GitHub narzędzia Azure stosu. 
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
 

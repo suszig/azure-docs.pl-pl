@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Tworzenie i zarządzanie nimi maszyny wirtualnej systemu Windows, który ma wiele kart sieciowych
 Maszynach wirtualnych (VM) na platformie Azure mogą mieć wiele wirtualnych kart interfejsu sieciowego (NIC) dołączona do nich. Typowy scenariusz ma różne podsieci dla łączności frontonu i zaplecza lub sieć przeznaczona do monitorowania lub kopii zapasowej rozwiązanie. Ten artykuł zawiera szczegóły dotyczące sposobu tworzenia maszyny Wirtualnej, który ma wiele kart sieciowych do niego dołączony. Możesz również sposób dodawania lub usuwania kart sieciowych z istniejącej maszyny Wirtualnej. Różne [rozmiarów maszyn wirtualnych](sizes.md) obsługuje różną liczbę kart sieciowych, więc odpowiednio rozmiar maszyny Wirtualnej.
@@ -232,6 +232,60 @@ Można również użyć `copyIndex()` dołączyć numer do nazwy zasobu. Następ
 ```
 
 Pełny przykład można znaleźć [tworzenia wielu kart sieciowych przy użyciu szablonów usługi Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Skonfiguruj system operacyjny gościa dla wielu kart sieciowych
+
+Azure przypisuje do pierwszego interfejsu sieciowego (podstawowe) dołączonych do maszyny wirtualnej bramy domyślnej. Platforma Azure domyślnie nie przypisuje domyślnej bramy do dodatkowych interfejsów sieciowych dołączonych do maszyny wirtualnej. Dlatego domyślnie nie można komunikować się z zasobami poza podsiecią, w której znajduje się dodatkowy interfejs sieciowy. Dodatkowych interfejsów sieciowych można jednak komunikować się z zasobami spoza ich podsieci, chociaż kroki, aby umożliwić komunikację są różne dla różnych systemów operacyjnych.
+
+1. W wierszu polecenia systemu Windows, uruchom `route print` polecenia, które zwraca dane wyjściowe podobne do następujących danych wyjściowych dla maszyny wirtualnej z dwoma interfejsami sieciowymi dołączone:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    W tym przykładzie **Microsoft Hyper-V sieci karty #4** (interfejs 7) jest dodatkowy interfejs sieciowy, który nie ma przypisane do niej bramy domyślnej.
+
+2. W wierszu polecenia Uruchom `ipconfig` polecenie, aby zobaczyć, których adres IP jest przypisany do interfejsu sieciowego dodatkowej. W tym przykładzie 192.168.2.4 jest przypisany do interfejsu 7. Dodatkowy interfejs sieciowy jest zwracane nie adres bramy domyślnej.
+
+3. Aby rozesłać całego ruchu skierowanego do adresów spoza podsieci dodatkowy interfejs sieciowy z bramą podsieci, uruchom następujące polecenie:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    Adres bramy dla podsieci jest pierwszy adres IP (kończy się rozszerzeniem.1) w zakresie adresów zdefiniowane dla tej podsieci. Jeśli nie chcesz rozsyłać cały ruch spoza podsieci, możesz zamiast tego dodać indywidualnych tras do określonych miejsc docelowych. Na przykład, jeśli chce się przekierowujący ruch z dodatkowy interfejs sieciowy do 192.168.3.0 sieci, wpisz polecenie:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Aby potwierdzić łączność z zasobów na 192.168.3.0 sieci, na przykład wprowadź następujące polecenie, aby wykonać polecenie ping 192.168.3.4 przy użyciu interfejsu 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Może być konieczne otwarcie ICMP przez zaporę systemu Windows, urządzenia, które są ping przy użyciu następującego polecenia:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Aby upewnić się, dodano trasę znajduje się w tabeli tras, wprowadź `route print` polecenia, które zwraca dane wyjściowe podobne do następującego tekstu:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    Na liście z trasy *192.168.1.1* w obszarze **bramy**, trasy, który jest domyślnie dla interfejsu sieci podstawowej. Trasa o *192.168.2.1* w obszarze **bramy**, trasy dodane.
 
 ## <a name="next-steps"></a>Następne kroki
 Przegląd [rozmiarów maszyn wirtualnych systemu Windows](sizes.md) Jeśli próbujesz utworzyć maszynę Wirtualną, która ma wiele kart sieciowych. Należy zwrócić uwagę na maksymalną liczbę kart sieciowych obsługiwanych przez każdy rozmiar maszyny Wirtualnej. 

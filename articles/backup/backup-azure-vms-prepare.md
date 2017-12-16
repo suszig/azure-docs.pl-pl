@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/10/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 35b40f80c5a9ccc67830429a5a75d2974d0d138c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 917d211c7a5e3aefda79690d5e718dee0b30a8c7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure
 > [!div class="op_single_selector"]
@@ -156,7 +156,7 @@ HttpProxy.Port=<proxy port>
 1. Na serwerze proxy otwórz Zaporę systemu Windows. Najprostszym sposobem dostęp zapory jest do wyszukiwania Zapora systemu Windows z zabezpieczeniami zaawansowanymi.
 
     ![Otwórz Zaporę](./media/backup-azure-vms-prepare/firewall-01.png)
-2. W oknie dialogowym zapory systemu Windows, kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego** i kliknij przycisk **nową regułę...**.
+2. W oknie dialogowym zapory systemu Windows, kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego** i kliknij przycisk **nową regułę...** .
 
     ![Utwórz nową regułę](./media/backup-azure-vms-prepare/firewall-02.png)
 3. W **Kreatora nowej reguły przychodzącej**, wybierz **niestandardowy** opcja dla **typ reguły** i kliknij przycisk **dalej**.

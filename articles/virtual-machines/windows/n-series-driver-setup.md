@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 58ca4ea85b6097f7210a21db45791bb43b0e99ea
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Konfigurowanie wersji sterowników procesora GPU dla maszyn wirtualnych N-series, system operacyjny Windows Server
 Aby skorzystać z możliwości procesora GPU Azure N-series maszyny wirtualne z systemami Windows Server 2016 lub Windows Server 2012 R2, zainstaluj obsługiwanych NVIDIA grafiki sterowników. Ten artykuł zawiera kroki konfiguracji sterownika po wdrożeniu maszyny Wirtualnej N serii. Informacje o instalacji sterowników jest również dostępny do [maszyn wirtualnych systemu Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -54,12 +54,12 @@ Aby sprawdzić stan urządzenia procesora GPU, uruchom [nvidia smi](https://deve
 
 ![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi.png)  
 
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA sieci dla maszyn wirtualnych NC24r
+## <a name="rdma-network-connectivity"></a>Połączenie sieciowe RDMA
 
-Połączenie sieciowe RDMA można włączyć dla NC24r maszyn wirtualnych wdrożonych w tym samym zestawie dostępności. Aby zainstalować sterowniki urządzeń sieciowych systemu Windows, umożliwiających łączności RDMA należy dodać rozszerzenie HpcVmDrivers. Aby dodać rozszerzenie maszyny Wirtualnej do NC24r maszyny Wirtualnej, użyj [programu Azure PowerShell](/powershell/azure/overview) poleceń cmdlet dla usługi Azure Resource Manager.
+Połączenie sieciowe RDMA można włączyć dla RDMA włączone N serii maszyn wirtualnych, takie jak NC24r wdrożone w tym samym zestawie dostępności. Aby zainstalować sterowniki urządzeń sieciowych systemu Windows, umożliwiających łączności RDMA należy dodać rozszerzenie HpcVmDrivers. Aby dodać rozszerzenie maszyny Wirtualnej do maszyny Wirtualnej z obsługą RDMA N-series, użyj [programu Azure PowerShell](/powershell/azure/overview) poleceń cmdlet dla usługi Azure Resource Manager.
 
 > [!NOTE]
-> Obecnie tylko systemu Windows Server 2012 R2 obsługuje sieciowych RDMA na maszynach wirtualnych NC24r.
+> Obecnie tylko systemu Windows Server 2012 R2 obsługuje sieciowych RDMA na maszynach wirtualnych N serii.
 > 
 
 Aby zainstalować najnowszą wersję 1.1 rozszerzenia HpcVMDrivers na istniejącej maszyny Wirtualnej z funkcją RDMA o nazwie myVM regionu zachodnie stany USA:
@@ -73,10 +73,6 @@ Sieć RDMA obsługuje ruch interfejsu Message (Passing) dla aplikacji działają
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji o NVIDIA GPU na maszynach wirtualnych N-series zobacz:
-    * [NVIDIA tesla — K80](http://www.nvidia.com/object/tesla-k80.html) (w przypadku maszyn wirtualnych Azure NC)
-    * [NVIDIA tesla — M60](http://www.nvidia.com/object/tesla-m60.html) (w przypadku maszyn wirtualnych z wirtualizacją sieci Azure)
-
-* Deweloperzy tworzący aplikacje przyspieszony GPU dla jednostki GPU tesla — NVIDIA można również pobrać i zainstalować CUDA 8 narzędzi dla [systemu Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) lub [systemu Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Deweloperzy tworzący aplikacje przyspieszony GPU dla jednostki GPU tesla — NVIDIA można również pobrać i zainstalować [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

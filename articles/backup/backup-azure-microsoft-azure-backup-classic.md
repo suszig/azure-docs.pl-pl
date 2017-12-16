@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: db19729f652430c80ad0a7af1b630c1c5a1561d3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 3f22ad12c966f0e8d5a77c2060711d32dfddbc94
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń przy użyciu usługi Azure Backup Server
 > [!div class="op_single_selector"]
@@ -164,11 +164,11 @@ Znając stanu łączności Azure i subskrypcji Azure, można użyć w poniższej
 
 | Stan łączności | Subskrypcja platformy Azure | Kopia zapasowa Azure | Wykonywanie kopii zapasowej na dysku | Przywróć z platformy Azure | Przywróć z dysku |
 | --- | --- | --- | --- | --- | --- |
-| połączone |Aktywne |Dozwolone |Dozwolone |Dozwolone |Dozwolone |
-| połączone |Ważność |Zatrzymane |Zatrzymane |Dozwolone |Dozwolone |
-| połączone |Anulowana |Zatrzymane |Zatrzymane |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymane |
-| Utratą połączenia > 15 dni |Aktywne |Zatrzymane |Zatrzymane |Dozwolone |Dozwolone |
-| Utratą połączenia > 15 dni |Ważność |Zatrzymane |Zatrzymane |Dozwolone |Dozwolone |
+| Połączone |Aktywne |Dopuszczeni |Dopuszczeni |Dopuszczeni |Dopuszczeni |
+| Połączone |Wygasły |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
+| Połączone |Anulowana |Zatrzymane |Zatrzymane |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymane |
+| Utratą połączenia > 15 dni |Aktywne |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
+| Utratą połączenia > 15 dni |Wygasły |Zatrzymane |Zatrzymane |Dopuszczeni |Dopuszczeni |
 | Utratą połączenia > 15 dni |Anulowana |Zatrzymane |Zatrzymane |Punkty odzyskiwania zatrzymane, a Azure usunięte |Zatrzymane |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Odzyskiwanie z utraty połączenia

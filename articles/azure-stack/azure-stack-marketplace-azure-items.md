@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ Zaleca się, aby pobrać te zawsze, gdy są dostępne aktualizacje dla rozszerze
 
 |  | Nazwa elementu | Opis | Wydawca | Typ systemu operacyjnego |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozszerzenie IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Pobierz to rozszerzenie do wdrożenia dowolnego programu SQL Server w elemencie Marketplace systemu Windows — jest to wymagane.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Niestandardowe rozszerzenie skryptu](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Pobierz aktualizację do wersji w pole niestandardowe skryptu rozszerzenia systemu Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [Rozszerzenia usługi Konfiguracja DSC środowiska PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Pobierz aktualizację do wersji w polu rozszerzenia usługi Konfiguracja DSC środowiska PowerShell.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Rozszerzenie ochrony przed złośliwym oprogramowaniem firmy Microsoft](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Antimalware Microsoft Azure to rozwiązanie jednego agenta dla aplikacji i dzierżawy w środowiskach, przeznaczony do pracy w tle bez udziału człowieka. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Rozszerzenie docker dla maszyn wirtualnych systemu Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Rozszerzenie IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Pobierz to rozszerzenie do wdrożenia dowolnego programu SQL Server w elemencie Marketplace systemu Windows — jest to wymagane.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis GmbH międzynarodowe. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis GmbH międzynarodowe. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Rozszerzenie usługi Acronis Backup dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Rozszerzenie Acronis kopia zapasowa Microsoft Azure jest częścią rodziny kopii zapasowej Acronis środków ochrony danych. | Acronis GmbH międzynarodowe. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent głębokie zabezpieczeń dla systemu Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Rozszerzenia zabezpieczeń głębokie Micro Trend dla systemu Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agent głębokie zabezpieczeń dla systemu Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Rozszerzenia zabezpieczeń głębokie Micro Trend dla systemu Windows. | Trend Micro | Windows |
 

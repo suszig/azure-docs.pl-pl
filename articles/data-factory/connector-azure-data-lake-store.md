@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: d59e1cb71de6ff804e7cefd67ed25de49ea93a06
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c162ed156e9c7c64ee85ca86b30779e826d34bcd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ W szczególności ten łącznik usługi Azure Data Lake Store obsługuje:
 - Kopiowanie plików za pomocą **nazwy głównej usługi** lub **tożsamość usługi (MSI) zarządzanej** uwierzytelniania.
 - Kopiowanie plików jako — jest lub analizowania/Generowanie plików z [obsługiwane formaty plików i kodery-dekodery kompresji](supported-file-formats-and-compression-codecs.md).
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Rozpoczynanie pracy
 Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania. 
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do usługi Azure Data lake Store.
@@ -70,8 +70,8 @@ Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w
 
 >[!IMPORTANT]
 > Upewnij się, że można przydzielić usługi głównej odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- Jako źródła, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
->- Jako obiekt sink, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
+>- **Jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- **Jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
 
 Obsługiwane są następujące właściwości:
 
@@ -117,8 +117,8 @@ Aby używać uwierzytelniania tożsamości (MSI) zarządzanych usług:
 
 >[!IMPORTANT]
 > Upewnij się, że można przydzielić danych fabryki usługi tożsamości odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- Jako źródła, co najmniej przyznać **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
->- Jako obiekt sink, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
+>- **Jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta (IAM).
+>- **Jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I jeśli Azure IR służy do kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić wykryć Data Lake Store regionu fabryki danych, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Aby uniknąć tej roli IAM jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją Twojej usługi Data Lake Store i skojarz w usłudze Data Lake Store połączonej usługi, jak w poniższym przykładzie:
 
 W fabryce danych Azure nie trzeba określić wszelkie właściwości poza ogólne informacje o usłudze Data Lake Store w połączonej usłudze.
 

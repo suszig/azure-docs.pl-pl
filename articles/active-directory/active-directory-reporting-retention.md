@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 943320c512212c6a51666ea2252db44f9c174c52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Zasady przechowywania raportów w usłudze Azure Active Directory
 
@@ -60,7 +60,7 @@ W tym temacie przedstawiono odpowiedzi na często zadawane pytania w połączeni
 | :--                    | :--           | :--                 | :--                 |
 | Inspekcja katalogu        | 7 dni        | 30 dni             | 30 dni             |
 | Aktywność związana z logowaniem       | Nie dotyczy           | 30 dni             | 30 dni             |
-| Użycie usługi Azure MFA        | 90 dni       | 90 dni             | 90 dni             |
+| Użycie usługi Azure MFA        | 30 dni       | 30 dni             | 30 dni             |
 
 **Sygnały zabezpieczeń**
 

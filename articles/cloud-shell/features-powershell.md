@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/12/2017
 ms.author: damaerte
-ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funkcje i narzędzia dla środowiska PowerShell w powłoce chmury Azure (wersja zapoznawcza)
 
@@ -91,7 +91,7 @@ Te polecenia są wbudowane obsługę zdalną środowiska PowerShell i wymaga po�
 
 |**Kategoria**    |**Nazwa**                                 |
 |----------------|-----------------------------------------|
-|Narzędzia platformy Azure     |[Program Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
+|Narzędzia platformy Azure     |[Program Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Edytory tekstów    |VIM<br> nano                             |
 |Menedżer pakietów |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Kontrola źródła  |git                                      |

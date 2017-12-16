@@ -4,7 +4,7 @@ description: "Jak zaszyfrować dysków wirtualnych w maszyny Wirtualnej systemu 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Jak zaszyfrować dyski wirtualne na maszynie Wirtualnej systemu Linux
-Ulepszone maszyny wirtualnej (VM) zabezpieczeń i zgodności mogą być szyfrowane dyski wirtualne na platformie Azure. Dyski są szyfrowane za pomocą kluczy kryptograficznych, które są już zabezpieczone w usłudze Azure Key Vault. Kontrolowanie tych kluczy kryptograficznych i przeprowadzić inspekcję ich używania. Ten artykuł zawiera szczegóły dotyczące sposobu szyfrowania dysków wirtualnych na Maszynę wirtualną systemu Linux przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Rozszerzone maszyny wirtualnej (VM) zabezpieczeń i zgodności mogą być szyfrowane dyski wirtualne i samej maszyny Wirtualnej. Maszyny wirtualne są szyfrowane za pomocą kluczy kryptograficznych, które są już zabezpieczone w usłudze Azure Key Vault. Kontrolowanie tych kluczy kryptograficznych i przeprowadzić inspekcję ich używania. Ten artykuł zawiera szczegóły dotyczące sposobu szyfrowania dysków wirtualnych na Maszynę wirtualną systemu Linux przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Szybkie polecenia
 Jeśli chcesz szybko wykonać zadanie, następujące szczegóły sekcji bazie polecenia do szyfrowania dysków wirtualnych w maszynie Wirtualnej. Bardziej szczegółowe informacje i kontekst dla każdego kroku można znaleźć pozostałej części dokumentu, [uruchamiania tutaj](#overview-of-disk-encryption).
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac). Nazwy głównej usługi obsługuje uwierzytelnianie i wymiany kluczy kryptograficznych z magazynu kluczy. Poniższy przykład odczytuje wartości dla nazwy głównej usługi Id i hasło do wykorzystania w późniejszym polecenia:
+Tworzenie nazwy głównej usługi za pomocą usługi Azure Active Directory z [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac). Nazwy głównej usługi obsługuje uwierzytelnianie i wymiany kluczy kryptograficznych z magazynu kluczy. Poniższy przykład odczytuje wartości Identyfikatora podmiotu zabezpieczeń usługi i hasło do użycia w późniejszym polecenia:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie `myVM` przy użyciu **CentOS 7.2n** obrazu:
+Utwórz maszynę Wirtualną z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH przy użyciu maszyny Wirtualnej `publicIpAddress` wyświetlany w danych wyjściowych poprzednie polecenie. Tworzenie partycji i systemu plików, a następnie zainstalować dysk z danymi. Aby uzyskać więcej informacji, zobacz [Połącz z maszyny Wirtualnej systemu Linux, aby zainstalować nowy dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Zamknij sesję SSH.
+SSH przy użyciu maszyny Wirtualnej *publicznego adresu IP* wyświetlany w danych wyjściowych poprzednie polecenie. Tworzenie partycji i systemu plików, a następnie zainstalować dysk z danymi. Aby uzyskać więcej informacji, zobacz [Połącz z maszyny Wirtualnej systemu Linux, aby zainstalować nowy dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Zamknij sesję SSH.
 
-Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto `$sp_id` i `$sp_password` zmienne z poprzednim `ad sp create-for-rbac` polecenie:
+Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim `ad sp create-for-rbac` polecenie:
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ Pokazuje stan **EncryptionInProgress**. Poczekaj, aż stan systemu operacyjnego 
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Proces szyfrowania dysku zostanie sfinalizowana podczas rozruchu, więc odczekaj kilka minut przed sprawdzeniem stanu szyfrowania ponownie, podając **Pokaż szyfrowania maszyny wirtualnej az**:
+Proces szyfrowania dysku zostanie sfinalizowana podczas rozruchu, więc odczekaj kilka minut przed sprawdzeniem stanu szyfrowania ponownie, podając [Pokaż szyfrowania maszyny wirtualnej az](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 Stan Zgłoś teraz dysk systemu operacyjnego i dysku danych jako **zaszyfrowane**.
+
 
 ## <a name="overview-of-disk-encryption"></a>Omówienie szyfrowania dysków
 Dyski wirtualne na maszynach wirtualnych systemu Linux są szyfrowane za pomocą rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Jest bezpłatna dla szyfrowania dysków wirtualnych na platformie Azure. Klucze szyfrowania są przechowywane w usługi Azure Key Vault przy użyciu ochrony oprogramowania, lub możesz zaimportować lub wygenerować klucze w sprzętowych modułach zabezpieczeń (HSM) certyfikowane do FIPS 140-2 poziom 2 standardów. Zachowanie kontroli nad tych kluczy kryptograficznych i przeprowadzić inspekcję ich używania. Te klucze szyfrowania są używane do szyfrowania i odszyfrowywania wirtualnych dysków dołączonych do maszyny Wirtualnej. Nazwy głównej usługi Azure Active Directory zapewnia mechanizm bezpiecznego do wystawiania tych kluczy kryptograficznych, ponieważ maszyny wirtualne są zasilane i wyłączanie.
@@ -143,14 +144,18 @@ Obsługiwane scenariusze i wymagania dotyczące szyfrowania dysków:
 
 * Następujący serwer z systemem Linux jednostki SKU - Ubuntu, CentOS, SUSE i SUSE Linux Enterprise Server (SLES) i Red Hat Enterprise Linux.
 * Wszystkie zasoby (na przykład usługi Key Vault, konta magazynu i maszyny Wirtualnej) muszą być w tym samym regionie Azure i subskrypcji.
-* Standardowa A, D DS, G i GS seria maszyn wirtualnych.
+* Standardowa A, D, DS, G, GS, itp., serii maszyn wirtualnych.
+* Aktualizowanie kluczy kryptograficznych w już zaszyfrowany maszyny Wirtualnej systemu Linux.
 
 Szyfrowanie dysku nie jest obecnie obsługiwane w następujących scenariuszach:
 
 * Maszyny wirtualne warstwy podstawowa.
 * Maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrożenia.
 * Wyłączenie szyfrowania dysku systemu operacyjnego na maszynach wirtualnych systemu Linux.
-* Aktualizowanie kluczy kryptograficznych w już zaszyfrowany maszyny Wirtualnej systemu Linux.
+* Użyj niestandardowych obrazów systemu Linux.
+
+Aby uzyskać więcej informacji o obsługiwanych scenariuszach i ograniczeniach, zobacz [szyfrowania dysków Azure dla maszyn wirtualnych IaaS](../../security/azure-security-disk-encryption.md)
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>Tworzenie usługi Azure Key Vault i kluczy
 Należy najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) zainstalowane i zalogowany do konta platformy Azure przy użyciu [logowania az](/cli/azure/#login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametru zawierają *myResourceGroup*, *klucze*, i *myVM*.
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 Usługa Azure Key Vault zawierający klucze kryptograficzne i zasoby obliczeniowe skojarzone, takie jak magazyn i samej maszyny Wirtualnej musi znajdować się w tym samym regionie. Tworzenie usługi Azure Key Vault z [az keyvault utworzyć](/cli/azure/keyvault#create) i włączyć usługi Key Vault służących do szyfrowania dysku. Określ unikatową nazwę usługi Key Vault *keyvault_name* w następujący sposób:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -175,7 +180,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Mogą być przechowywane przy użyciu oprogramowania lub sprzętu modelu zabezpieczeń (HSM) ochronę kluczy kryptograficznych. Użycie modułów HSM wymaga premium magazynu kluczy. Brak dodatkowych kosztów tworzenia premium magazynu kluczy, a nie standardowy magazyn kluczy, którego przechowuje klucze chronione przez oprogramowanie. Aby utworzyć premium magazynu kluczy, w poprzednim kroku Dodaj `--sku Premium` do polecenia. W poniższym przykładzie użyto klucze chronione przez oprogramowanie, ponieważ utworzono standardowe magazynu kluczy.
+Mogą być przechowywane przy użyciu oprogramowania lub sprzętu modelu zabezpieczeń (HSM) ochronę kluczy kryptograficznych. Użycie modułów HSM wymaga premium magazynu kluczy. Brak dodatkowych kosztów tworzenia premium magazynu kluczy, a nie standardowy magazyn kluczy, którego przechowuje klucze chronione przez oprogramowanie. Aby utworzyć premium magazynu kluczy, w poprzednim kroku Dodaj `--sku Premium` do polecenia. W poniższym przykładzie użyto klucze chronione przez oprogramowanie, od momentu utworzenia standardowy magazyn kluczy.
 
 W przypadku obu modeli ochrony platformy Azure musi otrzymać dostęp do żądania kluczy kryptograficznych, podczas rozruchu maszyny Wirtualnej do odszyfrowania dysków wirtualnych. Tworzenie klucza kryptograficznego w magazyn kluczy o [Utwórz klucz keyvault az](/cli/azure/keyvault/key#create). W poniższym przykładzie jest tworzony klucz o nazwie *klucze*:
 
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Do szyfrowania faktycznie niektóre dyski wirtualne, umożliwia tworzenie maszyny Wirtualnej i Dodaj dysk danych. Utwórz maszynę Wirtualną do szyfrowania z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu **CentOS 7.2n** obrazu:
+Utwórz maszynę Wirtualną do szyfrowania z [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) i dołączenie dysku danych 5 Gb. Niektóre obrazy marketplace obsługuje szyfrowanie dysków. Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* przy użyciu *CentOS 7.2n* obrazu:
 
 ```azurecli
 az vm create \
@@ -217,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH przy użyciu maszyny Wirtualnej `publicIpAddress` wyświetlany w danych wyjściowych poprzednie polecenie. Tworzenie partycji i systemu plików, a następnie zainstalować dysk z danymi. Aby uzyskać więcej informacji, zobacz [Połącz z maszyny Wirtualnej systemu Linux, aby zainstalować nowy dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Zamknij sesję SSH.
+SSH przy użyciu maszyny Wirtualnej *publicznego adresu IP* wyświetlany w danych wyjściowych poprzednie polecenie. Tworzenie partycji i systemu plików, a następnie zainstalować dysk z danymi. Aby uzyskać więcej informacji, zobacz [Połącz z maszyny Wirtualnej systemu Linux, aby zainstalować nowy dysk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Zamknij sesję SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Szyfrowanie maszyny wirtualnej
@@ -228,7 +233,7 @@ Do szyfrowania dysków wirtualnych, można przenosić ze sobą wszystkie poprzed
 3. Określ klucze kryptograficzne służące do rzeczywistego szyfrowania i odszyfrowywania.
 4. Określ, czy chcesz zaszyfrować dysk systemu operacyjnego, dyski danych lub all.
 
-Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto `$sp_id` i `$sp_password` zmienne z poprzednim `ad sp create-for-rbac` polecenie:
+Szyfrowanie maszyny Wirtualnej z [włączyć szyfrowanie maszyny wirtualnej az](/cli/azure/vm/encryption#enable). W poniższym przykładzie użyto *$sp_id* i *$sp_password* zmienne z poprzednim [az ad sp utworzyć do rbac](/cli/azure/ad/sp#create-for-rbac) polecenia:
 
 ```azurecli
 az vm encryption enable \
@@ -278,7 +283,7 @@ Po zaszyfrowanych dysków z danymi, możesz później dodać dodatkowych dysków
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Uruchom ponownie polecenie do szyfrowania dysków wirtualnych w następujący sposób:
+Ponownie uruchom polecenie do szyfrowania dysków wirtualnych w następujący sposób:
 
 ```azurecli
 az vm encryption enable \

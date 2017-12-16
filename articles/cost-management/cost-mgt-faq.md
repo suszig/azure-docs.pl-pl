@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Często zadawane pytania dotyczące usługi Azure Management koszt
 
@@ -46,6 +46,29 @@ Przed wygenerowaniem klucza interfejsu API umowy Enterprise Azure do skonfigurow
 
 Może należy również podać Administratorzy działu, właściciele konta i uprawnienia administratorów przedsiębiorstwa _wyświetlić opłat_ przy użyciu interfejsu API rozliczeń.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Dlaczego nie widzę zalecenia Optymalizator?
+
+Informacje o zalecenie jest dostępna tylko dla kont, które są aktywowane. Nawet nie widać żadnych informacji zalecenia w **Optymalizator** raport kategorii dla konta, które są *nieaktywowani*, takie jak:
+
+- Menedżer optymalizacji
+- Ustawianie rozmiaru optymalizacji
+- Wydajność
+
+Jeśli nie można wyświetlić wszystkie dane zalecenie Optymalizator, najprawdopodobniej masz konta, które są nieaktywowani. Aby aktywować konto, musisz zarejestrować go przy użyciu poświadczeń usługi Azure.
+
+Aby aktywować konto:
+
+1.  W portalu Cloudyn kliknij **ustawienia** w górnym prawym rogu i wybierz pozycję **kont chmury**.
+2.  Na karcie konta usługi Microsoft Azure, wyszukaj konta, które mają **nieaktywowani** subskrypcji.
+3.  Po prawej stronie konto nieaktywowani **Edytuj** symbol podobny ołówka.
+4.  Identyfikator i szybkość identyfikator dzierżawy jest wykrywany automatycznie. Kliknij przycisk **Dalej**.
+5.  Użytkownik jest przekierowywany do portalu Azure. Zaloguj się do portalu i autoryzować modułu zbierającego Cloudyn dostępu do danych Azure.
+6.  Następnie jest przekierowanie do strony zarządzania Cloudyn konta i subskrypcji został zaktualizowany o **active** stan konta. Widoczny jest zielony znacznik wyboru.
+7.  Jeśli nie widzisz symbolu zielonym znacznikiem wyboru dla co najmniej jednego z subskrypcji, oznacza to, nie masz uprawnień do tworzenia aplikacji czytnika (CloudynCollector) dla subskrypcji. Użytkownik z uprawnieniami wyższej subskrypcji musi Powtórz kroki 3 i 4.  
+
+Po wykonaniu powyższych kroków można wyświetlić Optymalizator zalecenia w ciągu jednej do dwóch dni. Jednak może potrwać maksymalnie pięć dni przed Pełna optymalizacja dane są dostępne.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Jak włączyć wstrzymane lub zablokowanego użytkowników?
 
 Jeśli zostanie wyświetlony alert o żądanie, aby zezwolić na dostęp dla użytkownika, musisz aktywować konto użytkownika.
@@ -66,10 +89,7 @@ Zmiana adresu e-mail w Cloudyn z domyślnym adresem na platformie Azure, Twoje k
 
 Firma Microsoft zaleca utworzenie co najmniej dwóch kont administratora Cloudyn na wypadek, gdyby jedno z kont zostanie zablokowane.
 
-Nie można zalogować się do portalu Cloudyn, upewnij się, logować się do Cloudyn używasz poprawny adres URL zarządzania koszt Azure. Użyj jednej z następujących adresów URL:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#Blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Nie można zalogować się do portalu Cloudyn, upewnij się, logować się do Cloudyn używasz poprawny adres URL zarządzania koszt Azure. Użyj [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Unikaj używania https://app.cloudyn.com Cloudyn bezpośredni adres URL.
 

@@ -4,7 +4,7 @@ description: Informacje o sposobie instalowania i konfigurowania bazy danych Mon
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Jak zainstalować i skonfigurować bazy danych MongoDB na Maszynę wirtualną systemu Linux
 [Bazy danych MongoDB](http://www.mongodb.org) jest popularnych open source, wysokiej wydajności bazę danych NoSQL. W tym artykule przedstawiono sposób instalowania i konfigurowania bazy danych MongoDB na Maszynę wirtualną systemu Linux 2.0 interfejsu wiersza polecenia platformy Azure. Czynności te można również wykonać przy użyciu [interfejsu wiersza polecenia platformy Azure w wersji 1.0](install-mongodb-nodejs.md). Przykłady są wyświetlane szczegóły tego jak do:
@@ -57,18 +57,18 @@ ssh azureuser@<publicIpAddress>
 Aby dodać źródła instalacji bazy danych mongodb, Utwórz **yum** plik repozytorium w następujący sposób:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Otwórz plik bazy danych MongoDB repozytorium do edycji. Dodaj następujące wiersze:
+Otwórz plik repozytorium bazy danych MongoDB do edycji, takie jak z `vi` lub `nano`. Dodaj następujące wiersze:
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 Instalowanie przy użyciu bazy danych MongoDB **yum** w następujący sposób:
@@ -125,26 +125,17 @@ Do utworzenia tego środowiska, należy najnowszej [Azure CLI 2.0](/cli/azure/in
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie należy wdrożyć szablon bazy danych MongoDB z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create). Definiowanie własnych zasobów nazwy i rozmiar w razie potrzeby, takie jak w przypadku *newStorageAccountName*, *virtualNetworkName*, i *vmSize*:
+Następnie należy wdrożyć szablon bazy danych MongoDB z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create). Po wyświetleniu monitu wprowadź unikatowe wartości dla *newStorageAccountName*, *dnsNameForPublicIP*, a nazwa użytkownika i hasło:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 Zaloguj się do maszyny Wirtualnej przy użyciu publicznego adresu DNS w sieci maszyny wirtualnej. Można wyświetlić publicznego adresu DNS z [az maszyny wirtualnej pokazu](/cli/azure/vm#show):
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 SSH do maszyny Wirtualnej przy użyciu własnej nazwy użytkownika i publicznego adresu DNS:

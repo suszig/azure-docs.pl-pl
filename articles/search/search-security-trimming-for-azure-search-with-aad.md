@@ -1,6 +1,6 @@
 ---
-title: "Zabezpieczenia przycinania w usłudze Azure Search przy użyciu usługi Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Implementuje przycinanie zabezpieczeń przy użyciu usługi Azure Search filtru i Azure Active Directory."
+title: "Filtry zabezpieczeń przycinania w wynikach wyszukiwania Azure przy użyciu tożsamości usługi Active Directory | Dokumentacja firmy Microsoft"
+description: "Kontrolę dostępu do zawartości usługi Azure Search przy użyciu filtrów zabezpieczeń i tożsamości usługi Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Przycinanie zabezpieczeń w usłudze Azure Search w usłudze Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników usługi Azure Search przy użyciu tożsamości usługi Active Directory
 
-W tym artykule pokazano, jak ograniczyć dostęp do dokumentów na podstawie członkostwa grupy użytkownika za pomocą usługi Azure Active Directory (AAD) wraz z usługi Azure Search.
+W tym artykule przedstawiono sposób użycia tożsamości zabezpieczeń usługi Azure Active Directory (AAD) wraz z filtrów w usłudze Azure Search przyciąć wyniki wyszukiwania na podstawie członkostwa grupy użytkownika.
 
 W tym artykule opisano następujące zadania:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ W tym przewodniku przedstawiono techniki do filtrowania dokumentów w wynikach u
 
 ## <a name="see-also"></a>Zobacz też
 
-+ [Przycinanie zabezpieczeń z usługi Azure Search](search-security-trimming-for-azure-search.md)
++ [Kontrola dostępu oparta na tożsamości, za pomocą usługi Azure Search filtrów](search-security-trimming-for-azure-search.md)
 + [Filtry w usłudze Azure Search](search-filters.md)
++ [Dane zabezpieczeń i kontroli dostępu w ramach operacji usługi Azure Search](search-security-overview.md)

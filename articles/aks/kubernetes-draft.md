@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Projekt za pomocą usługi kontenera platformy Azure (AKS)
 
@@ -25,7 +25,7 @@ Szczegóły tego dokumentu z klastrem Kubernetes na AKS przy użyciu wersji robo
 
 W krokach szczegółowo opisanych w tym dokumencie założono, że klaster usługi AKS został utworzony i że zostało nawiązane połączenie kubectl z klastrem. Jeśli potrzebujesz tych elementów, zobacz [szybkiego startu AKS][aks-quickstart].
 
-Należy również prywatnej rejestru Docker w rejestrze kontenera platformy Azure (ACR). Aby uzyskać instrukcje na temat wdrażania wystąpienia ACR Zobacz [kontenera rejestru Szybki Start Azure] [szybkiego startu acr].
+Należy również prywatnej rejestru Docker w rejestrze kontenera platformy Azure (ACR). Aby uzyskać instrukcje na temat wdrażania wystąpienia ACR, zobacz [Szybki Start Azure kontenera rejestru][acr-quickstart].
 
 ## <a name="install-helm"></a>Zainstaluj Helm
 
@@ -312,5 +312,5 @@ Aby uzyskać więcej informacji o korzystaniu z wersji próbnej zobacz dokumenta
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
-[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

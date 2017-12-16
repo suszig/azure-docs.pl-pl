@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Przegląd tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Statystyki są bardzo ważne dla pobierania najlepszą wydajność poza usługą
 Tabele tymczasowe są tabele, które tylko istnieją w czasie trwania logowania i nie są widoczne dla innych użytkowników.  Tabele tymczasowe może być dobrym sposobem uniemożliwienia podglądu wyników tymczasowego i również ograniczyć potrzebę oczyszczania.  Ponieważ tabele tymczasowe również korzystać z lokalnego magazynu, umożliwiając im szybsza dla niektórych operacji.  Zobacz [tabeli tymczasowej] [ Temporary] artykuły, aby uzyskać więcej informacji o tabelach tymczasowych.
 
 ## <a name="external-tables"></a>Tabele zewnętrzne
-Tabele zewnętrzne, znanej także jako Polybase tabele są tabele, które można wykonać zapytania z usługi SQL Data Warehouse, ale punkt, aby dane zewnętrzne z usługi SQL Data Warehouse.  Na przykład można utworzyć tabeli zewnętrznej wskazującą na plików w magazynie obiektów Blob Azure.  Aby uzyskać więcej informacji na temat sposobu tworzenia i przeszukiwania tabeli zewnętrznej, zobacz [ładowanie danych przy użyciu programu Polybase][Load data with Polybase].  
+Tabele zewnętrzne, znanej także jako Polybase tabele są tabele, które można wykonać zapytania z usługi SQL Data Warehouse, ale punkt, aby dane zewnętrzne z usługi SQL Data Warehouse.  Na przykład można utworzyć tabeli zewnętrznej wskazującą na plików w magazynie obiektów Blob Azure lub usługi Azure Data Lake Store.  Aby uzyskać więcej informacji na temat sposobu tworzenia i przeszukiwania tabeli zewnętrznej, zobacz [ładowanie danych przy użyciu programu Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Funkcje nieobsługiwane tabeli
 Gdy usługi SQL Data Warehouse zawiera wiele tej samej tabeli funkcji oferowanych przez innych baz danych, brak niektórych funkcji, które nie są jeszcze obsługiwane.  Poniżej przedstawiono listę niektórych funkcji tabeli, które nie są jeszcze obsługiwane.

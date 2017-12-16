@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Przenieś Maszynę wirtualną systemu Linux do innej subskrypcji lub grupy zasobów
 W tym artykule przedstawiono sposób przenieść Maszynę wirtualną systemu Linux między grupami zasobów lub subskrypcji. Przenoszenie maszyny Wirtualnej między subskrypcjami można przydatne, jeśli utworzono Maszynę wirtualną w osobistych subskrypcji i chcesz teraz Przenieś go do subskrypcji w firmie.
@@ -32,27 +32,41 @@ W tym artykule przedstawiono sposób przenieść Maszynę wirtualną systemu Lin
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Użyj interfejsu wiersza polecenia Azure, aby przenieść Maszynę wirtualną
-Aby pomyślnie przenieść Maszynę wirtualną, należy przenieść maszynę Wirtualną i wszystkie dodatkowe zasoby. Użyj **Pokaż grupy azure** polecenie, aby wyświetlić listę wszystkich zasobów w grupie zasobów i ich identyfikatorów. Pomaga przekazać dane wyjściowe tego polecenia do pliku, można skopiować i wkleić identyfikatorów na nowsze poleceń.
 
-    azure group show <resourceGroupName>
 
-Aby przenieść Maszynę wirtualną i jej zasobów w innej grupie zasobów, użyj **przenoszenia zasobów platformy azure** polecenia interfejsu wiersza polecenia. Poniższy przykład przedstawia sposób przenoszenia maszyny Wirtualnej i najbardziej typowe zasoby, które wymaga. Używamy **-i** parametr i przekaż listy rozdzielanej przecinkami (bez spacji) identyfikatorów zasobów do przeniesienia.
+Zanim będzie możliwe przeniesienie maszyny Wirtualnej przy użyciu interfejsu wiersza polecenia, musisz upewnij się, że istnieją subskrypcje źródłowym i docelowym w ramach tej samej dzierżawy. Aby sprawdzić, czy obie subskrypcje mają ten sam identyfikator dzierżawy, użyj [Pokaż konto az](/cli/azure/account#az_account_show).
 
-    vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+```azurecli-interactive
+az account show --subscription mySourceSubscription --query tenantId
+az account show --subscription myDestinationSubscription --query tenantId
+```
+Jeśli dzierżawy identyfikatorów subskrypcji źródłowych i docelowych nie są takie same, należy skontaktować się [obsługuje](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) przeniesienie zasobów do nowej dzierżawy.
 
-    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+Aby pomyślnie przenieść Maszynę wirtualną, należy przenieść maszynę Wirtualną i wszystkie dodatkowe zasoby. Użyj [listę zasobów az](/cli/azure/resource#az_resource_list) polecenie, aby wyświetlić listę wszystkich zasobów w grupie zasobów i ich identyfikatorów. Pomaga przekazać dane wyjściowe tego polecenia do pliku, można skopiować i wkleić identyfikatorów na nowsze poleceń.
 
-Jeśli chcesz przenieść maszynę Wirtualną i jej zasobów do innej subskrypcji, należy dodać **— identyfikator subskrypcji docelowej &#60; destinationSubscriptionID &#62;** parametr, aby określić subskrypcji docelowej.
+```azurecli-interactive
+az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
+```
 
-Jeśli pracujesz z wiersza polecenia na komputerze z systemem Windows, należy dodać  **$**  przed nazwy zmiennych przy deklarowaniu je. To nie jest wymagana w systemie Linux.
+Aby przenieść Maszynę wirtualną i jej zasobów w innej grupie zasobów, użyj [przeniesienia zasobu az](/cli/azure/resource#az_resource_move). Poniższy przykład przedstawia sposób przenoszenia maszyny Wirtualnej i najbardziej typowe zasoby, które wymaga. Użyj **— identyfikatory** parametr i przekaż listy rozdzielanej przecinkami (bez spacji) identyfikatorów zasobów do przeniesienia.
 
-Zostanie wyświetlona prośba o potwierdzenie, że chcesz przenieść określonego zasobu. Typ **Y** aby upewnić się, że chcesz przenieść zasoby.
+```azurecli-interactive
+vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+nic=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG
+pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
+vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
+diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --destination-group "myDestinationResourceGroup"
+```
+
+Jeśli chcesz przenieść maszynę Wirtualną i jej zasobów do innej subskrypcji, należy dodać **— identyfikator subskrypcji docelowej** parametr, aby określić subskrypcji docelowej.
+
+Jeśli zostanie wyświetlona prośba o potwierdzenie, że chcesz przenieść określonego zasobu. Typ **Y** aby upewnić się, że chcesz przenieść zasoby.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

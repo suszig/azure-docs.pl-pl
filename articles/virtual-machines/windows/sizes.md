@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: e9ae19f4bca6cc972fea4a215482604bb28c26b1
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ac0de4e4582e5071d96ded3c9f08c0c9b05ae3f3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych systemu Windows na platformie Azure
 
@@ -32,7 +32,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md)        | F Fsv2, Fs,             | Duża moc procesora CPU w stosunku do pamięci. Dobrze sprawdzają się w przypadku serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji.        |
 | [Optymalizacja pod kątem pamięci](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Wysoki współczynnik pamięci do Procesora. Świetnie sprawdzają się w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
 | [Optymalizacja pod kątem magazynu](../virtual-machines-windows-sizes-storage.md)        | Ls                | Wysoka przepływność dysku i operacje we/wy. Idealne rozwiązanie w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
-| [Procesor GPU](sizes-gpu.md)            | WIRTUALIZACJĄ SIECI, NC            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych. Dostępne z jednego lub wielu procesorów graficznych.       |
+| [Procesor GPU](sizes-gpu.md)            | Wirtualizacją sieci, NC, NCv2, ND            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych. Dostępne z jednego lub wielu procesorów graficznych.       |
 | [Obliczenia o wysokiej wydajności](sizes-hpc.md) | H-A8 11          | Maszyny wirtualne z najszybszymi i najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). 
 
 <br> 

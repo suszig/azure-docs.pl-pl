@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0d25b77ab6202a255060de3988a599a124c22884
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 568048c6117d81ec351d5057505dafeec58d7b5a
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Rozmiary maszyn wirtualnych systemu Linux na platformie Azure
 W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platformy Azure, który służy do uruchamiania aplikacji dla systemu Linux i obciążeń. Umożliwia także zagadnienia dotyczące wdrażania pod uwagę podczas planowania korzystać z tych zasobów. W tym artykule jest również dostępny do [maszyn wirtualnych Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -31,7 +31,7 @@ W tym artykule opisano dostępne rozmiary i opcje dla maszyn wirtualnych platfor
 | [Optymalizacja pod kątem obliczeń](sizes-compute.md)        | F Fsv2, Fs,             | Duża moc procesora CPU w stosunku do pamięci. Dobrze sprawdzają się w przypadku serwerów sieci Web o średnim ruchu, urządzeń sieciowych, procesów wsadowych i serwerów aplikacji.        |
 | [Optymalizacja pod kątem pamięci](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Wysoki współczynnik pamięci do Procesora. Świetnie sprawdzają się w przypadku serwerów relacyjnych baz danych, średnich i dużych pamięci podręcznych oraz analizowania w pamięci.                 |
 | [Optymalizacja pod kątem magazynu](sizes-storage.md)        | Ls                | Wysoka przepływność dysku i operacje we/wy. Idealne rozwiązanie w przypadku danych big data oraz baz danych SQL i NoSQL.                                                         |
-| [Procesor GPU](sizes-gpu.md)            | WIRTUALIZACJĄ SIECI, NC            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych. Dostępne z jednego lub wielu procesorów graficznych.       |
+| [Procesor GPU](sizes-gpu.md)            | Wirtualizacją sieci, NC, NCv2, ND            | Celem duże Renderowanie grafiki i wideo edycji specjalne maszyn wirtualnych. Dostępne z jednego lub wielu procesorów graficznych.       |
 | [Obliczenia o wysokiej wydajności](sizes-hpc.md) | H-A8 11          | Maszyny wirtualne z najszybszymi i najbardziej wydajnymi procesorami CPU oraz, opcjonalnie, interfejsami sieciowymi zapewniającymi wysoką przepływność (RDMA). 
 
 <br>

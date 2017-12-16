@@ -4,7 +4,7 @@ description: "Dowiedz się, jak instalowanie i konfigurowanie pulpitu zdalnego (
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalowanie i konfigurowanie pulpitu zdalnego, aby nawiązać połączenie Maszynę wirtualną systemu Linux na platformie Azure
 Maszyny wirtualne systemu Linux (VM) na platformie Azure zwykle są zarządzane z poziomu wiersza polecenia przy użyciu połączenia bezpiecznej powłoki (SSH). Gdy nowy, Linux lub szybkiego scenariuszach rozwiązywania problemów, użyj pulpitu zdalnego może być łatwiejsze. W tym artykule szczegółowo przedstawiają, jak zainstalować i skonfigurować środowisko pulpitu ([xfce](https://www.xfce.org)) i pulpitu zdalnego ([xrdp](http://www.xrdp.org)) dla maszyny Wirtualnej systemu Linux przy użyciu modelu wdrażania Menedżera zasobów.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Tworzenie reguły grupy zabezpieczeń sieci dla ruchu pulpitu zdalnego
 Aby zezwolić na ruch pulpitu zdalnego do maszyny Wirtualnej systemu Linux, zabezpieczenia sieci grupy reguł musi być utworzony umożliwia ruch TCP na porcie 3389 nawiązać połączenie z maszyną Wirtualną. Aby uzyskać więcej informacji dotyczących zasad grupy zabezpieczeń sieci, zobacz [co to jest grupa zabezpieczeń sieci?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Możesz również [Użyj portalu Azure, aby utworzyć regułę grupy zabezpieczeń sieci](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Poniższe przykłady tworzenia reguły grupy zabezpieczeń sieci za pomocą [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) o nazwie *myNetworkSecurityGroupRule* do *Zezwalaj* ruch na *tcp* portu *3389*.
+W poniższym przykładzie jest tworzona reguła grupy zabezpieczeń sieci o [port Otwórz az maszyny wirtualnej](/cli/azure/vm#open-port) na porcie *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Jeśli nie nasłuchuje usługa xrdp, na maszynie Wirtualnej systemu Ubuntu ponownie uruchomić usługę w następujący sposób:
+Jeśli *xrdp sesman* nie nasłuchuje usługa, w przypadku maszyny Wirtualnej systemu Ubuntu ponownie uruchomić usługę w następujący sposób:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Przejrzyj dzienniki w */var/log*Thug na maszynie Wirtualnej systemu Ubuntu dla wskazać, dlaczego usługa może nie odpowiadać. Można również monitorować syslog, podczas próby połączeń usług pulpitu zdalnego, aby wyświetlić wszystkie błędy:
+Przejrzyj dzienniki w */var/log* na maszynie Wirtualnej systemu Ubuntu objętych danych łączem, dlaczego usługa może nie odpowiadać. Można również monitorować syslog, podczas próby połączeń usług pulpitu zdalnego, aby wyświetlić wszystkie błędy:
 
 ```bash
 tail -f /var/log/syslog

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurowanie bezpiecznego protokołu LDAP (LDAPS) dla domeny zarządzanej usług domenowych Azure AD
 
@@ -117,6 +117,7 @@ Jeśli masz problemy z połączeniem do domeny zarządzanej przy użyciu bezpiec
 * Sprawdź, czy klient LDAP (na przykład ldp.exe) nawiąże połączenie z bezpiecznego punktu końcowego protokołu LDAP, za pomocą nazwy DNS, a nie adres IP.
 * Sprawdź nazwę DNS, który klient LDAP łączy się jest rozpoznawana jako publiczny adres IP z bezpiecznego protokołu LDAP do domeny zarządzanej.
 * Sprawdź, czy bezpiecznego certyfikatu LDAP do domeny zarządzanej ma nazwę DNS w podmiot lub atrybut nazwy alternatywnej podmiotu.
+* Jeśli jest nawiązywane za pośrednictwem bezpiecznego protokołu LDAP w Internecie, upewnij się, że ustawienia grupy NSG dla sieci wirtualnej zezwalać na ruch do portu 636 z Internetu.
 
 Jeśli masz problemy z połączeniem do domeny zarządzanej przy użyciu bezpiecznego protokołu LDAP, [skontaktuj się z zespołem produktu](active-directory-ds-contact-us.md) Aby uzyskać pomoc. Należy uwzględnić następujące informacje, aby pomóc w zdiagnozowaniu problemu lepiej:
 * Zrzut ekranu Ldp.exe połączenia i niepowodzenia.

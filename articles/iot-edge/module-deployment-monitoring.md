@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Zrozumienie wdrożeń IoT Edge dla urządzeń z jednego lub na dużą skalę - preview
 
@@ -62,7 +62,7 @@ Warunek docelowy jest stale obliczenia obejmują nowe urządzenia, które spełn
 Wszelkie warunek typu Boolean na urządzeniu twins znaczników lub deviceId można użyć do wybrania urządzeń docelowych. Jeśli chcesz użyć warunku tagów, należy dodać "tagi" :{} sekcji dwie urządzenia, w tym samym poziomie jako właściwości. [Dowiedz się więcej na temat tagów w dwie urządzenia](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Przykłady warunków docelowych:
-* deviceId = "linuxprod1
+* deviceId = "linuxprod1"
 * Tags.Environment = "produkcyjnego"
 * Tags.Environment = prod tags.location i = "westus"
 * Tags.Environment = prod tags.location lub = "westus"

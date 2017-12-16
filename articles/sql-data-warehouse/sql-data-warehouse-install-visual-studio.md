@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 03/30/2017
-ms.author: anvang;barbkess
-ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: kevin;barbkess
+ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalacja programu Visual Studio i narzędzi SSDT dla usługi SQL Data Warehouse
 Do tworzenia aplikacji dla usługi SQL Data Warehouse, firma Microsoft zaleca używanie najnowszej wersji programu Visual Studio z najnowszej wersji programu SQL Server Data Tools (SSDT).  W celu zapewnienia zgodności z poprzednimi wersjami możliwa jest również obsługa programu Visual Studio 2013 Update 5 z narzędziami SSDT.  
@@ -27,7 +27,7 @@ Do tworzenia aplikacji dla usługi SQL Data Warehouse, firma Microsoft zaleca u�
 Użycie programu Visual Studio z narzędziami SSDT pozwala wizualnie eksplorować tabele, widoki, procedury składowane i wiele innych obiektów w usłudze SQL Data Warehouse przy użyciu Eksploratora obiektów SQL Server, a także wykonywać zapytania.
 
 > [!NOTE]
-> Usługa SQL Data Warehouse jeszcze nie obsługuje projektów bazy danych programu Visual Studio.  Ta funkcja zostanie dodana w przyszłej wersji.
+> Usługa SQL Data Warehouse jeszcze nie obsługuje projektów bazy danych programu Visual Studio.  Ta funkcja zostanie dodana w przyszłej wersji. Aby otrzymywać okresowe aktualizacje na tej funkcji, sprawdź oddawać głosy na [UserVoice].
 > 
 > 
 
@@ -59,3 +59,4 @@ Teraz, gdy masz najnowszą wersję narzędzi SSDT, możesz przystąpić do [poł
 [Pobierz program Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
