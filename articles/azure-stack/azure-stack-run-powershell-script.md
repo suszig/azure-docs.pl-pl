@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Wdrażanie Azure stosu Development Kit
 
@@ -104,7 +104,7 @@ Po przygotowaniu komputera-hosta ASDK, ASDK można wdrożyć w obrazie CloudBuil
 1. Po uruchomieniu pomyślnie komputera hosta w obrazie CloudBuilder.vhdx, zaloguj się przy użyciu poświadczeń administratora określone w poprzednich krokach. 
 2. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i uruchom **\AzureStack_Installer\asdk-installer.ps1** skryptu (która może znajdować się na dysku w obrazie CloudBuilder.vhdx). Kliknij pozycję **Zainstaluj**.
 3. W **typu** listy rozwijanej wybierz pozycję **chmury Azure** lub **usług AD FS**.
-    - **Chmury Azure**: umożliwia skonfigurowanie usługi Azure Active Directory (Azure AD) jako dostawcy tożsamości. Aby użyć tej opcji, będzie konieczne połączenie internetowe, pełna nazwa usługi Azure AD directory dzierżawy w formie *domainname*. onmicrosoft.com, a poświadczenia administratora globalnego dla określonego katalogu. 
+    - **Chmury Azure**: umożliwia skonfigurowanie usługi Azure Active Directory (Azure AD) jako dostawcy tożsamości. Aby użyć tej opcji, będzie konieczne połączenie internetowe, pełna nazwa usługi Azure AD directory dzierżawy w formie *domainname*. onmicrosoft.com lub usługi Azure AD zweryfikować domenę niestandardową nazwę i globalnego administratora poświadczenia dla określony katalog. 
     - **Usługi AD FS**: sygnatura domyślna usługa katalogowa będzie używany jako dostawca tożsamości. Zaloguj się przy użyciu domyślnego konta jest azurestackadmin@azurestack.local, i hasło używane jest dostarczana jako część instalacji.
 4. W obszarze **hasło administratora lokalnego**w **hasło** wpisz hasło administratora lokalnego (która musi odpowiadać bieżące hasło administratora lokalnego skonfigurowany), a następnie kliknij przycisk **Dalej**.
 5. Wybierz kartę sieciową do użycia dla zestawu SDK, a następnie kliknij przycisk **dalej**.
@@ -206,7 +206,7 @@ Jeśli tożsamości usługi Azure AD jest skojarzony z **więcej niż jeden** ka
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Jeśli środowisko **nie** ma DHCP włączone, należy uwzględnić następujące dodatkowe parametry do jednej z opcji powyżej (przykład użycia podano): 
@@ -219,7 +219,7 @@ Jeśli środowisko **nie** ma DHCP włączone, należy uwzględnić następując
 |Parametr|Wymagane opcjonalne|Opis|
 |-----|-----|-----|
 |AdminPassword|Wymagane|Ustawia konta administratora lokalnego i innymi kontami użytkowników na wszystkie maszyny wirtualne utworzone jako część development kit wdrożenia. To hasło musi być zgodna bieżące hasło administratora lokalnego na hoście.|
-|InfraAzureDirectoryTenantName|Wymagane|Ustawia katalog dzierżawy. Ten parametr umożliwia określenie określonego katalogu gdzie konta usługi AAD ma uprawnienia do zarządzania wielu katalogów. Pełna nazwa dzierżawy katalogu usługi AAD w formacie. onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Wymagane|Ustawia katalog dzierżawy. Ten parametr umożliwia określenie określonego katalogu gdzie konta usługi AAD ma uprawnienia do zarządzania wielu katalogów. Pełna nazwa dzierżawy katalogu usługi AAD w formacie. onmicrosoft.com lub usługi Azure AD zweryfikować niestandardowej nazwy domeny.|
 |TimeServer|Wymagane|Ten parametr umożliwia określenie serwera określony czas. Ten parametr musi być dostarczona jako adres IP serwera czas ważności. Nazwy serwerów nie są obsługiwane.|
 |InfraAzureDirectoryTenantAdminCredential|Optional (Opcjonalność)|Ustawia nazwę użytkownika usługi Azure Active Directory i hasło. Te poświadczenia platformy Azure musi być identyfikatorem organizacji.|
 |InfraAzureEnvironment|Optional (Opcjonalność)|Wybierz środowisko Azure, z którym chcesz zarejestrować tego wdrożenia stosu Azure. Obejmują one publicznej Azure, Azure - Chinach, Azure - instytucji rządowych Stanów Zjednoczonych.|
