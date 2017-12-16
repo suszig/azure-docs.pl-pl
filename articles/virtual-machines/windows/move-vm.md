@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 1db25a5d9ff5cb6aa2787a0cafa40cfb010e3b06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Przenieś Maszynę wirtualną systemu Windows do innego Azure subskrypcji lub grupy zasobów
 W tym artykule przedstawiono sposób przenoszenia maszyny Wirtualnej systemu Windows między grupami zasobów lub subskrypcji. Przenoszenie między subskrypcjami można skorzystać, jeśli pierwotnie utworzono Maszynę wirtualną w osobistych subskrypcji i chcesz teraz Przenieś go do subskrypcji w firmie, aby kontynuować pracę.
@@ -34,33 +34,31 @@ W tym artykule przedstawiono sposób przenoszenia maszyny Wirtualnej systemu Win
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="use-powershell-to-move-a-vm"></a>Aby przenieść Maszynę wirtualną za pomocą programu Powershell
-Aby przenieść maszynę wirtualną w innej grupie zasobów, musisz upewnij się, że można również przenieść wszystkie zasoby zależne. Korzystanie z polecenia cmdlet Move-AzureRMResource wymaga nazwy zasobu i typu zasobu. Możesz uzyskać zarówno z polecenia cmdlet AzureRMResource Znajdź.
 
-    Find-AzureRMResource -ResourceGroupNameContains "<sourceResourceGroupName>"
+Aby przenieść maszynę wirtualną w innej grupie zasobów, musisz upewnij się, że można również przenieść wszystkie zasoby zależne. Aby użyć polecenia cmdlet Move-AzureRMResource, należy ResourceId każdego z zasobów. Można uzyskać listę przy użyciu element ResourceId [AzureRMResource Znajdź](/powershell/module/azurerm.resources/find-azurermresource) polecenia cmdlet.
 
+```azurepowershell-interactive
+ Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+```
 
-Aby przenieść Maszynę wirtualną, trzeba przenieść wiele zasobów. Firma Microsoft wystarczy utworzyć oddzielne zmienne dla każdego zasobu, a następnie na liście. W tym przykładzie zawiera większość podstawowych zasobów dla maszyny Wirtualnej, ale można dodać więcej zgodnie z potrzebami.
+Aby przenieść Maszynę wirtualną, trzeba przenieść wiele zasobów. Możemy użyć danych wyjściowych Znajdź AzureRMResource tworzenie rozdzielaną przecinkami listą identyfikatory zasobów i że w celu przekazania [AzureRMResource przenoszenia](/powershell/module/azurerm.resources/move-azurermresource) Aby przenieść je do miejsca docelowego. 
 
-    $sourceRG = "<sourceResourceGroupName>"
-    $destinationRG = "<destinationResourceGroupName>"
+```azurepowershell-interactive
 
-    $vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-    $storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
-    $diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
-    $vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-    $nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-    $ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-    $nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
-
-    Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
-
+Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
+    
 Przeniesienie zasobów do innej subskrypcji, obejmują **- DestinationSubscriptionId** parametru. 
 
-    Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vm.ResourceId, $storageAccount.ResourceId, $diagStorageAccount.ResourceId, $vNet.ResourceId, $nic.ResourceId, $ip.ResourceId, $nsg.ResourceId
+```azurepowershell-interactive
+Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+    -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+    -ResourceId <myResourceId,myResourceId,myResourceId>
+```
 
 
-
-Użytkownik jest proszony o potwierdzenie, że chcesz przenieść określonych zasobów. Typ **Y** aby upewnić się, że chcesz przenieść zasoby.
+Użytkownik jest proszony o potwierdzenie, że chcesz przenieść określonych zasobów. 
 
 ## <a name="next-steps"></a>Następne kroki
 Wiele różnych typów zasobów można przenosić między grupami zasobów i subskrypcje. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](../../resource-group-move-resources.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).    

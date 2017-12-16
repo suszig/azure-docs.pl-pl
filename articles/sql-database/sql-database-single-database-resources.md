@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Zarządzanie zasobami dla pojedynczej bazy danych w bazie danych SQL Azure
 
@@ -35,6 +35,10 @@ Aby ustawić lub zmienić warstwę usługi, poziom wydajności lub wielkość ma
 
 ![Konfigurowanie usługi warstwę i poziom wydajności](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Kliknij przycisk **omówienie** do monitorowania i/lub Anuluj trwającą operację.
+
+![Anuluj operację](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Przegląd [bieżące ograniczenia P11 i P15 z replikacją baz danych, maksymalny rozmiar 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) podczas wybierania P11 lub P15 warstwy usług.
 >
@@ -48,6 +52,8 @@ Ustawianie lub zmienianie bazy danych Azure SQL warstwy usług, poziomów wydajn
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Tworzy bazę danych |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Pobiera jeden lub więcej baz danych|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Ustawia właściwości dla bazy danych lub przenosi istniejącą bazę danych do puli elastycznej. Na przykład użyć **MaxSizeBytes** właściwości można ustawić maksymalny rozmiar bazy danych.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Pobiera stan operacji w bazie danych. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Anuluje operację asynchroniczną aktualizacji w bazie danych.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Ustawianie lub zmienianie bazy danych Azure SQL warstwy usług, poziomów wydajn
 |[Pokaż reguły zapory serwera sql az](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Wyświetla szczegóły reguły zapory|
 |[Aktualizacja reguły zapory programu sql server az](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Aktualizuje regułę zapory|
 |[Usuwanie reguły zapory serwera sql az](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Usuwa regułę zapory|
-
+|[Lista op bazy danych sql az](/cli/azure/sql/db/op?#az_sql_db_op_list)|Pobiera listę operacji wykonywanych na bazie danych.|
+|[Anuluj op bazy danych sql az](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Anuluje operację asynchroniczną na bazie danych.|
 
 > [!TIP]
 > Aby uzyskać skrypt wiersza polecenia platformy Azure, która może obsłużyć pojedynczej bazy danych Azure SQL do poziomu wydajności różnych po podczas badania informacji rozmiar bazy danych, zobacz [Użyj interfejsu wiersza polecenia, aby monitorować i skalowania pojedynczej bazy danych SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Ustawianie lub zmienianie bazy danych Azure SQL warstwy usług, poziomów wydajn
 |[Bazy danych — lista według zalecana liczba elastycznych pul](/rest/api/sql/databases/listbyrecommendedelasticpool)|Zwraca listę baz danych wewnątrz recommented puli elastycznej.|
 |[Bazy danych — lista przez serwer](/rest/api/sql/databases/listbyserver)|Zwraca listę baz danych na serwerze.|
 |[Bazy danych — aktualizacja](/rest/api/sql/databases/update)|Aktualizuje istniejącą bazę danych.|
+|[Operacje — listy](/rest/api/sql/Operations/List)|Wyświetla listę wszystkich dostępnych operacji interfejsu API Rest SQL.|
 
 
 

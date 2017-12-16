@@ -1,6 +1,6 @@
 ---
-title: "Przycinanie zabezpieczeń z usługi Azure Search"
-description: "Implementowanie przycinanie zabezpieczeń za pomocą usługi Azure Search filtrów."
+title: "Filtry zabezpieczeń dla wyników przycinania w usłudze Azure Search | Dokumentacja firmy Microsoft"
+description: "Kontrolę dostępu do zawartości usługi Azure Search przy użyciu filtrów zabezpieczeń i tożsamości użytkowników."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Przycinanie zabezpieczeń z usługi Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtry zabezpieczeń dla wyników przycinania w usłudze Azure Search
 
-Filtrów zabezpieczeń można stosować w wynikach wyszukiwania, aby ograniczyć dostęp do dokumentów na podstawie tożsamości użytkownika. Ta wersja wyszukiwania wymaga zwykle porównanie tożsamości kto żądania wyszukiwania względem pola zawierającego zasady, którzy mają uprawnienia do dokumentu. Po znalezieniu dopasowania użytkownika lub podmiot zabezpieczeń (np. grupy lub roli) ma dostęp do tego dokumentu.
+Możesz zastosować filtry zabezpieczeń, aby przyciąć wyniki wyszukiwania w usłudze Azure Search na podstawie tożsamości użytkownika. Ta wersja wyszukiwania wymaga zwykle porównanie tożsamości kto żądania wyszukiwania względem pola zawierającego zasady, którzy mają uprawnienia do dokumentu. Po znalezieniu dopasowania użytkownika lub podmiot zabezpieczeń (np. grupy lub roli) ma dostęp do tego dokumentu.
 
 Jednym ze sposobów osiągnięcia zabezpieczeń filtrowania odbywa się za pośrednictwem skomplikowane rozłączenia wyrażeń równości: na przykład `Id eq 'id1' or Id eq 'id2'`, itd. Ta metoda jest podatne na błędy, trudne w utrzymaniu i w przypadkach, gdy lista zawiera setek lub tysięcy wartości spowalnia czas odpowiedzi na zapytanie o liczbę sekund. 
 
@@ -155,3 +155,8 @@ Należy pobrać je ponownie, gdy `group_ids` zawiera "group_id1" lub "group_id2"
 
 Jest to, jak można filtrować wyniki na podstawie tożsamości użytkownika i usługi Azure Search `search.in()` funkcji. Ta funkcja służy do przekazania w identyfikatorach podmiotu zabezpieczeń dla użytkownika do dopasowania do głównej identyfikatorów skojarzonych z każdym dokumencie docelowym. Podczas obsługi żądania wyszukiwania `search.in` funkcja odfiltrowuje wyniki wyszukiwania, dla których żaden z podmiotów zabezpieczeń użytkownika nie ma dostępu do odczytu. Identyfikatory główna może reprezentować np. grupy zabezpieczeń, ról lub nawet tożsamości przez użytkownika.
  
+## <a name="see-also"></a>Zobacz też
+
++ [Kontrola dostępu na podstawie tożsamości katalogu Active za pomocą usługi Azure Search filtrów](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtry w usłudze Azure Search](search-filters.md)
++ [Dane zabezpieczeń i kontroli dostępu w ramach operacji usługi Azure Search](search-security-overview.md)

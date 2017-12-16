@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Szyfrowanie usługi Azure Storage dla danych magazynowanych
 Azure magazynu usługi szyfrowania (SSE) dla danych magazynowanych pomaga chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Przy użyciu tej funkcji usługi Magazyn Azure szyfruje dane przed wprowadzeniem trwałych do magazynu i automatycznie odszyfrowuje przed pobierania. Szyfrowania, odszyfrowywania i zarządzania kluczami są całkowicie niewidoczne dla użytkowników.
@@ -159,7 +159,7 @@ Odpowiedź: nie w tej chwili; klucze są w pełni zarządzany przez firmę Micro
 
 **Pytanie: jest SSE domyślnie włączona, tworząc nowe konto magazynu?**
 
-Odpowiedź: SSE nie jest włączona domyślnie; Aby je włączyć, można użyć portalu Azure. Można również programowo włączyć tę funkcję za pomocą interfejsu API REST dostawcy zasobów magazynu.
+A: Trwa włączanie szyfrowania domyślnie przy użyciu kluczy zarządzanego firmy Microsoft dla wszystkich danych, które są zapisywane do magazynu Azure (magazyn obiektów Blob, plików, tabel i kolejki) i dla wszystkich kont magazynu (usługi Azure Resource Manager i Model Klasyczny magazyn zespół usługi Azure Storage kont), istniejących i nowych.
 
 **Pytanie: jak różni się od szyfrowania dysków Azure?**
 

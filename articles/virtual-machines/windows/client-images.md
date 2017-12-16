@@ -4,7 +4,7 @@ description: "Jak używać korzyści z subskrypcji programu Visual Studio do wdr
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Używanie klienta systemu Windows na platformie Azure scenariusze tworzenia/testowania
 Można użyć systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scenariusze tworzenia/testowania, pod warunkiem, że masz odpowiednie subskrypcji programu Visual Studio (dawniej MSDN). W tym artykule opisano wymagania kwalifikuje uruchomionej klienta systemu Windows Azure i używanie obrazów w galerii Azure.
@@ -26,7 +26,7 @@ Można użyć systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scena
 ## <a name="subscription-eligibility"></a>Uprawnienia subskrypcji
 Aktywnych subskrybentów usługi Visual Studio (osoby, które zostały nabyte licencji subskrypcji programu Visual Studio) można użyć klienta systemu Windows do projektowania i testowania. Klient systemu Windows może być używany na własnego sprzętu i Azure maszyny wirtualne działające w dowolny typ subskrypcji platformy Azure. Klienta systemu Windows może nie być wdrożone na używane na platformie Azure do użytku produkcyjnego normalne lub używane przez różne osoby, których nie ma aktywnych subskrybentów usługi Visual Studio.
 
-Dla wygody użytkownika firma Microsoft udostępnione niektórych obrazów systemu Windows 10 z galerii Azure w ramach [oferuje kwalifikujących się tworzenie/testowanie](#eligible-offers). Subskrybentów usługi Visual Studio w obrębie dowolnego typu oferty może również [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10, a następnie [przekazać Azure](upload-generalized-managed.md). Użycie pozostaje ograniczone do: tworzenie i testowanie przez aktywnych subskrybentów usługi Visual Studio.
+Dla wygody niektórych obrazów systemu Windows 10 są dostępne w galerii Azure w ramach [oferuje kwalifikujących się tworzenie/testowanie](#eligible-offers). Subskrybentów usługi Visual Studio w obrębie dowolnego typu oferty może również [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10, a następnie [przekazać Azure](upload-generalized-managed.md). Użycie pozostaje ograniczone do: tworzenie i testowanie przez aktywnych subskrybentów usługi Visual Studio.
 
 ## <a name="eligible-offers"></a>Kwalifikujące się oferty
 W poniższej tabeli przedstawiono oferta identyfikatorów, które kwalifikują się do wdrażania systemu Windows 10 za pomocą galerii Azure. Obrazy systemu Windows 10 są widoczne tylko dla następujących ofert. Visual Studio subskrybentów, którzy muszą uruchomić klienta systemu Windows w typie inną ofertę wymagają [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10 i [następnie przekazać do usługi Azure](upload-generalized-managed.md).
@@ -45,11 +45,11 @@ W poniższej tabeli przedstawiono oferta identyfikatorów, które kwalifikują s
 ## <a name="check-your-azure-subscription"></a>Sprawdź subskrypcji platformy Azure
 Jeśli nie znasz Identyfikatora oferty, możesz go uzyskać za pośrednictwem portalu Azure w jeden z tych dwóch sposobów:  
 
-- W bloku "Subskrypcji":
+- Na *subskrypcje* okno:
 
   ![Szczegóły identyfikator oferty w portalu Azure](./media/client-images/offer-id-azure-portal.png) 
 
-- Lub kliknij przycisk **rozliczeń** a następnie kliknij przycisk Twojego identyfikatora subskrypcji. Identyfikator oferty jest wyświetlany w bloku rozliczenia.
+- Lub kliknij przycisk **rozliczeń** a następnie kliknij przycisk Twojego identyfikatora subskrypcji. Oferta identyfikator jest wyświetlany w *rozliczeń* okna.
 
 Można również wyświetlić identyfikator oferty z [kartę "Subskrypcji"](http://account.windowsazure.com/Subscriptions) w portalu konta usługi Azure:
 

@@ -1,7 +1,7 @@
 | Zasób | Obiekt docelowy | Nienaruszalne ograniczenie |
 |----------|--------------|------------|
 | Magazyn usługi synchronizacji na subskrypcję | 15 usługi synchronizacji magazynu | Nie |
-| Synchronizacji grupy dla usługi synchronizacji magazynu | 20 grup synchronizacji | Nie |
+| Synchronizacji grupy dla usługi synchronizacji magazynu | 30 grupy synchronizacji | Tak |
 | Punkty końcowe chmury dla każdej grupy synchronizacji | punkt końcowy 1 chmury | Tak |
 | Punkty końcowe serwera dla grupy synchronizacji | 50 punktów końcowych serwera | Nie |
 | Punkty końcowe serwera na serwer | punkty końcowe serwera 33 – 99 | Tak, ale w zależności od konfiguracji |

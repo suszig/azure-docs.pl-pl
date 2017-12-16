@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych N-series systemem Linux
 
@@ -32,6 +32,150 @@ Dane techniczne, wielkości magazynu i dysku szczegóły wirtualna N-series, zob
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Zainstaluj sterowniki CUDA NC, NCv2 i ND maszyny wirtualne
+
+Poniżej przedstawiono kroki, aby zainstalować sterowniki NVIDIA na maszynach wirtualnych NC Linux z zestawu narzędzi CUDA NVIDIA. 
+
+Deweloperzy C i C++ może opcjonalnie zainstalować pełny zestaw narzędzi do tworzenia aplikacji przyspieszony procesora GPU. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> Łącza pobierania sterowników CUDA podane w tym miejscu są aktualne w momencie publikacji. Najnowsze sterowniki CUDA, odwiedź stronę [NVIDIA](https://developer.nvidia.com/cuda-zone) witryny sieci Web.
+>
+
+Aby zainstalować zestaw narzędzi CUDA, należy utworzyć połączenie SSH na każdej maszynie Wirtualnej. Aby zweryfikować, że system ma obsługą CUDA procesora GPU, uruchom następujące polecenie:
+
+```bash
+lspci | grep -i NVIDIA
+```
+Zostaną wyświetlone dane wyjściowe podobne do poniższego przykładu (pokazywanie karty NVIDIA tesla — K80):
+
+![dane wyjściowe polecenia lspci](./media/n-series-driver-setup/lspci.png)
+
+Następnie uruchom instalację polecenia specyficzne dla dystrybucji.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Pobierz i zainstaluj sterowniki CUDA.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  Instalacja może zająć kilka minut.
+
+2. Opcjonalnie zainstalować pełny zestaw CUDA, wpisz:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Ponowny rozruch maszyny Wirtualnej, a następnie przejdź do weryfikacji instalacji.
+
+#### <a name="cuda-driver-updates"></a>Aktualizacje sterowników CUDA
+
+Firma Microsoft zaleca okresowej aktualizacji sterowników CUDA po wdrożeniu.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
+
+1. Zainstaluj najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V.
+
+  > [!IMPORTANT]
+  > Jeśli obraz na podstawie CentOS HPC jest zainstalowany na maszynie Wirtualnej NC24r, przejdź do kroku 3. Ponieważ sterowniki Azure RDMA i usługi integracji systemu Linux są wstępnie zainstalowane w obrazie HPC, LIS nie powinny zostać uaktualnione, a aktualizacje jądra są domyślnie wyłączone.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Połącz się ponownie do maszyny Wirtualnej i kontynuować instalację za pomocą następujących poleceń:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  Instalacja może zająć kilka minut. 
+
+4. Opcjonalnie zainstalować pełny zestaw CUDA, wpisz:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Ponowny rozruch maszyny Wirtualnej, a następnie przejdź do weryfikacji instalacji.
+
+
+### <a name="verify-driver-installation"></a>Sprawdzić, czy instalacja sterownika
+
+
+Się zapytanie o stan urządzenia procesora GPU, SSH maszyny Wirtualnej i uruchom [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) zainstalowane ze sterownikiem narzędzie wiersza polecenia. 
+
+Jeśli sterownik jest zainstalowany, pojawi się dane wyjściowe podobne do następującego. Należy pamiętać, że **GPU Util** przedstawia 0%, chyba że obciążenie procesora GPU są aktualnie uruchomione na maszynie Wirtualnej. Wersja sterownika, a szczegóły GPU mogą być inne niż te wyświetlane.
+
+![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>Połączenie sieciowe RDMA
+
+Połączenie sieciowe RDMA można włączyć na maszynach wirtualnych, N-series z funkcją RDMA, takie jak NC24r wdrożone w tym samym zestawie dostępności. Sieć RDMA obsługuje ruch interfejsu Message (Passing) dla aplikacji działających z Intel MPI 5.x lub nowszej wersji. Wykonaj dodatkowe wymagania:
+
+### <a name="distributions"></a>Dystrybucje
+
+Wdrażanie z funkcją RDMA N serii maszyn wirtualnych z jednego z następujących obrazów w portalu Azure Marketplace obsługującej funkcję RDMA połączenia:
+  
+* **Ubuntu** -LTS Ubuntu Server 16.04. Konfigurowanie sterowników RDMA na maszynie Wirtualnej i rejestrowanie z Intel, aby pobrać Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **Na podstawie centOS HPC** — na podstawie CentOS 7.3 HPC. Sterowniki RDMA i Intel MPI 5.1 są zainstalowane na maszynie Wirtualnej. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Zainstaluj sterowniki siatki dla maszyn wirtualnych z wirtualizacją sieci
 
@@ -95,10 +239,6 @@ Aby zainstalować sterowniki NVIDIA siatki na maszynach wirtualnych z wirtualiza
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Nie uruchamiaj `sudo yum update` aktualizację wersji jądra na CentOS 7.3 lub Red Hat Enterprise Linux 7.3. Obecnie instalacji sterowników i aktualizacji nie działają, jeśli jądra jest aktualizowany.
->
-
 1. Jądra i DKMS aktualizacji.
  
   ```bash  
@@ -122,9 +262,9 @@ Aby zainstalować sterowniki NVIDIA siatki na maszynach wirtualnych z wirtualiza
 3. Ponowny rozruch maszyny Wirtualnej, połącz się ponownie i zainstalować najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ Aby zainstalować sterowniki NVIDIA siatki na maszynach wirtualnych z wirtualiza
 
 Się zapytanie o stan urządzenia procesora GPU, SSH maszyny Wirtualnej i uruchom [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) zainstalowane ze sterownikiem narzędzie wiersza polecenia. 
 
-Zostaną wyświetlone dane wyjściowe podobne do następującego. Wersja sterownika, a szczegóły GPU mogą być inne niż te wyświetlane.
+Jeśli sterownik jest zainstalowany, pojawi się dane wyjściowe podobne do następującego. Należy pamiętać, że **GPU Util** przedstawia 0%, chyba że obciążenie procesora GPU są aktualnie uruchomione na maszynie Wirtualnej. Wersja sterownika, a szczegóły GPU mogą być inne niż te wyświetlane.
 
 ![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,152 +342,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Ten plik może być wywoływany jako główny na rozruch, tworząc wpis dla niego w `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>Zainstaluj sterowniki CUDA NC maszyn wirtualnych
-
-Poniżej przedstawiono kroki, aby zainstalować sterowniki NVIDIA na maszynach wirtualnych NC Linux z zestawu narzędzi CUDA NVIDIA. 
-
-Deweloperzy C i C++ może opcjonalnie zainstalować pełny zestaw narzędzi do tworzenia aplikacji przyspieszony procesora GPU. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> Łącza pobierania sterowników CUDA podane w tym miejscu są aktualne w momencie publikacji. Najnowsze sterowniki CUDA, odwiedź stronę [NVIDIA](https://developer.nvidia.com/cuda-zone) witryny sieci Web.
->
-
-Aby zainstalować zestaw narzędzi CUDA, należy utworzyć połączenie SSH na każdej maszynie Wirtualnej. Aby zweryfikować, że system ma obsługą CUDA procesora GPU, uruchom następujące polecenie:
-
-```bash
-lspci | grep -i NVIDIA
-```
-Zostaną wyświetlone dane wyjściowe podobne do poniższego przykładu (pokazywanie karty NVIDIA tesla — K80):
-
-![dane wyjściowe polecenia lspci](./media/n-series-driver-setup/lspci.png)
-
-Następnie uruchom instalację polecenia specyficzne dla dystrybucji.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Pobierz i zainstaluj sterowniki CUDA.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  Instalacja może zająć kilka minut.
-
-2. Opcjonalnie zainstalować pełny zestaw CUDA, wpisz:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. Ponowny rozruch maszyny Wirtualnej, a następnie przejdź do weryfikacji instalacji.
-
-#### <a name="cuda-driver-updates"></a>Aktualizacje sterowników CUDA
-
-Firma Microsoft zaleca okresowej aktualizacji sterowników CUDA po wdrożeniu.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Na podstawie centOS 7.3 lub Red Hat Enterprise Linux 7.3
-
-1. Zainstaluj najnowszą wersję usług integracji systemu Linux dla funkcji Hyper-V.
-
-  > [!IMPORTANT]
-  > Jeśli obraz na podstawie CentOS HPC jest zainstalowany na maszynie Wirtualnej NC24r, przejdź do kroku 3. Ponieważ sterowniki Azure RDMA i usługi integracji systemu Linux są wstępnie zainstalowane w obrazie HPC, LIS nie powinny zostać uaktualnione, a aktualizacje jądra są domyślnie wyłączone.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. Połącz się ponownie do maszyny Wirtualnej i kontynuować instalację za pomocą następujących poleceń:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  Instalacja może zająć kilka minut. 
-
-4. Opcjonalnie zainstalować pełny zestaw CUDA, wpisz:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. Ponowny rozruch maszyny Wirtualnej, a następnie przejdź do weryfikacji instalacji.
-
-
-### <a name="verify-driver-installation"></a>Sprawdzić, czy instalacja sterownika
-
-
-Się zapytanie o stan urządzenia procesora GPU, SSH maszyny Wirtualnej i uruchom [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) zainstalowane ze sterownikiem narzędzie wiersza polecenia. 
-
-Zostaną wyświetlone dane wyjściowe podobne do następujących:
-
-![Stan urządzenia NVIDIA](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA sieci dla maszyn wirtualnych NC24r
-
-Połączenie sieciowe RDMA można włączyć dla NC24r maszyn wirtualnych wdrożonych w tym samym zestawie dostępności. Sieć RDMA obsługuje ruch interfejsu Message (Passing) dla aplikacji działających z Intel MPI 5.x lub nowszej wersji. Wykonaj dodatkowe wymagania:
-
-### <a name="distributions"></a>Dystrybucje
-
-Wdrażanie maszyn wirtualnych NC24r z jednego z następujących obrazów w portalu Azure Marketplace obsługującej funkcję RDMA połączenia:
-  
-* **Ubuntu** -LTS Ubuntu Server 16.04. Konfigurowanie sterowników RDMA na maszynie Wirtualnej i rejestrowanie z Intel, aby pobrać Intel MPI:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **Na podstawie centOS HPC** — na podstawie CentOS 7.3 HPC. Sterowniki RDMA i Intel MPI 5.1 są zainstalowane na maszynie Wirtualnej. 
-
-
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * Istnieje znany problem dotyczący CUDA sterowników w N-series maszyny wirtualne platformy Azure systemem jądra systemu Linux 4.4.0-75 Ubuntu 16.04 LTS. Jeśli uaktualniasz z wcześniejszej wersji jądra, uaktualnienie do co najmniej 4.4.0-77 wersji jądra.
@@ -356,9 +350,5 @@ Wdrażanie maszyn wirtualnych NC24r z jednego z następujących obrazów w porta
 
 
 ## <a name="next-steps"></a>Następne kroki
-
-* Aby uzyskać więcej informacji o NVIDIA GPU na maszynach wirtualnych N-series zobacz:
-    * [NVIDIA tesla — K80](http://www.nvidia.com/object/tesla-k80.html) (w przypadku maszyn wirtualnych Azure NC)
-    * [NVIDIA tesla — M60](http://www.nvidia.com/object/tesla-m60.html) (w przypadku maszyn wirtualnych z wirtualizacją sieci Azure)
 
 * Aby przechwycić obraz maszyny Wirtualnej systemu Linux z zainstalowanych sterowników NVIDIA, zobacz [generalize i przechwytywaniu maszyny wirtualnej systemu Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

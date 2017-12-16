@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
-ms.date: 10/05/2017
+ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: a001ae116e33e0b7be4431b0bc4c8bb319f4e801
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Często zadawane pytania dotyczące programu SQL Server na maszynach wirtualnych Azure systemu Linux
 
@@ -24,22 +24,42 @@ ms.lasthandoff: 10/11/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](sql-server-linux-faq.md)
 
-W tym temacie przedstawiono odpowiedzi na niektóre często zadawane pytania dotyczące uruchamiania [programu SQL Server na maszynach wirtualnych Azure Linux](sql-server-linux-virtual-machines-overview.md).
+Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące uruchamiania [programu SQL Server na maszynach wirtualnych Azure Linux](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Ten temat koncentruje się na kwestie związane z programem SQL Server na maszynach wirtualnych systemu Linux. Jeśli używasz programu SQL Server na maszynach wirtualnych systemu Windows, temacie [systemu Windows — często zadawane pytania](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> Ten artykuł skupia się na kwestie związane z programem SQL Server na maszynach wirtualnych systemu Linux. Jeśli używasz programu SQL Server na maszynach wirtualnych systemu Windows, temacie [systemu Windows — często zadawane pytania](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
+## <a id="images"></a>Obrazy
+
+1. **Jakie galerii obrazów maszyny wirtualnej programu SQL Server są dostępne?**
+
+   Azure obsługuje obrazy maszyny wirtualnej dla wszystkich obsługiwanych wersjach głównych programu SQL Server we wszystkich wersjach systemu dla systemów Linux i Windows. Aby uzyskać więcej informacji, zobacz pełną listę [obrazów maszyny Wirtualnej systemu Linux](sql-server-linux-virtual-machines-overview.md#create) i [obrazów maszyn wirtualnych systemu Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+
+1. **Istniejących obrazów Galeria maszyny wirtualnej programu SQL Server są aktualizowane?**
+
+   Co dwa miesiące obrazów programu SQL Server w galerii maszyn wirtualnych są aktualizowane przy użyciu najnowszych systemu Linux i aktualizacji systemu Windows. W przypadku obrazów systemu Linux w tym najnowsze aktualizacje systemu. W przypadku obrazów systemu Windows w tym wszelkie aktualizacje, które są oznaczone jako ważne w usłudze Windows Update, włączając ważne aktualizacje zabezpieczeń programu SQL Server i dodatków service pack. Aktualizacje zbiorcze programu SQL Server są obsługiwane inaczej dla systemów Linux i Windows. Dla systemu Linux aktualizacji zbiorczych programu SQL Server znajdują się również w odświeżania. Ale w tej chwili maszyn wirtualnych systemu Windows nie są aktualizowane z programu SQL Server lub Windows Server aktualizacjami zbiorczymi.
+
+1. **Co powiązanych pakietów programu SQL Server są również instalowane?**
+
+   Aby wyświetlić pakiety programu SQL Server, które są instalowane domyślnie na maszynach wirtualnych systemu Linux serwera SQL, zobacz [zainstalowane pakiety](sql-server-linux-virtual-machines-overview.md#packages).
+
+1. **Obrazy maszyny wirtualnej programu SQL Server uzyskać wyjąć z galerii?**
+
+   Tak. Azure obsługuje tylko jeden obraz na głównych wersji i wydania. Na przykład po wydaniu nowego dodatku service pack programu SQL Server Azure dodaje nowy obraz w galerii tego dodatku service pack. Obraz programu SQL Server dla poprzedniego dodatku service pack jest od razu usunięte z portalu Azure. Jednak jest wciąż dostępna na potrzeby inicjowania obsługi administracyjnej z programu PowerShell dla trzy kolejne miesiące. Po upływie trzech miesięcy poprzednie obrazu dodatku service pack nie jest już dostępny. Te zasady usuwania również będą miały zastosowania, jeśli po osiągnie koniec cyklu jego życia, jest nieobsługiwana wersja programu SQL Server.
+
+## <a name="creation"></a>Tworzenie
 
 1. **Jak utworzyć maszynę wirtualną systemu Linux platformy Azure z programem SQL Server?**
 
    Najlepszym rozwiązaniem jest tworzenie maszyny wirtualnej systemu Linux, który zawiera program SQL Server. Samouczek dotyczący rejestracji na platformie Azure i tworzenia maszyny Wirtualnej SQL z portalu, zobacz [Aprowizowanie maszyny wirtualnej systemu Linux programu SQL Server, w portalu Azure](provision-sql-server-linux-virtual-machine.md). Istnieje również opcja ręcznego instalowania programu SQL Server na maszynie Wirtualnej w trybie za darmo licencjonowanej (deweloperem lub Express) lub przez ponowne użycie licencji usługi lokalnej. Jeśli użycie własnej licencji, musisz mieć [przenośność licencji za pośrednictwem programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility).
 
-1. **Jak uaktualnić do nowej wersji/wydania programu SQL Server w maszynie Wirtualnej platformy Azure?**
+1. **Dlaczego nie można udostępnić RHEL lub maszyna wirtualna SLES SQL Server subskrypcji platformy Azure, która jest objęta limitem wydatków?**
 
-   Obecnie nie są bez uaktualnienia w miejscu programu SQL Server w maszynie Wirtualnej platformy Azure. Utworzenie nowej maszyny wirtualnej platformy Azure z żądanej wersji programu SQL Server/wydania, a następnie przeprowadzić migrację bazy danych do nowego serwera przy użyciu [standardowych danych migracji techniki](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   Maszyny wirtualne RHEL i SLES wymagają subskrypcji z limitu wydatków i skojarzone z subskrypcją formę płatności zweryfikowano (zazwyczaj karty kredytowej). Jeśli dostarczasz RHEL lub SLES maszyny Wirtualnej bez usunięcia limitu wydatków, subskrypcja zostanie wyłączone i zatrzymanie wszystkich maszyn wirtualnych/usług. Jeśli zostanie uruchomione w tym stanie, aby ponownie włączyć subskrypcji [usunąć limit wydatków](https://account.windowsazure.com/subscriptions). Zostaną przywrócone z pozostałych środków dla bieżącego cyklu rozliczeniowego, ale RHEL lub wirtualna SLES przeciążenia obrazu zostanie umieszczona przed karty kredytowej Jeśli zdecydujesz się na ponowne uruchomienie i kontynuować jego uruchomieniem.
+
+## <a name="licensing"></a>Licencjonowanie
 
 1. **Jak zainstalować mój licencjonowanej kopii programu SQL Server na maszynie Wirtualnej platformy Azure?**
 
@@ -53,17 +73,23 @@ W tym temacie przedstawiono odpowiedzi na niektóre często zadawane pytania dot
 
    Nie. Nie można zmienić na przy użyciu własnej licencji Licencjonowanie płatności na minutę. Należy utworzyć nową maszynę Wirtualną systemu Linux, instalowania programu SQL Server i migrację danych. Zobacz na powyższe pytanie, aby uzyskać więcej informacji na temat przełączania własnej licencji.
 
-1. **Co powiązanych pakietów programu SQL Server są również instalowane?**
+## <a name="administration"></a>Administracja
 
-   Aby wyświetlić pakiety programu SQL Server, które są instalowane domyślnie na maszynach wirtualnych systemu Linux serwera SQL, zobacz [zainstalowane pakiety](sql-server-linux-virtual-machines-overview.md#packages).
+1. **Czy mogę zarządzać maszyny wirtualnej systemu Linux programu SQL Server z programu SQL Server Management Studio (SSMS)**
+
+   Tak, ale SSMS jest obecnie narzędzia systemu Windows. Należy połączyć zdalnie z komputera z systemem Windows do użycia narzędzia SSMS z maszyn wirtualnych systemu Linux programu SQL Server. Lokalnie w systemie Linux nowe [mssql conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) narzędzie można wykonywać wielu zadań administracyjnych. Aby wyświetlić podgląd narzędzia do zarządzania i platform bazy danych, zobacz [Studio operacji serwera SQL (wersja zapoznawcza)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
+
+1. **Jak uaktualnić do nowej wersji/wydania programu SQL Server w maszynie Wirtualnej platformy Azure?**
+
+   Obecnie nie są bez uaktualnienia w miejscu programu SQL Server w maszynie Wirtualnej platformy Azure. Utworzenie nowej maszyny wirtualnej platformy Azure z żądanej wersji programu SQL Server/wydania, a następnie przeprowadzić migrację bazy danych do nowego serwera przy użyciu [standardowych danych migracji techniki](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+
+## <a name="general"></a>Ogólne
 
 1. **Rozwiązania wysokiej dostępności programu SQL Server są obsługiwane na maszynach wirtualnych Azure?**
 
    Nie w tej chwili. Zawsze włączone grupy dostępności i klaster pracy awaryjnej wymagają klastrowania rozwiązania w systemie Linux, takich jak rozrusznik. Obsługiwane dystrybucje systemu Linux dla programu SQL Server nie obsługują ich dodatki wysokiej dostępności w chmurze.
-
-1. **Dlaczego nie można udostępnić RHEL lub maszyna wirtualna SLES SQL Server subskrypcji platformy Azure, która jest objęta limitem wydatków?**
-
-   Maszyny wirtualne RHEL i SLES wymagają subskrypcji z limitu wydatków i skojarzone z subskrypcją formę płatności zweryfikowano (zazwyczaj karty kredytowej). Jeśli dostarczasz RHEL lub SLES maszyny Wirtualnej bez usunięcia limitu wydatków, subskrypcja zostanie wyłączone i zatrzymanie wszystkich maszyn wirtualnych/usług. Jeśli zostanie uruchomione w tym stanie, aby ponownie włączyć subskrypcji [usunąć limit wydatków](https://account.windowsazure.com/subscriptions). Zostaną przywrócone z pozostałych środków dla bieżącego cyklu rozliczeniowego, ale RHEL lub wirtualna SLES przeciążenia obrazu zostanie umieszczona przed karty kredytowej Jeśli zdecydujesz się na ponowne uruchomienie i kontynuować jego uruchomieniem.
 
 ## <a name="resources"></a>Zasoby
 

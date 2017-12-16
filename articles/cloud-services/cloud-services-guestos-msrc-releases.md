@@ -12,23 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
+
+## <a name="november-guest-os"></a>Listopad systemu operacyjnego gościa
+| Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
+| --- | --- | --- | --- | --- |
+| ReL 17 10 | [4048953] |Aktualizacje systemu Windows 10 |5.13 |14 listopada 2017 r. |
+| ReL 17 10 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2.68, 3.55, 4.48 |14 listopada 2017 r. |
+| ReL 17 10 | [4047206] |Program Internet explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
+| ReL 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 listopada 2017 r. |
+| Nie dotyczy | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.67 |10 października 2017 r. |
+| Nie dotyczy | [4041690] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |3.55 |10 października 2017 r. |
+| Nie dotyczy | [4041693] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |4.48 |10 października 2017 r. |
+| Nie dotyczy | [3191565] |Aktualizacja dla systemu Windows Management Framework 5.1  |3.55 |12 września 2017 r. |
+| Nie dotyczy | [3191564] |Aktualizacja dla systemu Windows Management Framework 5.1  |4.48 |12 września 2017 r. |
 
 ## <a name="october-guest-os"></a>Październik systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | ReL 17 10 | [4041691] |Aktualizacje systemu Windows 10 |5.12 |10 października 2017 r. |
 | ReL 17 10 | [4041678], [4041679], [4041687] |Tylko zabezpieczenia systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
-| ReL 17 10 | [4040685], |Program Internet Explorer |2.67, 3.54, 4.47 |10 października 2017 r. |
+| ReL 17 10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 października 2017 r. |
 | ReL 17 10 | [4041681], [4041690], [4041693] |Pakiety zbiorcze miesięczne systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
 | Nie dotyczy | [4038777] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |2.67 |12 września 2017 r. |
 | Nie dotyczy | [4038799] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |3.54 |12 września 2017 r. |
@@ -56,7 +69,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-07 | [4034679] |Tylko zabezpieczenia systemu Windows |2.65 |8 sierpnia 2017 r. |
 | ReL 17-07 | [4034672] |Tylko zabezpieczenia systemu Windows |4.45 |8 sierpnia 2017 r. |
 | ReL 17-07 | [4034666] |Tylko zabezpieczenia systemu Windows |3.52 |8 sierpnia 2017 r. |
-| ReL 17-07 | [4034733] |Program Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 sierpnia 2017 r. |
+| ReL 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 sierpnia 2017 r. |
 | ReL 17-07 | [4034664], [4034665], [4034681] |Pakiety zbiorcze miesięczne systemu Windows |2.65, 3.52, 4.45 |8 sierpnia 2017 r. |
 | ReL 17-07 | [4034668], [4034660], [4034658], [4034674] |Nowe wydanie CVE-2017-0071, ponownego opublikowania CVE-2017-0228 |5.10 |8 sierpnia 2017 r. |
 | ReL 17-07 | [4025341] |Zbiorcze informacje z systemem innym niż zabezpieczeniach lipca |2.65 |11 lipca 2017 r. |
@@ -71,7 +84,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-07 | [4025333] |Tylko zabezpieczenia systemu Windows |4.44 |11 lipca 2017 r. |
 | ReL 17-07 | [4025343] |Tylko zabezpieczenia systemu Windows |3.51 |11 lipca 2017 r. |
 | ReL 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |11 lipca 2017 r. |
-| ReL 17-07 | [4025252] |Program Internet Explorer |2.64, 3.51, 4.44 |11 lipca 2017 r. |
+| ReL 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 lipca 2017 r. |
 | Nie dotyczy | [4020322] |Aktualizacja strefy czasowej |2.64, 3.51, 4.44 |11 lipca 2017 r. |
 | Nie dotyczy | [4022719] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |2.64 |13 czerwca 2017 r. |
 | Nie dotyczy | [4022724] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |3.51 |13 czerwca 2017 r. |
@@ -84,7 +97,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-06 | [4022722] |Tylko zabezpieczenia systemu Windows |2.63 |13 czerwca 2017 r. |
 | ReL 17-06 | [4022717] |Tylko zabezpieczenia systemu Windows |4.43 |13 czerwca 2017 r. |
 | ReL 17-06 | [4022718] |Tylko zabezpieczenia systemu Windows |3.50 |13 czerwca 2017 r. |
-| ReL 17-06 | [4021558] |Program Internet Explorer|2.63, 3.50, 4.43 |13 czerwca 2017 r. |
+| ReL 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 czerwca 2017 r. |
 | ReL 17-06 | [4022719], [4022724], [4022726] |Pakiety zbiorcze miesięczne systemu Windows |2.63, 3.50, 4.43 |13 czerwca 2017 r. |
 | ReL 17-06 | [4022730] |Aktualizacja zabezpieczeń dla programu Adobe Flash Player |3.50, 4.43, 5.8 |13 czerwca 2017 r. |
 | ReL 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nowe wydanie CVE-2017-0167 |4.43, 5.8 |11 kwietnia 2017 r. |
@@ -548,6 +561,19 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | Nie dotyczy |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | Nie dotyczy |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

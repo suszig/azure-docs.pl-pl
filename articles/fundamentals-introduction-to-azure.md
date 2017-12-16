@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Wprowadzenie do platformy Microsoft Azure
 Microsoft Azure to platforma aplikacji firmy Microsoft dla chmury publicznej.  Celem tego artykułu jest zapewniają podstawę dla zrozumienia podstaw dotyczących platformy Azure, nawet jeśli nie wiesz nic o chmury obliczeniowej.
@@ -534,6 +534,6 @@ Różnica między nimi jest Marketplace znajduje się poza portalu zarządzania 
 SendGrid jest aplikacji w magazynie Azure, który pozwala na wysyłanie wiadomości e-mail. Zapewnia dodatkowe funkcje takie jak niezawodnego dostarczania i statystyki.  Można kupić tej aplikacji i powiązane usługi zamiast próbować tworzyć takie infrastruktury samodzielnie.  
 
 ## <a name="getting-started"></a>Wprowadzenie
-Teraz, gdy masz duży obraz, następnym krokiem jest napisanie swoją pierwszą aplikację usługi Azure. Wybierz język, [uzyskać odpowiedni zestaw SDK](/downloads/)i przejdź na jej. Chmury obliczeniowej jest nowym domyślnym — Rozpocznij teraz.
+Teraz, gdy masz duży obraz, następnym krokiem jest napisanie swoją pierwszą aplikację usługi Azure. Wybierz język, [uzyskać odpowiedni zestaw SDK](https://azure.microsoft.com/en-us/downloads/)i przejdź na jej. Chmury obliczeniowej jest nowym domyślnym — Rozpocznij teraz.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>Zarządzanie interfejsami API zasad przekształcania
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -264,6 +264,7 @@ W tym przykładzie zasady kieruje żądanie do usługi sieci szkieletowej wewnę
 |rz repliki typu|Dotyczy tylko podczas wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Kontroluje, czy żądanie należy przejść do podstawowej lub pomocniczej replice partycji. |Nie|Nie dotyczy|    
 |rz resolve warunków|Dotyczy tylko w przypadku wewnętrznej bazy danych usługi Service Fabric. Warunek identyfikowania wywołania do zaplecza usługi sieć szkieletowa usług musi być powtarzana z nowego rozwiązania.|Nie|Nie dotyczy|    
 |rz usługi wystąpienie nazwa-|Dotyczy tylko w przypadku wewnętrznej bazy danych usługi Service Fabric. Pozwala zmienić wystąpień usługi w czasie wykonywania. |Nie|Nie dotyczy|    
+|rz odbiornika nazwy|Dotyczy tylko podczas wewnętrznej bazy danych to usługa sieci szkieletowej usług i jest określona za pomocą "wewnętrznej bazy danych id". Usługa sieci szkieletowej niezawodnej usługi umożliwia tworzenie wielu odbiorników w usłudze. Ten atrybut służy do wybierz określony odbiornik, gdy usługa niezawodnej wewnętrznej bazie danych ma więcej niż jeden odbiornik. Jeśli ten atrybut nie jest określony, zarządzanie interfejsami API podejmie próbę użycia odbiornik bez nazwy. Odbiornik bez nazwy jest typowa dla niezawodne usługi, który ma tylko jeden odbiornik. |Nie|Nie dotyczy|  
 
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurowanie i zarządzanie problemy dotyczące usług Azure Cloud Services: często zadawane pytania (FAQ)
 
@@ -98,7 +98,7 @@ Aby skonfigurować statyczny adres IP, należy utworzyć zastrzeżonego adresu I
 Zobacz [ogranicza specyficzne dla usługi](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Dlaczego dysk na Moje maszyny Wirtualnej usługi chmury Wyświetla bardzo mało wolnego miejsca na dysku?
-Jest to oczekiwane zachowanie, a nie powinny powodować jakikolwiek problem do aplikacji. Rejestrowanie jest włączone dla dysku % w maszynach wirtualnych PaaS platformy Azure, który zużywa zasadniczo double ilość miejsca na pliki zwykle zajmują uproot %. Istnieją jednak kilka kwestii, które należy pamiętać, że zasadniczo włączenie tej funkcji do innych niż problem.
+Jest to oczekiwane zachowanie, a nie powinny powodować jakikolwiek problem do aplikacji. Rejestrowanie jest włączone dla dysku % approot % w maszynach wirtualnych PaaS platformy Azure, który zużywa zasadniczo double ilość miejsca na pliki zwykle zajmują. Istnieją jednak kilka kwestii, które należy pamiętać, że zasadniczo włączenie tej funkcji do innych niż problem.
 
 Rozmiar dysku % approot % jest obliczany jako wartość < rozmiar cspkg + rozmiar maksymalny dziennika > + margines wolnego miejsca lub 1,5 GB w zależności od jest większy. Rozmiar maszyny Wirtualnej nie ma żadnych wpływu na tego obliczenia. (Rozmiar maszyny Wirtualnej tylko wpływa na rozmiar tymczasowej dysk C:). 
 

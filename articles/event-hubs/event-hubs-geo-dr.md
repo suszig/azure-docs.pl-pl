@@ -3,7 +3,7 @@ title: "Odzyskiwania po awarii na geograficznie w usłudze Azure Event Hubs | Do
 description: "Jak używać regionów geograficznych do trybu failover i odzyskiwania po awarii w Azure Event Hubs"
 services: event-hubs
 documentationcenter: 
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.service: event-hubs
@@ -11,103 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 94c2782b3166fbc65ae755291a82a2a14556b96f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery-preview"></a>Odzyskiwanie po awarii geograficznie w usłudze Azure Event Hubs (wersja zapoznawcza)
+# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure awarii usługi Event Hubs Geo
 
-Przestój regionalnych centrach danych jest krytyczne do przetwarzania danych w dalszym ciągu działać w innym regionie lub w centrum danych. W efekcie *odzyskiwania po awarii z magazynu geograficznie* i *— replikacja geograficzna* są ważne funkcje dla każdego przedsiębiorstwa. Usługa Azure Event Hubs obsługuje odzyskiwanie po awarii geograficznie i replikacja geograficzna, na poziomie przestrzeni nazw. 
+Gdy cały regiony platformy Azure lub centrów danych (Jeśli nie [stref dostępności](../availability-zones/az-overview.md) są używane) Przestój, jest bardzo istotne dla przetwarzania danych w dalszym ciągu działać w innym regionie lub w centrum danych. W efekcie *odzyskiwania po awarii z magazynu geograficznie* i *— replikacja geograficzna* są ważne funkcje dla każdego przedsiębiorstwa. Usługa Azure Event Hubs obsługuje odzyskiwanie po awarii geograficznie i replikacja geograficzna, na poziomie przestrzeni nazw. 
 
-Funkcja odzyskiwania po awarii geo usługi Azure Event hubs jest rozwiązanie odzyskiwania po awarii. Pojęcia i przepływ pracy opisany w tym artykule należy zastosować scenariuszy awarii, a nie przejściowego lub tymczasowych przestojów.
+Funkcja odzyskiwania po awarii geograficzna jest ogólnie dostępna dla wersji Standard centra zdarzeń.
 
-Szczegółowe omówienie odzyskiwania po awarii na platformie Microsoft Azure, zobacz [w tym artykule](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
+## <a name="outages-and-disasters"></a>Awarie i awarii
 
-## <a name="terminology"></a>Terminologia
+Ważne jest, aby należy zwrócić uwagę różnice między "awarie" i "awarii." *Awarii* jest tymczasowej niedostępności usługi Azure Event hubs i może mieć wpływ na niektóre składniki usługi, takie jak magazynie obsługi komunikatów, lub nawet całe centrum danych. Jednak po usunięciu problemu centra zdarzeń znowu dostępne. Zazwyczaj awarii nie powoduje utraty wiadomości lub innych danych. Przykładem takich awarii może być awarii zasilania w centrum danych. Niektóre awarie są tylko połączenia krótkich straty problemy przejściowe lub sieci. 
 
-**Parowanie**: głównej przestrzeni nazw jest określany jako *active* i odbiera komunikaty. Przestrzeń nazw pracy awaryjnej jest *pasywnym* i nie odbiera wiadomości. Metadanych między nimi jest w synchronizacji, więc zarówno bezproblemowo zaakceptować wiadomości bez żadnych zmian kodu aplikacji. Ustanawianie konfiguracji odzyskiwania po awarii między region aktywnych i pasywnych region jest nazywany *parowanie* regionów.
+A *po awarii* jest zdefiniowany jako stały lub długoterminowego utraty klastra usługi Event Hubs, region platformy Azure lub centrum danych. Region lub centrum danych może nie może stać się dostępne ponownie lub może nie działać przez kilka godzin lub dni. Przykładami takich awarii są fire, zalewania lub trzęsienie ziemi. Po awarii, które staje się stałe może spowodować utratę niektórych komunikatów, zdarzenia lub innych danych. Jednak w większości przypadków nie powinny istnieć bez utraty danych i komunikaty mogą zostać odzyskane po centrum danych kopii zapasowych.
 
-**Alias**: Nazwa konfiguracji odzyskiwania po awarii, który można skonfigurować. Alias zawiera jeden ciąg połączenia stabilna pełni kwalifikowanej domeny nazwę (FQDN). Aplikacje Użyj tych parametrów połączenia alias nawiązać połączenia z przestrzenią nazw.
+Funkcja odzyskiwania po awarii Geo usługi Azure Event hubs jest rozwiązanie odzyskiwania po awarii. Pojęcia i przepływ pracy opisany w tym artykule należy zastosować scenariuszy awarii, a nie przejściowego lub tymczasowych przestojów. Szczegółowe omówienie odzyskiwania po awarii na platformie Microsoft Azure, zobacz [w tym artykule](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-**Metadane**: odwołuje się do nazwy Centrum zdarzeń, grup odbiorców, partycji, jednostek przepływności, jednostki i właściwości, które są skojarzone z przestrzenią nazw.
+## <a name="basic-concepts-and-terms"></a>Podstawowych pojęć i terminów
 
-## <a name="enable-geo-disaster-recovery"></a>Włącz odzyskiwanie po awarii geo
+Funkcja odzyskiwania po awarii implementuje odzyskiwania po awarii metadanych i zależy od usługi przestrzenie nazw odzyskiwania po awarii podstawowego i pomocniczego. Należy pamiętać, że funkcja odzyskiwania po awarii geograficznie dostępne dla [standardowy SKU](https://azure.microsoft.com/pricing/details/event-hubs/) tylko. Nie trzeba wprowadzić zmiany w ciągu połączenia, ponieważ połączenie jest realizowane za pomocą aliasu.
 
-Można włączyć odzyskiwanie po awarii z magazynu geograficznie centra zdarzeń w krokach 3: 
+Poniższe terminy są używane w tym artykule:
 
-1. Utwórz geograficznie parowanie, który tworzy alias parametry połączenia i udostępnia metadane na żywo replikacji. 
-2. Aktualizowanie istniejących parametrów połączenia klienta do aliasu utworzonego w kroku 1.
-3. Inicjuj tryb failover: parowanie geograficznie zostało zerwane i wskazuje alias do dodatkowej przestrzeni nazw jako jego nowej głównej przestrzeni nazw.
+-  *Alias*: Nazwa konfiguracji odzyskiwania po awarii, który można skonfigurować. Alias zawiera jeden ciąg połączenia stabilna pełni kwalifikowanej domeny nazwę (FQDN). Aplikacje Użyj tych parametrów połączenia alias nawiązać połączenia z przestrzenią nazw. 
 
-Na poniższej ilustracji przedstawiono tego przepływu pracy:
+-  *Przestrzeń nazw podstawowe i pomocnicze*: przestrzenie nazw, które odpowiadają alias. Głównej przestrzeni nazw jest "aktywny" i odbiera komunikaty (może to być istniejącej lub nowej przestrzeni nazw). Dodatkowej przestrzeni nazw jest "pasywny" i nie odbiera wiadomości. Metadanych między nimi jest w synchronizacji, więc zarówno bezproblemowo zaakceptować wiadomości bez żadnych zmian ciąg aplikacji, jak kod lub połączenia. Aby upewnić się, że tylko aktywnej przestrzeni nazw odbiera komunikaty, musisz użyć tego aliasu. 
 
-![Parowanie geograficznie przepływu][1] 
+-  *Metadane*: jednostek, takich jak centra zdarzeń i grupy konsumentów; i ich właściwości usługi, które są skojarzone z przestrzenią nazw. Należy zwrócić uwagę na to, czy tylko jednostek i ich ustawienia są automatycznie replikowane. Wiadomości i zdarzeń nie są replikowane. 
 
-### <a name="step-1-create-a-geo-pairing"></a>Krok 1: tworzenie parowanie geo
+-  *Tryb failover*: proces aktywacji dodatkowej przestrzeni nazw.
 
-Aby utworzyć połączenie między dwóch regionach, należy głównej przestrzeni nazw i dodatkowej przestrzeni nazw. Następnie można utworzyć aliasu tworzą pary geo. Po przestrzenie nazw są skojarzone z aliasem, metadane okresowo są replikowane w obu tych przestrzeni nazw. 
+## <a name="setup-and-failover-flow"></a>Przepływ instalacji i trybu failover
 
-Poniższy kod przedstawia, jak to zrobić:
+Poniższa sekcja zawiera omówienie procesu pracy awaryjnej i wyjaśniono, jak skonfigurować początkowej trybu failover. 
 
-```csharp
-ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
-                                    config.PrimaryResourceGroupName,
-                                    config.PrimaryNamespace,
-                                    config.Alias,
-                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
-```
+![1][]
 
-### <a name="step-2-update-existing-client-connection-strings"></a>Krok 2: aktualizowanie istniejących parametrów połączenia klienta
+### <a name="setup"></a>Konfiguracja
 
-Po zakończeniu parowanie z magazynu geograficznie należy zaktualizować parametry połączenia, które wskazują głównej przestrzeni nazw wskaż alias parametry połączenia. Uzyskaj parametry połączenia, jak pokazano w poniższym przykładzie:
+Należy najpierw utworzyć lub użyj istniejącej głównej przestrzeni nazw i nowej dodatkowej przestrzeni nazw, a następnie skojarzyć dwa. Połączenie umożliwia alias, który służy do połączenia. Ponieważ używasz aliasu, nie trzeba zmienić parametry połączenia. Tylko nowych przestrzeni nazw można dodać do Twojej pracy awaryjnej parowania. Na koniec należy dodać pewne aspekty monitorowania do wykrywania, czy tryb failover jest konieczne. W większości przypadków usługa jest częścią dużych ekosystem, w związku z tym automatycznego przechodzenia w tryb failover są rzadko możliwe, jak bardzo często trybu failover musi zostać wykonana w pozostałych podsystemu lub infrastruktury.
 
-```csharp
-var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-```
+### <a name="example"></a>Przykład
 
-### <a name="step-3-initiate-a-failover"></a>Krok 3: Zainicjuj tryb failover
+W jednym z przykładów tego scenariusza należy wziąć pod uwagę rozwiązanie punktu sprzedaży (POS), które emituje wiadomości lub zdarzeń. Centra zdarzeń przekazuje te zdarzenia do niektórych mapowanie ani formatowania rozwiązania, które następnie przekazuje zmapowanych danych do innego systemu dla dalszego przetwarzania. W tym momencie wszystkich tych systemach mogą znajdować się w tym samym regionie Azure. Decyzja na kiedy i jaka część do pracy awaryjnej jest zależna od przepływu danych w ramach infrastruktury. 
 
-W przypadku awarii lub jeśli zdecydujesz się Inicjuj tryb failover do dodatkowej przestrzeni nazw, metadane i dane start otrzymywanych dodatkowej przestrzeni nazw. Ponieważ aplikacje, użyj parametrów połączenia aliasu, żadne dalsze akcje nie jest wymagana, zgodnie z ich automatyczne uruchamianie odczytywanie z oraz zapisywanie do usługi event hubs w dodatkowej przestrzeni nazw. 
+Można zautomatyzować tryb failover z systemów monitorowania lub z niestandardowej rozwiązań w zakresie monitorowania. Jednak takie automatyzacji ma dodatkowe planowanie i pracy, która wykracza poza zakres tego artykułu.
 
-Poniższy kod przedstawia sposób włączania trybu failover:
+### <a name="failover-flow"></a>Przepływ pracy awaryjnej
 
-```csharp
-await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
-                                                   config.SecondaryNamespace, config.Alias);
-```
+Zainicjuj tryb failover, wymagane są dwa kroki:
 
-Po zakończeniu pracy awaryjnej i potrzebne dane występujące w głównej przestrzeni nazw, aby wyodrębnić dane należy użyć ciągu jawne połączenie do usługi event hubs w głównej przestrzeni nazw.
+1. Inny awarii, ma możliwość pracy awaryjnej ponownie. W związku z tym ustawienie innej przestrzeni nazw pasywnego i zaktualizuj parowanie. 
 
-### <a name="other-operations-optional"></a>Inne operacje (opcjonalnie)
+2. Ściągać komunikaty z poprzedniego głównej przestrzeni nazw, gdy jest ona dostępna ponownie. Po wykonaniu tej tej przestrzeni nazw używany do regularnych wiadomości poza ustawień odzyskiwania z magazynu geograficznie lub Usuń stare głównej przestrzeni nazw.
 
-Można również Podziel parowanie geograficznie lub usunąć aliasu, jak pokazano w poniższym kodzie. Należy pamiętać, że można usunąć aliasu parametry połączenia, musisz przerwać geo paring:
+> [!NOTE]
+> Obsługiwane są tylko semantyki przekazywania błędów. W tym scenariuszu w tryb failover i ponownie skojarzyć z nowej przestrzeni nazw. Niepowodzenie Wstecz nie jest obsługiwany; na przykład w klastrze programu SQL. 
 
-```csharp
-// Break pairing
-await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, config.Alias);
+![2][]
 
-// Delete alias connection string
-// Before the alias is deleted, pairing must be broken
-await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
-                                                 config.PrimaryNamespace, config.Alias);
-```
+## <a name="management"></a>Zarządzanie
 
-## <a name="considerations-for-public-preview"></a>Zagadnienia dotyczące publicznej wersji zapoznawczej
+Jeśli wprowadzono błędu; na przykład łączyć niewłaściwy regionów podczas początkowej konfiguracji, mogą być dzielone parowanie dwie przestrzenie nazw w dowolnym momencie. Jeśli chcesz użyć pary nazw jako regularne przestrzeni nazw, Usuń ten alias.
 
-Należy uwzględnić następujące kwestie dotyczące tej wersji:
+## <a name="samples"></a>Przykłady
 
-1. Możliwość odzyskiwania po awarii geograficzna jest dostępna tylko w regionach północno-środkowe Stany i południowo-środkowe Stany. 
-2. Funkcja ta jest obsługiwana tylko w przypadku nowo utworzonego przestrzeni nazw.
-3. W wersji zapoznawczej tylko metadane replikacja jest włączona. Rzeczywiste dane nie są replikowane.
-4. Przy użyciu wersji zapoznawczej nie istnieje bezpłatna włączenie funkcji. Jednak serwera podstawowego i pomocniczego przestrzeni nazw będą naliczane opłaty jednostek zarezerwowaną przepływnością.
+[w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) pokazano, jak skonfigurować i zainicjuj tryb failover. W tym przykładzie przedstawiono następujące kwestie:
+
+- Ustawienia wymagane w usłudze Azure Active Directory do użycia usługi Azure Resource Manager z usługą Event Hubs. 
+- Kroki wymagane do wykonania w przykładowym kodzie. 
+- Wysyłanie i odbieranie od bieżącej podstawowej przestrzeni nazw. 
+
+## <a name="considerations"></a>Zagadnienia do rozważenia
+
+Należy uwzględnić następujące kwestie należy wziąć pod uwagę w tej wersji:
+
+1. W procesie planowania trybu failover, należy również rozważyć współczynnik czasu. Na przykład w przypadku utraty połączenia przez czas dłuższy niż 15-20 minut, możesz zainicjować trybu failover. 
+ 
+2. Fakt, że żadne dane nie są replikowane oznacza, że obecnie aktywnych sesji nie są replikowane. Ponadto wykrywania duplikatów i zaplanowane komunikaty mogą nie działać. Nowej sesji, zaplanowane wiadomości i nowych duplikaty będzie działać. 
+
+3. Awarii złożonych infrastruktury rozproszonej powinna być [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) co najmniej raz. 
+
+4. Synchronizowanie jednostek może zająć trochę czasu, około 50-100 jednostek na minutę.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -120,5 +111,5 @@ Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z nastę
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 * [Przykładowe aplikacje korzystające z usługi Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
-
+[1]: ./media/event-hubs-geo-dr/geo1.png
+[2]: ./media/event-hubs-geo-dr/geo2.png

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak zainstalować bazy danych MongoDB na maszynie Wi
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3fe9751467a1fc34f4e9d02855c4aff307424a3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalowanie i Konfigurowanie bazy danych MongoDB na maszynie Wirtualnej systemu Windows na platformie Azure
-[Bazy danych MongoDB](http://www.mongodb.org) jest popularnych open source, wysokiej wydajności bazę danych NoSQL. W tym artykule opisano sposób instalowania i konfigurowania bazy danych MongoDB na maszynie wirtualnej systemu Windows Server 2012 R2 (VM) na platformie Azure. Możesz również [zainstalować bazy danych MongoDB na Maszynę wirtualną systemu Linux na platformie Azure](../linux/install-mongodb.md).
+[Bazy danych MongoDB](http://www.mongodb.org) jest popularnych open source, wysokiej wydajności bazę danych NoSQL. W tym artykule opisano sposób instalowania i konfigurowania bazy danych MongoDB na maszynie wirtualnej systemu Windows Server 2016 (VM) na platformie Azure. Możesz również [zainstalować bazy danych MongoDB na Maszynę wirtualną systemu Linux na platformie Azure](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed zainstalowaniem i skonfigurowaniem bazy danych MongoDB, należy utworzyć Maszynę wirtualną, a w idealnym przypadku dodania dysku danych do niego. Zobacz następujące artykuły, aby utworzyć Maszynę wirtualną i Dodaj dysk danych:
@@ -36,23 +36,24 @@ Aby rozpocząć instalowanie i Konfigurowanie bazy danych MongoDB, [Zaloguj się
 > Funkcje zabezpieczeń bazy danych MongoDB, takich jak uwierzytelnianie i powiązanie adresu IP, nie są domyślnie włączone. Funkcje zabezpieczeń powinny być włączone przed wdrożeniem w środowisku produkcyjnym bazy danych MongoDB. Aby uzyskać więcej informacji, zobacz [MongoDB zabezpieczeń i uwierzytelniania](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
-1. Po nawiązaniu połączenia z maszyną wirtualną przy użyciu pulpitu zdalnego, Otwórz program Internet Explorer z **Start** menu na maszynie Wirtualnej.
+1. Po nawiązaniu połączenia z maszyną wirtualną przy użyciu pulpitu zdalnego, Otwórz program Internet Explorer z poziomu paska zadań.
 2. Wybierz **Użyj zalecanych ustawień zabezpieczeń, prywatności i zgodności** gdy program Internet Explorer najpierw otwiera i kliknij przycisk **OK**.
 3. Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest domyślnie włączona. Dodaj witrynę bazy danych MongoDB do listy dozwolonych witryn:
    
    * Wybierz **narzędzia** ikonę w prawym górnym rogu.
    * W **Opcje internetowe**, wybierz pozycję **zabezpieczeń** , a następnie wybierz **Zaufane witryny** ikony.
-   * Kliknij przycisk **witryny** przycisku. Dodaj *https://\*. mongodb.org* do listy zaufanych witryn, a następnie zamknij okno dialogowe.
+   * Kliknij przycisk **witryny** przycisku. Dodaj *https://\*. mongodb.com* do listy zaufanych witryn, a następnie zamknij okno dialogowe.
      
      ![Konfigurowanie ustawień zabezpieczeń programu Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Przejdź do [MongoDB — pliki do pobrania](http://www.mongodb.org/downloads) strony (http://www.mongodb.org/downloads).
-5. W razie potrzeby wybierz **serwera społeczności** edition, a następnie wybierz najnowsze stabilny bieżącej wersji dla systemu Windows Server 2008 R2 w wersji 64-bitowej lub nowszym. Aby pobrać Instalatora, kliknij przycisk **pobierania (msi)**.
+4. Przejdź do [MongoDB — pliki do pobrania](http://www.mongodb.com/downloads) strony (http://www.mongodb.com/downloads).
+5. W razie potrzeby wybierz **Community Server** wersji, a następnie wybierz, najnowsza stabilna Bieżące wydanie*systemu Windows Server 2008 R2 w wersji 64-bitowej lub nowszym*. Aby pobrać Instalatora, kliknij przycisk **pobierania (msi)**.
    
     ![Pobierz Instalator bazy danych MongoDB](./media/install-mongodb/download-mongodb.png)
    
     Po zakończeniu pobierania, należy uruchomić Instalatora.
 6. Przeczytaj i zaakceptuj umowę licencyjną. Po wyświetleniu monitu wybierz **Complete** zainstalować.
-7. Na ekranie końcowym, kliknij przycisk **zainstalować**.
+7. W razie potrzeby można również zainstalować kompas, interfejsu graficznego bazy danych mongodb.
+8. Na ekranie końcowym, kliknij przycisk **zainstalować**.
 
 ## <a name="configure-the-vm-and-mongodb"></a>Skonfiguruj maszynę Wirtualną i bazy danych MongoDB
 1. Zmienne ścieżek nie są aktualizowane przez Instalatora bazy danych MongoDB. Bez MongoDB `bin` lokalizacji w zmiennej path, należy określić pełną ścieżkę każdym użyciu wykonywalny bazy danych MongoDB. Aby dodać lokalizację do zmiennej path:
@@ -66,7 +67,7 @@ Aby rozpocząć instalowanie i Konfigurowanie bazy danych MongoDB, [Zaloguj się
      Dodaj ścieżkę do Twojej bazy danych MongoDB `bin` folderu. Bazy danych MongoDB zazwyczaj jest zainstalowany w *C:\Program Files\MongoDB*. Sprawdź ścieżkę instalacji na maszynie Wirtualnej. W poniższym przykładzie dodano domyślnej lokalizacji do instalacji bazy danych MongoDB `PATH` zmienną:
      
      ```
-     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
@@ -92,8 +93,7 @@ Aby rozpocząć instalowanie i Konfigurowanie bazy danych MongoDB, [Zaloguj się
 4. W przypadku bardziej niezawodne środowisko bazy danych MongoDB, zainstaluj `mongod.exe` jako usługa. Tworzenie usługi oznacza, że nie ma potrzeby pozostaw wiersz polecenia uruchamianiu za każdym razem, którego chcesz użyć bazy danych MongoDB. Utwórz usługę następujące odpowiednio dostosowywania ścieżka do danych i dziennika katalogów:
    
     ```
-    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
-        --logappend  --install
+    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
     ```
    
     Poprzednie polecenie tworzy usługę o nazwie bazy danych MongoDB, opis "BD o Mongo". Są także określić następujące parametry:

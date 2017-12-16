@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limity pojemności magazynu danych SQL
 Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych składników usługi Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Zarządzanie obciążeniami
-| Kategoria | Opis | Maksymalna |
+| Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Jednostka DWU Max jednego magazynu danych SQL | Zoptymalizowana pod kątem elastyczność [warstwę wydajności](performance-tiers.md): DW6000<br></br>Zoptymalizowana pod kątem obliczeń [warstwę wydajności](performance-tiers.md): DW30000c |
 | [Jednostki magazynu danych (DWU)][Data Warehouse Units (DWU)] |Domyślne jednostek dtu w warstwie na serwer |54,000<br></br>Domyślnie każdy serwer SQL (na przykład myserver.database.windows.net) ma limit przydziału jednostek DTU równa 54 000, dzięki czemu do DW6000c. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Może spowodować zwiększenie limitu przydziału przez [tworzenie biletu pomocy technicznej] [ creating a support ticket] i wybierając *przydziału* jako typ żądania.  Do obliczenia z jednostek dtu w warstwie wymaga, należy pomnożyć 7.5 przez łączną potrzebne DWU lub należy pomnożyć 9.0, przez całkowitą cDWU, potrzebne. Na przykład:<br></br>DW6000 x w wersji 7.5 = 45,000 Dtu<br></br>DW600c x 9.0 = równa 54 000 jednostek Dtu.<br></br>Twoje bieżące użycie jednostek DTU z opcji programu SQL server można wyświetlić w portalu. Zarówno wstrzymana i nie wstrzymane baz danych są wliczane do limitu przydziału jednostek dtu w warstwie. |
@@ -35,10 +35,10 @@ Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych s
 | [bazy danych tempdb][Tempdb] |Maksymalna GB |399 GB na DW100. W związku z tym w DWU1000, bazy danych tempdb jest dopasowywany do 3,99 TB |
 
 ## <a name="database-objects"></a>Obiekty bazy danych
-| Kategoria | Opis | Maksymalna |
+| Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
-| Database (Baza danych) |Maksymalny rozmiar |240 TB skompresowane na dysku<br/><br/>Ta przestrzeń jest niezależna od miejsca w bazie danych tempdb lub dziennika, a w związku z tym to miejsce jest przydzielane trwałych tabelach.  Kompresja klastrowanego magazynu kolumn szacuje się na 5 X.  Kompresja ta umożliwia wzrostu około 1 bazy PB, gdy wszystkie tabele są klastrowanego magazynu kolumn (domyślny typ tabeli). |
-| Tabela |Maksymalny rozmiar |60 TB skompresowane na dysku |
+| Database (Baza danych) |Maks. rozmiar |240 TB skompresowane na dysku<br/><br/>Ta przestrzeń jest niezależna od miejsca w bazie danych tempdb lub dziennika, a w związku z tym to miejsce jest przydzielane trwałych tabelach.  Kompresja klastrowanego magazynu kolumn szacuje się na 5 X.  Kompresja ta umożliwia wzrostu około 1 bazy PB, gdy wszystkie tabele są klastrowanego magazynu kolumn (domyślny typ tabeli). |
+| Tabela |Maks. rozmiar |60 TB skompresowane na dysku |
 | Tabela |Tabel na bazę danych |2 miliardów |
 | Tabela |Kolumn w tabeli |1024 kolumn |
 | Tabela |Liczba bajtów na kolumny |Zależne od kolumny [— typ danych][data type].  Limit wynosi 8000 dla typów danych char, 4000 dla nvarchar lub 2 GB dla typów danych MAX. |
@@ -56,12 +56,12 @@ Poniższe tabele zawierają wartości maksymalne dozwolone dla poszczególnych s
 | Widok |Kolumn w widoku |1,024 |
 
 ## <a name="loads"></a>Obciążenia
-| Kategoria | Opis | Maksymalna |
+| Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | Program Polybase obciążenia |MB na wiersz |1<br/><br/>Program Polybase ładuje tylko do wierszy, które są mniejsze niż 1 MB, a nie można załadować VARCHAR(MAX), NVARCHAR(MAX) lub VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Zapytania
-| Kategoria | Opis | Maksymalna |
+| Kategoria | Opis | Maksimum |
 |:--- |:--- |:--- |
 | Zapytanie |W kolejce kwerend w tabelach użytkownika. |1000 |
 | Zapytanie |Zapytania jednoczesne na widoki systemu. |100 |

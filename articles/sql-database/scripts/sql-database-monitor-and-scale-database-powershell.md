@@ -14,13 +14,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 123e6c4f0f4fdde46199d80fdbc2db9c78f69f5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Aby monitorować i skalowania pojedynczej bazy danych SQL za pomocą programu PowerShell
 
@@ -31,6 +31,9 @@ Ten przykładowy skrypt programu PowerShell monitoruje metryki wydajności bazy 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Użyj [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) Pobierz stan operacji bazy danych i użycie [Stop AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) do anuluje operację aktualizacji w bazie danych.
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 

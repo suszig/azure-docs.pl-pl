@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Szablony umożliwiają utworzenie jednostek fabryki danych Azure
 > [!NOTE]
@@ -231,7 +231,7 @@ Zapoznaj się [Definiowanie potoki](data-factory-create-pipelines.md#pipeline-js
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Ustawianie szablonu usługi fabryka danych
-Najlepsze rozwiązania na ustawianie, zobacz [najlepszych rozwiązań dotyczących tworzenia szablonów usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters) artykułu. Ogólnie rzecz biorąc użycia parametru można zmniejszyć do minimum, zwłaszcza jeśli zmienne, które mogą być używane zamiast tego. Tylko podać parametry w następujących scenariuszach:
+Najlepsze rozwiązania na ustawianie, zobacz [najlepszych rozwiązań dotyczących tworzenia szablonów usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). Ogólnie rzecz biorąc użycia parametru można zmniejszyć do minimum, zwłaszcza jeśli zmienne, które mogą być używane zamiast tego. Tylko podać parametry w następujących scenariuszach:
 
 * Ustawienia zależą od środowiska (przykład: Programowanie, testowe i produkcyjne)
 * Klucze tajne (takie jak hasła)

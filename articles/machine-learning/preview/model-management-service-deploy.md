@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: aef74d3968f90a4e8a8f84660d92d6f8a38795c7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Wdrażanie modelu uczenia maszynowego jako usługi sieci web
 
@@ -86,9 +86,9 @@ Plik musi zawierać dwie funkcje: init i uruchom.
 
 Dodaj następujący kod w górnej części pliku score.py, aby włączyć funkcję kolekcji danych, która pozwala zbierać dane wejściowe i prognozowania modelu
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Sprawdź [modelu zbierania danych](how-to-use-model-data-collection.md) sekcji, aby uzyskać więcej informacji na temat korzystania z tej funkcji.
 

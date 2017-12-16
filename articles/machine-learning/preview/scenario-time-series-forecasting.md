@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Szeregów czasowych żądanie energii prognozowania
 
@@ -56,13 +56,11 @@ Ten scenariusz zawiera szczegóły dotyczące konstrukcji zapotrzebowania na ene
 - [Konta Azure](https://azure.microsoft.com/free/) (bezpłatnych wersji próbnych są dostępne).
 - Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) następujące [Przewodnik Szybki start instalacji](./quickstart-installation.md) Aby zainstalować ten program i utworzyć obszaru roboczego.
 - W tym przykładzie przyjęto założenie, że uruchamiasz Workbench uczenie Maszynowe Azure w systemie Windows 10 z [aparatem platformy Docker](https://www.docker.com/) zainstalowane lokalnie. Jeśli używasz macOS instrukcje dotyczą przede wszystkim takie same.
-- Azure Machine Learning Operationalization instalowany z skonfigurować środowisko wdrożenia lokalnego oraz konta zarządzania modelu utworzona zgodnie z opisem w tym [przewodnik](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization instalowany z skonfigurować środowisko wdrożenia lokalnego oraz konta zarządzania modelu utworzona zgodnie z opisem w tym [przewodnik](./model-management-configuration.md).
 - W tym przykładzie wymaga aktualizacji instalacji Pandas do wersji 0.20.3 lub nowszej i instalacji matplotlib. Kliknij przycisk *Otwórz okno wiersza polecenia* z *pliku* menu Narzędzia Workbench i uruchom następujące polecenia, aby zainstalować te zależności:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt Workbench
@@ -77,7 +75,7 @@ Utwórz nowy projekt za pomocą tego przykładu jako szablon:
 
 ## <a name="data-description"></a>Opis elementu danych
 
-Istnieją dwa zestawy danych: `nyc_demand.csv` i `nyc_weather.csv`:
+Dwa zestawy danych są dostarczane z tego przykładu i zostaną pobrane przy użyciu `1-data-preparation.ipynb` notesu: `nyc_demand.csv` i `nyc_weather.csv`.
 
 **nyc_demand.csv** co godzinę zawiera wartości żądanie energii dla nowego Jorku lat 2012 2017. Danych ma następującą strukturę prosty:
 
@@ -98,7 +96,7 @@ Istnieją dwa zestawy danych: `nyc_demand.csv` i `nyc_weather.csv`:
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
-| 2012-01-01 02:00:00 | 0.05 | 45.04 |
+| 2012-01-01 02:00:00 | 0,05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
 *precip* jest miarą procent poziomu wytrącanie. *TEMP* wartości (temperatury) ma zostać przeskalowywany w ten sposób taki sposób, że wszystkie wartości mieszczą się w zakresie [0, 100].

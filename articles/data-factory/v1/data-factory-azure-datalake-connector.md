@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Kopiowanie danych do i z usługi Data Lake Store przy użyciu fabryki danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Możesz skopiować dane z następujących baz danych **do usługi Azure Data Lak
 
 Firma Microsoft zaleca korzystanie z uwierzytelniania głównej usługi, zwłaszcza w przypadku kopiowania danych zaplanowane. Zachowanie wygaśnięcia tokenu może wystąpić przy użyciu uwierzytelniania poświadczeń użytkownika. Szczegółowe informacje dotyczące konfiguracji, zobacz [połączona usługa właściwości](#linked-service-properties) sekcji.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 Można utworzyć potok z działania kopiowania, który przenosi dane z usługi Azure Data Lake Store za pomocą różnych narzędzi/interfejsów API.
 
 Najprostszym sposobem tworzenia potoku, aby skopiować dane, jest użycie **kreatora kopiowania**. Samouczek dotyczący tworzenia potoku za pomocą Kreatora kopiowania, zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
@@ -86,9 +86,9 @@ Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w
 
 > [!IMPORTANT]
 > Upewnij się, że można przydzielić usługi głównej odpowiednie uprawnienia w usłudze Azure Data Lake Store:
->- Do usługi Data Lake Store można użyć jako źródła, przyznano co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta.
->- Do usługi Data Lake Store jest używany jako obiekt sink, przyznano co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Jeśli chcesz uniknąć tej roli IAM [Określ executionLocation](data-factory-data-movement-activities.md#global) z lokalizacją usługi Data Lake Store w przypadku działania kopiowania.
->- Użycie Kreatora kopiowania do tworzenia potoki, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Ponadto udzielić co najmniej **Odczyt i wykonywanie** uprawnień do katalogu głównym usługi Data Lake Store ("/") i jego elementów podrzędnych. W przeciwnym razie można napotkać komunikat "podane poświadczenia są nieprawidłowe."
+>- **Do użycia usługi Data Lake Store jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta.
+>- **Do użycia usługi Data Lake Store jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Jeśli chcesz uniknąć tej roli IAM [Określ executionLocation](data-factory-data-movement-activities.md#global) z lokalizacją usługi Data Lake Store w przypadku działania kopiowania.
+>- Jeśli użytkownik **tworzenie potoków za pomocą Kreatora kopiowania**, udzielić co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Ponadto udzielić co najmniej **Odczyt i wykonywanie** uprawnień do katalogu głównym usługi Data Lake Store ("/") i jego elementów podrzędnych. W przeciwnym razie można napotkać komunikat "podane poświadczenia są nieprawidłowe."
 
 Uwierzytelnianie usługi głównej przez określenie następujących właściwości:
 
@@ -126,9 +126,9 @@ Alternatywnie służy uwierzytelnienia poświadczeń użytkownika do kopiowania 
 
 > [!IMPORTANT]
 > Upewnij się, że można przyznać odpowiednie uprawnienia użytkownika w usłudze Azure Data Lake Store:
->- Do usługi Data Lake Store można użyć jako źródła, przyznano co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta.
->- Do usługi Data Lake Store jest używany jako obiekt sink, przyznano co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Jeśli chcesz uniknąć tej roli IAM [Określ executionLocation](data-factory-data-movement-activities.md#global) z lokalizacją usługi Data Lake Store w przypadku działania kopiowania.
->- Użycie Kreatora kopiowania do tworzenia potoki, co najmniej przyznać **czytnika** roli w kontroli dostępu do konta (IAM). Ponadto udzielić co najmniej **Odczyt i wykonywanie** uprawnień do katalogu głównym usługi Data Lake Store ("/") i jego elementów podrzędnych. W przeciwnym razie można napotkać komunikat "podane poświadczenia są nieprawidłowe."
+>- **Do użycia usługi Data Lake Store jako źródło**, przyznaj co najmniej **Odczyt i wykonywanie** uprawnienia do listy, a następnie skopiuj zawartość folderu, dostępu do danych lub **odczytu** uprawnień do kopiowania pojedynczy plik. Nie jest wymagany na kontroli dostępu na poziomie konta.
+>- **Do użycia usługi Data Lake Store jako obiekt sink**, przyznaj co najmniej **zapisu i wykonywania** uprawnienia do tworzenia elementów podrzędnych w folderze dostępu do danych. I użycie Azure IR dla kopiowania (źródłowy i odbiorczy znajdują się w chmurze), aby umożliwić fabryki danych wykrywania region Data Lake Store, przyznaj co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Jeśli chcesz uniknąć tej roli IAM [Określ executionLocation](data-factory-data-movement-activities.md#global) z lokalizacją usługi Data Lake Store w przypadku działania kopiowania.
+>- Jeśli użytkownik **tworzenie potoków za pomocą Kreatora kopiowania**, udzielić co najmniej **czytnika** roli w kontroli dostępu do konta (IAM). Ponadto udzielić co najmniej **Odczyt i wykonywanie** uprawnień do katalogu głównym usługi Data Lake Store ("/") i jego elementów podrzędnych. W przeciwnym razie można napotkać komunikat "podane poświadczenia są nieprawidłowe."
 
 **Przykład: Użytkownik poświadczeń uwierzytelniania**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Aby uzyskać szczegółowe informacje o klasach fabryki danych używana w kodzie, zobacz [klasy AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [klasy AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), i [klasy AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tematów. Dodaj odwołanie do wersji `2.9.10826.1824` z `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` dla `WindowsFormsWebAuthenticationDialog` klasa używana w kodzie.
+
+## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
+
+**Objaw:** podczas kopiowania danych **do** Azure Data Lake Store, jeśli aktywności kopiowania nie powiedzie się z powodu następującego błędu:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Główny powód:** istnieją 2 możliwe przyczyny:
+
+1. `resourceGroupName` I/lub `subscriptionId` określony w usłudze Azure Data Lake Store połączone usługi są niepoprawne;
+2. Użytkownik lub nazwy głównej usługi nie ma odpowiedniego uprawnienia.
+
+**Rozwiązanie:**
+
+1. Upewnij się, że `subscriptionId` i `resourceGroupName` określić w połączonej usłudze `typeProperties` są rzeczywiście te, które należy do Twojego konta usługi data lake.
+
+2. Upewnij się, że co najmniej udzielasz "**czytnika**" rolę dla użytkownika lub nazwy głównej usługi na konta usługi data lake. Poniżej przedstawiono sposób było to:
+
+    1. Przejdź do portalu Azure -> Twoje konto usługi Data Lake Store
+    2. Kliknij przycisk "dostęp do formantu (IAM)" w bloku Data Lake Store
+    3. Kliknij przycisk "Dodaj" w bloku z "dostęp do formantu (IAM)"
+    4. Ustaw "Rola" jako "Czytnika", a następnie wybierz użytkownika lub nazwy głównej usługi, używanej do skopiowania udzielenia dostępu
+
+3. Jeśli nie chcesz udzielić "Czytnika" roli użytkownika lub nazwy głównej usługi, jest alernative [jawnie określić lokalizację wykonywania](data-factory-data-movement-activities.md#global) w activitywith kopiowania lokalizacji usługi Data Lake Store. Przykład:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby określić zestaw danych do reprezentowania danych wejściowych w Data Lake Store, należy ustawić **typu** właściwości zestawu danych na **AzureDataLakeStore**. Ustaw **linkedServiceName** właściwości zestawu danych do nazwy usługi Data Lake Store połączonej usługi. Aby uzyskać pełną listę właściwości JSON sekcje i dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zestawu danych w formacie JSON, takich jak **struktury**, **dostępności**, i **zasad**, są podobne dla wszystkich typów obiektów dataset (Azure SQL database, obiektów blob platformy Azure i tabeli platformy Azure, na przykład). **TypeProperties** sekcja jest różne dla każdego typu zestawu danych i udostępnia informacje, takie jak lokalizacja i formatowanie danych w magazynie danych. 

@@ -4,7 +4,7 @@ description: "Jak ponownie wdrożyć maszyn wirtualnych systemu Linux na platfor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7bf69b2a3c006faa0dc0144313e5ebb64e941e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Wdrożenie maszyny wirtualnej systemu Linux do nowego węzła Azure
 Jeśli pokonywaniu trudności Rozwiązywanie problemów z SSH lub aplikacji dostęp do maszyny wirtualnej systemu Linux (VM) na platformie Azure, ponownego wdrażania maszyny Wirtualnej może pomóc. Podczas ponownego wdrażania maszyny Wirtualnej maszyny Wirtualnej są przenoszone do nowego węzła w ramach infrastruktury platformy Azure i uprawnień go ponownie. Opcje konfiguracji i skojarzonych zasobów są zachowywane. W tym artykule przedstawiono sposób ponownego wdrażania maszyny Wirtualnej przy użyciu wiersza polecenia platformy Azure lub w portalu Azure.
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Użyj Azure CLI 1.0
-Zainstaluj [najnowsze Azure CLI 1.0](../../cli-install-nodejs.md), zaloguj się do konta platformy Azure i upewnij się, że jesteś w trybie Menedżera zasobów (`azure config mode arm`).
+Zainstaluj [najnowsze Azure CLI 1.0](../../cli-install-nodejs.md) i zaloguj się do konta platformy Azure. Upewnij się, że jesteś w trybie Menedżera zasobów (`azure config mode arm`).
 
 Poniższy przykład wdraża ponownie maszyny Wirtualnej o nazwie *myVM* w grupie zasobów o nazwie *myResourceGroup*:
 

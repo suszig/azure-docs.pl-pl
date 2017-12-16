@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonanie elementu Runbook automatyzacji Azure
 Po uruchomieniu elementu runbook w automatyzacji Azure tworzone jest zadanie. Zadanie jest pojedynczym wystąpieniem wykonania elementu runbook. Pracownik usługi Automatyzacja Azure jest przypisany do każdego zadania. Pracownicy są współużytkowane przez wiele kont platformy Azure, są odizolowane od siebie zadań z różnych kont automatyzacji. Możesz nie mieć kontroli za pośrednictwem których procesu roboczego obsługującym żądanie dla zadania. Pojedynczy element runbook może mieć wiele zadań została uruchomiona w tym samym czasie.  Może być ponownie używane środowiska wykonania zadań z tego samego konta automatyzacji. Podczas wyświetlania listy elementów runbook w portalu Azure, wyświetla stan wszystkich zadań, które zostały uruchomione dla każdego elementu runbook. Aby śledzić stan każdego z nich, można wyświetlić listę zadań dla każdego elementu runbook. Opis stany różne zadania [stany zadania](#job-statuses).
@@ -40,12 +40,12 @@ W poniższej tabeli opisano różne stany, które są możliwe w dla zadania.
 |:--- |:--- |
 | Ukończony |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Dla [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md), element runbook kompilacja nie powiodła się.  Aby uzyskać [elementów runbook skrypt programu PowerShell](automation-runbook-types.md), nie można uruchomić elementu runbook lub zadania wystąpił wyjątek. |
-| Nie powiodło się, oczekiwania dla zasobów |Zadanie nie powiodło się, ponieważ osiągnął [odpowiedni udział](#fairshare) ograniczyć trzy razy i z tego samego punktu kontrolnego lub od początku elementu runbook każdej godzina rozpoczęcia. |
+| Nie powiodło się, oczekiwania dla zasobów |Zadanie nie powiodło się, ponieważ osiągnął [odpowiedni udział](#fair-share) ograniczyć trzy razy i z tego samego punktu kontrolnego lub od początku elementu runbook każdej godzina rozpoczęcia. |
 | W kolejce |Zadanie oczekuje dla zasobów procesu roboczego automatyzacji dostępny, aby można było go uruchomić. |
 | Uruchamianie |Zadanie zostało przypisane do procesu roboczego, a system jest w trakcie jego uruchomienie. |
 | Wznawianie |System jest w trakcie wznawiania zadania po został wstrzymany. |
 | Uruchomione |Zadanie zostało uruchomione. |
-| Uruchomiona, oczekiwania dla zasobów |Zadanie zostało zwolnione, ponieważ osiągnął [odpowiedni udział](#fairshare) limit. Jest wznawiana wkrótce z ostatniego punktu kontrolnego. |
+| Uruchomiona, oczekiwania dla zasobów |Zadanie zostało zwolnione, ponieważ osiągnął [odpowiedni udział](#fair-share) limit. Jest wznawiana wkrótce z ostatniego punktu kontrolnego. |
 | Zatrzymane |Zadanie zostało zatrzymane przez użytkownika przed jej ukończeniem. |
 | Zatrzymywanie |System jest w trakcie zatrzymywania zadania. |
 | Wstrzymano |Zadanie zostało zawieszone przez użytkownika przez system lub za pomocą polecenia w elemencie runbook. Zawieszone zadanie można uruchomić ponownie i wznowić z ostatniego punktu kontrolnego lub od początku elementu runbook, jeśli nie ma on punkty kontrolne. Element runbook zostanie zawieszony przez system tylko, po wystąpieniu wyjątku. Domyślnie jest równa ErrorActionPreference **Kontynuuj**, co oznacza, że zadanie będzie uruchomione w przypadku wystąpienia błędu. Jeśli ustawiono tę zmienną preferencji **zatrzymać**, a następnie wstrzymuje zadanie w przypadku wystąpienia błędu.  Dotyczy [graficzny i przepływ pracy programu PowerShell elementów runbook](automation-runbook-types.md) tylko. |
