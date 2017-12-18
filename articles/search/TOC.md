@@ -33,7 +33,11 @@
 ### [Limity usługi](search-limits-quotas-capacity.md)
 ### [Skalowalność usługi](search-capacity-planning.md)
 ### [Wzorce projektowe aplikacji wielodostępnych](search-modeling-multitenant-saas-applications.md)
-## Programowanie
+## Bezpieczeństwo
+### [Bezpieczeństwo danych i działania](search-security-overview.md)
+### [Zabezpieczanie za pomocą filtrów tożsamości](search-security-trimming-for-azure-search.md)
+### [Zabezpieczanie za pomocą usługi Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Opracowywanie zawartości
 ### [Wersje interfejsu API](search-api-versions.md)
 ### [Tworzenie na platformie Node.js](search-get-started-nodejs.md)
 ### [Tworzenie w języku Java](search-get-started-java.md)
@@ -42,13 +46,6 @@
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
 ### [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=search)
-## Zarządzanie
-### Administrowanie usługą Azure Search
-#### [Witryna Azure Portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Monitorowanie użycia i statystyk](search-monitor-usage.md)
-### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
-### [Wydajność i optymalizacja](search-performance-optimization.md)
 ## Ładowanie danych
 ### [Omówienie indeksatora](search-indexer-overview.md)
 ### [Indeksator usługi Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Omówienie](search-filters.md)
 #### [Filtry aspektów](search-filters-facets.md)
 #### [Filtry języków](search-filters-language.md)
-#### [Filtry zabezpieczeń (ogólne)](search-security-trimming-for-azure-search.md)
-#### [Filtry zabezpieczeń (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Dokumentacja składni wyrażenia](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Stronicowanie wyników](search-pagination-page-layout.md)
 ### [Ocenianie](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Nawigacja aspektowa](search-faceted-navigation.md)
 ### [Synonimy — wersja zapoznawcza](search-synonyms.md)
 ### [moreLikeThis (wersja zapoznawcza)](search-more-like-this.md)
+## Administracja i analiza
+### [Zarządzanie za pomocą witryny Azure Portal](search-manage.md)
+### [Zarządzanie za pomocą programu PowerShell](search-manage-powershell.md)
+### [Monitorowanie użycia i statystyk](search-monitor-usage.md)
+### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
+### [Wydajność i optymalizacja](search-performance-optimization.md)
 
 # Dokumentacja
 
