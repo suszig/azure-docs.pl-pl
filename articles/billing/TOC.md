@@ -27,17 +27,17 @@
 ### [Opis stosowania wystąpień zarezerwowanych w przypadku przedsiębiorstwa](billing-understand-reserved-instance-usage-ea.md)
 
 ## Zarządzanie subskrypcjami
+### [Wyszukiwanie grupy zarządzania lub subskrypcji](billing-enterprise-mgmt-grp-find.md)
 ### [Zarządzanie rolami administratorów](billing-add-change-azure-subscription-administrator.md)
 ### [Przekazywanie własności subskrypcji](billing-subscription-transfer.md)
 ### [Ponowne aktywowanie wyłączonej subskrypcji](billing-subscription-become-disable.md)
 ### [Uaktualnianie z bezpłatnej subskrypcji](billing-upgrade-azure-subscription.md)
 ### [Przełączanie oferty subskrypcji](billing-how-to-switch-azure-offer.md)
+### [Dołączanie dzierżawy usługi Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Anulowanie subskrypcji](billing-how-to-cancel-azure-subscription.md)
-### [Wyszukiwanie grupy zarządzania lub subskrypcji](billing-enterprise-mgmt-grp-find.md)
 ## Zarządzanie kontem
 ### [Edytowanie profilu](billing-how-to-change-azure-account-profile.md)
 ### [Aktualizowanie informacji o płatności](billing-how-to-change-credit-card.md)
-### [Łączenie dzierżawy usługi Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Płatność za subskrypcje przy użyciu faktury](billing-how-to-pay-by-invoice.md)
 ## [Zarządzanie wystąpieniami zarezerwowanymi maszyn wirtualnych](billing-manage-reserved-vm-instance.md)
 ## Rozwiązywanie problemów
