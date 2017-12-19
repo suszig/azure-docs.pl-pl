@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planista wdrażania usługi Azure Site Recovery dla oprogramowania VMware na platformie Azure
 Ten artykuł to podręcznik użytkownika planisty wdrożenia usługi Azure Site Recovery dla wdrożeń produkcyjnych oprogramowania VMware na platformie Azure.
@@ -42,6 +42,8 @@ Narzędzie udostępnia następujące szczegóły:
 * Szacowana przepustowość sieci wymagana na potrzeby replikacji przyrostowej
 * Przepływność, którą usługa Site Recovery może uzyskać między środowiskiem lokalnym i platformą Azure
 * Liczba maszyn wirtualnych do przetworzenia wsadowego na podstawie szacowanej przepustowości wymagana do ukończenia replikacji początkowej w określonym czasie
+* Cel punktu odzyskiwania, który można osiągnąć przy danej przepustowości
+* Wpływ na wymagany cel punktu odzyskiwania w przypadku zapewnienia mniejszej przepustowości.
 
 **Wymagania dotyczące infrastruktury platformy Azure**
 
@@ -55,7 +57,7 @@ Narzędzie udostępnia następujące szczegóły:
 **Wymagania dotyczące infrastruktury lokalnej**
 * Wymagana liczba serwerów konfiguracji i serwerów przetwarzania do wdrożenia w środowisku lokalnym
 
-**Szacowany koszt odzyskiwania po awarii do platformy Azure** 
+**Szacowany koszt odzyskiwania po awarii do platformy Azure**
 * Szacowany łączny koszt odzyskiwania po awarii do platformy Azure: koszt obliczeń, magazynu, sieci i licencji usługi Azure Site Recovery
 * Szczegółowa analiza kosztów dla maszyny wirtualnej
 

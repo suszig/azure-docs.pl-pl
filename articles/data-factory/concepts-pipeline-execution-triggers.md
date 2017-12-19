@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Pełny przykład można znaleźć w artykule [Quickstart: create a data factory 
 ## <a name="triggers"></a>Wyzwalacze
 Wyzwalacze to druga metoda wykonywania potoków. Wyzwalacze reprezentują jednostki przetwarzania, które określają, kiedy należy rozpocząć wykonanie potoku. Obecnie usługa Data Factory obsługuje wyzwalacz, który wywołuje potok zgodnie z harmonogramem zegarowym. Nosi on nazwę **wyzwalacza harmonogramu**. Obecnie usługa Data Factory nie obsługuje wyzwalaczy opartych na zdarzeniach, takich jak uruchomienie potoku w przypadku otrzymania pliku.
 
-Między potokami i wyzwalaczami występuje relacja typu „n-m”. Wiele wyzwalaczy może uruchamiać jeden potok, a jeden wyzwalacz może uruchamiać wiele potoków. W poniższej definicji JSON wyzwalacza właściwość **pipelines** odnosi się do listy potoków wyzwalanych przez określony wyzwalacz oraz wartości parametrów potoku.
+Między potokami i wyzwalaczami występuje relacja wiele-do-wielu. Wiele wyzwalaczy może uruchamiać jeden potok, a jeden wyzwalacz może uruchamiać wiele potoków. W poniższej definicji JSON wyzwalacza właściwość **pipelines** odnosi się do listy potoków wyzwalanych przez określony wyzwalacz oraz wartości parametrów potoku.
 
 ### <a name="basic-trigger-definition"></a>Podstawowa definicja wyzwalacza: 
 ```json
@@ -165,7 +165,7 @@ Wyzwalacz harmonogramu uruchamia potoki zgodnie z harmonogramem zegarowym. Wyzwa
 ### <a name="scheduler-trigger-json-definition"></a>Definicja JSON wyzwalacza harmonogramu
 W przypadku utworzenia wyzwalacza harmonogramu można określić planowanie i powtarzanie przy użyciu definicji JSON, jak pokazano na przykładzie w tej sekcji. 
 
-Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do konkretnego potoku do definicji wyzwalacza. Między potokami i wyzwalaczami występuje relacja typu „n-m”. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchomić wiele potoków.
+Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do konkretnego potoku do definicji wyzwalacza. Między potokami i wyzwalaczami występuje relacja wiele-do-wielu. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchamiać wiele potoków.
 
 ```json
 {

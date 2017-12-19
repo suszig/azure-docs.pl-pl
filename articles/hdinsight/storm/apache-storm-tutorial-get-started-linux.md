@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Wprowadzenie do platformy Apache Storm w usłudze HDInsight przy użyciu przykładów z projektu Storm Starter
 
@@ -47,7 +47,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
     ![Tworzenie klastra usługi HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. W bloku **Podstawowe** wprowadź następujące informacje:
+2. W sekcji **Podstawowe** wprowadź następujące informacje:
 
     * **Nazwa klastra**: nazwa klastra usługi HDInsight.
     * **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
@@ -58,7 +58,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
    ![Wybieranie subskrypcji](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Wybierz pozycję **Typ klastra**, a następnie ustaw następujące wartości w bloku **Konfiguracja klastra**:
+3. Wybierz pozycję **Typ klastra**, a następnie ustaw następujące wartości w sekcji **Konfiguracja klastra**:
 
     * **Typ klastra**: Storm
 
@@ -74,11 +74,11 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
 4. Po wybraniu typu klastra ustaw typ klastra przy użyciu przycisku __Wybierz__. Następnie zakończ konfigurację podstawową za pomocą przycisku __Dalej__.
 
-5. W bloku **Magazyn** wybierz lub utwórz konto magazynu. Na potrzeby procedury w tym dokumencie pozostaw wartości domyślne w pozostałych polach w tym bloku. Zapisz konfigurację magazynu za pomocą przycisku __Dalej__.
+5. W sekcji **Magazyn** wybierz lub utwórz konto magazynu. Na potrzeby procedury w tym dokumencie pozostaw wartości domyślne w pozostałych polach w tej sekcji. Zapisz konfigurację magazynu za pomocą przycisku __Dalej__.
 
     ![Konfigurowanie ustawień konta magazynu dla usługi HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. W bloku **Podsumowanie** przejrzyj konfigurację klastra. Zmień niepoprawne ustawienia przy użyciu linków __Edytuj__. Wreszcie utwórz klaster przy użyciu przycisku __Utwórz__.
+6. W sekcji **Podsumowanie** przejrzyj konfigurację klastra. Zmień niepoprawne ustawienia przy użyciu linków __Edytuj__. Wreszcie utwórz klaster przy użyciu przycisku __Utwórz__.
 
     ![Podsumowanie konfiguracji klastra](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -103,10 +103,7 @@ Aby utworzyć klaster platformy Storm w usłudze HDInsight, wykonaj następując
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > We wcześniejszych wersjach usługi HDInsight nazwa klasy topologii to `storm.starter.WordCountTopology` zamiast `org.apache.storm.starter.WordCountTopology`.
-
-    To polecenie uruchamia w klastrze przykładową topologię WordCount o przyjaznej nazwie „wordcount”. Przykład obejmuje losowe wygenerowanie zdań i zliczenie wystąpień poszczególnych wyrazów w zdaniach.
+    To polecenie uruchamia w klastrze przykładową topologię WordCount. Ta topologia generuje losowe zdania i zlicza wystąpienia słów. Przyjazna nazwa tej topologii to `wordcount`.
 
     > [!NOTE]
     > Podczas przesyłania własnych topologii do klastra przed użyciem polecenia `storm` należy skopiować plik JAR zawierający klaster. Skopiuj plik za pomocą polecenia `scp`. Na przykład: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ W razie problemów podczas tworzenia klastra usługi HDInsight zapoznaj się z [
 
 W tym samouczku dotyczącym platformy Apache Storm przedstawiono podstawy pracy z platformą Storm w usłudze HDInsight. W dalszej kolejności zapoznaj się ze sposobem [opracowywania topologii opartych na języku Java za pomocą programu Maven](apache-storm-develop-java-topology.md).
 
-Jeśli umiesz już opracowywać topologie oparte na języku Java i chcesz wdrożyć istniejącą topologię w usłudze HDInsight, zobacz temat [Wdrażanie topologii Apache Storm w usłudze HDInsight i zarządzanie nimi](apache-storm-deploy-monitor-topology-linux.md).
+Jeśli umiesz już opracowywać topologie oparte na języku Java, zobacz dokument [Wdrażanie topologii Apache Storm w usłudze HDInsight i zarządzanie nimi](apache-storm-deploy-monitor-topology-linux.md).
 
 Jeśli jesteś deweloperem platformy .NET, możesz tworzyć topologie C# lub hybrydowe topologie C#/Java za pomocą programu Visual Studio. Aby uzyskać więcej informacji na ten temat, zobacz [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) (Tworzenie topologii C# dla Apache Storm w usłudze HDInsight przy użyciu narzędzi Hadoop dla programu Visual Studio).
 

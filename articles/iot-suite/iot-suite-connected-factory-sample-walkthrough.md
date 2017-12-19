@@ -1,6 +1,6 @@
 ---
 title: "Przewodnik po rozwiązaniu połączonej fabryki — Azure | Microsoft Docs"
-description: "Opis połączonej fabryki wstępnie skonfigurowanego rozwiązania Azure IoT oraz jej architektury."
+description: "Opis wstępnie skonfigurowanego rozwiązania połączonej fabryki usługi Azure IoT oraz jej architektury."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu połączonej fabryki
 
@@ -166,7 +166,7 @@ Aplikacja internetowa wdrożona w ramach wstępnie skonfigurowanego rozwiązania
     - Używa komunikacji zabezpieczonej protokołem TCP/TLS.
     - Ten krok jest wewnętrzny dla centrum danych.
 
-11. Przeglądarka internetowa łączy się z połączoną fabryką aplikacji internetowych.
+11. Przeglądarka internetowa łączy się z aplikacją internetową połączonej fabryki.
     - Renderuje pulpit nawigacyjny połączonej fabryki.
     - Nawiązuje połączenie za pośrednictwem protokołu HTTPS.
     - Dostęp do aplikacji połączonej fabryki wymaga uwierzytelnienia użytkownika za pośrednictwem usługi Azure Active Directory.
@@ -190,7 +190,7 @@ Aplikacja internetowa wdrożona w ramach wstępnie skonfigurowanego rozwiązania
     - Odczytuje wszystkie sobie znane urządzenia z usługi IoT Hub.
     - Używa protokołu MQTT za pośrednictwem protokołu TLS przez gniazdo lub bezpieczny protokół Websocket.
 
-3. Przeglądarka internetowa łączy się z internetową aplikacją połączonej fabryki i renderuje pulpit nawigacyjny połączonej fabryki.
+3. Przeglądarka internetowa łączy się z aplikacją internetową połączonej fabryki i renderuje pulpit nawigacyjny połączonej fabryki.
     - Używa protokołu HTTPS.
     - Użytkownik wybierze serwer OPC UA do nawiązania połączenia.
 
@@ -199,7 +199,7 @@ Aplikacja internetowa wdrożona w ramach wstępnie skonfigurowanego rozwiązania
 
 5. Transport serwera proxy OPC odbiera żądanie ze stosu OPC UA w celu ustanowienia połączenia gniazda TCP z serwerem OPC UA.
     - Po prostu pobiera ładunek TCP i korzysta z niego bez zmian.
-    - Ten krok jest wewnętrzny dla internetowej aplikacji połączonej fabryki.
+    - Ten krok jest wewnętrzny dla aplikacji internetowej połączonej fabryki.
 
 6. Serwer proxy OPC (składnik klienta) wyszukuje urządzenie serwera proxy OPC (składnik serwera) w rejestrze urządzeń usługi IoT Hub. Następnie wywołuje on metodę urządzenia serwera proxy OPC (składnik serwera) w usłudze IoT Hub.
     - Używa protokołu HTTPS za pośrednictwem protokołu TCP/TLS do wyszukiwania serwera proxy OPC.
@@ -225,7 +225,7 @@ Aplikacja internetowa wdrożona w ramach wstępnie skonfigurowanego rozwiązania
 > Serwer proxy OPC (składnik serwera) i składnik serwera proxy OPC (klient) wykonuje kroki od 4 do 10 dla całego ruchu TCP związanego z komunikacją OPC UA.
 
 > [!NOTE]
-> Dla serwera OPC UA i stosu OPC UA w internetowej aplikacji połączonej fabryki komunikacja serwera proxy OPC jest niewidoczna i mają zastosowanie wszystkie funkcje zabezpieczeń OPC UA dla uwierzytelniania i szyfrowania.
+> Dla serwera OPC UA i stosu OPC UA w aplikacji internetowej połączonej fabryki komunikacja serwera proxy OPC jest niewidoczna i mają zastosowanie wszystkie funkcje zabezpieczeń OPC UA dla uwierzytelniania i szyfrowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
-Microsoft Azure Storage to zarządzana przez firmę Microsoft usługa w chmurze zapewniająca bezpieczny, trwały, skalowalny i nadmiarowy magazyn o wysokiej dostępności. Firma Microsoft zajmuje się konserwacją oraz rozwiązywaniem krytycznych problemów. 
+Microsoft Azure Storage to zarządzana przez firmę Microsoft usługa w chmurze zapewniająca bezpieczny, trwały, skalowalny i nadmiarowy magazyn o wysokiej dostępności. Firma Microsoft zajmuje się konserwacją oraz rozwiązywaniem krytycznych problemów.
 
 Usługa Azure Storage składa się z trzech usług danych: Blob Storage, File Storage i Queue Storage. Usługa Blob Storage obsługuje magazyn zarówno w warstwie Standardowa, jak i Premium, przy czym w warstwie Premium używane są tylko dyski SSD zapewniające największą wydajność. Kolejną funkcją jest magazyn chłodny, który umożliwia przechowywanie dużych ilości rzadko używanych danych w niższej cenie.
 
@@ -31,9 +31,9 @@ W tym artykule omówiono następujące zagadnienia:
 * Typy kont magazynu
 * Uzyskiwanie dostępu do obiektów blob, kolejek i plików
 * Szyfrowanie
-* Replikacja 
+* Replikacja
 * Transferowanie danych z lub do magazynu
-* Liczne dostępne biblioteki klienta magazynu 
+* Liczne dostępne biblioteki klienta magazynu
 
 Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
 * [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
@@ -41,28 +41,28 @@ Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z
 
 ## <a name="introducing-the-azure-storage-services"></a>Wprowadzenie do usług Azure Storage
 
-Aby móc korzystać z usług udostępnianych przez usługę Azure Storage — Blob Storage, File Storage i Queue Storage — należy najpierw utworzyć konto magazynu, co umożliwi transferowanie danych do/z określonej usługi w ramach tego konta magazynu. 
+Aby móc korzystać z usług udostępnianych przez usługę Azure Storage — Blob Storage, File Storage i Queue Storage — należy najpierw utworzyć konto magazynu, co umożliwi transferowanie danych do/z określonej usługi w ramach tego konta magazynu.
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Obiekty blob to pliki podobne do tych, które przechowujesz na komputerze (lub tablecie, urządzeniu przenośnym itp.). Mogą to być obrazy, pliki programu Microsoft Excel, pliki HTML, wirtualne dyski twarde (VHD), dane big data, kopie zapasowe baz danych — w zasadzie dowolny rodzaj danych. Obiekty blob są przechowywane w kontenerach, które są podobne do folderów. 
+Obiekty blob to pliki podobne do tych, które przechowujesz na komputerze (lub tablecie, urządzeniu przenośnym itp.). Mogą to być obrazy, pliki programu Microsoft Excel, pliki HTML, wirtualne dyski twarde (VHD), dane big data, kopie zapasowe baz danych — w zasadzie dowolny rodzaj danych. Obiekty blob są przechowywane w kontenerach, które są podobne do folderów.
 
-Po umieszczeniu plików w usłudze Blob Storage możesz uzyskać do nich dostęp z dowolnego miejsca na świecie przy użyciu adresów URL, interfejsu REST lub jednej z bibliotek klienta zestawu SDK usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym Node.js, Java, PHP, Ruby, Python i .NET. 
+Po umieszczeniu plików w usłudze Blob Storage możesz uzyskać do nich dostęp z dowolnego miejsca na świecie przy użyciu adresów URL, interfejsu REST lub jednej z bibliotek klienta zestawu SDK usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym Node.js, Java, PHP, Ruby, Python i .NET.
 
 Istnieją trzy typy obiektów blob: blokowe obiekty blob, stronicowe obiekty blob (używane w przypadku plików VHD) oraz uzupełnialne obiekty blob.
 
-* Blokowe obiekty blob są używane do przechowywania zwykłych plików o rozmiarze do około 4,7 TB. 
+* Blokowe obiekty blob są używane do przechowywania zwykłych plików o rozmiarze do około 4,7 TB.
 * Stronicowe obiekty blob są używane do przechowywania plików o dostępie losowym o rozmiarze do 8 TB. Są one stosowane w przypadku plików VHD wspierających maszyny wirtualne.
 * Uzupełnialne obiekty blob składają się z bloków, podobnie jak blokowe obiekty blob, lecz są zoptymalizowane pod kątem operacji dołączania. Są one używane na przykład na potrzeby rejestrowania informacji w tym samym obiekcie blob z różnych maszyn wirtualnych.
 
 W przypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do usługi Blob Storage, możesz przesłać zestaw dysków twardych do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](../storage-import-export-service.md).
 
 ## <a name="azure-files"></a>Azure Files
-Usługa [Azure Files](../files/storage-files-introduction.md) umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu. 
+Usługa [Azure Files](../files/storage-files-introduction.md) umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu.
 
-Jedną z różnic między usługą Azure Files i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas. 
+Jedną z różnic między usługą Azure Files i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas.
 
-Udziałów plików można używać w wielu typowych scenariuszach: 
+Udziałów plików można używać w wielu typowych scenariuszach:
 
 * Wiele aplikacji lokalnych korzysta z udziałów plików. Dzięki temu migracja tych aplikacji współdzielących dane na platformę Azure jest łatwiejsza. Jeśli zainstalujesz udział plików przy użyciu tej samej litery dysku, która jest używana przez aplikację lokalną, część aplikacji uzyskująca dostęp do udziału plików powinna działać bez konieczności wprowadzania zmian lub jedynie z minimalnymi zmianami.
 
@@ -74,7 +74,7 @@ Obecnie uwierzytelnianie oparte na usłudze Active Directory i listy kontroli do
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Usługa Azure Queue jest używana do przechowywania i pobierania komunikatów. Komunikaty kolejek mogą mieć rozmiar do 64 KB, a jedna kolejka może zawierać miliony komunikatów. Kolejki są zazwyczaj używane do przechowywania list komunikatów, które mają zostać przetworzone asynchronicznie. 
+Usługa Azure Queue jest używana do przechowywania i pobierania komunikatów. Komunikaty kolejek mogą mieć rozmiar do 64 KB, a jedna kolejka może zawierać miliony komunikatów. Kolejki są zazwyczaj używane do przechowywania list komunikatów, które mają zostać przetworzone asynchronicznie.
 
 Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i chcesz utworzyć miniatury dla każdego obrazu. Klient może poczekać, aż utworzysz miniatury podczas przekazywania zdjęcia. Alternatywą jest zastosowanie kolejki. Gdy klient zakończy przekazywanie, zapisz komunikat w kolejce. Następnie funkcja usługi Azure Functions pobierze ten komunikat z kolejki i utworzy miniatury. Każdą część tego przetwarzania można skalować oddzielnie, co daje większą kontrolę podczas dostosowywania.
 
@@ -86,7 +86,7 @@ Usługa Azure Table Storage jest teraz częścią usługi Azure Cosmos DB. Aby z
 
 Usługa Azure Storage obejmuje również wszystkie funkcje dysków zarządzanych i niezarządzanych, z których korzystają maszyny wirtualne. Aby uzyskać więcej informacji na temat tych funkcji, zobacz [dokumentację usług Compute](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-## <a name="types-of-storage-accounts"></a>Typy kont magazynu 
+## <a name="types-of-storage-accounts"></a>Typy kont magazynu
 
 W poniższej tabeli przedstawiono różne rodzaje kont magazynu i obiekty, których można używać z każdym z nich.
 
@@ -97,9 +97,9 @@ W poniższej tabeli przedstawiono różne rodzaje kont magazynu i obiekty, któr
 
 ### <a name="general-purpose-storage-accounts"></a>Konta magazynu ogólnego przeznaczenia
 
-Istnieją dwa rodzaje kont magazynu ogólnego przeznaczenia. 
+Istnieją dwa rodzaje kont magazynu ogólnego przeznaczenia.
 
-#### <a name="standard-storage"></a>Standard Storage 
+#### <a name="standard-storage"></a>Standard Storage
 
 Najczęściej używane konta magazynu to konta usługi Standard Storage, których można używać dla wszystkich typów danych. W ramach kont usługi Standard Storage dane są przechowywane na nośnikach magnetycznych.
 
@@ -109,39 +109,39 @@ Usługa Premium Storage zapewnia magazyn o wysokiej wydajności dla stronicowych
 
 ### <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
 
-Konto usługi Blob Storage to specjalne konto magazynu używane do przechowywania blokowych obiektów blob i uzupełnialnych obiektów blob. Na tych kontach nie można przechowywać stronicowych obiektów blob, a zatem nie można też przechowywać plików VHD. Te konta umożliwiają ustawienie warstwy dostępu Gorąca lub Chłodna. Warstwę można zmienić w dowolnym momencie. 
+Konto usługi Blob Storage to specjalne konto magazynu używane do przechowywania blokowych obiektów blob i uzupełnialnych obiektów blob. Na tych kontach nie można przechowywać stronicowych obiektów blob, a zatem nie można też przechowywać plików VHD. Te konta umożliwiają ustawienie warstwy dostępu Gorąca lub Chłodna. Warstwę można zmienić w dowolnym momencie.
 
 Warstwa dostępu Gorąca jest używana w przypadku często używanych plików — koszt magazynowania jest wyższy, ale koszt uzyskiwania dostępu do obiektów blob jest znacznie niższy. W przypadku obiektów blob przechowywanych w warstwie dostępu Chłodna koszt uzyskiwania dostępu do obiektów blob jest wyższy, ale koszt magazynowania jest znacznie niższy.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Uzyskiwanie dostępu do obiektów blob, plików i kolejek
 
-Każde konto magazynu ma dwa klucze uwierzytelniania, przy czym każdego z nich można użyć do dowolnej operacji. Klucze są dwa, więc od czasu do czasu można je przerzucić w celu zwiększenia poziomu bezpieczeństwa. Zabezpieczenie tych kluczy jest bardzo ważne, ponieważ posiadanie ich wraz z nazwą konta daje nieograniczony dostęp do wszystkich danych na koncie magazynu. 
+Każde konto magazynu ma dwa klucze uwierzytelniania, przy czym każdego z nich można użyć do dowolnej operacji. Klucze są dwa, więc od czasu do czasu można je przerzucić w celu zwiększenia poziomu bezpieczeństwa. Zabezpieczenie tych kluczy jest bardzo ważne, ponieważ posiadanie ich wraz z nazwą konta daje nieograniczony dostęp do wszystkich danych na koncie magazynu.
 
 W tej sekcji omówiono dwa sposoby zabezpieczania konta magazynu i jego danych. Aby uzyskać szczegółowe informacje na temat zabezpieczania konta magazynu i jego danych, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](storage-security-guide.md).
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Zabezpieczanie dostępu do kont magazynu przy użyciu usługi Azure AD
 
-Jednym ze sposobów na zabezpieczenie danych magazynu jest kontrolowanie dostępu do kluczy konta magazynu. Dzięki kontroli dostępu opartej na rolach (RBAC, Role-Based Access Control) w usłudze Resource Manager możesz przypisywać role użytkownikom, grupom i aplikacjom. Te role są powiązane z określonym zestawem akcji, które są dozwolone lub niedozwolone. Udzielanie dostępu przy użyciu kontroli dostępu opartej na rolach obsługuje tylko operacje zarządzania dla tego konta magazynu, na przykład zmianę warstwy dostępu. Przy użyciu kontroli dostępu opartej na rolach nie można udzielać dostępu do obiektów danych takich jak określony kontener lub udział plików. Za pomocą kontroli dostępu opartej na rolach można natomiast udzielać dostępu do kluczy konta magazynu, przy użyciu których można następnie odczytać obiekty danych. 
+Jednym ze sposobów na zabezpieczenie danych magazynu jest kontrolowanie dostępu do kluczy konta magazynu. Dzięki kontroli dostępu opartej na rolach (RBAC, Role-Based Access Control) w usłudze Resource Manager możesz przypisywać role użytkownikom, grupom i aplikacjom. Te role są powiązane z określonym zestawem akcji, które są dozwolone lub niedozwolone. Udzielanie dostępu przy użyciu kontroli dostępu opartej na rolach obsługuje tylko operacje zarządzania dla tego konta magazynu, na przykład zmianę warstwy dostępu. Przy użyciu kontroli dostępu opartej na rolach nie można udzielać dostępu do obiektów danych takich jak określony kontener lub udział plików. Za pomocą kontroli dostępu opartej na rolach można natomiast udzielać dostępu do kluczy konta magazynu, przy użyciu których można następnie odczytać obiekty danych.
 
-### <a name="securing-access-using-shared-access-signatures"></a>Zabezpieczanie dostępu przy użyciu sygnatur dostępu współdzielonego 
+### <a name="securing-access-using-shared-access-signatures"></a>Zabezpieczanie dostępu przy użyciu sygnatur dostępu współdzielonego
 
 Obiekty danych możesz zabezpieczyć przy użyciu sygnatur dostępu współdzielonego i przechowywanych zasad dostępu. Sygnatura dostępu współdzielonego to ciąg zawierający token zabezpieczający, który można dołączyć do identyfikatora URI dla zasobu, co umożliwia delegowanie dostępu do określonych obiektów oraz określanie ograniczeń takich jak uprawnienia oraz zakres dat/godzin dostępu. Ta funkcja ma rozbudowane możliwości. Zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-dotnet-shared-access-signature-part-1.md), aby uzyskać szczegółowe informacje.
 
 ### <a name="public-access-to-blobs"></a>Dostęp publiczny do obiektów blob
 
-Usługa Blob umożliwia zapewnienie publicznego dostępu do kontenera i jego obiektów blob lub do konkretnego obiektu blob. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane. Można to zrobić na przykład w przypadku witryny internetowej korzystającej z obrazów, klipów wideo lub dokumentów z usługi Blob Storage. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../blobs/storage-manage-access-to-resources.md) 
+Usługa Blob umożliwia zapewnienie publicznego dostępu do kontenera i jego obiektów blob lub do konkretnego obiektu blob. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane. Można to zrobić na przykład w przypadku witryny internetowej korzystającej z obrazów, klipów wideo lub dokumentów z usługi Blob Storage. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>Szyfrowanie
 
-W przypadku usług Storage dostępnych jest kilka podstawowych rodzajów szyfrowania. 
+W przypadku usług Storage dostępnych jest kilka podstawowych rodzajów szyfrowania.
 
-### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku 
+### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
-W usłudze Files (wersja zapoznawcza) lub usłudze Blob dla konta usługi Azure Storage możesz włączyć szyfrowanie usługi Storage. Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane. 
+W usłudze Files (wersja zapoznawcza) lub usłudze Blob dla konta usługi Azure Storage możesz włączyć szyfrowanie usługi Storage. Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane.
 
 ### <a name="client-side-encryption"></a>Szyfrowania po stronie klienta
 
-Biblioteki klienta magazynu posiadają metody, które możesz wywołać, aby programowo szyfrować dane przed wysłaniem ich z klienta do platformy Azure. Przechowywane dane są zaszyfrowane, co oznacza, że w stanie spoczynku również są zaszyfrowane. Podczas odczytywania informacji są one odszyfrowywane po ich otrzymaniu. 
+Biblioteki klienta magazynu posiadają metody, które możesz wywołać, aby programowo szyfrować dane przed wysłaniem ich z klienta do platformy Azure. Przechowywane dane są zaszyfrowane, co oznacza, że w stanie spoczynku również są zaszyfrowane. Podczas odczytywania informacji są one odszyfrowywane po ich otrzymaniu.
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Szyfrowanie podczas transferu przy użyciu udziałów plików platformy Azure
 
@@ -151,27 +151,27 @@ Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrow
 
 ## <a name="replication"></a>Replikacja
 
-Aby zapewnić trwałość danych, usługa Azure Storage ma możliwość przechowywania kilku kopii danych (i zarządzania nimi). Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków to ustawienie można zmodyfikować po skonfigurowaniu konta magazynu. 
+Aby zapewnić trwałość danych, usługa Azure Storage ma możliwość przechowywania kilku kopii danych (i zarządzania nimi). Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków to ustawienie można zmodyfikować po skonfigurowaniu konta magazynu.
 
-Wszystkie konta magazynu mają **magazyn lokalnie nadmiarowy (LRS, locally redundant storage)**. To oznacza, że trzy kopie danych są zarządzane przez usługę Azure Storage w centrum danych określonym podczas konfigurowania konta magazynu. Gdy zmiany zostaną zatwierdzone w jednej kopii, pozostałe kopie są aktualizowane i zwracany jest komunikat o powodzeniu. To oznacza, że trzy repliki są zawsze zsynchronizowane. Ponadto te trzy kopie znajdują się w oddzielnych domenach błędów i domenach uaktualnień, co oznacza, że dane są dostępne nawet wtedy, gdy węzeł magazynu, na którym są przechowywane, ulegnie awarii lub zostanie przełączony w tryb offline w celu aktualizacji. 
+Wszystkie konta magazynu mają **magazyn lokalnie nadmiarowy (LRS)**, który został zaprogramowany z myślą o zapewnieniu co najmniej 99,999999999% (11 cyfr 9) trwałości obiektów w danym roku. To oznacza, że wiele kopii danych jest zarządzanych przez usługę Azure Storage w centrum danych określonym podczas konfigurowania konta magazynu. Gdy zmiany zostaną zatwierdzone, wszystkie kopie są aktualizowane i zwracany jest komunikat o powodzeniu. To oznacza, że repliki są zawsze zsynchronizowane. Ponadto kopie znajdują się w oddzielnych domenach błędów i domenach uaktualnień, co oznacza, że dane są dostępne nawet wtedy, gdy węzeł magazynu, na którym są przechowywane, ulegnie awarii lub zostanie przełączony w tryb offline w celu aktualizacji.
 
 **Magazyn lokalnie nadmiarowy (LRS)**
 
-Jak wyjaśniono powyżej, dzięki magazynowi LRS masz trzy kopie danych w jednym centrum danych. Rozwiązuje to problem niedostępności danych w przypadku awarii węzła magazynu lub przełączenia go w tryb offline w celu aktualizacji, ale nie w przypadku niedostępności całego centrum danych.
+Jak wyjaśniono powyżej, dzięki magazynowi LRS masz wiele kopii danych w jednym centrum danych. Rozwiązuje to problem niedostępności danych w przypadku awarii węzła magazynu lub przełączenia go w tryb offline w celu aktualizacji, ale nie w przypadku niedostępności całego centrum danych.
 
 **Magazyn strefowo nadmiarowy (ZRS, Zone redundant storage)**
 
-Magazyn strefowo nadmiarowy przechowuje trzy kopie danych oraz jeszcze jeden zestaw trzech kopii danych. Drugi zestaw trzech kopii danych jest replikowany asynchronicznie między centrami danych w jednym lub w dwóch regionach. Należy pamiętać, że magazyn ZRS jest dostępny tylko w przypadku blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia. Ponadto po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go w celu użycia żadnego innego typu replikacji ani odwrotnie.
+Magazyn strefowo nadmiarowy (ZRS) został zaprojektowany z myślą o zapewnieniu co najmniej 99,9999999999% (12 cyfr 9) trwałości obiektów w danym roku dzięki przechowywaniu lokalnych kopii danych, a także drugiego zestawu kopii danych. Drugi zestaw kopii danych jest replikowany asynchronicznie między centrami danych w jednym lub w dwóch regionach. Należy pamiętać, że magazyn ZRS jest dostępny tylko w przypadku blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia. Ponadto po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go w celu użycia żadnego innego typu replikacji ani odwrotnie.
 
-Konta magazynu ZRS zapewniają większą trwałość niż magazyn LRS, ale konta magazynu ZRS nie mają metryk ani funkcji rejestrowania. 
+Konta magazynu ZRS zapewniają większą trwałość niż magazyn LRS, ale konta magazynu ZRS nie mają metryk ani funkcji rejestrowania.
 
 **Magazyn geograficznie nadmiarowy (GRS)**
 
-Magazyn geograficznie nadmiarowy przechowuje trzy lokalne kopie danych w regionie podstawowym oraz jeszcze jeden zestaw trzech kopii danych w regionie pomocniczym oddalonym o setki kilometrów od regionu podstawowego. Jeśli w regionie podstawowym wystąpi awaria, usługa Azure Storage przejdzie w tryb failover w regionie pomocniczym. 
+Magazyn geograficznie nadmiarowy (GRS) został zaprojektowany z myślą o zapewnieniu 99,99999999999999% (16 cyfr 9) trwałości obiektów w danym roku dzięki przechowywaniu lokalnych kopii danych w regionie podstawowym oraz drugiego zestawu kopii danych w regionie pomocniczym oddalonym o setki kilometrów od regionu podstawowego. Jeśli w regionie podstawowym wystąpi awaria, usługa Azure Storage przejdzie w tryb failover w regionie pomocniczym.
 
-**Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)** 
+**Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)**
 
-Magazyn geograficznie nadmiarowy dostępny do odczytu jest dokładnie taki sam jak magazyn GRS, ale zapewnia jedynie dostęp do odczytu danych w lokalizacji pomocniczej. Jeśli podstawowe centrum danych stanie się tymczasowo niedostępne, możesz nadal odczytywać dane z lokalizacji pomocniczej. Może to być bardzo przydatne. Na przykład aplikacja internetowa może przechodzić w tryb tylko do odczytu i wskazywać kopię pomocniczą, zapewniając w ten sposób pewien poziom dostępu, mimo iż aktualizacje nie są dostępne. 
+Magazyn geograficznie nadmiarowy dostępny do odczytu jest dokładnie taki sam jak magazyn GRS, ale zapewnia jedynie dostęp do odczytu danych w lokalizacji pomocniczej. Jeśli podstawowe centrum danych stanie się tymczasowo niedostępne, możesz nadal odczytywać dane z lokalizacji pomocniczej. Może to być bardzo przydatne. Na przykład aplikacja internetowa może przechodzić w tryb tylko do odczytu i wskazywać kopię pomocniczą, zapewniając w ten sposób pewien poziom dostępu, mimo iż aktualizacje nie są dostępne.
 
 > [!IMPORTANT]
 > Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.

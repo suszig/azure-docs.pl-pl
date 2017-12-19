@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight
 
@@ -62,6 +62,8 @@ Platforma Kafka w usłudze HDInsight oferuje następujące funkcje:
 ![Konfiguracja klastra Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Ten diagram przedstawia typową konfigurację platformy Kafka korzystającą z grup konsumentów, partycjonowania i replikacji w celu zapewnienia równoległego odczytu zdarzeń przy zachowaniu odporności na uszkodzenia. Usługę Apache ZooKeeper, która zarządza stanem klastra platformy Kafka, zaprojektowano pod kątem obsługi jednoczesnych, odpornych transakcji o małych opóźnieniach. Platforma Kafka przechowuje rekordy w *tematach*. Rekordy są tworzone przez *producentów* i używane przez *odbiorców*. Producenci pobierają rekordy z *brokerów* platformy Kafka. Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest brokerem platformy Kafka. Dla każdego użytkownika jest tworzona jedna partycja, co umożliwia równoległe przetwarzanie danych przesyłanych strumieniowo. Dzięki replikacji zapewniono dystrybucję partycji na węzłach, co gwarantuje ochronę przed awariami węzła (brokera). Partycja wiodąca jest oznaczona symbolem *(L)*. Ruch producenta jest kierowany do partycji wiodącej w każdym węźle przy użyciu stanu zarządzanego przez usługę ZooKeeper.
+
+Każdy broker platformy Kafka korzysta z usługi Azure Managed Disks. Liczba dysków jest definiowana przez użytkownika. Mogą one zapewnić maksymalnie 16 TB magazynu na brokera.
 
 > [!IMPORTANT]
 > Platforma Kafka nie uwzględnia sprzętu podstawowego (montowanego w stelażu) w centrum danych platformy Azure. Aby zapewnić odpowiednie równoważenie partycji w sprzęcie podstawowym, zobacz [Configure high availability of data (Kafka) (Konfigurowanie wysokiej dostępności danych [platforma Kafka])](apache-kafka-high-availability.md).

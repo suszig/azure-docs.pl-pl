@@ -3,7 +3,7 @@ title: "Wywoływanie elementu runbook usługi Azure Automation z alertu usługi 
 description: "Ten artykuł zawiera omówienie sposobu wywoływania elementu runbook usługi Automation z alertu usługi Microsoft OMS Log Analytics."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Wywoływanie elementu runbook usługi Azure Automation z alertu usługi OMS Log Analytics
 
@@ -43,7 +43,7 @@ Jeśli w obszarze roboczym pakietu OMS masz zainstalowaną i skonfigurowaną us�
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Właściwości elementu runbook (w przypadku obu opcji)
 
-Przed skonfigurowaniem reguł alertu należy zrozumieć cechy obu metod wywoływania elementu runbook z poziomu alertu usługi Log Analytics.
+Przed skonfigurowaniem reguł alertu należy zrozumieć cechy obu metod wywoływania elementu runbook z poziomu alertu usługi Log Analytics. Dane alertu są zapisane w formacie json w pojedynczej właściwości o nazwie **SearchResult**. Ten format jest używany w przypadku akcji elementów runbook i webhook ze standardowym ładunkiem. W przypadku akcji elementów webhook z niestandardowymi ładunkami, zawierających ciąg **IncludeSearchResults:True** w elemencie **RequestBody**, jest to właściwość **SearchResults**.
 
 * Musisz mieć parametr wejściowy elementu runbook o nazwie **WebhookData**, którego typ to **Obiekt**. Może on być wymagany lub opcjonalny. Przy użyciu tego parametru wejściowego alert przekazuje wyniki wyszukiwania do elementu runbook.
 
@@ -61,6 +61,7 @@ Przed skonfigurowaniem reguł alertu należy zrozumieć cechy obu metod wywoływ
     ```
 
     Element *$SearchResult* jest tablicą obiektów; każdy obiekt zawiera pola z wartościami z jednego wyniku wyszukiwania
+
 
 ## <a name="example-walkthrough"></a>Przykładowy przewodnik
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 Po zatrzymaniu usługi reguła alertu w usłudze Log Analytics wykrywa dopasowanie, po czym wyzwala element runbook i wysyła kontekst alertu do tego elementu. Element runbook podejmuje działanie w celu sprawdzenia, czy usługa została zatrzymana. Jeśli tak, nastąpi próba ponownego uruchomienia usługi. Działanie sprawdzi, czy usługa została uruchomiona prawidłowo, i wyprowadzi wyniki.     
 
 Jeśli nie masz konta usługi Automation połączonego z przestrzenią roboczą pakietu OMS, możesz też skonfigurować regułę alertu z akcją elementu webhook wyzwalającą element runbook i skonfigurować element runbook do konwertowania ciągu w formacie JSON oraz filtrowania elementu \*.SearchResult\* zgodnie z podanymi wcześniej wskazówkami.    
+
+>[!NOTE]
+> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), ładunek elementu webhook uległ zmianie.  Szczegółowe informacje na temat tego formatu zawiera artykuł [Azure Log Analytics REST API (Interfejs API REST usługi Azure Log Analytics)](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Następne kroki
 

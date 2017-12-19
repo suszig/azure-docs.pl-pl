@@ -3,7 +3,7 @@ title: "Rozpoczynanie pracy z usługą Azure Automation | Microsoft Docs"
 description: "Ten artykuł zawiera omówienie usługi Azure Automation oparte na przeglądzie szczegółów projektu i implementacji w ramach przygotowania do dołączenia oferty z platformy Azure Marketplace."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Rozpoczynanie pracy z usługą Azure Automation
 
@@ -112,7 +112,7 @@ Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środo
 W sekcji **Instrukcje\Uwierzytelnianie i zabezpieczenia** znajdują się pomocne artykuły zawierające omówienie i kroki implementacji umożliwiające skonfigurowanie uwierzytelniania dla tych środowisk przy użyciu istniejącego albo nowego konta przeznaczonego dla danego środowiska.  W przypadku konta Uruchom jako platformy Azure i klasycznego konta Uruchom jako temat [Aktualizacja konta Uruchom jako usługi Automation](automation-create-runas-account.md) opisuje sposób aktualizacji istniejącego konta usługi Automation za pomocą kont Uruchom jako w portalu lub przy użyciu programu PowerShell, jeśli nie zostało ono pierwotnie skonfigurowane przy użyciu konta Uruchom jako lub klasycznego konta Uruchom jako. Jeśli chcesz utworzyć konto Uruchom jako i klasyczne konto Uruchom jako, używając certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, zapoznaj się z tym artykułem, aby dowiedzieć się, jak utworzyć konta przy użyciu tej konfiguracji.     
  
 ## <a name="network-planning"></a>Planowanie sieci
-Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i zarejestrować się za pomocą pakietu Microsoft Operations Management Suite (OMS), musi on mieć dostęp do numeru portu i opisanych poniżej adresów URL.  Jest to uzupełnienie [portów i adresów URL wymaganych przez agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) do nawiązania połączenia z pakietem OMS. Jeśli na potrzeby komunikacji między agentem i pakietem OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory musisz skonfigurować w zaporze zezwalanie na dostęp.
+Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i zarejestrować się za pomocą pakietu Microsoft Operations Management Suite (OMS), musi on mieć dostęp do numeru portu i opisanych poniżej adresów URL.  Jest to uzupełnienie [portów i adresów URL wymaganych przez agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) do nawiązania połączenia z pakietem OMS. Jeśli na potrzeby komunikacji między agentem i pakietem OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory musisz skonfigurować w zaporze zezwalanie na dostęp.
 
 Poniższe informacje zawierają listę portów i adresów URL, które są wymagane przez hybrydowy proces roboczy elementu Runbook do komunikacji z usługą Automation.
 
@@ -161,7 +161,7 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
 
 2. Kliknij przycisk **Nowy**.<br><br> ![Wybieranie opcji Nowy w witrynie Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Wyszukaj termin **Automation**, a następnie w wynikach wyszukiwania wybierz pozycję **Automatyzacja i kontrola***.<br><br> ![Na platformie Marketplace wyszukaj i wybierz pozycję Automatyzacja i kontrola](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Wyszukaj termin **Automation**, a następnie w wynikach wyszukiwania wybierz pozycję **Automatyzacja i kontrola***.<br><br> ![Na platformie Marketplace wyszukaj i wybierz pozycję Automation and Control](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Po przeczytaniu opisu oferty kliknij przycisk **Utwórz**.  
 
