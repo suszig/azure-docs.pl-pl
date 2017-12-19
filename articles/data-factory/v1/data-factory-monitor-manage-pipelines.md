@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu portalu Azure i programu PowerShell
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ W tej sekcji opisano również sposób przejścia wycinek zestawu danych z jedne
    ![Przeglądaj wszystkie > fabryki danych](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Na **fabryki danych** bloku, wybierz fabryki danych, która Cię interesują.
 
-    ![Wybierz usługi fabryka danych](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Wybieranie fabryki danych](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    Powinna zostać wyświetlona strona główna dla fabryki danych.
 
@@ -86,7 +86,7 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 
 <table>
 <tr>
-    <th align="left">Stan</th><th align="left">Substrat</th><th align="left">Opis</th>
+    <th align="left">Stan</th><th align="left">Podstan</th><th align="left">Opis</th>
 </tr>
 <tr>
     <td rowspan="8">Oczekiwanie</td><td>ScheduleTime</td><td>Czas nie pochodzą dla uruchomienia wycinka.</td>
@@ -104,7 +104,7 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie może uruchamiać wycinków, dopóki nie zostanie wznowione działania.</td>
 </tr>
 <tr>
-<td>Spróbuj ponownie</td><td>Ponawiane wykonania działania.</td>
+<td>Ponawianie próby</td><td>Ponawiane wykonania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Weryfikacja jeszcze się nie rozpoczął.</td>
@@ -120,7 +120,7 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 <td>Wycinek jest przetwarzany.</td>
 </tr>
 <tr>
-<td rowspan="4">Nie powiodło się</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Niepowodzenie</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
 </tr>
 <tr>
 <td>Anulowane</td><td>Wycinek zostało anulowane przez akcję użytkownika.</td>
@@ -131,7 +131,7 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 <tr>
 <td>-</td><td>Nie można wygenerować i/lub sprawdzić poprawności wycinka.</td>
 </tr>
-<td>Gotowe</td><td>-</td><td>Wycinek jest gotowy do użycia.</td>
+<td>Gotowy</td><td>-</td><td>Wycinek jest gotowy do użycia.</td>
 </tr>
 <tr>
 <td>Pominięto</td><td>Brak</td><td>Wycinek nie jest przetwarzany.</td>
@@ -162,7 +162,7 @@ Po wdrożeniu fabryki danych i potoki ma nieprawidłowy okres aktywności, zesta
 
 Przepływ zestawu danych stanu przejścia w fabryce danych jest następująca: oczekiwania -> w toku/w toku (sprawdzania) -> gotowe/nie powiodło się.
 
-Wycinek jest uruchamiany w **oczekiwania** stanu oczekiwania na warunki wstępne, które muszą być spełnione, przed rozpoczęciem wykonywania. Następnie działanie rozpoczyna wykonywanie i wycinka przechodzi w stan **w toku** stanu. Wykonanie działania może powodzenie lub niepowodzenie. Wycinek jest oznaczony jako **gotowe** lub **niepowodzenie**, na podstawie wyniku wykonania.
+Wycinek jest uruchamiany w **oczekiwania** stanu oczekiwania na warunki wstępne, które muszą być spełnione, przed rozpoczęciem wykonywania. Następnie działanie rozpoczyna wykonywanie i wycinka przechodzi w stan **w toku** stanu. Wykonanie działania może powodzenie lub niepowodzenie. Wycinek jest oznaczony jako **gotowe** lub, na podstawie wyniku wykonania.
 
 Można zresetować wycinka tak, aby wrócić do poprzedniej strony z **gotowe** lub **niepowodzenie** stan **oczekiwania** stanu. Można również zaznaczyć stanu wycinka do **Pomiń**, które uniemożliwiają działanie z wykonywania i nie przetwarzania wycinka.
 
@@ -203,7 +203,7 @@ Fabryka danych Azure zapewnia zaawansowane możliwości debugowania i rozwiązyw
 W przypadku niepowodzenia uruchomienia działania w potoku zestawu danych, który jest generowany przez potok jest w stanie błędu z powodu błędu. Można debugować i rozwiązywanie problemów z fabryki danych Azure przy użyciu następujących metod.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Debugowanie błędów przy użyciu portalu Azure
-1. Na **tabeli** bloku, kliknij przycisk wycinek problem, który ma **stan** ustawioną **niepowodzenie**.
+1. Na **tabeli** bloku, kliknij przycisk wycinek problem, który ma **stan** ustawioną.
 
    ![Blok tabeli z wycinka problem](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. Na **wycinka danych** bloku, kliknij przycisk uruchamiania działania, która nie powiodła się.
@@ -215,7 +215,7 @@ W przypadku niepowodzenia uruchomienia działania w potoku zestawu danych, któr
 
 #### <a name="use-powershell-to-debug-an-error"></a>Debugowanie wystąpił błąd przy użyciu programu PowerShell
 1. Uruchom program **PowerShell**.
-2. Uruchom **Get AzureRmDataFactorySlice** polecenie, aby wyświetlić wycinków i ich Stany. Powinny pojawić się wycinek ze statusem **niepowodzenie**.        
+2. Uruchom **Get AzureRmDataFactorySlice** polecenie, aby wyświetlić wycinków i ich Stany. Powinny pojawić się wycinek ze statusem.        
 
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]

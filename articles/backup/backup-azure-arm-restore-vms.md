@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Przywracanie maszyn wirtualnych za pomocą portalu Azure
-> [!div class="op_single_selector"]
-> * [Przywracanie maszyn wirtualnych w klasycznym portalu](backup-azure-restore-vms.md)
-> * [Przywracanie maszyn wirtualnych w portalu Azure](backup-azure-arm-restore-vms.md)
->
->
-
 Ochrona danych za tworzenie migawek danych w określonych odstępach czasu. Te migawki są określane jako punkty odzyskiwania, i w których są przechowywane w Magazyny usług odzyskiwania. Jeśli jest konieczne naprawienie lub skompiluj ponownie maszynę wirtualną (VM), można przywrócić maszynę Wirtualną z żadnym z punktów odzyskiwania zapisane. Po przywróceniu punkt odzyskiwania, można:
 
 * Utwórz nową maszynę Wirtualną, która odzwierciedla w momencie kopii zapasowej maszyny Wirtualnej.

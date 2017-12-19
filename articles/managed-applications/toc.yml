@@ -6,11 +6,11 @@
       href: overview.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie aplikacji zarządzanych za pomocą interfejsu wiersza polecenia platformy Azure
+    - name: Tworzenie aplikacji zarządzanej
       href: managed-apps-quickstart-cli.md
 - name: Samouczki
   items:
-    - name: Tworzenie aplikacji w katalogu usług
+    - name: Tworzenie plików aplikacji zarządzanej
       href: publish-service-catalog-app.md
 - name: Przykłady
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Aktualizowanie zarządzanych zasobów
       href: update-managed-resources.md
-    - name: Publikowanie aplikacji w katalogu usług — portal
+    - name: Publikowanie za pomocą portalu
       href: publish-portal.md
 - name: Dokumentacja
   items:

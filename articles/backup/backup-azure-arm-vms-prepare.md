@@ -15,27 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
-> [!div class="op_single_selector"]
-> * [Model usługi Resource Manager](backup-azure-arm-vms-prepare.md)
-> * [Modelu klasycznego](backup-azure-vms-prepare.md)
->
->
 
 Ten artykuł zawiera kroki przygotowania środowiska do tworzenia kopii zapasowych wdrożonych przez Menedżera zasobów maszyny wirtualnej (VM). Kroki opisane w procedurach za pomocą portalu Azure.  
 
 Usługa Kopia zapasowa Azure ma dwa typy magazynów (kopia zapasowa magazynów i magazyny usług odzyskiwania) dla ochrony maszyn wirtualnych. Magazyn kopii zapasowych chroni maszyn wirtualnych wdrożonych przy użyciu klasycznego modelu wdrożenia. Chroni magazyn usług odzyskiwania **maszyn wirtualnych zarówno wdrożone w klasycznej lub wdrożeniu usługi Resource Manager**. Ochronę maszyny Wirtualnej wdrożone usługi Resource Manager, należy użyć magazynu usług odzyskiwania.
 
 > [!NOTE]
-> Platforma Azure ma dwa modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). Zobacz [przygotowania środowiska do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-prepare.md) szczegółowe informacje na temat pracy z Classic deployment model maszyn wirtualnych.
->
->
+> Platforma Azure ma dwa modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [Resource Manager i model klasyczny](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Zanim można chronić lub utworzyć kopię zapasową wdrożonych przez Menedżera zasobów maszyny wirtualnej (VM), upewnij się, że istnieją następujące wymagania wstępne:
 
@@ -45,7 +38,7 @@ Zanim można chronić lub utworzyć kopię zapasową wdrożonych przez Menedżer
 * Sprawdź łączność z siecią
 * Dla maszyn wirtualnych systemu Linux, w przypadku, gdy chcesz dostosować środowisko tworzenia kopii zapasowej dla aplikacji spójne tworzenie kopii zapasowych, zapoznaj się z wykonaj [kroki, aby skonfigurować skrypty migawki przed i po wykonaniu migawki](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Jeśli znasz te warunki już istnieje w danym środowisku, a następnie przejdź do [kopii zapasowych maszyn wirtualnych artykuł](backup-azure-vms.md). Jeśli chcesz skonfigurować lub sprawdzanie wszystkich wymagań wstępnych w tym artykule poprowadzi Cię przez kroki, aby przygotować tej wstępnie wymaganego.
+Jeśli znasz te warunki już istnieje w danym środowisku, a następnie przejdź do [kopii zapasowych maszyn wirtualnych artykuł](backup-azure-arm-vms.md). Jeśli chcesz skonfigurować lub sprawdzanie wszystkich wymagań wstępnych w tym artykule poprowadzi Cię przez kroki, aby przygotować tej wstępnie wymaganego.
 
 ##<a name="supported-operating-system-for-backup"></a>Obsługiwany system operacyjny do utworzenia kopii zapasowej
  * **Linux**: usługa Azure Backup obsługuje [dystrybucje zalecane dla platformy Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) z wyjątkiem systemu operacyjnego Linux Core. _Innych Bring-Your-właścicielem — dystrybucje systemu Linux mogą również działać, dopóki agent maszyny Wirtualnej jest dostępne na maszynie wirtualnej i obsługę języka Python istnieje. Jednak firma Microsoft nie zatwierdza tych dystrybucji dla kopii zapasowej._
@@ -58,7 +51,7 @@ Aby przygotować środowisko, należy zapoznać się z ograniczeniami.
 * Tworzenie kopii zapasowych maszyn wirtualnych z danymi dysku o rozmiarze przekraczającym 1023GB nie jest obsługiwane.
 
 > [!NOTE]
-> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB niezarządzanych. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Dysponujemy prywatną wersją zapoznawczą obsługującą kopie zapasowe maszyn wirtualnych z niezarządzanymi dyskami większymi niż 1 TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,8 +62,9 @@ Aby przygotować środowisko, należy zapoznać się z ograniczeniami.
 * Zamiana istniejącej maszyny wirtualnej podczas przywracania nie jest obsługiwana. Jeśli podjęto próbę przywrócenia maszyny Wirtualnej, gdy maszyna wirtualna istnieje, operacja przywracania kończy się niepowodzeniem.
 * Region między kopii zapasowej i przywracania nie są obsługiwane.
 * Można tworzyć kopie zapasowe maszyn wirtualnych we wszystkich regionach publicznej platformy Azure (zobacz [Lista kontrolna](https://azure.microsoft.com/regions/#services) obsługiwanych regionów). Jeśli obecnie jest obsługiwany region, którego szukasz, nie zostanie wyświetlony na liście rozwijanej podczas tworzenia magazynu.
-* Przywracanie kontrolera domeny (DC) maszyny Wirtualnej, która jest częścią konfiguracji kontrolera domeny na wielu jest obsługiwane tylko za pomocą programu PowerShell. Przeczytaj więcej na temat [Przywracanie kontrolera domeny, kontrolera domeny na wielu](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Przywracanie maszyn wirtualnych, które mają następujące konfiguracje sieciowe specjalne jest obsługiwane tylko za pomocą programu PowerShell. Maszyny wirtualne utworzone za pomocą przepływu pracy przywracania w interfejsie użytkownika nie będą miały te konfiguracje sieci po zakończeniu operacji przywracania. Aby dowiedzieć się więcej, zobacz [przywracanie maszyn wirtualnych z konfiguracjami sieci specjalne](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Przywracanie kontrolera domeny (DC) maszyny Wirtualnej, która jest częścią konfiguracji kontrolera domeny na wielu jest obsługiwane tylko za pomocą programu PowerShell. Przeczytaj więcej na temat [Przywracanie kontrolera domeny, kontrolera domeny na wielu](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Przywracanie maszyn wirtualnych, które mają następujące konfiguracje sieciowe specjalne jest obsługiwane tylko za pomocą programu PowerShell. Maszyny wirtualne utworzone za pomocą przepływu pracy przywracania w interfejsie użytkownika nie będą miały te konfiguracje sieci po zakończeniu operacji przywracania. Aby dowiedzieć się więcej, zobacz [przywracanie maszyn wirtualnych z konfiguracjami sieci specjalne](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Maszyny wirtualne znajdujące się w konfiguracji usługi równoważenia obciążenia (wewnętrznych i zewnętrznych)
   * Maszyny wirtualne z wielu zastrzeżonych adresów IP
   * Maszyny wirtualne z wieloma kartami sieciowymi
@@ -232,8 +226,6 @@ Obraz przykład poniżej przedstawiono kroki trzech konfiguracji koniecznych do 
 * Maszyna wirtualna serwera proxy zezwala na ruch przychodzący z maszyn wirtualnych w sieci wirtualnej.
 * Grupy zabezpieczeń sieci (NSG) o nazwie NF blokady musi zabezpieczeń reguły zezwalanie Internet ruch wychodzący z maszyny Wirtualnej serwera Proxy.
 
-![Grupy NSG z diagram wdrożenia serwera proxy HTTP](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 Aby użyć serwera proxy HTTP do komunikacji z Internetem, wykonaj następujące kroki:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Krok 1. Konfigurowanie połączeń wychodzących sieci
@@ -285,16 +277,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Krok 2. Zezwalaj na połączenia przychodzące na serwerze proxy:
 1. Na serwerze proxy otwórz Zaporę systemu Windows. Najprostszym sposobem dostęp zapory jest do wyszukiwania Zapora systemu Windows z zabezpieczeniami zaawansowanymi.
-
-    ![Otwórz Zaporę](./media/backup-azure-vms-prepare/firewall-01.png)
 2. W oknie dialogowym zapory systemu Windows, kliknij prawym przyciskiem myszy **reguły ruchu przychodzącego** i kliknij przycisk **nową regułę...** .
-
-    ![Utwórz nową regułę](./media/backup-azure-vms-prepare/firewall-02.png)
 3. W **Kreatora nowej reguły przychodzącej**, wybierz **niestandardowy** opcja dla **typ reguły** i kliknij przycisk **dalej**.
 4. Na stronie, aby wybrać **Program**, wybierz **wszystkie programy** i kliknij przycisk **dalej**.
 5. Na **protokoły i porty** , wprowadź następujące informacje i kliknij przycisk **dalej**:
-
-    ![Utwórz nową regułę](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * Aby uzyskać *protokół typu* wybierz *TCP*
    * dla *portów lokalnych* wybierz *określonych portów*, w poniższym polu Określ ```<Proxy Port>``` który został skonfigurowany.
@@ -323,6 +309,6 @@ Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opini
 ## <a name="next-steps"></a>Następne kroki
 Teraz, kiedy przygotowania środowiska do tworzenia kopii zapasowej maszyny Wirtualnej, następnym krokiem logicznej jest utworzenie kopii zapasowej. Planowania artykuł zawiera bardziej szczegółowe informacje o tworzeniu kopii zapasowych maszyn wirtualnych.
 
-* [Tworzenie kopii zapasowych maszyn wirtualnych](backup-azure-vms.md)
+* [Tworzenie kopii zapasowych maszyn wirtualnych](backup-azure-arm-vms.md)
 * [Zaplanuj infrastrukturę kopii zapasowej maszyny Wirtualnej](backup-azure-vms-introduction.md)
 * [Zarządzanie kopii zapasowych maszyn wirtualnych](backup-azure-manage-vms.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Zarówno castLabs, jak i AMS obsługuje format tokenu JWT (JSON Web Token) użyt
 ### <a name="jwt-token-in-ams"></a>Token JWT w AMS
 W poniższej tabeli opisano tokenu JWT w AMS. 
 
-| Wystawcy | Ciąg wystawcy z wybranego Secure Token Service (STS) |
+| Wystawca | Ciąg wystawcy z wybranego Secure Token Service (STS) |
 | --- | --- |
 | Grupy odbiorców |Ciąg odbiorców z STS używane |
 | Oświadczenia |Zestaw oświadczeń |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 > [!div class="op_single_selector"]
@@ -224,7 +224,7 @@ Po usługi uruchomione, można przejrzeć wygenerowane zdarzenia funkcji Śledze
 
 [Wdrażanie aplikacji](service-fabric-deploy-remove-applications.md)
 
-[Uaktualnianie aplikacji](service-fabric-application-upgrade.md)
+[Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
 
 [Dokumentacja dla deweloperów dla niezawodne usługi](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

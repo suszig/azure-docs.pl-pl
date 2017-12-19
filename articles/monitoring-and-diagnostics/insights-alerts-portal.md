@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>W monitorze Azure tworzyć alerty metryki dla usługi Azure - Azure portal
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za
 
 3. Wybierz **Dodaj alert** poleceń i wypełnij pola.
 
-    ![Dodawanie alertu](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+    ![Dodaj alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **Nazwa** alertu reguły, a następnie wybierz pozycję **opis**, który pokazuje również w wiadomości e-mail z powiadomieniem.
 

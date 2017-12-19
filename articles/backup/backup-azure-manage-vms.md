@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure
-> [!div class="op_single_selector"]
-> * [Zarządzanie kopiami zapasowymi maszyny Wirtualnej Azure](backup-azure-manage-vms.md)
-> * [Zarządzanie kopiami zapasowymi klasyczne maszyny Wirtualnej](backup-azure-manage-vms-classic.md)
->
->
 
 Ten artykuł zawiera wskazówki dotyczące zarządzania kopii zapasowych maszyn wirtualnych i wyjaśniono, alerty kopii zapasowej informacji dostępnych na pulpicie nawigacyjnym portalu. Wskazówki zawarte w tym artykule dotyczą przy użyciu maszyn wirtualnych z Magazyny usług odzyskiwania. W tym artykule opisano tworzenie maszyn wirtualnych nie jest opisano sposób ochrony maszyn wirtualnych. Aby Elementarz o ochronie usługi Azure Resource Manager wdrożone maszyny wirtualne na platformie Azure w magazynie usług odzyskiwania, zobacz [Pierwsze spojrzenie: Utwórz kopię zapasową maszyn wirtualnych do magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md).
 
@@ -224,4 +219,4 @@ Aby usunąć dane kopii zapasowej na maszynie wirtualnej z *kopii zapasowej wył
     Komunikat z powiadomieniem informuje dane kopii zapasowej została usunięta.
 
 ## <a name="next-steps"></a>Następne kroki
-Informacje dotyczące ponownego tworzenia maszyny wirtualnej z punktu odzyskiwania, zapoznaj się z [przywracanie maszyn wirtualnych Azure](backup-azure-restore-vms.md). Jeśli potrzebujesz informacji na temat ochrony maszyn wirtualnych, zobacz [Pierwsze spojrzenie: Utwórz kopię zapasową maszyn wirtualnych do magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md). Aby uzyskać informacje dotyczące monitorowania zdarzeń, zobacz [monitorowania alertów dla kopii zapasowych maszyn wirtualnych Azure](backup-azure-monitor-vms.md).
+Informacje dotyczące ponownego tworzenia maszyny wirtualnej z punktu odzyskiwania, zapoznaj się z [przywracanie maszyn wirtualnych Azure](backup-azure-arm-restore-vms.md). Jeśli potrzebujesz informacji na temat ochrony maszyn wirtualnych, zobacz [Pierwsze spojrzenie: Utwórz kopię zapasową maszyn wirtualnych do magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md). Aby uzyskać informacje dotyczące monitorowania zdarzeń, zobacz [monitorowania alertów dla kopii zapasowych maszyn wirtualnych Azure](backup-azure-monitor-vms.md).
