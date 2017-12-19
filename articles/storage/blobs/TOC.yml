@@ -72,10 +72,10 @@
   items:
     - name: Planowanie i projektowanie
       items:
+        - name: Opcje konta magazynu
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikacja
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Opcje konta magazynu
-          href: storage-account-options.md
         - name: 'Warstwy gorąca, chłodna i archiwum'
           href: storage-blob-storage-tiers.md
         - name: Reagowanie na zdarzenia
