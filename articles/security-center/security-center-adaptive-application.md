@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center (wersja zapoznawcza)
 Z tego przewodnika dowiesz się, jak skonfigurować funkcje sterowania aplikacjami w usłudze Azure Security Center.
@@ -32,9 +32,6 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają sterowanie tym, które 
 - Unikanie uruchamiania starych i nieobsługiwanych aplikacji.
 - Zapobieganie używaniu określonych programów narzędziowych, które nie są dozwolone w organizacji.
 - Umożliwianie informatykom sterowania dostępem do poufnych danych za pomocą aplikacji.
-
-> [!NOTE]
-> Funkcje adaptacyjnego sterowania aplikacjami są dostępne dla klientów z usługą Azure Security Center w wersji Standard w postaci ograniczonej publicznej wersji zapoznawczej. Wyślij [nam](mailto:ASC_appcontrol@microsoft.com) wiadomość e-mail ze swoim identyfikatorem subskrypcji, aby dołączyć do tej wersji zapoznawczej.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak włączyć funkcje adaptacyjnego sterowania aplikacjami?
 Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu aplikacji, które mogą być uruchamiane w skonfigurowanych grupach zasobów. Ta funkcja jest dostępna tylko dla maszyn z systemem Windows (we wszystkich wersjach, klasycznych lub usługi Azure Resource Manager). Poniższe kroki umożliwiają skonfigurowanie listy dozwolonych aplikacji w usłudze Security Center:
@@ -72,7 +69,7 @@ W obszarze **Wybierz maszyny wirtualne** zapoznaj się z listą zalecanych maszy
 
 - **NAZWA**: pełna ścieżka aplikacji
 - **PROCESY**: ile aplikacji znajduje się w każdej ścieżce
-- **WSPÓLNE**: wartość „prawda” wskazuje, że te procesy są wykonywane na większości maszyn wirtualnych w tej grupie zasobów.
+- **WSPÓLNE**: wartość „tak” wskazuje, że te procesy są wykonywane na większości maszyn wirtualnych w tej grupie zasobów.
 - **MOŻLIWE DO WYKORZYSTANIA**: ikona ostrzeżenia wskazuje, czy osoba atakująca może wykorzystać aplikacje do pominięcia listy dozwolonych aplikacji. Zaleca się dokonanie przeglądu tych aplikacji przed ich zatwierdzeniem. 
 
 Po wybraniu opcji kliknij przycisk **Utwórz**. Domyślnie usługa Security Center zawsze uruchamia sterowanie aplikacjami w trybie *inspekcji*. Po upewnieniu się, że lista dozwolonych nie wpływa niekorzystnie na używane obciążenia, można zmienić tryb na tryb *wymuszania*.

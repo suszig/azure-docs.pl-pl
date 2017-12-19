@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Dodawanie, usuwanie, włączanie i wyłączanie punktów końcowych
 
@@ -39,7 +39,7 @@ Można również wyłączyć poszczególne punkty końcowe, które są części�
     1. Dla opcji **Typ** kliknij pozycję **Punkt końcowy platformy Azure**.
     2. W polu **Nazwa** podaj nazwę dla tego punktu końcowego.
     3. Dla opcji **Typ zasobu docelowego** z listy rozwijanej wybierz odpowiedni typ zasobu.
-    4. Dla opcji **Zasób docelowy** z listy rozwijanej wybierz odpowiedni zasób docelowy, aby wyświetlić listę zasobów w ramach tej samej subskrypcji w bloku **Zasoby**. W wyświetlonym bloku **Zasób** wybierz usługę, którą chcesz dodać jako pierwszy punkt końcowy.
+    4. W przypadku opcji **Zasób docelowy** kliknij selektor **Wybierz...**, aby wyświetlić listę zasobów w ramach tej samej subskrypcji w bloku **Zasoby**. W wyświetlonym bloku **Zasób** wybierz usługę, którą chcesz dodać jako pierwszy punkt końcowy.
     5. Dla opcji **Priorytet** wybierz wartość **1**. Spowoduje to kierowanie całego ruchu do tego punktu końcowego, jeśli jest on w dobrej kondycji.
     6. Pozycję **Dodaj jako wyłączone** pozostaw niezaznaczoną.
     7. Kliknij przycisk **OK**.

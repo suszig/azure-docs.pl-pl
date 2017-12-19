@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Jak pomyślnie wdrożyć funkcję samoobsługowego resetowania haseł
 
@@ -37,6 +37,10 @@ Aby zapewnić bezproblemowe wdrożenie funkcji samoobsługowego resetowania hase
 9. Określ, kiedy chcesz wymuszać rejestrację. Rejestrację można wymusić w dowolnym momencie. Możesz także wymagać od użytkowników ponownego potwierdzania ich informacji uwierzytelniających po określonym czasie.
 10. Użyj funkcji raportowania. Po upływie pewnego czasu możesz przejrzeć dane dotyczące użycia i rejestracji użytkowników, korzystając z [funkcji raportowania oferowanej przez usługę Azure AD](active-directory-passwords-reporting.md).
 11. Włącz resetowanie haseł. Gdy wszystko będzie gotowe, włącz resetowanie haseł dla wszystkich użytkowników, ustawiając przełącznik **Funkcja samoobsługowego resetowania hasła jest włączona** na wartość **Wszystkie**. 
+
+   > [!NOTE]
+   > Zmiana tego ustawienia z opcji Wybrana grupa na Wszyscy nie powoduje unieważnienia istniejących danych uwierzytelniania, zarejestrowanych przez użytkownika w grupie testowej. Skonfigurowani użytkownicy z zarejestrowanymi prawidłowymi danymi uwierzytelniania będą nadał działać.
+
 12. [Umożliwianie użytkownikom systemu Windows 10 resetowania hasła na ekranie logowania](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Wielu klientów uważa, że najłatwiejszym sposobem zachęcenia użytkowników 
 
 Wielu klientów decyduje się na hostowanie strony internetowej i utworzenie głównego wpisu w usłudze DNS, takiego jak https://passwords.contoso.com. Wypełniają oni tę stronę linkami do następujących informacji:
 
-* [Portal resetowania haseł usługi Azure AD](https://aka.ms/sspr)
-* [Portal rejestracji w celu korzystania z funkcji resetowania haseł usługi Azure AD](http://aka.ms/ssprsetup)
-* [Portal zmieniania haseł usługi Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portal resetowania haseł usługi Azure AD — https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portal rejestracji w funkcji resetowania haseł usługi Azure AD — http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal zmiany haseł usługi Azure AD — https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Inne informacje dotyczące organizacji
 
 W dowolnej komunikacji e-mail i rozsyłanych materiałach marketingowych możesz umieścić firmowe, łatwe do zapamiętania adresy URL, z których mogą skorzystać użytkownicy chcący użyć tych usług. Aby ułatwić Ci pracę, utworzyliśmy także [przykładową stronę resetowania hasła](https://github.com/ajamess/password-reset-page), którą możesz dostosować do potrzeb swojej organizacji.

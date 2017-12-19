@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Połączenia hybrydowe — omówienie
 
@@ -90,12 +90,12 @@ Połączenia hybrydowe używają następujących portów TCP:
 | 80, 443 |Te porty są używane do niektórych żądań danych wysyłanych do platformy Azure. Ponadto, jeśli nie można użyć portów 9352 i 5671, *wtedy* porty 80 i 443 są portami rezerwowymi służącymi do transmisji danych i kanału kontrolnego.<br/><br/>Zezwalaj na połączenia wychodzące przez te porty. <br/><br/>**Uwaga** Nie zaleca się używania ich jako portów rezerwowych zamiast innych portów TCP. Dla kanałów danych używany jest protokół HTTP/WebSocket, a nie natywny protokół TCP. Może to spowodować obniżenie wydajności. |
 
 ## <a name="next-steps"></a>Następne kroki
-[Tworzenie połączeń hybrydowych i zarządzanie nimi](integration-hybrid-connection-create-manage.md)<br/>
+[Tworzenie połączeń hybrydowych i zarządzanie nimi](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Zobacz też
-[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) (Interfejs API REST do zarządzania usługą BizTalk Services na platformie Microsoft Azure) 
-[BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) (BizTalk Services: tabela wersji)<br/>
-[Tworzenie usługi BizTalk przy użyciu witryny Azure Portal](biztalk-provision-services.md)<br/>
-[BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md) (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)<br/>
+[REST API for Managing BizTalk Services on Microsoft Azure (Interfejs API REST do zarządzania usługą BizTalk Services na platformie Microsoft Azure)](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: Editions Chart (Usługa BizTalk Services: zestawienie wersji)](biztalk-editions-feature-chart.md)  
+[Tworzenie usługi BizTalk](biztalk-provision-services.md)  
+[BizTalk Services: Dashboard, Monitor and Scale tabs (Usługa BizTalk Services: karty Pulpit nawigacyjny, Monitor i Skalowanie)](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

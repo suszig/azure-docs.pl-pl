@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Aby dowiedzieć się więcej na temat zabezpieczeń platformy Azure, zobacz witr
 ## <a name="supports-the-latest-client-tools"></a>Obsługuje najnowsze narzędzia klienckie
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-clients.png)
 
-Nowoczesne narzędzia do eksploracji i wizualizacji danych, takie jak Power BI, Excel czy narzędzia innych firm, udostępniają użytkownikom wysoce interakcyjny i rozbudowany wizualnie wgląd w dane modelu.
+Nowoczesne narzędzia do eksploracji i wizualizacji danych, takie jak Power BI, Excel, SQL Server 2017 Reporting Services czy narzędzia innych firm są obsługiwane i udostępniają użytkownikom wysoce interakcyjny i rozbudowany wizualnie wgląd w dane modelu. 
 
 Do łączenia się z serwerami Analysis Services klienci używają [bibliotek klienta](analysis-services-data-providers.md) MSOLAP, AMO lub ADOMD. Aplikacje klienckie firmy Microsoft, takie jak Power BI Desktop i Excel, instalują wszystkie trzy biblioteki klienta. Należy jednak pamiętać, że zależnie od wersji lub częstotliwości aktualizacji, biblioteki klienta mogą nie być w najnowszej wersji wymaganej przez usługi Azure Analysis Services. To samo dotyczy aplikacji niestandardowych lub innych interfejsów, takich jak AsCmd, TOM czy ADOMD.NET. Te aplikacje zwykle wymagają ręcznej instalacji bibliotek jako części pakietu.
 

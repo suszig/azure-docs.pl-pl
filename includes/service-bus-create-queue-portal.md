@@ -2,16 +2,16 @@ Upewnij się, że masz już utworzoną przestrzeń nazw usługi Service Bus, jak
 
 1. Zaloguj się w witrynie [Azure Portal][azure-portal].
 2. W lewym okienku nawigacji portalu kliknij pozycję **Service Bus** (jeśli pozycja **Service Bus** nie jest widoczna, kliknij pozycję **Więcej usług**).
-3. Kliknij przestrzeń nazw, w której chcesz utworzyć kolejkę. W tym przypadku jest to **nstest1**.
+3. Kliknij przestrzeń nazw, w której chcesz utworzyć kolejkę. W tym przypadku jest to **sbnstest1**.
    
     ![Tworzenie kolejki][createqueue1]
-4. W bloku **Przestrzeń nazw usługi Service Bus** wybierz pozycję **Kolejki**, a następnie kliknij przycisk **Dodaj kolejkę**.
+4. W oknie przestrzeni nazw kliknij pozycję **Kolejki**, a następnie w oknie **Kolejki** kliknij pozycję **+ Kolejka**.
    
     ![Wybieranie kolejek][createqueue2]
-5. Wprowadź **Nazwę kolejki**, a pozostałe wartości pozostaw domyślne.
+5. W polu **Nazwa** wprowadź nazwę kolejki, a pozostałe wartości pozostaw domyślne.
    
     ![Wybieranie nowych kolejek][createqueue3]
-6. W dolnej części bloku kliknij pozycję **Utwórz**.
+6. W dolnej części okna kliknij pozycję **Utwórz**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

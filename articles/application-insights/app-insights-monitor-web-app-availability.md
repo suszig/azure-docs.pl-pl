@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
 Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze możesz skonfigurować testy, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
@@ -29,7 +29,7 @@ Istnieją dwa rodzaje testów dostępności:
 * [Test ping adresu URL](#create): prosty test, który można utworzyć w portalu Azure.
 * [Wieloetapowy test sieci Web](#multi-step-web-tests): tworzony w programie Visual Studio Enterprise i przekazywany do portalu.
 
-Dla każdego zasobu aplikacji możesz utworzyć maksymalnie 25 testów dostępności.
+Dla każdego zasobu aplikacji możesz utworzyć maksymalnie 100 testów dostępności.
 
 ## <a name="create"></a>1. Otwieranie zasobu dla własnych raportów testów dostępności
 
@@ -127,11 +127,11 @@ Aby utworzyć test wieloetapowy, nagraj scenariusz przy użyciu programu Visual 
 #### <a name="1-record-a-scenario"></a>1. Nagrywanie scenariusza
 Nagraj sesję sieci Web w programie Visual Studio Enterprise.
 
-1. Utwórz projekt testu wydajności sieci Web.
+1. Utwórz projekt internetowego testu wydajnościowego.
 
-    ![W programie Visual Studio Enterprise utwórz projekt z szablonu Projekt testu sieci Web i obciążenia.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![W programie Visual Studio Enterprise utwórz projekt z szablonu Projekt internetowych testów wydajnościowych i obciążeniowych.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Nie widzisz szablonu Projekt testu sieci Web i obciążenia?* — Zamknij program Visual Studio Enterprise. Otwórz **Instalator programu Visual Studio** w celu zmodyfikowania instalacji programu Visual Studio Enterprise. W obszarze **Poszczególne składniki** wybierz pozycję **Narzędzia do testowania obciążenia witryn sieci Web i aplikacji**.
+ * *Nie widzisz szablonu Projekt internetowych testów wydajnościowych i obciążeniowych?* — Zamknij program Visual Studio Enterprise. Otwórz **Instalator programu Visual Studio** w celu zmodyfikowania instalacji programu Visual Studio Enterprise. W obszarze **Poszczególne składniki** wybierz pozycję **Narzędzia do internetowego testowania wydajnościowego i obciążeniowego**.
 
 2. Otwórz plik .webtest i rozpocznij nagrywanie.
 
@@ -238,17 +238,17 @@ Jeśli w ramach testu należy zalogować się przy użyciu protokołu OAuth, og�
 
 
 ## <a name="performance-tests"></a>Testy wydajności
-W witrynie sieci Web można uruchomić test obciążenia. Podobnie jak w przypadku testu dostępności można wysłać proste żądania lub żądania wieloetapowe z naszych punktów na całym świecie. W przeciwieństwie do testu dostępności wysyłanych jest wiele żądań symulujących wielu równoczesnych użytkowników.
+Witrynę internetową możesz poddać testowi obciążeniowemu. Podobnie jak w przypadku testu dostępności można wysłać proste żądania lub żądania wieloetapowe z naszych punktów na całym świecie. W przeciwieństwie do testu dostępności wysyłanych jest wiele żądań symulujących wielu równoczesnych użytkowników.
 
 Z poziomu bloku Przegląd otwórz pozycję **Ustawienia**, **Testy wydajności**. Podczas tworzenia testu będzie miało miejsce zaproszenie do połączenia się z kontem usługi Visual Studio Team Services lub utworzenia go.
 
 Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzenia.
 
 
-![Test wydajności](./media/app-insights-monitor-web-app-availability/perf-test.png)
+![Test wydajnościowy](./media/app-insights-monitor-web-app-availability/perf-test.png)
 
 > [!TIP]
-> Aby obserwować wyniki testów wydajności sieci, należy użyć [transmisji strumieniowej na żywo](app-insights-live-stream.md) i [profilera](app-insights-profiler.md).
+> Aby obserwować wyniki testów wydajnościowych, należy użyć [transmisji strumieniowej na żywo](app-insights-live-stream.md) i [profilera](app-insights-profiler.md).
 >
 
 ## <a name="automation"></a>Automatyzacja

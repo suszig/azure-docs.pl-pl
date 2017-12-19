@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: usługa połączona programu Visual Studio (wersja zapoznawcza)
 
@@ -119,8 +119,8 @@ W tym dokumencie omówiono następujące procedury:
 
 Teraz, gdy masz już działające usługi połączone z Twoim kontem usługi Azure Cosmos DB, przejdź do jednego z samouczków, aby rozpocząć tworzenie rozwiązania:
 
-* [Opracowywanie zawartości przy użyciu interfejsu API usługi DocumentDB na platformie .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: rozpoczęcie pracy z interfejsem API usługi DocumentDB — samouczek](documentdb-get-started.md).
-* Czy chcesz wykonać testowanie wydajności i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
+* [Tworzenie przy użyciu interfejsu API SQL w .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: Rozpoczęcie pracy z interfejsem API SQL — samouczek](documentdb-get-started.md).
+* Czy chcesz wykonać testowanie wydajnościowe i skalowania przy użyciu usługi Azure Cosmos DB? Zobacz [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testowanie wydajności i skali w usłudze Azure Cosmos DB)
 * Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
 

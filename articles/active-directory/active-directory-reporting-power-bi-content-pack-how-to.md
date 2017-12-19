@@ -3,21 +3,21 @@ title: "Korzystanie z pakietu zawartości usługi Power BI dla usługi Azure Act
 description: "Dowiedz się, jak używać pakietu zawartości usługi Power BI dla usługi Azure Active Directory"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Korzystanie z pakietu zawartości usługi Power BI dla usługi Azure Active Directory
 
@@ -46,7 +46,7 @@ W tym temacie przedstawiono instrukcje krok po kroku dotyczące instalacji i uż
 5.  Po wyświetleniu monitu wpisz swój identyfikator dzierżawy Azure AD, a następnie kliknij przycisk **Dalej**.
 
     > [!TIP] 
-    > Szybkim sposobem uzyskania identyfikatora dzierżawy dla dzierżawcy usługi Office 365/Azure AD jest zalogowanie się do portalu usługi Azure AD, przejście do katalogu i skopiowanie identyfikatora z następującego adresu URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Aby szybko uzyskać identyfikator dzierżawy usługi Office 365 / Azure AD, zaloguj się do portalu usługi Azure AD, za pomocą wyszczególniania przejdź do katalogu i skopiuj wartość **Identyfikator katalogu** ze strony [**Właściwości**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Pakiet zawartości usługi Power BI dla usługi Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

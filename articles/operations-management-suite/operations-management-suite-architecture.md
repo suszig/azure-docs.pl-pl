@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Architektura pakietu OMS
 [Pakiet Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) to zbiór opartych na chmurze usług zarządzania środowiskami lokalnymi i chmurowymi.  W tym artykule opisano różne lokalne i chmurowe składniki pakietu OMS oraz podano ogólny opis ich architektury przetwarzania w chmurze.  Podano też linki do dokumentacji zawierającej dodatkowe szczegóły dotyczące każdej usługi.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="log-analytics"></a>Log Analytics
 Wszystkie dane zebrane przez usługę [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) są przechowywane w repozytorium pakietu OMS, które jest hostowane na platformie Azure.  Dane zbierane w repozytorium pakietu OMS są generowane przez połączone źródła.  Obecnie istnieją trzy typy obsługiwanych połączonych źródeł.
 
-* Agent zainstalowany na komputerze z systemem [Windows](../log-analytics/log-analytics-windows-agents.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md) podłączony bezpośrednio do pakietu OMS.
+* Agent zainstalowany na komputerze z systemem [Windows](../log-analytics/log-analytics-windows-agent.md) lub [Linux](../log-analytics/log-analytics-linux-agents.md) podłączony bezpośrednio do pakietu OMS.
 * Grupa zarządzania programu System Center Operations Manager (SCOM) [połączona z usługą Log Analytics](../log-analytics/log-analytics-om-agents.md).  Agenci SCOM nadal komunikują się z serwerami zarządzania, które przekazują zdarzenia i dane dotyczące wydajności do usługi Log Analytics.
 * [Konto usługi Azure Storage](../log-analytics/log-analytics-azure-storage.md), które zbiera dane usługi [Diagnostyka Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) z roli Proces roboczy, roli Sieć Web lub z maszyny wirtualnej na platformie Azure.
 
@@ -51,8 +51,8 @@ Chronione dane w usłudze [Azure Backup](http://azure.microsoft.com/documentatio
 Usługa Azure Backup ma trzy podstawowe scenariusze.
 
 * Komputer z systemem Windows z agentem usługi Azure Backup.  W tym scenariuszu z dowolnego serwera lub klienta systemu Windows można tworzyć kopie zapasowe plików i folderów bezpośrednio do magazynu kopii zapasowych Azure.  
-* System Center Data Protection Manager (DPM) lub serwer usługi Microsoft Azure Backup. W tym scenariuszu można wykorzystać program DPM lub serwer usługi Microsoft Azure Backup do tworzenia kopii zapasowych plików i folderów, a także obciążeń aplikacji, takich jak SQL i SharePoint, do lokalnego magazynu, a następnie do replikowania do magazynu kopii zapasowych Azure.
-* Rozszerzenia maszyny wirtualnej platformy Azure.  W tym scenariuszu można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure do magazynu kopii zapasowych Azure.
+* System Center Data Protection Manager (DPM) lub serwer usługi Microsoft Azure Backup. W tym scenariuszu można użyć programu DPM lub usługi Microsoft Azure Backup Server do tworzenia kopii zapasowych plików i folderów, a także obciążeń aplikacji, takich jak SQL i SharePoint, w magazynie lokalnym, a następnie do replikowania ich do magazynu kopii zapasowych platformy Azure.
+* Rozszerzenia maszyny wirtualnej platformy Azure.  W tym scenariuszu można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure w magazynie kopii zapasowych platformy Azure.
 
 Usługa Azure Backup obejmuje rozwiązanie pakietu OMS, które wyświetla statystyki i linki do uruchomienia witryny Azure Portal dla wszystkich operacji.
 

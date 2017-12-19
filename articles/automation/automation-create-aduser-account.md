@@ -3,7 +3,7 @@ title: "Tworzenie konta użytkownika usługi Azure AD | Microsoft Docs"
 description: "W tym artykule opisano sposób tworzenia poświadczeń konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania na platformie Azure i klasycznej platformie Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "konto użytkownika usługi Azure Active Directory, azure service management, konto użytkownika usługi Azure AD"
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Uwierzytelnianie elementów Runbook za pomocą klasycznego wdrożenia platformy Azure i usługi Resource Manager
 W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do klasycznego modelu wdrażania platformy Azure lub zasobów usługi Azure Resource Manager.  To konto nadal jest obsługiwaną tożsamością uwierzytelniania dla elementów Runbook w ramach usługi Azure Resource Manager, jednak zalecane jest używanie konta Uruchom jako platformy Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Tworzenie nowego użytkownika usługi Azure Active Directory
-1. Zaloguj się do klasycznej witryny Azure Portal jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
+1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz usługę **Active Directory**, a następnie wybierz nazwę katalogu organizacji.
 3. Wybierz kartę **Użytkownicy**, a następnie w obszarze poleceń wybierz polecenie **Dodaj użytkownika**.
 4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz opcję **Nowy użytkownik w organizacji**.
@@ -42,11 +42,11 @@ W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto 
 W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w witrynie Azure Portal. Będzie ono używane z elementami Runbook zarządzającymi zasobami w klasycznym wdrożeniu platformy Azure.  
 
 > [!NOTE]
-> Kontami usługi Automation utworzonymi za pomocą klasycznej witryny Azure Portal można zarządzać zarówno za pomocą klasycznej witryny Azure Portal, jak i witryny Azure Portal oraz zestawu poleceń cmdlet. Po utworzeniu konta nie ma znaczenia, jak są tworzone zasoby w ramach konta ani jak się nimi zarządza. Jeśli planujesz dalsze używanie klasycznej witryny Azure Portal, użyj jej zamiast witryny Azure Portal do tworzenia kont usługi Automation.
+> Kontami usługi Automation utworzonymi za pomocą klasycznej witryny Azure Portal można zarządzać zarówno za pomocą klasycznej witryny Azure Portal, jak i witryny Azure Portal oraz zestawu poleceń cmdlet. Po utworzeniu konta nie ma znaczenia, jak są tworzone zasoby w ramach konta ani jak się nimi zarządza. Jeśli planujesz dalsze używanie klasycznego portalu Azure, użyj go zamiast portalu Azure do utworzenia kont usługi Automation.
 > 
 > 
 
-1. Zaloguj się do klasycznej witryny Azure Portal jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
+1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz opcję **Automatyzacja**.
 3. Na stronie **Automatyzacja** wybierz opcję **Utwórz konto automatyzacji**.
 4. W polu **Utwórz konto automatyzacji** wpisz nazwę nowego konta w usłudze Automation i wybierz opcję **Region** z listy rozwijanej.  

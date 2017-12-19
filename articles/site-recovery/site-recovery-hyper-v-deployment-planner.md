@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planista wdrażania usługi Azure Site Recovery dla funkcji Hyper-V na platformie Azure
 Ten artykuł to podręcznik użytkownika planisty wdrażania usługi Azure Site Recovery dla wdrożeń produkcyjnych funkcji Hyper-V na platformie Azure.
@@ -40,6 +40,9 @@ Narzędzie udostępnia następujące szczegóły:
 
 * Szacowana przepustowość sieci wymagana na potrzeby replikacji przyrostowej
 * Przepływność, którą usługa Azure Site Recovery może uzyskać między środowiskiem lokalnym i platformą Azure
+* Cel punktu odzyskiwania, który można osiągnąć przy danej przepustowości
+* Wpływ na wymagany cel punktu odzyskiwania w przypadku zapewnienia mniejszej przepustowości.
+
     
 **Wymagania dotyczące infrastruktury platformy Azure**
 
@@ -52,6 +55,7 @@ Narzędzie udostępnia następujące szczegóły:
 
 **Wymagania dotyczące infrastruktury lokalnej**
 * Ilość wolnego miejsca wymagana na każdym woluminie funkcji Hyper-V do pomyślnej replikacji początkowej i replikacji różnicowej, dzięki której będziesz mieć pewność, że replikacja maszyny wirtualnej nie spowoduje niepożądanych przestojów w działaniu aplikacji produkcyjnych
+* Maksymalna częstotliwość kopiowania do ustawienia na potrzeby replikacji funkcji Hyper-V
 
 **Wskazówki dotyczące dzielenia na partie replikacji początkowej** 
 * Liczba partii maszyn wirtualnych do użycia na potrzeby ochrony

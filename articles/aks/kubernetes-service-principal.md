@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Jednostka usługi Azure Container Service (AKS)
 
-Klaster AKS wymaga [jednostki usługi Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) do współpracy z interfejsami API platformy Azure. Nazwa główna usługi jest potrzebna do dynamicznego zarządzania zasobami, takimi jak [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) i narzędzie [Azure Load Balancer dla warstwy 4](../load-balancer/load-balancer-overview.md).
+Klaster AKS wymaga [jednostki usługi Azure Active Directory][aad-service-principal] do współpracy z interfejsami API platformy Azure. Jednostka usługi jest potrzebna do dynamicznego zarządzania zasobami, takimi jak [trasy zdefiniowane przez użytkownika][user-defined-routes] i narzędzie [Azure Load Balancer dla warstwy 4][azure-load-balancer-overview].
 
 W tym artykule przedstawiono różne sposoby konfigurowania jednostki usługi dla własnego klastra Kubernetes w usłudze AKS.
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono różne sposoby konfigurowania jednostki usługi dl
 
 Aby utworzyć jednostkę usługi Azure AD, musisz mieć uprawnienia do zarejestrowania aplikacji w swojej dzierżawie usługi Azure AD i przypisania aplikacji do roli w swojej subskrypcji. Jeśli nie masz niezbędnych uprawnień, może być konieczne zwrócenie się z prośbą do administratora usługi Azure AD lub subskrypcji, aby przyznał niezbędne uprawnienia, lub o wstępne utworzenie jednostki usługi dla klastra Kubernetes.
 
-Musisz również mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Musisz również mieć zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>Utwórz jednostkę usługi z klastrem usługi AKS
 
@@ -44,7 +44,7 @@ Można użyć istniejącej jednostki usługi Azure AD lub wstępnie ją utworzy�
 
 ## <a name="pre-create-a-new-sp"></a>Wstępne tworzenie nowej jednostki usługi
 
-Użyj polecenia [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac), aby utworzyć jednostkę usługi z interfejsem wiersza polecenia platformy Azure.
+Użyj polecenia [az ad sp create-for-rbac][az-ad-sp-create], aby utworzyć jednostkę usługi przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,7 +83,7 @@ Podczas pracy z jednostkami usług AKS i Azure AD należy pamiętać o poniższy
 * Podczas określania **identyfikatora klienta** jednostki usługi można użyć wartości `appId` (jak pokazano w tym artykule) lub odpowiedniej jednostki usługi `name` (na przykład `https://www.contoso.org/example`).
 * Na głównej maszynie wirtualnej i maszynach wirtualnych węzłów w klastrze Kubernetes poświadczenia jednostki usługi są przechowywane w pliku `/etc/kubernetes/azure.json`.
 * Gdy używasz polecenia `az aks create`, aby automatycznie wygenerować jednostkę usługi, poświadczenia jednostki usługi są zapisywane w pliku `~/.azure/acsServicePrincipal.json` na maszynie użytej do uruchomienia polecenia.
-* Kiedy używasz polecenia `az aks create` do automatycznego wygenerowania jednostki usługi, jednostka usługi może także uwierzytelnić się za pomocą [rejestru kontenera platformy Azure](../container-registry/container-registry-intro.md) utworzonego w tej samej subskrypcji.
+* Kiedy używasz polecenia `az aks create` do automatycznego wygenerowania jednostki usługi, jednostka usługi może także uwierzytelnić się za pomocą [rejestru kontenerów platformy Azure][acr-into] utworzonego w tej samej subskrypcji.
 * Usunięcie klastra AKS utworzonego za pomocą polecenia `az aks create` nie powoduje usunięcia automatycznie utworzonej jednostki usługi. Można ją usunąć za pomocą polecenia `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Następne kroki
@@ -91,4 +91,13 @@ Podczas pracy z jednostkami usług AKS i Azure AD należy pamiętać o poniższy
 Aby uzyskać więcej informacji na temat jednostek usługi Azure Active Directory, zobacz dokumentację aplikacji usługi Azure AD.
 
 > [!div class="nextstepaction"]
-> [Application and service principal objects (Obiekty aplikacji i jednostki usługi)](../active-directory/develop/active-directory-application-objects.md)
+> [Application and service principal objects (Obiekty aplikacji i jednostki usługi)][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

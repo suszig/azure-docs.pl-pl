@@ -4,7 +4,7 @@ description: "Ten artykuł zawiera wprowadzenie do usługi Azure Multi-Factor Au
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0533d1ee953a8284e76d6edd15333ad844fea9c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 60e6737533e946512ae9b8e1e251e7bd6c9d0fe5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication do współdziałania z usługami AD FS w systemie Windows Server
 Jeśli korzystasz z usług federacyjnych Active Directory (AD FS) i chcesz zabezpieczyć zasoby chmurowe lub lokalne, możesz skonfigurować serwer Azure Multi-Factor Authentication do pracy z usługami AD FS. Ta konfiguracja wyzwala weryfikację dwuetapową dla punktów końcowych o wysokiej wartości.
@@ -37,7 +37,7 @@ Przed rozpoczęciem należy uwzględnić następujące informacje:
 * Nie musisz instalować serwera usługi Azure Multi-Factor Authentication na serwerze usług AD FS. Należy jednak zainstalować adapter usługi Multi-Factor Authentication dla usług AD FS w systemie Windows Server 2012 R2 lub Windows Server 2016, w którym działa usługa AD FS. Serwer można zainstalować na innym komputerze, jeśli przeprowadzisz instalację adaptera AD FS na oddzielnym serwerze federacyjnym usług AD FS. Zapoznaj się z poniższymi procedurami, aby dowiedzieć się, jak oddzielnie zainstalować adapter.
 * Jeśli organizacja używa weryfikacji za pomocą wiadomości tekstowych lub aplikacji mobilnej, ciągi zdefiniowane w ustawieniach firmy zawierają symbol zastępczy <$*application_name*$>. Na serwerze usługi MFA w wersji 7.1 możesz podać nazwę aplikacji, która zastępuje ten symbol zastępczy. W wersji 7.0 i starszych ten symbol zastępczy nie jest automatycznie zastępowany w przypadku korzystania z adaptera usług AD FS. W przypadku starszych wersji usuń symbol zastępczy z odpowiednich ciągów podczas zabezpieczania usług AD FS.
 * Konto używane do logowania musi mieć uprawnienia użytkownika do tworzenia grup zabezpieczeń w usłudze Active Directory.
-* Kreator instalacji adaptera AD FS usługi Multi-Factor Authentication tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w Twoim wystąpieniu usługi Active Directory. Następnie do tej grupy zostaje dodane konto usług AD FS usługi federacyjnej. Sprawdź, czy grupa PhoneFactor Admins została utworzona na kontrolerze domeny oraz czy konto usług AD FS jest elementem członkowskim tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins w ramach kontrolera domeny.
+* Kreator instalacji adaptera AD FS usługi Multi-Factor Authentication tworzy grupę zabezpieczeń o nazwie PhoneFactor Admins w Twoim wystąpieniu usługi Active Directory. Następnie do tej grupy zostaje dodane konto usług AD FS usługi federacyjnej. Sprawdź, czy grupa PhoneFactor Admins została utworzona na kontrolerze domeny oraz czy konto usług AD FS jest członkiem tej grupy. W razie potrzeby ręcznie dodaj konto usług AD FS do grupy PhoneFactor Admins w ramach kontrolera domeny.
 * Informacje dotyczące instalowania zestawu SDK usługi internetowej w portalu użytkownika można znaleźć w temacie [Deploying the user portal for the Azure Multi-Factor Authentication Server (Wdrażanie portalu użytkownika dla serwera Azure Multi-Factor Authentication)](multi-factor-authentication-get-started-portal.md).
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Instalowanie serwera Azure Multi-Factor Authentication lokalnie na serwerze usług AD FS
