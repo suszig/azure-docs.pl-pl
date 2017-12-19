@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Zarządzanie przy użyciu programu Azure PowerShell pamięć podręczna Azure Redis
 > [!div class="op_single_selector"]
@@ -122,16 +122,16 @@ Aby uzyskać więcej informacji o Microsoft platformy Azure w Niemczech, zobacz 
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Właściwości używanej do pamięci podręcznej Redis Azure PowerShell
 Poniższa tabela zawiera właściwości i opisy parametrów często używane podczas tworzenia i zarządzania nimi z wystąpień pamięci podręcznej Redis Azure za pomocą programu Azure PowerShell.
 
-| Parametr | Opis | Domyślny |
+| Parametr | Opis | Domyślne |
 | --- | --- | --- |
-| name |Nazwa pamięci podręcznej | |
+| Nazwa |Nazwa pamięci podręcznej | |
 | Lokalizacja |Lokalizacja pamięci podręcznej | |
 | Grupy zasobów o nazwie |Nazwa grupy zasobów, w której chcesz utworzyć pamięci podręcznej | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Liczba fragmentów, aby utworzyć podczas tworzenia usługi pamięć podręczna premium z włączoną funkcją klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa numer pamięci podręcznej. Prawidłowe wartości to: Basic, Standard, Premium |Metoda standardowa |
+| SKU |Określa numer pamięci podręcznej. Prawidłowe wartości to: Basic, Standard, Premium |Standardowa |
 | RedisConfiguration |Określa ustawienia konfiguracji pamięci podręcznej Redis. Aby uzyskać szczegółowe informacje o każdym ustawieniu, zobacz następujące tematy [RedisConfiguration właściwości](#redisconfiguration-properties) tabeli. | |
-| EnableNonSslPort |Wskazuje, czy włączono port bez protokołu SSL. |Fałsz |
+| EnableNonSslPort |Wskazuje, czy włączono port bez protokołu SSL. |False |
 | MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego użyj RedisConfiguration. | |
 | StaticIP |Podczas obsługi pamięci podręcznej w sieci Wirtualnej, określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podana, co zostanie wybrany dla Ciebie podsieci. | |
 | Podsieć |Podczas obsługi pamięci podręcznej w sieci Wirtualnej, określa nazwę podsieci, w której chcesz wdrożyć w pamięci podręcznej. | |
@@ -152,7 +152,7 @@ Poniższa tabela zawiera właściwości i opisy parametrów często używane pod
 | zestaw max-intset wpisów |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
 | zset-max-ziplist wpisów |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
 | zset-max-ziplist-value |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
-| baz danych |Konfiguruje liczbę baz danych. Tej właściwości można skonfigurować tylko na tworzenie pamięci podręcznej. |Standardowa i Premium |
+| bazy danych |Konfiguruje liczbę baz danych. Tej właściwości można skonfigurować tylko na tworzenie pamięci podręcznej. |Standardowa i Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Aby utworzyć pamięci podręcznej Redis
 Nowe wystąpienia pamięci podręcznej Redis Azure są tworzone przy użyciu [AzureRmRedisCache nowy](https://msdn.microsoft.com/library/azure/mt634517.aspx) polecenia cmdlet.

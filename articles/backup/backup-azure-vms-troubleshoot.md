@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi maszyn wirtualnych platformy Azure
-> [!div class="op_single_selector"]
-> * [Magazyn usług odzyskiwania](backup-azure-vms-troubleshoot.md)
-> * [Magazyn kopii zapasowych](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapasowa Azure informacje wymienione w poniższej tabeli.
 
 ## <a name="backup"></a>Tworzenie kopii zapasowych
@@ -34,15 +28,15 @@ Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapa
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Błąd: Określona konfiguracja dysku nie jest obsługiwana
 
 > [!NOTE]
-> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB niezarządzanych. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Dysponujemy prywatną wersją zapoznawczą obsługującą kopie zapasowe maszyn wirtualnych z niezarządzanymi dyskami większymi niż 1 TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Jeśli masz dysków jest większa niż 1 TB, [dołączyć nowe dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , które są mniej niż 1 TB <br>
-- Następnie skopiuj dane z dysku jest większy niż 1TB w nowo utworzonej dyski o rozmiarze mniejszym niż 1 TB. <br>
-- Upewnij się, że wszystkie dane zostały skopiowane i Usuń dyski, która jest większa niż 1TB
-- Rozpocznij tworzenie kopii zapasowej.
+- Jeśli masz dyski większe od 1 TB, [dołącz nowe dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) o rozmiarze poniżej 1 TB. <br>
+- Następnie skopiuj dane z dysku większego od 1 TB na nowo utworzone dyski mniejsze niż 1 TB. <br>
+- Upewnij się, że wszystkie dane zostały skopiowane, a następnie usuń dyski większe od 1 TB.
+- Zainicjuj tworzenie kopii zapasowej.
 
 | Szczegóły błędu | Obejście problemu |
 | --- | --- |
@@ -137,7 +131,7 @@ Jak sprawdzić, czy wersja agenta maszyny Wirtualnej na maszynach wirtualnych sy
 Zależy od wydawania polecenia migawki powiązany magazyn kopii zapasowej maszyny Wirtualnej. Nie ma dostępu do magazynu lub opóźnień w wykonywania zadania migawki może spowodować niepowodzenie zadania tworzenia kopii zapasowej. Następujące może spowodować niepowodzenie zadań migawki.
 
 1. Dostęp sieciowy do przechowywania jest zablokowane, za pomocą grupy NSG<br>
-    Dowiedz się więcej na temat [Włącz dostęp do sieci](backup-azure-vms-prepare.md#network-connectivity) magazynu przy użyciu albo listę dozwolonych podobnej adresów IP lub za pośrednictwem serwera proxy.
+    Dowiedz się więcej na temat [Włącz dostęp do sieci](backup-azure-arm-vms-prepare.md#network-connectivity) magazynu przy użyciu albo listę dozwolonych podobnej adresów IP lub za pośrednictwem serwera proxy.
 2. Maszyny wirtualne z skonfigurowano kopii zapasowej programu Sql Server może spowodować opóźnienie zadania migawki <br>
    Domyślnie maszyny Wirtualnej kopii zapasowych problemów VSS pełnej kopii zapasowej na maszynach wirtualnych systemu Windows. Na maszynach wirtualnych z systemami serwerów Sql i jeśli kopia zapasowa programu Sql Server jest skonfigurowany może to spowodować opóźnienia podczas wykonywania migawki. Ustaw następujący klucz rejestru, jeśli występują błędy kopii zapasowych z powodu problemów z migawki.
 
@@ -169,7 +163,7 @@ Po rozpoznawanie nazw odbywa się prawidłowo, dostępu do adresów IP Azure ró
    * Odblokowywanie przy użyciu adresów IP [NetRoute nowy](https://technet.microsoft.com/library/hh826148.aspx) polecenia cmdlet. Uruchom to polecenie cmdlet w Maszynie wirtualnej Azure, w oknie programu PowerShell z podwyższonym poziomem uprawnień (Uruchom jako Administrator).
    * (Jeśli jest dostępny w miejscu), aby zezwolić na dostęp do adresów IP, należy dodać reguły do grupy NSG.
 2. Tworzenie ścieżki dla przepływ ruchu HTTP
-   * Jeśli masz niektóre ograniczenia sieci w miejscu (sieciową grupę zabezpieczeń, na przykład) wdrażanie serwera proxy HTTP do kierowania ruchem. Kroki wdrażania serwera HTTP Proxy można znaleźć [tutaj](backup-azure-vms-prepare.md#network-connectivity).
+   * Jeśli masz niektóre ograniczenia sieci w miejscu (sieciową grupę zabezpieczeń, na przykład) wdrażanie serwera proxy HTTP do kierowania ruchem. Kroki wdrażania serwera HTTP Proxy można znaleźć [tutaj](backup-azure-arm-vms-prepare.md#network-connectivity).
    * (Jeśli jest dostępny w miejscu) umożliwiają dostęp do INTERNETU z serwera HTTP Proxy, należy dodać reguły do grupy NSG.
 
 > [!NOTE]

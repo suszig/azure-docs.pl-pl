@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copy data from Azure Storage Blobs to Data Lake Store (Kopiowanie danych z obiektów blob usługi Azure Storage do usługi Data Lake Store)
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Poniżej opisano parametrów w składni:
 | SourceKey |Określa klucz dostępu do magazynu dla źródła obiektu blob magazynu Azure. Jest to wymagane tylko wtedy, gdy źródłem jest kontenera obiektów blob lub obiektu blob. |
 | Konto |**Opcjonalnie**. Użyj, jeśli chcesz użyć konta usługi Azure Data Lake Analytics, aby uruchomić zadanie kopiowania. Jeśli opcja /Account w składni, ale nie określono konta usługi Data Lake Analytics, AdlCopy używa domyślnego konta do wykonywania zadania. Ponadto jeśli używasz tej opcji, należy dodać źródłowego (obiektu Blob magazynu Azure) i docelowego (Azure Data Lake Store) jako źródła danych dla Twojego konta usługi Data Lake Analytics. |
 | Jednostki |Określa liczbę jednostek usługi Data Lake Analytics, które będą używane dla zadania kopiowania. Ta opcja jest wymagane, jeśli używasz **/konta** opcję, aby określić konto usługi Data Lake Analytics. |
-| wzorzec |Określa wzorzec wyrażenia regularnego, która wskazuje, które obiekty BLOB lub plików do skopiowania. AdlCopy używa dopasowania z uwzględnieniem wielkości liter. Domyślny wzorzec używany, jeśli nie określono żadnych wzorzec jest skopiować wszystkie elementy. Nie można określać wielu wzorców pliku. |
+| Wzorce |Określa wzorzec wyrażenia regularnego, która wskazuje, które obiekty BLOB lub plików do skopiowania. AdlCopy używa dopasowania z uwzględnieniem wielkości liter. Domyślny wzorzec używany, jeśli nie określono żadnych wzorzec jest skopiować wszystkie elementy. Nie można określać wielu wzorców pliku. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Użyj AdlCopy (jako autonomiczna), aby skopiować dane z obiektu blob magazynu Azure
 1. Otwórz wiersz polecenia i przejdź do katalogu, w którym instalowany jest AdlCopy, zwykle `%HOMEPATH%\Documents\adlcopy`.
@@ -72,7 +72,7 @@ Poniżej opisano parametrów w składni:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] Powyższej składni Określa plik, który ma zostać skopiowany do folderu na koncie usługi Data Lake Store. Narzędzie AdlCopy tworzy folder, jeśli nazwa określony folder nie istnieje.
+    >[AZURE.NOTE]Powyższej składni Określa plik, który ma zostać skopiowany do folderu na koncie usługi Data Lake Store. Narzędzie AdlCopy tworzy folder, jeśli nazwa określony folder nie istnieje.
 
     Pojawi się monit o podanie poświadczeń dla subskrypcji platformy Azure, z którym masz konto usługi Data Lake Store. Zostaną wyświetlone informacje podobne do następujących:
 

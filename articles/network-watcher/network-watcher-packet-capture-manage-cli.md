@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 2c0cb9b72d23f46e60c96efe96a9ad32ba6fc746
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Zarządzanie przechwytywania pakietów za pomocą Monitora sieci Azure używa interfejsu wiersza polecenia platformy Azure w wersji 2.0
 

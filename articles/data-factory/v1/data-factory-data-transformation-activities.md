@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształć dane w fabryce danych Azure
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Wraz z upływem czasu modeli predykcyjnych w uczeniu maszynowym oceniania eksper
 
 Zobacz [uczenia maszynowego Użyj działania](data-factory-azure-ml-batch-execution-activity.md) szczegółowe informacje o tych działań uczenia maszynowego. 
 
-## <a name="stored-procedure-activity"></a>Działania procedury składowanej
+## <a name="stored-procedure-activity"></a>Działanie procedury przechowywanej
 Działania procedury składowanej SQL Server w potoku fabryki danych służy do wywołania procedury przechowywanej w jednym z następujących magazynów danych: baza danych SQL Azure, Magazyn danych SQL Azure, bazy danych serwera SQL w przedsiębiorstwie lub maszynie Wirtualnej platformy Azure. Zobacz [działania dotyczącego procedury składowanej](data-factory-stored-proc-activity.md) artykułu, aby uzyskać szczegółowe informacje.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Działanie U-SQL usługi Data Lake Analytics

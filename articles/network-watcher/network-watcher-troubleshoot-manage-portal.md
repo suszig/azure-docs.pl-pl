@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Rozwiązywanie problemów z Brama sieci wirtualnej i połączeń przy użyciu programu PowerShell obserwatora sieci platformy Azure
 
@@ -66,7 +66,7 @@ W **szczegóły** okna, **stan** karta przedstawia stan ostatniego rozwiązywani
 |Ścieżki do magazynu     |  Ścieżka do konto magazynu i kontener, które zawierają dzienniki (Jeśli żadnego zostały utworzone podczas uruchamiania). To ustawienie nie jest trwały, po zakończeniu działania portalu.        |
 |Podsumowanie     | Podsumowanie kondycji zasobów.        |
 |Szczegóły     | Szczegółowe informacje o kondycji zasobów.        |
-|Ostatniego uruchomienia     | Czas ostatniego czasu rozwiązywania zostało uruchomione.        |
+|Ostatnie uruchomienie     | Czas ostatniego czasu rozwiązywania zostało uruchomione.        |
 
 
 **Akcji** karta zawiera ogólne wskazówki na temat sposobu rozwiązania problemu. Jeśli dla problemu można podjąć akcję, link jest dostarczany z dodatkowych wskazówek. W przypadku których nie ma dodatkowych wskazówek, odpowiedź zawiera adres url, aby otworzyć sprawę pomocy technicznej.  Aby uzyskać więcej informacji na temat właściwości odpowiedzi i dostępnych odwiedź [Rozwiązywanie problemów z obserwatora sieciowego — omówienie](network-watcher-troubleshoot-overview.md)

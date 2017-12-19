@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services
-> [!div class="op_single_selector"]
-> * [Wykonaj kopię zapasową maszyn wirtualnych na magazyn usług odzyskiwania](backup-azure-arm-vms.md)
-> * [Kopii zapasowych maszyn wirtualnych do magazynu kopii zapasowej](backup-azure-vms.md)
->
->
 
 Ten artykuł zawiera szczegóły dotyczące tworzenia kopii zapasowych maszyn wirtualnych platformy Azure (wdrożone usługi Resource Manager i wdrożone w klasycznej) w magazynie usług odzyskiwania. Większość zadań tworzenia kopii zapasowych maszyn wirtualnych jest przygotowania. Zanim można utworzyć kopię zapasową lub ochrony maszyny Wirtualnej, należy wykonać [wymagania wstępne](backup-azure-arm-vms-prepare.md) Aby przygotować swoje środowisko do ochrony maszyn wirtualnych. Po zakończeniu wymagań wstępnych, można zainicjować operacji tworzenia kopii zapasowej, aby wykonać migawki maszyny Wirtualnej.
 
@@ -46,7 +41,7 @@ Jeśli tworzenie początkowej kopii zapasowej nie ma rozpocząć się wkrótce, 
 Aby uruchomić zadanie tworzenia początkowej kopii zapasowej:
 
 1. Na pulpicie nawigacyjnym magazynu kliknij liczbę w obszarze **Elementy kopii zapasowej** lub kliknij kafelek **Elementy kopii zapasowej**. <br/>
-  ![Ikona Ustawienia](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Ikona ustawień](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   Zostanie otwarty blok **Elementy kopii zapasowej**.
 

@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
 ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure rozwiązania Cosmos DB tabeli interfejsu API zestawu SDK dla języka Python: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 |**Bieżący obsługiwanych platform**|[Python 2.7](https://www.python.org/downloads/) lub [Python 3.3, 3.4, 3.5 lub 3,6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> Jeśli utworzono konto tabeli interfejsu API w wersji zapoznawczej, Utwórz [nowe konto interfejsu API tabeli](create-table-dotnet.md#create-a-database-account) do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli.
+> Jeśli utworzono konto interfejsu API tabel w trakcie okresu próbnego, utwórz [nowe konto interfejsu API tabel](create-table-dotnet.md#create-a-database-account), aby móc korzystać z ogólnie dostępnych zestawów SDK interfejsu API tabel.
 >
 
 ## <a name="release-notes"></a>Informacje o wersji

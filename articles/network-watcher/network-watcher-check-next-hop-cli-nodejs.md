@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Sprawdź, jaki typ następnego przeskoku jest przy użyciu funkcji w następnym przeskoku w obserwatora sieciowego Azure przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 1.0
 
@@ -55,7 +55,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 > [!NOTE]
 Jeśli maszyna wirtualna ma wiele kart sieciowych i przesyłanie dalej IP jest włączona na żadnym z kart sieciowych, a następnie parametr karty Sieciowej (-i identyfikator karty sieciowej) musi być określona. W przeciwnym razie jest opcjonalne.
 
-## <a name="review-results"></a>Przejrzyj wyniki
+## <a name="review-results"></a>Przegląd wyników
 
 Po zakończeniu znajdują się wyniki. A także typ zasobu, który jest zwracany jest adres IP następnego przeskoku.
 

@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji monitorowanie i zarządzanie
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <td>ActivityResume</td><td>Działanie jest wstrzymane i nie można uruchomić okien działania, dopóki nie zostanie wznowione.</td>
 </tr>
 <tr>
-<td>Spróbuj ponownie</td><td>Ponawiane wykonania działania.</td>
+<td>Ponawianie próby</td><td>Ponawiane wykonania działania.</td>
 </tr>
 <tr>
 <td>Walidacja</td><td>Weryfikacja jeszcze się nie rozpoczął.</td>
@@ -195,7 +195,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <td>Okno działania jest przetwarzana.</td>
 </tr>
 <tr>
-<td rowspan="4">Nie powiodło się</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Niepowodzenie</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
 </tr>
 <tr>
 <td>Anulowane</td><td>Okno działanie zostało anulowane przez akcję użytkownika.</td>
@@ -206,7 +206,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <tr>
 <td>-</td><td>Okno działania nie powiodło się można wygenerować lub sprawdzania poprawności.</td>
 </tr>
-<td>Gotowe</td><td>-</td><td>Okno działania jest gotowy do użycia.</td>
+<td>Gotowy</td><td>-</td><td>Okno działania jest gotowy do użycia.</td>
 </tr>
 <tr>
 <td>Pominięto</td><td>-</td><td>Okno działania nie został przetworzony.</td>
@@ -291,7 +291,7 @@ Aby wyczyścić filtry służy tym samym oknie podręcznym. Aby wyczyścić wszy
 Wybierz przedział działania, kliknij strzałkę w dół dla przycisku pierwszej pasek poleceń, a następnie wybierz **Uruchom ponownie** / **ponownie z powyżej w potoku**. Po wybraniu **ponownie z powyżej w potoku** opcji zwracające on również wszystkich okien działania nadrzędnego.
     ![Ponownie uruchom okno działania](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Można również wybrać wiele okien działania na liście i uruchom je ponownie w tym samym czasie. Można filtrować na podstawie stanu działania z systemem windows (na przykład: ****) — a następnie ponownie uruchom okien działania nie powiodło się po usunięciu problemu, który powoduje, że okien działania się niepowodzeniem. Zobacz sekcję poniżej, aby uzyskać więcej informacji dotyczących filtrowania okien działania na liście.  
+Można również wybrać wiele okien działania na liście i uruchom je ponownie w tym samym czasie. Można filtrować na podstawie stanu działania z systemem windows (na przykład:) — a następnie ponownie uruchom okien działania nie powiodło się po usunięciu problemu, który powoduje, że okien działania się niepowodzeniem. Zobacz sekcję poniżej, aby uzyskać więcej informacji dotyczących filtrowania okien działania na liście.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Wstrzymanie/wznowienie wielu potoki
 Możesz multiselect potoki dwóch lub więcej za pomocą klawisza Ctrl. Przyciski paska poleceń (które są wyróżnione kolorem czerwonym prostokątem na poniższej ilustracji) służy do wstrzymanie/wznowienie je.
@@ -326,7 +326,7 @@ Poniższa tabela zawiera listę dostępnych zdarzeń oraz Stany (i podstany).
 | --- | --- | --- |
 | Działanie Uruchom wprowadzenie |Rozpoczęto |Uruchamianie |
 | Działanie Uruchom Zakończono |Powodzenie |Powodzenie |
-| Działanie Uruchom Zakończono |Nie powiodło się |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Upłynął limit czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
+| Działanie Uruchom Zakończono |Niepowodzenie |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Upłynął limit czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
 | Rozpoczęto tworzenie klastra HDI na żądanie |Rozpoczęto |-|
 | Pomyślnie utworzono klaster HDI na żądanie |Powodzenie |-|
 | Usunąć klaster HDI na żądanie |Powodzenie |-|

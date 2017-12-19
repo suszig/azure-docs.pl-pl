@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
 ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Nawiązywanie połączenia sieci wirtualnych z różne modele wdrażania przy użyciu portalu
 
@@ -80,7 +80,7 @@ Dla tej konfiguracji tworzenia połączenia bramy sieci VPN za pośrednictwem tu
 
 W poniższej tabeli przedstawiono przykładowy sposób definiowania przykład sieci wirtualnych i witryn lokalnych:
 
-| Virtual Network | Przestrzeń adresów | Region | Nawiązuje połączenie z lokacją sieci lokalnej |
+| Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Wschodnie stany USA |ClassicVNetLocal (10.0.0.0/24) |
@@ -179,7 +179,7 @@ Przed utworzeniem bramy sieci wirtualnej, należy najpierw utworzyć podsieć br
 
 **Przykładowe wartości:** bramy sieci lokalnej = ClassicVNetLocal
 
-| Virtual Network | Przestrzeń adresów | Region | Nawiązuje połączenie z lokacją sieci lokalnej |Adres publiczny adres IP bramy|
+| Virtual Network | Przestrzeń adresowa | Region | Nawiązuje połączenie z lokacją sieci lokalnej |Adres publiczny adres IP bramy|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Zachodnie stany USA | RMVNetLocal (192.168.0.0/16) |Adres publiczny adres IP, który jest przypisany do bramy ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Wschodnie stany USA |ClassicVNetLocal (10.0.0.0/24) |Adres publiczny adres IP, który jest przypisany do bramy RMVNet.|

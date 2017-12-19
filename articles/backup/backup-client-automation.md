@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Wdrożenie klasyczne](backup-client-automation-classic.md)
->
->
-
 W tym artykule przedstawiono sposób konfigurowania usługi Kopia zapasowa Azure w systemie Windows Server lub klienta systemu Windows oraz zarządzania nimi kopii zapasowych i odzyskiwania przy użyciu programu PowerShell.
 
 ## <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Zachowaj informacje hasło bezpieczne po ustawieniu. Nie są można przywrócić dane z usługi Azure bez tego hasła.
+> Zachowaj informacje hasło bezpieczne po ustawieniu. Nie można przywrócić dane z platformy Azure, bez tego hasła.
 >
 >
 
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Można wyświetlić szczegółowe informacje o istniejących zasad tworzenia kopii zapasowej przy użyciu [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) polecenia cmdlet. Użytkownik może przejść za pomocą [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) polecenia cmdlet dla harmonogramu tworzenia kopii zapasowych i [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) polecenia cmdlet dla zasad przechowywania
+Można wyświetlić szczegółowe informacje o istniejących zasad tworzenia kopii zapasowej przy użyciu [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) polecenia cmdlet. Można przejść za pomocą [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) polecenia cmdlet dla harmonogramu tworzenia kopii zapasowych i [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) polecenia cmdlet dla zasad przechowywania
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -465,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Wykonywanie kopii zapasowych ad hoc
-Po ustawieniu zasad tworzenia kopii zapasowej kopie zapasowe zostanie przeprowadzona na harmonogram. Wyzwolenie kopii zapasowych ad hoc jest także możliwe przy użyciu [Start OBBackup](https://technet.microsoft.com/library/hh770426) polecenia cmdlet:
+### <a name="performing-an-ad-hoc-backup"></a>Wykonywanie kopii zapasowej w ad hoc
+Po ustawieniu zasad tworzenia kopii zapasowej kopie zapasowe zostanie przeprowadzona na harmonogram. Wyzwolenie ad hoc kopii zapasowej jest także możliwe przy użyciu [Start OBBackup](https://technet.microsoft.com/library/hh770426) polecenia cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -506,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Wybieranie punktu kopii zapasowej, z której można przywrócić
-Pobieranie listy punktów kopii zapasowej, wykonując [Get OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenie cmdlet z odpowiednimi parametrami. W naszym przykładzie wybrano najnowszego punktu kopii zapasowej woluminu źródłowego *D:* i używać go do odzyskania określonego pliku.
+Pobierz listę punktów kopii zapasowych, wykonując [Get OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) polecenie cmdlet z odpowiednimi parametrami. W naszym przykładzie wybrano najnowszego punktu kopii zapasowej woluminu źródłowego *D:* i używać go do odzyskania określonego pliku.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

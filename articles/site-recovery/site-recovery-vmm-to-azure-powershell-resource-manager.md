@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM na platformie Azure przy użyciu programu PowerShell i usługi Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Upewnij się, że te wymagania wstępne zostały spełnione:
 
 ### <a name="hyper-v-prerequisites"></a>Wymagania wstępne funkcji Hyper-V
 * Serwery hosta funkcji Hyper-V musi działać co najmniej **systemu Windows Server 2012** z rolą funkcji Hyper-V lub **Microsoft Hyper-V Server 2012** i mieć zainstalowane najnowsze aktualizacje.
-* Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. dla
+* Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Dla
 * Instrukcje można znaleźć [jak konfigurowanie brokera repliki funkcji Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Dowolnego serwera hosta funkcji Hyper-V lub klastra, dla którego chcesz zarządzać ochrony musi być uwzględniona w chmurze VMM.
 

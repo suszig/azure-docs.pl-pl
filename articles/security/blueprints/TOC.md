@@ -54,6 +54,8 @@
 #### [Zgodność — OFICJALNE UK](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie zasad](uk-official-three-tier-applications-principles-overview.md)
+#### [Zgodność — usługi finansowe](financial-services-regulated-workloads.md)
+##### [Usługi finansowe dla obciążeń podlegających regulacjom](financial-services-regulated-workloads.md)
 
 # Wprowadzenie
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](../azure-security-getting-started.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Przekazywanie plików do konta usługi Media Services za pomocą usługi REST
 > [!div class="op_single_selector"]

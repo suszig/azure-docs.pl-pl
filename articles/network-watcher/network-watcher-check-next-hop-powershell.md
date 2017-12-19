@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Sprawdź, jaki typ następnego przeskoku jest przy użyciu funkcji w następnym przeskoku w obserwatora sieciowego Azure przy użyciu programu PowerShell
 
@@ -77,7 +77,7 @@ Teraz nazywamy `Get-AzureRmNetworkWatcherNextHop` polecenia cmdlet. Polecenie cm
 Get-AzureRmNetworkWatcherNextHop -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id -SourceIPAddress $nics[0].IpConfigurations[0].PrivateIpAddress  -DestinationIPAddress 10.0.2.4 
 ```
 
-## <a name="review-results"></a>Przejrzyj wyniki
+## <a name="review-results"></a>Przegląd wyników
 
 Po zakończeniu znajdują się wyniki. A także typ zasobu, który jest zwracany jest adres IP następnego przeskoku. W tym scenariuszu jest publiczny adres IP bramy sieci wirtualnej.
 

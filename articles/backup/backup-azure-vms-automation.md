@@ -15,18 +15,13 @@ ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu poleceń cmdlet AzureRM.RecoveryServices.Backup
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Wdrożenie klasyczne](backup-azure-vms-classic-automation.md)
->
->
 
 W tym artykule przedstawiono sposób użycia poleceń cmdlet programu Azure PowerShell kopii zapasowej i odzyskiwania z magazynu usług odzyskiwania Azure maszyny wirtualnej (VM). Magazyn usług odzyskiwania jest zasobem usługi Azure Resource Manager i jest używany do ochrony danych i zasobów w usługach zarówno Azure Backup i Azure Site Recovery. Magazyn usług odzyskiwania służy do ochrony Azure Service Manager wdrożone maszyny wirtualne i usługi Azure Resource Manager wdrożone maszyny wirtualne.
 
@@ -169,7 +164,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Zasady tworzenia kopii zapasowej ochrony jest skojarzony z co najmniej jedne zasady przechowywania. Zasady przechowywania określają, jak długo punkt odzyskiwania jest przechowywana, przed usunięciem. Użyj  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  Aby wyświetlić domyślne zasady przechowywania.  Podobnie można użyć  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  uzyskać domyślne zasady harmonogramu. **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenie cmdlet tworzy obiekt programu PowerShell, która przechowuje informacje o zasadach tworzenia kopii zapasowej. Harmonogram i przechowywania obiektów zasady są używane jako dane wejściowe  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenia cmdlet. Poniższy przykład zasad harmonogramu i zasady przechowywania są przechowywane w zmiennych. W przykładzie użyto tych zmiennych definiuje parametry podczas tworzenia zasad ochrony, *NewPolicy*.
+Zasady tworzenia kopii zapasowej ochrony jest skojarzony z co najmniej jedne zasady przechowywania. Zasady przechowywania określają, jak długo punkt odzyskiwania jest przechowywana, przed usunięciem. Użyj  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  Aby wyświetlić domyślne zasady przechowywania.  Podobnie można użyć  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  uzyskać domyślne zasady harmonogramu.  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenie cmdlet tworzy obiekt programu PowerShell, która przechowuje informacje o zasadach tworzenia kopii zapasowej. Harmonogram i przechowywania obiektów zasady są używane jako dane wejściowe  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenia cmdlet. Poniższy przykład zasad harmonogramu i zasady przechowywania są przechowywane w zmiennych. W przykładzie użyto tych zmiennych definiuje parametry podczas tworzenia zasad ochrony, *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"

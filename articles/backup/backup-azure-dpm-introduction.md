@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Serwer kopii zapasowej systemu Azure (klasyczne)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (klasyczne)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -113,7 +111,7 @@ Poświadczenie magazynu jest używane tylko podczas przepływu pracy związanego
 Plik poświadczeń magazynu jest pobierana za pośrednictwem bezpiecznego kanału z portalu Azure. Usługi Azure Backup nie rozpoznaje klucza prywatnego certyfikatu i klucza prywatnego w portalu lub usługa nie jest trwały. Wykonaj następujące kroki, aby pobrać plik poświadczeń magazynu na komputerze lokalnym.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Otwórz magazyn usług odzyskiwania, do której do której należy zarejestrować programu DPM komputera.
+2. Otwórz magazyn usług odzyskiwania, który chcesz zarejestrować komputera DPM.
 3. Blok ustawień jest otwierany domyślnie. Jeśli jest zamknięty, kliknij polecenie **ustawienia** na pulpicie nawigacyjnym magazynu, aby otworzyć blok ustawień. W bloku ustawienia, kliknij polecenie **właściwości**.
 
     ![Otwarcie bloku magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ Portalu wygeneruje poświadczenie magazynu przy użyciu kombinacji nazwy magazyn
 ### <a name="3-install-backup-agent"></a>3. Zainstaluj agenta kopii zapasowej
 Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agenta na wszystkich maszynach systemu Windows (Windows Server, klienta systemu Windows, serwer System Center Data Protection Manager lub serwer kopii zapasowej Azure machine), które umożliwia wykonywanie kopii zapasowych danych i aplikacji na platformie Azure.
 
-1. Otwórz magazyn usług odzyskiwania, do której do której należy zarejestrować programu DPM komputera.
+1. Otwórz magazyn usług odzyskiwania, który chcesz zarejestrować komputera DPM.
 2. Blok ustawień jest otwierany domyślnie. Jeśli jest zamknięty, kliknij polecenie **ustawienia** aby otworzyć blok ustawień. W bloku ustawienia, kliknij polecenie **właściwości**.
 
     ![Otwarcie bloku magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agent
 
     ![Do pobrania](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Pobrany agenta, kliknij dwukrotnie MARSAgentInstaller.exe do uruchomienia instalacji agenta usługi Kopia zapasowa Azure. Wybierz folder instalacji i folderu pliki tymczasowe wymagane dla agenta. Określona lokalizacja pamięci podręcznej musi mieć wolnego miejsca, czyli co najmniej 5% danych kopii zapasowej.
+   Pobrany agenta, uruchom MARSAgentInstaller.exe do uruchomienia instalacji agenta usługi Kopia zapasowa Azure. Wybierz folder instalacji i folderu pliki tymczasowe wymagane dla agenta. Określona lokalizacja pamięci podręcznej musi mieć wolnego miejsca, czyli co najmniej 5% danych kopii zapasowej.
 4. Jeśli używasz serwera proxy, aby nawiązać połączenie z Internetem, w **konfiguracji serwera Proxy** ekranu, wprowadź szczegóły serwera proxy. Jeśli korzystasz z uwierzytelnionego serwera proxy, wprowadź szczegóły nazwy i hasła użytkownika na tym ekranie.
 5. Agent usługi Kopia zapasowa Azure instaluje program .NET Framework 4.5 i programu Windows PowerShell (Jeśli nie jest dostępna) do ukończenia instalacji.
 6. Po zainstalowaniu agenta **Zamknij** okna.

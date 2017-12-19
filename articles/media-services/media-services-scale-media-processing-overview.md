@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: 1009d8b87cb3a131909f3ae9ee231f9ebb408c04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Skalowanie przetwarzania multimediów — omówienie
 Ta strona zawiera podstawowe informacje o i dlaczego skalowania przetwarzania multimediów. 
@@ -64,7 +64,10 @@ Osiągnięcia skalowania zadania przetwarzania multimediów z jednej z tych tech
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
-> 
+
+> [!NOTE]
+> Aby pobrać najnowszą wersję zestawu SDK Java i rozpocząć wdrażanie z językiem Java, zobacz [rozpocząć pracę z klientem programu Java SDK dla usługi Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Aby pobrać najnowsze PHP SDK dla usługi Media Services, poszukaj w wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

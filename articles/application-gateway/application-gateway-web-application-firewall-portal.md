@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu
 
@@ -95,7 +95,7 @@ W tym scenariuszu obejmują:
    | **Ustawienie** | **Wartość** | **Szczegóły**
    |---|---|---|
    |**Nazwa**|AdatumAppGateway|Nazwa bramy aplikacji.|
-   |**Warstwy**|ZAPORY APLIKACJI SIECI WEB|Dostępne wartości to Standard i zapory aplikacji sieci Web. Aby dowiedzieć się więcej na temat zapory aplikacji sieci Web, zobacz [zapory aplikacji sieci Web](application-gateway-web-application-firewall-overview.md).|
+   |**Warstwy**|Zapora aplikacji sieci Web|Dostępne wartości to Standard i zapory aplikacji sieci Web. Aby dowiedzieć się więcej na temat zapory aplikacji sieci Web, zobacz [zapory aplikacji sieci Web](application-gateway-web-application-firewall-overview.md).|
    |**Rozmiar jednostki SKU**|Medium|Opcje warstwy standardowa **małych**, **średni**, i **duży**. Opcje warstwy zapory aplikacji sieci Web są **średni** i **duży** tylko.|
    |**Liczba wystąpień**|2|Liczba wystąpień brama aplikacji w celu zapewnienia wysokiej dostępności. Użyj liczby wystąpień 1 tylko do celów testowych.|
    |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję na potrzeby utworzenia bramy aplikacji.|

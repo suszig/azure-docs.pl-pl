@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ W tym temacie opisano sposób podłączania do wystąpienia programu SQL Server 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../azure-resource-manager/resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Jeśli używasz Menedżera zasobów maszyn wirtualnych, zobacz [Connect do programu SQL Server maszynę wirtualną na platformie Azure przy użyciu usługi Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Scenariusze łączenia
-Sposób, który klient nawiąże połączenie z programem SQL Server uruchomiony na maszynie wirtualnej różni się w zależności od lokalizacji klienta i konfiguracji sieci/maszyny. Te scenariusze obejmują:
+Sposób, który klient nawiąże połączenie z programem SQL Server uruchomiony na maszynie wirtualnej różni się w zależności od lokalizacji klienta i konfiguracji sieci/maszyny. Scenariusze obejmują:
 
 * [Połączenia z serwerem SQL w tej samej usłudze w chmurze](#connect-to-sql-server-in-the-same-cloud-service)
 * [Połączenia z serwerem SQL w Internecie](#connect-to-sql-server-over-the-internet)

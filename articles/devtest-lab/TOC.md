@@ -61,6 +61,9 @@
 
 ## [Skalowanie laboratorium](devtest-lab-scale-lab.md)
 
+## Integrowanie z ciągłą integracją/ciągłym dostarczaniem
+### [Integrowanie laboratoriów z potokiem ciągłej integracji/ciągłego dostarczania usługi VSTS](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Dokumentacja
 ## [Interfejs wiersza polecenia 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

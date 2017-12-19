@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: Automatyzacja
       items:
+        - name: Replikowanie maszyn wirtualnych programu VMware na platformę Azure za pomocą programu PowerShell
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (bez programu VMM) przy użyciu programu PowerShell
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: Konfigurowanie replikacji funkcji Hyper-V na platformie Azure (z programem VMM) przy użyciu programu PowerShell
@@ -262,7 +264,7 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell — klasyczny
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST
