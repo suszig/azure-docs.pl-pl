@@ -32,7 +32,7 @@
 
 ## Ładowanie i przenoszenie danych
 ### [Omówienie](design-elt-data-loading.md)
-### [Wskazówki](guidance-for-loading-data.md)
+### [Najlepsze praktyki](guidance-for-loading-data.md)
 
 
 ## Integracja
