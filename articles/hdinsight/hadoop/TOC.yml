@@ -428,9 +428,6 @@
         - name: Uzyskiwanie dostępu do dzienników aplikacji usługi YARN
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
           maintainContext: true
-        - name: Używanie rozwiązań Apache Phoenix i SQuirreL
-          href: ../hdinsight-hbase-phoenix-squirrel.md
-          maintainContext: true
         - name: Generowanie rekomendacji filmów za pomocą biblioteki Mahout
           href: ../hdinsight-mahout.md
           maintainContext: true

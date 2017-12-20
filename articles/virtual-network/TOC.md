@@ -91,8 +91,7 @@
 #### Tworzenie maszyny wirtualnej z wieloma adresami IP
 ##### [Witryna Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Interfejs wiersza polecenia platformy Azure 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Interfejs wiersza polecenia platformy Azure 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Interfejs wiersza polecenia platformy Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Szablon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Tworzenie maszyny wirtualnej z wydajniejszą siecią](virtual-network-create-vm-accelerated-networking.md)
