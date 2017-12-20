@@ -32,6 +32,7 @@
 ### [Włączanie licencjonowanego obrazu](devtest-lab-enable-licensed-images.md)
 ### [Dodawanie tagów do laboratorium](devtest-lab-add-tag.md)
 ### [Publikowanie anonsu w laboratorium](devtest-lab-announcements.md)
+### [Dodawanie informacji o pomocy technicznej do laboratorium](devtest-lab-internal-support-message.md)
 
 ## [Wybieranie niestandardowego obrazu lub formuły](devtest-lab-comparing-vm-base-image-types.md)
 
