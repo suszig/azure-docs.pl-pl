@@ -16,7 +16,7 @@ Aby utworzyć przestrzeń nazw:
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
 Automatyczne tworzenie nowej przestrzeni nazw generuje początkowej reguły dostępu sygnatury dostępu Współdzielonego przy skojarzone pary kluczy podstawowych i pomocniczych, że każdy przyznaje pełną kontrolę nad wszystkimi aspektami przestrzeni nazw. Zobacz [magistrali usług uwierzytelniania i autoryzacji](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) informacji o tym, jak tworzyć dodatkowe reguły z więcej ograniczone prawa do regularnych nadawcami a odbiornikami. Aby skopiować początkową regułę, wykonaj następujące kroki: 
 
-1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
+1.  Kliknij przycisk **wszystkie zasoby**, następnie kliknij nazwę nowo utworzonej przestrzeni nazw.
 2. W oknie przestrzeni nazw kliknij **zasady dostępu współużytkowanego**.
 3. W **zasady dostępu współużytkowanego** kliknij **RootManageSharedAccessKey**.
    
