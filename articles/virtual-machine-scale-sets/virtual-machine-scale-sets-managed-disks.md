@@ -4,7 +4,7 @@ description: "Informacje o powodach i sposobach używania dysków zarządzanych 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82fa518e6c0498a13f950ce33c51be8581918f9b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Zestawy skalowania maszyn wirtualnych platformy Azure i dyski zarządzane
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 * W przypadku dysków zarządzanych zestaw skalowania może zawierać do 1000 maszyn wirtualnych opartych na obrazach platformy lub do 300 maszyn wirtualnych opartych na obrazach niestandardowych.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Rozpoczynanie pracy
 
 Prostym sposobem rozpoczęcia pracy z zestawami skalowania dysków zarządzanych jest wdrożenie jednego z nich z witryny Azure Portal. Więcej informacji znajduje się w [tym artykule](./virtual-machine-scale-sets-portal-create.md). Innym prostym sposobem jest wdrożenie zestawu skalowania za pomocą interfejsu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). W poniższym przykładzie pokazano, jak utworzyć zestaw skalowania oparty na systemie Ubuntu z 10 maszynami wirtualnymi, z których każda ma dyski danych o pojemności 50 GB i 100 GB:
 

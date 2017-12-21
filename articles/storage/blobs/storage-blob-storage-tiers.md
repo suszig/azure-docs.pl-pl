@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: warstwa magazynu gorącego, chłodnego i archiwalnego
 
@@ -32,7 +32,7 @@ W przypadku każdego z tych scenariuszy dostępu do danych istnieją korzyści p
 
 ## <a name="storage-accounts-that-support-tiering"></a>Konta magazynu z obsługą warstw
 
-Dane magazynu obiektów można dzielić między warstwy Gorąca, Chłodna lub Archiwum tylko na kontach usługi Blob Storage lub ogólnego przeznaczenia w wersji 2 (GPv2). Konta ogólnego przeznaczenia w wersji 1 (GPv1) nie obsługują warstw. Klienci mogą jednak łatwo przekształcać istniejące konta GPv1 lub konta usługi Blob Storage w konta GPv2 w ramach prostego procesu uruchamianego jednym kliknięciem w witrynie Azure Portal. Konto GPv2 oferuje nową strukturę cen obiektów blob, plików i kolejek oraz dostęp do różnych nowych funkcji magazynu. Co więcej, w przyszłości niektóre nowe funkcje i rabaty cenowe będą oferowane tylko w przypadku kont GPv2. W związku z tym klienci powinni zastanowić się nad korzystaniem z konta GPv2, ale podjąć taką decyzję mogą tylko po zapoznaniu się z cenami wszystkich usług, ponieważ niektóre obciążenia mogą być droższe na kontach GPv2 niż na kontach GPv1. Aby dowiedzieć się więcej, zobacz [Opcje kont usługi Azure Storage](storage-account-options.md).
+Dane magazynu obiektów można dzielić między warstwy Gorąca, Chłodna lub Archiwum tylko na kontach usługi Blob Storage lub ogólnego przeznaczenia w wersji 2 (GPv2). Konta ogólnego przeznaczenia w wersji 1 (GPv1) nie obsługują warstw. Klienci mogą jednak łatwo przekształcać istniejące konta GPv1 lub konta usługi Blob Storage w konta GPv2 w ramach prostego procesu uruchamianego jednym kliknięciem w witrynie Azure Portal. Konto GPv2 oferuje nową strukturę cen obiektów blob, plików i kolejek oraz dostęp do różnych nowych funkcji magazynu. Co więcej, w przyszłości niektóre nowe funkcje i rabaty cenowe będą oferowane tylko w przypadku kont GPv2. W związku z tym klienci powinni zastanowić się nad korzystaniem z konta GPv2, ale podjąć taką decyzję mogą tylko po zapoznaniu się z cenami wszystkich usług, ponieważ niektóre obciążenia mogą być droższe na kontach GPv2 niż na kontach GPv1. Aby dowiedzieć się więcej, zobacz [Opcje kont usługi Azure Storage](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Kona usługi Blob Storage i GPv2 ujawniają atrybut **Warstwa dostępu** na poziomie konta, co pozwala na określanie domyślnej warstwy magazynowania jako Gorąca lub Chłodna dla dowolnego obiektu blob na koncie magazynu, które nie ma warstwy ustawionej na poziomie obiektu. W przypadku obiektów z warstwą ustawioną na poziomie obiektu warstwa konta nie będzie stosowana. Warstwę Archiwum można stosować tylko na poziomie obiektu. W dowolnym momencie można przełączać się między tymi warstwami magazynowania.
 
@@ -139,7 +139,7 @@ W tej sekcji przedstawiono następujące scenariusze obejmujące użycie witryny
 
 Zalecamy korzystanie z kont GPv2 zamiast kont usługi Blob Storage na potrzeby obsługi warstw. Konta GPv2 obsługują wszystkie funkcje, które obsługują konta usługi Blob Storage, i wiele innych. Ceny kont usługi Blob Storage i GPv2 są niemal identyczne, ale niektóre nowe funkcje i rabaty cenowe będą dostępne tylko na kontach GPv2. Konta GPv1 nie obsługują warstw.
 
-Struktury cen kont GPv1 i GPv2 są różne, a klienci powinni dokładnie je sprawdzić przed podjęciem decyzji o użyciu kont GPv2. Istniejące konto usługi Blob Storage lub GPv1 można łatwo przekonwertować na konto GPv2 w ramach prostego procesu uruchamianego jednym kliknięciem. Aby dowiedzieć się więcej, zobacz [Opcje kont usługi Azure Storage](storage-account-options.md).
+Struktury cen kont GPv1 i GPv2 są różne, a klienci powinni dokładnie je sprawdzić przed podjęciem decyzji o użyciu kont GPv2. Istniejące konto usługi Blob Storage lub GPv1 można łatwo przekonwertować na konto GPv2 w ramach prostego procesu uruchamianego jednym kliknięciem. Aby dowiedzieć się więcej, zobacz [Opcje kont usługi Azure Storage](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Czy mogę przechowywać obiekty we wszystkich trzech warstwach (Gorąca, Chłodna i Archiwum) na tym samym koncie?**
 

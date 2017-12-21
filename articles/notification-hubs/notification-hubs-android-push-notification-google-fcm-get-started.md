@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-ms.openlocfilehash: 3425a4aa40f4f10d12c58099d4f4874534971f92
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4202521b429d5d845f72496fc8be0819f307e557
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -52,10 +52,10 @@ Kompletny kod dla tego samouczka można pobrać z witryny GitHub [tutaj](https:/
 ## <a name="create-a-new-android-studio-project"></a>Tworzenie nowego projektu programu Android Studio
 1. W programie Android Studio utwórz nowy projekt programu Android Studio.
    
-       ![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
+![Android Studio — nowy projekt](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
 2. Wybierz kształt **Phone and Tablet** (Telefon i tablet) oraz odpowiednią wersję z listy **Minimum SDK** (Minimalna wersja zestawu SDK), która ma być obsługiwana. Następnie kliknij przycisk **Next** (Dalej).
    
-       ![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
+![Android Studio — przepływ pracy tworzenia projektu](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
 3. Wybierz pozycję **Empty Activity** (Puste działanie) dla głównego działania i kliknij przycisk **Next** (Dalej), a następnie kliknij przycisk **Finish** (Zakończ).
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Tworzenie projektu obsługującego usługę Firebase Cloud Messaging

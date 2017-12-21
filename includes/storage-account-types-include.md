@@ -19,7 +19,7 @@ Konta usługi Blob Storage udostępniają atrybut **Warstwa dostępu**, który m
 * **Gorąca** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany częściej. Dzięki temu można przechowywać dane, do których jest tańszy dostęp.
 * **Chłodna** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany rzadziej. Dzięki temu można przechowywać dane, których przechowywanie jest tańsze.
 
-W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami dostępu. Zmiana warstwy dostępu może spowodować naliczenie dodatkowych opłat. Więcej szczegółowych informacji znajduje się w temacie [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) (Cennik i rozliczenia — konta usługi Blob Storage).
+W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami dostępu. Zmiana warstwy dostępu może spowodować naliczenie dodatkowych opłat. Więcej szczegółowych informacji znajduje się w temacie [Pricing and billing for Blob storage accounts](../articles/storage/common/storage-account-options.md#pricing-and-billing) (Cennik i rozliczenia — konta usługi Blob Storage).
 
 Więcej szczegółowych informacji na temat kont usługi Blob Storage znajduje się w temacie [Azure Blob Storage: Cool and Hot tiers](../articles/storage/blobs/storage-blob-storage-tiers.md) (Usługa Azure Blob Storage: warstwa chłodna i gorąca).
 
