@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informacje o kontach magazynu Azure
 
@@ -99,7 +99,7 @@ Po utworzeniu konta magazynu możesz zmodyfikować jego konfigurację, np. zmien
 
 Zmiana opcji replikacji spowoduje zmianę cen. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-W przypadku kont Magazynu obiektów Blob zmiana warstwy dostępu może spowodować naliczenie opłat za zmianę poza zmianą cennika. Zobacz [Blob storage accounts - Pricing and Billing](../blobs/storage-account-options.md#pricing-and-billing) (Konta usługi Blob Storage — cennik i rozliczenia), aby uzyskać więcej szczegółów.
+W przypadku kont Magazynu obiektów Blob zmiana warstwy dostępu może spowodować naliczenie opłat za zmianę poza zmianą cennika. Zobacz [Blob storage accounts - Pricing and Billing](storage-account-options.md#pricing-and-billing) (Konta usługi Blob Storage — cennik i rozliczenia), aby uzyskać więcej szczegółów.
 
 ### <a name="manage-your-storage-access-keys"></a>Zarządzanie kluczami dostępu do magazynu
 Podczas tworzenia konta magazynu platforma Azure generuje dwa 512-bitowe klucze dostępu do magazynu, które są wykorzystywane do uwierzytelniania podczas uzyskiwania dostępu do konta magazynu. Zapewniając dwa klucze dostępu do magazynu, platforma Azure umożliwia ponowne generowanie kluczy bez zakłóceń w usłudze magazynu lub przerw w dostępie do tej usługi.

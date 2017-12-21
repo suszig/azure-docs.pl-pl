@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integracja zasad zabezpieczeń w usłudze Security Center z usługą Azure Policy
 Ten artykuł zawiera informacje pomocne podczas konfigurowania w usłudze Azure Security Center zasad zabezpieczeń obsługiwanych przez usługę Azure Policy. 
@@ -39,14 +39,14 @@ W usłudze Security Center możesz edytować domyślne zasady zabezpieczeń dla 
 
 2. Na pulpicie nawigacyjnym usługi **Security Center** w obszarze **Ogólne** wybierz pozycję **Zasady zabezpieczeń**.
 
-    ![Okienko Zarządzanie zasadami](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Okienko Zarządzanie zasadami](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Wybierz subskrypcję, dla której chcesz włączyć zasady zabezpieczeń.  
 
 4. W sekcji **Składniki zasad** kliknij pozycję **Zasady zabezpieczeń**.  
     Zostanie otwarte okno **Podstawowe informacje**.
 
-    ![Składniki zasad](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Składniki zasad](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Aby usunąć definicję zasad, w obszarze **Zasady i parametry** obok definicji, którą chcesz usunąć, wybierz pozycję **Usuń**.
 
@@ -57,12 +57,12 @@ W usłudze Security Center możesz edytować domyślne zasady zabezpieczeń dla 
 
     * Aby dodać definicję zasad, wybierz znak plus (+) obok definicji.
 
-    ![Dostępne definicje zasad](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Dostępne definicje zasad](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Aby wyświetlić szczegółowy opis zasad, wybierz je.  
     Zostanie otwarte okno **Podgląd** definicji. Będzie ono zawierać opis definicji i link do kodu JSON określającego strukturę [definicji zasad](../azure-policy/policy-definition.md).
 
-    ![Okno Podgląd definicji](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Okno Podgląd definicji](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Po zakończeniu edycji wybierz pozycję **Zapisz**.
 

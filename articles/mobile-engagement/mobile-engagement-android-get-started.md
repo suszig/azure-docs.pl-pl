@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji systemu Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -93,7 +93,8 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. Wróć do klasycznego portalu Azure i na stronie **Informacje o połączeniu** aplikacji skopiuj wartość **Parametry połączenia**.
 
-      ![][9]
+      ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
+
 4. Wklej ją do parametru `setConnectionString`, zastępując cały ciąg pokazany w poniższym kodzie:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
@@ -119,12 +120,12 @@ W programie Android Studio zostanie utworzona aplikacja demonstracyjna, z któr�
 ### <a name="send-a-screen-to-mobile-engagement"></a>Wysyłanie ekranu do usługi Mobile Engagement
 Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego ekranu (Działanie) do zaplecza usługi Mobile Engagement.
 
-Przejdź do pliku **MainActivity.java** i dodaj następujący kod, aby zastąpić klasę podstawową klasy **MainActivity** klasą **EngagementActivity**:
+Przejdź do pliku **MainActivity.java** i dodaj następujący kod, aby zastąpić klasę bazową klasy **MainActivity** klasą **EngagementActivity**:
 
     public class MainActivity extends EngagementActivity {
 
 > [!NOTE]
-> Jeśli klasą podstawową nie jest *Activity*, zapoznaj się z artykułem [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md) (Zaawansowane raportowanie w systemie Android), aby poznać sposób dziedziczenia z różnych klas.
+> Jeśli klasą bazową nie jest *Activity*, zapoznaj się z artykułem [Advanced Android Reporting](mobile-engagement-android-advanced-reporting.md) (Zaawansowane raportowanie w systemie Android), aby poznać sposób dziedziczenia z różnych klas.
 >
 >
 

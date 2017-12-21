@@ -3,7 +3,7 @@ Aby zezwolić usłudze Mobile Engagement na wysyłanie powiadomień wypychanych 
 
 1. Przejdź do portalu Mobile Engagement. Upewnij się, że znajdujesz się na poziomie właściwej aplikacji, a następnie kliknij przycisk **Engage** (Włącz) widoczny u dołu:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Kliknij stronę **Settings** (Ustawienia) w portalu usługi Engagement. Następnie kliknij pozycję **Native Push** (Natywne powiadomienia wypychane), aby przesłać certyfikat p12:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
