@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Dokumentacja usługi Azure Policy"
+metadata:
+  title: "Dokumentacja usługi Azure Policy — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+  description: "Usługa Azure Policy pomaga zarządzać problemami z zasobami IT i zapobiegać im dzięki definicjom zasad wymuszającym reguły i akcje dotyczące zasobów. Gdy używasz usługi Azure Policy, zasoby pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług. Dowiedz się, jak tworzyć i przypisywać definicje zasad oraz zarządzać nimi, korzystając z naszych przewodników Szybki start, samouczków i przykładów."
+  services: azure-policy
+  author: czeumault
+  manager: carolz
+  ms.service: azure-policy
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: carolz
+  ms.openlocfilehash: b5945fe76973aba267b529078466c7a97e5e6421
+  ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 12/20/2017
+abstract:
+  description: "Usługa Azure Policy pomaga zarządzać problemami z zasobami IT i zapobiegać im dzięki definicjom zasad wymuszającym reguły i akcje dotyczące zasobów. Gdy używasz usługi Azure Policy, zasoby pozostają zgodne ze standardami firmy i umowami dotyczącymi poziomu usług. Dowiedz się, jak tworzyć i przypisywać definicje zasad oraz zarządzać nimi, korzystając z naszych przewodników Szybki start, samouczków i przykładów."
+sections:
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak tworzyć i przypisywać definicje zasad oraz zarządzać nimi na platformie Azure."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/azure-policy/assign-policy-definition
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/azure-policy/assign-policy-definition-ps
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+      text: Interfejs wiersza polecenia platformy Azure
+      href: /azure/azure-policy/assign-policy-definition-cli
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak tworzyć i przypisywać definicje zasad oraz zarządzać nimi na platformie Azure."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/azure-policy/create-manage-policy\">Tworzenie zasad platformy Azure i zarządzanie nimi</a>"
+- title: "Przykłady"
+  items:
+  - type: paragraph
+    text: "Poniższe przykłady kodu JSON pomogą w tworzeniu definicji zasad na platformie Azure."
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
+- title: Dokumentacja
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Wiersz polecenia
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">Interfejs wiersza polecenia platformy Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

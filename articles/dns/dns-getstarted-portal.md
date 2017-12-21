@@ -3,8 +3,8 @@ title: "Rozpoczynanie pracy z usługą Azure DNS przy użyciu witryny Azure Port
 description: "Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym szczegółowym przewodniku pokazano, jak utworzyć po raz pierwszy strefę i rekord DNS przy użyciu witryny Azure Portal."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Rozpoczynanie pracy z usługą Azure DNS przy użyciu witryny Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
 W tym artykule przedstawiono kroki umożliwiające utworzenie po raz pierwszy strefy i rekordu DNS przy użyciu witryny Azure Portal. Te kroki można również wykonać przy użyciu programu Azure PowerShell lub wieloplatformowego interfejsu wiersza polecenia platformy Azure.
@@ -36,11 +35,11 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
 1. Logowanie się do witryny Azure Portal
-2. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
+2. W menu Centrum kliknij pozycję **Nowa > Sieć >**, a następnie kliknij pozycję **Strefa DNS**, aby otworzyć stronę **Tworzenie strefy DNS**.
 
     ![Strefa DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
+4. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
@@ -57,11 +56,11 @@ Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby
 
 W tym przykładzie przedstawiono proces tworzenia nowego rekordu „A”. Aby uzyskać informacje o innych typach rekordów oraz sposobie modyfikowania istniejących rekordów, zobacz [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md) (Zarządzanie rekordami i zestawami rekordów DNS przy użyciu witryny Azure Portal). 
 
-1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij strefę DNS **contoso.com**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.com** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do strefy DNS.
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie Wszystkie zasoby kliknij strefę DNS **contoso.com**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.com** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do strefy DNS.
 
-1. W górnej części bloku **Strefa DNS** wybierz pozycję **+ Zestaw rekordów**, aby otworzyć blok **Dodawanie zestawu rekordów**.
+1. W górnej części strony **Strefa DNS** wybierz pozycję **+ Zestaw rekordów**, aby otworzyć stronę **Dodaj zestaw rekordów**.
 
-1. W bloku **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**. W tym przykładzie jest tworzony rekord A.
+1. Na stronie **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**. W tym przykładzie jest tworzony rekord A.
 
    |**Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
@@ -73,7 +72,7 @@ W tym przykładzie przedstawiono proces tworzenia nowego rekordu „A”. Aby uz
 
 ## <a name="view-records"></a>Wyświetlanie rekordów
 
-W dolnej części bloku Strefa DNS wyświetlone są rekordy dla strefy DNS. Powinny zostać wyświetlone domyślne rekordy DNS i SOA tworzone w każdej strefie oraz wszystkie nowo utworzone rekordy.
+W dolnej części strony Strefa DNS wyświetlone są rekordy dla strefy DNS. Powinny zostać wyświetlone domyślne rekordy DNS i SOA tworzone w każdej strefie oraz wszystkie nowo utworzone rekordy.
 
 ![strefa](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miej
 
 Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
-1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij grupę zasobów **MyResourceGroup**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **MyResourceGroup** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
-1. W bloku **MyResourceGroup** kliknij przycisk **Usuń**.
+1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. Na stronie Wszystkie zasoby kliknij grupę zasobów **MyResourceGroup**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **MyResourceGroup** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
+1. Na stronie **MyResourceGroup** kliknij przycisk **Usuń**.
 1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Kliknij pozycję **Usuń**, wpisz *MyResourceGroup* jako nazwę grupy zasobów, a następnie kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 

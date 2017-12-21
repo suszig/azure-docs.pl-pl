@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Korzystanie ze skalowania automatycznego
       items:
+        - name: Omówienie ustawień automatycznego skalowania
+          href: monitoring-understanding-autoscale-settings.md
         - name: Najlepsze praktyki
           href: insights-autoscale-best-practices.md
         - name: Często używane metryki

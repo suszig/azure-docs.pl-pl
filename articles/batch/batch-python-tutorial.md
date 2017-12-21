@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Wprowadzenie do zestawu SDK usługi Batch dla języka Python
 
@@ -186,7 +186,7 @@ Po utworzeniu kontenerów aplikacja może teraz przekazać pliki, które będą 
 >
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>Krok 2: przekazywanie skryptu podzadań i plików danych
-![Przekazywanie aplikacji zadania podrzędnego i plików danych wejściowych do kontenerów][2]
+![Przekazywanie aplikacji podzadań i plików danych wejściowych do kontenerów][2]
 <br/>
 
 Podczas operacji przekazywania plików skrypt *python_tutorial_client.py* najpierw definiuje kolekcje ścieżek plików **aplikacji** i **danych wejściowych** występujących na komputerze lokalnym. Następnie przekazuje te pliki do kontenerów, które zostały utworzone w poprzednim kroku.

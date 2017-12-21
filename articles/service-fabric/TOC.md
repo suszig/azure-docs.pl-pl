@@ -34,8 +34,6 @@
 ### [3 — Uaktualnianie środowiska uruchomieniowego klastra](service-fabric-tutorial-upgrade-cluster.md)
 ### [4 — Wdrażanie usługi API Management z usługą Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # Przykłady
 ## [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [Architektura](service-fabric-architecture.md)
 ## [Terminologia](service-fabric-technical-overview.md)
 
-## Tworzenie aplikacji i usług
-### [Obsługiwane modele programowania](service-fabric-choose-framework.md)
-#### [Kontenery](service-fabric-containers-overview.md)
-##### [Docker Compose (wersja zapoznawcza)](service-fabric-docker-compose.md)
-##### [Resource governance (Zarządzanie zasobami)](service-fabric-resource-governance.md)
-#### [Usługi Reliable Services](service-fabric-reliable-services-introduction.md)
-##### [Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
-##### [Cykl życia usług Reliable Services — Java](service-fabric-reliable-services-lifecycle-java.md)
-##### [Elementy Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Wytyczne i zalecenia dotyczące elementów Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Elementy Reliable State Manager i Reliable Collection od środka](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [Użycie zaawansowane](service-fabric-reliable-services-advanced-usage.md)
+## [Obsługiwane modele programowania](service-fabric-choose-framework.md)
+### [Kontenery](service-fabric-containers-overview.md)
+#### [Docker Compose (wersja zapoznawcza)](service-fabric-docker-compose.md)
+#### [Resource governance (Zarządzanie zasobami)](service-fabric-resource-governance.md)
+### [Usługi Reliable Services](service-fabric-reliable-services-introduction.md)
+#### [Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)
+#### [Cykl życia usług Reliable Services — Java](service-fabric-reliable-services-lifecycle-java.md)
+#### [Elementy Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+#### [Wytyczne i zalecenia dotyczące elementów Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [Praca z elementami Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [Transakcje i blokady](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [Elementy Reliable State Manager i Reliable Collection od środka](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [Użycie zaawansowane](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [Architektura](service-fabric-reliable-actors-platform.md)
-##### [Cykl życia i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
-##### [Zarządzanie stanem](service-fabric-reliable-actors-state-management.md)
-##### [Polimorfizm](service-fabric-reliable-actors-polymorphism.md)
-##### [Ponowne wejścia](service-fabric-reliable-actors-reentrancy.md)
-##### [Serializacja typów](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [Architektura](service-fabric-reliable-actors-platform.md)
+#### [Cykl życia i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
+#### [Zarządzanie stanem](service-fabric-reliable-actors-state-management.md)
+#### [Polimorfizm](service-fabric-reliable-actors-polymorphism.md)
+#### [Ponowne wejścia](service-fabric-reliable-actors-reentrancy.md)
+#### [Serializacja typów](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## Aplikacje i usługi
 ### [Model aplikacji](service-fabric-application-model.md)
 ### [Manifesty aplikacji i usługi](service-fabric-application-and-service-manifests.md)
 ### [Model hostingu](service-fabric-hosting-model.md)
 
-### Usługi
-#### [Service resources (Zasoby usługi)](service-fabric-service-manifest-resources.md)
-#### [Stan usługi](service-fabric-concepts-state.md)
-#### [Partycjonowanie usługi](service-fabric-concepts-partitioning.md)
-#### [Dostępność usług](service-fabric-availability-services.md)
-#### [Cykl życia repliki i wystąpienia](service-fabric-concepts-replica-lifecycle.md)
-#### [Ponowne konfigurowanie](service-fabric-concepts-reconfiguration.md)
-#### [Komunikacja usług](service-fabric-connect-and-communicate-with-services.md)
-##### [Usługa DNS](service-fabric-dnsservice.md)
-##### [Odwrotny serwer proxy](service-fabric-reverseproxy.md)
-##### [Konfigurowanie zwrotnego serwera proxy na potrzeby bezpiecznej komunikacji](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Reverse proxy diagnostics (Diagnostyka zwrotnego serwera proxy)](service-fabric-reverse-proxy-diagnostics.md)
+### [Stan usługi](service-fabric-concepts-state.md)
+### [Partycjonowanie usługi](service-fabric-concepts-partitioning.md)
 ### [Skalowalność aplikacji](service-fabric-concepts-scalability.md)
-### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+### [Dostępność usług](service-fabric-availability-services.md)
+### [Cykl życia repliki i wystąpienia](service-fabric-concepts-replica-lifecycle.md)
+### [Ponowne konfigurowanie](service-fabric-concepts-reconfiguration.md)
 
-### [Plan application capacity (Planowanie pojemności aplikacji)](service-fabric-capacity-planning.md)
+### [Komunikacja usług](service-fabric-connect-and-communicate-with-services.md)
+#### [Usługa DNS](service-fabric-dnsservice.md)
+#### [Odwrotny serwer proxy](service-fabric-reverseproxy.md)
+#### [Konfigurowanie zwrotnego serwera proxy na potrzeby bezpiecznej komunikacji](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [Reverse proxy diagnostics (Diagnostyka zwrotnego serwera proxy)](service-fabric-reverse-proxy-diagnostics.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [Zarządzanie aplikacjami](service-fabric-application-lifecycle.md)
-### [Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
-#### [Konfiguracja](service-fabric-visualstudio-configure-upgrade.md)
-#### [Parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md)
-#### [Serializacja danych podczas uaktualniania aplikacji](service-fabric-application-upgrade-data-serialization.md)
-#### [Uaktualnianie aplikacji: tematy zaawansowane](service-fabric-application-upgrade-advanced.md)
-### [Omówienie analizy błędów](service-fabric-testability-overview.md)
-### [The ImageStoreConnectionString setting (Ustawienie ImageStoreConnectionString)](service-fabric-image-store-connection-string.md)
+### [Cykl życia aplikacji](service-fabric-application-lifecycle.md)
+#### [Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
+##### [Konfiguracja](service-fabric-visualstudio-configure-upgrade.md)
+##### [Parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md)
+##### [Serializacja danych podczas uaktualniania aplikacji](service-fabric-application-upgrade-data-serialization.md)
+##### [Uaktualnianie aplikacji: tematy zaawansowane](service-fabric-application-upgrade-advanced.md)
+#### [Testowanie aplikacji z analizą błędów](service-fabric-testability-overview.md)
+#### [The ImageStoreConnectionString setting (Ustawienie ImageStoreConnectionString)](service-fabric-image-store-connection-string.md)
 
-## [Tworzenie klastrów i zarządzanie nimi](service-fabric-deploy-anywhere.md)
-### Planowanie i przygotowanie
-#### [Planowanie wydajności](service-fabric-cluster-capacity.md)
-#### [Odzyskiwanie po awarii](service-fabric-disaster-recovery.md)
-### [Describing a cluster (Opisywanie klastra)](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Service resources (Zasoby usługi)](service-fabric-service-manifest-resources.md)
+
+## [Klastry](service-fabric-deploy-anywhere.md)
 ### [Zabezpieczenia klastra](service-fabric-cluster-security.md)
 ### [Różnice między funkcjami systemów Linux i Windows](service-fabric-linux-windows-differences.md)
 ### Klastry na platformie Azure
@@ -128,7 +121,7 @@
 #### [Ograniczanie przepływności](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Przenoszenie usług](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Monitorowanie i diagnozowanie
+## Monitorowanie i diagnostyka
 ### [Monitorowanie i diagnozowanie aplikacji](service-fabric-diagnostics-overview.md)
 ### Generowanie zdarzeń
 #### [Generate platform level events (Generowanie zdarzeń na poziomie platformy)](service-fabric-diagnostics-event-generation-infra.md)
@@ -154,7 +147,7 @@
 #### [Analizowanie zdarzeń za pomocą pakietu OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Rozwiązywanie problemów z klastrem lokalnym](service-fabric-troubleshoot-local-cluster-setup.md)
 
-## [Integrowanie z usługą API Management](service-fabric-api-management-overview.md)
+## [Integracja z usługą API Management](service-fabric-api-management-overview.md)
 
 # Przewodniki z instrukcjami
 ## Konfigurowanie środowiska projektowego
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Konfigurowanie interfejsu wiersza polecenia usługi Service Fabric](service-fabric-cli.md)
 
+## Planowanie i przygotowanie
+### [Planowanie pojemności klastra](service-fabric-cluster-capacity.md)
+### [Planowanie wdrożenia klastra autonomicznego](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Przygotowywanie do odzyskiwania po awarii](service-fabric-disaster-recovery.md)
+### [Plan application capacity (Planowanie pojemności aplikacji)](service-fabric-capacity-planning.md)
+
+## Tworzenie po raz pierwszy...
+### [Aplikacja w języku C# w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Aplikacja kontenera dla systemu Windows](service-fabric-get-started-containers.md)
+### [Aplikacja kontenera dla systemu Linux](service-fabric-get-started-containers-linux.md)
+### [Aplikacja usług Reliable Services w języku C# dla systemu Windows](service-fabric-reliable-services-quick-start.md)
+### [Aplikacja usług Reliable Services w języku Java dla systemu Linux](service-fabric-reliable-services-quick-start-java.md)
+### [Aplikacja usług Reliable Services w języku C# dla systemu Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [Aplikacja usługi Reliable Actors w języku C# dla systemu Windows](service-fabric-reliable-actors-get-started.md)
+### [Aplikacja usługi Reliable Actors w języku Java dla systemu Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [Aplikacja pliku wykonywalnego gościa w systemie Windows](quickstart-guest-app.md)
+### [Klaster autonomiczny](service-fabric-get-started-standalone-cluster.md)
+
 ## Tworzenie aplikacji
-### [Tworzenie pierwszej aplikacji w języku C# w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Tworzenie usługi wykonywalnej gościa
-#### [Host a Node.js application on Windows (Hostowanie aplikacji Node.js w systemie Windows)](quickstart-guest-app.md)
 #### [Wdrażanie aplikacji wykonywalnej gościa](service-fabric-deploy-existing-app.md)
 #### [Wdrażanie wielu aplikacji wykonywalnych gości](service-fabric-deploy-multiple-apps.md)
 ### Tworzenie usługi kontenera
-#### [Create a Windows container application (Tworzenie aplikacji kontenera systemu Windows)](service-fabric-get-started-containers.md)
-#### [Create a Linux container application (Tworzenie aplikacji kontenera systemu Linux)](service-fabric-get-started-containers-linux.md)
 #### [Container security (Zabezpieczenia kontenerów)](service-fabric-securing-containers.md)
 #### [Docker Compose (wersja zapoznawcza)](service-fabric-docker-compose.md)
 #### [Nadzór nad zasobami dla kontenerów i usług](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [Niezawodna kolejka współbieżna](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializacja elementu Reliable Collection](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Rozpoczynanie pracy
-##### [C# w systemie Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java w systemie Linux](service-fabric-reliable-services-quick-start-java.md)
-##### [Create C# application on Linux (Tworzenie aplikacji w języku C# w systemie Linux)](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Komunikacja z usługami
 ##### [Komunikacja przy użyciu usług Reliable Services](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Tworzenie kopii zapasowej i przywracanie](service-fabric-reliable-services-backup-restore.md)
 
 ### Tworzenie usługi Reliable Actors
-#### Rozpoczęcie pracy
-##### [C# w systemie Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java Actor on Linux (Aktor Java w systemie Linux)](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Wysyłanie powiadomień](service-fabric-reliable-actors-events.md)
 #### [Ustawianie czasomierzy i przypomnień](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurowanie dostawcy KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [Usuwanie](service-fabric-cluster-delete.md)
 
 ### Klastry autonomiczne
-#### [Planowanie i przygotowywanie wdrożenia](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Przycisk Utwórz
-##### [Tworzenie pierwszego autonomicznego klastra](service-fabric-get-started-standalone-cluster.md)
 ##### [Tworzenie lokalnie](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Zabezpieczenie przy użyciu certyfikatów](service-fabric-windows-cluster-x509-security.md)  
 ##### [Zabezpieczenie przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md)

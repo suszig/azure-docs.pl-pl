@@ -26,6 +26,8 @@
 
 # Instrukcje
 ## Planowanie i projektowanie
+### [Tożsamość usługi zarządzanej (wersja zapoznawcza)](service-bus-managed-service-identity.md)
+### [Kontrola dostępu oparta na rolach (wersja zapoznawcza)](service-bus-role-based-access-control.md)
 ### [Obsługa komunikatów Premium](service-bus-premium-messaging.md)
 ### [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optymalizowanie wydajności](service-bus-performance-improvements.md)

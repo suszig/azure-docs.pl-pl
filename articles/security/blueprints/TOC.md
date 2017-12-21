@@ -18,7 +18,8 @@
 ### [Nadzór na platformie Azure](../governance-in-azure.md)
 ### [Szyfrowanie danych w spoczynku](../azure-security-encryption-atrest.md)
 ### Schematy architektury
-#### [Zgodność — PCI DSS](payment-processing-blueprint.md)
+#### Zgodność — PCI DSS
+##### [Przetwarzanie płatności dla środowisk zgodnych z normą PCI DSS](payment-processing-blueprint.md)
 ##### [Omówienie wymagań](pci-dss-requirements-overview.md)
 ##### [Wymaganie 1 — zapory](pci-dss-requirement-1-firewall.md)
 ##### [Wymaganie 2 — hasła](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Wymaganie 10 — monitorowanie](pci-dss-requirement-10-monitoring.md)
 ##### [Wymaganie 11 — testowanie](pci-dss-requirement-11-testing.md)
 ##### [Wymaganie 12 — zasady](pci-dss-requirement-12-policy.md)
-#### [Zgodność — FedRAMP](fedramp.md)
+#### Zgodność — FedRAMP
+##### [Aplikacje internetowe dla programu FedRAMP](fedramp.md)
 ##### [Omówienie mechanizmów zabezpieczeń](fedramp-controls-overview.md)
 ##### [Kontrola dostępu](fedramp-access-controls.md)
 ##### [Inspekcja i odpowiedzialność](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Ochrona systemu i komunikacji](fedramp-system-communications-protection-controls.md)
 ##### [Integralność systemów i informacji](fedramp-system-information-integrity-controls.md)
 ##### [Nabywanie systemów i usług](fedramp-system-services-acquisition-controls.md)
-#### [Zgodność — OFICJALNE UK](uk-official-three-tier-applications-overview.md)
+#### Zgodność — UK-OFFICIAL
+##### [Trójwarstwowe aplikacje internetowe dla obciążeń UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie](uk-official-three-tier-applications-overview.md)
 ##### [Omówienie zasad](uk-official-three-tier-applications-principles-overview.md)
-#### [Zgodność — usługi finansowe](financial-services-regulated-workloads.md)
+#### Zgodność — usługi finansowe
 ##### [Usługi finansowe dla obciążeń podlegających regulacjom](financial-services-regulated-workloads.md)
 
 # Wprowadzenie

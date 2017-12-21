@@ -22,6 +22,8 @@
 
 # Instrukcje
 ## Planowanie i projektowanie
+### [Tożsamość usługi zarządzanej (wersja zapoznawcza)](event-hubs-managed-service-identity.md)
+### [Kontrola dostępu oparta na rolach (wersja zapoznawcza)](event-hubs-role-based-access-control.md)
 ### [Geograficzne odzyskiwanie po awarii i replikacja geograficzna](event-hubs-geo-dr.md)
 ### [Usługa Event Hubs w wersji dedykowanej](event-hubs-dedicated-overview.md)
 ### [Omówienie modelu uwierzytelniania i zabezpieczeń](event-hubs-authentication-and-security-model-overview.md)
