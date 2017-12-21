@@ -36,7 +36,11 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie rejestracjami urządzeń
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Zarządzanie rejestracjami urządzeń w witrynie Azure Portal
+          href: how-to-manage-enrollments.md
+        - name: Zarządzanie rejestracjami urządzeń przy użyciu zestawów SDK usług
+          href: how-to-manage-enrollments-sdks.md
     - name: Używanie modułu HSM z zestawem SDK
       href: use-hsm-with-sdk.md
     - name: Kontrola dostępu do usługi Provisioning Service

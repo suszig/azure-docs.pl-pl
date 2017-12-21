@@ -1,3 +1,5 @@
+- name: Dokumentacja usługi Azure Policy
+  href: index.yml
 - name: Omówienie
   items:
     - name: Omówienie zasad platformy Azure

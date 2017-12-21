@@ -13,18 +13,21 @@
 ## [Create a model in Azure portal (preview) (Tworzenie modelu w wersji zapoznawczej witryny Azure Portal)](analysis-services-create-model-portal.md)
 
 # Porady 
-## [Zarządzanie serwerem](analysis-services-manage.md)
-## [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
-## [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
-## [Monitorowanie metryk serwera](analysis-services-monitor.md)
 ## [Instalowanie i konfigurowanie bramy danych lokalnych](analysis-services-gateway-install.md)
-## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
+## [Odświeżanie za pomocą interfejsu API REST](analysis-services-async-refresh.md)
 ## [Konfigurowanie zwiększania skali w poziomie](analysis-services-scale-out.md)
-## [Konfigurowanie aliasu nazwy serwera](analysis-services-server-alias.md)
-## [Łączenie z programem Excel](analysis-services-connect-excel.md)
-## [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
-## [Tworzenie pliku odc](analysis-services-odc.md)
+## Zarządzanie serwerem
+### [Konfigurowanie aliasu nazwy serwera](analysis-services-server-alias.md)
+### [Zarządzanie serwerem](analysis-services-manage.md)
+### [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
+### [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
+### [Monitorowanie metryk serwera](analysis-services-monitor.md)
+## Połączenie
+### [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
+### [Łączenie z programem Excel](analysis-services-connect-excel.md)
+### [Łączenie z usługą Power BI](analysis-services-connect-pbi.md)
+### [Tworzenie pliku odc](analysis-services-odc.md)
 ## Samouczki
 ### [Samouczek Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lekcja 1. Tworzenie nowego projektu modelu tabelarycznego](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

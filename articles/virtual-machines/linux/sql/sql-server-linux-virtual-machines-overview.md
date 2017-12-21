@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
 
@@ -37,7 +37,7 @@ Istnieje wiele powodów, dla których warto zdecydować się na hosting danych w
 
 Program SQL Server uruchomiony na maszynach wirtualnych platformy Azure stanowi jedną z opcji przechowywania danych relacyjnych w systemie Azure. Masz także możliwość korzystania z usługi Azure SQL Database. Aby uzyskać więcej informacji o wybieraniu między programem SQL Server na maszynach wirtualnych a usługą Azure SQL Database, zobacz [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS) (Wybieranie opcji chmury programu SQL Server: bazy danych Azure SQL Database [PaaS] lub program SQL Server na maszynach wirtualnych platformy Azure [IaaS])](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Tworzenie nowej maszyny wirtualnej SQL
+## <a id="create"></a> Tworzenie nowej maszyny wirtualnej SQL
 
 Samouczek [Provision a Linux SQL Server VM in Azure (Aprowizowanie maszyny wirtualnej z programem SQL Server i systemem Linux na platformie Azure)](provision-sql-server-linux-virtual-machine.md) zawiera wskazówki krok po kroku dotyczące tworzenia nowej maszyny wirtualnej z bazą danych SQL.
 

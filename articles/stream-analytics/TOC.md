@@ -17,6 +17,7 @@
 ### [Usługa Stream Analytics w usłudze IoT Edge (wersja zapoznawcza)](stream-analytics-edge.md)
 ### [Wykrywanie anomalii w przewodniku użytkowania platformy Azure (wersja zapoznawcza)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Symulacja handlu wysokich częstotliwości za pomocą usługi Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Usługa Azure Functions z usługą Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Tworzenie zadań
 ### [Tworzenie wejść](stream-analytics-define-inputs.md)
