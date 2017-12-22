@@ -2,9 +2,12 @@
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 
 # Wprowadzenie
-## [Wdrażanie zestawu skalowania w witrynie Azure Portal](virtual-machine-scale-sets-portal-create.md)
-## [Wdrażanie zestawu skalowania przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
-## [Wdrażanie automatycznie skalowanej aplikacji przy użyciu szablonu](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Tworzenie w witrynie Azure Portal](virtual-machine-scale-sets-create-portal.md)
+## [Tworzenie przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Tworzenie przy użyciu programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Tworzenie przy użyciu szablonu
+### [Zestaw skalowania dla systemu Linux](virtual-machine-scale-sets-create-template-linux.md)
+### [Zestaw skalowania dla systemu Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -17,9 +20,7 @@
 ### [Use guest-based autoscaling with a Linux scale set template (Używanie skalowania automatycznego na podstawie gościa za pomocą szablonu zestawu skalowania systemu Linux)](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Wdrażanie
-### [Tworzenie przy użyciu witryny Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Tworzenie przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-create.md)
 ### [Zestaw skalowania z dyskami zarządzanymi](virtual-machine-scale-sets-managed-disks.md)
 ### [Automatyczne skalowanie zestawu skalowania](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Korzystanie z witryny Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
