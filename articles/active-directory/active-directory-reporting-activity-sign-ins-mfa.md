@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e4fc5c9eb031beef42b52c771ef88ea80dba068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c676b0c9c8090fb9680bc71051a9247ed0a4574
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Informacje dotyczące raportowania uwierzytelniania wieloskładnikowego w witrynie Azure Portal
 
@@ -27,7 +27,7 @@ Dzięki [raportom usługi Azure Active Directory (Azure AD)](active-directory-re
 
 [Raporty aktywności logowania](active-directory-reporting-activity-sign-ins.md) dostarczają informacji na temat użycia zarządzanych aplikacji i działań logowania użytkownika, które obejmują informacje na temat użycia usługi Multi-Factor Authentication (MFA). 
 
-Dane usługi MFA dają wgląd w sposób działania usługi MFA w Twojej organizacji. Umożliwiają one udzielenie odpowiedni na takie pytania, jak: 
+Dane usługi MFA dają wgląd w sposób działania usługi MFA w Twojej organizacji. Umożliwiają one udzielenie odpowiedzi na takie pytania, jak: 
 
 - Czy logowanie zostało zakwestionowane przez usługę MFA? 
 

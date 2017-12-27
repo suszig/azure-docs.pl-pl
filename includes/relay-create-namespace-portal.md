@@ -1,5 +1,5 @@
 1. Zaloguj się w witrynie [Azure Portal][Azure portal].
-2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **Nowy**, **Integracja w przedsiębiorstwie** i **Relay**.
+2. W lewym okienku nawigacji portalu kliknij kolejno pozycje **+ Utwórz zasób**, **Integracja w przedsiębiorstwie** i **Relay**.
 3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
 4. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
 5. W polu **[Grupa zasobów](../articles/azure-resource-manager/resource-group-portal.md)** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
@@ -9,12 +9,13 @@
 7. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Po kilku minutach system aprowizuje zasoby dla Twojego konta.
 
 ### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
-1. Na liście przestrzeni nazw kliknij nowo utworzoną nazwę przestrzeni nazw.
-2. W bloku przestrzeni nazw usługi Service Bus kliknij pozycję **Zasady dostępu współdzielonego**.
-3. W bloku **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
+
+1. Kliknij pozycję **Wszystkie zasoby**, a następnie kliknij nowo utworzoną nazwę przestrzeni nazw.
+2. W oknie przestrzeni nazw usługi Relay kliknij pozycję **Zasady dostępu współdzielonego**.
+3. W oknie **Zasady dostępu współdzielonego** kliknij pozycję **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. W bloku **Zasady: RootManageSharedAccessKey** kliknij przycisk kopiowania obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
+4. Na ekranie **Zasady: RootManageSharedAccessKey** kliknij przycisk **Kopiuj** obok pozycji **Parametry połączenia — klucz podstawowy**, aby skopiować parametry połączenia do schowka w celu późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
    
     ![connection-string][connection-string]
 

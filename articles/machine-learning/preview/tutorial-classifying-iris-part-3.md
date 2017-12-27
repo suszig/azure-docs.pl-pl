@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -206,7 +206,7 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
 1. Aby utworzyć usługę internetową czasu rzeczywistego, użyj poniższego polecenia:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Spowoduje to wygenerowanie identyfikatora usługi internetowej, którego będzie można użyć później.
 
@@ -216,6 +216,7 @@ Teraz można przystąpić do tworzenia usługi internetowej czasu rzeczywistego.
    * `--model-file`: plik modelu. W tym przypadku jest to plik z pakietu pickle model.pkl.
    * `-r`: typ modelu. W tym przypadku jest to model języka Python.
    * `--collect-model-data true`: umożliwia zbieranie danych.
+   * `-c`: ścieżka do pliku zależności conda, w którym określono dodatkowe pakiety.
 
    >[!IMPORTANT]
    >Nazwa usługi, która jest również nową nazwą obrazu platformy Docker, musi zawierać tylko małe litery. W przeciwnym razie wystąpi błąd. 
@@ -254,10 +255,10 @@ Najpierw należy zarejestrować model. Następnie należy wygenerować manifest,
 
 3. Utwórz obraz platformy Docker.
 
-   Aby utworzyć obraz platformy Docker, użyj następującego polecenia i podaj wyjściowy identyfikator manifestu z poprzedniego kroku:
+   Aby utworzyć obraz platformy Docker, użyj następującego polecenia i podaj wyjściowy identyfikator manifestu z poprzedniego kroku. Możesz również opcjonalnie dołączyć zależności conda przy użyciu przełącznika `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    To polecenie spowoduje wygenerowanie identyfikatora obrazu platformy Docker.
    

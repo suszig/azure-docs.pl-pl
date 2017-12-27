@@ -3,8 +3,8 @@ title: "Omówienie zestawów skalowania maszyn wirtualnych platformy Azure | Mic
 description: "Dowiedz się więcej o zestawach skalowania maszyn wirtualnych platformy Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Co to są zestawy skalowania maszyn wirtualnych na platformie Azure?
-Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nim. Wszystkie maszyny wirtualne są skonfigurowane tak samo, dzięki czemu zestawy skalowania umożliwiają prawdziwe automatyczne skalowanie i nie jest wymagana wstępna aprowizacja maszyn wirtualnych. Ułatwia to tworzenie usług w dużej skali nakierowane na duże wystąpienia obliczeniowe, dane big data i obciążenia konteneryzowane.
+Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który umożliwia wdrożenie zestawu identycznych maszyn wirtualnych oraz zarządzanie nim. Wszystkie maszyny wirtualne są skonfigurowane tak samo, dzięki czemu zestawy skalowania umożliwiają prawdziwe automatyczne skalowanie i nie jest wymagana wstępna aprowizacja maszyn wirtualnych. Ułatwia to tworzenie usług w dużej skali nakierowanych na duże wystąpienia obliczeniowe, duże ilości danych i obciążenia konteneryzowane.
 
 W przypadku aplikacji skalujących zasoby komputerowe w poziomie operacje skalowania są niejawnie równoważone w domenach błędów i aktualizacji. Aby lepiej zapoznać się z zagadnieniami dotyczącymi zestawów skalowania, zobacz [Ogłoszenia na blogu platformy Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -50,7 +50,7 @@ W przykładach szablonów w przewodniku Szybki start przycisk „Wdróż na plat
 ## <a name="autoscale"></a>Automatyczne skalowanie
 Aby zachować spójną wydajność aplikacji, możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych w zestawie skalowania. Ta możliwość automatycznego skalowania zmniejsza nakład pracy na zarządzanie monitorowaniem i dostrajaniem Twojego zestawu skalowania w miarę, jak z czasem klient żąda zmian. Możesz zdefiniować reguły na podstawie metryki wydajności, odpowiedzi aplikacji lub ustalonego harmonogramu, a Twój zestaw skalowania automatycznie zmieni skalę odpowiednio do potrzeb.
 
-Dla podstawowych reguł automatycznego skalowania możesz użyć metryki wydajności opartej na hoście, takiej jak użycie procesora CPU lub operacje We/Wy dysku. Te metryki oparte na hoście są dostępne od razu po zainstalowaniu i nie trzeba instalować ani konfigurować żadnych dodatkowych agentów. Reguły automatycznego skalowania, które korzystają z metryk opartych na hoście, można utworzyć za pomocą jednego z następujących narzędzi:
+Dla podstawowych reguł automatycznego skalowania możesz użyć metryki wydajności opartej na hoście, takiej jak użycie procesora CPU lub operacje We/Wy dysku. Te metryki oparte na hoście są dostępne automatycznie i nie trzeba instalować ani konfigurować żadnych dodatkowych agentów. Reguły automatycznego skalowania, które korzystają z metryk opartych na hoście, można utworzyć za pomocą jednego z następujących narzędzi:
 
 - [Witryna Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,10 +159,10 @@ W tej sekcji przedstawiono niektóre typowe scenariusze dotyczące zestawów ska
 
 **PYTANIE** Czy mogę wymusić sekwencję wykonywania w przypadku korzystania z wielu rozszerzeń w zestawie skalowania?
 
-**ODPOWIEDŹ** Nie można tego zrobić bezpośrednio, ale w przypadku rozszerzenia customScript skrypt może poczekać na ukończenie działania innego rozszerzenia. Dodatkowe wytyczne dotyczące sekwencjonowania rozszerzeń można znaleźć we wpisie w blogu: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sekwencjonowanie rozszerzeń w zestawach skalowania maszyn wirtualnych platformy Azure).
+**ODPOWIEDŹ** Nie można tego zrobić bezpośrednio, ale w przypadku rozszerzenia customScript skrypt może poczekać na ukończenie działania innego rozszerzenia. Dodatkowe wytyczne dotyczące sekwencjonowania rozszerzeń można znaleźć we wpisie w blogu: [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sekwencjonowanie rozszerzeń w zestawach skalowania maszyn wirtualnych platformy Azure).
 
 **PYTANIE** Czy zestawy skalowania współdziałają z zestawami dostępności platformy Azure?
 
-**ODPOWIEDŹ** Tak. Zestaw skalowania to niejawny zestaw dostępności z 5 domenami błędów i 5 domenami aktualizacji. Zestawy skalowania składające się z ponad 100 maszyn wirtualnych obejmują wiele *grup umieszczania*, które są równoważne wielu zestawom dostępności. Aby uzyskać więcej informacji na temat grup umieszczania, zobacz [Praca z dużymi zestawami skalowania maszyn wirtualnych](virtual-machine-scale-sets-placement-groups.md). Zestaw dostępności maszyn wirtualnych może znajdować się w tej samej sieci wirtualnej co zestaw skalowania maszyn wirtualnych. Typowa konfiguracja polega na umieszczeniu maszyn wirtualnych węzła kontrolnego (często wymagających unikatowej konfiguracji) w zestawie dostępności, a węzłów danych w zestawie skalowania.
+**ODPOWIEDŹ** Tak. Zestaw skalowania to niejawny zestaw dostępności z pięcioma domenami błędów i pięcioma domenami aktualizacji. Zestawy skalowania składające się z ponad 100 maszyn wirtualnych obejmują wiele *grup umieszczania*, które są równoważne wielu zestawom dostępności. Aby uzyskać więcej informacji na temat grup umieszczania, zobacz [Praca z dużymi zestawami skalowania maszyn wirtualnych](virtual-machine-scale-sets-placement-groups.md). Zestaw dostępności maszyn wirtualnych może znajdować się w tej samej sieci wirtualnej co zestaw skalowania maszyn wirtualnych. Typowa konfiguracja polega na umieszczeniu maszyn wirtualnych węzła kontrolnego (często wymagających unikatowej konfiguracji) w zestawie dostępności, a węzłów danych w zestawie skalowania.
 
 Więcej odpowiedzi na pytania dotyczące zestawów skalowania można znaleźć w artykule [Zestawy skalowania maszyn wirtualnych platformy Azure — często zadawane pytania](virtual-machine-scale-sets-faq.md).

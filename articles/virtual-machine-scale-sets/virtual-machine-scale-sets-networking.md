@@ -3,8 +3,8 @@ title: "Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych pla
 description: "Właściwości sieciowe konfiguracji dotyczące zestawów skalowania maszyn wirtualnych platformy Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -138,7 +138,7 @@ Aby uzyskać listę publicznych adresów IP zestawu skalowania przy użyciu prog
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-Publiczne adresy IP można także badać, odwołując się bezpośrednio do identyfikatora zasobu konfiguracji adresów IP. Na przykład:
+Publiczne adresy IP można także badać, odwołując się bezpośrednio do identyfikatora zasobu konfiguracji publicznych adresów IP. Na przykład:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -306,4 +306,4 @@ Na przykład:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji o sieciach wirtualnych platformy Azure, zapoznaj się z [tą dokumentacją](../virtual-network/virtual-networks-overview.md).
+Więcej informacji na temat sieci wirtualnych platformy Azure znajduje się w artykule [Azure virtual networks overview](../virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych platformy Azure).

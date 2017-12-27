@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
 
@@ -63,13 +63,15 @@ Podczas konfigurowania wirtualnych sieci równorzędnych można otwierać i zamy
 
 ## <a name="service-chaining"></a>Tworzenie łańcuchów usług
 
-Użytkownicy mogą konfigurować trasy zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych jako adresy IP „kolejnego przeskoku”, aby umożliwić tworzenie łańcucha usług. Tworzenie łańcucha usług umożliwia bezpośrednie kierowanie ruchu z jednej sieci wirtualnej do urządzenia wirtualnego w wirtualnej sieci równorzędnej przy użyciu tras zdefiniowanych przez użytkownika.
+Użytkownicy mogą konfigurować trasy zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych (jako adresy IP *kolejnego przeskoku*) lub do bram sieci wirtualnych, aby umożliwić tworzenie łańcucha usług. Tworzenie łańcucha usług umożliwia bezpośrednie kierowanie ruchu z jednej sieci wirtualnej do urządzenia wirtualnego lub do bramy sieci wirtualnej w wirtualnej sieci równorzędnej przy użyciu tras zdefiniowanych przez użytkownika.
 
-Można również skutecznie tworzyć środowiska typu gwiazdy, w których serwer centralny jest hostem składników infrastruktury, takich jak sieciowe urządzenie wirtualne. Następnie wszystkie sieci wirtualne typu gwiazda można połączyć za pomocą komunikacji równorzędnej z centralną siecią wirtualną. Ruch może przepływać za pośrednictwem wirtualnych urządzeń sieciowych działających w centralnej sieci wirtualnej. Krotko mówiąc, wirtualne sieci równorzędne umożliwiają użycie jako adresu IP kolejnego przeskoku w trasie zdefiniowanej przez użytkownika adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej. Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zobacz [User-defined routes overview (Omówienie tras definiowanych przez użytkownika)](virtual-networks-udr-overview.md). Aby dowiedzieć się, jak utworzyć topologię sieci typu gwiazda, zobacz [Hub and spoke network topology (Topologia sieci typu gwiazda)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Można również wdrażać sieci typu gwiazdy, w których centralna sieć wirtualna może hostować składniki infrastruktury, takie jak sieciowe urządzenie wirtualne lub brama sieci VPN. Następnie wszystkie sieci wirtualne typu gwiazda można połączyć za pomocą komunikacji równorzędnej z centralną siecią wirtualną. Ruch może przepływać za pośrednictwem wirtualnych urządzeń sieciowych lub bram sieci VPN działających w centralnej sieci wirtualnej. 
+
+Wirtualne sieci równorzędne umożliwiają użycie kolejnego przeskoku w trasie zdefiniowanej przez użytkownika jako adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej lub bramie sieci VPN. Nie można jednak wyznaczać trasy między sieciami wirtualnymi w trasie zdefiniowanej przez użytkownika, określając bramę usługi ExpressRoute jako typ następnego przeskoku. Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zobacz [User-defined routes overview](virtual-networks-udr-overview.md#user-defined) (Omówienie tras definiowanych przez użytkownika). Aby dowiedzieć się, jak utworzyć topologię sieci typu gwiazda, zobacz [Hub and spoke network topology (Topologia sieci typu gwiazda)](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Bramy i łączność lokalna
 
-Każda sieć wirtualna — niezależnie od tego, czy jest połączona za pomocą komunikacji równorzędnej z inną siecią wirtualną — może mieć własną bramę i używać jej do łączenia się z lokalną infrastrukturą sieciową. Użytkownicy mogą również konfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) przy użyciu bram, nawet jeśli te sieci wirtualne zostały połączone za pomocą komunikacji równorzędnej.
+Każda sieć wirtualna — niezależnie od tego, czy jest połączona za pomocą komunikacji równorzędnej z inną siecią wirtualną — może mieć własną bramę i używać jej do łączenia się z lokalną infrastrukturą sieciową. Użytkownicy mogą również konfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) przy użyciu bram, nawet jeśli te sieci wirtualne zostały połączone za pomocą komunikacji równorzędnej.
 
 Po skonfigurowaniu obu opcji łączności między sieciami wirtualnymi ruch między tymi sieciami wirtualnymi jest oparty na konfiguracji komunikacji równorzędnej (to znaczy odbywa się za pośrednictwem sieci szkieletowej platformy Azure).
 
@@ -98,20 +100,17 @@ Jeśli na przykład łączysz sieci wirtualne o nazwach myVirtualNetworkA i myVi
 
 ## <a name="monitor"></a>Monitorowanie
 
-W przypadku łączenia dwóch sieci wirtualnych utworzonych w usłudze Resource Manager za pomocą komunikacji równorzędnej należy skonfigurować komunikację równorzędną dla każdej objętej nią sieci wirtualnej.
-Możesz monitorować stan połączenia za pomocą komunikacji równorzędnej. Stan komunikacji równorzędnej jest jednym z następujących stanów:
+W przypadku łączenia dwóch sieci wirtualnych utworzonych w usłudze Resource Manager za pomocą komunikacji równorzędnej należy skonfigurować komunikację równorzędną dla każdej objętej nią sieci wirtualnej. Możesz monitorować stan połączenia za pomocą komunikacji równorzędnej. Stan komunikacji równorzędnej jest jednym z następujących stanów:
 
-* **Zainicjowano**: podczas tworzenia połączenia za pomocą komunikacji równorzędnej z drugą siecią wirtualną z poziomu pierwszej sieci wirtualnej stan komunikacji równorzędnej to Zainicjowano.
-
-* **Połączono**: po utworzeniu połączenia za pomocą komunikacji równorzędnej z drugą siecią wirtualną z poziomu pierwszej sieci wirtualnej stan komunikacji równorzędnej to Połączono. Jeśli wyświetlisz stan komunikacji równorzędnej dla pierwszej sieci wirtualnej, zobaczysz, że zmienił się z Zainicjowano na Połączono. Komunikacja równorzędna nie zostanie pomyślnie nawiązana, aż do momentu, gdy stanem połączeń obydwu sieci wirtualnych będzie Połączono.
-
-* **Rozłączono**: jeśli jeden z linków komunikacji równorzędnej zostanie usunięty po nawiązaniu połączenia, stanem komunikacji równorzędnej będzie Rozłączono.
+* **Zainicjowano**: ten stan jest sygnalizowany podczas tworzenia połączenia za pomocą komunikacji równorzędnej z pierwszej sieci wirtualnej do drugiej sieci wirtualnej.
+* **Połączono**: ten stan jest sygnalizowany po utworzeniu połączenia za pomocą komunikacji równorzędnej z drugiej sieci wirtualnej do pierwszej sieci wirtualnej. Stan komunikacji równorzędnej dla pierwszej sieci wirtualnej zmienia się z *Zainicjowano* na *Połączono*. Komunikacja równorzędna w sieci wirtualnej nie zostanie pomyślnie nawiązana, aż do momentu, gdy stanem komunikacji równorzędnej w obydwu sieciach wirtualnych będzie *Połączono*.
+* **Rozłączono**: stan sygnalizowany, gdy komunikacja równorzędna z jednej sieci wirtualnej do innej zostanie usunięta po wcześniejszym nawiązaniu komunikacji równorzędnej między dwiema sieciami wirtualnymi.
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Aby rozwiązać problemy z ruchem przechodzącym przez połączenie komunikacji równorzędnej, możesz [sprawdzić skuteczne trasy](virtual-network-routes-troubleshoot-portal.md).
+Aby potwierdzić komunikację równorzędną w sieci wirtualnej, możesz [sprawdzić efektywne trasy](virtual-network-routes-troubleshoot-portal.md) dla interfejsu sieciowego w dowolnej podsieci w sieci wirtualnej. Jeśli istnieje komunikacja równorzędna w sieci wirtualnej, wszystkie podsieci w tej sieci wirtualnej mają trasy z typem następnego przeskoku *Komunikacja równorzędna sieci wirtualnych* dla każdej przestrzeni adresowej w każdej równorzędnej sieci wirtualnej.
 
-Problemy dotyczące łączności z maszyną wirtualną w równorzędnej sieci wirtualnej można również rozwiązywać przy użyciu funkcji [sprawdzania łączności](../network-watcher/network-watcher-connectivity-portal.md) usługi Network Watcher. Sprawdzanie łączności umożliwia zbadanie, jak jest ona kierowana bezpośrednio z interfejsu sieciowego źródłowej maszyny wirtualnej do interfejsu sieciowego docelowej maszyny wirtualnej.
+Problemy dotyczące łączności z maszyną wirtualną w równorzędnej sieci wirtualnej można również rozwiązywać przy użyciu funkcji [monitorowania połączeń](../network-watcher/network-watcher-connectivity-portal.md) usługi Network Watcher. Funkcja monitorowania połączeń pozwala zobaczyć, jak ruch jest przekierowywany z interfejsu sieciowego źródłowej maszyny wirtualnej do interfejsu sieciowego docelowej maszyny wirtualnej.
 
 ## <a name="limits"></a>Limity
 

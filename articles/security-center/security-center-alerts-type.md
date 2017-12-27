@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2017
+ms.date: 12/19/2017
 ms.author: yurid
-ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informacje o alertach zabezpieczeń w usłudze Azure Security Center
 Ten artykuł ułatwia zapoznanie się z różnymi typami alertów zabezpieczeń i powiązanych szczegółowych informacji dostępnych w usłudze Azure Security Center. Więcej informacji na temat zarządzania alertami i zdarzeniami znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -41,236 +41,160 @@ Usługa Azure Security Center może użyć analizy behawioralnej w celu identyfi
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat sposobu działania funkcji wykrywania usługi Security Center, zobacz [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md).
->
+
+
+### <a name="event-analysis"></a>Analiza zdarzeń
+Usługa Security Center używa zaawansowanej analizy w celu identyfikacji zasobów, których bezpieczeństwo zostało naruszone, na podstawie analizy dzienników zdarzeń maszyny wirtualnej, na przykład zdarzeń tworzenia procesów i zdarzeń logowania. Ponadto istnieje korelacja z innymi sygnałami, które wykrywają dowody potwierdzające istnienie szeroko zakrojonej kampanii ataku.
+
+* **Wykryto wykonanie podejrzanego procesu**: osoby atakujące często próbują wykonać złośliwy kod bez wykrycia, maskując procesy jako niegroźne. Te alerty wskazują, że wykonanie procesu jest zgodne z jednym z następujących wzorców:
+    * Wykonany proces jest znany z użycia do złośliwych celów. Poszczególne polecenia mogą wydawać się niegroźne, ale alert jest oceniany na podstawie na agregacji tych poleceń. 
+    * Proces został wykonany z nietypowej lokalizacji.
+    * Proces został wykonany z lokalizacji powiązanej z podejrzanymi plikami.
+    * Proces został wykonany z podejrzanej ścieżki.
+    * Proces został wykonany w nietypowym kontekście.
+    * Proces został wykonany z poziomu nietypowego konta.
+    * Wykonany proces miał podejrzane rozszerzenie.
+    * Wykonany proces miał podejrzane podwójne rozszerzenie.
+    * Wykonany proces miał w nazwie pliku podejrzany znak typu „od prawej do lewej”.
+    * Wykonany proces miał nazwę bardzo podobną do nazwy bardzo często uruchamianego procesu, ale inną.
+    * Wykonany proces miał nazwę odpowiadającą znanemu narzędziu używanemu przez osoby atakujące.
+    * Wykonany proces miał losową nazwę.
+    * Wykonany proces miał podejrzane rozszerzenie.
+    * Wykonano ukryty plik.
+    * Proces został wykonany jako element podrzędny innego niepowiązanego procesu.
+    * Nietypowy proces został utworzony przez proces systemowy.
+    * Nietypowy proces został uruchomiony przez usługę Windows Update.
+    * Proces został wykonany przy użyciu nietypowego wiersza polecenia. Ta sytuacja jest powiązana z przejmowaniem autentycznych procesów w celu wykonania złośliwej zawartości.
+    * Podjęto próbę uruchomienia wszystkich plików wykonywalnych (*.exe) w katalogu z poziomu wiersza polecenia.
+    * Proces został wykonany przy użyciu narzędzia PsExec, które może służyć do zdalnego uruchamiania procesów.
+    * Nadrzędny plik wykonywalny Apache Tomcat® (Tomcat#.exe) został użyty do uruchomienia podejrzanych procesów podrzędnych, które mogą hostować lub uruchamiać złośliwe polecenia.
+    * Usługa systemu Microsoft Windows „Asystent zgodności programów” (pcalua.exe) została użyta do uruchomienia kodu wykonywalnego, który może być złośliwy. 
+    * Wykryto nagłe zakończenie podejrzanego procesu.
+    * Proces systemowy SVCHOST został wykonany w nietypowym kontekście.
+    * Proces systemowy SVCHOST został wykonany w rzadkiej grupie usług.
+    * Wykonano podejrzany wiersz polecenia.
+    * Skrypt programu PowerShell ma cechy wspólne ze znanymi podejrzanymi skryptami.
+    * Wykonano znane złośliwe polecenie cmdlet z kolekcji PowerSploit programu PowerShell.
+    * Wbudowany użytkownik języka SQL wykonał proces, który normalnie nie byłby uruchamiany.
+    * Wykryto plik wykonywalny z kodowaniem base-64, co może oznaczać, że osoba atakująca próbowała uniknąć wykrycia, tworząc plik wykonywalny na bieżąco, za pośrednictwem sekwencji poleceń.
+
+* **Podejrzane działanie zasobu protokołu RDP**: osoby atakujące często wybierają otwarte porty zarządzania, takie jak protokół RDP, jako cel ataków siłowych. Te alerty wskazują wystąpienie podejrzanego działania logowania do Pulpitu zdalnego, co oznacza, że:
+    * Podjęto próby logowania do Pulpitu zdalnego.
+    * Podjęto próby logowania do Pulpitu zdalnego przy użyciu nieprawidłowych kont.
+    * Podjęto próby logowania do Pulpitu zdalnego, a niektóre z nich spowodowały pomyślnie zalogowanie do maszyny.
+* **Podejrzane działanie zasobu protokołu SSH**: osoby atakujące często wybierają otwarte porty zarządzania, takie jak protokół SSH, jako cel ataków siłowych. Te alerty wskazują wystąpienie podejrzanego działania logowania do protokołu SSH, co oznacza, że:
+    * Podjęto nieudane próby logowania do protokołu SSH.
+    * Podjęto próby logowania do protokołu SSH, a niektóre z nich zakończyły się pomyślnie.
+* **Podejrzana wartość rejestru WindowPosition**: ten alert wskazuje, że podjęto próbę wprowadzenia zmiany konfiguracji rejestru WindowPosition, co może świadczyć o ukrywaniu okien aplikacji w niewidocznych sekcjach pulpitu.
+* **Potencjalna próba obejścia funkcji AppLocker**: funkcja AppLocker może służyć do ograniczania procesów, które można uruchomić w systemie Windows, co zmniejsza stopnień narażenia na działanie złośliwego oprogramowania. Ten alert wskazuje na możliwą próbę ominięcia ograniczeń funkcji AppLocker przez użycie zaufanych plików wykonywalnych (dozwolonych przez zasady funkcji AppLocker) do wykonania niezaufanego kodu.
+* **Podejrzana komunikacja z nazwanym potokiem**: ten alert wskazuje, że dane zostały zapisane w lokalnym nazwanym potoku z poziomu polecenia konsoli systemu Windows. Nazwane potoki są używane przez osoby atakujące do przydzielania zadań do złośliwego elementu i komunikowania się z nim.
+* **Dekodowanie pliku wykonywalnego przy użyciu wbudowanego narzędzia certutil.exe**: ten alert wskazuje, że wbudowane narzędzie administratora, certutil.exe, zostało użyte w celu dekodowania pliku wykonywalnego. Osoby atakujące nadużywają funkcjonalności wiarygodnych narzędzi administratora w celu wykonania złośliwych akcji. Mogą na przykład użyć narzędzia, takiego jak certutil.exe, do dekodowania złośliwego pliku wykonywalnego, który następnie zostanie wykonany.
+* **Dziennik zdarzeń został wyczyszczony**: ten alert wskazuje na podejrzaną operację dziennika zdarzeń, która jest często używana przez osoby atakujące w celu ukrycia śladów ich działania.
+* **Wyłączanie i usuwanie plików dziennika usług IIS**: ten alert wskazuje, że pliki dziennika usług IIS zostały wyłączone i/lub usunięte — jest to często stosowane przez osoby atakujące w celu ukrycia śladów ich działania.
+* **Podejrzane usunięcie plików**: ten alert wskazuje na podejrzane usunięcie plików, co może być stosowane przez osobę atakującą w celu usunięcia dowodu istnienia złośliwych plików binarnych.
+* **Wszystkie kopie pliku w tle zostały usunięte**: ten alert wskazuje, że kopie w tle zostały usunięte.
+* **Plik historii został wyczyszczony**: ten alert wskazuje, że plik dziennika historii poleceń został wyczyszczony, na przykład przez osobę atakującą ukrywającą ślady działania.
+* **Podejrzane polecenia czyszczenia pliku**: ten alert wskazuje na użycie kombinacji poleceń systeminfo do przeprowadzenia działania samodzielnego czyszczenia po wystąpieniu naruszenia.  Plik *systeminfo.exe* to autentyczne narzędzie systemu Windows, ale jego uruchomienie dwa razy z rzędu, a następnie użycie polecenia Usuń w opisany tutaj sposób jest rzadkie.
+* **Podejrzane utworzenie konta**: ten alert wskazuje, że zostało utworzone konto bardzo podobne do istniejącego wbudowanego konta z uprawnieniami administracyjnymi. Ta technika może zostać użyta przez osoby atakujące do utworzenia nieautoryzowanego konta bez wykrycia. 
+* **Podejrzane działanie logowania**: ten alert wskazuje na nietypowe działanie logowania, które mogłoby oznaczać atak siłowy typu Blok komunikatów serwera (SMB, Server Message Block). Jeśli uwzględniony zasób działa jako serwer usług IIS, ten alert może wynikać z określonej, autentycznej konfiguracji uwierzytelniania usług.
+* **Podejrzane działanie kopiowania woluminu w tle**: ten alert wskazuje na działanie usunięcia kopii w tle w ramach zasobu. Kopiowanie woluminów w tle (VSC, Volume Shadow Copy) to ważny artefakt, który przechowuje migawki danych. To działanie jest zwykle kojarzone z oprogramowaniem wymuszającym okup, ale może być również autentyczne.
+* **Metoda trwałości rejestru systemu Windows**: ten alert wskazuje na próbę utrzymania pliku wykonywalnego w rejestrze systemu Windows. Złośliwe oprogramowanie często używa takiej techniki w celu przetrwania rozruchu.
+* **Zapora systemu Windows została wyłączona**: ten alert wskazuje na wyłączenie Zapory systemu Windows.
+* **Podejrzana nowa reguła zapory**: ten alert wskazuje na to, że dodano nową regułę zapory za pośrednictwem pliku *netsh.exe*, aby zezwolić na ruch z pliku wykonywalnego w podejrzanej lokalizacji.
+* **Nowy użytkownik został dodany do grupy administratorów**: ten alert wskazuje, że nowy użytkownik został dodany do grupy administratorów lokalnych.
+* **Utworzono nową usługę**: ten alert wskazuje, że utworzono nową usługę.
+* **Podejrzane wykonania XCOPY**: ten alert wskazuje na serię wykonań XCOPY, co może oznaczać, że bezpieczeństwo jednej z maszyn zostało naruszone i użyto jej do propagowania złośliwego oprogramowania.
+* **Pomijanie informacji prawnych wyświetlanych dla użytkowników podczas logowania**: ten alert wskazuje na zmianę klucza rejestru, który kontroluje wyświetlanie informacji prawnych dla użytkowników podczas logowania. Jest to typowe działanie podejmowane przez osoby atakujące po naruszeniu bezpieczeństwa hosta.
+* **Wykryto nietypową kombinację wielkich i małych liter w wierszu polecenia**: ten alert wskazuje na użycie kombinacji wielkich i małych liter w wierszu polecenia. Jest to technika stosowana przez osoby atakujące w celu ukrycia się przed regułą uwzględniania wielkości liter lub maszyny opartej na skrótach.
+* **Wiersz polecenia z zaciemnionym kodem**: ten alert wskazuje na to, że w wierszu polecenia zostały wykryte podejrzane wskaźniki zaciemnienia.
+* **Zapytania o wiele kont domeny**: osoby atakujące podczas rozpoznawania użytkowników często wykonują zapytania o konta domeny usługi AD, konta administratorów domeny, kontrolerów domeny oraz relacje zaufania między domenami. Ten alert wskazuje na to, że w krótkim czasie wykonano nietypową liczbę zapytań o różne konta domeny.
+* **Możliwe działanie dotyczące rozpoznania lokalnego**: ten alert wskazuje na wykonanie kombinacji poleceń systeminfo skojarzonych z działaniem rozpoznania.  Plik *systeminfo.exe* to oryginalne narzędzie systemu Windows, ale wykonanie go dwa razy z rzędu jest rzadkie.
+* **Możliwe wykonanie pliku wykonywalnego keygen**: ten alert wskazuje na wykonanie procesu, którego nazwa wskazuje na narzędzie keygen. Takie narzędzia są zwykle używane w celu pokonania mechanizmów licencjonowania oprogramowania, ale są one często pobierane w pakiecie z innym złośliwym oprogramowaniem. 
+* **Podejrzane wykonanie za pośrednictwem pliku rundll32.exe**: ten alert wskazuje na to, że plik rundll32.exe został użyty do wykonania procesu o nietypowej nazwie, zgodnie ze schematem nazewnictwa procesów stosowanym przez osoby atakujące w celu zainstalowania elementu pierwszego etapu na hoście, którego bezpieczeństwo zostało naruszone.
+* **Podejrzana kombinacja hosta HTA i programu PowerShell**: ten alert wskazuje, że host HTA (HTML Application Host) firmy Microsoft uruchamia polecenia programu PowerShell. Jest to technika używana przez osoby atakujące do uruchamiania złośliwych skryptów programu PowerShell.
+* **Zmiana na klucz rejestru, który może być nadużywany w celu obejścia kontroli konta użytkownika**: ten alert wskazuje, że klucz rejestru, który może być używany do obejścia kontroli konta użytkownika został zmieniony. Ta technika jest często używana przez osoby atakujące w celu przeniesienia z konta o dostępie nieuprzywilejowanym (użytkownik standardowy) do konta o dostępie uprzywilejowanym (np. administrator) na hoście, którego bezpieczeństwo zostało naruszone.
+* **Użycie podejrzanej nazwy domeny w wierszu polecenia**: ten alert wskazuje na to, że użyto podejrzanej nazwy domeny, co może być dowodem na to, że osoba atakująca hostuje złośliwe narzędzia i pełni rolę punktu końcowego dla poleceń i kontroli danych oraz ich eksfiltracji. 
+* **Konto zostało utworzone na wielu hostach w okresie 24-godzinnym**: ten alert wskazuje na to, że nastąpiła próba utworzenia tego samego konta użytkownika na wielu hostach, co może być dowodem na to, że osoba atakująca przenosi się w bok w sieci po naruszeniu bezpieczeństwa co najmniej jednej jednostki sieci.
+* **Podejrzane użycie list CACLS w celu obniżenia stanu zabezpieczeń systemu**: ten alert wskazuje na wprowadzenie zmiany listy kontroli zmian dostępu (CACLS). Ta technika jest często używana przez osoby atakujące w celu nadania praw pełnego dostępu systemowym plikom binarnym, takim jak ftp.exe, net.exe, wscript.exe itd. 
+* **Parametry podejrzenia ataku na „złoty bilet” protokołu Kerberos**: ten alert wskazuje na wykonanie parametrów wiersza polecenia zgodnych z atakiem na „złoty bilet” protokołu Kerberos. Naruszony klucz krbtgt może zostać użyty przez osobę atakującą do podszycia się pod dowolnego użytkownika. 
+* **Włączenie klucza rejestru WDigest UseLogonCredential**: ten alert wskazuje na to, że klucz rejestru został zmieniony tak, aby zezwalać na przechowywanie poświadczeń logowania w postaci zwykłego tekstu w pamięci LSA, a następnie pobieranie ich z pamięci.
+* **Potencjalnie podejrzane użycie narzędzia Telegram**: ten alert wskazuje na zainstalowanie narzędzia Telegram, bezpłatnej, opartej na chmurze usługi do obsługi wiadomości błyskawicznych, której osoby atakujące używają do przesyłania złośliwych plików binarnych do dowolnego komputera, telefonu lub tabletu.
+* **Tworzenie nowego punktu ASEP**: ten alert wskazuje na utworzenie nowych punktów ASEP (Auto Start Extensibility Point), co powoduje automatyczne uruchamianie nazwy procesu zidentyfikowanej w wierszu polecenia i może służyć osobie atakującej do osiągnięcia trwałości. 
+* **Podejrzane zmiany polecenia Set-ExecutionPolicy i usługi WinRM**: ten alert wskazuje na zmiany konfiguracji skojarzone z użyciem złośliwej powłoki internetowej ChinaChopper.
+* **Wyłączenie usług krytycznych**: ten alert wskazuje, że polecenie „net.exe stop” zostało użyte do zatrzymania usług krytycznych, takich jak SharedAccess lub Centrum zabezpieczeń systemu Windows. 
+* **Podejrzane użycie przełącznika FTP -s**: ten alert oznacza użycie przełącznika FTP „-s”, który może służyć w złośliwym oprogramowaniu do łączenia się ze zdalnym serwerem FTP i pobierania dodatkowych złośliwych plików binarnych.
+* **Przygotowywanie do eksfiltracji dokumentu za pośrednictwem tylnego wejścia usług IIS**: ten alert wskazuje na to, że dokumenty są zbierane i przygotowywane do eksfiltracji.
+* **Podejrzane wykonanie polecenia VBScript.Encode**: ten alert wskazuje na wykonanie polecenia *VBScript.Encode*, które koduje skrypty do postaci tekstu niemożliwego do odczytania, co utrudnia użytkownikom badanie kodu.
+* **Alokacja obiektu HTTP VBScript**: ten alert wskazuje na utworzenie pliku VBScript przy użyciu wiersza polecenia. Może on służyć do pobierania złośliwych plików.
+* **Atak typu Klawisze trwałe**: ten alert wskazuje, że osoba atakująca może wykorzystać pliki binarne ułatwień dostępu (takich jak klawisze trwałe, klawiatura ekranowa, narrator) w celu zapewnienia sobie tylnego wejścia do systemu.
+* **Wskaźniki oprogramowania wymuszającego okup Petya**: ten alert wskazuje na to, że zaobserwowano techniki skojarzone z oprogramowaniem wymuszającym okup Petya.
+* **Załadowano moduł jądra**: ten alert wskazuje na załadowanie modułu jądra.
+* **Usunięto moduł jądra**: ten alert wskazuje na usunięcie modułu jądra.
+* **Nietypowe logowanie do maszyny**: ten alert wskazuje, że użytkownik zalogował się z adresu IP innego niż zwykle.
+* **Pobrano i wykonano plik**: ten alert wskazuje na to, że plik został pobrany do maszyny, miał nadane uprawnienia do wykonywania, a następnie został wykonany.
+* **Próba wyłączenia interfejsu AMSI**: ten alert wskazuje na próbę wyłączenia interfejsu skanowania w celu ochrony przed złośliwym kodem (AMSI), co spowodowałoby wyłączenie wykrywania ochrony przed złośliwym kodem.
+* **Wskaźniki oprogramowania wymuszającego okup**: ten alert wskazuje na podejrzane działania tradycyjnie kojarzone z oprogramowaniem wymuszającym okup przez blokowanie ekranu i szyfrowanie.
+* **Podejrzany plik wyjściowy zbierania śladów**: ten alert wskazuje na to, że zebrano ślady i umieszczono je jako dane wyjściowe w pliku nietypowego typu.
+* **Oprogramowanie wysokiego ryzyka**: ten alert oznacza korzystanie z oprogramowania, które zostało skojarzone z instalacją złośliwego oprogramowania. Osoby atakujące często umieszczają złośliwe oprogramowanie w pakiecie z niegroźnymi narzędziami, takimi jak pokazane w tym alercie, a następnie dyskretnie instalują złośliwe oprogramowanie w tle.
+* **Tworzenie podejrzanego pliku**: ten alert wskazuje na utworzenie lub wykonanie procesu używanego przez osoby atakujące do pobierania dodatkowego złośliwego oprogramowania na host, którego bezpieczeństwo zostało naruszone, po otwarciu załącznika w dokumencie przeznaczonym do wyłudzania informacji.
+* **Podejrzane poświadczenia w wierszu polecenia**: ten alert wskazuje podejrzane hasło używane do wykonywania pliku. Ta technika była używana przez osoby atakujące do wykonywania złośliwego oprogramowania Pirpi.
+* **Możliwe wykonanie pliku podrzucającego złośliwe oprogramowanie**: ten alert wskazuje nazwę pliku, który został użyty przez osoby atakujące do zainstalowania złośliwego oprogramowania.
+* **Podejrzane wykonanie za pośrednictwem pliku rundll32.exe**: ten alert wskazuje na to, że plik rundll32.exe jest używany do wykonywania pliku notepad.exe lub reg.exe — jest to spójne z techniką iniekcji procesu stosowaną przez osoby atakujące.
+* **Podejrzane argumenty wiersza polecenia**: ten alert wskazuje podejrzane argumenty wiersza polecenia używane w połączeniu z odwrotną powłoką stosowaną przez grupę działań HYDROGEN.
+* **Podejrzane poświadczenia dokumentu**: ten alert wskazuje na podejrzany, wstępnie obliczony skrót hasła używany przez złośliwe oprogramowanie stosowane do wykonywania pliku.
+* **Dynamiczna konstrukcja skryptu programu PS**: ten alert wskazuje na to, że skrypt programu PowerShell jest tworzony dynamicznie. Osoby atakujące używają tej techniki, aby stopniowo kompilować skrypt w celu omijania systemów IDS.
+* **Wskaźniki platformy Metaploit**: ten alert wskazuje na działanie skojarzone z platformą Metasploit, która udostępnia szereg możliwości i narzędzi dla osób atakujących.
+* **Manipulowanie usługą SENSE**: ten alert wskazuje na próbę wyłączenia usługi SENSE przeznaczonej do monitorowania bezpieczeństwa ATP w usłudze Windows Defender.
+* **Podejrzane działanie na koncie**: ten alert wskazuje na próbę połączenia z maszyną za pomocą konta, którego bezpieczeństwo zostało niedawno naruszone.
+* **Możliwy podejrzany dostęp do planowania zadań**: ten alert wskazuje na wykonanie zadania cron, które może służyć osobom atakującym do wykonywania złośliwych programów zgodnie z harmonogramem.
+* **Możliwy podejrzany dostęp do pliku historii poleceń**: ten alert wskazuje na nietypowy dostęp do pliku historii poleceń.
+* **Tworzenie konta**: ten alert wskazuje na utworzenie nowego konta na maszynie.
+* **Zmiana ustawienia powłoki Bash**: ten alert wskazuje na dostęp do pliku profilu powłoki Bash, co może być dowodem na to, że osoba atakująca próbuje wykonywać złośliwe programy zgodnie z harmonogramem.
+* **Podejrzana sekwencja nieudanych prób użycia programu sudo**: ten alert wskazuje na sekwencję nieudanych prób użycia poleceń programu sudo, co jest często obserwowane w przypadku prób ataków siłowych mających na celu eskalowanie uprawnień przez nieautoryzowanych użytkowników.
+* **Podejrzane udane próby użycia programu sudo**: ten alert wskazuje na sekwencję nieudanych prób użycia programu sudo, po których nastąpiła udana próba użycia tego programu, co jest często obserwowane w przypadku prób ataków siłowych mających na celu eskalowanie uprawnień przez nieautoryzowanych użytkowników. 
+* **Nowy użytkownik został dodany do grupy użytkowników programu sudo**: ten alert wskazuje na to, że użytkownik został dodany do grupy użytkowników programu sudo, co umożliwia jego członkom uruchamianie poleceń z uprawnieniami na wysokim poziomie.
+* **Logowanie do sieci przy użyciu poświadczeń w postaci zwykłego tekstu**: ten alert wskazuje na to, że zaobserwowano logowanie do sieci, w przypadku którego hasła zostało wysłane przez sieć w formacie zwykłego tekstu. Jest to typowe, gdy operacje logowania są wykonywane z poziomu skryptu ASP za pomocą interfejsu ADVAPI lub gdy użytkownik loguje się do usług IIS przy użyciu trybu uwierzytelniania podstawowego usług IIS. Nie zaleca się korzystania z uwierzytelniania podstawowego, chyba że w przypadku zawinięcia w warstwie szyfrowania, takiej jak protokół SSL (np. przy użyciu tylko połączeń HTTPS).
 
 ### <a name="crash-analysis"></a>Analiza awarii
+
+
 Analiza awaryjnego zrzutu pamięci jest metodą używaną do wykrywania zaawansowanego złośliwego oprogramowania, które jest w stanie ominąć tradycyjne rozwiązania w zakresie zabezpieczeń. Różne rodzaje złośliwego oprogramowania próbują zmniejszyć prawdopodobieństwo wykrycia przez programy antywirusowe, rezygnując z zapisu na dysku lub szyfrując składniki oprogramowania zapisywane na dysku. Ta technika sprawia, że złośliwe oprogramowanie jest trudne do wykrycia przy użyciu tradycyjnych metod ochrony. Złośliwe oprogramowanie może jednak zostać wykryte za pomocą analizy pamięci, ponieważ aby mogło działać, musi zostawić ślady w pamięci maszyny.
 
 Jeśli wystąpi awaria oprogramowania, zrzut awaryjny przechwytuje część pamięci w chwili pojawienia się awarii. Awaria może być spowodowana przez złośliwe oprogramowanie, powszechnie stosowane aplikacje lub problemy z systemem. Dzięki analizie pamięci w zrzucie awaryjnym usługa Security Center może wykryć metody, jakie zostały użyte w celu wykorzystania luk obecnych w oprogramowaniu, uzyskania dostępu do poufnych danych i dyskretnego pozostania na zainfekowanym komputerze. Jest to realizowane przy minimalnym wpływie na wydajność hostów, ponieważ analiza jest wykonywana przez zaplecze usługi Security Center.
 
-Przykładowe alerty zrzutu awaryjnego, które zostały omówione w dalszej części tego artykułu, korzystają z następujących pól:
-
-* DUMPFILE: nazwa pliku zrzutu awaryjnego.
-* PROCESSNAME: nazwa procesu powodującego awarię.
-* PROCESSVERSION: wersja procesu powodującego awarię.
-
-### <a name="code-injection-discovered"></a>Wykryto iniekcję kodu
-Iniekcja kodu to wstawianie modułów wykonywalnych do uruchomionych procesów lub wątków.  Ta metoda jest używana przez złośliwe oprogramowanie do uzyskiwania dostępu do danych, ukrywania swojej obecności lub zapobiegania usunięciu (np. trwałość). Ten alert wskazuje, że wprowadzony moduł znajduje się w zrzucie awaryjnym. Wiarygodni programiści czasami wykonują iniekcję kodu z niezłośliwych powodów, takich jak modyfikowanie lub rozbudowywanie istniejącej aplikacji albo składnika systemu operacyjnego.  Aby ułatwić odróżnienie niezłośliwych modułów od złośliwych, usługa Security Center sprawdza, czy wprowadzony moduł odpowiada profilowi podejrzanego zachowania. Wynik tej kontroli jest widoczny w polu alertu „SIGNATURE” i obejmuje ważność alertu, opis alertu oraz czynności zaradcze alertu. 
-
-Ten alert zawiera następujące pola dodatkowe:
-
-- ADDRESS: lokalizacja wprowadzonego modułu w pamięci
-- IMAGENAME: nazwa wprowadzonego modułu. Zwróć uwagę, że to pole może być puste, jeśli obraz nie zawiera nazwy obrazu.
-- SIGNATURE: pokazuje, czy wprowadzony moduł jest zgodny z profilem podejrzanego zachowania. 
-
-W poniższej tabeli przedstawiono przykłady wyników i ich opisy:
-
-| Wartość podpisu                      | Opis                                                                                                       |
-|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Podejrzane wykorzystanie odpowiedniego modułu ładującego | To podejrzane zachowanie często jest skorelowane z ładowaniem wprowadzonego kodu niezależnie od modułu ładującego systemu operacyjnego |
-| Podejrzane wykorzystanie wprowadzonego kodu          | Oznacza złośliwe działanie, które często jest skorelowane z wprowadzeniem kodu do pamięci                                       |
-| Podejrzane wykorzystanie iniekcji         | Oznacza złośliwe działanie, które często jest skorelowane z użyciem wprowadzonego kodu w pamięci                                   |
-| Podejrzane wykorzystanie wprowadzonego debugera | Oznacza złośliwe działanie, które często jest skorelowane z wykryciem lub obejściem debugera                         |
-| Podejrzane zdalne wykorzystanie wprowadzonego kodu   | Oznacza złośliwe działanie, które często jest skorelowane ze scenariuszami kontrolki polecenia n (C2)                                 |
-
-Oto przykład tego typu alertu:
-
-![Alert o iniekcji kodu](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
-
-### <a name="suspicious-code-segment"></a>Podejrzany segment kodu
-Podejrzany segment kodu wskazuje, że segment kodu został przydzielony przy użyciu niestandardowych metod, takich jak metody używane przez iniekcję odbijającą i zamianę pamięci procesu.  Ponadto ten alert przetwarza dodatkową charakterystykę segment kodu, aby zapewnić kontekst dotyczący możliwości i zachowań zgłoszonego segmentu kodu.
-
-Ten alert zawiera następujące pola dodatkowe:
-
-- ADDRESS: lokalizacja wprowadzonego modułu w pamięci
-- SIZE: rozmiar podejrzanego segmentu kodu
-- STRINGSIGNATURES: to pole zawiera możliwości interfejsów API, których nazwy funkcji znajdują się w segmencie kodu. Przykładowe możliwości mogą obejmować:
-    - Deskryptory sekcji obrazów, dynamiczne wykonanie kodu dla architektury x64, alokacja pamięci i możliwość modułu ładującego, możliwość zdalnej iniekcji kodu, możliwość sterowania przejęciami, zmienne środowiskowe odczytu, umowna pamięć procesu odczytu, wykonywanie zapytań lub modyfikowanie uprawnień tokenu, komunikacja sieci HTTP/HTTPS i komunikacja gniazd sieci.
-- IMAGEDETECTED: to pole wskazuje, czy wprowadzono obraz PE do procesu, w którym wykryto podejrzany segment kodu, oraz adres początku wprowadzonego modułu.
-- SHELLCODE: to pole wskazuje obecność zachowania powszechnie używanego przez złośliwe ładunki w celu uzyskania dostępu do dodatkowych funkcji systemu operacyjnego dotyczących zabezpieczeń. 
-
-Oto przykład tego typu alertu:
-
-![Alert dotyczący podejrzanego segmentu kodu](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
-
-### <a name="shellcode-discovered"></a>Wykryto kod powłoki
-Kod powłoki to ładunek uruchamiany po wykorzystaniu przez złośliwe oprogramowanie luki w zabezpieczeniach oprogramowania. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła zachowanie kodu wykonywalnego typowe dla złośliwych ładunków. Wprawdzie niezłośliwe oprogramowanie może zachowywać się podobnie, jednak nie jest to typowe w przypadku zwykłych metod tworzenia oprogramowania.
-
-Alert kodu powłoki zawiera następujące pole dodatkowe:
-
-* ADDRESS: lokalizacja kodu powłoki w pamięci.
-
-Oto przykład tego typu alertu:
-
-![Alert kodu powłoki](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
-
-### <a name="module-hijacking-discovered"></a>Wykryto przejęcie modułu
-System Windows używa bibliotek dołączanych dynamicznie (DLL, Dynamic Link Library), aby umożliwić oprogramowaniu korzystanie z typowych funkcji systemu Windows. Przejęcie biblioteki DLL ma miejsce, gdy złośliwe oprogramowanie zmienia kolejność ładowania bibliotek DLL, aby załadować złośliwy ładunek do pamięci, w której może zostać wykonany dowolny kod. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła moduł o podobnej nazwie, który jest ładowany z dwóch różnych ścieżek. Jedna z nich odpowiada typowej lokalizacji plików binarnych systemu Windows.
-
-Wiarygodni programiści czasami zmieniają kolejność ładowania bibliotek DLL z niezłośliwych powodów, takich jak instrumentacja albo rozbudowa systemu operacyjnego Windows lub aplikacji. Aby ułatwić rozróżnienie złośliwych i potencjalnie niegroźnych zmian kolejności ładowania bibliotek DLL, usługa Azure Security Center sprawdza, czy załadowany moduł jest zgodny z podejrzanym profilem. Wynik tej kontroli jest widoczny w polu alertu „SIGNATURE” i obejmuje ważność alertu, opis alertu oraz czynności zaradcze alertu. Aby zbadać, czy moduł jest wiarygodny czy złośliwy, przeprowadź analizę kopii dyskowej przejmującego modułu. Możesz na przykład sprawdzić podpis cyfrowy pliku lub uruchomić skanowanie antywirusowe.
-
-Oprócz typowych pól opisanych powyżej w sekcji „Wykryto kod powłoki” ten alert zawiera następujące pola:
-
-* SIGNATURE: pokazuje, czy przejmujący moduł jest zgodny z profilem podejrzanego zachowania.
-* HIJACKEDMODULE: nazwa przejętego modułu systemu Windows.
-* HIJACKEDMODULEPATH: ścieżka przejętego modułu systemu Windows.
-* HIJACKINGMODULEPATH: ścieżka przejmującego modułu.
-
-Oto przykład tego typu alertu:
-
-![Alert o przejęciu modułu](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
-
-### <a name="masquerading-windows-module-detected"></a>Wykryto zamaskowany moduł systemu Windows
-Złośliwe oprogramowanie może używać typowych nazw plików binarnych systemu Windows (np. SVCHOST.EXE) lub modułów (np. NTDLL.DLL) w celu *ukrycia* charakteru złośliwego oprogramowania przed administratorami systemu. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła w pliku zrzutu awaryjnego moduły używające nazw modułów systemu Windows, które nie spełniają innych kryteriów typowych dla tego rodzaju modułów. Analiza kopii dyskowej zamaskowanego modułu może dostarczyć dodatkowych informacji na temat wiarygodności lub złośliwości tego modułu. Analiza może obejmować:
-
-* Potwierdzenie, że dany plik jest dostarczany jako część wiarygodnego pakietu oprogramowania.
-* Sprawdzenie podpisu cyfrowego pliku.
-* Uruchomienie skanowania antywirusowego pliku.
-
-Oprócz typowych pól opisanych powyżej w sekcji „Wykryto kod powłoki” ten alert zawiera następujące pola dodatkowe:
-
-* DETAILS: opisuje, czy metadane modułów są prawidłowe i czy moduł został załadowany ze ścieżki systemowej.
-* NAME: nazwa zamaskowanego modułu systemu Windows.
-* PATH: ścieżka zamaskowanego modułu systemu Windows
-
-Ten alert wyodrębnia i wyświetla także niektóre pola z nagłówka PE modułu, takie jak „CHECKSUM” i „TIMESTAMP”. Te pola są wyświetlane tylko wtedy, gdy występują w module. Aby uzyskać szczegółowe informacje na temat tych pól, zobacz [specyfikację Microsoft PE i COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx).
-
-Oto przykład tego typu alertu:
-
-![Alert o zamaskowanym elemencie systemu Windows](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
-
-### <a name="modified-system-binary-discovered"></a>Wykryto zmodyfikowany plik binarny systemu
-Złośliwe oprogramowanie może modyfikować podstawowe pliki binarne systemu, aby potajemnie uzyskać dostęp do danych lub niezauważenie przetrwać w zaatakowanym systemie. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła modyfikację podstawowych plików binarnych systemu operacyjnego Windows w pamięci lub na dysku.
-
-Wiarygodni programiści czasami modyfikują moduły systemu w pamięci z niezłośliwych powodów, na przykład w celu obejścia lub uzyskania zgodności aplikacji. Aby ułatwić rozróżnienie złośliwych i potencjalnie wiarygodnych modułów, usługa Azure Security Center sprawdza, czy zmodyfikowany moduł jest zgodny z podejrzanym profilem. Wynik tej kontroli jest wskazywany przez ważność alertu, opis alertu oraz czynności zaradcze alertu.
-
-Oprócz typowych pól opisanych powyżej w sekcji „Wykryto kod powłoki” ten alert zawiera następujące pola dodatkowe:
-
-* MODULENAME: nazwa zmodyfikowanego pliku binarnego systemu.
-* MODULEVERSION: wersja zmodyfikowanego pliku binarnego systemu.
-
-Oto przykład tego typu alertu:
-
-![Alert o zmodyfikowanym pliku binarnym systemu](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
-
-### <a name="suspicious-process-executed"></a>Wykonanie podejrzanego procesu
-Usługa Security Center identyfikuje podejrzany proces uruchomiony na docelowej maszynie wirtualnej, a następnie wyzwala alert. Mechanizm wykrywania nie szuka określonej nazwy, ale działa z uwzględnieniem parametru pliku wykonywalnego. W związku z tym nawet jeśli osoba atakująca zmieni nazwę pliku wykonywalnego, usługa Security Center będzie w stanie wykryć podejrzany proces.
-
-Oto przykład tego typu alertu:
-
-![Alert o wykonaniu podejrzanego procesu](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
-
-### <a name="multiple-domains-accounts-queried"></a>Wiele zapytań do kont domeny
-Usługa Security Center może wykryć wielokrotne próby zapytań do kont domeny usługi Active Directory, które są zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki wysyłania zapytań do domeny w celu identyfikacji użytkowników, kont administratorów domeny, komputerów, które są kontrolerami domeny, oraz potencjalnych relacji zaufania z innymi domenami.
-
-Oto przykład tego typu alertu:
-
-![Alert o wielokrotnych zapytaniach do konta domeny](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
-
-### <a name="local-administrators-group-members-were-enumerated"></a>Wyliczono członków grupy administratorów lokalnych
-
-Usługa Security Center wyzwoli alert, kiedy w systemie Windows Server 2016 i Windows 10 zostanie wyzwolone zdarzenie zabezpieczeń 4798. Dzieje się tak, kiedy zostają wyliczone grupy administratorów lokalnych, co jest zazwyczaj wykonywane przez osoby atakujące podczas czynności rozpoznawczych sieci. Osoby atakujące mogą korzystać z tej techniki w celu wykonania zapytań o tożsamości użytkowników z uprawnieniami administracyjnymi.
-
-Oto przykład tego typu alertu:
-
-![Administrator lokalny](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
-
-### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Nietypowa kombinacja wielkich i małych liter
-
-Usługa Security Center wyzwoli alert, kiedy wykryje użycie kombinacji wielkich i małych liter w wierszu polecenia. Niektóre osoby atakujące mogą użyć tej techniki w celu obejścia zasad komputera uwzględniających wielkość liter lub bazujących na skrótach.
-
-Oto przykład tego typu alertu:
-
-![Nietypowa kombinacja](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
-
-### <a name="suspected-kerberos-golden-ticket-attack"></a>Podejrzenie ataku na złoty bilet protokołu Kerberos
-
-Naruszony klucz [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) może zostać użyty przez osobę atakującą do utworzenia „złotego biletu” protokołu Kerberos, który umożliwiłby osobie atakującej podszycie się pod dowolnego użytkownika. Usługa Security Center wyzwoli alert, kiedy wykryje ten rodzaj aktywności.
-
-> [!NOTE] 
-> Aby uzyskać więcej informacji o złotym bilecie protokołu Kerberos, przeczytaj przewodnik [Windows 10 credential theft mitigation guide](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx) (Przewodnik ograniczania przypadków kradzieży poświadczeń w systemie Windows 10).
-
-Oto przykład tego typu alertu:
-
-![Złoty bilet](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
-
-### <a name="suspicious-account-created"></a>Utworzono podejrzane konto
-
-Usługa Security Center wyzwoli alert, kiedy zostanie utworzone konto bardzo podobne do istniejącego wbudowanego konta z uprawnieniami administracyjnymi. Ta technika może zostać użyta przez osoby atakujące do utworzenia nieautoryzowanego konta, które pozostanie niezauważone podczas weryfikacji dokonywanej przez człowieka.
- 
-Oto przykład tego typu alertu:
-
-![Podejrzane konto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
-
-### <a name="suspicious-firewall-rule-created"></a>Utworzono podejrzaną regułę zapory
-
-Osoby atakujące mogą próbować obejść zabezpieczenia hosta przez utworzenie niestandardowych reguł zapory umożliwiających złośliwym aplikacjom komunikowanie się na potrzeby poleceń i kontroli lub podejmowanie ataków przez sieć za pośrednictwem naruszonego hosta. Usługa Security Center wyzwoli alert, kiedy wykryje, że utworzono nową regułę zapory przy użyciu pliku wykonywalnego w podejrzanej lokalizacji.
- 
-Oto przykład tego typu alertu:
-
-![Reguła zapory](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
-
-### <a name="suspicious-combination-of-hta-and-powershell"></a>Podejrzana kombinacja hosta HTA i programu PowerShell
-
-Usługa Security Center wyzwoli alert, kiedy wykryje, że narzędzie Microsoft HTML Application Host (HTA) uruchamia polecenia programu PowerShell. Jest to technika używana przez osoby atakujące do uruchamiania złośliwych skryptów programu PowerShell.
- 
-Oto przykład tego typu alertu:
-
-![HTA i PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
-
+* **Wykryto iniekcję kodu**: iniekcja kodu to wstawianie modułów wykonywalnych do uruchomionych procesów lub wątków. Ta metoda jest używana przez złośliwe oprogramowanie do uzyskiwania dostępu do danych, ukrywania swojej obecności lub zapobiegania usunięciu (np. trwałość). Ten alert wskazuje, że wprowadzony moduł znajduje się w zrzucie awaryjnym. Wiarygodni programiści czasami wykonują iniekcję kodu z niezłośliwych powodów, takich jak modyfikowanie lub rozbudowywanie istniejącej aplikacji albo składnika systemu operacyjnego. Aby ułatwić odróżnienie niezłośliwych modułów od złośliwych, usługa Security Center sprawdza, czy wprowadzony moduł odpowiada profilowi podejrzanego zachowania. Wynik tej kontroli jest widoczny w polu alertu „SIGNATURE” i obejmuje ważność alertu, opis alertu oraz czynności zaradcze alertu.
+* **Podejrzany segment kodu**: alert podejrzanego segmentu kodu wskazuje, że segment kodu został przydzielony przy użyciu niestandardowych metod, takich jak metody używane przez iniekcję odbijającą i zamianę pamięci procesu. Dodatkowe charakterystyki segmentu kodu są przetwarzane w celu zapewnienia kontekstu dotyczącego możliwości i zachowań zgłoszonego segmentu kodu.
+* **Wykryto kod powłoki**: kod powłoki to ładunek uruchamiany po wykorzystaniu przez złośliwe oprogramowanie luki w zabezpieczeniach oprogramowania. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła zachowanie kodu wykonywalnego typowe dla złośliwych ładunków. Wprawdzie niezłośliwe oprogramowanie może zachowywać się podobnie, jednak nie jest to typowe w przypadku zwykłych metod tworzenia oprogramowania.
+* **Wykryto przejęcie modułu**: system Windows używa bibliotek dołączanych dynamicznie (DLL, Dynamic Link Library), aby umożliwić oprogramowaniu korzystanie z typowych funkcji systemu Windows. Przejęcie biblioteki DLL ma miejsce, gdy złośliwe oprogramowanie zmienia kolejność ładowania bibliotek DLL, aby załadować złośliwy ładunek do pamięci, w której może zostać wykonany dowolny kod. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła moduł o podobnej nazwie, który jest ładowany z dwóch różnych ścieżek. Jedna z nich odpowiada typowej lokalizacji plików binarnych systemu Windows. Wiarygodni programiści czasami zmieniają kolejność ładowania bibliotek DLL z niezłośliwych powodów, takich jak instrumentacja albo rozbudowa systemu operacyjnego Windows lub aplikacji. Aby ułatwić rozróżnienie złośliwych i potencjalnie niegroźnych zmian kolejności ładowania bibliotek DLL, usługa Security Center sprawdza, czy załadowany moduł jest zgodny z podejrzanym profilem. 
+* **Wykryto zamaskowany moduł systemu Windows**: złośliwe oprogramowanie może używać typowych nazw plików binarnych systemu Windows (np. SVCHOST.EXE) lub modułów (np. NTDLL.DLL) w celu ukrycia charakteru złośliwego oprogramowania przed administratorami systemu. Ten alert oznacza, że plik zrzutu awaryjnego zawiera moduły używające nazw modułów systemu Windows, które nie spełniają innych kryteriów typowych dla tego rodzaju modułów. Analiza kopii dyskowej zamaskowanego modułu może dostarczyć dodatkowych informacji na temat wiarygodności lub złośliwości tego modułu.
+* **Wykryto zmodyfikowany plik binarny systemu**: złośliwe oprogramowanie może modyfikować podstawowe pliki binarne systemu, aby potajemnie uzyskać dostęp do danych lub niezauważenie przetrwać w zaatakowanym systemie. Ten alert oznacza, że analiza zrzutu awaryjnego wykryła modyfikację podstawowych plików binarnych systemu operacyjnego Windows w pamięci lub na dysku. Wiarygodni programiści czasami modyfikują moduły systemu w pamięci z niezłośliwych powodów, na przykład w celu obejścia lub uzyskania zgodności aplikacji. Aby ułatwić rozróżnienie złośliwych i potencjalnie autentycznych modułów, usługa Security Center sprawdza, czy zmodyfikowany moduł jest zgodny z podejrzanym profilem. 
 
 ## <a name="network-analysis"></a>Analiza sieci
 Wykrywanie zagrożeń sieci za pomocą usługi Security Center polega na automatycznym zbieraniu informacji o zabezpieczeniach uzyskanych na podstawie ruchu protokołu IPFIX (Internet Protocol Flow Information Export) na platformie Azure. Analizuje ona te informacje, często zestawiając informacje z wielu źródeł, aby zidentyfikować zagrożenia.
 
-### <a name="suspicious-outgoing-traffic-detected"></a>Wykryto podejrzany ruch wychodzący
-Urządzenia sieciowe mogą być wykrywane i profilowane w podobny sposób jak innego rodzaju systemy. Osoby atakujące zazwyczaj zaczynają od skanowania portów. W poniższym przykładzie mamy podejrzany ruch SSH z maszyny wirtualnej. W tym scenariuszu możliwy jest siłowy atak SSH lub atak polegający na sprawdzaniu, czy dany port jest otwarty w zasobie zewnętrznym.
+* **Możliwe przychodzące próby ataków siłowych SQL**: analiza ruchu w sieci wykryła podejrzaną przychodzącą komunikację SQL. To działanie jest zgodne z próbami ataków siłowych podejmowanych na serwerach SQL.
+* **Podejrzane przychodzące działanie sieci protokołu RDP z wielu źródeł**: analiza ruchu w sieci wykryła nietypową przychodzącą komunikację protokołu RDP (Remote Desktop Protocol) z wielu źródeł. W szczególności próbkowane dane sieci pokazują unikatowe adresy IP łączące się z maszyną, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może oznaczać próbę ataku siłowego w punkcie końcowym protokołu RDP z wielu hostów (Botnet).
+* **Podejrzane przychodzące działanie sieci protokołu RDP**: analiza ruchu w sieci wykryła nietypową przychodzącą komunikację protokołu RDP (Remote Desktop Protocol). W szczególności próbkowane dane sieci pokazują dużą liczbę przychodzących połączeń z maszyną, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może oznaczać próbę ataku siłowego w punkcie końcowym protokołu RDP.
+* **Podejrzane wychodzące działanie sieci protokołu RDP do wielu miejsc docelowych**: analiza ruchu w sieci wykryła nietypową wychodzącą komunikację protokołu RDP (Remote Desktop Protocol) do wielu miejsc docelowych. To działanie może wskazywać, że bezpieczeństwo maszyny zostało naruszone i obecnie jest używana do przeprowadzania ataków siłowych w zewnętrznych punktach końcowych protokołu RDP. Należy pamiętać, że ten typ działań może powodować oflagowanie adresu IP jako złośliwego przez jednostki zewnętrzne.
+* **Podejrzane wychodzące działanie sieci protokołu RDP**: analiza ruchu w sieci wykryła nietypową wychodzącą komunikację protokołu RDP (Remote Desktop Protocol). W szczególności próbkowane dane sieci pokazują dużą liczbę wychodzących połączeń z maszyny, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może wskazywać, że bezpieczeństwo maszyny zostało naruszone i obecnie jest używana do przeprowadzania ataków siłowych w zewnętrznych punktach końcowych protokołu RDP. Należy pamiętać, że ten typ działań może powodować oflagowanie adresu IP jako złośliwego przez jednostki zewnętrzne.
+* **Podejrzane przychodzące działanie sieci protokołu SSH**: analiza ruchu w sieci wykryła nietypową przychodzącą komunikację protokołu SSH. W szczególności próbkowane dane sieci pokazują dużą liczbę przychodzących połączeń z maszyną, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może oznaczać próbę ataku siłowego w punkcie końcowym protokołu SSH.
+* **Podejrzane przychodzące działanie sieci protokołu SSH z wielu źródeł**: analiza ruchu w sieci wykryła nietypową przychodzącą komunikację protokołu SSH. W szczególności próbkowane dane sieci pokazują unikatowe adresy IP łączące się z maszyną, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może oznaczać próbę ataku siłowego w punkcie końcowym protokołu SSH z wielu hostów (Botnet).
+* **Podejrzane wychodzące działanie sieci protokołu SSH**: analiza ruchu w sieci wykryła nietypową wychodzącą komunikację protokołu SSH. W szczególności próbkowane dane sieci pokazują dużą liczbę wychodzących połączeń z maszyny, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może wskazywać, że bezpieczeństwo maszyny zostało naruszone i obecnie jest używana do przeprowadzania ataków siłowych w zewnętrznych punktach końcowych protokołu SSH. Należy pamiętać, że ten typ działań może powodować oflagowanie adresu IP jako złośliwego przez jednostki zewnętrzne.
+* **Podejrzane wychodzące działanie sieci protokołu SSH do wielu miejsc docelowych**: analiza ruchu w sieci wykryła nietypową wychodzącą komunikację protokołu SSH do wielu miejsc docelowych. W szczególności próbkowane dane sieci pokazują maszynę łączącą się z unikatowymi adresami IP, co jest uznawane za nietypowe w przypadku tego środowiska. To działanie może wskazywać, że bezpieczeństwo maszyny zostało naruszone i obecnie jest używana do przeprowadzania ataków siłowych w zewnętrznych punktach końcowych protokołu SSH. Należy pamiętać, że ten typ działań może powodować oflagowanie adresu IP jako złośliwego przez jednostki zewnętrzne.
+* **Wykryto komunikację sieciową ze złośliwą maszyną**: analiza ruchu w sieci wskazuje, że maszyna prawdopodobnie komunikowała się z centrum poleceń i kontroli.
+* **Wykryto możliwe naruszenie bezpieczeństwa maszyny**: analiza ruchu w sieci wykryła działanie wychodzące, co może oznaczać, że występuje ono jako część botnetu. Analiza opiera się na adresach IP używanych przez zasób razem z publicznymi rekordami systemu DNS.
 
-![Alert o podejrzanym ruchu wychodzącym](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
-
-Ten alert zawiera informacje, które umożliwiają identyfikację zasobu użytego do zainicjowania ataku. Dostępne są również informacje pozwalające wskazać zagrożoną maszynę, czas wykrycia oraz użyty protokół i port. Ta strona zawiera także listę środków zaradczych, które można zastosować, aby zminimalizować problem.
-
-### <a name="network-communication-with-a-malicious-machine"></a>Komunikacja sieciowa ze złośliwą maszyną
-Wykorzystując źródła analizy zagrożeń firmy Microsoft, usługa Azure Security Center może wykryć zagrożone maszyny, które komunikują się ze złośliwym adresem IP — w wielu przypadkach centrum poleceń i kontroli. W tym przypadku usługa Security Center wykryła, że komunikacja odbywała się przy użyciu złośliwego oprogramowania Pony Loader (znanego także jako [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
-
-![alert o komunikacji sieciowej](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
-
-Ten alert zawiera informacje, które umożliwiają zidentyfikowanie zasobu użytego do zainicjowania tego ataku, zaatakowanego zasobu, adresu IP ofiary, adresu IP osoby atakującej oraz czasu wykrycia.
-
-> [!NOTE]
-> W celu zachowania poufności informacji prawdziwe adresy IP zostały usunięte z tego zrzutu ekranu.
->
->
-
-### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Możliwy wychodzący atak typu „odmowa usługi”
-Nienormalny ruch sieciowy pochodzący z jednej maszyny wirtualnej może spowodować zasygnalizowanie przez usługę Security Center możliwości ataku typu „odmowa usługi”.
-
-Oto przykład tego typu alertu:
-
-![Wychodzący atak typu „odmowa usługi”](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
-
+ 
 ## <a name="resource-analysis"></a>Analiza zasobów
-Analiza zasobów usługi Security Center koncentruje się na usługach PaaS, takich jak integracja z funkcją [wykrywania zagrożeń bazy danych Azure SQL Database](../sql-database/sql-database-threat-detection.md). Na podstawie analizy wyników z tych obszarów usługa Security Center generuje alert związany z zasobami.
 
-### <a name="potential-sql-injection"></a>Potencjalna iniekcja SQL
-Iniekcja SQL to atak polegający na wstawieniu złośliwego kodu do ciągów, które są następnie przekazywane do wystąpienia programu SQL Server w celu ich przeanalizowania i wykonania. Każda procedura tworząca instrukcje SQL powinna zostać przejrzana pod kątem zagrożenia iniekcją, ponieważ oprogramowanie SQL Server wykonuje wszystkie otrzymane zapytania, które mają poprawną składnię. Wykrywanie zagrożenia SQL wykorzystuje maszynowe uczenie się, analizę behawioralną i wykrywanie anomalii w celu określenia podejrzanych zdarzeń, które mogą mieć miejsce w bazach danych SQL Azure. Na przykład:
+Analiza zasobów usługi Security Center koncentruje się na usługach PaaS, takich jak integracja z funkcją [wykrywania zagrożeń bazy danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). Na podstawie analizy wyników z tych obszarów usługa Security Center generuje alert związany z zasobami.
 
-* Próba dostępu do bazy danych przez byłego pracownika
-* Ataki polegające na iniekcji SQL
-* Nieoczekiwany dostęp do produkcyjnej bazy danych przez użytkownika w domu
-
-![Alert o potencjalnej iniekcji SQL](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
-
-Ten alert zawiera informacje, które umożliwiają zidentyfikowanie zaatakowanego zasobu, czasu wykrycia i stanu ataku. Udostępnia także link do dalszych kroków analizowania problemu.
-
-### <a name="vulnerability-to-sql-injection"></a>Podatność na iniekcję SQL
-Ten alert jest wyzwalany, gdy w bazie danych zostanie wykryty błąd aplikacji, który może oznaczać możliwe luki w zabezpieczeniach umożliwiające ataki przez iniekcję kodu SQL.
-
-![Alert o potencjalnej iniekcji SQL](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
-
-### <a name="unusual-access-from-unfamiliar-location"></a>Nietypowy dostęp z nieznanej lokalizacji
-Ten alert jest wyzwalany, gdy na serwerze zostanie wykryte zdarzenie dostępu z nieznanego adresu IP, które nie występowało w ostatnim okresie.
-
-![Alert o nietypowym dostępie](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+* **Potencjalna iniekcja SQL**: iniekcja SQL to atak polegający na wstawieniu złośliwego kodu do ciągów, które są następnie przekazywane do wystąpienia programu SQL Server w celu ich przeanalizowania i wykonania. Każda procedura tworząca instrukcje SQL powinna zostać przejrzana pod kątem zagrożenia iniekcją, ponieważ oprogramowanie SQL Server wykonuje wszystkie otrzymane zapytania, które mają poprawną składnię. Wykrywanie zagrożenia SQL wykorzystuje maszynowe uczenie się, analizę behawioralną i wykrywanie anomalii w celu określenia podejrzanych zdarzeń, które mogą mieć miejsce w bazach danych SQL Azure. Na przykład: 
+    * Próba dostępu do bazy danych przez byłego pracownika
+    * Ataki polegające na iniekcji SQL
+    * Nieoczekiwany dostęp do produkcyjnej bazy danych przez użytkownika w domu
+* **Podatność na iniekcję SQL**: ten alert jest wyzwalany, gdy w bazie danych zostanie wykryty błąd aplikacji, który może oznaczać możliwe luki w zabezpieczeniach umożliwiające ataki przez iniekcję kodu SQL.
+* **Nietypowy dostęp z nieznanej lokalizacji**: ten alert jest wyzwalany, gdy na serwerze zostanie wykryte zdarzenie dostępu z nieznanego adresu IP, które nie występowało w ostatnim okresie.
 
 ## <a name="contextual-information"></a>Informacje kontekstowe
 Podczas badania analitycy potrzebują dodatkowego kontekstu w celu określenia rodzaju zagrożenia i sposobu jego wyeliminowania.  Przykład: wykryto anomalię dotyczącą sieci, ale bez zrozumienia tego, jakie inne akcje mają miejsce w sieci lub są związane z zasobem, którego dotyczy zagrożenie, bardzo trudno określić, jakie działania należy podjąć. Aby ułatwić rozwiązanie tego problemu, zdarzenie naruszenia zabezpieczeń może zawierać artefakty, powiązane zdarzenia i informacje, które mogą pomóc analitykom. Dostępność dodatkowych informacji będzie różna zależnie od typu wykrytego zagrożenia i konfiguracji środowiska — nie będą one dostępne dla wszystkich zdarzeń naruszenia zabezpieczeń.
@@ -284,7 +208,7 @@ Jeśli dostępne są dodatkowe informacje, zostaną one wyświetlone w zdarzeniu
 ![Alert o nietypowym dostępie](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="next-steps"></a>Następne kroki
 W tym artykule opisano różne typy alertów zabezpieczeń w usłudze Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
 * [Obsługa zdarzeń naruszenia zabezpieczeń w usłudze Azure Security Center](security-center-incident.md)

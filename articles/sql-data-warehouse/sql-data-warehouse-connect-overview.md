@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Nawiązywanie połączenia z usługą Azure SQL Data Warehouse
 W tym artykule opisano, jak nawiązać połączenie z usługą SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Znajdowanie nazwy serwera
-Pierwszym krokiem do nawiązania połączenia z usługą SQL Data Warehouse jest wiedza, jak znaleźć nazwę serwera.  Na przykład w poniższym przykładzie nazwa serwera to sample.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
+Pierwszym krokiem do nawiązania połączenia z usługą SQL Data Warehouse jest wiedza, jak znaleźć nazwę serwera.  Na przykład w poniższym przykładzie nazwa serwera to samplesvr.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
 1. Przejdź do witryny [Azure Portal][Azure portal].
-2. Kliknij pozycję **Bazy danych SQL**. 
-3. Kliknij bazę danych, z którą chcesz nawiązać połączenie.
+2. Kliknij pozycję **Magazyny danych SQL**.
+3. Kliknij magazyn danych, z którym chcesz nawiązać połączenie.
 4. Znajdź pełną nazwę serwera.
    
     ![Pełna nazwa serwera][1]
@@ -93,6 +93,6 @@ Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu progra
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

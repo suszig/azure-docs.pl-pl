@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Jakie obciążenia można chronić za pomocą usługi Azure Site Recovery?
 
@@ -49,21 +49,20 @@ Usługa Site Recovery przyczynia się do ochrony i odzyskiwania na poziomie apli
 ## <a name="workload-summary"></a>Podsumowanie obciążenia
 Usługa Site Recovery może replikować dowolną aplikację uruchomioną na obsługiwanej maszynie. Ponadto współpracujemy z zespołami odpowiedzialnymi za produkty, aby przeprowadzać dodatkowe testy konkretnych aplikacji.
 
-| **Obciążenie** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |Tak |Tak |Tak |Tak |
-| Aplikacje sieci Web (IIS, SQL) |Tak |Tak |Tak |Tak |
-| System Center Operations Manager |Tak |Tak |Tak |Tak |
-| Sharepoint |Tak |Tak |Tak |Tak |
-| SAP<br/><br/>Replikacja lokacji SAP do platformy Azure, bez klastra |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |
-| Exchange (bez grupy DAG) |Tak |Tak |Tak |Tak |
-| Pulpit zdalny/VDI |Tak |Tak |Tak |Nie dotyczy |
-| Linux (system operacyjny i aplikacje) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |
-| Dynamics AX |Tak |Tak |Tak |Tak |
-| Dynamics CRM |Tak |Wkrótce |Tak |Wkrótce |
-| Oracle |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |
-| Serwer plików systemu Windows |Tak |Tak |Tak |Tak |
-| Citrix XenApp i XenDesktop |Nie dotyczy |Tak |Nie dotyczy |Tak |
+| **Obciążenie** |**Replikacja maszyn wirtualnych platformy Azure na platformę Azure** |**Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |Tak |Tak |Tak |Tak |Tak|
+| Aplikacje sieci Web (IIS, SQL) |Tak |Tak |Tak |Tak |Tak|
+| System Center Operations Manager |Tak |Tak |Tak |Tak |Tak|
+| Sharepoint |Tak |Tak |Tak |Tak |Tak|
+| SAP<br/><br/>Replikacja lokacji SAP do platformy Azure, bez klastra |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft)|
+| Exchange (bez grupy DAG) |Tak |Tak |Tak |Tak |Tak|
+| Pulpit zdalny/VDI |Tak |Tak |Tak |Tak |Tak|
+| Linux (system operacyjny i aplikacje) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft)|
+| Dynamics AX |Tak |Tak |Tak |Tak |Tak|
+| Oracle |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft) |Tak (przetestowane przez firmę Microsoft)|
+| Serwer plików systemu Windows |Tak |Tak |Tak |Tak |Tak|
+| Citrix XenApp i XenDesktop |Tak|Nie dotyczy |Tak |Nie dotyczy |Tak |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikacja usługi Active Directory i DNS
 Usługa Active Directory i infrastruktura DNS są istotne dla większości aplikacji firmowych. Podczas odzyskiwania po awarii należy zabezpieczyć i odzyskać te składniki infrastruktury przed odzyskaniem obciążeń i aplikacji.
@@ -106,13 +105,16 @@ Usługa Azure Site Recovery pomaga chronić rozwiązanie Dynamics AX ERP w nast�
 Usługi pulpitu zdalnego zapewniają infrastrukturę pulpitu wirtualnego (VDI), pulpity oparte na sesjach oraz aplikacje, dzięki którym użytkownicy mogą pracować z dowolnego miejsca. Za pomocą usługi Azure Site Recovery można wykonywać następujące czynności:
 
 * Replikowanie zarządzanych lub niezarządzanych pulpitów wirtualnych w puli do lokacji dodatkowej oraz zdalnych aplikacji i sesji do lokacji dodatkowej lub platformy Azure.
+
 * Oto co można replikować:
 
-| **RDS** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Pulpit wirtualny w puli (niezarządzany)** |Tak |Nie |Tak |Nie |Tak |Nie |
-| **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** |Tak |Nie |Tak |Nie |Tak |Nie |
-| **Zdalne aplikacje i sesje pulpitu (bez dysku UPD)** |Tak |Tak |Tak |Tak |Tak |Tak |
+| **RDS** |**Replikacja maszyn wirtualnych platformy Azure na platformę Azure** | **Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej** | **Replikacja maszyn wirtualnych funkcji Hyper-V do platformy Azure** | **Replikacja maszyn wirtualnych VMware do lokacji dodatkowej** | **Replikacja maszyn wirtualnych VMware do platformy Azure** | **Replikacja serwerów fizycznych do lokacji dodatkowej** | **Replikacja serwerów fizycznych do platformy Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Pulpit wirtualny w puli (niezarządzany)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |
+| **Pulpit wirtualny w puli (zarządzany i bez dysku UPD)** |Nie|Tak |Nie |Tak |Nie |Tak |Nie |
+| **Zdalne aplikacje i sesje pulpitu (bez dysku UPD)** |Tak|Tak |Tak |Tak |Tak |Tak |Tak |
+
+[Konfigurowanie funkcji odzyskiwania po awarii ona potrzeby usługi RDS za pomocą usługi Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Dowiedz się więcej](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) o ochronie usług pulpitu zdalnego.
 
@@ -138,7 +140,7 @@ Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie SAP w na
 ## <a name="protect-iis"></a>Ochrona usług IIS
 Z usługi Site Recovery można korzystać, aby zabezpieczyć wdrożenie usług IIS w następujący sposób:
 
-Usługa Azure Site Recovery zapewnia odzyskiwanie po awarii przez replikowanie krytycznych składników środowiska do zimnej lokacji zdalnej lub chmury publicznej, takiej jak Microsoft Azure. Ponieważ maszyna wirtualna z serwerem sieci Web i bazą danych są replikowane do lokacji odzyskiwania, nie jest wymagane oddzielne tworzenie kopii zapasowych plików konfiguracji lub certyfikatów. Mapowania i powiązania aplikacji zależne od zmiennych środowiskowych, które są zmieniane po przełączeniu do trybu failover, mogą być aktualizowane za pomocą skryptów zintegrowanych z planami odzyskiwania po awarii. Maszyny wirtualne są przenoszone do lokalizacji odzyskiwania tylko w przypadku przełączania do trybu failover. Oprócz tego usługa Azure Site Recovery pomaga kompleksowo organizować przełączanie do trybu failover, udostępniając następujące możliwości:
+Usługa Azure Site Recovery zapewnia odzyskiwanie po awarii przez replikowanie krytycznych składników środowiska do zimnej lokacji zdalnej lub chmury publicznej, takiej jak Microsoft Azure. Ponieważ maszyny wirtualne z serwerem internetowym i bazą danych są replikowane do lokacji odzyskiwania, nie jest wymagane oddzielne tworzenie kopii zapasowych plików konfiguracji lub certyfikatów. Mapowania i powiązania aplikacji zależne od zmiennych środowiskowych, które są zmieniane po przełączeniu do trybu failover, mogą być aktualizowane za pomocą skryptów zintegrowanych z planami odzyskiwania po awarii. Maszyny wirtualne są przenoszone do lokalizacji odzyskiwania tylko w przypadku przełączania do trybu failover. Oprócz tego usługa Azure Site Recovery pomaga kompleksowo organizować przełączanie do trybu failover, udostępniając następujące możliwości:
 
 -   Obsługa sekwencji wyłączania i włączania maszyn wirtualnych w różnych warstwach.
 -   Dodawanie skryptów umożliwiających aktualizację zależności i powiązań aplikacji na maszynach wirtualnych po ich uruchomieniu. Skrypty mogą też służyć do aktualizacji serwera DNS w taki sposób, aby wskazywał lokację odzyskiwania.
