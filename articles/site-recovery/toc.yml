@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Konfigurowanie adresowania IP na potrzeby dostępu do lokacji dodatkowej po włączeniu trybu failover
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Zarządzanie interfejsami sieciowymi w scenariuszach przełączania ze środowiska lokalnego do platformy Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Odzyskiwanie po awarii
       items:
         - name: Maszyny wirtualne funkcji Hyper-V do platformy Azure
