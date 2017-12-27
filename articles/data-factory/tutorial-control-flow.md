@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, warto wysłać szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania warto wysłać szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
@@ -452,7 +452,7 @@ Pierwsza sekcja potoku definiuje parametry.
 
 - sourceBlobContainer — parametr w potoku używany przez zestaw danych obiektu blob źródła.
 - sinkBlobContainer — parametr w potoku używany przez zestaw danych obiektu blob ujścia.
-- Odbiorca — parametr w potoku używany przez dwa działania internetowe, w przypadku których wiadomości e-mail są odbierane przez adres e-mail.
+- receiver — parametr w potoku używany przez dwa działania internetowe, w przypadku których do odbiorcy z podanym w tym parametrze adresem e-mail są wysyłane wiadomości e-mail o powodzeniu lub niepowodzeniu.
 
 
 ```csharp

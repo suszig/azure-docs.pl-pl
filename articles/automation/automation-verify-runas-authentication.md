@@ -3,7 +3,7 @@ title: "Sprawdzanie poprawności konfiguracji konta usługi Azure Automation | M
 description: "W tym artykule został opisany sposób potwierdzania, że konfiguracja konta usługi Automation jest poprawna."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Sprawdzanie uwierzytelniania konta Uruchom jako usługi Azure Automation
 Po pomyślnym utworzeniu konta usługi Automation możesz wykonać prosty test, aby potwierdzić, że możesz poprawnie przeprowadzić uwierzytelnienie w usłudze Azure Resource Manager lub klasycznym wdrożeniu platformy Azure przy użyciu nowo utworzonego lub zaktualizowanego konta Uruchom jako usługi Automation.    
@@ -66,9 +66,9 @@ Poniżej przedstawiono kod przykładowy umożliwiający [utworzenie elementu run
 
 Zwróć uwagę, że polecenie cmdlet służące do uwierzytelniania w elemencie Runbook — **Add-AzureRmAccount** — używa zestawu parametrów *ServicePrincipalCertificate*.  Uwierzytelnia się ono za pomocą certyfikatu nazwy głównej usługi, a nie poświadczeń.  
 
-W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlany blok Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
+W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlane Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
 
-Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  W bloku **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich zasobów we wszystkich grupach zasobów w ramach subskrypcji.  
+Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  Na stronie **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich zasobów we wszystkich grupach zasobów w ramach subskrypcji.  
 
 W przypadku ponownego użycia kodu w elementach runbook usuń blok kodu rozpoczynający się od komentarza `#Get all ARM resources from all resource groups`.
 
@@ -102,9 +102,9 @@ Poniżej przedstawiono kod przykładowy umożliwiający [utworzenie elementu run
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlany blok Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
+W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlana strona Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
 
-Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  W bloku **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich maszyn wirtualnych platformy Azure wdrożonych w ramach subskrypcji według nazwy maszyny wirtualnej.  
+Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  Na stronie **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich maszyn wirtualnych platformy Azure wdrożonych w ramach subskrypcji według nazwy maszyny wirtualnej.  
 
 W przypadku ponownego użycia kodu w elementach runbook usuń polecenie cmdlet **Get-AzureVM**.
 

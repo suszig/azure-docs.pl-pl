@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: rejestrowanie aplikacji | Microsoft Docs'
+title: "Rejestrowanie aplikacji — Azure Active Directory B2C"
 description: "Jak zarejestrować aplikację w usłudze Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: rejestrowanie aplikacji
 
@@ -28,7 +27,7 @@ Ten samouczek szybkiego startu pomaga zarejestrować aplikację w dzierżawie us
 
 Aby utworzyć aplikację, która akceptuje tworzenie kont i logowanie użytkowników, musisz najpierw zarejestrować aplikację w dzierżawie usługi Azure Active Directory B2C. Aby utworzyć własną dzierżawę, wykonaj kroki opisane w temacie [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
 
-Aplikacje utworzone w bloku Azure AD B2C w witrynie Azure Portal muszą być zarządzane z tej samej lokalizacji. Jeśli edytujesz aplikacje B2C przy użyciu programu PowerShell lub innego portalu, stają się one nieobsługiwane i przestają działać w usłudze Azure AD B2C. Szczegóły możesz znaleźć w sekcji [Uszkodzone aplikacje](#faulted-apps). 
+Aplikacje utworzone w witrynie Azure Portal muszą być zarządzane z tej samej lokalizacji. Jeśli edytujesz aplikacje usługi Azure AD B2C przy użyciu programu PowerShell lub innego portalu, stają się one nieobsługiwane i przestają działać w usłudze Azure AD B2C. Szczegóły możesz znaleźć w sekcji [Uszkodzone aplikacje](#faulted-apps). 
 
 W tym artykule są używane przykłady, które pomogą Ci rozpocząć pracę z naszymi przykładami. Więcej informacji o tych przykładach możesz znaleźć w kolejnych artykułach.
 
@@ -117,7 +116,7 @@ Dwa ostatnie adresy można dodać, ponieważ są poddomenami pierwszego adresu U
 
 Istnieją dwie ważne kwestie, które należy wziąć pod uwagę podczas wybierania identyfikatora URI przekierowania dla aplikacji mobilych/natywnych:
 
-* **Unikatowość**: schemat identyfikatora URI przekierowania powinien być unikatowy dla każdej aplikacji. W naszym przykładzie (com.onmicrosoft.contoso.appname://przekierowanie/ścieżka) schematem jest fragment com.onmicrosoft.contoso.appname. Zalecamy stosowanie się do tego wzorca. Jeśli dwie aplikacje mają ten sam schemat, użytkownik zobaczy okno dialogowe „Wybór aplikacji”. Jeśli użytkownik dokona nieprawidłowego wyboru, logowanie nie powiedzie się.
+* **Unikatowość**: schemat identyfikatora URI przekierowania powinien być unikatowy dla każdej aplikacji. W tym przykładzie (com.onmicrosoft.contoso.appname://przekierowanie/ścieżka) schematem jest fragment com.onmicrosoft.contoso.appname. Zalecamy stosowanie się do tego wzorca. Jeśli dwie aplikacje mają ten sam schemat, użytkownik zobaczy okno dialogowe „Wybór aplikacji”. Jeśli użytkownik dokona nieprawidłowego wyboru, logowanie nie powiedzie się.
 * **Kompletność**: identyfikator URI przekierowania musi mieć schemat i ścieżkę. Ścieżka musi zawierać co najmniej jeden ukośnik po nazwie domeny (na przykład identyfikator //contoso/ jest prawidłowy, ale identyfikator //contoso jest błędny).
 
 Upewnij się, że w identyfikatorze URI przekierowywania nie ma żadnych znaków specjalnych, takich jak podkreślenia.
@@ -126,16 +125,16 @@ Upewnij się, że w identyfikatorze URI przekierowywania nie ma żadnych znaków
 
 NIE NALEŻY edytować aplikacji B2C:
 
-* W innych portalach zarządzania aplikacjami, takich jak [klasyczna witryna Azure Portal](https://manage.windowsazure.com/) i [portal rejestracji aplikacji](https://apps.dev.microsoft.com/).
+* W innych portalach zarządzania aplikacjami, takich jak [portal rejestracji aplikacji](https://apps.dev.microsoft.com/).
 * Korzystanie z interfejsu API programu Graph lub programu PowerShell
 
-Jeśli poddasz edycji aplikację B2C w sposób opisany powyżej i spróbujesz ponownie edytować ją w bloku funkcji usługi Azure AD B2C w witrynie Azure Portal, stanie się ona uszkodzoną aplikacją i nie będzie można z niej korzystać w usłudze Azure AD B2C. Musisz usunąć taką aplikację i utworzyć ją ponownie.
+Jeśli poddasz edycji aplikację usługi Azure AD B2C w opisany sposób i spróbujesz ponownie edytować ją za pomocą funkcji usługi Azure AD B2C w witrynie Azure Portal, stanie się ona uszkodzoną aplikacją i nie będzie można z niej korzystać w usłudze Azure AD B2C. Musisz usunąć taką aplikację i utworzyć ją ponownie.
 
 Aby usunąć aplikację, przejdź do [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/) i usuń ją tam. Aby aplikacja była widoczna, musisz być jej właścicielem (a nie tylko administratorem dzierżawy).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zarejestrowaniu aplikacji w usłudze Azure AD B2C możesz wykonać czynności opisane w jednym z [naszych samouczków szybkiego startu](active-directory-b2c-overview.md#get-started), aby rozpocząć pracę.
+Po zarejestrowaniu aplikacji w usłudze Azure AD B2C możesz wykonać czynności opisane w jednym z [samouczków szybkiego startu](active-directory-b2c-overview.md#get-started), aby rozpocząć pracę.
 
 > [!div class="nextstepaction"]
 > [Tworzenie aplikacji internetowej platformy ASP.NET z rejestrowaniem, logowaniem i resetowaniem hasła](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

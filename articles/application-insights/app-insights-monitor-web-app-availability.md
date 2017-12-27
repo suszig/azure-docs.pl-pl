@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorowanie dostępności i czasu odpowiedzi dowolnej witryny sieci Web
 Po wdrożeniu aplikacji sieci Web lub witryny sieci Web na dowolnym serwerze możesz skonfigurować testy, aby monitorować jej dostępność i czas odpowiedzi. Usługa [Azure Application Insights](app-insights-overview.md) wysyła żądania sieci Web do aplikacji w regularnych odstępach czasu z punktów na całym świecie. Jeśli aplikacja będzie odpowiadać powoli lub wcale, usługa powiadomi Cię o tym za pomocą alertu.
@@ -31,7 +31,7 @@ Istnieją dwa rodzaje testów dostępności:
 
 Dla każdego zasobu aplikacji możesz utworzyć maksymalnie 100 testów dostępności.
 
-## <a name="create"></a>1. Otwieranie zasobu dla własnych raportów testów dostępności
+## <a name="create"></a>Otwieranie zasobu dla własnych raportów testów dostępności
 
 **Jeśli już skonfigurowano usługę Application Insights** dla aplikacji sieci Web, otwórz zasób usługi Application Insights w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Dla każdego zasobu aplikacji możesz utworzyć maksymalnie 100 testów dostępn
 
 Kliknij pozycję **Wszystkie zasoby**, aby otworzyć blok Omówienie dla nowego zasobu.
 
-## <a name="setup"></a>2. Tworzenie testu ping adresu URL
+## <a name="setup"></a>Tworzenie testu ping adresu URL
 Otwórz blok Dostępność i dodaj test.
 
 ![Podaj przynajmniej adres URL swojej witryny sieci Web](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Otwórz blok Dostępność i dodaj test.
 Dodaj więcej testów. Na przykład oprócz testowania strony głównej możesz sprawdzić, czy działa baza danych, testując adres URL dla wyszukiwania.
 
 
-## <a name="monitor"></a>3. Wyświetlanie wyników testów dostępności
+## <a name="monitor"></a>Wyświetlanie wyników testów dostępności
 
 Po kilku minutach kliknij pozycję **Odśwież**, aby zobaczyć wyniki testu. 
 
@@ -102,14 +102,11 @@ Kliknij czerwoną kropkę.
 Na podstawie wyniku testu dostępności możesz:
 
 * Zbadać odpowiedź odebraną z serwera.
-* Otworzyć telemetrię wysłaną przez aplikację serwera podczas przetwarzania wystąpienia żądań zakończonych niepowodzeniem.
+* Diagnozować błędy przy użyciu danych telemetrycznych po stronie serwera, zebranych podczas przetwarzania wystąpienia żądania zakończonego niepowodzeniem.
 * Zarejestrować problem lub element roboczy w usłudze Git bądź VSTS w celu prześledzenia problemu. Błąd będzie zawierać link do tego zdarzenia.
 * Otworzyć wynik testu sieci Web w programie Visual Studio.
 
-
-*Test wygląda dobrze, ale jest raportowany jako błąd?* Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie.
-
-*Brak powiązanych elementów?* Jeśli usługa Application Insights została skonfigurowana dla aplikacji po stronie serwera, może to być spowodowane trwaniem [próbkowania](app-insights-sampling.md). 
+*Test wygląda dobrze, ale jest raportowany jako błąd?* Zobacz [Często zadawane pytania](#qna), aby zapoznać się ze sposobami ograniczania szumu.
 
 ## <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 Możliwe jest monitorowanie scenariusza, który obejmuje sekwencję adresów URL. Jeśli na przykład monitorujesz witrynę sklepu, możesz sprawdzić, czy dodawanie towarów do koszyka działa prawidłowo.
@@ -256,6 +253,20 @@ Po zakończeniu testu wyświetlane są czasy reakcji i współczynniki powodzeni
 * Konfigurowanie [elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) który jest wywoływany przy zgłaszaniu alertu.
 
 ## <a name="qna"></a>Pytania? Problemy?
+* *Sporadyczne niepowodzenia testu z błędem naruszenia protokołu*
+
+    Błąd „Naruszenie protokołu (...) Po CR musi występować LF” oznacza problem związany z serwerem (lub zależnościami). Występuje w przypadku ustawienia nieprawidłowo sformułowanych nagłówków w odpowiedzi. Przyczyną mogą być moduły równoważenia obciążenia lub sieci dostarczania zawartości. Mówiąc bardziej szczegółowo, w niektórych nagłówkach koniec wiersza może nie być sygnalizowany znakiem CRLF, co narusza specyfikację protokołu HTTP i prowadzi do niepowodzenia walidacji na poziomie żądania internetowego .NET. Sprawdź odpowiedź, aby znaleźć nagłówki, które mogą powodować naruszenie.
+    
+    Uwaga: błąd adresu URL może nie występować w przeglądarkach mających bardziej swobodne reguły walidacji nagłówków HTTP. Szczegółowe wyjaśnienie tego problemu znajdziesz w następującym wpisie w blogu: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Witryna wygląda prawidłowo, ale występują niepowodzenia testów*
+
+    * Sprawdź wszystkie obrazy, skrypty, arkusze stylów i inne pliki ładowane przez stronę. Jeśli pobranie dowolnego z nich nie powiedzie się, test zostanie zgłoszony jako nieudany — nawet wtedy, gdy główna strona HTML ładuje się poprawnie. Aby test ignorował takie błędy zasobów, wystarczy usunąć zaznaczenie pola „Analizuj zależne żądania” w konfiguracji testu. 
+
+    * Aby zmniejszyć ryzyko wystąpienia szumu powodowanego przez drobne przejściowe problemy z siecią itp., zaznacz pole „Włącz ponawianie próby w przypadku niepowodzenia testów” w konfiguracji. Możesz także przeprowadzać testy z większej liczby lokalizacji i odpowiednio dostosować próg reguły alertu, aby zapobiec wywoływaniu niepotrzebnych alertów przez problemy występujące w jednej lokalizacji.
+    
+* *Nie widzę żadnych danych telemetrycznych po stronie serwera do diagnozowania niepowodzeń testów*
+    
+    Jeśli usługa Application Insights została skonfigurowana dla aplikacji po stronie serwera, może to być spowodowane trwaniem [próbkowania](app-insights-sampling.md).
 * *Czy mogę wywołać kod z mojego testu sieci Web?*
 
     Nie. Kroki testu muszą być zawarte w pliku .webtest. Nie można też wywoływać innych testów sieci Web ani używać pętli. Istnieje jednak kilka wtyczek, które mogą być przydatne.

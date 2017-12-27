@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funkcja Warunki użytkowania usługi Azure Active Directory (wersja zapoznawcza)
 Warunki użytkowania usługi Azure AD pozwalają organizacjom przedstawiać informacje użytkownikom w prosty sposób.  Dzięki temu użytkownicy mogą zapoznać się z istotnymi zastrzeżeniami do wymagań prawnych lub wymagań dotyczących zgodności.
@@ -52,14 +52,16 @@ Po zakończeniu pracy nad zawartością warunków użytkowania, dodaj je za pomo
 ### <a name="to-add-terms-of-use"></a>Dodawanie warunków użytkowania
 1. Przejdź do pulpitu nawigacyjnego na stronie [https://aka.ms/catou](https://aka.ms/catou).
 2. Kliknij pozycję Add (Dodaj).</br>
-![Dodawanie warunków użytkowania](media/active-directory-tou/tou2.png)
+![Dodawanie warunków użytkowania](media/active-directory-tou/tou12.png)
 3. W polu **Nazwa** wprowadź nazwę warunków użytkowania.
 4. W polu **Nazwa wyświetlana** wprowadź nazwę wyświetlaną.  Ten nagłówek będzie widoczny dla użytkowników po zalogowaniu.
 5. **Przejdź** do pliku pdf zawierającego końcową wersję warunków użytkowania i wybierz go.  Zalecany rozmiar czcionki to 24.
-6. Możesz **wymusić** stosowanie przekazanych warunków użytkowania za pomocą szablonu lub niestandardowych zasad dostępu warunkowego.  Niestandardowe zasady dostępu warunkowego pozwalają zwiększyć szczegółowość warunków użytkowania, które mogą dotyczyć pojedynczej aplikacji w chmurze lub grupy użytkowników.  Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zasad dostępu warunkowego](active-directory-conditional-access-best-practices.md).
-7. Kliknij przycisk **Utwórz**.
-8. W przypadku wybrania niestandardowego szablonu dostępu warunkowego pojawi się nowy ekran, na którym można dostosować zasady dostępu warunkowego.
-7. Zostaną wyświetlone nowe warunki użytkowania.</br>
+6. **Wybierz** język warunków użytkowania.  Opcja wyboru języka umożliwia przekazanie wielu wersji językowych warunków użytkowania.  Wersja warunków użytkowania widoczna dla użytkownika końcowego będzie zależała od preferencji jego przeglądarki.
+7. Włącz lub wyłącz ustawienie **Wymagaj od użytkowników rozwinięcia warunków użytkowania**.  W przypadku włączenia tego ustawienia od użytkowników końcowych wymagane będzie wyświetlenie warunków użytkowania przed ich akceptacją.
+8. W sekcji **Dostęp warunkowy** możesz **wymusić** stosowanie przekazanych warunków użytkowania za pomocą szablonu lub niestandardowych zasad dostępu warunkowego.  Niestandardowe zasady dostępu warunkowego pozwalają zwiększyć szczegółowość warunków użytkowania, które mogą dotyczyć pojedynczej aplikacji w chmurze lub grupy użytkowników.  Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zasad dostępu warunkowego](active-directory-conditional-access-best-practices.md).
+9. Kliknij przycisk **Utwórz**.
+10. W przypadku wybrania niestandardowego szablonu dostępu warunkowego pojawi się nowy ekran, na którym można dostosować zasady dostępu warunkowego.
+11. Zostaną wyświetlone nowe warunki użytkowania.</br>
 
 ![Dodawanie warunków użytkowania](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Po utworzeniu warunków użytkowania i wymuszeniu ich stosowania uprawnieni uży
 ![Zdarzenie inspekcji](media/active-directory-tou/tou10.png)
 -   Tak wygląda ten ekran na urządzeniach przenośnych.</br></br>
 ![Zdarzenie inspekcji](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Przeglądanie warunków użytkowania
+Użytkownicy mogą wyświetlać i przeglądać warunki użytkowania, które zaakceptowali.  W tym celu można wykonać następujące czynności:
+
+1. Przejdź do witryny [https://myapps.microsoft.com](https://myapps.microsoft.com) i zaloguj się.
+2. W prawym górnym rogu kliknij swoją nazwę i wybierz pozycję **Profil** z listy rozwijanej.
+![Profil](media/active-directory-tou/tou14.png)
+
+3. Na stronie profilu kliknij pozycję **Przejrzyj warunki użytkowania**.
+![Zdarzenie inspekcji](media/active-directory-tou/tou13a.png)
+
+4.  Następnie możesz przejrzeć zaakceptowane warunki użytkowania. 
+
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Te ważne informacje mogą pomóc w korzystaniu z warunków użytkowania.

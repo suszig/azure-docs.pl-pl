@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Udostępnianie widoku niestandardowego przy użyciu sparametryzowanego adresu URL
 
@@ -72,6 +72,22 @@ Parametr `timeSeriesDefinitions=<collection of term objects>` określa terminy w
 - `predicate=<string>`
   - Klauzula *where* na potrzeby filtrowania po stronie serwera.
 
+Parametr „multiChartStack=<true/false>” umożliwia umieszczanie na stosie na wykresie, a parametr „multiChartSameScale=<true/false>” dopuszcza tę samą skalę osi Y dla warunków w ramach parametru opcjonalnego.  
+
+- „multiChartStack=false”
+  - Wartość „True” jest włączona domyślnie, więc do stosu należy przekazać wartość „false”.
+- „multiChartStack=false&multiChartSameScale=true” 
+  - Układanie na stosie musi mieć możliwość użycia takiej samej skali osi Y dla warunków.  Domyślnie jest równe „false”, więc przekazanie wartości „true” włącza tę funkcję.  
+  
+„timeBucketUnit=<Unit>&timeBucketSize=<integer>” umożliwia dostosowanie suwaka odstępu czasu, aby zapewnić bardziej szczegółowy lub płynniejszy, bardziej zagregowany widok wykresu.  
+- „timeBucketUnit=<Unit>&timeBucketSize=<integer>”
+  - Jednostki = dni, godziny, minuty, sekundy, milisekundy.  Jednostka zawsze wielką literą.
+  - Zdefiniuj liczbę jednostek, przekazując żądaną liczbę całkowitą do timeBucketSize.  Zapamiętaj, że zostało wygładzonych do 7 dni.  
+  
+Parametr „timezoneOffset=<integer>” umożliwia ustawienie strefy czasowej dla wykresu, która jest wyświetlana jako przesunięcie względem czasu UTC.  
+  - „timezoneOffset=<integer>”
+    - Liczba całkowita jest zawsze w milisekundach.  
+    - Zapamiętaj, ta funkcja jest nieco inna niż ta, którą włączyliśmy w Eksploratorze TSI, gdzie umożliwiliśmy wybranie czasu lokalnego (czasu przeglądarki) lub czasu UTC.  
  
 ### <a name="examples"></a>Przykłady
 

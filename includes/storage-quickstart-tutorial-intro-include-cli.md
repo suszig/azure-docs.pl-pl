@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Do utworzenia standardowego konta magazynu (ogólnego przeznaczenia) służy polecenie [az storage account create](/cli/azure/storage/account#create). Standardowego konta magazynu można używać z wszystkimi czterema usługami: obiektami blob, plikami, tabelami i kolejkami. 
+Do utworzenia konta magazynu (ogólnego przeznaczenia) służy polecenie [az storage account create](/cli/azure/storage/account#create). Konta magazynu można używać z wszystkimi czterema usługami: obiektami blob, plikami, tabelami i kolejkami. 
 
 ```azurecli-interactive
 az storage account create \

@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Tworzenie przestrzeni nazw w centrum zdarzeń i włączanie przechwytywania przy użyciu szablonu
 
 W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi Event Hubs z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
@@ -161,7 +161,7 @@ Przedział czasu, w którym funkcja przechwytywania usługi Event Hubs pobiera d
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ Identyfikator subskrypcji dla przestrzeni nazw usługi Event Hubs i usługi Azur
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ Nazwa usługi Azure Data Lake Store na potrzeby przechwytywanych zdarzeń.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Ścieżka folderu docelowego dla przechwytywanych zdarzeń. Jest to folder w usłudze Data Lake Store, do którego będą wypychane przechwycone zdarzenia. Aby ustawić uprawnienia dla tego folderu, zapoznaj się z artykułem [Przechwytywanie danych z usługi Event Hubs przy użyciu usługi Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
+Ścieżka folderu docelowego dla przechwytywanych zdarzeń. Jest to folder w usłudze Data Lake Store, do którego wypychane będą zdarzenia podczas operacji przechwytywania. Aby uzyskać informacje dotyczące ustawiania uprawnień dla tego folderu, zobacz [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) (Przechwytywanie danych z usługi Event Hubs przy użyciu usługi Azure Data Lake Store).
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Zasoby do wdrożenia w usłudze Azure Storage jako lokalizacja docelowa przechwytywanych zdarzeń
 
-Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Blob Storage.
+Tworzy przestrzeń nazw typu **EventHub** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włąc
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Zasoby do wdrożenia w usłudze Azure Data Lake Store jako lokalizacja docelowa
 
-Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Data Lake Store.
+Tworzy przestrzeń nazw typu **EventHub** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Wybieranie usługi Azure Blob Storage jako lokalizacji docelowej:
+Usługa Azure Blob Storage jako lokalizacja docelowa:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Wybieranie usługi Azure Data Lake Store jako lokalizacji docelowej:
+Usługa Azure Data Lake Store jako lokalizacja docelowa:
 
 ```azurecli
 azure config mode arm

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>Co to jest usługa Azure Relay?
 
@@ -54,11 +54,12 @@ Funkcja [połączeń hybrydowych usługi Azure Relay](relay-hybrid-connections-p
 
 Połączenia hybrydowe wypierają wcześniejszą funkcję „BizTalk Services”, która została utworzona na podstawie przekaźnika WCF usługi Azure Service Bus. Nowe możliwości połączeń hybrydowych uzupełniają istniejącą funkcję przekaźnika WCF — te dwie możliwości usługi będą istnieć obok siebie w usłudze Azure Relay. Korzystają one ze wspólnej bramy, ale pod innymi względami są to różne implementacje.
 
-## <a name="wcf-relays"></a>Przekaźniki WCF
+## <a name="wcf-relay"></a>Przekaźnik WCF
 
-Przekaźnik WCF działa dla pełnej platformy .NET (NETFX) i WCF. Należy zainicjować połączenie między usługą lokalną i usługą przekaźnika przy użyciu zestawu powiązań „przekaźnika” WCF. W tle powiązania przekaźników są mapowane na nowe elementy powiązania transportu przeznaczone do tworzenia składników kanału WCF, które integrują się w chmurze z usługą Service Bus.
+Przekaźnik WCF działa dla pełnego programu .NET Framework (NETFX) i technologii WCF. Należy zainicjować połączenie między usługą lokalną i usługą przekaźnika przy użyciu zestawu powiązań „przekaźnika” WCF. W tle powiązania przekaźników są mapowane na nowe elementy powiązania transportu przeznaczone do tworzenia składników kanału WCF, które integrują się w chmurze z usługą Service Bus. Aby uzyskać więcej informacji, zobacz [wprowadzenie do usługi WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architektura: przetwarzanie przychodzących żądań przekaźnika
+
 Gdy klient wysyła żądanie do usługi [Azure Relay](/azure/service-bus-relay/), usługa Azure Load Balancer kieruje je do dowolnego z węzłów bramy. Jeśli żądanie jest żądaniem nasłuchiwania, węzeł bramy tworzy nowy przekaźnik. Jeśli żądanie jest żądaniem połączenia z określonym przekaźnikiem, węzeł bramy przesyła żądanie połączenia do węzła bramy, który jest właścicielem przekaźnika. Węzeł bramy będący właścicielem przekaźnika wysyła żądanie spotkania do nasłuchującego klienta, prosząc odbiornik o utworzenie tymczasowego kanału do węzła bramy, który odebrał żądanie połączenia.
 
 Po nawiązaniu połączenia przekaźnika klienci mogą wymieniać komunikaty za pośrednictwem węzła bramy, który jest używany na potrzeby spotkania.

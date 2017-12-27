@@ -1,6 +1,6 @@
 ---
 title: "Często zadawane pytania dotyczące usługi Azure Active Directory | Microsoft Docs"
-description: "Często zadawane pytania dotyczące usługi Azure Active Directory zawierają odpowiedzi na pytania związane z uzyskiwaniem dostępu do platformy Azure i usługi Azure Active Directory, zarządzaniem hasłami i uzyskiwaniem dostępu do aplikacji."
+description: "Często zadawane pytania dotyczące usługi Azure Active Directory zawierają odpowiedzi na typowe pytania związane z platformą Azure i usługą Azure Active Directory, zarządzaniem hasłami i uzyskiwaniem dostępu do aplikacji."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Często zadawane pytania dotyczące usługi Azure Active Directory
 Azure Active Directory (Azure AD) jest kompleksowym rozwiązaniem typu tożsamość jako usługa (IDaaS, Identity as a Service), które obejmuje wszystkie aspekty tożsamości, zarządzania dostępem i bezpieczeństwa.
@@ -27,9 +27,9 @@ Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directo
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Uzyskiwanie dostępu do platformy Azure i usługi Azure Active Directory
-**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w klasycznej witrynie Azure Portal?**
+**Pytanie: dlaczego otrzymuję błąd „Nie znaleziono żadnych subskrypcji” podczas próby dostępu do usługi Azure AD w witrynie Azure Portal?**
 
-**Odpowiedź:** aby uzyskać dostęp do klasycznej witryny Azure Portal, każdy użytkownik musi mieć uprawnienia w ramach subskrypcji platformy Azure. Jeśli korzystasz z płatnej licencji usługi Office 365 lub Azure AD, przejdź do strony [http://aka.ms/accessAAD](http://aka.ms/accessAAD), aby użyć jednorazowej aktywacji. W przeciwnym razie należy aktywować bezpłatne [konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/) lub płatną subskrypcję.
+**Odpowiedź:** aby uzyskać dostęp do witryny Azure Portal, każdy użytkownik musi mieć uprawnienia w ramach subskrypcji platformy Azure. Jeśli korzystasz z płatnej licencji usługi Office 365 lub Azure AD, przejdź do strony [http://aka.ms/accessAAD](http://aka.ms/accessAAD), aby użyć jednorazowej aktywacji. W przeciwnym razie należy aktywować bezpłatne [konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/) lub płatną subskrypcję.
 
 Aby uzyskać więcej informacji, zobacz:
 
@@ -44,11 +44,9 @@ Aby uzyskać więcej informacji, zobacz:
 Wszyscy użytkownicy skonfigurowani do używania usług sieci Web są zdefiniowani jako konta użytkowników w co najmniej jednym wystąpieniu usługi Azure AD. Możesz skonfigurować te konta dla bezpłatnych funkcji usługi Azure AD, np. dostępu do aplikacji w chmurze.
 
 Usługi płatne Azure AD, takie jak Enterprise Mobility + Security, uzupełniają inne usługi sieci Web, np. Office 365 i Microsoft Azure, zapewniając kompleksowe rozwiązania z zakresu skalowalnego zarządzania dla przedsiębiorstw i bezpieczeństwa.
-- - -
-**Pytanie: dlaczego mogę się zalogować w witrynie Azure Portal, ale nie w klasycznej witrynie Azure Portal?**
 
-**Odpowiedź:** witryna Azure Portal nie wymaga ważnej subskrypcji, podczas gdy portal klasyczny wymaga posiadania ważnej subskrypcji.  Jeśli nie masz subskrypcji, zalogowanie się w portalu klasycznym nie jest możliwe.
 - - -
+
 **Pytanie: jaka jest różnica między administratorem subskrypcji a administratorem katalogu?**
 
 **Odpowiedź:** domyślnie po utworzeniu konta na platformie Azure przypisywana jest do niego rola administratora subskrypcji. Administrator subskrypcji może używać konta Microsoft lub konta służbowego z katalogu, z którym została skojarzona subskrypcja platformy Azure.  Ta rola jest autoryzowana do zarządzania usługami w witrynie Azure Portal.
@@ -56,7 +54,7 @@ Usługi płatne Azure AD, takie jak Enterprise Mobility + Security, uzupełniaj�
 Jeśli inni użytkownicy potrzebują logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz dodać ich jako współadministratorów. Ta rola ma takie same uprawnienia dostępu jak administrator usługi, ale nie może zmieniać skojarzenia subskrypcji z katalogami platformy Azure.  Aby uzyskać dodatkowe informacje na temat administratorów subskrypcji, zobacz [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Jak dodać lub zmienić role administratora platformy Azure) i [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Usługa Azure AD ma inny zestaw ról administratora na potrzeby zarządzania katalogiem i funkcjami dotyczącymi tożsamości.  Ci administratorzy będą mieli dostęp do różnych funkcji w witrynie Azure Portal i klasycznej witrynie Azure Portal. Rola administratora określa, co może robić administrator, na przykład tworzyć lub edytować użytkowników, przypisywać role administracyjne innym osobom, resetować hasła użytkowników, zarządzać licencjami użytkowników oraz zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów usługi Azure AD i ich ról, zobacz [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Usługa Azure AD ma inny zestaw ról administratora na potrzeby zarządzania katalogiem i funkcjami dotyczącymi tożsamości.  Ci administratorzy będą mieli dostęp do różnych funkcji w witrynie Azure Portal. Rola administratora określa, co może robić administrator, na przykład tworzyć lub edytować użytkowników, przypisywać role administracyjne innym osobom, resetować hasła użytkowników, zarządzać licencjami użytkowników oraz zarządzać domenami.  Aby uzyskać dodatkowe informacje na temat administratorów usługi Azure AD i ich ról, zobacz [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Ponadto usługi płatne Azure AD, takie jak Enterprise Mobility + Security, uzupełniają inne usługi sieci Web, np. Office 365 i Microsoft Azure, zapewniając kompleksowe rozwiązania z zakresu skalowalnego zarządzania dla przedsiębiorstw i bezpieczeństwa.
 
@@ -137,16 +135,20 @@ W przypadku kont usługi Azure AD administratorzy mogą zresetować hasło w jed
 
 - - -
 ## <a name="security"></a>Bezpieczeństwo
-**Pytanie: czy konta są blokowane po określonej liczbie nieudanych prób, czy jest stosowana bardziej zaawansowana strategia?**</br>
+**Pytanie: czy konta są blokowane po określonej liczbie nieudanych prób, czy jest stosowana bardziej zaawansowana strategia?**
+
 Korzystamy z bardziej zaawansowanej strategii blokowania kont.  Jest ona oparta na adresie IP żądania i wprowadzonym haśle. Czas trwania blokady wydłuża się też w zależności od stopnia prawdopodobieństwa ataku.  
 
-**Pytanie: niektóre (typowe) hasła są odrzucane i jest wyświetlany komunikat z informacją o tym, że hasło zostało użyte zbyt wiele razy. Czy dotyczy to haseł używanych w bieżącej usłudze Active Directory?**</br>
+**Pytanie: niektóre (typowe) hasła są odrzucane i jest wyświetlany komunikat z informacją o tym, że hasło zostało użyte zbyt wiele razy. Czy dotyczy to haseł używanych w bieżącej usłudze Active Directory?**
+
 Dotyczy to typowych haseł występujących globalnie, takich jak różne odmiany ciągów „Hasło” i „123456”.
 
-**Pytanie: czy żądanie logowania z podejrzanych źródeł (botnety, punkt końcowy sieci Tor) zostanie zablokowane w dzierżawie B2C, czy wymaga to dzierżawy w warstwie Podstawowa lub Premium?**</br>
+**Pytanie: czy żądanie logowania z podejrzanych źródeł (botnety, punkt końcowy sieci Tor) zostanie zablokowane w dzierżawie B2C, czy wymaga to dzierżawy w warstwie Podstawowa lub Premium?**
+
 Oferujemy bramę, która filtruje żądania i zapewnia ochronę przed botnetami. Jest ona stosowana we wszystkich dzierżawach B2C.
 
 ## <a name="application-access"></a>Dostęp do aplikacji
+
 **Pytanie: gdzie mogę znaleźć listę aplikacji, które są wstępnie zintegrowane z usługą Azure AD i jej funkcjami?**
 
 **Odpowiedź:** usługa Azure AD ma ponad 2600 wstępnie zintegrowanych aplikacji od firmy Microsoft, dostawców usług aplikacji i partnerów. Wszystkie wstępnie zintegrowane aplikacje obsługują logowanie jednokrotne. Logowanie jednokrotne umożliwia uzyskiwanie dostępu do aplikacji przy użyciu poświadczeń organizacji. Niektóre aplikacje obsługują również zautomatyzowaną aprowizację i cofanie aprowizacji.
