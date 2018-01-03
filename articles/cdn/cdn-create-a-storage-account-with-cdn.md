@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integracja z usługą Azure CDN konta magazynu platformy Azure
 Z magazynu Azure CDN można włączyć zawartości pamięci podręcznej. Oferuje deweloperom globalne rozwiązanie umożliwiające dostarczanie zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej wystąpień obliczeń w węzłach fizycznych w Stanów Zjednoczonych, Europa, Azja, Australia i Azji.
@@ -40,7 +40,7 @@ Aby utworzyć konto magazynu, musi być administratorem usługi albo współadmi
     
     **Utworzyć konto magazynu** zostanie wyświetlony blok.   
 
-    ![Tworzenie konta magazynu][create-new-storage-account]  
+    ![Utwórz konto magazynu][create-new-storage-account]  
 
 3. W **nazwa** wpisz nazwę domeny podrzędnej. Ten wpis może zawierać 3 do 24 małych liter i cyfr.
    
@@ -113,7 +113,7 @@ Jeśli nie chcesz już w pamięci podręcznej obiektu w usłudze Azure sieci dos
 
 Obiekt w sieci CDN już pamięci podręcznej pozostaje w pamięci podręcznej aż do zakończenia okresu czasu wygaśnięcia dla obiekt lub punkt końcowy jest wyczyszczone. Po wygaśnięciu okresu time-to-live CDN sprawdzi, czy punkt końcowy CDN jest nadal ważny i nadal anonimowo dostępny obiekt. Jeśli nie, obiekt już być buforowane.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Jak zamapować zawartość usługi CDN na domenę niestandardową](cdn-map-content-to-custom-domain.md)
 * [Włącz protokół HTTPS dla domeny niestandardowej](cdn-custom-ssl.md)
 

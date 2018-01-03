@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -43,13 +43,13 @@ Użyj wyzwalacz magazynu obiektów Blob, aby uruchomić funkcję o wykryciu nowy
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#trigger---c-example)
-* [Skryptu C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Skryptu C# (csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Wyzwalacz — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kod, który zapisuje dziennik w przypadku, gdy obiekt blob jest dodane lub zaktualizowane w `samples-workitems` kontenera.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) który zapisuje dziennik obiektu blob jest dodane lub zaktualizowane w `samples-workitems` kontenera.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Aby uzyskać więcej informacji na temat `BlobTrigger` atrybutów, zobacz [wyzwalacza — atrybuty](#trigger---attributes-for-precompiled-c).
+Aby uzyskać więcej informacji na temat `BlobTrigger` atrybutów, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Wyzwalacz — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Jeśli obiekt blob jest dodane lub zaktualizowane w funkcji zapisuje dziennik `samples-workitems` kontenera.
+W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Jeśli obiekt blob jest dodane lub zaktualizowane w funkcji zapisuje dziennik `samples-workitems` kontenera.
 
 W tym miejscu jest powiązanie danych *function.json* pliku:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, umożliwia skonfigurowanie wyzwalacza obiektu blob następujące atrybuty:
+W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurowanie wyzwalacza obiektu blob następujące atrybuty:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   }
   ```
 
-  Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
+  Pełny przykład, zobacz [wyzwalacza — przykład C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Użyj magazynu obiektów Blob wejściowa i wyjściowa powiązania do odczytywani
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#input--output---c-example)
-* [Skryptu C#](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [Skryptu C# (csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Dane wejściowe & e wyjściowe — przykład C#
 
-Poniżej przedstawiono przykład [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcja, która używa wyzwalacz obiektów blob i dwa powiązania obiektu blob danych wyjściowych. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
+Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz obiektów blob i output dwa powiązania obiektu blob. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Dane wejściowe & e wyjściowe — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob tekstu. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
+W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob tekstu. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
 
 W *function.json* pliku `queueTrigger` metadanych jest używana do określenia nazwy obiektów blob w `path` właściwości:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Wejście i wyjście — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktor atrybutu ma ścieżki do obiektu blob i `FileAccess` parametr wskazujący odczytu lub zapisu, jak pokazano w poniższym przykładzie:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-Pełny przykład, zobacz [dane wejściowe & e wyjściowe - prekompilowany C# przykład](#input--output---c-example).
+Pełny przykład, zobacz [danych wejściowych i wyjściowych — przykład C#](#input--output---c-example).
 
-Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes-for-precompiled-c).
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Wejście i wyjście — Konfiguracja
 
@@ -496,7 +496,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="input--output---usage"></a>Dane wejściowe & e wyjściowe — użycie
 
-Prekompilowany C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
 
 * `out string`
 * `TextWriter` 
@@ -513,7 +513,7 @@ Podczas czytania tekstu obiekty BLOB można powiązać `string` typu. Ten typ je
 
 W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Przejdź do szybkiego startu, który używa wyzwalacz magazynu obiektów Blob](functions-create-storage-blob-triggered-function.md)

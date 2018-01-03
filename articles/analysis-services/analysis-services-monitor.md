@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>Metryki serwera monitora
 
@@ -38,6 +38,7 @@ Aby wykonać więcej diagnostyki szczegółowe, śledzić wydajność i trendów
 
     ![Monitor wykresu](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Metryki serwera
 Użyj tej tabeli, aby określić, które metryki są najlepsze w przypadku danego scenariusza monitorowania. Na tym samym wykresie można pokazać tylko metryki tę samą jednostkę.
 
@@ -87,7 +88,7 @@ Użyj tej tabeli, aby określić, które metryki są najlepsze w przypadku daneg
 |TotalConnectionFailures|Całkowita liczba awarii|Licznik|Średnia|Całkowita liczba nieudanych prób połączenia.|
 |TotalConnectionRequests|Całkowita liczba połączeń żądań|Licznik|Średnia|Całkowita liczba połączeń żądania. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Monitorowanie w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metryki na platformie Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Metryki w monitorze Azure interfejsu API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx)

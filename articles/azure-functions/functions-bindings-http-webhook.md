@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure powiązania HTTP funkcje i elementu webhook
 
@@ -41,14 +41,14 @@ Domyślnie wyzwalacza HTTP odpowiada na żądania z kodem stanu HTTP 200 OK i pu
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#trigger---c-example)
-* [Skryptu C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Skryptu C# (csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Wyzwalacz — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) która szuka `name` parametru w ciągu zapytania lub w treści żądania HTTP.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) która szuka `name` parametru w ciągu zapytania lub w treści żądania HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#webhook---c-example)
-* [Skryptu C#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Skryptu C# (csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Element Webhook — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) wysyłają w odpowiedzi na żądanie ogólnego JSON 200 protokołu HTTP.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) wysyłają w odpowiedzi na żądanie ogólnego JSON 200 protokołu HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) zdefiniowanego w pakiecie NuGet atrybutu [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) zdefiniowanego w pakiecie NuGet atrybutu [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Można ustawić autoryzacja poziomu i dopuszczalnych metod HTTP w parametrach konstruktora atrybut, a nie ma właściwości dla elementu webhook szablonu typu i trasy. Aby uzyskać więcej informacji o tych ustawieniach, zobacz [wyzwalacza - konfiguracji](#trigger---configuration). Oto `HttpTrigger` atrybutu w podpisie metody:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
+Pełny przykład, zobacz [wyzwalacza — przykład C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Wyzwalacz — Konfiguracja
 
@@ -406,7 +406,7 @@ Aby odpowiedzieć elementów webhook GitHub, najpierw utwórz funkcji z wyzwalac
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Na przykład zobacz [Utwórz funkcję wyzwalane przez GitHub webhook](functions-create-github-webhook-triggered-function.md).
+Aby zapoznać się z przykładem, zobacz [Tworzenie funkcji wyzwalanej przez element webhook GitHub](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="slack-webhooks"></a>Slack elementów webhook
 
@@ -540,7 +540,7 @@ Za pomocą raportu HTTP powiązanie odpowiedź do nadawcy żądania HTTP. To pow
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
-Dla prekompilowanego C# nie ma żadnych danych wyjściowych — wiązanie konfiguracji właściwości. Aby wysłać odpowiedzi HTTP, należy zwracany typ funkcji `HttpResponseMessage` lub `Task<HttpResponseMessage>`.
+C# bibliotek klas nie ma żadnych danych wyjściowych — wiązanie konfiguracji właściwości. Aby wysłać odpowiedzi HTTP, należy zwracany typ funkcji `HttpResponseMessage` lub `Task<HttpResponseMessage>`.
 
 W przypadku innych języków powiązania wyjściowego HTTP jest zdefiniowany jako obiekt JSON w `bindings` tablicy function.json, jak pokazano w poniższym przykładzie:
 
@@ -564,7 +564,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 Można użyć parametru wyjściowego odpowiadać obiektowi wywołującemu, HTTP lub elementu webhook. Można również użyć wzorców odpowiedzi standard języka. Na przykład odpowiedzi, zobacz [przykład wyzwalacza](#trigger---example) i [przykład elementu webhook](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

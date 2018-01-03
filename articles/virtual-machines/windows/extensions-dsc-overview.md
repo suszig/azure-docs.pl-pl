@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Wprowadzenie do obsługi rozszerzenia konfiguracji żądanego stanu usługi Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ W tym artykule przedstawiono rozszerzenia konfiguracji żądanego stanu środowi
 ## <a name="terms-and-concepts"></a>Definicje terminów i pojęć
 W tym przewodniku zakłada się znajomość następujące kwestie:
 
-Konfiguracja — dokumentacja konfiguracji DSC. 
-
-Węzeł - obiektu docelowego dla konfiguracji DSC. W tym dokumencie na zawsze "węzła" odwołuje się do maszyny Wirtualnej platformy Azure.
-
-Dane konfiguracji — psd1 pliku zawierającego dane środowiska konfiguracji
+* **Konfiguracja** — dokumentacja konfiguracji A DSC. 
+* **Węzeł** -obiektu docelowego dla konfiguracji DSC. W tym dokumencie na zawsze "węzła" odwołuje się do maszyny Wirtualnej platformy Azure.
+* **Dane konfiguracji** — plik psd1 zawierający dane środowiska konfiguracji
 
 ## <a name="architectural-overview"></a>Omówienie architektury
 Rozszerzenia usługi Konfiguracja DSC Azure używa framework Agent maszyny Wirtualnej do dostarczania, wprowadza i raport o konfiguracji DSC uruchomionych na maszynach wirtualnych platformy Azure. Rozszerzenia DSC oczekuje, że plik zip zawierający co najmniej jeden dokument konfiguracji i zestaw parametrów udostępniane przez zestaw SDK usługi Azure PowerShell lub za pośrednictwem portalu Azure.
@@ -146,9 +144,11 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Rejestrowanie
 Dzienniki są umieszczane w:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[numer wersji]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o konfiguracji DSC środowiska PowerShell [odwiedź Centrum dokumentacji programu PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
 Sprawdź [szablonu usługi Azure Resource Manager dla rozszerzenia DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

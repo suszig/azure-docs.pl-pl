@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Zastąp węzeł jednostki skali w systemie Azure stosu zintegrowane
 
@@ -51,6 +51,10 @@ Po otwarciu alert "węzeł jednostki skalowania jest w trybie offline" Opis aler
 Następujące kroki służą jako ogólne omówienie procesu wymiany węzła jednostki skalowania. W dokumentacji dostawcy sprzętu OEM FRU szczegółowy opis kroków, które są specyficzne dla systemu. Bez odwołujących się do dokumentacji przez producentów OEM nie wykonaj następujące kroki.
 
 1. Użyj [opróżnienia](azure-stack-node-actions.md#scale-unit-node-actions) akcji w celu uruchomienia trybu konserwacji węzła jednostki skalowania. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
+
+   > [!NOTE]
+   > W każdym przypadku opróżnione można tylko jeden węzeł i odłączony od zasilania w tym samym czasie bez przerywania dysków SSD (bezpośrednie miejsca do magazynowania).
+
 2. Jeśli węzeł nadal jest włączona, należy użyć [wyłączenie](azure-stack-node-actions.md#scale-unit-node-actions) akcji. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
  
    > [!NOTE]
@@ -61,7 +65,7 @@ Następujące kroki służą jako ogólne omówienie procesu wymiany węzła jed
 3. Użyj uprzywilejowanych punktu końcowego [sprawdzić stan naprawy dysku wirtualnego](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Nowe dyski danych zadania naprawy pełne magazynu może zająć kilka godzin w zależności od obciążenia systemu i zużytego miejsca.
 4. Akcja naprawy zakończy działanie, aby zweryfikować, że wszystkie aktywne alerty zostało automatycznie zamknięte.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Uzyskać informacji dotyczących zastępowania wyłączania dysku fizycznego, zobacz [wymienić dysk](azure-stack-replace-disk.md). 
 - Aby dowiedzieć się, jak wymiana sprzętu z systemem innym niż wyłączania składnika, zobacz [Zastąp składnik sprzętowy](azure-stack-replace-component.md). 

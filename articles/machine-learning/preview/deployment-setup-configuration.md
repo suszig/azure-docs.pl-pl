@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
@@ -84,10 +84,12 @@ Po zakończeniu instalacji środowiska:
 - W procesie uwierzytelniania zostanie wyświetlony monit o konta do uwierzytelniania. Ważne: Należy wybrać konto, które ma ważnej subskrypcji platformy Azure i wystarczających uprawnień do utworzenia zasobów na koncie. - zobaczy podczas logowania zostanie zakończone, informacji o subskrypcji i zostanie wyświetlony monit, czy chcesz kontynuować z wybrane konto.
 
 ### <a name="environment-setup"></a>Konfigurowanie środowiska
-Aby rozpocząć proces instalacji, należy zarejestrować dostawcę środowiska, wprowadzając następujące polecenie:
+Aby rozpocząć proces instalacji, należy zarejestrować kilku dostawców środowiska, wprowadzając następujące polecenia:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Wdrożenia lokalnego
 Aby wdrożyć i przetestować usługi sieci web na komputerze lokalnym, należy skonfigurować środowisko lokalne za pomocą następującego polecenia. Nazwa grupy zasobów jest opcjonalna.
@@ -169,5 +171,5 @@ Teraz można przystąpić do wdrażania modelu zapisane w postaci usługi sieci 
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Wypróbuj jedną z wielu próbek w galerii.

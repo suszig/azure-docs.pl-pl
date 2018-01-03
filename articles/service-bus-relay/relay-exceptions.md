@@ -1,6 +1,6 @@
 ---
 title: "Wyjątki przekaźnika usługi Azure i sposobu ich rozwiązania | Dokumentacja firmy Microsoft"
-description: "Pobierz listę wyjątków przekazywania Azure i wyświetlić sugerowane akcje, które można wykonać w celu ich rozwiązania."
+description: "Lista wyjątki przekazywania Azure i wyświetlić sugerowane akcje, które można wykonać w celu ich rozwiązania."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Wyjątki przekaźnika usługi Azure
 
@@ -65,7 +65,7 @@ Do przekazywania, zawijany ten wyjątek [System.ServiceModel.QuotaExceededExcept
 ## <a name="timeoutexception"></a>TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) wskazuje, że użytkownik zainicjował operację trwa dłużej niż limit czasu operacji. 
 
-Sprawdź wartość [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) właściwości. Naciśnięcie tego limitu mogą dodatkowo powodować [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Sprawdź wartość [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) właściwości. Osiągnięciu tego limitu mogą dodatkowo powodować [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 Do przekazywania może zostać wyświetlony wyjątków przekroczenia limitu czasu, po pierwszym otwarciu połączenia nadawcy przekazywania. Istnieją dwie typowe przyczyny tego wyjątku:
 
@@ -89,7 +89,7 @@ Istnieją dwie typowe przyczyny tego błędu:
 
     Od czasu do czasu usługa przekaźnika mogą wystąpić opóźnienia podczas przetwarzania żądania. To może się zdarzyć, na przykład w okresach dużego natężenia ruchu sieciowego. W takim przypadku ponów operację z opóźnieniem, aż operacja się powiodła. Sprawdź, czy w tej samej operacji zakończy się niepowodzeniem po wielu próbach, [lokacji stanu usługi Azure](https://azure.microsoft.com/status/) aby zobaczyć, czy istnieją znane awarie usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przekaźnik Azure — często zadawane pytania](relay-faq.md)
 * [Tworzenie przestrzeni nazw przekazywania](relay-create-namespace-portal.md)
 * [Rozpoczynanie pracy z przekaźnika usługi Azure i .NET](relay-hybrid-connections-dotnet-get-started.md)

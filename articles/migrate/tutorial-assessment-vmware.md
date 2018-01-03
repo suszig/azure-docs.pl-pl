@@ -4,13 +4,13 @@ description: "Opisuje sposób odnajdywania i oceny lokalnych maszyn wirtualnych 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Odnajdywanie i ocenić lokalnych maszyn wirtualnych VMware do migracji do usługi Azure
 
@@ -44,10 +44,10 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 ## <a name="create-a-project"></a>Utwórz projekt
 
 1. W portalu Azure kliknij **Utwórz zasób**.
-2. Wyszukaj **migracji Azure**i wybierz usługę (**Azure migracji (wersja zapoznawcza)** w wynikach wyszukiwania. Następnie kliknij pozycję **Utwórz**.
+2. Wyszukaj **migracji Azure**i wybierz usługę **Azure migracji (wersja zapoznawcza)** w wynikach wyszukiwania. Następnie kliknij pozycję **Utwórz**.
 3. Określ nazwę projektu i subskrypcji platformy Azure dla projektu.
 4. Utwórz nową grupę zasobów.
-5. Określ region, w którym można utworzyć projekt, a następnie kliknij przycisk **Utwórz**. Metadane zebranych z lokalnych maszyn wirtualnych będą przechowywane w tym regionie. Projekt platformy Azure migracji można utworzyć tylko w regionu zachodnie centralnej nam dla tej wersji zapoznawczej. Można jednak nadal planowania migracji dla dowolnego obiektu docelowego lokalizacji platformy Azure. 
+5. Określ lokalizację, w której można utworzyć projekt, a następnie kliknij przycisk **Utwórz**. Projekt platformy Azure migracji można utworzyć tylko w regionu zachodnie centralnej nam dla tej wersji zapoznawczej. Można jednak nadal planowania migracji dla dowolnego obiektu docelowego lokalizacji platformy Azure. Lokalizacja określona dla projektu jest używana tylko do przechowywania metadanych zebranych z lokalnych maszyn wirtualnych. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -108,19 +108,24 @@ Pobrany plik należy zaimportować do programu vCenter Server.
 1. W konsoli klienta vSphere, kliknij prawym przyciskiem myszy maszyny Wirtualnej > **Otwórz konsolę**.
 2. Podaj języka, strefa czasowa i hasło preferencje dotyczące urządzenia.
 3. Na pulpicie kliknij **uruchom moduł zbierający** skrótów.
-4. Moduł zbierający Azure migracji, otwórz **ustawić wstępne**.
+4. Moduł zbierający Azure migracji, otwórz **konfigurowanie wymagań wstępnych**.
     - Zaakceptuj postanowienia licencyjne, a odczytać informacji o innych firm.
     - Moduł zbierający sprawdza, czy maszyna wirtualna ma dostęp do Internetu.
     - Jeśli maszyna wirtualna uzyskuje dostęp do Internetu za pośrednictwem serwera proxy, kliknij przycisk **ustawienia serwera Proxy**i określić adres serwera proxy i port nasłuchiwania. Określ poświadczenia, jeśli serwer proxy wymaga uwierzytelniania.
-    - Moduł zbierający sprawdza, czy usługa profilera systemu Windows jest uruchomiona. Usługa jest instalowany domyślnie w module zbierającym maszyny Wirtualnej.
+
+    > [!NOTE]
+    > Adres serwera proxy musi być wprowadzane w postaci http://ProxyIPAddress lub http://ProxyFQDN. Obsługiwane jest tylko serwer proxy HTTP.
+
+    - Moduł zbierający sprawdza, czy collectorservice jest uruchomiona. Usługa jest instalowany domyślnie w module zbierającym maszyny Wirtualnej.
     - Pobierz i zainstaluj VMware PowerCLI.
-. W **odnajdywanie maszyn**, wykonaj następujące czynności:
+
+5. W **Określ szczegóły serwera vCenter**, wykonaj następujące czynności:
     - Określ nazwę (FQDN) lub adres IP serwera vCenter.
     - W **nazwy użytkownika** i **hasło**, określ poświadczenia konta tylko do odczytu, które moduł zbierający będzie używane do wykrywania maszyn wirtualnych na serwerze vCenter.
     - W **zakresu kolekcji**, wybierz zakres odnajdywania maszyny Wirtualnej. Moduł zbierający można tylko odnajdywanie maszyn wirtualnych w podanym zakresie. Można ustawić zakresu na określony folder, w centrum danych lub w klastrze. Nie powinien on zawierać więcej niż 1000 maszyn wirtualnych. 
     - W **Tag kategorii do grupowania**, wybierz pozycję **Brak**.
-1. W **wybierz projekt**, określ identyfikator projektu migracji Azure i klucza skopiowany z portalu. Jeśli nie skopiuj je, otwórz Azure portal z modułu zbierającego maszyny Wirtualnej. W projekcie **omówienie** kliknij przycisk **odnajdywanie maszyn**i skopiuj wartości.  
-2. W **pełne odnajdowanie**, monitorować odnajdywania i sprawdź, że metadane zbierane z maszyn wirtualnych znajduje się w zakresie. Moduł zbierający zapewnia odnajdywania przybliżony czas.
+6. W **Określ migrację**, określ identyfikator projektu migracji Azure i klucza skopiowany z portalu. Jeśli nie skopiuj je, otwórz Azure portal z modułu zbierającego maszyny Wirtualnej. W projekcie **omówienie** kliknij przycisk **odnajdywanie maszyn**i skopiuj wartości.  
+7. W **wyświetlić postęp kolekcji**, monitorować odnajdywania i sprawdź, że metadane zbierane z maszyn wirtualnych znajduje się w zakresie. Moduł zbierający zapewnia odnajdywania przybliżony czas.
 
 > [!NOTE]
 > Moduł zbierający obsługuje tylko "Angielski (Stany Zjednoczone)" jako język systemu operacyjnego i język interfejsu modułu zbierającego. Obsługę innych języków będzie dostępna wkrótce.
@@ -152,7 +157,7 @@ Oto przykładowy raport oceny. Zawiera ona informacje dotyczące tego, czy maszy
 
 ![Raport oceny](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Azure gotowości
+#### <a name="azure-readiness"></a>Gotowość na platformę Azure
 
 Ten widok przedstawia stan gotowości dla każdego komputera.
 
@@ -162,7 +167,7 @@ Ten widok przedstawia stan gotowości dla każdego komputera.
 
   ![Oceny gotowości](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Miesięczne szacowania kosztów
+#### <a name="monthly-cost-estimate"></a>Szacowany koszt miesięczny
 
 Ten widok przedstawia całkowity obliczeniowych i przestrzeni magazynowej uruchomionych maszyn wirtualnych na platformie Azure oraz szczegóły dotyczące poszczególnych maszyn. Szacowanie kosztów są obliczane przy użyciu zalecenia na podstawie rozmiaru dla komputera i jego dysków i właściwości oceny. 
 
@@ -177,8 +182,8 @@ Można następnie przejść do szczegółów można znaleźć określonej maszyn
 
 ![Ocena koszt maszyny Wirtualnej](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-- [Dowiedz się](how-to-scale-assessment.md) sposobu konfigurowania ocenę dużej liczby komputerów lokalnych.
-- Dowiedz się, jak utworzyć bardziej szczegółowe grup oceny przy użyciu [mapowania zależności maszyny](how-to-create-group-machine-dependencies.md)
+- [Dowiedz się](how-to-scale-assessment.md) jak odnajdywać i oceny dużych środowisku VMware.
+- Informacje o tworzeniu grup oceny wysokiego zaufania przy użyciu [mapowania zależności maszyny](how-to-create-group-machine-dependencies.md)
 - [Dowiedz się więcej](concepts-assessment-calculation.md) o obliczania oceny.

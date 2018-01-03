@@ -14,17 +14,21 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 1dc4ad3dd383e8927be73bcd0a064b6c36a9bc54
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Często zadawane pytania i znane problemy z zarządzania usługi tożsamości (MSI) dla usługi Azure Active Directory
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Często zadawane pytania
+
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>Dostępne dla dodatkowych funkcji jest prywatnej wersji zapoznawczej?
+
+Tak. Jeśli chcesz wziąć pod uwagę dla rejestracji w prywatnej wersji zapoznawczej [odwiedź naszą stronę tworzenia konta](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI działa z usługami w chmurze Azure?
 

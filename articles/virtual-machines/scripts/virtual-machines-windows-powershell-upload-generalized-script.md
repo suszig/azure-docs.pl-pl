@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/18/2017
+ms.date: 01/02/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cd3d87bb4384971e28d3330cd5c1a3d351129036
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Przykładowy skrypt do przekazania dysku VHD na platformie Azure i utworzyć nową maszynę Wirtualną
 
@@ -151,7 +151,7 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każdy 
 | [Nowe AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Utwórz maszynę wirtualną.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Usuwa grupę zasobów i wszystkie zasoby zawarte w ciągu.                                                                                                                         |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 

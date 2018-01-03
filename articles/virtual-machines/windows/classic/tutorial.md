@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: 0a80599df07767cd6a117157fc699315cce7ad23
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Utwórz maszynę wirtualną z systemem Windows w portalu Azure
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](tutorial.md)
+> * [Azure portal](tutorial.md)
 > * [Środowiska PowerShell: Wdrożenia klasycznego](create-powershell.md)
 >
 >
@@ -43,7 +43,7 @@ Można również tworzyć maszyny wirtualne przy użyciu [własnych obrazów](cr
 ## <a id="createvirtualmachine"></a>Utwórz maszynę wirtualną
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [utworzyć Maszynę wirtualną przy użyciu modelu wdrażania usługi Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) w portalu Azure.
 * Zaloguj się do maszyny wirtualnej. Aby uzyskać instrukcje, zobacz [Zaloguj się do maszyny wirtualnej z systemem Windows Server](connect-logon.md).
 * Dołączanie dysku do przechowywania danych. Możesz dołączyć zarówno puste dyski i dyski, które zawierają dane. Aby uzyskać instrukcje, zobacz [dołączenie dysku danych do maszyny wirtualnej systemu Windows utworzone z klasycznym modelu wdrażania](attach-disk.md).

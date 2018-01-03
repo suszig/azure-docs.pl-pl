@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fd8bb41925753b9955d2cbd7a0e13a5e9451d5b1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)
 
-Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
+Ten artykuł zawiera zlecenia, które uwagi 0.9.3 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
 
 [Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)](./vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która pozwala łatwo pracować z danymi usługi Azure Storage w systemie Windows, macOS i Linux.
 
@@ -34,7 +34,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 - [Eksplorator usługi Azure Storage 0.9.3 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Eksplorator usługi Azure Storage 0.9.3 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nowy
+### <a name="new"></a>Nowa
 * Twoje istniejące okno Eksploratora magazynu będzie ponownie użyte podczas:
     * Otwieranie linki bezpośrednie generowane w Eksploratorze usługi Storage.
     * Otwieranie Eksploratora magazynu z portalu.
@@ -92,7 +92,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 * Błędna domeny punktów końcowych dla usługi Azure instytucji rządowych Stanów Zjednoczonych. Został rozwiązany.
 * Przycisk Zastosuj w panelu Zarządzanie kontami jest czasami trudno kliknij przycisk. Nie powinno to nastąpić.
 
-### <a name="new"></a>Nowy
+### <a name="new"></a>Nowa
 * Obsługa podglądu bazy danych Azure rozwiązania Cosmos.
     * [Dokumentację w trybie online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Tworzenie baz danych i kolekcji
@@ -172,7 +172,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 ## <a name="version-091--090-preview"></a>W wersji od 0.9.1 / 0.9.0 (wersja zapoznawcza)
 10/20/2017
-### <a name="new"></a>Nowy
+### <a name="new"></a>Nowa
 * Obsługa podglądu bazy danych Azure rozwiązania Cosmos.
     * [Dokumentację w trybie online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Tworzenie baz danych i kolekcji
@@ -227,7 +227,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 ## <a name="version-0816"></a>Wersja 0.8.16
 8/21/2017
 
-### <a name="new"></a>Nowy
+### <a name="new"></a>Nowa
 * Po otwarciu obiektu blob Eksploratora usługi Storage spowoduje wyświetlenie monitu o Przekaż pobrany plik, jeśli zmiana zostaje wykryta
 * Rozszerzony stos Azure logowania
 * Zwiększono wydajność przekazywania/pobieranie wiele małych plików w tym samym czasie
@@ -267,7 +267,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 ### <a name="version-0814"></a>Wersja 0.8.14
 06/22/2017
 
-### <a name="new"></a>Nowy
+### <a name="new"></a>Nowa
 
 * Zaktualizowana wersja elektronów do 1.7.2, aby można było skorzystać z kilku aktualizacji krytycznych
 * Możesz teraz szybko uzyskiwać dostęp online przewodnik rozwiązywania problemów z menu Pomoc
@@ -294,7 +294,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 ### <a name="version-0813"></a>Wersja 0.8.13
 05/12/2017
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Rozwiązywanie problemów z Eksploratora usługi Storage [przewodnik][2]
 * [Instrukcje] [ 3] na nawiązywanie połączenia z subskrypcją platformy Azure stosu
@@ -329,7 +329,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 ### <a name="version-0812--0811--0810"></a>Wersja 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Eksplorator usługi Storage teraz zostanie automatycznie zamknięte podczas instalacji aktualizacji z powiadomienie o aktualizacji
 * Szybki dostęp w miejscu udostępnia udoskonalone środowisko do pracy z często używanych zasobów
@@ -377,7 +377,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Eksplorator usługi Storage 0.8.9 automatycznie pobierze najnowszą wersję aktualizacji.
 * Poprawka: przy użyciu portalu wygenerowanego identyfikatora URI połączenia SAS do podłączenia konta magazynu spowoduje błąd.
@@ -407,7 +407,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Można wybrać sposób rozwiązywania konfliktów na początku sesji aktualizacji, pobieranie lub kopiowanie w oknie działań
 * Umieść kursor nad kartę, aby wyświetlić pełną ścieżkę zasobów pamięci masowej
@@ -434,7 +434,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 11/18/2016
 ### <a name="version-086"></a>Wersja 0.8.6
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Można teraz numer pin najczęściej używane usług szybki dostęp do ułatwienia nawigacji
 * Teraz możesz otworzyć wiele edytorów na różnych kartach. Jednego kliknięcia, aby otworzyć kartę tymczasowego; Kliknij dwukrotnie, aby otworzyć kartę trwałych. Możesz również kliknąć na karcie tymczasowy, aby stał się na karcie stałe
@@ -472,7 +472,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 10/03/2016
 ### <a name="version-085"></a>Wersja 0.8.5
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Klucze generowane przez Portal SAS mogą teraz używać do dołączenia do przechowywania kont i zasobów
 
@@ -495,7 +495,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Generowanie linki bezpośrednie do kont magazynu, kontenerów, kolejek, tabel lub udziały plików do udostępniania i obsługuje łatwy dostęp do zasobów — Windows i Mac OS
 * Wyszukaj kontenerów obiektów blob, tabel, kolejek, udziałów plików lub kont magazynu w polu wyszukiwania
@@ -516,7 +516,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Zmień nazwę kontenerów, tabel, udziałów plików
 * Udoskonalone środowisko konstruktora zapytań
@@ -542,7 +542,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Konta magazynu są pogrupowane według subskrypcji; Programowanie magazynu i zasobów dołączonych za pomocą klucza lub SAS są wyświetlane w węźle (lokalny i załączone)
 * Wyloguj z konta w panelu "Ustawienia konta Azure"
@@ -569,7 +569,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Obsługa udziału plików: wyświetlanie, przekazywanie, pobieranie, kopiowania plików i katalogów, identyfikatory URI SAS (Tworzenie i łączenie)
 * Udoskonalona obsługa połączenie z magazynem z kluczami identyfikatory URI SAS lub konta
@@ -592,7 +592,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 05/17/2016
 ### <a name="version-07201605090"></a>Wersja 0.7.20160509.0
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Awarie lepszą obsługę błędów dla aplikacji
 
@@ -613,7 +613,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Tabela wsparcia: przeglądanie, wyszukiwanie, eksportu, importowania i operacji CRUD dla jednostek
 * Kolejka pomocy technicznej: przeglądanie, dodawanie dequeueing wiadomości
@@ -645,7 +645,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 
 ### <a name="version-07201601050"></a>Wersja 0.7.20160105.0
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * Obsługa systemu Linux (parzystość funkcji do systemu OS x)
 * Dodaj kontenerów obiektów blob z kluczem dostępu sygnatur dostępu Współdzielonego
@@ -675,7 +675,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.2 Eksploratora usługi Azure Sto
 11/18/2015
 ### <a name="version-07201511160"></a>Wersja 0.7.20151116.0
 
-#### <a name="new"></a>Nowy
+#### <a name="new"></a>Nowa
 
 * System macOS i wersji systemu Windows
 * Zaloguj się do wyświetlania kont magazynu — użyć konta organizacji, Account firmy Microsoft, 2FA itp.

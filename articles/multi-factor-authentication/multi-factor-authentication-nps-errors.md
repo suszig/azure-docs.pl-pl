@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Komunikatami o błędach z rozszerzenia serwera NPS uwierzytelnianie wieloskładnikowe Azure
 
@@ -96,7 +96,7 @@ Jeśli wystąpią jeden z tych błędów, zaleca się możesz [się z pomocą te
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ### <a name="troubleshoot-user-accounts"></a>Rozwiązywanie problemów z kontami użytkownika
 
@@ -106,9 +106,10 @@ Jeśli użytkownicy są [wystąpił problem w trakcie weryfikacji dwuetapowej](.
 
 Jeśli potrzebujesz dodatkowej pomocy, skontaktuj się z pracownikiem pomocy technicznej za pośrednictwem [obsługi serwera usługi Azure Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Podczas kontaktowania się z nami, jest przydatne, jeśli te informacje mogą obejmować o problem jak to możliwe. Możesz podać informacje zawiera strony, na którym był wyświetlany błąd, kod błędu identyfikator określonej sesji, identyfikator użytkownika, który był wyświetlany błąd, dzienników i debugowania.
 
-Do zbierania dzienników debugowania dla diagnostyki pomocy technicznej, wykonaj następujące kroki: 
+Do zbierania dzienników debugowania dla diagnostyki pomocy technicznej, wykonaj następujące kroki na serwerze zasad Sieciowych:
 
-1. Otwórz wiersz polecenia administratora i uruchom następujące polecenia:
+1. Otwórz Edytor rejestru i przejdź do zestawu HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** do **TRUE**
+2. Otwórz wiersz polecenia administratora i uruchom następujące polecenia:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Do zbierania dzienników debugowania dla diagnostyki pomocy technicznej, wykonaj
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Odtwórz problem
+3. Odtwórz problem
 
-3. Zatrzymaj śledzenie przy użyciu następujących poleceń:
+4. Zatrzymaj śledzenie przy użyciu następujących poleceń:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Do zbierania dzienników debugowania dla diagnostyki pomocy technicznej, wykonaj
    Start .
    ```
 
-4. Pliku zip zawartość folderu C:\NPS i Dołącz plik zip do sprawę pomocy technicznej.
+5. Otwórz Edytor rejestru i przejdź do zestawu HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** do **FALSE**
+6. Pliku zip zawartość folderu C:\NPS i Dołącz plik zip do sprawę pomocy technicznej.
 
 

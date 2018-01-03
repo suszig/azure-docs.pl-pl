@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Tworzenie i zarządzanie zasadami, by wymuszał zgodność
 
@@ -33,31 +33,31 @@ Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać d
 
 1. Uruchom usługę Azure zasad w portalu Azure wyszukiwanie i wybierając **zasad** w okienku po lewej stronie.
 
-   ![Wyszukaj zasady](media/assign-policy-definition/search-policy.png)
+   ![Wyszukiwanie zasad](media/assign-policy-definition/search-policy.png)
 
-2. Wybierz **przypisania** w okienku po lewej stronie Azure zasad. Przypisanie jest zasada, która została przypisana do odbywać się w określonym zakresie.
-3. Wybierz **przypisać zasady** od góry **przypisania** okienka.
+2. Wybierz pozycję **Przypisania** w lewym okienku na stronie Azure Policy. Przypisanie jest zasada, która została przypisana do odbywać się w określonym zakresie.
+3. Wybierz pozycję **Przypisz zasady** w górnej części okienka **Przypisania**.
 
-   ![Przypisz definicji zasad](media/create-manage-policy/select-assign-policy.png)
+   ![Przypisywanie definicji zasad](media/create-manage-policy/select-assign-policy.png)
 
-4. Na **przypisać zasady** kliknij przycisk ![przycisk definicji zasad](media/assign-policy-definition/definitions-button.png) obok **zasad** pole, aby otworzyć listę dostępnych definicji.
+4. Na stronie **Przypisz zasady** kliknij ![przycisk definicji zasad](media/assign-policy-definition/definitions-button.png) obok pola **Zasady**, aby otworzyć listę dostępnych definicji.
 
-   ![Definicje Otwórz dostępnych zasad](media/create-manage-policy/open-policy-definitions.png)
+   ![Otwieranie dostępnych definicji zasad](media/create-manage-policy/open-policy-definitions.png)
 
 5. Wybierz **wymagają programu SQL Server w wersji 12.0**.
 
    ![Zlokalizuj zasady](media/create-manage-policy/select-available-definition.png)
 
-6. Podaj wyświetlenie **nazwa** dla przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
-7. Zmiana warstwy cenowej do **standardowe** aby upewnić się, że zasady stosowany do istniejących zasobów.
+6. Określ właściwość **Nazwa** przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
+7. Zmień warstwę cenową na **Standardowa**, aby upewnić się, że zasady zostaną zastosowane do istniejących zasobów.
 
-   Istnieją dwie warstwy cenowej w ramach zasad usługi Azure — *wolne* i *standardowe*. Z warstwę bezpłatna, może tylko wymuszać zasady na przyszłe zasoby, podczas gdy w przypadku Standard, można również wymusić je na istniejących zasobów, aby lepiej zrozumieć swój stan zgodności. Ponieważ firma Microsoft są ograniczone w wersji zapoznawczej, firma Microsoft ma nie zostało jeszcze udostępnione modelu cenowego, więc nie otrzymają rachunek za wybranie *standardowe*. Aby dowiedzieć się więcej o cenach, obejrzyj: [cennik zasadami Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Usługa jest nadal dostępna w ograniczonej wersji zapoznawczej, dlatego nie wprowadziliśmy jeszcze modelu cenowego, w związku z czym nie otrzymasz rachunku za wybranie warstwy *Standardowa*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) został wcześniej zarejestrowany. Zakres Określa, jakie zasoby lub grupowanie zasobów przypisania zasad pobiera wymuszane na. Mogą obejmować z subskrypcji z grupami zasobów.
+8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) został wcześniej zarejestrowany. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów.
 
    W tym przykładzie używamy tej subskrypcji - **Azure Analytics pojemności deweloperów**. Subskrypcji będą się różnić.
 
-10. Wybierz **przypisać**.
+10. Wybierz opcję **Przypisz**.
 
 ## <a name="implement-a-new-custom-policy"></a>Wdrożenie nowych zasad niestandardowych
 
@@ -73,12 +73,12 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
    - Nazwa definicji zasad - *wymagają wirtualna jednostki SKU mniejszy niż serii G*
    - Opis definicji zasad ma na celu — tej definicji zasad wymusza, że wszystkie maszyny wirtualne utworzone w tym zakresie mają jednostki SKU mniejszy niż serii G będzie zmniejszenie kosztów.
    - Subskrypcji, w którym definicji zasad będzie funkcjonować — w takim przypadku naszej definicji zasad będzie funkcjonować **Advisor Analytics pojemności deweloperów**. Listy subskrypcji będą się różnić.
-   - Pisanie kodu json przy użyciu:
+   - Skopiuj poniższy kod json, a następnie zaktualizuj go do potrzeb z:
       - Parametry zasad.
       - Zasady reguły/warunków, w tym przypadku — równa serii G rozmiar jednostki SKU maszyny Wirtualnej
       - Wpływ zasad, w tym przypadku — **Odmów**.
 
-    Oto, jak powinna wyglądać json
+    Oto, jak powinna wyglądać json. Wklej poprawione kodu do portalu Azure.
 
     ```json
 {
@@ -364,13 +364,13 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
    - Warstwa cenowa: standardowy
    - zakres, które chcesz zastosować do przypisania: **deweloperów pojemności Advisor Azure**
 
-5. Wybierz **przypisać**.
+5. Wybierz opcję **Przypisz**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Rozwiąż niezgodnych lub odmówiono zasobu
 
 Następujący przykład powyżej, po przypisaniu do wymagają programu SQL server w wersji 12.0 definicji zasad utworzonych za pomocą innej wersji programu SQL server może pobrać odmowa. W tej sekcji możemy Cię Instruktaż rozpoznawania odmowy próba utworzenia programu SQL server w innej wersji przez zażądanie wykluczenie.
 
-1. Wybierz **przypisania** w lewym okienku.
+1. Wybierz pozycję **Przypisania** w lewym okienku.
 2. Przeglądaj wszystkie przypisania zasady, a następnie uruchom *wymagają programu SQL Server 12.0* przypisania.
 3. Żądanie wykluczenie dla grupy zasobów, w których chcesz utworzyć program SQL server. W tym przypadku są bez Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* i *baconandbeer/Chorizo*.
 
@@ -390,7 +390,7 @@ Jeśli zamierzasz kontynuować pracę z kolejnych samouczkach nie wyczyścić za
 2. Wyszukaj nowe inicjatywy lub zasad definicji (lub przydziału), który został właśnie utworzony.
 3. Wybierz Wielokropek na końcu definicji lub przypisania, a następnie wybierz **usunąć definicji** (lub **usunąć przypisanie**).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku pomyślnie wykonano następujące czynności:
 

@@ -2,30 +2,23 @@
 title: "Utwórz zasoby do użycia z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak przygotować Azure do replikację maszyn lokalnych przy użyciu usługi Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Przygotowanie zasobów Azure dla replikację maszyn lokalnych
 
 [Usługi Azure Site Recovery](site-recovery-overview.md) usługi przyczynia się do ciągłości i odzyskiwaniem po awarii (BCDR) odzyskiwania strategią biznesową, zatrzymując aplikacji biznesowych i uruchamiając dostępne podczas planowanych lub nieplanowanych przestojów. Usługa Site Recovery zarządza i organizuje odzyskiwania po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure (maszyny wirtualne), łącznie z replikacji, trybu failover i odzyskiwania.
 
-Ten samouczek pokazuje, jak przygotować składniki platformy Azure, jeśli chcesz replikować lokalne maszyny wirtualne i serwerów fizycznych do platformy Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek pokazuje, jak przygotować składniki platformy Azure, jeśli chcesz replikować do platformy Azure VMs lokalnymi (Hyper-V lub programu VMware) lub serwerach fizycznych systemu Windows i Linux. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Sprawdź, czy konto ma uprawnienia do replikacji
@@ -40,10 +33,10 @@ Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com.
 
 ## <a name="verify-account-permissions"></a>Sprawdź uprawnienia konta
 
-Jeśli właśnie utworzony bezpłatne konto platformy Azure jesteś administratorem subskrypcji. Jeśli nie jesteś administratorem subskrypcji, współpracować z administratorem, aby przypisać uprawnienia, które są potrzebne. Aby włączyć replikację dla nowej maszyny wirtualnej, musi być:
+Jeśli właśnie utworzony bezpłatne konto platformy Azure, użytkownik jest administratorem subskrypcji. Jeśli nie jesteś administratorem subskrypcji, współpracować z administratorem, aby przypisać uprawnienia, które są potrzebne. Aby włączyć replikację dla nowej maszyny wirtualnej, musi być:
 
-- Uprawnienia do tworzenia maszyny wirtualnej w wybranej grupy zasobów
-- Uprawnienia do tworzenia maszyny wirtualnej w wybranej sieci wirtualnej
+- Uprawnienia do tworzenia maszyny Wirtualnej w wybranej grupy zasobów
+- Uprawnienia do tworzenia maszyny Wirtualnej w wybranej sieci wirtualnej
 - Uprawnienia do zapisu do wybranego konta magazynu
 
 Wbudowane roli "Współautor maszyny wirtualnej" ma te uprawnienia. Należy również uprawnienia do zarządzania operacjami usługi Azure Site Recovery. Roli "Współautor odzyskiwania lokacji" ma wszystkie uprawnienia wymagane do zarządzania operacjami usługi Site Recovery w magazynie usług odzyskiwania.
@@ -53,13 +46,13 @@ Wbudowane roli "Współautor maszyny wirtualnej" ma te uprawnienia. Należy rów
 Obrazy maszyn replikowanych są przechowywane w magazynie Azure. Maszyny wirtualne platformy Azure są tworzone z magazynu, jeśli możesz przełączyć się z lokalnymi na platformie Azure.
 
 1. W [portalu Azure](https://portal.azure.com) menu, kliknij przycisk **nowy** -> **magazynu** -> **konta magazynu**.
-2. Wprowadź nazwę konta magazynu. Te samouczki używamy nazwy **contosovmsacct1910171607**. Nazwa musi być unikatowa w obrębie platformy Azure i należeć do zakresu od 3 do 24 znaków, witn cyfry i małe litery.
+2. Wprowadź nazwę konta magazynu. Te samouczki używamy nazwy **contosovmsacct1910171607**. Nazwa musi być unikatowa w obrębie platformy Azure i należeć do zakresu od 3 do 24 znaków, cyfry i małe litery.
 3. Użyj **Resource Manager** modelu wdrażania.
 4. Wybierz **ogólnego przeznaczenia** > **standardowe**.
 5. Wybierz domyślną **RA-GRS** nadmiarowości magazynu.
 6. Wybierz subskrypcję, w ramach której chcesz utworzyć nowe konto magazynu.
 7. Określ nową grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Te samouczki używamy nazwy **ContosoRG**.
-8. Wybierz lokalizację geograficzną dla swojego konta magazynu. Konto magazynu musi być w tym samym regionie co magazyn usług odzyskiwania. Te samouczki używamy lokalizacji **Europa**.
+8. Wybierz lokalizację geograficzną dla swojego konta magazynu. Konto magazynu musi być w tym samym regionie co magazyn usług odzyskiwania. Te samouczki używamy **Europa** regionu.
 
    ![Utwórz storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Obrazy maszyn replikowanych są przechowywane w magazynie Azure. Maszyny wirtual
     **kopii zapasowych i odzyskiwania lokacji**.
 2. W polu **Nazwa** wprowadź przyjazną nazwę identyfikującą magazyn. W tym samouczku używamy **ContosoVMVault**.
 3. Wybierz istniejącą grupę zasobów o nazwie **contosoRG**.
-4. Określ region platformy Azure **Europa**.
+4. Określ region platformy Azure **Europa**, które firma Microsoft korzysta z tego zestawu samouczki.
 5. Aby szybko uzyskać dostęp do magazynu z pulpitu nawigacyjnego, kliknij przycisk **Przypnij do pulpitu nawigacyjnego** > **Utwórz**.
 
    ![Nowy magazyn](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -97,7 +90,7 @@ Po utworzeniu maszyn wirtualnych platformy Azure z magazynu po pracy awaryjnej j
 
    Sieć wirtualna ma kilka sekund, aby utworzyć. Po utworzeniu, sprawdzić w pulpicie nawigacyjnym portalu Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Przygotowywanie lokalnej infrastruktury VMware do odzyskiwania awaryjnego na platformie Azure](tutorial-prepare-on-premises-vmware.md)

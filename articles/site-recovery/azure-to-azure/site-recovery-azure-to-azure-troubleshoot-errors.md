@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Rozwiązywanie problemów z replikacją maszyn wirtualnych Azure do platformy Azure
 
@@ -131,6 +131,20 @@ Jeśli nie widzisz maszyny Wirtualnej platformy Azure dla zaznaczenia po włącz
 
 Można użyć [Usuń stare skryptu konfiguracji ASR](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) i usuwanie starych konfiguracji usługi Site Recovery na maszynie Wirtualnej Azure. Maszyna wirtualna powinna zostać wyświetlona po włączeniu replikacji po usunięciu przestarzałą konfigurację.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stan inicjowania obsługi administracyjnej maszyny Wirtualnej jest nieprawidłowy (kod błędu 150019)
 
-## <a name="next-steps"></a>Następne kroki
+Aby włączyć replikację na maszynie Wirtualnej, stan inicjowania powinien być **zakończyło się pomyślnie**. Można sprawdzić stan maszyny Wirtualnej, wykonując poniższe kroki.
+
+1.  Wybierz **Eksploratora zasobów** z **wszystkie usługi** w portalu Azure.
+2.  Rozwiń węzeł **subskrypcje** listę i wybierz subskrypcję.
+3.  Rozwiń węzeł **ResourceGroups** listę i wybierz grupę zasobów maszyny wirtualnej.
+4.  Rozwiń węzeł **zasobów** listę i wybierz maszynę wirtualną
+5.  Sprawdź **provisioningState** w widoku wystąpienia po prawej stronie.
+
+### <a name="fix-the-problem"></a>Rozwiąż problem
+
+- Jeśli **provisioningState** jest ****, skontaktuj się z pomocą techniczną, podając szczegóły, aby rozwiązać.
+- Jeśli **provisioningState** jest **aktualizacji**, inne rozszerzenie mogą być pobieranie wdrożone. Sprawdź, czy są wszystkie trwających operacji na maszynie Wirtualnej, poczekaj na ich zakończenie i ponów próbę odzyskania lokacji nie powiodło się **włączyć replikację** zadania.
+
+## <a name="next-steps"></a>Kolejne kroki
 [Replikowanie maszyn wirtualnych platformy Azure](azure-to-azure-quickstart.md)

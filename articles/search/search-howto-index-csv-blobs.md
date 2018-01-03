@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indeksowanie obiektów blob CSV z indeksatora obiektów blob Azure Search
 Domyślnie [indeksatora obiektów blob Azure Search](search-howto-indexing-azure-blob-storage.md) analizuje rozdzielany tekst obiekty BLOB jako pojedynczy fragmentów tekstu. Jednak z obiektami blob zawierający dane w formacie CSV, często zachodzi potrzeba Traktuj każdego wiersza w obiekcie blob jako osobny dokument. Na przykład, dla danego tekstu rozdzielanego następujące: 
@@ -32,7 +32,7 @@ należy przeanalizować go do 2 dokumentów zawierających każdego pola "tagi",
 W tym artykule dowiesz się, jak analizować obiektów blob CSV z indeksatora obiektów blob Azure Search. 
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie w przeglądzie. Jest on dostępny tylko w wersji interfejsu API REST **2015-02-28-Preview**. Należy pamiętać, Podgląd interfejsy API są przeznaczone do testowania i ocenie, a nie powinna być używana w środowisku produkcyjnym. 
+> Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Jest on dostępny tylko w wersji interfejsu API REST **2015-02-28-Preview**. Należy pamiętać, Podgląd interfejsy API są przeznaczone do testowania i ocenie, a nie powinna być używana w środowisku produkcyjnym. 
 > 
 > 
 
@@ -52,7 +52,12 @@ Jeśli obiekty BLOB nie zawierają wiersz nagłówka początkowej, nagłówki po
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Aktualnie obsługiwana jest tylko kodowania UTF-8. Ponadto tylko przecinkami `','` znak jest obsługiwany jako ogranicznik. Jeśli potrzebujesz pomocy technicznej dla innych kodowania lub ograniczniki, prosimy o kontakt na [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Można dostosować przy użyciu znaku ogranicznika `delimitedTextDelimiter` ustawienia konfiguracji. Na przykład:
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> Aktualnie obsługiwana jest tylko kodowania UTF-8. Jeśli potrzebujesz pomocy technicznej dla innych kodowań, prosimy o kontakt na [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Gdy używasz tekstu rozdzielanego podczas analizowania trybu usługi Azure Search zakłada, że wszystkie obiekty BLOB w źródle danych będą CSV. Jeśli potrzebujesz do obsługi różnych CSV i CSV z systemem innym niż obiekty BLOB w tym samym źródle danych, prosimy o kontakt na [witryny UserVoice](https://feedback.azure.com/forums/263029-azure-search).

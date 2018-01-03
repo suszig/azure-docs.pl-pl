@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -28,7 +28,7 @@ Mamy Forum MSDN ogłaszania pytania. Zespół pracujący nad produktem aktywnie 
 ## <a name="gather-diagnostics-information"></a>Zbierz informacje diagnostyczne
 Czasami może być przydatne, jeśli można podać informacje diagnostyczne, podczas pytania o pomoc. Oto miejsca zamieszkania pliki dziennika:
 
-### <a name="installer"></a>Instalator
+### <a name="installer-log"></a>Dziennik Instalatora
 Jeśli napotkasz problem podczas instalacji, w tym miejscu są pliki dziennika Instalatora:
 
 ```
@@ -40,18 +40,7 @@ Jeśli napotkasz problem podczas instalacji, w tym miejscu są pliki dziennika I
 ```
 Możesz zip się zawartość tych katalogów i Wyślij do nas, diagnostyki.
 
-### <a name="app-update"></a>Aktualizacja aplikacji 
-#### <a name="no-update-notification-on-windows-desktop"></a>Nie powiadomienie o aktualizacji na pulpicie systemu Windows 
-Ten problem zostanie rozwiązany w nadchodzących aktualizacji. W międzyczasie obejście polega na uniknąć uruchamiania aplikacji za pomocą skrótu przypięty do paska zadań. Zamiast tego można uruchomić aplikacji za pomocą Start menu lub pasek wyszukiwania Start lub skrót na pulpicie (jeśli istnieje). 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Nie powiadomienie o aktualizacji na Ubuntu danych Sciece maszyny wirtualnej (DSVM)
-Wykonaj poniższe kroki, aby pobrać najnowszą aplikację:   
-   - Usuń folder \Users\AppData\Local\amlworkbench
-   - Usuń skryptu`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - Usunięcie skrótu z pulpitu, który uruchamia skrypt powyżej
-   - Zainstaluj prawidłowo przy użyciu [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Aplikacja klasyczna Workbench
+### <a name="workbench-desktop-app-log"></a>Dziennik aplikacji komputerowej Workbench
 Jeśli masz problemy z zalogowaniem lub pulpitu Workbench ulegnie awarii, można znaleźć tutaj plików dziennika:
 ```
 # Windows
@@ -62,7 +51,7 @@ Jeśli masz problemy z zalogowaniem lub pulpitu Workbench ulegnie awarii, można
 ``` 
 Możesz zip się zawartość tych katalogów i Wyślij do nas, diagnostyki.
 
-### <a name="experiment-execution"></a>Wykonanie eksperymentu
+### <a name="experiment-execution-log"></a>Dziennik wykonywania eksperymentu
 Jeśli konkretnego skryptu zakończy się niepowodzeniem podczas przesyłania z aplikacji komputerowej, spróbuj ponownie przesłać go przy użyciu interfejsu wiersza polecenia `az ml experiment submit` polecenia. To powinien zapewnić pełny komunikat o błędzie w formacie JSON, a przede wszystkim zawiera **identyfikator operacji** wartość. Wyślij nam w tym pliku JSON **identyfikator operacji** i firma Microsoft może pomóc w diagnozowaniu. 
 
 Jeśli pomyślnie przesyłanie konkretnego skryptu, ale kończy się niepowodzeniem podczas wykonywania, należy wydrukować **Uruchom identyfikator** do identyfikowania z określonym programem. Można spakować odpowiednich plików dziennika przy użyciu następującego polecenia:
@@ -95,6 +84,8 @@ Podczas pracy w konsoli usługi Azure ML Workbench można również wysłać nam
 - Transformacje klastrowania tekstu nie są obsługiwane na komputerach Mac.
 
 - Biblioteka RevoScalePy jest obsługiwana tylko w systemach Windows i Linux (w kontenerach Docker). Nie jest obsługiwana na macOS.
+
+- Notesów Jupyter mają limit maksymalny rozmiar to 5 MB, podczas otwierania je z poziomu aplikacji Workbench. Możesz otworzyć dużych notesów z interfejsu wiersza polecenia przy użyciu polecenia "notesu ml az start", a czystą komórki danych wyjściowych do Zmniejsz rozmiar pliku.
 
 ## <a name="cant-update-workbench"></a>Nie można zaktualizować Workbench
 Gdy dostępna jest nowa aktualizacja, na stronie głównej aplikacji Workbench wyświetla komunikat informujący o nowych aktualizacji. Powinny pojawić się wskaźnika aktualizacji znajdujących się w lewym dolnym rogu aplikacji ikonę dzwonka. Kliknij badge i użyj Kreatora Instalatora, aby zainstalować aktualizację. 
@@ -207,7 +198,18 @@ $ docker system prune -a
 
 Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod kątem używania dysku danych do przechowywania obrazów. Oto [sposób dodawania dysku danych](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Następnie możesz [zmiany, w którym Docker są przechowywane obrazy](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Udostępnianie dysku C w systemie Windows
 Jeśli wykonujesz kompilację w kontenerze Docker lokalnego w systemie Windows ustawienia `sharedVolumes` do `true` w `docker.compute` plików w obszarze `aml_config` może poprawić wydajność wykonywania. To wymaga jednak udostępnić dysk C w _Docker — narzędzie Windows_. Jeśli nie jest możliwe udostępnić dysk C, spróbuj następujących wskazówek:
@@ -220,6 +222,18 @@ Jeśli wykonujesz kompilację w kontenerze Docker lokalnego w systemie Windows u
 * Podczas udostępniania dysku C przy użyciu poświadczeń domeny, udostępniania mogą przestać działać w sieciach, w których kontroler domeny nie jest dostępny (na przykład sieci domowej, publicznej sieci Wi-Fi itp.). Aby uzyskać więcej informacji, zobacz [ten wpis](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 Można także uniknąć problem z udostępnianiem, w małych wydajności, kosztów, ustawiając `sharedVolumne` do `false` w `docker.compute` pliku.
+
+## <a name="wipe-clean-workbench-installation"></a>Czysta instalacja Workbench czyszczenia
+Zazwyczaj nie trzeba to zrobić. Jednak w przypadku, gdy użytkownik musi wyczyszczenie instalacji, poniżej przedstawiono kroki:
+
+- W systemie Windows:
+  - Najpierw należy upewnić się, _Dodaj lub usuń programy_ aplet _Panelu sterowania_ usunąć _Azure Machine Learning Workbench_ wejścia aplikacji.  
+  - Następnie możesz pobrać i uruchom jednego z poniższych skryptów:
+    - [Skrypt wiersza polecenia systemu Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Skrypt programu Windows PowerShell](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Należy uruchomić `Set-ExecutionPolicy Unrestricted` w oknie programu PowerShell z podniesionymi uprawnieniami uprawnień przed uruchomieniem skryptu.)
+- Na macOS:
+  - Wystarczy pobrać i uruchomić [skrypt powłoki bash macOS](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Niektóre przydatne polecenia Docker
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Zarządzanie dyskami Azure przy użyciu programu PowerShell
 
@@ -81,7 +81,7 @@ Magazyn Standard Storage bazuje na dyskach twardych (HDD) i stanowi ekonomiczne,
 
 ### <a name="premium-disk"></a>Dysku Premium
 
-Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski w warstwie Premium są dostępne w trzech typów (P10, P20, P30, P40, P50), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład, jeśli rozmiar jest poniżej 128 GB typu dysku będzie P10, między 129 i 512 P20, 512 P30, P40 2TB i P50 4TB. 
+Dyski Premium bazują na dysk SSD dysku wysokiej wydajności i małych opóźnień. Idealny dla maszyn wirtualnych obciążeniu produkcji. Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series i FS serii maszyn wirtualnych. Dyski Premium mają pięciu typów (P10, P20, P30, P40, P50), rozmiar dysku Określa typ dysku. Podczas wybierania, rozmiar dysku wartość jest zaokrąglana do dalej typu. Na przykład, jeśli rozmiar jest poniżej 128 GB typu dysku będzie P10, między 129 i 512 P20, 512 P30, P40 2TB i P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Wydajność dysku Premium
 
@@ -142,7 +142,7 @@ New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono tematy dysków maszyny Wirtualnej takich jak:
 

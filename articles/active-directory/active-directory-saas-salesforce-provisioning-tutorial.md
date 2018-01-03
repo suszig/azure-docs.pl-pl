@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usług Salesforce użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -65,7 +65,7 @@ Celem tej sekcji jest przedstawiają sposób włączania Inicjowanie obsługi u�
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    
@@ -89,25 +89,27 @@ Celem tej sekcji jest przedstawiają sposób włączania Inicjowanie obsługi u�
 
 10. Skopiuj token, przejdź do okna usługi Azure AD i wklej ją do **klucz tajny tokenu** pola.
 
-11. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Salesforce.
+11. **Adres URL dzierżawy** powinien zostać wprowadzony, jeśli wystąpienie usług Salesforce jest w chmurze dla instytucji rządowych Salesforce. W przeciwnym razie wartość jest opcjonalna. Wprowadź adres URL dzierżawy w formacie https://your-instance.my.salesforce.com, zastępując Twoje wystąpienie nazwy wystąpienia usług Salesforce.
 
-12. W **wiadomość E-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru poniżej.
+12. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Salesforce.
 
-13. Kliknij przycisk **zapisać.**  
+13. W **wiadomość E-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru poniżej.
+
+14. Kliknij przycisk **zapisać.**  
     
-14.  W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Salesforce.**
+15.  W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Salesforce.**
 
-15. W **mapowań atrybutów** Przejrzyj atrybuty użytkowników, które są synchronizowane z usługi Azure AD do usługi Salesforce. Należy pamiętać, że atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w usłudze Salesforce dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+16. W **mapowań atrybutów** Przejrzyj atrybuty użytkowników, które są synchronizowane z usługi Azure AD do usługi Salesforce. Należy pamiętać, że atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w usłudze Salesforce dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-16. Aby włączyć usługi Azure AD, świadczenie usługi dla usług Salesforce, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
+17. Aby włączyć usługi Azure AD, świadczenie usługi dla usług Salesforce, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
 
-17. Kliknij przycisk **zapisać.**
+18. Kliknij przycisk **zapisać.**
 
 Spowoduje to uruchomienie synchronizacji początkowej użytkowników i/lub grupy przypisane do usługi Salesforce w sekcji Użytkownicy i grupy. Należy pamiętać, że synchronizacji początkowej dłużej, aby wykonać niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji Salesforce.
 
 Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane z usług Salesforce.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

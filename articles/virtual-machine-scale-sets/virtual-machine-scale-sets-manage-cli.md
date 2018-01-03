@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Zarządzaj skalowania maszyny wirtualnej, ustaw 2.0 interfejsu wiersza polecenia platformy Azure
 W całym cyklu życia zestawu skali maszyny wirtualnej może być konieczne uruchomienie jednego lub więcej zadań zarządzania. Ponadto można tworzenia skryptów automatyzujących różnych zadań cyklu życia. Ten artykuł zawiera szczegóły dotyczące niektórych typowych poleceń Azure CLI 2.0, które umożliwiają wykonywanie tych zadań.
 
-Aby wykonać te zadania zarządzania, należy ostatniej kompilacji Azure CLI 2.0. Aby uzyskać informacje na temat instalacji i korzystać z najnowszej wersji, zobacz [zainstalować 2.0 interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli). Jeśli musisz utworzyć zestaw skali maszyny wirtualnej, możesz [tworzenia skali w portalu Azure](virtual-machine-scale-sets-portal-create.md).
+Aby wykonać te zadania zarządzania, należy ostatniej kompilacji Azure CLI 2.0. Aby uzyskać informacje na temat instalacji i korzystać z najnowszej wersji, zobacz [zainstalować 2.0 interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli). Jeśli musisz utworzyć zestaw skali maszyny wirtualnej, możesz [tworzenia skali w portalu Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Wyświetl informacje o zestawie skali
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Usuń z zestawu skalowania maszyn wirtualnych
-Aby usunąć przynajmniej jednej maszyny wirtualnej w zestawie skalowania, użyj [vmss az delete wystąpienia](/cli/azure/vmss#delete-instances). "--Identyfikatorów wystąpienia" parametr umożliwia określenie przynajmniej jednej maszyny wirtualnej do usunięcia. Jeśli określisz * dla tego wystąpienia Identyfikatora oraz wszystkich maszyn wirtualnych w zestawie skalowania są usuwane. Aby usunąć wiele maszyn wirtualnych, oddziel każdy identyfikator wystąpienia spacją.
+Aby usunąć przynajmniej jednej maszyny wirtualnej w zestawie skalowania, użyj [vmss az delete wystąpienia](/cli/azure/vmss#delete-instances). `--instance-ids` Parametr umożliwia określenie przynajmniej jednej maszyny wirtualnej do usunięcia. Jeśli określisz * dla tego wystąpienia Identyfikatora oraz wszystkich maszyn wirtualnych w zestawie skalowania są usuwane. Aby usunąć wiele maszyn wirtualnych, oddziel każdy identyfikator wystąpienia spacją.
 
 Poniższy przykład umożliwia usunięcie wystąpienia *0* w zestaw o nazwie skalowania *myScaleSet* i *myResourceGroup* grupy zasobów. Podaj wartości w następujący sposób:
 
@@ -136,5 +136,5 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Obejmują innych typowych zadań dla zestawów skalowania jak [wdrażania aplikacji](virtual-machine-scale-sets-deploy-app.md), i [uaktualnienia wystąpień maszyn wirtualnych](virtual-machine-scale-sets-upgrade-scale-set.md). Można również użyć wiersza polecenia platformy Azure do [Konfigurowanie reguł automatycznego skalowania](virtual-machine-scale-sets-autoscale-overview.md).

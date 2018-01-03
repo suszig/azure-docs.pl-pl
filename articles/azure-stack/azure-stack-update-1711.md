@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure aktualizacji 1711 stosu
 
@@ -51,6 +51,7 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 - Użytkownicy teraz aktywować automatycznie maszyn wirtualnych systemu Windows
 - Dodano punkt końcowy uprzywilejowanych polecenia cmdlet programu PowerShell, aby pobrać klucze odzyskiwania funkcji BitLocker na potrzeby przechowywania
 - Obsługa aktualizowania obrazów w trybie offline podczas aktualizowania infrastruktury
+- Włączenia kopii zapasowej infrastruktury włączenia usługi tworzenia kopii zapasowej
 
 #### <a name="fixes"></a>Poprawki
 
@@ -118,7 +119,7 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **20171201.3**.
 - Brak nie doświadczenie marketplace, aby utworzyć zestawy skalowania maszyny wirtualnej. Można utworzyć skali ustawić za pomocą szablonu.
 - Ustawienia skalowania dla zestawy skalowania maszyny wirtualnej nie są dostępne w portalu. Jako rozwiązanie alternatywne można zastosować [programu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z powodu różnic wersji programu PowerShell, należy użyć `-Name` parametru zamiast `-VMScaleSetName`.
  
-#### <a name="networking"></a>Sieć
+#### <a name="networking"></a>Networking
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
@@ -139,6 +140,17 @@ W usłudze Azure Active Directory Federation Services (ADFS) wdrożone w środow
 > [!IMPORTANT]
 > Mimo że **azurestack\cloudadmin** konta jest właścicielem subskrypcji dostawcy domyślne w środowiskach usług AD FS wdrożona, nie ma uprawnień do protokołu RDP na hoście. Nadal używać **azurestack\azurestackadmin** konta lub lokalnego konta administratora do logowania, dostęp i zarządzać hostem zgodnie z potrzebami.
 
+#### <a name="infrastructure-backup-sevice"></a>Infrastruktura usługi tworzenia kopii zapasowej
+<!-- 1974890-->
+
+- **Wstępnie 1711 kopie zapasowe nie są obsługiwane dla chmury odzyskiwania.**  
+  Wstępnie 1711 kopie zapasowe nie są zgodne z chmury odzyskiwania. Należy zaktualizować 1711 i włączyć kopie zapasowe. Jeśli kopie zapasowe jest już włączony, upewnij się, że po zaktualizowaniu do 1711 tworzenie kopii zapasowej. Kopie zapasowe Pre-1711 powinien zostać usunięty.
+
+- **Włączanie infrastruktura kopii zapasowej na ASDK jest tylko do celów testowych.**  
+  Infrastruktura kopii zapasowych może służyć do przywrócenia rozwiązania z wieloma węzłami. Można włączyć infrastruktury wykonanie kopii zapasowej na ASDK, ale nie istnieje sposób do testowania odzyskiwania.
+
+Aby uzyskać więcej informacji, zobacz [kopii zapasowej i odzyskiwanie danych dla stosu Azure w usłudze Kopia zapasowa infrastruktury](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+
 ## <a name="download-the-update"></a>Pobierz aktualizację
 
 Możesz pobrać pakiet aktualizacji 1711 stosu Azure z [tutaj](https://aka.ms/azurestackupdatedownload).
@@ -149,7 +161,7 @@ Firma Microsoft udostępnia sposób monitorowania i wznowić aktualizacji za pom
 
 - Zobacz [monitorowania aktualizacji w stosie Azure, korzystając z dokumentacji uprzywilejowanych punktu końcowego](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [zarządzania aktualizacjami w omówieniu stosu Azure](azure-stack-updates.md) omówienie zarządzania aktualizacjami w stosie Azure.
 - Zobacz [stosowanie aktualizacji w stosie Azure](azure-stack-apply-updates.md) Aby uzyskać więcej informacji dotyczących sposobu stosowania aktualizacji za pomocą usługi Azure stosu.

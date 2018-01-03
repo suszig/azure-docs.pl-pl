@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: sethm
-ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbb2baea2bc6c45908369ff821c264b66053d95
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Wskazówki przechwytywania centra zdarzeń: Python
 
@@ -116,7 +116,8 @@ W przykładzie użyto [Azure Python SDK](https://azure.microsoft.com/develop/pyt
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
@@ -158,7 +159,7 @@ W przykładzie użyto [Azure Python SDK](https://azure.microsoft.com/develop/pyt
 
    Tego procesora przechwytywania korzysta z lokalnego katalogu, aby pobrać wszystkie obiekty BLOB z konta/kontenera magazynu. Procesy, które nie są puste i zapisuje wyniki w postaci plików CSV do katalogu lokalnego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 

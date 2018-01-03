@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Tworzenie wyrażeń na potrzeby mapowań atrybutów w usłudze Azure Active Directory
 Po skonfigurowaniu udostępniania do aplikacji SaaS, jest jeden z typów mapowań atrybutów, które można określić mapowanie wyrażenia. W tym przypadku należy napisać wyrażenie przypominającej skryptu, które pozwala na przekształcanie danych użytkowników do formatów, które są bardziej dozwolone dla aplikacji SaaS.
@@ -36,7 +36,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 * Dla stałe typu string Jeśli potrzebujesz ukośnik odwrotny (\) lub cudzysłowu (") w ciągu go należy użyć znaków ucieczki ze znakiem ukośnika odwrotnego (\\). Na przykład: "Nazwa firmy: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista funkcji
-[Dołącz](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [nie](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Zastąp](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [przełącznika](#switch)
+[Dołącz](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [Join](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [nie](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Zastąp](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [przełącznika](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -46,7 +46,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego |
 | **sufiks** |Wymagane |Ciąg |Ciąg, który ma być dołączany na końcu wartość źródła. |
@@ -59,7 +59,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
 | **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Dla obsługiwanych formatów, zobacz [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -75,7 +75,7 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **Separator** |Wymagane |Ciąg |Ciąg używany do rozdzielania wartości źródła, gdy są one połączone w jeden ciąg. Może być "" Jeśli separator nie jest wymagane. |
 | ** źródło1... źródłoN ** |Wymagana zmienna — liczba |Ciąg |Ciąg wartości, które mają zostać połączone ze sobą. |
@@ -88,11 +88,11 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu. |
-| **start** |Wymagane |Liczba całkowita |Indeks w **źródła** ciąg, gdzie powinna zaczynać się podciąg. Pierwszy znak w ciągu ma indeks równy 1, drugi ma indeks 2 i tak dalej. |
-| **długość** |Wymagane |Liczba całkowita |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
+| **start** |Wymagane |liczba całkowita |Indeks w **źródła** ciąg, gdzie powinna zaczynać się podciąg. Pierwszy znak w ciągu ma indeks równy 1, drugi ma indeks 2 i tak dalej. |
+| **długość** |Wymagane |liczba całkowita |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
 
 - - -
 ### <a name="not"></a>nie
@@ -102,7 +102,7 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Wartości logicznych |Oczekiwano **źródła** wartości to "True" lub "False". |
 
@@ -129,7 +129,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
 | **oldValue** |Optional (Opcjonalność) |Ciąg |Wartość, które mają zostać zastąpione w **źródła** lub **szablonu**. |
@@ -140,6 +140,18 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 | **szablon** |Optional (Opcjonalność) |Ciąg |Gdy **szablonu** wartość zostanie podana, firma Microsoft będzie szukać **oldValue** wewnątrz szablonu i zamień ją na wartość źródła. |
 
 - - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Funkcja:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Opis:**<br> Zwraca pojedynczy appRoleAssignment z listy wszystkich appRoleAssignments przypisana do użytkownika dla danej aplikacji. Ta funkcja jest wymagana do konwertowania appRoleAssignments obiektu na ciąg nazwy jedną rolę. Należy pamiętać, że najlepszym rozwiązaniem jest zapewnienie appRoleAssignment tylko jeden jest przypisany do jednego użytkownika w czasie, a jeśli wiele ról są przypisane zwrócony ciąg roli może nie być przewidywalne.
+
+**Parametry:**<br> 
+
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Wymagane |Ciąg |**[appRoleAssignments]**  obiektu. |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Funkcja:**<br> StripSpaces(source)
 
@@ -147,7 +159,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |**źródło** wartość do aktualizacji. |
 
@@ -159,7 +171,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 **Parametry:**<br> 
 
-| Nazwa | Wymagane / powtarzanej | Typ | Uwagi |
+| Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
 | **źródło** |Wymagane |Ciąg |**Źródło** wartość do aktualizacji. |
 | **Wartość domyślna** |Optional (Opcjonalność) |Ciąg |Wartość domyślna ma być używany podczas źródłowym nie odpowiada żadnych kluczy. Może być pustym ciągiem (""). |
@@ -228,7 +240,7 @@ Jeśli kod stanu nie odpowiada żadnemu z wstępnie zdefiniowanych opcji, należ
 * **Dane wejściowe** (stan): "QLD"
 * **Dane wyjściowe**: "Australii/Brisbane"
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Automatyzowanie użytkownika udostępniania/anulowania obsługi do aplikacji SaaS](active-directory-saas-app-provisioning.md)
 * [Dostosowywanie mapowań atrybutów do inicjowania obsługi użytkowników](active-directory-saas-customizing-attribute-mappings.md)

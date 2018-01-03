@@ -1,25 +1,25 @@
 ---
 title: "Wystąpień kontenera Azure i kontener aranżacji"
-description: "Zrozumienie sposobu wystąpień kontenera Azure interakcji z orchestrators kontenera"
+description: "Dowiedz się, jak Azure kontener wystąpień interakcję z orchestrators kontenera."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Wystąpień kontenera Azure i orchestrators kontenera
 
 Ze względu na ich niewielki rozmiar i orientację aplikacji kontenerów dobrze nadają w środowiskach agile dostarczania i architektury mikrousługi systemem. Zadanie automatyzacji i zarządzanie dużą liczbę kontenerów i sposób ich interakcji nosi nazwę *aranżacji*. Kontener popularnych orchestrators obejmują Kubernetes DC/OS i Docker Swarm, które są dostępne w [usługi kontenera platformy Azure](https://docs.microsoft.com/azure/container-service/).
 
-Wystąpień kontenera Azure udostępnia niektóre podstawowe możliwości planowania platform aranżacji, ale nie obejmuje wyższa wartość usług, że tych platform zapewniają w rzeczywistości może być uzupełniające się z nimi. W tym artykule opisano zakres wystąpień kontenera Azure obsługuje i jakiego orchestrators kontener może korzystać z niego.
+Wystąpień kontenera Azure udostępnia niektóre podstawowe możliwości planowania platform aranżacji, ale nie obejmuje usług wyższa wartość Podaj tymi platformami, a w rzeczywistości może być uzupełniające się z nimi. W tym artykule opisano zakres wystąpień kontenera Azure obsługuje i jakiego orchestrators kontener może korzystać z niego.
 
 ## <a name="traditional-orchestration"></a>Tradycyjny aranżacji
 
@@ -40,8 +40,6 @@ Wystąpień kontenera Azure umożliwia warstwowego podejścia do aranżacji, pod
 
 Ponieważ wszystkie podstawowej infrastruktury do wystąpień kontenera jest zarządzane przez usługę Azure, platformy orchestrator nie trzeba zajęcie się z znajdowanie maszyny do odpowiedniego hosta, na którym ma być uruchamiany jeden kontener. Elastyczność chmury gwarantuje, że co jest zawsze dostępna. Zamiast tego orchestrator można skoncentrować się na zadaniach, które upraszczają programowanie architektury usługi kontenera, w tym skalowanie i skoordynowany sposób uaktualnienia.
 
-
-
 ## <a name="potential-scenarios"></a>Potencjalne scenariusze
 
 Podczas integracji programu orchestrator z wystąpień kontenera Azure jest nadal rodzącego, przewidujemy, że mogą pojawić się w kilku różnych środowiskach:
@@ -52,7 +50,7 @@ Ponieważ szybkie rozpoczęcie i naliczać opłaty przez drugą, środowisko wy�
 
 ### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Kombinacja wystąpień kontenera i kontenerów na maszynach wirtualnych
 
-W przypadku obciążeń długotrwałe, stabilna organizowanie kontenery w klastrze dedykowanych maszyn wirtualnych zwykle będzie tańsze niż uruchomienie tego samego kontenery z wystąpień kontenera. Jednak wystąpień kontenera oferuje doskonałe rozwiązanie do szybkiego rozszerzania i instytucje ogólną wydajność na wypadek nieoczekiwanych lub krótkim okresie wzrostów użycia. Zamiast skalowania liczby maszyn wirtualnych w klastrze, a następnie wdrażanie dodatkowych kontenerów na tych komputerach, orchestrator po prostu zaplanować dodatkowe kontenery za pomocą wystąpień kontenera i usunąć je, gdy nie są już potrzebne.
+W przypadku obciążeń długotrwałe, stabilna organizowanie kontenery w klastrze dedykowanych maszyn wirtualnych zwykle będzie tańsze niż uruchomienie tego samego kontenery z wystąpień kontenera. Jednak wystąpień kontenera oferuje doskonałe rozwiązanie do szybkiego rozszerzania i instytucje ogólną wydajność na wypadek nieoczekiwanych lub krótkim okresie wzrostów użycia. Zamiast skalowania liczby maszyn wirtualnych w klastrze, wdrażanie dodatkowych kontenerów na tych komputerach, orchestrator można po prostu zaplanować dodatkowe kontenery za pomocą wystąpień kontenera, a następnie usuwania ich, gdy są one już wymagane.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Przykładowe zastosowanie: Azure łącznik wystąpień kontenera dla Kubernetes
 
@@ -67,7 +65,7 @@ Naśladuje łącznika Kubernetes [kubelet] [ kubelet-doc] przez zarejestrowanie 
 > [!WARNING]
 > Łącznik ACI dla Kubernetes *eksperymentalne* i nie powinna być używana w środowisku produkcyjnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Tworzenie Twojego pierwszego kontenera z wystąpień kontenera Azure za pomocą [Przewodnik Szybki Start](container-instances-quickstart.md).
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
 Środowisko Azure Functions umożliwia pisanie kodu w odpowiedzi na zdarzenia w Azure i innych usług za pośrednictwem *wyzwalaczy* i *powiązania*. Ten artykuł zawiera omówienie wyzwalaczy i powiązań dla wszystkich obsługiwanych języków programowania. Funkcje, które są wspólne dla wszystkich powiązań są opisane poniżej.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Wyzwalaczy i powiązań są deklaratywne Definiowanie sposób wywoływania funkcji i co działa z danych. A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mieć skojarzone dane, co jest zazwyczaj ładunku, który wywołał funkcję.
 
@@ -410,7 +410,11 @@ module.exports = function (context, info) {
 
 W języku C# i innych języków .NET, można użyć wzorca wiązania konieczne, w przeciwieństwie do deklaratywne powiązania w *function.json*. Powiązanie konieczne jest przydatne, gdy Parametry wiążące muszą ma zostać obliczony w czasie środowiska uruchomieniowego zamiast projektu. Aby dowiedzieć się więcej, zobacz [powiązania w czasie wykonywania za pośrednictwem powiązania imperatywnych](functions-reference-csharp.md#imperative-bindings) w dokumentacja dla deweloperów języka C#.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="functionjson-file-schema"></a>Schemat pliku Function.JSON
+
+*Function.json* schemat pliku znajduje się w temacie [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na określone powiązanie zobacz następujące artykuły:
 
 - [HTTP i elementy webhook](functions-bindings-http-webhook.md)

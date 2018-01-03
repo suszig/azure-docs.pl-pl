@@ -14,22 +14,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfer własności subskrypcji platformy Azure do innego konta
 
-Subskrypcję można przenieść na innego użytkownika w Centrum konta. Użyj tej funkcji, aby przekazać prawa własności do innej osoby rozliczania subskrypcji, zmienić konto logowania lub przenieść subskrypcję do innego katalogu. Aby zmienić subskrypcję do innej oferty, zobacz [Przełącz subskrypcji platformy Azure do innej oferty](billing-how-to-switch-azure-offer.md).
+Przenieść subskrypcję do innego użytkownika w Centrum konta, aby zmienić konto administratora i przekazać własność rozliczeń subskrypcji. Aby zmienić subskrypcję do innej oferty, zobacz [Przełącz subskrypcji platformy Azure do innej oferty](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
 > Obecnie nie obsługujemy przenoszenia subskrypcji bezpłatnej wersji próbnej lub [Azure w otwartych (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subskrypcji. Obejście tego problemu, zobacz [przenoszenia zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md).
+
+## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfer własności subskrypcji platformy Azure
+
+> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
+>
+>
+
+1. Zaloguj się na stronie [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions) jako konto administratora. Aby dowiedzieć się, kto jest administratora konta subskrypcji, zobacz [— często zadawane pytania](#faq).
+
+1. Wybierz subskrypcję do transferu.
+
+1. Sprawdź, czy subskrypcja jest kwalifikuje się do transferu Samoobsługa sprawdzając **oferują** i **identyfikator oferty** z [listy obsługiwanych oferty](#supported).
+
+   ![Sprawdź identyfikator oferty subskrypcji w Centrum konta](./media/billing-subscription-transfer/image0.png)
+1. Kliknij pozycję **Przenieś subskrypcję**.
+
+   ![Karta subskrypcje konto platformy Azure](./media/billing-subscription-transfer/image1.png)
+1. Określ adresata.
+
+   ![Okno dialogowe transfer subskrypcji](./media/billing-subscription-transfer/image2.PNG)
+1. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
+
+   ![E-mail transfer subskrypcji do adresata](./media/billing-subscription-transfer/image3.png)
+1. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności.
+
+   ![Pierwszej strony sieci web transfer subskrypcji](./media/billing-subscription-transfer/image4.png)
+
+   ![Drugi strony sieci web transfer subskrypcji](./media/billing-subscription-transfer/image5.png)
+1. To wszystko! Subskrypcja jest obecnie przenoszona.
+
+<a id="EA"></a>
+
+## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transfer własności subskrypcji dla klientów Enterprise Agreement (EA)
+
+Administrator przedsiębiorstwa może przenieść własność subskrypcji w ramach rejestracji. Aby rozpocząć, zobacz [Transfer własności kont](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) w portalu EA.
+
+## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Następne kroki po zaakceptowaniu własności subskrypcji
+
+1. Jesteś teraz administratorem konta. Przejrzeć i zaktualizować administratora usługi, Co Administratorzy i inne role RBAC. Aby dowiedzieć się więcej, zobacz [Dodawanie lub zmienianie ról administrator usługi Azure, które zarządzają subskrypcji lub usługi](billing-add-change-azure-subscription-administrator.md).
+1. Aktualizuj poświadczenia skojarzone z usługami tej subskrypcji w tym:
+   1. Certyfikaty zarządzania, które Przyznaj użytkownikowi uprawnień administratora do zasobów subskrypcji. Aby uzyskać więcej informacji, zobacz [tworzenie i przekazywanie certyfikatu zarządzania platformy Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Klawisze dostępu dla usług, takich jak magazynu. Aby uzyskać więcej informacji, zobacz [konta magazynu Azure — informacje](../storage/common/storage-create-storage-account.md)
+   1. Poświadczenia dostępu zdalnego dla usług, takich jak maszyny wirtualne platformy Azure. 
+1. [Aktualizuj alerty dotyczące rozliczeń dla tej subskrypcji](billing-set-up-alerts.md) w [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions). 
+1. Jeśli współpracujesz z partnerem, należy rozważyć aktualizowanie Identyfikatora partnera w tej subskrypcji. Można zaktualizować Identyfikatora partnera w [portalu Azure](https://portal.azure.com).
 
 <a id="supported"></a>
 
@@ -51,52 +96,6 @@ Przenoszenie Samoobsługa subskrypcji jest dostępna dla oferty lub typów subsk
 
 \*[EA — za pomocą portalu](#EA)
 
-## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfer własności subskrypcji platformy Azure
-
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
-
-1. Zaloguj się na stronie [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions) jako administratora konta. Aby dowiedzieć się, który jest administratorem konta subskrypcji, zobacz [— często zadawane pytania](#faq).
-
-1. Wybierz subskrypcję do transferu.
-
-1. Sprawdź, czy subskrypcja jest kwalifikuje się do transferu Samoobsługa sprawdzając **oferują** i **identyfikator oferty** z [listy obsługiwanych oferty](#supported).
-
-   ![Sprawdź identyfikator oferty subskrypcji w Centrum konta](./media/billing-subscription-transfer/image0.png)
-1. Kliknij pozycję **Przenieś subskrypcję**.
-
-   ![Karta subskrypcje konto platformy Azure](./media/billing-subscription-transfer/image1.png)
-1. Określ adresata.
-
-   ![Okno dialogowe transfer subskrypcji](./media/billing-subscription-transfer/image2.PNG)
-1. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
-
-   ![E-mail transfer subskrypcji do adresata](./media/billing-subscription-transfer/image3.png)
-1. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności.
-
-   ![Pierwszej strony sieci web transfer subskrypcji](./media/billing-subscription-transfer/image4.png)
-
-   ![Drugi strony sieci web transfer subskrypcji](./media/billing-subscription-transfer/image5.png)
-1. Powodzenie! Subskrypcja jest obecnie przenoszona.
-
-<a id="EA"></a>
-
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transfer własności subskrypcji dla klientów Enterprise Agreement (EA)
-
-Administrator przedsiębiorstwa może przenieść własność subskrypcji w ramach rejestracji. Aby rozpocząć, zobacz [Transfer własności kont](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) w portalu EA.
-
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Następne kroki po zaakceptowaniu własności subskrypcji
-
-1. Jesteś teraz administratorem konta. Przejrzeć i zaktualizować administratora usługi i Współadministratorzy. Zarządzanie Administratorzy w [klasycznego portalu Azure](https://manage.windowsazure.com) , przechodząc do ustawienia. [Dowiedz się więcej o rolach administratora](billing-add-change-azure-subscription-administrator.md).
-1. Umożliwia także kontroli dostępu opartej na rolach (RBAC) dla usług i subskrypcji. Odwiedź witrynę [Azure Portal](https://portal.azure.com). [Dowiedz się więcej o RBAC](../active-directory/role-based-access-control-configure.md)
-1. Aktualizuj poświadczenia skojarzone z usługami tej subskrypcji w tym:
-   1. Certyfikaty zarządzania, które Przyznaj użytkownikowi uprawnień administratora do zasobów subskrypcji. Aby uzyskać więcej informacji, zobacz [tworzenie i przekazywanie certyfikatu zarządzania platformy Azure](../cloud-services/cloud-services-certs-create.md)
-   1. Klawisze dostępu dla usług, takich jak magazynu. Aby uzyskać więcej informacji, zobacz [konta magazynu Azure — informacje](../storage/common/storage-create-storage-account.md)
-   1. Poświadczenia dostępu zdalnego dla usług, takich jak maszyny wirtualne platformy Azure. 
-1. [Aktualizuj alerty dotyczące rozliczeń dla tej subskrypcji](billing-set-up-alerts.md) w [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions). 
-1. Jeśli współpracujesz z partnerem, należy rozważyć aktualizowanie Identyfikatora partnera w tej subskrypcji. Można zaktualizować Identyfikatora partnera w [Centrum konta platformy Azure](https://account.windowsazure.com/Subscriptions).
-
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
@@ -111,7 +110,7 @@ Konto administratora jest osobą, która utworzył konto na lub zakupiono subskr
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Wszystko transferu? Łącznie z grupami zasobów, maszyn wirtualnych, dysków i inne uruchomione usługi?
 
-Tak, wszystkie zasoby, takie jak maszyn wirtualnych, dysków i transfer witryn sieci Web dla nowego właściciela. Jednak wszystkie [ról administratora](billing-add-change-azure-subscription-administrator.md) i [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md) po skonfigurowaniu zasad nie są przenoszone w różnych katalogach.
+Wszystkie zasoby, takie jak maszyn wirtualnych, dysków i transfer witryn sieci Web dla nowego właściciela. Jednak wszystkie [ról administratora](billing-add-change-azure-subscription-administrator.md) i [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md) po skonfigurowaniu zasad nie są przenoszone w różnych katalogach. Ponadto [rejestracji aplikacji](../active-directory//develop/active-directory-integrating-applications.md) i innych usług specyficznego dla dzierżawy nie transfer wzdłuż.
 
 ### <a id="no-button"></a>Dlaczego nie widzę przycisku "Przenieść subskrypcję"?
 

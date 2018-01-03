@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/18/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6d8fbddc2f26fe739dd725f417961d7b3d7f77e6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Rozwiązywanie problemów dotyczących wdrożenia z wystąpień kontenera platformy Azure
 
@@ -21,15 +21,15 @@ W tym artykule przedstawiono sposób rozwiązywania problemów w przypadku wdra�
 
 ## <a name="get-diagnostic-events"></a>Zdarzenia diagnostyczne
 
-Aby wyświetlić dzienniki w kodzie aplikacji w kontenerze, można użyć [dzienniki kontenera az](/cli/azure/container#logs) polecenia. Jednak jeśli Twoje kontenera nie pomyślnie wdrożone, należy przejrzeć informacje diagnostyczne dostarczone przez dostawcę zasobów wystąpień kontenera platformy Azure. Aby wyświetlić zdarzenia z kontenera, uruchom następujące polecenie:
+Aby wyświetlić dzienniki w kodzie aplikacji w kontenerze, można użyć [dzienniki kontenera az] [ az-container-logs] polecenia. Jednak jeśli Twoje kontenera nie pomyślnie wdrożone, należy przejrzeć informacje diagnostyczne dostarczone przez dostawcę zasobów wystąpień kontenera platformy Azure. Aby wyświetlić zdarzenia z kontenera, uruchom [Pokaż kontenera az] [ az-container-show] polecenia:
 
 ```azurecli-interactive
-az container show -n mycontainername -g myresourcegroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Dane wyjściowe zawiera właściwości core z kontenera, wraz z wdrożenia zdarzenia:
+Dane wyjściowe zawiera właściwości core z kontenera, wraz ze zdarzeń wdrożenia (w tym miejscu pokazywane obcięty):
 
-```bash
+```JSON
 {
   "containers": [
     {
@@ -37,45 +37,54 @@ Dane wyjściowe zawiera właściwości core z kontenera, wraz z wdrożenia zdarz
       "environmentVariables": [],
       "image": "microsoft/aci-helloworld",
       ...
-
-      "events": [
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:52+00:00",
-        "lastTimestamp": "2017-08-03T22:12:52+00:00",
-        "message": "Pulling: pulling image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
+        "events": [
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:49+00:00",
+            "lastTimestamp": "2017-12-21T22:50:49+00:00",
+            "message": "pulling image \"microsoft/aci-helloworld\"",
+            "name": "Pulling",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
+            "name": "Pulled",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Created",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Started",
+            "type": "Normal"
+          }
+        ],
+        "previousState": null,
+        "restartCount": 0
       },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Pulled: Successfully pulled image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Created: Created container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Started: Started container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      }
-    ],
-    "name": "helloworld",
+      "name": "mycontainer",
       "ports": [
         {
-          "port": 80
+          "port": 80,
+          "protocol": null
         }
       ],
-    ...
-  ]
+      ...
+    }
+  ],
+  ...
 }
 ```
 
@@ -85,32 +94,35 @@ Istnieje kilka typowych problemów z tego konta dla większości błędy we wdro
 
 ## <a name="unable-to-pull-image"></a>Nie można ściągania obrazu
 
-W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azure ponowi próbę niektórych okres przed niepowodzeniem po pewnym czasie. Jeśli obraz nie może być pobierane, wyświetlane są zdarzenia podobne do następujących:
+W przypadku nie można ściągnąć obrazu początkowo wystąpień kontenera Azure ponowi próbę niektórych okres przed niepowodzeniem po pewnym czasie. Jeśli obraz nie może być pobierane, wynik są wyświetlane zdarzenia podobnie do następującej [Pokaż kontenera az][az-container-show]:
 
 ```bash
 "events": [
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:31+00:00",
-    "lastTimestamp": "2017-08-03T22:19:31+00:00",
-    "message": "Pulling: pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "name": "Pulling",
     "type": "Normal"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:32+00:00",
-    "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "name": "Failed",
     "type": "Warning"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:33+00:00",
-    "lastTimestamp": "2017-08-03T22:19:33+00:00",
-    "message": "BackOff: Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:20+00:00",
+    "lastTimestamp": "2017-12-21T22:57:16+00:00",
+    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "name": "BackOff",
     "type": "Normal"
   }
-]
+],
 ```
 
 Aby rozwiązać, usunięcie kontenera i ponów próbę wdrożenia, płatności zamknięcie uwagi prawidłowo wpisana nazwa obrazu.
@@ -119,7 +131,7 @@ Aby rozwiązać, usunięcie kontenera i ponów próbę wdrożenia, płatności z
 
 Jeśli Twoje kontenera jest uruchamiane w celu ukończenia i automatyczne ponowne uruchomienie, może być konieczne ustawić [ponowne uruchomienie zasad](container-instances-restart-policy.md) z **OnFailure** lub **nigdy**. Jeśli określisz **OnFailure** i nadal Zobacz ciągłe ponowne uruchomienie, może wystąpić problem z aplikacją lub skrypt wykonywany w kontenerze sieci.
 
-Interfejs API wystąpień kontenera zawiera `restartCount` właściwości. Aby sprawdzić liczbę ponownych uruchomień kontenera, można użyć [Pokaż kontenera az](/cli/azure/container#az_container_show) w 2.0 interfejsu wiersza polecenia platformy Azure. W poniższych przykładowe dane wyjściowe (który został obcięty do skrócenia), zobacz `restartCount` właściwości na końcu danych wyjściowych.
+Interfejs API wystąpień kontenera zawiera `restartCount` właściwości. Aby sprawdzić liczbę ponownych uruchomień kontenera, można użyć [Pokaż kontenera az] [ az-container-show] w 2.0 interfejsu wiersza polecenia platformy Azure. W poniższych przykładowe dane wyjściowe (który został obcięty do skrócenia), zobacz `restartCount` właściwości na końcu danych wyjściowych.
 
 ```json
 ...
@@ -179,7 +191,7 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-Klucz do przechowywania małych rozmiary obrazów jest zapewnienie, że ostatecznego obrazu nie zawiera żadnych czynności, które nie są wymagane w czasie wykonywania. Jednym ze sposobów czy jest on [kompilacje wieloetapowym](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Wieloetapowym kompilacje upewnij ułatwiają zapewnienie finalnego obrazu zawiera artefakty potrzebnych dla aplikacji i nie jakiekolwiek nadmiarowe zawartości, która nie jest wymagana podczas kompilacji.
+Klucz do przechowywania małych rozmiary obrazów jest zapewnienie, że ostatecznego obrazu nie zawiera żadnych czynności, które nie są wymagane w czasie wykonywania. Jednym ze sposobów czy jest on [kompilacje wieloetapowym][docker-multi-stage-builds]. Wieloetapowym kompilacje upewnij ułatwiają zapewnienie finalnego obrazu zawiera artefakty potrzebnych dla aplikacji i nie jakiekolwiek nadmiarowe zawartości, która nie jest wymagana podczas kompilacji.
 
 Inny sposób, aby zmniejszyć wpływ ściągania obrazu na czas uruchamiania programu kontenera jest hosta obrazu kontenera, w tym samym regionie, w którym zamierzasz używać wystąpień kontenera Azure za pomocą rejestru kontenera platformy Azure. Skraca lokalizacji sieciowej, która obraz kontenera musi podróży, znacznie skrócić czas pobierania.
 
@@ -189,9 +201,16 @@ Z powodu różnych regionalnych zasobów obciążenia na platformie Azure, zosta
 
 `The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
 
-Ten błąd wskazuje, czy ze względu na duże obciążenie w regionie, w którym chcesz wdrożyć, nie można przydzielić zasoby określone dla Twojego kontenera w tym czasie. Użyj co najmniej jednego z następujących kroki zaradcze w celu rozwiązania problemu.
+Ten błąd wskazuje, czy ze względu na duże obciążenie w regionie, w którym chcesz wdrożyć, nie można przydzielić zasoby określone dla Twojego kontenera w tym czasie. W celu rozwiązania problemu, należy użyć co najmniej jeden z następujących kroków środki zaradcze.
 
 * Sprawdź ustawienia wdrożenia kontenera objęte parametrów zdefiniowanych w [dostępność wystąpień kontenera platformy Azure w danym regionie](container-instances-region-availability.md)
 * Określ niższe ustawienia Procesora i pamięci dla kontenera
 * Wdrażanie w innym regionie Azure
 * Wdrażanie w późniejszym czasie
+
+<!-- LINKS - External -->
+[docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

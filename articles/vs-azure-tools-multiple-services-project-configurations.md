@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Konfigurowanie projektu platformy Azure w programie Visual Studio do wykorzystania wielu konfiguracji usługi
 
@@ -77,7 +77,7 @@ Ciągi nowego lub istniejącego połączenia, wybierz **...** * po prawej stroni
 
 1. W obszarze **łączyć się przy użyciu**, wybierz **subskrypcji** opcję, aby wybrać konto magazynu z subskrypcji. Visual Studio pobiera następnie automatycznie za pomocą poświadczeń konta magazynu `.publishsettings` pliku.
 1. Wybieranie **ręcznie wprowadzić poświadczenia** pozwala określić nazwę konta i klucza bezpośrednio przy użyciu informacji z portalu Azure. Aby skopiować klucz konta:. Przejdź do konta magazynu Azure, portalu i wybierz pozycję **zarządzanie kluczami**.
-    2. Na **zarządzanie kluczami dostępu** wybierz tekst podstawowy klucz dostępu i naciśnij klawisze Ctrl + C, aby skopiować.
+    2. Aby skopiować klucz konta, przejdź do konta magazynu w portalu Azure, wybierz opcję **Ustawienia > klucze dostępu**, następnie użyj przycisku kopiowania, aby skopiuj podstawowy klucz dostępu do Schowka.
 1. Wybierz jedną z opcji połączenia. **Określ niestandardowe punkty końcowe** prosi o określenie określonych adresów URL dla obiektów blob, tabel i kolejek. Niestandardowe punkty końcowe umożliwiają używanie [domen niestandardowych](storage/blobs/storage-custom-domain-name.md) i kontrolować dostęp do bardziej dokładnie. Zobacz [Konfiguracja parametrów połączenia usługi Azure Storage](./storage/common/storage-configure-connection-string.md).
 1. Wybierz **OK**, następnie **Plik > Zapisz** można zaktualizować konfiguracji z użyciem nowego ciągu połączenia.
 

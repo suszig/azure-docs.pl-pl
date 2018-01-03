@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Zrozumienie wydatków limit i sposobie jego usunięcia na platformie Azure
 
@@ -48,8 +48,10 @@ Aby usunąć limit wydatków, wykonaj następujące czynności:
 
 1. Zaloguj się do [Centrum konta](https://account.windowsazure.com/Subscriptions).
 1. Wybierz subskrypcję.
-1. Jeśli subskrypcja jest wyłączona z powodu osiągnięcia limitu wydatków, kliknij to powiadomienie: "Subskrypcja osiągnęła Limit wydatków i została wyłączona, aby uniknąć naliczania opłat." W przeciwnym razie kliknij przycisk **Usuń limit wydatków** w **stan SUBSKRYPCJI** obszaru.
+. Jeśli subskrypcja jest wyłączona z powodu osiągnięcia limitu wydatków, kliknij to powiadomienie: "Subskrypcja osiągnęła Limit wydatków i została wyłączona, aby uniknąć naliczania opłat." W przeciwnym razie kliknij przycisk **Usuń limit wydatków** w **stan SUBSKRYPCJI** obszaru.
 1. Wybierz odpowiednią opcję.
+
+![Opcja Usuń limit wydatków](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Opcja|Efekt|
 |-------|-----|
@@ -80,8 +82,10 @@ Nie mamy niestandardowe spędzają limity dzisiaj. Jednak można zgodzić się n
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Limit wydatków uniemożliwia wszelkich opłat z platformy Azure?
 
-Niektóre [usług firmy Microsoft i innych firm marki usług](billing-understand-your-azure-marketplace-charges.md) może spowodować naliczenie opłat zgodnie z metodą płatności, nawet jeśli ustawiono limit wydatków. Przykłady obejmują licencji programu Visual Studio, Azure Active Directory — wersja premium, plany pomocy technicznej i większości firm marki usług są sprzedanych za pośrednictwem [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Niektóre usługi zewnętrzne opublikowane w portalu Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) nie można używać z Twojej kredytów subskrypcji i może spowodować naliczenie opłat oddzielne nawet wtedy, gdy ustawiono limit wydatków. Przykładami licencji programu Visual Studio, Azure Active Directory premium plany pomocy technicznej i większości firm marki usług. Podczas obsługi administracyjnej nowej usługi zewnętrzne jest wyświetlane ostrzeżenie z informacją, że usługi są rozliczane oddzielnie:
 
-## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
+![Ostrzeżenie zakupu Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 
 Jeśli nadal potrzebujesz pomocy, [się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) uzyskać szybkie rozwiązanie problemu.

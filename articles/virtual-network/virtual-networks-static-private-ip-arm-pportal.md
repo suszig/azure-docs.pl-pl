@@ -17,16 +17,16 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej przy użyciu portalu Azure
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Program PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portalu Azure (klasyczne)](virtual-networks-static-private-ip-classic-pportal.md)
 > * [PowerShell (klasyczny)](virtual-networks-static-private-ip-classic-ps.md)
@@ -101,7 +101,7 @@ Aby usunąć statycznego prywatnego adresu IP z maszyny Wirtualnej utworzone pow
 
 Z **adresów IP** bloku przedstawionych powyżej, kliknij przycisk **dynamiczne** w obszarze **przypisania**, a następnie kliknij przycisk **zapisać**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [zastrzeżone publicznego adresu IP](virtual-networks-reserved-public-ip.md) adresów.
 * Dowiedz się więcej o [poziomie wystąpienia publicznego adresu IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresów.
 * Zapoznaj się [zastrzeżone interfejsów API REST IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).

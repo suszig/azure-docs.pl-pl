@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatycznie skalować skali maszyny wirtualnej w portalu Azure
 Podczas tworzenia zestawu skalowania, należy zdefiniować liczba wystąpień maszyn wirtualnych, które chcesz uruchomić. Twoje żądanie aplikacji zmian, można automatycznie zwiększyć lub zmniejszyć liczbę wystąpień maszyn wirtualnych. Możliwość skalowania automatycznego umożliwia nadąża z popyt lub reagowania na zmiany wydajności aplikacji w całym cyklu życia aplikacji.
@@ -28,7 +28,7 @@ W tym artykule przedstawiono sposób tworzenia reguł automatycznego skalowania 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby utworzyć zasady automatycznego skalowania, należy istniejącej maszyny wirtualnej zestawu skali. Możesz utworzyć zestaw o skali [portalu Azure](virtual-machine-scale-sets-portal-create.md), [programu Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), lub [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+Aby utworzyć zasady automatycznego skalowania, należy istniejącej maszyny wirtualnej zestawu skali. Możesz utworzyć zestaw o skali [portalu Azure](virtual-machine-scale-sets-create-portal.md), [programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), lub [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Tworzenie reguły automatycznie skalować w poziomie
@@ -54,7 +54,7 @@ Jeśli Twoje żądanie aplikacji zwiększa, obciążenie wystąpień maszyn wirt
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                     | Więcej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 70             |
     | *Czas trwania*             | Ilość czasu monitorowane przed wartości metryki i próg są porównywane.                                   | 10 minut     |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ procent przez |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                        | Zwiększ wartość procentową o |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                            | 20             |
     | *Cool w dół (w minutach)*  | Ilość czasu oczekiwania przed reguła została zastosowana ponownie, aby akcji skalowania automatycznego ma czas zaczęły obowiązywać. | 5 minut      |
 
@@ -77,7 +77,7 @@ Na wieczorem lub w weekendy Twoje żądanie aplikacji mogą się zmniejszyć. Je
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | Operator użyty do porównania danych metryki wartość progową.                                                      | Mniej niż   |
     | *Próg*            | Wartość procentowa powoduje, że reguły automatycznego skalowania akcja wyzwalacza.                                                 | 30             |
-    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz procent przez |
+    | *Operacja*            | Określa, czy zestaw skalowania powinny być skalowane w górę lub w dół, gdy ta reguła ma zastosowanie i przez jaki inkrementacji                         | Zmniejsz wartość procentową o |
     | *Liczba wystąpień*       | Gdy zasada wyzwala, należy zmienić wartości procentowej wystąpień maszyny Wirtualnej.                                             | 20             |
 
 3. Aby utworzyć regułę, wybierz **Dodaj**
@@ -125,7 +125,7 @@ Poprzednich przykładach automatycznie przeskalowany skali ustawić przychodząc
 Aby zobaczyć sposób stosowania reguł skalowania automatycznego, wybierz **Historia uruchomień** w górnej części **skalowanie** okna. Wykres i zdarzenia lista przedstawia, gdy liczba wystąpień maszyn wirtualnych w skali sieci i wyzwalaczy reguł skalowania automatycznego wartość zwiększa lub zmniejsza.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób skalowanie w poziomie i zwiększyć lub zmniejszyć za pomocą reguł skalowania automatycznego *numer* wystąpień maszyn wirtualnych w skali sieci ustawiony. Możliwe jest także skalowanie w pionie Aby zwiększyć lub zmniejszyć wystąpienia maszyny Wirtualnej *rozmiar*. Aby uzyskać więcej informacji, zobacz [pionowy automatycznie skalowana za pomocą zestawów skali maszyny wirtualnej](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Aby uzyskać informacje na temat zarządzania wystąpień maszyn wirtualnych, zobacz [ustawia Zarządzaj skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

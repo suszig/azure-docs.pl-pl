@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Przekaźnik Azure — często zadawane pytania
 
@@ -32,7 +32,7 @@ Ten artykuł zawiera odpowiedzi niektóre często zadawane pytania (FAQ) o [prze
 A [przestrzeni nazw](relay-create-namespace-portal.md) jest kontenerem zakresu, który służy do adresowania przekazywania zasobów w aplikacji. Konieczne jest utworzenie przestrzeni nazw, aby używać przekaźnika. Jest to jedna z pierwszym krokiem wprowadzenie.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Co się stało z usługi Service Bus Relay?
-Wcześniej nazwane usługi Service Bus Relay nosi teraz przekaźnika usługi WCF. Można nadal używać tej usługi w zwykły sposób. Funkcja połączeń hybrydowych było możliwe jest zaktualizowana wersja usługi, która jest ponownie przeszczepione z usług Azure BizTalk. Przekaźnik usługi WCF i połączeń hybrydowych nadal obsługiwane.
+Wcześniej nazwane usługi Service Bus Relay nosi teraz [przekazywania WCF](relay-wcf-dotnet-get-started.md). Można nadal używać tej usługi w zwykły sposób. Funkcja połączeń hybrydowych było możliwe jest zaktualizowana wersja usługi, która jest ponownie przeszczepione z usług Azure BizTalk. Przekaźnik usługi WCF i połączeń hybrydowych nadal obsługiwane.
 
 ## <a name="pricing"></a>Cennik
 W tej sekcji odpowiedzi na niektóre często zadawane pytania dotyczące przekazywania cennik struktury. Również widoczne [pomocy technicznej platformy Azure — często zadawane pytania](http://go.microsoft.com/fwlink/?LinkID=185083) Azure ogólne informacje o cenach. Aby uzyskać pełne informacje o cenach przekazywania, zobacz [szczegóły cennika usługi Service Bus][Pricing overview].
@@ -130,7 +130,7 @@ Udostępniony sygnatur dostępu (SAS) są mechanizmu uwierzytelniania na podstaw
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Czy jest możliwe punkty końcowe przekazywania listy dozwolonych adresów IP
 Tak. Klient przekaźnika wysyła połączenia z usługą przekazywania Azure przy użyciu w pełni kwalifikowanych nazw domen. Klientów można dodać wpis dla `*.servicebus.windows.net` na zaporach, które obsługują listę dozwolonych podobnej DNS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)
 * [Wprowadzenie do programu .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Wprowadzenie do programu Node](relay-hybrid-connections-node-get-started.md)

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi maszyn wirtualnych platformy Azure
 Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapasowa Azure informacje wymienione w poniższej tabeli.
 
-## <a name="backup"></a>Tworzenie kopii zapasowych
+## <a name="backup"></a>Backup
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Błąd: Określona konfiguracja dysku nie jest obsługiwana
 
@@ -72,20 +72,20 @@ Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023
 ## <a name="jobs"></a>Zadania
 | Szczegóły błędu | Obejście problemu |
 | --- | --- |
-| Anulowanie nie jest obsługiwana dla tego typu zadania — poczekaj, aż zadanie zostało ukończone. |Brak |
+| Anulowanie nie jest obsługiwana dla tego typu zadania — poczekaj, aż zadanie zostało ukończone. |None |
 | Zadanie nie jest w stanie można anulować — poczekaj, aż zadanie zostało ukończone. <br>LUB<br> Wybrane zadanie nie jest w stanie można anulować — Zaczekaj na ukończenie zadania. |Najprawdopodobniej zadanie jest niemal ukończone. Poczekaj, aż do ukończenia zadania.|
 | Nie można anulować zadania, ponieważ nie jest w toku — anulowania jest obsługiwana tylko dla zadania, które są w toku. Anuluj próba w toku zadania. |Dzieje się z powodu stanu przejściowymi. Poczekaj chwilę i ponów próbę wykonania operacji anulowania. |
-| Nie można anulować zadania — proszę czekać dopóki zakończenie zadania. |Brak |
+| Nie można anulować zadania — proszę czekać dopóki zakończenie zadania. |None |
 
 ## <a name="restore"></a>Przywracanie
 | Szczegóły błędu | Obejście problemu |
 | --- | --- |
 | Przywracanie nie powiodło się z powodu błędu wewnętrznego w chmurze |<ol><li>Usługi chmury, do której chcesz przywrócić jest skonfigurowany przy użyciu ustawień DNS. Możesz sprawdzić <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-miejsca "Production" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>W przypadku skonfigurowany adres, oznacza to, czy ustawienia DNS są skonfigurowane.<br> <li>Usługi chmury, do której próbujesz przywrócić jest skonfigurowany z zastrzeżonego adresu IP i istniejących maszyn wirtualnych w usłudze w chmurze są w stanie zatrzymania.<br>Można sprawdzić, czy usługa w chmurze ma zastrzeżony adres IP za pomocą następujących poleceń cmdlet programu powershell:<br>$deployment = get-AzureDeployment - ServiceName "servicename"-gniazdo $ "Production" w programie dep. Nazwa zastrzeżonego adresu IP <br><li>Chcesz przywrócić maszynę wirtualną o następujące konfiguracje sieciowe specjalne w do tej samej usługi w chmurze. <br>— Maszyny wirtualne w konfiguracji usługi równoważenia obciążenia (wewnętrznych i zewnętrznych)<br>— Maszyny wirtualne z wielu zastrzeżonych adresów IP<br>— Maszyny wirtualne z wieloma kartami sieciowymi<br>Wybierz nową usługę w chmurze w interfejsie użytkownika lub zapoznaj się z [zagadnienia dotyczące przywracania](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) dla maszyn wirtualnych z konfiguracjami sieci specjalnych.</ol> |
 | Wybranej nazwy DNS jest już zajęta — Określ inną nazwę DNS i spróbuj ponownie. |Tutaj nazwę DNS, który odwołuje się do nazwy usługi w chmurze (zazwyczaj kończąc. cloudapp.net). To musi być unikatowa. Jeśli wystąpi ten błąd, należy wybrać inną nazwę maszyny Wirtualnej podczas przywracania. <br><br> Ten błąd jest wyświetlany tylko dla użytkowników portalu Azure. Operacji przywracania za pomocą programu PowerShell powiedzie się, ponieważ tylko przywraca dysków i nie tworzy maszynę Wirtualną. Błąd zostanie skierowany w przypadku maszyny Wirtualnej jest jawnie utworzone przez użytkownika, po operacji przywracania dysku. |
-| Konfiguracja określonej sieci wirtualnej jest nieprawidłowa — Określ konfiguracji innej sieci wirtualnej i spróbuj ponownie. |Brak |
+| Konfiguracja określonej sieci wirtualnej jest nieprawidłowa — Określ konfiguracji innej sieci wirtualnej i spróbuj ponownie. |None |
 | Usługi w chmurze określonego używa zastrzeżonego adresu IP, który nie pasuje do konfiguracji maszyny wirtualnej przywracana — Określ innej usługi w chmurze, która nie używa zastrzeżonego adresu IP, lub wybierz inny punkt odzyskiwania, aby przywrócić z. |Brak |
-| Usługi w chmurze osiągnięto limit liczby wejściowych punktów końcowych — spróbuj ponownie wykonać operację, określając innej usługi w chmurze lub przy użyciu istniejącego punktu końcowego. |Brak |
-| Konto magazynu kopii zapasowej magazynu i obiekt docelowy znajdują się w dwóch różnych regionach — upewnij się, że wybrane konto magazynu podczas operacji przywracania jest w tym samym regionie Azure jako magazynu kopii zapasowych. |Brak |
+| Usługi w chmurze osiągnięto limit liczby wejściowych punktów końcowych — spróbuj ponownie wykonać operację, określając innej usługi w chmurze lub przy użyciu istniejącego punktu końcowego. |None |
+| Konto magazynu kopii zapasowej magazynu i obiekt docelowy znajdują się w dwóch różnych regionach — upewnij się, że wybrane konto magazynu podczas operacji przywracania jest w tym samym regionie Azure jako magazynu kopii zapasowych. |None |
 | Konta magazynu określony dla operacji przywracania nie jest obsługiwana — konta magazynu tylko Basic/Standard z lokalnie nadmiarowego lub z magazynu geograficznie nadmiarowego replikacji ustawienia są obsługiwane. Wybierz konto magazynu obsługiwane |Brak |
 | Typ konta magazynu określony dla operacji przywracania nie jest w trybie online — upewnij się, że konta magazynu określony w operacji przywracania jest w trybie online |Taka sytuacja może wystąpić z powodu błędu przejściowego w usłudze Azure Storage lub z powodu awarii. Wybierz inne konto magazynu. |
 | Osiągnięto limit przydziału Grupa zasobów — Usuń niektóre grupy zasobów z portalu Azure lub skontaktuj się z pomocą techniczną platformy Azure w celu zwiększenia limitów. |Brak |
@@ -131,7 +131,7 @@ Jak sprawdzić, czy wersja agenta maszyny Wirtualnej na maszynach wirtualnych sy
 Zależy od wydawania polecenia migawki powiązany magazyn kopii zapasowej maszyny Wirtualnej. Nie ma dostępu do magazynu lub opóźnień w wykonywania zadania migawki może spowodować niepowodzenie zadania tworzenia kopii zapasowej. Następujące może spowodować niepowodzenie zadań migawki.
 
 1. Dostęp sieciowy do przechowywania jest zablokowane, za pomocą grupy NSG<br>
-    Dowiedz się więcej na temat [Włącz dostęp do sieci](backup-azure-arm-vms-prepare.md#network-connectivity) magazynu przy użyciu albo listę dozwolonych podobnej adresów IP lub za pośrednictwem serwera proxy.
+    Dowiedz się więcej na temat [Włącz dostęp do sieci](backup-azure-arm-vms-prepare.md#establish-network-connectivity) magazynu przy użyciu albo listę dozwolonych podobnej adresów IP lub za pośrednictwem serwera proxy.
 2. Maszyny wirtualne z skonfigurowano kopii zapasowej programu Sql Server może spowodować opóźnienie zadania migawki <br>
    Domyślnie maszyny Wirtualnej kopii zapasowych problemów VSS pełnej kopii zapasowej na maszynach wirtualnych systemu Windows. Na maszynach wirtualnych z systemami serwerów Sql i jeśli kopia zapasowa programu Sql Server jest skonfigurowany może to spowodować opóźnienia podczas wykonywania migawki. Ustaw następujący klucz rejestru, jeśli występują błędy kopii zapasowych z powodu problemów z migawki.
 
@@ -147,7 +147,7 @@ Zależy od wydawania polecenia migawki powiązany magazyn kopii zapasowej maszyn
 
 <br>
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Podobnie jak wszystkie rozszerzenia rozszerzenie usługi Backup wymagany dostęp do publicznego Internetu. Nie ma dostępu do publicznej sieci internet może sam manifestu na różne sposoby:
 
 * Instalacja rozszerzenia może zakończyć się niepowodzeniem
@@ -163,7 +163,7 @@ Po rozpoznawanie nazw odbywa się prawidłowo, dostępu do adresów IP Azure ró
    * Odblokowywanie przy użyciu adresów IP [NetRoute nowy](https://technet.microsoft.com/library/hh826148.aspx) polecenia cmdlet. Uruchom to polecenie cmdlet w Maszynie wirtualnej Azure, w oknie programu PowerShell z podwyższonym poziomem uprawnień (Uruchom jako Administrator).
    * (Jeśli jest dostępny w miejscu), aby zezwolić na dostęp do adresów IP, należy dodać reguły do grupy NSG.
 2. Tworzenie ścieżki dla przepływ ruchu HTTP
-   * Jeśli masz niektóre ograniczenia sieci w miejscu (sieciową grupę zabezpieczeń, na przykład) wdrażanie serwera proxy HTTP do kierowania ruchem. Kroki wdrażania serwera HTTP Proxy można znaleźć [tutaj](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Jeśli masz niektóre ograniczenia sieci w miejscu (sieciową grupę zabezpieczeń, na przykład) wdrażanie serwera proxy HTTP do kierowania ruchem. Kroki wdrażania serwera HTTP Proxy można znaleźć [tutaj](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * (Jeśli jest dostępny w miejscu) umożliwiają dostęp do INTERNETU z serwera HTTP Proxy, należy dodać reguły do grupy NSG.
 
 > [!NOTE]

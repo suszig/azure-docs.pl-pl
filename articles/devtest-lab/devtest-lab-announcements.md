@@ -3,7 +3,7 @@ title: "Opublikuj announcment do laboratorium w usłudze Azure DevTest Labs | Do
 description: "Dowiedz się, jak dodać anonsu do laboratorium w usłudze Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 67a09946-4584-425e-a94c-abe57c9cbb82
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: tarcher
-ms.openlocfilehash: db92caa497b3db6b3e05e59e169111cedc3c71c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: v-craic
+ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Opublikuj anonsu do laboratorium w usłudze Azure DevTest Labs
 
@@ -74,6 +74,6 @@ Gdy nie chcesz pokazać to zawiadomienie użytkownikom laboratorium, wróć do *
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * W przypadku zmiany lub ustawianie zasad laboratorium, możesz chcieć post anonsu, aby informować użytkowników. [Ustaw zasady i harmonogramy](devtest-lab-set-lab-policy.md) informacje na temat stosowania ograniczeń i konwencje między subskrypcją za pomocą niestandardowych zasad.
 * Eksploruj [galerię szablonów DevTest Labs Azure Resource Manager — Szybki Start](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

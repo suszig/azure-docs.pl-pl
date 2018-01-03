@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transfer danych za pomocą narzędzia AzCopy w systemie Windows
-Narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob Microsoft Azure, plików i tabeli przy użyciu prostych poleceń z optymalną wydajnością. Można skopiować danych z jednego obiektu do drugiego, w ramach konta magazynu lub między kontami magazynu.
+Narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob Microsoft Azure, plików i tabeli, przy użyciu prostego polecenia przeznaczone do uzyskania optymalnej wydajności. Możesz skopiować dane między systemem plików i konto magazynu lub kont magazynu.  
 
 Istnieją dwie wersje programu AzCopy, który można pobrać. AzCopy w systemie Windows jest oparty na platformie .NET Framework i oferuje opcje wiersza polecenia Styl systemu Windows. [Narzędzie AzCopy w systemie Linux](storage-use-azcopy-linux.md) wbudowana w .NET Framework Core, który jest przeznaczony dla platformy Linux oferty styl POSIX opcje wiersza polecenia. W tym artykule omówiono AzCopy w systemie Windows.
 
@@ -967,7 +967,7 @@ Dla właściwości "AzureStorageUseV1MD5":
 
 Domyślnie w systemie Windows są wyłączone zgodnych algorytmów FIPS. Można zmienić to ustawienie zasad na tym komputerze. W oknie uruchamiania (Windows + R), wpisz secpol.msc, aby otworzyć **zasady zabezpieczeń lokalnych** okna. W **ustawienia zabezpieczeń** okna, przejdź do **ustawienia zabezpieczeń** > **zasady lokalne** > **opcje zabezpieczeń**. Zlokalizuj **Kryptografia systemu: Użyj zgodnych algorytmów FIPS dla celów szyfrowania, mieszania i podpisywania** zasad. Kliknij dwukrotnie zasadę, aby wyświetlić wartość wyświetlana w **ustawienie zabezpieczeń** kolumny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat usługi Azure Storage i AzCopy zobacz następujące zasoby:
 

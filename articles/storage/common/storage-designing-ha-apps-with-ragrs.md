@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Projektowanie wysokiej dostępności aplikacji przy użyciu RA-GRS
 
@@ -26,7 +26,7 @@ Typową funkcją oparte na chmurze infrastruktury, takich jak usługi Azure Stor
 
 Magazyn Azure oferuje cztery opcje nadmiarowość danych na koncie magazynu:
 
-— LRS (magazyn lokalnie nadmiarowy)
+- Magazyn LRS (magazyn lokalnie nadmiarowy)
 - Magazyn ZRS (strefy nadmiarowego magazynu) 
 - GRS (magazynu geograficznie nadmiarowego)
 - RA-GRS (dostęp do odczytu z magazynu geograficznie nadmiarowego magazynu). 
@@ -207,12 +207,12 @@ W poniższej tabeli przedstawiono przykład co może się zdarzyć, gdy aktualiz
 | **Czas** | **Transakcji**                                            | **Replikacja**                       | **Czas ostatniej synchronizacji** | **Wynik** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transakcja A: <br> Wstaw pracownika <br> jednostki w podstawowej |                                   |                    | Dodaje podstawowym, A transakcji<br> nie jeszcze zreplikowane. |
-| T1       |                                                            | Transakcja A <br> Replikacja<br> dodatkowej | T1 | Replikowane do dodatkowej A transakcji. <br>Czas ostatniej synchronizacji aktualizacji.    |
+| T1       |                                                            | Transakcja A <br> Replikacja<br> pomocnicze | T1 | Replikowane do dodatkowej A transakcji. <br>Czas ostatniej synchronizacji aktualizacji.    |
 | T2       | Transakcja B:<br>Aktualizacja<br> Jednostka pracownika<br> w podstawowej  |                                | T1                 | Transakcja B zapisywane w podstawowym<br> nie jeszcze zreplikowane.  |
 | T3       | Transakcja C:<br> Aktualizacja <br>Administrator<br>Jednostka roli w<br>podstawowe |                    | T1                 | Transakcja zapisywane do podstawowych, C<br> nie jeszcze zreplikowane.  |
-| *T4*     |                                                       | Transakcja C <br>Replikacja<br> dodatkowej | T1         | Transakcja C replikowane do dodatkowej.<br>Nie zaktualizowano ponieważ LastSyncTime <br>Transakcja B nie został jeszcze zreplikowany.|
+| *T4*     |                                                       | Transakcja C <br>Replikacja<br> pomocnicze | T1         | Transakcja C replikowane do dodatkowej.<br>Nie zaktualizowano ponieważ LastSyncTime <br>Transakcja B nie został jeszcze zreplikowany.|
 | *T5*     | Odczyt jednostek <br>pomocniczej                           |                                  | T1                 | Przestarzała wartość dla pracowników <br> jednostki, ponieważ nie transakcji B <br> jeszcze zreplikowane. Pobierz nową wartość<br> Administrator roli jednostki, ponieważ ma C<br> zreplikowane. Czas ostatniej synchronizacji nadal nie.<br> zostały zaktualizowane, ponieważ transakcja B<br> nie replikowane. Można określić<br>Jednostka roli administratora jest niespójna <br>ponieważ entity Data/godzina jest po <br>Czas ostatniej synchronizacji. |
-| *T6*     |                                                      | Transakcja B<br> Replikacja<br> dodatkowej | T6                 | *T6* — wszystkie transakcje za pomocą C <br>zostały zreplikowane, czas ostatniej synchronizacji<br> jest aktualizowana. |
+| *T6*     |                                                      | Transakcja B<br> Replikacja<br> pomocnicze | T6                 | *T6* — wszystkie transakcje za pomocą C <br>zostały zreplikowane, czas ostatniej synchronizacji<br> jest aktualizowana. |
 
 W tym przykładzie przyjęto założenie, że klient przełącza się do odczytu z regionu pomocniczego w T5. Można pomyślnie odczytać **roli administrator** jednostki, w tym momencie, ale jednostka zawiera wartość liczby Administratorzy, który nie jest zgodny z numerem **pracownika** jednostek, które są w tym momencie, oznaczona jako administratorów w regionie pomocniczym. Klient może po prostu wyświetlaj tej wartości, z ryzyko, że jest niespójne informacje. Alternatywnie klient może próbować ustalić, który **roli administrator** jest w stanie potencjalnie niespójności, ponieważ aktualizacje wystąpiło poza kolejnością, a następnie powiadamia użytkownika o tym fakcie.
 

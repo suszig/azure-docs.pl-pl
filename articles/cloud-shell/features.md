@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24b4f92a0a575939d3cf10fc8ec2fe877316f82c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funkcje i narzędzia do Bash w powłoce chmury Azure
 
@@ -50,7 +50,7 @@ Pliki poza `$Home` i stan maszyny nie są zachowywane między sesjami.
 
 ## <a name="tools"></a>Narzędzia
 
-|Kategoria   |Nazwa   |
+|Kategoria   |Name (Nazwa)   |
 |---|---|
 |Narzędzia systemu Linux            |Bash<br> Pokaż<br> tmux<br> Dig<br>               |
 |Narzędzia platformy Azure            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) i [1.0](https://github.com/Azure/azure-xplat-cli)<br> [Narzędzie AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Interfejs wiersza polecenia usługi Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
@@ -59,7 +59,7 @@ Pliki poza `$Home` i stan maszyny nie są zachowywane między sesjami.
 |Narzędzi do kompilacji            |Wprowadź<br> maven<br> npm<br> PIP         |
 |Kontenery             |[Interfejs wiersza polecenia docker](https://github.com/docker/cli)/[Docker maszyny](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [INTERFEJS WIERSZA POLECENIA DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bazy danych              |Klienta MySQL<br> PostgreSql klienta<br> [Narzędzia sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [Autorzy MSSQL skryptów](https://github.com/Microsoft/sql-xplat-cli) |
-|Inne                  |iPython klienta<br> [Chmura Foundry interfejsu wiersza polecenia](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
+|Inne                  |iPython klienta<br> [Chmura Foundry interfejsu wiersza polecenia](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -72,6 +72,6 @@ Pliki poza `$Home` i stan maszyny nie są zachowywane między sesjami.
 |PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 i 3.5 (ustawienie domyślne)|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Bash w chmurze powłoki — Szybki Start](quickstart.md) <br>
 [Więcej informacji na temat usługi Azure CLI 2.0](https://docs.microsoft.com/cli/azure/)

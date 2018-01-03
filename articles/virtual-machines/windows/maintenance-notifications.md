@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Obsługa planowanych konserwacji powiadomienia dla maszyn wirtualnych systemu Windows
 
@@ -56,9 +56,7 @@ Poniższe wskazówki powinny pomóc zdecydować, czy należy używać tej funkcj
 
 Samoobsługowe obsługi nie jest zalecane w przypadku wdrożeń za pomocą **zestawów dostępności** ponieważ są to ustawienia wysokiej dostępności, których wpływ na tylko jedną aktualizację domeny w danym momencie. 
     - Let Azure wyzwalacza obsługi, ale należy pamiętać, że kolejność domen aktualizacji jest w pełni funkcjonalne nie zawsze odbywa się po kolei i czy przerwie 30-minutowych między domenami aktualizacji.
-    - Jeśli do tymczasowej utraty niektórych wydajność (liczba domen aktualizacji/1) jest istotny, jego można łatwo skompensować przez rozdzielenie Dodawanie wystąpień w okresie konserwacji. 
-
-**Nie** użycia samoobsługi konserwacji w następujących scenariuszach: 
+    - Jeśli do tymczasowej utraty niektórych wydajność (liczba domen aktualizacji/1) jest istotny, jego można łatwo skompensować przez rozdzielenie Dodawanie wystąpień w okresie konserwacji **nie** użycia samoobsługi konserwacji poniżej scenariusze: 
     - Jeśli wyłączysz maszyn wirtualnych, albo ręcznie, przy użyciu DevTest labs, przy użyciu automatycznego zamykania lub według harmonogramu, go można przywrócić stan konserwacji i w związku z tym spowodować przestój dodatkowe.
     - W krótkim okresie maszyn wirtualnych, które znasz zostaną usunięte przed upływem wave konserwacji. 
     - W przypadku obciążeń o dużych stanie przechowywane w dysk lokalny (efemeryczne), który jest pożądane, aby zachować przy aktualizacji. 
@@ -93,8 +91,8 @@ W obszarze MaintenanceRedeployStatus zwracane są następujące właściwości:
 | IsCustomerInitiatedMaintenanceAllowed | Wskazuje, czy w tej chwili można wykonać obsługi maszyny Wirtualnej ||
 | PreMaintenanceWindowStartTime         | Na początku samoobsługi oknem obsługi po rozpoczęciu konserwacji na maszynie Wirtualnej ||
 | PreMaintenanceWindowEndTime           | Koniec samoobsługi oknem obsługi po rozpoczęciu konserwacji na maszynie Wirtualnej ||
-| MaintenanceWindowStartTime            | Na początku okna zaplanowanej konserwacji, jeśli można zainicjować obsługi na maszynie Wirtualnej ||
-| MaintenanceWindowEndTime              | Koniec okna zaplanowanej konserwacji, jeśli można zainicjować obsługi na maszynie Wirtualnej ||
+| MaintenanceWindowStartTime            | Początek zaplanowanej konserwacji, w którym Azure inicjuje konserwacji na maszynie Wirtualnej ||
+| MaintenanceWindowEndTime              | Koniec zaplanowanego okna obsługi w którym Azure inicjuje konserwacji na maszynie Wirtualnej ||
 | LastOperationResultCode               | Wynik ostatniej próby zainicjowanie obsługi w maszynie Wirtualnej ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Aby uzyskać więcej informacji o wysokiej dostępności, zobacz [dostępności 
 
 **Pytanie: jak długo ponownego uruchomienia Moja maszyna wirtualna Trwa?**
 
-**Odpowiedź:** w zależności od rozmiaru maszyny Wirtualnej, ponowne uruchomienie komputera może potrwać kilka minut. Należy pamiętać, że w przypadku, gdy używasz usługi w chmurze (rola sieci Web/proces roboczy), zestawy skalowania maszyny wirtualnej lub zestawów dostępności, będziesz mieć możliwość 30 minut między wszystkimi grupami maszyn wirtualnych (UD). 
+**Odpowiedź:** w zależności od rozmiaru maszyny Wirtualnej, ponowne uruchomienie komputera może potrwać kilka minut w oknie konserwacji samoobsługi. Podczas Azure zainicjował ponowne uruchomienia w czasu zaplanowanego okna obsługi, wykonaj typicall spowoduje ponowne uruchomienie około 25 minut. Należy pamiętać, że w przypadku, gdy używasz usługi w chmurze (rola sieci Web/proces roboczy), zestawy skalowania maszyny wirtualnej lub zestawów dostępności, będziesz mieć możliwość 30 minut między wszystkimi grupami z maszyn wirtualnych (UD) podczas czasu zaplanowanego okna obsługi. 
 
 **Pytanie: co to jest środowisko w przypadku usługi w chmurze (rola sieci Web/proces roboczy), usługi Service Fabric i zestawy skalowania maszyny wirtualnej?**
 
@@ -215,6 +214,6 @@ Aby uzyskać więcej informacji o wysokiej dostępności, zobacz [dostępności 
 **Odpowiedź:** po kliknięciu zaktualizować wiele wystąpień w zestawie w krótkim odstępie czasu dostępności, Azure może umieścić w kolejce te żądania i uruchamia można zaktualizować tylko maszyn wirtualnych w domenie jedną aktualizację (UD) w czasie. Jednak ponieważ może to być Wstrzymaj między domenami aktualizacji, aktualizacja wydaje się trwać dłużej. Kolejki aktualizacji trwa dłużej niż 60 minut, niektórych wystąpień wyświetli **pominięte** stanu, nawet jeśli zostały one pomyślnie zaktualizowane. Aby uniknąć tego niewłaściwy stan, ustawia jego dostępność, klikając ich wystąpienia w obrębie jednej dostępności aktualizacji ustawić i poczekać na aktualizację na danej maszynie Wirtualnej, aby zakończyć przed kliknięciem przycisku Dalej maszyny wirtualnej w domenie innej aktualizacji.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak można zarejestrować obsługi zdarzeń z wewnątrz maszynę Wirtualną przy użyciu [zaplanowane zdarzenia](scheduled-events.md).

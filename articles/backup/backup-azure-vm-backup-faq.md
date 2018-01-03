@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Pytania dotyczące usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure
 W tym artykule znajdują się odpowiedzi na często zadawane pytania pomagające w szybkim poznaniu składników usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania pomagające
 Magazyny usługi Recovery Services obsługują oba modele.  Możliwe jest utworzenie kopii zapasowej klasycznej maszyny wirtualnej (utworzonej w portalu klasycznym) lub maszyny wirtualnej usługi Resource Manager (utworzonej w witrynie Azure Portal) w magazynie usługi Recovery Services.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Jakie konfiguracje nie są obsługiwane przez funkcję kopia zapasowa maszyny Wirtualnej platformy Azure?
-Przejdź przez [obsługiwanych systemów operacyjnych](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) i [kopii zapasowej ograniczenia maszyny Wirtualnej](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Przejdź przez [obsługiwanych systemów operacyjnych](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) i [kopii zapasowej ograniczenia maszyny Wirtualnej](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Dlaczego nie widzę swojej maszyny wirtualnej w kreatorze konfigurowania kopii zapasowych?
 W kreatorze tworzenia kopii zapasowej Konfigurowanie usługi Kopia zapasowa Azure znajduje się tylko maszyny wirtualne, które są:
