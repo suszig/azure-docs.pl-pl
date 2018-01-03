@@ -1,6 +1,6 @@
 - name: Dokumentacja operatora usługi Azure Stack
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Co to jest usługa Azure Stack?
       href: azure-stack-poc.md
@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Zastąp składnika
               href: azure-stack-replace-component.md
+        - name: Tworzenie kopii zapasowej Azure stosu
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Włączenia kopii zapasowej Azure stosu za pomocą konsoli administracyjnej
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Włączenia kopii zapasowej Azure stosu przy użyciu programu PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Tworzenie kopii zapasowej Azure stosu
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Odzyskaj przed utratą danych w wyniku katastrofy
+              href: azure-stack-backup-recover-data.md
+            - name: Najlepsze rozwiązania w zakresie tworzenia kopii zapasowej
+              href: azure-stack-backup-best-practices.md
+            - name: Odwołanie do tworzenia kopii zapasowej
+              href: azure-stack-backup-reference.md
     - name: 'Zabezpieczenia, zgodność i tożsamość'
       items:
         - name: Omówienie zabezpieczeń
@@ -195,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Narzędzie publikowania witryny marketplace
               href: azure-stack-marketplace-publisher.md
+            - name: Obsługiwane systemy operacyjne gościa dla stosu Azure
+              href: azure-stack-supported-os.md
             - name: Dodawanie niestandardowego obrazu maszyny wirtualnej
               href: azure-stack-add-vm-image.md
             - name: Dodawanie zestawów skalowania maszyn wirtualnych
@@ -203,7 +220,7 @@
               href: azure-stack-linux.md
         - name: Użycie i rozliczenia
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: azure-stack-billing-and-chargeback.md
             - name: Raportowanie danych użycia
               href: azure-stack-usage-reporting.md
@@ -231,7 +248,7 @@
           href: azure-stack-diagnostics.md
         - name: Wdrażanie zestawu Azure Stack Development Kit
           href: azure-stack-redeploy.md
-- name: Dokumentacja
+- name: Informacje ogólne
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
