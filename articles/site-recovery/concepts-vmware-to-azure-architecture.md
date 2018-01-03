@@ -1,24 +1,16 @@
 ---
-title: "Przegląd architektury replikacji maszyn wirtualnych VMware do platformy Azure | Dokumentacja firmy Microsoft"
+title: "VMware do platformy Azure replikacji architektury w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Ten artykuł zawiera omówienie składników i architektury używane podczas replikowania lokalnych maszyn wirtualnych VMware do platformy Azure z usługą Azure Site Recovery"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware do platformy Azure replikacji architektury
 
@@ -83,7 +75,6 @@ Po ponownym udostępnieniu głównej lokacji lokalnej można do niej powrócić 
 ![Powrót po awarii](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Przejrzyj macierz obsługi czynności opisane w samouczku umożliwiające VMware do platformy Azure replikacji.
-Uruchom tryb failover i powrotu po awarii.
+Postępuj zgodnie z [w tym samouczku](tutorial-vmware-to-azure.md) umożliwiające VMware do platformy Azure replikacji.

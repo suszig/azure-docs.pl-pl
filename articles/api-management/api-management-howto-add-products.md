@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Tworzenie i publikowanie produktu  
 
@@ -48,10 +48,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
     Po dodaniu produkt, należy podać następujące informacje: 
 
-    |Nazwa|Opis|
+    |Name (Nazwa)|Opis|
     |---|---|
     |Nazwa wyświetlana|Nazwa jako użytkownik ma do pokazania w **portalu dla deweloperów**.|
-    |Nazwa|Opisową nazwę produktu.|
+    |Name (Nazwa)|Opisową nazwę produktu.|
     |Opis|**Opis** pole umożliwia zawierają szczegółowe informacje o produkcie, takie jak jego przeznaczenie, zapewnia dostęp do interfejsów API i inne przydatne informacje.|
     |Stan|Naciśnij klawisz **opublikowano** Jeśli chcesz opublikować produktu. Aby można było wywołać interfejsów API w produkcie, musi zostać opublikowany produktu. Domyślnie są nieopublikowane nowych produktów i są widoczne tylko dla **Administratorzy** grupy.|
     |Wymaga zatwierdzenia|Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz, aby administrator, aby przejrzeć i zaakceptować lub odrzucić prób subskrypcję do tego produktu. Jeśli pole jest zaznaczona, prób subskrypcji są automatycznie zatwierdzone. |
@@ -59,7 +59,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     |Postanowienia prawne|Mogą obejmować warunki użytkowania produktów, którzy użytkownicy muszą zaakceptować, aby korzystać z produktu.|
     |Interfejsy API|Produkty są skojarzenia jeden lub więcej interfejsów API. Można zawierają wiele interfejsów API i ich oferty dla deweloperów za pośrednictwem portalu dla deweloperów. <br/> Podczas tworzenia produktu można dodać istniejącego interfejsu API. Interfejs API można dodać do niego później, albo z produktów **ustawienia** strony lub podczas tworzenia interfejsu API.|<br/>Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do interfejsu API. Gdy subskrybujesz one, otrzymują klucz subskrypcji, który ułatwia jakiegokolwiek interfejsu API w tym produkcie.<br/> Jeśli utworzono wystąpienie APIM jesteś administratorem już, aby zasubskrybować każdego produktu domyślnie.|
 
-3. Kliknij przycisk **zapisać** do tworzenia nowych produktów.
+3. Kliknij przycisk **Utwórz** do tworzenia nowych produktów.
 
 ### <a name="add-more-configurations"></a>Dodaj więcej konfiguracji
 
@@ -88,7 +88,7 @@ Deweloperzy muszą najpierw subskrybować produktu, aby uzyskać dostęp do inte
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

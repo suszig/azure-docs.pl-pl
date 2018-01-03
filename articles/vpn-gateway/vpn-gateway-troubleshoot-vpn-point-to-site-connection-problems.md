@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Rozwiązywanie problemów: Problemów Azure połączenie punkt lokacja
 
@@ -89,7 +89,7 @@ Podczas próby nawiązania sieci wirtualnej platformy Azure przy użyciu klienta
     | Azuregateway -*GUID*. cloudapp.net  | Bieżący User\Trusted główne urzędy certyfikacji|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokalny komputer lokalny\Zaufane główne urzędy certyfikacji|
 
-2. Jeśli certyfikaty znajdują się już w lokalizacji, spróbuj usunąć certyfikaty i zainstaluj je ponownie. **Azuregateway -*GUID*. cloudapp.net** certyfikat znajduje się w pakietu konfiguracji klienta sieci VPN, który został pobrany z portalu Azure. Archivers pliku można użyć, aby wyodrębnić pliki z pakietu.
+2. Jeśli certyfikaty znajdują się już w lokalizacji, spróbuj usunąć certyfikaty i zainstaluj je ponownie.  **Azuregateway -*GUID*. cloudapp.net** certyfikat znajduje się w pakietu konfiguracji klienta sieci VPN, który został pobrany z portalu Azure. Archivers pliku można użyć, aby wyodrębnić pliki z pakietu.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Błąd pobierania pliku: nie określono docelowego identyfikatora URI
 
@@ -263,3 +263,52 @@ Usuń połączenie VPN punkt lokacja, a następnie ponownie zainstalować klient
 ### <a name="solution"></a>Rozwiązanie
 
 Aby rozwiązać ten problem, Usuń stare pliki konfiguracji klienta sieci VPN z **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, a następnie ponownie uruchom Instalatora klienta sieci VPN.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Klient VPN punkt lokacja nie może rozpoznać nazwę FQDN zasobów w domenie lokalnej
+
+### <a name="symptom"></a>Objaw
+
+Gdy klient nawiąże połączenie z Azure przy użyciu połączenia VPN punkt lokacja, nie można rozpoznać FQND zasobów w domenie lokalnej.
+
+### <a name="cause"></a>Przyczyna
+
+Klient sieci VPN punkt lokacja używa serwerów usługi Azure DNS, które są skonfigurowane w sieci wirtualnej platformy Azure. Serwery Azure DNS mają pierwszeństwo przed lokalnych serwerów DNS, które skonfigurowano w kliencie, więc wszystkie zapytania DNS są wysyłane do serwerów DNS platformy Azure. Jeśli nie ma rekordów zasobów lokalnych serwerów usługi Azure DNS, zapytanie kończy się niepowodzeniem.
+
+### <a name="solution"></a>Rozwiązanie
+
+Aby rozwiązać ten problem, upewnij się, że serwery DNS platformy Azure, które używane w sieci wirtualnej platformy Azure można rozwiązać rekordy DNS dla zasobów lokalnych. Aby to zrobić, można użyć usług przesyłania dalej DNS lub usług warunkowego przesyłania dalej. Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw przy użyciu serwera DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Ustanowieniu połączenia sieci VPN punkt lokacja, ale nadal nie można połączyć zasobów platformy Azure 
+
+### <a name="cause"></a>Przyczyna
+
+Ten problem może wystąpić, jeśli klient sieci VPN nie otrzymują trasy z bramy sieci VPN platformy Azure.
+
+### <a name="solution"></a>Rozwiązanie
+
+Aby rozwiązać ten problem, [zresetować bramy sieci VPN platformy Azure](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Błąd: "Funkcja odwołania nie może sprawdzić odwołania, ponieważ serwer odwołań jest w trybie offline. (Błąd 0x80092013)"
+
+### <a name="causes"></a>Powoduje, że
+Ten błąd występuje, jeśli klient nie może uzyskać dostępu do http://crl3.digicert.com/ssca-sha2-g1.crl i http://crl4.digicert.com/ssca-sha2-g1.cr.  Sprawdzanie odwołań wymaga dostępu do tych dwóch witryn.  Ten problem zwykle odbywa się na komputerze klienckim, który ma skonfigurowany serwer proxy. W przypadku środowisk Jeśli nie będą żądania przez serwer proxy go będą odrzucane na brzegowej zaporze sieciowej.
+
+### <a name="solution"></a>Rozwiązanie
+
+Sprawdź ustawienia serwera proxy, upewnij się, że klient ma dostęp do http://crl3.digicert.com/ssca-sha2-g1.crl i http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Błąd klienta sieci VPN: Połączenie nie mógł ze względu na zasady skonfigurowane na serwerze RAS lub sieć VPN. (Błąd 812)
+
+### <a name="cause"></a>Przyczyna
+
+Ten błąd występuje, jeśli serwer usługi RADIUS, używany do uwierzytelniania klientów sieci VPN, ma nieprawidłowe ustawienia. 
+
+### <a name="solution"></a>Rozwiązanie
+
+Upewnij się, że serwer RADIUS jest skonfigurowany prawidłowo. Aby uzyskać więcej informacji, zobacz [integracji uwierzytelnianie usługi RADIUS z serwera usługi Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Błąd 405" po pobraniu certyfikatu głównego z bramy sieci VPN
+
+### <a name="cause"></a>Przyczyna
+
+Nie zainstalowano certyfikat główny. Certyfikat główny jest zainstalowany na komputerze klienckim **zaufane certyfikaty** przechowywania.

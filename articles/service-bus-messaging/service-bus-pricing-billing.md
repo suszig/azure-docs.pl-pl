@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Usługa Service Bus cennik i rozliczenia
-Usługa Service Bus jest oferowana w standardzie i [Premium](service-bus-premium-messaging.md) warstw. Można wybrać dla każdej przestrzeni nazw usługi Service Bus, który utworzono warstwy usług, i stosuje ten wybór warstwy dla wszystkich obiektów utworzonych w tej przestrzeni nazw.
+
+Usługa Azure Service Bus jest oferowana w standardzie i [Premium](service-bus-premium-messaging.md) warstw. Można wybrać dla każdej przestrzeni nazw usługi Service Bus, który utworzono warstwy usług, i stosuje ten wybór warstwy dla wszystkich obiektów utworzonych w tej przestrzeni nazw.
 
 > [!NOTE]
 > Aby uzyskać szczegółowe informacje o cenach bieżącej usługi Service Bus, zobacz [cennik usługi Azure Service Bus](https://azure.microsoft.com/pricing/details/service-bus/)i [— często zadawane pytania dla magistrali usługi](service-bus-faq.md#pricing).
@@ -42,7 +43,8 @@ Należy pamiętać, że warstwy standardowa opłata podstawowa jest rozliczana t
 [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) tabeli przedstawiono różnice funkcjonalne między warstwy standardowa i Premium.
 
 ## <a name="messaging-operations"></a>Operacje obsługi komunikatów
-W ramach nowego modelu cenowego zmienia rozliczeń dla kolejek i tematów/subskrypcji. Te jednostki są przenoszone z rozliczeniami na jeden komunikat do rozliczeń dla operacji. "Operacji" odwołuje się do dowolnego wywołania interfejsu API przed punkt końcowy usługi kolejki i tematu/subskrypcji. Obejmuje to operacje stanu zarządzania, wysyłania i odbierania i sesji.
+
+Kolejki i tematy/subskrypcje są rozliczane na "operacji", nie dla każdego komunikatu. Operacja odwołuje się do dowolnego wywołania interfejsu API przed punkt końcowy usługi kolejki i tematu/subskrypcji. Dotyczy to również operacji zarządzania, wysyłania/odbierania i obsługi stanu sesji.
 
 | Typ operacji | Opis |
 | --- | --- |
@@ -53,7 +55,8 @@ W ramach nowego modelu cenowego zmienia rozliczeń dla kolejek i tematów/subskr
 Szczegółowe koszt, można znaleźć ceny wymienione na [cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) strony.
 
 ## <a name="brokered-connections"></a>Połączenia obsługiwane przez brokera
-*Obsługiwane przez brokera połączeń* pomieścić wzorców użycia klienta, obejmujących wiele "stale połączonych" nadawców/odbiorcy przed kolejki, tematy i subskrypcje. Stale połączonych nadawców/odbiorcy są te, które łączą się przy użyciu protokołu AMQP lub HTTP z inną niż zero uzyskują limitu czasu (na przykład HTTP długi sondowania). HTTP nadawcami a odbiornikami natychmiastowego limitu czasu nie generują obsługiwanych przez brokera połączeń.
+
+*Obsługiwane przez brokera połączeń* pomieścić wzorce użycia, obejmujących wiele "stale połączonych" nadawców/odbiorcy przed kolejki, tematy i subskrypcje. Stale połączonych nadawców/odbiorcy są te, które łączą się przy użyciu protokołu AMQP lub HTTP z inną niż zero uzyskują limitu czasu (na przykład HTTP długi sondowania). HTTP nadawcami a odbiornikami natychmiastowego limitu czasu nie generują obsługiwanych przez brokera połączeń.
 
 Dla połączenia przydziały i limity inne usługi, zobacz [przydziały usługi Service Bus](service-bus-quotas.md) artykułu. Aby uzyskać więcej informacji na temat obsługiwanych przez brokera połączeń, zobacz [— często zadawane pytania](#faq) sekcji w dalszej części tego artykułu.
 
@@ -78,6 +81,7 @@ W warstwie Premium nie są naliczane opłaty za połączenia obsługiwane przez 
 ## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Co to są obsługiwane przez brokera połączeń i jak pobrać daną opłatę dla nich?
+
 Połączenie obsługiwane przez brokera jest definiowane jako jedna z następujących sytuacji:
 
 1. Protokół AMQP połączenie z klienta do kolejki usługi Service Bus lub tematu/subskrypcji.
@@ -91,9 +95,11 @@ Na przykład:
 2. 10 000 urządzeń odbierać komunikaty z kolejki usługi Service Bus za pośrednictwem protokołu HTTP, określając limit czasu równy zero. Jeśli wszystkie urządzenia podłączone 12 godzin codziennie, pojawi się następujące opłaty za połączenia (jako uzupełnienie innych opłat usługi Service Bus): 10 000 HTTP odbierania połączeń * 12 godzin dziennie * 31 dni / godziny 744 = 5000 obsługiwanych przez brokera połączeń.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Czy opłaty za połączenia obsługiwane przez brokera mają zastosowanie w przypadku kolejek i tematów/subskrypcji?
-Tak. Nie ma żadnych opłat połączenia do wysyłania zdarzeń przy użyciu protokołu HTTP, niezależnie od liczby wysyłania systemów lub urządzeń. Odbieranie zdarzeń z protokołem HTTP przy użyciu przekroczenie limitu czasu większą niż zero, nazywane czasem "long sondowania," generuje opłaty za połączenia obsługiwanych przez brokera. Połączenia AMQP generują opłaty za połączenia obsługiwane przez brokera bez względu na to, czy połączenia są używane do wysyłania czy odbierania. Pierwszych 1000 obsługiwanych przez brokera połączeń we wszystkich standardowych przestrzeni nazw w subskrypcji platformy Azure są uwzględniane bez dodatkowych opłat (poza opłata podstawowa). Ponieważ te dodatki pokrywać wiele scenariuszy wysyłania komunikatów do usługi, opłaty za połączenia obsługiwanych przez brokera zwykle tylko staną się ważne, jeśli planujesz używać protokołu AMQP i HTTP sondowania long z dużej liczby klientów. na przykład, aby osiągnąć większą wydajność przesyłania strumieniowego zdarzeń lub Włącz komunikację dwukierunkową z wieloma urządzeniami lub wystąpień aplikacji.
 
-## <a name="next-steps"></a>Następne kroki
+Tak. Nie ma opłat za połączenia związane z przesyłaniem zdarzeń przez protokół HTTP niezależnie od liczby systemów lub urządzeń wysyłających. Odbieranie zdarzeń z protokołem HTTP przy użyciu przekroczenie limitu czasu większą niż zero, nazywane czasem "long sondowania," generuje opłaty za połączenia obsługiwanych przez brokera. Połączenia AMQP generują opłaty za połączenia obsługiwane przez brokera bez względu na to, czy połączenia są używane do wysyłania czy odbierania. Pierwszych 1000 obsługiwanych przez brokera połączeń we wszystkich standardowych przestrzeni nazw w subskrypcji platformy Azure są uwzględniane bez dodatkowych opłat (poza opłata podstawowa). Ponieważ te dodatki pokrywać wiele scenariuszy wysyłania komunikatów do usługi, opłaty za połączenia obsługiwanych przez brokera zwykle tylko staną się ważne, jeśli planujesz używać protokołu AMQP i HTTP sondowania long z dużej liczby klientów. na przykład, aby osiągnąć większą wydajność przesyłania strumieniowego zdarzeń lub Włącz komunikację dwukierunkową z wieloma urządzeniami lub wystąpień aplikacji.
+
+## <a name="next-steps"></a>Kolejne kroki
+
 * Aby uzyskać szczegółowe informacje o cenach usługi Service Bus, zobacz [cennikiem usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 * Zobacz [— często zadawane pytania dla magistrali usługi](service-bus-faq.md#pricing) dla niektórych typowych — często zadawane pytania dotyczące usługi Service bus cennika i rozliczeń.
 

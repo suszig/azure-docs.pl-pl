@@ -3,7 +3,7 @@ title: "Pojęcia dotyczące DevTest Labs | Dokumentacja firmy Microsoft"
 description: "Dowiedz się więcej podstawowych pojęć dotyczących DevTest Labs i jak może być łatwe do tworzenia, zarządzania i monitorowania maszyn wirtualnych platformy Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs — pojęcia
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Poniższa lista zawiera podstawowe pojęcia DevTest Labs i definicje:
 
 ## <a name="labs"></a>Laboratoria
@@ -88,5 +88,5 @@ Wszystkie omówione w tym artykule można skonfigurować przy użyciu szablonów
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Tworzenie laboratorium w usłudze DevTest Labs](devtest-lab-create-lab.md)

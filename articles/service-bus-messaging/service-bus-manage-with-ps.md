@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Zarządzanie zasobami usługi Service Bus przy użyciu programu PowerShell
 
@@ -34,7 +34,7 @@ Przed rozpoczęciem, potrzebne są następujące wymagania wstępne:
 * Komputer z programem Azure PowerShell. Aby uzyskać instrukcje, zobacz [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/get-started-azureps).
 * Ogólny opis skryptów programu PowerShell, pakietami NuGet i .NET Framework.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Pierwszym krokiem jest zalogować się do swojego konta platformy Azure i subskrypcji platformy Azure przy użyciu programu PowerShell. Postępuj zgodnie z instrukcjami [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/get-started-azureps) Zaloguj się do konta platformy Azure i pobierania i uzyskać dostęp do zasobów w Twojej subskrypcji platformy Azure.
 
@@ -159,7 +159,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Można użyć [modułu programu PowerShell usługi Service Bus](/powershell/module/azurerm.servicebus) do udostępnienia inne jednostki, na przykład tematów i subskrypcji. Te polecenia cmdlet są składniowo podobne do polecenia cmdlet tworzenia kolejki zostało to pokazane w poprzedniej sekcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz pełną dokumentację modułu programu PowerShell Menedżera zasobów usługi magistrali [tutaj](/powershell/module/azurerm.servicebus). Ta strona zawiera listę wszystkich dostępnych poleceń cmdlet.
 - Aby uzyskać informacje dotyczące korzystania z szablonów usługi Azure Resource Manager, zobacz artykuł [zasobów usługi Service Bus utworzyć przy użyciu szablonów usługi Azure Resource Manager](service-bus-resource-manager-overview.md).

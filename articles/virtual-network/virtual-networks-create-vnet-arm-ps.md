@@ -17,10 +17,10 @@ ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Tworzenie sieci wirtualnej przy użyciu programu PowerShell
 
@@ -47,7 +47,7 @@ Aby utworzyć sieć wirtualną przy użyciu programu PowerShell, wykonaj następ
 
 1. Instalowanie i konfigurowanie programu Azure PowerShell, wykonując kroki opisane w [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
 
-2. W razie potrzeby utwórz nową grupę zasobów, jak pokazano poniżej. W tym scenariuszu, należy utworzyć grupę zasobów o nazwie *TestRG*. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+2. W razie potrzeby utwórz nową grupę zasobów, jak pokazano poniżej. W tym scenariuszu, należy utworzyć grupę zasobów o nazwie *TestRG*. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
     ```powershell   
     New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -174,7 +174,7 @@ Aby utworzyć sieć wirtualną przy użyciu programu PowerShell, wykonaj następ
                                 ]
         VirtualNetworkPeerings : []
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak połączyć:
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 211036f32df719bf329783b3e4333a8496aa1676
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorowanie wydajności bazy danych w usłudze Azure SQL Database
 Monitorowanie wydajności bazy danych SQL na platformie Azure rozpoczyna się od monitorowania wykorzystania zasobów względem wybranego poziomu wydajności bazy danych. Monitorowanie pomaga ustalić, czy baza danych nie ma nadmiarowej pojemności lub czy nie występują problemy z powodu maksymalnego wykorzystania zasobów. Następnie na tej podstawie można zdecydować, czy nadszedł czas, aby dostosować poziom wydajności i [warstwę usług](sql-database-service-tiers.md) bazy danych. Bazę danych można monitorować za pomocą narzędzi graficznych w [witrynie Azure Portal](https://portal.azure.com) lub przy użyciu [dynamicznych widoków zarządzania](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
@@ -39,7 +39,7 @@ W witrynie [Azure Portal](https://portal.azure.com/) możesz wybrać bazę danyc
 
 Po dodaniu tych metryk możesz nadal przeglądać je na wykresie **Monitorowanie** z bardziej szczegółowymi informacjami w oknie **Metryka**. Wszystkie cztery metryki pokazują średnią wartość procentową wykorzystania względem jednostek **DTU** bazy danych. Zobacz artykuł o [usługach warstw](sql-database-service-tiers.md), aby dowiedzieć się więcej na temat jednostek DTU.
 
-![Monitorowanie warstw usług pod względem wydajności bazy danych.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Monitorowanie warstw usług pod względem wydajności bazy danych.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 Możesz również skonfigurować alerty dotyczące metryk wydajności. Kliknij przycisk **Dodaj alert** w oknie **Metryka**. Użyj kreatora, aby skonfigurować alert. Istnieje możliwość ustawienia alertu, który będzie wysyłany, gdy metryki przekroczą określony próg lub spadną poniżej określonego progu.
 
@@ -212,7 +212,7 @@ Ponownie tych zapytań Zwróć liczba punktu w czasie. W przypadku zebrania wiel
 
 Analizy bazy danych SQL, historycznych statystyki można uzyskać na sesje, badając [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) widoku i przeglądanie **active_session_count** kolumny. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Automatycznie Dostosuj indeksy bazy danych i zapytania przy użyciu planów wykonania [automatycznego dostrajania bazy danych SQL Azure](sql-database-automatic-tuning.md).
 - Monitorowanie wydajności bazy danych automatycznie za pomocą [Insights inteligentnego SQL Azure](sql-database-intelligent-insights.md). Ta funkcja udostępnia informacje diagnostyczne i analiza problemów z wydajnością przyczyna.

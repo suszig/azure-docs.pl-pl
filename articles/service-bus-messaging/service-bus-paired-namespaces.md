@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Skojarzone szczegóły implementacji przestrzeni nazw i kosztów efekty
+
 [PairNamespaceAsync] [ PairNamespaceAsync] — metoda, za pomocą [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] wystąpienia, wykonuje zadania widoczne w Twoim imieniu. Ponieważ są koszt zagadnienia, podczas korzystania z funkcji, takiemu grupowaniu można sprawdzić te zadania, tak aby oczekiwać zachowanie, gdy nastąpi. Interfejs API angażujący następujące automatyczne działanie w imieniu użytkownika:
 
 * Tworzenie zaległości kolejki.
@@ -60,8 +61,8 @@ W pozostałej części w tym temacie omówiono konkretne szczegółowe informacj
 | DefaultMessageTimeToLive |Wartość TimeSpan.MaxValue |
 | AutoDeleteOnIdle |Wartość TimeSpan.MaxValue |
 | LockDuration |1 minuta |
-| EnableDeadLetteringOnMessageExpiration |Wartość true |
-| EnableBatchedOperations |Wartość true |
+| EnableDeadLetteringOnMessageExpiration |prawda |
+| EnableBatchedOperations |prawda |
 
 Na przykład utworzyć pierwszy kolejki zaległości dla przestrzeni nazw **contoso** nosi nazwę `contoso/x-servicebus-transfer/0`.
 
@@ -97,7 +98,7 @@ Co najmniej jeden program wykonywalny w aplikacji aktywnie powinna działać syp
 ## <a name="closefault-behavior"></a>Zamknij/błędów zachowanie
 W aplikacji, która obsługuje syphon, raz podstawowej lub pomocniczej [MessagingFactory] [ MessagingFactory] błędów lub zamknięciu bez partnera również błędny lub zamknięte, a syphon wykrywa tego stanu syphon działa. Jeśli drugiej [MessagingFactory] [ MessagingFactory] nie są zamknięte w ciągu 5 sekund syphon błędów nadal Otwórz [MessagingFactory][MessagingFactory].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz [asynchroniczne wzorce i wysokiej dostępności do obsługi komunikatów] [ Asynchronous messaging patterns and high availability] szczegółowe omówienie asynchroniczne komunikatów usługi Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

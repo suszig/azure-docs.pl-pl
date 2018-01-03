@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Debugowanie aplikacji w lokalnym kontenerze platformy Docker
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Visual Studio Tools for Docker zapewnia spójny sposób rozwijać w i weryfikowanie aplikacji lokalnie w kontenerze Docker systemu Linux.
 Nie trzeba ponownie uruchomić kontenera zawsze, gdy należy zmienić kod.
 W tym artykule przedstawiono sposób Użyj funkcji "Edytuj i Odśwież", aby uruchomić aplikację sieci Web platformy ASP.NET Core w kontenerze Docker lokalnym, wprowadź niezbędne zmiany, a następnie odśwież przeglądarkę, aby zobaczyć wpływ zmian.
@@ -54,7 +54,7 @@ Aby szybko przejść zmian, można uruchomić aplikację w kontenerze i kontynuo
 
 1. Ustaw dla konfiguracji rozwiązania `Debug` i naciśnij klawisz  **&lt;CTRL + F5 >** do tworzenia obrazu docker i uruchom lokalnie.
 
-    Gdy obraz kontener został utworzony i działa w kontenerze Docker, Visual Studio spowoduje uruchomienie aplikacji sieci Web w domyślnej przeglądarce.
+    Po kontenera obraz został utworzony i działa w kontenerze Docker, Visual Studio uruchamia aplikację sieci Web w domyślnej przeglądarce.
     Jeśli używasz przeglądarki Microsoft Edge lub w przeciwnym razie zawiera błędy, zobacz [Rozwiązywanie problemów](vs-azure-tools-docker-troubleshooting-docker-errors.md) sekcji.
 2. Przejdź do strony informacje, czyli gdzie zamierzamy naszych zmiany.
 3. Wróć do programu Visual Studio i otworzyć `Views\Home\About.cshtml`.

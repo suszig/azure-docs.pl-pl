@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Tworzenie trasy zdefiniowane przez użytkownika (przez) przy użyciu szablonu
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Program PowerShell](virtual-network-create-udr-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-arm-cli.md)
 > * [Szablon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-network-create-udr-classic-ps.md)

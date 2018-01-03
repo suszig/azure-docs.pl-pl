@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 258393884c156b2cff00559d3cedfde1380c6c28
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure kolejki magazynu powiązania dla usługi Azure Functions
 
@@ -35,13 +35,13 @@ Użyj wyzwalacza kolejki, aby uruchomić funkcję, po odebraniu nowego elementu 
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#trigger---c-example)
-* [Skryptu C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Skryptu C# (csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Wyzwalacz — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kod, który sonduje `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) który sonduje `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Wyzwalacz — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
+W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja sond `myqueue-items` kolejki i zapisuje dziennik za każdym razem, jest przetwarzany element kolejki.
 
 Oto *function.json* pliku:
 
@@ -153,7 +153,7 @@ module.exports = function (context) {
 
 ## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
  
-Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, umożliwia skonfigurowanie wyzwalacz kolejki następujące atrybuty:
+W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurowanie wyzwalacz kolejki następujące atrybuty:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   }
   ```
  
-  Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
+  Pełny przykład, zobacz [wyzwalacza — przykład C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -266,13 +266,13 @@ Za pomocą raportu magazynu kolejek Azure powiązanie do zapisywania wiadomości
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#output---c-example)
-* [Skryptu C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Skryptu C# (csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kod, który tworzy komunikatu w kolejce dla każdego żądania HTTP odebrane.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) tworzącą komunikatu w kolejce dla każdego żądania HTTP odebrane.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Dane wyjściowe — przykładowy skrypt w języku C#
 
-W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C#](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy element kolejki z ładunku POCO dla każdego żądania HTTP odebrane.
+W poniższym przykładzie przedstawiono wyzwalacza obiektu blob powiązanie w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy element kolejki z ładunku POCO dla każdego żądania HTTP odebrane.
 
 Oto *function.json* pliku:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
  
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Ten atrybut ma zastosowanie do `out` parametrów lub wartości zwracanej przez funkcję. Konstruktor atrybutu ma nazwę kolejki, jak pokazano w poniższym przykładzie:
 
@@ -425,9 +425,9 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+Pełny przykład, zobacz [dane wyjściowe — przykład C#](#output---c-example).
 
-Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes-for-precompiled-c).
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attribute).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -459,7 +459,7 @@ W języku C# i skryptu C# zapisu wielu komunikatów z kolejki przy użyciu jedne
 
 W funkcji JavaScript, za pomocą `context.bindings.<name>` dostępu do danych wyjściowych kolejki wiadomości. Ciąg lub obiekt możliwy do serializacji JSON można użyć do ładunku elementu kolejki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Przejdź do szybkiego startu, używającej wyzwalacz kolejki magazynu](functions-create-storage-queue-triggered-function.md)

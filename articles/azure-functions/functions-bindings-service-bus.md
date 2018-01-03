@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure powiązania usługi Service Bus dla usługi Azure Functions
 
@@ -36,14 +36,14 @@ Wyzwalacz usługi Service Bus umożliwia odpowiada na komunikaty z kolejki usłu
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#trigger---c-example)
-* [Skryptu C#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Skryptu C# (csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Wyzwalacz — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) loguje się komunikat z kolejki usługi Service Bus.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) loguje się komunikat z kolejki usługi Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Wyzwalacz — atrybuty
 
-Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, umożliwia skonfigurowanie wyzwalacz usługi Service Bus następujące atrybuty:
+W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurowanie wyzwalacz usługi Service Bus następujące atrybuty:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   }
   ```
 
-  Pełny przykład, zobacz [wyzwalacza - prekompilowany C# przykład](#trigger---c-example).
+  Pełny przykład, zobacz [wyzwalacza — przykład C#](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -250,14 +250,14 @@ Powiązanie danych wyjściowych usługi Azure Service Bus wysyłać pomocą kole
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#output---c-example)
-* [Skryptu C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Skryptu C# (csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) który wysyła komunikat z kolejki usługi Service Bus:
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) który wysyła komunikat z kolejki usługi Service Bus:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Konstruktor atrybutu ma nazwę kolejki lub tematu i subskrypcji. Można również określić prawa dostępu do tego połączenia. Jak wybrać ustawienie prawa dostępu zostało wyjaśnione w dokumencie [wyjście - konfiguracji](#output---configuration) sekcji. Oto przykład pokazujący, atrybut zastosowany do wartość zwracana funkcji:
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+Pełny przykład, zobacz [dane wyjściowe — przykład C#](#output---c-example).
 
-Można użyć `ServiceBusAccount` atrybutu, aby określić konto usługi Service Bus do użycia na poziomie klasy, metody lub parametru.  Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes-for-precompiled-c).
+Można użyć `ServiceBusAccount` atrybutu, aby określić konto usługi Service Bus do użycia na poziomie klasy, metody lub parametru.  Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -469,7 +469,7 @@ W przypadku tworzenia wielu wiadomości w języku C# lub funkcji skryptu C#, mo�
 
 W języku JavaScript, dostęp do kolejki lub temat przy użyciu `context.bindings.<name>`. `<name>`wartość jest określona w `name` właściwość *function.json*. Ciąg, tablica bajtów lub obiektu Javascript (deserializacji do postaci JSON) można przypisać do `context.binding.<name>`.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

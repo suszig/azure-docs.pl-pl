@@ -3,7 +3,7 @@ title: "Tworzenie lub modyfikowanie labs automatycznie za pomocą szablonów us�
 description: "Dowiedz się, jak używać szablonów usługi Azure Resource Manager przy użyciu programu PowerShell do tworzenia lub modyfikowania labs automatycznie w laboratorium DevTest lab"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dad9944c-0b20-48be-ba80-8f4aa0950903
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: tarcher
-ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 0aa55d1bc1f459e6757ecb27de043d4742a77c9f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Tworzenie lub modyfikowanie labs automatycznie przy użyciu szablonów usługi Azure Resource Manager i programu PowerShell
 
@@ -46,6 +46,6 @@ Istnieje wielu innych typowych zadań, które można zautomatyzować za pomocą 
 * [Dodaj użytkownika zewnętrznego w laboratorium przy użyciu programu PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Tworzenie laboratorium niestandardowej roli zabezpieczeń przy użyciu programu PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak utworzyć [prywatne repozytorium Git](devtest-lab-add-artifact-repo.md) którym będą przechowywanie szablony niestandardowe lub skryptów.
 * Eksploruj [szablonów usługi Azure Resource Manager z galerii szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates).

@@ -3,8 +3,8 @@ title: "Rozwiązywanie problemów z automatycznie skalowana za pomocą zestawów
 description: "Rozwiązywanie problemów z automatycznie skalowana za pomocą zestawów skali maszyny wirtualnej. Zrozumieć typowych problemów i ich rozwiązania."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: windows
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: guybo
-ms.openlocfilehash: 19871cd0433c6df88c631cf6e6e8e477dc902448
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Rozwiązywanie problemów z automatycznie skalowana za pomocą zestawów skali maszyny wirtualnej
 **Problem** — po utworzeniu Skalowanie automatyczne infrastruktury w usłudze Azure Resource Manager za pomocą zestawów skali maszyny wirtualnej — na przykład przy wdrażaniu szablonu podobny do tego: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss-bottle — funkcja automatycznego skalowania — masz zdefiniowanych reguł skalowania i działa ona ponosić, z wyjątkiem niezależnie od tego, ile obciążenia umieszczone na maszynach wirtualnych, nie skalowania automatycznego.
 
-## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+## <a name="troubleshooting-steps"></a>Rozwiązywanie problemów
 Kilka rzeczy, które należy uwzględnić obejmują:
 
 * Ile Vcpu każda maszyna wirtualna ma i czy ładowanie każdego vCPU?

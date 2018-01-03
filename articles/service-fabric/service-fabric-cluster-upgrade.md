@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Uaktualnianie klastra usługi sieć szkieletowa usług Azure
 > [!div class="op_single_selector"]
@@ -210,7 +210,7 @@ Zapoznaj się [poprawki aplikacji aranżacji](service-fabric-patch-orchestration
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Uaktualnień systemu operacyjnego na maszynach wirtualnych, które tworzą klastra
 Jeśli musisz uaktualnić obrazu systemu operacyjnego w przypadku maszyn wirtualnych klastra, należy to robić jedną maszynę Wirtualną w czasie. Przydadzą się osobom odpowiedzialnym dla tego uaktualnienia — nie ma obecnie nie automatyzacji tego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak dostosować niektóre [ustawień sieci szkieletowej klastra sieci szkieletowej usług](service-fabric-cluster-fabric-settings.md)
 * Dowiedz się, jak [i wylogowywanie skalowanie klastra](service-fabric-cluster-scale-up-down.md)
 * Dowiedz się więcej o [uaktualnienia aplikacji](service-fabric-application-upgrade.md)

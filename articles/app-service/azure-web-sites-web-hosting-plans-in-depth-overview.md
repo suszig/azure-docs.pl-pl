@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Omówienie usługi Azure planu usługi aplikacji
 
-W usłudze App Service, aplikacja jest uruchamiana w _planu usługi aplikacji_. Plan usługi aplikacji definiuje zestaw zasoby obliczeniowe dla aplikacji sieci web do uruchomienia. Obliczeniowe te zasoby są odpowiednikiem [ _farmy serwerów_ ](https://wikipedia.org/wiki/Server_farm) w hostingu z konwencjonalnej sieci web. Co najmniej jedną aplikację można skonfigurować do uruchamiania na tym samym zasobów obliczeniowych (lub w tym samym planie usługi aplikacji). 
+W usłudze App Service, aplikacja jest uruchamiana w _planu usługi aplikacji_. Plan usługi aplikacji definiuje zestaw zasoby obliczeniowe dla aplikacji sieci web do uruchomienia. Obliczeniowe te zasoby są odpowiednikiem [ _farmy serwerów_ ](https://wikipedia.org/wiki/Server_farm) w hostingu z konwencjonalnej sieci web. Co najmniej jedną aplikację można skonfigurować do uruchamiania na tym samym zasobów obliczeniowych (lub w tym samym planie usługi aplikacji).
 
 Po utworzeniu planu usługi App Service w danym regionie (na przykład, Europa Zachodnia) zestaw zasobów obliczeniowych jest tworzony dla tego planu, w tym regionie. Niezależnie od aplikacji umieścić w tym planie usługi aplikacji, uruchom na te zasoby obliczeniowe, zgodnie z definicją planu usługi aplikacji. Definiuje każdy plan usługi aplikacji:
 
@@ -38,6 +38,8 @@ _Warstwy cenowej_ usługi App Service plan określa, jakie funkcje usługi App S
 - **Dedykowany obliczeń**: **podstawowe**, **standardowe**, **Premium**, i **PremiumV2** warstw uruchamiania aplikacji na platformie Azure dedykowane Maszyny wirtualne. Tylko aplikacje w tym samym planie usługi aplikacji udostępnianie tych samych zasobów obliczeniowych. Wyższego poziomu, więcej wystąpień maszyny Wirtualnej są dostępne dla skalowalnego w poziomie.
 - **Izolowane**: Ta warstwa działa dedykowanych maszynach wirtualnych platformy Azure na dedykowanych sieci wirtualnych Azure, która zapewnia izolację sieci na górze izolacja obliczeń do aplikacji. Zapewnia maksymalną możliwości skalowania w poziomie.
 - **Zużycie**: Ta warstwa jest dostępna tylko dla [funkcji aplikacji](../azure-functions/functions-overview.md). Skaluje się funkcje dynamicznie w zależności od obciążenia. Aby uzyskać więcej informacji, zobacz [hosting usługi Azure Functions plany porównanie](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Każda warstwa także konkretnego podzestawu funkcji usługi aplikacji. Te funkcje obejmują domeny niestandardowe i certyfikatów SSL, skalowanie automatyczne, miejsc wdrożenia, kopie zapasowe, integracji usługi Traffic Manager i inne. Im wyższa warstwy więcej funkcje są dostępne. Aby dowiedzieć się, które funkcje są obsługiwane w każdej warstwy cenowej, zobacz [szczegóły planu usługi aplikacji](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

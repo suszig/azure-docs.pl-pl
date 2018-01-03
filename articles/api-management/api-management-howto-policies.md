@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Zasady w usłudze Azure API Management
 
@@ -74,7 +74,7 @@ Zobacz [Przykłady zasad](policy-samples.md) więcej przykładów kodu.
 
 ## <a name="examples"></a>Przykłady
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Zasad Appliy określonych w innych zakresach
+### <a name="apply-policies-specified-at-different-scopes"></a>Zastosowanie zasad określonych w innych zakresach
 
 Jeśli masz zasady na poziomie globalnym i zasady skonfigurowane dla interfejsu API, następnie każdorazowe użycie tego konkretnego interfejsu API obie zasady zostaną zastosowane. Zarządzanie interfejsami API umożliwia deterministyczne kolejność deklaracji zasad połączonych za pośrednictwem elementu podstawowego. 
 
@@ -119,7 +119,7 @@ Ogranicza liczby żądań przychodzących i zaakceptować tylko te z adresu IP 1
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, Praca z zasad Zobacz:
 

@@ -138,7 +138,7 @@ Wykonaj następujące kroki, aby włączyć kopie zapasowe maszyn wirtualnych za
 
 4.  Upewnij się, że zainstalowano agenta kopii zapasowej na maszynie Wirtualnej. Jeśli maszyna wirtualna została utworzona za pomocą galerii Azure, Agent kopii zapasowej już jest zainstalowany. W przeciwnym razie (Jeśli używasz niestandardowego obrazu), postępuj zgodnie z instrukcjami, aby [Zainstaluj agenta maszyny Wirtualnej na maszynie wirtualnej](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Upewnij się, że maszyna wirtualna zezwala na połączenie sieciowe dla usługi tworzenia kopii zapasowej do funkcji. Postępuj zgodnie z instrukcjami dotyczącymi [połączeń sieciowych](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Upewnij się, że maszyna wirtualna zezwala na połączenie sieciowe dla usługi tworzenia kopii zapasowej do funkcji. Postępuj zgodnie z instrukcjami dotyczącymi [połączeń sieciowych](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Po wykonaniu poprzednich kroków tworzenia kopii zapasowej w regularnych odstępach czasu określonych w zasadach tworzenia kopii zapasowej. W razie potrzeby możesz wyzwolić pierwszej kopii zapasowej ręcznie z pulpitem nawigacyjnym magazynu w portalu Azure.
 

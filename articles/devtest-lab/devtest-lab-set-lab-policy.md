@@ -3,7 +3,7 @@ title: "Zarządzanie zasadami laboratorium w usłudze Azure DevTest Labs | Dokum
 description: "Dowiedz się, jak zdefiniować zasad laboratorium, na przykład rozmiary maszyn wirtualnych, maksymalna maszyn wirtualnych dla użytkowników i zamykania automatyzacji."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Zarządzanie wszystkimi zasadami dla laboratorium w usłudze Azure DevTest Labs
 
@@ -102,12 +102,12 @@ Zasady automatycznego uruchamiania umożliwia określenie, uruchomienia maszyn w
 
 Po włączeniu tych zasad nie została automatycznie zastosowana do żadnej maszyny wirtualnej w bieżącym laboratorium. Aby zastosować to ustawienie do określonej maszyny Wirtualnej, otwórz okienko zarządzania maszyny Wirtualnej i zmień jego **Auto-start** ustawienie.
 
-## <a name="set-expiration-date"></a>Ustawianie daty wygaśnięcia
+## <a name="set-expiration-date"></a>Ustaw datę wygaśnięcia
 Można ustawić wygaśnięcie datę, gdy użytkownik [utworzyć maszynę Wirtualną](devtest-lab-add-vm.md). W **Zaawansowane ustawienia**, wybierz ikonę kalendarza, aby określić datę, na której maszyna wirtualna zostanie automatycznie usunięty. Domyślnie nigdy nie wygasa maszyny Wirtualnej.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zdefiniowany i zastosować różne ustawienia zasad maszyn wirtualnych dla laboratorium, poniżej przedstawiono niektóre czynności, aby spróbować obok:
 
 * [Zrozumienie udostępnionego adresy IP](devtest-lab-shared-ip.md) -wyjaśniono, jak udostępnione IP adresy są używane w usłudze DevTest Labs, aby zminimalizować liczbę publicznych adresów IP wymagane do nawiązania laboratorium maszyn wirtualnych.
@@ -115,5 +115,5 @@ Po zdefiniowany i zastosować różne ustawienia zasad maszyn wirtualnych dla la
   Aby wyświetlić bieżącego miesiąca na szacowane Data kosztu i szacowany koszt koniec miesiąca.
 * [Tworzenie niestandardowego obrazu](devtest-lab-create-template.md) — podczas tworzenia maszyny Wirtualnej, należy określić podstawowy, który może być niestandardowy obraz lub obrazu z witryny Marketplace. W tym artykule przedstawiono sposób tworzenia niestandardowego obrazu z pliku VHD.
 * [Konfigurowanie portalu Marketplace obrazów](devtest-lab-configure-marketplace-images.md) — Azure DevTest Labs obsługuje tworzenie maszyn wirtualnych, oparte na obrazach portalu Azure Marketplace. W tym artykule przedstawiono sposób określić, które, portalu Azure Marketplace obrazy mogą być używane podczas tworzenia maszyn wirtualnych w laboratorium.
-* [Utwórz maszynę Wirtualną w laboratorium](devtest-lab-add-vm-with-artifacts.md) -ilustruje sposób tworzenia maszyny Wirtualnej z obrazu podstawowego (albo niestandardowe lub Marketplace) oraz sposób pracy z artefaktami w maszynie Wirtualnej.
+* [Utwórz maszynę Wirtualną w laboratorium](devtest-lab-add-vm.md) -ilustruje sposób tworzenia maszyny Wirtualnej z obrazu podstawowego (albo niestandardowe lub Marketplace) oraz sposób pracy z artefaktami w maszynie Wirtualnej.
 

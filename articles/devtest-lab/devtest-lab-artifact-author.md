@@ -3,7 +3,7 @@ title: "Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest La
 description: "Dowiedz się, jak tworzyć własne artefakty do korzystania z usługi Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
 
@@ -28,7 +28,7 @@ Obejrzyj film następujące omówienie kroków opisanych w tym artykule:
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Można użyć *artefakty* do wdrażania i konfigurowania aplikacji po udostępnić maszynie Wirtualnej. Artefakt składa się z plikiem definicji artefaktów i innych plików skryptów, które są przechowywane w folderze w repozytorium Git. Pliki definicji artefaktów składają się z kodu JSON i wyrażeń używanych do określania, jakie ma zostać zainstalowany na maszynie Wirtualnej. Na przykład można zdefiniować nazwę artefaktu, polecenie do uruchomienia i parametrów, które są dostępne po uruchomieniu polecenia. Według nazwy mogą odwoływać się do innych plików skryptów w pliku definicji artefaktów.
 
 ## <a name="artifact-definition-file-format"></a>Format pliku definicji artefaktów
@@ -55,12 +55,12 @@ W poniższym przykładzie przedstawiono sekcje, które tworzą podstawowej struk
 | Nazwa elementu | Wymagana? | Opis |
 | --- | --- | --- |
 | $schema |Nie |Lokalizacja pliku schematu JSON. Plik schematu JSON może pomóc w testowania ważności pliku definicji. |
-| Tytuł |Tak |Nazwa artefaktu wyświetlany w laboratorium. |
-| description |Tak |Opis artefaktu wyświetlany w laboratorium. |
+| tytuł |Yes |Nazwa artefaktu wyświetlany w laboratorium. |
+| description |Yes |Opis artefaktu wyświetlany w laboratorium. |
 | Identyfikator iconUri |Nie |Identyfikator URI ikony wyświetlane w laboratorium. |
-| targetOsType |Tak |System operacyjny maszyny wirtualnej, w którym zainstalowano artefaktu. Obsługiwane opcje to system Windows i Linux. |
+| targetOsType |Yes |System operacyjny maszyny wirtualnej, w którym zainstalowano artefaktu. Obsługiwane opcje to system Windows i Linux. |
 | parameters |Nie |Wartości, które znajdują się po uruchomieniu polecenia install artefaktów na maszynie. Dzięki temu można dostosować z artefaktów. |
-| UruchomPolecenie |Tak |Artefaktu zainstalować polecenia, która jest wykonywana na maszynie Wirtualnej. |
+| UruchomPolecenie |Yes |Artefaktu zainstalować polecenia, która jest wykonywana na maszynie Wirtualnej. |
 
 ### <a name="artifact-parameters"></a>Parametry artefaktów
 W sekcji Parametry pliku definicji określić wartości, które użytkownik może wprowadzić podczas instalacji artefaktu. Mogą odwoływać się do tych wartości w poleceniu instalacji artefaktu.
@@ -77,9 +77,9 @@ Aby określić parametry, należy użyć następującej struktury:
 
 | Nazwa elementu | Wymagana? | Opis |
 | --- | --- | --- |
-| type |Tak |Typ wartości parametru. Przejrzyj następującą listę dozwolonych typów. |
-| Nazwa wyświetlana |Tak |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. | |
-| description |Tak |Opis parametru, który jest wyświetlany w laboratorium. |
+| type |Yes |Typ wartości parametru. Przejrzyj następującą listę dozwolonych typów. |
+| Nazwa wyświetlana |Yes |Nazwa parametru, który jest wyświetlany użytkownikowi w laboratorium. | |
+| description |Yes |Opis parametru, który jest wyświetlany w laboratorium. |
 
 Dozwolone typy to:
 
@@ -129,6 +129,6 @@ Poniższy przykład przedstawia sposób używać wyrażeń i funkcji do tworzeni
 * [Jak diagnozować awarie artefaktów w usłudze DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
 * [Dołącz Maszynę wirtualną do istniejącej domeny usługi Active Directory przy użyciu szablonu usługi Resource Manager w usłudze DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [Dodaj repozytorium artefaktów Git do laboratorium](devtest-lab-add-artifact-repo.md).
 

@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM na platformie Azure przy użyciu programu PowerShell i usługi Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [Program PowerShell — model usługi Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klasyczny portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell — model klasyczny](site-recovery-deploy-with-powershell.md)
 >
 >
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Usługa Azure Site Recovery przyczynia się do strategii biznesowej ciągłości i odzyskiwaniem po awarii odzyskiwania (BCDR) poprzez organizowanie replikacji, trybu failover i odzyskiwania maszyn wirtualnych w różnych scenariuszy wdrażania. Pełną listę wdrażania scenariuszy dla [Omówienie usługi Azure Site Recovery](site-recovery-overview.md).
 
 W tym artykule przedstawiono sposób automatyzacji typowych zadań, które należy wykonać podczas konfigurowania usługi Azure Site Recovery do replikowania maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center VMM do magazynu platformy Azure przy użyciu programu PowerShell.
@@ -79,7 +79,7 @@ Upewnij się, że te wymagania wstępne zostały spełnione:
 
 ### <a name="hyper-v-prerequisites"></a>Wymagania wstępne funkcji Hyper-V
 * Serwery hosta funkcji Hyper-V musi działać co najmniej **systemu Windows Server 2012** z rolą funkcji Hyper-V lub **Microsoft Hyper-V Server 2012** i mieć zainstalowane najnowsze aktualizacje.
-* Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Dla
+* Jeśli używasz funkcji Hyper-V w klastrze, broker klastra nie jest tworzony automatycznie, jeśli masz klaster oparty na statycznym adresie IP. Konieczne będzie ręczne skonfigurowanie brokera klastra. Termin
 * Instrukcje można znaleźć [jak konfigurowanie brokera repliki funkcji Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Dowolnego serwera hosta funkcji Hyper-V lub klastra, dla którego chcesz zarządzać ochrony musi być uwzględniona w chmurze VMM.
 
@@ -305,5 +305,5 @@ Użyj następujących poleceń, aby monitorować aktywność. Należy pamiętać
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej](/powershell/module/azurerm.recoveryservices.backup/#recovery) dotyczące usługi Azure Site Recovery za pomocą poleceń cmdlet programu PowerShell usługi Azure Resource Manager.

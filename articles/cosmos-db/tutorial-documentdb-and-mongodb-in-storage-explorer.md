@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Zarządzanie Azure rozwiązania Cosmos bazy danych w Eksploratorze usługi Azure Storage (wersja zapoznawcza)
 
-Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje konta SQL i bazy danych MongoDB. Eksplorator magazynu Azure nie działa z emulatora lokalnej bazy danych Azure rozwiązania Cosmos. 
+Przy użyciu bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Storage Azure umożliwia użytkownikom zarządzanie jednostki bazy danych Azure rozwiązania Cosmos, manipulować danymi, zaktualizuj procedur składowanych i wyzwalaczy oraz inne jednostki Azure, takich jak magazynu obiektów blob i kolejek. Teraz służy tego samego narzędzia do zarządzania z różnymi jednostkami Azure w jednym miejscu. W tej chwili Eksploratora usługi Storage Azure obsługuje SQL <!--and MongoDB--> kont. Eksplorator magazynu Azure nie działa z emulatora lokalnej bazy danych Azure rozwiązania Cosmos. 
 
 W tym artykule możesz dowiedzieć się, jak zarządzać bazy danych rozwiązania Cosmos Azure za pomocą Eksploratora usługi Storage.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Konto bazy danych Azure rozwiązania Cosmos interfejsu API SQL lub bazy danych MongoDB interfejsu API. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL z usług .NET i portalu Azure](create-sql-api-dotnet.md).
+Konto bazy danych Azure rozwiązania Cosmos dla interfejsu API SQL <!--or MongoDB API-->. Jeśli nie masz konta, możesz utworzyć jedną w portalu Azure, zgodnie z opisem w [bazy danych Azure rozwiązania Cosmos: tworzenie aplikacji sieci web interfejsu API SQL z usług .NET i portalu Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalacja
 
@@ -70,7 +70,7 @@ Alternatywny sposób łączenia z bazą danych Azure rozwiązania Cosmos jest u�
 
     ![Łączenie do bazy danych Azure rozwiązania Cosmos przez ciąg połączenia](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Wybierz odpowiedni **domyślne środowisko** dla danego typu konta albo **DocumentDB** lub **bazy danych MongoDB**, Wklej w Twojej **parametry połączenia**, a następnie kliknij przycisk **OK** do łączenia z konta bazy danych Azure rozwiązania Cosmos. Aby uzyskać informacje na podczas pobierania ciągu połączenia, zobacz [pobrać ciągu połączenia](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Wybierz odpowiedni **domyślne środowisko** dla danego typu konta <!--either--> **DocumentDB** <!--or **MongoDB**-->, Wklej w Twojej **ciąg połączenia**, a następnie Kliknij przycisk **OK** do łączenia z konta bazy danych Azure rozwiązania Cosmos. Aby uzyskać informacje na podczas pobierania ciągu połączenia, zobacz [pobrać ciągu połączenia](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Parametry połączenia](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -149,7 +149,7 @@ Edytuj filtr dokumentu, wprowadzając [zapytania SQL](sql-api-sql-query.md) , a 
 
 * Operacje dla **wyzwalaczy** i **UDF** są podobne do reguł **procedur składowanych**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Obejrzyj następujące wideo, aby zobaczyć, jak używać bazy danych Azure rozwiązania Cosmos w Eksploratorze usługi Azure Storage: [używać rozwiązania Cosmos bazy danych Azure w Eksploratorze usługi Storage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Dowiedz się więcej o Eksploratora usługi Storage i połącz jedną usługę w [wprowadzenie do Eksploratora usługi Storage (wersja zapoznawcza)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

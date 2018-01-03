@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historia wersji
 Zespół usługi Azure Active Directory regularnie aktualizuje Azure AD Connect Health z nowych funkcji. W tym artykule wymieniono wersje i funkcje, które zostały wydane.
+
+## <a name="december-2017"></a>2017 grudnia
+**Aktualizacja agenta:**
+
+*   Agent Azure AD Connect Health dla usług AD DS (wersja 3.0.145.0)
+  1. Ulepszenia dostępności agenta 
+  2. Dodano nowe polecenia rozwiązywania problemów z agenta
+  3. Ogólne ulepszenia i poprawki błędów
+*   Agent Azure AD Connect Health dla usług AD FS (wersja 3.0.145.0)
+  1. Dodano nowe polecenia rozwiązywania problemów z agenta
+  2. Ulepszenia dostępności agenta 
+  3. Ogólne ulepszenia i poprawki błędów
+
+## <a name="july-2017"></a>2017 lipca
+**Aktualizacja agenta:**
+
+*   Agent Azure AD Connect Health dla usług AD DS (wersja 3.0.68.0)
+  1. Ogólne ulepszenia i poprawki błędów
+  2. Obsługa suwerennych chmury
+*   Agent Azure AD Connect Health dla usług AD FS (wersja 3.0.68.0)
+  1. Ogólne ulepszenia i poprawki błędów
+  2. Obsługa suwerennych chmury
+
+## <a name="april-2017"></a>Kwietnia 2017      
+**Aktualizacja agenta:**
+
+*   Agent Azure AD Connect Health dla usług AD FS (wersja 3.0.12.0)
+  1. Ogólne ulepszenia i poprawki błędów
+*   Agent Azure AD Connect Health dla usług AD DS (wersja 3.0.12.0)
+  1. Liczniki wydajności Przekaż ulepszenia
+  2. Ogólne ulepszenia i poprawki błędów
 
 ## <a name="october-2016"></a>Października 2016
 **Aktualizacja agenta:**
@@ -94,6 +125,6 @@ Zespół usługi Azure Active Directory regularnie aktualizuje Azure AD Connect 
 * Trendy w żądaniu nie powiodło się na serwerach usług AD FS pogrupowane według aplikacji, błąd typy itp.
 * Łatwiejsze wdrażanie agenta przy użyciu poświadczeń administratora globalnego usługi Azure AD.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [monitorowanie lokalnej tożsamości infrastruktury i synchronizacji usług w chmurze](active-directory-aadconnect-health.md).
 

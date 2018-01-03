@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Zarządzanie statystyk dotyczących tabel w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Im bardziej zna danych usługi SQL Data Warehouse, tym szybciej można wykonywać zapytań dotyczących danych.  Metodą Poinformuj SQL Data Warehouse o danych, jest zbieranie statystyk dotyczących danych.  Uzyskanie statystyki do danych jest jednym z najbardziej ważnych rzeczy, które można wykonać w celu zoptymalizowania zapytań.  Statystyki pomocy utworzyć plan optymalny dla zapytań usługi SQL Data Warehouse.  Jest to spowodowane Optymalizator zapytań SQL Data Warehouse jest Optymalizator na podstawie.  To, że porównuje koszt różne plany zapytań i następnie wybiera plan o najniższej cenie, należy również plan, który zostanie wykonany najszybsze.
+Im bardziej zna danych usługi SQL Data Warehouse, tym szybciej można wykonywać zapytań dotyczących danych.  Metodą Poinformuj SQL Data Warehouse o danych, jest zbieranie statystyk dotyczących danych. Uzyskanie statystyki do danych jest jednym z najbardziej ważnych rzeczy, które można wykonać w celu zoptymalizowania zapytań. Jest to spowodowane Optymalizator zapytań SQL Data Warehouse jest Optymalizator opartych na kosztach. Porównuje koszt różne plany zapytań, a następnie wybiera plan o najniższej cenie, należy również plan, który zostanie wykonany najszybsze. Na przykład, jeśli Optymalizator szacuje, że data filtrowania kwerendy zwróci 1 wiersz, mogą wybrać, bardzo inny plan niż w przypadku jego szacuje, że ich daty należy wybrano będzie zwracać 1 milion wierszy.
 
-Statystykę można tworzyć w jednej kolumnie, wiele kolumn lub indeksu tabeli.  Statystyki są przechowywane w histogram, który przechwytuje zakresu i wybieralność wartości.  Jest to szczególne znaczenie podczas Optymalizator należy ocenić sprzężenia, GROUP BY, HAVING i klauzulach WHERE w zapytaniu.  Na przykład, jeśli Optymalizator szacuje, że data filtrowania kwerendy zwróci 1 wiersz, mogą wybrać, bardzo inny plan niż w przypadku jego szacuje, że ich daty należy wybrano będzie zwracać 1 milion wierszy.  Podczas tworzenia statystyk jest bardzo ważne, równie ważne jest, że statystyki *dokładnie* odzwierciedlały bieżący stan tabeli.  Aktualne statystyki zapewnia, że dobry plan jest wybierany przez optymalizator.  Utworzonych przez optymalizator planów są tylko dobrą statystyk na podstawie danych.
-
-Proces tworzenia i zaktualizowanie statystyk jest obecnie ręczny proces, ale jest bardzo prosty zrobić.  Jest to w przeciwieństwie do programu SQL Server, które automatycznie utworzy i aktualizuje statystyki dotyczące pojedynczego kolumn i indeksów.  Korzystając z poniższych informacji, można znacznie automatyzują zarządzanie statystyk na podstawie danych. 
+Proces tworzenia i zaktualizowanie statystyk jest obecnie ręczny proces, ale jest bardzo prosty zrobić.  Wkrótce youw będzie mógł automatycznie tworzyć i aktualizować statystyki w jednym kolumn i indeksów.  Korzystając z poniższych informacji, można znacznie automatyzują zarządzanie statystyk na podstawie danych. 
 
 ## <a name="getting-started-with-statistics"></a>Wprowadzenie do statystyki
- Tworzenie statystyk próbki w każdej kolumnie jest łatwe Rozpoczynanie pracy z statystyk.  Ponieważ jest równie ważne zapewnić aktualność statystyk, tradycyjne podejście może być aktualizowanie statystyk codziennie lub po każdej obciążenia. Zawsze istnieje możliwość wypracowania kompromisu pomiędzy wydajnością a kosztami tworzenia i aktualizowania statystyk.  Jeśli okaże się, że utrzymywanie wszystkich statystyk trwa zbyt długo, można spróbować wybrać tylko niektóre kolumny, dla których mają być prowadzone statystyki, lub wybrać kolumny, które wymagają częstego aktualizowania.  Na przykład można zaktualizować kolumn dat codziennie, jak mogą być dodawane nowe wartości, a nie po każdym załadowaniu. Ponownie, uzyska najlepiej wykorzystać przez uzyskanie statystyki do kolumn uczestniczących w sprzężenia, GROUP BY, HAVING i klauzulach WHERE.  Jeśli masz tabelę z dużą liczbą kolumn, które są używane tylko w klauzuli SELECT, statystyki dla tych kolumn nie może pomóc i wydatków nieco więcej starań, aby zidentyfikować kolumny, których pomoże statystyk, można skrócić czas do obsługi statystyk.
+Tworzenie statystyk próbki w każdej kolumnie jest łatwe Rozpoczynanie pracy z statystyk. Nieaktualne statystyki doprowadzi do nieoptymalnych kwerendy wydajności. Jednak może zużyć pamięci, aby zaktualizować statystyki dla wszystkich kolumn w miarę wzrostu danych. 
 
-## <a name="multi-column-statistics"></a>Statystyki wielokolumnowego
-Oprócz tworzenia statystyk dla pojedynczego kolumn, może się okazać, zapytań zyskają statystyki wielokolumnowych.  Statystyka wielokolumnowego jest statystyki tworzone na liście kolumn.  Obejmują one statystyki jednej kolumny w pierwszej kolumnie na liście, a także niektóre informacje o powiązaniu między kolumny o nazwie gęstości.  Na przykład jeśli masz tabeli, w której jest przyłączany do innego dwie kolumny, może się okazać, że usługi SQL Data Warehouse lepiej można zoptymalizować planu, jeśli sam relacji między kolumnami.   Statystyki wielokolumnowego może poprawiać wydajność zapytań dla niektórych operacji, takich jak złożonych sprzężeń i group by.
+Poniżej przedstawiono niektóre zalecenia dotyczące różnych scenariuszy:
+| **Scenariusze** | Zalecenie |
+|:--- |:--- |
+| **Wprowadzenie** | Zaktualizuj wszystkie kolumny po przejściu do magazynu danych SQL |
+| **Najważniejsze kolumny dla statystyki** | Klucz dystrybucji skrótów |
+| **Drugi najważniejszych kolumny dla statystyki** | Klucz partycji |
+| **Inne ważne kolumn dla statystyki** | Data, często sprzężenia, GROUP BY, HAVING i gdzie |
+| **Częstotliwość aktualizacji statystyk**  | Zachowawcze: codziennie <br></br> Po ładowania lub Przekształcanie danych |
+| **Próbkowanie** |  Poniżej 1 B wierszy Użyj domyślnej próbkowania (20%) <br></br> Więcej niż 1 B wiersze tabel statystyk w zakresie 2% jest dobra |
 
 ## <a name="updating-statistics"></a>Zaktualizowanie statystyk
-Zaktualizowanie statystyk jest ważnym elementem procedury zarządzania z bazy danych.  Zmiany danych w bazie danych dystrybucji statystyki muszą zostać zaktualizowane.  Nieaktualne statystyki doprowadzi do nieoptymalnych kwerendy wydajności.
 
-Jeden najlepszym rozwiązaniem jest aktualizację statystyk dotyczących kolumn dat każdego dnia, gdy zostaną dodane nowe daty.  Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne. Z drugiej strony statystyki dotyczące kraju kolumny w tabeli klienta może nigdy nie muszą zostać zaktualizowane, jak rozkład wartości zwykle nie ulega zmianie. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden kraj, należy przenieść dane z nowego kraju dane z różnych krajach przechowywane, następnie ostatecznie należy aktualizować statystyki w kolumnie kraju.
+Jeden najlepszym rozwiązaniem jest aktualizację statystyk dotyczących kolumn dat każdego dnia, gdy zostaną dodane nowe daty. Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne. Z drugiej strony statystyki dotyczące kraju kolumny w tabeli klienta może nigdy nie muszą zostać zaktualizowane, jak rozkład wartości zwykle nie ulega zmianie. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden kraj, należy przenieść dane z nowego kraju dane z różnych krajach przechowywane, następnie ostatecznie należy aktualizować statystyki w kolumnie kraju.
 
-Jednym z pierwszym pytań podczas rozwiązywania problemów z kwerendy jest "Są aktualne statystyki?"
+Jeden z pierwszym pytań podczas rozwiązywania problemów z zapytania jest **"Są statystyki aktualne?"**
 
-To pytanie nie jest taki, który należy odpowiedzieć przy wiek danych. Obiekt aktualne statystyki może być bardzo stare, jeśli nie ma w niej żadnych istotnych zmian w danych źródłowych. Jeśli liczba wierszy zmienił znacząco lub istotne zmiany w dystrybucji wartości dla danej kolumny *następnie* nadszedł czas, aby zaktualizować statystyk.  
-
-Odwołania **programu SQL Server** (nie SQL Data Warehouse) automatycznie aktualizuje statystyk w takich sytuacjach:
-
-* Jeśli masz żadnych wierszy w tabeli, podczas dodawania wierszy, otrzymasz automatycznych aktualizacji statystyk
-* Po dodaniu więcej niż 500 wierszy do tabeli, począwszy od mniej niż 500 wierszy (np. na początku masz 499 i następnie dodać 500 wierszy w sumie 999 wierszy), zostanie wyświetlony aktualizacji automatycznych 
-* Po wyświetleniu ponad 500 wierszy, należy dodać 500 dodatkowe wiersze + 20% rozmiar tabeli przed zobaczysz automatycznych aktualizacji na statystyki
+To pytanie nie jest taki, który należy odpowiedzieć przy wiek danych. Obiekt aktualne statystyki może być bardzo stare, jeśli nie ma w niej żadnych istotnych zmian w danych źródłowych. Jeśli liczba wierszy zmienił znacząco lub istotne zmiany w dystrybucji wartości dla danej kolumny *następnie* nadszedł czas, aby zaktualizować statystyk.
 
 Ponieważ nie ma żadnych DMV, aby określić, czy dane w tabeli zmienił się od czasu ostatniego statystyk czasu zostały zaktualizowane, wiedząc, wieku statystyk może umożliwić z część obrazu.  Następujące zapytanie służy do określenia czasu ostatniego statystyk w przypadku, gdy zaktualizowane w każdej tabeli.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Kolumn dat w magazynie danych, na przykład zwykle wymagają częstego aktualizacji statystyk. Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne.  Z drugiej strony statystyk dotyczących płci kolumny w tabeli klienta nigdy nie może być konieczne do zaktualizowania. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden płci i nowe wyniki wymaganie w wielu płci ostatecznie należy aktualizować statystyki w kolumnie płci.
+**Data kolumny** w magazynie danych, na przykład zwykle wymagają częstego aktualizacji statystyk. Każdy czas nowe wiersze są załadowane do magazynu danych, nowe obciążenia daty lub daty transakcji zostaną dodane. Te zmiany dystrybucji danych i utworzyć statystyki nieaktualne.  Z drugiej strony statystyk dotyczących płci kolumny w tabeli klienta nigdy nie może być konieczne do zaktualizowania. Zakładając, że dystrybucja jest stałe między klientami, dodawanie nowych wierszy do zmiany tabeli nie jest będzie zmienić dystrybucji danych. Jednak jeśli magazyn danych zawiera tylko jeden płci i nowe wyniki wymaganie w wielu płci ostatecznie należy aktualizować statystyki w kolumnie płci.
 
 Aby uzyskać dokładniejsze objaśnienie, zobacz [statystyki] [ Statistics] w witrynie MSDN.
 
@@ -122,7 +120,7 @@ Poniższe przykłady pokazują, jak tworzenie statystyk na użytek różnych opc
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Tworzenie statystyk pojedynczej kolumny z opcji domyślnych
 Aby utworzyć statystyki dla kolumny, wystarczy podać nazwę obiektu statystyk i nazwę kolumny.
 
-Ta składnia wykorzystuje wszystkie domyślne opcje. Domyślnie 20 procent tabeli przykłady SQL Data Warehouse, podczas tworzenia statystyk.
+Ta składnia wykorzystuje wszystkie domyślne opcje. Domyślnie usługa SQL Data Warehouse **przykłady 20 procent** podczas tworzenia statystyk tabeli.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Tworzenie statystyk wielokolumnowego, po prostu użyć poprzednich przykładach,
 > 
 > 
 
-W tym przykładzie histogram znajduje się na *produktu\_kategorii*. Statystyki między kolumny są obliczane na *produktu\_kategorii* i *produktu\_sub_c\ategory*:
+W tym przykładzie histogram znajduje się na *produktu\_kategorii*. Statystyki między kolumny są obliczane na *produktu\_kategorii* i *produktu\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -464,7 +462,7 @@ DBCC SHOW_STATISTICS() bardziej ściśle jest zaimplementowana w usłudze SQL Da
 6. Nie można użyć nazwy kolumn, aby zidentyfikować obiekty statystyki
 7. Błąd niestandardowy 2767 nie jest obsługiwana.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji, zobacz [DBCC SHOW_STATISTICS] [ DBCC SHOW_STATISTICS] w witrynie MSDN.  Aby dowiedzieć się więcej, zobacz artykuły w [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Indeksowania tabeli][Index], [partycjonowania tabeli] [ Partition] i [Tabel tymczasowych][Temporary].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->

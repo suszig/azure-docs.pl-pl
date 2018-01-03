@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS
 Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suwerenności danych i umożliwia sterowanie platformy Azure hostowanej danych za pomocą wielu zaawansowanych technologii szyfrowania, sterowania i zarządzania kluczami szyfrowania, inspekcji i kontroli dostępu do danych. Klienci Azure zapewnia elastyczność wyboru rozwiązania, które będzie najlepiej odpowiadać ich potrzeb biznesowych. W tym dokumencie firma Microsoft podstawowe informacje na temat nowego rozwiązania technologii "Szyfrowania dysków Azure dla systemu Windows i Linux IaaS maszyny Wirtualnej na" Aby chronić i ochrony danych w celu spełnienia organizacji bezpieczeństwa i zgodności zobowiązań. Papieru zapewnia napotka szczegółowe wskazówki dotyczące sposobu używania funkcji szyfrowania dysków Azure w tym obsługiwane scenariusze i użytkownika.
@@ -26,7 +26,7 @@ Microsoft Azure jest silnie zobowiązane do zapewnienia prywatności danych, suw
 > [!NOTE]
 > Zastosowanie niektórych zaleceń zamieszczonych może zwiększyć danych, sieci i użycia zasobów obliczeniowych, co powoduje dodatkowych kosztów licencji lub subskrypcji.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Szyfrowanie dysków Azure jest nową możliwość, która pomaga szyfrowania dysków maszyny wirtualnej systemu Windows i Linux IaaS. Szyfrowanie dysków Azure korzysta ze standardu branżowego [funkcji BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funkcji systemu Windows i [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funkcji systemu Linux w celu zapewnienia szyfrowania woluminów systemu operacyjnego i dysków z danymi. Rozwiązanie jest zintegrowany z [usługi Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) ułatwiają kontrolowanie i zarządzanie nimi klucze szyfrowania dysku i kluczy tajnych w magazynie kluczy subskrypcji. Rozwiązanie zapewnia również, że wszystkie dane na dyskach maszyny wirtualnej są szyfrowane, gdy w magazynie Azure.
 
 Szyfrowanie dysków Azure dla systemu Windows i maszyn wirtualnych systemu Linux IaaS, jest teraz w **ogólnej dostępności** we wszystkich regionach publicznej platformy Azure i regiony AzureGov standardowe maszyn wirtualnych i maszyn wirtualnych z magazyn w warstwie premium.
@@ -851,7 +851,7 @@ Szyfrowanie dysku systemu operacyjnego na uruchomionej maszyny Wirtualnej system
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Przed ponownym, zaleca się zapisanie [diagnostyki rozruchu](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) maszyny wirtualnej.
+Przed ponownym, zaleca się zapisanie [diagnostyki rozruchu](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) maszyny wirtualnej.
 
 #### <a name="monitoring-os-encryption-progress"></a>Monitorowanie postępu szyfrowania systemu operacyjnego
 Możesz monitorować postęp szyfrowania systemu operacyjnego na trzy sposoby:
@@ -885,7 +885,7 @@ Możesz monitorować postęp szyfrowania systemu operacyjnego na trzy sposoby:
 
  ![Widok wystąpienia maszyny Wirtualnej](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Przyjrzyj się [diagnostyki rozruchu](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Komunikaty z rozszerzeniem ADE powinien być poprzedzony `[AzureDiskEncryption]`.
+* Przyjrzyj się [diagnostyki rozruchu](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Komunikaty z rozszerzeniem ADE powinien być poprzedzony `[AzureDiskEncryption]`.
 
 * Zaloguj się do maszyny Wirtualnej za pośrednictwem SSH i Pobierz dziennik rozszerzenia z:
 
@@ -917,7 +917,7 @@ Skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonując następuj�
 
  ![Instalator Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Przygotowywanie maszyny Wirtualnej do przekazywania do platformy Azure przy użyciu [tych instrukcji](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
+6. Przygotowywanie maszyny Wirtualnej do przekazywania do platformy Azure przy użyciu [tych instrukcji](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
 
 Konfigurowanie szyfrowania do pracy z platformy Azure, wykonując następujące czynności:
 
@@ -995,7 +995,7 @@ Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następuj
 
  ![openSUSE 13.2 Instalatora](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Przygotowywanie maszyny Wirtualnej do przekazywania do platformy Azure zgodnie z instrukcjami w [przygotowanie SLES lub openSUSE maszyny wirtualnej na platformie Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
+3. Przygotowywanie maszyny Wirtualnej do przekazywania do platformy Azure zgodnie z instrukcjami w [przygotowanie SLES lub openSUSE maszyny wirtualnej na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
 
 Aby skonfigurować szyfrowanie do pracy z platformą Azure, wykonaj następujące czynności:
 1. Edytuj /etc/dracut.conf i Dodaj następujący wiersz:
@@ -1071,7 +1071,7 @@ Aby skonfigurować szyfrowanie podczas instalacji dystrybucji, wykonaj następuj
 
  ![Instalator centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Przygotowywanie maszyny Wirtualnej do przekazywania na platformie Azure przy użyciu instrukcji "CentOS 7.0 +" w [przygotowanie maszyny wirtualnej CentOS, oparty na platformie Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
+5. Przygotowywanie maszyny Wirtualnej do przekazywania na platformie Azure przy użyciu instrukcji "CentOS 7.0 +" w [przygotowanie maszyny wirtualnej CentOS, oparty na platformie Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Nie należy uruchamiać w ostatnim kroku (anulowania obsługi maszyny Wirtualnej) jeszcze.
 
 6. Teraz można anulowanie zastrzeżenia maszyny Wirtualnej i [przekazać dysk VHD](#upload-encrypted-vhd-to-an-azure-storage-account) na platformie Azure.
 

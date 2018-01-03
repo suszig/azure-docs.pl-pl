@@ -3,7 +3,7 @@ title: "Przekaż plik wirtualnego dysku twardego na usłudze Azure DevTest Labs 
 description: "Przekaż plik wirtualnego dysku twardego na konto magazynu w laboratorium, przy użyciu Eksploratora magazynu Microsoft Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Przekaż plik wirtualnego dysku twardego na konto magazynu w laboratorium, przy użyciu Eksploratora magazynu Microsoft Azure
 
@@ -100,7 +100,7 @@ W poniższych krokach objaśniono za pośrednictwem przekazywania pliku wirtualn
 
     1. W okienku po prawej stronie Eksploratora usługi Storage, powinna zostać wyświetlona lista obiektów blob w **przekazuje** kontenera obiektów blob laboratorium należy utworzyć konta magazynu. Na pasku narzędzi edytora obiektów blob, wybierz **Przekaż** 
         
-        ![Przekaż przycisku][6]
+        ![Przycisk Przekaż][6]
     
     1. Z **przekazać** menu rozwijanego wybierz **przekazywania plików...** .
     
@@ -120,7 +120,7 @@ W poniższych krokach objaśniono za pośrednictwem przekazywania pliku wirtualn
 
         ![Stan przekazywania pliku][10]  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Utworzyć obraz niestandardowy w usłudze Azure DevTest Labs z pliku VHD za pomocą portalu Azure](devtest-lab-create-template.md)
 - [Utworzyć obraz niestandardowy w usłudze Azure DevTest Labs z pliku VHD za pomocą programu PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

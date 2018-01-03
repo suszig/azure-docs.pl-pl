@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Jak filtrować według języków w usłudze Azure Search 
 
@@ -39,7 +39,7 @@ W usłudze Azure Search zapytania docelowe jeden indeks. Deweloperów, którzy c
 
 W naszym próbek, w tym [próbki nieruchomości](search-get-started-portal.md) pokazano poniżej, może być przejrzane definicje pól podobny do następującego zrzutu ekranu. Zwróć uwagę, jak ten przykład przedstawia język analizatora przypisania dla pola do indeksu. Pola, które zawierają ciągi działać lepiej wyszukiwania pełnotekstowego podczas parowania z analizatora zaprojektowane tak, aby obsłużyć językowe reguły języka docelowego.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Przykłady kodu przedstawiający definicje pól z analizatorów języków, zobacz [definiowanie indeksu (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) i [definiowanie indeksu (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
@@ -65,7 +65,7 @@ parameters =
 > [!Note]
 > Ma argumentu no $filter w zapytaniu, ale ten przypadek użycia jest silnie powiązane z pojęcia filtru, możemy przedstawić jako filtrowania scenariusza.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Filtry w usłudze Azure Search](search-filters.md)
 + [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)

@@ -3,8 +3,8 @@ title: "Wdrażanie zestawu skalowania maszyn wirtualnych za pomocą programu Vis
 description: "Wdrażanie zestawów skali maszyny wirtualnej za pomocą szablonu usługi Resource Manager i Visual Studio"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Tworzenie zestawu skalowania maszyn wirtualnych z programem Visual Studio
 W tym artykule przedstawiono sposób wdrażania usługi Azure zestawu skalowania maszyn wirtualnych za pomocą programu Visual Studio wdrożenie grupy zasobów.
@@ -75,7 +75,7 @@ Moduł równoważenia obciążenia umożliwia połączenie z wystąpień maszyn 
 
 3. W tym miejscu można utworzyć grupy zasobów platformy Azure, aby wdrożyć szablon.
    
-    ![Nową grupę zasobów][new_resource]
+    ![Nowa grupa zasobów][new_resource]
 
 4. Następnie kliknij przycisk **Edytuj parametry** o wprowadzenie parametrów, które są przekazywane do szablonu. Podaj nazwę użytkownika i hasło dla systemu operacyjnego, który jest wymagany do tworzenia wdrożenia. Jeśli nie masz narzędzia programu PowerShell dla programu Visual Studio, zainstalowane, zalecane jest Sprawdź **zapisywanie haseł** w celu uniknięcia ukryte wierszu polecenia programu PowerShell lub użyj [Obsługa keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    
@@ -92,7 +92,7 @@ Po zakończeniu wdrożenia, można wyświetlić zestawu skali maszyny wirtualnej
 
  Portal zawiera najlepszy sposób, aby wizualnie zarządzać infrastruktury platformy Azure przy użyciu przeglądarki sieci web, gdy Eksploratora zasobów Azure pozwala łatwo eksplorować i debugowania zasobów platformy Azure, nadanie okna w widoku"wystąpienia", a także wyświetlanie poleceń programu PowerShell dla zasobów jest wyświetlany.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po pomyślnym wdrożeniu zestawy skalowania maszyny wirtualnej za pomocą programu Visual Studio, można dostosować projekt do własnych wymagań aplikacji. Na przykład skonfigurować automatyczne skalowanie, dodając **Insights** zasobów, dodawania infrastruktury do szablonu (na przykład autonomicznych maszyn wirtualnych), lub wdrażania aplikacji za pomocą niestandardowego rozszerzenia skryptu. Dobrym przykładem szablonów można znaleźć w [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates) repozytorium GitHub (Wyszukaj "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png

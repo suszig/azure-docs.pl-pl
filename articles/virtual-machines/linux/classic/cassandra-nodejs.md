@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uruchom klaster Cassandra w systemie Linux na platformie Azure za pomocą języka Node.js
 
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Zobacz szablony Menedżera zasobów dla [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) i [Spark klastra i Cassandra na CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
-## <a name="overview"></a>Omówienie
-Microsoft Azure to platforma chmury Otwórz uruchamianego zarówno do firmy Microsoft jako oprogramowania również w innych niż Microsoft, w tym systemów operacyjnych, serwerów aplikacji, oprogramowanie pośredniczące obsługi wiadomości, a także baz danych SQL i NoSQL z obu modeli handlowych i otwórz źródła. Tworzenie usług odporne na chmur publicznych, w tym na platformie Azure wymaga staranne planowanie i architektura zamierzonego dla obu serwerów aplikacji jako warstwy dobrze magazynu. Naturalnie Cassandra w magazynie rozproszonym architektura ułatwia tworzenie wysokiej dostępności systemów, które są odporne na uszkodzenia w przypadku awarii klastra. Cassandra jest skali chmury bazy danych NoSQL utrzymywana przez Foundation oprogramowania Apache cassandra.apache.org; Cassandra jest napisany w języku Java i dlatego działa zarówno na system Windows, jak i Linux platformy.
+## <a name="overview"></a>Przegląd
+Microsoft Azure to platforma chmury Otwórz uruchomioną zarówno firmy Microsoft oraz oprogramowania firmy Microsoft, w tym systemów operacyjnych, serwerów aplikacji, oprogramowanie pośredniczące obsługi komunikatów, a także baz danych SQL i NoSQL z obu modeli źródła handlowych i Otwórz. Tworzenie usług odporne na chmur publicznych, w tym na platformie Azure wymaga staranne planowanie i architektura zamierzonego dla obu serwerów aplikacji jako warstwy dobrze magazynu. Naturalnie Cassandra w magazynie rozproszonym architektura ułatwia tworzenie wysokiej dostępności systemów, które są odporne na uszkodzenia w przypadku awarii klastra. Cassandra jest skali chmury utrzymywana przez Foundation oprogramowania Apache cassandra.apache.org bazy danych NoSQL. Cassandra jest napisany w języku Java. Dlatego działa zarówno na platformach systemu Windows i Linux.
 
-Ten artykuł koncentruje się pokazanie Cassandra wdrożenia na Ubuntu jako klaster pojedynczych i wielu danych Centrum wykorzystaniu maszyny wirtualne Microsoft Azure i sieci wirtualnych. Wdrażanie klastra, w przypadku obciążeń produkcyjnych zoptymalizowanych pod kątem jest poza zakres tego artykułu, ponieważ wymaga ona konfiguracji węzła wielu dysków, projekt topologia pierścienia odpowiednie i danych modelowania do obsługi replikacji potrzebne, spójność danych, przepływności i wysoki wymagania dotyczące dostępności.
+Ten artykuł koncentruje się pokazanie Cassandra wdrożenia na Ubuntu jako klaster pojedynczych i wielu danych Centrum korzystającego z maszyn wirtualnych platformy Azure i sieci wirtualnych. Wdrażanie klastra, w przypadku obciążeń produkcyjnych zoptymalizowanych pod kątem jest poza zakres tego artykułu, ponieważ wymaga ona konfiguracji węzła wielu dysków, projekt topologia pierścienia odpowiednie i danych modelowania do obsługi replikacji potrzebne, spójność danych, przepływności i wysoki wymagania dotyczące dostępności.
 
 Ten artykuł ma podstawowych podejście do wyświetlenia, co jest zaangażowane w tworzenie klastra Cassandra porównywany Docker, Chef lub Puppet, które mogą ułatwić wdrożenie infrastruktury partii.  
 
 ## <a name="the-deployment-models"></a>Modele wdrażania
-Sieci Microsoft Azure umożliwia wdrożenie izolowanego prywatnej klastrów, dostępu do których może być ograniczone do osiągnięcia zabezpieczenia sieci szczegółowe.  Ponieważ ten artykuł dotyczy przedstawiający wdrażanie Cassandra na poziomie podstawowym, firma Microsoft nie koncentruje się na poziomu spójności i projektu pamięci masowej optymalnej przepływności. Poniżej przedstawiono listę wymagań sieciowych dotyczących naszych hipotetyczny klastra:
+Sieci Microsoft Azure umożliwia wdrożenie izolowanego prywatnej klastrów, dostępu do których może być ograniczone do osiągnięcia zabezpieczenia sieci szczegółowe.  Ponieważ ten artykuł dotyczy przedstawiający wdrażanie Cassandra na poziomie podstawowym, nie skupić się na poziomie spójności i projektu pamięci masowej optymalnej przepływności. Poniżej przedstawiono listę wymagań sieciowych dotyczących hipotetyczny klastra:
 
 * Systemy zewnętrzne nie może uzyskać dostępu Cassandra bazy danych z lub poza Azure
 * Cassandra klastra musi być za modułem równoważenia obciążenia dla ruchu thrift
@@ -43,12 +43,12 @@ Sieci Microsoft Azure umożliwia wdrożenie izolowanego prywatnej klastrów, dos
 * Brak publicznego punktów końcowych sieci innych niż SSH
 * Każdy węzeł Cassandra musi stałym wewnętrznego adresu IP
 
-Cassandra można wdrożyć jeden region platformy Azure lub wielu regionach, oparte na Rozproszony charakter obciążenia. Model wdrażania w przypadku nadającego się do obsługi użytkowników końcowych bliżej do określonej lokalizacji geograficznej, za pomocą tej samej infrastrukturze Cassandra. Cassandra dla wbudowanego węzła replikacji ma opieki synchronizacji wielu wzorca zapisuje pochodzących z wielu centrów danych i przedstawia widok spójności danych aplikacji. W przypadku wdrożenia może również pomóc z umożliwiają ograniczenie ryzyka związanego z szerszych awarie usługi Azure. Topologii replikacji i spójności dostosowywalne w Cassandra pomoże spełnia zróżnicowane potrzeby RPO aplikacji.
+Cassandra można wdrożyć jeden region platformy Azure lub wielu regionach, oparte na Rozproszony charakter obciążenia. Model wdrożenia w przypadku służy do obsługi użytkowników końcowych bliżej do określonej lokalizacji geograficznej, za pomocą tej samej infrastrukturze Cassandra. Cassandra dla wbudowanego węzła replikacji ma opieki synchronizacji wielu wzorca zapisuje pochodzących z wielu centrów danych i przedstawia widok spójności danych aplikacji. W przypadku wdrożenia może również pomóc z umożliwiają ograniczenie ryzyka związanego z szerszych awarie usługi Azure. W Cassandra dostosowywalne spójności i topologię replikacji ułatwia spotkania zróżnicowane potrzeby RPO aplikacji.
 
 ### <a name="single-region-deployment"></a>Wdrażanie jednego regionu
-Firma Microsoft uruchomi z wdrożeniem pojedynczego regionu i podłączono learnings modelu w przypadku tworzenia. Sieci wirtualne platformy Azure będzie używany do utworzenia izolowanego podsieci spełnienia wymagań bezpieczeństwa sieci wymienione powyżej.  Używa procesu opisanego w tworzeniu wdrożenia jeden region, Ubuntu 14.04 LTS i Cassandra 2.08; Jednak proces można łatwo przyjąć innych wariantów systemu Linux. Poniżej przedstawiono niektóre właściwości systemowych wdrożenia w pojedynczym regionie.  
+Załóżmy zacząć wdrożenia jednego regionu i podłączono learnings modelu w przypadku tworzenia. Sieci wirtualne Azure służy do utworzyć izolowane podsieci, dzięki czemu można spełnić wymagania dotyczące zabezpieczeń sieci, które zostały wymienione powyżej.  Proces opisany w tworzeniu wdrożenia jednego regionu używa Ubuntu 14.04 LTS i Cassandra 2.08. Jednak proces można łatwo przyjąć innych wariantów systemu Linux. Poniżej przedstawiono niektóre właściwości systemowych wdrożenia w pojedynczym regionie.  
 
-**Wysoka dostępność:** węzłów Cassandra pokazany na rysunku 1 są wdrażane dwa zestawy dostępności, aby węzły są rozkładane między wiele domen błędów w celu zapewnienia wysokiej dostępności. Maszyny wirtualne adnotowany przy każdym zestawie dostępności jest mapowana na 2 domen błędów.  Microsoft Azure wykorzystuje pojęcie domeny błędów do zarządzania a koncepcji uaktualniania domeny (np. hosta lub gościa systemu operacyjnego stosowanie poprawek/uaktualnień, uaktualnień aplikacji) nieplanowanego wyłączenia jednocześnie (np. awarii sprzętu lub oprogramowania) służy do zarządzania zaplanowany czas przestoju. Zobacz [odzyskiwania po awarii i wysoką dostępność aplikacji Azure](http://msdn.microsoft.com/library/dn251004.aspx) roli domenach awarii i uaktualniania w celu osiągnięcia wysokiej dostępności.
+**Wysoka dostępność:** węzłów Cassandra pokazany na rysunku 1 są wdrażane dwa zestawy dostępności, aby węzły są rozkładane między wiele domen błędów w celu zapewnienia wysokiej dostępności. Maszyny wirtualne adnotowany przy każdym zestawie dostępności jest mapowana na 2 domen błędów. Azure do zarządzania nieplanowane przestoje (na przykład awarii sprzętu lub oprogramowania) są używane pojęcia domeny błędów. Koncepcji uaktualniania domeny (na przykład host lub system operacyjny gościa stosowanie poprawek/uaktualnień, uaktualnień aplikacji) służy do zarządzania zaplanowany czas przestoju. Zobacz [odzyskiwania po awarii i wysoką dostępność aplikacji Azure](http://msdn.microsoft.com/library/dn251004.aspx) roli domenach awarii i uaktualniania w celu osiągnięcia wysokiej dostępności.
 
 ![Wdrażanie jednego regionu](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -58,13 +58,13 @@ Zauważ, że w momencie pisania tego Azure nie zezwalają jawne mapowanie grupy 
 
 **Ruch Thrift równoważenia obciążenia:** bibliotek klienckich Thrift wewnątrz serwera sieci web Połącz się z klastrem za pośrednictwem wewnętrznego modułu równoważenia obciążenia. Wymaga to proces dodawania wewnętrznego modułu równoważenia obciążenia z podsiecią "data" (zobacz rysunek 1) w kontekście klastra Cassandra hosting usługi w chmurze. Po zdefiniowaniu jest wewnętrzny moduł równoważenia obciążenia, każdy węzeł wymaga punktu końcowego równoważenia obciążenia ma zostać dodana z adnotacji o nazwie usługi równoważenia obciążenia wcześniej zdefiniowanego zestawu o zrównoważonym obciążeniu. Zobacz [wewnętrzny równoważenia obciążenia Azure ](../../../load-balancer/load-balancer-internal-overview.md)więcej szczegółów.
 
-**Ziarna klastra:** ważne jest, aby wybrać większości węzłów wysokiej dostępności DS, jak nowe węzły będą komunikować się z węzłów inicjatora umożliwia odnalezienie topologii klastra. Jeden węzeł z każdym zestawie dostępności jest wyznaczony jako węzłów inicjatora, aby uniknąć pojedynczego punktu awarii.
+**Ziarna klastra:** ważne jest, aby wybrać większości węzłów wysokiej dostępności DS, jak nowe węzły komunikować się z węzłami inicjatora umożliwia odnalezienie topologii klastra. Jeden węzeł z każdym zestawie dostępności jest wyznaczony jako węzłów inicjatora, aby uniknąć pojedynczego punktu awarii.
 
 **Współczynnik replikacji i poziomu spójności:** Cassandra w kompilacji w wysokiej dostępności i danych trwałości charakteryzuje się współczynnik replikacji (RF - liczby kopii każdego wiersza przechowywane w klastrze) i poziomu spójności (liczba replik być odczytana/zapisana przed zwróceniem wyniku do obiektu wywołującego). Współczynnik replikacji jest określone podczas tworzenia przestrzeni KLUCZY (podobnie jak relacyjna baza danych), określić poziom spójności podczas CRUD zapytania. W dokumentacji Cassandra [Konfigurowanie spójności](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) szczegóły spójności i formułę obliczenia kworum.
 
-Cassandra obsługuje dwa typy modeli integralności danych — spójność i spójność ostateczna; Współczynnik replikacji i poziomu spójności ze sobą określi, czy dane będą zgodne natychmiast po zakończeniu operacji zapisu lub będą zgodne po pewnym czasie. Na przykład określenie KWORUM, zgodnie z poziomu spójności będzie zawsze gwarantuje spójności danych dowolnego poziomu spójności, poniżej liczba replik do zapisania w celu osiągnięcia KWORUM (np. jeden) powoduje ostatecznie spójności danych.
+Cassandra obsługuje dwa typy modeli integralności danych — spójność i spójność ostateczna; Współczynnik replikacji i poziomu spójności wspólnie określają, jeśli dane są spójne, jak operacja zapisu jest ukończona lub ostatecznie spójne. Na przykład określenie KWORUM, zgodnie z poziomu spójności zawsze gwarantuje spójności danych dowolnego poziomu spójności poniżej liczba replik do zapisania w celu osiągnięcia KWORUM, (na przykład jeden) powoduje ostatecznie spójności danych.
 
-Powyższy współczynnik replikacji 3 i KWORUM klastra 8 węzłów (2 węzły są odczytywane lub zapisywane spójności) poziomu spójności odczytu/zapisu, przełączniki teoretycznego utraty najwyżej 1 węzła dla grupy replikacji przed powiadamiania uruchamiania aplikacji Wystąpił błąd. Przy założeniu, że wszystkie spacje klucza również mieć równoważony odczytu/zapisu żądania.  Parametry, które będą używane dla klastra wdrożone są następujące:
+Powyższy współczynnik replikacji 3 i KWORUM klastra 8 węzłów (2 węzły są odczytywane lub zapisywane spójności) poziomu spójności odczytu/zapisu, przełączniki teoretycznego utraty najwyżej 1 węzła dla grupy replikacji przed powiadamiania uruchamiania aplikacji Wystąpił błąd. Przy założeniu, że wszystkie spacje klucza również mieć równoważony odczytu/zapisu żądania.  Parametry używane dla klastra wdrożone są następujące:
 
 Konfiguracja klastra Cassandra jednego regionu:
 
@@ -75,31 +75,31 @@ Konfiguracja klastra Cassandra jednego regionu:
 | Poziom zgodności (Zapisz) |QUORUM[(RF/2) +1) = 2 wynik formuły zostać zaokrąglona w dół |Zapisuje najwyżej 2 replik przed wysłaniem odpowiedzi do wywołującego 3 repliki są zapisywane w sposób spójny po pewnym czasie. |
 | Poziom zgodności (odczyt) |KWORUM [(RF/2) + 1 = 2] jest zaokrąglana wynik formuły |Odczytuje 2 replik przed wysłaniem odpowiedzi do obiektu wywołującego. |
 | Strategii replikacji |Zobacz NetworkTopologyStrategy [replikacji danych](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) w Cassandra dokumentacji, aby uzyskać więcej informacji |Rozumie topologii wdrożenia i umieszcza replik w węzłach, tak, aby wszystkie repliki nie trafiają do tej samej stojak |
-| Snitch |Zobacz GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) w Cassandra dokumentacji, aby uzyskać więcej informacji |NetworkTopologyStrategy używa pojęcie snitch zrozumienie topologii. GossipingPropertyFileSnitch zapewnia lepszą kontrolę w mapowaniu każdego węzła do centrum danych i stojaku. Klaster używa następnie plotki propagację te informacje. To jest znacznie prostsza w dynamicznej ustawienie adresu IP względem PropertyFileSnitch |
+| Snitch |Zobacz GossipingPropertyFileSnitch [przełączniki](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) w Cassandra dokumentacji, aby uzyskać więcej informacji |NetworkTopologyStrategy używa pojęcie snitch zrozumienie topologii. GossipingPropertyFileSnitch zapewnia lepszą kontrolę w mapowaniu każdego węzła do centrum danych i stojaku. Klaster używa następnie plotki propagację te informacje. To jest znacznie prostsza w dynamicznej ustawienie adresu IP względem PropertyFileSnitch |
 
-**Azure zagadnienia dotyczące klastra Cassandra:** możliwości maszyny wirtualne Microsoft Azure korzysta z magazynu obiektów Blob platformy Azure dysku trwałości; Usługa Azure Storage zapisuje 3 replik każdego dysku, aby uzyskać wysoką trwałością. Oznacza to, każdy wiersz danych wstawione do tabeli Cassandra jest już zapisana w 3 repliki i dlatego spójność danych jest już wykonane obsługę nawet, jeśli współczynnik replikacji (RF) wynosi 1. Główny problem z współczynnik replikacji jest 1 jest aplikacji wystąpi przestój nawet w przypadku awarii jednego węzła Cassandra. Jednak jeśli węzeł nie działa dla problemów (np. sprzętu, błędów oprogramowania systemu) rozpoznawany przez kontroler sieci szkieletowej Azure, będzie dostarczać nowego węzła w tym miejscu przy użyciu tego samego dysków. Inicjowanie obsługi nowego węzła do zastąpi stare hasło może potrwać kilka minut.  Podobnie czynności zaplanowanej konserwacji, jak zmiany systemu operacyjnego gościa, uaktualnia Cassandra, i zmian w aplikacji Kontroler sieci szkieletowej Azure wykonuje wprowadzanie uaktualnień węzłów w klastrze.  Również uaktualnień stopniowych może potrwać kilka węzłów w dół w czasie, a tym samym klastrze może wystąpić krótki przestój w przypadku kilku partycji. Jednak dane nie zostaną utracone z powodu wbudowane funkcje nadmiarowości usługi Azure Storage.  
+**Azure zagadnienia dotyczące klastra Cassandra:** możliwości maszyny wirtualne Microsoft Azure korzysta z magazynu obiektów Blob platformy Azure dysku trwałości; Usługa Azure Storage zapisuje trzy repliki każdego dysku, aby uzyskać wysoką trwałością. Oznacza to, że każdy wiersz danych wstawione do tabeli Cassandra jest już zapisana w trzech replik. Dlatego spójność danych jest już wykonane obsługę nawet, jeśli współczynnik replikacji (RF) wynosi 1. Główny problem z współczynnik replikacji jest 1 jest aplikacja napotyka przestojów, nawet w przypadku awarii jednego węzła Cassandra. Jednak jeśli węzeł nie działa dla problemów (na przykład sprzętu, błędów oprogramowania systemu) rozpoznawany przez kontroler sieci szkieletowej Azure, inicjuje nowego węzła w tym miejscu przy użyciu tego samego dysków. Inicjowanie obsługi nowego węzła do zastąpi stare hasło może potrwać kilka minut.  Podobnie czynności zaplanowanej konserwacji, jak zmiany systemu operacyjnego gościa, uaktualnia Cassandra, i zmian w aplikacji Kontroler sieci szkieletowej Azure wykonuje wprowadzanie uaktualnień węzłów w klastrze.  Również uaktualnień stopniowych może potrwać kilka węzłów w dół w czasie, a tym samym klastrze może wystąpić krótki przestój w przypadku kilku partycji. Jednak dane nie utracone z powodu wbudowane funkcje nadmiarowości usługi Azure Storage.  
 
-Dla systemów wdrożeniu na platformie Azure, która nie wymaga wysokiej dostępności (np. około 99,9 który jest odpowiednikiem 8.76 godzin na rok, zobacz [wysokiej dostępności](http://en.wikipedia.org/wiki/High_availability) szczegółowe informacje) można uruchamiać z RF = 1 i poziom spójności równej ONE.  W przypadku aplikacji o wysokiej dostępności wymagania, RF = 3 i poziomu spójności = KWORUM będą tolerować czas przestoju jednego z węzłów z replik. RF = 1 w przypadku tradycyjnych wdrożeń (np. lokalnego) nie można używać z powodu możliwej utracie danych wynikające z problemów, takich jak awarii dysku.   
+Dla systemów wdrożeniu na platformie Azure, która nie wymaga wysokiej dostępności (na przykład około 99,9 który jest odpowiednikiem 8.76 godzin na rok, zobacz [wysokiej dostępności](http://en.wikipedia.org/wiki/High_availability) szczegółowe informacje) można uruchamiać z RF = 1 i poziom spójności równej ONE.  W przypadku aplikacji o wysokiej dostępności wymagania, RF = 3 i poziomu spójności = KWORUM zaakceptować czas przestoju jednego z węzłów z replik. RF = 1 w przypadku tradycyjnych wdrożeń (na przykład lokalnego) nie można używać z powodu możliwej utracie danych wynikające z problemów, takich jak awarii dysku.   
 
 ## <a name="multi-region-deployment"></a>W przypadku wdrożenia
-W Cassandra data center rozpoznają replikacji i spójność model opisane powyżej pomaga przy użyciu wdrażania w przypadku fabrycznej bez konieczności stosowania żadnych narzędzi zewnętrznych. Jest to całkowicie różnią się od tradycyjnych relacyjnych baz danych, gdzie instalację na potrzeby dublowania bazy danych dla wielu wzorców operacji zapisu może być dość złożone. Cassandra w regionie wielu — konfiguracja może ułatwić scenariusze użycia, takie jak następujące:
+W Cassandra data center rozpoznają replikacji i spójność model opisane powyżej pomaga przy użyciu wdrażania w przypadku bez konieczności stosowania żadnych narzędzi zewnętrznych. Różni się od tradycyjnych relacyjnych baz danych gdzie instalację na potrzeby dublowania bazy danych dla wielu wzorców operacji zapisu może być skomplikowane. Cassandra w konfiguracji w przypadku może ułatwić scenariusze użycia, w tym w scenariuszach:
 
-**Wdrożenia na podstawie bliskości:** aplikacje wielodostępne, wyczyść mapowania użytkowników dzierżawy-do-region, można korzystali przez klaster w przypadku małych opóźnień. Na przykład zarządzanie learning systemów dla instytucji edukacyjnych można wdrożyć klaster rozproszonych w regionach wschodnie stany USA i zachodnie stany USA do obsługi odpowiednich szkoły wyższe dla transakcyjnego, a także analizy. Dane mogą być lokalnie spójne w czasie odczyty i zapisy i może być ostatecznie spójne w obu regionach. Istnieją inne przykłady takich jak dystrybucji nośnika, handlu elektronicznego i niczego i wszystko, co służy geograficznie skoncentrowanego użytkownika podstawowego jest przypadek użycia dobrej dla tego modelu wdrażania.
+**Wdrożenia na podstawie bliskości:** aplikacje wielodostępne, wyczyść mapowania użytkowników dzierżawy-do-region, można korzystali przez klaster w przypadku małych opóźnień. Na przykład learning systemy zarządzania dla instytucji edukacyjnych można wdrożyć klaster rozproszonych w regionach wschodnie stany USA i zachodnie stany USA do obsługi odpowiednich szkoły wyższe dla transakcyjnego, a także analizy. Dane mogą być lokalnie spójne w czasie odczyty i zapisy i może być ostatecznie spójne w obu regionach. Istnieją inne przykłady takich jak dystrybucji nośnika, handlu elektronicznego i niczego i wszystko, co służy geograficznie skoncentrowanego użytkownika podstawowego jest przypadek użycia dobrej dla tego modelu wdrażania.
 
 **Wysoka dostępność:** nadmiarowość jest kluczowym czynnikiem w celu osiągnięcia wysokiej dostępności sprzętu i oprogramowania; więcej szczegółów, zobacz Tworzenie niezawodnej systemy chmur w systemie Microsoft Azure. W systemie Microsoft Azure tylko niezawodny sposób realizacji nadmiarowość wartość true, jest wdrażanie klastra w przypadku. Aplikacje można wdrażać w trybie aktywny aktywny lub aktywny / pasywny, a jeśli jeden z regionów działa, usługi Azure Traffic Manager można przekierowywania ruchu sieciowego na aktywnym regionem.  Przy użyciu wdrażania jednego regionu, w przypadku dostępności 99,9, region dwa wdrożenia może osiągnąć dostępności 99.9999 obliczone przez formułę: (1-(1-0.999) * (1-0.999)) * 100); zobacz dokument powyżej, aby uzyskać szczegółowe informacje.
 
-**Odzyskiwanie po awarii:** Cassandra w przypadku klastra, jeśli przeznaczony prawidłowo, może wytrzymać przestojami centrum danych w wyniku katastrofy. Jeśli działa jeden region, można uruchomić aplikacji wdrożone do innych regionów obsługująca użytkowników końcowych. Podobnie jak wszelkie innych firm ciągłości implementacji aplikacja musi być odporny na błędy na utratę danych, na podstawie danych w potoku asynchroniczne. Jednak Cassandra sprawia, że odzyskiwania znacznie usprawnić niż czas trwania procesów odzyskiwania tradycyjne bazy danych. Na rysunku 2 przedstawiono typowe wdrożenie w przypadku modelu o ośmiu węzłów w każdym regionie. Zarówno regiony są dublowane obrazy wzajemnie dla tego samego symetrycznego; projekty rzeczywistych zależy od tego, typu obciążenia (np. transakcyjnej lub analitycznych), RPO, RTO, spójności danych oraz wymagań dotyczących dostępności.
+**Odzyskiwanie po awarii:** Cassandra w przypadku klastra, jeśli przeznaczony prawidłowo, może wytrzymać przestojami centrum danych w wyniku katastrofy. Jeśli działa jeden region, można uruchomić aplikacji wdrożone do innych regionów obsługująca użytkowników końcowych. Podobnie jak wszelkie innych firm ciągłości implementacji aplikacja musi być odporny na błędy na utratę danych, na podstawie danych w potoku asynchroniczne. Jednak Cassandra sprawia, że odzyskiwania znacznie usprawnić niż czas trwania procesów odzyskiwania tradycyjne bazy danych. Na rysunku 2 przedstawiono typowe wdrożenie w przypadku modelu o ośmiu węzłów w każdym regionie. Zarówno regiony są dublowane obrazy wzajemnie dla tego samego symetrycznego; projekty rzeczywistych zależy od tego, typu obciążenia (na przykład transakcyjnej lub analitycznych), RPO, RTO, spójności danych oraz wymagań dotyczących dostępności.
 
 ![Obsługa wielu region wdrożenia](./media/cassandra-nodejs/cassandra-linux2.png)
 
 Rysunek 2: W przypadku Cassandra wdrożenia
 
 ### <a name="network-integration"></a>Integracja sieci
-Ustawia maszyn wirtualnych wdrożonych na sieciach prywatnych, znajduje się na dwóch regionach komunikuje się ze sobą przy użyciu tunelu VPN. Tunel VPN łączy dwie bramy oprogramowanie udostępniane w trakcie procesu wdrażania sieci. Zarówno regiony mają podobną architekturę sieci pod względem podsieci "web" i "dane"; Sieć platformy Azure umożliwia tworzenie tyle podsieci zgodnie z potrzebami i stosować listy ACL, odpowiednio do potrzeb zabezpieczeń sieci. Podczas projektowania topologii klastra między opóźnienie komunikacji centrum danych i ekonomiczne wpływu na ruch sieciowy należy wziąć pod uwagę.
+Ustawia maszyn wirtualnych wdrożonych na sieciach prywatnych, znajduje się na dwóch regionach komunikuje się ze sobą przy użyciu tunelu VPN. Tunel VPN łączy dwie bramy oprogramowanie udostępniane w trakcie procesu wdrażania sieci. Zarówno regiony mają podobną architekturę sieci pod względem podsieci "web" i "dane"; Sieć platformy Azure umożliwia tworzenie tyle podsieci zgodnie z potrzebami i stosować listy ACL, odpowiednio do potrzeb zabezpieczeń sieci. Podczas projektowania topologii klastra, między opóźnienie komunikacji centrum danych i ekonomiczne wpływu na potrzeby ruchu sieciowego wziąć pod uwagę.
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Spójność danych wdrożenia Centrum usługi danych
 Rozproszone wdrożeń muszą być świadome wpływu Topologia klastra na przepływność i wysokiej dostępności. Należy wybrać w taki sposób, że kworum nie zależy od dostępności wszystkich centrów danych, należy RF i poziomu spójności.
-Wymagające wysokiej spójności systemu LOCAL_QUORUM spójności poziomu (odczyty i zapisy) będzie upewnij się, że lokalne odczyty i zapisy są spełnione z lokalnych węzłów podczas, gdy dane są replikowane asynchronicznie w centrach danych zdalnych.  Tabela 2 zawiera podsumowanie szczegółów konfiguracji klastra w przypadku opisane w dalszej części zapisu w górę.
+W przypadku systemu wymagające wysokiej spójności LOCAL_QUORUM spójności poziomu (odczyty i zapisy) upewnia się, że lokalnego odczyty i zapisy są spełnione z lokalnych węzłów podczas, gdy dane są replikowane asynchronicznie w centrach danych zdalnych.  Tabela 2 zawiera podsumowanie szczegółów konfiguracji klastra w przypadku opisane w dalszej części zapisu w górę.
 
 **Konfiguracja klastra Cassandra dwa regionu**
 
@@ -107,7 +107,7 @@ Wymagające wysokiej spójności systemu LOCAL_QUORUM spójności poziomu (odczy
 | --- | --- | --- |
 | Liczba węzłów (N) |8 + 8 |Całkowita liczba węzłów w klastrze |
 | Współczynnik replikacji (RF) |3 |Liczba replik danego wiersza |
-| Poziom zgodności (Zapisz) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] wynik formuły zostać zaokrąglona w dół |węzły 2 pierwszego centrum danych będą zapisywane synchronicznie; dodatkowe węzły 2 potrzebne do kworum będą zapisywane asynchronicznie 2 centrum danych. |
+| Poziom zgodności (Zapisz) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] wynik formuły zostać zaokrąglona w dół |2 węzły są zapisywane w centrum danych pierwszego synchronicznie; dodatkowe węzły 2 potrzebne do kworum jest zapisywany asynchronicznie 2 centrum danych. |
 | Poziom zgodności (odczyt) |LOCAL_QUORUM ((RF/2) + 1) = 2, wynik formuły zostać zaokrąglona w dół |Żądań odczytu są spełnione przy tylko jeden region; 2 węzły są odczytywane przed wysłaniem odpowiedzi do klienta. |
 | Strategii replikacji |Zobacz NetworkTopologyStrategy [replikacji danych](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) w Cassandra dokumentacji, aby uzyskać więcej informacji |Rozumie topologii wdrożenia i umieszcza replik w węzłach, tak, aby wszystkie repliki nie trafiają do tej samej stojak |
 | Snitch |Zobacz GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) w Cassandra dokumentacji, aby uzyskać więcej informacji |NetworkTopologyStrategy używa pojęcie snitch zrozumienie topologii. GossipingPropertyFileSnitch zapewnia lepszą kontrolę w mapowaniu każdego węzła do centrum danych i stojaku. Klaster używa następnie plotki propagację te informacje. To jest znacznie prostsza w dynamicznej ustawienie adresu IP względem PropertyFileSnitch |
@@ -123,15 +123,15 @@ Następujące wersje oprogramowania są używane podczas wdrażania:
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-Ponieważ pobieranie środowiska JRE wymaga ręcznego akceptacji licencji Oracle, można uprościć wdrażanie, Pobierz wymagane oprogramowanie do pulpitu na przekazywanie dalej do obrazu szablonu Ubuntu, firma Microsoft będzie tworzony jako macierzystych do wdrożenia klastra.
+Po pobraniu środowiska JRE, musisz ręcznie zaakceptować licencji programu Oracle. Tak aby uprościć wdrażanie, Pobierz wymaganego oprogramowania na pulpicie. Następnie przekaż go do Ubuntu obrazu szablonu do utworzenia jako macierzystych do wdrożenia klastra.
 
-Pobierz powyższego oprogramowania w katalogu pobierania dobrze znanego (np. %TEMP%/downloads w systemie Windows lub ~/Downloads na większości dystrybucje systemu Linux lub Mac.) na komputerze lokalnym.
+Pobierz powyższego oprogramowania w katalogu pobierania dobrze znanego (na przykład %TEMP%/downloads w systemie Windows lub ~/Downloads na większości dystrybucje systemu Linux lub Mac.) na komputerze lokalnym.
 
 ### <a name="create-ubuntu-vm"></a>TWORZENIE MASZYNY WIRTUALNEJ SYSTEMU UBUNTU
-W tym kroku procesu zostanie utworzony obraz Ubuntu z wstępnie wymagane oprogramowanie, aby obraz mogą być ponownie używane do inicjowania obsługi kilka węzłów Cassandra.  
+W tym kroku procesu tworzenia obrazu Ubuntu z wstępnie wymagane oprogramowanie, aby obraz mogą być ponownie używane do inicjowania obsługi kilka węzłów Cassandra.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>Krok 1: Generuje parę kluczy SSH
-Platforma Azure wymaga X509 klucza publicznego, który jest PEM lub DER zakodowane w czasie inicjowania obsługi administracyjnej. Generowanie pary kluczy publiczny/prywatny, korzystając z instrukcji znajdujący się w sposób używanie SSH z systemem Linux na platformie Azure. Jeśli planujesz użyć putty.exe jako klienta SSH w systemie Windows lub Linux, należy przekonwertować PEM zakodowane RSA klucz prywatny do formatu PPK, używając puttygen.exe; odpowiednie instrukcje znajdują się w powyższym strony sieci web.
+Platforma Azure wymaga X509 klucza publicznego, który jest PEM lub DER zakodowane w czasie inicjowania obsługi administracyjnej. Generowanie pary kluczy publiczny/prywatny, korzystając z instrukcji znajdujący się w sposób używanie SSH z systemem Linux na platformie Azure. Jeśli planujesz użyć putty.exe jako klienta SSH w systemie Windows lub Linux, należy przekonwertować PEM zakodowane RSA klucz prywatny do formatu PPK, używając puttygen.exe. Odpowiednie instrukcje znajdują się w powyższym strony sieci web.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>Krok 2: Tworzenie Ubuntu szablonu maszyny Wirtualnej
 Aby utworzyć szablon maszyny Wirtualnej, zaloguj się do portalu Azure i użyj następującej procedury: kliknij przycisk Nowy, obliczeń, maszyny WIRTUALNEJ, z GALERII, UBUNTU, Ubuntu Server 14.04 LTS, a następnie kliknij strzałkę w prawo. Samouczek, który opisuje metodę utworzyć Maszynę wirtualną systemu Linux, zobacz Tworzenie maszyny wirtualnej systemem Linux.
@@ -159,11 +159,11 @@ Na ekranie "konfiguracja maszyny wirtualnej" #2, wprowadź następujące informa
 <tr><td> NAZWA DNS USŁUGI W CHMURZE    </td><td>ubuntu template.cloudapp.net    </td><td>Nadaj nazwę modułu równoważenia obciążenia o niesprecyzowanym maszyny</td></tr>
 <tr><td> REGION/GRUPY KOLIGACJI/SIECI WIRTUALNEJ </td><td>    Zachodnie stany USA    </td><td> Wybierz region, z której uzyskują dostęp do klastra Cassandra aplikacji sieci web</td></tr>
 <tr><td>KONTO MAGAZYNU </td><td>    Użyj wartości domyślnej    </td><td>Użyj domyślnego konta magazynu lub wstępnie utworzone konto magazynu w określonym regionie</td></tr>
-<tr><td>ZESTAW DOSTĘPNOŚCI </td><td>    Brak </td><td>    Pozostaw to pole puste</td></tr>
+<tr><td>ZESTAW DOSTĘPNOŚCI </td><td>    None </td><td>    Pozostaw to pole puste</td></tr>
 <tr><td>PUNKTY KOŃCOWE    </td><td>Użyj wartości domyślnej </td><td>    Użyj domyślnej konfiguracji SSH </td></tr>
 </table>
 
-Kliknij strzałkę w prawo, pozostaw wartości domyślne na ekranie #3 i kliknij przycisk "Sprawdź", aby ukończyć proces tworzenia maszyny Wirtualnej. Po kilku minutach maszyny Wirtualnej o nazwie "ubuntu-template" powinna być w stanie "uruchomiona".
+Kliknij strzałkę w prawo, pozostaw wartości domyślne na ekranie #3. Kliknij przycisk "Sprawdź", aby ukończyć proces inicjowania obsługi administracyjnej maszyny Wirtualnej. Po kilku minutach maszyny Wirtualnej o nazwie "ubuntu-template" powinna być w stanie "uruchomiona".
 
 ### <a name="install-the-necessary-software"></a>ZAINSTALUJ OPROGRAMOWANIE NIEZBĘDNE
 #### <a name="step-1-upload-tarballs"></a>Krok 1: Przekazywanie tarballs
@@ -266,7 +266,7 @@ Dołącz na końcu następujących:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>Krok 4: Instalacja JNA dla systemów produkcyjnych.
-Użyj poniższej sekwencji poleceń: następujące polecenie zainstaluje jna 3.2.7.jar i jna platformy 3.2.7.jar do katalogu /usr/share.java sudo stanie get zainstalować libjna java
+Użyj poniższej sekwencji poleceń: polecenie instaluje jna 3.2.7.jar i jna platformy 3.2.7.jar /usr/share.java katalogu sudo stanie-Get zainstalować libjna java
 
 Utwórz łącza symbolicznego w katalogu CASS_HOME/lib $ tak, aby Cassandra uruchamiania skryptu można znaleźć te słoików:
 
@@ -275,7 +275,7 @@ Utwórz łącza symbolicznego w katalogu CASS_HOME/lib $ tak, aby Cassandra uruc
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>Krok 5: Konfigurowanie cassandra.yaml
-Edytuj cassandra.yaml na każdej maszynie Wirtualnej w celu uwzględnienia konfiguracji wymagane przez wszystkich maszyn wirtualnych [firma Microsoft będzie dostosować to podczas udostępniania rzeczywistego]:
+Edytuj cassandra.yaml na każdej maszynie Wirtualnej w celu uwzględnienia konfiguracji wymagane przez wszystkich maszyn wirtualnych [możesz dostosować tę konfigurację, podczas udostępniania rzeczywistego]:
 
 <table>
 <tr><th>Nazwa pola   </th><th> Wartość  </th><th>    Uwagi </th></tr>
@@ -294,20 +294,20 @@ Wykonania następującej akcji w celu przechwycenia obrazu:
 ##### <a name="1-deprovision"></a>1. Deprovision
 Użyj polecenia "sudo agenta waagent — deprovision + użytkownika" Aby usunąć określone informacje o wystąpieniu maszyny wirtualnej. Zobacz dla [Przechwytywanie maszyny wirtualnej systemu Linux](capture-image.md) do użycia jako szablon więcej szczegółów na temat procesu przechwytywania obrazu.
 
-##### <a name="2-shutdown-the-vm"></a>2: Zamknij maszynę Wirtualną
+##### <a name="2-shut-down-the-vm"></a>2: zamykania maszyny Wirtualnej
 Upewnij się, że maszyna wirtualna zostanie wyróżniona, a następnie kliknij łącze zamknięcia z dolnym pasku poleceń.
 
 ##### <a name="3-capture-the-image"></a>3: Przechwytywanie obrazu
-Upewnij się, że maszyna wirtualna zostanie wyróżniona, a następnie kliknij łącze PRZECHWYTYWANIA z dolnym pasku poleceń. Na następnym ekranie nadaj nazwę obrazu (np. hk-cas-2-08-ub-14-04-2014071), odpowiednich opis obrazu, a następnie kliknij znacznik "wyboru", aby zakończyć proces PRZECHWYTYWANIA.
+Upewnij się, że maszyna wirtualna zostanie wyróżniona, a następnie kliknij łącze PRZECHWYTYWANIA z dolnym pasku poleceń. W następnej ekranu, należy podać nazwę obrazu (na przykład hk-cas-2-08-ub-14-04-2014071), odpowiednie opis obrazu i kliknij znacznik "wyboru" na zakończenie procesu PRZECHWYTYWANIA.
 
-To może zająć kilka sekund i obraz powinien być dostępny w sekcji Moje obrazy Galeria obrazów. Źródłowej maszyny Wirtualnej zostaną automatycznie usunięte pomyślnie przechwycony obraz. 
+Ten proces trwa kilka sekund i obraz powinien być dostępny w sekcji Moje obrazy Galeria obrazów. Źródłowej maszyny Wirtualnej jest automatycznie usuwana pomyślnie przechwycony obraz. 
 
 ## <a name="single-region-deployment-process"></a>Proces wdrażania pojedynczy Region
 **Krok 1: Utwórz sieć wirtualną** Zaloguj się do portalu Azure i utworzyć sieć wirtualną (klasyczne) z atrybutami pokazano w poniższej tabeli. Zobacz [Utwórz sieć wirtualną (klasyczne) przy użyciu portalu Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) szczegółowy opis kroków procesu.      
 
 <table>
 <tr><th>Nazwa atrybutu maszyny Wirtualnej</th><th>Wartość</th><th>Uwagi</th></tr>
-<tr><td>Nazwa</td><td>sieć wirtualna — przypadku zachód nam</td><td></td></tr>
+<tr><td>Name (Nazwa)</td><td>sieć wirtualna — przypadku zachód nam</td><td></td></tr>
 <tr><td>Region</td><td>Zachodnie stany USA</td><td></td></tr>
 <tr><td>Serwery DNS</td><td>Brak</td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
 <tr><td>Przestrzeń adresowa</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -318,27 +318,27 @@ To może zająć kilka sekund i obraz powinien być dostępny w sekcji Moje obra
 Dodaj następujące podsieci:
 
 <table>
-<tr><th>Nazwa</th><th>Uruchamianie adresu IP</th><th>CIDR</th><th>Uwagi</th></tr>
+<tr><th>Name (Nazwa)</th><th>Uruchamianie adresu IP</th><th>CIDR</th><th>Uwagi</th></tr>
 <tr><td>Sieć Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
 <tr><td>dane</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
 
 Dane i podsieci w sieci Web mogą być chronione przy użyciu grup zabezpieczeń sieci zakres wykracza poza zakres tego artykułu.  
 
-**Krok 2: Maszyny wirtualne należy** przy użyciu obrazu utworzonego wcześniej, firma Microsoft utworzy następujące maszyny wirtualne na serwerze chmury "hk-c-svc Zachód" i powiązać je do odpowiednich podsieci, jak pokazano poniżej:
+**Krok 2: Maszyny wirtualne należy** przy użyciu obrazu utworzonego wcześniej, należy utworzyć następujące maszyny wirtualne na serwerze chmury "hk-c-svc Zachód", jak i powiązać je do odpowiednich podsieci, jak pokazano poniżej:
 
 <table>
 <tr><th>Nazwa komputera    </th><th>Podsieć    </th><th>Adres IP    </th><th>Zestaw dostępności</th><th>DC/Rack</th><th>Inicjatora?</th></tr>
-<tr><td>HK-c1-zachód us    </td><td>dane    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Tak</td></tr>
+<tr><td>HK-c1-zachód us    </td><td>dane    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Yes</td></tr>
 <tr><td>HK-c2-zachód us    </td><td>dane    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1    </td><td>Nie </td></tr>
-<tr><td>HK-c3-zachód us    </td><td>dane    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Tak</td></tr>
+<tr><td>HK-c3-zachód us    </td><td>dane    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Yes</td></tr>
 <tr><td>HK-c4-zachód us    </td><td>dane    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Nie </td></tr>
-<tr><td>HK-c5-zachód us    </td><td>dane    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Tak</td></tr>
+<tr><td>HK-c5-zachód us    </td><td>dane    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Yes</td></tr>
 <tr><td>HK-c6-zachód us    </td><td>dane    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Nie </td></tr>
-<tr><td>HK-c7-zachód us    </td><td>dane    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Tak</td></tr>
+<tr><td>HK-c7-zachód us    </td><td>dane    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Yes</td></tr>
 <tr><td>HK-c8-zachód us    </td><td>dane    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Nie </td></tr>
-<tr><td>HK-w1 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.4    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
-<tr><td>HK-w2 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.5    </td><td>HK p-aset-1    </td><td>                       </td><td>Nie dotyczy</td></tr>
+<tr><td>HK-w1 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.4    </td><td>HK p-aset-1    </td><td>                       </td><td>ND</td></tr>
+<tr><td>HK-w2 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.5    </td><td>HK p-aset-1    </td><td>                       </td><td>ND</td></tr>
 </table>
 
 Utworzenie powyższej listy maszyn wirtualnych wymaga następujący proces:
@@ -348,7 +348,7 @@ Utworzenie powyższej listy maszyn wirtualnych wymaga następujący proces:
 3. Dodawanie wewnętrznego modułu równoważenia obciążenia do usługi w chmurze i dołącz je do podsieci "dane"
 4. Dla każdej maszyny Wirtualnej utworzone wcześniej Dodaj punkt końcowy równoważenia obciążenia dla ruchu thrift za pomocą zestawu o zrównoważonym obciążeniu podłączone do utworzonej wcześniej wewnętrznego modułu równoważenia obciążenia
 
-Proces powyżej mogą być wykonywane przy użyciu klasycznego portalu Azure; Użyj maszynę z systemem Windows (Użyj maszyny Wirtualnej na platformie Azure, jeśli nie masz dostępu do komputera z systemem Windows), umożliwia automatycznie udostępnić wszystkich maszyn wirtualnych 8 następujący skrypt programu PowerShell.
+Proces powyżej mogą być wykonywane przy użyciu portalu Azure; Użyj maszynę z systemem Windows (Użyj maszyny Wirtualnej na platformie Azure, jeśli nie masz dostępu do komputera z systemem Windows), umożliwia automatycznie udostępnić wszystkich maszyn wirtualnych 8 następujący skrypt programu PowerShell.
 
 **Lista 1: Skrypt programu PowerShell do obsługi maszyn wirtualnych**
 
@@ -418,7 +418,7 @@ Zaloguj się do maszyny Wirtualnej i wykonaj następujące czynności:
 
 **Krok 4: Uruchom maszyn wirtualnych i przetestowanie klastra**
 
-Zaloguj się do jednego z węzłów (np. hk-c1-zachód us) i uruchom następujące polecenie, aby wyświetlić stan klastra:
+Zaloguj się do jednego z węzłów (na przykład hk-c1-zachód us) i uruchom następujące polecenie, aby wyświetlić stan klastra:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
@@ -439,8 +439,8 @@ Powinien zostać wyświetlony ekran podobny do przedstawionego poniżej 8 węzł
 ## <a name="test-the-single-region-cluster"></a>Przetestowanie klastra pojedynczy Region
 Aby przetestować klastra, wykonaj następujące kroki:
 
-1. Za pomocą polecenia Get-AzureInternalLoadbalancer polecenia programu Powershell, Uzyskaj adres IP wewnętrznego modułu równoważenia obciążenia (np.  10.1.2.101). Poniżej przedstawiono składnię polecenia: Get-AzureLoadbalancer — ServiceName "hk — c-svc zachód us" [Wyświetla szczegóły wewnętrznego modułu równoważenia obciążenia oraz adres IP]
-2. Zaloguj się do maszyny Wirtualnej (np. hk-w1 — zachód us) kolektywu serwerów sieci web przy użyciu programu Putty lub ssh
+1. Za pomocą polecenia Get-AzureInternalLoadbalancer polecenia programu Powershell, Uzyskaj adres IP wewnętrznego modułu równoważenia obciążenia (na przykład 10.1.2.101). Poniżej przedstawiono składnię polecenia: Get-AzureLoadbalancer — ServiceName "hk — c-svc zachód us" [Wyświetla szczegóły wewnętrznego modułu równoważenia obciążenia oraz adres IP]
+2. Zaloguj się do maszyny Wirtualnej (na przykład hk-w1 — zachód us) kolektywu serwerów sieci web przy użyciu programu Putty lub ssh
 3. Wykonanie $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Aby sprawdzić, czy klaster działa, należy użyć następujących poleceń CQL:
    
@@ -448,7 +448,7 @@ Aby przetestować klastra, wykonaj następujące kroki:
    
      Wybierz * od klientów.
 
-Powinien zostać wyświetlony ekran, tak jak poniżej:
+Powinien zostać wyświetlony ekran podobny do następujące wyniki:
 
 <table>
   <tr><th> customer_id </th><th> Imię </th><th> nazwisko </th></tr>
@@ -456,17 +456,17 @@ Powinien zostać wyświetlony ekran, tak jak poniżej:
   <tr><td> 2 </td><td> Magdalena </td><td> Nowak </td></tr>
 </table>
 
-Należy pamiętać, że przestrzeni kluczy, utworzony w kroku 4 używa SimpleStrategy z replication_factor 3. SimpleStrategy jest zalecane dla pojedynczego wdrożenia Centrum natomiast NetworkTopologyStrategy danych z wielu centrów. Replication_factor 3 zapewni tolerancji na wypadek awarii węzła.
+Przestrzeni kluczy, utworzony w kroku 4 używa SimpleStrategy z replication_factor 3. SimpleStrategy jest zalecane dla pojedynczego wdrożenia Centrum natomiast NetworkTopologyStrategy danych z wielu centrów. Replication_factor 3 zapewnia tolerancji na wypadek awarii węzła.
 
 ## <a id="tworegion"></a>Proces w przypadku wdrażania
-Zostanie korzystaj z wdrożenia pojedynczego obszaru ukończone i powtórz ten sam proces instalacji drugiego region. Klucza różnica między wdrażania jednego lub wielu region jest instalację tunelu sieci VPN na potrzeby komunikacji między regionu; Firma Microsoft będzie rozpoczynać się od instalacji sieciowej, obsługi administracyjnej maszyn wirtualnych i skonfiguruj Cassandra.
+Wykorzystanie zakończono wdrażanie jednego regionu i powtórz ten sam proces instalacji drugiego regionu. Klucza różnica między wdrażania jednego lub wielu region jest instalację tunelu sieci VPN na potrzeby komunikacji między regionu; Rozpocznij instalację sieciową, obsługi administracyjnej maszyn wirtualnych i skonfigurować Cassandra.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Krok 1: Utwórz sieć wirtualną w regionie 2
-Zaloguj się do klasycznego portalu Azure i utworzyć sieć wirtualną z programem atrybutów w tabeli. Zobacz [skonfigurować sieć wirtualną Cloud-Only w klasycznym portalu Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) szczegółowy opis kroków procesu.      
+Zaloguj się do portalu Azure i utworzyć sieć wirtualną z programem atrybutów w tabeli. Zobacz [skonfigurować Cloud-Only sieci wirtualnej w portalu Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) szczegółowy opis kroków procesu.      
 
 <table>
 <tr><th>Nazwa atrybutu    </th><th>Wartość    </th><th>Uwagi</th></tr>
-<tr><td>Nazwa    </td><td>sieci wirtualnej przypadku wschód us</td><td></td></tr>
+<tr><td>Name (Nazwa)    </td><td>sieci wirtualnej przypadku wschód us</td><td></td></tr>
 <tr><td>Region    </td><td>Wschodnie stany USA</td><td></td></tr>
 <tr><td>Serwery DNS        </td><td></td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
 <tr><td>Konfigurowanie sieci VPN punkt lokacja</td><td></td><td>        Zignoruj ten komunikat</td></tr>
@@ -479,7 +479,7 @@ Zaloguj się do klasycznego portalu Azure i utworzyć sieć wirtualną z program
 Dodaj następujące podsieci:
 
 <table>
-<tr><th>Nazwa    </th><th>Uruchamianie adresu IP    </th><th>CIDR    </th><th>Uwagi</th></tr>
+<tr><th>Name (Nazwa)    </th><th>Uruchamianie adresu IP    </th><th>CIDR    </th><th>Uwagi</th></tr>
 <tr><td>Sieć Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
 <tr><td>dane    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
@@ -496,7 +496,7 @@ Utwórz dwie sieci lokalne na następujące informacje:
 | HK-lnet-map-to-West-US |23.2.2.2 |10.1.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku utworzona sieć wirtualna regionu zachodnie stany USA. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Krok 3: Sieć "Lokalnie" mapy do odpowiednich sieci wirtualnych
-W klasycznym portalu Azure wybierz każdej sieci wirtualnej, kliknij przycisk "Konfiguruj" Sprawdź "Połącz z sieci lokalnej" i wybierz sieci lokalnej na następujące informacje:
+W portalu Azure wybierz każdej sieci wirtualnej, kliknij przycisk "Konfiguruj" Sprawdź "Połącz z sieci lokalnej" i wybierz sieci lokalnej na następujące szczegóły:
 
 | Virtual Network | Sieci lokalnej |
 | --- | --- |
@@ -504,7 +504,7 @@ W klasycznym portalu Azure wybierz każdej sieci wirtualnej, kliknij przycisk "K
 | HK — sieci wirtualnej wschód us |HK-lnet-map-to-West-US |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Krok 4: Tworzenie bramy na VNET1 i VNET2
-Z poziomu pulpitu nawigacyjnego sieci wirtualnych kliknij przycisk Utwórz bramy, które wyzwoli bramy sieci VPN, w procesie inicjowania obsługi. Po kilku minutach adres bramy rzeczywiste powinien być wyświetlany pulpit nawigacyjny w każdej sieci wirtualnej.
+Z poziomu pulpitu nawigacyjnego sieci wirtualnych kliknij przycisk Utwórz BRAMĘ, aby wyzwolić bramy sieci VPN, w procesie inicjowania obsługi. Po kilku minutach adres bramy rzeczywiste powinien być wyświetlany pulpit nawigacyjny w każdej sieci wirtualnej.
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Krok 5: Aktualizacji "Lokalnie" sieci z adresami odpowiednich "brama"
 Edytuj zarówno lokalnej sieci należy zastąpić adres IP bramy symbol zastępczy adres IP rzeczywista właśnie elastycznie bramy. Użyj następującego mapowania:
@@ -519,22 +519,22 @@ Edytuj zarówno lokalnej sieci należy zastąpić adres IP bramy symbol zastępc
 Użyj następującego skryptu programu Powershell można zaktualizować klucza IPSec każdej bramy sieci VPN [Użyj klucza sake dla obu bram]: Set AzureVNetGatewayKey - VNetName hk — sieci wirtualnej wschód us - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Zestaw AzureVNetGatewayKey - VNetName hk — sieci wirtualnej zachód us - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>Krok 7: Nawiązania połączenia do Wirtualnymi
-Z klasycznego portalu Azure użyj menu "Pulpitu NAWIGACYJNEGO" sieci wirtualnej do ustanawiania połączenia brama brama. Używanie elementów menu "POŁĄCZ" w dolnym pasku narzędzi. Po kilku minutach pulpitu nawigacyjnego powinien być wyświetlany szczegóły połączenia graficznie.
+W portalu Azure użyj menu "Pulpitu NAWIGACYJNEGO" sieciami wirtualnymi Nawiązanie połączenia usługi brama brama. Używanie elementów menu "POŁĄCZ" w dolnym pasku narzędzi. Po kilku minutach pulpitu nawigacyjnego powinien być wyświetlany szczegóły połączenia graficznie.
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Krok 8: Tworzenie maszyn wirtualnych w regionie #2
 Utwórz obraz Ubuntu zgodnie z opisem w regionie #1 wdrożenia, wykonując kroki tego samego lub kopiowania pliku obrazu dysku VHD do konta magazynu Azure znajduje się w regionie #2 a obrazu. Skorzystaj z tego obrazu i Utwórz następującą listę maszyn wirtualnych do nowej usługi w chmurze hk-c-svc wschód nam:
 
 | Nazwa komputera | Podsieć | Adres IP | Zestaw dostępności | DC/Rack | Inicjatora? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-wschód us |dane |10.2.2.4 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Tak |
+| HK-c1-wschód us |dane |10.2.2.4 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Yes |
 | HK-c2-wschód us |dane |10.2.2.5 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Nie |
-| HK-c3-wschód us |dane |10.2.2.6 |HK-c-aset-1 |DC = stojak EASTUS = szafa2 |Tak |
-| HK-c5-wschód us |dane |10.2.2.8 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Tak |
+| HK-c3-wschód us |dane |10.2.2.6 |HK-c-aset-1 |DC = stojak EASTUS = szafa2 |Yes |
+| HK-c5-wschód us |dane |10.2.2.8 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Yes |
 | HK-c6-wschód us |dane |10.2.2.9 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Nie |
-| HK-c7-wschód us |dane |10.2.2.10 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Tak |
+| HK-c7-wschód us |dane |10.2.2.10 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Yes |
 | HK-c8-wschód us |dane |10.2.2.11 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Nie |
-| HK-w1 — wschód us |Sieć Web |10.2.1.4 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
-| HK-w2 — wschód us |Sieć Web |10.2.1.5 |HK p-aset-1 |Nie dotyczy |Nie dotyczy |
+| HK-w1 — wschód us |Sieć Web |10.2.1.4 |HK p-aset-1 |ND |ND |
+| HK-w2 — wschód us |Sieć Web |10.2.1.5 |HK p-aset-1 |ND |ND |
 
 Postępuj zgodnie z instrukcjami region #1, ale użyj 10.2.xxx.xxx przestrzeni adresowej.
 
@@ -554,7 +554,7 @@ Już Cassandra została wdrożona do 16 węzłów o 8 węzłów w każdym region
 * Get-AzureInternalLoadbalancer - ServiceName "hk — c-svc zachód us"
 * Get-AzureInternalLoadbalancer - ServiceName "hk — c-svc wschód us"  
   
-    Należy zwrócić uwagę na adresy IP (np. - 10.1.2.101, wschód - zachód 10.2.2.101) wyświetlane.
+    Należy zwrócić uwagę na adresy IP (na przykład zachodnie - 10.1.2.101, wschód - 10.2.2.101) wyświetlane.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Krok 2: Wykonaj następujące czynności w regionie Zachód po zalogowaniu w hk-w1 — zachód us
 1. Wykonanie $CASS_HOME/bin/cqlsh 10.1.2.101 9160
@@ -585,7 +585,7 @@ Wyświetlanie tego samego powinny być widoczne, widziany dla regionu zachodnie:
 Wykonaj kilka więcej operacji wstawienia i zobacz, czy te replikowane Zachodnie-us, które są częścią klastra.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Testowanie Cassandra klastra w oprogramowaniu Node.js
-Przy użyciu jednej z maszyn wirtualnych systemu Linux utworzone w "web" warstwy wcześniej, firma Microsoft będzie wykonywał prostego skryptu Node.js odczytać wcześniej wstawionych danych
+Przy użyciu jednej z maszyn wirtualnych systemu Linux utworzone wcześniej w warstwie "web", wykonaj proste skryptu Node.js do odczytywania danych wcześniej wstawionych
 
 **Krok 1: Instalacja klienta Cassandra i Node.js**
 
@@ -645,7 +645,7 @@ Przy użyciu jednej z maszyn wirtualnych systemu Linux utworzone w "web" warstwy
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert the record if none exists
+        //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';

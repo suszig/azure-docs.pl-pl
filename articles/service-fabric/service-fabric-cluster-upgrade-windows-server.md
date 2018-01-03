@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uaktualnić autonomiczne klastra usługi sieć szkieletowa usług Azure w systemie Windows Server 
 > [!div class="op_single_selector"]
 > * [Klastrze platformy Azure](service-fabric-cluster-upgrade.md)
-> * [Autonomiczny klastra](service-fabric-cluster-upgrade-windows-server.md)
+> * [Klaster autonomiczny](service-fabric-cluster-upgrade-windows-server.md)
 >
 >
 
@@ -226,7 +226,7 @@ Z technicznego punktu widzenia są obsługiwane cztery opcje:
 * Uaktualnienie odcisk palca wystawcy certyfikatu: ścieżki uaktualnienia jest CN certyfikatu = A, IssuerThumbprint = IT1 (podstawowe) -> CN certyfikatu = A, IssuerThumbprint = IT1, IT2 (podstawowe) -> CN certyfikatu = A, IssuerThumbprint = IT2 (głównej).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak dostosowywać niektóre [ustawienia klastra usługi sieć szkieletowa](service-fabric-cluster-fabric-settings.md).
 * Dowiedz się, jak [skalowanie klastra i wylogowywanie](service-fabric-cluster-scale-up-down.md).
 * Dowiedz się więcej o [uaktualnień aplikacji](service-fabric-application-upgrade.md).

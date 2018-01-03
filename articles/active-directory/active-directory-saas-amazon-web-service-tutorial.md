@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c9dcfb7d769d8a59ecd7d8d238ac86f76ef1da66
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Samouczek: Integracji Azure Active Directory z usług sieci Web firmy Amazon (AWS)
 
@@ -130,7 +130,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **OK**.
 
@@ -164,7 +164,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. W **Nazwa dostawcy** tekstowym, wpisz nazwę dostawcy (na przykład: *drewna*).
 
-    c. Aby przekazać z pobranego **pliku metadanych** z portalu Azure, kliknij przycisk **wybierz plik**.
+    d. Aby przekazać z pobranego **pliku metadanych** z portalu Azure, kliknij przycisk **wybierz plik**.
 
     d. Kliknij przycisk **następny krok**.
 
@@ -242,7 +242,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Możesz podać **opis** do zasad jako **umożliwi tej zasady można pobrać ról z kont usług AWS**.
 
-    c. W dokumencie zasady dodawania poniżej JSON.
+    d. W dokumencie zasady dodawania poniżej JSON.
     
     ```
     
@@ -290,7 +290,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/policy4.png)
 
-    c. W **Dodaj użytkownika** sekcji, wykonaj następujące czynności:
+    d. W **Dodaj użytkownika** sekcji, wykonaj następujące czynności:
     
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser1.png)
     
@@ -308,7 +308,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Wyszukaj zasady nowo utworzony w sekcji Filtr **AzureAD_SSOUserRole_Policy**.
     
-    c. Wybierz **zasad** , a następnie kliknij polecenie **dalej: Przejrzyj** przycisku.
+    d. Wybierz **zasad** , a następnie kliknij polecenie **dalej: Przejrzyj** przycisku.
 
 29. Przejrzyj zasady użytkownika, wykonując następujące kroki:
 
@@ -326,7 +326,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. Wprowadź te poświadczenia do usługi Azure AD aprowizacji użytkowników sekcji można pobrać ról za pomocą konsoli usług AWS.
     
-    c. Polecenie **Zamknij** znajdujący się u dołu.
+    d. Polecenie **Zamknij** znajdujący się u dołu.
 
 31. Przejdź do **Inicjowanie obsługi użytkowników** części aplikacji usług Amazon Web Services w portalu zarządzania usługi Azure AD.
 
@@ -340,7 +340,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. Wprowadź hasło użytkownika usług AWS w **klucz tajny tokenu** pola.
     
-    c. Polecenie **Testuj połączenie** button powinien mógł pomyślnie przetestować tego połączenia.
+    d. Polecenie **Testuj połączenie** button powinien mógł pomyślnie przetestować tego połączenia.
 
     d. Zapisz ustawienia, klikając **zapisać** na górze.
  
@@ -380,7 +380,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -425,7 +425,14 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka Amazon Web Services (AWS) w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi sieci Web firmy Amazon (AWS).
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="known-issues"></a>Znane problemy
+
+ * W **inicjowania obsługi administracyjnej** sekcji **mapowania** podsekcja zostanie pokazuj komunikatu "Trwa ładowanie..." i nigdy nie wyświetlaj mapowań atrybutów. Tylko inicjowania obsługi administracyjnej przepływ pracy obecnie obsługiwane jest importu ról z usług AWS z usługą Azure AD do wyboru podczas przypisywania użytkownika/grupy. Mapowanie atrybutu dla tego są wcześniej i nie można skonfigurować.
+ 
+ * **Inicjowania obsługi administracyjnej** sekcji obsługuje tylko wprowadzić jeden zestaw poświadczeń dla jednego dzierżawcy usług AWS naraz. Wszystkie role importowanych są zapisywane do właściwości appRoles usługi Azure AD [servicePrincipal obiektu](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) dla usług AWS dzierżawy. Wiele dzierżaw usług AWS (reprezentowane przez servicePrincipals) mogą być dodawane do usługi Azure AD z galerii do inicjowania obsługi, jednak jest to znany problem z niemożność automatycznie zapis wszystkich importowanych ról z wielu servicePrincipals usług AWS używany dla Inicjowanie obsługi administracyjnej do pojedynczego servicePrincipal, używane do logowania jednokrotnego. Jako obejście [interfejsu API programu Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) można wyodrębnić wszystkie appRoles zaimportować do poszczególnych usług AWS servicePrincipal których inicjowanie obsługi administracyjnej jest skonfigurowany. Te ciągi roli może być dodane do servicePrincipal usług AWS, w którym rejestracji jednokrotnej jest skonfigurowane.
+
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

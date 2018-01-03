@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Omówienie wstecznego DNS i pomocy technicznej na platformie Azure
 
@@ -34,12 +34,12 @@ Odwrotnej rekordy DNS są obsługiwane w specjalne stref DNS, znany jako strefy 
 
 Na przykład rekordów DNS "www.contoso.com" jest implementowane przy użyciu rekordu DNS "A" o nazwie "www" w strefie "contoso.com".  Ten rekord A wskazuje odpowiedni adres IP, w tym przypadku 64.4.6.100.  Wyszukiwanie wsteczne jest implementowane oddzielnie, za pomocą rekordu "PTR" o nazwie "100" w strefie "6.4.64.in-addr.arpa" (Zauważ, że adresy IP są wycofywane w strefy ARPA.)  Ten rekord PTR, jeśli została skonfigurowana poprawnie, wskazuje nazwy www.contoso.com.
 
-Jeśli organizacja jest przypisany blok adresów IP, również uzyskać prawo do zarządzania odpowiednie strefy ARPA. Strefy ARPA odpowiadający bloki adresów IP, które są używane przez usługę Azure są obsługiwane i zarządzany przez firmę Microsoft. Usługodawca Internetowy może obsługiwać strefy ARPA adresy IP dla Ciebie lub mogą zezwolić do hostowania strefy ARPA w usłudze DNS w wybranych przez użytkownika, takie jak usługi Azure DNS.
+Jeśli organizacja jest przypisany blok adresów IP, również uzyskać prawo do zarządzania odpowiednie strefy ARPA. Strefy ARPA odpowiadający bloki adresów IP, które są używane przez usługę Azure są obsługiwane i zarządzany przez firmę Microsoft. Usługodawca Internetowy może obsługiwać strefy ARPA adresy IP dla Ciebie lub mogą umożliwić do hostowania strefy ARPA w usłudze DNS w wybranych przez użytkownika, takie jak usługi Azure DNS.
 
 > [!NOTE]
 > Wyszukiwania DNS do przodu i wyszukiwania wstecznego DNS są implementowane w oddzielnych, równoległe hierarchii DNS. Wyszukiwanie wsteczne "www.contoso.com" jest **nie** hostowana w strefie "contoso.com", a nie jest obsługiwany strefy ARPA na odpowiedni blok adresów IP. Bloki adresów IPv4 i IPv6 używane są osobne strefy.
 
-### <a name="ipv4"></a>IPv4
+### <a name="ipv4"></a>Protokół IPv4
 
 Nazwa strefy wyszukiwania wstecznego IPv4 powinny mieć następujący format: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
@@ -106,7 +106,7 @@ Usługa DNS platformy Azure można używać do [przechowywania stref wyszukiwani
 
 **Skonfiguruj odwrotnej rekordu DNS dla adresu IP przypisanego do usługi Azure.** Platforma Azure umożliwia [skonfigurować wyszukiwanie wsteczne adresy IP przydzielone do usługi Azure](dns-reverse-dns-for-azure-services.md).  To wyszukiwanie wsteczne jest skonfigurowana przez platformę Azure jako rekordu PTR w odpowiedniej strefy ARPA.  Te strefy ARPA, odpowiadający wszystkich zakresów IP używanych przez platformę Azure, są obsługiwane przez firmę Microsoft
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji dotyczących wstecznego DNS, zobacz [istnienia wstecznego wyszukiwania DNS dla Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie z interfejsu API programu Graph (wersja zapoznawcza)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure DB rozwiązania Cosmos: Jak wykonać zapytanie z interfejsu API programu Graph?
 
-Azure DB rozwiązania Cosmos [interfejsu API programu Graph](graph-introduction.md) (wersja zapoznawcza) obsługuje [Gremlin](https://github.com/tinkerpop/gremlin/wiki) zapytania. W tym artykule przedstawiono przykładowe dokumentach i zapytaniach ułatwiających rozpoczęcie pracy. A szczegółowe Gremlin odwołanie znajduje się w [Obsługa Gremlin](gremlin-support.md) artykułu.
+Azure DB rozwiązania Cosmos [interfejsu API programu Graph](graph-introduction.md) obsługuje [Gremlin](https://github.com/tinkerpop/gremlin/wiki) zapytania. W tym artykule przedstawiono przykładowe dokumentach i zapytaniach ułatwiających rozpoczęcie pracy. A szczegółowe Gremlin odwołanie znajduje się w [Obsługa Gremlin](gremlin-support.md) artykułu.
 
 W tym artykule opisano następujące zadania: 
 
@@ -75,7 +75,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Można tworzyć bardziej złożone kwerendy i wdrożyć logikę przechodzenie zaawansowanych wykresu przy użyciu Gremlin, tym wyrażeniach filtru mieszanie wykonywania pętli przy użyciu `loop` krok i wykonawcze przy użyciu warunkowego nawigacji `choose` kroku. Dowiedz się więcej o co można zrobić z [Obsługa Gremlin](gremlin-support.md)!
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wykonaniu następujących czynności:
 

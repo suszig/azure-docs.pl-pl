@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informacje dotyczące ustawień dostępu warunkowego w usłudze Azure Active Directory
 
@@ -58,7 +58,7 @@ Zasady dostępu warunkowego można przypisać do następujących aplikacji w chm
 
 - Microsoft Office 365 usługi Exchange Online
 
-- Microsoft Office 365 SharePoint Online (w tym usługi OneDrive dla firm)
+- Microsoft Office 365 SharePoint Online (w tym usługi OneDrive dla firm i Project Online)
 
 - Microsoft Power BI 
 
@@ -154,7 +154,7 @@ Zasady dostępu warunkowego, można wybrać **aplikacji mobilnych i klasycznych 
 To ustawienie ma wpływ na prób dostępu z następujących aplikacji mobilnych i będących klientami pulpitu: 
 
 
-|Aplikacje klienta|Usługa docelowa|Platforma|
+|Aplikacje klienckie|Usługa docelowa|Platforma|
 |---|---|---|
 |Usługa Azure RemoteApp|Usługa Azure RemoteApp|Windows 10, Windows 8.1, Windows 7, iOS, Android i Mac OS X|
 |Aplikacji programu Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS i Android|
@@ -212,7 +212,7 @@ To ustawienie dotyczy następujących aplikacji klienta:
     - Zastępuje **aplikacji mobilnych i klasycznych klientów** opcja dla [warunku aplikacje klienckie](#supported-mobile-apps-and-desktop-clients) po wybraniu tej opcji.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Omówienie dostępu warunkowego, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Jeśli wszystko jest gotowe do skonfigurowania zasad dostępu warunkowego w środowisku, zobacz [zalecane wskazówki dotyczące dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-best-practices.md).

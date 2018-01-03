@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Wykonywanie wyszczególniania odzyskiwania po awarii
 Zalecane jest okresowo wykonywać weryfikacji aplikacja jest gotowa do przepływu pracy odzyskiwania. Weryfikowanie zachowanie aplikacji oraz wpływ utraty danych i/lub przerw w działaniu obejmuje czy tryb failover jest dobrym rozwiązaniem engineering. Również jest wymagane przez większość standardy branżowe w ramach certyfikacji ciągłości biznesowej.
@@ -37,7 +37,7 @@ W zależności od tego, jak możesz [przeznaczony dla ciągłość prowadzenia d
 Aby zapobiec utracie danych podczas przeprowadzania wyszczególniania odzyskiwania po awarii, należy wykonać drążenie, tworząc kopię w środowisku produkcyjnym i użycie go do sprawdzenia przepływu pracy awaryjnej aplikacji przy użyciu środowiska testowego.
 
 #### <a name="outage-simulation"></a>Symulacji awarii
-Aby symulować awarii, można usunąć lub zmienić nazwy źródłowej bazy danych. Powoduje to błędów łączności aplikacji.
+Aby symulować awarii, można zmienić nazwy źródłowej bazy danych. Powoduje to błędów łączności aplikacji.
 
 #### <a name="recovery"></a>Odzyskiwanie
 * Wykonać geograficznie przywracania bazy danych na innym serwerze, zgodnie z opisem [tutaj](sql-database-disaster-recovery.md).
@@ -60,7 +60,7 @@ Aby symulować awarii, można wyłączyć maszyny wirtualnej, połączony z baz�
 #### <a name="validation"></a>Walidacja
 Zakończ Drąż weryfikowanie odzyskiwania post integralności aplikacji (w tym łączności, podstawowych funkcji testowania lub innych operacji sprawdzania poprawności wymaganego dla signoffs Przechodzenie do szczegółów).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej o scenariuszach ciągłości biznesowej, zobacz [scenariusze ciągłości](sql-database-business-continuity.md).
 * Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md)
 * Aby dowiedzieć się więcej o używaniu kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z kopii zapasowych inicjowane przez usługę](sql-database-recovery-using-backups.md).

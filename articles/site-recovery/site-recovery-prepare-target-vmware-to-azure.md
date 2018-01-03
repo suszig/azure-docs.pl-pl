@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Przygotowanie docelowego (VMware do platformy Azure)
 > [!div class="op_single_selector"]
@@ -48,5 +48,5 @@ Po operacji sprawdzania poprawności zakończy się pomyślnie, kliknij przycisk
 
 Jeśli nie masz konta magazynu usługi Resource Manager zgodny lub sieci wirtualnej, można utworzyć na, klikając **+ konto magazynu** lub **+ sieć** przycisków w górnej części strony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Konfigurowanie ustawień replikacji](./site-recovery-setup-replication-settings-vmware.md).

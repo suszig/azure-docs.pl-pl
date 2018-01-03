@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: dae7b5f7456f4ec0daf60d55f9c38b780896ff83
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (pliki proste)
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ Możesz sprawdzić, czy dane zostały poprawnie wyeksportowane, otwierając nowy
 ### <a name="export-the-results-of-a-query"></a>Eksportowanie wyników zapytania
 Możesz użyć funkcji **queryout** programu bcp do wyeksportowania wyników zapytania, zamiast eksportować całą tabelę. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Omówienie ładowania można znaleźć w artykule [Ładowanie danych do usługi SQL Data Warehouse][Load data into SQL Data Warehouse].
 Więcej porad dla deweloperów znajduje się w artykule [Omówienie programowania w usłudze SQL Data Warehouse][SQL Data Warehouse development overview].
 Zobacz [omówienie tabeli] [ Table Overview] lub [składni polecenia CREATE TABLE] [ CREATE TABLE syntax] uzyskać więcej informacji dotyczących tworzenia tabel w magazynie danych SQL.

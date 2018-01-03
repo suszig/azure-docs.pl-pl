@@ -3,7 +3,7 @@ title: "Wyświetlanie i używanie maszyny wirtualnej, szablonu usługi Azure Res
 description: "Dowiedz się, jak użyć szablonu usługi Azure Resource Manager z maszyny wirtualnej do utworzenia innych maszyn wirtualnych"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a759d9ce-655c-4ac6-8834-cb29dd7d30dd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: tarcher
-ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Użyj szablonu usługi Azure Resource Manager maszynę wirtualną
 
@@ -65,6 +65,6 @@ Po zapisać szablon usługi Resource Manager i dostosować go do swoich potrzeb,
 > [!NOTE]
 > Tylko użytkownik z uprawnieniami właściciela laboratorium można utworzyć maszyny wirtualne z szablonem usługi Resource Manager przy użyciu programu Azure PowerShell. Jeśli chcesz zautomatyzować tworzenie maszyny Wirtualnej przy użyciu szablonu usługi Resource Manager i tylko mają uprawnienia użytkowników, można użyć [ **tworzenia maszyny wirtualnej laboratorium az** w interfejsu wiersza polecenia polecenie](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [utworzyć środowiska wielu maszyn wirtualnych z szablonami usługi Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Poznaj więcej szablonów usługi Resource Manager szybki start DevTest Labs automatyzacji z [publicznego repozytorium DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcje systemu operacyjnego w usłudze Azure App Service
 W tym artykule opisano typowe funkcje systemu operacyjnego linii bazowej, która jest dostępna dla wszystkich aplikacji uruchomionych na [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ta funkcja zawiera plik, sieci i dostępu do rejestru i dzienników diagnostyki i zdarzeń. 
@@ -27,6 +27,8 @@ W tym artykule opisano typowe funkcje systemu operacyjnego linii bazowej, która
 
 ## <a name="app-service-plan-tiers"></a>Warstwy planu usług aplikacji
 App Service uruchamia aplikacje klienta w środowisku macierzystym wielodostępnej. Aplikacje wdrożone w **wolne** i **Shared** warstw uruchomić w procesach roboczych na udostępnionych maszynach wirtualnych, gdy aplikacje wdrożone w **standardowe** i **Premium** warstw, uruchom na przeznaczony specjalnie dla aplikacji skojarzonych z jednym maszyn wirtualnych.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Ponieważ usługi App Service obsługuje bezproblemowe skalowanie między różnych warstw, konfiguracja zabezpieczeń wymuszane dla aplikacji usługi aplikacji jest taka sama. Daje to pewność, że aplikacje nie nagle zachowywać się inaczej, niepowodzeniem w nieoczekiwany sposób, jeśli plan usługi aplikacji zmienia się z jedną warstwę do innego.
 

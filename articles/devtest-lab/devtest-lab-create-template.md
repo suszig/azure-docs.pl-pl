@@ -3,7 +3,7 @@ title: Tworzenie obrazu niestandardowego Azure DevTest Labs na podstawie pliku V
 description: "Dowiedz się, jak utworzyć obraz niestandardowy w usłudze Azure DevTest Labs z pliku VHD za pomocą portalu Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: b795bc61-7c28-40e6-82fc-96d629ee0568
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: a421327ab8794315005327833b873dc5ebd57e9e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: v-craic
+ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Tworzenie niestandardowego obrazu z pliku VHD
 
@@ -73,6 +73,6 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 - [Niestandardowe obrazy lub formuł?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Następne kroki
+##<a name="next-steps"></a>Kolejne kroki
 
 - [Dodaj Maszynę wirtualną do laboratorium](./devtest-lab-add-vm.md)

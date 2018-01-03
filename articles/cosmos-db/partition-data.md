@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partycja i skali w usłudze Azure DB rozwiązania Cosmos
 
@@ -60,7 +60,7 @@ Azure DB rozwiązania Cosmos używa skrótu na podstawie partycjonowania. Podcza
 > Jest najlepszym rozwiązaniem będzie mieć klucz partycji wiele różnych wartości (kilkuset do kilku tysięcy co najmniej).
 >
 
-Kontenery DB rozwiązania Cosmos Azure mogą być tworzone jako *stałej* lub *nieograniczone*. Kontenery o stałym rozmiarze mieć maksymalnie 10 GB i 10 000 RU/s przepustowości. Niektóre funkcje interfejsu API umożliwiają klucza partycji można pominąć kontenerów o stałym rozmiarze. Aby utworzyć kontener jako nieograniczone, należy określić minimalną przepustowość 2500 RU/s.
+Kontenery DB rozwiązania Cosmos Azure mogą być tworzone jako *stałej* lub *nieograniczone*. Kontenery o stałym rozmiarze mieć maksymalnie 10 GB i 10 000 RU/s przepustowości. Aby utworzyć kontener jako nieograniczone, należy określić minimalnej przepustowości 1 000 RU/s i należy określić klucz partycji.
 
 Należy dobrze, aby sprawdzić, jak dane są przesyłane w partycji. Aby to sprawdzić w portalu, przejdź do swojego konta bazy danych rozwiązania Cosmos Azure i kliknij pozycję **metryki** w **monitorowanie** sekcji, a następnie w prawym okienku kliknij **magazynu** kartę, aby zobaczyć, jak dane są podzielone na partycje w różnych fizycznych partycji.
 
@@ -127,25 +127,18 @@ Wyniki:
 
 ### <a name="table-api"></a>Interfejs API tabel
 
-Przy użyciu interfejsu API tabeli należy określić przepustowość dla tabel w konfiguracji appSettings dla aplikacji.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Następnie utwórz tabelę przy użyciu magazynu tabel Azure SDK. Klucz partycji niejawnie zostanie utworzona jako `PartitionKey` wartość. 
+Aby utworzyć tabelę przy użyciu interfejsu API Azure rozwiązania Cosmos DB tabeli, należy użyć metody CreateIfNotExists. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Przepływność jest ustawiony jako argument CreateIfNotExists.
+
+Klucz partycji niejawnie zostanie utworzona jako `PartitionKey` wartość. 
 
 Pojedynczy element można pobrać za pomocą następującego fragmentu kodu:
 
@@ -207,7 +200,7 @@ W przypadku wdrażania wielodostępnej aplikacji przy użyciu bazy danych Azure 
 
 Można również użyć kombinacji/warstwowego podejścia, umożliwiający collocates małych dzierżawcy i przeprowadzanie migracji większych dzierżawcy do ich własnych kontenera.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule podaliśmy omówienie pojęć i najlepsze rozwiązania dla partycjonowania z jakiegokolwiek interfejsu API Azure rozwiązania Cosmos bazy danych. 
 
 * Dowiedz się więcej o [udostępnionej przepływności w usłudze Azure DB rozwiązania Cosmos](request-units.md).

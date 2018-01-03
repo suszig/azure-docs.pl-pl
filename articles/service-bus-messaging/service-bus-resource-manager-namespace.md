@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie przestrzeni nazw usługi Service Bus przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
-description: "Szablon usługi Azure Resource Manager umożliwia tworzenie przestrzeni nazw usługi Service Bus"
+title: "Tworzenie nazw komunikatów magistrali usług przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+description: "Szablon usługi Azure Resource Manager umożliwia tworzenie przestrzeni nazw usługi magistrali komunikatów"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Service Bus przy użyciu szablonu usługi Azure Resource Manager
 
@@ -41,6 +41,7 @@ Zakończenie szablonu, zobacz [szablonu przestrzeni nazw usługi Service Bus] [ 
 > 
 
 ## <a name="what-will-you-deploy"></a>Co chcesz wdrożyć?
+
 W przypadku tego szablonu wdrażania przestrzeni nazw usługi Service Bus z [standardowa lub Premium](https://azure.microsoft.com/pricing/details/service-bus/) jednostki SKU.
 
 Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
@@ -48,11 +49,13 @@ Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 [![Wdrażanie na platformie Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
+
 Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` zawiera wszystkie wartości parametru. Parametr powinien obejmować wartości, które różnią się w zależności od wdrażanego projektu lub środowiska, w którym odbywa się wdrożenie. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
 
 Ten szablon definiuje następujące parametry:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Nazwa przestrzeni nazw usługi Service Bus do utworzenia.
 
 ```json
@@ -65,6 +68,7 @@ Nazwa przestrzeni nazw usługi Service Bus do utworzenia.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Nazwa usługi Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do utworzenia.
 
 ```json
@@ -86,6 +90,7 @@ Szablon definiuje wartości, które są dozwolone dla tego parametru (standardow
 Aby uzyskać więcej informacji na temat cen usługi Service Bus, zobacz [usługi Service Bus cennik i rozliczenia][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Wersja interfejsu API usługi Service Bus szablonu.
 
 ```json
@@ -98,7 +103,9 @@ Wersja interfejsu API usługi Service Bus szablonu.
 ```
 
 ## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
-### <a name="service-bus-namespace"></a>Przestrzeń nazw magistrali usług
+
+### <a name="service-bus-namespace"></a>Przestrzeń nazw Service Bus 
+
 Tworzy standardowe przestrzeni nazw usługi Service Bus typu **wiadomości**.
 
 ```json
@@ -120,21 +127,24 @@ Tworzy standardowe przestrzeni nazw usługi Service Bus typu **wiadomości**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po utworzeniu i wdrożeniu zasobów przy użyciu usługi Azure Resource Manager, Dowiedz się, jak nimi zarządzać przeczytaj następujące artykuły:
 
 * [Zarządzanie usługi Service Bus przy użyciu programu PowerShell](service-bus-manage-with-ps.md)

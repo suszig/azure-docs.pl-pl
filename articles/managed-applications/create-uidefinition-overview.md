@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Tworzenie interfejsu użytkownika portalu Azure w aplikacji zarządzanej
 Tym dokumencie przedstawiono podstawowe koncepcje createUiDefinition.json pliku. Azure portal używa tego pliku do generowania interfejsu użytkownika do tworzenia zarządzanej aplikacji.
@@ -38,7 +38,7 @@ Tym dokumencie przedstawiono podstawowe koncepcje createUiDefinition.json pliku.
 CreateUiDefinition zawsze zawiera trzy właściwości: 
 
 * Program obsługi
-* Wersja
+* wersja
 * parameters
 
 Dla zarządzanych aplikacji obsługi powinna zawsze być `Microsoft.Compute.MultiVm`, a najnowszą obsługiwaną wersję `0.1.2-preview`.
@@ -55,18 +55,30 @@ Jeśli element zachowanie zależy od subskrypcji, grupy zasobów lub lokalizacji
 ## <a name="steps"></a>Kroki
 Właściwość czynności może zawierać zero lub więcej dodatkowych czynności w celu wyświetlenia po podstawy, z których każdy zawiera jeden lub więcej elementów. Rozważ dodanie czynności na roli lub warstwy aplikacji wdrażany. Na przykład dodać krok dla danych wejściowych dla węzłów głównych i krok dla węzłów procesu roboczego w klastrze.
 
-## <a name="outputs"></a>dane wyjściowe
+## <a name="outputs"></a>Dane wyjściowe
 Azure portal używa `outputs` właściwości, aby zamapować elementy z `basics` i `steps` parametrów szablonu wdrażania Menedżera zasobów Azure. Klucze tego słownika są nazwy parametrów szablonu, a wartości to właściwości obiektów danych wyjściowych z elementów.
+
+Aby ustawić nazwę zasobów zarządzanych aplikacji, musi zawierać wartość o nazwie `applicationResourceName` we właściwości danych wyjściowych. Jeśli ta wartość nie jest ustawiona, aplikacja przypisuje identyfikator GUID dla nazwy. Pole tekstowe można uwzględnić w interfejsie użytkownika żąda nazwę użytkownika.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
 
 ## <a name="functions"></a>Funkcje
 Podobnie jak szablonu funkcji w usłudze Azure Resource Manager (zarówno w składni i funkcji), CreateUiDefinition zapewnia funkcje do pracy z elementów danych wejściowych i wyjściowych, jak również funkcje, takie jak warunkowe instrukcje.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Sam plik createUiDefinition.json ma prosty schematu. Rzeczywistą liczbę pochodzi z wszystkie obsługiwane elementy i funkcje. Te elementy są opisane bardziej szczegółowo na:
 
 - [Elementy](create-uidefinition-elements.md)
 - [Funkcje](create-uidefinition-functions.md)
 
-Bieżącego schematu JSON dla createUiDefinition jest dostępnych tutaj: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Bieżącego schematu JSON dla createUiDefinition jest dostępnych tutaj: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Nowszych wersji będą dostępne w tej samej lokalizacji. Zastąp `0.1.2-preview` część adresu URL i `version` wartość o identyfikatorze wersji mają być używane. Identyfikatory aktualnie obsługiwana wersja to `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, i `0.1.2-preview`.
+Aby uzyskać przykładowy plik interfejsu użytkownika, zobacz [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

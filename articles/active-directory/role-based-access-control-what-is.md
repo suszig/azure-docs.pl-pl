@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 12/19/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0eaa54252885cee8f90e65f299869216ca1b2144
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Rozpoczynanie pracy z opartej na rolach kontroli dostępu w portalu Azure
 Nastawionych zabezpieczeń należy skoncentrować się na zapewniając pracownikom dokładne uprawnienia potrzebne. Za dużo uprawnienia mogą uwidaczniać konta na ataki. Za mało uprawnienia oznacza, że pracownicy nie można pobrać ich pracować wydajnie. Azure opartej na rolach kontroli dostępu (RBAC) pomaga rozwiązać ten problem, oferując precyzyjne zarządzanie dostępem dla platformy Azure.
@@ -56,9 +56,9 @@ Przyznaj na nadrzędne zakresy dostępu jest dziedziczone na zakresy podrzędne.
 * Przypisanie roli współautora do aplikacji w zakresie grupy zasobów. Może on zarządzać zasoby wszystkich typów w tej grupie zasobów, ale nie innych grup zasobów w subskrypcji.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC, a administratorzy subskrypcji klasycznego
-Klasyczni Administratorzy i współadministratorzy mają pełny dostęp do subskrypcji platformy Azure. Mogą zarządzać zasobów przy użyciu [portalu Azure](https://portal.azure.com) z interfejsów API Menedżera zasobów Azure, lub [klasycznego portalu Azure](https://manage.windowsazure.com) i Azure klasycznego modelu wdrażania. W modelu RBAC klasycznego Administratorzy mają przypisaną rolę właściciela w zakresie subskrypcji.
+[Klasyczni Administratorzy i współadministratorzy](../billing/billing-add-change-azure-subscription-administrator.md) mają pełny dostęp do subskrypcji platformy Azure. Mogą zarządzać zasobów przy użyciu [portalu Azure](https://portal.azure.com), interfejsów API usługi Azure Resource Manager i klasycznym modelu wdrażania interfejsów API. W modelu RBAC klasycznego Administratorzy mają przypisaną rolę właściciela w zakresie subskrypcji.
 
-Portalu Azure i nowych interfejsów API usługi Azure Resource Manager obsługuje Azure RBAC. Użytkownicy i aplikacje, które są przypisane role RBAC nie można użyć klasycznego portalu zarządzania i Azure klasycznym modelu wdrażania.
+Portalu Azure i nowych interfejsów API usługi Azure Resource Manager obsługuje Azure RBAC. Nie można użyć użytkownicy i aplikacje, które są przypisane role RBAC Azure Klasyczny model wdrażania przy użyciu interfejsów API.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autoryzacji do zarządzania, a operacje na danych
 Azure RBAC obsługuje tylko operacje zarządzania zasobami Azure w portalu Azure i interfejsów API usługi Azure Resource Manager. Nie można go autoryzacji wszystkie operacje poziomu danych zasobów platformy Azure. Na przykład ktoś może zarządzać kontami magazynu autoryzacji, ale nie do obiektów blob lub tabel w ramach konta magazynu. Podobnie bazy danych SQL mogą być zarządzane, ale nie tabele w niej.

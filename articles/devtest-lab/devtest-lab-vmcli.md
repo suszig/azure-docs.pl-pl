@@ -3,7 +3,7 @@ title: "Tworzenie i zarządzanie maszynami wirtualnymi w usłudze DevTest Labs z
 description: "Dowiedz się, jak Azure DevTest Labs umożliwia tworzenie i zarządzanie maszynami wirtualnymi Azure CLI 2.0"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: lisawong19
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.service: devtest-lab
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
-ms.author: liwong
-ms.openlocfilehash: a3af12ba0598d60b55b3714ae1690fe3e5b54a42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: e73ddeba56c779d9fb1be77a50cbae5111de03c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Tworzenie i zarządzanie maszynami wirtualnymi z DevTest Labs przy użyciu wiersza polecenia platformy Azure
 To szybki start przeprowadzi użytkownika przez proces tworzenia, uruchamiania, połączenie, aktualizowanie i czyszczenia komputera Programowanie w laboratorium. 

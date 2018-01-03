@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Inicjowania obsługi urządzeń w usłudze Azure IoT Hub urządzeń inicjowania obsługi administracyjnej (wersja zapoznawcza)
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Inicjowania obsługi urządzeń przy użyciu usługi inicjowania obsługi urządzeń Centrum IoT Azure
 Microsoft Azure oferuje bogaty zestaw usługi w chmurze publicznej zintegrowane wszystkie potrzeby rozwiązania IoT. Usługa udostępniania urządzeń Centrum IoT to usługa pomocnika do Centrum IoT, umożliwiającą bezobsługową, w czasie inicjowania obsługi administracyjnej Centrum IoT w prawo bez udziału człowieka, umożliwiając klientom udostępniania milionów urządzeń bezpieczne i skalowalne sposób.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Kiedy należy używać usługi inicjowania obsługi urządzeń
@@ -111,14 +111,14 @@ Firma Microsoft zachowuje 99,9% umową dotyczącą poziomu usług dla usługi ud
 ## <a name="quotas"></a>Przydziały
 Każda subskrypcja platformy Azure ma domyślne limity przydziału w miejscu, które może mieć wpływ na zakres rozwiązania IoT. Bieżący limit oparte na subskrypcji jest 10 urządzenia udostępnianie usług dla subskrypcji.
 
-Aby uzyskać więcej informacji na temat limitów przydziału:
+Więcej informacji na temat limitów przydziałów znajduje się w artykułach:
 
-* [Ograniczenia usługi subskrypcji platformy Azure](../azure-subscription-service-limits.md)
+* [Azure Subscription Service Limits](../azure-subscription-service-limits.md) (Limity usług subskrypcji platformy Azure)
 
 ## <a name="related-azure-components"></a>Powiązane składniki platformy Azure
 Usługa udostępniania urządzeń automatyzuje Inicjowanie obsługi administracyjnej urządzeń z Centrum IoT Azure. Dowiedz się więcej o [Centrum IoT](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Masz teraz omówienie inicjowania obsługi urządzeń IoT na platformie Azure. Następnym krokiem jest wypróbowanie scenariusz IoT end-to-end.
 > [!div class="nextstepaction"]
 > [Konfigurowanie inicjowania obsługi usługi IoT Hub urządzeń przy użyciu portalu Azure](quick-setup-auto-provision.md)

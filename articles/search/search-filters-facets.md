@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Jak utworzyć filtr aspektu w usłudze Azure Search 
 
@@ -33,7 +33,7 @@ Nawigacji aspektowej służy do samodzielnego filtrowania wyników kwerendy w ap
 
 Aspekty są dynamiczne i zwracane w zapytaniu. Wyszukiwanie Przełącz z nimi kategorie aspektów służące do nawigacji wyniki. Jeśli nie znasz z aspektami, poniższy przykład jest ilustrację strukturze nawigacji zestawu reguł.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Jesteś nowym użytkownikiem aspektowej nawigacji i chcesz bardziej szczegółowo? Zobacz [implementowania nawigacji aspektowej w usłudze Azure Search](search-faceted-navigation.md).
 
@@ -127,7 +127,7 @@ Jest jednym z wyzwań związanych z nawigacją aspektu w usłudze Azure Search, 
 
 Jest to typowe przypadek użycia, nie jest element strukturze nawigacji aspektu zawiera obecnie poza pole. Deweloperów, którzy mają zwykle statycznych aspekty obejść ograniczenie dotyczące wysyłając dwa zapytania filtrowane: jeden zakres na wynikach, innych pozwala utworzyć statyczną listę zestawów reguł do celów nawigacji.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Filtry w usłudze Azure Search](search-filters.md)
 + [Tworzenie indeksu interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-index)

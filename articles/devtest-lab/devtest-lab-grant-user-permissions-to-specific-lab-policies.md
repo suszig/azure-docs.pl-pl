@@ -3,7 +3,7 @@ title: "Przyznawanie uprawnień użytkownikom laboratorium określonych zasad | 
 description: "Dowiedz się, jak można udzielić użytkownikowi uprawnień do zasad określonych laboratorium w usłudze DevTest Labs na podstawie potrzeb każdego użytkownika"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Przyznawanie uprawnień użytkownikom zasad określonych laboratorium
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób udzielić uprawnień użytkowników do zasad laboratorium określonego za pomocą programu PowerShell. W ten sposób uprawnienia mogą być stosowane zgodnie z potrzebami każdego użytkownika. Na przykład można przyznać określonemu użytkownikowi możliwość zmiany ustawień zasad maszyny Wirtualnej, ale nie zasady kosztów.
 
 ## <a name="policies-as-resources"></a>Zasady jako zasoby
@@ -84,12 +84,12 @@ W poprzednim przykładzie **AllowedVmSizesInLab** zasady są używane. Można u�
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Raz użytkownikowi nie zostały przyznane użytkownikowi uprawnień do laboratorium określone zasady, poniżej przedstawiono niektóre warto rozważyć poniższe kroki:
 
-* [Bezpieczny dostęp do laboratorium](devtest-lab-add-devtest-user.md)
-* [Zestaw zasad laboratorium](devtest-lab-set-lab-policy.md)
+* [Zabezpieczanie dostępu do laboratoriów](devtest-lab-add-devtest-user.md)
+* [Ustawianie zasad laboratorium](devtest-lab-set-lab-policy.md)
 * [Tworzenie szablonu laboratorium](devtest-lab-create-template.md)
 * [Tworzenie niestandardowych artefaktów dla maszyn wirtualnych](devtest-lab-artifact-author.md)
-* [Dodaj Maszynę wirtualną w laboratorium](devtest-lab-add-vm.md)
+* [Dodawanie maszyny wirtualnej do laboratorium](devtest-lab-add-vm.md)
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c0aded35066b4dd819a754a663fdbbf0b0bf6feb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Korzystanie z Kubernetes plików platformy Azure
 
@@ -66,7 +66,7 @@ Następnie należy zakodować klucz konta magazynu. W razie potrzeby Zastąp `$S
 echo -n $STORAGE_KEY | base64
 ```
 
-Utwórz plik o nazwie `azure-secret.yml` i skopiuj następujące yaml programu. Aktualizacja `azurestorageaccountname` i `azurestorageaccountkey` wartości z base64 zakodowanych wartości pobierane w ostatnim kroku.
+Utwórz plik o nazwie `azure-secret.yaml` i skopiuj następujące yaml programu. Aktualizacja `azurestorageaccountname` i `azurestorageaccountkey` wartości z base64 zakodowanych wartości pobierane w ostatnim kroku.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Użyj [utworzyć kubectl] [ kubectl-create] polecenie, aby utworzyć klucz tajny.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Instalowanie udziału plików jako wolumin
 
-Można zainstalować na udział plików Azure w sieci pod przez skonfigurowanie woluminu w jego specyfikację. Utwórz nowy plik o nazwie `azure-files-pod.yml` z następującą zawartość. Aktualizacja `aksshare` nazwa nadana plików Azure udostępnianie.
+Można zainstalować na udział plików Azure w sieci pod przez skonfigurowanie woluminu w jego specyfikację. Utwórz nowy plik o nazwie `azure-files-pod.yaml` z następującą zawartość. Aktualizacja `aksshare` nazwa nadana plików Azure udostępnianie.
 
 ```yaml
 apiVersion: v1
@@ -112,12 +112,12 @@ spec:
 Umożliwia utworzenie pod kubectl.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Masz teraz kontenera uruchomiony z udziału plików Azure zainstalowany w `/mnt/azure` katalogu. Widać instalacji podczas sprawdzania z pod za pośrednictwem woluminu `kubectl describe pod azure-files-pod`.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji o woluminach Kubernetes za pomocą usługi pliki Azure.
 

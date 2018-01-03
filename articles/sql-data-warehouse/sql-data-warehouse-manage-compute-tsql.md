@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (T-SQL)
 > [!div class="op_single_selector"]
 > * [Omówienie](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+> * [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 >
@@ -98,7 +98,7 @@ Ten widok DMV zwraca informacje o różnych operacji zarządzania na usługą SQ
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Inne zadania zarządzania, zobacz [omówienie zarządzania][Management overview].
 
 <!--Image references-->

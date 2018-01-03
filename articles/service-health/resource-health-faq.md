@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>Kondycja zasobów platformy Azure — często zadawane pytania
 Informacje o odpowiedzi na często zadawane pytania dotyczące kondycji zasobów platformy Azure.
@@ -80,8 +80,6 @@ Kondycja zasobu jest dostępna w we wszystkich obszarach geograficznych Azure, z
 - US DoD — środkowe stany
 - Niemcy Środkowe
 - Niemcy Północno-Wschodnie
-- Chiny Wschodnie
-- Chiny Północne
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Jak kondycja zasobu jest inna niż powiadomienia usługi portalu Azure lub pulpit nawigacyjny kondycji usługi?
 Informacje dostarczane przez kondycja zasobu jest bardziej szczegółowy niż dostarczanych przez pulpit nawigacyjny kondycji usługi platformy Azure.
@@ -102,7 +100,7 @@ Tak.  Kondycja zasobów platformy Azure jest bezpłatne.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Jakie są zalecenia, które udostępnia kondycja zasobów?
 Oparte na stanie kondycji, kondycja zasobów udostępnia zalecenia w celu skrócenia czasu spędzony rozwiązywania problemów. Na dostępne zasoby wystąpić fokus zalecenia dotyczące rozwiązania typowych problemów klientów. Jeśli zasób jest niedostępny z powodu Azure nieplanowanego zdarzenia, fokus będą realizowane w pomocy, należy podczas i po zakończeniu procesu odzyskiwania. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej na temat kondycji zasobów:
 -  [Przegląd kondycji zasobów platformy Azure](Resource-health-overview.md)

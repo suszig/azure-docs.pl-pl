@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Przewodnik Wprowadzenie do integracji Azure Active Directory z aplikacjami pobierania
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten temat dotyczy daje przewodnik integracji aplikacji z usługi Azure Active Directory (AD). Każdej z sekcji poniżej zawiera krótkie podsumowanie bardziej szczegółowych tematów, więc można zidentyfikować części tego przewodnika pobierania, które mają zastosowanie w przypadku.  Skorzystaj z łączy dla bardziej zgłębić temat na każdego tematu.
 
 ## <a name="before-you-begin-take-inventory"></a>Przed rozpoczęciem spis
@@ -88,8 +88,8 @@ Następujące artykuły opisano sposoby możesz zarządzać dostępem do aplikac
 ## <a name="integrating-custom-applications"></a>Integrowanie aplikacji niestandardowych
 Jeśli piszesz nowej aplikacji i chcesz, aby pomóc deweloperom w używania możliwości usługi Azure AD, zobacz [deweloperzy Guiding](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Jeśli chcesz dodać niestandardową aplikację do galerii aplikacji Azure, zobacz ["Przynieś własne aplikacji" w konfiguracji usługi Azure AD samoobsługi SAML](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Jeśli chcesz dodać niestandardową aplikację do galerii aplikacji Azure, zobacz ["Przynieś własne aplikacji" w konfiguracji usługi Azure AD samoobsługi SAML](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Jak utworzyć i skonfigurować Self-hosted integracji w czasie wykonywania
 Integracja środowiska uruchomieniowego (IR) jest używany przez fabryki danych Azure zapewnienie możliwości integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej. Aby uzyskać więcej informacji o IR, zobacz [Omówienie środowiska uruchomieniowego integracji](concepts-integration-runtime.md).
@@ -110,7 +110,20 @@ Hostowanie Samoobsługowe integrację środowiska uruchomieniowego mogą być in
 Można skojarzyć wielu węzłów po prostu instalując oprogramowanie środowiska uruchomieniowego integracji Self-hosted od [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=39717) i rejestrując ją przy użyciu jednej z kluczy uwierzytelniania uzyskane z AzureRmDataFactoryV2IntegrationRuntimeKey nowe polecenia cmdlet, zgodnie z opisem w [samouczka](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Nie trzeba utworzyć nowy środowiska uruchomieniowego integracji Self-hosted kojarzenia każdego węzła.
+> Nie trzeba utworzyć nowy środowiska uruchomieniowego integracji Self-hosted kojarzenia każdego węzła. Można zainstalować środowiska uruchomieniowego integracji siebie na innym komputerze i zarejestrowanie go za pomocą tego samego klucza uwierzytelniania. 
+
+> [!NOTE]
+> Przed dodaniem innego węzła dla **wysokiej dostępności i skalowalności**, sprawdź, czy **"Dostępu zdalnego do intranetu"** jest opcja **włączone** w węźle 1 (Microsoft Menedżer konfiguracji środowiska uruchomieniowego integracji -> Ustawienia -> zdalny dostęp do intranetu). 
+
+### <a name="tlsssl-certificate-requirements"></a>Wymagania dotyczące certyfikatów dla protokołu TLS/SSL
+Poniżej przedstawiono wymagania dotyczące certyfikatu TLS/SSL, który służy do zabezpieczania komunikacji między integrację środowiska uruchomieniowego węzłów:
+
+- Certyfikat musi być publicznie zaufany X509 certyfikatu w wersji 3. Firma Microsoft zaleca, aby używać certyfikatów wystawionych przez publiczny (niezależny) urząd certyfikacji (CA).
+- Każdy węzeł środowiska uruchomieniowego integracji musi ufać temu certyfikatowi.
+- Symbol wieloznaczny certyfikaty są obsługiwane. Jeśli nazwa FQDN to **node1.domain.contoso.com**, można użyć ***. domain.contoso.com** jako nazwa podmiotu certyfikatu.
+- Certyfikaty sieci SAN nie jest zalecane, ponieważ będą używane tylko ostatni element alternatywnej nazwy podmiotu, a wszystkie pozostałe zostaną pominięte ze względu na bieżące ograniczenia. Na przykład mieć certyfikat SAN którego SAN są **node1.domain.contoso.com** i **node2.domain.contoso.com**, tego certyfikatu można używać tylko na komputerze, którego nazwa FQDN to **node2.domain.contoso.com**.
+- Obsługuje wszystkie rozmiar klucza obsługiwana przez system Windows Server 2012 R2 dla certyfikatów SSL.
+- Certyfikat przy użyciu CNG klucze nie są obsługiwane. Doesrted DoesDoes nie obsługuje certyfikatów, które używają kluczy CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Ikony systemowe na pasku zadań / powiadomienia
 Przesunięcie kursora za pośrednictwem wiadomości ikonę/powiadomień na pasku zadań systemu można znaleźć szczegółowe informacje o stanie środowiska uruchomieniowego integracji siebie.
@@ -225,17 +238,23 @@ Jeśli wystąpią błędy podobne do następujących pól, prawdopodobnie z powo
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Otwórz port 8060 na potrzeby szyfrowania poświadczeń
-**Ustawienie poświadczeń** aplikacji (obecnie nieobsługiwane) używa portu wejściowego 8060 do przekazywania poświadczeń do hostowania samoobsługowego integrację środowiska uruchomieniowego podczas konfigurowania usługi lokalnej połączone w portalu Azure. Podczas instalacji środowiska uruchomieniowego integracji hostowania samoobsługowego domyślnie instalacji środowiska uruchomieniowego integracji hostowanie Samoobsługowe otwiera go na komputerze środowiska uruchomieniowego integracji hostowania samoobsługowego.
+### <a name="enable-remote-access-from-intranet"></a>Włączenie dostępu zdalnego z sieci Intranet  
+W przypadku, jeśli używasz **PowerShell** lub **aplikacji Menedżera poświadczeń** do szyfrowania poświadczeń dostępu z innego komputera (w sieci) innych niż środowiska uruchomieniowego integracji siebie zainstalowanym, następnie będzie wymagać **"Zdalnego dostępu z intranetu"** Aby włączyć opcję. Po uruchomieniu **PowerShell** lub **aplikacji Menedżera poświadczeń** do szyfrowania poświadczeń na tym samym komputerze, na którym instalowany jest hostowanie Samoobsługowe integrację środowiska uruchomieniowego, następnie **"dostępu zdalnego z sieci Intranet "** może nie być włączone.
 
-Jeśli używasz zapory innych firm, można ręcznie Otwórz port 8050. Jeśli napotkasz problem zapory podczas instalacji środowiska uruchomieniowego integracji hostowania samoobsługowego możesz spróbować zainstalować środowisko uruchomieniowe siebie integracji bez konfigurowania zapory przy użyciu następującego polecenia.
+Zdalny dostęp z intranetu powinien być **włączone** przed dodaniem innego węzła dla **wysokiej dostępności i skalowalności**.  
+
+Podczas integracji hostowania samoobsługowego środowiska uruchomieniowego instalacji (i jego nowszych wersjach 3.3.xxxx.x v), domyślnie wyłącza instalacji środowiska uruchomieniowego integracji siebie **"Zdalnego dostępu z intranetu"** na komputerze środowiska uruchomieniowego integracji siebie.
+
+Jeśli używasz zapory innych firm, można ręcznie otworzyć port 8060 (lub użytkownik skonfigurowany). Jeśli napotkasz problem zapory podczas instalacji środowiska uruchomieniowego integracji hostowania samoobsługowego możesz spróbować zainstalować środowisko uruchomieniowe siebie integracji bez konfigurowania zapory przy użyciu następującego polecenia.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Menedżer poświadczeń aplikacji** nie jest jeszcze dostępna w celu szyfrowania poświadczeń w ADFv2. Firma Microsoft będzie później dodać tę obsługę.  
 
 Jeśli wybierzesz nie otworzyć port 8060 na komputerze środowiska uruchomieniowego integracji hostowania samoobsługowego, używa mechanizmów innych niż z użyciem ** ustawienie poświadczeń ** aplikacji w celu skonfigurowania poświadczeń magazynu danych. Na przykład można użyć polecenia cmdlet New-AzureRmDataFactoryV2LinkedServiceEncryptCredential środowiska PowerShell. Zobacz sekcję ustawienie poświadczeń i zabezpieczeń w sposób poświadczeń magazynu danych można ustawić.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące samouczki krok po kroku: [samouczek: kopiowanie danych lokalnych do chmury](tutorial-hybrid-copy-powershell.md).

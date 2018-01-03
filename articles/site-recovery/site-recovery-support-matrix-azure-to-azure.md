@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z platformy Azure na platformie Azure
 
@@ -33,9 +33,9 @@ W tym artykule przedstawiono obsługiwane konfiguracje oraz składniki usługi A
 
 **Interfejs użytkownika** |  **Obsługiwane / nieobsługiwane**
 --- | ---
-**Witryna Azure Portal** | Obsługiwane
+**Azure portal** | Obsługiwane
 **Portal klasyczny** | Nieobsługiwane
-**PowerShell** | Nie są obecnie obsługiwane
+**Program PowerShell** | Nie są obecnie obsługiwane
 **Interfejs API REST** | Nie są obecnie obsługiwane
 **Interfejs wiersza polecenia** | Nie są obecnie obsługiwane
 
@@ -168,6 +168,7 @@ RA-GRS | Obsługiwane |
 ZRS | Nieobsługiwane |  
 Chłodny i gorących magazynu | Nieobsługiwane | Dyski maszyny wirtualnej nie są obsługiwane na magazynu chłodnego i gorących
 Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne)  | Nie | Zezwalanie na dostęp do określonych sieci wirtualnych platformy Azure na kontach magazynu pamięci podręcznej używany do przechowywania replikowanych danych nie jest obsługiwane. 
+Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstwy) | Nie | Zwiększenie kosztów transakcji znacznie w porównaniu do ogólnego przeznaczenia V1 kont magazynu
 
 >[!IMPORTANT]
 > Upewnij się, że przestrzegają wirtualna dysku skalowalność i wydajność docelowe [Linux](../virtual-machines/linux/disk-scalability-targets.md) lub [Windows](../virtual-machines/windows/disk-scalability-targets.md) maszyn wirtualnych, aby uniknąć problemów z wydajnością. Jeśli wykonujesz ustawień domyślnych usługi Site Recovery spowoduje utworzenie wymagane dyski i kont magazynu, na podstawie konfiguracji źródła. Jeśli należy dostosować i wybrać własne ustawienia, upewnij się, wykonaj cele skalowalność i wydajność dysku dla źródła maszyn wirtualnych.
@@ -193,6 +194,6 @@ Sieci VPN między lokacjami z lokalnymi (z lub bez ExpressRoute)| Obsługiwane |
 Sieć wirtualna połączenia sieci Wirtualnej | Obsługiwane | Zapoznaj się [wytycznych sieci.](site-recovery-azure-to-azure-networking-guidance.md)  
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej o [sieci wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure-networking-guidance.md)
 - Włączyć ochronę obciążeń przez [replikowanie maszyn wirtualnych platformy Azure](site-recovery-azure-to-azure.md)

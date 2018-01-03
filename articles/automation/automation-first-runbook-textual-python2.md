@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>Moje pierwszego elementu runbook języka Python
 
@@ -147,7 +147,7 @@ Do zarządzania zasobami Azure, skrypt musi przeprowadzić uwierzytelnianie przy
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Dodaj kod, aby utworzyć obliczeniowe Python klienta i uruchomić maszyny Wirtualnej
 
-Aby pracować z maszyn wirtualnych platformy Azure, Utwórz wystąpienie [rozwiązań usługi obliczenia Azure klienta dla języka Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Aby pracować z maszyn wirtualnych platformy Azure, Utwórz wystąpienie [rozwiązań usługi obliczenia Azure klienta dla języka Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Korzystając z klienta obliczeniowe można uruchomić maszyny Wirtualnej. Dodaj następujący kod do elementu runbook:
 
@@ -207,7 +207,7 @@ Wprowadź nazwę grupy zasobów jako wartość parametru pierwszy i Nazwa maszyn
 
 Kliknij przycisk **OK** można uruchomić elementu runbook. Element runbook uruchamia i uruchamia wybraną maszynę Wirtualną.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz artykuł [My first graphical runbook](automation-first-runbook-graphical.md) (Mój pierwszy graficzny element Runbook).

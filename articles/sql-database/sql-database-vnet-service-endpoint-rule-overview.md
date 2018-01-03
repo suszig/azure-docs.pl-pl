@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -65,7 +65,7 @@ Reguła sieci wirtualnej informuje serwer bazy danych SQL, aby akceptował komun
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Korzyści wynikające z reguły sieci wirtualnej
 
-Aż do wprowadzenia akcji, maszyn wirtualnych w podsieci nie może komunikować się z bazą danych SQL. Uzasadnienie wyboru podejście reguły sieci wirtualnej w celu umożliwienia komunikacji wymaga dyskusji Porównaj kontrast, obejmujące konkurencyjnych opcji zabezpieczeń oferowanych przez zaporę.
+Aż do wprowadzenia akcji, maszyn wirtualnych w podsieci nie może komunikować się z bazą danych SQL. Jedną akcję, która nawiązuje komunikację jest tworzenie reguły sieci wirtualnej. Uzasadnienie Wybieranie sieci wirtualnej podejście reguły wymaga dyskusji Porównaj kontrast, obejmujące konkurencyjnych opcji zabezpieczeń oferowanych przez zaporę.
 
 #### <a name="a-allow-access-to-azure-services"></a>A. Zezwalaj na dostęp do usług platformy Azure
 
@@ -115,16 +115,16 @@ Brak separacji ról zabezpieczeń w administrowanie punktów końcowych usługi 
 - **Administrator sieci:** &nbsp; włączyć punkt końcowy.
 - **Administrator bazy danych:** &nbsp; aktualizowanie listy kontroli dostępu (ACL), aby dodać jednej podsieci na serwerze bazy danych SQL.
 
-*Alternatywa RBAC:* 
+*Alternatywa RBAC:*
 
 Role administratora sieci i administratora bazy danych ma więcej możliwości niż są wymagane do zarządzania zasadami sieci wirtualnej. Wymagany jest tylko podzestaw możliwości ich.
 
 Istnieje możliwość użycia [kontroli dostępu opartej na rolach (RBAC)] [ rbac-what-is-813s] na platformie Azure, aby utworzyć jednej roli niestandardowej, która ma niezbędne podzestaw możliwości. Tworzona rola niestandardowa można użyć zamiast z administratorem sieci lub administratorem bazy danych. Powierzchni z zagrożenie bezpieczeństwa jest mniejszy, jeśli użytkownik zostanie dodany do niestandardowej roli zabezpieczeń, i dodanie użytkownika do dwóch innych ról administratora głównych.
 
-
-
-
-
+> [!NOTE]
+> W niektórych przypadkach bazy danych SQL Azure i podsieć sieci wirtualnej są w różnych subskrypcji. W takich sytuacjach należy następujące konfiguracje:
+> - Obie subskrypcje muszą być w tej samej dzierżawy usługi Azure Active Directory.
+> - Użytkownik ma uprawnienia wymagane do zainicjowania operacji, takich jak włączanie punktów końcowych usługi i dodawanie podsieci sieci wirtualnej do danego serwera.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>Wpływ usunięcia "Zezwalaj na wszystkich usług Azure"
+
+W przypadku wielu użytkowników chcesz usunąć **Zezwalaj wszystkich usług Azure** z ich serwerów SQL Azure i Zastąp reguły zapory w sieci wirtualnej.
+Jednak usunięcie tej wpływa na następujące funkcje Azure SQLDB:
+
+#### <a name="import-export-service"></a>Usługa eksportu importu
+SQLDB importu eksportu usługi Azure działa na maszynach wirtualnych na platformie Azure. Te maszyny wirtualne nie znajdują się w sieci wirtualnej i dlatego uzyskiwanie adresu IP Azure podczas nawiązywania połączenia z bazą danych. Na usuwanie **Zezwalaj wszystkich usług Azure** te maszyny wirtualne nie będą mogli uzyskać dostępu do baz danych.
+Problem można obejść. Uruchom importowanie pliku BACPAC lub wyeksportować bezpośrednio w kodzie za pomocą interfejsu API DACFx. Upewnij się, że jest wdrażany w maszynie Wirtualnej, która znajduje się w podsieci sieci wirtualnej dla którego ustawiono regułę zapory.
+
+#### <a name="sql-database-query-editor"></a>Edytor zapytań bazy danych SQL
+Edytor zapytań bazy danych SQL Azure jest wdrażany na maszynach wirtualnych na platformie Azure. Te maszyny wirtualne nie znajdują się w sieci wirtualnej. W związku z tym maszyn wirtualnych Uzyskaj IP platformy Azure, podczas nawiązywania połączenia z bazą danych. Na usuwanie **Zezwalaj wszystkich usług Azure**, te maszyny wirtualne nie będzie można uzyskać dostępu do baz danych.
+
+#### <a name="table-auditing"></a>Inspekcja tabeli
+Obecnie istnieją dwa sposoby włączania inspekcji bazy danych SQL. Inspekcja tabeli kończy się niepowodzeniem, po włączeniu punktów końcowych usługi na serwerze SQL Azure. Środki zaradcze w tym miejscu jest przejście do Inspekcja obiektów Blob.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Wpływ za pomocą punktów końcowych usługi sieci wirtualnej z usługą Azure storage
+
+Usługa Azure Storage zaimplementowała tej samej funkcji, która umożliwia ograniczenie łączności z kontem magazynu.
+Jeśli wybierzesz użyć tej funkcji przy użyciu konta magazynu, który jest używany przez serwer SQL platformy Azure, można uruchomić na problemy. Jest obok listy oraz omówienie funkcji Azure SQLDB, które ma wpływ na to.
+
+#### <a name="azure-sqldw-polybase"></a>Program PolyBase Azure SQLDW
+Program PolyBase jest najczęściej używany do ładowania danych do usługi Azure SQLDW z kont magazynu. Jeśli konto magazynu, które są podczas ładowania danych z ogranicza dostęp tylko do wielu podsieci sieci wirtualnej, spowoduje przerwanie połączenia z programu PolyBase do konta.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Obiekt Blob Azure SQLDB inspekcji
+Inspekcja obiektów blob wypchnięcia dzienników inspekcji na koncie magazynu. Jeśli to konto magazynu jest używana funkcja punktów końcowych usługi zdarzenie spowoduje przerwanie połączenia z Azure SQLDB do konta magazynu.
 
 
 ## <a name="errors-40914-and-40615"></a>Błędy 40914 i 40615
@@ -217,16 +241,17 @@ Podsieć, która jest oznakowany z określonym punktem końcowym usługi sieci w
 3. Ustaw **zezwolić na dostęp do usług platformy Azure** kontroli OFF.
 
     > [!IMPORTANT]
-    > Pozostawienie formancie ustawiony na wartość, następnie serwer bazy danych SQL Azure akceptuje komunikację z żadnej podsieci, która może być zbyt dostępu z punktu widzenia zabezpieczeń. Funkcja punktu końcowego usługi Microsoft Azure Virtual Network, w połączeniu z funkcją reguły sieci wirtualnej bazy danych SQL, można zmniejszyć razem obszaru powierzchni zabezpieczeń.
+    > Pozostawienie formancie ustawiony na wartość, serwer bazy danych SQL Azure akceptuje komunikację z żadnych podsieci. Pozostawienie formancie ustawiony na wartość może być zbyt dostępu z punktu widzenia zabezpieczeń. Funkcja punktu końcowego usługi Microsoft Azure Virtual Network, w połączeniu z funkcją reguły sieci wirtualnej bazy danych SQL, można zmniejszyć razem obszaru powierzchni zabezpieczeń.
 
 4. Kliknij przycisk **+ Dodaj istniejący** kontroli w **sieci wirtualnych** sekcji.
 
     ![Kliknij przycisk Dodaj istniejący (podsieci punkt końcowy, zgodnie z zasadą SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. W nowym **Create/Update** okienka, wypełnienie w formantach o nazwach zasobów platformy Azure.
- 
+
     > [!TIP]
-    > Należy wprowadzić poprawny **prefiks adresu** dla podsieci. Wartość można znaleźć w portalu. Przejdź **wszystkie zasoby** &gt; **wszystkie typy** &gt; **sieci wirtualnych**. Filtr wyświetla sieci wirtualne. Kliknij sieci wirtualnej, a następnie kliknij przycisk **podsieci**. **Zakres adresów** kolumna zawiera prefiks adresu należy.
+    > Należy wprowadzić poprawny **prefiks adresu** dla podsieci. Wartość można znaleźć w portalu.
+    > Przejdź **wszystkie zasoby** &gt; **wszystkie typy** &gt; **sieci wirtualnych**. Filtr wyświetla sieci wirtualne. Kliknij sieci wirtualnej, a następnie kliknij przycisk **podsieci**. **Zakres adresów** kolumna zawiera prefiks adresu należy.
 
     ![Wypełnij pola dla nowej reguły.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ Podsieć, która jest oznakowany z określonym punktem końcowym usługi sieci w
     ![Zobacz nowej reguły, w okienku zapory.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> Następujące stany lub stany się zasad:
+> - **Gotowe:** wskazuje, że operacja zainicjowano zakończyła się pomyślnie.
+> - **Nie powiodło się:** wskazuje, że operacja, która zainicjowano nie powiodła się.
+> - **Usunięte:** tylko dotyczy operacji Delete i wskazuje, czy reguła została usunięta i nie ma już zastosowania.
+> - **W toku:** wskazuje, że operacja jest w toku. Stary reguła ma zastosowanie, gdy działanie znajduje się w tym stanie.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
-- [Utwórz punkt końcowy usługi sieci wirtualnej, a następnie reguły sieci wirtualnej dla bazy danych SQL Azure przy użyciu programu PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Punkty końcowe usługi sieci wirtualnej platformy Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Reguły zapory poziomu serwera i bazy danych na poziomie bazy danych SQL Azure][sql-db-firewall-rules-config-715d]
 
-Funkcja punktów końcowych usługi Microsoft Azure Virtual Network i reguły sieci wirtualnej funkcji bazy danych SQL Azure, zarówno stały się dostępne w późne września 2017 r.
+Funkcja reguły sieci wirtualnej dla bazy danych SQL Azure stały się dostępne w późne września 2017 r.
 
+## <a name="next-steps"></a>Kolejne kroki
 
-
+- [Utwórz punkt końcowy usługi sieci wirtualnej, a następnie reguły sieci wirtualnej dla bazy danych SQL Azure za pomocą programu PowerShell.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ Funkcja punktów końcowych usługi Microsoft Azure Virtual Network i reguły si
 
 - ARM templates
 -->
-

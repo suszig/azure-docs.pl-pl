@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Wbudowanych ról dla kontroli dostępu opartej na rolach na platformie Azure
 Azure opartej na rolach kontroli dostępu (RBAC) zawiera następujące role wbudowane przypisane do użytkowników, grup i usług. Nie można zmodyfikować definicje ról wbudowanych. Można jednak utworzyć [niestandardowych ról w Azure RBAC](role-based-access-control-custom-roles.md) do określonych potrzeb organizacji.
@@ -43,7 +43,7 @@ W tym artykule opisano tylko różne role, które istnieją już dzisiaj. Po prz
 | [Interfejs API zarządzania usługi współautora](#api-management-service-contributor) |Można zarządzać usługą zarządzania interfejsu API i interfejsów API |
 | [Rola operatora usługi zarządzania interfejsu API](#api-management-service-operator-role) | Można zarządzać usługi API Management, ale nie za pośrednictwem interfejsów API się |
 | [Interfejs API zarządzania usługi czytnika roli](#api-management-service-reader-role) | Dostęp tylko do odczytu do usługi Zarządzanie interfejsami API i interfejsów API |
-| [Application Insights składnika współautora](#application-insights-component-contributor) |Można zarządzać składnikami usługi Application Insights |
+| [Application Insights składnika współautora](#application-insights-component-contributor) |Umożliwia zarządzanie składnikami usługi Application Insights |
 | [Operator automatyzacji](#automation-operator) |Możliwość uruchamianie, zatrzymywanie, wstrzymywanie i wznawianie prac |
 | [Współautor kopii zapasowej](#backup-contributor) | Można zarządzać kopiami zapasowymi w magazynie usług odzyskiwania |
 | [Operator kopii zapasowych](#backup-operator) | Można zarządzać kopii zapasowej, chyba że usuwanie kopii zapasowej w magazynie usług odzyskiwania |
@@ -101,7 +101,7 @@ Interfejs API zarządzania usługami można zarządzać
 | Microsoft.Resources/subscriptions/resourceGroups/read |Role odczytu i przypisania ról |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="api-management-service-operator-role"></a>Rola operatora usługi zarządzania interfejsu API
+### <a name="api-management-service-operator-role"></a>Rola Operator usługi API Management
 Interfejs API zarządzania usługami można zarządzać
 
 | **Akcje** |  |
@@ -121,7 +121,7 @@ Interfejs API zarządzania usługami można zarządzać
 | Microsoft.Resources/subscriptions/resourceGroups/read |Role odczytu i przypisania ról |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="api-management-service-reader-role"></a>Interfejs API zarządzania usługi czytnika roli
+### <a name="api-management-service-reader-role"></a>Rola Czytnik usługi API Management
 Interfejs API zarządzania usługami można zarządzać
 
 | **Akcje** |  |
@@ -136,7 +136,7 @@ Interfejs API zarządzania usługami można zarządzać
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
 ### <a name="application-insights-component-contributor"></a>Współautor składników usługi Application Insights
-Można zarządzać składnikami usługi Application Insights
+Umożliwia zarządzanie składnikami usługi Application Insights
 
 | **Akcje** |  |
 | --- | --- |
@@ -173,7 +173,7 @@ Możliwość uruchamianie, zatrzymywanie, wstrzymywanie i wznawianie prac
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="backup-contributor"></a>Współautor kopii zapasowej
+### <a name="backup-contributor"></a>Współautor kopii zapasowych
 Można zarządzać wszystkie akcje zarządzania kopiami zapasowymi, z wyjątkiem Tworzenie magazynu usług odzyskiwania i zapewnieniu dostępu do innych użytkowników
 
 | **Akcje** | |
@@ -238,7 +238,7 @@ Można zarządzać wszystkie akcje zarządzania kopiami zapasowymi, z wyjątkiem
 | Microsoft.Storage/storageAccounts/read | Przeczytaj kont magazynu |
 | Microsoft.Support/* | Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="backup-reader"></a>Czytnik kopii zapasowej
+### <a name="backup-reader"></a>Czytelnik kopii zapasowych
 Można monitorować Zarządzanie kopii zapasowej w magazynie usług odzyskiwania
 
 | **Akcje** | |
@@ -265,7 +265,7 @@ Można monitorować Zarządzanie kopii zapasowej w magazynie usług odzyskiwania
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Odczytuj elementy zarejestrowanych magazynu |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Użycie odczytu z magazynu usług odzyskiwania |
 
-### <a name="billing-reader"></a>Czytnik rozliczeń
+### <a name="billing-reader"></a>Czytelnik rozliczeń
 Może wyświetlać wszystkie informacje rozliczeń
 
 | **Akcje** |  |
@@ -397,7 +397,7 @@ Można zarządzać kontami systemów inteligentnych
 | Microsoft.Resources/subscriptions/resourceGroups/read |Odczytanie grup zasobów |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="monitoring-reader"></a>Czytnik monitorowania
+### <a name="monitoring-reader"></a>Czytelnik monitorowania
 Może czytać wszystkie dane monitorowania (metryki, dzienniki itp.). Zobacz też [Rozpoczynanie pracy z rolami, uprawnienia i zabezpieczeń z monitorem Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Akcje** |  |
@@ -406,7 +406,7 @@ Może czytać wszystkie dane monitorowania (metryki, dzienniki itp.). Zobacz te�
 | Microsoft.OperationalInsights/workspaces/search/action |Wyszukiwanie danych analizy dzienników |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="monitoring-contributor"></a>Monitorowanie współautora
+### <a name="monitoring-contributor"></a>Współautor monitorowania
 Można odczytać wszystkich danych monitorowania i edytować ustawienia monitorowania. Zobacz też [Rozpoczynanie pracy z rolami, uprawnienia i zabezpieczeń z monitorem Azure](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Akcje** |  |
@@ -522,7 +522,7 @@ Zarządzanie składniki zabezpieczeń, zasady zabezpieczeń i maszyny wirtualne
 | Microsoft.Security/* |Tworzenie i zarządzanie składników zabezpieczeń i zasady |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="site-recovery-contributor"></a>Współautor odzyskiwania lokacji
+### <a name="site-recovery-contributor"></a>Współautor usługi Site Recovery
 Można zarządzać wszystkie akcje zarządzania odzyskiwania lokacji, z wyjątkiem Tworzenie magazynu usług odzyskiwania i przypisywanie praw dostępu do innych użytkowników
 
 | **Akcje** | |
@@ -552,7 +552,7 @@ Można zarządzać wszystkie akcje zarządzania odzyskiwania lokacji, z wyjątki
 | Microsoft.Storage/storageAccounts/read | Przeczytaj kont magazynu |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="site-recovery-operator"></a>Operator odzyskiwania lokacji
+### <a name="site-recovery-operator"></a>Operator usługi Site Recovery
 Można trybu Failover i powrotu po awarii, ale nie można wykonywać inne akcje zarządzania usługi Site Recovery lub przypisać dostęp do innych użytkowników
 
 | **Akcje** | |
@@ -612,7 +612,7 @@ Można trybu Failover i powrotu po awarii, ale nie można wykonywać inne akcje 
 | Microsoft.Storage/storageAccounts/read | Przeczytaj kont magazynu |
 | Microsoft.Support/* | Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="site-recovery-reader"></a>Czytnik odzyskiwania lokacji
+### <a name="site-recovery-reader"></a>Czytelnik usługi Site Recovery
 Można monitorować stan usługi Site Recovery w magazynie usług odzyskiwania i podnieść biletami pomocy technicznej
 
 | **Akcje** | |
@@ -703,7 +703,7 @@ Można zarządzać serwerami programu SQL Server i baz danych, ale nie ich zasad
 
 | **Akcje** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Przeczytaj autoryzacji |
+| Microsoft.Authorization/*/read |Role odczytu i przypisania ról |
 | Microsoft.Insights/alertRules/* |Tworzenie i zarządzanie nimi Insights reguły alertów |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kondycja odczytu zasobów |
 | Microsoft.Resources/deployments/* |Tworzenie i zarządzanie nimi wdrożenia grupy zasobów |
@@ -751,7 +751,7 @@ Można zarządzać kontami magazynu, ale nie możesz uzyskać do nich dostępu d
 | Microsoft.Storage/storageAccounts/* |Tworzenie i zarządzanie nimi kont magazynu |
 | Microsoft.Support/* |Tworzenie i zarządzanie biletami pomocy technicznej |
 
-### <a name="support-request-contributor"></a>Współautor żądania obsługi
+### <a name="support-request-contributor"></a>Współautor żądania pomocy technicznej
 Można tworzyć i zarządzanie biletami pomocy technicznej w zakresie subskrypcji
 
 | **Akcje** |  |
@@ -867,7 +867,7 @@ Można zarządzać witryn sieci Web, ale nie planów sieci web, z którymi są p
 | Microsoft.Web/serverFarms/read |Przeczytaj farmy serwerów |
 | Microsoft.Web/sites/* |Tworzenie i zarządzanie nimi witryn sieci Web (Tworzenie witryny wymaga także uprawnienia do zapisu do skojarzonego planu usługi App Service) |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Kontrola dostępu oparta na rolach](role-based-access-control-configure.md): rozpoczynanie pracy z RBAC w portalu Azure.
 * [Role niestandardowe w Azure RBAC](role-based-access-control-custom-roles.md): Dowiedz się, jak tworzyć role niestandardowe, aby spełniały Twoje potrzeby dostępu.
 * [Tworzenie raportu historii zmian dostępu](role-based-access-control-access-change-history-report.md): informacje o zmieniania przypisań ról w RBAC.
