@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
 ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Jak klucze używanie SSH z usługą Microsoft Azure
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Ponownie PuTTY jest typowe klient SSH dla systemu Windows. Jesteś klienta SSH, 
     ![Wybierz klucza prywatnego PuTTY dla uwierzytelniania](./media/ssh-from-windows/putty-auth-dialog.png)
 4. Kliknij przycisk **Otwórz** nawiązywania połączenia z maszyną wirtualną
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Można także wygenerować klucze publiczne i prywatne [przy użyciu OS X i Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Aby uzyskać więcej informacji na temat Bash systemu Windows i korzyści narzędzia OSS gotowe na komputerze z systemem Windows, temacie [Bash na Ubuntu w systemie Windows](https://msdn.microsoft.com/commandline/wsl/about).

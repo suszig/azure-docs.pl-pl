@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Rozwiązywanie problemów z usługi Kopia zapasowa Azure awarii: problemy z agenta i/lub rozszerzenie
 
@@ -70,14 +70,14 @@ Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Az
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Określona konfiguracja dysku nie jest obsługiwana.
 
 > [!NOTE]
-> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB niezarządzanych. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Dysponujemy prywatną wersją zapoznawczą obsługującą kopie zapasowe maszyn wirtualnych z niezarządzanymi dyskami większymi niż 1 TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Jeśli masz dysków jest większa niż 1 TB, [dołączyć nowe dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , które są mniej niż 1 TB <br>
-- Następnie skopiuj dane z dysku jest większy niż 1TB w nowo utworzonej dyski o rozmiarze mniejszym niż 1 TB. <br>
-- Upewnij się, że wszystkie dane zostały skopiowane i Usuń dyski, która jest większa niż 1TB
+- Jeśli masz dyski większe od 1 TB, [dołącz nowe dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) o rozmiarze poniżej 1 TB. <br>
+- Następnie skopiuj dane z dysku większego od 1 TB na nowo utworzone dyski mniejsze niż 1 TB. <br>
+- Upewnij się, że wszystkie dane zostały skopiowane, a następnie usuń dyski większe od 1 TB.
 - Inicjowanie kopii zapasowej
 
 ## <a name="causes-and-solutions"></a>Przyczyny i potencjalne rozwiązania
@@ -100,7 +100,7 @@ Aby rozwiązać ten problem, wypróbuj jedną z metod wymienione w tym miejscu.
 1. Jeśli masz ograniczeń sieci w miejscu (na przykład grupa zabezpieczeń sieci), wdrażania serwera proxy HTTP do kierowania ruchem.
 2. Aby umożliwić dostęp do Internetu z serwera proxy HTTP, należy dodać reguły do grupy zabezpieczeń sieci, jeśli istnieje.
 
-Aby dowiedzieć się, jak skonfigurować serwer proxy HTTP dla kopii zapasowych maszyn wirtualnych, zobacz [przygotowania środowiska do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Aby dowiedzieć się, jak skonfigurować serwer proxy HTTP dla kopii zapasowych maszyn wirtualnych, zobacz [przygotowania środowiska do tworzenia kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 W przypadku, gdy używane są zarządzane dysków, może być konieczne dodatkowe portu (8443) otwarcia na zapory.
 

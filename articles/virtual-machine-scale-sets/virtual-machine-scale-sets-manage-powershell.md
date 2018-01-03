@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a661aa5a555dacac5c94c3feb8c6b88bb5033f83
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zarządzaj skalowania maszyny wirtualnej, ustawić przy użyciu programu Azure PowerShell
 W całym cyklu życia zestawu skali maszyny wirtualnej może być konieczne uruchomienie jednego lub więcej zadań zarządzania. Ponadto można tworzenia skryptów automatyzujących różnych zadań cyklu życia. Ten artykuł zawiera szczegóły dotyczące niektórych typowych poleceń cmdlet programu Azure PowerShell, które umożliwiają wykonywanie tych zadań.
 
-Aby wykonać te zadania zarządzania, należy najnowsze modułu Azure PowerShell. Aby uzyskać informacje na temat instalacji i korzystać z najnowszej wersji, zobacz [wprowadzenie do programu Azure PowerShell](/powershell/azure/get-started-azureps). Jeśli musisz utworzyć zestaw skali maszyny wirtualnej, możesz [tworzenia skali w portalu Azure](virtual-machine-scale-sets-portal-create.md).
+Aby wykonać te zadania zarządzania, należy najnowsze modułu Azure PowerShell. Aby uzyskać informacje na temat instalacji i korzystać z najnowszej wersji, zobacz [wprowadzenie do programu Azure PowerShell](/powershell/azure/get-started-azureps). Jeśli musisz utworzyć zestaw skali maszyny wirtualnej, możesz [tworzenia skali w portalu Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Wyświetl informacje o zestawie skali
@@ -108,5 +108,5 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Obejmują innych typowych zadań dla zestawów skalowania jak [wdrażania aplikacji](virtual-machine-scale-sets-deploy-app.md), i [uaktualnienia wystąpień maszyn wirtualnych](virtual-machine-scale-sets-upgrade-scale-set.md). Można również użyć programu Azure PowerShell do [Konfigurowanie reguł automatycznego skalowania](virtual-machine-scale-sets-autoscale-overview.md).

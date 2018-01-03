@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d8d52b7e151d116678169dd4839f0380f63132d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Rejestrowanie platformy Azure i inspekcji
 ## <a name="introduction"></a>Wprowadzenie
-### <a name="overview"></a>Omówienie
+### <a name="overview"></a>Przegląd
 Pomoc aktualnych i potencjalnych klientów platformy Azure w opis i przy użyciu różnych funkcjach zabezpieczeń dostępnych w i otaczającego platformy Azure, firma Microsoft opracowała szereg oficjalne dokumenty, omówienie zabezpieczeń najlepsze rozwiązania i listy kontrolne. Tematy zakresu pod względem szerokości i głębokość i są okresowo aktualizowane. Ten dokument jest częścią tej serii, zgodnie z opisem w poniższej sekcji abstrakcyjny.
 ### <a name="azure-platform"></a>Platformy Azure
 Azure to platforma usługi chmury Otwórz i elastyczne, która obsługuje najszerszych wybór systemów operacyjnych, programowania języków, struktury, narzędzia, baz danych i urządzeń.
@@ -71,9 +71,9 @@ Następująca tabela zawiera listę najważniejszych typów dzienników dostępn
 |[Dzienniki diagnostyczne platformy Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|często dane dotyczące działania usługi Azure Resource Manager zasobów w subskrypcji| Zapewniają wgląd w działania, zasobu wykonanie samego| Azure Monitor [strumienia](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Raportowanie usługi AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Dzienników i raportów|Działania logowania użytkowników & informacje o systemie działania dotyczące użytkowników i grupy zarządzania|[Interfejs API programu Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Maszyny wirtualne i usługi w chmurze](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Dziennik zdarzeń systemu Windows i systemu Linux|    Przechwytuje dane systemu i rejestrowanie danych na maszynach wirtualnych i przesyła dane do wybranego konta magazynu.|   Przy użyciu systemu Windows [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (magazynu diagnostyki Windows Azure) i Linux w Monitorze systemu Azure|
-|[Analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Rejestrowanie magazynu i udostępnia metryki danych dla konta magazynu|Zapewnia wgląd w żądań śledzenia analizować trendy użycia i diagnozowanie problemów z konta magazynu.|    Interfejs API REST lub [biblioteki klienta](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Analityka magazynu](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Rejestrowanie magazynu i udostępnia metryki danych dla konta magazynu|Zapewnia wgląd w żądań śledzenia analizować trendy użycia i diagnozowanie problemów z konta magazynu.|    Interfejs API REST lub [biblioteki klienta](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Dzienniki przepływu NSG (sieciowej grupy zabezpieczeń)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON format i zawiera przepływy ruchu wychodzącego i przychodzącego na podstawie reguł na|Wyświetl informacje o przychodzące i wychodzące ruchu IP za pośrednictwem grupy zabezpieczeń sieci|[Obserwatora sieciowego](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Szczegółowe informacje o aplikacji](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Dzienniki, wyjątków i diagnostyki niestandardowej|    Usługa zarządzania wydajności aplikacji przeznaczonych dla deweloperów sieci web na wielu platformach.| Interfejs API REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Szczegółowe informacje o aplikacji](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Dzienniki, wyjątków i diagnostyki niestandardowej|    Usługa zarządzania wydajności aplikacji przeznaczonych dla deweloperów sieci web na wielu platformach.| Interfejs API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Przetwarzaj dane / Alert zabezpieczeń| Centrum zabezpieczeń Azure Alert, OMS Alert| Informacje o zabezpieczeniach i alerty.|   Interfejsy API REST, JSON|
 
 ### <a name="activity-log"></a>Dziennik aktywności
@@ -139,7 +139,7 @@ Dzienniki diagnostyczne Azure oferują wiele opcji konfiguracji, które jest, po
 |Azure Batch|[Azure rejestrowania diagnostycznego partii](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Azure Automation|[Analizy dzienników dla usługi Automatyzacja Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Usługa Event Hubs|[Azure Event Hubs dzienników diagnostycznych](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Azure Event Hubs dzienników diagnostycznych](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
 |Stream Analytics|[Dzienniki diagnostyczne zadania](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Wykonywanie|
 |||Microsoft.StreamAnalytics/streamingjobs|Tworzenie|
@@ -209,7 +209,7 @@ Rejestrowane są następujące typy żądań uwierzytelnionych i anonimowe.
 
 
 
-| Uwierzytelnione  | Anonimowe|
+| Uwierzytelniony  | Anonimowe|
 | :------------- | :-------------|
 | Liczba pomyślnych żądań | Liczba pomyślnych żądań |
 |Nieudane żądania, w tym limitu czasu, ograniczania przepustowości sieci, autoryzacji i innych błędów | Żądania przy użyciu dostępu sygnatury dostępu Współdzielonego, włącznie z żądaniami nie powiodło się i pomyślne |
@@ -371,7 +371,7 @@ Istnieją cztery różne sposoby [zbieranie dzienników i metryki dla usług Azu
 |Grupy zabezpieczeń sieci|   Microsoft.Network/<br>networksecuritygroups|Diagnostyka||   [Grupy zabezpieczeń sieci Azure analityka](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Magazyny odzyskiwania|   Microsoft.RecoveryServices/<br>magazynów|||[Usługa Azure Recovery usługi Analytics (wersja zapoznawcza)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Usługi wyszukiwania|   Microsoft.Search/<br>searchServices|    Diagnostyka|    Diagnostyka||
-|Przestrzeń nazw magistrali usług| Microsoft.ServiceBus/<br>Przestrzenie nazw|    Diagnostyka|Diagnostyka|    [Analiza magistrali usług (wersja zapoznawcza)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Przestrzeń nazw Service Bus | Microsoft.ServiceBus/<br>Przestrzenie nazw|    Diagnostyka|Diagnostyka|    [Analiza magistrali usług (wersja zapoznawcza)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Magazyn||    [Usługa sieci szkieletowej Analytics (wersja zapoznawcza)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>serwery /<br>bazy danych||       Diagnostyka||
 ||Microsoft.Sql/<br>serwery /<br>elasticPools||||
@@ -399,9 +399,9 @@ Integracja dzienników Azure obsługuje obecnie integracji Dzienniki aktywności
 | Typ dziennika | Obsługa formatu JSON (Splunk, ArcSight, Qradar) analizy dzienników |
 | :------- | :-------------------------------------------------------- |
 |Dzienniki inspekcji usługi AAD|    tak|
-|Dzienniki aktywności| Tak|
-|Alerty ASC |Tak|
-|Dzienniki diagnostyczne (Dzienniki zasobów)|  Tak|
+|Dzienniki aktywności| Yes|
+|Alerty ASC |Yes|
+|Dzienniki diagnostyczne (Dzienniki zasobów)|  Yes|
 |Dzienniki maszyny Wirtualnej|   Tak, za pośrednictwem przekazane zdarzenia, a nie za pośrednictwem JSON|
 
 

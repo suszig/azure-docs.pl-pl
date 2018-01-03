@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 508b3755556bcae6aa2c7d17a2d86a1430a8109a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej obserwatorów agenta sieciowe dla systemu Windows
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-[Azure obserwatora sieciowego](https://review.docs.microsoft.com/azure/network-watcher/) jest sieci performance monitoring, Diagnostyka i analiza usługa, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej sieci obserwatorów agenta jest wymagane dla niektórych funkcji obserwatora sieciowego na maszynach wirtualnych Azure. Dotyczy to również Przechwytywanie ruchu sieciowego na żądanie i inne zaawansowane funkcje.
+[Azure obserwatora sieciowego](../../network-watcher/network-watcher-monitoring-overview.md) to sieci performance monitoring, Diagnostyka i analiza usługa, która umożliwia monitorowanie sieci platformy Azure. Rozszerzenie maszyny wirtualnej Agent monitora sieci jest wymagana do przechwytywania ruchu sieciowego na żądanie i inne zaawansowane funkcje na maszynach wirtualnych Azure.
+
 
 Ten dokument zawiera szczegóły dotyczące obsługiwanych platform i opcje wdrażania dla rozszerzenia maszyny wirtualnej sieci obserwatorów agenta dla systemu Windows.
 
@@ -33,15 +34,15 @@ Ten dokument zawiera szczegóły dotyczące obsługiwanych platform i opcje wdra
 
 ### <a name="operating-system"></a>System operacyjny
 
-Rozszerzenie sieci obserwatorów agenta dla systemu Windows mogą być uruchamiane na systemie Windows Server 2008 R2, 2012 i 2012 R2, 2016 wersje. Należy pamiętać, że na serwerze Nano nie jest obsługiwana w tej chwili.
+Rozszerzenie sieci obserwatorów agenta dla systemu Windows mogą być uruchamiane na systemie Windows Server 2008 R2, 2012 i 2012 R2, 2016 wersje. System Nano Server nie jest obsługiwany.
 
 ### <a name="internet-connectivity"></a>Łączność z Internetem
 
-Niektóre funkcje Agent monitora sieci wymaga, czy docelowa maszyna wirtualna jest połączony z Internetem. Bez możliwości nawiązywania połączeń wychodzących niektóre funkcje sieciowe obserwatorów agenta nieprawidłowe działanie lub stała się niedostępna. Aby uzyskać więcej informacji, zobacz [dokumentacji obserwatora sieciowego](../../network-watcher/network-watcher-monitoring-overview.md).
+Niektóre funkcje Agent monitora sieci wymaga, czy docelowa maszyna wirtualna jest połączony z Internetem. Bez możliwości nawiązywania połączeń wychodzących Agent monitora sieci nie będzie przekazywać przechwytywania pakietów do swojego konta magazynu. Aby uzyskać więcej informacji, zobacz [dokumentacji obserwatora sieciowego](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Rozszerzenie schematu
 
-Następujące JSON zawiera schemat rozszerzenia Agent monitora sieci. Rozszerzenie nie wymaga nie obsługuje wszystkie ustawienia dostarczone przez użytkownika w tej chwili i zależy od konfiguracji domyślnej.
+Następujące JSON zawiera schemat rozszerzenia Agent monitora sieci. Rozszerzenie nie wymaga, nie obsługuje ustawienia dostarczone przez użytkownika i zależy od konfiguracji domyślnej.
 
 ```json
 {
@@ -63,7 +64,7 @@ Następujące JSON zawiera schemat rozszerzenia Agent monitora sieci. Rozszerzen
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość / przykład |
+| Name (Nazwa) | Wartość / przykład |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | Wydawcy | Microsoft.Azure.NetworkWatcher |
@@ -73,27 +74,28 @@ Następujące JSON zawiera schemat rozszerzenia Agent monitora sieci. Rozszerzen
 
 ## <a name="template-deployment"></a>Wdrażanie na podstawie szablonu
 
-Rozszerzenia maszyny Wirtualnej platformy Azure można wdrożyć przy użyciu szablonów usługi Azure Resource Manager. Schematu JSON szczegółowo opisane w poprzedniej sekcji można w szablonie usługi Azure Resource Manager rozszerzenia sieci obserwatorów agenta są uruchamiane podczas wdrażania szablonu usługi Azure Resource Manager.
+Można wdrożyć rozszerzeń maszyny Wirtualnej platformy Azure przy użyciu szablonów usługi Azure Resource Manager. Schematu JSON szczegółowo opisane w poprzedniej sekcji, w szablonie usługi Azure Resource Manager umożliwia uruchomienie rozszerzenia sieci obserwatorów agenta podczas wdrażania szablonu usługi Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>Wdrożenie programu PowerShell
 
-`Set-AzureRmVMExtension` Polecenia może służyć do wdrożenia sieci obserwatorów agenta rozszerzenie maszyny wirtualnej na istniejącej maszyny wirtualnej.
+Użyj `Set-AzureRmVMExtension` polecenie, aby wdrożyć rozszerzenie maszyny wirtualnej sieci obserwatora agenta do istniejącej maszyny wirtualnej:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Dane dotyczące stanu wdrożenia rozszerzenia może zostać pobrany z portalu Azure i przy użyciu modułu Azure PowerShell. Aby wyświetlić stan wdrożenia rozszerzeń dla danej maszyny Wirtualnej, uruchom następujące polecenie przy użyciu modułu Azure PowerShell.
+Dane dotyczące stanu wdrożenia rozszerzenia można pobrać z portalu Azure i programu PowerShell. Aby wyświetlić stan wdrożenia rozszerzeń dla danej maszyny Wirtualnej, uruchom następujące polecenie przy użyciu modułu Azure PowerShell:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

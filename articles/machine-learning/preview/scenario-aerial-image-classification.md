@@ -3,16 +3,18 @@ title: Klasyfikacja satelitarnej obrazu | Dokumentacja firmy Microsoft
 description: "Instrukcje w świecie rzeczywistym scenariuszu po klasyfikacji satelitarnej obrazu"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Klasyfikacja satelitarnej obrazu
 
@@ -44,7 +46,7 @@ W tym przykładzie pretrained modele i dane obrazu są trzymane w koncie magazyn
 
 ![Schemat dla scenariusza rzeczywistych klasyfikacji satelitarnej obrazu](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-[Instrukcje krok po kroku](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) Rozpocznij od omówiono tworzenie i przygotowania kontem magazynu platformy Azure i klastra Spark, w tym instalacji transfer i zależności w danych. Następnie opisują sposób uruchamiania zadań szkolenia i porównywać wynikowy modeli. Na koniec one pokazano, jak zastosować wybrany model do zestawu duży obraz w klastrze Spark i Przeanalizuj wyniki prognozowania lokalnie.
+Te instrukcje krok po kroku najpierw omówiono tworzenie i przygotowania kontem magazynu platformy Azure i klastra Spark, w tym instalacji transfer i zależności w danych. Następnie opisują sposób uruchamiania zadań szkolenia i porównywać wynikowy modeli. Na koniec one pokazano, jak zastosować wybrany model do zestawu duży obraz w klastrze Spark i Przeanalizuj wyniki prognozowania lokalnie.
 
 
 ## <a name="set-up-the-execution-environment"></a>Konfigurowanie środowiska wykonawczego
@@ -52,7 +54,7 @@ W tym przykładzie pretrained modele i dane obrazu są trzymane w koncie magazyn
 Poniższe instrukcje pomagają konfigurowania środowiska wykonawczego w tym przykładzie.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-- [Konta Azure](https://azure.microsoft.com/en-us/free/) (bezpłatnych wersji próbnych są dostępne)
+- [Konta Azure](https://azure.microsoft.com/free/) (bezpłatnych wersji próbnych są dostępne)
     - Spowoduje utworzenie klastra Spark w usłudze HDInsight z 40 węzłów procesu roboczego (całkowita liczba rdzeni 168). Upewnij się, że konto użytkownika ma za mało dostępnych rdzeni, przeglądając "użycia + przydziały" kartę dla Twojej subskrypcji w portalu Azure.
        - Jeśli masz mniej dostępne rdzenie może zmodyfikować szablon klastra HDInsight zmniejszyć liczbę procesów roboczych udostępnione. Odpowiednie instrukcje są wyświetlane w sekcji "Tworzenie klastra Spark w usłudze HDInsight".
     - W tym przykładzie jest tworzony klaster szkolenia AI partii z dwóch NC6 (1 procesora GPU, 6 vCPU) maszyn wirtualnych. Upewnij się, że konto użytkownika ma za mało dostępnych rdzeni w regionie wschodnie stany USA, przeglądając "użycia + przydziały" kartę dla Twojej subskrypcji w portalu Azure.
@@ -68,7 +70,7 @@ Poniższe instrukcje pomagają konfigurowania środowiska wykonawczego w tym prz
     - Rekord Identyfikatora klienta, klucz tajny i identyfikator dzierżawcy aplikacji usługi Azure Active Directory, które są kierowane do utworzenia. Te poświadczenia zostaną użyte w dalszej części tego samouczka.
     - Opracowywania tego tekstu usługi Azure Machine Learning Workbench i AI usługi partia zadań Azure używają oddzielnych rozwidlenia 2.0 interfejsu wiersza polecenia platformy Azure. Dla jasności nazywamy Workbench wersji interfejsu CLI jako "infrastruktury CLI uruchamiana z usługi Azure Machine Learning Workbench" i (w tym partii AI) ogólne wersji "Azure CLI 2.0".
 - [Narzędzie AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), narzędzie do koordynowania transferu plików między kontami magazynu Azure w warstwie bezpłatna
-    - Upewnij się, że folder zawierający plik wykonywalny AzCopy znajduje się w zmiennej środowiskowej PATH w systemie. (Dostępne są instrukcje na temat modyfikowania zmiennych środowiskowych [tutaj](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Upewnij się, że folder zawierający plik wykonywalny AzCopy znajduje się w zmiennej środowiskowej PATH w systemie. (Dostępne są instrukcje na temat modyfikowania zmiennych środowiskowych [tutaj](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Klient SSH; Firma Microsoft zaleca [PuTTY](http://www.putty.org/).
 
 W tym przykładzie testowania na komputerach z systemem Windows 10; można go uruchomić z dowolnej maszyny systemu Windows, w tym maszyny wirtualne nauki danych Azure. 2.0 interfejsu wiersza polecenia platformy Azure został zainstalowany z Instalatora MSI zgodnie z [tych instrukcji](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Drobne zmiany mogą być wymagane (na przykład zmiany filepaths) podczas uruchamiania w tym przykładzie na macOS.
@@ -416,7 +418,7 @@ Po zakończeniu przykładzie, zaleca się usunąć wszystkie zasoby, które zost
 
 Azure Machine Learning Workbench pomaga analityków danych, łatwe wdrażanie ich kodu dla zdalnego obliczeniowych elementów docelowych. W tym przykładzie kod lokalny szkolenia MMLSpark została wdrożona dla wykonania zdalnego w klastrze usługi HDInsight i lokalnego skryptu uruchomione zadania szkolenia w klastrze GPU AI usługi partia zadań Azure. Funkcja historii wykonywania Azure Machine Learning Workbench w śledzić wydajność wielu modeli i pomogły zidentyfikować najdokładniejszych modelu. Funkcja notesów Jupyter w Workbench pomogła wizualizacji prognoz naszych modeli w środowisku interaktywnych, graficznego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Umożliwiają lepsze zapoznanie się w tym przykładzie:
 - W funkcji Uruchom historii Azure Machine Learning Workbench kliknij symbole koło zębate, aby wybrać, które wykresów i metryki są wyświetlane.
 - Sprawdź przykładowe skrypty dla instrukcji wywoływania `run_logger`. Sprawdź, że rozumiesz, jak są rejestrowane wszystkie metryki.

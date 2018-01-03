@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Kopie zapasowe i przywracanie zaszyfrowanych maszyn wirtualnych w usłudze Kopia zapasowa Azure
 Ten artykuł zawiera informacje o kroki kopii zapasowej i przywracanie maszyn wirtualnych (VM) za pomocą usługi Kopia zapasowa Azure. Zapewnia także szczegółowe informacje o obsługiwanych scenariuszach wymagania wstępne i kroki rozwiązywania problemów w przypadku wystąpienia błędów.
@@ -34,8 +34,8 @@ Ten artykuł zawiera informacje o kroki kopii zapasowej i przywracanie maszyn wi
  
    |  | BEK + KEK maszyny wirtualne | Tylko do BEK maszyny wirtualne |
    | --- | --- | --- |
-   | **Maszyny wirtualne w niezarządzanych**  | Tak | Tak  |
-   | **Zarządzanych maszyn wirtualnych**  | Tak | Tak  |
+   | **Maszyny wirtualne w niezarządzanych**  | Yes | Yes  |
+   | **Zarządzanych maszyn wirtualnych**  | Yes | Yes  |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Maszyna wirtualna została zaszyfrowana przy użyciu [szyfrowania dysków Azure](../security/azure-security-disk-encryption.md).
@@ -56,7 +56,7 @@ Ustawienie celu kopii zapasowej, definiowania zasad, skonfiguruj elementów i Wy
 
       ![Magazyn usługi Recovery Services](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
 
-    c. Zostanie wyświetlona lista magazynów Usług odzyskiwania. Wybierz magazyn z listy.
+    d. Zostanie wyświetlona lista magazynów Usług odzyskiwania. Wybierz magazyn z listy.
 
      Zostanie otwarty pulpit nawigacyjny wybranego magazynu.
 2. Wybierz z listy elementów, który pojawia się w magazynie, **kopii zapasowej** można uruchomić tworzenia kopii zapasowej zaszyfrowanego maszyny Wirtualnej.
@@ -77,11 +77,17 @@ Ustawienie celu kopii zapasowej, definiowania zasad, skonfiguruj elementów i Wy
 6. Wybierz zaszyfrowanych maszyn wirtualnych do skojarzenia z określonych zasad, a następnie wybierz **OK**.
 
       ![Wybierz zaszyfrowanych maszyny wirtualne](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. Ta strona zawiera komunikat o magazynów kluczy powiązanych z zaszyfrowanego wybranych maszyn wirtualnych. Kopia zapasowa wymaga dostępu tylko do odczytu do kluczy i kluczy tajnych w magazynie kluczy. Aby utworzyć kopię zapasową kluczy i kluczy tajnych, oraz skojarzone maszyn wirtualnych używa tych uprawnień. *Należy podać uprawnienia dostępu magazynu kluczy dla kopii zapasowych do pracy z usługą kopii zapasowej*. Można podać te uprawnienia, wykonując [czynności wymienionych w poniższej sekcji](#provide-permissions-to-azure-backup).
+7. Ta strona zawiera komunikat o magazynów kluczy powiązanych z zaszyfrowanego wybranych maszyn wirtualnych. Kopia zapasowa wymaga dostępu tylko do odczytu do kluczy i kluczy tajnych w magazynie kluczy. Aby utworzyć kopię zapasową kluczy i kluczy tajnych, oraz skojarzone maszyn wirtualnych używa tych uprawnień.<br>
+Jeśli jesteś **użytkownika elementu członkowskiego**, Włącz wykonywania kopii zapasowej zostanie bezproblemowo uzyskać dostępu do magazynu kluczy do tworzenia kopii zapasowej szyfrowane maszyn wirtualnych bez interwencji użytkownika.
 
-      ![Zaszyfrowanego komunikatu maszyny wirtualne](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![Zaszyfrowanego komunikatu maszyny wirtualne](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      Teraz, gdy zdefiniowano wszystkich ustawień dla magazynu, wybierz **włączenia kopii zapasowej** w dolnej części strony. **Włączenia kopii zapasowej** wdraża zasady dla magazynu i maszyn wirtualnych.
+   Aby uzyskać **użytkownika gościa**, należy podać uprawnienia dostępu magazynu kluczy dla kopii zapasowych do pracy z usługą kopii zapasowej. Można podać te uprawnienia, wykonując [czynności wymienionych w poniższej sekcji](#provide-permissions-to-backup)
+
+   ![Zaszyfrowanego komunikatu maszyny wirtualne](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    Teraz, gdy zdefiniowano wszystkich ustawień dla magazynu, wybierz **włączenia kopii zapasowej** w dolnej części strony. **Włączenia kopii zapasowej** wdraża zasady dla magazynu i maszyn wirtualnych.
+  
 8. Kolejną fazą przygotowania jest instalowanie agenta maszyny Wirtualnej lub upewnić się, że Agent maszyny Wirtualnej jest zainstalowany. Taki sam, wykonaj czynności opisane w [przygotować swoje środowisko do tworzenia kopii zapasowej](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Wyzwalacz zadania tworzenia kopii zapasowej
@@ -94,7 +100,7 @@ Jeśli masz maszyny wirtualne już tworzona kopia zapasowa w magazynie usług od
 Wykonaj następujące kroki, aby zapewnić odpowiednie uprawnienia do tworzenia kopii zapasowej dostępu do magazynu kluczy i wykonanie kopii zapasowej zaszyfrowanego maszyn wirtualnych.
 1. Wybierz **więcej usług**i wyszukaj **klucza magazynów**.
 
-    ![Magazynów kluczy](./media/backup-azure-vms-encryption/search-key-vault.png)
+    ![Magazyny kluczy](./media/backup-azure-vms-encryption/search-key-vault.png)
     
 2. Z listy magazynów kluczy wybierz magazyn kluczy, skojarzone z zaszyfrowanego maszyn wirtualnych, które należy wykonać kopię zapasową.
 
@@ -102,7 +108,7 @@ Wykonaj następujące kroki, aby zapewnić odpowiednie uprawnienia do tworzenia 
      
 3. Wybierz **zasady dostępu**, a następnie wybierz **Dodaj nowe**.
 
-    ![Dodaj nowy](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+    ![Dodaj nowe](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
     
 4. Wybierz **Wybierz podmiot zabezpieczeń**, a następnie wpisz **usługi zarządzania kopii zapasowej** w polu wyszukiwania. 
 
@@ -135,7 +141,7 @@ Aby przywrócić zaszyfrowanych maszyny Wirtualnej, najpierw przywrócić dyskó
 ## <a name="troubleshooting-errors"></a>Rozwiązywanie problemów z błędami
 | Operacja | Szczegóły błędu | Rozwiązanie |
 | --- | --- | --- |
-|Tworzenie kopii zapasowych | Kopia zapasowa nie ma wystarczających uprawnień do magazynu kluczy dla kopii zapasowej zaszyfrowanego maszyn wirtualnych. | Kopii zapasowej należy podawać te uprawnienia, postępując [kroki opisane w poprzedniej sekcji](#provide-permissions-to-azure-backup). Lub możesz wykonać kroki programu PowerShell w sekcji "Włącz ochronę" w dokumentacji programu PowerShell w [AzureRM.RecoveryServices.Backup użyj poleceń cmdlet narzędzia do tworzenia kopii zapasowych maszyn wirtualnych](backup-azure-vms-automation.md#back-up-azure-vms). |  
+|Backup | Kopia zapasowa nie ma wystarczających uprawnień do magazynu kluczy dla kopii zapasowej zaszyfrowanego maszyn wirtualnych. | Kopii zapasowej należy podawać te uprawnienia, postępując [kroki opisane w poprzedniej sekcji](#provide-permissions-to-azure-backup). Lub możesz wykonać kroki programu PowerShell w sekcji "Włącz ochronę" w dokumentacji programu PowerShell w [AzureRM.RecoveryServices.Backup użyj poleceń cmdlet narzędzia do tworzenia kopii zapasowych maszyn wirtualnych](backup-azure-vms-automation.md#back-up-azure-vms). |  
 | Przywracanie |Nie można przywrócić tej zaszyfrowanej maszyny Wirtualnej, ponieważ nie istnieje magazyn kluczy, skojarzone z tej maszyny Wirtualnej. |Tworzenie magazynu kluczy za pomocą [wprowadzenie do usługi Azure Key Vault](../key-vault/key-vault-get-started.md). Zobacz [przywrócić klucz magazynu kluczy oraz klucz tajny przy użyciu usługi Kopia zapasowa Azure](backup-azure-restore-key-secret.md) do przywrócenia klucza i klucz tajny, jeśli nie są dostępne. |
 | Przywracanie |Nie można przywrócić tej zaszyfrowanej maszyny Wirtualnej, ponieważ nie ma klucza i klucz tajny skojarzony z tej maszyny Wirtualnej. |Zobacz [przywrócić klucz magazynu kluczy oraz klucz tajny przy użyciu usługi Kopia zapasowa Azure](backup-azure-restore-key-secret.md) do przywrócenia klucza i klucz tajny, jeśli nie są dostępne. |
 | Przywracanie |Kopia zapasowa nie ma autoryzacji do dostępu do zasobów w ramach subskrypcji. |Jak wspomniano wcześniej, Przywróć dysków najpierw wykonując kroki opisane w sekcji "Przywracanie kopii zapasowej dysków" [wybierz konfigurację przywracania maszyny Wirtualnej](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Po tym, za pomocą programu PowerShell do [utworzyć Maszynę wirtualną z dysków przywróconej](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

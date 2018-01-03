@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Wysokiej dostępności danych aplikacji z usługą Azure storage
 
@@ -65,7 +65,7 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | **Nazwa** | mojekontomagazynu | Unikatową wartość dla konta magazynu |
    | **Model wdrażania** | Resource Manager  | Menedżer zasobów zawiera najnowsze funkcje.|
    | **Typ konta** | Zastosowania ogólne | Aby uzyskać więcej informacji dotyczących typów kont, zobacz [typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Wydajność** | Standardowa | Standard jest wystarczająca dla przykładowy scenariusz. |
+   | **Wydajność** | Standardowa (Standard) | Standard jest wystarczająca dla przykładowy scenariusz. |
    | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to konieczne, na przykład działał. |
    |**Zapewnienia bezpiecznego transferu wymagane** | Disabled (Wyłączony)| Zapewnienia bezpiecznego transferu nie jest wymagane dla tego scenariusza. |
    |**Subskrypcja** | Subskrypcji |Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
@@ -83,7 +83,7 @@ Przykładowy projekt zawiera aplikacji konsoli.
 
 ## <a name="set-the-connection-string"></a>Ustawianie parametrów połączenia
 
-W aplikacji musisz podać parametry połączenia dla konta magazynu. Zaleca się do przechowywania tych parametrów połączenia w zmiennej środowiskowej na komputerze lokalnym działania aplikacji. Wykonaj jedną z przykłady poniżej, w zależności od systemu operacyjnego, można utworzyć zmiennej środowiskowej.
+W aplikacji należy wprowadzić parametry połączenia konta magazynu. Zaleca się do przechowywania tych parametrów połączenia w zmiennej środowiskowej na komputerze lokalnym działania aplikacji. Wykonaj jedną z przykłady poniżej, w zależności od systemu operacyjnego, można utworzyć zmiennej środowiskowej.
 
 W portalu Azure przejdź do swojego konta magazynu. Wybierz **klucze dostępu** w obszarze **ustawienia** na koncie magazynu. Kopiuj **ciąg połączenia** z klucz podstawowy lub pomocniczy. Zastąp \<yourconnectionstring\> z połączeniem rzeczywiste oparte na ciągach, uruchamiając jeden z następujących poleceń w systemie operacyjnym. To polecenie zapisuje zmienną środowiskową na komputerze lokalnym. W systemie Windows, zmiennej środowiskowej nie jest dostępne do czasu ponownie załadować **wiersza polecenia** lub korzystasz z powłoki. Zastąp  **\<storageConnectionString\>**  w następującym przykładzie:
 
@@ -113,7 +113,7 @@ W przykładowym kodzie `RunCircuitBreakerAsync` zadań w `Program.cs` plik jest 
 
 ### <a name="retry-event-handler"></a>Ponów próbę wykonania programu obsługi zdarzeń
 
-`OperationContextRetrying` Program obsługi zdarzeń jest wywoływana podczas pobierania obrazu nie powiedzie się i jest ustawiona na rety. Jeśli osiągnięciu maksymalnej liczby ponownych prób, które są zdefiniowane w aplikacji [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania jest zmieniana na `SecondaryOnly`. Ustawienie to wymusza aplikacja próbuje pobrać obrazu z punktu końcowego dodatkowej. Ta konfiguracja ogranicza czas potrzebny na żądanie dotyczące obrazu jako podstawowy punkt końcowy nie podjęta przez nieograniczony czas.
+`OperationContextRetrying` Program obsługi zdarzeń jest wywoływana podczas pobierania obrazu nie powiedzie się i jest ustawiona, aby ponowić próbę. Jeśli osiągnięciu maksymalnej liczby ponownych prób, które są zdefiniowane w aplikacji [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania jest zmieniana na `SecondaryOnly`. Ustawienie to wymusza aplikacja próbuje pobrać obrazu z punktu końcowego dodatkowej. Ta konfiguracja ogranicza czas potrzebny na żądanie dotyczące obrazu jako podstawowy punkt końcowy nie podjęta przez nieograniczony czas.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -160,7 +160,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W części jednej serii wiesz o wprowadzaniu aplikacji wysokiej dostępności z kontami magazynu RA-GRS, np.:
 

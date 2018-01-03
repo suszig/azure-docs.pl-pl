@@ -1,6 +1,6 @@
 ---
-title: "Co to są powiadomienia o kondycji usługi | Dokumentacja firmy Microsoft"
-description: "Powiadomienia o kondycji usługi umożliwiają wyświetlanie usługi kondycji, który wiadomości przez Microsoft Azure."
+title: "Co to są powiadomienia o kondycji usługi platformy Azure? | Microsoft Docs"
+description: "Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów o kondycji usługi opublikowana przez Microsoft Azure."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="service-health-notifications"></a>Powiadomienia o kondycji usługi
-## <a name="overview"></a>Omówienie
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Wyświetlanie powiadomień o kondycji usługi za pomocą portalu Azure
 
-W tym artykule przedstawiono sposób wyświetlania powiadomień o kondycji usługi przy użyciu portalu Azure.
+Powiadomienia o kondycji usługi są publikowane przez usługę Azure i zawiera informacje dotyczące zasobów w ramach Twojej subskrypcji. Te powiadomienia są zdarzenia dziennika podklasą klasy działania i można znaleźć w dzienniku aktywności. Powiadomienia o kondycji usługi może być informacyjne lub przydatnych wyników, w zależności od tej klasy.
 
-Powiadomienia o kondycji usługi umożliwiają wyświetlanie komunikatów o kondycji usługi opublikowana przez zespół Azure, który może mieć wpływ na zasoby w ramach Twojej subskrypcji. Te powiadomienia są podklasą klasy działania dziennika zdarzeń i można znaleźć w dzienniku aktywności. Powiadomienia o kondycji usługi może być informacyjne lub można wykonać w zależności od tej klasy.
+Istnieją różne rodzaje powiadomień o kondycji usługi:  
 
-Istnieje pięć klas powiadomień o kondycji usługi:  
-
-- **Wymagana akcja:** od czasu do czasu Azure zauważyć coś nietypowego się tak zdarzyć na Twoim koncie. Azure może być konieczne we współpracy z Tobą, aby rozwiązać ten problem. Azure spowoduje wysłanie powiadomienia albo określających działania należy podjąć lub więcej informacji na temat skontaktuj się z Azure engineering lub pomocy technicznej.  
-- **Odzyskiwanie asystowaną:** wystąpiło zdarzenie i inżynierów potwierdzeniu, że nadal występują wpływu. Azure engineering musi pracować bezpośrednio w celu przywrócenia usługi pełną kondycję.  
-- **Zdarzenie:** usługi wpływające na zdarzenie aktualnie ma wpływ na co najmniej jeden z zasobów w ramach subskrypcji.  
-- **Konserwacja:** jest powiadomienie informujące o działanie zaplanowanej konserwacji, które mogą mieć wpływ na co najmniej jeden z zasobów w ramach Twojej subskrypcji.  
-- **Informacje o:** od czasu do czasu Azure może wysłać powiadomienia, które informują o potencjalnych funkcje optymalizacji, które mogą pomóc zwiększenie wykorzystanie zasobów.  
-- **Zabezpieczenia:** pilnych zabezpieczeń powiązane informacje dotyczące Twojego solution(s) działających na platformie Azure.
+- **Wymagana akcja:** Azure zauważyć coś nietypowego w stanie Twojego konta i współpraca z Tobą, aby rozwiązać ten problem. Azure wysyła powiadomienie, albo wyszczególnieniem akcje, które należy wykonać lub sposób kontaktu z Azure engineering lub pomocy technicznej.  
+- **Asystowane odzyskiwania:** wystąpiło zdarzenie i inżynierów potwierdzeniu, że nadal występują wpływu. Azure engineering musi pracować bezpośrednio w celu przywrócenia usługi pełną kondycję.  
+- **Zdarzenie:** zdarzenie, które ma wpływ na usługi jest obecnie mające wpływ na co najmniej jeden z zasobów w ramach subskrypcji.  
+- **Konserwacja:** działanie zaplanowanej konserwacji, które mogą mieć wpływ na co najmniej jeden z zasobów w ramach Twojej subskrypcji.  
+- **Informacje o:** potencjalne funkcje optymalizacji, które mogą pomóc zwiększyć użytkowania zasobów. 
+- **Zabezpieczenia:** pilnych informacji związanych z zabezpieczeniami dotyczące rozwiązań uruchamianych na platformie Azure.
 
 Każde powiadomienie o kondycji usługi zawiera szczegółowe informacje o zakres i znaczenie dla zasobów. Szczegółowe informacje obejmują:
 
 Nazwa właściwości | Opis
 -------- | -----------
-kanały | Jest jednym z następujących wartości: "Administrator", "Operacji"
-correlationId | Jest zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia z tym należy do tego samego działania pełny zwykle udostępnianie tego samego correlationId.
-eventDataId | Jest unikatowy identyfikator zdarzenia
-EventName | Jest to tytuł zdarzenia
-poziom | Poziom zdarzenia. Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne"
-resourceProviderName | Nazwa dostawcy zasobu dla zasobu wpływ na
-Typ zasobu| Typ zasobu wpływ na zasób
-Podstan | Zazwyczaj wywołań REST odpowiedni kod stanu HTTP, ale można również uwzględnić inne parametry opisujące podstanu, takich jak te wartości typowych: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP : 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504).
-eventTimestamp | Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiednie zdarzenie.
-submissionTimestamp |   Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań.
-subscriptionId | Subskrypcja platformy Azure, w którym zarejestrowano to zdarzenie
-status | Ciąg opisujący stan operacji. Niektóre typowe wartości to: pracy w toku, zakończyło się pomyślnie, nie powiodło się, aktywne, rozwiązane.
+kanały | Jedną z następujących wartości: **Admin** lub **operacji**.
+correlationId | Zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia, które należą do tego samego działania zwykle udostępnianie tego samego correlationId.
+eventDataId | Unikatowy identyfikator zdarzenia.
+EventName | Tytuł zdarzenia.
+poziom | Poziom zdarzenia. Jedną z następujących wartości: **krytyczny**, **błąd**, **ostrzeżenie**, **komunikat o charakterze informacyjnym**, lub **pełne** .
+resourceProviderName | Nazwa dostawcy zasobów dla zasobu objęte wpływem.
+Typ zasobu| Typ zasobu ryzyko zasobu.
+Podstan | Zazwyczaj REST odpowiedni kod stanu HTTP wywołań, ale można również uwzględnić inne parametry opisujące podstanu. Na przykład: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), serwer wewnętrzny Błąd (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503) i limit czasu bramy (kod stanu HTTP: 504).
+eventTimestamp | Sygnatura czasowa po zdarzeniu został wygenerowany przez usługę Azure przetwarzania żądania odpowiadający zdarzenia.
+submissionTimestamp | Znacznik czasu w momencie zdarzenia stały się dostępne na potrzeby zapytań.
+subscriptionId | Subskrypcja platformy Azure, w którym zarejestrowano to zdarzenie.
+status | Ciąg opisujący stan operacji. Niektóre typowe wartości to: **uruchomiono**, **w toku**, **zakończyło się pomyślnie**, ****, **Active**, i **Rozpoznać**.
 operationName | Nazwa operacji.
-category | "ServiceHealth"
+category | Ta właściwość jest zawsze **ServiceHealth**.
 resourceId | Identyfikator zasobu ryzyko zasobu.
-Properties.Title | Tytuł zlokalizowane dla tej komunikacji. Językiem domyślnym będzie angielski.
+Properties.Title | Tytuł zlokalizowane dla tej komunikacji. Domyślnym będzie angielski.
 Properties.Communication | Szczegóły zlokalizowanych komunikacji z kodu znaczników HTML. Domyślnym będzie angielski.
-Properties.incidentType | Możliwe wartości: AssistedRecovery, ActionRequired, informacje, zdarzenie, obsługi, zabezpieczeń
-Properties.trackingId | Identyfikuje incydent, który jest skojarzony to zdarzenie. Umożliwia korelowanie zdarzeń związanych ze zdarzeniem.
-Properties.impactedServices | Zmienionym obiektu blob JSON opisującą usług i regionów, które mają wpływ zdarzenia. Lista usług, z których każda ma elementy ServiceName i listę ImpactedRegions, z których każda ma RegionName.
-Properties.defaultLanguageTitle | Komunikat w języku angielskim
-Properties.defaultLanguageContent | Komunikat w języku angielskim jako kod znaczników html i zwykły tekst
-Properties.Stage | Możliwe wartości AssistedRecovery, ActionRequired, informacje, zdarzenie, zabezpieczeń: są aktywne, rozwiązane. W konserwacji są: aktywny, planowane, w toku, anulowane, Rescheduled, rozwiązane, Zakończ
-Properties.communicationId | Komunikacja to zdarzenie jest skojarzony.
+Properties.incidentType | Jedną z następujących wartości: **AssistedRecovery**, **ActionRequired**, **informacji**, **zdarzenia**,  **Konserwacja**, lub **zabezpieczeń**.
+Properties.trackingId | Zdarzenia, z którą jest skojarzone to zdarzenie. Umożliwia korelowanie zdarzeń związanych ze zdarzeniem.
+Properties.impactedServices | Zmienionym obiektu blob JSON opisujący usługi i regiony wpływa zdarzenie. Właściwość zawiera listę usług, z których każda ma **ServiceName**oraz listę ryzyko regionów, z których każda ma **RegionName**.
+Properties.defaultLanguageTitle | Komunikacja w języku angielskim.
+Properties.defaultLanguageContent | Komunikacja w języku angielskim jako kod znaczników HTML i zwykły tekst.
+Properties.Stage | Możliwe wartości **AssistedRecovery**, **ActionRequired**, **informacji**, **zdarzenia**, i **zabezpieczeń**  są **Active** lub **rozwiązane**. Dla **konserwacji**, są one: **Active**, **planowane**, **w toku**, **anulowane**, **Zmienił**, **rozpoznać**, lub **pełną**.
+Properties.communicationId | Komunikacja, z którą jest skojarzone to zdarzenie.
 
 
-## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Wyświetlanie powiadomienia usługi kondycji w portalu Azure
-1.  W [portal](https://portal.azure.com), przejdź do **Monitor** usługi
+## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Wyświetl powiadomienia usługi kondycji w portalu Azure
+1.  W [portalu Azure](https://portal.azure.com), wybierz pozycję **Monitor**.
 
-    ![Monitorowanie](./media/monitoring-service-notifications/home-monitor.png)
-2.  Kliknij przycisk **Monitor** opcję, aby otworzyć proces uruchamiania monitora. Azure Monitor zgromadzono wszystkich monitorowania ustawień i danych do jednego, skonsolidowanego widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
+    ![Zrzut ekranu Azure menu portalu z monitorem wybrane](./media/monitoring-service-notifications/home-monitor.png)
 
-3.  Teraz kliknij **alerty** sekcji
+    Azure Monitor zgromadzono wszystkich monitorowania ustawień i danych do jednego, skonsolidowanego widoku. Na początku widoczna jest sekcja **Dziennik aktywności**.
 
-    ![Monitorowanie](./media/monitoring-service-notifications/service-health-summary.png)
-4. Polecenie **+ Dodaj Alert dziennika aktywności** i skonfigurować alert, aby upewnić się, zostanie wyświetlone powiadomienie powiadomień usługi w przyszłości. Aby dowiedzieć się więcej o konfigurowaniu alertów na powiadomienia usługi [odwiedź stronę działania dziennika alerty i powiadomienia usługi](monitoring-activity-log-alerts-on-service-notifications.md).
+3.  Wybierz **alerty**.
 
-## <a name="next-steps"></a>Następne kroki:
-Odbieranie [alertów powiadomienia, gdy powiadomienie o kondycji usługi](monitoring-activity-log-alerts-on-service-notifications.md) jest przesyłana  
-Dowiedz się więcej o [alertów dotyczących działań w Dzienniku](monitoring-activity-log-alerts.md)
+    ![Zrzut ekranu działania monitorowania dziennika wybrane alerty](./media/monitoring-service-notifications/service-health-summary.png)
+4. Wybierz **+ Dodaj działanie dziennika alert**i ustawić alert, aby upewnić się, zostanie wyświetlone powiadomienie powiadomień usługi w przyszłości. Aby uzyskać więcej informacji, zobacz [tworzyć alerty dziennika działania dotyczące powiadomień usługi](monitoring-activity-log-alerts-on-service-notifications.md).
+
+## <a name="next-steps"></a>Kolejne kroki
+Odbieranie [alertów powiadomienia, gdy powiadomienie o kondycji usługi](monitoring-activity-log-alerts-on-service-notifications.md) zamieszczony.  
+Dowiedz się więcej o [alertów dotyczących działań w dzienniku](monitoring-activity-log-alerts.md).

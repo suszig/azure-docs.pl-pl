@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Opis alertów w analizy dzienników
 
@@ -80,13 +80,13 @@ Na przykład, jeśli chcesz alertów po uruchomieniu procesor ponad 90%, można 
 
     
 
-Jeśli chcesz alert, gdy procesor średnio ponad 90% okna określony czas, należy użyć zapytania za pomocą [miar polecenia](log-analytics-search-reference.md#commands) podobnie do następującego z progiem dla reguły alertu **większa niż 0**.
+Jeśli chce się alert, gdy procesor średnio ponad 90% okna określony czas, użyj zapytania podobnie do następującej z progiem dla reguły alertu **większa niż 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Jeśli obszar roboczy nie została jeszcze uaktualniona do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie zmieniłby powyżej zapytania do następującego:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Jeśli obszar roboczy nie została jeszcze uaktualniona do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie powyżej zapytania zostałby zmieniony na następujący ostatnim korzystanie z [miar polecenia](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -113,8 +113,8 @@ Rozważmy scenariusz, w którym chce alert dowolnego komputera przekroczeniu uż
 **Zapytanie:** wydajności | gdzie ObjectName == "Procesor" i CounterName == "% czasu procesora" | Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 5 m), komputer<br>
 **Przedział czasu:** 30 minut<br>
 **Alert częstotliwości:** 5 minut<br>
-**Wartość agregacji:** dużą niż 90<br>
-**Na podstawie wyzwalania alertu:** naruszeń łączna liczba jest większa niż 5<br>
+**Wartość agregacji:** większa niż 90<br>
+**Na podstawie wyzwalania alertu:** łączna liczba naruszeń większej niż 2<br>
 
 Zapytanie spowodowałoby średnią wartość dla każdego komputera co 5 minut.  To zapytanie może działać co 5 minut przez dane zbierane przez poprzednie 30 minut.  Poniżej przedstawiono przykładowe dane na trzech komputerach.
 
@@ -143,7 +143,7 @@ Rekordy alertu przez reguły alertów w analizy dzienników mają **typu** z **A
 Istnieją inne rodzaje rekordy alertu przez [rozwiązania do zarządzania Alert](log-analytics-solution-alert-management.md) oraz [eksportuje usługi Power BI](log-analytics-powerbi.md).  Te wszystkie mają **typu** z **alertu** , ale można rozróżnić za ich **SourceSystem**.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zainstaluj [rozwiązania zarządzania alertami](log-analytics-solution-alert-management.md) do analizowania alertach tworzonych w analizy dzienników oraz alertów zebranych z programu System Center Operations Manager.
 * Przeczytaj więcej na temat [dziennika wyszukiwania](log-analytics-log-searches.md) który generowania alertów.
 * Zakończenie wskazówki dla [Konfigurowanie elementu webhook](log-analytics-alerts-webhooks.md) z reguły alertu.  

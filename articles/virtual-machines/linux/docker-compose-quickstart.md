@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Rozpoczynanie pracy z Docker i wysyłanych do definiowania i uruchomić aplikację usługi kontenera platformy Azure
 Z [Redaguj](http://github.com/docker/compose), zdefiniuj aplikacja składająca się z wielu kontenerów Docker przy użyciu pliku zwykły tekst. Następnie pokrętła się na aplikację za pomocą jednego polecenia, który wykonuje wszystkie informacje niezbędne do wdrożenia środowiska zdefiniowane. Na przykład w tym artykule przedstawiono sposób szybko skonfigurować bloga WordPress z bazy danych MariaDB SQL na maszynie Wirtualnej systemu Ubuntu wewnętrznej bazie danych. Redaguj umożliwia również skonfigurowanie bardziej złożonych aplikacji.
@@ -40,30 +40,14 @@ Najpierw utwórz grupę zasobów dla danego środowiska Docker [Tworzenie grupy 
 az group create --name myResourceGroup --location eastus
 ```
 
-Następnie należy wdrożyć maszynę Wirtualną z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) zawierającej rozszerzenie Azure Docker VM z [tego szablonu usługi Azure Resource Manager w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Podaj unikatowe wartości dla *newStorageAccountName*, *adminUsername*, *adminPassword*, i *dnsNameForPublicIP*:
+Następnie należy wdrożyć maszynę Wirtualną z [Utwórz wdrożenie grupy az](/cli/azure/group/deployment#create) zawierającej rozszerzenie Azure Docker VM z [tego szablonu usługi Azure Resource Manager w witrynie GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Po wyświetleniu monitu podaj unikatowe wartości dla *newStorageAccountName*, *adminUsername*, *adminPassword*, i *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Trwa kilka minut dla wdrożenia, aby zakończyć. Po zakończeniu wdrożenia [Przenieś do następnego kroku](#verify-that-compose-is-installed) do SSH do maszyny Wirtualnej. 
-
-Opcjonalnie, aby zamiast tego zwrócić kontrolkę na ten monit i pozwolić wdrożenia kontynuowane w tle, należy dodać `--no-wait` Flaga poprzednie polecenie. Ten proces pozwala wykonywać inne zadania w interfejsu wiersza polecenia, gdy wdrożenie nadal kilka minut. Można wyświetlić szczegółowe informacje o stanie hosta Docker z [az maszyny wirtualnej pokazu](/cli/azure/vm#show). Poniższy przykład umożliwia sprawdzenie stanu maszyny wirtualnej o nazwie *myDockerVM* (nazwa domyślnego szablonu — nie zmieniać tej nazwy) w grupie zasobów o nazwie *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-Jeśli to polecenie zwraca *zakończyło się pomyślnie*, wdrożenie zostało ukończone i można SSH dla maszyny wirtualnej w następnym kroku.
+Trwa kilka minut dla wdrożenia, aby zakończyć.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Sprawdź, czy Redaguj jest zainstalowany
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH do nowego hosta platformy Docker. Podaj nazwę DNS w następujący sposób:
+SSH do nowego hosta platformy Docker. Podaj własną nazwę użytkownika i nazwę DNS z powyższych kroków:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
@@ -153,7 +137,7 @@ Można teraz nawiązać WordPress bezpośrednio na Maszynie wirtualnej na porcie
 
 ![Ekran startowy WordPress][wordpress_start]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przejdź do [Podręcznik użytkownika rozszerzenia maszyny Wirtualnej platformy Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) dla więcej opcji, aby skonfigurować Docker i redagowanie w maszynie Wirtualnej platformy Docker. Na przykład jedną opcję jest umieszczony plik yml Redaguj (przekonwertowane na format JSON) bezpośrednio w konfiguracji rozszerzenia maszyny Wirtualnej platformy Docker.
 * Zapoznaj się z [tworzą wiersza polecenia](http://docs.docker.com/compose/reference/) i [Podręcznik użytkownika](http://docs.docker.com/compose/) więcej przykładów dotyczących tworzenia i wdrażania aplikacji usługi kontenera.
 * Albo użyj szablonu usługi Azure Resource Manager, Twoje własne lub jeden przyczyniły się z [społeczności](https://azure.microsoft.com/documentation/templates/), aby wdrożyć maszyny Wirtualnej platformy Azure z tworzenia aplikacji i Docker. Na przykład [wdrażanie bloga WordPress z rozwiązaniem Docker z](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) szablon używa Docker i redagowanie można szybko wdrożyć WordPress z wewnętrznej bazy danych MySQL na maszynie Wirtualnej systemu Ubuntu.

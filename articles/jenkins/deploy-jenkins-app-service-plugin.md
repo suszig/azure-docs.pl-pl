@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Wdrażanie w usłudze Azure App Service za pomocą wtyczki Wpięć 
 
 Aby wdrożyć aplikację sieci web Java na platformie Azure, można użyć wiersza polecenia platformy Azure w [potoku Wpięć](/azure/jenkins/execute-cli-jenkins-pipeline) lub użyć [wtyczki Wpięć usługi aplikacji Azure](https://plugins.jenkins.io/azure-app-service). Wpięć wtyczki w wersji 1.0 obsługuje ciągłe wdrażanie przy użyciu funkcji aplikacji sieci Web w usłudze Azure App Service za pośrednictwem:
-* Usługi Git i FTP.
+* Git i FTP.
 * Docker dla aplikacji sieci Web w systemie Linux.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Skonfiguruj Wpięć do wdrażania aplikacji sieci Web za pośrednictwem usługi Git i FTP.
+> * Skonfiguruj Wpięć do wdrażania aplikacji sieci Web za pomocą narzędzia Git i FTP.
 > * Skonfiguruj Wpięć do wdrożenia aplikacji sieci Web dla kontenerów.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Tworzenie i konfigurowanie wystąpienia Wpięć
@@ -64,7 +64,7 @@ Należy nazwy głównej usługi Azure, aby wdrożyć na platformie Azure.
 3. Aby dodać nazwy głównej usługi Microsoft Azure, wybierz **dodać poświadczeń**. Podaj wartości dla **identyfikator subskrypcji**, **identyfikator klienta**, **klucz tajny klienta**, i **końcowym tokenów OAuth 2.0** pola. Ustaw **identyfikator** do **mySp**. Firma Microsoft za pomocą tego Identyfikatora w kolejnych krokach, w tym artykule.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Skonfiguruj Wpięć do wdrażania aplikacji sieci Web za pomocą narzędzia Git i FTP.
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Skonfiguruj Wpięć do wdrażania aplikacji sieci Web przez przekazywanie plików
 
 Na potrzeby wdrażania projektu aplikacji sieci Web, możesz przekazać Twojej artefaktów kompilacji (na przykład plik WAR w języku Java) przy użyciu narzędzia Git i FTP.
 
@@ -104,7 +104,7 @@ Przed skonfigurowaniem zadania w Wpięć należy plan usługi aplikacji Azure i 
 8. Jeśli chcesz wdrożyć w miejscu innym niż produkcji, można również ustawić **miejsca** nazwy.
 9. Zapisz projekt i skompiluj go. Aplikacja sieci web jest wdrażany na platformie Azure po zakończeniu kompilacji.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Wdrażanie aplikacji sieci Web za pośrednictwem FTP za pomocą potoku Wpięć
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Wdrażanie aplikacji sieci Web przez przekazywanie plików za pomocą potoku Wpięć
 
 Wtyczka Wpięć usługi aplikacji Azure jest gotowe do potoku. Może się odwoływać do poniższego przykładu w repozytorium GitHub.
 
@@ -227,7 +227,7 @@ Dla **URL rejestru Docker** wartość, podaj adres URL przy użyciu formatu http
 
 3. Przejdź do http://&lt;your_app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y >. Zastąp &lt;x > i &lt;y > z dowolnej liczby można pobrać sumy x + y.
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku użyto wtyczki Wpięć usługi aplikacji Azure do wdrożenia na platformie Azure.
 

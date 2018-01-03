@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Warstwy wydajności w usłudze Azure SQL Data Warehouse (wersja zapoznawcza)
 Magazyn danych SQL oferuje dwie warstwy wydajności, które są zoptymalizowane pod kątem obciążeń analitycznych. W tym artykule opisano pojęcia związane z warstwy wydajności, aby ułatwić możesz wybrać najodpowiedniejszy warstwę wydajności dla obciążenia. 
@@ -162,12 +162,12 @@ W poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gnia
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **Klasy statyczne zasobów** w poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gniazda współbieżności dla każdego [klasy statyczne zasobów](resource-classes-for-workload-management.md).  Te dotyczą zoptymalizowane dla warstwy wydajności elastyczność.
 
@@ -188,7 +188,7 @@ W poniższej tabeli przedstawiono maksymalna liczba jednoczesnych kwerend i gnia
 
 Po spełnieniu jednego z tych progów, nowego zapytania są umieszczone w kolejce i wykonywane na podstawie FIFO pierwszy w.  Kończy zapytania i liczba zapytań i gniazda spadną poniżej limitów, SQL Data Warehouse zwalnia umieszczonych w kolejce zapytań. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o tym, jak skorzystać z klasy zasobów w celu zoptymalizowania dodatkowe obciążenie Przejrzyj następujące artykuły:
 * [Klasy zasobów do zarządzania obciążenia](resource-classes-for-workload-management.md)

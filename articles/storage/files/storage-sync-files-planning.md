@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -57,10 +57,10 @@ Jeśli dodasz lokalizacji serwera, która ma istniejącego zestawu plików jako 
 Punkt końcowy w chmurze jest na udział plików na platformę Azure, który jest częścią grupy synchronizacji. Synchronizacje udziału plików na platformę Azure całego i udziału plików na platformę Azure może być elementem członkowskim tylko jednej chmury punktu końcowego. W związku z tym udziałem plików Azure może być członkiem tylko jednej grupy synchronizacji. Jeśli dodasz na udział plików na platformę Azure, który ma istniejącego zestawu plików jako punktu końcowego w chmurze do grupy synchronizacji, istniejące pliki są łączone z innymi plikami, które znajdują się już na innych punktów końcowych w grupie synchronizacji.
 
 > [!Important]  
-> Synchronizacja programu Azure pliku nie obsługuje bezpośrednio wprowadzania zmian do udziału plików na platformę Azure. Jednak wszelkie zmiany wprowadzone w udziale plików na platformę Azure najpierw konieczne ich odnalezienie przez zadanie wykrywania zmian synchronizacji plików Azure. Zadanie wykrywania zmian jest inicjowane dla punktu końcowego w chmurze tylko raz na 24 godziny. Aby uzyskać więcej informacji, zobacz [plików Azure — często zadawane pytania](storage-files-faq.md#afs-change-detection).
+> Synchronizacja programu Azure pliku nie obsługuje bezpośrednio wprowadzania zmian do udziału plików na platformę Azure. Jednak wszelkie zmiany wprowadzone w udziale plików na platformę Azure najpierw konieczne ich odnalezienie przez zadanie wykrywania zmian synchronizacji plików Azure. Zadanie wykrywania zmian jest inicjowane dla punktu końcowego w chmurze tylko raz na 24 godziny. Ponadto zmiany wprowadzone do udziału plików na platformę Azure przy użyciu protokołu REST nie może zaktualizować SMB godzina ostatniej modyfikacji i nie będą widoczne jako zmiana przy synchronizacji. Aby uzyskać więcej informacji, zobacz [plików Azure — często zadawane pytania](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Obsługa warstw w chmurze 
-Chmura warstwy jest opcjonalna funkcja synchronizacji plików Azure, w którym rzadko używane lub uzyskał dostęp do plików może należeć do warstwy do usługi pliki Azure. Gdy plik jest warstwowa, filtr systemu plików Azure plik synchronizacji (StorageSync.sys) zastępuje plik lokalnie wskaźnika ani punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL do pliku w plikach Azure. Warstwowych plik ma ustawiony w systemie plików NTFS, identyfikacji plików warstwowych aplikacji innych firm, atrybut "offline". Po otwarciu pliku warstwowych synchronizacji plików Azure bezproblemowo odwołania do danych plików z plików Azure bez konieczności wiedzieć, że plik nie jest przechowywany lokalnie na komputerze użytkownika. Ta funkcja jest nazywana zarządzania magazynu hierarchicznych (HSM).
+Obsługa poziomów w chmurze jest opcjonalna funkcja synchronizacji plików Azure w którym rzadko używane lub uzyskać dostępu do plików większych niż 64 KiB rozmiar może należeć do warstwy do usługi pliki Azure. Gdy plik jest warstwowa, filtr systemu plików Azure plik synchronizacji (StorageSync.sys) zastępuje plik lokalnie wskaźnika ani punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL do pliku w plikach Azure. Warstwowych plik ma ustawiony w systemie plików NTFS, identyfikacji plików warstwowych aplikacji innych firm, atrybut "offline". Po otwarciu pliku warstwowych synchronizacji plików Azure bezproblemowo odwołania do danych plików z plików Azure bez konieczności wiedzieć, że plik nie jest przechowywany lokalnie na komputerze użytkownika. Ta funkcja jest nazywana zarządzania magazynu hierarchicznych (HSM).
 
 > [!Important]  
 > Chmura obsługi nie jest obsługiwane dla punktów końcowych serwera w woluminach systemu Windows.
@@ -82,7 +82,7 @@ Przyszłych wersji systemu Windows Server zostanie dodana po ich wydaniu. Wcześ
 > Zaleca się pozostawienie wszystkich serwerów używanych z synchronizacji plików Azure na bieżąco z najnowszymi aktualizacjami z usługi Windows Update. 
 
 ### <a name="file-system-features"></a>Funkcje systemu plików
-| Funkcja | Obsługuje stanu | Uwagi |
+| Cecha | Obsługuje stanu | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Listy ACL systemu Windows są zachowywane przez synchronizacji plików Azure i są wymuszane przez system Windows Server na serwerze punktów końcowych. Listy ACL systemu Windows nie są (jeszcze) obsługiwany przez pliki Azure, jeśli pliki są udostępniane bezpośrednio w chmurze. |
 | Twarde linki | Pominięto | |
@@ -169,7 +169,7 @@ W wersji zapoznawczej firma Microsoft obsługuje synchronizację tylko z udział
 ## <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Planowanie wdrożenia usługi pliki Azure](storage-files-planning.md)
 * [Wdrażanie plików platformy Azure](storage-files-deployment-guide.md)
 * [Wdrażanie synchronizacji plików na platformę Azure](storage-sync-files-deployment-guide.md)

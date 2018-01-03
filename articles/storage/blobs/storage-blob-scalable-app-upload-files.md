@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: c587a5fb23ad72b4a20475a83ad6ac4764717c42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Przekaż dużych ilości danych losowych równolegle do magazynu Azure
 
@@ -93,7 +93,7 @@ private static async Task UploadFilesAsync()
     Stopwatch time = Stopwatch.StartNew();
     try
     {
-        Console.WriteLine("Iterating in directiory: {0}", uploadPath);
+        Console.WriteLine("Iterating in directory: {0}", uploadPath);
         int count = 0;
         int max_outstanding = 100;
         int completed_count = 0;
@@ -164,7 +164,7 @@ Created container https://mystorageaccount.blob.core.windows.net/bbe5f0c8-be9e-4
 Created container https://mystorageaccount.blob.core.windows.net/9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
 Created container https://mystorageaccount.blob.core.windows.net/47646f1a-c498-40cd-9dae-840f46072180
 Created container https://mystorageaccount.blob.core.windows.net/38b2cdab-45fa-4cf9-94e7-d533837365aa
-Iterating in directiory: D:\git\storage-dotnet-perf-scale-app\upload
+Iterating in directory: D:\git\storage-dotnet-perf-scale-app\upload
 Found 50 file(s)
 Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt to container 9efa7ecb-2b24-49ff-8e5b-1d25e5481076.
 Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt to container bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b.
@@ -186,7 +186,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W części dwóch serii poznanie przesyłanie dużych ilości danych losowych na konto magazynu równolegle, np.:
 

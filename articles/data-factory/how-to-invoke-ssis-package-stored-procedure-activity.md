@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 664c900bae580f4eb7421e3dffdfef8c9a29b720
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 713e9ad7a76c15cbde912954e00991a80b995683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Wywołanie pakietów SSIS za pomocą działania procedury składowanej w fabryce danych Azure
 W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych Azure za pomocą działania procedury składowanej. 
@@ -27,14 +27,14 @@ W tym artykule opisano sposób wywołania pakietów SSIS z potoku fabryki danych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database 
+### <a name="azure-sql-database"></a>Azure SQL Database 
 Wskazówki w tym artykule używa bazy danych Azure SQL katalogiem usług SSIS. Umożliwia także Azure zarządzane wystąpienia SQL (wersja zapoznawcza prywatnych).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Tworzenie środowiska Azure SSIS Integration Runtime
 Tworzenie środowiska uruchomieniowego integracji usług SSIS Azure, jeśli nie masz, wykonując instrukcje krok po kroku w [samouczek: pakiety wdrażania usług SSIS](tutorial-deploy-ssis-packages-azure.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instalowanie najnowszej modułów programu Azure PowerShell przez zgodnie z instrukcjami wyświetlanymi w [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 Możesz użyć tej samej fabryki danych zawierający IR Azure SSIS lub tworzenie fabryki danych. Poniższa procedura zawiera kroki, aby utworzyć fabryki danych. Możesz utworzyć potok z działaniem procedury składowanej w tej fabryce danych. Działania procedury składowanej wykonuje procedurę przechowywaną w bazie danych usług SSIS do uruchamiania pakietu SSIS. 
@@ -80,10 +80,10 @@ Pamiętaj o następujących kwestiach:
 ### <a name="create-an-azure-sql-database-linked-service"></a>Tworzenie połączonej usługi Azure SQL Database
 Tworzenie połączonej usługi, aby połączyć bazy danych Azure SQL obsługującego katalogu SSIS z fabryką danych. Fabryka danych używa informacji dostępnych w tej połączonej usługi do łączenia z bazą danych usług SSIS i wykonuje procedurę składowaną do uruchamiania pakietów SSIS. 
 
-1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService.json** w **C:\ADF\RunSSISPackage** folderu o następującej zawartości: (Utwórz folder ADFv2TutorialBulkCopy, jeśli jeszcze nie istnieje).
+1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService.json** w **C:\ADF\RunSSISPackage** folderu o następującej treści: 
 
     > [!IMPORTANT]
-    > Zastąp &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;,&lt;servername&gt;, i &lt;hasło&gt; z wartości bazy danych SQL Azure przed zapisaniem pliku.
+    > Zastąp &lt;servername&gt;, &lt;username&gt;, i &lt;hasło&gt; z wartościami bazy danych SQL Azure przed zapisaniem pliku.
 
     ```json
     {
@@ -93,7 +93,7 @@ Tworzenie połączonej usługi, aby połączyć bazy danych Azure SQL obsługuj�
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USER ID>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                 }
             }
         }
@@ -163,7 +163,7 @@ W tym kroku możesz utworzyć potok z działania procedury składowanej. Działa
 Użyj **Invoke AzureRmDataFactoryV2Pipeline** polecenia cmdlet, aby uruchomić potoku. Polecenie cmdlet zwraca identyfikator uruchomienia potoku w celu monitorowania w przyszłości.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
+$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
@@ -217,17 +217,17 @@ W poprzednim kroku należy wywołać potoku na żądanie. Można również utwor
     }    
     ```
 2. W **programu Azure PowerShell**, przełącz się do **C:\ADF\RunSSISPackage** folderu.
-3. Uruchom **AzureRmDataFactoryV2LinkedService zestaw** polecenia cmdlet można utworzyć wyzwalacza. 
+3. Uruchom **AzureRmDataFactoryV2Trigger zestaw** polecenia cmdlet można utworzyć wyzwalacza. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. Domyślnie wyzwalacza jest w stanie zatrzymania. Uruchamiając polecenie cmdlet Start-AzureRmDataFactoryV2Trigger, należy uruchomić wyzwalacz. 
+4. Domyślnie wyzwalacza jest w stanie zatrzymania. Uruchom wyzwalacza, uruchamiając **Start AzureRmDataFactoryV2Trigger** polecenia cmdlet. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Upewnij się, że wyzwalacz została uruchomiona przy użyciu polecenia cmdlet Get-AzureRmDataFactoryV2TriggerRun. 
+5. Upewnij się, że wyzwalacz rozpoczyna się przez uruchomienie **Get-AzureRmDataFactoryV2Trigger** polecenia cmdlet. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
@@ -244,5 +244,5 @@ W poprzednim kroku należy wywołać potoku na żądanie. Można również utwor
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Można również monitorować potoku przy użyciu portalu Azure. Aby uzyskać instrukcje, zobacz [monitorować potoku](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

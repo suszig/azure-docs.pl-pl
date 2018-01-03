@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b2e8e27cecb4d1225e378690063b42f5d5242868
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7203c95a1269698dea91475aa6aa24c47bcfb0f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Instalowanie udziału plików na platformę Azure z wystąpień kontenera platformy Azure
 
@@ -25,43 +25,47 @@ Przed rozpoczęciem korzystania z udziału plików na platformę Azure z wystąp
 
 ```azurecli-interactive
 # Change these four parameters as needed
-ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
+ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_LOCATION=eastus
 ACI_PERS_SHARE_NAME=acishare
 
 # Create the storage account with the parameters
-az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
+az storage account create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --location $ACI_PERS_LOCATION \
+    --sku Standard_LRS
 
 # Export the connection string as an environment variable. The following 'az storage share create' command
 # references this environment variable when creating the Azure file share.
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
 
 # Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
-## <a name="acquire-storage-account-access-details"></a>Możliwość nabycia szczegółów dostępu do konta magazynu
+## <a name="get-storage-credentials"></a>Pobieranie poświadczeń magazynu
 
 Aby zainstalować udział plików na platformę Azure jako wolumin w wystąpień kontenera platformy Azure, potrzebne są trzy wartości: Nazwa konta magazynu, nazwa udziału i klucz dostępu do magazynu.
 
 Jeśli używany jest skrypt powyżej, nazwa konta magazynu został utworzony z losowych wartości na końcu. Aby sprawdzić, ostatni ciąg (w tym losowe części), użyj następujących poleceń:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Nazwa udziału jest już znany (zdefiniowany jako *acishare* w skrypcie powyżej), więc wszystko, że pozostaje jest klucz konta magazynu, który można znaleźć przy użyciu następującego polecenia:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-the-container-and-mount-the-volume"></a>Wdrażanie kontenera i zainstalowania woluminu
+## <a name="deploy-container-and-mount-volume"></a>Wdrażanie kontenera i instalacji woluminu
 
-Aby zainstalować udział plików na platformę Azure jako wolumin w kontenerze, określ udział i wolumin punktu instalacji podczas tworzenia kontenera o [utworzyć kontener az](/cli/azure/container#az_container_create). Jeśli poprzednie kroki zostały wykonane, można zainstalować utworzonego wcześniej przy użyciu następującego polecenia, aby utworzyć kontener udziału:
+Aby zainstalować udział plików na platformę Azure jako wolumin w kontenerze, określ udział i wolumin punktu instalacji podczas tworzenia kontenera o [utworzyć kontener az][az-container-create]. Jeśli poprzednie kroki zostały wykonane, można zainstalować utworzonego wcześniej przy użyciu następującego polecenia, aby utworzyć kontener udziału:
 
 ```azurecli-interactive
 az container create \
@@ -78,14 +82,23 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Zarządzanie plikami w woluminie
 
-Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą [seanmckenna/aci-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj adres IP dla aplikacji sieci web z [Pokaż kontenera az](/cli/azure/container#az_container_show) polecenia:
+Po uruchomieniu kontenera, korzystając z aplikacji sieci web proste wdrażane za pomocą [seanmckenna/aci-hellofiles] [ aci-hellofiles] obrazu do zarządzania plików w udziale plików na platformę Azure w określonej ścieżce instalacji. Uzyskaj adres IP dla aplikacji sieci web z [Pokaż kontenera az] [ az-container-show] polecenia:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
 ```
 
-Można użyć [portalu Azure](https://portal.azure.com) lub narzędzia, takich jak [Eksploratora usługi Microsoft Azure Storage](https://storageexplorer.com) pobierania i sprawdź plik zapisywane w udziale plików.
+Można użyć [portalu Azure] [ portal] lub narzędzia, takich jak [Eksploratora usługi Microsoft Azure Storage] [ storage-explorer] do pobierania i sprawdź zapisywane w pliku udziału plików.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji na temat relacji między [wystąpień kontenera Azure i kontener orchestrators](container-instances-orchestrator-relationship.md).
+
+<!-- LINKS - External -->
+[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[portal]: https://portal.azure.com
+[storage-explorer]: https://storageexplorer.com
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show

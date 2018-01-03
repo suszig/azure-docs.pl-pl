@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Uruchamianie zadania konteneryzowanych w wystąpień kontenera platformy Azure
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/05/2017
 
 Za pomocą zasad można skonfigurować ponownego uruchomienia można określić, że kontenerów zostały zatrzymane po zakończeniu procesu. Ponieważ wystąpień kontenera są rozliczane przez drugą, są pobierane tylko dla zasobów obliczeniowych, używane podczas wykonywania zadania kontenera.
 
-Przykłady przedstawione w tym artykule wiersza polecenia platformy Azure. Musi mieć wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej [zainstalowane lokalnie](/cli/azure/install-azure-cli), lub użyj interfejsu wiersza polecenia w [powłoki chmury Azure](../cloud-shell/overview.md).
+Przykłady przedstawione w tym artykule wiersza polecenia platformy Azure. Musi mieć wiersza polecenia platformy Azure w wersji 2.0.21 lub nowszej [zainstalowane lokalnie][azure-cli-install], lub użyj interfejsu wiersza polecenia w [powłoki chmury Azure](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Zasada ponownego uruchamiania kontenera
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Uruchom przykład uzupełniania
 
-Aby wyświetlić zasady ponownego uruchomienia w działaniach, Utwórz wystąpienie kontenera z [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) obrazu, a następnie określ `OnFailure` ponowne uruchomienie zasad. Ten kontener przykład uruchamia skrypt języka Python, który domyślnie analizuje tekst w Szekspir [osady](http://shakespeare.mit.edu/hamlet/full.html), zapisuje 10 najbardziej popularnych wyrazów stdout i kończy pracę.
+Aby wyświetlić zasady ponownego uruchomienia w działaniach, Utwórz wystąpienie kontenera z [microsoft/aci-wordcount] [ aci-wordcount-image] obrazu, a następnie określ `OnFailure` ponowne uruchomienie zasad. Ten kontener przykład uruchamia skrypt języka Python, który domyślnie analizuje tekst w Szekspir [osady](http://shakespeare.mit.edu/hamlet/full.html), zapisuje 10 najbardziej popularnych wyrazów stdout i kończy pracę.
 
 Uruchom przykład kontener z następującymi [utworzyć kontener az] [ az-container-create] polecenia:
 
@@ -162,13 +162,17 @@ Dane wyjściowe:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ### <a name="persist-task-output"></a>Utrwalanie dane wyjściowe zadania
 
 Aby uzyskać więcej informacji na temat zachować dane wyjściowe z kontenerów, które mogły zostać wykonane, zobacz [instalowanie udziału plików na platformę Azure z wystąpień kontenera Azure](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

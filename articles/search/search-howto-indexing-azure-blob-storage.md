@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indeksowanie dokumentów w magazynie obiektów Blob Azure o usłudze Azure Search
 W tym artykule przedstawiono sposób użycia usługi Azure Search w celu indeksowania dokumentów (takich jak PDF, dokumentów Microsoft Office i kilka innych typowych formatach) przechowywanych w magazynie obiektów Blob platformy Azure. Po pierwsze wyjaśniono podstawowe informacje o instalowaniu i konfigurowaniu indeksatora obiektu blob. Następnie zapewnia lepszą badań zachowania i scenariusze jest prawdopodobnie mogą wystąpić.
@@ -31,7 +31,7 @@ Indeksator obiektu blob można wyodrębnić tekst z dokumentu w następujących 
 ## <a name="setting-up-blob-indexing"></a>Konfigurowanie indeksowanie obiektów blob
 Można skonfigurować indeksator usługi Azure Blob Storage za pomocą:
 
-* [Witryna Azure Portal](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * Usługa Azure Search [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Usługa Azure Search [zestawu .NET SDK](https://aka.ms/search-sdk)
 
@@ -225,28 +225,6 @@ Obiekty BLOB z określonych rozszerzeń nazw plików można wykluczyć z indekso
 
 Jeśli oba `indexedFileNameExtensions` i `excludedFileNameExtensions` parametrów, usługi Azure Search najpierw sprawdza `indexedFileNameExtensions`, następnie w `excludedFileNameExtensions`. Oznacza to, że jeśli to samo rozszerzenie pliku znajduje się w obu list, zostanie on wykluczony z indeksowania.
 
-### <a name="dealing-with-unsupported-content-types"></a>Zajmujących się nieobsługiwane typy zawartości
-
-Domyślnie indeksatora blob zatrzymuje zaraz po napotkaniu obiektu blob o nieobsługiwanym typie zawartości (na przykład obraz). Oczywiście można użyć `excludedFileNameExtensions` parametr, aby pominąć niektóre typy zawartości. Może być jednak konieczne obiekty BLOB indeksu bez uprzedniego uzyskania informacji o wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować, indeksowania po napotkaniu nieobsługiwany typ zawartości, należy ustawić `failOnUnsupportedContentType` parametru konfiguracji `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Ignorowanie błędy analizy
-
-Azure logiki wyodrębniania dokumentu wyszukiwania nie jest doskonała i czasami zakończy się niepowodzeniem, można przeanalizować dokumenty obsługiwanym typem zawartości, takich jak. DOCX lub. PDF. Jeśli nie chcesz przerwać indeksowania w takich przypadkach, ustaw `maxFailedItems` i `maxFailedItemsPerBatch` parametry konfiguracyjne do niektórych rozsądne wartości. Na przykład:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrolowanie, które części obiektu blob są indeksowane.
 
@@ -275,6 +253,31 @@ Opisane powyżej parametry konfiguracji mają zastosowanie do wszystkich obiekt�
 | --- | --- | --- |
 | AzureSearch_Skip |wartość "prawda" |Powoduje, że indeksator obiektów blob, aby całkowicie pominąć obiektu blob. Nastąpiła wyodrębniania metadanych ani zawartości. Jest to przydatne, gdy konkretnego obiektu blob nie powiedzie się wielokrotnie i przerywa proces indeksowania. |
 | AzureSearch_SkipContent |wartość "prawda" |Jest to równoważne z `"dataToExtract" : "allMetadata"` ustawienia opisane [powyżej](#PartsOfBlobToIndex) dostosowanych do określonego obiektu blob. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Postępowania z błędami
+
+Domyślnie indeksatora blob zatrzymuje zaraz po napotkaniu obiektu blob o nieobsługiwanym typie zawartości (na przykład obraz). Oczywiście można użyć `excludedFileNameExtensions` parametr, aby pominąć niektóre typy zawartości. Może być jednak konieczne obiekty BLOB indeksu bez uprzedniego uzyskania informacji o wszystkich możliwych typów zawartości z wyprzedzeniem. Aby kontynuować, indeksowania po napotkaniu nieobsługiwany typ zawartości, należy ustawić `failOnUnsupportedContentType` parametru konfiguracji `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Dla niektórych obiektów blob usługi Azure Search nie może określić typu zawartości lub nie można przetworzyć typu dokumentu w przeciwnym razie obsługiwany typ zawartości. Ignorowanie tego trybu awaryjnego, ustaw `failOnUnprocessableDocument` wartość false parametru konfiguracji:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Możesz także kontynuować indeksowania Jeśli błędy w dowolnym momencie przetwarzania, podczas analizowania obiektów blob lub podczas dodawania dokumenty do indeksu. Ignoruje określoną liczbę błędów, należy ustawić `maxFailedItems` i `maxFailedItemsPerBatch` parametry konfiguracji, aby odpowiednie wartości. Na przykład:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Przyrostowe wykrywania indeksowanie i usuwaniem.
 Po skonfigurowaniu indeksatora obiektu blob do uruchamiania zgodnie z harmonogramem ponowna indeksacja tylko zmienionych obiektów blob, określone przez właściwość obiektu blob `LastModified` sygnatury czasowej.

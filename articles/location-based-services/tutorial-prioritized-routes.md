@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Znajdź trasy dla różnych trybach podróży przy użyciu usługi na podstawie lokalizacji platformy Azure
 
@@ -209,9 +209,9 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
     ```
     Następujący fragment kodu tworzy [XMLHttpRequest](https://xhr.spec.whatwg.org/), i dodanie obsługi zdarzeń mógł przeanalizować odpowiedzi przychodzących. Dla pomyślnej odpowiedzi, jego tworzy tablicę współrzędne trasy zwrócił i dodaje go mapy `truckRouteLayerName` warstwy. 
     
-    Następujący fragment kodu wysyła również zapytania do usługi trasy uzyskać trasy dla określonego początkowy i punkt końcowy dla Twojego konta subskrypcji klucza. Następujące parametry opcjonalne służą do wskazywania trasę dla duże ciężarówka:-parametr `travelMode=truck` Określa tryb podróży jako *ciężarówka*. Inne tryby podróży obsługiwane są *taksówki*, *magistrali*, *van*, *motocykla*, wartością domyślną *samochodu* . 
-        Parametry `vehicleWidth`, `vehicleHeight`, i `vehicleLength` Określ wymiary mechanizm metry i uwzględniane są tylko jeśli jest tryb podróży *ciężarówka*. 
-        - `vehicleLoadType` Klasyfikuje ładunku jako niebezpieczne i ograniczeniami na niektóre drogi. To jest również obecnie uważane za tylko w przypadku *ciężarówka* tryb. 
+    Następujący fragment kodu wysyła również zapytania do usługi trasy uzyskać trasy dla określonego początkowy i punkt końcowy dla Twojego konta subskrypcji klucza. Następujące parametry opcjonalne służą do wskazywania trasę dla duże ciężarówka:-parametr `travelMode=truck` Określa tryb podróży jako *ciężarówka*. Inne tryby podróży obsługiwane są *taksówki*, *magistrali*, *van*, *motocykla*, wartością domyślną *samochodu* .  
+        Parametry `vehicleWidth`, `vehicleHeight`, i `vehicleLength` Określ wymiary mechanizm metry i uwzględniane są tylko jeśli jest tryb podróży *ciężarówka*.  
+        - `vehicleLoadType` Klasyfikuje ładunku jako niebezpieczne i ograniczeniami na niektóre drogi. To jest również obecnie uważane za tylko w przypadku *ciężarówka* tryb.  
 
 2. Dodaj następujący kod JavaScript można uzyskać trasy samochodu przy użyciu usługi trasy:
 
@@ -255,7 +255,7 @@ W tej sekcji przedstawia sposób użycia interfejsu API usługi trasy Azure loka
 
     Należy pamiętać, że trasy ciężarówka w kolorze niebieskim, gdy trasa samochodu jest purpurowy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]

@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych platformy Azure do dodatkowej regionu Azure (wersja zapoznawcza)
 
@@ -129,10 +129,10 @@ Usługa Site Recovery pobiera listę maszyn wirtualnych, związanych z subskrypc
 
 Usługa Site Recovery tworzy domyślne ustawienia i zasady replikacji dla region docelowy. Możesz zmienić ustawienia, w zależności od wymagań.
 
-1. Kliknij przycisk **ustawienia** Aby wyświetlić ustawienia obiektu docelowego.
-2. Aby zastąpić domyślne ustawienia docelowych, kliknij przycisk **Dostosuj**. 
+1. Kliknij przycisk **ustawienia** Aby wyświetlić ustawienia replikacji i docelowe.
+2. Aby zastąpić domyślne ustawienia docelowych, kliknij przycisk **Dostosuj** obok **grupy zasobów, sieci, magazynu i zestawów dostępności**.
 
-![Konfigurowanie ustawień](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Konfigurowanie ustawień](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Lokalizacja docelowa**: region docelowy używanych na potrzeby odzyskiwania po awarii. Zaleca się, że lokalizacja docelowa odpowiada lokalizacji magazynu usługi Site Recovery.
@@ -148,11 +148,23 @@ Usługa Site Recovery tworzy domyślne ustawienia i zasady replikacji dla region
 
 - **Docelowa zestawów dostępności**: Domyślnie, Usługa Site Recovery tworzy nowy zestawem dostępności w region docelowy wraz z sufiksem "asr". Zestawy dostępności można dodawać tylko, jeśli maszyny wirtualne są częścią zestawu w regionie źródła.
 
+Aby zastąpić domyślne ustawienia zasad replikacji, kliknij przycisk **Dostosuj** obok **zasad replikacji**.  
+
 - **Nazwa zasad replikacji**: Nazwa zasad.
 
 - **Przechowywania punktu odzyskiwania**: domyślnie Site Recovery przechowuje punkty odzyskiwania przez 24 godziny. Można skonfigurować wartość z zakresu od 1 do 72 godzin.
 
 - **Częstotliwość migawek spójności aplikacji**: domyślnie Site Recovery przyjmuje migawki dotyczącej spójności aplikacji co 4 godziny. Można skonfigurować dowolną wartość z zakresu od 1 do 12 godzin. Migawki dotyczącej spójności aplikacji jest w momencie migawki danych aplikacji wewnątrz maszyny Wirtualnej. Usługa kopiowania woluminów w tle (VSS) zapewnia tej aplikacji na maszynie Wirtualnej są w spójnym stanie podczas wykonywania migawki.
+
+- **Grupa replikacji**: Jeśli aplikacja wymaga spójności wielu maszyn wirtualnych na maszynach wirtualnych, można utworzyć grupy replikacji dla tych maszyn wirtualnych. Domyślnie wybrane maszyny wirtualne nie są częścią żadnej grupy replikacji.
+
+  Kliknij przycisk **Dostosuj** obok **zasad replikacji** , a następnie wybierz **tak** spójności wielu maszyn wirtualnych maszyny wirtualne należą do grupy replikacji. Można utworzyć nowej grupy replikacji lub użyć istniejącej grupy replikacji. Wybierz maszyny wirtualne jako część grupy replikacji i kliknij przycisk **OK**.
+
+> [!IMPORTANT]
+  Wszystkie komputery w grupie replikacji zostaną udostępnione punkty odzyskiwania awaria spójne i spójności aplikacji podczas przejścia w tryb failover. Włączenie spójności wielu maszyn wirtualnych może wpłynąć na wydajność obciążeń i powinny być używane tylko wtedy, gdy komputery są tego samego obciążenia i wymagana jest spójność między wieloma maszynami.
+
+> [!IMPORTANT]
+  Włączenie spójności wielu maszyn wirtualnych, maszyny w grupie replikacji komunikują się ze sobą za pośrednictwem portu 20004. Upewnij się, że nie istnieje żadne urządzenia zapory blokuje wewnętrznej komunikacji między maszynami wirtualnymi za pośrednictwem portu 20004. Jeśli chcesz maszyn wirtualnych systemu Linux jako część grupy replikacji, upewnij się, że ruch wychodzący na porcie 20004 ręcznie jest otwarty zgodnie z harmonogramem wskazówek określonych wersji systemu Linux.
 
 ### <a name="track-replication-status"></a>Śledź stan replikacji
 
@@ -162,7 +174,7 @@ Usługa Site Recovery tworzy domyślne ustawienia i zasady replikacji dla region
 
 3. W **ustawienia** > **elementy replikowane**, można wyświetlić stan maszyn wirtualnych i postęp replikacji początkowej. Kliknij maszynę Wirtualną, aby przejść do jego ustawień.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku odzyskiwania po awarii jest skonfigurowana dla maszyny Wirtualnej platformy Azure. Następnym krokiem jest, aby przetestować konfigurację.
 

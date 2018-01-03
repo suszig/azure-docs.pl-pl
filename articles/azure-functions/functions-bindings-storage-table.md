@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure tabeli powiązania magazynu dla usługi Azure Functions
 
@@ -35,8 +35,8 @@ Użyj powiązania wejściowego magazynu tabel Azure, aby odczytać tabeli na kon
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C# odczytu jedną jednostkę](#input---c-example-1)
-* [Prekompilowane C# odczytu wiele jednostek](#input---c-example-2)
+* [C# odczytu jedną jednostkę](#input---c-example-1)
+* [C# odczytu wiele jednostek](#input---c-example-2)
 * [C# skrypt - odczytu jedną jednostkę](#input---c-script-example-1)
 * [C# skrypt - odczytu wiele jednostek](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Zapoznaj się z przykładem specyficzny dla języka:
 
 ### <a name="input---c-example-1"></a>Dane wejściowe — przykład C# 1
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kod odczytuje wiersz pojedynczej tabeli. 
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) które odczytuje wiersz pojedynczej tabeli. 
 
 Wartość klucza wiersza "{queueTrigger}" wskazuje, czy klucz wiersza pochodzą z ciągu kolejki wiadomości.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Dane wejściowe — przykład C# 2
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kod odczytuje wiele wierszy tabeli. Należy pamiętać, że `MyPoco` pochodną klasy `TableEntity`.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) które odczytuje wiele wierszy tabeli. Należy pamiętać, że `MyPoco` pochodną klasy `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Dane wejściowe — atrybuty
  
-Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje umożliwiają konfigurowanie powiązania wejściowego tabeli następujące atrybuty:
+W [bibliotek klas C#](functions-dotnet-class-library.md), umożliwia skonfigurowanie powiązania wejściowego tabeli następujące atrybuty:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Aby uzyskać [wstępnie skompilowana C#](functions-dotnet-class-library.md) funk
   }
   ```
 
-  Pełny przykład, zobacz [Input - prekompilowany C# przykład](#input---c-example).
+  Pełny przykład, zobacz [Input - C# przykład](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Za pomocą raportu magazynu tabel Azure powiązanie do zapisywania jednostek w t
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#output---c-example)
-* [Skryptu C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Skryptu C# (csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana C#](functions-dotnet-class-library.md) kodu korzystającego z wyzwalacza HTTP do zapisania pojedynczej tabeli wiersza. 
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz protokołu HTTP do zapisania pojedynczej tabeli wiersza. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Konstruktor atrybutu ma nazwy tabeli. Mogą być używane na `out` parametrów lub wartości zwracanej funkcji, jak pokazano w poniższym przykładzie:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+Pełny przykład, zobacz [dane wyjściowe — przykład C#](#output---c-example).
 
-Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [Input - atrybutów](#input---attributes-for-precompiled-c).
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [Input - atrybutów](#input---attributes).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -635,7 +635,7 @@ Magazyn tabel danych wyjściowych powiązanie obsługuje następujące scenarius
 
   W funkcji JavaScript, dostęp do danych wyjściowych za pomocą tabeli `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

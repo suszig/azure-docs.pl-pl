@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Kondycja usługi Azure zawiera informacje o odpowiednim i spersonalizowane, gdy problemy w usługach Azure mieć wpływ na usługi.  Można go również przygotować do najbliższej planowanej konserwacji.
@@ -57,5 +57,4 @@ Filtr o krytycznym znaczeniu subskrypcji, regiony i typów zasobów kondycji us�
 ## <a name="configure-service-health-alerts"></a>Skonfiguruj alerty dotyczące kondycji usługi
 Kondycja usługi Azure integruje się z monitorem Azure za pośrednictwem wiadomości e-mail, wiadomości SMS i powiadomień elementu webhook otrzymywanie powiadomień wpływ na zasoby biznesowych o znaczeniu krytycznym. Konfigurowanie alertu dziennika aktywności odpowiedniego zdarzenia kondycji usługi. Trasy alertu do odpowiednich osób w organizacji za pomocą grup akcji. Aby uzyskać więcej informacji, zobacz [skonfigurować alerty dotyczące kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Następne kroki
-Konfigurowanie alertów, więc użytkownik jest powiadamiany o kondycji problemy. Aby uzyskać więcej informacji, zobacz [skonfigurować alerty dotyczące kondycji usługi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

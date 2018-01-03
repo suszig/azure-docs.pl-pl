@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Skonfiguruj odbiornik zewnętrzny dla zawsze włączonych grup dostępności w systemie Azure
 > [!div class="op_single_selector"]
@@ -130,6 +130,6 @@ Inaczej niż w poprzednim przykładzie uwierzytelniania SQL należy użyć, poni
 
 Jeśli replik zawsze na znajdują się w różnych podsieciach, klienci muszą określić **MultisubnetFailover = True** w parametrach połączenia. W efekcie prób połączenia równoległego replik w różnych podsieciach. Należy pamiętać, że taki scenariusz obejmuje między region wdrożenia zawsze włączonej grupy dostępności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

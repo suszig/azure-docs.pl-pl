@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5a4a57f50b0485b178b01c55bc3a71fcc288bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="how-to-configure-the-connected-factory-preconfigured-solution"></a>Jak skonfigurować połączonych fabryki wstępnie skonfigurowane rozwiązanie
+# <a name="configure-the-connected-factory-preconfigured-solution"></a>Konfigurowanie rozwiązania połączonych fabryki wstępnie
 
 Rozwiązanie połączonych fabryki wstępnie przedstawia symulowane pulpitu nawigacyjnego dla fikcyjnej firmy Contoso. Ta firma dysponuje globalnie fabryki w wielu lokalizacjach globalnego.
 
@@ -269,7 +269,7 @@ Wszystkie właściwości, które są używane w pliku konfiguracji można grupow
 
 Właściwości w tej kategorii definiują wygląd fabryka połączenia pulpitu nawigacyjnego. Przykłady:
 
-* Nazwa
+* Name (Nazwa)
 * Opis
 * Image (Obraz)
 * Lokalizacja
@@ -343,6 +343,6 @@ Jedną z cech **NumberOfManufactureredProducts** wartość węzła jest fakt, ż
 
 **OpCode** w konfiguracji konfiguruje logiki obliczeń do obliczania wyniku różnicy maksymalne i minimalne wartości. Wyniki te są następnie zebranych elementów bottom do poziomu głównego (globalne) i wyświetlane na pulpicie nawigacyjnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 A sugerowane, następnym krokiem jest, aby dowiedzieć się, jak [wdrożyć bramę Windows lub Linux dla połączonych fabryki wstępnie skonfigurowane rozwiązanie](iot-suite-connected-factory-gateway-deployment.md).

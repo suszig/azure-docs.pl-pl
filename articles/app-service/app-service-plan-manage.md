@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Zarządzanie plan usługi aplikacji na platformie Azure
 
-[Planu usługi aplikacji](azure-web-sites-web-hosting-plans-in-depth-overview.md) udostępnia zasoby aplikacji usługi app Service musi być uruchamiane. Ten przewodnik przedstawia sposób zarządzać plan usługi aplikacji. 
+[Planu usługi aplikacji](azure-web-sites-web-hosting-plans-in-depth-overview.md) udostępnia zasoby aplikacji usługi app Service musi być uruchamiane. Ten przewodnik przedstawia sposób zarządzać plan usługi aplikacji.
 
 ## <a name="create-an-app-service-plan"></a>Tworzenie planu usługi App Service
 
@@ -69,6 +69,8 @@ Wybierz **planu usługi aplikacji zmiany** do rozpoczęcia procesu.
 
 ![Selektor planu usługi aplikacji.][change]
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 Każdy plan ma własną warstwy cenowej. Na przykład przenoszenie lokacji z **wolne** warstwy do **standardowe** warstwy, włącza wszystkie aplikacje przypisane do korzystania z funkcji i zasobów **standardowe** warstwy. Jednak przenoszenie aplikacji z wyższej planu warstwowych do dolnej planu warstwowych oznacza już mieć dostęp do niektórych funkcji. Jeśli aplikacja korzysta z funkcji, który nie jest dostępny w planie docelowej, występuje błąd, pokazujący, której funkcji jest używana, który nie jest dostępny. Na przykład, jeśli jednej z aplikacji korzysta z certyfikatów SSL, można napotkać komunikat o błędzie: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`w takim przypadku należy skalować warstwę cenową planu docelowego **podstawowe** lub nowszej, lub konieczne jest usunięcie wszystkich połączeń SSL aplikację, zanim będzie możliwe przeniesienie aplikacji do docelowego planu.
 
 ## <a name="move-an-app-to-a-different-region"></a>Przenieś aplikację w innym regionie
@@ -95,7 +97,7 @@ Aby uniknąć nieoczekiwanego opłat, po usunięciu ostatniej aplikacji w planie
 > [!IMPORTANT]
 > **Planów usługi App Service** , która ma żadnych aplikacji powiązanych z nimi nadal spowodować naliczenie opłat, ponieważ nadal zarezerwować skonfigurowanych wystąpień maszyny Wirtualnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Skalowanie w górę aplikacji na platformie Azure](web-sites-scale.md)

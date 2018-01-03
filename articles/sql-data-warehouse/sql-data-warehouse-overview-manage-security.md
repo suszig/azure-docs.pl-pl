@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Zabezpieczanie bazy danych w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ W tym artykule przedstawiono podstawowe informacje o zabezpieczaniu bazy danych 
 ## <a name="connection-security"></a>Zabezpieczenia połączeń
 Zabezpieczenia połączeń dotyczą sposobu ograniczania i zabezpieczania połączeń z bazą danych przy użyciu reguł zapory i szyfrowania połączeń.
 
-Reguły zapory są używane zarówno przez serwer, jak i przez bazę danych do odrzucania prób połączenia z adresów IP, które nie zostały jawnie wymienione na liście dozwolonych hostów. Umożliwia nawiązywanie połączeń z aplikacji lub publiczny adres IP komputera klienta, należy najpierw utworzyć regułę zapory poziomu serwera przy użyciu portalu Azure, interfejsu API REST lub programu PowerShell. Najlepszym rozwiązaniem jest maksymalne ograniczenie zakresu adresów IP przepuszczanych przez zaporę serwera.  Aby uzyskać dostęp do usługi Azure SQL Data Warehouse z komputera lokalnego, upewnij się, że zapory w sieci i komputera lokalnego umożliwia komunikację wychodzący na porcie TCP 1433.  Aby uzyskać więcej informacji, zobacz [zapory bazy danych SQL Azure][Azure SQL Database firewall], [procedurę składowaną sp_set_firewall_rule][sp_set_firewall_rule], i [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Reguły zapory są używane zarówno przez serwer, jak i przez bazę danych do odrzucania prób połączenia z adresów IP, które nie zostały jawnie wymienione na liście dozwolonych hostów. Umożliwia nawiązywanie połączeń z aplikacji lub publiczny adres IP komputera klienta, należy najpierw utworzyć regułę zapory poziomu serwera przy użyciu portalu Azure, interfejsu API REST lub programu PowerShell. Najlepszym rozwiązaniem jest maksymalne ograniczenie zakresu adresów IP przepuszczanych przez zaporę serwera.  Aby uzyskać dostęp do usługi Azure SQL Data Warehouse z komputera lokalnego, upewnij się, że zapory w sieci i komputera lokalnego umożliwia komunikację wychodzący na porcie TCP 1433.  Aby uzyskać więcej informacji, zobacz [zapory bazy danych SQL Azure][Azure SQL Database firewall], [procedurę składowaną sp_set_firewall_rule][sp_set_firewall_rule].
 
 Domyślnie są szyfrowane połączenia z usługą SQL Data Warehouse.  Modyfikowanie ustawień połączenia umożliwia wyłączenie szyfrowania są ignorowane.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Konto administratora serwera, za pomocą którego nawiązujesz połączenie, jest członkiem roli db_owner, która ma uprawnienia do wykonywania wszystkich funkcji w bazie danych. Zapisz to konto, aby móc wdrażać uaktualnienia schematów i wykonywać inne operacje zarządzania. Używaj konta „ApplicationUser” z bardziej ograniczonymi uprawnienia do nawiązywania połączenia pomiędzy swoją aplikacją a bazą danych aplikacji, korzystając z minimalnych uprawnień wymaganych przez aplikację.
 
-Istnieją następujące sposoby dalszego ograniczenia operacji wykonywanych przez użytkownika w usłudze Azure SQL Database:
+Istnieją sposoby jeszcze bardziej ograniczyć, co może wykonać użytkownik z usługą Magazyn danych SQL Azure:
 
-* Szczegółowe [uprawnienia] [ Permissions] pozwalają kontroli operacje można wykonywać następujące czynności w poszczególnych kolumnach, tabele, widoki, procedury i innych obiektów w bazie danych. Umożliwia szczegółowe uprawnienia większości kontrolę i udzielanie minimalne uprawnienia wymagane. System szczegółowe uprawnienia jest dość złożone i wymaga niektórych badania efektywnie korzystać.
+* Szczegółowe [uprawnienia] [ Permissions] pozwalają kontroli, jakie operacje można wykonywać następujące czynności na poszczególnych kolumn i tabel, widoków, schematów, procedury i innych obiektów w bazie danych. Umożliwia szczegółowe uprawnienia większości kontrolę i udzielanie minimalne uprawnienia wymagane. System szczegółowe uprawnienia jest dość złożone i wymaga niektórych badania efektywnie korzystać.
 * [Ról bazy danych] [ Database roles] innych niż db_datareader i db_datawriter może służyć do tworzenia bardziej zaawansowanych kont użytkowników aplikacji lub słabszy kont zarządzania. Role wbudowane stałej bazy danych z łatwością udzielić uprawnień, ale może spowodować udzielanie więcej uprawnień niż jest to konieczne.
 * [Procedury składowane] [ Stored procedures] pozwala ograniczyć akcje, które można podjąć w bazie danych.
+
+Poniżej znajduje się przykład przydzielenia schemat zdefiniowane przez użytkownika do odczytu.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Zarządzanie bazami danych i serwerów logicznych z portalu Azure lub przy użyciu interfejsu API Menedżera zasobów Azure jest kontrolowana przez konto użytkownika portalu przypisań ról. Aby uzyskać więcej informacji na ten temat, zobacz [kontroli dostępu opartej na rolach w portalu Azure][Role-based access control in Azure Portal].
 
@@ -86,7 +92,7 @@ Azure SQL Data magazynu przezroczysty danych szyfrowania (funkcji TDE) chroni pr
 
 Można zaszyfrować przy użyciu bazy danych [Azure Portal] [ Encryption with Portal] lub [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać szczegółowe informacje i przykłady dotyczące łączenia się z usługą SQL Data Warehouse przy użyciu różnych protokołów, zobacz [nawiązywanie połączenia z usługi SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Obsługa planowanych konserwacji powiadomienia dla maszyn wirtualnych systemu Linux
 
@@ -30,9 +30,9 @@ Azure wykonuje okresowo aktualizacje do poprawy niezawodności, wydajności i za
 - Jeśli konserwacji wymaga ponownego uruchomienia, możesz uzyskać zawiadomienia o podczas jest planowanych konserwacji. W takich przypadkach podano przedział czasu, w którym można uruchomić obsługi samodzielnie, gdy jest używany dla Ciebie.
 
 
-Planowana konserwacja, która wymaga ponownego uruchomienia, zaplanowano etapami. Każdy wave ma inny zakres (regiony).
+Planowana konserwacja, która wymaga ponownego uruchomienia zaplanowano etapami. Każdy wave ma inny zakres (regiony).
 
-- Wave rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienia są wysyłane do subskrypcji właściciel i współwłaściciele. Można dodać więcej adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, SMS i elementów Webhook, do powiadomienia za pomocą usługi Azure [alertów dotyczących działań w dzienniku](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Wave rozpoczyna się od powiadomienia do klientów. Domyślnie powiadomienia są wysyłane do subskrypcji właściciel i współwłaściciele. Można dodać więcej adresatów i opcje obsługi wiadomości, takie jak wiadomości e-mail, SMS i elementów webhook, do powiadomienia za pomocą usługi Azure [alertów dotyczących działań w dzienniku](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - W tym czasie powiadomienia *samoobsługi okna* ma zostać udostępnione. W tym oknie można znaleźć, który maszyn wirtualnych znajdują się w tym wave i aktywnego start konserwacji zgodnie z własnych wymagań dotyczących planowania.
 - Po oknie samoobsługi *zaplanowanego okna obsługi* rozpoczyna się. W pewnym momencie podczas tego okna Azure harmonogramy i stosuje obsługi wymaganych do maszyny wirtualnej. 
 
@@ -92,8 +92,8 @@ Następujące wartości są zwracane w obszarze MaintenanceRedeployStatus:
 | IsCustomerInitiatedMaintenanceAllowed | Wskazuje, czy w tej chwili można wykonać obsługi maszyny Wirtualnej ||
 | PreMaintenanceWindowStartTime         | Na początku samoobsługi oknem obsługi po rozpoczęciu konserwacji na maszynie Wirtualnej ||
 | PreMaintenanceWindowEndTime           | Koniec samoobsługi oknem obsługi po rozpoczęciu konserwacji na maszynie Wirtualnej ||
-| MaintenanceWindowStartTime            | Na początku okna zaplanowanej konserwacji, jeśli można zainicjować obsługi na maszynie Wirtualnej ||
-| MaintenanceWindowEndTime              | Koniec okna zaplanowanej konserwacji, jeśli można zainicjować obsługi na maszynie Wirtualnej ||
+| MaintenanceWindowStartTime            | Na początku zaplanowanego okna obsługi w którym Azure inicjuje konserwacji na maszynie Wirtualnej ||
+| MaintenanceWindowEndTime              | Koniec zaplanowanego okna obsługi w którym Azure inicjuje konserwacji na maszynie Wirtualnej ||
 | LastOperationResultCode               | Wynik ostatniej próby zainicjowanie obsługi w maszynie Wirtualnej ||
 
 
@@ -159,7 +159,7 @@ Aby uzyskać więcej informacji o wysokiej dostępności, zobacz [dostępności 
 
 **Pytanie: jak długo ponownego uruchomienia Moja maszyna wirtualna Trwa?**
 
-**Odpowiedź:** w zależności od rozmiaru maszyny Wirtualnej, ponowne uruchomienie komputera może potrwać kilka minut. Należy pamiętać, że w przypadku, gdy używasz usługi w chmurze (rola sieci Web/proces roboczy), zestawy skalowania maszyny wirtualnej lub zestawów dostępności, będziesz mieć możliwość 30 minut między wszystkimi grupami maszyn wirtualnych (UD). 
+**Odpowiedź:** w zależności od rozmiaru maszyny Wirtualnej, ponowne uruchomienie komputera może potrwać kilka minut w oknie konserwacji samoobsługi. Podczas Azure zainicjował ponowne uruchomienia w oknie zaplanowanej konserwacji ponownego rozruchu zwykle zajmie około 25 minut. Należy pamiętać, że w przypadku, gdy używasz usługi w chmurze (rola sieci Web/proces roboczy), zestawy skalowania maszyny wirtualnej lub zestawów dostępności, będziesz mieć możliwość 30 minut między wszystkimi grupami z maszyn wirtualnych (UD) podczas czasu zaplanowanego okna obsługi.
 
 **Pytanie: co to jest środowisko w przypadku usługi w chmurze (rola sieci Web/proces roboczy), usługi Service Fabric i zestawy skalowania maszyny wirtualnej?**
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: febb00cb6d1b28e1166562c53e2d05c3e7aba36b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nowości w usłudze Azure Active Directory
 
@@ -41,6 +41,163 @@ Firma Microsoft umożliwiają zwiększenie usługi Azure Active Directory w spos
 
 Należy ponownie tę stronę regularnie, ponieważ trwa jego aktualizacja co miesiąc.
 
+
+## <a name="december-2017"></a>2017 grudnia
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Warunki użytkowania w panelu dostępu dla użytkowników końcowych
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** warunki użytkowania  
+**Możliwości produktu:** ładu/zgodności
+ 
+Użytkownicy końcowi mają teraz możliwość przejdź do panelu dostępu i Wyświetl warunki użytkowania, który już wcześniej zaakceptowano.
+
+Użytkownicy mogą wyświetlać i przeglądać warunki użytkowania, które zaakceptowali. W tym celu można wykonać następujące czynności:
+
+1. Nawigowanie i zaloguj się do [MyApps portal](https://myapps.microsoft.com).
+
+2. W prawym górnym rogu kliknij swoją nazwę i wybierz pozycję **Profil** z listy rozwijanej. 
+
+3. Na stronie profilu kliknij pozycję **Przejrzyj warunki użytkowania**. 
+
+4. Następnie możesz przejrzeć zaakceptowane warunki użytkowania. 
+
+Aby uzyskać więcej informacji, zobacz [funkcji Azure Active Directory warunków użytkowania (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nowego środowiska logowania usługi Azure AD
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** usługi Azure AD  
+**Możliwości produktu:** uwierzytelnianie użytkownika
+ 
+W ramach podróży zbieżności platformy Azure AD i systemów tożsamości konta Microsoft, firma Microsoft ma przeprojektowany interfejsu użytkownika na obu systemów, tak aby miały spójny wygląd i zachowanie. Ponadto firma Microsoft ma podzielony na strony strony logowania usługi Azure AD, aby zbieramy nazwę użytkownika, następuje poświadczeń na drugim ekranie.
+
+Aby uzyskać więcej informacji, zobacz [nowego środowiska usługi Azure AD rejestrowanie znajduje się teraz w publicznej wersji zapoznawczej](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Mniejszą liczbę monitów logowania: środowisko do nowego "wylogowuj mnie" dla nazwy logowania w usłudze Azure AD
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** usługi Azure AD  
+**Możliwości produktu:** uwierzytelnianie użytkownika
+ 
+Firma Microsoft zastąpiła **wylogowuj mnie** uwierzytelnia wyboru na stronie logowania usługi Azure AD z nowego wierszu, który jest wyświetlany po użytkownik pomyślnie. 
+
+Jeśli użytkownik odpowie **tak** do wiersza polecenia usługi daje, ich token odświeżania trwałych. To jest takie samo zachowanie jako Jeśli użytkownik włączy **wylogowuj mnie** checkbox w starym środowisko. W przypadku dzierżaw federacyjnych tego monitu zostaną wyświetlone po użytkownik zostanie pomyślnie uwierzytelniony w usłudze federacyjnej.
+
+Aby uzyskać więcej informacji, zobacz [mniejszą liczbę monitów logowania: nowe środowisko "Wylogowuj mnie" dla usługi Azure AD jest w wersji zapoznawczej](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Dodaj konfigurację, aby wymagać do wyodrębnienia przed rozpoczęciem akceptowania warunków.
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** warunki użytkowania  
+**Możliwości produktu:** ładu
+ 
+Teraz dodano możliwość rozwiń warunki użytkowania, przed rozpoczęciem akceptowania warunków dla administratorów wymagać użytkownikom końcowym.
+
+Wybierz opcję on lub off dla wymagać od użytkowników rozwinąć warunki użytkowania. W przypadku włączenia tego ustawienia od użytkowników końcowych wymagane będzie wyświetlenie warunków użytkowania przed ich akceptacją.
+
+Aby uzyskać więcej informacji, zobacz [funkcji Azure Active Directory warunków użytkowania (wersja zapoznawcza)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Zakresie aktywacji dla przypisania ról kwalifikujących się
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** Privileged Identity Management  
+**Możliwości produktu:** Privileged Identity Management
+ 
+Zakresie aktywacji pozwala aktywować przypisania ról kwalifikujących się zasobów platformy Azure z mniej niezależność od oryginalnej wartości domyślnych przydziału. Na przykład przypisano właściciela subskrypcji w dzierżawie. Z zakresie aktywacji, może aktywować właściciela zasobów do pięciu zawartych w subskrypcji (wziąć pod uwagę grup zasobów, maszyny wirtualne itp...). Określanie zakresu proces aktywacji może zmniejszyć możliwość wykonywania niepożądanych zmian do kluczowych zasobów platformy Azure.
+
+Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nowe aplikacje federacyjne w galerii aplikacji Azure AD
+
+**Typ:** nowej funkcji  
+**Kategoria usług:** aplikacje przedsiębiorstwa  
+**Możliwości produktu:** 3 firm integracji
+ 
+W grudniu 2017 dodano obsługę następujących nowych aplikacji w galerii aplikacji z Federacją:
+
+|Name (Nazwa)|Typ integracji|Opis|
+|:-- |----------------|:----------|
+|EFI cyfrowe sklepu|SAML 2.0|[Aplikacja drukowania sieci Web 2](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Zarządzanie dostępem użytkowników i Włącz logowanie jednokrotne z Vodeclic przy użyciu usługi Azure AD](https://go.microsoft.com/fwlink/?linkid=863522).  Wymaga istniejącego konta Vodeclic.|
+|Accredible|SAML 2.0|[Tworzenie i dostarczania certyfikatów, symbole i blockchain poświadczeń i zarządzanie](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Logowanie jednokrotne do aplikacji FDSWeb FactSet firmy](https://go.microsoft.com/fwlink/?linkid=863525)|
+|Integracja usług MobileIron Azure AD|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) misji jest umożliwienie nowoczesnych przedsiębiorstwom zabezpieczenie i zarządzanie nimi informacje przesyłane do mobile i w chmurze przy zachowaniu użytkownika końcowego i poufności informacji w relacji zaufania.|
+|DZIAŁA OBRAZU|SAML 2.0|Zarządzanie dostępem użytkowników, obsługi administracyjnej kont użytkowników i Włącz logowanie jednokrotne z przy użyciu usługi Azure AD [WORKS obrazu](https://go.microsoft.com/fwlink/?linkid=863517). Wymaga istniejącej subskrypcji działa obrazu.|
+|Logowania jednokrotnego SAML dla Bitbucket przez rozpoznawania GmbH|SAML 2.0|[Usługa rejestracji Jednokrotnej Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegatów uwierzytelniania usługi Azure AD, użytkownicy już zalogowany do usługi Azure AD mogą uzyskiwać dostęp do Bitbucket bezpośrednio. Użytkownicy mogą być tworzone i aktualizowane na bieżąco z danymi z atrybutów SAML.|
+|Logowania jednokrotnego SAML dla Bambus przez rozpoznawania GmbH|SAML 2.0|[Usługa rejestracji Jednokrotnej Bambus](https://go.microsoft.com/fwlink/?linkid=863520) delegatów uwierzytelniania usługi Azure AD, użytkownicy już zalogowany do usługi Azure AD mogą uzyskiwać dostęp do Bambus bezpośrednio.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) jest nowoczesny, oferujący wszystkie potrzebne funkcje społecznościowe intranet oprogramowania obsługującego pracowników i firmy.|
+|MOBI|SAML 2.0|[Scentralizowanie, pojmować i kontrolę z ekosystemem wszystkich danych z urządzenia](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) dotyczy nowoczesnych platformy zarządzania wydajnością, opinie w czasie rzeczywistym i ustawienia celu. Firma Microsoft pozwalają pracowników do rozwoju, dlatego może być ważniejsze.|
+|CybSafe|OpenID Connect & OAuth|CybSafe to platforma świadomości certyfikowane GCHQ ataków. Sposób oczywisty zmniejszenie człowieka aspekt ryzyka ochrony danych i bezpieczeństwa przez używa zaawansowanej technologii i analizy danych.|
+|WebHR|OpenID Connect & OAuth|Dla każdej osoby ulubionych w jednym HR społecznościowych oprogramowania. Zaufany przez ponad 20 000 firmy w krajach 197|
+ |Integracja usług Zenegy Azure AD|OpenID Connect & OAuth|Z tą aplikacją poświadczeń usługi Azure Active Directory w firmie służy do zalogowania się do Zenegy.|
+|Menedżer obsługi Adobe|SAML 2.0|Menedżer obsługi Adobe bez agenta (AEM), jest kompleksowe zarządzanie zawartością platformy rozwiązania do tworzenia witryn sieci Web, aplikacje mobilne i formularze — co ułatwia zarządzanie zawartości marketing i zasoby.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Przepływów pracy dla ról katalogu usługi Azure AD
+
+**Typ:** funkcji zmienione  
+**Kategoria usług:** Privileged Identity Management  
+**Możliwości produktu:** Privileged Identity Management
+ 
+Przepływ pracy zatwierdzania dla ról katalogu usługi Azure AD jest ogólnie dostępna.
+
+Z procedury zatwierdzania ról uprzywilejowanych, Administratorzy mogą wymagać od członków roli kwalifikujących się żądania aktywacji ról, aby móc korzystać z ról uprzywilejowanych.
+Wielu użytkowników i grup może być delegowane zatwierdzenia obowiązki członków roli kwalifikujących się otrzymywanie powiadomień o zatwierdzenie jest zakończenie i ich rolą jest aktywny
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Uwierzytelniania przekazywanego - Skype dla firm pomocy technicznej
+
+**Typ:** funkcji zmienione  
+**Kategoria usług:** uwierzytelnienia (logowania do)  
+**Możliwości produktu:** uwierzytelnianie użytkownika
+
+
+Teraz uwierzytelniania przekazywanego obsługuje logowania użytkowników do usługi Skype dla firm aplikacji klienckich, które obsługują nowoczesnego uwierzytelniania, w tym Online i hybrydowych topologii. 
+
+Aby uzyskać więcej informacji, zobacz [Skype dla firm topologie obsługiwane z nowoczesnego uwierzytelniania](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Aktualizacje do usługi Azure Active Directory uprzywilejowanego tożsamości zarządzania (PIM) dla Azure RBAC (wersja zapoznawcza)
+
+**Typ:** funkcji zmienione  
+**Kategoria usług:** PIM  
+**Możliwości produktu:** Privileged Identity Management
+ 
+Z naszych publicznego Podgląd Odśwież z Azure Active Directory uprzywilejowanych tożsamości zarządzania (PIM) dla Azure RBAC, można teraz:
+
+Użyj właśnie, wystarczająco administracyjnej wymagają zatwierdzenia Uaktywnij role zasobów planowanie przyszłych aktywacji roli, która wymaga zatwierdzenia dla zarówno usługi AAD i Azure RBAC ról
+
+ 
+Aby uzyskać więcej informacji, zobacz [PIM zasobów Azure (wersja zapoznawcza)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>2017 listopada
  
 ### <a name="retiring-acs"></a>Wycofanie usług ACS
@@ -513,6 +670,6 @@ Pakiet zbiorczy poprawek (kompilacja 4.4.1642.0) jest dostępny od 25 września 
 - Jest aktualizacją zbiorczą, który zastępuje wszystkie aktualizacje MIM 2016 z dodatkiem SP1 do kompilacji 4.4.1459.0 dla programu Microsoft Identity Manager 2016. 
 - Wymagane jest posiadanie **4.4.1302.0 kompilacji programu Microsoft Identity Manager 2016.** 
 
-Aby uzyskać więcej informacji, zobacz [pakiet zbiorczy poprawek (kompilacja 4.4.1642.0) jest dostępna dla programu Microsoft Identity Manager 2016 z dodatkiem SP1](https://support.microsoft.com/en-us/help/4021562). 
+Aby uzyskać więcej informacji, zobacz [pakiet zbiorczy poprawek (kompilacja 4.4.1642.0) jest dostępna dla programu Microsoft Identity Manager 2016 z dodatkiem SP1](https://support.microsoft.com/help/4021562). 
 
 ---

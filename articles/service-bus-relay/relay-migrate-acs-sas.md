@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2674ad4db9749b0a2d9342017a230797514763
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrowanie z usługi kontroli dostępu Active Directory platformy Azure do autoryzacji sygnatura dostępu współdzielonego
 
@@ -59,7 +59,7 @@ Można wprowadzić tej nowych i dodatkowych konfiguracji SAS w miejscu na istnie
 
 Zasady sygnatury dostępu Współdzielonego mają nie być kont, ale są nazywane klucze podpisywania związane z prawami. Tak scenariusze, w których aplikacja tworzy wiele tożsamości usługi i przyznał im prawa dostępu do kilku jednostek lub pośrednik wystawiania tokenu ciągle wymagane w całej przestrzeni nazw. Możesz uzyskać wskazówki dotyczące pośredniej przez [kontaktu z pomocą techniczną](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat przekaźnika usługi Azure uwierzytelniania, zobacz następujące tematy:
 

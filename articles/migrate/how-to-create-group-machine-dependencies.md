@@ -4,22 +4,21 @@ description: "Opisuje sposób tworzenia ocenę przy użyciu zależności kompute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 769c05916de4e7ad5b14812c2c8dbcf69e91320c
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grupy maszyn przy użyciu mapowania zależności maszyny
 
-W tym artykule opisano sposób tworzenia grupy komputerów dla [migracji Azure](migrate-overview.md) ocena przy użyciu mapowania zależności maszyny. Jeśli chcesz ocenić grupy maszyn wirtualnych z wyższego poziomu zaufania krzyżowe sprawdzanie z zależnościami maszyny przed uruchomieniem ocenę zwykle Użyj tej metody.
-
+W tym artykule opisano sposób tworzenia grupy komputerów dla [migracji Azure](migrate-overview.md) oceny przez wizualizowanie zależności maszyn. Jeśli chcesz ocenić grupy maszyn wirtualnych z wyższego poziomu zaufania krzyżowe sprawdzanie z zależnościami maszyny przed uruchomieniem ocenę zwykle Użyj tej metody. Wizualizacja zależności ułatwia efektywne planowanie migracji do usługi Azure. Pomaga zapewnić, że nic pozostawione i awarie niespodziewanego występuje, gdy w przypadku migracji do usługi Azure. Umożliwia odnalezienie wszystkich współzależne systemów, które należy migrować ze sobą i ustalić, czy na komputerze z uruchomionym systemem nadal działa jako użytkowników lub kwalifikuje się do likwidacji zamiast migracji. 
 
 
 ## <a name="prepare-machines-for-dependency-mapping"></a>Przygotowanie maszyny do mapowania zależności
-Aby uwzględnić maszyny w mapowaniu zależności, musisz pobrać i zainstalować agentów na każdej maszynie lokalnej, która ma zostać oceniona. Ponadto, jeśli masz maszyny bez łączności z Internetem, musisz pobrać i zainstalować [bramy OMS](../log-analytics/log-analytics-oms-gateway.md) na nich.
+Aby wyświetlić zależności maszyny, musisz pobrać i zainstalować agentów na każdej maszynie lokalnej, która ma zostać oceniona. Ponadto, jeśli masz maszyny bez łączności z Internetem, musisz pobrać i zainstalować [bramy OMS](../log-analytics/log-analytics-oms-gateway.md) na nich.
 
 ### <a name="download-and-install-the-vm-agents"></a>Pobierz i zainstaluj agentów maszyny Wirtualnej
 1. W **omówienie**, kliknij przycisk **Zarządzaj** > **maszyny**i wybierz wymagany komputer.
@@ -32,7 +31,7 @@ Aby uwzględnić maszyny w mapowaniu zależności, musisz pobrać i zainstalowa�
 Aby zainstalować agenta na komputerze z systemem Windows:
 
 1. Kliknij dwukrotnie pobrany agenta.
-2. Na **powitalnej** kliknij przycisk **dalej**. Na **postanowień licencyjnych** kliknij przycisk **zgadzam się** do akceptowania licencji.
+2. Na **stronie powitalnej** kliknij przycisk **Dalej**. Na **postanowień licencyjnych** kliknij przycisk **zgadzam się** do akceptowania licencji.
 3. W **Folder docelowy**, Zachowaj lub zmienić domyślny folder instalacji > **dalej**. 
 4. W **opcje instalacji agenta**, wybierz pozycję **Analiza dzienników Azure (OMS)** > **dalej**. 
 5. Kliknij przycisk **Dodaj** Aby dodać nowy obszar roboczy OMS. Wklej identyfikator i klucz, który został skopiowany z portalu. Kliknij przycisk **Dalej**.
@@ -57,22 +56,30 @@ Aby zainstalować agenta na komputerze z systemem Linux:
 ## <a name="create-a-group"></a>Utwórz grupę
 
 1. Po zainstalowaniu agentów, przejdź do portalu i kliknij przycisk **Zarządzaj** > **maszyny**.
-2. **Zależności** kolumny powinny być teraz wyświetlane jako **zależności widoku**. Kliknij kolumnę, aby wyświetlić zależności.
-3. Dla każdego komputera można sprawdzić:
-    - Określa, czy MMA i agentem zależności są zainstalowane i czy został odnaleziony komputer.
-    - System operacyjny gościa uruchomionych na komputerze.
-    - Przychodzące i wychodzące połączenia IP i portów.
-    - Procesy uruchomione na maszynach.
-    - Zależności między komputerami.
+2. Wyszukiwanie maszyny, na którym zainstalowano agentów.
+3. **Zależności** kolumny maszyny powinny być teraz wyświetlane jako **zależności widoku**. Kliknij kolumnę, aby wyświetlić zależności maszyny.
+4. Zależności mapy dla maszyny zawiera następujące informacje:
+    - Przychodzące (klienci) i połączenia wychodzące (serwery) TCP do/z maszyny
+        - Zależne maszyny, które nie jest zainstalowany agent MMA i zależności są pogrupowane według numerów portów
+        - Maszyny dependenct, które mają MMA i z zainstalowanym agentem zależności są wyświetlane jako osobne pola 
+    - Procesów uruchomionych na maszynie, możesz rozszerzyć każde pole maszyny do wyświetlania procesów
+    - Właściwości, takie jak pełni kwalifikowana nazwa domeny, System operacyjny, itp. adres MAC każdego komputera, możesz kliknąć każde pole maszyny, aby wyświetlić te szczegóły
 
-4. Do zapewnienia jeszcze bardziej precyzyjnej zależności kliknij zakres czasu, aby go zmodyfikować. Domyślnie zakres jest godzinę. Możesz zmodyfikować zakres czasu lub określ rozpoczęcia oraz datę zakończenia oraz czas trwania.
-5. Po wyłaniają zależnych maszyny, które będą grupowane, wybrać maszyny na mapie i kliknij przycisk **grupowanie maszyn**.
-6. Określ nazwę grupy. Upewnij się, że komputer jest wykrywane przez Azure migracji. Jeśli nie jest ona ponownie uruchom odnajdywania procesu lokalną. Oceny można uruchomić natychmiast, jeśli chcesz.
-7. Kliknij przycisk **OK** można zapisać grupy.
+ ![Wyświetlanie maszyny zależności](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
-    ![Utwórz grupę z zależnościami maszyny](./media/how-to-create-group-machine-dependencies/create-group.png)
+4. Można przyjrzeć zależności dla czasu trwania w innym czasie, klikając na czas trwania w etykiecie zakres czasu. Domyślnie zakres jest godzinę. Możesz zmodyfikować zakres czasu lub określ rozpoczęcia oraz datę zakończenia oraz czas trwania.
+5. Po wyłaniają zależnych maszyny, które będą grupowane, za pomocą klawiszy Ctrl + kliknięcie, wybrać wiele komputerów, na mapie, a następnie kliknij przycisk **grupowanie maszyn**.
+6. Określ nazwę grupy. Upewnij się, że zależny maszyny są wykrywane przez Azure migracji. 
 
-## <a name="next-steps"></a>Następne kroki
+    > [!NOTE]
+    > Jeśli maszyny zależny nie został odnaleziony przez migrację Azure, nie można dodać go do grupy. Aby dodać tych komputerów do grupy, należy ponownie uruchomić proces odnajdowania z zakresem prawa w programie vCenter Server i upewnij się, że komputer jest wykrywane przez Azure migracji.  
 
-- [Dowiedz się, jak](how-to-create-group-dependencies.md) uściślić grupy sprawdzając grupy zależności
+7. Jeśli chcesz utworzyć oceny dla tej grupy, wybierz pole wyboru, aby utworzyć nowy oceny grupy.
+8. Kliknij przycisk **OK** można zapisać grupy.
+
+Po utworzeniu grupy, zaleca się instalowania agentów na wszystkich komputerach, grupy i zakres grupy wizualizowanie zależności całej grupy.
+
+## <a name="next-steps"></a>Kolejne kroki
+
+- [Dowiedz się, jak](how-to-create-group-dependencies.md) Aby zawęzić kryteria do grupy przez wizualizowanie zależności grupy
 - [Dowiedz się więcej](concepts-assessment-calculation.md) o obliczania oceny.

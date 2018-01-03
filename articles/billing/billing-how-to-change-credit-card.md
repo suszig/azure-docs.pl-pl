@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Dodać, zaktualizować lub usunąć karta kredytowa lub debetowa dla platformy Azure
 
@@ -77,7 +77,7 @@ Jeśli karty kredytowej jest skojarzony z innych aktywnych subskrypcji firmy Mic
 
 Po subskrypcji zostało wyłączone lub anulowane, oczekiwania 90 dni przed trwałe usunięcie subskrypcji. Zachowaj możemy formy płatności na plik w okresie przechowywania w przypadku, gdy chcesz ponownie aktywować subskrypcję. Po wykonaniu tej subskrypcji jest całkowicie usunięty.
 
-Jeśli musisz usunąć kartą kredytową lub debetową, przed zakończeniem okresu przechowywania 90-dniowy [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Jeśli musisz usunąć kartą kredytową lub debetową, przed zakończeniem okresu przechowywania 90-dniowy [ponownie aktywować subskrypcję](billing-subscription-become-disable.md). Jeśli nie można ponownie aktywować [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Dlaczego wciąż "logowania sesja wygasła. Kliknij tutaj, aby ponownie się zalogować"?
 
@@ -96,6 +96,10 @@ Jeśli jesteś [za pomocą faktury](billing-how-to-pay-by-invoice.md), Wyślij p
 ### <a name="how-do-i-make-a-one-time-payment"></a>Jak dokonać jednorazowej płatności?
 
 Niestety Azure aktualnie nie obsługuje płatności jednorazowe kredytową lub debetową kart. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Jak zmienić NIP?
+
+Aby dodać lub zaktualizować NIP, odwiedź stronę [ **profilu** w Centrum konta platformy Azure](https://account.azure.com/Profile), a następnie wybierz pozycję **podatku rekordu**. Ten NIP służy do obliczenia wykluczania podatku i pojawia się na faktury.
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Kontakt z pomocą techniczną
 

@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transfer danych za pomocą Biblioteka przenoszenia danych magazynu Microsoft Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Biblioteka przenoszenia danych w programie Microsoft Azure magazynu jest biblioteki typu open source i platform, która jest przeznaczona dla wysokiej wydajności, przekazywanie, pobieranie i kopiowania plików i obiektów blob magazynu Azure. Ta biblioteka jest podstawowym środowisku przenoszenia danych, które obsługuje [AzCopy](../storage-use-azcopy.md). Biblioteka przenoszenia danych udostępnia wygodne metody, które nie są dostępne w przypadku naszego tradycyjnych [biblioteki klienta magazynu Azure .NET](../blobs/storage-dotnet-how-to-use-blobs.md). Obejmuje to możliwość Ustaw liczbę operacji równoległych, śledzić postępu przenoszenia, łatwe wznawianie transferu anulowane i o wiele więcej.  
 
 Ta biblioteka używa również .NET Core, co oznacza, że użytkownik może być używany podczas tworzenia aplikacji programu .NET dla systemu Windows, Linux i macOS. Aby dowiedzieć się więcej na temat platformy .NET Core, zobacz [dokumentacji platformy .NET Core](https://dotnet.github.io/). Ta biblioteka działa także dla tradycyjnej aplikacji .NET Framework dla systemu Windows. 
 
-W tym dokumencie przedstawiono sposób tworzenia aplikacji konsoli .NET Core, który działającą w systemach Windows, Linux i macOS i wykonuje następujące scenariusze:
+W tym dokumencie przedstawiono sposób tworzenia aplikacji konsoli .NET Core, która działa w systemach Windows, Linux i macOS i wykonuje następujące scenariusze:
 
 - Przekazywanie plików i katalogów do magazynu obiektów Blob.
 - Określ liczbę operacji równoległych podczas transferu danych.
@@ -39,7 +39,7 @@ W tym dokumencie przedstawiono sposób tworzenia aplikacji konsoli .NET Core, kt
 **Co jest potrzebne:**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
+* [konto usługi Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
 > W tym przewodniku założono, że czytelnik zna już [usługi Azure Storage](https://azure.microsoft.com/services/storage/). Jeśli nie, odczytywanie [wprowadzenie do usługi Azure Storage](storage-introduction.md) warto dokumentacji. Przede wszystkim należy [Utwórz konto magazynu](storage-create-storage-account.md#create-a-storage-account) aby rozpocząć korzystanie z Biblioteka przenoszenia danych.
@@ -565,7 +565,7 @@ W tym przykładzie firma Microsoft ustaw dla parametru logicznych `TransferManag
 ## <a name="conclusion"></a>Podsumowanie
 Naszej aplikacji przepływu danych jest teraz ukończona. [Przykład pełny kod jest dostępny w witrynie GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym wprowadzenie, utworzyliśmy aplikację, która współdziała z usługą Azure Storage i działa w systemach Windows, Linux i macOS. Rozpoczęto pobieranie ukierunkowanych na magazyn obiektów Blob. Jednak ten sam wiedzy może odnosić się do przechowywania plików. Aby dowiedzieć się więcej, zapoznaj się [Biblioteka przenoszenia danych magazynu Azure dokumentacji](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Reguły zapory poziomu serwera i bazy danych na poziomie bazy danych SQL Azure 
 
@@ -31,7 +31,7 @@ Usługa Microsoft Azure SQL Database udostępnia usługę relacyjnej bazy danych
 
 Oprócz reguł IP zarządza także zapory *zasady sieci wirtualnej*. Zasady sieci wirtualnej są oparte na punktów końcowych usługi sieci wirtualnej. Zasady sieci wirtualnej może być korzystniejsze IP reguły w niektórych przypadkach. Aby dowiedzieć się więcej, zobacz [punktów końcowych usługi sieci wirtualnej i zasady usługi Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Początkowo cały dostęp języka Transact-SQL do serwera Azure SQL jest blokowany przez zaporę. Aby rozpocząć korzystanie z serwera Azure SQL, należy określić co najmniej jedną regułę zapory poziomu serwera, które umożliwiają dostęp do serwera Azure SQL. Użyj reguł zapory do określenia zakresu dozwolonych adresów IP pochodzących z Internetu oraz możliwości podejmowania przez aplikacje platformy Azure prób połączenia się z serwerem Azure SQL.
 
@@ -45,6 +45,10 @@ Próby połączenia z Internetu i platformy Azure muszą najpierw przejść prze
 * **Reguły zapory poziomu bazy danych:** reguły te umożliwiają klientom dostęp do niektórych (bezpieczny) bazy danych, w tym samym serwerze logicznym. Można utworzyć zasady dla każdej bazy danych (w tym **wzorca** bazy danych) i są przechowywane w poszczególnych bazach danych. Reguły zapory poziomu bazy danych dla baz danych master i użytkownika tylko wtedy można tworzyć i zarządzane za pomocą instrukcji języka Transact-SQL i dopiero po skonfigurowaniu pierwszego zapory poziomu serwera. Jeśli zakres adresów IP określony w regule zapory na poziomie bazy danych znajduje się poza zakresem określonym w regule zapory na poziomie serwera, dostęp do bazy danych mogą uzyskać tylko ci klienci, którzy mają adresy IP z zakresu ustalonego na poziomie bazy danych. Dla bazy danych można określić maksymalnie 128 reguł zapory na poziomie bazy danych. Aby uzyskać więcej informacji na temat konfigurowania reguł zapory na poziomie bazy danych, zobacz przykład później w tym artykuł i zobacz [sp_set_database_firewall_rule (baz danych SQL Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Zalecenie:** firma Microsoft zaleca korzystanie z reguł zapory na poziomie bazy danych zawsze wtedy, gdy jest to możliwe, aby zwiększyć poziom bezpieczeństwa i uczynić bazę danych bardziej przenośną. Reguły zapory na poziomie serwera powinny być używane dla administratorów i w przypadku, gdy wiele baz danych ma takie same wymagania dotyczące dostępu, a użytkownik nie chce poświęcać czasu na oddzielne konfigurowanie każdej bazy danych.
+
+> [!Important]
+> Baza danych SQL Azure z systemem Windows obsługuje maksymalnie 128 reguł zapory.
+>
 
 > [!Note]
 > Aby uzyskać informacje o przenośnych bazach danych w kontekście ciągłości działalności biznesowej, zobacz [Wymagania dotyczące uwierzytelniania dla odzyskiwania po awarii](sql-database-geo-replication-security-config.md).
@@ -217,7 +221,7 @@ Jeśli dostęp do usługi Microsoft Azure SQL Database nie działa zgodnie z ocz
   * Poproś usługodawcę internetowego (ISP) o zakres adresów IP przypisany do komputerów klienckich uzyskujących dostęp do serwera usługi Azure SQL Database, a następnie dodaj ten zakres adresów IP jako regułę zapory.
   * Pobierz statyczne adresy IP dla komputerów klienckich, a następnie dodaj te adresy IP jako reguły zapory.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać szybki start dotyczące tworzenia bazy danych i regułę zapory poziomu serwera, zobacz [tworzenie bazy danych Azure SQL](sql-database-get-started-portal.md).
 - Aby uzyskać pomoc podczas łączenia się z bazą danych Azure SQL z aplikacji innych firm lub aplikacji typu open source, zobacz [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx) (Przykłady kodu umożliwiające szybki start dla klienta usługi SQL Database).

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
@@ -50,13 +50,13 @@ Za pomocą proxy funkcji platformy Azure można modyfikować żądania i odpowie
 
 Domyślnie żądania zaplecza został zainicjowany jako kopia oryginalnego żądania. Oprócz skonfigurowania adresu URL zaplecza, można wprowadzić zmiany do metody HTTP, nagłówki i parametrów ciągu zapytania. Zmodyfikowane wartości może się odwoływać [ustawienia aplikacji] i [parametrów z żądania klienta oryginalnym].
 
-Obecnie nie są portalu obsługę modyfikowanie żądań zaplecza. Aby dowiedzieć się, jak zastosować tę możliwość z proxies.json, zobacz [zdefiniować obiekt requestOverrides].
+Obecnie nie są portalu obsługę modyfikowanie żądań zaplecza. Więcej informacji na temat do zastosowania z tej możliwości *proxies.json*, zobacz [zdefiniować obiekt requestOverrides].
 
 ### <a name="modify-response"></a>Modyfikować odpowiedzi
 
 Domyślnie odpowiedzi klienta zostanie zainicjowany jako kopię odpowiedzi zaplecza. Kod stanu odpowiedzi, frazę przyczyny, nagłówki i treści, można wprowadzić zmiany. Zmodyfikowane wartości może się odwoływać [ustawienia aplikacji], [parametrów z żądania klienta oryginalnym], i [parametry z odpowiedzi zaplecza].
 
-Obecnie nie są bez obsługi portalu modyfikowania odpowiedzi. Aby dowiedzieć się, jak zastosować tę możliwość z proxies.json, zobacz [zdefiniować obiekt responseOverrides].
+Obecnie nie są bez obsługi portalu modyfikowania odpowiedzi. Więcej informacji na temat do zastosowania z tej możliwości *proxies.json*, zobacz [zdefiniować obiekt responseOverrides].
 
 ## <a name="using-variables"></a>Używać zmiennych
 
@@ -84,7 +84,7 @@ Parametry odpowiedzi mogą być używane jako część modyfikowania odpowiedzi 
 
 * **{backend.response.statusCode}** : Kod stanu HTTP, który jest zwracany w odpowiedzi zaplecza.
 * **{backend.response.statusReason}** : Fraza przyczyny protokołu HTTP, który jest zwracany w odpowiedzi zaplecza.
-* **{backend.response.headers. \<HeaderName\>}**: nagłówek, który może zostać odczytany z odpowiedzi zaplecza. Zastąp  *\<HeaderName\>*  o nazwie nagłówka, który chcesz odczytać. Jeśli żądanie nie zawiera nagłówka, wartość będzie pusty ciąg.
+* **{backend.response.headers. \<HeaderName\>}**: nagłówek, który może zostać odczytany z odpowiedzi zaplecza. Zastąp  *\<HeaderName\>*  o nazwie nagłówka, który chcesz odczytać. Jeśli nie ma nagłówka odpowiedzi, wartość będzie pusty ciąg.
 
 ### <a name="use-appsettings"></a>Odwołanie do ustawienia aplikacji
 
@@ -97,12 +97,12 @@ Na przykład adres URL zaplecza z *https://%ORDER_PROCESSING_HOST%/api/orders* b
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
-Serwery proxy, które można skonfigurować są przechowywane w pliku proxies.json, który znajduje się w folderze głównym katalogiem aplikacji funkcji. Można ręcznie edytować ten plik i wdrożyć go jako część aplikacji przy użyciu jednej z [metody wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwane przez funkcje. Funkcja musi być [włączone](#enable) pliku do przetworzenia. 
+Serwery proxy, które można skonfigurować są przechowywane w *proxies.json* pliku, który znajduje się w folderze głównym katalogiem aplikacji funkcji. Można ręcznie edytować ten plik i wdrożyć go jako część aplikacji przy użyciu jednej z [metody wdrażania](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) obsługiwane przez funkcje. Funkcja Azure funkcji proxy musi być [włączone](#enable) pliku do przetworzenia. 
 
 > [!TIP] 
-> Jeśli nie zdefiniowano jednej z metod wdrażania, użytkownik może również współpracować z pliku proxies.json w portalu. Przejdź do funkcji aplikacji, wybierz opcję **funkcji platformy**, a następnie wybierz **Edytor usług aplikacji**. W ten sposób można wyświetlić strukturę całego pliku aplikacji funkcji, a następnie wprowadź zmiany.
+> Jeśli nie zdefiniowano jednej z metod wdrażania, możesz także pracować z *proxies.json* pliku w portalu. Przejdź do funkcji aplikacji, wybierz opcję **funkcji platformy**, a następnie wybierz **Edytor usług aplikacji**. W ten sposób można wyświetlić strukturę całego pliku aplikacji funkcji, a następnie wprowadź zmiany.
 
-Proxies.JSON jest zdefiniowane przez obiekt serwery proxy, który składa się z nazwanym proxy oraz ich definicje. Opcjonalnie, jeśli edytor obsługuje tę funkcję, możesz odwoływać się do [schematu JSON](http://json.schemastore.org/proxies) dla uzupełniania kodu. Przykładowy plik może wyglądać następująco:
+*Proxies.JSON* jest definiowana za pomocą obiektu serwery proxy, który składa się z nazwanym proxy oraz ich definicje. Opcjonalnie, jeśli edytor obsługuje tę funkcję, możesz odwoływać się do [schematu JSON](http://json.schemastore.org/proxies) dla uzupełniania kodu. Przykładowy plik może wyglądać następująco:
 
 ```json
 {
@@ -129,7 +129,7 @@ Każdy serwer proxy ma przyjazną nazwę, takich jak *proxy1* w poprzednim przyk
 * **responseOverrides**: obiekt, który definiuje przekształcenia odpowiedzi klienta. Zobacz [zdefiniować obiekt responseOverrides].
 
 > [!NOTE] 
-> Właściwości trasy proxy funkcji Azure honoruje właściwości routePrefix konfiguracji hostów funkcji. Jeśli chcesz dołączyć prefiksu, takich jak /api, musi być uwzględniona we właściwości trasy.
+> *Trasy* właściwości w proxy funkcji Azure honoruje *routePrefix* właściwości konfiguracji hostów funkcji aplikacji. Jeśli chcesz obejmują takie jak prefiks `/api`, muszą być zawarte w *trasy* właściwości.
 
 ### <a name="requestOverrides"></a>Zdefiniuj obiektu requestOverrides
 
@@ -193,7 +193,7 @@ Przykładowa konfiguracja może wyglądać następująco:
 }
 ```
 > [!NOTE] 
-> W tym przykładzie treści jest ustawiany bezpośrednio, więc nie `backendUri` właściwość jest wymagana. W przykładzie pokazano, jak można użyć do mocking interfejsów API Azure funkcji z serwerów proxy.
+> W tym przykładzie treść odpowiedzi jest ustawiony bezpośrednio, więc nie `backendUri` właściwość jest wymagana. W przykładzie pokazano, jak można użyć do mocking interfejsów API Azure funkcji z serwerów proxy.
 
 ## <a name="enable"></a>Włącz usługę Azure Functions serwerów proxy
 

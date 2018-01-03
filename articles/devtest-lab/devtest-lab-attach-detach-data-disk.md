@@ -3,7 +3,7 @@ title: "Dołączanie lub odłączanie dysku danych do maszyny wirtualnej w usłu
 description: "Dowiedz się, jak dołączyć lub odłączyć dysku danych do maszyny wirtualnej w usłudze Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Dołączanie lub odłączanie dysku danych do maszyny wirtualnej w usłudze Azure DevTest Labs
 [Azure dysków zarządzanych](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) zarządza konta magazynu skojarzone z dysków danych maszyny wirtualnej. Dołącza użytkownika, nowe dane na dysku do maszyny Wirtualnej, określa typ i rozmiar dysku, które ma potrzebne, a Azure tworzy i automatycznie zarządza dysku. Dysk z danymi można następnie można odłączyć od maszyny Wirtualnej i ponownie albo nałożona do tej samej maszyny Wirtualnej lub dołączone do innej maszyny Wirtualnej, który należy do tego samego użytkownika.
@@ -104,6 +104,6 @@ Aby uaktualnić dysku niezarządzanych danych, wykonaj kroki opisane w tym artyk
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się, jak zarządzać dysków z danymi dla [claimable maszyn wirtualnych](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

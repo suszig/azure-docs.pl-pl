@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Najczęściej występujących problemów i rozwiązań Edge IoT Azure
 
@@ -24,7 +24,7 @@ Występują problemy z systemem Azure IoT krawędzi w danym środowisku, należy
 
 W przypadku wystąpienia problemu, Dowiedz się więcej o stan urządzenia IoT krawędzi, przeglądając dzienniki kontenera i komunikaty, które przejdą do i z urządzenia. Użyj polecenia i narzędzia w tej sekcji, aby zebrać informacje. 
 
-* Sprawdź dzienniki kontenery docker opcję wykrywania problemów. Rozpoczynać się od wdrożonego kontenerów, a następnie przyjrzeć się kontenerów, które składają się na krawędzi IoT środowiska uruchomieniowego: krawędź Agent i krawędzi koncentratora. Dzienniki krawędź Agent zwykle zawierają informacje o lifecylce każdego kontenera. Dzienniki Centrum krawędzi zawierają informacje o obsługi wiadomości i routing. 
+* Sprawdź dzienniki kontenery docker opcję wykrywania problemów. Rozpoczynać się od wdrożonego kontenerów, a następnie przyjrzeć się kontenerów, które składają się na krawędzi IoT środowiska uruchomieniowego: krawędź Agent i krawędzi koncentratora. Dzienniki krawędź Agent zwykle zawierają informacje o cyklu życia każdego kontenera. Dzienniki Centrum krawędzi zawierają informacje o obsługi wiadomości i routing. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Konfiguracji sieci w sieci hosta uniemożliwia agenta krawędzi nawiązywania po
 Środowisko uruchomieniowe krawędzi IoT konfiguruje sieci dla poszczególnych modułów do komunikacji w. W systemie Linux ta sieć jest siecią mostek. W systemie Windows używa translatora adresów sieciowych. Ten problem występuje częściej na urządzeniach z systemem Windows przy użyciu kontenerów systemu Windows, które korzystają z sieci translatora adresów Sieciowych. 
 
 ### <a name="resolution"></a>Rozwiązanie
-Upewnij się, że istnieje trasa do Internetu dla adresów IP przypisanych do tej sieci Mostek/translatora adresów Sieciowych. Pojawiły się w przypadkach, gdy konfiguracja sieci VPN, na hoście zastępuje sieci IoT krawędzi. 
+Upewnij się, że istnieje trasa do Internetu dla adresów IP przypisanych do tej sieci Mostek/translatora adresów Sieciowych. Konfiguracja sieci VPN, na hoście przesłania czasami sieci IoT krawędzi. 
 
 ## <a name="edge-hub-fails-to-start"></a>Krawędź Centrum nie można uruchomić
 
@@ -83,7 +83,7 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Przyczyna główna
-Niektóre inny proces na komputerze hosta jest związana portu 443. Koncentrator krawędzi mapuje porty 5671 i 443 dla korzystać w scenariuszach bramy. To mapowanie portu zakończy się niepowodzeniem, jeśli inny proces jest już powiązany tego portu. 
+Niektóre inny proces na komputerze hosta jest związana portu 443. Koncentrator krawędzi mapuje porty 5671 i 443 dla korzystać w scenariuszach bramy. To mapowanie portu kończy się niepowodzeniem, jeśli inny proces jest już powiązany tego portu. 
 
 ### <a name="resolution"></a>Rozwiązanie
 Znajdź i zatrzymać proces, który jest przy użyciu portu 443. Ten proces jest zwykle serwer sieci web.
@@ -97,5 +97,5 @@ Krawędź Agent nie ma uprawnień dostępu modułu obrazu.
 ### <a name="resolution"></a>Rozwiązanie
 Spróbuj uruchomić `iotedgectl login` polecenie ponownie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Twoja opinia znaleźć błąd krawędzi IoT platformy? Wykonaj [przesłać problemu](https://github.com/Azure/iot-edge/issues) tak, aby móc dalej poprawy. 

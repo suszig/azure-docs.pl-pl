@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3c8be3b1bc56697d42f2f280af756ed61533d1ef
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Przegląd stref dostępności na platformie Azure (wersja zapoznawcza)
 
@@ -45,13 +45,6 @@ Usług Azure, które obsługują dostępność strefy są:
 - Moduł równoważenia obciążenia
 - Publiczny adres IP
 
-## <a name="supported-virtual-machine-size-families"></a>Rodziny rozmiar obsługiwanych maszyn wirtualnych
-
-- Av2
-- Dv2
-- DSv2
-
-
 ## <a name="get-started-with-the-availability-zones-preview"></a>Rozpoczynanie pracy z podglądu dostępności stref
 
 Podgląd stref dostępności jest dostępne wschodnie stany USA 2 Europa Zachodnia, a Francja centralnej regionów dla określonych usług platformy Azure. 
@@ -65,5 +58,5 @@ Podgląd stref dostępności jest dostępne wschodnie stany USA 2 Europa Zachodn
     - [Dodaj dysk zarządzane przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Moduł równoważenia obciążenia](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Quickstart templates (Szablony szybkiego startu)](http://aka.ms/azqs)

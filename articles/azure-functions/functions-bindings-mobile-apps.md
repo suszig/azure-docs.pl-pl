@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Aplikacje mobilne powiązania dla usługi Azure Functions 
 
@@ -37,8 +37,7 @@ Powiązania wejściowego Mobile Apps ładuje rekord z punktu końcowego przenoś
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [Skryptu C#](#input---c-script-example)
+* [Skryptu C# (csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Dane wejściowe — przykładowy skrypt w języku C#
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Dane wejściowe — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Informacje o właściwości atrybutów, które można skonfigurować, zobacz [następującą sekcję konfiguracji](#input---configuration).
 
@@ -168,13 +167,13 @@ Za pomocą raportu Mobile Apps powiązanie można zapisać nowego rekordu do tab
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [Prekompilowane C#](#output---c-example)
-* [Skryptu C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Skryptu C# (csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
 
-W poniższym przykładzie przedstawiono [wstępnie skompilowana funkcja C#](functions-dotnet-class-library.md) jest wyzwalany przez komunikatu w kolejce i tworzy rekord w tabeli aplikacji mobilnej.
+W poniższym przykładzie przedstawiono [C# funkcja](functions-dotnet-class-library.md) jest wyzwalany przez komunikatu w kolejce i tworzy rekord w tabeli aplikacji mobilnej.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
-Dla [wstępnie skompilowana C#](functions-dotnet-class-library.md) funkcje, używają [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atrybut, który jest zdefiniowany w pakiecie NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Informacje o właściwości atrybutów, które można skonfigurować, zobacz [wyjście - konfiguracji](#output---configuration). Oto `MobileTable` przykład atrybutu w podpisie metody:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-Pełny przykład, zobacz [dane wyjściowe - prekompilowany przykład C#](#output---c-example).
+Pełny przykład, zobacz [dane wyjściowe — przykład C#](#output---c-example).
 
 ## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
@@ -312,7 +311,7 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="output---usage"></a>Dane wyjściowe — użycie
 
-W języku C# skrypt funkcji, należy użyć parametru wyjściowego o nazwie typu `out object` uzyskać dostęp do rekordu danych wyjściowych. Prekompilowane C# funkcji `MobileTable` atrybut może być używany z dowolnymi z następujących typów:
+W języku C# skrypt funkcji, należy użyć parametru wyjściowego o nazwie typu `out object` uzyskać dostęp do rekordu danych wyjściowych. W języku C# biblioteki klas `MobileTable` atrybut może być używany z dowolnymi z następujących typów:
 
 * `ICollector<T>`lub `IAsyncCollector<T>`, gdzie `T` jest `JObject` lub dowolny typ z `public string Id` właściwości.
 * `out JObject`
@@ -320,7 +319,7 @@ W języku C# skrypt funkcji, należy użyć parametru wyjściowego o nazwie typu
 
 W przypadku funkcji Node.js użyj `context.bindings.<name>` uzyskać dostęp do rekordu danych wyjściowych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o usługę Azure functions wyzwalaczy i powiązań](functions-triggers-bindings.md)

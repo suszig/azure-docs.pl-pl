@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Usługi Azure Event Hubs przechwytywania
 
@@ -39,7 +39,13 @@ Przechwycone dane są zapisywane [Apache Avro] [ Apache Avro] format: compact, s
 Przechwyć centra zdarzeń umożliwia konfigurowanie okna do kontrolowania przechwytywania. To okno jest minimalny rozmiar i Konfiguracja czasu za pomocą "pierwszy wins zasad," oznacza, że to pierwszy wyzwalacz napotkano powoduje operacji przechwytywania. Jeśli masz 15 minutowych, 100 MB okna Przechwytywanie i wysłać 1 MB na sekundę, wyzwalacze rozmiar okna przed przedział czasu. Każdej partycji przechwytuje niezależnie i zapisuje ukończone blokowego obiektu blob w czasie przechwytywania, o nazwie raz podczas interwału przechwytywania. Konwencja nazewnictwa magazynu jest następujący:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Należy pamiętać, że wartości daty są dopełniane zerami; przykład nazwy pliku może być:
+
+```
+https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Skalowanie do jednostki przepływności
@@ -98,7 +104,7 @@ Apache Avro ma pełne wprowadzenie przewodniki dotyczące [Java] [ Java] i [Pyth
 
 Przechwyć centra zdarzeń taryfowych podobnie do jednostek przepływności: jako dodatkowy co godzinę. Opłata jest wprost proporcjonalny do liczby jednostek przepływności zakupionych dla przestrzeni nazw. Jednostki przepływności są zwiększyć i zmniejszyć, przechwytywania centra zdarzeń liczników zwiększyć i zmniejszyć zapewnienie wydajności dopasowania. Liczniki wystąpić w połączeniu. Aby uzyskać szczegółowe informacje o cenach, zobacz [cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przechwyć centra zdarzeń jest najprostszym sposobem pobrania danych na platformie Azure. Za pomocą usługi Azure Data Lake, fabryki danych Azure i usłudze Azure HDInsight, można wykonać przetwarzania wsadowego i innych analytics przy użyciu znanych narzędzi i platform wybrane, w dowolnej skali należy.
 
