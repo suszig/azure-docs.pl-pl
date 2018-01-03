@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Pomoc techniczna platformy Azure wykres Gremlin DB rozwiązania Cosmos
 Obsługuje bazę danych systemu Azure rozwiązania Cosmos [Apache Tinkerpop](http://tinkerpop.apache.org) wykresu języka przechodzenie [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), która jest interfejs API programu Graph do tworzenia jednostek wykres i wykonywanie operacji zapytania wykresu. Język Gremlin służy do tworzenia jednostek graph (wierzchołki i krawędzi), zmodyfikuj właściwości w ramach tych jednostek, wykonywania zapytań i traversals i usuwania jednostek. 
 
 Azure DB rozwiązania Cosmos oferuje funkcje gotowe enterprise baz danych wykresu. Obejmuje dystrybucji globalnych, niezależne skalowanie magazynu i przepływności, opóźnienia przewidywalną milisekund jednocyfrowej automatycznego indeksowania umów SLA, przeczytaj dostępności dla bazy danych kont spanning co najmniej dwóch regionach platformy Azure. Ponieważ bazy danych rozwiązania Cosmos Azure obsługuje TinkerPop/Gremlin, możesz łatwo przeprowadzić migrację aplikacji napisanych przy użyciu innej bazy danych wykresu bez wprowadzania zmian w kodzie. Ponadto z obsługi Gremlin bazy danych rozwiązania Cosmos Azure bezproblemowo integruje się z włączony TinkerPop analytics platform takich jak [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-W tym artykule firma Microsoft stanowią Przewodnik Szybki Gremlin i wyliczania Gremlin funkcji i kroków, które są obsługiwane w wersji zapoznawczej obsługi interfejsu API programu Graph.
+W tym artykule firma Microsoft stanowią Przewodnik Szybki Gremlin i wyliczania Gremlin funkcji i kroków, które są obsługiwane przez interfejs API programu Graph.
 
 ## <a name="gremlin-by-example"></a>Gremlin przykładzie
 Aby zrozumieć, jak zapytania może zostać wyrażona w Gremlin Użyjmy wykres próbki. Na poniższej ilustracji przedstawiono aplikacja biznesowa, która zarządza dane o użytkownikach, udziałów i urządzeń w formie wykresu.  
@@ -80,7 +80,7 @@ W poniższej tabeli wymieniono funkcje TinkerPop implementowane za pomocą bazy 
 
 | Kategoria | Implementacja rozwiązania Cosmos bazy danych Azure |  Uwagi | 
 | --- | --- | --- |
-| Funkcje wykresu | Zapewnia trwałość i ConcurrentAccess w wersji zapoznawczej. Przeznaczony do obsługi transakcji | Można zaimplementować metody komputera za pośrednictwem łącznika Spark. |
+| Funkcje wykresu | Zapewnia trwałość i ConcurrentAccess. Przeznaczony do obsługi transakcji | Można zaimplementować metody komputera za pośrednictwem łącznika Spark. |
 | Funkcje zmiennych | Obsługuje wartość logiczną, liczbą całkowitą, Byte, kliknij dwukrotnie, Float, Integer, Long, ciąg | Obsługuje typy pierwotne, jest niezgodny z typami złożonymi za pośrednictwem modelu danych |
 | Funkcje wierzchołków | Obsługuje RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Obsługuje tworzenie, modyfikowanie i usuwanie wierzchołków |
 | Funkcje właściwości wierzchołków | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Obsługuje tworzenie, modyfikowanie i usuwanie właściwości wierzchołków |

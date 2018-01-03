@@ -3,7 +3,7 @@ title: "Zarządzanie formuły w usłudze Azure DevTest Labs do tworzenia maszyn 
 description: "Dowiedz się, jak aktualizacja i usuwanie formuły Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Zarządzanie formuły Azure DevTest Labs
 
@@ -64,7 +64,7 @@ Poniższe kroki ułatwiają tworzenie formuły z niestandardowego obrazu, obrazu
     * **Hasło** — wprowadź - lub wybierz z listy rozwijanej - wartość, która jest skojarzona z hasło, którego chcesz używać dla określonego użytkownika. Aby uzyskać więcej informacji na temat kluczy tajnych, zobacz [Azure DevTest Labs: tajne magazynie osobistym](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Typ dysku maszyny wirtualnej** — określ albo dysk twardy (dysk twardy) lub dysków SSD (SSD), aby wskazać, który typ dysku magazynu jest dozwolony dla maszyn wirtualnych udostępniane przy użyciu tego obrazu podstawowego.
     * ** Maszyna wirtualna rozmiar ** — wybierz jedną z wstępnie zdefiniowane elementy, które określić rdzeni procesora, rozmiar pamięci RAM i rozmiar dysku twardego maszyny Wirtualnej, aby utworzyć. 
-    * **Artefakty** — wybierz tę opcję, aby otworzyć **dodać artefakty** bloku, w którym można wybrać i skonfigurować artefaktów, które chcesz dodać do obrazu podstawowego. Aby uzyskać więcej informacji na temat artefaktów, zobacz [artefakty zarządzania maszyny Wirtualnej w usłudze Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefakty** — wybierz tę opcję, aby otworzyć **dodać artefakty** bloku, w którym można wybrać i skonfigurować artefaktów, które chcesz dodać do obrazu podstawowego. Aby uzyskać więcej informacji na temat artefaktów, zobacz [Tworzenie niestandardowych artefaktów dla maszyny wirtualnej Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **Zaawansowane ustawienia** — wybierz tę opcję, aby otworzyć **zaawansowane** bloku, w którym można skonfigurować następujące ustawienia:
         * **Sieć wirtualna** — określ odpowiednią sieć wirtualną.
         * **Podsieci** — Określ żądany podsieci.    
@@ -134,6 +134,6 @@ Aby usunąć formuły, wykonaj następujące kroki:
 ## <a name="related-blog-posts"></a>Wpisy na blogu pokrewne
 * [Niestandardowe obrazy lub formuł?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Następne kroki
-Po utworzeniu formułę do użycia podczas tworzenia maszyny Wirtualnej, następnym krokiem jest [Dodaj Maszynę wirtualną do laboratorium](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Kolejne kroki
+Po utworzeniu formułę do użycia podczas tworzenia maszyny Wirtualnej, następnym krokiem jest [Dodaj Maszynę wirtualną do laboratorium](devtest-lab-add-vm.md).
 

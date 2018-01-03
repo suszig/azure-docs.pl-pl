@@ -3,8 +3,8 @@ title: Uaktualnij zestaw skali maszyny wirtualnej platformy Azure | Dokumentacja
 description: Uaktualnij zestaw skali maszyny wirtualnej platformy Azure
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Uaktualnij zestaw skali maszyny wirtualnej
 W tym artykule opisano, jak można wdrożeniem aktualizacji systemu operacyjnego do skali maszyny wirtualnej platformy Azure, bez żadnych przestojów. W tym kontekście aktualizacji systemu operacyjnego obejmuje zmiana wersji lub wersji systemu operacyjnego lub zmiana identyfikatora URI obrazu niestandardowego. Aktualizowanie bez przestojów aktualizowanie maszyn wirtualnych co pojedynczo lub w grupach (na przykład w jednej domenie błędów w czasie) zamiast jednocześnie. W ten sposób można zachować uruchomiona żadnych maszyn wirtualnych, które nie jest uaktualniany.
@@ -31,7 +31,7 @@ Aby uniknąć niejednoznaczności, ta funkcja pozwala odróżnić cztery typy ak
 * Zmiana odwołanie do obrazu zestawu skalowania, który został utworzony przy użyciu dysków zarządzanych platformy Azure.
 * Stosowanie poprawek systemu operacyjnego z poziomu maszyny wirtualnej (to przykłady instalowania poprawki zabezpieczeń i uruchamiania usługi Windows Update). Ten scenariusz jest obsługiwany, ale nie zostały omówione w tym artykule.
 
-Zestawy skalowania maszyn wirtualnych, które są wdrażane w ramach [sieć szkieletowa usług Azure](https://azure.microsoft.com/services/service-fabric/) klastra nie zostały omówione w tym miejscu. Zobacz [poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) Aby uzyskać więcej informacji na temat stosowania poprawek sieci szkieletowej usług.
+Zestawy skalowania maszyn wirtualnych, które są wdrażane w ramach [sieć szkieletowa usług Azure](https://azure.microsoft.com/services/service-fabric/) klastra nie zostały omówione w tym miejscu. Aby uzyskać więcej informacji na temat stosowania poprawek sieci szkieletowej usług, zobacz [poprawka systemu operacyjnego Windows w klastrze usługi sieć szkieletowa](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 Zmiana wersji systemu operacyjnego/SKU obrazu platformy lub identyfikator URI niestandardowego obrazu podstawowego sekwencji wygląda następująco:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Aktualizowania identyfikatora URI dla niestandardowego obrazu zamiast zmiana wersji obrazu platformy, Zamień polecenie, które spowoduje zaktualizowanie obrazu źródłowego identyfikatora URI "Ustawianie nowej wersji" wiersza. Na przykład jeśli zestaw skalowania utworzono bez użycia dysków zarządzanych Azure, aktualizacja może wyglądać następująco:
+Aktualizowania identyfikatora URI dla niestandardowego obrazu zamiast zmiana wersji obrazu platformy, Zamień polecenia, która aktualizuje obrazu źródłowego identyfikatora URI "Ustawianie nowej wersji" wiersza. Na przykład jeśli zestaw skalowania utworzono bez użycia dysków zarządzanych Azure, aktualizacja może wyglądać następująco:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Jeśli niestandardowego obrazu na podstawie zestawu skalowania utworzono przy użyciu dysków zarządzanych Azure, a następnie będzie można zaktualizować odwołanie do obrazu. Na przykład:
+Jeśli zestaw niestandardowych skali opartej na obrazie został utworzony za pomocą dysków zarządzanych Azure, czy można zaktualizować odwołanie do obrazu. Na przykład:
 
 ```powershell
 # set the new version in the model data

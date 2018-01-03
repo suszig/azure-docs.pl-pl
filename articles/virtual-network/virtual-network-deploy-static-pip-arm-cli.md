@@ -17,16 +17,16 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Utwórz maszynę Wirtualną z statycznego publicznego adresu IP za pomocą wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)
@@ -146,6 +146,6 @@ Zalecane jest, aby usunąć zasoby utworzone w tym ćwiczeniu, jeśli nie używa
 2. Upewnij się, że nie ma żadnych zasobów w grupie zasobów niż zasoby utworzone przez skrypt w tym artykule. 
 3. Aby usunąć wszystkie zasoby utworzone w tym ćwiczeniu, uruchom `az group delete -n IaaSStory` polecenia. Polecenie usuwa grupę zasobów i wszystkie zasoby, które zawiera.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przepływ ruchu sieciowego do i z maszyny Wirtualnej utworzone w tym artykule. Można zdefiniować reguły ruchu przychodzącego i wychodzącego w ramach grupy NSG, ograniczające ruchu, który może przepływać do i z interfejsu sieciowego i podsieci. Aby dowiedzieć się więcej na temat grup NSG, przeczytaj [omówienie NSG](virtual-networks-nsg.md) artykułu.

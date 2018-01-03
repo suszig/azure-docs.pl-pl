@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -38,7 +38,7 @@ Jeśli masz konto usługi DocumentDB API przed masz teraz konto interfejsu API S
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Co się stało z usługi Azure DocumentDB jako usługę?
 
-Usługa Azure DocumentDB jest obecnie częścią usługi Azure DB rozwiązania Cosmos i w sytuacji, w formie interfejsu API SQL. Aplikacje, które utworzono przy użyciu usługi Azure DocumentDB zostanie uruchomiony bez wprowadzania żadnych zmian interfejsu API usługi Azure rozwiązania Cosmos bazy danych SQL. Ponadto bazy danych rozwiązania Cosmos Azure obsługuje interfejs API programu Graph (wersja zapoznawcza), tabeli interfejsu API, bazy danych MongoDB interfejsu API i Cassandra interfejsu API (wersja zapoznawcza).
+Usługa Azure DocumentDB jest obecnie częścią usługi Azure DB rozwiązania Cosmos i w sytuacji, w formie interfejsu API SQL. Aplikacje, które utworzono przy użyciu usługi Azure DocumentDB zostanie uruchomiony bez wprowadzania żadnych zmian interfejsu API usługi Azure rozwiązania Cosmos bazy danych SQL. Ponadto bazy danych rozwiązania Cosmos Azure obsługuje interfejs API programu Graph, tabeli interfejsu API, bazy danych MongoDB interfejsu API i Cassandra interfejsu API (wersja zapoznawcza).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Jakie są typowe zastosowania dla bazy danych rozwiązania Cosmos Azure?
 Azure DB rozwiązania Cosmos jest dobrym rozwiązaniem w przypadku nowych sieci web, mobilnych, gier, i ważne jest, gdzie skalowania automatycznego, przewidywalną wydajność, szybkie kolejność milisekund czasy odpowiedzi oraz możliwość wykonywania kwerend danych bez schematu aplikacji IoT. Azure DB rozwiązania Cosmos pozwala na szybkie opracowywanie i obsługę ciągłej iteracji modeli danych aplikacji. Zawartość wygenerowaną przez użytkowników i dane aplikacji są [typowe przypadki użycia bazy danych Azure rozwiązania Cosmos](use-cases.md). 
@@ -95,7 +95,7 @@ Do subskrypcji spróbuj rozwiązania Cosmos bazy danych Azure mają zastosowanie
 
 ## <a name="set-up-azure-cosmos-db"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Jak tworzyć konta dla bazy danych rozwiązania Cosmos Azure?
-Azure DB rozwiązania Cosmos jest dostępne w portalu Azure. Najpierw Utwórz subskrypcję platformy Azure. Po zarejestrowaniu się interfejsu API SQL, interfejsu API programu Graph (wersja zapoznawcza), tabela interfejsu API, bazy danych MongoDB interfejsu API lub konto Cassandra interfejsu API można dodać do subskrypcji platformy Azure.
+Azure DB rozwiązania Cosmos jest dostępne w portalu Azure. Najpierw Utwórz subskrypcję platformy Azure. Po zarejestrowaniu się interfejsu API SQL, interfejsu API programu Graph, tabela interfejsu API, bazy danych MongoDB interfejsu API lub konto Cassandra interfejsu API można dodać do subskrypcji platformy Azure.
 
 ### <a name="what-is-a-master-key"></a>Co to jest klucz główny?
 Klucz główny jest tokenem zabezpieczającym dostęp do wszystkich zasobów dla konta. Osoby, które mają klucz odczytu i zapisu dostęp do wszystkich zasobów w ramach konta bazy danych. Podczas dystrybucji kluczy głównych należy zachować ostrożność. Podstawowy klucz główny i pomocniczy klucz główny są dostępne na **klucze** bloku [portalu Azure][azure-portal]. Aby uzyskać więcej informacji o kluczach, zobacz [wyświetlanie, kopiowanie i ponowne generowanie kluczy dostępu](manage-account.md#keys).
@@ -208,7 +208,7 @@ Pod względem interfejsu API REST istnieje wiele opcji punkty końcowe/zapytania
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= właściwości| [Ustaw właściwości usługi tabeli](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) i [pobrać właściwości usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy jest używana do ustawiania zasad CORS, konfiguracji magazynu analizy i ustawień rejestrowania. CORS nie jest obecnie obsługiwany i rejestrowanie i analiza będą obsługiwane inaczej w usłudze Azure DB rozwiązania Cosmos niż tabele magazynu Azure |
 | OPCJE | / < Nazwa tabeli zasobów > | [Transmitowane wstępnego CORS tabeli żądania](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Jest to część CORS, które bazy danych Azure rozwiązania Cosmos nie obsługuje obecnie. |
-| POBIERZ | /? restype =service@comp= statystyki | [Pobierz Statystyka usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Zawiera informacje, jak szybko replikuje dane między podstawowe i pomocnicze bazy danych. To nie jest potrzebne do rozwiązania Cosmos bazy danych replikacji jest częścią operacji zapisu. |
+| GET | /? restype =service@comp= statystyki | [Pobierz Statystyka usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Zawiera informacje, jak szybko replikuje dane między podstawowe i pomocnicze bazy danych. To nie jest potrzebne do rozwiązania Cosmos bazy danych replikacji jest częścią operacji zapisu. |
 | GET, PUT | /mytable? kompozycji = listy kontroli dostępu | [Pobierz tabelę ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) i [ustawić tabeli listy kontroli dostępu](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | To pobiera i ustawia zasady dostępu przechowywane, używany do zarządzania dostępu sygnatur dostępu Współdzielonego. Sygnatury dostępu Współdzielonego jest obsługiwana, ale są one ustawić i zarządzane w inny sposób. |
 
 Ponadto interfejsu API Azure rozwiązania Cosmos DB tabeli obsługuje tylko format JSON nie ATOM.
@@ -414,14 +414,14 @@ Azure Table storage i interfejsu API Azure rozwiązania Cosmos bazy danych tabel
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Dlaczego I pobrać ograniczany podczas próby utworzenia jeden po drugim wiele tabel w interfejsie API tabeli?
 Azure DB rozwiązania Cosmos jest system na podstawie umowy SLA zawiera czas oczekiwania, przepływności, dostępności i gwarancje spójności. Ponieważ jest inicjowana systemu rezerwuje zasobów, aby zagwarantować te wymagania. Wykryto szybkość szybkie tworzenie tabel i ograniczany. Firma Microsoft zaleca przyjrzeć się częstotliwość tworzenia tabel i obniżyć go do mniej niż 5 na minutę. Należy pamiętać, że interfejs API tabeli jest inicjowana systemu. Obecnie obsługi administracyjnej, rozpocznie się zwrócić dla niego. 
 
-## <a name="develop-against-the-graph-api-preview"></a>Opracowywanie względem wykresu interfejsu API (wersja zapoznawcza)
-### <a name="how-can-i-apply-the-functionality-of-graph-api-preview-to-azure-cosmos-db"></a>Jak można stosować funkcje interfejsu API programu Graph (wersja zapoznawcza) do bazy danych rozwiązania Cosmos Azure?
-Biblioteka rozszerzenia można użyć do zastosowania funkcji interfejsu API programu Graph (wersja zapoznawcza). Ta biblioteka jest nazywana Microsoft Azure wykresy, i jest dostępny na NuGet. 
+## <a name="develop-against-the-graph-api"></a>Opracowywanie przed interfejs API Graph
+### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Jak można stosować funkcje interfejsu API programu Graph do bazy danych rozwiązania Cosmos Azure?
+Biblioteka rozszerzenia można użyć do zastosowania funkcji interfejsu API programu Graph. Ta biblioteka jest nazywana Microsoft Azure wykresy, i jest dostępny na NuGet. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Wygląda na to, obsługują język przechodzenie Gremlin wykresu. Czy planowane jest dodanie więcej formularzy zapytania?
 Tak, firma Microsoft planuje dodanie innych mechanizmów dla zapytania w przyszłości. 
 
-### <a name="how-can-i-use-the-new-graph-api-preview-offering"></a>Jak używać nową ofertę interfejsu API programu Graph (wersja zapoznawcza)? 
+### <a name="how-can-i-use-the-new-graph-api-offering"></a>Jak używać nową ofertę interfejsu API programu Graph? 
 Aby rozpocząć pracę, należy wykonać [interfejsu API programu Graph](../cosmos-db/create-graph-dotnet.md) artykułu szybki start.
 
 <a id="cassandra"></a> 

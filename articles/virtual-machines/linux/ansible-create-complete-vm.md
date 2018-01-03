@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Utwórz pełną środowiska maszyny wirtualnej systemu Linux na platformie Azure z Ansible
 Ansible umożliwia automatyzację wdrożenia i konfiguracji zasobów w danym środowisku. Ansible służy do zarządzania maszyn wirtualnych (VM) na platformie Azure, takie same jak w przypadku innych zasobów. W tym artykule przedstawiono sposób tworzenia kompletne środowisko systemu Linux i pomocnicze zasoby z Ansible. Możesz też dowiedzieć się, jak [Tworzenie podstawowej maszyny Wirtualnej z Ansible](ansible-create-vm.md).
@@ -105,7 +105,7 @@ Karty interfejsu sieci wirtualnej (NIC) nawiązuje połączenie z maszyną Wirtu
 
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
-Ostatnim krokiem jest tworzenie maszyny Wirtualnej i korzystać z zasobów utworzone. Następujące części podręcznika dotyczącego Ansible tworzy Maszynę wirtualną o nazwie *myVM* i dołącza wirtualną kartę Sieciową o nazwie *myNIC*. Wprowadź własne danych kluczy publicznych w *key_data* Sparuj w następujący sposób:
+Ostatnim krokiem jest tworzenie maszyny Wirtualnej i korzystać z zasobów utworzone. Następujące części podręcznika dotyczącego Ansible tworzy Maszynę wirtualną o nazwie *myVM* i dołącza wirtualną kartę Sieciową o nazwie *myNIC*. Wprowadź pełną publicznego klucza danych użytkownika w *key_data* Sparuj w następujący sposób:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Ostatnim krokiem jest tworzenie maszyny Wirtualnej i korzystać z zasobów utwor
 ```
 
 ## <a name="complete-ansible-playbook"></a>Zakończenie podręcznikowym Ansible
-Zebranie tych sekcji, Utwórz podręcznikowym Ansible o nazwie *azure_create_complete_vm.yml* i Wklej poniższą zawartość:
+Zebranie tych sekcji, Utwórz podręcznikowym Ansible o nazwie *azure_create_complete_vm.yml* i Wklej poniższą zawartość. Wprowadź pełną publicznego klucza danych użytkownika w *key_data* pary:
 
 ```yaml
 - name: Create Azure VM
@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym przykładzie tworzy pełną środowiska maszyny Wirtualnej, w tym wymagane zasoby sieci wirtualnej. Na przykład bardziej bezpośrednie utworzyć Maszynę wirtualną do istniejących zasobów sieciowych z domyślnych opcji, zobacz [tworzenie maszyny Wirtualnej](ansible-create-vm.md).

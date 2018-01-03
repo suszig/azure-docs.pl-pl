@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Dostęp warunkowy w usłudze Azure Active Directory
 
@@ -35,7 +35,7 @@ Dostęp warunkowy jest możliwość usługi Azure Active Directory, która umoż
 
 Zazwyczaj określa wymagań dostępu za pomocą instrukcji, które są oparte na następujący wzór:
 
-![Formant](./media/active-directory-conditional-access-azure-portal/10.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/10.png)
 
 Gdy Zastąp dwa wystąpienia "*to*" informacje rzeczywistych ma przykład deklaracji zasad, który prawdopodobnie wygląda bardzo podobne do:
 
@@ -48,11 +48,11 @@ W kontekście dostępu warunkowego dla usługi Azure Active Directory,
 - "**w takim przypadku**" jest wywoływana **warunku — instrukcja**
 - "**To zrobić**" jest wywoływana **formantów**
 
-![Formant](./media/active-directory-conditional-access-azure-portal/11.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/11.png)
 
 Kombinacja instrukcji warunku z formantów reprezentuje zasady dostępu warunkowego.
 
-![Formant](./media/active-directory-conditional-access-azure-portal/12.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
 ## <a name="controls"></a>Kontrolki
@@ -66,11 +66,11 @@ Istnieją dwa typy formantów:
 - **Formanty GRANT** -formanty Grant określającym, czy użytkownik może wykonać uwierzytelnianie i uzyskać dostęp do zasobu, którego one próbuje zalogować się do. Jeśli masz wiele formantów wybrana, możesz określić, czy wszystkie z nich są wymagane podczas przetwarzania zasad.
 Bieżąca implementacja usługi Azure Active Directory można skonfigurować następujące wymagania dotyczące sterowania grant:
 
-    ![Formant](./media/active-directory-conditional-access-azure-portal/73.png)
+    ![Kontrola](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Formanty sesji** -sesji steruje Włącz ograniczanie doświadczenie w aplikacji w chmurze. Formanty sesji są wymuszane przez aplikacje w chmurze i polegać na dodatkowe informacje dostarczane przez usługę Azure AD do aplikacji o sesji.
 
-    ![Formant](./media/active-directory-conditional-access-azure-portal/31.png)
+    ![Kontrola](./media/active-directory-conditional-access-azure-portal/31.png)
 
 
 Aby uzyskać więcej informacji, zobacz [formantów w usłudze Azure Active Directory dostępu warunkowego](active-directory-conditional-access-controls.md).
@@ -82,14 +82,14 @@ Poprzedniej sekcji wprowadziła Aby zablokować lub ograniczyć dostęp do zasob
 
 Może obejmować następujące przypisania do instrukcji warunku:
 
-![Formant](./media/active-directory-conditional-access-azure-portal/07.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
 ### <a name="who"></a>Kto?
 
 Po skonfigurowaniu zasad dostępu warunkowego, musisz wybrać użytkowników lub grup, które dotyczą zasady. W wielu przypadkach ma formantów ma zostać zastosowany do określonych użytkowników. W instrukcji warunku można zdefiniować tego zestawu, wybierając wymaganych użytkowników i grup, które dotyczą zasady. W razie potrzeby można również jawnie wykluczyć zbiór użytkowników z zasad, zwalniając je.  
 
-![Formant](./media/active-directory-conditional-access-azure-portal/08.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
@@ -99,7 +99,7 @@ Po skonfigurowaniu zasad dostępu warunkowego, musisz wybrać zasady stosowane d
 Zwykle Brak niektórych aplikacji w danym środowisku, z punktu widzenia ochrony wymagających uwagi więcej niż inne. Wpływa to na przykład aplikacje, które mają dostęp do poufnych danych.
 Po wybraniu aplikacji w chmurze, należy zdefiniować zakres zasad ma zastosowanie do aplikacji w chmurze. W razie potrzeby można również jawnie wykluczyć zestawu aplikacji z zasad.
 
-![Formant](./media/active-directory-conditional-access-azure-portal/09.png)
+![Kontrola](./media/active-directory-conditional-access-azure-portal/09.png)
 
 Aby uzyskać pełną listę aplikacji w chmurze można użyć w zasadach dostępu warunkowego, zobacz [informacje techniczne dotyczące usługi Azure Active Directory dostępu warunkowego](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
 
@@ -117,7 +117,7 @@ W bieżącej implementacji usługi Azure Active Directory można określić waru
 - Ryzyko logowania
 - Platformy urządzeń
 - Lokalizacje
-- Aplikacje klienta
+- Aplikacje klienckie
 
 
 ![Warunki](./media/active-directory-conditional-access-azure-portal/01.png)
@@ -163,8 +163,8 @@ Aby uzyskać więcej informacji, zobacz [o nazwie lokalizacjach w usłudze Azure
 
 W zasadach dostępu warunkowego można:
 
-- Dołącz
-    - Dowolnego miejsca.
+- Uwzględnij
+    - Dowolna lokalizacja
     - Wszystkie zaufane lokalizacje
     - Wybranej lokalizacji
 - Wyklucz
@@ -174,7 +174,7 @@ W zasadach dostępu warunkowego można:
 ![Warunki](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-apps"></a>Aplikacje klienta
+### <a name="client-apps"></a>Aplikacje klienckie
 
 Aplikacja kliencka mogą być na poziomie ogólnego aplikacji (przeglądarki sieci web, aplikacji mobilnej, klient usług pulpitu) zostały użyte do nawiązania połączenia usługi Azure Active Directory lub musisz wybrać programu Exchange Active Sync.  
 Starsze uwierzytelnianie odnosi się do klientów przy użyciu uwierzytelniania podstawowego, takich jak starszych klientów pakietu Office, które nie używają nowoczesnego uwierzytelniania. Dostęp warunkowy nie jest obecnie obsługiwane przy użyciu starszej wersji uwierzytelniania.
@@ -200,7 +200,7 @@ Jeśli chcesz dodać kolejną warstwę ochrony do tych aplikacji, można skonfig
 
 Ten scenariusz jest podobny do poprzedniego scenariusza, ponieważ powoduje ona dodanie wymaganie uwierzytelniania wieloskładnikowego.
 Główną różnicą jest jednak warunek tego wymagania.  
-Podczas na aplikacje z dostępem do danych sensitve fokus poprzedniego scenariusza, w tym scenariuszu koncentruje się na zaufanych lokalizacji.  
+Podczas fokus poprzedniego scenariusza na aplikacje z dostępem do danych poufnych, w tym scenariuszu koncentruje się na zaufanych lokalizacji.  
 Innymi słowy może być wymagane uwierzytelnianie wieloskładnikowe, jeśli aplikacja jest dostępna przez użytkownika z sieci, której nie ufasz.
 
 
@@ -210,7 +210,10 @@ Jeśli używasz usługi Intune w danym środowisku, mogą natychmiast rozpoczą�
 
 Wielu klientów usługi Intune są przy użyciu dostępu warunkowego, aby upewnić się, że tylko zaufane urządzenia mają dostęp do usług Office 365. Oznacza to, że urządzenia przenośne zarejestrowane w usłudze Intune i spełnić wymagania zasad zgodności i że komputery z systemem Windows są przyłączone do domeny lokalnej. Poprawy klucza jest, że nie trzeba ustawić te same zasady dla każdej usługi Office 365.  Podczas tworzenia nowych zasad konfigurowania aplikacji w chmurze uwzględnienie wszystkich aplikacji usługi Office 365, które chcesz chronić za pomocą dostępu warunkowego.
 
-## <a name="next-steps"></a>Następne kroki
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Przełączanie urządzenie z firmowymi na urządzeniu (PRZYNIEŚ własne)
+Jeśli chcesz, aby zablokować zarejestrowane urządzenia poprzez zmianę własności urządzeń z firmowych do osobistego, można to zrobić przy użyciu dostępu warunkowego dla usługi Azure Active Directory (AAD). Należy najpierw utworzyć zasady dostępu warunkowego gdzie **blokowanie dostępu** wybrany z kontroli dostępu **Grant** bloku. Następnie należy utworzyć **dynamiczne urządzenia** grupy, ustawiając **deviceOwnership** właściwości **osobistych**. Następnie docelowe powyższych zasad do nowej grupy.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - Jeśli chcesz wiedzieć, jak skonfigurować zasady dostępu warunkowego, zobacz [wprowadzenie dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

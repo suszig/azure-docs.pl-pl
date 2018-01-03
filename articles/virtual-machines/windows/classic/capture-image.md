@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Przechwytywanie obrazu maszyny wirtualnej systemu Windows przy użyciu klasycznego modelu wdrażania.
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Tych krokach przyjęto założenie, że zostały już utworzeniu maszyny wirtual
 >
 >
 
-Przed przechwyceniem obrazu maszyny wirtualnej platformy Azure, zaleca się docelowej maszyny wirtualnej można wykonać kopii zapasowej. Maszyny wirtualne platformy Azure można kopii zapasowej za pomocą usługi Kopia zapasowa Azure. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../../backup/backup-azure-vms.md). Inne rozwiązania są dostępne u certyfikowanych partnerów. Aby dowiedzieć się, co jest obecnie dostępne, przeszukaj witrynę Azure Marketplace.
+Przed przechwyceniem obrazu maszyny wirtualnej platformy Azure, zaleca się docelowej maszyny wirtualnej można wykonać kopii zapasowej. Maszyny wirtualne platformy Azure można kopii zapasowej za pomocą usługi Kopia zapasowa Azure. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../../backup/backup-azure-arm-vms.md). Inne rozwiązania są dostępne u certyfikowanych partnerów. Aby dowiedzieć się, co jest obecnie dostępne, przeszukaj witrynę Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Przechwytywanie maszyny wirtualnej
 1. W [portalu Azure](http://portal.azure.com), **Connect** do maszyny wirtualnej. Aby uzyskać instrukcje, zobacz [jak zalogować się do maszyny wirtualnej z systemem Windows Server][How to sign in to a virtual machine running Windows Server].
@@ -72,7 +72,7 @@ Przed przechwyceniem obrazu maszyny wirtualnej platformy Azure, zaleca się doce
 
     ![Pomyślne przechwytywania obrazu](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Obraz jest gotowy do utworzenia maszyny wirtualnej. Aby to zrobić, należy utworzyć maszynę wirtualną, wybierając **więcej usług** element menu u dołu menu usługi, następnie **obrazów maszyn wirtualnych (klasyczne)** w **obliczeniowe** grupy. Aby uzyskać instrukcje, zobacz [Utwórz maszynę wirtualną z obrazu](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

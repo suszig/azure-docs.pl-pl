@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: vturecek;mikhegn
 ms.openlocfilehash: 8c29b54415a42ec435f2b4c3ce6b407b2155f70c
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debugowanie aplikacji sieci szkieletowej usług za pomocą programu Visual Studio
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Jest również możliwe do strumienia ślady bezpośrednio w węźle klastra zda
    
     ![Wyłącz zdalne śladów przesyłania strumieniowego][disablestreamingtraces]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Testowanie usługi sieć szkieletowa usług](service-fabric-testability-overview.md).
 * [Zarządzaj aplikacjami sieci szkieletowej usług w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 

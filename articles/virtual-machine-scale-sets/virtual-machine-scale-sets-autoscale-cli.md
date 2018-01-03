@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Automatycznie skalować skalowania maszyny wirtualnej, ustaw 2.0 interfejsu wiersza polecenia platformy Azure
 Podczas tworzenia zestawu skalowania, należy zdefiniować liczba wystąpień maszyn wirtualnych, które chcesz uruchomić. Twoje żądanie aplikacji zmian, można automatycznie zwiększyć lub zmniejszyć liczbę wystąpień maszyn wirtualnych. Możliwość skalowania automatycznego umożliwia nadąża z popyt lub reagowania na zmiany wydajności aplikacji w całym cyklu życia aplikacji.
@@ -28,7 +28,7 @@ W tym artykule przedstawiono sposób tworzenia reguły automatycznego skalowania
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby utworzyć zasady automatycznego skalowania, należy istniejącej maszyny wirtualnej zestawu skali. Możesz utworzyć zestaw o skali [portalu Azure](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), lub [programu Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+Aby utworzyć zasady automatycznego skalowania, należy istniejącej maszyny wirtualnej zestawu skali. Możesz utworzyć zestaw o skali [portalu Azure](virtual-machine-scale-sets-create-portal.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), lub [programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Aby ułatwić tworzenie reguł skalowania automatycznego, zdefiniuj niektóre zmienne dla zestawu skalowania. W poniższym przykładzie zdefiniowano zmienne zestaw o nazwie skalowania *myScaleSet* w grupie zasobów o nazwie *myResourceGroup* i *eastus* regionu. Identyfikator są uzyskiwane z subskrypcji [Pokaż konto az](/cli/azure/account#az_account_show). Jeśli masz wiele subskrypcji skojarzonych z Twoim kontem, zwracany jest tylko pierwszy subskrypcji. Ustawienia nazwy i identyfikator subskrypcji:
 
@@ -65,7 +65,7 @@ Dla tej reguły są używane następujące parametry:
 
 | Parametr         | Wyjaśnienie                                                                                                         | Wartość           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | Metryki wydajności do monitorowania i zastosować skali ustawić akcje.                                                   | Procent procesora CPU  |
+| *metricName*      | Metryki wydajności do monitorowania i zastosować skali ustawić akcje.                                                   | Procentowe użycie procesora CPU  |
 | *ziarnem czasu*       | Jak często metryki są zbierane dla analizy.                                                                   | 1 minuta        |
 | *timeAggregation* | Określa, jak zebranych metryk powinny być agregowane dla celów analizy.                                                | Średnia         |
 | *timeWindow*      | Ilość czasu monitorowane przed wartości metryki i próg są porównywane.                                   | 10 minut      |
@@ -323,7 +323,7 @@ az monitor autoscale-settings create \
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób skalowanie w poziomie i zwiększyć lub zmniejszyć za pomocą reguł skalowania automatycznego *numer* wystąpień maszyn wirtualnych w skali sieci ustawiony. Możliwe jest także skalowanie w pionie Aby zwiększyć lub zmniejszyć wystąpienia maszyny Wirtualnej *rozmiar*. Aby uzyskać więcej informacji, zobacz [pionowy automatycznie skalowana za pomocą zestawów skali maszyny wirtualnej](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Aby uzyskać informacje na temat zarządzania wystąpień maszyn wirtualnych, zobacz [ustawia Zarządzaj skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

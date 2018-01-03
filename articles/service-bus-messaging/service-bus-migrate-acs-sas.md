@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrowanie z usługi kontroli dostępu Active Directory platformy Azure do autoryzacji sygnatura dostępu współdzielonego
 
-Aplikacji usługi Service Bus w przeszłości była wyboru przy użyciu dwóch różnych autoryzacji modeli: [dostępu sygnatury dostępu Współdzielonego](service-bus-sas.md) token modelu udostępniane bezpośrednio przez magistralę usług i federacyjnych modelu gdzie zarządzania reguły autoryzacji zarządza wewnątrz [usługi Azure Active Directory](/azure/active-directory/) usługi kontroli dostępu (ACS) i tokenów uzyskane z usługi kontroli dostępu są przekazywane do usługi Service Bus w celu autoryzowania dostępu do żądanych funkcji.
+Aplikacje usługi Service Bus wcześniej miały do wyboru przy użyciu dwóch różnych autoryzacji modeli: [dostępu sygnatury dostępu Współdzielonego](service-bus-sas.md) token modelu udostępniane bezpośrednio przez magistralę usług i federacyjnych modelu gdzie zarządzania reguły autoryzacji zarządza wewnątrz [usługi Azure Active Directory](/azure/active-directory/) usługi kontroli dostępu (ACS) i tokenów uzyskane z usługi kontroli dostępu są przekazywane do usługi Service Bus w celu autoryzowania dostępu do żądanych funkcji.
 
 Modelu autoryzacji ACS długo została zastąpiona [autoryzacji sygnatury dostępu Współdzielonego](service-bus-authentication-and-authorization.md) jako model preferowany i całą dokumentację, wskazówki i przykłady używają wyłącznie SAS dzisiaj. Ponadto go nie jest już możliwe utworzenie nowego przestrzenie nazw usługi Service Bus, które są skojarzone z usług ACS.
 
@@ -59,7 +59,7 @@ Można wprowadzić tej nowych i dodatkowych konfiguracji SAS w miejscu na istnie
 
 Zasady sygnatury dostępu Współdzielonego mają nie być kont, ale są nazywane klucze podpisywania związane z prawami. Tak scenariusze, w których aplikacja tworzy wiele tożsamości usługi i przyznał im prawa dostępu do kilku jednostek lub pośrednik wystawiania tokenu ciągle wymagane w całej przestrzeni nazw. Możesz uzyskać wskazówki dotyczące pośredniej przez [kontaktu z pomocą techniczną](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat uwierzytelniania usługi Service Bus, zobacz następujące tematy:
 

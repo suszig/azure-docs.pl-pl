@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Utwórz klipy z funkcji tworzenia wycinków multimediów Azure
 Azure Media funkcji tworzenia wycinków jest bezpłatna biblioteka języka JavaScript, który umożliwia deweloperom sieci web użytkownikom ich interfejs służący do tworzenia nośnika klipy. To narzędzie można zintegrować dowolną stronę sieci web i udostępnia interfejsy API do ładowania zasobów i przesyłanie zadań wycinka.
@@ -29,7 +29,7 @@ Azure Media funkcji tworzenia wycinków umożliwia:
 
 Aby poprosić o nowe funkcje, podaj pomysłów lub opinie, przedstawia [UserVoice dla usługi Azure Media Services](http://aka.ms/amsvoice/). Jeśli masz i określonych problemów, pytania lub Znajdź usterek, Porzuć Media Services team linii w amcinfo@microsoft.com.
 
-Na poniższym obrazie przedstawiono interfejsu funkcji tworzenia wycinków: ![funkcji tworzenia wycinków multimediów Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+Na poniższym obrazie przedstawiono interfejsu funkcji tworzenia wycinków: ![funkcji tworzenia wycinków multimediów Azure](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Informacje o wersji
 Przejrzyj następującą listę wpis w blogu funkcji tworzenia wycinków, różnych znane problemy i wykaz zmian w najnowszej wersji programu funkcji tworzenia wycinków:
@@ -70,5 +70,5 @@ Widżet funkcji tworzenia wycinków jest dostępna w następujących językach 1
 - Szwedzki
 - Turecki
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby rozpocząć korzystanie z funkcji tworzenia wycinków multimediów Azure, przeczytaj [wprowadzenie](media-services-azure-media-clipper-getting-started.md) artykułu, aby uzyskać więcej informacji na temat wdrażania elementu widget.

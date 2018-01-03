@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Niezawodne usługi cyklu życia — omówienie
 > [!div class="op_single_selector"]
@@ -130,7 +130,7 @@ Obsługa wyjątków, które pochodzą od stosowania `ReliableCollections` w poł
   - Mimo że nie ma żadnego limitu czasu na zwracanie z tych metod, natychmiast spowoduje utratę możliwości zapisu do kolekcji niezawodnych i w związku z tym nie można ukończyć rzeczywistą pracę. Firma Microsoft zaleca powrocie możliwie jak najszybciej po otrzymaniu żądania anulowania. Jeśli usługa nie odpowiada na te wywołania interfejsu API w rozsądnym czasie, sieci szkieletowej usług można wymusić przerwanie usługi. Zwykle to tylko odbywa się podczas uaktualniania aplikacji lub gdy usługa jest usuwana. Tego limitu czasu wynosi 15 minut domyślnie.
   - Błędy w `OnCloseAsync()` doprowadzi do ścieżki `OnAbort()` o nazwie, która jest ostatniej szansy optymalnych na wyczyszczenie i zwolnić wszystkie zasoby, które mają one żądane usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Wprowadzenie do niezawodne usługi](service-fabric-reliable-services-introduction.md)
 - [Niezawodne usługi szybki start](service-fabric-reliable-services-quick-start.md)
 - [Niezawodne usługi advanced użycia](service-fabric-reliable-services-advanced-usage.md)

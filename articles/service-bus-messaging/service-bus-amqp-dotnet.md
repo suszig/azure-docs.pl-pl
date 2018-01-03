@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>Przy użyciu usługi Service Bus z .NET z protokołu AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Usługa Service Bus z .NET za pomocą protokołu AMQP 1.0
 
-## <a name="downloading-the-service-bus-sdk"></a>Pobieranie zestawu SDK usługi Service Bus
+Obsługa protokołu AMQP 1.0 jest dostępna w wersji pakietu usługi Service Bus 2.1 lub nowszej. Zapewnia zainstalowana najnowsza wersja przez pobieranie usługi bits usługi Service Bus z [NuGet][NuGet].
 
-Obsługa protokołu AMQP 1.0 jest dostępna w Service Bus SDK w wersji 2.1 lub nowszej. Zapewnia zainstalowana najnowsza wersja przez pobieranie usługi bits usługi Service Bus z [NuGet][NuGet].
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>Konfigurowanie aplikacji .NET do korzystania z protokołu AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>Konfiguracja aplikacji .NET do używania protokołu AMQP 1.0
 
 Domyślnie biblioteki klienta .NET magistrali usługi komunikuje się z usługą Service Bus przy użyciu dedykowanych protokołu opartego na protokole SOAP. Do używania protokołu AMQP 1.0, zamiast domyślnej protokół wymaga jawnego konfiguracji na parametry połączenia magistrali usług, zgodnie z opisem w następnej sekcji. Inne niż ta zmiana kodu aplikacji pozostaje niezmieniony, korzystając z protokołu AMQP 1.0.
 
@@ -64,25 +62,25 @@ W celu ułatwienia współdziałania z klientami z systemem innym niż .NET, nal
 
 | Typ obiektu treści .NET | Typ protokołu AMQP zamapowane | Typ sekcji treści protokołu AMQP |
 | --- | --- | --- |
-| wartość logiczna |Wartość logiczna |Wartość AMQP |
-| Bajtów |ubyte |Wartość AMQP |
+| wartość logiczna |wartość logiczna |Wartość AMQP |
+| bajt |ubyte |Wartość AMQP |
 | ushort |ushort |Wartość AMQP |
 | uint |uint |Wartość AMQP |
 | ulong |ulong |Wartość AMQP |
-| sbyte — |Bajtów |Wartość AMQP |
+| sbyte — |bajt |Wartość AMQP |
 | krótki |krótki |Wartość AMQP |
 | int |int |Wartość AMQP |
 | długa |długa |Wartość AMQP |
-| Float |Float |Wartość AMQP |
-| O podwójnej precyzji |O podwójnej precyzji |Wartość AMQP |
+| liczba zmiennoprzecinkowa |liczba zmiennoprzecinkowa |Wartość AMQP |
+| liczba podwójnej precyzji |liczba podwójnej precyzji |Wartość AMQP |
 | Decimal |decimal128 |Wartość AMQP |
 | char |char |Wartość AMQP |
-| Data i godzina |sygnatura czasowa |Wartość AMQP |
+| Data/godzina |sygnatura czasowa |Wartość AMQP |
 | Identyfikator GUID |Identyfikator UUID |Wartość AMQP |
 | Byte] |Binarne |Wartość AMQP |
-| Ciąg |Ciąg |Wartość AMQP |
-| Interfejs System.Collections.IList |Lista |Wartość AMQP: elementy zawarte w kolekcji można tylko te, które są zdefiniowane w tej tabeli. |
-| System.Array |Tablica |Wartość AMQP: elementy zawarte w kolekcji można tylko te, które są zdefiniowane w tej tabeli. |
+| ciąg |ciąg |Wartość AMQP |
+| Interfejs System.Collections.IList |lista |Wartość AMQP: elementy zawarte w kolekcji można tylko te, które są zdefiniowane w tej tabeli. |
+| System.Array |tablica |Wartość AMQP: elementy zawarte w kolekcji można tylko te, które są zdefiniowane w tej tabeli. |
 | System.Collections.IDictionary |mapy |Wartość AMQP: elementy zawarte w kolekcji można tylko te, które są zdefiniowane w tej tabeli. Uwaga: obsługiwane są tylko kluczy będących ciągami. |
 | Identyfikator URI |Opisane ciąg (patrz poniższa tabela) |Wartość AMQP |
 | DateTimeOffset |Opisane długi (patrz poniższa tabela) |Wartość AMQP |
@@ -109,7 +107,7 @@ Istnieją również pewne niewielkie różnice w zachowaniu .NET interfejsu API 
 * `MessageReceiver.Receive(TimeSpan.Zero)`jest zaimplementowany jako `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Kończenie wiadomości przez tokeny blokady jest możliwe tylko przez odbiorców wiadomości, które początkowo odebrane wiadomości.
 
-## <a name="controlling-amqp-protocol-settings"></a>Kontrolowanie ustawień protokołu AMQP
+## <a name="control-amqp-protocol-settings"></a>Ustawienia protokołu AMQP kontroli
 
 [Interfejsów API architektury .NET](/dotnet/api/) ujawnia kilka ustawień kontrolowania zachowania protokołu AMQP:
 
@@ -118,13 +116,12 @@ Istnieją również pewne niewielkie różnice w zachowaniu .NET interfejsu API 
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Jeśli transfery batchable, ta wartość określa maksymalne opóźnienie wysyłania przepisy. Dziedziczone przez nadawców/odbiorcy domyślnie. Poszczególne nadawcy/odbiorcy mogą zastąpić domyślna, czyli 20 milisekund.
 * **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Określa, czy protokół AMQP nawiązywane są połączenia za pośrednictwem połączenia SSL. Wartość domyślna to **true**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Chcesz dowiedzieć się więcej? Skorzystaj z następujących łączy:
 
 * [Omówienie protokołu AMQP magistrali usług]
 * [Przewodnik dotyczący protokołu AMQP 1.0]
-* [Protokół AMQP w usłudze Service Bus dla systemu Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ Chcesz dowiedzieć się więcej? Skorzystaj z następujących łączy:
 [Azure portal]: https://portal.azure.com
 [Omówienie protokołu AMQP magistrali usług]: service-bus-amqp-overview.md
 [Przewodnik dotyczący protokołu AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[Protokół AMQP w usłudze Service Bus dla systemu Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+

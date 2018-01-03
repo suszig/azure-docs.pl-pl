@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Utwórz sieć wirtualną przy użyciu szablonu usługi Azure Resource Manager
 
@@ -118,7 +118,7 @@ Wykonaj poniższe kroki, aby wdrożyć szablon został pobrany przy użyciu prog
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    Polecenie tworzy grupę zasobów o nazwie *TestRG* w *środkowe stany USA* region platformy azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+    Polecenie tworzy grupę zasobów o nazwie *TestRG* w *środkowe stany USA* region platformy azure. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
     Oczekiwane dane wyjściowe:
 
@@ -235,7 +235,7 @@ Można ponownie użyć wstępnie zdefiniowanych szablonów usługi Azure Resourc
     
      ![Tworzenie sieci wirtualnej w portalu w wersji zapoznawczej](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak połączyć:
 

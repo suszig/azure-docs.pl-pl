@@ -3,7 +3,7 @@ title: "Diagnozowanie błędów artefaktów na maszynie wirtualnej platformy Azu
 description: "Dowiedz się, jak rozwiązać problemy z awariami artefaktów w usłudze Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
-ms.author: tarcher
-ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 6c03ce8f91ec688e32e379f1284767db9a45920c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnozowanie błędów artefaktów w laboratorium 
 Po utworzeniu artefaktu, można sprawdzić czy zakończyło się pomyślnie lub nie powiodło się. Dzienniki artefaktów w usłudze Azure DevTest Labs zapewniają informacje, które można użyć do diagnozowania awarii artefaktu. Masz kilka opcji wyświetlania informacji dziennika artefaktu maszyny wirtualnej systemu Windows:
@@ -56,6 +56,6 @@ Po utworzeniu artefaktu, można sprawdzić czy zakończyło się pomyślnie lub 
 ## <a name="related-blog-posts"></a>Wpisy na blogu pokrewne
 * [Dołącz Maszynę wirtualną do istniejącej domeny usługi Active Directory przy użyciu szablonu usługi Resource Manager w usłudze DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [Dodaj repozytorium Git do laboratorium](devtest-lab-add-artifact-repo.md).
 

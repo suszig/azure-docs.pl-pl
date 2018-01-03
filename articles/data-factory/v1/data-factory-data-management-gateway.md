@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -34,7 +34,7 @@ Możesz skalować w poziomie bramy zarządzania danymi można skojarzyć wielu l
 > [!NOTE]
 > Obecnie brama obsługuje tylko działania kopiowania i działania procedury składowanej w fabryce danych. Nie jest możliwe użycie bramy z działań niestandardowych dostęp do lokalnych źródeł danych.      
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 ### <a name="capabilities-of-data-management-gateway"></a>Funkcje bramy zarządzania danymi
 Brama zarządzania danymi oferuje następujące możliwości:
 
@@ -323,6 +323,9 @@ Strona Ustawienia umożliwia wykonywanie następujących czynności:
 * **Stan** punktu końcowego
 * Widok **certyfikat SSL** jest używany do komunikacji SSL między portalu i bramy można ustawić poświadczenia dla źródeł danych.  
 
+### <a name="remote-access-from-intranet"></a>Dostęp zdalny z sieci intranet  
+Ta funkcja zostanie włączona w przyszłości. W kolejnych aktualizacji (v3.4 lub nowszym) firma Microsoft będzie można włączyć / wyłączyć połączenia zdalnego, obecnie wykonywanej przy użyciu portu 8050 (patrz sekcja powyżej) podczas używania aplikacji programu PowerShell lub Menedżera poświadczeń do szyfrowania poświadczeń. 
+
 ### <a name="diagnostics-page"></a>Strony diagnostyki
 Strona Diagnostyka umożliwia wykonywanie następujących czynności:
 
@@ -356,7 +359,7 @@ Poniższa tabela zawiera opisy kolumn w **węzłów bramy** listy:
 
 Właściwość monitorowania | Opis
 :------------------ | :---------- 
-Nazwa | Nazwa bramy logiczne i skojarzone z tą bramą węzłów. Węzeł jest na lokalnej maszynie systemu Windows, które zainstalowano na nim bramę. Uzyskać informacji o mających więcej niż jeden węzeł (maksymalnie czterech węzłów) w jednej bramy logiczne, zobacz [brama zarządzania danymi - wysokiej dostępności i skalowalności](data-factory-data-management-gateway-high-availability-scalability.md).    
+Name (Nazwa) | Nazwa bramy logiczne i skojarzone z tą bramą węzłów. Węzeł jest na lokalnej maszynie systemu Windows, które zainstalowano na nim bramę. Uzyskać informacji o mających więcej niż jeden węzeł (maksymalnie czterech węzłów) w jednej bramy logiczne, zobacz [brama zarządzania danymi - wysokiej dostępności i skalowalności](data-factory-data-management-gateway-high-availability-scalability.md).    
 Stan | Stan bramy logicznych i węzłów bramy. Przykład: Online/Offline/Limited/itp. Informacje o tych stanów znajdują się w temacie [stanu bramy](#gateway-status) sekcji. 
 Wersja | Wyświetlana jest wersja bramy logicznych i każdy węzeł bramy. Wersja bramy logicznej jest określana na podstawie wersji Większość węzłów w grupie. Jeśli ma prawidłowo węzłów z różnych wersji w konfiguracji bramy logiczne, tylko węzły z tym samym numerem wersji funkcji logicznej bramy. Inne osoby włączony jest tryb ograniczony i należy ręcznie zaktualizować (tylko w przypadku automatycznej aktualizacji nie powiedzie się). 
 Dostępna pamięć | Dostępna pamięć na węzeł bramy. Ta wartość jest blisko migawka w czasie rzeczywistym. 
@@ -373,10 +376,10 @@ W poniższej tabeli przedstawiono możliwe stany **węzeł bramy**:
 Stan  | Komentarz/scenariuszy
 :------- | :------------------
 Online | Węzeł jest podłączony do usługi fabryki danych.
-W trybie offline | Węzeł jest w trybie offline.
+Offline | Węzeł jest w trybie offline.
 Uaktualnianie | Węzeł jest aktualizowane automatycznie.
 Ograniczone | Z powodu problemu z łącznością. Może być z powodu problemu 8050 port HTTP, problem dotyczący łączności magistrali usługi lub problemu z synchronizacją poświadczeń. 
-Nieaktywne | Węzeł znajduje się w różnych konfiguracji innych węzłów większość konfiguracji.<br/><br/> Węzeł może być nieaktywne, gdy nie można połączyć do innych węzłów. 
+Nieaktywna | Węzeł znajduje się w różnych konfiguracji innych węzłów większość konfiguracji.<br/><br/> Węzeł może być nieaktywne, gdy nie można połączyć do innych węzłów. 
 
 
 W poniższej tabeli przedstawiono możliwe stany **logicznej bramy**. Stan bramy zależy od stany węzłów bramy. 
@@ -385,7 +388,7 @@ Stan | Komentarze
 :----- | :-------
 Wymaga rejestracji | Żaden węzeł nie jest jeszcze zarejestrowana dla tej bramy logiczne
 Online | Węzły bramy są w trybie online
-W trybie offline | Nie węzła w stan online.
+Offline | Nie węzła w stan online.
 Ograniczone | Nie wszystkie węzły w tej bramy są w dobrej kondycji. Ten stan jest ostrzeżenie, że niektóre węzeł może być wyłączony! <br/><br/>Może wynikać z problemu z synchronizacją poświadczeń w węźle dyspozytora/proces roboczy. 
 
 ## <a name="scale-up-gateway"></a>Skalowanie w górę bramy
@@ -537,5 +540,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zobacz [przenoszenie danych między lokalnymi i w chmurze magazyny danych](data-factory-move-data-between-onprem-and-cloud.md) artykułu. W tym przewodnikiem utworzysz potok, który używa bramy do przenoszenia danych z lokalną bazą danych programu SQL Server do obiektów blob platformy Azure.  

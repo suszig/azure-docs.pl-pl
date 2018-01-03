@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -33,9 +33,9 @@ W tym artykule przedstawiono obsługiwane konfiguracje oraz składniki usługi A
 
 **Wdrożenie** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)** |
 --- | --- | ---
-**Witryna Azure Portal** | Lokalnych maszyn wirtualnych VMware do magazynu Azure z usługą Azure Resource Manager lub klasycznego magazynu i sieci.<br/><br/> Tryb failover Resource Manager i klasycznych maszyn wirtualnych. | Lokalnych maszyn wirtualnych funkcji Hyper-V do magazynu Azure Resource Manager lub klasycznego magazynu i sieci.<br/><br/> Tryb failover Resource Manager i klasycznych maszyn wirtualnych.
+**Azure portal** | Lokalnych maszyn wirtualnych VMware do magazynu Azure z usługą Azure Resource Manager lub klasycznego magazynu i sieci.<br/><br/> Tryb failover Resource Manager i klasycznych maszyn wirtualnych. | Lokalnych maszyn wirtualnych funkcji Hyper-V do magazynu Azure Resource Manager lub klasycznego magazynu i sieci.<br/><br/> Tryb failover Resource Manager i klasycznych maszyn wirtualnych.
 **Portal klasyczny** | Tylko tryb konserwacji. Nie można utworzyć nowego magazynu. | Tylko tryb konserwacji.
-**PowerShell** | Nie są obecnie obsługiwane. | Obsługiwane
+**Program PowerShell** | Obsługiwane | Obsługiwane
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Obsługa serwerów zarządzania Centrum danych
@@ -117,9 +117,9 @@ W poniższej tabeli podsumowano Obsługa konfiguracji sieci w różnych scenariu
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
-Tworzenie zespołu kart sieciowych | Tak<br/><br/>Nieobsługiwane, gdy są replikowane maszyny fizycznej| Tak
-SIECI VLAN | Tak | Tak
-Protokół IPv4 | Tak | Tak
+Tworzenie zespołu kart sieciowych | Yes<br/><br/>Nieobsługiwane, gdy są replikowane maszyny fizycznej| Yes
+SIECI VLAN | Yes | Yes
+Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
 
 ### <a name="guest-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej gościa
@@ -127,24 +127,24 @@ Protokół IPv6 | Nie | Nie
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 Tworzenie zespołu kart sieciowych | Nie | Nie
-Protokół IPv4 | Tak | Tak
+Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
-Statyczny adres IP (z systemem Windows) | Tak | Tak
-Statyczny adres IP (Linux) | Tak <br/><br/>Maszyny wirtualnej jest skonfigurowana do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
-Obsługa wielu kart Sieciowych | Tak | Tak
+Statyczny adres IP (z systemem Windows) | Yes | Yes
+Statyczny adres IP (Linux) | Yes <br/><br/>Maszyny wirtualnej jest skonfigurowana do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
+Obsługa wielu kart Sieciowych | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej Azure przełączona w tryb failover
 
 **Sieć platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
-ExpressRoute | Tak | Tak
-Wewnętrzny moduł równoważenia obciążenia | Tak | Tak
-ELB | Tak | Tak
-Traffic Manager | Tak | Tak
-Obsługa wielu kart Sieciowych | Tak | Tak
-Zastrzeżony adres IP | Tak | Tak
-Protokół IPv4 | Tak | Tak
-Zachowaj źródłowy adres IP | Tak | Tak
+ExpressRoute | Yes | Yes
+Wewnętrzny moduł równoważenia obciążenia | Yes | Yes
+ELB | Yes | Yes
+Traffic Manager | Yes | Yes
+Obsługa wielu kart Sieciowych | Yes | Yes
+Zastrzeżony adres IP | Yes | Yes
+Protokół IPv4 | Yes | Yes
+Zachowaj źródłowy adres IP | Yes | Yes
 Wirtualne sieci punktów końcowych usług (Azure Storage zapory i sieci wirtualne) | Nie | Nie
 
 
@@ -155,54 +155,55 @@ W poniższej tabeli podsumowano Obsługa konfiguracji magazynu w różnych scena
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | --- | ---
-SYSTEMU PLIKÓW NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych | Nie dotyczy
-SMB 3.0 | Nie dotyczy | Tak
-SIECI SAN (ISCSI) | Tak | Tak
-Wiele ścieżek (MPIO)<br></br>Przetestowana: moduł DSM firmy Microsoft, EMC PowerPath 5.7 z dodatkiem SP4, EMC PowerPath DSM dla CLARiiON | Tak | Tak
+SYSTEMU PLIKÓW NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych | ND
+SMB 3.0 | ND | Yes
+SIECI SAN (ISCSI) | Yes | Yes
+Wiele ścieżek (MPIO)<br></br>Przetestowana: moduł DSM firmy Microsoft, EMC PowerPath 5.7 z dodatkiem SP4, EMC PowerPath DSM dla CLARiiON | Yes | Yes
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Gość lub serwerze fizycznym magazynu konfiguracji
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Tak | Nie dotyczy
-DYSK VHD/VHDX | Nie dotyczy | Tak
-Gł 2 maszyny Wirtualnej | Nie dotyczy | Tak
-INTERFEJSEM EFI/UEFI| Nie | Tak
+VMDK | Yes | ND
+DYSK VHD/VHDX | ND | Yes
+Gł 2 maszyny Wirtualnej | ND | Yes
+INTERFEJSEM EFI/UEFI| Nie | Yes
 Udostępniony dysk klastra | Nie | Nie
 Zaszyfrowanego dysku | Nie | Nie
-SYSTEMU PLIKÓW NFS | Nie | Nie dotyczy
+SYSTEMU PLIKÓW NFS | Nie | ND
 SMB 3.0 | Nie | Nie
-DYSK RDM | Tak<br/><br/> Brak serwerów fizycznych | Nie dotyczy
-Na dysku > 1 TB | Tak<br/><br/>Maksymalnie 4095 GB | Tak<br/><br/>Maksymalnie 4095 GB
-Dysk o rozmiarze sektora fizycznego logicznych i 4 k 4K | Tak | Nie są obsługiwane w maszynach wirtualnych generacji 1<br/><br/>Nie są obsługiwane w maszynach wirtualnych generacji 2.
-Dysk o logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Tak |  Tak
-Wolumin dysku rozłożone > 1 TB<br/><br/> Zarządzanie woluminami LVM logiczne | Tak | Tak
-Funkcja miejsca do magazynowania | Nie | Tak
+DYSK RDM | Yes<br/><br/> Brak serwerów fizycznych | ND
+Na dysku > 1 TB | Yes<br/><br/>Maksymalnie 4095 GB | Yes<br/><br/>Maksymalnie 4095 GB
+Dysk o rozmiarze sektora fizycznego logicznych i 4 k 4K | Yes | Nie są obsługiwane w maszynach wirtualnych generacji 1<br/><br/>Nie są obsługiwane w maszynach wirtualnych generacji 2.
+Dysk o logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes |  Yes
+Wolumin dysku rozłożone > 1 TB<br/><br/> Zarządzanie woluminami LVM logiczne | Yes | Yes
+Funkcja miejsca do magazynowania | Nie | Yes
 Dodaj lub usuń gorących dysku | Nie | Nie
-Wykluczanie dysku | Tak | Tak
-Wiele ścieżek (MPIO) | Nie dotyczy | Tak
+Wykluczanie dysku | Yes | Yes
+Wiele ścieżek (MPIO) | ND | Yes
 
 **Magazyn platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
-LRS | Tak | Tak
-GRS | Tak | Tak
-RA-GRS | Tak | Tak
+LRS | Yes | Yes
+GRS | Yes | Yes
+RA-GRS | Yes | Yes
 Magazynu chłodnego | Nie | Nie
 Magazynu gorącego| Nie | Nie
 Obiekty BLOB typu Block | Nie | Nie
-Szyfrowanie rest(SSE)| Tak | Tak
-Premium Storage | Tak | Tak
+Szyfrowanie rest(SSE)| Yes | Yes
+Premium Storage | Yes | Yes
 Import/Eksport usługi | Nie | Nie
 Wirtualne sieci punktów końcowych usługi (usługi Azure Storage zapory i sieci wirtualne) skonfigurowany na docelowy magazyn konta, lub buforować używanych do przechowywania danych replikacji konta magazynu | Nie | Nie
+Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstwy) | Nie | Nie
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Obsługa konfiguracji obliczeń platformy Azure
 
 **Obliczanie funkcji** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
-Zestawy dostępności | Tak | Tak
-CENTRUM | Tak | Tak  
-Dyski zarządzane | Tak | Tak<br/><br/>Powrót po awarii do środowiska lokalnego z maszyny Wirtualnej platformy Azure z dyskami zarządzanego nie jest obecnie obsługiwane.
+Zestawy dostępności | Yes | Yes
+CENTRUM | Yes | Yes  
+Dyski zarządzane | Yes | Yes<br/><br/>Powrót po awarii do środowiska lokalnego z maszyny Wirtualnej platformy Azure z dyskami zarządzanego nie jest obecnie obsługiwane.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Wymagania dotyczące maszyny Wirtualnej Azure przełączona w tryb failover
 
@@ -246,5 +247,5 @@ Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobó
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Sprawdzanie wymagań wstępnych](site-recovery-prereq.md)

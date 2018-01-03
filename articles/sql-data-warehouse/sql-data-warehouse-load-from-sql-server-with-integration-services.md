@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Ładowanie danych z programu SQL Server do magazynu danych SQL Azure (SSIS)
 > [!div class="op_single_selector"]
@@ -167,7 +167,7 @@ Gdy pakiet zakończył działanie, zostanie wyświetlony zielony znaczniki wybor
 
 Gratulacje! SQL Server Integration Services została pomyślnie użyta, ładowanie danych do usługi Azure SQL Data Warehouse.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej na temat przepływu danych usług SSIS. Zacznij tutaj: [przepływu danych][Data Flow].
 * Dowiedz się, jak debugowania i rozwiązywania problemów z uprawnienie pakiety w środowisku projektowym. Zacznij tutaj: [Rozwiązywanie problemów z narzędzia do tworzenia pakietu][Troubleshooting Tools for Package Development].
 * Dowiedz się, jak wdrożyć swoje projekty SSIS i pakietów, na serwer usług Integration Services lub do innej lokalizacji magazynu. Zacznij tutaj: [projekty wdrożeń i pakietów][Deployment of Projects and Packages].

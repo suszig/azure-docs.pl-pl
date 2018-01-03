@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ae60cb03d9777b607a6df77155d7f50faaab1de1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Interfejs API Graph w .NET opracowywania
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafów. 
 
-W tym samouczku przedstawiono tworzenie konta bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure oraz do tworzenia bazy danych wykresu i kontenera. Następnie aplikacja tworzy prosty sieci społecznościowych cztery osoby korzystające z [interfejsu API programu Graph](graph-sdk-dotnet.md) (wersja zapoznawcza), a następnie przechodzi przez i zapytanie przy użyciu Gremlin wykresu.
+W tym samouczku przedstawiono tworzenie konta bazy danych rozwiązania Cosmos Azure przy użyciu portalu Azure oraz do tworzenia bazy danych wykresu i kontenera. Następnie aplikacja tworzy prosty sieci społecznościowych cztery osoby korzystające z [interfejsu API programu Graph](graph-sdk-dotnet.md), następnie przechodzi przez i wysyła zapytanie do wykresu za pomocą Gremlin.
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -270,7 +270,7 @@ Jeśli nie zamierzasz w przyszłości korzystać z tej aplikacji, wykonaj nastę
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu. 
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wykonaniu następujących czynności:
 

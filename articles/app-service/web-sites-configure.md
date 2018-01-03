@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurowanie aplikacji sieci Web w usłudze Azure App Service
+
 W tym temacie opisano sposób konfigurowania aplikacji sieci web za pomocą [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -45,6 +46,8 @@ Ze względów technicznych włączenie Java aplikacji powoduje wyłączenie opcj
 
 <a name="platform"></a>
 **Platforma**. Wybiera, czy aplikacja sieci web jest uruchamiana w środowisku 32-bitowy lub 64-bitowych. 64-bitowego środowiska wymaga trybu Basic lub Standard. Zwolnij i tryby udostępnione są zawsze uruchamiane w środowisku 32-bitowym.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Sieci Web Sockets**. Ustaw **ON** Aby włączyć protokół WebSocket; na przykład, jeśli aplikacja sieci web używa [ASP.NET SignalR] lub [użyciu biblioteki socket.io](https://socket.io/).
 
@@ -78,12 +81,12 @@ W przypadku aplikacji PHP, Python, Java i węzła te ustawienia będą dostępne
 
 Na przykład, jeśli parametry połączenia MySql nazwany `connectionstring1`, czy dostęp do niej za pomocą zmiennej środowiskowej `MYSQLCONNSTR_connectionString1`.
 
-### <a name="default-documents"></a>Dokumenty domyślne
+### <a name="default-documents"></a>Domyślne dokumenty
 Dokument domyślny jest strony sieci web wyświetlaną w głównego adresu URL witryny sieci Web.  Pierwszy odpowiedniego pliku na liście jest używany. 
 
 Aplikacje sieci Web może używać modułów, że trasy na podstawie adresu URL, a nie obsługujących zawartość statyczną, w którym to przypadku nie jest dokument domyślny, w związku.    
 
-### <a name="handler-mappings"></a>Mapowania programu obsługi
+### <a name="handler-mappings"></a>Mapowania procedur obsługi
 Aby dodać procesorów skryptu niestandardowego do obsługi żądań określonych rozszerzeń plików, użyj tego obszaru. 
 
 * **Rozszerzenie**. Rozszerzenie pliku, które mają być obsługiwane, takie jak *.php lub handler.fcgi. 
@@ -120,12 +123,12 @@ Aby wyświetlić pliki dziennika, należy utworzyć poświadczenia FTP w następ
 
 ![Konfigurowanie poświadczeń wdrożenia][configure03]
 
-Pełna nazwa użytkownika FTP jest "app\username", gdzie *aplikacji* to nazwa aplikacji sieci web. Nazwa użytkownika jest wymieniony w bloku aplikacja sieci web, w obszarze **Essentials**.  
+Pełna nazwa użytkownika FTP jest "app\username", gdzie *aplikacji* to nazwa aplikacji sieci web. Nazwa użytkownika jest wymieniony w bloku aplikacja sieci web, w obszarze **Essentials**.
 
 ![Poświadczenia wdrożenia FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Inne zadania konfiguracji
-### <a name="ssl"></a>PROTOKÓŁ SSL
+### <a name="ssl"></a>SSL
 W trybie Basic lub Standard możesz przekazać certyfikatów SSL dla domeny niestandardowej. Aby uzyskać więcej informacji zobacz [Włącz protokół HTTPS dla aplikacji sieci web]. 
 
 Aby wyświetlić przekazane certyfikaty, kliknij przycisk **wszystkie ustawienia** > **domen niestandardowych i SSL**.
@@ -151,7 +154,7 @@ Aby uzyskać więcej informacji, zobacz [porady: monitorować stan punktu końco
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Konfigurowanie niestandardowej nazwy domeny w usłudze Azure App Service]
 * [Włącz protokół HTTPS dla aplikacji w usłudze aplikacji Azure]
 * [Skalowanie aplikacji sieci web w usłudze Azure App Service]

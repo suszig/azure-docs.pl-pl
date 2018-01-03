@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migracji active nazwy DNS w usłudze Azure App Service
 
@@ -39,7 +39,7 @@ Aby ukończyć ten Porada:
 
 Gdy powiąże preemptively niestandardową domenę, wykonywać następujące przed wprowadzeniem jakichkolwiek zmian w rekordach DNS:
 
-- Zweryfikuj prawo własności do domeny
+- Weryfikowanie własności domeny
 - Włącz nazwy domeny dla aplikacji
 
 Na koniec migracji nazwę DNS niestandardowych ze starej witryny do aplikacji usługi app Service, nie będzie bez przestojów w rozpoznawania nazw DNS.
@@ -50,7 +50,7 @@ Na koniec migracji nazwę DNS niestandardowych ze starej witryny do aplikacji us
 
 Aby zweryfikować prawo własności do domeny, Dodaj rekord TXT. Rekord TXT mapy z _awverify.&lt; Poddomena >_ do  _&lt;nazwa_aplikacji >. azurewebsites.net_. 
 
-Rekord TXT, które są potrzebne, zależy od rekord DNS, który chcesz przeprowadzić migrację. Aby uzyskać przykłady, zobacz poniższą tabelę (`@` zazwyczaj reprezentuje domeny katalogu głównego):  
+Rekord TXT, które są potrzebne, zależy od rekord DNS, który chcesz przeprowadzić migrację. Aby uzyskać przykłady, zobacz poniższą tabelę (`@` zazwyczaj reprezentuje domeny katalogu głównego):
 
 | Przykładowy rekord DNS | TXT Host | Wartość TXT |
 | - | - | - |
@@ -122,7 +122,7 @@ Zapisz ustawienia.
 
 Zapytania DNS powinien rozpocząć rozpoznawania aplikację usługi aplikacji natychmiast po sytuacji propagacji DNS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak powiązać niestandardowego certyfikatu SSL z usługi aplikacji.
 

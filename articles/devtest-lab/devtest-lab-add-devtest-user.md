@@ -3,7 +3,7 @@ title: "Dodaj właścicieli i użytkowników w usłudze Azure DevTest Labs | Dok
 description: "Dodaj właścicieli i użytkowników w usłudze Azure DevTest Labs za pomocą portalu Azure lub programu PowerShell"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Dodaj właścicieli i użytkowników w usłudze Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -31,7 +31,7 @@ Steruje dostępu w usłudze Azure DevTest Labs [based kontroli dostępu (RBAC)](
 Istnieją trzy główne role przypisanie użytkownika:
 
 * Właściciel
-* DevTest Labs użytkownika
+* Użytkownik usługi DevTest Labs
 * Współautor
 
 W poniższej tabeli przedstawiono akcje, które mogą być wykonywane przez użytkowników w każdej z tych ról:
@@ -39,20 +39,20 @@ W poniższej tabeli przedstawiono akcje, które mogą być wykonywane przez uży
 | **Można wykonać akcje użytkowników w tej roli** | **DevTest Labs użytkownika** | **Właściciel** | **Współautora** |
 | --- | --- | --- | --- |
 | **Zadania laboratorium** | | | |
-| Dodawanie użytkowników do laboratorium |Nie |Tak |Nie |
-| Aktualizowanie ustawień koszt |Nie |Tak |Tak |
+| Dodawanie użytkowników do laboratorium |Nie |Yes |Nie |
+| Aktualizowanie ustawień koszt |Nie |Yes |Yes |
 | **Zadania podstawowej maszyny Wirtualnej** | | | |
-| Dodawanie i usuwanie niestandardowych obrazów |Nie |Tak |Tak |
-| Dodawanie, aktualizowanie i usuwanie formuły |Tak |Tak |Tak |
-| Obrazy dozwolonych Azure Marketplace |Nie |Tak |Tak |
+| Dodawanie i usuwanie niestandardowych obrazów |Nie |Yes |Yes |
+| Dodawanie, aktualizowanie i usuwanie formuły |Yes |Yes |Yes |
+| Obrazy dozwolonych Azure Marketplace |Nie |Yes |Yes |
 | **Zadania maszyny Wirtualnej** | | | |
-| Tworzenie maszyn wirtualnych |Tak |Tak |Tak |
-| Uruchamianie, zatrzymywanie i usuwanie maszyny wirtualne |Tylko maszyny wirtualne utworzone przez użytkownika |Tak |Tak |
-| Aktualizowanie zasad maszyny Wirtualnej |Nie |Tak |Tak |
-| Dodawanie/usuwanie dysków z danymi z maszyn wirtualnych |Tylko maszyny wirtualne utworzone przez użytkownika |Tak |Tak |
+| Tworzenie maszyn wirtualnych |Yes |Yes |Yes |
+| Uruchamianie, zatrzymywanie i usuwanie maszyny wirtualne |Tylko maszyny wirtualne utworzone przez użytkownika |Yes |Yes |
+| Aktualizowanie zasad maszyny Wirtualnej |Nie |Yes |Yes |
+| Dodawanie/usuwanie dysków z danymi z maszyn wirtualnych |Tylko maszyny wirtualne utworzone przez użytkownika |Yes |Yes |
 | **Zadania artefaktów** | | | |
-| Dodawanie i usuwanie repozytoria artefaktów |Nie |Tak |Tak |
-| Zastosuj artefaktów |Tak |Tak |Tak |
+| Dodawanie i usuwanie repozytoria artefaktów |Nie |Yes |Yes |
+| Zastosuj artefaktów |Yes |Yes |Yes |
 
 > [!NOTE]
 > Gdy użytkownik tworzy Maszynę wirtualną, ten użytkownik zostanie automatycznie przypisany do **właściciela** roli maszyny wirtualnej utworzone.

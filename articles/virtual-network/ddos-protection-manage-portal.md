@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Zarządzanie Azure DDoS ochrony standardowe przy użyciu portalu Azure
 
@@ -31,21 +31,21 @@ Dowiedz się, jak włączyć i wyłączyć atakach typu protection service (DDoS
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Włącz Standard ochrony przed atakami DDoS — nowej sieci wirtualnej
 
 1. Zaloguj się w witrynie Azure Portal pod adresem http://portal.azure.com. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
+2. Kliknij przycisk **Utwórz zasób** w lewym górnym rogu portalu Azure.
 3. Wybierz **sieci**, a następnie wybierz **sieci wirtualnej**.
-4. Tworzenie sieci wirtualnej z wybranego ustawienia. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych, zobacz [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-pportal.md). W obszarze *ochrona przed atakami DDoS*, kliknij przycisk **włączone**, a następnie kliknij przycisk **Utwórz**.
+4. Tworzenie sieci wirtualnej z wybranego ustawienia. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnych, zobacz [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-pportal.md). W obszarze **ochrona przed atakami DDoS**, kliknij przycisk **włączone**, a następnie kliknij przycisk **Utwórz**. Jeśli nie widzisz **ochrona przed atakami DDoS**, prawdopodobną przyczyną jest, że subskrypcja nie jest zarejestrowany dla funkcji. Należy wykonać [rejestracji](http://aka.ms/ddosprotection), otrzymasz powiadomienie, które subskrypcji została włączona dla funkcji, przed **ochrona przed atakami DDoS** pojawi się.
 
     ![Tworzenie sieci wirtualnej](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Po wybraniu regionu, wybierz region obsługiwanych z listy w [standardowe ochrony przed atakami DDoS Azure — omówienie](ddos-protection-overview.md).
+    > Po wybraniu regionu, wybierz region obsługiwanych z listy w [standardowe ochrony przed atakami DDoS Azure — omówienie](ddos-protection-overview.md). Jeśli nie wybierzesz obsługiwanym regionie, tworzenie sieci wirtualnej nie powiedzie się.
 
     Ostrzeżenie informuje, że włączenie ochrony przed atakami DDoS zostaną naliczone opłaty powiązane. Nie ochrony przed atakami DDoS jest obciążany wersji zapoznawczej. Opłaty będą naliczane ogólnie dostępna. Otrzymasz powiadomienie 30 dni, przed rozpoczęciem opłat i ogólnej dostępności.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Włącz Standard ochrony przed atakami DDoS — istniejącej sieci wirtualnej 
 
 1. Kliknij przycisk **sieci wirtualnych** w menu portalu Azure, a następnie wybierz sieci wirtualnej.
-2. Kliknij przycisk **ochrona przed atakami DDoS**, kliknij przycisk **włączone** na *ochrona przed atakami DDoS* ekranu, a następnie kliknij przycisk **zapisać**. 
+2. Kliknij przycisk **ochrona przed atakami DDoS**, kliknij przycisk **włączone** na *ochrona przed atakami DDoS* ekranu, a następnie kliknij przycisk **zapisać**. Jeśli nie widzisz **ochrona przed atakami DDoS**, prawdopodobną przyczyną jest, że subskrypcja nie jest zarejestrowany dla funkcji. Należy wykonać [rejestracji](http://aka.ms/ddosprotection), otrzymasz powiadomienie, które subskrypcji została włączona dla funkcji, przed **ochrona przed atakami DDoS** pojawi się. 
 
     > [!WARNING]
     > Sieć wirtualna musi istnieć w obsługiwanym regionie. Aby uzyskać listę obsługiwanych regionów, zobacz [standardowe ochrony przed atakami DDoS Azure — omówienie](ddos-protection-overview.md).
@@ -99,7 +99,7 @@ Nazwy metryki ona różnych typów pakietów i bajtów a pakiety, podstawowe kon
 - **Nazwa tagu przekazane (np.: przychodzących pakietów przekazywanych DDoS)**: liczba pakietów przekazywanych przez system DDoS do docelowego adresu VIP — ruch, który nie został przefiltrowany.
 - **Brak nazwy tagu (np.: przed atakami DDoS pakietów ruchu przychodzącego):** całkowita liczba pakietów, które są dołączone do systemu kontrola — reprezentujący sumę pakiety porzucony i zostały przekazane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Więcej informacji na temat dzienników diagnostycznych platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analizowanie dzienników z usługi Azure storage z analizy dzienników](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

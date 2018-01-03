@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Uwierzytelnianie usługi Service Bus za pomocą sygnatury dostępu współdzielonego
 
@@ -48,7 +48,7 @@ Ważne jest, aby zrozumieć temat sygnatury dostępu Współdzielonego jest, że
 Przede wszystkim wyjaśnień uprawnienia dostępne dla zasad:
 
 * Send
-* Nasłuchiwanie
+* Nasłuchuj
 * Zarządzanie
 
 Po utworzeniu zasad jest przypisany *klucza podstawowego* i *klucza pomocniczego*. Są to silną kryptograficznie kluczy. Nie utracone lub ich wyciek — zawsze będzie dostępna w [portalu Azure][Azure portal]. Możesz użyć dowolnej wygenerowane klucze i można je odtworzyć w dowolnym momencie. Jednak jeśli ponownie wygenerować lub zmienić klucza podstawowego w zasadach, żadnych sygnatur dostępu współdzielonego z niej utworzyć zostaną unieważnione.
@@ -320,7 +320,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane przez różne operacje
 | Konfiguruj reguły autoryzacji w przestrzeni nazw |Zarządzanie |Każdy adres przestrzeni nazw |
 | **Rejestr usługi** | | |
 | Wyliczanie zasad prywatnych |Zarządzanie |Każdy adres przestrzeni nazw |
-| Rozpoczęcie nasłuchiwania na przestrzeni nazw |Nasłuchiwanie |Każdy adres przestrzeni nazw |
+| Rozpoczęcie nasłuchiwania na przestrzeni nazw |Nasłuchuj |Każdy adres przestrzeni nazw |
 | Wysyłanie komunikatów do odbiornika w przestrzeni nazw |Send |Każdy adres przestrzeni nazw |
 | **Kolejki** | | |
 | Tworzenie kolejki |Zarządzanie |Każdy adres przestrzeni nazw |
@@ -329,12 +329,12 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane przez różne operacje
 | Pobierz opis kolejki |Zarządzanie |Każdy adres prawidłową kolejką |
 | Konfigurowanie reguł autoryzacji dla kolejki |Zarządzanie |Każdy adres prawidłową kolejką |
 | Wysyłanie do do kolejki |Send |Każdy adres prawidłową kolejką |
-| Odbieranie komunikatów z kolejki |Nasłuchiwanie |Każdy adres prawidłową kolejką |
-| Porzucenia lub pełne wiadomości po otrzymaniu komunikatu w trybie blokady podglądu |Nasłuchiwanie |Każdy adres prawidłową kolejką |
-| Odroczenie komunikat dla nowszej pobierania |Nasłuchiwanie |Każdy adres prawidłową kolejką |
-| Wiadomości utraconych wiadomości |Nasłuchiwanie |Każdy adres prawidłową kolejką |
-| Pobierz stan skojarzony z sesją kolejki komunikatów |Nasłuchiwanie |Każdy adres prawidłową kolejką |
-| Ustaw stan skojarzony z sesją kolejki komunikatów |Nasłuchiwanie |Każdy adres prawidłową kolejką |
+| Odbieranie komunikatów z kolejki |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Porzucenia lub pełne wiadomości po otrzymaniu komunikatu w trybie blokady podglądu |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Odroczenie komunikat dla nowszej pobierania |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Wiadomości utraconych wiadomości |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Pobierz stan skojarzony z sesją kolejki komunikatów |Nasłuchuj |Każdy adres prawidłową kolejką |
+| Ustaw stan skojarzony z sesją kolejki komunikatów |Nasłuchuj |Każdy adres prawidłową kolejką |
 | **Temat** | | |
 | Tworzenie tematu |Zarządzanie |Każdy adres przestrzeni nazw |
 | Usunięcie tematu |Zarządzanie |Każdy adres nieprawidłowy temat |
@@ -344,20 +344,20 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane przez różne operacje
 | Wyślij do tematu |Send |Każdy adres nieprawidłowy temat |
 | **Subskrypcja** | | |
 | Tworzenie subskrypcji |Zarządzanie |Każdy adres przestrzeni nazw |
-| Usuń subskrypcję |Zarządzanie |../myTopic/Subscriptions/mySubscription |
-| Wyliczanie subskrypcji |Zarządzanie |../ myTopic/subskrypcji |
-| Pobrać opisu subskrypcji |Zarządzanie |../myTopic/Subscriptions/mySubscription |
-| Porzucenia lub pełne wiadomości po otrzymaniu komunikatu w trybie blokady podglądu |Nasłuchiwanie |../myTopic/Subscriptions/mySubscription |
-| Odroczenie komunikat dla nowszej pobierania |Nasłuchiwanie |../myTopic/Subscriptions/mySubscription |
-| Wiadomości utraconych wiadomości |Nasłuchiwanie |../myTopic/Subscriptions/mySubscription |
-| Pobierz stan skojarzony z sesją tematu |Nasłuchiwanie |../myTopic/Subscriptions/mySubscription |
-| Ustaw stan skojarzony z sesją tematu |Nasłuchiwanie |../myTopic/Subscriptions/mySubscription |
+| Usuwanie subskrypcji |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
+| Wyliczanie subskrypcji |Zarządzanie |.. / myTopic/subskrypcji |
+| Pobrać opisu subskrypcji |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
+| Porzucenia lub pełne wiadomości po otrzymaniu komunikatu w trybie blokady podglądu |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
+| Odroczenie komunikat dla nowszej pobierania |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
+| Wiadomości utraconych wiadomości |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
+| Pobierz stan skojarzony z sesją tematu |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
+| Ustaw stan skojarzony z sesją tematu |Nasłuchuj |.. /myTopic/Subscriptions/mySubscription |
 | **Reguły** | | |
-| Utwórz regułę |Zarządzanie |../myTopic/Subscriptions/mySubscription |
-| Usuwanie reguły |Zarządzanie |../myTopic/Subscriptions/mySubscription |
-| Wyliczanie zasad |Zarządzanie lub nasłuchiwania |../myTopic/Subscriptions/mySubscription/Rules 
+| Utwórz regułę |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
+| Usuwanie reguły |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
+| Wyliczanie zasad |Zarządzanie lub nasłuchiwania |.. /myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 

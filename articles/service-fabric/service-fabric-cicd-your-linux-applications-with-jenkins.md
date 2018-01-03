@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Użyj Wpięć do tworzenia i wdrażania aplikacji systemu Linux
 Jenkins to popularne narzędzie służące do przeprowadzania ciągłej integracji i ciągłego wdrażania aplikacji. Poniżej przedstawiono sposób kompilowania i wdrażania aplikacji usługi Azure Service Fabric przy użyciu narzędzia Jenkins.
 
 ## <a name="general-prerequisites"></a>Ogólne wymagania wstępne
 - Lokalnie zainstalowane narzędzie Git. Odpowiednią wersję narzędzia Git dla używanego systemu operacyjnego można zainstalować ze [strony pobierania narzędzia Git](https://git-scm.com/downloads). Jeśli jesteś nowym użytkownikiem narzędzia Git, możesz się dowiedzieć o nim więcej z [jego dokumentacji](https://git-scm.com/docs).
-- Przygotowana wtyczka narzędzia Jenkins dla usługi Service Fabric. Możesz ją pobrać z [witryny pobierania usługi Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Jeśli używasz rename przeglądarki edge rozszerzenia pobrany plik z rozszerzeniem .zip do .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Konfigurowanie narzędzia Jenkins w ramach klastra usługi Service Fabric
 
@@ -129,8 +128,8 @@ Wymagane jest zainstalowanie platformy Docker. Poniższe polecenia umożliwiają
 Teraz, po uruchomieniu polecenia ``docker info`` w terminalu, powinny zostać wyświetlone dane wyjściowe z informacją, że usługa platformy Docker jest uruchomiona.
 
 ### <a name="steps"></a>Kroki
-  1. Ściągnij obraz kontenera narzędzia Jenkins usługi Service Fabric: ``docker pull rapatchi/jenkins:v9``
-  2. Uruchom obraz kontenera: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Ściągnąć obraz kontenera usługi sieć szkieletowa Wpięć: ``docker pull rapatchi/jenkins:v10``. Ten obraz jest dostarczany z preinstalowanym wtyczki Wpięć sieci szkieletowej usług.
+  2. Uruchom obraz kontenera: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Uzyskaj identyfikator wystąpienia obrazu kontenera. Listę wszystkich kontenerów platformy Docker można wyświetlić za pomocą polecenia ``docker ps –a``
   4. Zaloguj się do portalu narzędzia Jenkins, wykonując następujące kroki:
 
@@ -151,11 +150,6 @@ Teraz, po uruchomieniu polecenia ``docker info`` w terminalu, powinny zostać wy
 
 Upewnij się, że klaster lub maszyna hostujące obraz kontenera narzędzia Jenkins mają publiczny adres IP. Dzięki temu wystąpienie narzędzia Jenkins może otrzymywać powiadomienia z usługi GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Instalowanie wtyczki narzędzia Jenkins dla usługi Service Fabric z poziomu portalu
-
-1. Przejdź do strony ``http://PublicIPorFQDN:8081``
-2. Na pulpicie nawigacyjnym narzędzia Jenkins wybierz pozycję **Manage Jenkins** > **Manage Plugins** > **Advanced** (Zarządzaj narzędziem Jenkins > Zarządzaj wtyczkami > Zaawansowane).
-W tym miejscu możesz przekazać wtyczkę. Wybierz **wybierz plik**, a następnie wybierz **serviceFabric.hpi** pliku, który został pobrany w obszarze wymagania wstępne lub pobrać [tutaj](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Po wybraniu polecenia **Upload** (Przekaż) narzędzie Jenkins automatycznie zainstaluje wtyczkę. Zezwól na ponowne uruchomienie komputera, jeśli zostanie wyświetlony odpowiedni monit.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Tworzenie i konfigurowanie zadania narzędzia Jenkins
 
@@ -172,7 +166,7 @@ W tym miejscu możesz przekazać wtyczkę. Wybierz **wybierz plik**, a następni
 
    b. Wybierz pozycję **Add Service** (Dodaj usługę), wpisz ciąg **Jenkins** i wybierz pozycję **Jenkins-Github plugin** (Wtyczka Jenkins-Github).
 
-   c. Wprowadź adres URL elementu webhook narzędzia Jenkins (domyślnie adres URL powinien być następujący: ``http://<PublicIPorFQDN>:8081/github-webhook/``). Kliknij pozycję **add/update service** (dodaj/aktualizuj usługę).
+   d. Wprowadź adres URL elementu webhook narzędzia Jenkins (domyślnie adres URL powinien być następujący: ``http://<PublicIPorFQDN>:8081/github-webhook/``). Kliknij pozycję **add/update service** (dodaj/aktualizuj usługę).
 
    d. Do wystąpienia narzędzia Jenkins zostanie wysłane zdarzenie testowe. W usłudze GitHub powinien zostać wyświetlony zielony znacznik wyboru obok elementu webhook i projekt zostanie skompilowany.
 
@@ -207,7 +201,7 @@ W tym miejscu możesz przekazać wtyczkę. Wybierz **wybierz plik**, a następni
       > Określany w tym miejscu klaster może być tym samym klastrem, który hostuje aplikację kontenera narzędzia Jenkins, jeśli usługa Service Fabric jest używana do wdrożenia obrazu kontenera narzędzia Jenkins.
       >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Usługa GitHub i narzędzie Jenkins są teraz skonfigurowane. Rozważ dokonanie jakiejś przykładowej zmiany w Twoim projekcie ``MyActor`` w przykładzie repozytorium, https://github.com/sayantancs/SFJenkins. Wypchnij zmiany do zdalnej gałęzi ``master`` (lub dowolnej innej gałęzi skonfigurowanej do pracy). Spowoduje to wyzwolenie skonfigurowanego zadania narzędzia Jenkins ``MyJob``. Pobierze ono zmiany z usługi GitHub, skompiluje je i wdroży aplikację w punkcie końcowym klastra określonym w akcjach wykonywanych po kompilacji.  
 
   <!-- Images -->

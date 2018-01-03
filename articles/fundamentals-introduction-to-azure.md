@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Wprowadzenie do platformy Microsoft Azure
 Microsoft Azure to platforma aplikacji firmy Microsoft dla chmury publicznej.  Celem tego artykułu jest zapewniają podstawę dla zrozumienia podstaw dotyczących platformy Azure, nawet jeśli nie wiesz nic o chmury obliczeniowej.
 
 **Jak przeczytaj ten artykuł**
 
-Azure rośnie cały czas, dzięki czemu łatwiej spowodowało przeciążenia.  Rozpoczynać podstawowe usługi, które są najpierw wymienione w tym artykule, a następnie przejdź do dodatkowych usług. Nie oznacza to, nie można używać tylko dodatkowych usług samodzielnie, ale podstawowe usługi tworzą podstawowe aplikacji działających na platformie Azure.
+Azure rośnie cały czas, dzięki czemu łatwiej spowodowało przeciążenia.  Rozpoczynać podstawowe usługi, które są najpierw wymienione w tym artykule, a następnie przejdź do dodatkowych usług. Nie oznacza to, iż dodatkowe usługi nie można użyć samodzielnie. Ale podstawowe usługi składają się na podstawową aplikację, która działa na platformie Azure.
 
 **Przesyłanie opinii**
 
 Twoja opinia jest ważne. W tym artykule powinien zapewnić skuteczne Omówienie usługi Azure. Jeśli nie, poinformuj nas w sekcji uwag w dolnej części strony. Nadaj niektórych szczegółów na może zobaczyć i ulepszenia tego artykułu.  
 
 ## <a name="the-components-of-azure"></a>Składniki platformy Azure
-Azure grup usług na kategorie w portalu zarządzania i w różne wizualne, takie jak [co to jest Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . Portal zarządzania, które jest używane do zarządzania większości (ale nie wszystkie) usług Azure.
+Azure grup usług na kategorie w portalu Azure i w różne wizualne, takie jak [co to jest Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/). [Portalu Azure](http://portal.azure.com) , które jest używane do zarządzania usługami na platformie Azure.
 
-W tym artykule będzie używać **innej organizacji** porozmawiać na temat usług opartych na podobną funkcję i wyróżnienia ważne usługi podrzędne, które należą do nich większe.  
+W tym artykule wykorzystano **innej organizacji** porozmawiać na temat usług opartych na podobną funkcję i wyróżnienia ważne usługi podrzędne, które należą do nich większe.  
 
 ![Składniki platformy Azure](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Rysunek: Azure zapewnia dostęp do Internetu usług aplikacji uruchomionych w centrach danych platformy Azure.*
 
-## <a name="management-portal"></a>Portal zarządzania
-Platforma Azure ma interfejs sieci web o nazwie [portalu zarządzania](http://manage.windowsazure.com) która pozwala administratorom na dostęp i zarządzać nim funkcje większości, ale nie wszystkie platformy Azure.  Firma Microsoft udostępnia zwykle nowszej interfejsu użytkownika portalu w wersji beta przed jego wycofaniem stary. Jest nazywana nowszą ["Azure Portal"](https://portal.azure.com/).
-
-Istnieje zwykle długie nakładają się na siebie, gdy oba portali są aktywne. Gdy w obu portalach pojawi się podstawowe usługi, nie wszystkie funkcje mogą być dostępne w obu. Nowsza usług mogą wyświetlani w nowszej portalu usługi pierwszy i starszych i funkcjonalność może istnieć tylko w przypadku starszych.  Tutaj komunikat jest który Jeżeli nie można znaleźć elementu w portalu starsze Sprawdź nowszą i na odwrót.
+## <a name="azure-portal"></a>Azure Portal
+Platforma Azure ma interfejs sieci web o nazwie [portalu Azure](http://portal.azure.com) która pozwala administratorom na dostęp i zarządzać nim funkcje platformy Azure i usługi.  
 
 ## <a name="compute"></a>Wystąpienia obliczeniowe
 Jednym z najbardziej podstawowe czynności, które jest platformy w chmurze jest wykonywania aplikacji. Każda modeli obliczeń platformy Azure ma własną rolę.
@@ -66,7 +64,7 @@ Takie podejście dość ogólny do przetwarzania danych w chmurze może służy�
 **Scenariusze maszyny wirtualnej**
 
 1. **Tworzenie/testowanie** — można ich używać do tworzenia niedrogich platformy prac deweloperskich i testowych, które można zamknąć po zakończeniu korzystania z niego. Może również tworzenie i uruchamianie aplikacji, które używają niezależnie od języków i chcesz bibliotek. Te aplikacje mogą używać opcji zarządzania danych, platforma Azure udostępnia, które można również użyć programu SQL Server lub innego systemu DBMS uruchomiona w co najmniej jednej maszyny wirtualnej.
-2. **Przenieś aplikacje na platformie Azure (przyrostu i zmiana)** — "Przyrostu i shift" odwołuje się do przenoszenia aplikacji znacznie, jak zwykłych widłowego przenoszenia dużego obiektu.  "Podnieś" wirtualny dysk twardy z lokalnego centrum danych i "shift" go do platformy Azure i uruchom go brak.  Zazwyczaj konieczne będzie wykonania dodatkowych czynności, aby usunąć zależności w innych systemach. Jeżeli istnieją zbyt wiele, można wybrać opcję 3 zamiast tego.  
+2. **Przenieś aplikacje na platformie Azure (przyrostu i zmiana)** — "Przyrostu i shift" odwołuje się do przenoszenia aplikacji znacznie, jak zwykłych widłowego przenoszenia dużego obiektu.  "Podnieś" wirtualny dysk twardy z lokalnego centrum danych i "shift" go do platformy Azure i uruchom go brak.  Zwykle mają wykonania dodatkowych czynności, aby usunąć zależności w innych systemach. Jeżeli istnieją zbyt wiele, można wybrać opcję 3 zamiast tego.  
 3. **Rozszerzanie centrum danych** -maszynach wirtualnych platformy Azure używana jako rozszerzenie lokalnego centrum danych, programem SharePoint lub inne aplikacje. Aby to obsłużyć, jest możliwość tworzenia domen systemu Windows w chmurze za pomocą usługi Active Directory w maszynach wirtualnych platformy Azure. Powiązać sieci lokalnej i sieci na platformie Azure razem, można użyć sieci wirtualnej platformy Azure (wymienionych później).
 
 ### <a name="web-apps"></a>Web Apps
@@ -75,7 +73,7 @@ Takie podejście dość ogólny do przetwarzania danych w chmurze może służy�
 
 Jedną z najbardziej typowych rzeczy, które użytkownicy wykonują w chmurze jest uruchamiane aplikacje sieci web i witryn sieci Web. Maszyn wirtualnych platformy Azure pozwala na to, ale nadal można pozostawia przy administrowania przynajmniej jednej maszyny wirtualnej i podstawowej systemów operacyjnych. Można to zrobić przez role sieci web usługi w chmurze, ale wdrażania i konserwowania je nadal trwa pracy administracyjnej.  Co zrobić, jeśli chcesz witryny sieci Web w przypadku gdy ktoś inny włączył zajmuje się czynności administracyjnych dla Ciebie?
 
-Jest to dokładnie, aplikacje sieci Web udostępnia. Ten model obliczeń oferuje środowisko sieci web zarządzanej, za pomocą portalu zarządzania Azure, a także interfejsów API. Można przenieść istniejącą aplikację witryny sieci Web do aplikacji sieci Web bez zmian lub można utworzyć nową bezpośrednio w chmurze. Po uruchomieniu witryna sieci Web, można dodawać lub usuń wystąpienia dynamicznie, zależne aplikacje sieci Web Azure w celu zrównoważenia obciążenia żądaniami między nimi. Aplikacje platformy Azure oferuje zarówno udostępnionego opcja, w którym witryny sieci Web jest uruchomiona na maszynie wirtualnej z innymi lokacjami, i standardowych opcji, która zezwala na witryny do uruchomienia na jego własnej maszynie Wirtualnej. Standardowa opcja umożliwia również zwiększenie rozmiaru (mocy obliczeniowej) swoich wystąpień, w razie potrzeby.
+Jest to dokładnie, aplikacje sieci Web udostępnia. Ten model obliczeń oferuje środowisku sieci web zarządzanej przy użyciu portalu Azure, a także interfejsów API. Można przenieść istniejącą aplikację witryny sieci Web do aplikacji sieci Web bez zmian lub można utworzyć nową bezpośrednio w chmurze. Po uruchomieniu witryna sieci Web, można dodawać lub usuń wystąpienia dynamicznie, zależne aplikacje sieci Web Azure w celu zrównoważenia obciążenia żądaniami między nimi. Aplikacje platformy Azure oferuje zarówno udostępnionego opcja, w którym witryny sieci Web jest uruchomiona na maszynie wirtualnej z innymi lokacjami, i standardowych opcji, która zezwala na witryny do uruchomienia na jego własnej maszynie Wirtualnej. Standardowa opcja umożliwia również zwiększenie rozmiaru (mocy obliczeniowej) z wystąpienia.
 
 Do tworzenia aplikacji aplikacje sieci Web obsługuje .NET, PHP, Node.js, Java i Python oraz bazy danych SQL i bazy danych platformy Azure dla programu MySQL dla relacyjnego magazynu. Udostępnia także wbudowaną obsługę dla kilku popularnych aplikacji, w tym WordPress, Joomla i Drupal. Celem jest zapewnienie ekonomicznych, skalowalnych i szeroko użyteczny platformę do tworzenia witryn sieci Web i aplikacji sieci web w chmurze publicznej.
 
@@ -87,9 +85,9 @@ Aplikacje sieci Web ma być przydatne w przypadku firm, deweloperzy i agencje pr
 ![Usługi w chmurze Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Rysunek: Usługi w chmurze Azure miejsce do uruchomienia skalowalnej niestandardowego kodu na platformie jako środowiska usługa (PaaS)*
 
-Załóżmy, że chcesz skompilować aplikacji w chmurze, która może obsługiwać wiele równoczesnych użytkowników, nie wymaga dużo administracji i nigdy nie przestanie działać. Może być nawiązane oprogramowania dostawcy, na przykład, że podjęto decyzję o dążenie oprogramowanie jako usługa (SaaS) przez tworzenie wersji jednej z aplikacji w chmurze. Lub może być uruchamiania, tworzenia aplikacji konsumenta oczekiwanego wzrośnie szybkie. Jeśli tworzysz na platformie Azure, model, który wykonanie zasadny skorzystać?
+Załóżmy, że chcesz skompilować aplikacji w chmurze, która może obsługiwać wiele równoczesnych użytkowników, nie wymaga dużo administracji i nigdy nie przestanie działać. Może być nawiązane oprogramowania dostawcy, na przykład, że podjęto decyzję o dążenie oprogramowanie jako usługa (SaaS) przez tworzenie wersji jednej z aplikacji w chmurze. Lub może być uruchamiania, tworzenia aplikacji konsumenta oczekiwanego szybko rośnie. Jeśli tworzysz na platformie Azure, model, który wykonanie zasadny skorzystać?
 
-Aplikacje sieci Web platformy Azure umożliwia tworzenie tego rodzaju aplikacji sieci web, ale istnieją pewne ograniczenia. Nie masz dostępu administracyjnego, na przykład, co oznacza, że nie można zainstalować dowolne oprogramowanie. Maszyn wirtualnych platformy Azure zapewnia dużą elastyczność, łącznie z dostępem administracyjnym i pewnością umożliwia tworzenie bardzo skalowalnych aplikacji, ale trzeba będzie obsługiwać wiele aspektów niezawodność i administrowanie samodzielnie. Co chcesz to opcja, która zapewnia kontrolę potrzebne, ale również obsługuje większość pracy wymagane niezawodność i administrowania.
+Aplikacje sieci Web platformy Azure umożliwia tworzenie tego rodzaju aplikacji sieci web, ale istnieją pewne ograniczenia. Nie masz dostępu administracyjnego, na przykład, co oznacza, że nie można zainstalować dowolne oprogramowanie. Maszyny wirtualne platformy Azure zapewnia dużą elastyczność, łącznie z dostępem administracyjnym. Służy on do tworzenia bardzo skalowalnych aplikacji. Ale trzeba będzie obsługiwać wiele aspektów niezawodność i administrowanie samodzielnie. Co chcesz to opcja, która zapewnia kontrolę potrzebne, ale również obsługuje większość pracy wymagane niezawodność i administrowania.
 
 Jest to dokładnie, co to jest zapewniana przez usługi w chmurze Azure. Ta technologia umożliwia wyraźnie skalowalne, niezawodne i niski — administrator aplikacji, a na przykład co ma często wywołuje platforma jako usługa (PaaS). Aby go użyć, należy utworzyć aplikację przy użyciu technologii, których możesz wybrać, takich jak C#, Java, PHP, Python, Node.js lub innego elementu. Kod następnie wykonuje na maszynach wirtualnych (nazywane wystąpień) z wersją systemu Windows Server.
 
@@ -112,7 +110,7 @@ Możliwość uruchomienia programu SQL Server lub innego systemu DBMS w maszyny 
 
 Ponownie stan maszyny wirtualnej i dyskami dodatkowe dane w przypadku utworzenia lub Przekaż obsługiwanych przez magazynu obiektów blob, (który omawianiu później).  
 
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 ![Baza danych SQL Azure Storage](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
 
 *Rysunek: Baza danych SQL Azure udostępnia usługę zarządzanych relacyjnej bazy danych w chmurze.*
@@ -162,7 +160,7 @@ Czasami chcesz przenieść dużych ilości danych na platformie Azure. Który mo
 **Scenariusze dotyczące Import / Eksport**
 
 * **Duże migracji danych** — w dowolnym momencie masz dużych ilości danych (terabajty), który chcesz przekazać do platformy Azure, usługa Import/Eksport jest często dużo szybsze i tańsze prawdopodobnie niż przenoszenia go przez internet. Gdy dane znajdują się w obiektach blob, można go przetworzyć do innych formularzy, takie jak magazyn tabel lub bazy danych SQL.
-* **Archiwizowane danych odzyskiwania** -importu/eksportu umożliwia ma Microsoft transfer dużych ilości danych przechowywanych w magazynie obiektów Blob Azure do urządzenia magazynującego wysyłanych i następnie mają urządzenia dostarczonych do lokalizacji, w miarę. Ponieważ to zajmie trochę czasu, nie jest dobra opcja w przypadku odzyskiwania po awarii. Najlepiej niepotrzebnych szybki dostęp do danych archiwalnych.
+* **Archiwizowane danych odzyskiwania** -importu/eksportu umożliwia ma Microsoft transfer dużych ilości danych przechowywanych w magazynie obiektów Blob Azure do urządzenia magazynującego wysyłanych i następnie mają urządzenia dostarczonych do lokalizacji, w miarę. Ponieważ trwa to trochę czasu, nie jest dobra opcja w przypadku odzyskiwania po awarii. Najlepiej niepotrzebnych szybki dostęp do danych archiwalnych.
 
 ### <a name="file-service"></a>Usługi plików
 ![Usługi plików na platformę Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
@@ -177,7 +175,7 @@ Lokalnie, często mają duże ilości magazynu plików są dostępne przy użyci
 * **Udział diagnostycznych** — można zapisywać i udostępniać pliki diagnostyczne, takie jak dzienniki, metryki, i zrzuty awaryjne. Te pliki są dostępne za pośrednictwem interfejsu zarówno protokołu SMB i REST umożliwia aplikacjom korzystają z różnych narzędzi analizy do przetwarzania i analizowania danych diagnostycznych.
 * **Dev/Test/Debug** — w przypadku pracy z maszyn wirtualnych w chmurze, deweloperzy i Administratorzy często muszą zestaw narzędzi. Instalowanie i rozpowszechnianie tych narzędzi na każdej maszynie wirtualnej jest czasochłonne. W przypadku plików Azure dewelopera lub administratora można przechowywać ich ulubionych narzędzi w udziale plików i nawiązywania z nimi z dowolnej maszyny wirtualnej.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 Azure obecnie działa w wielu centrach danych rozprzestrzeniające się na całym świecie. Podczas uruchamiania aplikacji lub przechowywania danych, można wybrać co najmniej jednego z tych centrach danych do użycia. Można również nawiązać tych centrach danych na różne sposoby korzystania z usług poniżej.
 
 ### <a name="virtual-network"></a>Virtual Network
@@ -211,7 +209,7 @@ Aby uzyskać więcej informacji na temat połączenia ExpressRoute, zobacz [opis
 
 Jeśli aplikacja Azure jest uruchomiona w wielu centrach danych, można użyć usługi Azure Traffic Manager można przekierować żądania od użytkowników inteligentnie między wystąpieniami aplikacji. Można również kierować ruchem do usługi nie są uruchomione na platformie Azure, pod warunkiem, że są one dostępne z Internetu.  
 
-Aplikacja Azure z użytkownikami w jednej części świecie może działać w centrum danych Azure tylko jeden. Aplikacja użytkownikom rozproszonych na całym świecie, jednak jest bardziej prawdopodobne do uruchamiania w wielu centrach danych, być może nawet wszystkich. W tej drugiej sytuacji czoła problem: jak możesz inteligentnie przekierować użytkowników do wystąpienia aplikacji? W większości przypadków, prawdopodobnie potrzebna będzie poszczególnym użytkownikom dostępu najbliżej, centrum danych, ponieważ prawdopodobnie zapewnia swoje najważniejsze czas odpowiedzi. Ale co zrobić, jeśli danego wystąpienia aplikacji jest przeciążony lub jest niedostępny? W takim wypadku byłoby nieuprzywilejowany przekierować swoje żądania automatycznie do innego centrum danych. Jest to dokładnie, co jest wykonywane przez usługę Azure Traffic Manager.
+Aplikacja Azure z użytkownikami w jednej części świecie może działać w centrum danych Azure tylko jeden. Aplikacja użytkownikom rozproszonych na całym świecie, jednak jest bardziej prawdopodobne do uruchamiania w wielu centrach danych, być może nawet wszystkich. W tej drugiej sytuacji czoła problem: jak możesz inteligentnie przekierować użytkowników do wystąpienia aplikacji? W większości przypadków, prawdopodobnie potrzebna będzie poszczególnym użytkownikom dostępu się najbliżej nich, centrum danych, ponieważ ich udostępnia najlepszy czas odpowiedzi. Ale co zrobić, jeśli danego wystąpienia aplikacji jest przeciążony lub jest niedostępny? W takim wypadku byłoby nieuprzywilejowany przekierować żądania automatycznie do innego centrum danych. Jest to dokładnie, co jest wykonywane przez usługę Azure Traffic Manager.
 
 Właściciel aplikacji definiuje reguły określające, jak żądania od użytkowników powinny być kierowane do centrów danych, a następnie opiera się na Menedżera ruchu do przeprowadzania tych reguł. Na przykład użytkownicy normalnie mogą być kierowane do najbliższego centrum danych Azure, ale jest wysyłana do innej gdy czas odpowiedzi z ich domyślne centrum danych przekroczy czas odpowiedzi z innych centrów danych. W przypadku aplikacji rozproszonych globalnie z wieloma użytkownikami o wbudowanej usługi do obsługi problemów, takich jak te przydaje się.
 
@@ -234,7 +232,7 @@ Aby uniknąć pomyłek — nie dostarcza oparta na sieci Web lub obsługiwanych 
 
 Posiada system kontroli źródła hostowanej o nazwie Team Foundation Service, która oferuje kontroli wersji oraz śledzenie elementu roboczego.  Jeśli wolisz, która nawet umożliwia Git kontroli wersji. I może różnić się system kontroli źródła, używanego przez projekt. Można tworzyć projekty zespołowe prywatnej nieograniczone dostępny z dowolnego miejsca na świecie.  
 
-Visual Studio Team Services udostępnia usługę testowania obciążenia. Istnieje możliwość wykonania testów obciążenia utworzone w programie Visual Studio na maszynach wirtualnych w chmurze. Określ całkowita liczba użytkowników, aby załadować testu z, a program Visual Studio Team Services automatycznie określi, ile agenci są potrzebne, aż wymagane maszyn wirtualnych i wykonywanie testów obciążenia. Jeśli jesteś subskrybentem MSDN, możesz uzyskać tysiące wolnego użytkownika minut miesięcznie testowania obciążenia.
+Visual Studio Team Services udostępnia usługę testowania obciążenia. Istnieje możliwość wykonania testów obciążenia utworzone w programie Visual Studio na maszynach wirtualnych w chmurze. Możesz określić, że całkowita liczba użytkowników, które chcesz załadować testu z wykorzystaniem i Visual Studio Team Services automatycznie określa liczbę agentów są potrzebne, aż wymagane maszyn wirtualnych i wykonywanie testów obciążenia. Jeśli jesteś subskrybentem MSDN, możesz uzyskać tysiące wolnego użytkownika minut miesięcznie testowania obciążenia.
 
 Visual Studio Team Services oferuje również obsługę elastyczne programowanie za pomocą funkcji, takich jak kompilacje ciągłej integracji i tablic Kanban pokoje zespołów wirtualnego.
 
@@ -249,7 +247,7 @@ Jednak organizacje, które mają już lokalnego systemu można testować nowe pr
 
 *Rysunek: Usługi Application Insights monitory wydajności i użycia aktywnej aplikacji sieci web lub urządzenia.*
 
-Kiedy czy jest uruchamiany na urządzeniach przenośnych, komputerów stacjonarnych lub przeglądarki sieci web — po opublikowaniu aplikacji - usługi Application Insights informuje, jak działa prawidłowo, i co robią użytkownicy z nim. Spowoduje zachowanie liczbę awarii (Crash) i powolna odpowiedź, alert, jeśli dane między niedopuszczalne progów i pomóc w zdiagnozowaniu problemów.
+Kiedy czy jest uruchamiany na urządzeniach przenośnych, komputerów stacjonarnych lub przeglądarki sieci web — po opublikowaniu aplikacji - usługi Application Insights informuje, jak działa prawidłowo, i co robią użytkownicy z nim. Zapewnia liczbę awarii (Crash) i powolna odpowiedź, alert, jeśli dane między niedopuszczalne progów i pomóc w zdiagnozowaniu problemów.
 
 Podczas opracowywania nową funkcję, należy zaplanować oceny sukcesu jej z użytkownikami. Analizując wzorce użycia, zrozumieć, co jest najlepsza dla klientów i Zwiększ możliwości swoich aplikacji w każdym cyklu programowania.
 
@@ -281,9 +279,9 @@ Zarządzanie interfejsami API Azure ułatwia organizacjom publikowania interfejs
 
 **Scenariusze zarządzania interfejsu API**
 
-Załóżmy, że Twoja firma ma zbiór urządzeń, że wszystkie wymagane wywołania zwrotnego z usługą centralnej, można pobrać danych — na przykład firmy wysyłki, że w każdym ciężarówka na drodze urządzeń.  Na pewno firmy będzie można skonfigurować system, aby śledzić własnym pojazdów, więc można niezawodnie prognozowania i zaktualizuj czas dostawy. Umożliwia wiedzieć, ile pojazdów ma i odpowiednio zaplanować.  Każdy ciężarówka należy do urządzenia, które wywołuje w centralnej lokalizacji z jego pozycjonowanie i szybkość danych i prawdopodobnie więcej.
+Załóżmy, że Twoja firma ma zbiór urządzeń, że wszystkie wymagane wywołania zwrotnego z usługą centralnej, można pobrać danych — na przykład firmy wysyłki, że w każdym ciężarówka na drodze urządzeń.  Na pewno firma chce skonfigurować system do śledzenia własnym pojazdów, więc można niezawodnie prognozowania i zaktualizuj czas dostawy. Umożliwia wiedzieć, ile pojazdów ma i odpowiednio zaplanować.  Każdy ciężarówka musi wywołuje w centralnej lokalizacji z jego pozycjonowanie i szybkość danych i prawdopodobnie inne urządzenie.
 
-Klient firmy wysyłki prawdopodobnie również korzystać z uzyskiwania tych pozycji danych.  Klienta można użyć jej do wiedzieć, jak daleko produkty muszą podróży, w których one zostać zablokowane, ile ich płatności wzdłuż niektórych tras (jeśli są połączone z ich płatnej na potrzeby wysłania). Jeśli firma wysyłki już agreguje dane, wielu klientów może zwrócić dla niego.  Ale następnie firmy wysyłki sposób, aby zapewnić klientom danych. Po zapewniają dostęp do klientów, może nie mieć kontrolę nad jak często dane jest poddawany kwerendzie. Należy je określić zasady dotyczące kto ma dostęp do danych. Wszystkie te reguły musi być wbudowane w ich zewnętrznego interfejsu API. Jest to, gdzie ułatwiają zarządzanie interfejsami API.  
+Klient firmy wysyłki prawdopodobnie również korzystać z uzyskiwania tych pozycji danych.  Klienta można użyć jej do wiedzieć, jak daleko produkty muszą podróży, w których one zostać zablokowane, ile ich płatności wzdłuż niektórych tras (jeśli są połączone z ich płatnej na potrzeby wysłania). Jeśli firma wysyłki już agreguje dane, wielu klientów może zwrócić dla niego.  Ale następnie firmy wysyłki sposób, aby zapewnić klientom danych. Po zapewniają dostęp do klientów, może nie mieć kontrolę nad jak często dane jest poddawany kwerendzie. Muszą oni określają zasady dotyczące kto ma dostęp do danych. Wszystkie te reguły musi być wbudowane w ich zewnętrznego interfejsu API. Jest to, gdzie ułatwiają zarządzanie interfejsami API.  
 
 ## <a name="identity-and-access"></a>Tożsamość i dostęp
 Praca z tożsamości jest częścią większości aplikacji. Znajomość użytkownika umożliwia aplikacji zdecydować, jak powinna interakcji z użytkownikiem. Platforma Azure udostępnia usługi służące do śledzenia tożsamości, a także zintegrować ją z magazyny tożsamości, które mogą być już używany.
@@ -347,7 +345,7 @@ Centra powiadomień jest przeznaczona do pracy z dowolnego zaplecza. Możesz uż
 
 Możesz wysłać najważniejszych wiadomości sportowych zdarzenia i produktu anonsu powiadomienia do milionów użytkowników z niskim opóźnieniem. Przedsiębiorstwa może powiadomić pracownikom o nowe poufnych łączności w czasie, takie jak potencjalnych klientach, aby pracownicy nie muszą stale Sprawdź adres e-mail lub innych aplikacji do uzyskiwania informacji. Można również wysłać jednorazowe hasła wymagane do uwierzytelniania wieloskładnikowego.
 
-## <a name="back-up"></a>Tworzenie kopii zapasowych
+## <a name="back-up"></a>Wykonaj kopię zapasową
 Każdego przedsiębiorstwa musi utworzyć kopii zapasowej i przywracania danych. Azure umożliwia wykonywanie kopii zapasowych i przywracanie aplikacji w chmurze lub lokalnie. System Azure oferuje różne opcje, aby pomóc w zależności od typu kopii zapasowej.
 
 ### <a name="site-recovery"></a>Site Recovery
@@ -380,7 +378,7 @@ Niezależnie od tego, co wykonywanie operacji kod często wymaga interakcji z in
 
 Usługi kolejkowania wiadomości jest prosty: jedną aplikację umieszcza wiadomości w kolejce, a ten komunikat jest ostatecznie odczytu przez inną aplikację. Jeśli aplikacja wymaga tylko usługa prostego, kolejek Azure może być najlepszym rozwiązaniem.
 
-Ze względu na sposób Azure zwiększył się wraz z upływem czasu kolejek magazynu Azure i kolejek usługi Service Bus zapewniają podobne usługi kolejkowania wiadomości. Uzasadnienie, dlaczego warto używać warunkujące zostały omówione w dokumencie dość techniczne [kolejek Azure i kolejek usługi Service Bus - porównywane i odróżniające](http://msdn.microsoft.com/library/azure/hh767287.aspx).  W wielu scenariuszach albo będzie działać.
+Ze względu na sposób Azure zwiększył się wraz z upływem czasu kolejek magazynu Azure i kolejek usługi Service Bus zapewniają podobne usługi kolejkowania wiadomości. Uzasadnienie, dlaczego warto używać warunkujące zostały omówione w dokumencie dość techniczne [kolejek Azure i kolejek usługi Service Bus - porównywane i odróżniające](http://msdn.microsoft.com/library/azure/hh767287.aspx).  W wielu scenariuszach albo działa.
 
 **Scenariusze kolejki**
 
@@ -461,7 +459,7 @@ Uzyskiwanie dostępu do danych przechowywanych w żadnym z platformy Azure, zarz
 
 Aplikacja usługi w chmurze można przechowywać dane w pamięci podręcznej, a następnie pobrać go bezpośrednio, bez potrzeby uzyskiwania dostępu do magazynu trwałego. W pamięci podręcznej mogą być obsługiwane w maszynach wirtualnych w aplikacji lub udostępniane przez maszyny wirtualne przeznaczonym wyłącznie do buforowania. W obu przypadkach mogą być dystrybuowane pamięci podręcznej, z danymi w nim rozpowszechniania między wieloma maszynami wirtualnymi w centrum danych Azure.
 
-Platforma Azure ma szereg różnych pamięci podręcznej technologie, które mają przesunięte wraz z upływem czasu. W kolejności zostały wprowadzone, jest udostępniony w roli, zarządzane i pamięci podręcznej Redis. Buforowanie udostępnionych to technologia starsze i nie należy tworzyć nowych wdrożeń z nim. Pamięć podręczna zarządzane zawiera te same funkcje roli w pamięci podręcznej, ale jako zarządzana usługa poza portalu zarządzania Azure. Pamięć podręczna Redis jest w wersji zapoznawczej. Implementacja Redis ma największą liczbę funkcji i jest zalecana w przypadku pisanie nowego kodu buforowania.
+Platforma Azure ma szereg różnych pamięci podręcznej technologie, które mają przesunięte wraz z upływem czasu. W kolejności zostały wprowadzone, jest udostępniony w roli, zarządzane i pamięci podręcznej Redis. Buforowanie udostępnionych to technologia starsze i nie należy tworzyć nowych wdrożeń z nim. Pamięć podręczna zarządzane zawiera te same funkcje roli w pamięci podręcznej, ale jako zarządzana usługa poza portalu Azure. Implementacja Redis ma największą liczbę funkcji i jest zalecana w przypadku pisanie nowego kodu buforowania.
 
 **Scenariusze pamięć podręczna Azure**
 
@@ -527,7 +525,7 @@ Wzrost oprogramowanie jako usługa jest przekształcanie, jak możemy utworzyć 
 ![Azure Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Rysunek: Witrynę Azure Marketplace i Magazyn Azure można znaleźć i kupowanie aplikacjami platformy Azure i komercyjnych zestawów danych i ich używać jako części aplikacji Azure.**
 
-Różnica między nimi jest Marketplace znajduje się poza portalu zarządzania Azure, że w portalu można uzyskać z magazynu. Potencjalnych klientów można wyszukiwać aplikacje platformy Azure, które własnych potrzeb. Klientów można wyszukiwać komercyjnych zestawów danych oraz, w tym danych demograficznych, danych finansowych, dane geograficzne i. Gdy znajdą coś one, takich jak ich do niego dostęp z dostawcą, bezpośrednio w lokalizacjach Marketplace lub magazynu w sieci web lub w niektórych przypadkach z portalu zarządzania. Aplikacje mogą również używać interfejsu API wyszukiwania usługi Bing za pośrednictwem portalu Marketplace, zapewniając im dostępu do wyników wyszukiwania w sieci web.
+Różnica między nimi jest Marketplace znajduje się poza portalu Azure, że w portalu można uzyskać z magazynu. Potencjalnych klientów można wyszukiwać aplikacje platformy Azure, które własnych potrzeb. Klientów można wyszukiwać komercyjnych zestawów danych oraz, w tym danych demograficznych, danych finansowych, dane geograficzne i. Gdy znajdą coś one, takich jak ich do niego dostęp z dostawcą, bezpośrednio w lokalizacjach Marketplace lub magazynu w sieci web lub w niektórych przypadkach z portalu Azure. Aplikacje mogą również używać interfejsu API wyszukiwania usługi Bing za pośrednictwem portalu Marketplace, zapewniając im dostępu do wyników wyszukiwania w sieci web.
 
 **Scenariusze Commerce**
 

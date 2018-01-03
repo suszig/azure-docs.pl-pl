@@ -3,7 +3,7 @@ title: "O usłudze Azure DevTest Labs | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak DevTest Labs może ułatwić do tworzenia, zarządzania i monitorowania maszyn wirtualnych platformy Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 1b9eed3b-c69a-4c49-a36e-f388efea6f39
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: 62e2d214d6d685c7f27c8c45cae161eb25ed1cbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 97afbb5de949587e0844a1f3467167ea9405652c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="about-azure-devtest-labs"></a>O usłudze Azure DevTest Labs
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Deweloperzy i testerzy chce się dowiedzieć, aby rozwiązać problem z opóźnieniami dotyczącymi tworzenia i zarządzania środowiskami, przechodząc do chmury.  Azure rozwiązuje problem opóźnienia środowiska i umożliwia samoobsługi w ramach nowej struktury wydajne kosztów.  Jednak deweloperów i testerów nadal muszą poświęcić wiele czasu Konfigurowanie środowiskami własnym obsługiwane. Inne osoby podejmujące decyzje są także wiedzą o tym, jak skorzystać z chmury, aby zmaksymalizować ich oszczędności bez dodawania zbyt dużo koszty procesu.
 
 Azure DevTest Labs to usługa, która pomaga deweloperom i testerom szybko utworzyć środowiska na platformie Azure podczas zminimalizować odpady i kontrolować koszty. Możesz przetestować najnowszą wersję aplikacji dzięki możliwości szybkiej aprowizacji środowisk systemów Windows i Linux przy użyciu szablonów i artefaktów z możliwością ponownego użycia. Łatwo zintegrować z procesu wdrażania z DevTest Labs do udostępniania na żądanie środowiska. Skalowanie w górę obciążenia testowania przez Inicjowanie obsługi wielu agentów testowych i utworzyć wstępnie przygotowany środowiska szkolenia i pokazy.
@@ -47,6 +47,6 @@ Korzystaj z wstępnie przygotowanych dodatków plug-in i interfejsie API, aby ud
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [DevTest Labs — pojęcia](devtest-lab-concepts.md)
 

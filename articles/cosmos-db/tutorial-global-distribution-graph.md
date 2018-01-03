@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Konfigurowanie bazy danych Azure rozwiązania Cosmos dystrybucji globalnego przy użyciu interfejsu API programu Graph
 
-W tym artykule zostanie przedstawiony sposób korzystać z portalu Azure do instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API programu Graph (wersja zapoznawcza).
+W tym artykule zostanie przedstawiony sposób użycia portalu Azure do instalacji bazy danych Azure rozwiązania Cosmos globalne dystrybucji, a następnie nawiąż połączenie przy użyciu interfejsu API programu Graph.
 
 W tym artykule opisano następujące zadania: 
 
 > [!div class="checklist"]
 > * Skonfiguruj globalne dystrybucji przy użyciu portalu Azure
-> * Skonfigurować globalne dystrybucji za pomocą [API Graph](graph-introduction.md) (wersja zapoznawcza)
+> * Skonfigurować globalne dystrybucji za pomocą [API Graph](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ Aby korzystać z [globalne dystrybucji](distribute-data-globally.md), aplikacje 
 
 Ta lista preferencji został określony podczas inicjowania połączenia przy użyciu zestawów SDK. Zestawy SDK zaakceptować opcjonalny parametr "PreferredLocations" oznacza to uporządkowana lista regionów platformy Azure.
 
-* **Zapisuje**: zestaw SDK będzie automatycznie wysyłać zapisuje wszystkie dane w bieżącej zapisu regionu.
-* **Odczytuje**: wszystkie operacje odczytu, które zostaną wysłane do pierwszy dostępny region na liście PreferredLocations. Jeśli żądanie kończy się niepowodzeniem, klient się nie powieść w dół na liście, aby następny region i tak dalej. Zestawy SDK podejmie próbę odczytu z określonych w PreferredLocations regionów. Tak na przykład, jeśli konto bazy danych rozwiązania Cosmos jest dostępne w trzech regionów, ale klient tylko określa dwóch regionach i do zapisu dla PreferredLocations, następnie odczyty nie zostanie obsłużona poza region zapisu, nawet w przypadku pracy awaryjnej.
+* **Zapisuje**: zestaw SDK automatycznie wysyła wszystkie zapisy do bieżącego obszaru zapisu.
+* **Odczytuje**: wszystkie operacje odczytu są wysyłane do pierwszy dostępny region na liście PreferredLocations. Jeśli żądanie kończy się niepowodzeniem, klient nie będzie w dół na liście, aby następny region i tak dalej. Tylko zestawy SDK próba odczytu z określonych w PreferredLocations regionów. Tak na przykład jeśli konto bazy danych rozwiązania Cosmos jest dostępne w trzech regionów, ale klient określa tylko dwa regiony i do zapisu dla PreferredLocations, a następnie odczyty nie są udostępniane poza region zapisu, nawet w przypadku trybu failover.
 
-Aplikacja może sprawdź bieżący punkt końcowy zapisu i odczytu punktu końcowego wybrany przez zestaw SDK, sprawdzając dwie właściwości WriteEndpoint i ReadEndpoint dostępne w wersji zestawu SDK 1.8 i powyżej. Jeśli nie ustawiono właściwości PreferredLocations, zostanie obsłużona wszystkie żądania z bieżącego obszaru zapisu.
+Aplikacja może sprawdź bieżący punkt końcowy zapisu i odczytu punktu końcowego wybrany przez zestaw SDK, sprawdzając dwie właściwości WriteEndpoint i ReadEndpoint dostępne w wersji zestawu SDK 1.8 i powyżej. Jeśli nie ustawiono właściwości PreferredLocations, wszystkie żądania są udostępniane z bieżącego obszaru zapisu.
 
 ### <a name="using-the-sdk"></a>Przy użyciu zestawu SDK
 
@@ -81,7 +81,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 To wszystko, która kończy w tym samouczku. Znajdują się informacje dotyczące zarządzania spójności konta globalnie replikowanych odczytując [poziomów spójności w usłudze Azure DB rozwiązania Cosmos](consistency-levels.md). I uzyskać więcej informacji na temat sposobu globalnej replikacji bazy danych działa w usłudze Azure DB rozwiązania Cosmos, zobacz [dystrybucji danych globalnie z bazy danych Azure rozwiązania Cosmos](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wykonaniu następujących czynności:
 

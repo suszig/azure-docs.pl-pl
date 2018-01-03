@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Uaktualnianie aplikacji sieci szkieletowej usług za pomocą programu PowerShell
 > [!div class="op_single_selector"]
-> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -135,7 +135,7 @@ Za kilka minut, stan, który uzyskano przy użyciu poprzedniego polecenia progra
 
 Możesz spróbować uaktualniania z wersji 2 do wersji 3 lub w wersji 2 do wersji 1, ponieważ wykonywania. Przenoszenie z wersji 2 do wersji 1 jest traktowana jako uaktualnienia. Odtwarzanie z limitów czasu i zasady dotyczące kondycji z siebie uczynić z nich korzystać. W przypadku wdrażania klastra platformy Azure, parametry trzeba odpowiednio ustawione. Warto konserwatywnie Ustaw limity czasu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji za pomocą programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.
 
 Kontrolowanie sposobu uaktualnienia aplikacji przy użyciu [parametry uaktualnienia](service-fabric-application-upgrade-parameters.md).

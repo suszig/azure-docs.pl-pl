@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Zastrzeżone adresy IP (klasyczne)
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)
@@ -163,7 +163,7 @@ Można również skojarzyć zastrzeżonego adresu IP do usługi w chmurze przy u
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zrozumienie sposobu [adresowanie IP](virtual-network-ip-addresses-overview-classic.md) działa w klasycznym modelu wdrażania.
 * Dowiedz się więcej o [prywatne adresy IP zarezerwowane](virtual-networks-reserved-private-ip.md).
 * Dowiedz się więcej o [adresy IP publicznego poziom wystąpienia (ILPIP)](virtual-networks-instance-level-public-ip.md).

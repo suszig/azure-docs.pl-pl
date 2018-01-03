@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Informacje o funkcji i wywołanie metody bezpośrednio z Centrum IoT
 Centrum IoT daje możliwość wywołania metod bezpośrednio na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania HTTP w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Ta metoda jest przydatne w scenariuszach, w którym kursu natychmiastowego działania różni się w zależności od tego, czy urządzenie mógł odpowiedzieć, takie jak wysyłanie SMS wake-up na urządzeniu, jeśli urządzenie jest w trybie offline (SMS są droższe niż wywołania metody).
@@ -33,7 +33,7 @@ Bezpośrednie metody wykonaj wzorzec żądań i odpowiedzi i są przeznaczone do
 Zapoznaj się [wskazówki dotyczące komunikacji chmury do urządzenia] [ lnk-c2d-guidance] w razie wątpliwości między przy użyciu żądanej właściwości, bezpośrednie metod lub komunikaty chmury do urządzenia.
 
 ## <a name="method-lifecycle"></a>Cykl życia — metoda
-Bezpośrednie metody są wdrożone na urządzeniu i może wymagać zero lub więcej danych wejściowych w ładunku metody, aby poprawnie utworzyć wystąpienia. Wywołaj metodę bezpośrednio za pomocą identyfikatora URI usługi połączonej (`{iot hub}/twins/{device id}/methods/`). Urządzenie odbiera metody bezpośredniego za pośrednictwem tematu MQTT specyficzne dla urządzenia (`$iothub/methods/POST/{method name}/`). Firma Microsoft może obsługiwać bezpośredniego metod na dodatkowych protokołów sieciowych po stronie urządzenia w przyszłości.
+Bezpośrednie metody są wdrożone na urządzeniu i może wymagać zero lub więcej danych wejściowych w ładunku metody, aby poprawnie utworzyć wystąpienia. Wywołaj metodę bezpośrednio za pomocą identyfikatora URI usługi połączonej (`{iot hub}/twins/{device id}/methods/`). Urządzenie odbiera metody bezpośredniego za pośrednictwem tematu MQTT specyficzne dla urządzenia (`$iothub/methods/POST/{method name}/`) lub za pośrednictwem protokołu AMQP łączy (`IoThub-methodname` i `IoThub-status` właściwości aplikacji). 
 
 > [!NOTE]
 > Po wywołaniu metody bezpośrednio na urządzeniu, nazwy i wartości właściwości mogą zawierać tylko US-ASCII drukowalnych alfanumeryczne, z wyjątkiem tych z następującego zestawu: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -75,8 +75,7 @@ Aplikacja zaplecza odbiera odpowiedź, która obejmuje:
 * *Nagłówki* który zawiera element ETag, żądania Identyfikatora, typu zawartości i kodowania zawartości
 * JSON *treści* w następującym formacie:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ Aplikacja zaplecza odbiera odpowiedź, która obejmuje:
    Zarówno `status` i `body` udostępnianym przez urządzenie i używane do odpowiedzi z kodem stanu własnych urządzeń i/lub opis.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Dojście metody bezpośrednio na urządzeniu
-### <a name="method-invocation"></a>Wywołanie metody
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Wywołanie metody
 Urządzenia odbierania żądań metoda bezpośrednia na temat MQTT:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Jednostkę urządzenie otrzyma znajduje się w następującym formacie:
@@ -99,13 +99,30 @@ Jednostkę urządzenie otrzyma znajduje się w następującym formacie:
 
 Metoda żądania są QoS 0.
 
-### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Odpowiedź
 Urządzenie wysyła odpowiedzi `$iothub/methods/res/{status}/?$rid={request id}`, gdzie:
 
 * `status` Właściwość jest stan wykonanie metody dostarczone przez urządzenie.
 * `$rid` Właściwość jest identyfikator żądania z wywołania metody odebranych z Centrum IoT.
 
 Treść jest ustawiana przez urządzenia i może być dowolnym stanie.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Wywołanie metody
+Urządzenie odbiera żądania metoda bezpośrednia przez utworzenie łącza receive na adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Komunikat protokołu AMQP dociera łącze receive reprezentujący żądanie metody. Ten przewodnik zawiera następujące czynności:
+* Właściwość Identyfikatora korelacji, który zawiera identyfikator żądania, które mają być przekazywane z powrotem odpowiadająca mu reakcja — metoda
+* Właściwości aplikacji o nazwie `IoThub-methodname`, który zawiera nazwę wywoływanej metody
+* Treść komunikatu protokołu AMQP zawierającego ładunek metody w formacie JSON
+
+#### <a name="response"></a>Odpowiedź
+Urządzenie tworzy łącze wysyłania zwraca odpowiedź metody na adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Odpowiedź metody jest zwracana wysyłania łącze i ma następującą postać:
+* Właściwość Identyfikatora korelacji, który zawiera identyfikator żądania przekazano komunikat żądania — metoda
+* Właściwości aplikacji o nazwie `IoThub-status`, który zawiera użytkownika dostarczony stan — metoda
+* Treść komunikatu protokołu AMQP zawierająca odpowiedź metody w formacie JSON
 
 ## <a name="additional-reference-material"></a>Odwołanie dodatkowe materiały
 Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
@@ -116,7 +133,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zapoznaniu bezpośredniego metod, mogą być zainteresowane w następującym artykule przewodnik dewelopera Centrum IoT:
 
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]

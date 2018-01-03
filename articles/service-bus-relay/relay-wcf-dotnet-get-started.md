@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Jak używać usługi WCF przekazywania Azure przekazuje z platformą .NET
 W tym artykule opisano sposób korzystania z usługi przekaźnika usługi Azure. Przykłady zostały napisane w języku C# i używają interfejsu API Windows Communication Foundation (WCF) z rozszerzeniami zawartymi w zestawie usługi Service Bus. Aby uzyskać więcej informacji na temat przekaźnika usługi Azure, zobacz [Omówienie przekaźnika usługi Azure](relay-what-is-it.md).
@@ -215,7 +215,7 @@ Definicje punktu końcowego są w tym przypadku przeniesione do pliku App.config
 </behaviors>
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, kiedy znasz już podstawy przekaźnika usługi Azure, skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 * [Co to jest usługa Azure Relay?](relay-what-is-it.md)

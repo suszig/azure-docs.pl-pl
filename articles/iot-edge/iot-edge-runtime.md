@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Zrozumienie środowiska uruchomieniowego Azure IoT Edge i jego architektura - preview
 
@@ -21,13 +21,13 @@ ms.lasthandoff: 11/15/2017
 
 Środowisko uruchomieniowe krawędzi IoT wykonuje następujące funkcje na urządzeniach krawędzi IoT:
 
-* Instaluje i aktualizuje obciążeń na urządzeniu.
-* Przechowuje standardów zabezpieczeń Azure IoT Edge na urządzeniu.
+* Instaluje i aktualizuje obciążenia na urządzeniu.
+* Zapewnia zachowanie standardów zabezpieczeń usługi Azure IoT Edge na urządzeniu.
 * Zapewnia, że [modułów krawędzi IoT][modułów lnk] zawsze są uruchomione.
-* Raporty o kondycji modułu dla chmury na potrzeby monitorowania zdalnego.
-* Umożliwia komunikację między urządzeniami podrzędne typu liść i urządzenie brzegowe IoT.
-* Umożliwia komunikację między modułami na urządzeniu IoT krawędzi.
-* Umożliwia komunikację między chmurą a urządzenie brzegowe IoT.
+* Przesyła raporty o kondycji modułów do chmury na potrzeby zdalnego monitorowania.
+* Usprawnia komunikację między podrzędnymi urządzeniami liścia a urządzeniem usługi IoT Edge.
+* Usprawnia komunikację między modułami na urządzeniu usługi IoT Edge.
+* Usprawnia komunikację między urządzeniem usługi IoT Edge a chmurą.
 
 ![Środowisko uruchomieniowe krawędzi IoT komunikuje się insights i kondycji modułu do Centrum IoT][1]
 
@@ -90,23 +90,31 @@ Każdy element w słowniku modułów zawiera informacje na temat modułu i jest 
 * **settings.createOptions** — ciąg, który jest przekazywany bezpośrednio do demona Docker podczas uruchamiania modułu kontenera. Umożliwia dodanie opcji Docker w tej właściwości zaawansowane opcje, takie jak port przekazywania lub instalowanie woluminów do kontenera modułu.  
 * **Stan** — stan, w którym agent krawędzi umieszcza modułu. Ta wartość jest zazwyczaj równa *systemem* większość użytkowników ma agenta krawędzi, aby natychmiast uruchomić wszystkie moduły na urządzeniu. Można jednak określić początkowy stan modułu, aby zostać zatrzymane i poczekaj, aż przyszłości mówić krawędź agent można uruchomić modułu. Agent krawędzi raportuje stan każdego modułu ją z chmurą we właściwościach zgłoszony. Różnica między żądanej właściwości, a właściwość zgłoszone jest wskaźnik lub zachowania urządzeń. Dostępne są następujące stany obsługiwane:
    * Pobieranie
-   * Uruchomione
+   * Działa
    * W złej kondycji
-   * Niepowodzenie
+   * Błąd
    * Zatrzymane
 * **restartPolicy** — jak moduł ponowne uruchomienie agenta krawędzi. Możliwe wartości obejmują:
    * Nigdy nie — agent krawędzi nigdy nie uruchamia ponownie moduł.
    * onFailure — jeśli wystąpiła awaria modułu, agent krawędzi ponownie go uruchamia. Jeśli moduł, który zamyka się prawidłowo, agent krawędzi nie uruchom go ponownie.
    * Zła kondycja — Jeśli moduł awarii lub uznana za nieprawidłową, agent krawędzi ponownie go uruchamia.
    * Zawsze — Jeśli moduł ulegnie awarii, uznana za nieprawidłową lub zamyka się w dowolny sposób, agent krawędzi ponownie go uruchamia. 
-   
+
+IoT krawędź agent wysyła odpowiedź środowiska uruchomieniowego Centrum IoT. Poniżej przedstawiono listę możliwych odpowiedzi:
+  * 200 - OK
+  * 400 - konfiguracji wdrożenia jest źle sformułowany lub nieprawidłowy.
+  * 417 — urządzenie nie ma zestawu konfiguracyjnego wdrożenia.
+  * 412 — wersja schematu w konfiguracji wdrożenia jest nieprawidłowa.
+  * 406 — urządzenie brzegowe jest w trybie offline lub nie wysyłającą raporty.
+  * 500 — wystąpił błąd w czasie wykonywania krawędzi.
+
 ### <a name="security"></a>Bezpieczeństwo
 
 Agent krawędzi IoT odgrywa kluczową rolę w oknie zabezpieczenia urządzenia IoT. Na przykład wykonuje akcje, takie jak weryfikacja obrazu moduł przed jego uruchomienie. Te funkcje zostaną dodane w wersji ogólnodostępnej funkcji w wersji 2. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zrozumienie modułów Azure IoT krawędzi][modułów lnk]
 

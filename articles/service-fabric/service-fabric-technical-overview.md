@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2204fe7393cddb88c18415768a4c6f8494e83d7b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Omówienie terminologii sieci szkieletowej usług
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi. W tym artykule szczegółowo z terminologią używaną przez sieć szkieletowa usług, aby zrozumieć terminów używanych w dokumentacji.
@@ -99,11 +99,11 @@ Brak dostępnych modeli programowania .NET Framework do tworzenia usług sieci s
 Odczyt [wybierz model programowania dla usługi](service-fabric-choose-framework.md) artykułu, aby uzyskać więcej informacji.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat sieci szkieletowej usług:
 
 * [Omówienie sieci szkieletowej usług](service-fabric-overview.md)
-* [Dlaczego mikrousług podejścia do tworzenia aplikacji?](service-fabric-overview-microservices.md)
+* [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Dlaczego warto tworzyć aplikacje z użyciem mikrousług?)
 * [Scenariusze aplikacji](service-fabric-application-scenarios.md)
 
 

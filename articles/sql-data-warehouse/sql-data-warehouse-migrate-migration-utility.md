@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Narzędzie migracji magazynu danych (wersja zapoznawcza)
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Klikając opcję "Dane migracji" może wygenerować BCP skrypty, które zostanie
 
 Po wypełnieniu powyżej parametry musisz po prostu kliknij przycisk uruchamiania migracji i zestaw dwa pakiety zostaną wygenerowane do określonej lokalizacji. Aby wyeksportować dane ze źródła migracji do plików prostych, uruchom plik eksportu i uruchom plik importu w celu zaimportowania danych do usługi SQL Data Warehouse.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, po migracji niektórych danych, sprawdź informacje dotyczące sposobu [opracowanie][develop].
 
 <!--Image references-->

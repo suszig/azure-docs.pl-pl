@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f75b90aa23068abcd6e3727d7b9cd1b0f71f396c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Rozwiązywanie problemów z zarządzania aplikacjami w usłudze Azure Active Directory i programowanie
 Ten artykuł pomoże Ci znaleźć przydatne dokumenty dotyczące rozwiązywania niektórych typowych problemów związanych z zarządzaniem **aplikacje dla przedsiębiorstw** i tworzenie nowej aplikacji za pomocą **aplikacji Rejestru**.
 
 ## <a name="problems-with-application-development"></a>Problemy z projektowanie aplikacji
-Poniższe linki prowadzą do mapy zawartości, która ułatwia rozwiązywanie niektórych typowych problemów napotykanych podczas tworzenia aplikacji przy użyciu **rejestru aplikacji** w usłudze Azure Active Directory.
+Poniższe łącza pozwala wyświetlić Mapa zawartości, które zawierają informacje pomocne podczas rozwiązywania niektórych typowych problemów z opracowywanie aplikacji przy **rejestru aplikacji** w usłudze Azure Active Directory.
 
 * [Problemy z konfiguracją aplikacji i rejestracji](active-directory-application-dev-config-content-map.md)
 * [Problemy z projektowanie aplikacji](active-directory-application-dev-development-content-map.md)

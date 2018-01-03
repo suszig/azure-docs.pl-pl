@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Przykład 1 — Tworzenie prostego DMZ, za pomocą grup NSG z klasycznego środowiska PowerShell
 [Wróć do strony zabezpieczeń granic najlepsze praktyki][HOME]
@@ -577,7 +577,7 @@ Zapisz ten plik xml z lokalizacji zaktualizowane i dodać link do tego pliku do 
 #### <a name="sample-application-scripts"></a>Przykładowe skrypty aplikacji
 Jeśli chcesz zainstalować przykładową aplikację dla tego i innych przykłady DMZ, jeden podano przy użyciu następującego łącza: [przykładowy skrypt aplikacji][SampleApp]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aktualizowanie i Zapisz plik XML
 * Uruchom skrypt programu PowerShell do tworzenia środowiska
 * Instalowanie przykładowej aplikacji

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 8e63499258da7cfbdd288419d262ce41d9de4559
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Użyj narzędzia HDInsight Tools for IntelliJ z Hortonworks piaskownicy
 
@@ -153,7 +153,7 @@ Aby przesłać projektu na emulatorze:
 
 3. Wybierz **przesłać**. Dzienniki przesyłania zadania są wyświetlane w oknie narzędzia przesyłanie Spark.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak [umożliwia narzędzi HDInsight Tools w zestawie narzędzi Azure for IntelliJ tworzenie aplikacji Spark dla klastra usługi HDInsight Spark Linux](../spark/apache-spark-intellij-tool-plugin.md).
 
