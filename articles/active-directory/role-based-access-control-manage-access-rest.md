@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
 ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Zarządzanie kontrolą dostępu opartej na rolach przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
-> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Program PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 
@@ -153,8 +153,8 @@ Treść żądania Podaj wartości w następującym formacie:
 
 | Nazwa elementu | Wymagane | Typ | Opis |
 | --- | --- | --- | --- |
-| wartość roleDefinitionId |Tak |Ciąg |Identyfikator roli. Format identyfikatora jest:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Tak |Ciąg |Identyfikator obiektu głównego usługi Azure AD (użytkownika, grupy lub nazwy głównej usługi), do której przypisano rolę. |
+| wartość roleDefinitionId |Yes |Ciąg |Identyfikator roli. Format identyfikatora jest:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Yes |Ciąg |Identyfikator obiektu głównego usługi Azure AD (użytkownika, grupy lub nazwy głównej usługi), do której przypisano rolę. |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 201
@@ -436,13 +436,13 @@ Treść żądania Podaj wartości w następującym formacie:
 
 | Nazwa elementu | Wymagane | Typ | Opis |
 | --- | --- | --- | --- |
-| name |Tak |Ciąg |Identyfikator GUID tworzona rola niestandardowa. |
-| properties.roleName |Tak |Ciąg |Tworzona rola niestandardowa nazwa wyświetlana. Maksymalny rozmiar 128 znaków. |
+| name |Yes |Ciąg |Identyfikator GUID tworzona rola niestandardowa. |
+| properties.roleName |Yes |Ciąg |Tworzona rola niestandardowa nazwa wyświetlana. Maksymalny rozmiar 128 znaków. |
 | Properties.Description |Nie |Ciąg |Opis roli niestandardowej. Maksymalny rozmiar 1024 znaki. |
-| Properties.Type |Tak |Ciąg |Wartość "CustomRole." |
-| Properties.permissions.Actions |Tak |ciąg] |Tablica ciągów akcji określenie operacji przyznanych przez rolę niestandardowych. |
+| Properties.Type |Yes |Ciąg |Wartość "CustomRole." |
+| Properties.permissions.Actions |Yes |ciąg] |Tablica ciągów akcji określenie operacji przyznanych przez rolę niestandardowych. |
 | properties.permissions.notActions |Nie |ciąg] |Tablica ciągów akcji określenie operacji do wykluczenia z operacji przyznanych przez rolę niestandardowych. |
-| properties.assignableScopes |Tak |ciąg] |Tablica zakresów, w których można użyć niestandardowej roli. |
+| properties.assignableScopes |Yes |ciąg] |Tablica zakresów, w których można użyć niestandardowej roli. |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 201
@@ -539,13 +539,13 @@ Treść żądania Podaj wartości w następującym formacie:
 
 | Nazwa elementu | Wymagane | Typ | Opis |
 | --- | --- | --- | --- |
-| name |Tak |Ciąg |Identyfikator GUID tworzona rola niestandardowa. |
-| properties.roleName |Tak |Ciąg |Nazwa wyświetlana zaktualizowane rola niestandardowa. |
+| name |Yes |Ciąg |Identyfikator GUID tworzona rola niestandardowa. |
+| properties.roleName |Yes |Ciąg |Nazwa wyświetlana zaktualizowane rola niestandardowa. |
 | Properties.Description |Nie |Ciąg |Opis roli niestandardowej zaktualizowane. |
-| Properties.Type |Tak |Ciąg |Wartość "CustomRole." |
-| Properties.permissions.Actions |Tak |ciąg] |Tablica ciągów akcji Określanie operacje, do których tworzona rola niestandardowa zaktualizowane udziela dostępu. |
+| Properties.Type |Yes |Ciąg |Wartość "CustomRole." |
+| Properties.permissions.Actions |Yes |ciąg] |Tablica ciągów akcji Określanie operacje, do których tworzona rola niestandardowa zaktualizowane udziela dostępu. |
 | properties.permissions.notActions |Nie |ciąg] |Tablica ciągów akcji określenie operacji do wykluczenia z działań, które zaktualizowane niestandardowe rola przyznaje. |
-| properties.assignableScopes |Tak |ciąg] |Tablica zakresów, w których można użyć roli zaktualizowane niestandardowe. |
+| properties.assignableScopes |Yes |ciąg] |Tablica zakresów, w których można użyć roli zaktualizowane niestandardowe. |
 
 ### <a name="response"></a>Odpowiedź
 Kod stanu: 201
@@ -647,6 +647,6 @@ Kod stanu: 200
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

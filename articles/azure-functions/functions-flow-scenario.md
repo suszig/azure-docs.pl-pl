@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Wywoływanie funkcji z usługi Microsoft Flow
 
@@ -232,7 +232,7 @@ Teraz, gdy strumień jest zakończone, Dodaj wiersz na liście programu SharePoi
     | **Tytuł**           | Turbiny 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | Tak |
+    | **ServiceRequired** | Yes |
     | **EstimatedEffort** | 10 |
 
 3. Kliknij przycisk **Gotowe**.
@@ -261,7 +261,7 @@ Teraz, gdy strumień jest zakończone, Dodaj wiersz na liście programu SharePoi
 
     Widać, jak zostały zastąpione tokeny przy użyciu prawidłowych wartości z listy programu SharePoint i funkcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym temacie przedstawiono sposób:
 
 > [!div class="checklist"]

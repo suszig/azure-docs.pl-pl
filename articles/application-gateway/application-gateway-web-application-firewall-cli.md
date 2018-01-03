@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
 ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Konfigurowanie zapory aplikacji sieci web w nowej lub istniejącej aplikacji bramy przy użyciu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
+> * [Program PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-web-application-firewall-cli.md)
 
 Dowiedz się, jak utworzyć zapory aplikacji sieci web (WAF)-włączone bramy aplikacji. Również informacje o sposobie dodawanie zapory aplikacji sieci Web do istniejącej bramy aplikacji.
@@ -155,7 +155,7 @@ az network public-ip show \
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się, jak dostosować reguły zapory aplikacji sieci Web, zobacz [dostosować reguły zapory aplikacji sieci web za pośrednictwem 2.0 interfejsu wiersza polecenia Azure](application-gateway-customize-waf-rules-cli.md).
 

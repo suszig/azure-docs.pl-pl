@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Wywoływanie funkcji z usługi PowerApps
 [Rozwiązania PowerApps](https://powerapps.microsoft.com) platformy jest przeznaczona dla ekspertów biznesowych do tworzenia aplikacji bez kodu tradycyjnych aplikacji. Professional deweloperzy mogą używać usługi Azure Functions, aby rozszerzyć możliwości rozwiązania PowerApps, podczas osłaniania rozwiązania PowerApps konstruktorów aplikacji z szczegóły techniczne.
@@ -45,34 +45,8 @@ W tym temacie dowiesz się, jak:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Aktywny [konta rozwiązania PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) przy użyciu tego samego konta w poświadczeniach jako konto platformy Azure. 
-+ W programie Excel, ponieważ program Excel będzie używany jako źródło danych dla aplikacji.
++ Program Excel i [Excel przykładowy plik](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) , który będzie używany jako źródło danych dla aplikacji.
 + Ukończ samouczek [utworzyć definicję OpenAPI dla funkcji](functions-openapi-definition.md).
-
-
-## <a name="prepare-sample-data-in-excel"></a>Przygotowanie przykładowych danych w programie Excel
-Możesz rozpocząć od przygotowania przykładowych danych, którego używasz w aplikacji. Poniższa tabela skopiować do programu Excel. 
-
-| Tytuł      | Szerokość geograficzna  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbiny 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Tak             | 6               | Jest to drugi problem w tym miesiącu.       |
-| Turbiny 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Tak             | 6               |                                            |
-| Turbiny 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbiny 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Tak             | 7               |                                            |
-| Turbiny 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbiny 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbiny 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Tak             | 40               | Mamy niektóre dostępne tej części. |
-
-1. W programie Excel, wybierz dane, a na **Home** , kliknij pozycję **Format jako tabela**.
-
-    ![W formacie tabeli](media/functions-powerapps-scenario/format-table.png)
-
-1. Wybierz wszystkie style, a następnie kliknij przycisk **OK**.
-
-1. Z tabelą wybrane na **projekt** wprowadź `Turbines` dla **nazwy tabeli**.
-
-    ![Nazwa tabeli](media/functions-powerapps-scenario/table-name.png)
-
-1. Skoroszyt programu Excel.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ Niestandardowy interfejs API (znanej także jako łącznik niestandardowy) jest 
 ## <a name="create-an-app-and-add-data-sources"></a>Utwórz aplikację, a następnie dodaj źródła danych
 Teraz możesz przystąpić do tworzenia aplikacji w rozwiązaniu PowerApps i dodać dane programu Excel i niestandardowy interfejs API jako źródła danych dla aplikacji.
 
-1. W [web.powerapps.com](https://web.powerapps.com), w okienku po lewej stronie kliknij **nowej aplikacji**.
+1. W [web.powerapps.com](https://web.powerapps.com), wybierz **rozpoczęcie od puste** > ![ikonę aplikacji Phone](media/functions-powerapps-scenario/icon-phone-app.png) (telefon) > **tej aplikacji**.
 
-1. W obszarze **pusta aplikacja**, kliknij przycisk **układ telefonu**.
+    ![Rozpocznij od puste — aplikacji telefonicznej](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Tworzenie aplikacji typu tablet](media/functions-powerapps-scenario/create-phone-app.png)
-
-    Aplikacja zostanie otwarty w rozwiązaniu PowerApps Studio dla sieci web. Na poniższej ilustracji przedstawiono różne części Studio rozwiązaniu PowerApps. Ten obraz jest gotowy aplikacji; pojawi się pusty ekran na początku w środkowym okienku.
+    Aplikacja zostanie otwarty w rozwiązaniu PowerApps Studio dla sieci web. Na poniższej ilustracji przedstawiono różne części Studio rozwiązaniu PowerApps.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) na lewym pasku nawigacyjnym**, w którym można zobaczyć hierarchiczny widok wszystkich kontrolek na każdym ekranie
+    **(A) lewym pasku nawigacyjnym**, w którym można zobaczyć hierarchiczny widok wszystkich kontrolek na każdym ekranie
 
-    **(2) środkowym okienku**, który wskazuje ekranu pracujesz nad
+    **(B) środkowym okienku**, który wskazuje ekranu pracujesz nad
 
-    **(3) po prawej**, których wartość opcje, takie jak układ i źródła danych
+    **W okienku po prawej (C)**, których wartość opcje, takie jak układ i źródła danych
 
-    **(4) właściwość** listy rozwijanej, w którym można wybrać właściwości, które dotyczą formuły
+    **D właściwość** listy rozwijanej, w którym można wybrać właściwości, które dotyczą formuły
 
-    **(5) pasek formuły**, gdzie dodać formuły (jak w programie Excel), które określają zachowanie aplikacji
+    **(E) pasek formuły**, gdzie dodać formuły (jak w programie Excel), które określają zachowanie aplikacji
     
-    **[6] Wstążka**, którym Dodaj formanty i dostosować elementów projektu
+    **F Wstążka**, którym Dodaj formanty i dostosować elementów projektu
 
 1. Dodaj plik programu Excel jako źródła danych.
 
-    1. W okienku po prawej stronie na **danych** , kliknij pozycję **Dodaj źródło danych**.
+    Dane, które zostaną zaimportowane wygląda następująco:
 
-        ![Dodawanie źródła danych](media/functions-powerapps-scenario/add-data-source.png)
+    ![Dane programu Excel do zaimportowania](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Kliknij przycisk **Dodawanie statycznych danych do aplikacji**.
+    1. W obszarze roboczym aplikacji wybierz **łączenie z danymi**.
+
+    1. Na **danych** panelu, kliknij przycisk **Dodawanie statycznych danych do aplikacji**.
 
         ![Dodawanie źródła danych](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ Teraz możesz przystąpić do tworzenia aplikacji w rozwiązaniu PowerApps i dod
 
         ![Dodawanie źródła danych](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. Dodaj niestandardowy interfejs API jako źródła danych.
 
-    1. Na **danych** , kliknij pozycję **Dodaj źródło danych**.
+    1. Na **danych** panelu, kliknij przycisk **Dodaj źródło danych**.
 
     1. Kliknij przycisk **naprawy turbiny**.
 
@@ -156,17 +131,21 @@ Teraz, źródła danych są dostępne w aplikacji, dodaniu do aplikacji, aby wy�
 
     ![Zmień tytuł, a następnie zmień rozmiar galerii](media/functions-powerapps-scenario/gallery-title.png)
 
-1. Z Galerii wybranym w okienku po prawej stronie na **danych** Zmień źródła danych z **CustomGallerySample** do **turbin**.
+1. Z galerii wybrane w prawym okienku w obszarze **właściwości**, kliknij przycisk **CustomGallerySample**.
 
     ![Źródło danych zmiany](media/functions-powerapps-scenario/change-data-source.png)
 
+1. W **danych** panelu, wybierz opcję **turbin** z listy.
+
+    ![Wybierz źródło danych](media/functions-powerapps-scenario/select-data-source.png)
+
     Zestaw danych nie zawiera obrazu, dlatego dalej zmiany układu, aby lepiej dopasować dane. 
 
-1. W okienku po prawej stronie Zmień **układu** do **tytuł, subtitle i treści**.
+1. Nadal **danych** panelu, zmień **układu** do **tytuł, subtitle i treści**.
 
     ![Zmiana układu galerii](media/functions-powerapps-scenario/change-layout.png)
 
-1. Jako ostatni krok w okienku po prawej stronie Zmień pola, które są wyświetlane w galerii.
+1. Jako ostatni etap **danych** panelu, zmień pola, które są wyświetlane w galerii.
 
     ![Zmień pola galerii](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Teraz, źródła danych są dostępne w aplikacji, dodaniu do aplikacji, aby wy�
 1. Nie trzeba oryginalnego ekranu w aplikacji. W okienku po lewej stronie, umieść kursor nad **Screen1**, kliknij przycisk **...** , i **usunąć**.
 
     ![Usuń ekranu](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Kliknij przycisk **pliku**i nadaj nazwę aplikacji. Kliknij przycisk **zapisać** w menu po lewej stronie, następnie kliknij polecenie **zapisać** w prawym dolnym rogu.
 
 Wiele innych formatowania, które zwykle należy w aplikacji produkcyjnej, ale firma Microsoft będzie zająć się ważnym elementem w tym scenariuszu - wywołanie funkcji.
 
@@ -237,7 +218,7 @@ Masz pełnej aplikacji. Teraz nadszedł czas, aby uruchomić go i nie wywołuje 
 
 1. Spróbuj innych turbin, aby zobaczyć, co jest zwracane przez funkcję zawsze.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym temacie przedstawiono sposób:
 
 > [!div class="checklist"]

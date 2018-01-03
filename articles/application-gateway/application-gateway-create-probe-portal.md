@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
 ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Tworzenie niestandardowych sondowania bramy aplikacji przy użyciu portalu
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-probe-ps.md)
 > * [Klasyczny portal Azure — program PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -74,7 +74,7 @@ Po zakończeniu kliknij przycisk **zapisać** i ustawienia są stosowane.
 
 Domyślnego badania sprawdza dostęp do domyślnej aplikacji sieci web. Teraz, gdy utworzono niestandardowe sondowania, brama aplikacji w używa niestandardowa ścieżka zdefiniowana do monitorowania kondycji dla serwerów zaplecza. Brama aplikacji w oparte na kryteriach, które zostało zdefiniowane, sprawdza ścieżka określona w sondy. Jeśli wywołanie hosta: Port / ścieżki nie może zwracać HTTP 200 399 stanu odpowiedzi, serwer jest wykluczony z cyklu po osiągnięciu progu złej kondycji. Sondowanie jest kontynuowane od zła wystąpienie do określania, kiedy dobrej kondycji zostanie ponownie. Po wystąpienie zostanie dodany do puli serwerów w dobrej kondycji, ruch, który rozpoczyna się przepływać do niej ponownie, a sondowanie do wystąpienia programu jest kontynuowane od użytkownika określonego interwału normalnie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się, jak skonfigurować odciążanie protokołu SSL z bramy aplikacji Azure, zobacz [skonfigurować odciążanie protokołu SSL](application-gateway-ssl-portal.md)
 

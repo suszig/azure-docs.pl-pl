@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Uwierzytelnianie użytkownika końcowego za pomocą usługi Data Lake Store za pomocą usługi Azure Active Directory
 > [!div class="op_single_selector"]
@@ -116,7 +116,7 @@ Aby pobrać identyfikator URI przekierowania, wykonaj następujące kroki.
 
 5. Powtórz ostatnie dwa kroki, aby udzielić uprawnień dla **interfejs API zarządzania usługami Windows Azure** również.
    
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule tworzone natywnych aplikacji usługi Azure AD i zebrane informacje potrzebne w aplikacjach klienckich tworzyć przy użyciu zestawu .NET SDK, zestaw SDK Java, interfejsu API REST,... itd. Możesz teraz przejść do następujące artykuły, które porozmawiać na temat sposobu korzystania z aplikacji sieci web usługi Azure AD najpierw uwierzytelnić się z usługą Data Lake Store i wykonywać inne operacje w magazynie.
 
 * [Końcowego-użytkownikowi uwierzytelniania przy użyciu zestawu SDK Java usługi Data Lake Store](data-lake-store-end-user-authenticate-java-sdk.md)

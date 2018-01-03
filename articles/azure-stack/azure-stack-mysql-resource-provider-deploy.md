@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -265,6 +265,73 @@ Hasło można modyfikować, zmieniając go pierwszym wystąpieniu serwera MySQL.
 
 ![Zaktualizuj hasło administratora](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Zaktualizuj kartę Dostawca zasobów MySQL (wielowęzłowego tylko kompilacje 1710 i nowsze)
+Przy każdej aktualizacji kompilacji stosu Azure zostanie wydana nowa karta dostawcy zasobów MySQL. Gdy istniejącej karty mogą nadal działać, zaleca się jak najszybciej zaktualizować do nowszej kompilacji po zaktualizowaniu stosu Azure. Proces aktualizacji jest bardzo podobny do procesu instalacji opisane powyżej. Nowa maszyna wirtualna zostanie utworzona kodem RP najnowsze i ustawienia zostaną zmigrowane do tego nowego wystąpienia, łącznie z bazy danych i obsługi informacji o serwerze, a także niezbędnych rekordów DNS.
+
+Za pomocą skryptu UpdateMySQLProvider.ps1 te same argumenty co powyżej. Należy również podać certyfikatu w tym miejscu.
+
+> [!NOTE]
+> Aktualizacja jest obsługiwana tylko na komputerach z wieloma węzłami.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>Parametry UpdateMySQLProvider.ps1
+Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszystkich parametrów sprawdzania poprawności zakończy się niepowodzeniem, zostanie wyświetlony monit podaj wymaganych pól.
+
+| Nazwa parametru | Opis | Wartość domyślna lub komentarz |
+| --- | --- | --- |
+| **CloudAdminCredential** | Poświadczenia dla administratora chmury niezbędne do uzyskiwania dostępu do uprzywilejowanych punktu końcowego. | _Wymagane_ |
+| **AzCredential** | Podaj poświadczenia dla konta administratora usługi Azure stosu. Użyj tych samych poświadczeń używane do wdrażania stosu Azure). | _Wymagane_ |
+| **VMLocalCredential** | Zdefiniuj poświadczenia dla konta administratora lokalnego dostawcy zasobów SQL maszyny Wirtualnej. | _Wymagane_ |
+| **PrivilegedEndpoint** | Podaj adres IP lub nazwę DNS Privleged punktu końcowego. |  _Wymagane_ |
+| **DependencyFilesLocalPath** | Plik PFX certyfikatu muszą znajdować się w tym również katalogu. | _opcjonalne_ (_obowiązkowe_ dla wielowęzłowego) |
+| **DefaultSSLCertificatePassword** | Hasło dla certyfikatu pfx | _Wymagane_ |
+| **Wartość MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
+| **RetryDuration** | Zdefiniuj limit czasu między kolejnymi próbami w sekundach. | 120 |
+| **Dezinstalacja** | Usuń dostawcę zasobów i wszystkie powiązane zasoby (zobacz uwagi poniżej) | Nie |
+| **DebugMode** | Uniemożliwia automatyczne oczyszczania po awarii | Nie |
+| **AcceptLicense** | Pomija wiersz, aby zaakceptować licencji License (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
+
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Usuń kartę Dostawca zasobów MySQL
 
 Aby usunąć dostawcę zasobów, konieczne jest najpierw usunąć wszelkie zależności.
@@ -286,6 +353,6 @@ Aby usunąć dostawcę zasobów, konieczne jest najpierw usunąć wszelkie zale�
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Spróbuj innych [usług PaaS](azure-stack-tools-paas-services.md) jak [dostawcy zasobów programu SQL Server](azure-stack-sql-resource-provider-deploy.md) i [dostawcy zasobów usługi aplikacji](azure-stack-app-service-overview.md).

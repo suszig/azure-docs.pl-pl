@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Niemal w czasie rzeczywistym alerty metryki (wersja zapoznawcza)
 Azure Monitor obsługuje obecnie nowy typ metryki alertów o nazwie niemal w czasie rzeczywistym Metryka alerty (wersja zapoznawcza). Ta funkcja jest obecnie w wersji zapoznawczej.
@@ -38,6 +38,7 @@ Te alerty różnią się od regularne alerty metryki na kilka sposobów
 Pełną listę typów zasobów, które są obsługiwane przez niemal w czasie rzeczywistym alerty metryki:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ Pełną listę typów zasobów, które są obsługiwane przez niemal w czasie rz
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>NEAR w czasie rzeczywistym Metryka alerty dotyczące metryk o wymiarach
+Niemal w czasie rzeczywistym Metryka alerty obsługuje alerty na metryki z wymiarów. Wymiary są odfiltrować Twoje metryki na odpowiedni poziom. Niemal w czasie rzeczywistym Metryka alerty dotyczące metryk z wymiarów są obsługiwane dla następujących typów zasobów
+
+* Microsoft.ApiManagement/service
+* Magazyn.Microsoft/kontamagazynu (obsługiwane tylko w przypadku kont magazynu w regionach US)
+* Microsoft.Storage/storageAccounts/services (obsługiwane tylko w przypadku kont magazynu w regionach US)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Utwórz Alert Near metryki w czasie rzeczywistym
 Obecnie niemal w czasie rzeczywistym Metryka alertów można tworzyć tylko za pośrednictwem portalu Azure. Obsługa konfigurowania niemal metryki alertów w czasie rzeczywistym za pomocą programu PowerShell, interfejsu wiersza polecenia (CLI) i interfejsu API REST Monitor Azure będzie dostępna wkrótce.
 
-1. W [portal](https://portal.azure.com/)zasobów planuje się monitorowanie Znajdź i zaznacz go. Ten zasób powinien być jednego z typów zasobów wymienionych w [poprzedniej sekcji](#what-resources-can-i-create-near-real-time-metric-alerts-for). Możesz również wykonać takie same dla wszystkich typów zasobów obsługiwanych centralnie z monitora > alerty.
+Środowisko tworzenia alertu dla niemal w czasie rzeczywistym Metryka Alert został przeniesiony do nowej **Alerts(Preview)** wystąpić. Mimo że alerty bieżącej strony pokazuje **alert dodać niemal w czasie rzeczywistym Metryka**, nastąpi przekierowanie do nowego środowiska.
 
-2. Wybierz **alerty** lub **reguły alertów** w sekcji monitorowanie. Tekst i ikona mogą się nieco różnić dla różnych zasobów.
-   ![Monitorowanie](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Kliknij przycisk **Dodaj alert metryki czasu rzeczywistego (wersja zapoznawcza) o zbliżającym się** polecenia. Jeśli polecenie jest niedostępny, upewnij się, że wybrano zasobu w filtrze.
-
-    ![Dodaj obok przycisku alertu metryk w czasie rzeczywistym](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Nazwa** alertu reguły, a następnie wybierz pozycję **opis**, który pokazuje również w wiadomości e-mail z powiadomieniem.
-5. Wybierz **Metryka** chcesz monitorować, a następnie wybierz pozycję **warunku**, **Agregacja czasu**, i **próg** wartość metryki. Opcjonalnie wybierz inny **Metryka** chcesz monitorować, a następnie wybierz pozycję **warunku**, **Agregacja czasu**, i **próg** wartość druga metryka. 
-
-    ![Dodaj niemal w czasie rzeczywistym metryki Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![dodać niemal Alert2 metryk w czasie rzeczywistym](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Wybierz **okres** czas, przez który metryki reguły muszą zostać spełnione przed wyzwalaczy alertu. Tak na przykład jeśli używasz okresu "w ciągu ostatnich 5 minut" i Twój wygląd alertów dla Procesora powyżej 80% (i NetworkIn ponad 500 MB), alert jest wyzwalane po procesora CPU było stale powyżej 80% 5 minut. W momencie to pierwszy wyzwalacz, ponownie uruchamia to, gdy Procesora pozostaje poniżej 80% 5 minut. Alert jest obliczane zgodnie z **częstotliwość oceny**
-
-
-6. Wybierz odpowiednie **ważność** z listy rozwijanej.
-
-7. Określ, czy użyć nowego lub istniejącego **grupy akcji**.
-
-8. Jeśli wybierzesz opcję utworzenia **nowy** nadać grupie akcji, nazwy i krótka nazwa grupy akcji, określ akcje (programu SMS, wiadomości E-mail, Webhook) i wypełnij odpowiednie szczegóły.
-
-
-8. Wybierz **OK** po zakończeniu można utworzyć alertu.   
-
-W ciągu kilku minut alert jest aktywny i wyzwala w sposób opisany wcześniej.
+Możesz utworzyć near w czasie rzeczywistym alert metryki korzystając z procedury opisanej [tutaj](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Zarządzanie niemal w czasie rzeczywistym metryki alertów
-Po utworzeniu alertu, zostanie ona wybrana oraz:
+Po utworzeniu **alertu w pobliżu metryki w czasie rzeczywistym**, można zarządzać, korzystając z procedury opisanej [tutaj](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Wyświetl wykres przedstawiający próg metryki i rzeczywistymi wartościami z poprzedniego dnia.
-* Edytuj lub usuń go.
-* **Wyłącz** lub **włączyć** go, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień dla tego alertu.
+## <a name="next-steps"></a>Kolejne kroki
 
-
-
+* [Dowiedz się więcej na temat nowego środowiska alerty (wersja zapoznawcza)](monitoring-overview-unified-alerts.md)
+* [Dowiedz się więcej o alertach dziennika w alertach Azure (wersja zapoznawcza)](monitor-alerts-unified-log.md)
+* [Więcej informacji na temat alertów na platformie Azure](monitoring-overview-alerts.md)

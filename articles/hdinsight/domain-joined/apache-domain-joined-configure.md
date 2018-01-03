@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Skonfiguruj środowisko piaskownicy domeny w usłudze HDInsight
 
@@ -138,9 +138,9 @@ Aby dodać klaster usługi HDInsight w sieci wirtualnej, utworzonych wcześniej 
     Istnieją sześciu sekcje za pomocą opcji Konfiguracja niestandardowa: podstawy, magazynu, aplikacji, klaster rozmiar, ustawienia zaawansowane i podsumowanie.
 5. W **podstawy** sekcji:
 
-    - Typ klastra: Wybierz **PREMIUM**. Obecnie można tworzyć tylko premium klastra z następujących typów klastra: Hadoop, zapytania interakcyjne i Spark.
+    - Typ klastra: Wybierz **pakiet zabezpieczeń Enterprise**. Obecnie pakiet Enterprise zabezpieczeń można włączyć tylko dla następujących typów klastra: Hadoop, zapytania interakcyjne i Spark.
 
-        ![Premium przyłączonych do domeny usługi HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![Pakiet zabezpieczeń przedsiębiorstwa przyłączone do domeny usługi HDInsight](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Nazwa użytkownika logowania klastra: jest to użytkownik HTTP platformy Hadoop. To konto jest inne niż konto administratora domeny.
     - Grupa zasobów: Wybierz grupę zasobów, utworzony wcześniej przy użyciu szablonu usługi Resource Manager.
     - Lokalizacja: Lokalizacja musi być taka sama, który jest używany podczas tworzenia sieci wirtualnej i kontrolery domeny, przy użyciu szablonu usługi Resource Manager.
@@ -163,7 +163,7 @@ Aby dodać klaster usługi HDInsight w sieci wirtualnej, utworzonych wcześniej 
 
 Po ukończeniu samouczka możesz usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane. Instrukcje dotyczące usuwania klastra znajdują się [klastrów zarządzania Hadoop w usłudze HDInsight przy użyciu portalu Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby znaleźć informacje na temat konfigurowania zasad Hive i uruchamiania kwerend Hive, zobacz [Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight](apache-domain-joined-run-hive.md).
 * Aby uzyskać przy użyciu protokołu SSH, aby połączyć się z klastrami HDInsight przyłączonych do domeny, zobacz [używanie SSH z opartą na systemie Linux platformą Hadoop w usłudze HDInsight z systemów Linux, Unix lub OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

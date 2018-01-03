@@ -16,17 +16,17 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Samouczek: Tworzenie swój pierwszy potok do przekształcania danych przy użyciu klastra usługi Hadoop
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-build-your-first-pipeline.md)
 > * [Witryna Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 > * [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
@@ -39,7 +39,7 @@ W tym samouczku należy utworzyć pierwszy fabrykę danych Azure z potokiem dany
 Ten artykuł zawiera omówienie i wymagania wstępne dotyczące samouczka. Po ukończeniu wymagań wstępnych, możesz zrobić samouczek przy użyciu jednej z następujących narzędzi/zestawów SDK: portal Azure, programu Visual Studio, programu PowerShell, szablon usługi Resource Manager, interfejsu API REST. Wybierz jedną z opcji na liście rozwijanej na początku (lub) łącza na końcu tego artykułu, w celu tego samouczka przy użyciu jednej z tych opcji.    
 
 ## <a name="tutorial-overview"></a>Omówienie samouczka
-W tym samouczku należy wykonać następujące kroki:
+Ten samouczek obejmuje wykonanie następujących kroków:
 
 1. Utwórz **fabryki danych**. Fabryka danych może zawierać potoki danych, które Przenieś i przekształcania danych. 
 
@@ -93,9 +93,9 @@ Przed rozpoczęciem tego samouczka wymagane są następujące wymagania wstępne
 
 Po ukończeniu wymagania wstępne, wybierz jedną z następujących narzędzi/zestawów SDK do samouczka: 
 
-- [Witryna Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Program Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Program PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Szablon usługi Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [Interfejs API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 

@@ -3,8 +3,8 @@ title: "Łącznik usług SQL ogólnego | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano sposób konfigurowania ogólny łącznik SQL firmy Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Ogólne informacje techniczne Łącznik usług SQL
 W tym artykule opisano ogólny łącznik SQL. Artykuł dotyczy następujących produktów:
@@ -36,7 +36,7 @@ Ogólny łącznik SQL umożliwia integrację usługi synchronizacji z systemu ba
 
 Z punktu widzenia wysokiego poziomu następujące funkcje są obsługiwane w bieżącej wersji łącznika:
 
-| Funkcja | Pomoc techniczna |
+| Cecha | Pomoc techniczna |
 | --- | --- |
 | Połączonego źródła danych |Łącznik jest obsługiwana przez wszystkie 64-bitowe sterowniki ODBC. Był testowany z następujących czynności: <li>Program Microsoft SQL Server i SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 i 11 g</li><li>MySQL 5.x</li> |
 | Scenariusze |<li>Zarządzanie cyklem życia obiektów</li><li>Zarządzanie hasłami</li> |
@@ -231,7 +231,11 @@ Ogólny Łącznik usług SQL wsparcie pełne i Import zmian za pomocą następuj
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabela/Widok**  
-Aby zaimportować atrybuty wielowartościowe dla obiekt, należy podać nazwę tabeli lub widoku rozdzielone przecinkami w **widoków tabel nazwy z wieloma wartościami** i warunki sprzężenia odpowiednich w **warunek sprzężenia** z tabelą nadrzędną.
+Aby zaimportować atrybuty wielowartościowe dla obiekt, należy podać nazwę tabeli/widoku w **widoków tabel nazwy z wieloma wartościami** i warunki sprzężenia odpowiednich w **warunek sprzężenia** z tabeli nadrzędnej . Jeśli istnieje więcej niż jedna tabela wielowartościowe w źródle danych, można użyć Unii do jednego widoku.
+
+>[!IMPORTANT]
+Agent zarządzania ogólnego SQL można pracować tylko z jednej tabeli wielowartościowych. Nie należy umieszczać na nazwę tabeli/widoku wielowartościowe więcej niż jedną nazwę tabeli. To ograniczenie ogólnego SQL.
+
 
 Przykład: Chcesz zaimportować obiekt pracowników i jego atrybuty wielowartościowe. Istnieją dwie tabele, o nazwie pracownika (główna tabela) i działu (wielowartościowe).
 Wykonaj następujące czynności:

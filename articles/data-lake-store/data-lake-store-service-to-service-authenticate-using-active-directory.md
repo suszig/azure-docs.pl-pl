@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Aby usługa uwierzytelniania za pomocą usługi Data Lake Store za pomocą usługi Azure Active Directory
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ Podczas logowania programowo, potrzebny jest identyfikator aplikacji. Jeśli apl
 
     ![Punkt końcowy tokenu OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "końcowym tokenów OAuth")   
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule utworzyć aplikację sieci web platformy Azure AD i zebranych informacji w aplikacjach klienckich tworzyć przy użyciu zestawu SDK programu .NET, Java, Python, interfejsu API REST,... itd. Możesz teraz przejść do następujące artykuły, które porozmawiać na temat sposobu używania aplikacji natywnej usługi Azure AD do najpierw uwierzytelnić się z usługą Data Lake Store i wykonywać inne operacje w magazynie.
 
 * [Do usługi uwierzytelniania za pomocą usługi Data Lake Store za pomocą języka Java](data-lake-store-service-to-service-authenticate-java.md)

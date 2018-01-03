@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Aby usługa uwierzytelniania za pomocą przy użyciu zestawu .NET SDK usługi Data Lake Store
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ W tym artykule informacje o sposobie używania zestawu .NET SDK w celu usługi d
    | --- | --- |
    | Kategoria |Szablony/Visual C#/Windows |
    | Szablon |Aplikacja konsolowa |
-   | Nazwa |CreateADLApplication |
+   | Name (Nazwa) |CreateADLApplication |
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
 
 5. Dodaj pakiety NuGet do swojego projektu.
@@ -116,7 +116,7 @@ Dodaj następujący fragment kodu w aplikacji klienta .NET. Zastąp symbole zast
 
 Fragment poprzedzających korzysta z funkcji pomocnika `GetCreds_SPI_Cert`. Kod dla tej funkcji pomocnika jest dostępny [tutaj w serwisie Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania za pomocą usługi Azure Data Lake Store za pomocą usługi do uwierzytelniania przy użyciu zestawu .NET SDK. Teraz można przeglądać następujące artykuły, które opisano sposób użycia zestawu .NET SDK do pracy z usługą Azure Data Lake Store.
 
 * [Account management operations on Data Lake Store using .NET SDK (Operacje zarządzania kontem w usłudze Data Lake Store przy użyciu zestawu SDK platformy .NET)](data-lake-store-get-started-net-sdk.md)

@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie do korzystania z usługi Azure AD, logowania i wylogowywania, przy użyciu środowiska Node.js | Dokumentacja firmy Microsoft"
+title: Azure aplikacji sieci web AD Node.js wprowadzenie | Dokumentacja firmy Microsoft
 description: "Informacje o sposobie tworzenia aplikacji sieci web Node.js Express MVC, która integruje się z usługą Azure AD dla logowania."
 services: active-directory
 documentationcenter: nodejs
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplikacja sieci web node.js logowania i wylogowywania z usługą Azure AD
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Wprowadzenie aplikacji sieci web AD Node.js Azure
 W tym miejscu możemy użyć usługi Passport:
 
 * Zalogować użytkownika do aplikacji w usłudze Azure Active Directory (Azure AD).
@@ -402,7 +402,7 @@ Teraz `app.js` została ukończona. Należy dodać trasy i widoki, które zawier
     </html>
     ```
 
-##<a name="next-steps"></a>Następne kroki
+##<a name="next-steps"></a>Kolejne kroki
 Na koniec Skompiluj i uruchom aplikację. Uruchom `node app.js`, a następnie przejdź do `http://localhost:3000`.
 
 Zaloguj się za pomocą osobistego konta Microsoft lub konta służbowego i zwróć uwagę, jak tożsamość użytkowników jest odzwierciedlone na liście /account. Masz teraz zabezpieczone przy użyciu standardowych protokołach branżowych, uwierzytelniających użytkowników przy użyciu ich osobistych i pracy/służbowego konta aplikacji sieci web.

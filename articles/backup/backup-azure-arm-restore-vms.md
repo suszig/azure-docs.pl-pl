@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Przywracanie maszyn wirtualnych za pomocą portalu Azure
 Ochrona danych za tworzenie migawek danych w określonych odstępach czasu. Te migawki są określane jako punkty odzyskiwania, i w których są przechowywane w Magazyny usług odzyskiwania. Jeśli jest konieczne naprawienie lub skompiluj ponownie maszynę wirtualną (VM), można przywrócić maszynę Wirtualną z żadnym z punktów odzyskiwania zapisane. Po przywróceniu punkt odzyskiwania, można:
@@ -42,7 +42,7 @@ Przywrócenie maszyny Wirtualnej lub wszystkich dysków z maszyny Wirtualnej kop
 * Wybierz typ przywracania, Utwórz nową maszynę Wirtualną lub przywrócenia dysków i określ wymagane parametry. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Wybierz punkt przywracania dla przywracania
-1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com/).
+1. Zaloguj się w [Portalu Azure](http://portal.azure.com/).
 
 2. W Azure menu wybierz **Przeglądaj**. Na liście usług, wpisz **usług odzyskiwania**. Na liście usług można dostosować do wpisany. Po wyświetleniu **Magazyny usług odzyskiwania**, zaznacz go.
 
@@ -113,7 +113,7 @@ Portal zawiera **szybkie tworzenie** opcji przywróconej maszyny wirtualnej. Aby
 
     b. **Nazwa maszyny wirtualnej**. Podaj nazwę maszyny Wirtualnej. Nazwa musi być unikatowa dla grupy zasobów (dla usługi Azure Resource Manager wdrożone maszyny Wirtualnej) lub usługi w chmurze (w przypadku klasycznych maszyn wirtualnych). Nie można zamienić maszyny Wirtualnej, jeśli już istnieje w subskrypcji.
 
-    c. **Grupa zasobów**. Użyj istniejącej grupy zasobów lub Utwórz nową. W przypadku przywracania klasyczne maszyny Wirtualnej, to pole służy do określania nazwy nowej usługi w chmurze. Jeśli tworzysz nową usługę chmury/grupy zasobów musi być globalnie unikatowe nazwy. Zazwyczaj nazwa usługi w chmurze jest skojarzone z adresem URL publicznych: na przykład [cloudservice]. cloudapp.net. Jeśli spróbujesz użyć nazwy dla usługi chmury/grupy zasobów w chmurze już używani Azure przypisuje usługi chmury/grupy zasobów taką samą nazwę jak maszyny Wirtualnej. Azure Wyświetla usług chmury/grupy zasobów i maszyny wirtualne nie są skojarzone z grup koligacji. Aby uzyskać więcej informacji, zobacz [jak przeprowadzić migrację z grup koligacji do regionalnej sieci wirtualnej](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+    d. **Grupa zasobów**. Użyj istniejącej grupy zasobów lub Utwórz nową. W przypadku przywracania klasyczne maszyny Wirtualnej, to pole służy do określania nazwy nowej usługi w chmurze. Jeśli tworzysz nową usługę chmury/grupy zasobów musi być globalnie unikatowe nazwy. Zazwyczaj nazwa usługi w chmurze jest skojarzone z adresem URL publicznych: na przykład [cloudservice]. cloudapp.net. Jeśli spróbujesz użyć nazwy dla usługi chmury/grupy zasobów w chmurze już używani Azure przypisuje usługi chmury/grupy zasobów taką samą nazwę jak maszyny Wirtualnej. Azure Wyświetla usług chmury/grupy zasobów i maszyny wirtualne nie są skojarzone z grup koligacji. Aby uzyskać więcej informacji, zobacz [jak przeprowadzić migrację z grup koligacji do regionalnej sieci wirtualnej](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
     d. **Sieć wirtualna**. Wybierz sieć wirtualną podczas tworzenia maszyny Wirtualnej. Pole zawiera wszystkie sieci wirtualne skojarzone z subskrypcją. Grupa zasobów maszyny wirtualnej jest wyświetlany w nawiasach.
 
@@ -244,11 +244,11 @@ Aby pełni odtworzyć maszyn wirtualnych po przywróceniu do dysku, wykonaj nast
 
    b. Utwórz maszynę Wirtualną do nawiązania połączenia [modułu równoważenia obciążenia internetowy](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Utwórz maszynę Wirtualną z [wiele kart sieciowych](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   d. Utwórz maszynę Wirtualną z [wiele kart sieciowych](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 
    d. Utwórz maszynę Wirtualną z [wielu zastrzeżone adresy IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, można przywrócić maszyn wirtualnych, zobacz artykuł dotyczący rozwiązywania problemów, aby uzyskać informacje o typowych problemów z maszynami wirtualnymi. Ponadto zapoznaj się z artykułu na temat zarządzania zadania związane z maszyn wirtualnych.
 
 * [Rozwiązywanie problemów z błędami](backup-azure-vms-troubleshoot.md#restore)

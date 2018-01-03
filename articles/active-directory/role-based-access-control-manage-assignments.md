@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
 ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Wyświetl przypisania dostępu dla użytkowników i grup w portalu Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Z tego bloku można usunąć przypisania dostępu, które zostały przypisane be
 2. Wybierz **Usuń** , a następnie **tak** o potwierdzenie.
     ![Usuń przypisanie dostępu — zrzut ekranu](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Rozpoczynanie pracy z opartej na rolach kontroli dostępu do [zarządzanie dostępem do zasobów subskrypcji platformy Azure za pomocą przypisań ról](role-based-access-control-configure.md)
 * Zobacz [Wbudowane role RBAC](role-based-access-built-in-roles.md)

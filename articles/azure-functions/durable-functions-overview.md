@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f9dabe2644553ab1f4ed02ae026c7dbf1a0db264
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="durable-functions-overview-preview"></a>Omówienie funkcji trwałe (wersja zapoznawcza)
 
@@ -235,7 +235,7 @@ W tle rozszerzenie funkcji trwałe jest oparty na [trwałe Framework zadań](htt
 
 Funkcje programu orchestrator w sposób niezawodny utrzymać ich stan wykonywania przy użyciu wzorca projektowego chmury, znany jako [źródłem zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Zamiast bezpośredniego przechowywania *bieżącego* stanu aranżacji trwałe rozszerzenie używa magazynu tylko do dołączania do rejestrowania *pełne serii akcji* wykonywaną przez aranżacji funkcji. Ma to wiele korzyści, w tym poprawę wydajności, skalowalności i elastyczność w porównaniu do stanu pełnego środowiska uruchomieniowego "zrzucanie". Inne zalety, zapewniając spójność ostateczna dla danych transakcyjnych i ślady pełne inspekcji i historii. Zapisy inspekcji, same zezwolenia na akcje kompensacyjnych wiarygodne.
 
-Korzystanie z Sourcing zdarzenia przez to rozszerzenie jest przezroczysty. W obszarze obejmuje `await` operatora w funkcji orchestrator daje kontrolę nad wątku orchestrator do dyspozytora trwałe Framework zadań. Dyspozytor następnie zatwierdza nowe akcje, które funkcja orchestrator zaplanowane (np. wywoływanie jednego lub więcej funkcji podrzędnych lub planowania trwałe czasomierza) do magazynu. Ta akcja zatwierdzenia przezroczysty dołącza do *historii wykonywania* wystąpienia aranżacji. Historia są przechowywane w magazynie trwałe. Następnie akcji zatwierdzania dodaje wiadomości do kolejki, aby zaplanować rzeczywistą pracę. W tym momencie funkcja orchestrator może być usunięte z pamięci. Karta dla niego zatrzymuje, jeśli używasz zaplanować użycie funkcji Azure.  W przypadku więcej pracy funkcji zostanie ponownie uruchomiony i jego stan jest odtworzone.
+Korzystanie z Sourcing zdarzenia przez to rozszerzenie jest przezroczysty. W obszarze obejmuje `await` operatora w funkcji orchestrator daje kontrolę nad wątku orchestrator do dyspozytora trwałe Framework zadań. Dyspozytor następnie zatwierdza nowe akcje, które funkcja orchestrator zaplanowane (np. wywoływanie jednego lub więcej funkcji podrzędnych lub planowania trwałe czasomierza) do magazynu. Ta akcja zatwierdzenia przezroczysty dołącza do *historii wykonywania* wystąpienia aranżacji. Historia są przechowywane w tabeli magazynu. Następnie akcji zatwierdzania dodaje wiadomości do kolejki, aby zaplanować rzeczywistą pracę. W tym momencie funkcja orchestrator może być usunięte z pamięci. Karta dla niego zatrzymuje, jeśli używasz zaplanować użycie funkcji Azure.  W przypadku więcej pracy funkcji zostanie ponownie uruchomiony i jego stan jest odtworzone.
 
 Jeśli funkcja aranżacji uzyska więcej pracy (na przykład zostaje otrzymany komunikat odpowiedzi lub trwałe wygaśnięciem), orchestrator budzi się ponownie i ponownie wykonuje całą funkcję od początku, aby można było odbudować stanu lokalnego. Podczas powtarzania ten kod będzie próbować wywołać funkcję (lub inne async pracy), trwałe Framework zadań sprawdza z *historii wykonywania* z bieżącym aranżacji. Jeśli stwierdzi, że funkcja działanie zostało już wykonane zwróciło niektórych wyników, odtwarzaniem wyniku tej funkcji i kod orchestrator będzie kontynuował działanie. To jest nadal wykonywane, dopóki kod funkcji pobiera do punktu, gdzie zakończeniu albo ma zaplanowanych zadań asynchronicznych nowe.
 
@@ -247,9 +247,9 @@ Zachowanie powtarzania tworzy ograniczenia dotyczące typu kodu, które mogą by
 
 C# jest obecnie jedynym obsługiwanym językiem trwałe funkcji. W tym funkcje programu orchestrator i działania funkcji. W przyszłości dodamy obsługę wszystkich języków obsługiwanych przez usługę Azure Functions. Zobacz usługi Azure Functions [listę problemów repozytorium GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) wyświetlić najnowszy stan naszej dodatkowy język obsługuje pracę.
 
-## <a name="monitoring-and-diagnostics"></a>Monitorowania i diagnostyki
+## <a name="monitoring-and-diagnostics"></a>Monitorowanie i diagnostyka
 
-Rozszerzenie funkcji trwałe automatycznie emituje danych strukturalnych śledzenia [usługi Application Insights](functions-monitoring.md) Jeśli funkcja aplikacji została skonfigurowana przy użyciu klucza usługi Application Insights. Te dane śledzenia może służyć do monitorowania zachowania i postęp Twojej orchestrations.
+Rozszerzenie funkcji trwałe automatycznie emituje danych strukturalnych śledzenia [usługi Application Insights](functions-monitoring.md) po skonfigurowaniu aplikacji funkcji przy użyciu klucza Instrumentacji usługi Application Insights. Te dane śledzenia może służyć do monitorowania zachowania i postęp Twojej orchestrations.
 
 Oto przykład wyglądu trwałe funkcji śledzenia zdarzeń w portalu usługi Application Insights przy użyciu [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
@@ -278,7 +278,7 @@ Magazyn tabel jest używany do przechowywania historii wykonywania dla konta pro
 
 Ogólnie rzecz biorąc, powinny być śledzone wszystkie znane problemy w [problemów GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) listy. Jeśli wystąpi problem i nie można odnaleźć problem w usłudze GitHub, otwórz nowy problem i zawiera szczegółowy opis problemu. Nawet jeśli chcesz po prostu Zadaj pytanie, możesz otworzyć problem GitHub i oznaczyć ją jako pytanie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Kontynuuj czytanie dokumentacji trwałe funkcji](durable-functions-bindings.md)

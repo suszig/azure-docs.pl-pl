@@ -22,6 +22,7 @@ Z utworzoną maszyną wirtualną można nawiązywać połączenie oraz logować 
     * Kliknij przycisk **OK**, aby zamknąć ustawienia TCP/IP, a następnie kliknij ponownie przycisk **OK**, aby zamknąć ustawienia karty. Połączenie RDP zostanie ponownie nawiązane.
 
 6. W wierszu polecenia wpisz *ipconfig /all*. Zostaną wyświetlone wszystkie dodane adresy IP, a protokół DHCP będzie wyłączony.
+7. Skonfiguruj system Windows do użycia jako podstawowy adres IP prywatnego adresu IP w konfiguracji podstawowego adresu IP na platformie Azure dla systemu Windows. Zobacz [dostęp do Internetu nie z maszyny Wirtualnej systemu Windows Azure, który ma wiele adresów IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) szczegółowe informacje. 
 
 
 ### <a name="validation-windows"></a>Walidacja (Windows)

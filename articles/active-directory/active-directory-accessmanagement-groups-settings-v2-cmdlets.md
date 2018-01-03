@@ -17,14 +17,14 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Usługi Active Directory w wersji 2 poleceń cmdlet systemu Azure dla grupy zarządzania
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](active-directory-groups-create-azure-portal.md)
+> * [Azure portal](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -168,7 +168,7 @@ Usuń grupy z katalogiem, użyj polecenia cmdlet Remove-AzureADGroup w następuj
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
 ## <a name="manage-group-membership"></a>Zarządzaj członkostwem w grupach 
-### <a name="add-members"></a>Dodawanie członków
+### <a name="add-members"></a>Dodaj członków
 Aby dodać nowe elementy członkowskie do grupy, użyj polecenia cmdlet Add-AzureADGroupMember. To polecenie dodaje członka do grupy Administratorzy usługi Intune, używane w poprzednim przykładzie:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -185,7 +185,7 @@ Aby uzyskać istniejących członków grupy, należy użyć polecenia cmdlet Get
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
-### <a name="remove-members"></a>Usuń elementy członkowskie
+### <a name="remove-members"></a>Usuń członków
 Aby usunąć element członkowski, który wcześniej dodane do grupy, użyj polecenia cmdlet Remove-AzureADGroupMember, jak to pokazano poniżej:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -252,7 +252,7 @@ Jeśli chcesz usunąć właściciela z grupy, należy użyć polecenia cmdlet Re
 Po utworzeniu grupy pewność, że punkty końcowe umożliwiają użytkownikom końcowym Określ mailNickname lub alias ma być używany jako część adresu e-mail grupy. Grupy z następujących aliasów e-mail wysoko uprzywilejowane można tworzyć tylko przez administratora globalnego usługi Azure AD. 
   
 * nadużyć 
-* Administrator 
+* administrator 
 * Administrator 
 * hostmaster 
 * majordomo 
@@ -263,7 +263,7 @@ Po utworzeniu grupy pewność, że punkty końcowe umożliwiają użytkownikom k
 * admin protokołu SSL 
 * webmaster 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej dokumentacji programu PowerShell usługi Azure Active Directory można znaleźć [polecenia cmdlet usługi Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)

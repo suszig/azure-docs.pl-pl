@@ -1,12 +1,11 @@
 ---
-title: "Często zadawane pytania (FAQ) — usługi Azure AD B2C | Dokumentacja firmy Microsoft"
+title: "Często zadawane pytania — Azure Active Directory B2C"
 description: "Często zadawane pytania dotyczące usługi Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.
@@ -64,9 +63,9 @@ Można użyć [firmowe funkcji](../active-directory/customize-branding.md) Aby d
 
     ![Zrzut ekranu przedstawiający wiadomość e-mail z dostosowanych weryfikacji](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-Podpis e-mail zawiera nazwę dzierżawy B2C, podane podczas tworzenia dzierżawy B2C. Można zmienić nazwę, korzystając z tych instrukcji:
+Podpis e-mail zawiera nazwę dzierżawy usługi Azure AD B2C, podane podczas tworzenia dzierżawy usługi Azure AD B2C. Można zmienić nazwę, korzystając z tych instrukcji:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com/) jako Administrator subskrypcji.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/) jako Administrator globalny.
 1. Otwórz **usługi Azure Active Directory** bloku.
 1. Kliknij przycisk **właściwości** kartę.
 1. Zmień **nazwa** pola.
@@ -113,15 +112,15 @@ Wykonaj następujące kroki, aby usunąć dzierżawy usługi Azure AD B2C:
 
 1. Wykonaj następujące kroki, aby [przejdź do ustawień usługi Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) w portalu Azure.
 1. Przejdź do **aplikacji**, **dostawców tożsamości**, i **wszystkich zasad** i Usuń wszystkie wpisy w każdej z nich.
-1. Zaloguj się teraz do [klasycznego portalu Azure](https://manage.windowsazure.com/) jako Administrator subskrypcji. (Użyj tej samej pracy lub konta służbowego lub tego samego konta Microsoft, który był używany podczas tworzenia konta platformy Azure).
-1. Przejdź do rozszerzenia Active Directory po lewej stronie i kliknij dzierżawę B2C.
-1. Kliknij przycisk **użytkowników** kartę.
-1. Wybierz każdego użytkownika z kolei (wykluczyć użytkownika administratora subskrypcji, który jest obecnie zalogowany jako). Kliknij przycisk **usunąć** w dolnej części strony i kliknij przycisk **tak** po wyświetleniu monitu.
-1. Kliknij przycisk **aplikacji** kartę.
-1. Wybierz **aplikacji Moja firma jest właścicielem** w **Pokaż** pole listy rozwijanej i kliknij znacznik wyboru.
-1. Aplikacja o nazwie **b2c rozszerzeń aplikacji**. Kliknij przycisk **usunąć** w dolnej części strony i kliknij przycisk **tak** po wyświetleniu monitu.
-1. Ponownie przejdź do rozszerzenia usługi Active Directory i wybierz dzierżawę B2C.
-1. Kliknij przycisk **usunąć** w dolnej części strony. Aby ukończyć proces, postępuj zgodnie z instrukcjami na ekranie.
+1. Zaloguj się teraz do [portalu Azure](https://portal.azure.com/) jako Administrator subskrypcji. (Użyj tej samej pracy lub konta służbowego lub tego samego konta Microsoft, który był używany podczas tworzenia konta platformy Azure).
+1. Przełącz do dzierżawy usługi Azure AD B2C chcesz usunąć.
+2. Przejdź do menu usługi Active Directory po lewej stronie.
+3. Wybierz **użytkowników i grup**.
+4. Wybierz każdego użytkownika z kolei (wykluczyć użytkownika administratora subskrypcji, który jest obecnie zalogowany jako). Kliknij przycisk **usunąć** w dolnej części strony i kliknij przycisk **tak** po wyświetleniu monitu.
+5. Kliknij przycisk **rejestracji aplikacji**.
+6. Wybierz aplikację o nazwie **b2c rozszerzeń aplikacji**. Kliknij przycisk **usunąć** i kliknij przycisk **tak** po wyświetleniu monitu.
+7. Wybierz **omówienie**.
+8. Kliknij przycisk **Usuń katalog**. Aby ukończyć proces, postępuj zgodnie z instrukcjami na ekranie.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Czy można uzyskać usługi Azure AD B2C jako część pakietu Enterprise Mobility Suite?
 Nie, usługi Azure AD B2C jest płatność za rzeczywiste użycie usługi Azure, nie jest częścią pakietu Enterprise Mobility Suite.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager
 
@@ -38,7 +38,7 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 | Konflikt | Zażądano operacji, które nie są dozwolone w bieżącym stanie zasobu. Na przykład zmiana rozmiaru dysku jest dozwolona tylko w przypadku tworzenia maszyny Wirtualnej lub po cofnięciu przydziału maszyny Wirtualnej. | |
 | DeploymentActive | Poczekaj, aż równoczesnych wdrożenia do tej grupy zasobów, aby zakończyć. | |
 | DnsRecordInUse | Nazwa rekordu DNS musi być unikatowa. Podaj inną nazwę, albo zmodyfikować istniejący rekord. | |
-| ImageNotFound | Sprawdź ustawienia obrazu maszyny Wirtualnej. | [Rozwiązywanie problemów z obrazami systemu Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) i [obrazów Rozwiązywanie problemów z systemu Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Sprawdź ustawienia obrazu maszyny Wirtualnej. |  |
 | InUseSubnetCannotBeDeleted | Błąd może się pojawić podczas próby zaktualizowania zasobu, ale żądanie jest przetwarzane przez usunięcie i utworzenie zasobu. Upewnij się określić wszystkie wartości bez zmian. | [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Uzyskaj token dostępu dla odpowiedniego dzierżawcy. Tokenu można uzyskać tylko konta należącego do dzierżawy. | |
 | InvalidContentLink | Prawdopodobnie podjęto próbę połączyć zagnieżdżony szablon, który nie jest dostępny. Sprawdź identyfikator URI przewidzianych szablon zagnieżdżony. Jeśli szablon istnieje w ramach konta magazynu, upewnij się, że identyfikator URI jest dostępny. Należy przekazać tokenu sygnatury dostępu Współdzielonego. | [Szablony połączonego](resource-group-linked-templates.md) |
@@ -77,6 +77,6 @@ W tym artykule opisano niektóre typowe błędy wdrożenia usługi Azure może w
 
 Gdy w przypadku wystąpienia błędu podczas wdrażania usługi Resource Manager zwraca kod błędu. Komunikat o błędzie za pośrednictwem portalu, programu PowerShell lub wiersza polecenia platformy Azure. Zewnętrzne komunikat może być zbyt ogólne do rozwiązywania problemów. Poszukaj wewnętrzny wiadomość zawierającą szczegółowe informacje o tym błędzie. Aby uzyskać więcej informacji, zobacz [określić kod błędu](resource-manager-troubleshoot-tips.md#determine-error-code).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej o inspekcji akcji, zobacz [inspekcji operacji za pomocą Menedżera zasobów](resource-group-audit.md).
 * Aby dowiedzieć się więcej o akcjach, aby określić błędy podczas wdrażania, zobacz [wyświetlić operacje wdrażania](resource-manager-deployment-operations.md).

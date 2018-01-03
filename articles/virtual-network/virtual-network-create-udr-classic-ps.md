@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Kontrolowanie routingu i używaniu urządzeń wirtualnych (klasyczne) przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Program PowerShell](virtual-network-create-udr-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-network-create-udr-arm-cli.md)
 > * [Szablon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-network-create-udr-classic-ps.md)

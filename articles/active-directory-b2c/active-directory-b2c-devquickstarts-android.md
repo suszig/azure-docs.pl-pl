@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: ac40d5a4838ac23d2613f1e2380fed3d28e31d7a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Usługa Azure AD B2C: Zaloguj się przy użyciu aplikacji systemu Android
 
@@ -42,8 +42,6 @@ Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu do u
 * Obejmują **Native Client** w aplikacji.
 * Skopiuj **Identyfikator aplikacji** przypisany do aplikacji. Będzie on potrzebny później.
 * Konfigurowanie klienta natywnego **identyfikator URI przekierowania** (np. com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). On również będzie później potrzebny.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
 
@@ -69,7 +67,7 @@ Próbka jest modyfikacji próbki dostarczonych przez [AppAuth](https://openid.gi
 > AppAuth obsługuje 16 interfejsu API systemu Android (Jellybean) lub nowszym. Firma Microsoft zaleca używanie 23 interfejsu API i powyżej.
 >
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Komunikację można skonfigurować z usługi Azure AD B2C, określając odnajdywania identyfikatora URI lub określając punktu końcowego autoryzacji i punktu końcowego tokena identyfikatorów URI. W obu przypadkach należy następujące informacje:
 
