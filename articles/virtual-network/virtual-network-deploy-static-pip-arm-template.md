@@ -17,16 +17,16 @@ ms.date: 04/27/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2f503aa60fdd9b7cf66ef482a1041e34c88e5c01
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Utwórz maszynę Wirtualną za pomocą statycznego publicznego adresu IP za pomocą szablonu usługi Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Program PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Szablon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klasyczny)](virtual-networks-reserved-public-ip.md)

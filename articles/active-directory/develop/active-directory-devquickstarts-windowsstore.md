@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie do Sklepu Windows Azure AD | Dokumentacja firmy Microsoft
+title: Azure AD uniwersalnych platformy Windows (UWP/XAML) wprowadzenie | Dokumentacja firmy Microsoft
 description: "Aplikacje ze Sklepu Windows kompilacji integracji z usługą Azure AD, logowania, które wywołanie usługi Azure AD chronione interfejsów API w trybie OAuth."
 services: active-directory
 documentationcenter: windows
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f76324e4415dcc300a0c2e21a89d30301c17ebab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrowanie usługi Azure AD z aplikacji ze Sklepu Windows
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD uniwersalnych platformy Windows (UWP/XAML) wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

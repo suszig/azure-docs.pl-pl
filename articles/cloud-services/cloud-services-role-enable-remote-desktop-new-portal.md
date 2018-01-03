@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
 ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Włączanie połączeń usług pulpitu zdalnego dla roli usług w chmurze Azure
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Program Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 Pulpit zdalny umożliwia dostęp do pulpitu z poziomu roli uruchomionej w systemie Azure. Podłączanie pulpitu zdalnego umożliwia rozwiązywanie problemów i diagnozowanie problemów z aplikacją, gdy jest on uruchomiony.
@@ -65,7 +65,7 @@ Po włączeniu ról usług pulpitu zdalnego może zainicjować połączenie bezp
 >[!NOTE]
 > Usługi w chmurze jest działo za grupy NSG, może być konieczne utworzenie reguły zezwalające na ruch na portach **3389** i **20000**.  Pulpit zdalny używa portu **3389**.  Wystąpienia usługi chmury jest równoważone, więc nie można bezpośrednio kontrolować którego wystąpienia, aby nawiązać połączenie.  *RemoteForwarder* i *RemoteAccess* agentów zarządzania na ruch RDP i umożliwić klientom wysyłanie plików cookie protokołu RDP i określ poszczególne wystąpienia do nawiązania połączenia.  *RemoteForwarder* i *RemoteAccess* agentów wymagają tego portu **20000*** otwarty, które mogą być zablokowane, jeśli masz grupy NSG.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 [Jak skonfigurować usługi w chmurze](cloud-services-how-to-configure-portal.md)
 [usług w chmurze — często zadawane pytania — pulpitu zdalnego](cloud-services-faq.md)

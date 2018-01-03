@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule opisano, jak Azure Media Services (AMS) umożliwia dostarczanie dynamicznie szyfrowanych przez AMS z PlayReady i Widevine DRMs strumienia. Licencja PlayReady pochodzi z serwera licencji Media Services PlayReady i licencji Widevine jest dostarczany przez **castLabs** serwera licencji.
 
 Do odtwarzania przesyłania strumieniowego zawartości chronionej przez CENC (PlayReady i Widevine), można użyć [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Zobacz [dokumentu AMP](http://amp.azure.net/libs/amp/latest/docs/) szczegółowe informacje.
@@ -61,7 +61,7 @@ W poniższej tabeli opisano tokenu JWT w AMS.
 ### <a name="jwt-token-in-castlabs"></a>Token JWT w castLabs
 W poniższej tabeli opisano tokenu JWT w castLabs. 
 
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | optData |Ciąg JSON zawierający informacje o Tobie. |
 | CRT |Ciąg JSON zawierający informacje o zawartości, jego informacje o i odtwarzania praw licencyjnych. |

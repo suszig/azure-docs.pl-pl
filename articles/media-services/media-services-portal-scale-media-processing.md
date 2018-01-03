@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="change-the-reserved-unit-type"></a>Zmiana typu jednostki zarezerwowanej
 > [!div class="op_single_selector"]
@@ -31,10 +31,10 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Aby pobrać najnowszą wersję zestawu SDK Java i rozpocząć wdrażanie z językiem Java, zobacz [rozpocząć pracę z klientem programu Java SDK dla usługi Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Aby pobrać najnowsze PHP SDK dla usługi Media Services, poszukaj w wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Aby uzyskać najnowszą wersję zestawu SDK języka Java i zacząć programować w języku Java, zobacz [Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Aby pobrać najnowszy zestaw SDK języka PHP dla usługi Media Services, poszukaj wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Konto usługi Media Services jest skojarzone z typem jednostki zarezerwowanej określającym szybkość, z jaką są przetwarzane zadania przetwarzania multimediów. Można wybrać jeden z następujących typów jednostki zarezerwowanej: **S1**, **S2** lub **S3**. Na przykład to samo zadanie kodowania jest wykonywane szybciej przy użyciu typu jednostki zarezerwowanej **S2** niż w przypadku użycia typu **S1**.
 
@@ -63,7 +63,7 @@ Aby zmienić typ jednostki zarezerwowane i liczbę jednostek zarezerwowanego, wy
    
     Nowe zastrzeżone jednostki są przydzielane po naciśnięciu przycisku ZAPISZ.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

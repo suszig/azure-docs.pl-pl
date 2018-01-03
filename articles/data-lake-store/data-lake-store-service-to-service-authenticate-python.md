@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Aby usługa uwierzytelniania za pomocą Data Lake Store z użyciem języka Python
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Use this snippet to authenticate with Azure AD for account management operations
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania za pomocą usługi Azure Data Lake Store za pomocą usługi do uwierzytelniania przy użyciu języka Python. Teraz można przeglądać następujące artykuły, które porozmawiać na temat sposobu korzystania z języka Python do pracy z usługą Azure Data Lake Store.
 
 * [Operacji zarządzania kontem w usłudze Data Lake Store za pomocą języka Python](data-lake-store-get-started-python.md)

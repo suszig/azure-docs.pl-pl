@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształć dane w fabryce danych Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 > * [Język U-SQL usługi Data Lake Analytics](data-factory-usql-activity.md)
 > * [Niestandardowe .NET](data-factory-use-custom-activities.md)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [działań przekształcania danych w fabryce danych w wersji 2](../transform-data.md).
 

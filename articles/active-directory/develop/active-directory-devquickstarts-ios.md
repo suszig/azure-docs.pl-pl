@@ -1,5 +1,5 @@
 ---
-title: "Integrowanie usługi Azure AD do aplikacji systemu iOS | Dokumentacja firmy Microsoft"
+title: Azure AD systemu iOS wprowadzenie | Dokumentacja firmy Microsoft
 description: "Sposób tworzenia aplikacji systemu iOS, która integruje się z usługą Azure AD, logowania i wywołania usługi Azure AD chronione interfejsów API przy użyciu uwierzytelniania OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrowanie usługi Azure AD do aplikacji systemu iOS
+# <a name="azure-ad-ios-getting-started"></a>Azure AD systemu iOS wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Spróbuj Podgląd nowe [portalu dla deweloperów](https://identity.microsoft.com/Docs/iOS) pomaga rozpocząć pracę z usługą Azure Active Directory w ciągu kilku minut!  Portalu dla deweloperów prowadzi użytkownika przez proces rejestracji aplikacji i Integrowanie usługi Azure AD w kodzie.  Po zakończeniu będziesz mieć prostą aplikację, która może uwierzytelniać użytkowników w dzierżawie i wewnętrznej bazy danych, które mogą zaakceptować tokeny i sprawdzania poprawności. 
-> 
-> 
 
 Azure Active Directory (Azure AD) udostępnia biblioteki uwierzytelniania usługi Active Directory lub biblioteki ADAL dla klientów z systemem iOS, które wymagają dostępu do chronionych zasobów. ADAL upraszcza proces Twoja aplikacja korzysta z umożliwiające uzyskanie tokenów dostępu. Aby zademonstrować, jak łatwo jest, w tym artykule mamy utworzyć aplikację listy zadań do wykonania Objective C który:
 
@@ -237,7 +232,7 @@ Biblioteka ADAL można łatwo zastosować wszystkie te typowe funkcje tożsamoś
 
 Odwołania, ukończonych próbka (bez wartości konfiguracji) znajduje się na [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz przejść do dodatkowe scenariusze.  Można spróbować:
 
 * [Zabezpieczanie interfejsu API za pomocą usługi Azure AD sieci Web Node.JS](active-directory-devquickstarts-webapi-nodejs.md)

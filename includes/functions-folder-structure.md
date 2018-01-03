@@ -1,5 +1,5 @@
 
-Kod dla wszystkich funkcji w danej funkcji aplikacji znajduje się w folderze głównym, który zawiera plik konfiguracji hosta i co najmniej jeden podfolderów, z których każdy zawiera kod osobnych funkcji, jak w poniższym przykładzie:
+Kod dla wszystkich funkcji w aplikacji określoną funkcję znajduje się w folderze głównym, który zawiera plik konfiguracji hosta i co najmniej jeden jego podfolderach. Każdy podfolder zawiera kod osobnych funkcji, jak w poniższym przykładzie:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*Host.json* plik zawiera niektóre konfiguracji specyficznych dla środowiska uruchomieniowego i znajduje się w folderze głównym funkcji aplikacji. Aby uzyskać informacje na temat ustawień, które są dostępne, zobacz [odwołania host.json](../articles/azure-functions/functions-host-json.md).
+Plik host.json zawiera niektóre konfiguracje specyficzne dla środowiska uruchomieniowego i znajduje się w folderze głównym aplikacji funkcji. Aby uzyskać informacje o ustawieniach, które są dostępne, zobacz [odwołania host.json](../articles/azure-functions/functions-host-json.md).
 
 Każda funkcja ma folder, który zawiera jeden lub więcej plików kodu, konfiguracji function.json i innych zależności.
 

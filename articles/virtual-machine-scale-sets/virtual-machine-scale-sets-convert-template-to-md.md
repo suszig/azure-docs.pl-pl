@@ -5,7 +5,7 @@ keywords: zestawy skalowania maszyny wirtualnej
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konwertuj szablonu zestaw skalowania do szablonu zestawu dysków zarządzanych w skali
 
-Klienci z szablonem usługi Resource Manager służący do tworzenia zestawu skali nie przy użyciu dysków zarządzanych w możesz zmodyfikować, aby użyć dysków zarządzanych. W tym artykule pokazano, jak to zrobić, używając jako przykład żądanie ściągnięcia z [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates), społeczność repozytorium dla przykładowych szablonów usługi Resource Manager. Żądanie ściągnięcia pełne są widoczne w tym miejscu: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), oraz odpowiednich części różnicowego są poniżej, oraz objaśnienia:
+Klienci z szablonem usługi Resource Manager służący do tworzenia zestawu skali nie przy użyciu dysków zarządzanych w możesz zmodyfikować, aby użyć dysków zarządzanych. W tym artykule przedstawiono sposób użycia dysków zarządzanych za pomocą jako przykład żądanie ściągnięcia z [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates), społeczność repozytorium dla przykładowych szablonów usługi Resource Manager. Żądanie ściągnięcia pełne są widoczne w tym miejscu: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), oraz odpowiednich części różnicowego są poniżej, oraz objaśnienia:
 
 ## <a name="making-the-os-disks-managed"></a>Tworzenie dysków systemu operacyjnego zarządzania
 
-W poniższych różnicowego możemy stwierdzić, usunęliśmy kilku zmiennych związane z właściwości dysk i konto magazynu. Typ konta magazynu nie jest już konieczne (Standard_LRS jest wartość domyślna), ale firma Microsoft może nadal określić czy firma zamierza. Tylko Standard_LRS i Premium_LRS są obsługiwane z dyskiem zarządzanym. Nowy sufiks konta magazynu, macierzy unikatowy ciąg i liczba sa były używane w starego szablonu, aby wygenerować nazw kont magazynu. Te zmienne nie są już wymagane w nowym szablonie ponieważ dysków zarządzanych automatycznie tworzy kont magazynu w imieniu klienta. Podobnie, nazwa kontenera wirtualnego dysku twardego i nazwa dysku systemu operacyjnego nie są już wymagane ponieważ dysków zarządzanych automatycznie nazwy jest kontenery magazynu obiektów blob i dyski.
+W następujących różnic kilku zmiennych związane z właściwości dysk i konta magazynu zostały usunięte. Typ konta magazynu nie jest już konieczne (Standard_LRS jest wartość domyślna), ale można ją określić w razie potrzeby. Tylko Standard_LRS i Premium_LRS są obsługiwane z dyskiem zarządzanym. Nowy sufiks konta magazynu, macierzy unikatowy ciąg i liczba sa były używane w starego szablonu, aby wygenerować nazw kont magazynu. Te zmienne nie są już wymagane w nowym szablonie ponieważ dysków zarządzanych automatycznie tworzy kont magazynu w imieniu klienta. Podobnie, nazwa kontenera wirtualnego dysku twardego i nazwa dysku systemu operacyjnego nie są już wymagane ponieważ dysków zarządzanych automatycznie nazwy jest kontenery magazynu obiektów blob i dyski.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ W poniższych różnicowego możemy stwierdzić, usunęliśmy kilku zmiennych zw
 ```
 
 
-W poniższych różnicowego, zobaczysz, że Zaktualizowaliśmy mocy obliczeniowej wersja interfejsu api do 2016-04-30-preview, czyli tak szybko, jak wersja wymagane do obsługi dysków zarządzanych zestawów skali. Należy pamiętać, że firma Microsoft może nadal niezarządzane dysków w nowej wersji interfejsu api z stara składnia w razie potrzeby. Innymi słowy Jeśli możemy aktualizować tylko obliczeniowe wersja interfejsu api i nie należy zmieniać cokolwiek innego, szablon będą nadal działać tak jak poprzednio.
+W następujących różnic obliczeniowe interfejsu API zostanie zaktualizowany do wersji 2016-04-30-preview, czyli tak szybko, jak wersja wymagane do obsługi dysków zarządzanych zestawów skalowania. W razie potrzeby można za pomocą niezarządzanych dysków w nowej wersji interfejsu API z stara składnia. Tylko zaktualizować wersję interfejsu API obliczeniowych, nie zmieniaj dowolne inne szablonu będą nadal działać jak wcześniej.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ W poniższych różnicowego, zobaczysz, że Zaktualizowaliśmy mocy obliczeniowe
    },
 ```
 
-W poniższych różnicowego możemy stwierdzić, że zostaną usunięte zasobów konta magazynu z tablicy zasobów całkowicie. Firma Microsoft nie jest już potrzebne dysków zarządzanych w tworzy je automatycznie w naszym imieniu.
+W następujących różnic zasobów konta magazynu jest całkowicie usunięte z tablicy zasobów. Zasób nie jest już potrzebna jako dysków zarządzanych w tworzy je automatycznie.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ W poniższych różnicowego możemy stwierdzić, że zostaną usunięte zasobów
        "location": "[resourceGroup().location]",
 ```
 
-W poniższych różnicowego, możemy stwierdzić, możemy usuwanie zależy od klauzuli odwołujących się od skali ustawioną pętli, które tworzenia kont magazynu. Starego szablonu to został zapewnienie, że konta magazynu zostały utworzone przed zestaw skalowania rozpoczęcia tworzenia, ale ta klauzula nie jest już konieczne z dysków zarządzanych. Możemy również usunąć właściwość kontenery dysku vhd, a właściwość nazwa dysku systemu operacyjnego zgodnie z tymi właściwościami automatycznie są obsługiwane pod maską przez dysków zarządzanych. Jeśli firma zamierza, firma Microsoft może dodać `"managedDisk": { "storageAccountType": "Premium_LRS" }` w konfiguracji "osDisk", jeśli firma chce dysków systemu operacyjnego w warstwie premium. Tylko maszyny wirtualne z wielkie lub małe firmy "w maszynie Wirtualnej sku można było używać dysków premium.
+W następujących różnic, zobaczysz, że zostaną usunięte zależy od klauzuli odwołujących się od skali ustawioną pętli, które tworzenia kont magazynu. Starego szablonu to został zapewnienie, że konta magazynu zostały utworzone przed zestaw skalowania rozpoczęcia tworzenia, ale ta klauzula nie jest już konieczne z dysków zarządzanych. Właściwość kontenery vhd zostaną również usunięte, wraz z właściwości Nazwa dysku systemu operacyjnego zgodnie z tymi właściwościami automatycznie są obsługiwane pod maską przez dysków zarządzanych. Można dodać `"managedDisk": { "storageAccountType": "Premium_LRS" }` w konfiguracji "osDisk", jeśli chce dysków systemu operacyjnego w warstwie premium. Tylko maszyny wirtualne z wielkie lub małe firmy "w maszynie Wirtualnej sku można było używać dysków premium.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -123,7 +123,7 @@ W poniższych różnicowego, możemy stwierdzić, możemy usuwanie zależy od kl
 Nie ma jawnego właściwości w konfiguracji zestaw skali, czy należy użyć dysku zarządzane lub niezarządzane. Zestaw skali wie, który ma zostać użyty na podstawie właściwości, które znajdują się w profilu magazynu. W związku z tym ważne jest podczas modyfikowania szablonu w celu upewnij się, że właściwości prawa w profilu magazynu zestawu skali.
 
 
-## <a name="data-disks"></a>Dyski danych
+## <a name="data-disks"></a>Dyski z danymi
 
 Z powyższych zmiany skali zestaw używa zarządzanych dysków dla systemu operacyjnego na dysku, ale informacje o dyskach danych? Aby dodać dysk danych, należy dodać właściwości "dataDisks" w "storageProfile" na tym samym poziomie jako "osDisk". Wartość właściwości jest JSON listę obiektów, z których każdy ma właściwości "lun" (która muszą być unikatowe dla każdego dysku danych na maszynie Wirtualnej), "createOption" ("pusty" jest obecnie jedyną obsługiwaną opcją), a "diskSizeGB" (rozmiar dysku w gigabajtach; musi być większa niż 0 i mniejsza niż 1024) jak w poniższym przykładzie: 
 
@@ -137,12 +137,12 @@ Z powyższych zmiany skali zestaw używa zarządzanych dysków dla systemu opera
 ]
 ```
 
-Jeśli określisz `n` dysków w tej macierzy, pobiera zestawu każdej maszyny Wirtualnej w skali `n` dysków z danymi. Należy jednak pamiętać, że te dyski danych są urządzeniach niesformatowanych. Nie są sformatowane. Jest klienta, aby dołączyć, paritition i sformatować dyski przed ich użyciem. Opcjonalnie można również określono `"managedDisk": { "storageAccountType": "Premium_LRS" }` w każdy obiekt dysku danych, aby określić, czy powinien być dysk danych — warstwa premium. Tylko maszyny wirtualne z wielkie lub małe firmy "w maszynie Wirtualnej sku można było używać dysków premium.
+Jeśli określisz `n` dysków w tej macierzy, pobiera zestawu każdej maszyny Wirtualnej w skali `n` dysków z danymi. Należy jednak pamiętać, że te dyski danych są urządzeniach niesformatowanych. Nie są sformatowane. Jest klienta, aby dołączyć, podzielić na partycje i sformatować dyski przed ich użyciem. Opcjonalnie można również określić `"managedDisk": { "storageAccountType": "Premium_LRS" }` w każdy obiekt dysku danych, aby określić, czy powinien być dysk danych — warstwa premium. Tylko maszyny wirtualne z wielkie lub małe firmy "w maszynie Wirtualnej sku można było używać dysków premium.
 
 Aby dowiedzieć się więcej o korzystaniu z dysków z danymi z zestawy skalowania, zobacz [w tym artykule](./virtual-machine-scale-sets-attached-disks.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Na przykład szablony Menedżera zasobów za pomocą zestawów skali, wyszukaj termin "vmss" w [repozytorium github szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Aby uzyskać ogólne informacje, zapoznaj się z [strony głównej docelowej dla zestawów skalowania](https://azure.microsoft.com/services/virtual-machine-scale-sets/).

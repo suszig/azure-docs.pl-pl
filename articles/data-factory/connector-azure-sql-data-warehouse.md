@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6cf6b6b59f222f68036dab68e4d20db0d0b9dd6d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,8 +50,8 @@ Obsługiwane są następujące właściwości dla usługi Azure SQL Data Warehou
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureSqlDW** | Tak |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString. |Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureSqlDW** | Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 
@@ -87,8 +87,8 @@ Aby skopiować dane z i do usługi Azure SQL Data Warehouse, ustaw właściwoś�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSqlDWTable** | Tak |
-| tableName |Nazwa tabeli lub widoku w wystąpieniu usługi Azure SQL Data Warehouse, odnoszący się do połączonej usługi. | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSqlDWTable** | Yes |
+| tableName |Nazwa tabeli lub widoku w wystąpieniu usługi Azure SQL Data Warehouse, odnoszący się do połączonej usługi. | Yes |
 
 **Przykład:**
 
@@ -119,7 +119,7 @@ Aby skopiować dane z usługi Azure SQL Data Warehouse, należy ustawić typ źr
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SqlDWSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SqlDWSource** | Yes |
 | sqlReaderQuery |Użyj niestandardowych zapytania SQL można odczytać danych. Przykład: `select * from MyTable`. |Nie |
 | sqlReaderStoredProcedureName |Nazwa procedury przechowywanej, która odczytuje dane z tabeli źródłowej. Ostatniej instrukcji SQL musi być instrukcji SELECT w procedurze składowanej. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej.<br/>Dozwolone wartości to: par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
@@ -223,7 +223,7 @@ Aby skopiować dane do usługi Azure SQL Data Warehouse, należy ustawić typ uj
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlDWSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlDWSink** | Yes |
 | allowPolyBase |Wskazuje, czy do użycia zamiast mechanizmu BULKINSERT PolyBase (jeśli jest to wymagane). <br/><br/> **Przy użyciu programu PolyBase jest zalecanym sposobem ładowanie danych do usługi SQL Data Warehouse.** Zobacz [Użyj programu PolyBase, aby załadować dane do usługi Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sekcji dla ograniczenia i szczegółów.<br/><br/>Dozwolone wartości to: **True** (ustawienie domyślne) i **False**.  |Nie |
 | Usługi |Grupy właściwości, które można określić, kiedy **allowPolybase** właściwość jest ustawiona na **true**. |Nie |
 | rejectValue |Określa liczbę lub odsetek wierszy, które można odrzucić przed zapytanie nie powiedzie się.<br/><br/>Dowiedz się więcej o opcjach Odrzuć PolyBase **argumenty** sekcji [Tworzenie tabeli zewnętrznej (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tematu. <br/><br/>Dozwolone wartości to: 0 (domyślnie), 1, 2,... |Nie |
@@ -319,7 +319,7 @@ Jeśli nie zostały spełnione wymagania, fabryki danych Azure sprawdza ustawien
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -355,12 +355,15 @@ Aby użyć tej funkcji, należy utworzyć [połączonej usługi magazynu Azure](
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }
@@ -422,7 +425,7 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | Binarne |Byte] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data/godzina |
+| data |Data/godzina |
 | Data/godzina |Data/godzina |
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
@@ -451,5 +454,5 @@ Podczas kopiowania danych z/na magazyn danych SQL Azure, z typów danych Azure S
 | varchar |Ciąg, Char] |
 | xml |XML |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

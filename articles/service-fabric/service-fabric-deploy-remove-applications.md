@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
 ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Wdrażanie i usunąć aplikacje przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager](service-fabric-application-arm-resource.md)
-> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Program PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfejs wiersza polecenia usługi Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [Interfejsy API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -333,7 +333,7 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md)
 
 [Wprowadzenie kondycji sieci szkieletowej usług](service-fabric-health-introduction.md)

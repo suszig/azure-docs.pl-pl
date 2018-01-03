@@ -4,7 +4,7 @@ description: "Dowiedz się, jak utworzyć Wpięć maszynę wirtualną na platfor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tworzenie infrastruktury programowanie na maszynie Wirtualnej systemu Linux na platformie Azure z Wpięć, GitHub i Docker
 Aby zautomatyzować fazy kompilacji i testowania projektowanie aplikacji, można użyć ciągłej integracji i wdrażania (CI/CD) potoku. W tym samouczku, możesz utworzyć potok CI/CD na maszynie Wirtualnej platformy Azure w tym jak:
@@ -36,12 +36,12 @@ Aby zautomatyzować fazy kompilacji i testowania projektowanie aplikacji, można
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.22 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Utwórz wystąpienie Wpięć
 W poprzednich samouczek dotyczący [sposobu dostosowywania maszyny wirtualnej systemu Linux, po pierwszym uruchomieniu komputera](tutorial-automate-vm-deployment.md), wiesz, jak można zautomatyzować dostosowania maszyny Wirtualnej z inicjowaniem chmury. W tym samouczku używany jest plik init chmury do zainstalowania Wpięć i Docker na maszynie Wirtualnej. Wpięć jest serwer automatyzacji popularnych typu open source, które bezproblemowo integruje się z platformy Azure, aby włączyć ciągłej integracji (CI) i ciągłego dostarczania (CD). Aby uzyskać więcej samouczków na temat sposobu korzystania z Wpięć, zobacz [Wpięć w Centrum Azure](https://docs.microsoft.com/azure/jenkins/).
 
-W bieżącym powłoki, Utwórz plik o nazwie *init.txt chmury* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Wprowadź `sensible-editor cloud-init-jenkins.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
+W bieżącym powłoki, Utwórz plik o nazwie *chmurze init-jenkins.txt* i wklej następującą konfigurację. Na przykład utworzyć plik, w powłoce chmury nie na komputerze lokalnym. Wprowadź `sensible-editor cloud-init-jenkins.txt` do tworzenia pliku i wyświetlić listę dostępnych edytory. Upewnij się, że poprawnie skopiować pliku całego init chmury szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Jeśli plik nie jest jeszcze dostępna, poczekaj jeszcze kilka minut init chmury
 
 Teraz Otwórz przeglądarkę sieci web i przejdź do `http://<publicIps>:8080`. Ukończenie początkowej konfiguracji Wpięć w następujący sposób:
 
-- Wprowadź *initialAdminPassword* uzyskany z maszyny Wirtualnej w poprzednim kroku.
-- Wybierz **Wybierz wtyczki do zainstalowania**
-- Wyszukaj *GitHub* w polu tekstowym u góry wybierz *wtyczki GitHub*, a następnie wybierz pozycję **instalacji**
-- Aby utworzyć konto użytkownika Wpięć, wypełnij formularz zgodnie z potrzebami. Z punktu widzenia zabezpieczeń należy utworzyć ten pierwszy użytkownik Wpięć zamiast kontynuowanie jako domyślnego konta administratora.
-- Po zakończeniu wybierz **Rozpoczynanie korzystania z Wpięć**
+- Wprowadź nazwę użytkownika **admin**, następnie podaj *initialAdminPassword* uzyskany z maszyny Wirtualnej w poprzednim kroku.
+- Wybierz **Zarządzanie Wpięć**, następnie **Zarządzanie wtyczkami**.
+- Wybierz **dostępne**, następnie wyszukaj *GitHub* w polu tekstowym u góry. Pole wyboru dla *wtyczki GitHub*, a następnie wybierz pozycję **teraz pobrać i zainstalować po ponownym uruchomieniu**.
+- Pole wyboru dla **Wpięć ponownego uruchomienia po zakończeniu instalacji i są uruchomione żadne zadania**, a następnie zaczekaj, aż procesu instalacji wtyczka została zakończona.
 
 
 ## <a name="create-github-webhook"></a>Utwórz element webhook GitHub
@@ -168,7 +167,7 @@ W Wpięć, nowej kompilacji zaczyna się w obszarze **kompilacji historii** sekc
 ## <a name="define-docker-build-image"></a>Zdefiniuj obraz kompilacji Docker
 Aby wyświetlić aplikację Node.js oparte na systemie zatwierdzenia GitHub, umożliwia tworzenie obrazów Docker, aby uruchomić aplikację. Obraz jest tworzony z plik Dockerfile, który definiuje sposób konfigurowania kontenera, który uruchamia aplikację. 
 
-Połączenie SSH maszyny Wirtualnej przejdź do katalogu roboczego Wpięć o nazwie po zadania, który został utworzony w poprzednim kroku. W naszym przykładzie, który miał nazwę *HelloWorld*.
+Połączenie SSH maszyny Wirtualnej przejdź do katalogu roboczego Wpięć o nazwie po zadania, który został utworzony w poprzednim kroku. W tym przykładzie, który miał nazwę *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
@@ -226,7 +225,7 @@ Teraz należy edytować innej *index.js* pliku w usłudze GitHub i zatwierdzić 
 ![Uruchomienie aplikacji Node.js po innym zatwierdzenia GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym samouczku należy skonfigurować GitHub do uruchomienia zadania kompilacji Wpięć na każdym zatwierdzeniu kodu, a następnie wdrożyć kontener Docker do testowania aplikacji. W tym samouczku omówiono:
 
 > [!div class="checklist"]

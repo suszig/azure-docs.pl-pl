@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 62b1a34f2380446b9f5cbadda7eab8c698f1a92f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Usługa Azure AD B2C: Tworzenie aplikacji klasycznej systemu Windows
 Za pomocą usługi Azure Active Directory (Azure AD) B2C, można dodać tożsamości samoobsługi zaawansowanych funkcji zarządzania do aplikacji pulpitu w kilku krótkich krokach. W tym artykule opisano sposób tworzenia aplikacji "Lista zadań do wykonania".NET systemu Windows Presentation Foundation (WPF), która zawiera użytkowników rejestrację, logowanie i zarządzanie profilami. Aplikacja będzie zawierać obsługę rejestracji i logowania przy użyciu nazwy użytkownika lub adres e-mail. Zawiera również obsługę rejestracji i logowania przy użyciu kont społecznościowych, takich jak Facebook i Google.
@@ -32,8 +32,6 @@ Następnie musisz utworzyć aplikację w katalogu usługi B2C. Dzięki temu info
 * Obejmują **klientami** w aplikacji.
 * Kopiuj **identyfikator URI przekierowania** `urn:ietf:wg:oauth:2.0:oob`. Jest to domyślny adres URL dla tej próbki kodu.
 * Skopiuj **Identyfikator aplikacji** przypisany do aplikacji. Będzie potrzebny później.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
 W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ten przykładowy kod obejmuje trzy środowiska tożsamości: Zarejestruj się, zaloguj się i edytowanie profilu. Musisz utworzyć zasady dla każdego typu zgodnie z opisem w [artykule o zasadach](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Podczas tworzenia trzech zbiorów zasad należy koniecznie:

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Aktualizuj aplikację w usługi kontenera platformy Azure (AKS)
 
@@ -33,7 +33,7 @@ W kolejnych samouczkach Operations Management Suite jest skonfigurowany do monit
 
 W samouczkach poprzedniej aplikacji zostało umieszczone w obraz kontenera, obrazu przesłanego do rejestru kontenera Azure i utworzyć klaster Kubernetes. W klastrze Kubernetes następnie uruchomienia aplikacji. 
 
-Aplikacja również sklonowano repozytorium w tym kodu źródłowego aplikacji i utworzone wcześniej plik rozwiązania Docker Compose używany w tym samouczku. Sprawdź utworzono klonowania repozytorium i że zostały zmienione katalogów w katalogu sklonowany. Wewnątrz jest katalog o nazwie `azure-vote` i plik o nazwie `docker-compose.yml`.
+Aplikacja również sklonowano repozytorium w tym kodu źródłowego aplikacji i utworzone wcześniej plik rozwiązania Docker Compose używany w tym samouczku. Sprawdź utworzono klonowania repozytorium i że zostały zmienione katalogów w katalogu sklonowany. Wewnątrz jest katalog o nazwie `azure-vote` i plik o nazwie `docker-compose.yaml`.
 
 Jeśli nie zostały wykonane następujące kroki, a aby z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app]. 
 
@@ -154,7 +154,7 @@ Przejdź do adresu IP, aby wyświetlić zaktualizowaną aplikację.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku aktualizacji aplikacji i wprowadzanie tej aktualizacji do klastra Kubernetes. Zakończono następujące zadania:
 

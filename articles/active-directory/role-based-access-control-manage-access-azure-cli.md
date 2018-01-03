@@ -15,14 +15,14 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Zarządzanie oparte na rolach kontrola dostępu przy użyciu interfejsu wiersza polecenia platformy Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Program PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [Interfejs API REST](role-based-access-control-manage-access-rest.md)
 
@@ -195,6 +195,6 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![Zrzut ekranu wiersza polecenia — Lista azure roli dla role niestandardowe - RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

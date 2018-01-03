@@ -1,6 +1,6 @@
 ---
 title: Azure AD systemu Android wprowadzenie | Dokumentacja firmy Microsoft
-description: "Sposób tworzenia aplikacji systemu Android, która integruje się z usługą Azure AD, logowania i wywołania usługi Azure AD chronione interfejsów API przy użyciu uwierzytelniania OAuth."
+description: "Sposób tworzenia aplikacji systemu Android, która integruje się z usługą Azure AD, logowania i wywołania usługi Azure AD chronione przy użyciu OAuth2.0 interfejsów API."
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Integrowanie usługi Azure AD do aplikacji systemu Android
+# <a name="azure-ad-android-getting-started"></a>Azure AD systemu Android wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Spróbuj Podgląd nowe [portalu dla deweloperów](https://identity.microsoft.com/Docs/Android), który pomoże Ci rozpocząć pracę z usługą Azure AD w ciągu kilku minut. Portalu dla deweloperów przeprowadzi Cię przez proces rejestracji aplikacji i Integrowanie usługi Azure AD w kodzie. Po zakończeniu będziesz mieć prostą aplikację, która może uwierzytelniać użytkowników w dzierżawie oraz zaplecze, które mogą zaakceptować tokeny i sprawdzania poprawności.
->
->
 
 Jeśli projektujesz klasycznej aplikacji usługi Azure Active Directory (Azure AD) umożliwia proste i bezpośrednie umożliwia uwierzytelnianie użytkowników przy użyciu ich lokalnych kont usługi Active Directory. Umożliwia również aplikacji bezpiecznego używać dowolnego składnika web API chronione przez usługę Azure AD, takie jak interfejsami API usługi Office 365 lub interfejsu API platformy Azure.
 

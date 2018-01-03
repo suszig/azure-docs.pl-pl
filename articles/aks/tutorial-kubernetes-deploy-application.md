@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Uruchamianie aplikacji w usługi kontenera platformy Azure (AKS)
 
@@ -21,7 +21,7 @@ W tym samouczku część cztery osiem, przykładowa aplikacja jest wdrażana w k
 
 > [!div class="checklist"]
 > * Pliki manifestu Kubernetes aktualizacji
-> * Uruchom aplikację w Kubernetes
+> * Uruchom aplikację w usłudze Kubernetes
 > * Testowanie aplikacji
 
 W kolejnych samouczkach tej aplikacji jest skalowana, aktualizacji, oraz Operations Management Suite jest skonfigurowana do monitorowania Kubernetes klastra.
@@ -32,7 +32,7 @@ Ten samouczek zakłada podstawową wiedzę na temat pojęć Kubernetes, aby uzys
 
 W poprzednim samouczki aplikacji zostało umieszczone w obrazie kontenera, ten obraz został załadowany w rejestrze kontenera Azure i klaster Kubernetes został utworzony. 
 
-Do ukończenia tego samouczka, należy wstępnie utworzone `azure-vote-all-in-one-redis.yml` Kubernetes pliku manifestu. Ten plik został pobrany z kodu źródłowego aplikacji w poprzednim samouczka. Sprawdź, czy zostały sklonowane repozytorium i że zostały zmienione katalogi do sklonowanego repozytorium.
+Do ukończenia tego samouczka, należy wstępnie utworzone `azure-vote-all-in-one-redis.yaml` Kubernetes pliku manifestu. Ten plik został pobrany z kodu źródłowego aplikacji w poprzednim samouczka. Sprawdź, czy zostały sklonowane repozytorium i że zostały zmienione katalogi do sklonowanego repozytorium.
 
 Jeśli nie zostało wykonane następujące kroki, a następnie zostać z niego skorzystać, wróć do [samouczek 1 — Tworzenie kontenera obrazy][aks-tutorial-prepare-app].
 
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Plik manifestu został wstępnie utworzone przy użyciu nazwy serwera logowania `microsoft`. Otwórz plik w dowolnym edytorze tekstu. W tym przykładzie plik zostanie otwarty z `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Zastąp `microsoft` z nazwą serwera ACR logowania. Ta wartość zostanie znaleziona w wierszu **47** pliku manifestu.
@@ -67,7 +67,7 @@ Zapisz i zamknij plik.
 Użyj [utworzyć kubectl] [ kubectl-create] polecenie do uruchomienia aplikacji. To polecenie analizuje pliku manifestu i tworzy obiekty Kubernetes zdefiniowane.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Dane wyjściowe:
@@ -105,7 +105,7 @@ Aby wyświetlić aplikację, przejdź do zewnętrznego adresu IP.
 
 ![Obraz przedstawiający klaster Kubernetes na platformie Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku aplikacji Azure głos został wdrożony do klastra Kubernetes w AKS. Zadania ukończone obejmują:  
 

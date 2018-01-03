@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
@@ -56,7 +56,7 @@ Do ukończenia tego samouczka, musi mieć następujące zasoby:
     * **Wyślij do analizy dzienników**.     Aby użyć tej opcji, użyj istniejący obszar roboczy lub utworzyć nowy obszar roboczy analizy dzienników, wykonując następujące kroki, aby [Utwórz nowy obszar roboczy](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) w portalu. Aby uzyskać więcej informacji o wyświetlaniu dzienników w analizy dzienników, zobacz [Wyświetl dzienniki w analizy dzienników](#view-in-loganalytics).
     * **Zaloguj się DataPlaneRequests**. Wybierz tę opcję, aby rejestrować diagnostyki dla konta programu SQL, wykres i tabelę interfejsu API. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
     * **Zaloguj się MongoRequests**. Wybierz tę opcję, aby dziennika diagnostyki dla kont API bazy danych MongoDB. Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
-    * **Metryka żądania**. Wybierz tę opcję, aby przechowywać pełne dane w [metryki Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
+    * **Metryka żądania**. Wybierz tę opcję, aby przechowywać pełne dane w [metryki Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Jeśli archiwizacji do konta magazynu można wybrać okres przechowywania dzienników diagnostycznych. Dzienniki są autodeleted, po wygaśnięciu okresu przechowywania.
 
 3. Kliknij pozycję **Zapisz**.
 
@@ -426,7 +426,7 @@ W poniższej tabeli opisano zawartości każdego wpisu dziennika.
 | responseLength | responseLength_s | Długość odpowiedzi w bajtach.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Jest to pusty kiedy [tokenów zasobów](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) są używane do uwierzytelniania i wskazuje na identyfikator zasobu użytkownika. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Uzyskanie zrozumienia nie tylko sposób włączania rejestrowania, ale także kategorie metryki i dziennika, obsługiwane przez różnych Azure usługi odczytu zarówno [omówienie metryk w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) i [Omówienie usługi Azure Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułów.
 - Przeczytaj następujące artykuły, aby dowiedzieć się więcej o usłudze event hubs:

@@ -17,10 +17,10 @@ ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services
 
@@ -41,7 +41,7 @@ Jeśli tworzenie początkowej kopii zapasowej nie ma rozpocząć się wkrótce, 
 Aby uruchomić zadanie tworzenia początkowej kopii zapasowej:
 
 1. Na pulpicie nawigacyjnym magazynu kliknij liczbę w obszarze **Elementy kopii zapasowej** lub kliknij kafelek **Elementy kopii zapasowej**. <br/>
-  ![Ikona ustawień](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Ikona Ustawienia](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   Zostanie otwarty blok **Elementy kopii zapasowej**.
 
@@ -95,7 +95,7 @@ Aby uruchomić zadanie tworzenia początkowej kopii zapasowej:
 ## <a name="troubleshooting-errors"></a>Rozwiązywanie problemów z błędami
 W razie problemów podczas wykonywania kopii zapasowej maszyny wirtualnej, zobacz [maszyny Wirtualnej artykuł dotyczący rozwiązywania problemów](backup-azure-vms-troubleshoot.md) Aby uzyskać pomoc.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, ochrony maszyny Wirtualnej, zobacz następujące artykuły, aby dowiedzieć się więcej o zadaniach zarządzania maszyny Wirtualnej i przywracanie maszyn wirtualnych.
 
 * [Monitorowanie maszyn wirtualnych i zarządzanie nimi](backup-azure-manage-vms.md)

@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Uwierzytelnianie użytkownika końcowego przy użyciu interfejsu API REST usługi Data Lake Store
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
 
 Więcej informacji na temat interakcyjnego uwierzytelniania użytkownika zawiera temat [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx) (Przepływ udzielania kodu autoryzacji).
    
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania za pomocą usługi Azure Data Lake Store za pomocą usługi do uwierzytelniania przy użyciu interfejsu API REST. Teraz można przeglądać następujące artykuły, które opisano sposób użycia interfejsu API REST do pracy z usługą Azure Data Lake Store.
 
 * [Operacji zarządzania kontem w usłudze Data Lake Store za pomocą interfejsu API REST](data-lake-store-get-started-rest-api.md)

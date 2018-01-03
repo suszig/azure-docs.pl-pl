@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplikacja sieci web Java logowania i wylogowywania z usługą Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Wprowadzenie aplikacji sieci web AD Java Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Podając jednego logowania i wylogowywania tylko kilka wierszy kodu, Azure Active Directory (Azure AD) upraszcza umożliwiające zewnętrzny Zarządzanie tożsamościami aplikacji sieci web. Może się zarejestrować użytkowników i aplikacji sieci web Java za pomocą przez firmę Microsoft implementacją społeczność biblioteki usługi Azure Active Directory Authentication for Java (ADAL4J).
@@ -1713,7 +1713,7 @@ Plik adal4jsample.war ma teraz w katalogu /targets. Można wdrożyć pliku w Two
 > Możesz z łatwością wdrożyć plik .war o najnowsze serwery Tomcat. Przejdź do adresem http://localhost: 8080/menedżera / i wykonaj instrukcje dotyczące przekazywania pliku adal4jsample.war. Autodeploy go zostanie automatycznie z właściwego punktu końcowego.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Masz teraz pracy aplikacji Java, który może uwierzytelniać użytkowników, bezpiecznie wywołać przy użyciu protokołu OAuth 2.0 interfejsów API sieci web i uzyskać podstawowe informacje o użytkownikach. Jeśli nie zostało już wypełnione dzierżawy z użytkownikami, teraz jest odpowiedni moment, aby to zrobić.
 
 Aby uzyskać dodatkowe informacje można uzyskać ukończone próbka (bez wartości konfiguracji) na dwa sposoby:

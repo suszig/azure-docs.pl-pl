@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
 ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Zainstaluj Azure CLI 1.0
 > [!div class="op_single_selector"]
-> * [PowerShell](/powershell/azure/overview)
+> * [Program PowerShell](/powershell/azure/overview)
 > * [Interfejs wiersza polecenia platformy Azure 1.0](cli-install-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli)
 
@@ -128,7 +128,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Połącz z poziomu interfejsu wiersza polecenia do subskrypcji platformy Azure](/cli/azure/authenticate-azure-cli) do tworzenia i zarządzania zasobami Azure.
 * Aby dowiedzieć się więcej o Azure CLI, pobierania kodu źródłowego, zgłaszanie problemów lub przyczyniają się do projektu, odwiedź stronę [repozytorium GitHub dla interfejsu wiersza polecenia Azure](https://github.com/azure/azure-xplat-cli).
 * Jeśli masz pytania dotyczące używania interfejsu wiersza polecenia Azure lub usługi Azure, odwiedź stronę [fora Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).

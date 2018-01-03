@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Uwierzytelnianie użytkownika końcowego przy użyciu zestawu .NET SDK usługi Data Lake Store
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ W tym artykule opisano sposób użycia zestawu .NET SDK w celu uwierzytelniania 
    | --- | --- |
    | Kategoria |Szablony/Visual C#/Windows |
    | Szablon |Aplikacja konsolowa |
-   | Nazwa |CreateADLApplication |
+   | Name (Nazwa) |CreateADLApplication |
 
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
 
@@ -104,7 +104,7 @@ Kilka rzeczy, informacje o poprzednim fragment kodu:
 * Jeśli jednak chcesz użyć własnej domeny usługi Azure AD i własnego identyfikatora klienta aplikacji, musisz utworzyć natywną aplikację usługi Azure AD, a następnie użyć identyfikatora dzierżawy usługi Azure AD, identyfikatora klienta i identyfikatora URI przekierowania utworzonej aplikacji. Instrukcje można znaleźć w temacie [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) (Tworzenie aplikacji usługi Active Directory na potrzeby uwierzytelniania użytkownika końcowego przy użyciu usługi Data Lake Store).
 
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania użytkowników końcowych do uwierzytelniania w usłudze Azure Data Lake Store przy użyciu zestawu .NET SDK. Teraz można przeglądać następujące artykuły, które opisano sposób użycia zestawu .NET SDK do pracy z usługą Azure Data Lake Store.
 
 * [Account management operations on Data Lake Store using .NET SDK (Operacje zarządzania kontem w usłudze Data Lake Store przy użyciu zestawu SDK platformy .NET)](data-lake-store-get-started-net-sdk.md)

@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w fabryce danych Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Wersja 1 — ogólnie dostępna](v1/data-factory-data-movement-activities.md)
@@ -39,7 +39,7 @@ Działanie kopiowania jest wykonywana na [integrację środowiska uruchomieniowe
 * Jeśli kopiowanie danych między danymi przechowuje oba są publicznie, działanie kopiowania może upoważnionego przez **środowiska uruchomieniowego integracji Azure**, która jest bezpieczne, niezawodne i skalowalne, i [globalnie dostępną](concepts-integration-runtime.md#integration-runtime-location).
 * Podczas kopiowania danych z/do magazynów danych znajdujących się na lokalnych lub w sieci przy użyciu kontroli dostępu (na przykład sieci wirtualnej Azure), należy skonfigurować **hosta samodzielnego zintegrowanego środowiska uruchomieniowego** upoważnienie kopię danych.
 
-Środowiska uruchomieniowego integracji muszą być skojarzone z każdym źródłowy i odbiorczy magazynu danych. Dowiedz się więcej informacji na temat aktywności kopiowania [Określa, które IR, aby użyć](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integracja środowiska uruchomieniowego musi być skojarzone z każdym źródłowy i odbiorczy magazynu danych. Dowiedz się więcej informacji na temat aktywności kopiowania [Określa, które IR, aby użyć](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Działanie kopiowania przechodzi przez następujące etapy, aby skopiować dane ze źródła do ujścia. Usługa obsługującego działanie kopiowania:
 
@@ -70,7 +70,7 @@ Na przykład można wykonywać następujące działania kopiowania:
 
 Usługa obsługującego działanie kopiowania jest dostępna globalnie w regionach i lokalizacji geograficznych wymienionych w [lokalizacji środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md#integration-runtime-location). Ogólnie dostępna topologia zapewnia przepływ danych wydajne, pozwalający na uniknięcie zwykle przeskoków między regionu. Zobacz [usług według regionu](https://azure.microsoft.com/regions/#services) dostępność fabryki danych i przenoszenie danych w regionie.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Aby użyć działania kopiowania w fabryce danych Azure, musisz:
 
@@ -132,12 +132,12 @@ Następujący szablon działania kopiowania zawiera stanowi wyczerpującej listy
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type działania kopiowania: **kopiowania** | Tak |
-| Dane wejściowe | Określ zestaw danych został utworzony wskazującą na źródło danych. Działanie kopiowania obsługuje tylko jeden danych wejściowych. | Tak |
-| wyjścia | Określ zestaw danych został utworzony wskazującą na obiekt sink danych. Działanie kopiowania obsługuje tylko pojedynczego wyjścia. | Tak |
-| typeProperties | Grupa właściwości, aby skonfigurować działanie Kopiuj. | Tak |
-| źródło | Określ typ źródła kopiowania i odpowiednie właściwości na temat pobierania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Tak |
-| obiekt sink | Określ typ ujścia kopiowania i odpowiednie właściwości na temat zapisywania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Tak |
+| type | Musi mieć ustawioną właściwość type działania kopiowania: **kopiowania** | Yes |
+| Dane wejściowe | Określ zestaw danych został utworzony wskazującą na źródło danych. Działanie kopiowania obsługuje tylko jeden danych wejściowych. | Yes |
+| wyjścia | Określ zestaw danych został utworzony wskazującą na obiekt sink danych. Działanie kopiowania obsługuje tylko pojedynczego wyjścia. | Yes |
+| typeProperties | Grupa właściwości, aby skonfigurować działanie Kopiuj. | Yes |
+| źródło | Określ typ źródła kopiowania i odpowiednie właściwości na temat pobierania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Yes |
+| obiekt sink | Określ typ ujścia kopiowania i odpowiednie właściwości na temat zapisywania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Yes |
 | Translator | Określ mapowania kolumn jawne ze źródła do zbiornika. Ma zastosowanie, gdy domyślne zachowanie kopiowania nie może spełnić potrzeby.<br/><br/>Dowiedz się więcej szczegółów z [schemat i dane mapowania typu](copy-activity-schema-and-type-mapping.md). | Nie |
 | cloudDataMovementUnits | Określ powerfulness z [środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md) upoważnienie kopię danych.<br/><br/>Dowiedz się więcej szczegółów z [jednostki przepływu danych w chmurze](copy-activity-performance.md). | Nie |
 | parallelCopies | Określanie równoległości interesujące Kopiuj działania do użycia podczas odczytu danych z źródła i zapisywania danych do zbiornika.<br/><br/>Dowiedz się więcej szczegółów z [równoległych kopii](copy-activity-performance.md#parallel-copy). | Nie |
@@ -193,7 +193,13 @@ Domyślnie działanie kopiowania zatrzymuje kopiowanie danych i zwraca błąd, p
 
 Zobacz [wydajności działania kopiowania i dostrajania przewodnik](copy-activity-performance.md), która opisuje kluczowych czynników wpływających na wydajność przepływu danych (działanie kopiowania) w fabryce danych Azure. Również zawiera listę obserwowana wydajność podczas testowania wewnętrznego oraz opisano różne sposoby optymalizacji wydajności działania kopiowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="incremental-copy"></a>Kopia przyrostowa 
+Fabryka danych w wersji 2 obsługuje scenariusze przyrostowo kopiowania danych różnicowych z magazynu danych źródłowych w magazynie danych docelowego. Zobacz [samouczek: przyrostowo kopiowanie danych](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Odczytywanie i zapisywanie danych podzielonej na partycje
+W wersji 1 usługi fabryka danych Azure obsługiwane odczytu lub zapisu danych podzielonej na partycje przy użyciu SliceStart/SliceEnd/WindowStart/WindowEnd zmienne systemowe. W wersji 2 to zachowanie można osiągnąć za pomocą parametru potoku i czas/zaplanowana godzina rozpoczęcia tego wyzwalacza jako wartość parametru. Aby uzyskać więcej informacji, zobacz [jak do odczytu lub zapisu na partycje danych](how-to-read-write-partitioned-data.md).
+
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące Przewodniki Szybki Start, samouczki i przykłady:
 
 - [Kopiowanie danych z jednej lokalizacji do innej lokalizacji, w tym samym magazynie obiektów Blob Azure](quickstart-create-data-factory-dot-net.md)

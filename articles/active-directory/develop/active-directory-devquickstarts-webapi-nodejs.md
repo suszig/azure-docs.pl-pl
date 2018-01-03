@@ -1,5 +1,5 @@
 ---
-title: "Wprowadzenie Node.js usługi Azure Active Directory"
+title: Azure AD Node.js interfejsu API sieci web wprowadzenie | Dokumentacja firmy Microsoft
 description: "Jak utworzyć sieci web Node.js REST API, która integruje się z usługą Azure AD do uwierzytelniania."
 services: active-directory
 documentationcenter: nodejs
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Zabezpieczanie interfejsu API w usłudze Azure Active Directory sieci Web Node.js
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js interfejsu API sieci web wprowadzenie
 
 W tym artykule pokazano, jak zabezpieczyć [Restify](http://restify.com/) punkt końcowy interfejsu API z [Passport](http://passportjs.org/) przy użyciu [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modułu do obsługi komunikacji z usługą Azure Active Directory (AAD). 
 
@@ -73,7 +73,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Przed podłączeniem do usługi Azure Active Directory, należy podać następujące informacje:
 
-| Nazwa  | Opis | Nazwa zmiennej w pliku konfiguracji |
+| Name (Nazwa)  | Opis | Nazwa zmiennej w pliku konfiguracji |
 | ------------- | ------------- | ------------- |
 | Nazwa dzierżawcy  | [Nazwa dzierżawcy](active-directory-howto-tenant.md) ma być używany do uwierzytelniania | `tenantName`  |
 | Identyfikator klienta  | Identyfikator klienta to określenie OAuth dla usługi AAD _identyfikator aplikacji_. |  `clientID`  |
@@ -187,7 +187,7 @@ Na koniec ustawiono serwera do nasłuchiwania na porcie skonfigurowanym przez wy
 server.listen(serverPort);
 ```
 
-## <a name="run-the-sample"></a>Uruchom próbki
+## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
 Teraz, gdy serwer jest zaimplementowana, można uruchomić serwera, otwierając wiersz polecenia i wprowadź:
 
@@ -234,7 +234,7 @@ Unauthorized
 ```
 Teraz, po utworzeniu bezpiecznego interfejsu API, można zaimplementować klienta, który jest w stanie przekazać tokeny uwierzytelniania do interfejsu API.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zgodnie z wprowadzeniem, musisz zaimplementować odpowiednik klienta do łączenia się z serwerem obsługującym logowania, wylogowywania i zarządzania tokenów. Oparte na kodzie przykłady mogą odwoływać się do aplikacji klienckich w [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) i [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Samouczek krok po kroku można znaleźć w następującym artykule:
 
 > [!div class="nextstepaction"]

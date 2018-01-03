@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu portalu Azure i programu PowerShell
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 <td>Wycinek jest przetwarzany.</td>
 </tr>
 <tr>
-<td rowspan="4">Niepowodzenie</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Błąd</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
 </tr>
 <tr>
 <td>Anulowane</td><td>Wycinek zostało anulowane przez akcję użytkownika.</td>
@@ -131,10 +131,10 @@ Wycinków zestaw danych w fabryce danych może mieć jeden z następujących sta
 <tr>
 <td>-</td><td>Nie można wygenerować i/lub sprawdzić poprawności wycinka.</td>
 </tr>
-<td>Gotowy</td><td>-</td><td>Wycinek jest gotowy do użycia.</td>
+<td>Gotowe</td><td>-</td><td>Wycinek jest gotowy do użycia.</td>
 </tr>
 <tr>
-<td>Pominięto</td><td>Brak</td><td>Wycinek nie jest przetwarzany.</td>
+<td>Pominięto</td><td>None</td><td>Wycinek nie jest przetwarzany.</td>
 </tr>
 <tr>
 <td>Brak</td><td>-</td><td>Wycinek miał poprzednio inny stan, ale został zresetowany.</td>
@@ -368,9 +368,9 @@ Poniższa tabela zawiera listę dostępnych operacji i stanów (i podstany).
 
 | Nazwa operacji | Stan | Podstan |
 | --- | --- | --- |
-| RunStarted |Rozpoczęto |Uruchamianie |
+| RunStarted |Uruchomiono |Uruchamianie |
 | RunFinished |Nie powiodło się / powiodło się. |FailedResourceAllocation<br/><br/>Powodzenie<br/><br/>FailedExecution<br/><br/>Upłynął limit czasu<br/><br/>< anulowane<br/><br/>FailedValidation<br/><br/>porzucone |
-| OnDemandClusterCreateStarted |Rozpoczęto | |
+| OnDemandClusterCreateStarted |Uruchomiono | |
 | OnDemandClusterCreateSuccessful |Powodzenie | |
 | OnDemandClusterDeleted |Powodzenie | |
 

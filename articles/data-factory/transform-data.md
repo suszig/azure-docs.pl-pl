@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: shengc
 ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształć dane w fabryce danych Azure
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 > * [Język U-SQL usługi Data Lake Analytics](transform-data-using-data-lake-analytics.md)
 > * [Niestandardowe .NET](transform-data-using-dotnet-custom-activity.md)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule opisano działania przekształcania danych w fabryce danych Azure, można użyć do przekształcania, przetwarzania danych pierwotnych do przewidywania i szczegółowych informacji. Wykonuje działanie transformacji w środowisku komputerowym, takich jak klaster Azure HDInsight lub partii zadań Azure. Zawiera łącza do artykułów z szczegółowe informacje o każdym działaniu transformacji.
 
 Fabryka danych obsługuje następujące działania przekształcania danych, które mogą zostać dodane do [potoki](concepts-pipelines-activities.md) albo indywidualnie lub powiązane z innym działaniem.
@@ -81,5 +81,5 @@ Można utworzyć połączonej usługi dla środowiska obliczeniowego, a następn
 
 Zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu, aby dowiedzieć się więcej o usługach obliczeniowe obsługiwane przez fabryki danych. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące samouczki przykład za pomocą działania przekształcenia: [samouczek: Przekształcanie danych za pomocą Spark](tutorial-transform-data-spark-powershell.md)

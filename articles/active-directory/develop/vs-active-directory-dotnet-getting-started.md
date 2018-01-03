@@ -16,10 +16,10 @@ ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: efe12842cf0dd5ac865d95902f53e68affcbe54f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Wprowadzenie do korzystania z usługi Azure Active Directory i programu Visual Studio połączone usługi (projektów MVC)
 > [!div class="op_single_selector"]
@@ -79,6 +79,6 @@ Aby dodać formanty SignIn/SignOut do widoku, można użyć **_LoginPartial.csht
     &lt;/html&gt;
 </pre>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Dowiedz się więcej o usłudze Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 
 

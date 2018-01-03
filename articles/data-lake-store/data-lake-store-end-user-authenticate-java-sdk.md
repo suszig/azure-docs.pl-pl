@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 93bd267adfac0d2dd5c22d2d7ac79b0643f5cded
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>Uwierzytelnianie użytkownika końcowego za pomocą usługi Data Lake Store za pomocą języka Java
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ W tym artykule opisano sposób użycia zestawu Java SDK w celu uwierzytelniania 
 
 Zestaw SDK usługi Data Lake Store udostępnia wygodne metody zarządzania tokenami zabezpieczającymi, które są potrzebne do komunikacji z kontem usługi Data Lake Store. Jednak zestaw SDK nie zmusza do używania tylko tych metod. Możesz również używać jakichkolwiek innych sposobów uzyskiwania tokenu, na przykład przy użyciu [zestawu SDK usługi Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) lub własnego kodu niestandardowego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania użytkowników końcowych do uwierzytelniania w usłudze Azure Data Lake Store przy użyciu zestawu SDK Java. Teraz można przeglądać następujące artykuły, które porozmawiać na temat sposobu korzystania z zestawu Java SDK do pracy z usługą Azure Data Lake Store.
 
 * [Operacje na danych w usłudze Data Lake Store przy użyciu zestawu SDK Java](data-lake-store-get-started-java-sdk.md)

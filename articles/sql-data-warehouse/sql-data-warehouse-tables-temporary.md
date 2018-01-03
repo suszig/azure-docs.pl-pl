@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabele tymczasowe w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -231,7 +231,7 @@ DROP TABLE #stats_ddl;
 ## <a name="temporary-table-limitations"></a>Ograniczenia tabeli tymczasowej
 Usługa SQL Data Warehouse nakładają kilka ograniczeń podczas implementowania tabel tymczasowych.  Obecnie tylko sesji zakresami tabel tymczasowych są obsługiwane.  Globalne tabele tymczasowe są nieobsługiwane.  Ponadto widoków nie można utworzyć na tabelach tymczasowych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej, zobacz artykuły w [omówienie tabeli][Overview], [typy danych tabeli][Data Types], [Dystrybucja tabeli] [ Distribute], [Indeksowania tabeli][Index], [partycjonowania tabeli] [ Partition] i [Utrzymania statystyk tabeli][Statistics].  Aby uzyskać więcej informacji na temat najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
 
 <!--Image references-->

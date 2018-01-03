@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Eksportowanie interfejs API hostowanymi na platformie Azure do PowerApps i przepływów firmy Microsoft
 
@@ -95,21 +95,25 @@ Aby zakończyć eksportowania w **ręcznego** tryb, wykonaj następujące kroki:
 
     Ten przykład przedstawia definicję klucza zabezpieczeń interfejsu API, który został uwzględniony w definicji OpenAPI.
 
-Teraz, gdy została wyeksportowana definicja interfejsu API, zaimportuj go w celu utworzenia łącznika niestandardowego w rozwiązaniu PowerApps i Flow firmy Microsoft. W poniższym przykładzie użyto rozwiązanie PowerApps, ale łączników niestandardowych są współużytkowane przez dwie usługi, więc musisz zaimportować definicję raz.
+Teraz, gdy została wyeksportowana definicja interfejsu API, zaimportuj go w celu utworzenia łącznika niestandardowego w rozwiązaniu PowerApps i Flow firmy Microsoft. Niestandardowe łączników są współużytkowane przez dwie usługi, więc musisz zaimportować definicję raz.
 
 Aby zaimportować definicję interfejsu API do PowerApps i Flow firmy Microsoft, wykonaj następujące kroki:
 
-1. Zaloguj się do [web.powerapps.com](https://web.powerapps.com) lub [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Przejdź do [powerapps.com](https://web.powerapps.com) lub [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Kliknij przycisk **ustawienia** przycisk (koło zębate ikonę) w prawym górnym rogu strony, a następnie wybierz **łączniki niestandardowe**.
+2. W prawym górnym rogu kliknij koło zębate ikonę, a następnie kliknij przycisk **łączniki niestandardowe**.
 
-    ![niestandardowe łączników](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Koło zębate ikonę w usłudze](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Kliknij przycisk **Tworzenie niestandardowego łącznika**.
+3. Kliknij przycisk **Tworzenie niestandardowego łącznika**, następnie kliknij przycisk **zaimportować definicję OpenAPI**.
 
-4. Na **ogólne** karcie, podaj nazwę dla interfejsu API, a następnie przekaż definicji OpenAPI lub wklej adres URL metadanych. Kliknij przycisk **przekazać**, następnie **kontynuować**.
+   ![Tworzenie niestandardowego łącznika](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Karta Ogólne](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Wprowadź nazwę dla niestandardowego łącznika, a następnie przejdź do definicji OpenAPI, który został wyeksportowany, a następnie kliknij przycisk **Kontynuuj**.
+
+   ![Przekaż OpenAPI definicji](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. Na **ogólne** karcie, przejrzyj informacje, które pochodzą od definicji OpenAPI.
 
 5. Na **zabezpieczeń** karcie, jeśli zostanie wyświetlony monit, aby podać szczegóły okna uwierzytelnianie, wprowadź wartości odpowiednich dla typu uwierzytelniania. Kliknij przycisk **kontynuować**.
 

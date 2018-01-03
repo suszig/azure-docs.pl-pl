@@ -4,7 +4,7 @@ description: "Dowiedz się, jak dodać sieć wirtualną do istniejącego zestawu
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: negat
-ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Dodaj odwołanie do istniejącej sieci wirtualnej w szablonie zestaw skalowania Azure
 
@@ -27,9 +27,9 @@ W tym artykule przedstawiono sposób modyfikowania [minimalnej wielkości Ustaw 
 
 ## <a name="change-the-template-definition"></a>Zmiany definicji szablonu
 
-Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i naszych szablon do wdrażania do istniejącej sieci wirtualnej zestaw skali są widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Przeanalizujmy różnicowego używany do tworzenia tego szablonu (`git diff minimum-viable-scale-set existing-vnet`) element przez element:
+Ustaw szablon minimalnej wielkości są widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i szablon do wdrażania do istniejącej sieci wirtualnej zestaw skali są widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Przeanalizujmy różnicowego używany do tworzenia tego szablonu (`git diff minimum-viable-scale-set existing-vnet`) element przez element:
 
-Najpierw dodamy `subnetId` parametru. Ten ciąg zostanie przekazany Konfiguracja zestawu skali, dzięki czemu zestaw do identyfikowania wstępnie utworzone podsieci do wdrażania maszyn wirtualnych do skalowania. Ten ciąg musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Na przykład, aby wdrożyć skali należy ustawić w istniejącej sieci wirtualnej o nazwie `myvnet`, podsieci `mysubnet`, grupy zasobów `myrg`i subskrypcji `00000000-0000-0000-0000-000000000000`, będzie subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Najpierw dodaj `subnetId` parametru. Ten ciąg jest przekazywany do konfiguracji zestaw skali, dzięki czemu zestaw do identyfikowania wstępnie utworzone podsieci do wdrażania maszyn wirtualnych do skalowania. Ten ciąg musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Na przykład, aby wdrożyć skali należy ustawić w istniejącej sieci wirtualnej o nazwie `myvnet`, podsieci `mysubnet`, grupy zasobów `myrg`i subskrypcji `00000000-0000-0000-0000-000000000000`, będzie subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -42,7 +42,7 @@ Najpierw dodamy `subnetId` parametru. Ten ciąg zostanie przekazany Konfiguracja
    },
 ```
 
-Następnie można usunąć zasobu sieci wirtualnej z `resources` tablicy, ponieważ firma Microsoft używają istniejącej sieci wirtualnej, a nie potrzeba wdrożenia nowej.
+Następnie należy usunąć zasób sieci wirtualnej z `resources` tablicy, jak używać istniejącej sieci wirtualnej i nie potrzeba wdrożenia nowej.
 
 ```diff
    "variables": {},
@@ -70,7 +70,7 @@ Następnie można usunąć zasobu sieci wirtualnej z `resources` tablicy, poniew
 -    },
 ```
 
-Sieć wirtualna już istnieje przed wdrożeniem szablon, więc nie istnieje potrzeba do określenia klauzuli dependsOn od skali ustawioną sieci wirtualnej. W związku z tym usunąć te wiersze:
+Sieć wirtualna już istnieje przed wdrożeniem szablon, więc nie istnieje potrzeba do określenia klauzuli dependsOn od skali ustawioną sieci wirtualnej. Usuń następujące wiersze:
 
 ```diff
      {
@@ -86,7 +86,7 @@ Sieć wirtualna już istnieje przed wdrożeniem szablon, więc nie istnieje potr
          "capacity": 2
 ```
 
-Na koniec jest przekazywana w `subnetId` parametru ustawiony przez użytkownika (zamiast `resourceId` można pobrać identyfikatora sieci wirtualnej w ramach tego samego wdrożenia, który ma co minimalnej wielkości ustawić szablon jest).
+Na koniec należy przekazać w `subnetId` parametru ustawiony przez użytkownika (zamiast `resourceId` można pobrać Identyfikatora sieci wirtualnej w ramach tego samego wdrożenia, który ma co minimalnej wielkości ustawić szablon jest).
 
 ```diff
                        "name": "myIpConfig",
@@ -102,6 +102,6 @@ Na koniec jest przekazywana w `subnetId` parametru ustawiony przez użytkownika 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

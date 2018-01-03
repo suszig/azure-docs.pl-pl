@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizowanie modeli uczenia maszynowego Azure za pomocą działania aktualizacji zasobów
 Główne fabryki danych Azure - artykułu integracji usługi Azure Machine Learning uzupełnia w tym artykule: [tworzenie potoków predykcyjnej przy użyciu usługi Azure Machine Learning i fabryki danych Azure](transform-data-using-machine-learning.md). Jeśli nie zostało to jeszcze zrobione, należy przeczytać artykuł głównego przed odczytaniem za pośrednictwem tego artykułu. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W ramach procesu operacyjnych modeli uczenia maszynowego Azure modelu są uczone i zapisać. Następnie należy go utworzyć predicative usługi sieci Web. Usługi sieci Web mogą być następnie używane w witrynach sieci web, pulpity nawigacyjne i aplikacji mobilnych.
 
 Modele utworzone za pomocą uczenia maszynowego zwykle nie są statyczne. Wraz ze wzrostem dostępności nowych danych lub gdy konsumenta interfejsu API ma własne dane modelu musi być retrained. Zapoznaj się [Retrain modelu uczenia maszynowego](../machine-learning/machine-learning-retrain-machine-learning-model.md) szczegółowe informacje na temat sposobu można ponownie ucz modelu w usłudze Azure Machine Learning. 
@@ -62,13 +62,13 @@ Poniższy fragment kodu JSON definiuje działania usługi Azure Machine Learning
 
 | Właściwość                      | Opis                              | Wymagane |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nazwa działania w potoku     | Tak      |
+| name                          | Nazwa działania w potoku     | Yes      |
 | description                   | Tekst opisujący działanie robi.  | Nie       |
-| type                          | Dla działania Azure Machine Learning aktualizacji zasobów jest typ działania **AzureMLUpdateResource**. | Tak      |
-| linkedServiceName             | Usługa Azure Machine Learning połączonej usługi, który zawiera właściwości updateResourceEndpoint. | Tak      |
-| trainedModelName              | Nazwa modułu Uczonego modelu w eksperymencie usługi sieci Web do zaktualizowania | Tak      |
-| trainedModelLinkedServiceName | Nazwa połączoną usługą magazynu Azure zawierający plik ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
-| trainedModelFilePath          | Ścieżka względna w trainedModelLinkedService reprezentujący plik ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
+| type                          | Dla działania Azure Machine Learning aktualizacji zasobów jest typ działania **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Usługa Azure Machine Learning połączonej usługi, który zawiera właściwości updateResourceEndpoint. | Yes      |
+| trainedModelName              | Nazwa modułu Uczonego modelu w eksperymencie usługi sieci Web do zaktualizowania | Yes      |
+| trainedModelLinkedServiceName | Nazwa połączoną usługą magazynu Azure zawierający plik ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
+| trainedModelFilePath          | Ścieżka względna w trainedModelLinkedService reprezentujący plik ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
 
 
 ## <a name="end-to-end-workflow"></a>Kompletny przepływ pracy
@@ -86,33 +86,6 @@ Wyżej przepływu pracy na trasie do pracy musisz utworzyć dwie usługi Azure M
 2. Usługa Azure Machine Learning połączony do aktualizacji zasobów punkt końcowy usługi sieci web predykcyjnej. Tej połączonej usługi jest używany przez działanie aktualizacji zasobu do aktualizowania usługi sieci web predykcyjnej przy użyciu pliku iLearner zwrócił powyższego kroku. 
 
 Dla usługi Azure Machine Learning połączone drugi konfiguracji różni się w przypadku usługi sieci Web Azure Machine Learning klasycznym usługi sieci Web lub nową usługę sieci Web. Różnice zostały omówione w poniższych sekcjach. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Usługa sieci Web to usługa sieci web klasycznego
-Jeśli usługa sieci web predict **usługi sieci web klasycznego**, Utwórz drugi **punktu końcowego innych niż domyślne i nadaje się do aktualizacji** przy użyciu portalu Azure. Zobacz [tworzenie punktów końcowych](../machine-learning/machine-learning-create-endpoint.md) artykułu dla czynności. Po utworzeniu punktu końcowego nadaje się do aktualizacji innych niż domyślne, wykonaj następujące czynności:
-
-* Kliknij przycisk **BATCH EXECUTION** można pobrać wartości identyfikatora URI dla **mlEndpoint** właściwości JSON.
-* Kliknij przycisk **aktualizacji zasobów** łącze, aby pobrać wartości identyfikatora URI dla **updateResourceEndpoint** właściwości JSON. Klucz interfejsu API znajduje się na stronie punktu końcowego (w prawym dolnym rogu).
-
-![można aktualizować punktu końcowego](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Po tym do utworzenia nowej usługi Azure Machine Learning przy użyciu w poniższym przykładzie połączonej usługi połączonej usługi. Połączona usługa używa apiKey do uwierzytelniania.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Usługa sieci Web jest nową usługę sieci web usługi Azure Resource Manager 
 
@@ -299,7 +272,7 @@ Potok zawiera dwa działania: **AzureMLBatchExecution** i **AzureMLUpdateResourc
     }
 }
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

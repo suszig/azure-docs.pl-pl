@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 824af3f0f5f6d42341f6f1dc94104f6009b568b8
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Tworzenie maszyny Wirtualnej (klasyczne) z wieloma kartami sieciowymi przy użyciu programu PowerShell
 
@@ -198,4 +198,4 @@ Pobrane i zmienić skryptu na podstawie Twoich potrzeb, runt skrypt do tworzenia
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Krok 5 — Konfigurowanie routingu w ramach systemu operacyjnego maszyny Wirtualnej
 
-Azure DHCP przypisuje do pierwszego interfejsu sieciowego (podstawowe) dołączonych do maszyny wirtualnej bramy domyślnej. Azure nie przypisuje bramy domyślnej na interfejsy dodatkowe sieci (pomocniczy) dołączonych do maszyny wirtualnej. Jesteś w związku z tym nie może komunikować się z zasobami spoza podsieci, która jest dodatkowy interfejs sieciowy, domyślnie. Dodatkowych interfejsów sieciowych można jednak komunikować się z zasobami spoza ich podsieci. Aby skonfigurować routing dla dodatkowych interfejsów sieciowych, zobacz [routingu w systemie operacyjnym maszyny wirtualnej z wieloma interfejsami sieciowymi](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+Azure DHCP przypisuje do pierwszego interfejsu sieciowego (podstawowe) dołączonych do maszyny wirtualnej bramy domyślnej. Platforma Azure domyślnie nie przypisuje domyślnej bramy do dodatkowych interfejsów sieciowych dołączonych do maszyny wirtualnej. Dlatego domyślnie nie można komunikować się z zasobami poza podsiecią, w której znajduje się dodatkowy interfejs sieciowy. Dodatkowych interfejsów sieciowych można jednak komunikować się z zasobami spoza ich podsieci. Aby skonfigurować routing dla dodatkowych interfejsów sieciowych, zobacz [routingu w systemie operacyjnym maszyny wirtualnej z wieloma interfejsami sieciowymi](virtual-network-network-interface-vm.md).

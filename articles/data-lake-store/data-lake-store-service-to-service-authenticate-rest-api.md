@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 754e65c4bcf8574a16b9620e2f21938ecc62b735
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Usługa do uwierzytelniania przy użyciu interfejsu API REST usługi Data Lake Store
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Dane wyjściowe żądania zawiera token autoryzacji (wskazywane przez `access-to
 
 W tym artykule wykorzystano podejście **nieinterakcyjne**. Więcej informacji na temat podejścia nieinterakcyjnego (wywołań między usługami) zawiera temat [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx) (Wywołania między usługami przy użyciu poświadczeń). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób uwierzytelniania za pomocą usługi Azure Data Lake Store za pomocą usługi do uwierzytelniania przy użyciu interfejsu API REST. Teraz można przeglądać następujące artykuły, które opisano sposób użycia interfejsu API REST do pracy z usługą Azure Data Lake Store.
 
 * [Operacji zarządzania kontem w usłudze Data Lake Store za pomocą interfejsu API REST](data-lake-store-get-started-rest-api.md)

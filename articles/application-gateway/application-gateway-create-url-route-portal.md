@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
 ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Tworzenie reguły na podstawie ścieżki dla bramy aplikacji przy użyciu portalu Azure
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-create-url-route-portal.md)
+> * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-url-route-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-url-route-cli.md)
 
@@ -82,7 +82,7 @@ Dodanie reguły na podstawie ścieżki do istniejącej bramy aplikacji jest łat
 
 Ten krok obejmuje skonfigurowanie trasę na podstawie ścieżki. Należy zrozumieć, że żądania nie są ponownie zapisać. Żądania są dostępne w, bramy aplikacji sprawdza żądania, a oparte na wzorcu adres URL, wysyła żądanie do odpowiedniej puli zaplecza.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się, jak skonfigurować odciążanie protokołu SSL z bramy aplikacji Azure, zobacz [skonfigurować bramę aplikacji dla odciążania protokołu SSL przy użyciu portalu Azure](application-gateway-ssl-portal.md).
 

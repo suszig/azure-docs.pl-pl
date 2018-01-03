@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
@@ -28,13 +28,14 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | --- | --- | --- | --- | --- |
 | ReL 17 10 | [4048953] |Aktualizacje systemu Windows 10 |5.13 |14 listopada 2017 r. |
 | ReL 17 10 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2.68, 3.55, 4.48 |14 listopada 2017 r. |
-| ReL 17 10 | [4047206] |Program Internet explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
+| ReL 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
 | ReL 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 listopada 2017 r. |
-| Nie dotyczy | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.67 |10 października 2017 r. |
-| Nie dotyczy | [4041690] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |3.55 |10 października 2017 r. |
-| Nie dotyczy | [4041693] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |4.48 |10 października 2017 r. |
-| Nie dotyczy | [3191565] |Aktualizacja dla systemu Windows Management Framework 5.1  |3.55 |12 września 2017 r. |
-| Nie dotyczy | [3191564] |Aktualizacja dla systemu Windows Management Framework 5.1  |4.48 |12 września 2017 r. |
+| ND | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.67 |10 października 2017 r. |
+| ND | [4041690] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |3.55 |10 października 2017 r. |
+| ND | [4041693] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |4.48 |10 października 2017 r. |
+| ND | [3191566] |Aktualizacja dla systemu Windows Management Framework 5.1  |2.68 |14 listopada 2017 r. |
+| ND | [3191565] |Aktualizacja dla systemu Windows Management Framework 5.1  |3.55 |14 listopada 2017 r. |
+| ND | [3191564] |Aktualizacja dla systemu Windows Management Framework 5.1  |4.48 |14 listopada 2017 r. |
 
 ## <a name="october-guest-os"></a>Październik systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -43,12 +44,12 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17 10 | [4041678], [4041679], [4041687] |Tylko zabezpieczenia systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
 | ReL 17 10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 października 2017 r. |
 | ReL 17 10 | [4041681], [4041690], [4041693] |Pakiety zbiorcze miesięczne systemu Windows |2.67, 3.54, 4.47 |10 października 2017 r. |
-| Nie dotyczy | [4038777] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |2.67 |12 września 2017 r. |
-| Nie dotyczy | [4038799] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |3.54 |12 września 2017 r. |
-| Nie dotyczy | [4038792] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |4.47 |12 września 2017 r. |
-| Nie dotyczy | [4040980] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |2.67 |12 września 2017 r. |
-| Nie dotyczy | [4040979] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |3.54 |12 września 2017 r. |
-| Nie dotyczy | [4040981] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |4.47 |12 września 2017 r. |
+| ND | [4038777] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |2.67 |12 września 2017 r. |
+| ND | [4038799] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |3.54 |12 września 2017 r. |
+| ND | [4038792] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września |4.47 |12 września 2017 r. |
+| ND | [4040980] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |2.67 |12 września 2017 r. |
+| ND | [4040979] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |3.54 |12 września 2017 r. |
+| ND | [4040981] |Zbiorcze informacje z systemem innym niż zabezpieczeniach września .NET |4.47 |12 września 2017 r. |
 
 ## <a name="september-guest-os"></a>Września systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -58,9 +59,9 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17 09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Aktualizacja września .NET |2.66, 3.53, 4.46 |12 września 2017 r. |
 | ReL 17 09 | [4036586] |Program Internet explorer |2.66, 3.53, 4.46 |12 września 2017 r. |
 | CVE-2017-8704 | [4038782] |Odmowa usługi |5.11 |12 września 2017 r. |
-| Nie dotyczy | [4034664] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia  |2.66 |8 sierpnia 2017 r. |
-| Nie dotyczy | [4034665] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia |5.11 |8 sierpnia 2017 r. |
-| Nie dotyczy | [4034681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia |4.46 |8 sierpnia 2017 r. |
+| ND | [4034664] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia  |2.66 |8 sierpnia 2017 r. |
+| ND | [4034665] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia |5.11 |8 sierpnia 2017 r. |
+| ND | [4034681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach sierpnia |4.46 |8 sierpnia 2017 r. |
 
 ## <a name="august-guest-os"></a>Sierpnia systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -85,10 +86,10 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-07 | [4025343] |Tylko zabezpieczenia systemu Windows |3.51 |11 lipca 2017 r. |
 | ReL 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |11 lipca 2017 r. |
 | ReL 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 lipca 2017 r. |
-| Nie dotyczy | [4020322] |Aktualizacja strefy czasowej |2.64, 3.51, 4.44 |11 lipca 2017 r. |
-| Nie dotyczy | [4022719] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |2.64 |13 czerwca 2017 r. |
-| Nie dotyczy | [4022724] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |3.51 |13 czerwca 2017 r. |
-| Nie dotyczy | [4022726] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |4.44 |13 czerwca 2017 r. |
+| ND | [4020322] |Aktualizacja strefy czasowej |2.64, 3.51, 4.44 |11 lipca 2017 r. |
+| ND | [4022719] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |2.64 |13 czerwca 2017 r. |
+| ND | [4022724] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |3.51 |13 czerwca 2017 r. |
+| ND | [4022726] |Zbiorcze informacje z systemem innym niż zabezpieczeniach czerwca |4.44 |13 czerwca 2017 r. |
 
 ## <a name="june-guest-os"></a>System operacyjny gościa czerwca
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -101,22 +102,22 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-06 | [4022719], [4022724], [4022726] |Pakiety zbiorcze miesięczne systemu Windows |2.63, 3.50, 4.43 |13 czerwca 2017 r. |
 | ReL 17-06 | [4022730] |Aktualizacja zabezpieczeń dla programu Adobe Flash Player |3.50, 4.43, 5.8 |13 czerwca 2017 r. |
 | ReL 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nowe wydanie CVE-2017-0167 |4.43, 5.8 |11 kwietnia 2017 r. |
-| Nie dotyczy | [4023136] |Aktualizacja strefy czasowej  |2.63, 3.50, 4.43 |13 czerwca 2017 r. |
-| Nie dotyczy | [4019264] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |2.63 |13 czerwca 2017 r. |
-| Nie dotyczy | [4014545] |Może zbiorczy-security .NET |2.63 |11 kwietnia 2017 r. |
-| Nie dotyczy | [4014508] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
-| Nie dotyczy | [4014511] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
-| Nie dotyczy | [4014514] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
-| Nie dotyczy | [4019216] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |3.50 |9 maja 2017 r. |
-| Nie dotyczy | [4014503] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
-| Nie dotyczy | [4014506] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
-| Nie dotyczy | [4014509] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
-| Nie dotyczy | [4014513] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
-| Nie dotyczy | [4019215] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |4.43 |9 maja 2017 r. |
-| Nie dotyczy | [4014505] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
-| Nie dotyczy | [4014507] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
-| Nie dotyczy | [4014510] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
-| Nie dotyczy | [4014512] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
+| ND | [4023136] |Aktualizacja strefy czasowej  |2.63, 3.50, 4.43 |13 czerwca 2017 r. |
+| ND | [4019264] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |2.63 |13 czerwca 2017 r. |
+| ND | [4014545] |Może zbiorczy-security .NET |2.63 |11 kwietnia 2017 r. |
+| ND | [4014508] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
+| ND | [4014511] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
+| ND | [4014514] |Może zbiorczy-security .NET |2.63 |9 maja 2017 r. |
+| ND | [4019216] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |3.50 |9 maja 2017 r. |
+| ND | [4014503] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
+| ND | [4014506] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
+| ND | [4014509] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
+| ND | [4014513] |Może zbiorczy-security .NET |3.50 |9 maja 2017 r. |
+| ND | [4019215] |Zbiorcze informacje z systemem innym niż zabezpieczeń może |4.43 |9 maja 2017 r. |
+| ND | [4014505] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
+| ND | [4014507] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
+| ND | [4014510] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
+| ND | [4014512] |Może zbiorczy-security .NET |4.43 |9 maja 2017 r. |
 
 ## <a name="may-guest-os"></a>Może gościa systemu operacyjnego
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -130,21 +131,21 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-05 | [4022344] |Poradnik zabezpieczeń firmy Microsoft |5.7 | 9 maja 2017 r. |
 | ReL 17-05 | [4022345] |Poradnik zabezpieczeń firmy Microsoft |5.7 | 9 maja 2017 r. |
 | ReL 17-05 | [4021279] |Poradnik core /ASP.Net .net |2.62, 3.49, 4.42, 5.7 | 9 maja 2017 r. |
-| Nie dotyczy | [4012864] |Aktualizacja strefy czasowej |2.62, 3.49, 4.42 | 9 maja 2017 r. |
-| Nie dotyczy | [4014565] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |2.62 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4014559] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |2.62 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4015549] |Kwietnia nie - zabezpieczeń zbiorczy |2.62 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4019990] |Aktualizacja D3DCompiler — wymagania dotyczące .NET 4.7 |3.49 | 9 maja 2017 r. |
-| Nie dotyczy | [4014563] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4014557] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4014545] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4014548] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4015551] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia |3.49 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [3173424] |Aktualizacja stos obsługi  |4.42 | 12 lipca 2016 r. |
-| Nie dotyczy | [4014555] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET  |4.42 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4014567] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |4.42 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4015550] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia |4.42 | 11 kwietnia 2017 r. |
-| Nie dotyczy | [4013418] |Aktualizacja stos obsługi |5.7 | 14 marca 2017 r. |
+| ND | [4012864] |Aktualizacja strefy czasowej |2.62, 3.49, 4.42 | 9 maja 2017 r. |
+| ND | [4014565] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |2.62 | 11 kwietnia 2017 r. |
+| ND | [4014559] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |2.62 | 11 kwietnia 2017 r. |
+| ND | [4015549] |Kwietnia nie - zabezpieczeń zbiorczy |2.62 | 11 kwietnia 2017 r. |
+| ND | [4019990] |Aktualizacja D3DCompiler — wymagania dotyczące .NET 4.7 |3.49 | 9 maja 2017 r. |
+| ND | [4014563] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
+| ND | [4014557] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
+| ND | [4014545] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
+| ND | [4014548] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |3.49 | 11 kwietnia 2017 r. |
+| ND | [4015551] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia |3.49 | 11 kwietnia 2017 r. |
+| ND | [3173424] |Aktualizacja stos obsługi  |4.42 | 12 lipca 2016 r. |
+| ND | [4014555] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET  |4.42 | 11 kwietnia 2017 r. |
+| ND | [4014567] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia .NET |4.42 | 11 kwietnia 2017 r. |
+| ND | [4015550] |Zbiorcze informacje z systemem innym niż zabezpieczeniach kwietnia |4.42 | 11 kwietnia 2017 r. |
+| ND | [4013418] |Aktualizacja stos obsługi |5.7 | 14 marca 2017 r. |
 
 ## <a name="april-guest-os"></a>System operacyjny gościa kwietnia
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -174,11 +175,11 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ReL 17-03 |  [4012213] |2017 marca zabezpieczeń, jakości tylko aktualizacji dla Windows 8.1 i Windows Server 2012 R2 |4.40 |14 marca 2017 r. |
 | ReL 17-03 |  [4012214] |2017 marca jakości tylko aktualizacji systemu Windows Server 2012|3.47 |14 marca 2017 r. |
 | ReL 17-03 |  [4012204] |Aktualizacja zabezpieczeń programu Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 marca 2017 r. |
-| Nie dotyczy |  [4012864] |Zmiany czasu letniego w systemie Windows dla Cypress Północna, Mongolia i regionu Saratowski rosyjski |2.60, 3.47, 4.40 |14 marca 2017 r. |
-| Nie dotyczy |  [3212646] |Stycznia 2017 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.60 |14 marca 2017 r. |
-| Nie dotyczy |  [3205409] |Grudnia 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.47 |14 marca 2017 r. |
-| Nie dotyczy |  [3205401] |Grudnia 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.40 |14 marca 2017 r. |
-| Nie dotyczy |  [3211320] |Obsługa stosu aktualizacja dla systemu Windows 10 w wersji 1607 i Windows Server 2016: 24 stycznia 2017 r. |5.5 |14 marca 2017 r. |
+| ND |  [4012864] |Zmiany czasu letniego w systemie Windows dla Cypress Północna, Mongolia i regionu Saratowski rosyjski |2.60, 3.47, 4.40 |14 marca 2017 r. |
+| ND |  [3212646] |Stycznia 2017 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.60 |14 marca 2017 r. |
+| ND |  [3205409] |Grudnia 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.47 |14 marca 2017 r. |
+| ND |  [3205401] |Grudnia 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.40 |14 marca 2017 r. |
+| ND |  [3211320] |Obsługa stosu aktualizacja dla systemu Windows 10 w wersji 1607 i Windows Server 2016: 24 stycznia 2017 r. |5.5 |14 marca 2017 r. |
 
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -198,9 +199,9 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 152 |[3199709]   |Aktualizacja zabezpieczeń dla jądra systemu Windows |5.4 |13 grudnia 2016 r. |
 | MS16 153 |[3207328] |Aktualizacja zabezpieczeń dla typowych sterownik systemu plików dziennika|2.58, 3.46, 4.39, 5.4 |13 grudnia 2016 r. |
 | MS16 155 |[3205640]   |Aktualizacja zabezpieczeń dla programu .NET Framework |5.4 |13 grudnia 2016 r. |
-| Nie dotyczy |[3197868] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.58 |13 grudnia 2016 r. |
-| Nie dotyczy |[3197877] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.46 |13 grudnia 2016 r. |
-| Nie dotyczy |[3197874] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.39 |13 grudnia 2016 r. |
+| ND |[3197868] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.58 |13 grudnia 2016 r. |
+| ND |[3197877] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.46 |13 grudnia 2016 r. |
+| ND |[3197874] |Listopada 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.39 |13 grudnia 2016 r. |
 
 ## <a name="november-guest-os"></a>Listopad systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -216,16 +217,16 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 139 |[3199720] |Aktualizacja zabezpieczeń dla jądra systemu Windows |2.57 |Lis 8.2016 |
 | MS16 140 |[3193479] |Aktualizacja zabezpieczeń dla Menedżera rozruchu |5.3, 4.38, 3.45 |8 listopada 2016 r. |
 | MS16 142 |[3198467] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |2.57, 4.38, 5.3 |8 listopada 2016 r. |
-| Nie dotyczy |[3192321] |Turcja kończy się przestrzeganie czasu letniego |5.3, 4.38, 3.45, 2.57 |8 listopada 2016 r. |
-| Nie dotyczy |[3185330] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.57 |8 listopada 2016 r. |
-| Nie dotyczy |[3192403] |Podgląd października 2016 miesięczne zestawienia jakości dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.57 |8 listopada 2016 r. |
-| Nie dotyczy |[3177467] |Obsługa stosu aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1: 20 września 2016 roku. |2.57 |8 listopada 2016 r. |
-| Nie dotyczy |[3185332] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.45 |8 listopada 2016 r. |
-| Nie dotyczy |[3192406] |Podgląd października 2016 miesięczne jakości pakietu zbiorczego w systemie Windows Server 2012 |3.45 |8 listopada 2016 r. |
-| Nie dotyczy |[3185331] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.38 |8 listopada 2016 r. |
-| Nie dotyczy |[3192404] |Podgląd października 2016 miesięczne zestawienia jakości Windows 8.1 i Windows Server 2012 R2 |4.38 |8 listopada 2016 r. |
-| Nie dotyczy |[3199986] |Obsługa stosu aktualizacja dla systemu Windows 10 w wersji 1607: 27 października 2016 r. |5.3 |8 listopada 2016 r. |
-| Nie dotyczy |[3197954] |Aktualizacja zbiorcza dla systemu Windows 10 w wersji 1607 i Windows Server 2016: 27 października 2016 r. |5.3 |8 listopada 2016 r. |
+| ND |[3192321] |Turcja kończy się przestrzeganie czasu letniego |5.3, 4.38, 3.45, 2.57 |8 listopada 2016 r. |
+| ND |[3185330] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.57 |8 listopada 2016 r. |
+| ND |[3192403] |Podgląd października 2016 miesięczne zestawienia jakości dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.57 |8 listopada 2016 r. |
+| ND |[3177467] |Obsługa stosu aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1: 20 września 2016 roku. |2.57 |8 listopada 2016 r. |
+| ND |[3185332] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach systemu Windows Server 2012 |3.45 |8 listopada 2016 r. |
+| ND |[3192406] |Podgląd października 2016 miesięczne jakości pakietu zbiorczego w systemie Windows Server 2012 |3.45 |8 listopada 2016 r. |
+| ND |[3185331] |Października 2016 miesięczne jakości zbiorcze informacje o zabezpieczeniach Windows 8.1 i Windows Server 2012 R2 |4.38 |8 listopada 2016 r. |
+| ND |[3192404] |Podgląd października 2016 miesięczne zestawienia jakości Windows 8.1 i Windows Server 2012 R2 |4.38 |8 listopada 2016 r. |
+| ND |[3199986] |Obsługa stosu aktualizacja dla systemu Windows 10 w wersji 1607: 27 października 2016 r. |5.3 |8 listopada 2016 r. |
+| ND |[3197954] |Aktualizacja zbiorcza dla systemu Windows 10 w wersji 1607 i Windows Server 2016: 27 października 2016 r. |5.3 |8 listopada 2016 r. |
 
 ## <a name="october-guest-os"></a>Październik systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -236,11 +237,11 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 124 |[3193227] |Aktualizacja zabezpieczeń dla rejestru systemu Windows |4.37, 3.44, 2.56 |11 OCT 2016 r. |
 | MS16 126 |[3196067] |Aktualizacja zabezpieczeń dla programu Microsoft Internet interfejsu API do obsługi komunikatów |2.56 |11 OCT 2016 r. |
 | MS16 101 |[3178465] |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |4.37, 3.44, 2.56 |11 OCT 2016 r. |
-| Nie dotyczy |[3182203] |Zmiana strefy czasowej Nowosybirsk wrześniu 2016 r. |4.37, 3.44, 2.56 |11 OCT 2016 r. |
-| Nie dotyczy |[3185278] |Pakiet zbiorczy aktualizacji września 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.56 |11 OCT 2016 r. |
-| Nie dotyczy |[3185280] |Września 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.44 |11 OCT 2016 r. |
-| Nie dotyczy |[3185279] |Pakiet zbiorczy aktualizacji września 2016 dla Windows 8.1 i Windows Server 2012 R2 |4.37 |11 OCT 2016 r. |
-| Nie dotyczy |[3194798] |Aktualizacja zbiorcza dla systemu Windows 10 w wersji 1607 i Windows Server 2016 |5.2 |11 OCT 2016 r. |
+| ND |[3182203] |Zmiana strefy czasowej Nowosybirsk wrześniu 2016 r. |4.37, 3.44, 2.56 |11 OCT 2016 r. |
+| ND |[3185278] |Pakiet zbiorczy aktualizacji września 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.56 |11 OCT 2016 r. |
+| ND |[3185280] |Września 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.44 |11 OCT 2016 r. |
+| ND |[3185279] |Pakiet zbiorczy aktualizacji września 2016 dla Windows 8.1 i Windows Server 2012 R2 |4.37 |11 OCT 2016 r. |
+| ND |[3194798] |Aktualizacja zbiorcza dla systemu Windows 10 w wersji 1607 i Windows Server 2016 |5.2 |11 OCT 2016 r. |
 
 ## <a name="september-guest-os"></a>Września systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -253,11 +254,11 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 114 |[3185879] |Aktualizacja zabezpieczeń dla systemu Windows Server SMB |4.36, 3.43, 2.55 |13 września 2016 roku. |
 | MS16 115 |[3188733] |Aktualizacja zabezpieczeń dla plików PDF |4.35, 3.43 |13 września 2016 roku. |
 | MS16 116 |[3188724] |Aktualizacja zabezpieczeń w automatyzacji OLE aparat skryptów w języku VBScript |4.36, 3.43, 2.55 |13 września 2016 roku. |
-| Nie dotyczy |[3174644] |Obsługa zaktualizowanych wymiany kluczy Diffie-Hellman |4.36, 3.43, 2.55 |13 września 2016 roku. |
-| Nie dotyczy |[3177723] |Strefa czasowa Update - Egiptu anuluje czasu letniego |4.36, 3.43, 2.55 |13 września 2016 roku. |
-| Nie dotyczy |[3179573] |Pakiet zbiorczy aktualizacji sierpnia 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.55 |13 września 2016 roku. |
-| Nie dotyczy |[3179575] |Sierpnia 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.43 |13 września 2016 roku. |
-| Nie dotyczy |[3179574] |Sierpnia 2016 pakiet zbiorczy aktualizacji dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.36 |13 września 2016 roku. |
+| ND |[3174644] |Obsługa zaktualizowanych wymiany kluczy Diffie-Hellman |4.36, 3.43, 2.55 |13 września 2016 roku. |
+| ND |[3177723] |Strefa czasowa Update - Egiptu anuluje czasu letniego |4.36, 3.43, 2.55 |13 września 2016 roku. |
+| ND |[3179573] |Pakiet zbiorczy aktualizacji sierpnia 2016 dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.55 |13 września 2016 roku. |
+| ND |[3179575] |Sierpnia 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.43 |13 września 2016 roku. |
+| ND |[3179574] |Sierpnia 2016 pakiet zbiorczy aktualizacji dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.36 |13 września 2016 roku. |
 
 ## <a name="august-guest-os"></a>Sierpnia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -269,9 +270,9 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 101 |[3178465] |Aktualizacja zabezpieczeń dla metod uwierzytelniania systemu Windows |4.35, 3.42, 2.54 |9 sierpnia 2016 r. |
 | MS16 102 |[3182248] |Aktualizacja zabezpieczeń biblioteki PDF systemu Microsoft Windows |4.35, 3.42 |9 sierpnia 2016 r. |
 | Nowe wydanie MS16 077 |[3165191] |Aktualizacja zabezpieczeń dla automatyczne odnajdywanie serwera Proxy sieci Web (WPAD) |4.35, 3.42, 2.54 |9 sierpnia 2016 r. |
-| Nie dotyczy |[3172605] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.54 |9 sierpnia 2016 r. |
-| Nie dotyczy |[3172615] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows Server 2012 |3.42 |9 sierpnia 2016 r. |
-| Nie dotyczy |[3172614] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.35 |9 sierpnia 2016 r. |
+| ND |[3172605] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.54 |9 sierpnia 2016 r. |
+| ND |[3172615] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows Server 2012 |3.42 |9 sierpnia 2016 r. |
+| ND |[3172614] |Pakiet zbiorczy aktualizacji lipca 2016 r dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.35 |9 sierpnia 2016 r. |
 
 ## <a name="july-guest-os"></a>Lipiec systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -282,18 +283,18 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 091 |[3170048] |Aktualizacja zabezpieczeń dla programu .NET Framework |4.34, 3.41, 2.53 |12 lipca 2016 r. |
 | MS16 092 |[3171910] |Aktualizacja zabezpieczeń dla jądra systemu Windows |4.34, 3.41 |12 lipca 2016 r. |
 | MS16 094 |[3177404] |Aktualizacja zabezpieczeń dla bezpiecznego rozruchu |4.34, 3.41 |12 lipca 2016 r. |
-| Nie dotyczy |[3162835] |Aktualizacja strefę czasową dla systemu Windows i czasu letniego czerwca 2016 r. |4.34, 3.41, 2.53 |12 lipca 2016 r. |
-| Nie dotyczy |[3156417] |Maj 2016 pakiet zbiorczy aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.53 |12 lipca 2016 r. |
-| Nie dotyczy |[3161608] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.53 |12 lipca 2016 r. |
-| Nie dotyczy |[3161609] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows Server 2012 |3.41 |12 lipca 2016 r. |
-| Nie dotyczy |[3161606] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.34 |12 lipca 2016 r. |
-| Nie dotyczy |[3139923] |Naprawy Instalator (MSI) systemu Windows nie działa, gdy pakiet MSI jest zainstalowany na HTTP udostępniania w systemie Windows |4.34 |12 lipca 2016 r. |
+| ND |[3162835] |Aktualizacja strefę czasową dla systemu Windows i czasu letniego czerwca 2016 r. |4.34, 3.41, 2.53 |12 lipca 2016 r. |
+| ND |[3156417] |Maj 2016 pakiet zbiorczy aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.53 |12 lipca 2016 r. |
+| ND |[3161608] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.53 |12 lipca 2016 r. |
+| ND |[3161609] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows Server 2012 |3.41 |12 lipca 2016 r. |
+| ND |[3161606] |Pakiet zbiorczy aktualizacji czerwca 2016 r dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.34 |12 lipca 2016 r. |
+| ND |[3139923] |Naprawy Instalator (MSI) systemu Windows nie działa, gdy pakiet MSI jest zainstalowany na HTTP udostępniania w systemie Windows |4.34 |12 lipca 2016 r. |
 
 ## <a name="june-guest-os"></a>System operacyjny gościa czerwca
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
 | MS16 035 |[3141780] |Aktualizacja zabezpieczeń dla programu .NET Framework w celu rozwiązania obejścia funkcji zabezpieczeń |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
-| Poradnik |[3155527] |Aktualizacja mechanizmy szyfrowania dla FalseStart |4.33, 3.40 |14 czerwca 2016 r. |
+| Porada |[3155527] |Aktualizacja mechanizmy szyfrowania dla FalseStart |4.33, 3.40 |14 czerwca 2016 r. |
 | MS16 063 |[3163649] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
 | MS16 069 |[3163640] |Zbiorcza aktualizacja zabezpieczeń dla języka JScript i VBScript |2.52 |14 czerwca 2016 r. |
 | MS16 071 |[3164065] |Aktualizacja zabezpieczeń dla serwera DNS systemu Microsoft Windows |4.33, 3.40 |14 czerwca 2016 r. |
@@ -305,16 +306,16 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 077 |[3165191] |Aktualizacja zabezpieczeń dla WPAD |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
 | MS16 080 |[3164302] |Aktualizacja zabezpieczeń dla systemu Microsoft Windows PDF |4.33, 3.40 |14 czerwca 2016 r. |
 | MS16 081 |[3160352] |Aktualizacja zabezpieczeń dla usługi Active Directory |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[2922223] |Nie można zmienić czas systemowy, jeśli wpis rejestru RealTimeIsUniversal jest włączona w systemie Windows |2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3121255] |błąd zatrzymania "0x00000024" w pliku FsRtlNotifyFilterReportChange i skopiuj może zakończyć się niepowodzeniem w systemie Windows |2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3125424] |Zakleszczenie LSASS spowodować systemu Windows Server 2012 R2 lub Windows Server 2012 nie odpowiadały |4.33, 3.40 |14 czerwca 2016 r. |
-| Nie dotyczy |[3125574] |Wygody pakiet zbiorczy aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3140245] |Aktualizację, aby umożliwić protokołu TLS 1.1 i TLS 1.2 jako domyślnych protokołów bezpiecznego w WinHTTP w systemie Windows |3.40, 2.52 |14 czerwca 2016 r. |
-| Nie dotyczy |[3146604] |Awarie usługi WMI w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.33, 3.40 |14 czerwca 2016 r. |
-| Nie dotyczy |[3149157] |Ulepszenia niezawodności i skalowalności w TCP/IP dla Windows 8.1 i Windows Server 2012 R2 |4.33 |14 czerwca 2016 r. |
-| Nie dotyczy |[3156416] |Maj 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.40 |14 czerwca 2016 r. |
-| Nie dotyczy |[3156418] |Maj 2016 pakiet zbiorczy aktualizacji dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.33 |14 czerwca 2016 r. |
-| Nie dotyczy |[3153731] |Aktualizacja maj 2016 czasu letniego dla Azerbejdżanu, podrzędnej lokacji Haiti i Maroka w systemie Windows |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
+| ND |[2922223] |Nie można zmienić czas systemowy, jeśli wpis rejestru RealTimeIsUniversal jest włączona w systemie Windows |2.52 |14 czerwca 2016 r. |
+| ND |[3121255] |błąd zatrzymania "0x00000024" w pliku FsRtlNotifyFilterReportChange i skopiuj może zakończyć się niepowodzeniem w systemie Windows |2.52 |14 czerwca 2016 r. |
+| ND |[3125424] |Zakleszczenie LSASS spowodować systemu Windows Server 2012 R2 lub Windows Server 2012 nie odpowiadały |4.33, 3.40 |14 czerwca 2016 r. |
+| ND |[3125574] |Wygody pakiet zbiorczy aktualizacji dla systemu Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 |2.52 |14 czerwca 2016 r. |
+| ND |[3140245] |Aktualizację, aby umożliwić protokołu TLS 1.1 i TLS 1.2 jako domyślnych protokołów bezpiecznego w WinHTTP w systemie Windows |3.40, 2.52 |14 czerwca 2016 r. |
+| ND |[3146604] |Awarie usługi WMI w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.33, 3.40 |14 czerwca 2016 r. |
+| ND |[3149157] |Ulepszenia niezawodności i skalowalności w TCP/IP dla Windows 8.1 i Windows Server 2012 R2 |4.33 |14 czerwca 2016 r. |
+| ND |[3156416] |Maj 2016 pakiet zbiorczy aktualizacji systemu Windows Server 2012 |3.40 |14 czerwca 2016 r. |
+| ND |[3156418] |Maj 2016 pakiet zbiorczy aktualizacji dla systemu Windows RT 8.1, Windows 8.1 i Windows Server 2012 R2 |4.33 |14 czerwca 2016 r. |
+| ND |[3153731] |Aktualizacja maj 2016 czasu letniego dla Azerbejdżanu, podrzędnej lokacji Haiti i Maroka w systemie Windows |4.33, 3.40, 2.52 |14 czerwca 2016 r. |
 
 ## <a name="may-guest-os"></a>Może gościa systemu operacyjnego
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -328,11 +329,11 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | MS16 062 |[3158222] |Aktualizacja zabezpieczeń dla sterowników trybu jądra |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 065 |[3156757] |Aktualizacja zabezpieczeń dla programu .net Framework |4.32, 3.39, 2.51 |10 maja 2016 r. |
 | MS16 067 |[3155784] |Aktualizacja zabezpieczeń dla sterownika Menedżer woluminów |4.32, 3.39 |10 maja 2016 r. |
-| Nie dotyczy |[3148851] |Zmiany strefy czasowej dla Rosji w systemie Windows  |4.32, 3.39, 2.51 |10 maja 2016 r. |
-| Nie dotyczy |[3133977] |Funkcja BitLocker nie szyfrowanie dysków z powodu awarii usługi, w procesie svchost.exe w systemie Windows 7 lub Windows Server 2008 R2  |2.51 |10 maja 2016 r. |
-| Nie dotyczy |[3133681] |Maszyny wirtualne nie odpowiada na operację w programie SCVMM w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
-| Nie dotyczy |[3123245] |Aktualizacja zwiększa identyfikacji wyczerpania portu w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
-| Nie dotyczy |[Wyłącz RC4] | Biuletyn zabezpieczeń firmy Microsoft: Aktualizacja dla wyłączaniu technologii RC4  |4.32, 3.39, 2.51 |10 maja 2016 r. |
+| ND |[3148851] |Zmiany strefy czasowej dla Rosji w systemie Windows  |4.32, 3.39, 2.51 |10 maja 2016 r. |
+| ND |[3133977] |Funkcja BitLocker nie szyfrowanie dysków z powodu awarii usługi, w procesie svchost.exe w systemie Windows 7 lub Windows Server 2008 R2  |2.51 |10 maja 2016 r. |
+| ND |[3133681] |Maszyny wirtualne nie odpowiada na operację w programie SCVMM w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
+| ND |[3123245] |Aktualizacja zwiększa identyfikacji wyczerpania portu w systemie Windows Server 2012 R2  |4.32 |10 maja 2016 r. |
+| ND |[Wyłącz RC4] | Biuletyn zabezpieczeń firmy Microsoft: Aktualizacja dla wyłączaniu technologii RC4  |4.32, 3.39, 2.51 |10 maja 2016 r. |
 
 ## <a name="april-guest-os"></a>System operacyjny gościa kwietnia
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -503,17 +504,17 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="march-guest-os"></a>Marzec systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS15 018 |[3032359] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 019 |[3040297] |Luka w zabezpieczeniach w języku VBScript aparat skryptów umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15-020 |[3041836] |Luki w zabezpieczeniach systemu Windows umożliwiają zdalne wykonywanie kodu |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 021 |[3032323] |Sterownik czcionki Adobe luk w zabezpieczeniach umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 023 |[3034344] |Luki w zabezpieczeniach w sterownik trybu jądra może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 024 |[3035132] |Luki w zabezpieczeniach w przetwarzaniu PNG może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 025 |[3038680] |Usterki jądra systemu Windows może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 027 |[3002657] |Usterka NETLOGON może pozwolić fałszowania |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 028 |[3030377] |Usterka harmonogramu zadań systemu Windows umożliwia obejście funkcji zabezpieczeń |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 029 |[3035126] |Luki w zabezpieczeniach w składniku dekodera fotografii systemu Windows może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |Nie dotyczy |
-| MS15 030 |[3039976] |Usterka protokołu Remote Desktop Protocol umożliwia odmowa usługi |4.18, 3.25, 2.37 |Nie dotyczy |
+| MS15 018 |[3032359] |Zbiorcza aktualizacja zabezpieczeń dla programu Internet Explorer |4.18, 3.25, 2.37 |ND |
+| MS15 019 |[3040297] |Luka w zabezpieczeniach w języku VBScript aparat skryptów umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
+| MS15-020 |[3041836] |Luki w zabezpieczeniach systemu Windows umożliwiają zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
+| MS15 021 |[3032323] |Sterownik czcionki Adobe luk w zabezpieczeniach umożliwia zdalne wykonywanie kodu |4.18, 3.25, 2.37 |ND |
+| MS15 023 |[3034344] |Luki w zabezpieczeniach w sterownik trybu jądra może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
+| MS15 024 |[3035132] |Luki w zabezpieczeniach w przetwarzaniu PNG może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
+| MS15 025 |[3038680] |Usterki jądra systemu Windows może spowodować podniesienie uprawnień |4.18, 3.25, 2.37 |ND |
+| MS15 027 |[3002657] |Usterka NETLOGON może pozwolić fałszowania |4.18, 3.25, 2.37 |ND |
+| MS15 028 |[3030377] |Usterka harmonogramu zadań systemu Windows umożliwia obejście funkcji zabezpieczeń |4.18, 3.25, 2.37 |ND |
+| MS15 029 |[3035126] |Luki w zabezpieczeniach w składniku dekodera fotografii systemu Windows może spowodować ujawnienie informacji |4.18, 3.25, 2.37 |ND |
+| MS15 030 |[3039976] |Usterka protokołu Remote Desktop Protocol umożliwia odmowa usługi |4.18, 3.25, 2.37 |ND |
 
 > [!NOTE]
 > Biuletyn MS15-031 może pojawić się, jak odinstalować. Jednak natomiast nie odnoszą się do tej wersji systemu operacyjnego gościa.
@@ -523,13 +524,13 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="february-guest-os"></a>Lutego systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Aktualizacja zabezpieczeń programu Internet Explorer |4.17, 3.24, 2.36 |Nie dotyczy |
-| MS15 010 |[3036220] |Luki w zabezpieczeniach w sterowniki trybu jądra systemu Windows umożliwiają zdalne wykonywanie kodu |4.17, 3.24, 2.36 |Nie dotyczy |
-| MS15 011 |[3000483] |Luka w zasadach grupy umożliwia zdalne wykonywanie kodu |4.17, 3.24, 2.36 |Nie dotyczy |
-| MS15 014 |[3004361] |Luka w protokole SMB umożliwia obejście funkcji zabezpieczeń |4.17, 3.24, 2.36 |Nie dotyczy |
-| MS15 015 |[3031432] |Luki w zabezpieczeniach w systemie Microsoft Windows może spowodować podniesienie uprawnień |4.17, 3.24, 2.36 |Nie dotyczy |
-| MS15 016 |[3029944] |Luki w zabezpieczeniach w składniku Microsoft Graphics może spowodować ujawnienie informacji |4.17, 3.24, 2.36 |Nie dotyczy |
-| Nie dotyczy |[3004375] |Polecenie aktualizację, aby poprawić Windows inspekcji wiersza<p/>**Uwaga**: to jest zainstalowany, ale klucz rejestru, aby ją włączyć jest wyłączona. |4.17, 3.24, 2.36 |Nie dotyczy |
+| MS15 009 |[3034682] |Aktualizacja zabezpieczeń programu Internet Explorer |4.17, 3.24, 2.36 |ND |
+| MS15 010 |[3036220] |Luki w zabezpieczeniach w sterowniki trybu jądra systemu Windows umożliwiają zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
+| MS15 011 |[3000483] |Luka w zasadach grupy umożliwia zdalne wykonywanie kodu |4.17, 3.24, 2.36 |ND |
+| MS15 014 |[3004361] |Luka w protokole SMB umożliwia obejście funkcji zabezpieczeń |4.17, 3.24, 2.36 |ND |
+| MS15 015 |[3031432] |Luki w zabezpieczeniach w systemie Microsoft Windows może spowodować podniesienie uprawnień |4.17, 3.24, 2.36 |ND |
+| MS15 016 |[3029944] |Luki w zabezpieczeniach w składniku Microsoft Graphics może spowodować ujawnienie informacji |4.17, 3.24, 2.36 |ND |
+| ND |[3004375] |Polecenie aktualizację, aby poprawić Windows inspekcji wiersza<p/>**Uwaga**: to jest zainstalowany, ale klucz rejestru, aby ją włączyć jest wyłączona. |4.17, 3.24, 2.36 |ND |
 
 ## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -550,17 +551,17 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 ## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
 | Identyfikator biuletynu | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| Nie dotyczy |[3013776] |System zawiesza się, korzystając z konta domeny można uruchomić aplikacji |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3013043] |Danych systemu plików jest uszkodzony komputera z systemem Windows, który ma więcej niż jeden węzeł NUMA |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3012712] |Nowe bloki danych zainicjować niepoprawnie po rozwinięciu różnicowego dysku VHD |4.15, 3.22, 2.34 |201 13 stycznia |
-| Nie dotyczy |[3004905] |Poprawa Windows Hyper-V dla maszyn wirtualnych systemu Linux, które mają systemy plików, które są większe niż 2 TB |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3004394] |Aktualizacja z grudnia 2014 dla programu certyfikatów głównych systemu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[2999323] |Tekst dla zdarzeń 17 identyfikator zostanie zmieniona. |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3013488] |Długim czasie oczekiwania na serwer WSUS resetowania podczas importowania CSA plików w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3012325] |Wpisy w bazie danych systemu Windows APN aktualizacji dla DIGI, Vodafone i Telekom przenośnych operatorów w Windows 8.1 i Windows 8 |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
-| Nie dotyczy |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3013776] |System zawiesza się, korzystając z konta domeny można uruchomić aplikacji |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3013043] |Danych systemu plików jest uszkodzony komputera z systemem Windows, który ma więcej niż jeden węzeł NUMA |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3012712] |Nowe bloki danych zainicjować niepoprawnie po rozwinięciu różnicowego dysku VHD |4.15, 3.22, 2.34 |201 13 stycznia |
+| ND |[3004905] |Poprawa Windows Hyper-V dla maszyn wirtualnych systemu Linux, które mają systemy plików, które są większe niż 2 TB |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3004394] |Aktualizacja z grudnia 2014 dla programu certyfikatów głównych systemu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[2999323] |Tekst dla zdarzeń 17 identyfikator zostanie zmieniona. |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3013488] |Długim czasie oczekiwania na serwer WSUS resetowania podczas importowania CSA plików w systemie Windows Server 2012 R2 lub Windows Server 2012 |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3012325] |Wpisy w bazie danych systemu Windows APN aktualizacji dla DIGI, Vodafone i Telekom przenośnych operatorów w Windows 8.1 i Windows 8 |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+| ND |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 
@@ -571,6 +572,7 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 [4041681]: http://support.microsoft.com/kb/4041681
 [4041693]: http://support.microsoft.com/kb/4041693
 [4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
 [3191565]: http://support.microsoft.com/kb/3191565
 [3191564]: http://support.microsoft.com/kb/3191564
 

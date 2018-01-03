@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Usługa Azure Active Directory opóźnienia raportowania
 
@@ -37,15 +37,15 @@ Istnieją dwa obszary działania raportowania:
 
 Poniższa tabela zawiera informacje opóźnienia raporty aktywności.
 
-| Raport | Minimalne | Średni |
-| :-- | --- | --- |
-| Dzienniki inspekcji | 30 minut  | 1 godzina  |
-| Logowania | 15 minut  | 2 godziny |
+| Raport | Minimalne | Średnia | Uwagi |
+| :-- | --- | --- | :-- |
+| Dzienniki inspekcji | 30 minut  | 1 godzina  |W niektórych przypadkach może potrwać maksymalnie 2 godziny dla danych działania inspekcji wyświetlani.|
+| Logowania | 15 minut  | 2 godziny |W niektórych przypadkach może potrwać do 24 godzin dla danych logowania działania wyświetlone. W tym dane o aktywności logowania pochodzące z aplikacji starszej wersji pakietu office. |
 
-W niektórych przypadkach krawędzi można wykonać:
 
-- 2 godziny dla inspekcji dane o aktywności wyświetlone.
-- 24 godziny dla danych logowania działania wyświetlone. W tym dane o aktywności logowania pochodzące z aplikacji starszej wersji pakietu office. 
+
+
+
 
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
@@ -57,7 +57,7 @@ Istnieją dwa obszary raportowania zabezpieczeń:
 
 Poniższa tabela zawiera informacje opóźnienia raporty dotyczące zabezpieczeń.
 
-| Raport | Minimalne | Średni | Maksimum |
+| Raport | Minimalne | Średnia | Maksimum |
 | :-- | --- | --- | --- |
 | Narażeni użytkownicy          | 5 minut   | 15 minut  | 2 godziny  |
 | Ryzykowne logowania         | 5 minut   | 15 minut  | 2 godziny  |
@@ -68,7 +68,7 @@ Usługi Azure Active Directory korzysta z algorytmów uczenia maszynowego adapta
 
 W poniższej tabeli wymieniono informacje opóźnienie dla zdarzeń o podwyższonym ryzyku.
 
-| Raport | Minimalne | Średni | Maksimum |
+| Raport | Minimalne | Średnia | Maksimum |
 | :-- | --- | --- | --- |
 | Logowania z anonimowych adresów IP |5 minut |15 minut |2 godziny |
 | Logowania z nieznanych lokalizacji |5 minut |15 minut |2 godziny |
@@ -79,7 +79,7 @@ W poniższej tabeli wymieniono informacje opóźnienie dla zdarzeń o podwyższo
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz dowiedzieć się więcej na temat raportów działania w portalu Azure, zobacz:
 

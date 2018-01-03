@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET sieci web interfejsu API wprowadzenie | Dokumentacja firmy Microsoft
+title: Azure AD .NET interfejsu API sieci Web wprowadzenie | Dokumentacja firmy Microsoft
 description: "Jak utworzyć .NET MVC składnika web API, która integruje się z usługą Azure AD do uwierzytelniania i autoryzacji."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Zabezpieczanie interfejsu API sieci web za pomocą tokenów elementu nośnego z usługi Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET interfejsu API sieci Web wprowadzenie
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Jeśli tworzysz aplikację, która zapewnia dostęp do chronionych zasobów, musisz wiedzieć, jak uniemożliwić nieuzasadnione dostęp do tych zasobów.
@@ -147,7 +147,7 @@ Zanim zobaczysz do czy listy działanie usługi, należy skonfigurować klienta 
   * `ida:ClientId`jest to identyfikator aplikacji skopiowany z portalu Azure.
   * `todo:TodoListResourceId`to identyfikator URI aplikacji w aplikacji do usługi listy czy wprowadzony w portalu Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Ponadto wyczyścić, skompilować i uruchomić każdy projekt. Jeśli nie jest jeszcze nadszedł czas, aby utworzyć nowy użytkownik w dzierżawie z *. onmicrosoft.com domeny. Zaloguj się do klienta listy zadań do wykonania z użytkownikiem, a następnie dodać niektóre zadania do listy zadań do wykonania przez użytkownika.
 
 Odwołanie, ukończonych próbka (bez wartości konfiguracji) są dostępne w [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Możesz teraz przejść do scenariuszy tożsamości.

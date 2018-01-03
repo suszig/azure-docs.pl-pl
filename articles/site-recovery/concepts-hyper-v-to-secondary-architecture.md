@@ -1,24 +1,16 @@
 ---
-title: "Przegląd architektury replikacji funkcji Hyper-V do lokacji dodatkowej za pomocą usługi Azure Site Recovery | Microsoft Docs"
+title: "Replikacji funkcji Hyper-V do lokacji dodatkowej architektury w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Ten artykuł zawiera omówienie architektury używanej podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej z programem System Center VMM za pomocą usługi Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replikacji funkcji Hyper-V do lokacji dodatkowej
 
@@ -51,20 +43,18 @@ Poniższej tabeli i grafiki zapewnia widok ogólny składników używanych w prz
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
-1. W tryb failover jednego komputera lub utworzyć plany odzyskiwania, aby organizować tryb failover wiele maszyn.
-2. Można uruchomić planowanego lub nieplanowanego trybu failover między lokacjami lokalnymi. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
+- W tryb failover jednego komputera lub utworzyć plany odzyskiwania, aby organizować tryb failover wiele maszyn.
+- Można uruchomić planowanego lub nieplanowanego trybu failover między lokacjami lokalnymi. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
     - W przypadku nieplanowanego trybu failover do lokacji dodatkowej po maszyny pracy awaryjnej w dodatkowej lokalizacji nie są chronione.
     - Jeśli dokonano planowanego przejścia w tryb failover, po przejściu w tryb failover maszyny znajdujące się w lokalizacji dodatkowej są chronione.
-3. Po początkowej przejście w tryb failover działa, Zatwierdź go uruchomić, uzyskiwanie dostępu do obciążenia z repliki maszyny Wirtualnej.
-
-W przypadku lokalizacji głównej jest ponownie dostępny, możesz się niepowodzeniem ponownie.
-
-1. Inicjuje replikację odwrotną do rozpoczęcia replikacji z lokacji dodatkowej do podstawowych. Replikacja odwrotna powoduje przełączenie maszyn wirtualnych do stanu chronionego, ale aktywną lokalizacją jest nadal dodatkowe centrum danych.
-2. Aby lokacja główna stała się z powrotem lokalizacją aktywną, należy zainicjować planowane przejście w tryb failover z lokacji dodatkowej do głównej, a następnie przeprowadzić kolejną replikację odwrotną.
+- Po początkowej przejście w tryb failover działa, Zatwierdź go uruchomić, uzyskiwanie dostępu do obciążenia z repliki maszyny Wirtualnej.
+- W przypadku lokalizacji głównej jest ponownie dostępny, możesz się niepowodzeniem ponownie.
+    - Inicjuje replikację odwrotną do rozpoczęcia replikacji z lokacji dodatkowej do podstawowych. Replikacja odwrotna powoduje przełączenie maszyn wirtualnych do stanu chronionego, ale aktywną lokalizacją jest nadal dodatkowe centrum danych.
+    - Aby lokacja główna stała się z powrotem lokalizacją aktywną, należy zainicjować planowane przejście w tryb failover z lokacji dodatkowej do głównej, a następnie przeprowadzić kolejną replikację odwrotną.
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Przejrzyj macierz obsługi czynności opisane w samouczku, aby włączyć replikację funkcji Hyper-V między chmurami VMM.
-Uruchom tryb failover i powrotu po awarii.
+
+Postępuj zgodnie z [w tym samouczku](tutorial-vmm-to-vmm.md) Aby włączyć replikację funkcji Hyper-V między chmurami VMM.

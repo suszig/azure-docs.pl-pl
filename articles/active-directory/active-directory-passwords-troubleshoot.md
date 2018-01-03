@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Rozwiązywanie problemów z samoobsługowego resetowania hasła
 
@@ -165,7 +165,18 @@ Ogólnie rzecz biorąc, aby odzyskać usługę w ten sposób najszybszych, firma
 
 ### <a name="confirm-network-connectivity"></a>Upewnij się, połączenie sieciowe
 
-I czy Zapora jest najbardziej typowych punktu awarii lub porty serwera proxy i limitów czasu bezczynności są nieprawidłowo skonfigurowane. Aby uzyskać więcej informacji, Przejrzyj wymagania wstępne łączność w [wymagania wstępne dotyczące usługi Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artykułu.
+I czy Zapora jest najbardziej typowych punktu awarii lub porty serwera proxy i limitów czasu bezczynności są nieprawidłowo skonfigurowane. 
+
+Azure AD Connect wersji 1.1.443.0 i nowszych możesz muszą HTTPS wychodzący dostęp do następujące:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.Windows.NET
+
+Więcej szczegółowości odwoływać się zaktualizowaną listę [zakresów IP centrum danych Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653) zaktualizować każdą środę i obowiązywać następujące od poniedziałku.
+
+Aby uzyskać więcej informacji, Przejrzyj wymagania wstępne łączność w [wymagania wstępne dotyczące usługi Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artykułu.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Uruchom ponownie usługę synchronizacji Azure AD Connect
 
@@ -282,7 +293,7 @@ Aby prawidłowo pomóc, poprosimy Podaj tak szczegółowe, jak to możliwe po ot
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Uruchom ponownie usługę Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Kod obsługi znajduje się w prawym dolnym rogu okna"
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za pośrednictwem usługi Azure AD:
 

@@ -16,16 +16,16 @@ ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
 ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (omówienie)
 > [!div class="op_single_selector"]
 > * [Omówienie](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+> * [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 >
@@ -75,10 +75,10 @@ Sprawdzanie stanu bazy danych za pośrednictwem różnych punktów końcowych po
 
 |              | Wstrzymanie/wznowienie | Skalowanie | Sprawdź stan bazy danych |
 | ------------ | ------------ | ----- | -------------------- |
-| Azure Portal | Tak          | Tak   | **Nie**               |
-| PowerShell   | Tak          | Tak   | Tak                  |
-| Interfejs API REST     | Tak          | Tak   | Tak                  |
-| T-SQL        | **Nie**       | Tak   | Tak                  |
+| Azure Portal | Yes          | Yes   | **Nie**               |
+| PowerShell   | Yes          | Yes   | Yes                  |
+| Interfejs API REST     | Yes          | Yes   | Yes                  |
+| T-SQL        | **Nie**       | Yes   | Yes                  |
 
 
 
@@ -167,7 +167,7 @@ Skalowanie bazy danych musi mieć uprawnienia opisanego w [ALTER DATABASE][ALTER
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, aby ułatwić zrozumienie pojęcia niektóre dodatkowe wydajności:
 
 * [Zarządzanie obciążenia i współbieżność][Workload and concurrency management]

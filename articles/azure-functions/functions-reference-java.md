@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera usługi Azure Java funkcji
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Adnotacje Java znajdują się w `azure-functions-java-core` pakietu do powiązan
 
 Powiązanie | Adnotacja
 ---|---
-CosmosDB | Nie dotyczy
+CosmosDB | ND
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | Nie dotyczy
-Notification Hubs | Nie dotyczy
+Mobile Apps | ND
+Notification Hubs | ND
 Obiektu Blob magazynu | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Kolejka magazynu | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabela magazynu | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Czasomierz | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Nie dotyczy
+Twilio | ND
 
 Wyzwalacz wejściami i wyjściami może być także definiowane w [function.json](/azure/azure-functions/functions-reference#function-code) dla aplikacji.
 
@@ -270,7 +270,7 @@ które należy zdefiniować powiązania danych wyjściowych w `function.json`:
 
 Czasami funkcję musi dokładną kontrolę nad wejścia i wyjścia. Specjalizowany typów w `azure-functions-java-core` pakietu znajdują się manipulować informacjami żądania i dostosować to wyzwalacza HTTP:
 
-| Specjalistyczną odmianą      |       Obiekt docelowy        | Typowy sposób                  |
+| Specjalistyczną odmianą      |       Cel        | Typowy sposób                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Wyzwalacz protokołu HTTP     | Pobierz — metoda, nagłówkach lub zapytania |
 | `HttpResponseMessage<T>` | Powiązanie wyniku HTTP | Zwrotny stan innych niż 200   |
@@ -325,7 +325,7 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji zawierają następujące zasoby:
 
 * [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
