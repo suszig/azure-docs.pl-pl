@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
 ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Przywracanie plików do maszyny z systemem Windows Server lub Client przy użyciu modelu wdrażania używającego usługi Resource Manager
 
@@ -176,5 +176,5 @@ Jeśli kopia zapasowa Azure nie jest pomyślnie instalowany woluminu odzyskiwani
 
 W przypadku odzyskiwania nadal niepowodzenia ponownego uruchomienia serwera/klienta. Jeśli ponowne uruchomienie komputera nie jest pożądane lub odzyskiwania nadal kończy się niepowodzeniem nawet po ponownego uruchomienia serwera, spróbuj przeprowadzić odzyskiwanie z alternatywnych maszyny i skontaktuj się z Azure obsługuje, przechodząc do [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) i przesyłanie żądania pomocy technicznej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Teraz, gdy zostały odzyskane pliki i foldery, możesz [Zarządzanie kopii zapasowych](backup-azure-manage-windows-server.md).

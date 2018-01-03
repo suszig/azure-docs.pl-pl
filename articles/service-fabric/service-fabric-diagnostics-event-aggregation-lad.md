@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregacja zdarzeń i kolekcji za pomocą diagnostyki Azure systemu Linux
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Aby wdrożyć rozszerzenie diagnostyki maszyny wirtualne w klastrze, w ramach tw
 Spowoduje to skonfigurowanie agenta LAD do monitorowania określonych plików dziennika. Zawsze, gdy nowy wiersz jest dołączany do pliku, tworzy wpisu syslog, który jest wysyłany do magazynu (tabeli), określony.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 1. Aby bardziej szczegółowo zrozumieć, jakie zdarzenia należy sprawdzić podczas rozwiązywania problemów, zobacz [dokumentacji LTTng](http://lttng.org/docs) i [przy użyciu LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 2. [Skonfiguruj agenta pakietu OMS](service-fabric-diagnostics-event-analysis-oms.md) ułatwiające zbieranie metryk monitorowanie kontenery wdrożone w klastrze i wizualizacji dzienników 

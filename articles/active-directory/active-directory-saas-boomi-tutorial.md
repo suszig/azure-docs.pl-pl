@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f63f317cc213519c50b0f07b4f93842a72500a82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77f79c4e57aa8dd90fb0a519e7217e4f4e3618e7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Samouczek: Integracji Azure Active Directory z Boomi
 
@@ -110,7 +110,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://platform.boomi.com/sso/<accountname>/saml`
+    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://platform.boomi.com/`
 
     b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://platform.boomi.com/sso/<accountname>/saml`
 
@@ -139,7 +139,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **OK**.
 
@@ -163,7 +163,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Kliknij przycisk **importu** można przekazać certyfikatu pobrane z usługi Azure AD do **certyfikat dostawcy tożsamości**.
     
-    c. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, umieścić wartość elementu **SAML pojedynczy znak na adres URL usługi** z okna konfiguracji aplikacji usługi Azure AD.
+    d. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, umieścić wartość elementu **SAML pojedynczy znak na adres URL usługi** z okna konfiguracji aplikacji usługi Azure AD.
 
     d. Jako **federacyjnego identyfikator lokalizacji**, wybierz pozycję **identyfikator federacyjnej jest w elemencie atrybutu FEDERATION_ID** przycisk radiowy. 
 
@@ -200,7 +200,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    d. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -226,7 +226,7 @@ Aby umożliwić użytkownikom zalogować się do Boomi usługi Azure AD, musi by
     
     b. W **imię** pole tekstowe, nazwę użytkownika, takich jak Britta typu pierwszy.
 
-    c. W **nazwisko** tekstowym, wpisz nazwisko użytkownika, takich jak Simona.
+    d. W **nazwisko** tekstowym, wpisz nazwisko użytkownika, takich jak Simona.
     
     d. Wprowadź nazwę danego użytkownika **identyfikator federacyjnej**. Każdy użytkownik musi mieć identyfikator federacyjnego, który unikatowo identyfikuje użytkownika w ramach konta.
     
@@ -273,7 +273,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 Po kliknięciu kafelka Boomi w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Boomi.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

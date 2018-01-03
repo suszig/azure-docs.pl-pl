@@ -36,7 +36,7 @@ Podczas migracji zasoby są przekształcane z klasycznych na zasoby usługi Reso
 
 <a name="vault">Klasycznym</a> punktów odzyskiwania maszyny Wirtualnej w magazynie kopii zapasowych nie automatycznie zostanie przeprowadzona migracja do magazynu usług odzyskiwania podczas przenoszenia maszyny Wirtualnej z klasycznym tryb Resource Manager. Wykonaj te kroki, aby przenieść kopie zapasowe maszyn wirtualnych:
 
-1. W magazynie usługi Backup przejdź do karty **Elementy chronione** i wybierz maszynę wirtualną. Kliknij pozycję [Zatrzymaj ochronę](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Pozostaw opcję *Usuń powiązane dane kopii zapasowych* **niezaznaczoną**.
+1. W magazynie usługi Backup przejdź do karty **Elementy chronione** i wybierz maszynę wirtualną. Kliknij pozycję [Zatrzymaj ochronę](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Pozostaw opcję *Usuń powiązane dane kopii zapasowych* **niezaznaczoną**.
 2. Usuń rozszerzenie kopii zapasowej/migawki z maszyny wirtualnej.
 3. Przeprowadź migrację maszyny wirtualnej z trybu klasycznego do trybu usługi Resource Manager. Upewnij się, że informacje o magazynie i sieci odpowiadające maszynie wirtualnej również zostały zmigrowane do trybu usługi Resource Manager.
 4. Utwórz magazyn usługi Recovery Services i skonfiguruj kopię zapasową w zmigrowanej maszynie wirtualnej przy użyciu akcji **Kopia zapasowa** w górnej części pulpitu nawigacyjnego magazynu. Aby uzyskać szczegółowe informacje na temat tworzenia kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services, zobacz artykuł [Ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](../articles/backup/backup-azure-vms-first-look-arm.md).

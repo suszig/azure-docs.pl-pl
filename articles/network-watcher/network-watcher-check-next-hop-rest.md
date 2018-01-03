@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Sprawdź, jaki typ następnego przeskoku jest przy użyciu funkcji w następnym przeskoku w obserwatora sieciowego Azure przy użyciu interfejsu API REST Azure
 
 > [!div class="op_single_selector"]
-> - [Witryna Azure Portal](network-watcher-check-next-hop-portal.md)
-> - [PowerShell](network-watcher-check-next-hop-powershell.md)
+> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Program PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfejs wiersza polecenia 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-check-next-hop-cli.md)
 > - [Interfejs API Azure REST](network-watcher-check-next-hop-rest.md)
@@ -127,7 +127,7 @@ Poniżej przedstawiono wyniki w formacie json.
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po mógł sprawdzić następnego skoku dla maszyny wirtualnej, można wyświetlić bezpieczeństwa zasobów sieciowych, odwiedzając [widok zabezpieczeń — omówienie](network-watcher-security-group-view-overview.md)
 

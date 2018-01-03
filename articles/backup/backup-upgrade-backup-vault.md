@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Magazyn kopii zapasowych uaktualnione do magazynu usług odzyskiwania
 Ten artykuł zawiera omówienie magazynu usług odzyskiwania, jakie udostępnia, często zadawane pytania na temat uaktualniania istniejącej kopii zapasowej magazynu do magazynu usług odzyskiwania i czynności po uaktualnieniu. Magazyn usług odzyskiwania jest odpowiednikiem usługi Azure Resource Manager w magazynie kopii zapasowej, która przechowuje dane kopii zapasowej. Dane są zwykle kopii danych lub informacje o konfiguracji dla maszyn wirtualnych (VM), obciążenia, serwerach lub stacjach roboczych, czy lokalnie lub na platformie Azure.
@@ -71,7 +71,7 @@ Raz uaktualnienia do magazynu usług odzyskiwania, skonfiguruj raporty dla usłu
 Nie. Kopie zapasowe trwającą nadal przerwana podczas i po uaktualnieniu.
 
 **Jaki jest średnia ta uaktualnienia do mojej istniejącej oprzyrządowania?**</br>
-Musisz zaktualizować narzędzi lub z istniejącej automatyzacji do modelu wdrażania usługi Resource Manager, aby upewnić się, że nadal działać po uaktualnieniu. Zapoznaj się z odwołań do poleceń cmdlet programu PowerShell dla [modelu wdrażania programu Service Manager](backup-client-automation-classic.md) i [modelu wdrażania usługi Resource Manager](backup-client-automation.md).
+Musisz zaktualizować narzędzi lub z istniejącej automatyzacji do modelu wdrażania usługi Resource Manager, aby upewnić się, że nadal działać po uaktualnieniu. Zapoznaj się z odwołań do poleceń cmdlet programu PowerShell dla [modelu wdrażania usługi Resource Manager](backup-client-automation.md).
 
 **I przywrócić po uaktualnieniu?**</br>
 Nie. ROLLBACK nie jest obsługiwana, gdy zasoby zostały pomyślnie uaktualnione.
@@ -99,7 +99,7 @@ Monitorowanie kopii zapasowych (IaaS i MARS agent) jest nową funkcją, która p
 **Jak zgłosić problem?**</br>
 W przypadku niepowodzenia jakiejkolwiek jego części uaktualnienia magazynu należy pamiętać, że OperationId na liście w dzienniku błędów. Aby rozwiązać ten problem aktywnie działa Support firmy Microsoft. Może dotrzeć do pomocy technicznej lub wiadomość e-mail na adres rsvaultupgrade@service.microsoft.com Twojego Identyfikatora subskrypcji, nazwę magazynu i OperationId. Firma Microsoft podejmie próbę rozwiązania problemu tak szybko jak to możliwe. Nie próbuj ponownie wykonać operację, chyba że jawnie instrukcją w tym celu przez firmę Microsoft.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Skorzystaj z poniższych artykułów dla:</br>
 [Tworzenie kopii zapasowej maszyn wirtualnych IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Utwórz kopię zapasową serwera kopia zapasowa Azure](backup-azure-microsoft-azure-backup.md)</br>

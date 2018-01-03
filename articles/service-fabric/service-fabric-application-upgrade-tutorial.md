@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Samouczek uaktualniania aplikacji sieci szkieletowej usług za pomocą programu Visual Studio
 > [!div class="op_single_selector"]
-> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Program PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Program Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -72,7 +72,7 @@ Za kilka minut można uaktualnić wszystkie domeny aktualizacji (ukończone), a 
 
 Chcesz spróbować zmienić wersje i przenoszenie z wersji 2.0.0 na wersję 3.0.0 jako wykonywania, lub nawet wersji 2.0.0 wersji 1.0.0. Odtwarzanie z limitów czasu i zasady dotyczące kondycji z siebie uczynić z nich korzystać. Podczas wdrażania na klastrze platformy Azure, w przeciwieństwie do klastra lokalnego, parametry używane może być mogą się różnić. Firma Microsoft zaleca konserwatywnie Ustaw limity czasu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Uaktualnianie aplikacji przy użyciu programu PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu PowerShell.
 
 Kontrolowanie, jak aplikacja zostanie uaktualniony przy użyciu [parametry uaktualnienia](service-fabric-application-upgrade-parameters.md).

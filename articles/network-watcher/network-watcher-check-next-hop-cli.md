@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Sprawdź, jaki typ następnego przeskoku jest przy użyciu funkcji w następnym przeskoku w obserwatora sieciowego Azure używa interfejsu wiersza polecenia platformy Azure w wersji 2.0
 
 > [!div class="op_single_selector"]
-> - [Witryna Azure Portal](network-watcher-check-next-hop-portal.md)
-> - [PowerShell](network-watcher-check-next-hop-powershell.md)
+> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Program PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfejs wiersza polecenia 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-check-next-hop-cli.md)
 > - [Interfejs API Azure REST](network-watcher-check-next-hop-rest.md)
@@ -82,8 +82,8 @@ Poniższa lista zawiera aktualnie dostępne wartości Typ następnego przeskoku:
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* Brak
+* None
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak programowo Przejrzyj ustawienia sieciowe grupy zabezpieczeń, odwiedzając [NSG inspekcji z obserwatora sieciowego](network-watcher-nsg-auditing-powershell.md)

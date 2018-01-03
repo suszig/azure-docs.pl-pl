@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Ważność danych w kolekcjach bazy danych rozwiązania Cosmos Azure automatycznie z czasu wygaśnięcia
 Aplikacje można tworzyć i przechowywania dużych ilości danych. Niektóre z tych danych, takich jak machine generowane zdarzenie danych, dzienników i użytkownika sesji informacji przydaje się tylko ograniczone okres czasu. Gdy dane będą nadwyżka na potrzeby aplikacji jest bezpieczne przeczyścić tych danych i zmniejszyć wymagania dotyczące magazynu aplikacji.
@@ -149,8 +149,11 @@ Wyłączenie TTL całkowicie w kolekcji i zatrzymać proces w tle z wyszukiwanie
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interakcja TTL i indeks
-Czas wygaśnięcia dodanie lub zmiana jest zmiany podstawowego indeksu. Jeśli nie istnieje żadne TTL i Podaj poprawną wartość TTL - powoduje to w operacji ponownego indeksowania. Spójne indeksu - użytkownika nie będą widzieć wszystkie zmiany w stanie indeksu. W przypadku indeksu opóźnieniem — indeks przede wszystkim jest zawsze przechwytywanie w górę i z tą zmianą w ttl, od początku jest ponownie indeks. W drugim przypadku powoduje zapytania wykonywane podczas odbudowywania indeksu nie zwróci wyniki pełną lub niepoprawne. Nie zmieniaj TTL opóźnieniem indeksu jeżeli zgodnie z opóźnieniem jest tryb indeksowania, sama muszą liczba danych dokładnie itp.  W idealnym przypadku spójne indeksu powinna być zawsze wybrana. 
+Dodawanie lub zmienianie ustawienia TTL na kolekcję zmiany podstawowego indeksu. Po zmianie wartości TTL z poza się na kolekcji jest ponownie indeksowane. Podczas wprowadzania zmian do zasady indeksowania, gdy tryb indeksowania jest spójne, użytkownicy nie zauważyć zmian do indeksu. Gdy tryb indeksowania jest ustawiono do opóźnieniem indeks jest zawsze przechwytywanie i po zmianie wartości TTL indeks zostaje odtworzona od początku. Gdy zostanie zmieniona wartość TTL i tryb indeksu jest ustawiony na opóźnieniem, zapytania wykonywane podczas odbudowywania indeksu nie zwracają wyniki pełną lub niepoprawne.
+
+Aby uzyskać dokładne dane zwrócone, nie należy zmieniać wartości TTL podczas indeksowania tryb jest ustawiony na opóźnieniem. W idealnym przypadku spójne indeksu należy wybrać, aby zapewnić spójne wyniki. 
 
 ## <a name="faq"></a>Często zadawane pytania
 **Co to jest czas wygaśnięcia koszt mnie?**
@@ -173,6 +176,6 @@ Czas wygaśnięcia ma zastosowanie do całego dokumentu. Jeśli chcesz tylko cz�
 
 Tak. Kolekcja musi mieć [indeksowania zestawu zasad](indexing-policies.md) spójność lub opóźnieniem. Ustawiany DefaultTTL w kolekcji z indeksowania zestaw None spowoduje błąd, podobnie jak w trakcie wyłączyć indeksowanie w kolekcji, której DefaultTTL został już ustawiony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat bazy danych Azure rozwiązania Cosmos, zapoznaj się z usługą [ *dokumentacji* ](https://azure.microsoft.com/documentation/services/cosmos-db/) strony.
 

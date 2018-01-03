@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df39b957e70be38331b3711a36ce847348049591
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Samouczek: Integracji Azure Active Directory z przyjęcia LMS
 
@@ -143,7 +143,7 @@ Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z przyjęcia LMS, w
 
     b. Otwórz Notatnik, certyfikatu, który został pobrany z portalu Azure. Usuń **---BEGIN CERTIFICATE---** i **---END CERTIFICATE---** tagów. Następnie w **klucza** Wklej pozostałą zawartość.
     
-    c. W **właściwość identyfikatora** wybierz atrybut, który został skonfigurowany jako identyfikator użytkownika w usłudze Azure AD. Na przykład jeśli *userPrincipalName* jest wybrane w usłudze Azure AD, wybierz **Username**.
+    d. W **właściwość identyfikatora** wybierz atrybut, który został skonfigurowany jako identyfikator użytkownika w usłudze Azure AD. Na przykład jeśli *userPrincipalName* jest wybrane w usłudze Azure AD, wybierz **Username**.
 
     d. W **adres URL logowania** Wklej **adres URL dostępu użytkownika** z poziomu aplikacji **właściwości** strony portalu Azure.
 
@@ -186,7 +186,7 @@ Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące 
 
     b. W **nazwy użytkownika** tekstowym, wpisz adres e-mail Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość w **hasło** pole.
 
     d. Wybierz pozycję **Utwórz**.
 
@@ -220,7 +220,7 @@ Aby skonfigurować konto użytkownika, wykonaj następujące czynności:
 
     b. W **nazwisko** wpisz nazwisko, takich jak **Simona**.
     
-    c. W **Username** wpisz pełną nazwę, taką jak **Simona Britta**.
+    d. W **Username** wpisz pełną nazwę, taką jak **Simona Britta**.
 
     d. W **hasło** wpisz hasło Simona Britta.
 
@@ -266,7 +266,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 W panelu dostępu wybierając **przyjęcia LMS** kafelków automatycznie loguje się użytkownik do przyjęcia LMS aplikacji. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://msdn.microsoft.com/library/dn308586).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

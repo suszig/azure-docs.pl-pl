@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Funkcja pytania i zgodne, za pomocą usługi Azure Machine Learning workbench
 Udzielenie odpowiedzi na pytania zakończone Otwórz jest trudne i często wymaga nakładu pracy od ekspertów z danej dziedziny (msp). Aby zmniejszyć zapotrzebowanie na wewnętrzny MSP, firm często tworzyć listy — często zadawane pytania (FAQ) jako sposób udzielania pomocy użytkownikom. W tym przykładzie których są wyświetlane różne metody learning skuteczne maszyny do dopasowania Otwórz zakończone zapytań do istniejące pary odpowiedzi na pytania / — często zadawane pytania. W tym przykładzie przedstawiono prosty proces budowania rozwiązania przy użyciu Azure Machine Learning Workbench. 
@@ -26,7 +27,7 @@ Udzielenie odpowiedzi na pytania zakończone Otwórz jest trudne i często wymag
 ## <a name="link-to-the-gallery-github-repository"></a>Połącz z repozytorium GitHub galerii
 [https://github.com/Azure/MachineLearningSamples-QnAMatching](https://github.com/Azure/MachineLearningSamples-QnAMatching)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym przykładzie rozwiązano problem mapowania pytania użytkownika na istniejącym pytanie i odpowiedź pary (Q & A) jako jest zwykle zapewniany liście — często zadawane pytania (FAQ) lub w Q & pary obecne w witrynach sieci Web, takich jak [stosu Przepełnienie](https://stackoverflow.com/). Istnieje wiele metod, aby dopasować pytanie, aby jego prawidłowa odpowiedź, takich jak znajdowanie odpowiedź, która jest najbardziej podobny do pytania. Jednak w tym przykładzie otwórz zakończone pytania są dopasowywane do wcześniej zadawane pytania przez przy założeniu, że wszystkie odpowiedzi w odpowiedzi na pytanie pozwala uzyskać odpowiedzi na kilka pytań semantycznie równoważne.
 
@@ -50,7 +51,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 
 Utwórz nowy projekt za pomocą tego przykładu jako szablon:
 1.  Otwórz Azure Machine Learning Workbench
-2.  Na **projekty** kliknij przycisk  **+**  podpisywania i wybierz **nowy projekt**
+2.  Na **projekty** kliknij przycisk ** + ** podpisywania i wybierz **nowy projekt**
 3.  W **Utwórz nowy projekt** okienka, wypełnij informacje dla nowego projektu
 4.  W **szablony projektów wyszukiwania** pole wyszukiwania, wpisz "Q & A dopasowania" i wybierz szablon
 5.  Kliknij przycisk **Utwórz**
@@ -83,12 +84,12 @@ Schemat danych i łącza pobierania bezpośredniego trzech zestawów danych moż
 | ----------|------------|------------|--------
 | [pytania](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Identyfikator | Ciąg | Identyfikator unikatowy pytania (klucz podstawowy)
 |  | AnswerId | Ciąg | Identyfikator unikatowy odpowiedzi na pytania
-|  | Text0 | Ciąg | Dane pierwotne tekstu, w tym tytuł i treści pytania
-|  | CreationDate | Znacznik czasu | Sygnatura czasowa kiedy został poproszony pytania
+|  | text0 | Ciąg | Dane pierwotne tekstu, w tym tytuł i treści pytania
+|  | CreationDate | Sygnatura czasowa | Sygnatura czasowa kiedy został poproszony pytania
 | [duplikatów](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Identyfikator | Ciąg | Identyfikator unikatowy dublowania (klucz podstawowy)
 |  | AnswerId | Ciąg | Identyfikator odpowiedzi, skojarzony z duplikatów
-|  | Text0 | Ciąg | Dane pierwotne tekstu, w tym tytuł i treść dublowania
-|  | CreationDate | Znacznik czasu | Sygnatura czasowa kiedy został poproszony duplikatów
+|  | text0 | Ciąg | Dane pierwotne tekstu, w tym tytuł i treść dublowania
+|  | CreationDate | Sygnatura czasowa | Sygnatura czasowa kiedy został poproszony duplikatów
 | [odpowiedzi](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Identyfikator | Ciąg | Identyfikator unikatowy odpowiedzi (klucz podstawowy)
 |  | text0 | Ciąg | Dane pierwotne tekstu odpowiedzi
 

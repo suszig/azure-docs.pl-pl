@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Tworzenie metryki alertów w monitorze Azure dla usług Azure - CLI między platformami
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą interfejsu wiersza polecenia i platform (CLI).
 
 > [!NOTE]
@@ -50,8 +50,8 @@ Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności
 
 Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za pomocą
 
-* [Witryna Azure Portal](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
+* [Azure portal](insights-alerts-portal.md)
+* [Program PowerShell](insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
@@ -134,7 +134,7 @@ Zawsze może odbierać pomocy dla poleceń, wpisując polecenie i odkładanie �
     azure insights alerts rule delete myresourcegroup myActivityLogRule
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie monitorowania Azure](monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](insights-webhooks-alerts.md).
 * Dowiedz się więcej o [konfigurowania alertów na zdarzenia dziennika aktywności](monitoring-activity-log-alerts.md).

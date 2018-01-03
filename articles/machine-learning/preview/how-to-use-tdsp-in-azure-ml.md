@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Struktura projektów z szablonem procesu nauki danych zespołu
 
 Ten dokument zawiera instrukcje dotyczące sposobu tworzenia projektów analizy danych w usłudze Azure Machine Learning z szablonami zespołu danych nauki procesu (TDSP). Szablony ułatwiają do projektów struktury współpracy i powtarzalności. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>Co to jest proces nauki danych zespołu?
+## <a name="what-is-the-team-data-science-process"></a>Co to jest zespołowe przetwarzanie danych dla celów naukowych?
 TDSP jest procesem nauki danych agile, iteracji, wykonywanie i opracowywania rozwiązań zaawansowana analityka. Został zaprojektowany tak, aby poprawić współpracy i wydajności zespołów nauki danych w organizacji przedsiębiorstwa. Obsługuje ona tych celów z czterech najważniejsze składniki:
 
    * Standard [analizy danych w cyklu życia](../team-data-science-process/lifecycle.md) definicji.
@@ -69,7 +70,7 @@ Aby utworzyć nowy projekt, otwórz uczenia maszynowego Azure. W obszarze **proj
 
       - Nazwa projektu
       - Katalog projektu
-      - Opis elementu projektu
+      - Opis projektu
       - Pusta ścieżka repozytorium Git
       - Nazwa obszaru roboczego
 
@@ -109,7 +110,7 @@ Firma Microsoft udostępnia również [ProjectLearnings](https://aka.ms/tdspamlg
 ### <a name="example-project-report"></a>Przykładowy raport projektu
 Możesz uzyskać [przykładowy raport projektu](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Ten raport projektu dla [USA dochodu klasyfikacji przykładowy projekt](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pokazano, jak utworzyć wystąpienia i szablon TDSP dla projektu analizy danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby ułatwić zrozumienie działania dotyczące sposobu używania struktury TDSP i szablonów w projektach uczenia maszynowego, udostępniamy kilka przykładów projektu zakończone w dokumentacji dotyczącej usługi Machine Learning:
 
 - Dla przykładu, który pokazuje, jak utworzyć projekt TDSP w uczeniu maszynowym, zobacz [proces nauki danych zespołu przykładowy projekt: klasyfikowania przychody z danych nam spisu w usłudze Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Przy użyciu wiersza polecenia platformy Azure jest możliwe uruchamianie zadań
 
 Tworzenie i używanie plików szablonu z wiersza polecenia platformy Azure do tworzenia pul, zadań i zadań wsadowych. Pliki wejściowe zadania mogą być łatwo przekazywane do konta magazynu skojarzone z partii konta i zadania pliki wyjściowe pobrane.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Rozszerzenie interfejsu wiersza polecenia Azure Umożliwia wsadowe być używane na całej trasie przez użytkowników, którzy nie są deweloperów. Można utworzyć puli, przekazać dane wejściowe, zadań i skojarzonych zadań tworzenia i danych wyjściowych pobrane — żaden kod nie jest wymagane, interfejsu wiersza polecenia używane bezpośrednio lub zintegrowania skryptów.
 
@@ -53,7 +53,7 @@ Instrukcje dotyczące sposobu instalowania wiersza polecenia platformy Azure mo�
 Po zainstalowaniu interfejsu wiersza polecenia Azure najnowszej wersji rozszerzenia partii można zainstalować przy użyciu interfejsu wiersza polecenia następujące polecenie:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 Aby uzyskać więcej informacji o rozszerzeniu partii, zobacz [Microsoft Azure partii CLI rozszerzeń dla systemu Windows, Mac i Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -259,7 +259,7 @@ Obsługa transfer szablon i plik obecnie zostały dodane tylko do wiersza polece
 
 Wypróbowanie rozszerzenia partii dla wiersza polecenia platformy Azure i uzyskaliśmy wszelkie opinie i sugestie, albo w komentarzach tego artykułu lub za pośrednictwem [forum usługi partia zadań Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz w partii szablony wpisie w blogu: [zadania uruchomione partii zadań Azure za pomocą wiersza polecenia platformy Azure — kod nie jest wymagany](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Szczegółowa dokumentacja instalacji i użycia, przykłady i kodu źródłowego są dostępne w [repozytorium Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).

@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Klasyfikacja przychody z projektu zespołowego danych nauki procesu (TDSP)
 
@@ -73,7 +74,7 @@ Jeśli chcesz zapisać i wersji projektu i jego zawartość, musisz mieć repozy
 
 Utwórz nowy projekt za pomocą tego przykładu jako szablon:
 1.  Otwórz Azure Machine Learning Workbench
-2.  Na **projekty** kliknij przycisk  **+**  podpisywania i wybierz **nowy projekt**
+2.  Na **projekty** kliknij przycisk ** + ** podpisywania i wybierz **nowy projekt**
 3.  W **Utwórz nowy projekt** okienka, wypełnij informacje dla nowego projektu
 4.  W **szablony projektów wyszukiwania** pole wyszukiwania, wpisz "Przychody Klasyfikuj USA - TDSP projektu" i wybierz szablon
 5.  Kliknij przycisk **Utwórz**
@@ -107,7 +108,7 @@ Projekt jest tworzone w oparciu instrukcjami [tutaj](https://aka.ms/how-to-use-t
 
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
-### <a name="execution"></a>Wykonanie
+### <a name="execution"></a>Wykonywanie
 W tym przykładzie mamy wykonanie kodu w **lokalnym środowisku**. Odwołuje się do usługi Azure Machine Learning dokumentów, aby uzyskać więcej informacji na [opcje wykonywania](experimentation-service-configuration.md).
 
 Wykonywanie skryptu języka Python w lokalnym środowisku uruchomieniowym języka Python jest prosty:

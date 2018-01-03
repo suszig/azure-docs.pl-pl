@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Pobieranie tabel ARP w klasycznym modelu wdrażania
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ W tabeli protokołu ARP komunikacji równorzędnej może służyć do sprawdzani
 * Nie będą widzieć tabeli protokołu ARP wyświetlany dla komunikacji równorzędnej, jeśli występują problemy po stronie firmy Microsoft.
 * Otwórz żądanie pomocy technicznej o [Microsoft Azure Pomoc i obsługa techniczna](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Określ, czy masz problem z łącznością warstwy 2.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Sprawdź poprawność konfiguracji warstwy 3 dla obwodu usługi ExpressRoute:
   * Pobierz podsumowanie do ustalenia stanu sesji BGP trasy.
   * Pobierz tabelę tras, aby określić prefiksy, które są rozgłaszane między ExpressRoute.

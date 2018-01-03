@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services pojęcia
 Ten temat zawiera omówienie koncepcji usługi Media Services.
 
-## <a id="assets"></a>Zasoby i magazynu
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Zasoby i magazynu
 ### <a name="assets"></a>Elementy zawartości
 [Zasobów](https://docs.microsoft.com/rest/api/media/operations/asset) zawiera (w tym wideo, audio, obrazy, kolekcje miniatur, ścieżek tekstu i pliki napisów) pliki cyfrowe i metadane dotyczące tych plików. Po pliki cyfrowe są przekazywane do elementu zawartości, mogą być używane w Media Services, kodowania i przesyłania strumieniowego przepływów pracy.
 
@@ -71,7 +71,7 @@ Kontener obiektów blob zawiera grupowanie zestawu obiektów blob. Kontenerów o
 > 
 > 
 
-### <a id="locators"></a>Lokalizatory
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Lokalizatory
 [Lokalizator](https://docs.microsoft.com/rest/api/media/operations/locator)s Podaj punktu wejścia do dostępu do plików przechowywanych w zasób. Zasady dostępu jest używana do definiowania uprawnień i czas trwania, że klient ma dostęp do danej zawartości. Lokalizatory może mieć wiele do jednego relacji z zasady dostępu w taki sposób, że lokalizatorów różnych może dostarczać godziny rozpoczęcia różnych i typów połączeń do różnych klientów jednocześnie wszystkie przy użyciu tego samego uprawnienia i ustawienia czasu trwania; Jednak ze względu na ograniczenia zasad dostępu współdzielonego ustawione przez usług magazynu platformy Azure, nie może mieć więcej niż pięć lokalizatorów unikatowy skojarzone z danym zawartości w tym samym czasie. 
 
 Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do przesyłania strumieniowego (na przykład MPEG DASH, HLS lub Smooth Streaming) lub pobrać progresywnie nośników i Locator adres URL SAS używany do przekazywanie lub pobieranie to\from pliki nośnika magazynu Azure. 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Przydziały i ograniczenia](media-services-quotas-and-limitations.md).
 
 ## <a name="protecting-content"></a>Ochrona zawartości
-### <a name="dynamic-encryption"></a>Szyfrowania dynamicznego
+### <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
 Usługa Azure Media Services umożliwia zabezpieczenie od momentu, gdy opuszczą komputera za pośrednictwem przechowywania, przetwarzania i dostarczania multimediów. Usługa Media Services umożliwia dostarczanie zawartości dynamicznie szyfrowany za pomocą Standard AES (Advanced Encryption) (przy użyciu kluczy szyfrowania 128-bitowe) i szyfrowania common encryption (CENC) za pomocą PlayReady i Widevine DRM. Usługi Media Services udostępnia usługę dostarczania kluczy AES i licencje PlayReady do autoryzowanych klientów.
 
 Obecnie można zaszyfrować następujących formatów przesyłania strumieniowego: HLS, MPEG DASH i Smooth Streaming. Nie można zaszyfrować pobierania progresywnego.
@@ -156,7 +156,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 - [Chroń za pomocą PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Dostarczanie
-### <a id="dynamic_packaging"></a>Funkcję dynamicznego tworzenia pakietów
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Funkcję dynamicznego tworzenia pakietów
 Podczas pracy z usługi Media Services, zaleca się kodowanie plików mezzanine do adaptacyjnej szybkości bitowej MP4 zestawu, a następnie wykonać konwersję zestaw na żądany format za pomocą [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Punkt końcowy przesyłania strumieniowego

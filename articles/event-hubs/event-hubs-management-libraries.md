@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Biblioteki zarządzania centra zdarzeń
 
-Biblioteki zarządzania usługi Event Hubs można dynamicznie inicjują obsługę przestrzeni nazw usługi Event Hubs i jednostek. Umożliwia to złożone wdrożenia i scenariusze obsługi komunikatów, tak aby programowo można określić, jakie jednostki do udostępniania. Te biblioteki są obecnie dostępne dla platformy .NET.
+Biblioteki zarządzania usługi Event Hubs można dynamicznie inicjują obsługę przestrzeni nazw usługi Event Hubs i jednostek. Tego rodzaju dynamiczne umożliwia złożone wdrożenia i scenariusze obsługi komunikatów, tak aby programowo można określić, jakie jednostki do udostępniania. Te biblioteki są obecnie dostępne dla platformy .NET.
 
 ## <a name="supported-functionality"></a>Obsługiwane funkcje
 
@@ -76,6 +76,6 @@ Wzorzec do manipulowania dowolnego zasobu usługi Event Hubs obejmuje wspólny p
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przykładowe zarządzania .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Odwołanie Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

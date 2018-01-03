@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Utwórz definicję OpenAPI dla funkcji
 Przy użyciu definicji OpenAPI często opisano interfejsów API REST (wcześniej znane jako [Swagger](http://swagger.io/) pliku). Ta definicja zawiera informacje, jakie operacje są dostępne w interfejsie API i struktury danych żądań i odpowiedzi dla interfejsu API.
@@ -125,7 +125,7 @@ Teraz możesz przystąpić do generowania definicji OpenAPI. Ta definicja mogą 
 
     1. Na **integracji** nową funkcję wyzwalacza HTTP, Zmień na karcie **metod HTTP dozwolone** do **wybrane metody**
 
-    1. W **metod HTTP wybrane**, usuń zaznaczenie opcji każdego z wyjątkiem **POST**.
+    1. W **metod HTTP wybrane**, usuń zaznaczenie opcji każdego z wyjątkiem **POST**, następnie kliknij przycisk **zapisać**.
 
         ![Wybrane metody HTTP](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -272,7 +272,7 @@ Przed użyciem definicji interfejsu API jest warto przetestować go w interfejsi
 
 1. Wróć do definicji interfejsu API: **funkcja Pokaz energii** > **funkcji platformy** > **definicji interfejsu API**.
 
-1. W okienku po prawej stronie kliknij **Zmień uwierzytelnianie**, wprowadź klucz interfejsu API, który możesz skopiować i kliknij przycisk **Uwierzytelnij**.
+1. W okienku po prawej stronie kliknij **Uwierzytelnij**, wprowadź klucz interfejsu API, który możesz skopiować i kliknij przycisk **Uwierzytelnij**.
 
     ![Uwierzytelniania za pomocą klucza interfejsu API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -290,7 +290,7 @@ Przed użyciem definicji interfejsu API jest warto przetestować go w interfejsi
 
     ![Wyślij żądanie](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

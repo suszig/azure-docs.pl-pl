@@ -1,6 +1,6 @@
 ---
-title: "Zbieranie dzienników niestandardowych w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Analiza dzienników można zbierać zdarzenia z plików tekstowych na komputerach z systemami Windows i Linux.  W tym artykule opisano sposób definiowania nowy dziennik niestandardowy i szczegóły rekordów tworzonych w repozytorium OMS."
+title: "Zbieranie dzienników niestandardowych w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Analiza dzienników można zbierać zdarzenia z plików tekstowych na komputerach z systemami Windows i Linux.  W tym artykule opisano sposób definiowania nowy dziennik niestandardowy i szczegóły rekordów tworzonych w obszarze roboczym analizy dzienników."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Niestandardowe dzienniki w analizy dzienników
-Źródło danych niestandardowe dzienniki w analizy dzienników umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemami Windows i Linux. Wiele aplikacji rejestrowania informacji w plikach tekstowych zamiast standardowych usług rejestrowania, takich jak dziennika zdarzeń systemu Windows lub Syslog.  Po zebraniu danych, można przeanalizować każdego rekordu w dzienniku w poszczególnych polach przy użyciu [pola niestandardowe](log-analytics-custom-fields.md) funkcji analizy dzienników.
+Źródło danych niestandardowe dzienniki w analizy dzienników umożliwia zbieranie zdarzeń z plików tekstowych na komputerach z systemami Windows i Linux. Wiele aplikacji rejestrowania informacji w plikach tekstowych zamiast standardowych usług rejestrowania, takich jak dziennika zdarzeń systemu Windows lub Syslog.  Po zebraniu danych, można przeanalizować każdego rekordu podczas logowania do poszczególnych pól przy użyciu [pola niestandardowe](log-analytics-custom-fields.md) funkcji analizy dzienników.
 
 ![Zbieranie dzienników niestandardowych](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ Pliki dziennika mają być zbierane musi odpowiadać następujących kryteriów.
 Poniższa procedura umożliwia zdefiniowanie niestandardowego pliku dziennika.  Przewiń do końca w tym artykule przewodnik próby dodania dziennik niestandardowy.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Krok 1. Otwórz kreatora dziennik niestandardowy
-Kreator niestandardowy dziennika jest uruchamiana w portalu OMS i można zdefiniować nowego dziennika niestandardowego do zbierania.
+Kreator niestandardowy dziennika jest uruchamiana w portalu Azure i można zdefiniować nowego dziennika niestandardowego do zbierania.
 
-1. W portalu OMS, przejdź do **ustawienia**.
-2. Polecenie **danych** , a następnie **niestandardowe dzienniki**.
+1. W portalu Azure wybierz **analizy dzienników** > obszar roboczy > **Zaawansowane ustawienia**.
+2. Polecenie **danych** > **niestandardowe dzienniki**.
 3. Domyślnie wszystkie zmiany konfiguracji są automatycznie przypisany do wszystkich agentów.  Dla agentów systemów Linux plik konfiguracji jest wysyłany do Fluentd modułów zbierających dane.  Jeśli chcesz zmodyfikować ten plik ręcznie na każdym agenta systemu Linux, usuń zaznaczenie pola *Zastosuj poniższą konfigurację na moich maszynach z systemem Linux*.
 4. Kliknij przycisk **Dodaj +** aby otworzyć Kreatora dziennika niestandardowego.
 
@@ -54,7 +54,7 @@ Możesz uruchomić przekazywanie próbce dziennika niestandardowego.  Kreator pr
 
 **Nowy wiersz** jest domyślnym ogranicznikiem i używany dla plików dziennika, które mają pojedynczy wpis wierszu.  Jeśli wiersz rozpoczyna się od daty i godziny w jednym z formatów dostępne, a następnie można określić **sygnatury czasowej** ogranicznik obsługującej wpisów, obejmujące więcej niż jeden wiersz.
 
-Jeśli jest używany ogranicznik sygnatury czasowej, właściwość TimeGenerated każdego rekordu przechowywane w OMS zostaną wypełnione z daty/godziny, określony dla tego wpisu w pliku dziennika.  Jeśli jest używany nowy ogranicznik wiersza, TimeGenerated jest wypełniane przy użyciu daty i godziny, aby analizy dzienników pobrane wpis.
+Jeśli jest używany ogranicznik sygnatury czasowej, właściwość TimeGenerated każdego rekordu przechowywane w analizy dzienników zostaną wypełnione z daty/godziny, określony dla tego wpisu w pliku dziennika.  Jeśli jest używany nowy ogranicznik wiersza, TimeGenerated jest wypełniane przy użyciu daty i godziny, aby analizy dzienników pobrane wpis.
 
 
 1. Kliknij przycisk **Przeglądaj** i przejdź do przykładowy plik.  Należy pamiętać, że może to przycisk może być oznaczony jako **wybierz plik** w niektórych przeglądarkach.
@@ -84,7 +84,7 @@ Poniższa tabela zawiera przykłady prawidłowych do określenia różnych plika
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Krok 4. Podaj nazwę i opis dziennika
 Określona nazwa będzie służyć do typu dziennika, jak opisano powyżej.  Zawsze zakończy się z _CL odróżniający go jako dziennik niestandardowy.
 
-1. Wpisz nazwę dziennika.  **\_CL** sufiks jest teraz udostępniana automatycznie.
+1. Wpisz nazwę dziennika.   **\_CL** sufiks jest teraz udostępniana automatycznie.
 2. Dodaj opcjonalny **opis**.
 3. Kliknij przycisk **dalej** można zapisać definicji dziennik niestandardowy.
 
@@ -103,13 +103,12 @@ Wpis dziennika całego będą przechowywane w jedną właściwość o nazwie **R
 
 Szczegółowe informacje na temat analizowania wpis dziennika niestandardowego nie znajdują się w tym miejscu.  Zapoznaj się z [pola niestandardowe](log-analytics-custom-fields.md) tych informacji w dokumentacji.
 
-## <a name="disabling-a-custom-log"></a>Wyłączanie dziennika niestandardowego
-Nie można usunąć definicji dziennik niestandardowy, po jest został utworzony, ale można ją wyłączyć, usuwając wszystkie jego ścieżki w kolekcji.
+## <a name="removing-a-custom-log"></a>Usuwanie dziennik niestandardowy
+Należy wykonać poniższe czynności w portalu Azure, aby usunąć dziennik niestandardowy, który wcześniej zdefiniowany.
 
-1. W portalu OMS, przejdź do **ustawienia**.
-2. Polecenie **danych** , a następnie **niestandardowe dzienniki**.
-3. Kliknij przycisk **szczegóły** obok definicji dziennik niestandardowy, aby wyłączyć.
-4. Usuwanie wszystkich ścieżek kolekcji definicji dziennik niestandardowy.
+1. Z **danych** w menu **Zaawansowane ustawienia** obszaru roboczego wybierz **dzienników niestandardowych** Aby wyświetlić listę wszystkich dzienników niestandardowych.
+2. Kliknij przycisk **Usuń** obok dziennik niestandardowy do usunięcia.
+
 
 ## <a name="data-collection"></a>Zbieranie danych
 Analiza dzienników zbierze nowe wpisy z każdego dziennik niestandardowy co 5 minut.  Agent zarejestruje jego miejsce w każdym pliku dziennika, który zbiera z.  Agent przejdzie do trybu offline w danym okresie czasu, następnie Log Analytics będzie gromadzić wpisów z którym ostatnio przerwał, nawet jeśli te wpisy zostały utworzone podczas agent jest w trybie offline.
@@ -127,7 +126,7 @@ Rekordy dziennika niestandardowego mają typ o nazwie dziennika, który podasz i
 | ManagementGroupName |Nazwa grupy zarządzania agenci zarządzania programu System Center Operations.  W przypadku innych agentów jest AOI -\<identyfikator obszaru roboczego\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Dziennik wyszukiwania z rekordów dziennika niestandardowego
-Rekordy z dzienników niestandardowych są przechowywane w repozytorium OMS, tak jak rekordy z innego źródła danych.  Dysponują typu zgodnego z nazwą podane podczas definiowania dziennika, dzięki czemu można używać właściwości typu podczas wyszukiwania w celu pobrania rekordów zbierane z określonego dziennika.
+Rekordy z dzienników niestandardowych są przechowywane w obszarze roboczym analizy dzienników, podobnie jak rekordy z innego źródła danych.  Dysponują typu zgodnego z nazwą podane podczas definiowania dziennika, dzięki czemu można używać właściwości typu podczas wyszukiwania w celu pobrania rekordów zbierane z określonego dziennika.
 
 Poniższa tabela zawiera różne przykłady wyszukiwania dziennika, które pobieranie rekordów z dzienników niestandardowych.
 
@@ -171,6 +170,6 @@ Możemy użyć pola niestandardowe, aby zdefiniować *EventTime*, *kod*, *stan*,
 
 ![Kwerenda dziennika z polami niestandardowymi](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>Następne kroki
-* Użyj [pól niestandardowych](log-analytics-custom-fields.md) przeanalizować wpisy w dzienniku niestandardowe w poszczególnych pól.
+## <a name="next-steps"></a>Kolejne kroki
+* Użyj [pól niestandardowych](log-analytics-custom-fields.md) przeanalizować wpisy w niestandardowych logowanie do poszczególnych pól.
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.

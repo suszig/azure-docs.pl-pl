@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Pytania dotyczące usługi Azure Backup
-W tym artykule znajdują się odpowiedzi na często zadawane pytania pomagające w szybkim poznaniu składników usługi Azure Backup. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Aby zadać pytanie dotyczące usługi Azure Backup, kliknij pozycję **Komentarze** (po prawej stronie). Komentarze są wyświetlane na dole tego artykułu. Aby komentować, musisz mieć konto Livefyre. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące składników usługi Kopia zapasowa Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Aby zadać pytanie dotyczące usługi Azure Backup, kliknij pozycję **Komentarze** (po prawej stronie). Komentarze są wyświetlane na dole tego artykułu. Aby komentować, musisz mieć konto Livefyre. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Aby szybko przeskanować sekcje znajdujące się w tym artykule, użyj linków z prawej strony w obszarze **W tym artykule**.
 
@@ -30,7 +30,7 @@ Aby szybko przeskanować sekcje znajdujące się w tym artykule, użyj linków z
 ## <a name="recovery-services-vault"></a>Magazyn usługi Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Czy istnieje ograniczenie liczby magazynów, które można utworzyć w poszczególnych subskrypcjach platformy Azure? <br/>
-Tak. Od września 2016 r. w każdej subskrypcji można utworzyć 25 magazynów usługi Recovery Services lub magazynów kopii zapasowych. Maksymalnie można utworzyć 25 magazynów usługi Recovery Services na obsługiwany region usługi Azure Backup dla każdej subskrypcji. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć dodatkową subskrypcję.
+Tak. Począwszy od września 2016 r. Możesz utworzyć 25 Magazyny usług odzyskiwania na subskrypcję. Maksymalnie można utworzyć 25 magazynów usługi Recovery Services na obsługiwany region usługi Azure Backup dla każdej subskrypcji. Jeśli potrzebna jest większa liczba magazynów, należy utworzyć dodatkową subskrypcję.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Czy istnieją ograniczenia dotyczące liczby serwerów/maszyn, które można zarejestrować w każdym magazynie? <br/>
 Tak, w magazynie można zarejestrować maksymalnie 50 maszyn. W przypadku maszyny wirtualnej IaaS platformy Azure ograniczenie wynosi 200 maszyn wirtualnych w magazynie. Jeśli trzeba zarejestrować więcej maszyn, należy utworzyć kolejny magazyn.
@@ -41,19 +41,11 @@ Wszystkie serwery, które są zarejestrowane w tym samym magazynie, mogą odzysk
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Czy można „migrować” magazyn lub dane kopii zapasowej między subskrypcjami? <br/>
 Nie. Magazyn jest tworzony na poziomie subskrypcji i po utworzeniu nie można go ponownie przypisać do innej subskrypcji.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Magazyny usług Recovery Services są oparte na usłudze Resource Manager. Czy magazyny usługi Backup (tryb klasyczny) są nadal obsługiwane? <br/>
-Wszystkie magazyny usługi Backup istniejące w [klasycznym portalu](https://manage.windowsazure.com) nadal są obsługiwane. Za pomocą klasycznego portalu nie można już jednak wdrażać nowych magazynów usługi Backup. Firma Microsoft zaleca używanie magazynów usługi Recovery Services dla wszystkich wdrożeń, ponieważ przyszłe rozszerzenia będą miały zastosowanie tylko do magazynów tej usługi. Przy próbie utworzenia magazynu usługi Backup w portalu klasycznym nastąpi przekierowanie do witryny [Azure Portal](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Magazyny usług Recovery Services są oparte na usłudze Resource Manager. Magazyny kopii zapasowych nadal są obsługiwane? <br/>
+Magazynów kopii zapasowych został przekonwertowany na magazyny usług odzyskiwania. Jeśli nie przekonwertować magazyn kopii zapasowych magazynu usług odzyskiwania, Magazyn kopii zapasowych został przekonwertowany w w magazynie usług odzyskiwania dla Ciebie. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Czy mogę przeprowadzić migrację magazynu usługi Backup do magazynu usługi Recovery Services? <br/>
-Tak, możesz teraz uaktualnić magazynu kopii zapasowej w magazynie usług odzyskiwania. Szczegóły można znaleźć w artykule [uaktualnienia magazynu kopii zapasowych do magazynu usług odzyskiwania](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Mam utworzone kopie zapasowe moich klasycznych maszyn wirtualnych w magazynie usługi Backup. Czy mogę migrować maszyny wirtualne z trybu klasycznego do trybu usługi Resource Manager i chronić je w magazynie usługi Recovery Services?
-Punkty odzyskiwania klasycznych maszyn wirtualnych w magazynie usługi Backup nie są migrowane automatycznie do magazynu usługi Recovery Services podczas przenoszenia maszyn wirtualnych z trybu klasycznego do trybu usługi Resource Manager. Wykonaj te kroki, aby przenieść kopie zapasowe maszyn wirtualnych:
-
-1. W magazynie usługi Backup przejdź do karty **Elementy chronione** i wybierz maszynę wirtualną. Kliknij pozycję [Zatrzymaj ochronę](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Pozostaw opcję *Usuń powiązane dane kopii zapasowych* **niezaznaczoną**.
-2. Usuń rozszerzenie kopii zapasowej/migawki z maszyny wirtualnej.
-3. Przeprowadź migrację maszyny wirtualnej z trybu klasycznego do trybu usługi Resource Manager. Upewnij się, że informacje o magazynie i sieci odpowiadające maszynie wirtualnej również zostały zmigrowane do trybu usługi Resource Manager.
-4. Utwórz magazyn usługi Recovery Services i skonfiguruj kopię zapasową w zmigrowanej maszynie wirtualnej przy użyciu akcji **Kopia zapasowa** w górnej części pulpitu nawigacyjnego magazynu. Aby uzyskać szczegółowe informacje na temat tworzenia kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services, zobacz artykuł [Ochrona maszyn wirtualnych przy użyciu magazynu usługi Recovery Services](backup-azure-vms-first-look-arm.md).
+Wszystkie magazyny kopii zapasowych został przekonwertowany na magazyny usług odzyskiwania. Jeśli nie przekonwertować magazyn kopii zapasowych magazynu usług odzyskiwania, Magazyn kopii zapasowych został przekonwertowany w w magazynie usług odzyskiwania dla Ciebie.
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 Szczegółową listę pytań możesz znaleźć w temacie [FAQ on Azure file-folder backup (Często zadawane pytania dotyczące kopii zapasowych folderów plików na platformie Azure)](backup-azure-file-folder-backup-faq.md)
@@ -92,7 +84,7 @@ Jeśli anulujesz zadanie kopii zapasowej dla maszyny wirtualnej platformy Azure,
 Tak. Zadania tworzenia kopii zapasowej na serwerze lub stacjach roboczych z systemem Windows można uruchamiać maksymalnie trzy razy w ciągu dnia. Zadania tworzenia kopii zapasowej w programie System Center DPM można uruchamiać maksymalnie dwa razy dziennie. Zadanie tworzenia kopii zapasowej maszyn wirtualnych IaaS można uruchamiać jeden raz w ciągu dnia. Korzystając z zasad planowania dla systemu Windows Server lub stacji roboczej z systemem Windows, można określić dzienne lub tygodniowe harmonogramy. Za pomocą programu System Center DPM można określić dzienne, tygodniowe, miesięczne i roczne harmonogramy.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Dlaczego rozmiar danych przesyłanych do magazynu usługi Recovery Services jest mniejszy niż rozmiar danych, dla których utworzono kopię zapasową?<br/>
- Wszystkie kopie zapasowe wykonywane przy użyciu agenta usługi Azure Backup, programu SCDPM lub serwera usługi Azure Backup są kompresowane i szyfrowane, zanim zostaną przesłane. Po zastosowaniu kompresji i szyfrowania dane w magazynie kopii zapasowych są mniejsze o 30–40%.
+ Wszystkie kopie zapasowe wykonywane przy użyciu agenta usługi Azure Backup, programu SCDPM lub serwera usługi Azure Backup są kompresowane i szyfrowane, zanim zostaną przesłane. Po zastosowaniu kompresji i szyfrowania danych w magazynie usług odzyskiwania jest mniejszy 30-40%.
 
 ## <a name="what-can-i-back-up"></a>Dla jakich danych mogę utworzyć kopię zapasową
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Jakie systemy operacyjne są obsługiwane przez usługę Azure Backup? <br/>

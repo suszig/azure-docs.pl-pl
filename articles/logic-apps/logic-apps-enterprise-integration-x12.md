@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Komunikaty programu Exchange X12 enterprise integracji z usługą logic apps
 
@@ -57,11 +57,11 @@ Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps
 
 4. Wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka. 
 
-    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. W bloku umów wybierz **Dodaj**.
 
-    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. W obszarze **Dodaj**, wprowadź **nazwa** dla umowy. Wybierz typ umowy **X12**. Wybierz **partnera hosta**, **tożsamości hosta**, **partnera gościa**, i **tożsamości gościa** dla umowy. Więcej szczegółów właściwości Zobacz tabelę w tym kroku.
 
@@ -69,7 +69,7 @@ Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps
 
     | Właściwość | Opis |
     | --- | --- |
-    | Nazwa |Nazwa umowy |
+    | Name (Nazwa) |Nazwa umowy |
     | Typ umowy | Powinien być X12 |
     | Partner hosta |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner hosta reprezentuje organizację, która konfiguruje umowy. |
     | Tożsamość hosta |Identyfikator partnera hosta |
@@ -146,8 +146,8 @@ Wybierz opcję schematu dla każdego typu transakcji (ST1) i aplikację Sender (
 | Właściwość | Opis |
 | --- | --- |
 | Nie zezwalaj na duplikaty Interchange numer formantu |Blokowanie wymianę zduplikowane. Sprawdza, czy numer formantu wymiany Odebrano numer formantu interchange (ISA13). Po wykryciu dopasowania potoku receive nie przetworzyć wymiany. Można określić liczbę dni do sprawdzania, zapewniając wartość *Sprawdź, czy zduplikowany ISA13 co (dni)*. |
-| Nie zezwalaj na duplikaty numerów kontrolnych grupy |Blok wymiany z numerami kontroli zduplikowanej grupie. |
-| Nie zezwalaj na duplikaty numerów kontrolnych zestawu transakcji |Blok wymiany z numerami kontroli zestaw zduplikowaną transakcję. |
+| Nie zezwalaj na duplikaty numerów kontroli grupy |Blok wymiany z numerami kontroli zduplikowanej grupie. |
+| Nie zezwalaj na duplikaty numerów kontroli zestawu transakcji |Blok wymiany z numerami kontroli zestaw zduplikowaną transakcję. |
 
 ### <a name="validations"></a>Sprawdzanie poprawności
 
@@ -157,7 +157,7 @@ Po zakończeniu każdego wiersza weryfikacji innego automatycznie jest dodawany.
 
 | Właściwość | Opis |
 | --- | --- |
-| Typ komunikatu |Wybierz typ wiadomości EDI. |
+| Typ wiadomości |Wybierz typ wiadomości EDI. |
 | Sprawdzanie poprawności EDI |Sprawdzają poprawność EDI typy danych zdefiniowane przez schemat EDI właściwości, ograniczenia długości danych puste elementy i końcowe separatorów. |
 | Rozszerzonej weryfikacji |Jeśli nie jest typem danych EDI, sprawdzanie poprawności jest na wymaganie elementu danych i dozwolone powtarzania, wyliczenia i dane weryfikacji długości elementu (min/max). |
 | Zezwalaj na wiodących/kończących wartości zerowe |Zachowaj wszystkie dodatkowe początkowe lub końcowe zero i miejsce znaków. Nie, usuń te znaki. |
@@ -171,11 +171,11 @@ Po zakończeniu każdego wiersza weryfikacji innego automatycznie jest dodawany.
 | Właściwość | Opis |
 | --- | --- |
 | Konwertuj domniemanych format dziesiętny "Nn" podstawowej wartości liczbowej 10 |Konwertuje liczbę EDI, określonego w formacie "Nn" na wartość liczbową base-10 |
-| Utwórz puste tagi XML, jeśli dozwolone są separatory kończące |Zaznacz to pole wyboru, aby nadawca wymiany obejmują puste tagi XML dla końcowe separatorów. |
-| Rozdziel wymianę na zestawy transakcji — zawieś zestawy transakcji w przypadku błędu|Analizuje każdą transakcję, ustaw w wymiany do innego dokumentu XML przez zastosowanie odpowiednich koperty do zestawu transakcji. Wstrzymuje tylko transakcje, których sprawdzenie nie powiodło się. |
-| Rozdziel wymianę na zestawy transakcji — zawieś wymianę w przypadku błędu|Analizuje każdą transakcję, ustaw w wymiany do innego dokumentu XML przez zastosowanie odpowiednich koperty. Zawiesza całego wymiany, gdy jeden lub więcej zestawów transakcji w wymiany niepowodzenie sprawdzania poprawności. | 
+| Utwórz pusty tagi XML, jeśli separatorów końcowe są dozwolone |Zaznacz to pole wyboru, aby nadawca wymiany obejmują puste tagi XML dla końcowe separatorów. |
+| Podziel Interchange jako zestawy transakcji - zawiesić zestawy transakcji na błąd|Analizuje każdą transakcję, ustaw w wymiany do innego dokumentu XML przez zastosowanie odpowiednich koperty do zestawu transakcji. Wstrzymuje tylko transakcje, których sprawdzenie nie powiodło się. |
+| Podziel wymiany jako zestawy transakcji - zawiesić wymiany na błąd|Analizuje każdą transakcję, ustaw w wymiany do innego dokumentu XML przez zastosowanie odpowiednich koperty. Zawiesza całego wymiany, gdy jeden lub więcej zestawów transakcji w wymiany niepowodzenie sprawdzania poprawności. | 
 | Zachowaj wymiany — wstrzymanie zestawy transakcji w przypadku błędu |Pozostawia niezmienione wymiany, tworzy dokument XML całego wsadowej operacji wymiany. Wstrzymuje tylko zestawy transakcji Niepowodzenie weryfikacji, pozostawiając przetworzyć wszystkie inne zestawy transakcji. |
-| Zachowaj wymianę — zawieś wymianę w przypadku błędu |Pozostawia niezmienione wymiany, tworzy dokument XML całego wsadowej operacji wymiany. Wstrzymuje całego wymiany, gdy jeden lub więcej zestawów transakcji w wymiany niepowodzenie sprawdzania poprawności. |
+| Zachowaj wymiany — zawiesza wymiany na błąd |Pozostawia niezmienione wymiany, tworzy dokument XML całego wsadowej operacji wymiany. Wstrzymuje całego wymiany, gdy jeden lub więcej zestawów transakcji w wymiany niepowodzenie sprawdzania poprawności. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Skonfiguruj sposób umowie wysyłania wiadomości
 
@@ -254,7 +254,7 @@ Umowie jest teraz gotowy do obsługi komunikatów wychodzących, które odpowiad
 | Prefiks |Opcjonalne, które są przeznaczone dla zakresu numerów kontroli zestawu transakcji używanych w potwierdzeniu. Wprowadź wartość liczbową dla środkowej dwóch pól i wartości alfanumeryczne (w razie potrzeby) dla pól prefiksu i sufiksu. Środkowy pola są wymagane i zawierają minimalne i maksymalne wartości formantu |
 | Sufiks |Opcjonalne, wyznaczonego dla zakresu numerów kontroli zestawu transakcji używanych w potwierdzeniu. Wprowadź wartość liczbową dla środkowej dwóch pól i wartości alfanumeryczne (w razie potrzeby) dla pól prefiksu i sufiksu. Środkowy pola są wymagane i zawierają minimalne i maksymalne wartości formantu |
 
-### <a name="character-sets-and-separators"></a>Zestawy znaków i separatory
+### <a name="character-sets-and-separators"></a>Zestawy znaków i separatorów
 
 Inne niż zestawu znaków, można wprowadzić inny zestaw ograniczniki dla każdego typu komunikatu. Jeśli zestaw znaków nie jest określona dla schematu danej wiadomości, jest używany domyślny zestaw znaków.
 
@@ -282,7 +282,7 @@ Po zakończeniu każdego wiersza weryfikacji innego automatycznie jest dodawany.
 
 | Właściwość | Opis |
 | --- | --- |
-| Typ komunikatu |Wybierz typ wiadomości EDI. |
+| Typ wiadomości |Wybierz typ wiadomości EDI. |
 | Sprawdzanie poprawności EDI |Sprawdzają poprawność EDI typy danych zdefiniowane przez schemat EDI właściwości, ograniczenia długości danych puste elementy i końcowe separatorów. |
 | Rozszerzonej weryfikacji |Jeśli nie jest typem danych EDI, sprawdzanie poprawności jest na wymaganie elementu danych i dozwolone powtarzania, wyliczenia i dane weryfikacji długości elementu (min/max). |
 | Zezwalaj na wiodących/kończących wartości zerowe |Zachowaj wszystkie dodatkowe początkowe lub końcowe zero i miejsce znaków. Nie, usuń te znaki. |

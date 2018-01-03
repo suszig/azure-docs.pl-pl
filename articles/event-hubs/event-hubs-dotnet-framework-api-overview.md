@@ -12,23 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Przegląd usługi Event Hubs .NET Framework API
+
 W tym artykule przedstawiono niektóre kluczowe interfejsów API klienta Event Hubs .NET Framework. Istnieją dwie kategorie: zarządzania i interfejsów API środowiska wykonawczego. Interfejsy API środowiska wykonawczego składają się z wszystkich operacji potrzebne do wysyłania i odbierania wiadomości. Operacje zarządzania umożliwiają zarządzanie stanem jednostki usługi Event Hubs przez tworzenie, aktualizowanie i usuwanie jednostek.
 
-Scenariusze monitorowania zakresu zarządzania i w czasie wykonywania. Odwołanie szczegółowe dokumentację dotyczącą interfejsów API architektury .NET, zobacz [.NET magistrali usługi](/dotnet/api/microsoft.servicebus.messaging) i [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) odwołania.
+[Scenariusze monitorowania](event-hubs-metrics-azure-monitor.md) span zarządzania i w czasie wykonywania. Odwołanie szczegółowe dokumentację dotyczącą interfejsów API architektury .NET, zobacz [.NET magistrali usługi](/dotnet/api/microsoft.servicebus.messaging) i [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) odwołania.
 
 ## <a name="management-apis"></a>Interfejsy API Management
+
 Aby wykonać następujące operacje zarządzania, musisz mieć **Zarządzaj** uprawnień w przestrzeni nazw usługi Event Hubs:
 
 ### <a name="create"></a>Przycisk Utwórz
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,6 +40,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### <a name="update"></a>Aktualizacja
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,18 +53,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### <a name="delete"></a>Usuwanie
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>Interfejsy API środowiska wykonawczego
 ### <a name="create-publisher"></a>Utwórz wydawcy
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### <a name="publish-message"></a>Publikowanie wiadomości
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,6 +86,7 @@ await client.SendAsync(data);
 ```
 
 ### <a name="create-consumer"></a>Tworzenie konsumenta
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,6 +105,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### <a name="consume-message"></a>Korzystanie z komunikatów
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,6 +118,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Interfejsy API hosta procesora zdarzeń
+
 Te interfejsy API zapewniają odporność na procesach roboczych, które mogą stać się niedostępne, przekazując partycje dostępne pracowników.
 
 ```csharp
@@ -168,7 +178,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o scenariuszach usługi Event Hubs, skorzystaj z następujących linków:
 
 * [Co to jest usługa Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

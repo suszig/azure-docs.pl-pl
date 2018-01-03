@@ -12,18 +12,18 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure rozwiązania Cosmos bazy danych: Tworzenie tabeli interfejsu API programu .NET
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów.
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafów.
 
 Ten samouczek obejmuje następujące zadania: 
 
@@ -74,7 +74,7 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2017, możesz pob
 Zacznijmy od utworzenia konta Azure DB rozwiązania Cosmos w portalu Azure.  
  
 > [!IMPORTANT]  
-> Musisz utworzyć nowe konto tabeli interfejsu API do pracy z ogólnie dostępne zestawy SDK interfejsu API tabeli. Konta interfejsu API Tabela utworzona w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK. 
+> Musisz utworzyć nowe konto interfejsu API tabeli, aby pracować z ogólnie dostępnymi zestawami SDK interfejsu API tabeli. Konta interfejsu API tabeli utworzone w okresie obowiązywania wersji zapoznawczej nie są obsługiwane przez ogólnie dostępne zestawy SDK. 
 >
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
@@ -89,7 +89,7 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
     cd "C:\git-samples"
     ```
 
-2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię aplikacji przykładowej na komputerze. 
+2. Uruchom następujące polecenie w celu sklonowania przykładowego repozytorium. To polecenie tworzy kopię przykładowej aplikacji na komputerze. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -103,26 +103,26 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Parametry połączenia**. 
 
-    Przyciski Kopiuj po prawej stronie ekranu do skopiuj parametry połączenia podstawowej.
+    Użyj przycisków kopiowania po prawej stronie ekranu, aby skopiować PODSTAWOWE PARAMETRY POŁĄCZENIA.
 
-    ![Wyświetl i skopiuj parametry połączenia w okienku parametry połączenia](./media/create-table-dotnet/connection-string.png)
+    ![Wyświetlanie i kopiowanie PARAMETRÓW POŁĄCZENIA w panelu parametrów połączenia](./media/create-table-dotnet/connection-string.png)
 
 2. W programie Visual Studio otwórz plik app.config. 
 
-3. Ponieważ ten samouczek nie korzysta z emulatora magazynu, usuń znaczniki komentarza StorageConnectionString na wiersz 8 ujmij w komentarz StorageConnectionString w wierszu 7. Wiersz 7 i 8 powinna wyglądać następująco:
+3. Usuń znaczniki komentarza dla ciągu StorageConnectionString w wierszu 8 i wstaw znaczniki komentarza dla ciągu StorageConnectionString w wierszu 7, ponieważ ten samouczek nie korzysta z emulatora pamięci. Wiersze 7 i 8 powinny teraz wyglądać następująco:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Wklej podstawowe parametry połączenia z portalu na wartość StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów.
+4. Wklej PODSTAWOWE PARAMETRY POŁĄCZENIA z portalu do wartości StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów.
    
     > [!IMPORTANT]
-    > Jeśli documents.azure.com, która oznacza, że masz konto w wersji zapoznawczej, używa punktu końcowego i należy utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account) do pracy z zestawu SDK ogólnie dostępna interfejsu API tabeli. 
+    > Jeśli dany punkt końcowy korzysta z adresu documents.azure.com, oznacza to, że masz konto w wersji zapoznawczej i musisz utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account), aby korzystać z dostępnego ogólnie zestawu SDK API tabeli. 
     >
 
-    Wiersz 8 powinna wyglądać podobnie do:
+    Wiersz 8 powinien teraz wyglądać podobnie do:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -148,8 +148,6 @@ Inne funkcje można włączyć za pomocą następujących `appSettings` wartośc
 
 | Klucz | Opis |
 | --- | --- |
-| TableThroughput | Zarezerwowaną przepływnością dla tabeli w jednostkach żądań (RU) na sekundę. Tabele pojedynczego może obsługiwać miliony 100s RU/s. Zobacz [jednostek żądania](request-units.md). Domyślnie`400` |
-| TableIndexingPolicy | Zgodne ze specyfikacją zasady indeksowania ciągu JSON. Zobacz [zasady indeksowania](indexing-policies.md) aby zobaczyć, jak można zmienić zasady indeksowania do dołączania/wykluczania określonych kolumn. |
 | TableQueryMaxItemCount | Skonfiguruj maksymalną liczbę elementów zwróconych dla tabeli kwerendy w jednym cyklu. Domyślnie jest `-1`, który umożliwia Azure DB rozwiązania Cosmos dynamiczne określanie wartości w czasie wykonywania. |
 | TableQueryEnableScan | Jeśli zapytanie nie można użyć indeksu dla dowolny filtr, uruchom ją mimo to za pomocą skanowania. Domyślnie jest `false`.|
 | TableQueryMaxDegreeOfParallelism | Stopień równoległości do wykonania zapytania różnych partycji. `0`jest szeregowe z nie pobierania, `1` jest seryjny z wcześniej pobrano i wyższe wartości zwiększyć stopień równoległości. Domyślnie jest `-1`, który umożliwia Azure DB rozwiązania Cosmos dynamiczne określanie wartości w czasie wykonywania. |
@@ -164,10 +162,6 @@ Aby zmienić domyślną wartość, otwórz `app.config` plików w Eksploratorze 
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -194,13 +188,13 @@ Następnie można utworzyć tabeli za pomocą `CloudTable`. Tabele w bazie danyc
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 Brak istotną różnicą w sposób tworzenia tabel. Azure DB rozwiązania Cosmos rezerwuje przepływności, w przeciwieństwie do magazynu Azure na podstawie zużycia modelu dla transakcji. Przepustowość sieci jest w wersji dedykowanej/zarezerwowana, więc można nigdy nie pobrać ograniczany Jeśli częstotliwość żądania jest poziomie lub poniżej z udostępnionej przepływności.
 
-Można skonfigurować domyślne przepływności przez skonfigurowanie ustawienia dla `TableThroughput` pod względem RU (jednostki żądania) na sekundę. 
+Można skonfigurować przepływności domyślne włączenie jej jako parametr CreateIfNotExists.
 
 Odczyt jednostki 1 KB jest znormalizowany jako 1 RU i inne operacje są znormalizowane do wartości stałej RU oparte na ich użycie procesora CPU, pamięci i IOPS. Dowiedz się więcej o [jednostek w usłudze Azure DB rozwiązania Cosmos żądania](request-units.md) i specjalnie z myślą o [klucza magazynów wartość](key-value-store-cost.md).
 
@@ -332,7 +326,7 @@ table.DeleteIfExists();
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku możemy omówione jak rozpocząć korzystanie z bazy danych rozwiązania Cosmos Azure przy użyciu interfejsu API tabeli, a jego wykonaniu następujących czynności: 
 

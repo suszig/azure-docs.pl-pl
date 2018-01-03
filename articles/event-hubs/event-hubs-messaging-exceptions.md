@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Wyjątki obsługi komunikatów w usłudze Event Hubs
-W tym artykule wymieniono niektóre wyjątki generowane przez magistralę usług Azure messaging interfejsów API, które obejmują usługi Event Hubs. To odwołanie jest może ulec zmianie, dlatego sprawdzanie dostępności aktualizacji.
+
+W tym artykule wymieniono niektóre wyjątki generowane przez biblioteki interfejsu API obsługi komunikatów usługi Azure Service Bus, które obejmują interfejsów API centrów zdarzeń. To odwołanie jest może ulec zmianie, dlatego sprawdzanie dostępności aktualizacji.
 
 ## <a name="exception-categories"></a>Kategorie wyjątku
+
 Interfejsy API centra zdarzeń generowania wyjątków, które można podzielić na następujące kategorie, wraz ze skojarzonej akcji, które należy wykonać, aby je rozwiązać.
 
 1. Kodowanie błąd użytkownika: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Akcja ogólne: Spróbuj naprawić kod zanim przejdziesz dalej.
@@ -56,7 +58,7 @@ W poniższej tabeli wymieniono obsługi typów wyjątków i ich przyczyny i zale
 
 Może to nastąpić, jeśli maksymalną liczbę odbiorników [5] został już otwarty na poziomie grupy dla użytkownika.
 
-### <a name="event-hubs"></a>Usługa Event Hubs
+### <a name="event-hubs"></a>Event Hubs
 Centra zdarzeń ma limit 20 grup odbiorców, na Centrum zdarzeń. Podczas próby utworzenia więcej, pojawi się [quotaexceededexception —](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
@@ -82,16 +84,16 @@ Ten błąd może wystąpić z jednej z dwóch przyczyn:
     
     Rozwiązanie: Zmiana strategii dystrybucji partycji lub w trakcie [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) może pomóc.
 
-2. Centra zdarzeń w przestrzeni nazw nie ma wystarczających jednostek przepływności (można sprawdzić **metryki** bloku w bloku przestrzeni nazw usługi Event Hubs w [portalu Azure](https://portal.azure.com) o potwierdzenie). Należy pamiętać, portalu pokazuje zagregowane (1 minuta) informacje, że firma Microsoft mierzenia przepływności w czasie rzeczywistym — tak aby zawierała tylko szacowania.
+2. Centra zdarzeń w przestrzeni nazw nie ma wystarczających jednostek przepływności (można sprawdzić **metryki** ekranu zdarzeń koncentratory okno przestrzeni nazw w [portalu Azure](https://portal.azure.com) o potwierdzenie). Należy pamiętać, portalu pokazuje zagregowane (1 minuta) informacje, że firma Microsoft mierzenia przepływności w czasie rzeczywistym — tak aby zawierała tylko szacowania.
 
-    Rozwiązanie: Zwiększanie jednostek przepływności w przestrzeni nazw może pomóc. Można to zrobić w portalu, **skali** bloku bloku przestrzeni nazw usługi Event Hubs.
+    Rozwiązanie: Zwiększanie jednostek przepływności w przestrzeni nazw może pomóc. Można to zrobić w portalu, **skali** okna ekranu przestrzeni nazw usługi Event Hubs.
 
 ### <a name="error-code-50001"></a>Kod błędu 50001
 
 Ten błąd powinny występować rzadko. Zdarza się, gdy kontener uruchamianie kodu przestrzeni nazw ma za mało procesora CPU — rozpoczyna się nie więcej niż kilka sekund, zanim usługa równoważenia obciążenia usługi Event Hubs.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)

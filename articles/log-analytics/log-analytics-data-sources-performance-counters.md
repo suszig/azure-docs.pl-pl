@@ -1,6 +1,6 @@
 ---
 title: "Zbieranie i analizowanie liczniki wydajności w Azure Log Analytics | Dokumentacja firmy Microsoft"
-description: "Liczniki wydajności są zbierane przez analizy dzienników do analizowania wydajności agentów systemu Windows i Linux.  W tym artykule opisano sposób konfigurowania kolekcji liczników wydajności dla obu systemu Windows i Linux agentów, ich szczegóły są przechowywane w repozytorium OMS i jak analizować je w portalu OMS."
+description: "Liczniki wydajności są zbierane przez analizy dzienników do analizowania wydajności agentów systemu Windows i Linux.  W tym artykule opisano sposób konfigurowania kolekcji liczników wydajności dla obu systemu Windows i Linux agentów, ich szczegóły są przechowywane w obszarze roboczym i jak analizować je w portalu Azure."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>System Windows i Linux źródła danych wydajności w analizy dzienników
 Liczniki wydajności w systemie Windows i Linux zapewniają wgląd w wydajności składników sprzętu, systemów operacyjnych i aplikacji.  Analizy dzienników można zebrać liczników wydajności odstępach częste do analizy w pobliżu czasu rzeczywistego (NRT) oprócz agregowanie danych wydajności dłuższy okres analizy i raportowania.
@@ -26,9 +26,9 @@ Liczniki wydajności w systemie Windows i Linux zapewniają wgląd w wydajności
 ![Liczniki wydajności](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurowanie liczników wydajności
-Skonfiguruj liczników wydajności w portalu OMS z [danych menu Ustawienia usługi Analiza dzienników](log-analytics-data-sources.md#configuring-data-sources).
+Konfigurowanie liczników wydajności z [danych menu Ustawienia usługi Analiza dzienników](log-analytics-data-sources.md#configuring-data-sources).
 
-Podczas pierwszej konfiguracji systemu Windows lub Linux wydajności liczniki nowy obszar roboczy OMS, podano opcję, aby szybko utworzyć kilka typowych liczników.  Są one wyświetlane pole wyboru obok każdego.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć początkowo są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności**.
+Podczas pierwszej konfiguracji systemu Windows lub Linux wydajności liczniki dla nowego obszaru roboczego analizy dzienników, podano opcję, aby szybko utworzyć kilka typowych liczników.  Na liście obok każdego z nich znajduje się pole wyboru.  Upewnij się, że wszystkie liczniki, które chcesz utworzyć początkowo są zaznaczone, a następnie kliknij przycisk **Dodaj wybrane liczniki wydajności**.
 
 Do liczników wydajności systemu Windows można wybrać określonego wystąpienia dla każdego licznika wydajności. Liczników wydajności systemu Linux wystąpienie poszczególnych liczników, którą można wybrać ma zastosowanie do wszystkich liczników podrzędnych licznika nadrzędnej. W poniższej tabeli przedstawiono typowe wystąpienia dostępne do liczników wydajności zarówno systemu Linux i Windows.
 
@@ -65,7 +65,7 @@ Wykonaj tę procedurę, aby dodać nowy licznik wydajności systemu Linux do zbi
 5. Po zakończeniu dodawania liczników kliknij **zapisać** przycisk w górnej części ekranu, aby zapisać konfigurację.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurowanie liczników wydajności systemu Linux w pliku konfiguracji
-Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu portalu OMS, istnieje możliwość edytowania plików konfiguracji agenta systemu Linux.  Metryki wydajności do zbierania są kontrolowane przez konfigurację w **/etc/opt/microsoft/omsagent/\<identyfikator obszaru roboczego\>/conf/omsagent.conf**.
+Zamiast konfigurować liczniki wydajności systemu Linux przy użyciu portalu Azure, istnieje możliwość edytowania plików konfiguracji agenta systemu Linux.  Metryki wydajności do zbierania są kontrolowane przez konfigurację w **/etc/opt/microsoft/omsagent/\<identyfikator obszaru roboczego\>/conf/omsagent.conf**.
 
 Każdy obiekt lub kategorii, metryki wydajności do zbierania powinien być zdefiniowany w pliku konfiguracyjnym jako pojedynczy `<source>` elementu. Składnia jest zgodny ze wzorcem poniżej.
 
@@ -96,10 +96,10 @@ Poniższa tabela zawiera listę obiektów i liczników, które można określić
 | Dysk logiczny | % Wolnego miejsca |
 | Dysk logiczny | % Użytych węzłów i |
 | Dysk logiczny | Używany obszar % |
-| Dysk logiczny | Bajty odczytu dysku/s |
+| Dysk logiczny | Bajty odczytu z dysku/s |
 | Dysk logiczny | Odczyty dysku/s |
 | Dysk logiczny | Transfery dyskowe/s |
-| Dysk logiczny | Bajty zapisu dysku/s |
+| Dysk logiczny | Bajty zapisu na dysku/s |
 | Dysk logiczny | Zapisy dysku/s |
 | Dysk logiczny | Wolne megabajty |
 | Dysk logiczny | Bajty dysku logicznego/s |
@@ -126,10 +126,10 @@ Poniższa tabela zawiera listę obiektów i liczników, które można określić
 | Dysk fizyczny | Średni Dysku w s/Transfer |
 | Dysk fizyczny | Średni Dysku w s/Zapis |
 | Dysk fizyczny | Bajty dysku fizycznego/s |
-| Proces | Czas uprzywilejowany PCT |
-| Proces | Czas użytkownika protokołu PCT |
-| Proces | Używane KB pamięci |
-| Proces | Wirtualnej pamięci współużytkowanej |
+| Przetwórz | Czas uprzywilejowany PCT |
+| Przetwórz | Czas użytkownika protokołu PCT |
+| Przetwórz | Używane KB pamięci |
+| Przetwórz | Wirtualnej pamięci współużytkowanej |
 | Procesor | Czas DPC (%) |
 | Procesor | Czas bezczynności (%) |
 | Procesor | Czas przerwań (%) |
@@ -143,7 +143,7 @@ Poniższa tabela zawiera listę obiektów i liczników, które można określić
 | System | Wolnej pamięci wirtualnej |
 | System | Procesy |
 | System | Rozmiar zapisanych w plikach stronicowania |
-| System | Czas działania |
+| System | Czas pracy |
 | System | Użytkownicy |
 
 
@@ -182,7 +182,7 @@ Poniżej przedstawiono konfigurację domyślną dla metryki wydajności.
     </source>
 
 ## <a name="data-collection"></a>Zbieranie danych
-Analizy dzienników zbiera wszystkie liczniki wydajności określony w ich określonego interwału dla wszystkich agentów, na których zainstalowane licznika.  Dane nie jest agregowany i danych pierwotnych jest dostępna we wszystkich widokach wyszukiwania dziennika w czasie trwania określony przez subskrypcję pakietu OMS.
+Analizy dzienników zbiera wszystkie liczniki wydajności określony w ich określonego interwału dla wszystkich agentów, na których zainstalowane licznika.  Danych nie jest agregowany i danych pierwotnych jest dostępna we wszystkich widokach wyszukiwania dziennika w czasie trwania określony przez subskrypcję.
 
 ## <a name="performance-record-properties"></a>Właściwości rekordu wydajności
 Rejestruje wydajności mieć typu **wydajności** i mieć właściwości w poniższej tabeli.
@@ -220,15 +220,10 @@ Poniższa tabela zawiera przykłady różnych dziennika wyszukiwania, które pob
 | Wydajności &#124; w przypadku, gdy CounterName == "% czasu procesora" i InstanceName == "_łącznie" i komputer == "Mój komputer" &#124; Podsumuj ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentyl (równowartości, 75), ["max(CounterValue)"] = max(CounterValue) przez bin (TimeGenerated, 1 godz.), komputer |Co godzinę średnia, minimalne, maksymalne i percentyl 75 użycia procesora CPU dla określonego komputera |
 | Wydajności &#124; Gdzie ObjectName == "MSSQL$ INST2: bazy danych" i InstanceName == "główna" | Wszystkie dane dotyczące wydajności z obiektu wydajności bazy danych dla bazy danych master z nazwanego wystąpienia programu SQL Server INST2.  
 
-## <a name="viewing-performance-data"></a>Wyświetlanie danych wydajności
-Po uruchomieniu wyszukiwania dziennika dane dotyczące wydajności, **listy** widoku jest wyświetlane domyślnie.  Aby wyświetlić dane w formie graficznej, kliknij przycisk **metryki**.  Szczegółowe widoku graficznego, kliknij przycisk  **+**  obok licznika.  
-
-![Metryki widoku zwiniętego](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Zagregowane dane dotyczące wydajności w wyszukiwania dziennika, zobacz [agregacji metryki na żądanie i wizualizację w OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
-## <a name="next-steps"></a>Następne kroki
+
+## <a name="next-steps"></a>Kolejne kroki
 * [Zbierania liczników wydajności z aplikacje w systemie Linux](log-analytics-data-sources-linux-applications.md) tym MySQL i Apache HTTP Server.
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.  
 * Zebrane dane, aby wyeksportować [usługi Power BI](log-analytics-powerbi.md) dodatkowe wizualizacje i analizy.

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 654c23e567d81bff1cb0c3091ba3d8f96f0a3eda
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-network-watcher-topology-with-azure-cli"></a>Wyświetl topologia obserwatora sieciowego z wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-topology-powershell.md)
+> - [Program PowerShell](network-watcher-topology-powershell.md)
 > - [Interfejs wiersza polecenia 1.0](network-watcher-topology-cli-nodejs.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-topology-cli.md)
 > - [Interfejs API REST](network-watcher-topology-rest.md)
@@ -111,6 +111,6 @@ Wyniki zwrócone ma właściwości name "zasoby", które zawiera treści odpowie
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej na temat reguł zabezpieczeń, które są stosowane do zasobów sieciowych, odwiedzając [Omówienie widoku grupy zabezpieczeń](network-watcher-security-group-view-overview.md)

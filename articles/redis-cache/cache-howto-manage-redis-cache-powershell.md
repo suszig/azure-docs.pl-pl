@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Zarządzanie przy użyciu programu Azure PowerShell pamięć podręczna Azure Redis
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+> * [Program PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](cache-manage-cli.md)
 > 
 > 
@@ -124,12 +124,12 @@ Poniższa tabela zawiera właściwości i opisy parametrów często używane pod
 
 | Parametr | Opis | Domyślne |
 | --- | --- | --- |
-| Nazwa |Nazwa pamięci podręcznej | |
+| Name (Nazwa) |Nazwa pamięci podręcznej | |
 | Lokalizacja |Lokalizacja pamięci podręcznej | |
 | Grupy zasobów o nazwie |Nazwa grupy zasobów, w której chcesz utworzyć pamięci podręcznej | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Liczba fragmentów, aby utworzyć podczas tworzenia usługi pamięć podręczna premium z włączoną funkcją klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa numer pamięci podręcznej. Prawidłowe wartości to: Basic, Standard, Premium |Standardowa |
+| SKU |Określa numer pamięci podręcznej. Prawidłowe wartości to: Basic, Standard, Premium |Standardowa (Standard) |
 | RedisConfiguration |Określa ustawienia konfiguracji pamięci podręcznej Redis. Aby uzyskać szczegółowe informacje o każdym ustawieniu, zobacz następujące tematy [RedisConfiguration właściwości](#redisconfiguration-properties) tabeli. | |
 | EnableNonSslPort |Wskazuje, czy włączono port bez protokołu SSL. |False |
 | MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego użyj RedisConfiguration. | |
@@ -776,7 +776,7 @@ Polecenie wykonuje ponowny rozruch oba węzły określonego pamięci podręcznej
         -Force
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat korzystania z platformy Azure, programu Windows PowerShell, zobacz następujące zasoby:
 
 * [Azure dokumentację poleceń cmdlet pamięci podręcznej Redis w witrynie MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)

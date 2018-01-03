@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
-ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie są składniki platformy Hadoop i wersje dostępne w usłudze HDInsight?
 
-Więcej informacji na temat składników ekosystemu platformy Apache Hadoop i wersji w usłudze Microsoft Azure HDInsight, a także poziomów usług standardowa i Premium. Ponadto informacje o sposobie Sprawdzanie wersji składników platformy Hadoop w usłudze HDInsight. 
+Więcej informacji na temat składników ekosystemu platformy Apache Hadoop i wersji w Microsoft Azure HDInsight, a także pakiet zabezpieczeń organizacji. Ponadto informacje o sposobie Sprawdzanie wersji składników platformy Hadoop w usłudze HDInsight. 
 
 Każda wersja HDInsight jest dystrybucji chmury wersji Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Składniki platformy Hadoop dostępne z różnych wersji usługi HDInsight
 Usługa Azure HDInsight obsługuje wielu wersjach klastra Hadoop, które można wdrożyć w dowolnym momencie. Każdy wybór wersji tworzy określonej wersji programu dystrybucji HDP i zestaw składników, które są zawarte w tej dystrybucji. Począwszy od 17 lutego 2017 wersja klastra domyślne używane przez usługi Azure HDInsight jest 3.5 i opiera się na HDP 2.5.
 
-Wersje składników skojarzone z wersji klastra usługi HDInsight są wymienione w poniższej tabeli. 
+Wersje składników skojarzone z wersji klastra usługi HDInsight są wymienione w poniższej tabeli: 
 
 > [!NOTE]
 > Wersja domyślna dla usługi HDInsight mogą ulec zmianie bez uprzedzenia. Jeśli masz zależność wersji wersji usługi HDInsight można określić podczas tworzenia klastrów przy użyciu zestawu .NET SDK z programu Azure PowerShell i interfejsu wiersza polecenia Azure.
@@ -46,7 +46,7 @@ Wersje składników skojarzone z wersji klastra usługi HDInsight są wymienione
 | Apache Hive i HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
 | Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
-| Zakres Apache | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
 | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
@@ -83,18 +83,60 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które są obecnie dost
 
 | Wersja usługi HDInsight | Wersja HDP | SYSTEM OPERACYJNY MASZYNY WIRTUALNEJ | Wysoka dostępność | Data wydania | Dostępność w portalu Azure | Data wygaśnięcia pomocy technicznej | Dacie wycofania |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,6 |HDP 2.6 |Ubuntu 16 |Tak |4 kwietnia 2017 r. |Tak | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Tak |30 września 2016 roku. |Tak |5 września 2017 r. |31 maja 2018 |
-| HDInsight w wersji 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Tak |29 marca 2016 r. |Tak |29 grudnia 2016 r. |9 stycznia 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Tak |2 grudnia 2015 r. |Tak |27 czerwca 2016 r. |31 lipca 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Tak |2 grudnia 2015 r. |Tak |27 czerwca 2016 r. |31 lipca 2017 r. |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS lub Windows Server 2012 R2 |Tak |18 lutego 2015 |Nie |1 marca 2016 r. |1 kwietnia 2017 r. |
-| HDInsight w wersji 3.1 |HDP 2.1 |Windows Server 2012 R2 |Tak |24 czerwca 2014 r. |Nie |18 maja 2015 r. |30 czerwca 2016 r. |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Tak |11 lutego 2014 r. |Nie |17 września 2014 r. |30 czerwca 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Tak |28 października 2013 |Nie |12 maja 2014 r. |31 maja 2015 r. |
+| HDInsight 3,6 |HDP 2.6 |Ubuntu 16 |Yes |4 kwietnia 2017 r. |Yes | | |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Yes |30 września 2016 roku. |Yes |5 września 2017 r. |31 maja 2018 |
+| HDInsight w wersji 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |29 marca 2016 r. |Yes |29 grudnia 2016 r. |9 stycznia 2018 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |2 grudnia 2015 r. |Yes |27 czerwca 2016 r. |31 lipca 2018 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |2 grudnia 2015 r. |Yes |27 czerwca 2016 r. |31 lipca 2017 r. |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS lub Windows Server 2012 R2 |Yes |18 lutego 2015 |Nie |1 marca 2016 r. |1 kwietnia 2017 r. |
+| HDInsight w wersji 3.1 |HDP 2.1 |Windows Server 2012 R2 |Yes |24 czerwca 2014 r. |Nie |18 maja 2015 r. |30 czerwca 2016 r. |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |11 lutego 2014 r. |Nie |17 września 2014 r. |30 czerwca 2015 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Yes |28 października 2013 |Nie |12 maja 2014 r. |31 maja 2015 r. |
 | HDInsight w wersji 1.6 |HDP 1.1 | |Nie |28 października 2013 |Nie |26 kwietnia 2014 r. |31 maja 2015 r. |
 
-## <a name="hdinsight-windows-retirement"></a>Wycofanie usługi HDInsight w systemie Windows
+
+## <a name="enterprise-security-package-for-hdinsight"></a>Pakiet zabezpieczeń przedsiębiorstwa dla usługi HDInsight
+
+Usługa Azure HDInsight jest opcjonalny pakiet, który można dodać w klastrze usługi HDInsight w ramach tworzenia klastra w przepływie pracy. Pakiet zabezpieczeń Enterprise obsługuje:
+
+- Integracja z usługą Active Directory do uwierzytelniania.
+
+    W przeszłości klastry usługi HDInsight można utworzyć tylko użytkownika administratora lokalnego i lokalnego użytkownika SSH. Użytkownika administratora lokalnego może uzyskać dostępu do wszystkich plików, folderów, tabel i kolumn.  Przy użyciu pakietu zabezpieczeń organizacji, można włączyć kontroli dostępu opartej na rolach dzięki integracji klastrów usługi HDInsight z własnych usługi Active Directory, które obejmują lokalnej usługi Active Directory, usług domenowych Azure Active Directory lub usługi Active Directory w IaaS Maszyna wirtualna. Administrator domeny w klastrze mogą udzielać użytkownikom na używanie własnych firmy (domena) nazwy użytkownika i hasła dostęp do klastra. 
+
+    Aby uzyskać więcej informacji, zobacz:
+
+    - [Wprowadzenie do zabezpieczeń Hadoop z klastrami HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-introduction.md)
+    - [Planowanie Azure klastrów platformy Hadoop przyłączonych do domeny w usłudze HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Skonfiguruj środowisko piaskownicy przyłączonych do domeny](./domain-joined/apache-domain-joined-configure.md)
+    - [Konfigurowanie klastrów HDInsight przyłączonych do domeny za pomocą usług domenowych Azure Active Directory](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Autoryzacji dla danych
+
+    - Integracja z zakres Apache autoryzacji dla gałęzi, Spark SQL i Yarn kolejek.
+    - Można ustawić kontroli dostępu do plików i folderów.
+
+    Aby uzyskać więcej informacji, zobacz:
+
+    - [Konfigurowanie zasad Hive w usłudze HDInsight z przyłączonych do domeny](./domain-joined/apache-domain-joined-run-hive.md)
+
+- Wyświetlanie dzienników inspekcji dostępu do monitora i skonfigurowanych zasad. 
+
+### <a name="supported-cluster-types"></a>Typy obsługiwane klastra
+
+Obecnie tylko następujące typy klastrów obsługują pakiet zabezpieczeń organizacji:
+
+- Hadoop (tylko HDInsight 3,6)
+- platforma Spark
+- Zapytanie interakcyjne
+
+### <a name="support-for-azure-data-lake-store"></a>Obsługa usługi Azure Data Lake Store
+
+Obsługuje pakiet zabezpieczeń organizacji, za pomocą usługi Azure Data Lake Store jako podstawowy magazynu i Magazyn dodatków.
+
+### <a name="pricing-and-sla"></a>Cennik i umowy SLA
+Uzyskać informacji o cenach i umowy SLA dla pakietu Enterprise zabezpieczeń, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## <a name="hdinsight-windows-retirement"></a>Wycofanie usługi HDInsight dla systemu Windows
 Microsoft Azure HDInsight w wersji 3.3 został ostatniej wersji usługi HDInsight w systemie Windows. Data wycofania dla usługi HDInsight w systemie Windows jest 31 lipca 2018. Jeśli wszystkie klastry usługi HDInsight w 3.3 systemu Windows lub starszym, należy przeprowadzić migrację do usługi HDInsight w systemie Linux (usługi HDInsight w wersji 3.5 lub nowszej) przed 31 lipca 2018. Migracja do systemu operacyjnego Linux pozwala zachować możliwość tworzenia lub zmiany rozmiaru klastrów usługi HDInsight. Pomocy technicznej dla usługi HDInsight w wersji 3.3 w systemie Windows wygasła w dniu 27 czerwca 2016 r.
 
 Począwszy od usługi HDInsight w wersji 3.4, firma Microsoft wydała HDInsight tylko w systemie operacyjnym Linux. W związku z tym niektóre składniki w ramach usługi HDInsight są dostępne dla systemu Linux tylko. Należą do nich zakres Apache, Kafka, interakcyjne zapytania, Spark, aplikacje usługi HDInsight i Azure Data Lake Store jako system pliku podstawowego. W przyszłych wydaniach systemu HDInsight są dostępne tylko w systemie operacyjnym Linux. Nie będzie żadnych kolejnych publikowanych wersjach usługi hdinsight w systemie Windows. 
@@ -165,36 +207,10 @@ Sekcja zawiera łącza do wersji dla dystrybucji na platformie Hortonworks Data 
 * Klaster usługi HDInsight w wersji 2.1 używa dystrybucji Hadoop, która jest oparta na [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * Wersja klastra usługi HDInsight w wersji 1.6 używa dystrybucji Hadoop, która jest oparta na [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard i HDInsight Premium
 
-Usługa Azure HDInsight zapewnia oferty danych big data chmury w dwóch różnych kategoriach: _standardowe_ i _Premium_. W poniższej tabeli wymieniono funkcje, które są dostępne _tylko_ w HDInsight Premium. Funkcje, które nie zostały jawnie opisane w tabeli są dostępne w HDInsight Standard i Premium.
 
-> [!NOTE]
-> HDInsight Premium oferty jest obecnie w wersji zapoznawczej i jest dostępna tylko w przypadku klastrów systemu Linux.
 
-| Funkcja HDInsight Premium | Opis |
-| --- | --- |
-| Klastry HDInsight przyłączonych do domeny |Klastry usługi HDInsight należy przyłączyć do domeny usługi Azure Active Directory (Azure AD) dla zabezpieczeń na poziomie przedsiębiorstwa. W HDInsight Premium można skonfigurować listę pracowników w przedsiębiorstwie, który może uwierzytelniać za pośrednictwem usługi Azure AD do logowania się do klastra usługi HDInsight. Administratorzy przedsiębiorstwa można skonfigurować kontroli dostępu opartej na rolach zabezpieczeń Hive za pomocą [zakres Apache](http://hortonworks.com/apache/ranger/) i ograniczyć dostęp do danych do użycia tylko tyle potrzebne. Na koniec administrator może inspekcji dane używane przez pracowników i zmiany dostęp zasad kontroli, a tym samym osiągnięcie wysoki stopień ładu ich zasobów firmy. Aby uzyskać więcej informacji, zobacz [skonfigurować przyłączonych do domeny w usłudze hdinsight](./domain-joined/apache-domain-joined-configure.md). |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>Typy klastrów, które są obsługiwane w HDInsight Premium
-W poniższej tabeli wymieniono typy klastrów, które są obsługiwane w HDInsight Premium.
-
-| Typ klastra | Standardowa | Premium (wersja zapoznawcza) |
-| --- | --- | --- |
-| Hadoop |Tak |Tak (tylko HDInsight 3,6) |
-| platforma Spark |Tak |Nie |
-| HBase |Tak |Nie |
-| Storm |Tak |Nie |
-| R Server |Tak |Nie |
-| Zapytanie interakcyjne |Tak |Nie |
-| Kafka (wersja zapoznawcza) |Tak |Nie | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Obsługa usługi Azure Data Lake Store w HDInsight Premium
-
-Klastry HDInsight Premium nie obsługują przy użyciu usługi Azure Data Lake Store jako podstawowy magazyn. Można jednak użyć usługi Azure Data Lake Store, jako dodatek do magazynowania z klastrami HDInsight Premium.
-
-### <a name="pricing-and-sla"></a>Cennik i umowy SLA
-Aby uzyskać informacje o cenach i umowy dotyczącej poziomu usług HDInsight Premium, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Domyślne rozmiary maszyn wirtualnych i konfiguracji węzła klastrów
 W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) w przypadku klastrów usługi HDInsight.
@@ -234,7 +250,7 @@ W poniższych tabelach przedstawiono domyślne rozmiary maszyny wirtualnej (VM) 
 > - Proces roboczy jest nazywany *przełożonego* Storm typ klastra.
 > - Proces roboczy jest nazywany *Region* typ klastra HBase.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Klaster Instalatora platformy Hadoop, Spark i więcej informacji na temat usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Praca w Hadoop w usłudze HDInsight z Komputerami z systemem Windows](hdinsight-hadoop-windows-tools.md)
 

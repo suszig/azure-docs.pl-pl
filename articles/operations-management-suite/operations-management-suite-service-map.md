@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Użycie rozwiązania mapy usługi w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Z mapy usługi można przeglądać serwery w taki sposób, który należy wziąć pod uwagę ich: jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej połączenia TCP architekturze, bez konieczności wykonywania konfiguracyjnych wymaganych innych niż instalację agenta.
@@ -28,7 +28,7 @@ W tym artykule opisano szczegóły przy użyciu mapy usługi. Informacje o konfi
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Przypadki użycia: należy go przetwarza pamiętać zależności
 
-### <a name="discovery"></a>Odnajdywania
+### <a name="discovery"></a>Odnajdowanie
 Mapy usług automatycznie tworzy wspólnej mapę zależności odwołania na serwery, procesów i usług innych firm. Odnajduje, a mapuje wszystkie zależności TCP, identyfikowanie niespodziewanego połączenia zdalnego systemów innych firm, które zależą od i zależności do tradycyjnych ciemny obszarów sieci, takich jak usługi Active Directory. Mapa usług odnajduje połączenia sieciowe nie powiodło się, które próbujesz zarządzanych systemach, aby pomaga zidentyfikować potencjalne konfiguracji serwera, awaria usługi i problemy z siecią.
 
 ### <a name="incident-management"></a>Zarządzanie zdarzeniami
@@ -49,7 +49,7 @@ Agenci mapy usługi zbieranie informacji na temat wszystkich procesów połącze
 
 ![Omówienie mapy usług](media/oms-service-map/service-map-overview.png)
 
-Maszyny można skalować w mapie do pokazania w wybranym zakresie czasu procesów uruchomionych z aktywnych połączeń sieciowych. Gdy komputer zdalny przy użyciu mapy usługi agenta jest rozwinięty, aby wyświetlić szczegóły procesu, wyświetlane są tylko procesy, które komunikują się z maszyną fokus. Po lewej stronie procesów, które łączą się z określonej liczby bez wykorzystania agentów maszyn frontonu, które łączą się maszyny fokus. Jeśli maszyna fokus jest połączenie maszyny zaplecza, której nie ma agenta, serwera zaplecza znajduje się w grupy portów serwera, oraz inne połączenia do tego samego numeru portu.
+Maszyny można skalować w mapę, aby pokazać działanie przetworzenia grup i procesy z aktywnych połączeń sieciowych w trakcie wybranego zakresu czasu. Gdy komputer zdalny przy użyciu mapy usługi agenta jest rozwinięty, aby wyświetlić szczegóły procesu, wyświetlane są tylko procesy, które komunikują się z maszyną fokus. Po lewej stronie procesów, które łączą się z określonej liczby bez wykorzystania agentów maszyn frontonu, które łączą się maszyny fokus. Jeśli maszyna fokus jest połączenie maszyny zaplecza, której nie ma agenta, serwera zaplecza znajduje się w grupy portów serwera, oraz inne połączenia do tego samego numeru portu.
 
 Domyślnie mapy usługi maps zawierają ostatnich 30 minut informacji o zależnościach. Za pomocą formantów czasu, w lewym górnym rogu, można zbadać mapy dla przedziałów czasu historycznych maksymalnie jedną godzinę, aby pokazać, jak zależności wyszukiwanego w przeszłości (na przykład podczas zdarzenia lub zanim nastąpiła zmiana). Dane mapy usługi są przechowywane przez 30 dni roboczych płatną i 7 dni w bezpłatnych obszarów roboczych.
 
@@ -59,6 +59,9 @@ W dolnej części każdego serwera w planie może być lista identyfikatory stan
 W zależności od ważności identyfikatory stan obramowań węzła maszyny mogą być kolorowe czerwony (krytyczna), żółty (ostrzeżenie) lub niebieski (informacyjny). Kolor reprezentuje najpoważniejsze stan dowolnego identyfikatory stanu. Szare obramowanie wskazuje węzła, który ma wskaźników stanu.
 
 ![Identyfikatory stanu](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Grupa procesów
+Grupa procesów łączyć procesów, które są skojarzone z typowych produktu lub usługi do grupy procesów.  Po rozwinięciu węzła maszyny wyświetli autonomiczny procesów wraz z grupy procesów.  Jeśli wszystkie połączenia przychodzące i wychodzące do procesu w obrębie grupy procesu nie powiodło się następnie połączenie, jest wyświetlana jako grupy całego procesu nie powiodło się.
 
 ## <a name="machine-groups"></a>Grupy na komputerze
 Grupy na komputerze umożliwiają wyświetlanie mapy skupia się wokół zestaw serwerów, nie tylko jedną pozwala zobaczyć wszystkie elementy członkowskie klastra wielowarstwowych aplikacji lub serwera, w jedną mapę.
@@ -323,7 +326,7 @@ Rekordy z typem *ServiceMapProcess_CL* mają dane spisu dla procesów połączen
 | CommandLine_s | W wierszu polecenia |
 | ExecutablePath _s | Ścieżka do pliku wykonywalnego |
 | WorkingDirectory_s | Katalog roboczy |
-| Nazwa użytkownika | Konta, na którym jest wykonywany proces |
+| UserName | Konta, na którym jest wykonywany proces |
 | UserDomain | Domeny, na którym jest wykonywany proces |
 
 
@@ -370,7 +373,7 @@ Firma Microsoft automatycznie zbiera dane użycia i wydajności przez korzystani
 Aby uzyskać więcej informacji na temat zbierania i użycia danych, zobacz [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [dziennika wyszukiwania](../log-analytics/log-analytics-log-searches.md) w analizy dzienników do pobierania danych zbieranych przez usługę mapy.
 
 

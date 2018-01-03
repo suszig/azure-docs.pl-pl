@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: ee48ca45ae0d337b5b919dbbb28341caf8af0d45
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL przy użyciu usługi Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-ssl-portal.md)
+> * [Azure portal](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-ssl-arm.md)
 > * [Program Azure PowerShell klasycznego](application-gateway-ssl.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl-cli.md)
@@ -263,7 +263,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz skonfigurować bramę aplikacji za pomocą wewnętrznego modułu równoważenia obciążenia, zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia](application-gateway-ilb.md).
 

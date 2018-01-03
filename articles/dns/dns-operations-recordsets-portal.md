@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Zarządzanie rekordami DNS i zestawów rekordów przy użyciu portalu Azure
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure portal](dns-operations-recordsets-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Program PowerShell](dns-operations-recordsets.md)
 
 W tym artykule przedstawiono sposób zarządzania zestawy rekordów i rekordów dla strefy DNS przy użyciu portalu Azure.
 
@@ -120,7 +120,7 @@ Należy pamiętać, że dotyczy to tylko zestawu w wierzchołku strefy rekordów
 
 Nie można usunąć SOA i zestawy rekordów NS w wierzchołku strefy (nazwa = "@") która są tworzone automatycznie po utworzeniu strefy. Są one usuwane automatycznie po usunięciu strefy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać więcej informacji o usłudze Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
 * Aby uzyskać więcej informacji na temat automatyzacji DNS, zobacz [stref DNS tworzenia i zestawów rekordów przy użyciu zestawu .NET SDK](dns-sdk.md).

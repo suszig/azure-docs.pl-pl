@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: be29b993592e494053353aac1067bfb7eff90ed7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do przepływu rejestrowania dla grup zabezpieczeń sieci
 
@@ -29,7 +29,7 @@ Dzienniki przepływu sieciowej grupy zabezpieczeń są funkcją obserwatora siec
 Podczas przepływu rejestruje grup zabezpieczeń sieci docelowej, nie są wyświetlane takie same jak inne dzienniki. Przepływ dzienniki są przechowywane tylko w ramach konta magazynu i po ścieżce rejestrowania, jak pokazano w poniższym przykładzie:
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 Te same zasady przechowywania wyświetlanego na inne dzienniki dotyczą dzienniki przepływu. Dzienniki ma zasady przechowywania, które można ustawić od dnia 1 do 365 dni. Jeśli zasady przechowywania nie są ustawione, dzienniki będą obsługiwane przez czas nieokreślony.
@@ -100,7 +100,7 @@ Poniżej przedstawiono przykładowy dziennik przepływu. Jak widać, że ma wiel
         ...
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak włączyć dzienniki przepływu odwiedzając [przepływ włączenie rejestrowania](network-watcher-nsg-flow-logging-portal.md).
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -70,40 +70,7 @@ Aby przywrócić pliki lub foldery z punktu przywracania, przejdź do maszyny wi
 
    Dla systemu Linux skrypt wymaga składników "open-iscsi" i "lshw" połączyć się z punktem odzyskiwania. Jeśli składniki nie istnieją na komputerze, na którym skrypt jest uruchamiany, skrypt z pytaniem o zgodę na instalację składników. Podaj zgody Aby zainstalować wymagane składniki.  
          
-   Skrypt można uruchomić na dowolnym komputerze, systemu operacyjnego tego samego (lub zgodne) jako kopii zapasowej maszyny Wirtualnej. Zobacz [tabeli zgodny system operacyjny](backup-azure-restore-files-from-vm.md#compatible-os) dla zgodnych systemów operacyjnych. Jeśli chronionej maszyny wirtualnej Azure korzysta z miejsca do magazynowania systemu Windows (w przypadku maszyn wirtualnych systemu Windows Azure) lub Arrays(for Linux VMs) LVM/RAID, nie można uruchomić plik wykonywalny lub skrypt na tej samej maszyny wirtualnej. Zamiast tego należy uruchomić plik wykonywalny lub skrypt na innym komputerze z zgodny system operacyjny.
-
-### <a name="compatible-os"></a>Zgodny system operacyjny
-
-#### <a name="for-windows"></a>Dla systemu Windows
-
-W poniższej tabeli przedstawiono zgodność między systemami operacyjnymi serwera i komputera. Podczas odzyskiwania plików, nie można przywrócić pliki z wersją systemu operacyjnego poprzedniego lub przyszłe. Na przykład nie można przywrócić pliku z maszyny Wirtualnej systemu Windows Server 2016 na komputerze z systemem Windows Server 2012 lub Windows 8. Ten sam system operacyjny serwera lub klienta zgodny system operacyjny, można przywrócić pliki z maszyny Wirtualnej.   
-
-|System operacyjny serwera | Zgodny system operacyjny klienta  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Dla systemu Linux
-
-W systemie Linux system operacyjny komputera służące do przywrócenia plików musi obsługiwać system plików chronionej maszyny wirtualnej. Po wybraniu komputera, aby uruchomić skrypt, upewnij się, komputer ma zgodny system operacyjny i korzysta z jednego z wersji określonej w poniższej tabeli:
-
-|System operacyjny Linux | Wersje  |
-| --------------- | ---- |
-| Ubuntu | 12.04 i powyżej. |
-| CentOS | 6.5 i powyżej.  |
-| RHEL | 6.7 i powyżej. |
-| Debian | 7 i nowsze |
-| Oracle Linux | 6.4 i powyżej. |
-
-Skrypt wymaga również Python i bash składników do wykonywania i bezpieczne łączenie z punktu odzyskiwania.
-
-|Składnik | Wersja  |
-| --------------- | ---- |
-| Bash | 4 i nowsze |
-| python | 2.6.6 i powyżej.  |
-
+   Skrypt można uruchomić na dowolnym komputerze, systemu operacyjnego tego samego (lub zgodne) jako kopii zapasowej maszyny Wirtualnej. Zobacz [tabeli zgodny system operacyjny](backup-azure-restore-files-from-vm.md#system-requirements) dla zgodnych systemów operacyjnych. Jeśli chronionej maszyny wirtualnej Azure korzysta z miejsca do magazynowania systemu Windows (w przypadku maszyn wirtualnych systemu Windows Azure) lub tablic LVM/RAID (dla maszyn wirtualnych systemu Linux), nie można uruchomić plik wykonywalny lub skrypt na tej samej maszyny wirtualnej. Zamiast tego należy uruchomić plik wykonywalny lub skrypt na innym komputerze z zgodny system operacyjny.
 
 ### <a name="identifying-volumes"></a>Identyfikowanie woluminów
 
@@ -193,11 +160,46 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Jeśli dysk RAID inny LVM skonfigurowane w nim, przy użyciu powyższej procedury dla partycji LVM ale użyj nazwy woluminu zamiast nazwy dysku RAID
 
+## <a name="system-requirements"></a>Wymagania systemowe
+
+### <a name="for-windows"></a>Dla systemu Windows
+
+W poniższej tabeli przedstawiono zgodność między systemami operacyjnymi serwera i komputera. Podczas odzyskiwania plików, nie można przywrócić pliki z wersją systemu operacyjnego poprzedniego lub przyszłe. Na przykład nie można przywrócić pliku z maszyny Wirtualnej systemu Windows Server 2016 system Windows Server 2012 lub na komputerze z systemem Windows 8. Ten sam system operacyjny serwera lub klienta zgodny system operacyjny, można przywrócić pliki z maszyny Wirtualnej.   
+
+|System operacyjny serwera | Zgodny system operacyjny klienta  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Dla systemu Linux
+
+W systemie Linux system operacyjny komputera służące do przywrócenia plików musi obsługiwać system plików chronionej maszyny wirtualnej. Po wybraniu komputera, aby uruchomić skrypt, upewnij się, komputer ma zgodny system operacyjny i korzysta z jednego z wersji określonej w poniższej tabeli:
+
+|System operacyjny Linux | Wersje  |
+| --------------- | ---- |
+| Ubuntu | 12.04 i powyżej. |
+| CentOS | 6.5 i powyżej.  |
+| RHEL | 6.7 i powyżej. |
+| Debian | 7 i nowsze |
+| Oracle Linux | 6.4 i powyżej. |
+| SLES | 12 lub nowszym |
+| openSUSE | 42.2 i powyżej. |
+
+Skrypt wymaga również Python i bash składników do wykonywania i bezpieczne łączenie z punktu odzyskiwania.
+
+|Składnik | Wersja  |
+| --------------- | ---- |
+| Bash | 4 i nowsze |
+| python | 2.6.6 i powyżej.  |
+| Protokół TLS | 1.2 powinny być obsługiwane.  |
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Jeśli masz problemy podczas przywracania plików z maszyn wirtualnych Sprawdź poniższej tabeli, aby uzyskać dodatkowe informacje.
 
-| Komunikat o błędzie / scenariusza | Prawdopodobna przyczyna | Zalecane działanie |
+| Komunikat o błędzie / scenariusza | Prawdopodobna przyczyna | Zalecana akcja |
 | ------------------------ | -------------- | ------------------ |
 | Dane wyjściowe exe: *wyjątek łączenie się z obiektem docelowym* |Skrypt nie będzie mógł uzyskać dostępu do punktu odzyskiwania | Sprawdź, czy komputer spełnia wymienionych powyżej wymagań dostępu. |  
 |   Dane wyjściowe exe: *element docelowy ma już zalogowany za pośrednictwem sesji ISCSI.* | Skrypt zostało już wykonane na tym samym komputerze, a dyski zostały dołączone | Już zostały dołączone woluminy punktu odzyskiwania. Mogą one nie można zainstalować z tych samych liter dysków oryginalnego maszyny wirtualnej. Przeglądaj wszystkie dostępne woluminy w Eksploratorze plików dla pliku |

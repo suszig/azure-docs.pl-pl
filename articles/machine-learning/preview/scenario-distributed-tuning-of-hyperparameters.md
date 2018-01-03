@@ -4,15 +4,17 @@ description: "W tym scenariuszu pokazano, jak to zrobić rozproszonej dostrojeni
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Rozproszone dostrojenie hyperparameters przy użyciu usługi Azure Machine Learning Workbench
 
@@ -26,7 +28,7 @@ Poniżej znajduje się łącze do publicznego repozytorium GitHub:
 ## <a name="use-case-overview"></a>Omówienie przypadków użycia
 
 Wiele algorytmów uczenia maszynowego ma co najmniej jeden pokrętła o nazwie hyperparameters. Te pokrętła Zezwalaj dostrajanie algorytmów w celu optymalizacji ich wydajności za pośrednictwem przyszłych danych mierzona w oparciu metryki określone przez użytkownika (na przykład dokładność AUC, RMSE). Naukowca danych musi podać wartości hyperparameters podczas konstruowania modelu za pośrednictwem dane szkoleniowe i dopiero po kilkukrotnym przyszłych testów. Jak oparte na może danych szkoleniowych znane skonfigurowanie wartości hyperparameters tak, aby modelu dobrą wydajność nad danymi nieznany testu? 
-
+    
 Popularne metoda dostrajania hyperparameters *wyszukiwania siatki* połączeniu z *krzyżowego sprawdzania poprawności*. Krzyżowe sprawdzanie poprawności to technika, który ocenia, jak model uczenia na zestaw szkoleniowy prognozuje wyznaczonych dla zestawu testów. Ta technika, możemy najpierw podzielić zestawu danych na złożeń K i następnie uczenia razy K algorytmu w działaniu okrężnym. Firma Microsoft to zrobić na wszystkich, ale jeden złożeń o nazwie "przechowywane poza złożenia". Średnia wartość metryki modeli K możemy obliczeniowego za pośrednictwem K przechowywane poza złożeń. Wartość średnia, nazywany *oszacowania wydajności krzyżowego sprawdzania poprawności*, zależy od wartości hyperparameters używany podczas tworzenia modeli K. Dostrajanie hyperparameters, możemy wyszukiwać za pośrednictwem obszaru candidate hyperparameter wartości, aby dowiedzieć się, że te, które optymalizacji wydajności krzyżowego sprawdzania poprawności oszacować. Wyszukiwanie siatki jest typowe techniki wyszukiwania. W wyszukiwaniu siatki miejsce candidate wartości wielu hyperparameters jest iloczyn wektorowy zestawów wartości candidate poszczególnych hyperparameters. 
 
 Przy użyciu krzyżowego sprawdzania poprawności wyszukiwania siatki może być czasochłonne. Jeśli algorytm ma pięć hyperparameters z pięciu wartości kandydujących, używamy złożeń K = 5. Następnie wykonywania siatki wyszukiwanie według szkolenia 5<sup>6</sup>= 15625 modeli. Na szczęście siatki wyszukiwania przy użyciu krzyżowego sprawdzania poprawności jest embarrassingly równoległych procedury i może być uczony te modele równolegle.
@@ -37,13 +39,15 @@ Przy użyciu krzyżowego sprawdzania poprawności wyszukiwania siatki może być
 * Zainstalowana kopia programu [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) następujące [zainstalować i utworzyć szybkiego startu](./quickstart-installation.md) zainstalować Workbench i tworzenia kont.
 * W tym scenariuszu przyjęto założenie, że Workbench uczenia Maszynowego Azure są uruchomione na systemu Windows 10 lub MacOS z aparatem platformy Docker zainstalowane lokalnie. 
 * Do uruchomienia w scenariuszu z kontenerem Docker zdalnego, należy udostępnić Ubuntu danych nauki maszyny wirtualnej (DSVM), postępując [instrukcje](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 28 Gb pamięci. D4 wystąpień maszyn wirtualnych ma takie wydajności. 
-* Aby uruchomić ten scenariusz z klastrem Spark, należy udostępnić klaster Azure HDInsight wykonując te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Zalecamy skonfigurowanie klastra z co najmniej 
-- sześciu węzłów procesu roboczego
-- osiem rdzeni
-- 28 Gb pamięci w węzłach zarówno nagłówka i proces roboczy. D4 wystąpień maszyn wirtualnych ma takie wydajności. Firma Microsoft zaleca zmianę następujących parametrów, aby zmaksymalizować wydajność klastra.
-- Spark.Executor.instances
-- Spark.Executor.cores
-- Spark.Executor.Memory 
+* Aby uruchomić ten scenariusz z klastrem Spark, należy udostępnić klaster Azure HDInsight wykonując te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Zaleca się o klastrze z co najmniej:
+    - sześciu węzłów procesu roboczego
+    - osiem rdzeni
+    - 28 Gb pamięci w węzłach zarówno nagłówka i proces roboczy. D4 wystąpień maszyn wirtualnych ma takie wydajności.       
+    - Firma Microsoft zaleca zmianę następujących parametrów, aby zmaksymalizować wydajność klastra:
+        - Spark.Executor.instances
+        - Spark.Executor.cores
+        - Spark.Executor.Memory 
 
 Możesz wykonać te [instrukcje](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) i edycję definicji w sekcji "spark niestandardowe ustawienia domyślne".
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywracanie stanu systemu do systemu Windows Server
 
@@ -89,9 +89,6 @@ Składa się z terminologią używaną w następujące kroki:
 1. Otwórz **kopia zapasowa Microsoft Azure** przystawki na *maszyny docelowej*.
 2. Upewnij się, że *maszyny docelowej* i *maszyny źródłowej* są rejestrowane w tym samym magazynie usług odzyskiwania.
 3. Kliknij przycisk **odzyskać dane** do inicjowania przepływu pracy.
-
-    ![Odzyskiwanie danych](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Wybierz **innego serwera**
 
     ![Inny serwer](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ Składa się z terminologią używaną w następujące kroki:
 5. Podaj plik poświadczeń magazynu, który odpowiada *magazynu próbki*. Jeśli plik poświadczeń magazynu jest nieprawidłowa (lub wygasła), Pobierz nowy plik poświadczeń magazynu z *magazynu próbki* w portalu Azure. Po podany plik poświadczeń magazynu zostanie wyświetlony w magazynie usług odzyskiwania skojarzonych z plik poświadczeń magazynu.
 
 6. W okienku wybierz pozycję Utwórz kopię zapasową serwera wybierz *maszyny źródłowej* z listy wyświetlanych maszyn.
-
-    ![Lista komputerów](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. W okienku wybierz trybie odzyskiwania, wybierz **stanu systemu** i kliknij przycisk **dalej**. 
 
     ![Wyszukiwanie](./media/backup-azure-restore-system-state/recover-type-selection.png)
@@ -222,5 +216,5 @@ Jeśli poprzednie proces stosowania stan systemu nie zakończy się pomyślnie, 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Teraz, gdy zostały odzyskane pliki i foldery, możesz [Zarządzanie kopii zapasowych](backup-azure-manage-windows-server.md).

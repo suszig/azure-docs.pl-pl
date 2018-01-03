@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 5257a70aa2dbc25bfe4eca5e2e0db87ca5e6b6fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Sprawdź, czy ruch jest dozwolony lub odrzucany do lub z maszyny Wirtualnej z przepływem IP Sprawdź składnik Azure obserwatora sieciowego
 
 > [!div class="op_single_selector"]
-> - [Witryna Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
-> - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
+> - [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
+> - [Program PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [Interfejs wiersza polecenia 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [Interfejs API Azure REST](network-watcher-check-ip-flow-verify-rest.md)
@@ -88,7 +88,7 @@ Access RuleName
 Allow  defaultSecurityRules/AllowInternetOutBound
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) śledzić reguły zabezpieczeń sieciowych grupy i zabezpieczeń zdefiniowane.
 

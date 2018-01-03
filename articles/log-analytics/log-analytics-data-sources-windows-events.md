@@ -1,6 +1,6 @@
 ---
-title: "Zbieranie i analizowanie dzienników zdarzeń systemu Windows w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Dzienniki zdarzeń systemu Windows są jednym z najbardziej typowych źródeł danych używanych przez analizy dzienników.  W tym artykule opisano sposób konfigurowania zbierania dzienników zdarzeń systemu Windows i szczegóły rekordów tworzonych w repozytorium OMS."
+title: "Zbieranie i analizowanie dzienników zdarzeń systemu Windows w usłudze Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Dzienniki zdarzeń systemu Windows są jednym z najbardziej typowych źródeł danych używanych przez analizy dzienników.  W tym artykule opisano sposób konfigurowania zbierania dzienników zdarzeń systemu Windows i szczegóły rekordów tworzonych w obszarze roboczym analizy dzienników."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Źródła danych dziennika zdarzeń systemu Windows w analizy dzienników
 Dzienniki zdarzeń systemu Windows są jednym z najbardziej typowych [źródeł danych](log-analytics-data-sources.md) do zbierania danych za pomocą agentów systemu Windows, ponieważ wiele aplikacji zapisu do dziennika zdarzeń systemu Windows.  Oprócz określenia żadnych dzienników niestandardowych tworzony przez aplikacje, które należy monitorować może zbierać zdarzenia z dzienników standardowe, takie jak systemu i aplikacji.
@@ -59,7 +59,7 @@ Rekordy zdarzeń systemu Windows mają typ **zdarzeń** i mieć właściwości w
 | Element źródłowy |Źródło zdarzenia. |
 | SourceSystem |Typ agenta, które zostały zebrane zdarzenia. <br> Połącz OpsManager — agent systemu Windows, bądź bezpośrednio lub zarządzanych w programie Operations Manager <br> Linux — wszystkich agentów systemu Linux  <br> AzureStorage — Diagnostyka Azure |
 | TimeGenerated |Data i godzina utworzenia zdarzenia w systemie Windows. |
-| Nazwa użytkownika |Nazwa użytkownika konta, które są rejestrowane zdarzenia. |
+| UserName |Nazwa użytkownika konta, które są rejestrowane zdarzenia. |
 
 ## <a name="log-searches-with-windows-events"></a>Wyszukiwań dziennika zdarzeń systemu Windows
 Poniższa tabela zawiera różne przykłady wyszukiwania dziennika, które pobierają rekordy zdarzeń systemu Windows.
@@ -72,7 +72,7 @@ Poniższa tabela zawiera różne przykłady wyszukiwania dziennika, które pobie
 | Zdarzenie &#124; gdzie EventLevelName == "error" &#124; Podsumowanie funkcji count() przez źródło |Liczba Windows Błąd źródła. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Konfigurowanie analizy dzienników do gromadzenia innych [źródeł danych](log-analytics-data-sources.md) do analizy.
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.  
 * Użyj [pola niestandardowe](log-analytics-custom-fields.md) do analizowania rekordów zdarzeń do poszczególnych pól.

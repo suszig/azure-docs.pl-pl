@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 4bc73f581f4855ebc724df19dd56fab8bf103854
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorowanie i diagnozowanie usług w Instalatorze programowanie komputera lokalnego
 
@@ -140,6 +140,6 @@ Przykłady w [przykłady dotyczące języka C#](https://github.com/Azure-Samples
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Ten sam kod śledzenia dodany do aplikacji współdziała również z diagnostyki aplikacji w klastrze platformy Azure. Zapoznaj się z tych artykułach, omówiono w nim różne opcje dla narzędzi, które opisano, jak je skonfigurować.
 * [Jak zebrać dzienniki Diagnostyka Azure](service-fabric-diagnostics-how-to-setup-lad.md)

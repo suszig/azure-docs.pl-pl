@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integracja aplikacji z sieci wirtualnej platformy Azure
 Ten dokument zawiera opis funkcji integracji sieci wirtualnej Azure App Service i pokazuje, jak je skonfigurować przy użyciu aplikacji w [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Jeśli znasz sieci wirtualnych Azure (sieci wirtualne), jest możliwość, która pozwala umieszczać wiele zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci mogą być następnie połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure, należy uruchomić z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure][VNETOverview]. 
@@ -257,6 +257,10 @@ Teraz Jeśli sieci wirtualnej jest hostowany maszyny Wirtualnej może nawiązać
 * grupy zabezpieczeń sieci są blokowanie dostępu do punktu do zakresu adresów IP lokacji
 * lokalnej zapory blokuje ruch z punktu do zakresu adresów IP lokacji
 * masz użytkownika Route(UDR) zdefiniowana w sieci wirtualnej, która uniemożliwia punkt do lokacji, na podstawie ruchu nawiązywania połączenia z siecią lokalną
+
+## <a name="powershell-automation"></a>Automatyzacja programu PowerShell
+
+Usługi aplikacji można zintegrować z sieci wirtualnej platformy Azure przy użyciu programu PowerShell. Gotowy do uruchomienia skryptu, zobacz [łączenie aplikacji w usłudze Azure App Service z sieci wirtualnej platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Połączenia hybrydowe i środowiska usługi aplikacji
 Istnieją trzy funkcje, które umożliwiają dostęp do zasobów hostowanych w sieci wirtualnej. Są to:
