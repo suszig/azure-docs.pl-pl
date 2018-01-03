@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
 ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Oceń sieć szkieletowa usług Azure, aplikacji i micro-services przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
-> * [PowerShell](log-analytics-service-fabric.md)
+> * [Program PowerShell](log-analytics-service-fabric.md)
 >
 >
 
@@ -649,5 +649,5 @@ foreach($storageAccount in $storageAccountsToCheck)
  ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Użyj [wyszukiwania dziennika analizy dzienników](log-analytics-log-searches.md) Aby wyświetlić szczegółowe dane zdarzeń usługi sieć szkieletowa usług.

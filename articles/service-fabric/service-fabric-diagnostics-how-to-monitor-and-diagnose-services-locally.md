@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 034bfe6fbab3da083d6c63f99f960467fd0a84e9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorowanie i diagnozowanie usług w Instalatorze programowanie komputera lokalnego
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Dla projektów utworzone na podstawie **szablony aktora** (bezstanowych lub stat
 
 Po dodaniu niestandardowych ETW śledzenia do kodu usługi, tworzenie, wdrażanie i uruchom aplikację ponownie, aby wyświetlić zdarzenia z Podglądu zdarzeń diagnostycznych. Jeśli debugowanie aplikacji z **F5**, automatycznie zostanie wyświetlone podglądu zdarzeń diagnostycznych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Ten sam kod śledzenia dodanego do aplikacji powyżej dla lokalnych diagnostyki będzie działać z narzędziami, które służy do wyświetlania tych zdarzeń, podczas uruchamiania aplikacji w klastrze platformy Azure. Zapoznaj się z tych artykułów, omówiono w nim różne opcje dla narzędzi i opisujące, jak można skonfigurować je.
 
 * [Jak zebrać dzienniki Diagnostyka Azure](service-fabric-diagnostics-how-to-setup-wad.md)

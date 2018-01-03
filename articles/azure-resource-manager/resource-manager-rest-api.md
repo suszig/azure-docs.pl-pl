@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>Interfejsy API REST Menedżera zasobów
 > [!div class="op_single_selector"]
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 Aby poprawić czytelność niniejszej dokumentacji została pominięta długich odpowiedzi JSON dla tego żądania. Odpowiedź zawiera informacje dotyczące wdrażania opartego na szablonie, utworzony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Informacje na temat obsługi operacji asynchronicznych REST, zobacz [śledzić operacje asynchroniczne Azure](resource-manager-async-operations.md).

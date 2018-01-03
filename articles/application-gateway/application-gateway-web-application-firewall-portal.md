@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
+> * [Program PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-web-application-firewall-cli.md)
 
 Dowiedz się, jak utworzyć zapory aplikacji sieci web (WAF)-włączone bramy aplikacji.
@@ -146,7 +146,7 @@ Te kroki Utwórz bramę aplikacji w warstwie podstawowa z domyślnych ustawień 
 > [!NOTE]
 > Bramy aplikacji utworzonych za pomocą podstawową konfigurację zapory aplikacji sieci Web są skonfigurowane z CRS 3.0 do ochrony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby skonfigurować alias domeny niestandardowej dla [publicznego adresu IP](../dns/dns-custom-domain.md#public-ip-address), możesz użyć usługi Azure DNS lub innego dostawcy usługi DNS.
 

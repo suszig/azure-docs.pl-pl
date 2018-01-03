@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
 ms.openlocfilehash: c2cbe41b71afa8acc184f9d7f4cfe94686de783e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Porady: uzyskiwanie wystąpienia procesora nośnika
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W usłudze Media Services, który procesor multimediów jest składnikiem, który obsługuje przetwarzania specyficznego dla zadania, takie jak kodowanie format konwersji, szyfrowania lub odszyfrowywania zawartości nośnika. Podczas tworzenia zadania kodowania, szyfrowania lub przekonwertować format zawartości multimedialnej zwykle utworzyć procesor multimediów.
 
 ## <a name="azure-media-processors"></a>Procesory multimediów Azure 

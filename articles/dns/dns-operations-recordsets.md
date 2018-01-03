@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Zarządzanie rekordami DNS i zestawy rekordów w usłudze Azure DNS przy użyciu programu Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure portal](dns-operations-recordsets-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Program PowerShell](dns-operations-recordsets.md)
 
 W tym artykule przedstawiono sposób zarządzania rekordy DNS dla strefy DNS przy użyciu programu Azure PowerShell. Rekordy DNS można też zarządzać za pomocą wielu platform [interfejsu wiersza polecenia Azure](dns-operations-recordsets-cli.md) lub [portalu Azure](dns-operations-recordsets-portal.md).
 
@@ -389,7 +389,7 @@ Można zastąpić bieżącą `$ConfirmPreference` ustawienie przy użyciu `-Conf
 
 Aby uzyskać więcej informacji na temat `-Confirm` i `$ConfirmPreference`, zobacz [o zmiennych preferencji](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o [strefy i rekordy w usłudze Azure DNS](dns-zones-records.md).
 <br>

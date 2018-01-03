@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Utwórz bramę aplikacji do obsługi wielu aplikacji sieci web
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](application-gateway-create-multisite-portal.md)
+> * [Azure portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager — program PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
 Obsługujący wiele lokacji umożliwia wdrożenie więcej niż jednej aplikacji sieci web na tej samej bramy aplikacji. Opiera się na obecność nagłówek hosta w przychodzące żądanie HTTP, aby określić, które odbiornika będzie odbierać dane. Odbiornik następnie kieruje ruch do puli zaplecza odpowiednie zgodnie z konfiguracją w definicji reguły bramy. Brama aplikacji w aplikacji sieci web z włączonym protokołem SSL, opiera się rozszerzenia oznaczenia nazwy serwera (SNI), aby wybrać poprawny odbiornika dla ruchu w sieci web. Zazwyczaj do obsługi wielu lokacji jest używane w celu zrównoważenia obciążenia żądaniami dla domen z innej witryny sieci web do innego serwera zaplecza pul. Podobnie wielu domen podrzędnych tej samej domeny katalogu głównego może być hostowana na tę samą bramę aplikacji.
@@ -278,7 +278,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak chronić witryny sieci Web z [Application Gateway - zapory aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)
 

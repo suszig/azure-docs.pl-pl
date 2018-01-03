@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
 ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Zarządzanie rekordami DNS i zestawy rekordów w usłudze Azure DNS za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure portal](dns-operations-recordsets-portal.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Program PowerShell](dns-operations-recordsets.md)
 
 W tym artykule przedstawiono sposób zarządzania rekordy DNS dla strefy DNS przy użyciu interfejsu wiersza polecenia platformy Azure i platform (CLI) 2.0, który jest dostępny dla systemu Windows, Mac i Linux. Można również zarządzać rekordami DNS przy użyciu [programu Azure PowerShell](dns-operations-recordsets.md) lub [portalu Azure](dns-operations-recordsets-portal.md).
 
@@ -292,7 +292,7 @@ az network dns record-set a delete --resource-group myresourcegroup --zone-name 
 
 Monit o potwierdzenie operacji usuwania. Aby pominąć ten monit, użyj `--yes` przełącznika.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o [strefy i rekordy w usłudze Azure DNS](dns-zones-records.md).
 <br>

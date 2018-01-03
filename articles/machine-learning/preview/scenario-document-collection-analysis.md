@@ -4,15 +4,17 @@ description: "Sposób podsumowywania i analizowania dużych kolekcji dokumentów
 services: machine-learning
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Analiza kolekcji dokumentów
 
@@ -24,7 +26,7 @@ W tym scenariuszu rzeczywistych publicznego repozytorium GitHub zawiera wszystki
 
 [https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W przypadku dużej ilości danych (szczególnie niestrukturalnych tekst) zbierane codziennie istotne wyzwanie jest organizacji, wyszukiwanie i zrozumieć ogromnych ilości tekstów. Ten scenariusz analizy kolekcji dokumentów pokazuje wydajne i automatyczne end-to-end przepływu pracy do analizowania dużych dokumentów kolekcji i włączenie zadań NLP podrzędne.
 
@@ -86,12 +88,12 @@ W pliku danych jest dziewięciu pól danych. Poniżej wymieniono nazwy pól i op
 | `ID` | Ciąg | Identyfikator rachunku/rozwiązania. Format tego pola jest [bill_type] [numer]-[Kongres]. Na przykład "hconres1-93" oznacza, że typ rachunek jest "hconres" (dokonane dla rozpoznawania równoczesnych DOM odwoływać się do [tego dokumentu](https://github.com/unitedstates/congress/wiki/bills#basic-information)), liczba rachunek jest "1"i numer Kongres jest 93". | Nie |
 | `Text` | Ciąg | Zawartość rachunku/rozwiązania. | Nie |
 | `Date` | Ciąg | Data początkowo proponowane rachunku/rozwiązania. W formacie "rrrr mm-dd". | Nie |
-| `SponsorName` | Ciąg | Nazwa głównej sponsor proponowana rachunku/rozwiązania. | Tak |
-| `Type` | Ciąg | Typ podstawowy tytuł sponsorować "rep" (przedstawiciel) lub "Wyślij" (senator). | Tak |
-| `State` | Ciąg | Stan sponsor podstawowego. | Tak |
-| `District` | Liczba całkowita | Numer regionalnego głównej sponsor Jeśli tytuł sponsor jest przedstawicielem. | Tak |
-| `Party` | Ciąg | Strona sponsor podstawowego. | Tak |
-| `Subjects` | Ciąg | Warunki podmiotu do zestawienia, a następnie dodać zbiorczo przez biblioteki Kongres. Warunki są łączone przecinkami. Te warunki są zapisywane przez człowieka w bibliotece Kongres i nie są zwykle dostępne po pierwszym opublikowaniu informacji na. Mogą one dodane w dowolnym momencie. W związku z tym do końca okresu rachunek niektórych podmiotu może nie być odpowiednie już. | Tak |
+| `SponsorName` | Ciąg | Nazwa głównej sponsor proponowana rachunku/rozwiązania. | Yes |
+| `Type` | Ciąg | Typ podstawowy tytuł sponsorować "rep" (przedstawiciel) lub "Wyślij" (senator). | Yes |
+| `State` | Ciąg | Stan sponsor podstawowego. | Yes |
+| `District` | Liczba całkowita | Numer regionalnego głównej sponsor Jeśli tytuł sponsor jest przedstawicielem. | Yes |
+| `Party` | Ciąg | Strona sponsor podstawowego. | Yes |
+| `Subjects` | Ciąg | Warunki podmiotu do zestawienia, a następnie dodać zbiorczo przez biblioteki Kongres. Warunki są łączone przecinkami. Te warunki są zapisywane przez człowieka w bibliotece Kongres i nie są zwykle dostępne po pierwszym opublikowaniu informacji na. Mogą one dodane w dowolnym momencie. W związku z tym do końca okresu rachunek niektórych podmiotu może nie być odpowiednie już. | Yes |
 
 ## <a name="scenario-structure"></a>Scenariusz — struktura
 

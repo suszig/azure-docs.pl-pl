@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: osamaz
 ms.openlocfilehash: c430367ba5e444351b7b6c993179138e0d9f77a7
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute, przy użyciu programu PowerShell
 
 W tym artykule opisano tworzenie i zarządzanie nimi konfiguracji routingu dla obwodu usługi ExpressRoute w modelu wdrażania usługi Resource Manager przy użyciu programu PowerShell. Można również sprawdzić stan, update lub delete i anulowanie zastrzeżenia komunikacji równorzędnych dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodu, wybierz artykułu z poniższej listy:
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Video - prywatnej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - publicznej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
@@ -454,7 +454,7 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Expre
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następny krok: [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute).
 

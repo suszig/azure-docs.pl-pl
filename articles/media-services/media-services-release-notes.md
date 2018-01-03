@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji usługi Azure Media Services
 Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znane problemy.
@@ -28,8 +28,9 @@ Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znan
 > 
 > 
 
-## <a id="issues"></a>Obecnie znane problemy
-### <a id="general_issues"></a>Ogólne problemy dotyczące usługi Media Services
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Obecnie znane problemy
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Ogólne problemy dotyczące usługi Media Services
+
 | Problem | Opis |
 | --- | --- |
 | Nie podano kilka typowych nagłówków HTTP w interfejsie API REST. |W przypadku tworzenia aplikacji usługi Media Services przy użyciu interfejsu API REST, stwierdzisz, że niektóre typowe pola nagłówka HTTP (w tym CLIENT-REQUEST-ID REQUEST-ID, a ZWRACANY-CLIENT-REQUEST-ID) nie są obsługiwane. Nagłówki zostanie dodana w przyszłej aktualizacji. |
@@ -41,7 +42,7 @@ Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znan
 | Azure obiekty .NET SDK usługi Media Services nie może być serializowany i w związku z tym nie działają z buforowaniem Azure. |Jeśli spróbujesz się do serializacji obiektu AssetCollection zestawu SDK, aby dodać go do buforowania Azure, jest zwracany wyjątek. |
 
 
-## <a id="rest_version_history"></a>Historia wersji interfejsu API REST
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historia wersji interfejsu API REST
 Informacje o historii wersji interfejsu API REST usług nośnika, zobacz [dokumentacja interfejsu API REST usługi Azure Media Services].
 
 ## <a name="october-2017-release"></a>2017 października zlecenia
@@ -89,7 +90,6 @@ Teraz możesz używać usługi Azure Media Standard, aby [automatycznego generow
 
 Teraz można używać usługi Azure Media Standard lub Media Encoder Premium przepływu pracy [Tworzenie zadania kodowania, które generuje fragmentów fMP4](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Lutego 2017 zlecenia
 
 Począwszy od 1 kwietnia 2017 roku, wszystkie rekordy zadań na Twoim koncie, które są starsze niż 90 dni, będą automatycznie usuwane wraz ze skojarzonymi rekordami zadań podrzędnych nawet wtedy, gdy całkowita liczba rekordów jest mniejsza niż maksymalny limit przydziału. Jeśli chcesz zarchiwizować informacje dotyczące zadania lub zadania podrzędnego, możesz użyć kodu opisanego [tutaj](media-services-dotnet-manage-entities.md).
@@ -102,9 +102,9 @@ Ponadto, począwszy od wersji 2.15, usługi Azure Media Services dodane następu
 
 ## <a name="december-2016-release"></a>Wersja grudnia 2016
 
-Usługa Azure Media Services umożliwia teraz uzyskać dostępu do swoich usług danych telemetrycznych/metryki. Bieżąca wersja AMS umożliwia zbieranie danych telemetrycznych dla kanału na żywo, StreamingEndpoint, i na żywo jednostek archiwum. Aby uzyskać więcej informacji, zobacz [to](media-services-telemetry-overview.md) artykułu.
+Usługa Azure Media Services umożliwia teraz uzyskać dostępu do swoich usług danych telemetrycznych/metryki. Bieżąca wersja AMS umożliwia zbieranie danych telemetrycznych dla kanału na żywo, StreamingEndpoint, i na żywo jednostek archiwum. Więcej informacji znajduje się w [tym](media-services-telemetry-overview.md) artykule.
 
-## <a id="july_changes16"></a>Wersja z lipca 2016 r.
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Wersja z lipca 2016 r.
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Aktualizacje do pliku manifestu (*. ISM) generowany przez kodowania zadań
 Po przesłaniu zadania kodowania Media Encoder Standard lub usługi Azure Media Encoder kodowania zadań generuje [przesyłania strumieniowego pliku manifestu](media-services-deliver-content-overview.md) (* .ism) plików w danych wyjściowych zasobów. Najnowsza wersja usługi została zaktualizowana Składnia tego pliku manifestu przesyłania strumieniowego.
 
@@ -436,7 +436,7 @@ Zmiany wymienione w tej sekcji są aktualizacje zawarte w wersjach czerwca 2013 
 
 * Możliwość łączenia wielu kont magazynu do konta usługi Media. 
   
-    Konto magazynu
+    StorageAccount
   
     Asset.StorageAccountName i Asset.StorageAccount
 * Możliwość Job.Priority aktualizacji. 

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: fefeae4e816994d3ee69d6ac1c1cbe6cf8bbd06e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="view-network-watcher-topology-with-rest-api"></a>Wyświetl topologią obserwatora sieciowego za pomocą interfejsu API REST
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-topology-powershell.md)
+> - [Program PowerShell](network-watcher-topology-powershell.md)
 > - [Interfejs wiersza polecenia 1.0](network-watcher-topology-cli-nodejs.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-topology-cli.md)
 > - [Interfejs API REST](network-watcher-topology-rest.md)
@@ -114,7 +114,7 @@ s65qcto",
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak wizualizacji NSG dzienników przepływu z usługi Power BI, odwiedzając [wizualizacji NSG przepływa dzienników przy użyciu usługi Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

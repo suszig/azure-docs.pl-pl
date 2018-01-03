@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
 ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Przekazywanie plików do konta usługi Media Services przy użyciu platformy .NET
 > [!div class="op_single_selector"]
@@ -282,7 +282,7 @@ W poniższym przykładzie wywołuje funkcję UploadFile i określa szyfrowanie m
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz możesz zakodować przekazane elementy zawartości. Więcej informacji znajduje się na stronie [Kodowanie elementów zawartości](media-services-portal-encode.md).
 

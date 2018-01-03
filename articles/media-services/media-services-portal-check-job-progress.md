@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorowanie postępu zadania kodowania w portalu Azure
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 > [!NOTE]
 > Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -44,7 +44,7 @@ Możesz kliknąć zadanie, aby zobaczyć więcej szczegółów.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zadania kodowania tak, możesz opublikować i odtwarzać zasobów, zgodnie z opisem [tutaj](media-services-portal-publish.md).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

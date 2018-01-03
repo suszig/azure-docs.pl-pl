@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planowanie infrastruktury kopii zapasowych maszyny wirtualnej na platformie Azure
-Ten artykuł zawiera wydajności i sugestie zasobów ułatwiają planowanie infrastruktury kopii zapasowych maszyn wirtualnych. Definiuje również kluczowych aspektów usługi tworzenia kopii zapasowej; te aspekty może mieć decydujące znaczenie dla określenia architektury, planowanie pojemności i planowania. Jeśli znasz [przygotować środowisko](backup-azure-vms-prepare.md), następnym krokiem planowania jest przed rozpoczęciem [do tworzenia kopii zapasowych maszyn wirtualnych](backup-azure-vms.md). Aby uzyskać więcej informacji o maszynach wirtualnych platformy Azure, zobacz [dokumentacji maszyn wirtualnych](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Ten artykuł zawiera wydajności i sugestie zasobów ułatwiają planowanie infrastruktury kopii zapasowych maszyn wirtualnych. Definiuje również kluczowych aspektów usługi tworzenia kopii zapasowej; te aspekty może mieć decydujące znaczenie dla określenia architektury, planowanie pojemności i planowania. Jeśli znasz [przygotować środowisko](backup-azure-arm-vms-prepare.md), następnym krokiem planowania jest przed rozpoczęciem [do tworzenia kopii zapasowych maszyn wirtualnych](backup-azure-arm-vms.md). Aby uzyskać więcej informacji o maszynach wirtualnych platformy Azure, zobacz [dokumentacji maszyn wirtualnych](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Jak Azure wykonywanie kopii zapasowych maszyn wirtualnych?
 Gdy usługa Azure Backup Inicjuje zadania tworzenia kopii zapasowej w zaplanowanym terminie, wyzwala zapasowy numer wewnętrzny do tworzenia migawki punktu w czasie. Używa usługi Azure Backup _VMSnapshot_ rozszerzenia w systemie Windows i _VMSnapshotLinux_ rozszerzenia w systemie Linux. Rozszerzenie jest zainstalowany podczas pierwszego tworzenia kopii zapasowej maszyny Wirtualnej. Aby zainstalować to rozszerzenie, musi być uruchomiona maszyna wirtualna. Jeśli maszyna wirtualna nie działa, usługa Kopia zapasowa tworzy migawkę powiązany magazyn (ponieważ nie zapisy aplikacji są wykonywane, gdy maszyna wirtualna zostanie zatrzymana).
@@ -97,7 +97,7 @@ Dla każdego dysku tworzona kopia zapasowa Azure Backup odczytuje bloków na dys
 ## <a name="total-vm-backup-time"></a>Łączny czas tworzenia kopii zapasowej maszyny Wirtualnej
 Podczas gdy większość czasu tworzenia kopii zapasowej jest poświęcony na odczytywanie i kopiowanie danych, innych operacji przyczyniają się do całkowity czas wymagane do wykonania kopii zapasowej maszyny Wirtualnej:
 
-* Czas potrzebny do [Zainstaluj lub zaktualizuj zapasowy numer wewnętrzny](backup-azure-vms.md).
+* Czas potrzebny do [Zainstaluj lub zaktualizuj zapasowy numer wewnętrzny](backup-azure-arm-vms.md).
 * Czas migawki to czas potrzebny do wyzwolenia migawki. Migawki są wyzwalane bliski zaplanowanego czasu tworzenia kopii zapasowej.
 * Czas oczekiwania w kolejce. Ponieważ usługa kopii zapasowej przetwarza kopii zapasowych z wielu klientów, kopiowanie danych kopii zapasowej z migawki kopii zapasowej lub magazyn usług odzyskiwania może nie uruchomić natychmiast. Czas szczytowego obciążenia, czas oczekiwania może rozciąganie ze względu na liczbę kopii zapasowych przetwarzanych maksymalnie ośmiu godzin. Łączny czas tworzenia kopii zapasowej maszyny Wirtualnej jest jednak mniej niż 24 godziny dla zasad tworzenia kopii zapasowych codziennie.
 * Czas transferu danych, czasu potrzebnego dla usługi tworzenia kopii zapasowych na potrzeby obliczania zmiany przyrostowe z poprzedniej kopii zapasowej i przenieść te zmiany do magazynu magazynu.
@@ -131,7 +131,7 @@ Cennik wykonywanie kopii zapasowych maszyn wirtualnych jest *nie* na podstawie m
 
 Na przykład zająć A2 standardowy rozmiar maszyny wirtualnej, która ma dwa dyski dodatkowe dane o maksymalnym rozmiarze 1 TB. W poniższej tabeli przedstawiono rzeczywistymi danymi przechowywanymi na każdym z tych dysków:
 
-| Typ dysku | Maksymalny rozmiar | Rzeczywiste dane. |
+| Typ dysku | Maks. rozmiar | Rzeczywiste dane. |
 | --- | --- | --- |
 | Dysk systemu operacyjnego |1023 GB |17 GB |
 | Dysk lokalny / zasobu dysku |135 GB |5 GB (nie uwzględniony w kopii zapasowej) |
@@ -147,8 +147,8 @@ Rozliczeń dla określonej maszyny wirtualnej zatrzymuje tylko wtedy, gdy ochron
 ## <a name="questions"></a>Pytania?
 Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Następne kroki
-* [Tworzenie kopii zapasowych maszyn wirtualnych](backup-azure-vms.md)
+## <a name="next-steps"></a>Kolejne kroki
+* [Tworzenie kopii zapasowych maszyn wirtualnych](backup-azure-arm-vms.md)
 * [Zarządzanie kopiami zapasowymi maszyny wirtualnej](backup-azure-manage-vms.md)
-* [Przywracanie maszyn wirtualnych](backup-azure-restore-vms.md)
+* [Przywracanie maszyn wirtualnych](backup-azure-arm-restore-vms.md)
 * [Rozwiązywanie problemów kopii zapasowej maszyny Wirtualnej](backup-azure-vms-troubleshoot.md)

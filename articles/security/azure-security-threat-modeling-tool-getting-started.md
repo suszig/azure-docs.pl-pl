@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Wprowadzenie do korzystania z narzędzi modelowania zagrożeń
 
@@ -29,13 +29,13 @@ W tym artykule opiera się na wiedzy na temat zagrożenia SDL modelowania podej�
 
 Do szybkiego podsumowywania podejście obejmuje tworzenie diagramu, identyfikowania zagrożeń, zmniejszenia ich i sprawdzanie poprawności każdej środki zaradcze. Poniżej przedstawiono diagram, który prezentuje ten proces:
 
-![Proces SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Proces SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Uruchamianie procesu modelowania zagrożeń
 
 Podczas uruchamiania narzędzia modelowania zagrożeń można zauważyć kilka rzeczy, jak pokazano na rysunku:
 
-![Strona początkowa pusta](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Strona początkowa pusta](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Sekcja modelu zagrożeń
 
@@ -70,7 +70,7 @@ Wkrótce za pośrednictwem procesu tworzenia ich pierwszym modelu zagrożeń.
 > Cristina: absolutnie. Spójrzmy.
 > Ricardo zostanie otwarte narzędzie i udostępnia jego ekranu Cristina.
 
-![Podstawowe zagrożenia modelu](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Podstawowe zagrożenia modelu](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok wygląda prostego, ale należy zapoznać się z mnie przy jego użyciu?
 > Ricardo: się! Oto podział:
@@ -89,17 +89,17 @@ Po klika w widoku analizy z zaznaczenia menu ikona (plik z Lupa), jest on przeki
 
 Ta metoda działa jak zabezpieczanie domu w celu zapewnienia każdego drzwi i okno ma mechanizm blokowania w miejscu przed dodaniem system alarmu lub sklejek po złodziej będzie.
 
-![Podstawowe zagrożenia](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Podstawowe zagrożenia](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo rozpoczyna się po wybraniu pierwszy element na liście. Oto, co się stanie:
 
 Po pierwsze została rozszerzona o interakcji między dwoma wzorników
 
-![Interakcji](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interakcji](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Drugi, dodatkowe informacje o zagrożenie jest wyświetlany w oknie właściwości zagrożeń
 
-![Informacje o interakcji](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Informacje o interakcji](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 Wygenerowany zagrożeń pomaga go zrozumieć potencjalne wady projektowe. Kategoryzacji krok zapewnia, mu pomysł na potencjalnych ataków, podczas gdy dodatkowy opis informuje, mu dokładnie co to jest błąd, oraz potencjalnych sposobów, aby go unikać. Służy on edytowalnego pola notatki w szczegółach uzasadnienie lub zmienić priorytet oceny w zależności od jego organizacji usterki paska.
 
@@ -116,7 +116,7 @@ Zagrożenia nie ma zastosowania do projektu z powodu istniejących środki zarad
 
 Po Ricardo przechodzi przez listy z Cristina i dodaje ważne uwagi, środki zaradcze/uzasadnienie, priorytet i zmiany stanu, he wybiera Raporty -> Utwórz pełny raport -> Zapisz raport, który wyświetla nieuprzywilejowany raportu dla niego podąża współpracownikom Aby zapewnić działanie właściwe zabezpieczenia jest zaimplementowana.
 
-![Informacje o interakcji](./media/azure-security-threat-modeling-tool/report.png)
+![Informacje o interakcji](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Jeśli Ricardo chce zamiast tego udziału pliku, on łatwo to zrobić przez zapisywanie w jego organizacji konta usługi OneDrive. Po on robi to on skopiuj łącze do dokumentu i udostępniać jego współpracowników. 
 

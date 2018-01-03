@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
@@ -328,7 +328,7 @@ Firma Microsoft może teraz skompilować i uruchomić program klikając **Start*
 
 Gdy program osiągnie wiersz powyżej, można powrócić do tej grupy zasobów w portalu Azure i zobaczyć, czy profil został utworzony.
 
-![Powodzenie](./media/cdn-app-dev-net/cdn-success.png)
+![To wszystko!](./media/cdn-app-dev-net/cdn-success.png)
 
 Następnie można potwierdzamy z monitami, aby uruchomić całego programu.
 

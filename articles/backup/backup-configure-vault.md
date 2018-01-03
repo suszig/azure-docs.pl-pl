@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: 947b985fe242c026e94d78664fa41f666334392a
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Tworzenie kopii zapasowych systemu Windows Server lub Client na platformie Azure przy użyciu modelu wdrażania używającego usługi Resource Manager
 W tym artykule opisano sposób wykonywania kopii zapasowej systemu Windows Server (lub klienta systemu Windows) plików i folderów na platformie Azure za pomocą usługi Kopia zapasowa Azure przy użyciu modelu wdrażania Menedżera zasobów.
@@ -256,7 +256,7 @@ Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup 
 ## <a name="questions"></a>Pytania?
 Jeśli masz pytania lub jeśli brakuje Ci jakiejś funkcji, [prześlij nam opinię](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać dodatkowe informacje na temat tworzenia kopii zapasowych maszyn wirtualnych lub innych obciążeń zobacz:
 
 * Teraz, gdy utworzono kopię zapasową plików i folderów, możesz [zarządzać swoimi magazynami i serwerami](backup-azure-manage-windows-server.md).

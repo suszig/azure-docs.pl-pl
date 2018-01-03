@@ -8,10 +8,9 @@ Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby 
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Identyfikator bazy danych|sample-database|Wprowadź *bazy danych przykładowych* jako nazwę nowej bazy danych. Nazwy bazy danych musi należeć do zakresu od 1 do 255 znaków i nie może zawierać `/ \ # ?` lub spacji.
-    Identyfikator grafu|sample-graph|Wprowadź *wykres próbki* jako nazwę nowej kolekcji. Wykres nazwy mają te same wymagania znak jako identyfikatorów w bazie danych.
+    Identyfikator bazy danych|sample-database|Wprowadź *sample-database* jako nazwę nowej bazy danych. Nazwy bazy danych musi należeć do zakresu od 1 do 255 znaków i nie może zawierać `/ \ # ?` lub spacji.
+    Identyfikator grafu|sample-graph|Wprowadź *sample-graph* jako nazwę nowej kolekcji. W przypadku nazw grafów obowiązują takie same wymagania dotyczące znaków jak dla identyfikatorów baz danych.
     Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
     Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować przepływność, aby zmniejszyć opóźnienie.
-    Klucz partycji|/FirstName|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybranie klucza partycji poprawne jest ważne podczas tworzenia wykresu wydajności. Aby uzyskać więcej informacji, zobacz [projektowania partycjonowania](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Po wypełnić formularza wybierz **OK**.

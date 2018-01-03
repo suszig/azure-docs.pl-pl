@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli;mikhegn
 ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Debugowanie aplikacji Java sieci szkieletowej usług za pomocą programu Eclipse
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/18/2017
 
 Jeśli awarii aplikacji można również włączyć coredumps. Wykonanie ``ulimit -c`` w powłoce i zwraca 0, a następnie coredumps nie są włączone. Aby włączyć nieograniczone coredumps, uruchom następujące polecenie: ``ulimit -c unlimited``. Można również sprawdzić stan za pomocą polecenia ``ulimit -a``.  Jeśli chcesz zaktualizować ścieżkę generowania coredump wykonania ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 
 * [Zbieranie dzienników przy użyciu diagnostyki Azure Linux](service-fabric-diagnostics-how-to-setup-lad.md).
 * [Monitorowanie i diagnozowania usług lokalnie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 97141b2360c88f11830147b9592c9c8538af383c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d881d47e26460d3fff89c01245bba4c608dc8b08
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Zarządzanie klastrami Hadoop w usłudze HDInsight przy użyciu zestawu .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -148,7 +148,7 @@ Skalowanie funkcji klastra umożliwia zmianę liczby węzłów procesu roboczego
 
 Wpływ zmianę liczby węzłów danych dla każdego typu obsługiwanych przez HDInsight klastra:
 
-* Usługa Hadoop
+* Hadoop
   
     Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze platformy Hadoop, który jest uruchomiony bez wpływu na wszystkie oczekujące lub uruchomione zadania. Również można przesłać nowe zadania, gdy operacja jest w toku. Błędy w operacji skalowania bezpiecznie obsługi tak, aby zawsze pozostanie w stanie funkcjonalności klastra.
   

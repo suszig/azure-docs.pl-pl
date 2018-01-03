@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute, przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 > * [Video - portalu Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
@@ -68,7 +68,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 Sprawdź, czy dostawca połączenia znajduje się tam. Zanotuj następujące informacje, które będą potrzebne później utworzyć obwód:
 
-* Nazwa
+* Name (Nazwa)
 * PeeringLocations
 * BandwidthsOffered
 
@@ -407,7 +407,7 @@ Można usunąć obwodu usługi ExpressRoute, uruchamiając następujące polecen
 Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po utworzeniu obwodu, upewnij się, należy wykonać następujące czynności:
 

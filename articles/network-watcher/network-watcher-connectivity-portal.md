@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
 ms.openlocfilehash: 1f19da71731039e1a39c4440f925b1369886a993
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Sprawdź łączność z obserwatora sieciowego Azure przy użyciu portalu Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Program PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
@@ -56,7 +56,7 @@ Aby sprawdzić łączność i czas oczekiwania do zdalnego punktu końcowego, wy
 
 ![Wyniki sprawdzania łączności dla witryny sieci web][2]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 

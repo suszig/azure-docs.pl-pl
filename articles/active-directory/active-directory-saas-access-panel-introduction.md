@@ -15,11 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-is-the-access-panel"></a>Co to jest panel dostępu?
 
@@ -176,7 +176,7 @@ Aby skonfigurować logowanie Jednokrotne dla aplikacji, Azure portal udostępnia
 Na przykład jeśli aplikacja jest skonfigurowana do uwierzytelniania użytkowników za pomocą usług AD FS 2.0, administrator może użyć **istniejących rejestracji jednokrotnej** opcję, aby utworzyć łącze do niego w panelu dostępu. Gdy uzyskujesz dostęp do łącza, są uwierzytelniane za pośrednictwem usług AD FS 2.0 lub niezależnie od istniejącej rejestracji Jednokrotnej rozwiązania przez aplikację.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby wyświetlić listę wszystkich tematów, które są powiązane z zarządzaniem aplikacjami, zobacz [indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md).
  

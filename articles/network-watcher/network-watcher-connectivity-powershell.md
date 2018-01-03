@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Sprawdź łączność z obserwatora sieciowego Azure przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Program PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
@@ -330,7 +330,7 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Znajdź, jeśli niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, odwiedzając [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md)
 

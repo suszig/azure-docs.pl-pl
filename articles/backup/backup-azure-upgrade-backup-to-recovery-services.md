@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uaktualnij magazynu kopii zapasowych do magazynu usług odzyskiwania
 
@@ -34,7 +34,7 @@ Podczas uaktualniania magazynu kopii zapasowych do magazynu usług odzyskiwania,
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Zmiany do automatyzacji i narzędzia po uaktualnieniu
 
 Podczas przygotowywania infrastruktury do uaktualnienia magazynu, należy zaktualizować narzędzi, aby upewnić się, że nadal działać po uaktualnieniu lub z istniejącej automatyzacji.
-Zapoznaj się z odwołań do poleceń cmdlet programu PowerShell dla [modelu wdrażania programu Service Manager](backup-client-automation-classic.md) i [modelu wdrażania usługi Resource Manager](backup-client-automation.md).
+Zapoznaj się z odwołań do poleceń cmdlet programu PowerShell dla [modelu wdrażania usługi Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Przed uaktualnieniem
@@ -154,7 +154,7 @@ Monitorowanie kopii zapasowych (IaaS i MARS agent) jest nową funkcją, która p
 W przypadku niepowodzenia jakiejkolwiek jego części uaktualnienia magazynu należy pamiętać, że OperationId na liście w dzienniku błędów. Aby rozwiązać ten problem aktywnie działa Support firmy Microsoft. Może dotrzeć do pomocy technicznej lub wiadomość e-mail na adres rsvaultupgrade@service.microsoft.com Twojego Identyfikatora subskrypcji, nazwę magazynu i OperationId. Firma Microsoft podejmie próbę rozwiązania problemu tak szybko jak to możliwe. Nie próbuj ponownie wykonać operację, chyba że jawnie instrukcją w tym celu przez firmę Microsoft.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Użyj następującego artykułu, aby:</br>
 [Tworzenie kopii zapasowej maszyn wirtualnych IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Utwórz kopię zapasową serwera kopia zapasowa Azure](backup-azure-microsoft-azure-backup.md)</br>

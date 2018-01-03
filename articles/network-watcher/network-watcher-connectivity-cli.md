@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Sprawdź łączność z obserwatora sieciowego Azure używa interfejsu wiersza polecenia platformy Azure w wersji 2.0
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Program PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
@@ -300,7 +300,7 @@ Następujący kod json jest przykład odpowiedzi z uruchomienie poprzedniego pol
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 

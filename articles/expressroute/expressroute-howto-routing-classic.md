@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute (klasyczne)
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Video - prywatnej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - publicznej komunikacji równorzędnej](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
@@ -172,7 +172,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
-2. **Tworzenie obwodu usługi ExpressRoute**
+2. **Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)**
    
     Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie publicznej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
 3. **Sprawdź obwodu ExpressRoute, aby upewnić się, że jego obsługa została zainicjowana**
@@ -258,7 +258,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i 
    
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
-2. **Tworzenie obwodu usługi ExpressRoute**
+2. **Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)**
    
     Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie prywatnej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
 3. **Sprawdź obwodu ExpressRoute, aby upewnić się, że jego obsługa została zainicjowana**
@@ -326,7 +326,7 @@ Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następ
 
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następnie [połączyć sieć wirtualną z obwodem usługi ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 * Aby uzyskać więcej informacji o przepływach pracy, zobacz [przepływy pracy usługi ExpressRoute](expressroute-workflows.md).

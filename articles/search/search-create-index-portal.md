@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Tworzenie indeksu usługi Azure Search przy użyciu portalu Azure
 > [!div class="op_single_selector"]
@@ -100,13 +100,13 @@ Azure dokumentacji interfejsu API Search przykłady kodu, oferujący funkcje pro
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po utworzeniu indeksu usługi Azure Search, można przenieść do następnego kroku: [przekazywanie danych z możliwością wyszukiwania w indeksie](search-what-is-data-import.md).
 
 Alternatywnie możesz można również Przyjrzyjmy się głębiej indeksów. Oprócz kolekcji pól Indeks określa również analizatory, sugestorów oceniania profile i ustawienia specyfikacji CORS. Portal zawiera karty do definiowania często spotykanych elementów: pola, analizatory i sugestorów. Aby utworzyć lub zmodyfikować inne elementy, można użyć interfejsu API REST lub zestawu .NET SDK.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Jak działa wyszukiwanie pełnotekstowe](search-lucene-query-architecture.md)  
  [Usługi interfejsu API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/) [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

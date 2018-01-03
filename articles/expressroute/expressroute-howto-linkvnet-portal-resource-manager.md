@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Połączenie wirtualnej sieci do obwodu usługi ExpressRoute
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Video - portalu Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-linkvnet-classic.md)
@@ -140,5 +140,5 @@ Użytkownik obwodu musi identyfikator zasobu i klucza autoryzacji właściciela 
 
 Można zwolnić autoryzacji, usuwając połączenia prowadzący obwodu ExpressRoute do sieci wirtualnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji na temat usługi ExpressRoute znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).

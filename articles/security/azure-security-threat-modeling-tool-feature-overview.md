@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Omówienie funkcji narzędzia do modelowania zagrożeń
 
@@ -29,13 +29,13 @@ Narzędzie modelowania zagrożeń może pomóc z zagrożeniem, Twoje potrzeby mo
 
 Aby otworzyć stronę pusty, wybierz **tworzenia modelu A**.
 
-![Pusta strona](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Pusta strona](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Aby wyświetlić funkcji aktualnie dostępnych w narzędziu, użyj modelu zagrożeń utworzona przez nasz zespół w [wprowadzenie](./azure-security-threat-modeling-tool-getting-started.md) przykład.
 
-![Podstawowe zagrożenia modelu](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Podstawowe zagrożenia modelu](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Nawigacji
+## <a name="navigation"></a>Nawigacja
 
 Zanim omówimy wbudowane funkcje umożliwia przejrzyj główne składniki znaleziono w narzędziu.
 
@@ -43,7 +43,7 @@ Zanim omówimy wbudowane funkcje umożliwia przejrzyj główne składniki znalez
 
 Proces jest podobny do innych produktów firmy Microsoft. Załóżmy Przejrzyj elementy menu najwyższego poziomu.
 
-![Elementy menu](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Elementy menu](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Etykieta                               | Szczegóły      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ Obszar roboczy to miejsce, w którym przeciąganie i upuszczanie elementów. Prz
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Upuść wzornika w obszarze roboczym
 
-![Upuść kanwy](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Upuść kanwy](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Wybierz wzornik
 
-![Właściwości elementu](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Właściwości elementu](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Wzorników
 
@@ -120,15 +120,15 @@ Po otwarciu aplikacji, zobacz **powitalnej** ekranu.
 
 Umieść kursor nad **Otwórz modelu A** ujawniasz dwie opcje: **otwarty z tego komputera** i **Otwórz OneDrive z**. Pierwszym otwarciu opcja **Otwórz plik** ekranu. Druga opcja przejście przez proces logowania dla usługi OneDrive. Po pomyślnym uwierzytelnieniu można wybierać plików i folderów.
 
-![Otwieranie modelu](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Otwieranie modelu](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Otwórz z komputera lub usługi OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Otwórz z komputera lub usługi OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Opinie, sugestie i problemów
 
 Po wybraniu **opinie i sugestie problemów**, przejdź na forum MSDN dla narzędzi do tworzenia oprogramowania. Możesz przeczytać inne osoby mówią o tym narzędziu, w tym rozwiązania i nowe pomysły.
 
-![Opinia](./media/azure-security-threat-modeling-tool/feedback.png)
+![Opinia](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Widok projektu
 
@@ -154,17 +154,17 @@ Możesz połączyć elementy na dwa sposoby:
 
 #### <a name="before"></a>Przed
 
-![Przed](./media/azure-security-threat-modeling-tool/properties1.png)
+![Przed](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Po
 
-![Po](./media/azure-security-threat-modeling-tool/properties2.png)
+![Po](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Komunikaty
 
 Po utworzeniu modelu zagrożeń i pamiętaj, aby połączyć elementy przepływów danych, otrzymasz powiadomienie. Można zignorować ten komunikat, lub można postępuj zgodnie z instrukcjami, aby rozwiązać ten problem. 
 
-![Komunikaty](./media/azure-security-threat-modeling-tool/messages.png)
+![Komunikaty](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Uwagi
 
@@ -174,37 +174,37 @@ Aby dodać uwagi do diagramu, przełącz się z **wiadomości** karty, aby **uwa
 
 Po utworzeniu diagramu wybierz **analizy** symbolu (Lupa) na pasku narzędzi skróty, aby przełączyć się do **analizy** widoku.
 
-![Analityczny](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analityczny](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Wybór wygenerowanego zagrożeń
 
 Po wybraniu zagrożenie służą trzy różne funkcje:
 
-| Funkcja                               | Informacje      |
+| Cecha                               | Informacje      |
 | --------------------------------------- | ------------ |
-| **Wskaźnik do odczytu** | <p>To zagrożenie jest oznaczona jako odczytu, które pomaga śledzić elementy, które należy przejrzeć.</p><p>![Odczyt/nieprzeczytana wskaźnika](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Fokus interakcji** | <p>Interakcja na diagramie, który należy do zagrożenie zostanie wyróżniona.</p><p>![Fokus interakcji](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Właściwości zagrożeń** | <p>Dodatkowe informacje na temat zagrożeń pojawia się w **właściwości zagrożeń** okna.</p><p>![Właściwości zagrożeń](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Wskaźnik do odczytu** | <p>To zagrożenie jest oznaczona jako odczytu, które pomaga śledzić elementy, które należy przejrzeć.</p><p>![Odczyt/nieprzeczytana wskaźnika](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Fokus interakcji** | <p>Interakcja na diagramie, który należy do zagrożenie zostanie wyróżniona.</p><p>![Fokus interakcji](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Właściwości zagrożeń** | <p>Dodatkowe informacje na temat zagrożeń pojawia się w **właściwości zagrożeń** okna.</p><p>![Właściwości zagrożeń](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Priorytet zmian
 
 Można zmienić poziom priorytetu każde zagrożenie wygenerowany. Różne kolory ułatwiają określenie wysokiej, średni i zagrożeń niskiego priorytetu.
 
-![Priorytet zmian](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Priorytet zmian](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Pola można edytować właściwości zagrożeń
 
 Jak w poprzednim obrazu można zmienić informacje generowane przez narzędzie. Można również dodać informacje do niektóre pola, takie jak uzasadnienie. Te pola są generowane przez szablon. Aby uzyskać więcej informacji na każde zagrożenie, można wprowadzić modyfikacje.
 
-![Właściwości zagrożeń](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Właściwości zagrożeń](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Raporty
 
 Po zakończeniu zmiana priorytetów i zaktualizowanie stanu każde zagrożenie wygenerowanego możesz zapisać plik lub wydrukować raport. Przejdź do **raport** > **utworzyć pełny raport**. Nazwa raportu i powinny zostać wyświetlone informacje podobne do następujących obrazów:
 
-![Raport](./media/azure-security-threat-modeling-tool/report.png)
+![Raport](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby współtworzyć szablonu dla społeczności, przejdź do naszego [GitHub](https://github.com/Microsoft/threat-modeling-templates) strony. 
 * Aby zacząć korzystać z narzędzia, przejdź do [Pobierz](https://aka.ms/tmtpreview) strony.

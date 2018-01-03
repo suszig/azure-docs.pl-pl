@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Wymiana komunikatów AS2 enterprise integracji z usługą logic apps
 
@@ -45,7 +45,7 @@ Po [Tworzenie konta usługi integracji](../logic-apps/logic-apps-enterprise-inte
     > [!TIP]
     > Jeśli nie widzisz **więcej usług**, trzeba będzie najpierw rozwinąć menu. W górnej części menu zwinięte, wybierz **Pokaż menu**.
 
-    ![Więcej usług, filtr "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Więcej usług, filtr "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. W **konta integracji** bloku, który zostanie otwarty, wybierz konto integracji, w której chcesz utworzyć umowy.
 Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps-enterprise-integration-accounts.md "wszystkiego o konta integracji").  
@@ -54,19 +54,19 @@ Jeśli nie widzisz kont integracji [utworzyć pierwszy](../logic-apps/logic-apps
 
 4. Wybierz **umowy** kafelka. Jeśli nie masz kafelka umowy, najpierw Dodaj kafelka.
 
-    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Wybierz Kafelek "Umów"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. W bloku umów wybierz **Dodaj**.
 
-    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Wybierz opcję "Dodaj"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. W obszarze **Dodaj**, wprowadź **nazwa** dla umowy. Aby uzyskać **typ umowy**, wybierz pozycję **AS2**. Wybierz **partnera hosta**, **tożsamości hosta**, **partnera gościa**, i **tożsamości gościa** dla umowy.
 
-    ![Podaj szczegóły umowy](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Podaj szczegóły umowy](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Właściwość | Opis |
     | --- | --- |
-    | Nazwa |Nazwa umowy |
+    | Name (Nazwa) |Nazwa umowy |
     | Typ umowy | Powinien być AS2 |
     | Partner hosta |Umowa musi mieć partnera zarówno hosta, jak i gościa. Partner hosta reprezentuje organizację, która konfiguruje umowy. |
     | Tożsamość hosta |Identyfikator partnera hosta |
@@ -82,7 +82,7 @@ Teraz, gdy ustawiono właściwości umowy, można skonfigurować sposób identyf
 1.  W obszarze **Dodaj**, wybierz pozycję **ustawienia odbierania**.
 Skonfigurować te właściwości, na podstawie Twojej umowy z partnerem, który wymienia wiadomości z Tobą. Opis właściwości Zobacz tabelę w tej sekcji.
 
-    ![Skonfiguruj "Otrzymywać ustawienia"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Skonfiguruj "Otrzymywać ustawienia"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Opcjonalnie można zastąpić właściwości wiadomości przychodzących, wybierając **zastąpienie właściwości komunikatu**.
 
@@ -105,15 +105,15 @@ Umowie jest teraz gotowy do obsługi wiadomości przychodzących, które odpowia
 | Właściwość | Opis |
 | --- | --- |
 | Zastąpienie właściwości wiadomości |Wskazuje, można zastąpić właściwości w odebranej wiadomości. |
-| Komunikat powinien być podpisany |Wymaga komunikaty były podpisane cyfrowo. Konfigurowanie certyfikatu publicznego partnera gościa do sprawdzenia podpisu.  |
-| Komunikat powinien być zaszyfrowany |Wymaga szyfrowanie wiadomości. Wiadomości zaszyfrowanych przez inne niż są odrzucane. Skonfiguruj certyfikat prywatny partnera hosta do odszyfrowywania wiadomości.  |
-| Komunikat powinien być skompresowany |Wymaga wiadomości do skompresowania. Skompresowane inne niż wiadomości są odrzucane. |
+| Komunikat powinny być podpisane. |Wymaga komunikaty były podpisane cyfrowo. Konfigurowanie certyfikatu publicznego partnera gościa do sprawdzenia podpisu.  |
+| Można zaszyfrować wiadomości |Wymaga szyfrowanie wiadomości. Wiadomości zaszyfrowanych przez inne niż są odrzucane. Skonfiguruj certyfikat prywatny partnera hosta do odszyfrowywania wiadomości.  |
+| Powinien być kompresowane wiadomości |Wymaga wiadomości do skompresowania. Skompresowane inne niż wiadomości są odrzucane. |
 | Tekst MDN |Domyślne dyspozycji powiadomienia (MDN) do wysłania do nadawcy wiadomości. |
 | Wyślij MDN |Wymaga MDNs do wysłania. |
 | Wyślij MDN podpisem |Wymaga MDNs były podpisane. |
 | Algorytm Micznych |Wybierz algorytm podpisywania wiadomości. |
 | Wysyłanie asynchroniczne MDN | Wymaga komunikatów do wysłania asynchronicznie. |
-| ADRES URL | Podaj adres URL, który ma zostać wysłana MDNs. |
+| Adres URL | Podaj adres URL, który ma zostać wysłana MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Skonfiguruj sposób umowie wysyłania wiadomości
 
@@ -122,7 +122,7 @@ Można skonfigurować sposób identyfikuje niniejszej Umowy oraz obsługi komuni
 1.  W obszarze **Dodaj**, wybierz pozycję **ustawienia wysyłania**.
 Skonfigurować te właściwości, na podstawie Twojej umowy z partnerem, który wymienia wiadomości z Tobą. Opis właściwości Zobacz tabelę w tej sekcji.
 
-    ![Ustaw właściwości "Wyślij ustawienia"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Ustaw właściwości "Wyślij ustawienia"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Aby podpisanych wiadomości wysyłane do partnerów, wybierz **włączyć podpisywanie komunikatów**. Do podpisywania wiadomości, w **algorytm Micznych** listy, wybierz *certyfikatu prywatnego hosta partnera algorytmu Micznych*. I w **certyfikatu** listy, wybierz istniejący [certyfikatu prywatnego partnera hosta](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -160,7 +160,7 @@ Umowie jest teraz gotowy do obsługi komunikatów wychodzących, które odpowiad
 | Żądanie MDN |Wymaga MDN dla wszystkich wiadomości wysłanych z niniejszej Umowy. |
 | Żądanie podpisany MDN |Wymaga wszystkich MDNs, które są wysyłane do podpisania tej Umowy. |
 | Żądania asynchroniczne MDN |Wymaga asynchroniczne MDNs do wysłania do tej Umowy. |
-| ADRES URL |Podaj adres URL, który ma zostać wysłana MDNs. |
+| Adres URL |Podaj adres URL, który ma zostać wysłana MDNs. |
 | Włącz NRR |Wymaga bez odrzucania odbioru (NRR), atrybut komunikacji, który udostępnia dowód odebrania danych jako problemu. |
 | Format algorytmu SHA2 |Wybierz format algorytmu do użycia w Micznych lub logowanie nagłówków wychodzących wiadomości AS2 lub MDN |
 
@@ -172,10 +172,10 @@ Umowie jest teraz gotowy do obsługi komunikatów wychodzących, które odpowiad
 
 2.  Można również wyświetlić umów w przeglądzie konta integracji. W bloku konta integracji, wybierz **omówienie**, a następnie wybierz pozycję **umowy** kafelka. 
 
-    ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Wybierz Kafelek "Umów", aby wyświetlić wszystkie umowy](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
 Zobacz [swagger szczegóły](/connectors/as2/). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw")  

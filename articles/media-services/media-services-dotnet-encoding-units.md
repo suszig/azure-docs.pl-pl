@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
 ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Skalowanie kodowania za pomocą zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -31,10 +31,10 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Aby pobrać najnowszą wersję zestawu SDK Java i rozpocząć wdrażanie z językiem Java, zobacz [rozpocząć pracę z klientem programu Java SDK dla usługi Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Aby pobrać najnowsze PHP SDK dla usługi Media Services, poszukaj w wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Aby uzyskać najnowszą wersję zestawu SDK języka Java i zacząć programować w języku Java, zobacz [Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Aby pobrać najnowszy zestaw SDK języka PHP dla usługi Media Services, poszukaj wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 > [!IMPORTANT]
 > Upewnij się przejrzeć [omówienie](media-services-scale-media-processing-overview.md) tematu, aby uzyskać więcej informacji na temat skalowania przetwarzania tematu nośnika.
 > 

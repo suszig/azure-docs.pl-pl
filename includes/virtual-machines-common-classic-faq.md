@@ -96,7 +96,7 @@ Platforma Azure oferuje kilka rozwiązań dla oprogramowania antywirusowego, ale
 * [Wdrażanie rozwiązań do ochrony przed złośliwym kodem na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Jakie są możliwości tworzenia kopii zapasowych i odzyskiwania?
-Kopia zapasowa Azure jest dostępna w pewnych regionach jako wersja zapoznawcza. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../articles/backup/backup-azure-vms.md). Inne rozwiązania są dostępne u certyfikowanych partnerów. Aby dowiedzieć się, co jest obecnie dostępne, przeszukaj witrynę Azure Marketplace.
+Kopia zapasowa Azure jest dostępna w pewnych regionach jako wersja zapoznawcza. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../articles/backup/backup-azure-arm-vms.md). Inne rozwiązania są dostępne u certyfikowanych partnerów. Aby dowiedzieć się, co jest obecnie dostępne, przeszukaj witrynę Azure Marketplace.
 
 Dodatkową opcją jest używanie możliwości migawki magazynu obiektów blob. Aby to zrobić, musisz wyłączyć maszynę wirtualną przed dowolną operacją, która zależy od migawki obiektu blob. Zapisuje to oczekujące zapisy danych i umieszcza system plików w spójnym stanie.
 
@@ -122,7 +122,7 @@ Możesz również umożliwia portalu Azure lub programu Azure PowerShell Sprawd�
 
 Aby zapewnić nadmiarowość, umieść co najmniej dwie podobnie skonfigurowane maszyny wirtualne w tym samym zestawie dostępności. Pomaga to w zapewnieniu, że co najmniej jedna maszyna wirtualna jest dostępna podczas planowanej lub nieplanowanej konserwacji. Platforma Azure gwarantuje pewne poziomy dostępności maszyny wirtualnej dla tej konfiguracji. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie dostępnością maszyn wirtualnych](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Informacje o maszynach wirtualnych platformy Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

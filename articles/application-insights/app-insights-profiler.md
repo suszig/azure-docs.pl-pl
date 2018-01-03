@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profil aplikacji sieci web platformy Azure na żywo za pomocą usługi Application Insights
 
@@ -228,11 +228,87 @@ Po skonfigurowaniu profilera uaktualnienia odnoszą się do ustawień aplikacji 
 8. Zainstaluj __usługi Application Insights__ z galerii aplikacji sieci Web platformy Azure.
 9. Uruchom ponownie aplikację sieci web.
 
+## <a id="profileondemand"></a>Ręcznie uruchomić profilera
+Podczas opracowywania profilera dodaliśmy interfejsu wiersza polecenia, dzięki czemu można testowania profilera na usługi aplikacji. Przy użyciu tego samego użytkowników interfejsu można również dostosować sposób uruchamiania profilera. Na wysokim poziomie profilera używa systemu Kudu aplikacji usługi do zarządzania profilowania w tle. Po zainstalowaniu rozszerzenie usługi Application Insights utworzymy zadania ciągłego sieci web, które obsługuje profilera. Używamy tej samej technologii, aby utworzyć nowe zadanie sieci web, którą można dostosować do własnych potrzeb.
+
+W tej sekcji opisano sposób:
+
+1.  Utwórz zadanie sieci web, które można uruchomić profilera dwie minuty o naciśnięcie przycisku.
+2.  Utwórz zadanie sieci web, które można zaplanować profiler do uruchomienia.
+3.  Ustaw argumentów profilera.
+
+
+### <a name="set-up"></a>Konfigurowanie
+Pierwszy umożliwia zapoznanie się z pulpitu nawigacyjnego zadanie sieci web. W obszarze Ustawienia kliknij na karcie zadań Webjob.
+
+![Blok zadań webjob](./media/app-insights-profiler/webjobs-blade.png)
+
+Jak widać, że ten pulpit nawigacyjny pokazuje wszystkie zadania sieci web, które są aktualnie zainstalowane w witrynie. Widać ApplicationInsightsProfiler2 zadanie sieci web, który ma uruchomione zadanie profilera. Jest to, gdzie możemy zakończą się tworzenie naszego nowego zadania web Job ręczne i zaplanowane profilowania.
+
+Pierwszy Przekaż nam więcej plików binarnych, są wymagane.
+
+1.  Najpierw przejdź do witryny kudu. W obszarze rozwoju kartę Narzędzia kliknij na karcie "Zaawansowane narzędzia" logo Kudu. Kliknij przycisk "Przejdź". Spowoduje przejście do nowej lokacji i automatyczne logowanie.
+2.  Następnie należy pobierania plików binarnych profilera. Przejdź do Eksploratora plików za pomocą konsoli Debuguj -> CMD znajdujący się w górnej części strony.
+3.  Kliknij w lokacji -> wwwroot -> App_Data -> zadania -> ciągłe. Folder "ApplicationInsightsProfiler2" powinna zostać wyświetlona. Kliknij ikonę pobierania z lewej strony folderu. Spowoduje to Pobierz plik "ApplicationInsightsProfiler2.zip".
+4.  To pobierze wszystkie pliki, konieczne będzie przeniesienie do przodu. Najlepiej tworzenie wyczyścić katalogu można przenieść tego archiwum zip do zmiany przed kontynuowaniem.
+
+### <a name="setting-up-the-web-job-archive"></a>Konfigurowanie zadania archiwum sieci web
+Po dodaniu nowego zadania sieci web do witryny sieci Web azure zasadniczo tworzone z run.cmd w archiwum zip. Run.cmd informuje system zadanie sieci web, co należy zrobić, gdy zostanie uruchomione zadanie sieci web. Istnieją inne opcje, które można znaleźć w dokumentacji zadanie sieci web, ale w tym przypadku firma Microsoft nie wymagają dodatkowych czynności.
+
+1.  Aby rozpocząć tworzenie nowego folderu, I o nazwie "RunProfiler2Minutes" min.
+2.  Skopiuj pliki z folderu ApplicationInsightProfiler2 wyodrębnione do tego nowego folderu.
+3.  Utwórz nowy plik run.cmd. (I otworzyć ten folder roboczy w kodzie vs przed rozpoczęciem dla wygody)
+4.  Dodaj polecenie `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`i Zapisz plik.
+a.  `start` Polecenie informuje profiler do uruchomienia.
+b.  `--engine-mode immediate`profilera informuje, że chcemy natychmiast uruchomić profilowania.
+d.  `--single`oznacza, że aby uruchomić i zatrzymać następnie automatycznie d.  `--immediate-profiling-duration 120`oznacza, że ma profilera uruchomione przez 120 sekund lub 2 minuty.
+5.  Zapisz ten plik.
+6.  Ten folder archiwum, można kliknij folder prawym przyciskiem myszy i wybierz polecenie Wyślij do -> skompresowanego folderu (zip). Spowoduje to utworzenie pliku .zip przy użyciu nazwy folderu.
+
+![Uruchom polecenia profilera](./media/app-insights-profiler/start-profiler-command.png)
+
+Mamy teraz .zip zadanie sieci web, które możemy użyć, aby skonfigurować zadania sieci web w witrynie.
+
+### <a name="add-a-new-web-job"></a>Dodaj nowe zadanie sieci web
+Następnie dodamy nowe zadanie sieci web w witrynie. W tym przykładzie zostanie pokazują, jak dodać zadania ręczne wyzwalanych sieci web. Po można to zrobić proces jest prawie dokładnie takie same w harmonogramie. Więcej o zaplanowanych zadań wyzwalanych samodzielnie.
+
+1.  Przejdź do pulpitu nawigacyjnego zadania sieci web.
+2.  Kliknij polecenie Dodaj z paska narzędzi.
+3.  Nadaj nazwę, zadanie sieci web wybrano odpowiadać nazwie Mój archiwum dla uzyskania przejrzystości, a aby go otworzyć maksymalnie o różnych wersjach run.cmd.
+4.  W pliku Przekaż część formularza kliknięcie ikony otwartego pliku, a następnie znajdź plik zip, wprowadzonych powyżej.
+5.  W przypadku tego typu wybierz Triggered.
+6.  Wyzwalacze wybrać ręczny.
+7.  Kliknij przycisk OK, aby zapisać.
+
+![Uruchom polecenia profilera](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Uruchom profilera
+
+Teraz, gdy mamy nowe zadanie sieci web, który można ręcznie wyzwalana spróbujemy można go uruchomić.
+
+1.  Zgodnie z projektem może mieć tylko jeden proces ApplicationInsightsProfiler.exe uruchomione na komputerze w danym momencie. Tak, aby rozpocząć z upewnij się, że można wyłączyć zadania ciągłego sieci web z tego pulpitu nawigacyjnego. Kliknij wiersz, a następnie naciśnij klawisz STOP (Zatrzymaj)". Odśwież na pasku narzędzi i upewnij się, że stan potwierdza, że zadanie zostało zatrzymane.
+2.  Kliknij wiersz z nowego zadania sieci web dodanych i naciśnij przycisk Uruchom.
+3.  Kliknąć nadal wybranego wiersza polecenia dzienniki na pasku narzędzi to pozwala wyświetlić pulpit nawigacyjny zadania sieci web dla tego zadania sieci web, który został uruchomiony. Wyświetla najnowsze uruchamia i ich wyników.
+4.  Kliknij pozycję Uruchom, po prostu uruchomienia.
+5.  Jeśli wszystkie poszło również powinien być widoczny niektórych dzienników diagnostycznych pochodzące z profilera potwierdzenie, że zostały uruchomione, profilowania.
+
+### <a name="things-to-consider"></a>Co należy wziąć pod uwagę
+
+Chociaż ta metoda jest stosunkowo prosta jest kilka rzeczy, należy wziąć pod uwagę.
+
+1.  Ponieważ to nie jest zarządzany przez naszych usług firma Microsoft nie ma możliwości aktualizacji plików binarnych agenta dla zadania sieci web. Firma Microsoft aktualnie nie masz strony pobierania stabilna dla naszych danych binarnych więc jedynym sposobem uzyskania najnowszej aktualizacji rozszerzenia i dane z folderu ciągłego, tak jak opisano powyżej.
+2.  Jak jest to wykorzystanie argumenty wiersza polecenia, które pierwotnie zostały zaprojektowane z developer użyć zamiast używana przez użytkownika końcowego, argumenty mogą zmiany w przyszłości, więc po prostu należy pamiętać o który podczas uaktualniania. Nie należy go znacznie problem, ponieważ użytkownik może dodać zadanie sieci web, uruchamianie i test, który działa. Po pewnym czasie zostaną budujemy interfejsu użytkownika, aby to zrobić bez ręczny proces, ale jest to element wziąć pod uwagę.
+3.  Funkcja zadania sieci Web dla usług aplikacji jest unikatowa, że po uruchomieniu zadania sieci web gwarantuje, że proces ma tego samego zmienne środowiskowe i ustawienia aplikacji, które witryny sieci web zakończą się o. Oznacza to, że nie należy do przekazania klucza Instrumentacji z wiersza polecenia profilera, jego należy po prostu wybierz klucza instrumentacji ze środowiska. Jednak jeśli chcesz uruchomić profilera z pola deweloperów lub na komputerze poza usługi aplikacji należy podać klucz instrumentacji. Można to zrobić przez przekazywanie w argumencie `--ikey <instrumentation-key>`. Należy pamiętać, że ta wartość musi być zgodna klucza instrumentacji, przez aplikację. W danych wyjściowych dziennika z profilera go informuje użytkownika, które ikey wprowadzenie profilera i jeśli wykryliśmy działania z tego klucza Instrumentacji podczas możemy są profilowania.
+4.  Zadania ręczne wyzwalanych sieci web mogą być wyzwalane faktycznie za pośrednictwem sieci Web punktu zaczepienia. Ten adres url można uzyskać z kliknięcie prawym przyciskiem myszy na zadanie sieci web z poziomu pulpitu nawigacyjnego i wyświetlania właściwości lub wybierając polecenie Właściwości na pasku narzędzi po wybraniu zadanie sieci web z tabeli. Istnieje wiele artykułów, które znajdują się na ten temat online, I nie zostaną umieszczone w znacznie szczegółowo, ale spowoduje to otwarcie się możliwość wyzwalania profilera z planowaną CI/CD (np. programu VSTS) lub przypominać Flow firmy Microsoft (https://flow.microsoft.com/en-us/). W zależności od tego, jak ozdobne, która ma być run.cmd użytkownika, który w ten sposób można run.ps1, możliwości są rozległe.  
+
+
+
+
 ## <a id="aspnetcore"></a>Obsługa platformy ASP.NET Core
 
 Aplikacja platformy ASP.NET Core musi zainstalować 2.1.0-beta6 pakietu Microsoft.ApplicationInsights.AspNetCore NuGet lub nowszym do pracy z profilera. Począwszy od 27 czerwca 2017 nie obsługujemy starszych wersji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Praca z usługi Application Insights w programie Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 

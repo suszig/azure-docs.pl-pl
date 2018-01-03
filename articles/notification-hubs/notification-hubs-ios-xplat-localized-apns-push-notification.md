@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Wyślij zlokalizowanej najnowszych wiadomości do urządzeń z systemem iOS przy użyciu usługi Notification Hubs
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym temacie przedstawiono sposób użycia [szablony](notification-hubs-templates-cross-platform-push-messages.md) funkcji usługi Azure Notification Hubs wysyłać powiadomienia o najważniejszych wiadomościach które zostały zlokalizowane według języka i urządzenia. W tym samouczku początkowo utworzony w aplikacji systemu iOS [użyciu usługi Notification Hubs wysyłanie najważniejszych wiadomości]. Po zakończeniu będzie można zarejestrować dla kategorii, które planuje się, określ język, w których chcesz otrzymywać powiadomienia, a otrzymywać tylko powiadomień wypychanych do wybranych kategorii w tym języku.
 
 Istnieją dwie części tego scenariusza:

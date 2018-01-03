@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Znajdź działa z dokładnością najlepszym i najniższego czas trwania
 Podana wielu uruchomień, jeden przypadek użycia jest znalezienie działa z najlepszym dokładności. Jednym z podejść jest użycie interfejsu wiersza polecenia (CLI) z [JMESPath](http://jmespath.org/) zapytania. Aby uzyskać więcej informacji o sposobie używania JMESPath w wiersza polecenia platformy Azure, zobacz [JMESPath Użyj zapytania z Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). W poniższym przykładzie są tworzone cztery uruchamia dokładność wartości 0, 0,98, 1 lub 1. Uruchamia są filtrowane, jeśli są w zakresie `[MaxAccuracy-Threshold, MaxAccuracy]` gdzie `Threshold = .03`.
@@ -68,5 +68,5 @@ $find_runs_query = '@[?Accuracy >= sum(`[{0}, -{1}]`)] | sort_by(@, &duration)' 
 az ml history list --query $find_runs_query
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji, zobacz [sposób użycia Historia uruchomień i metryki modelu w konsoli usługi Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md).    

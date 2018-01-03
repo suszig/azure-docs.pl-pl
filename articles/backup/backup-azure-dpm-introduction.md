@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Przygotowywanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu DPM
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Po utworzeniu magazynu usługi Kopia zapasowa Azure, należy zainstalować agent
 * Serwer programu DPM powinien mieć środowiska Windows PowerShell i .net Framework 4.5 zainstalowane.
 * Program DPM można wykonać kopię zapasową większości obciążeń kopia zapasowa Azure. Pełną listę, co ma obsługiwane Zobacz Kopia zapasowa Azure obsługuje poniższe elementy.
 * Nie można odzyskać danych przechowywanych w usłudze Kopia zapasowa Azure przy użyciu opcji "Kopiuj na taśmę".
-* Konieczne będzie konto platformy Azure z włączoną funkcją kopia zapasowa Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Przeczytaj informacje o [cennikiem usługi Kopia zapasowa Azure](https://azure.microsoft.com/pricing/details/backup/).
+* Konieczne będzie konto platformy Azure z włączoną funkcją kopia zapasowa Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Przeczytaj informacje o [cennikiem usługi Kopia zapasowa Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Za pomocą usługi Kopia zapasowa Azure wymaga agenta kopii zapasowej Azure można zainstalować na serwerach, które chcesz utworzyć kopię zapasową. Każdy serwer musi mieć co najmniej 5% rozmiaru danych, która jest tworzona kopia zapasowa, dostępne jako wolnego miejsca w magazynie lokalnym. Na przykład tworzenie kopii zapasowej 100 GB danych wymaga co najmniej 5 GB wolnego miejsca w lokalizacji pliki tymczasowe.
 * Dane będą przechowywane w magazynie usługi Azure storage. Nie ma żadnego limitu ilości danych, które użytkownik może wykonać kopię zapasową kopia zapasowa Azure magazynu, ale rozmiar źródła danych (na przykład maszyny wirtualnej lub bazy danych) nie powinna przekraczać 54400 GB.
 

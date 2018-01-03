@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Samouczek: Integracji Azure Active Directory z Benefitsolver
 
@@ -112,7 +112,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.benefitsolver.com/saml20`
 
-    c. W **adres URL odpowiedzi** tekstowym, wpisz adres URL:`https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
+    d. W **adres URL odpowiedzi** tekstowym, wpisz adres URL:`https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania, identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Benefitsolver](https://www.businessolver.com/contact) uzyskać te wartości.
@@ -138,11 +138,11 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **OK**.
 
-6. Na **certyfikat podpisywania SAML** kliknij **Metadta XML** , a następnie zapisz plik metadanych na tym komputerze.
+6. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
     ![Łącze pobierania certyfikatu](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -150,7 +150,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Skonfigurować logowanie jednokrotne w **Benefitsolver** stronie, musisz wysłać pobrany **Metadta XML** do [zespołem pomocy technicznej Benefitsolver](https://www.businessolver.com/contact).
+8. Skonfigurować logowanie jednokrotne w **Benefitsolver** stronie, musisz wysłać pobrany **XML metadanych** do [zespołem pomocy technicznej Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Z zespołem pomocy technicznej Benefitsolver ma robić rzeczywista konfiguracja logowania jednokrotnego. Otrzymasz powiadomienie podczas logowania jednokrotnego została włączona dla Twojej subskrypcji.
@@ -187,7 +187,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -235,7 +235,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka Benefitsolver w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Benefitsolver.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

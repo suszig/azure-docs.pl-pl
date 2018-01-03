@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Pochodzi kolumny przez przykład przekształcania
 
@@ -148,7 +148,7 @@ Liczba przykłady, które były wymagane dla tego przypadku: 1
 |Marii Anna|W|Kowalski|Anna Marie· W· Kowalski|
 |Rico||Ropp|Rico·· Ropp|
 |Może Lauren||Fullmer|Lauren May·· Fullmer|
-|Wytłoków|T|Maine|Marc· T· Maine|
+|Wytłoków|W|Maine|Marc· T· Maine|
 |Angie||Adelmana|Angie·· Adelmana|
 |Jan Pawła||Smith|Jan Paul·· Smith|
 |Utworu|W|Staller|Song· W· Staller|
@@ -184,15 +184,15 @@ Liczba przykłady, które były wymagane dla tego przypadku: 3
 
 |Płci administracyjne|Dane wyjściowe|
 |:-----|:-----:|
-|męskiego|**0**|
-|gniazdo|**1**|
-|Nieznany|**2**|
-|gniazdo|1|
-|gniazdo|1|
-|męskiego|0|
-|Nieznany|2|
-|męskiego|0|
-|gniazdo|1|
+|Mężczyzna|**0**|
+|Kobieta|**1**|
+|Brak informacji|**2**|
+|Kobieta|1|
+|Kobieta|1|
+|Mężczyzna|0|
+|Brak informacji|2|
+|Mężczyzna|0|
+|Kobieta|1|
 
 ## <a name="examples-of-number-transformations-by-example"></a>Przykłady numer przekształcenia przykładzie
 
@@ -286,34 +286,34 @@ Liczba przykłady, które były wymagane dla tego przypadku: 1
 
 Te części daty zostały wyodrębnione przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data i godzina|dzień tygodnia|Date|Miesiąc|Roku|Godzina|Minuta|Drugie|
+|Data/godzina|dzień tygodnia|Date|Miesiąc|Rok|Godzina|Minuta|Drugi|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**PT**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
-|17-Jan-1990 13:32:01|Wed|17|Jan|1990|13|32|01|
-|14 — luty-2034 05:36:07|Wt|14|Luty|2034|5|36|07|
-|14-marca-2002 13:16:16|Czw|14|Oznacz|2002|13|16|16|
-|21-Jan-1985 05:44:43|MON|21|Jan|1985|5|44|**43**|
-|16-sie-1985 01:11:56|PT|16|Sie|1985|1|11|56|
-|20-gru-2033 18:36:29|Wt|20|DEC|2033|18|36|29|
-|16-lip-1984 10:21:59|MON|16|Lip|1984|10|21|59|
-|13 stycznia 2038 r. 10:59:36|Wed|13|Jan|2038|10|59|36|
-|14-sie-1982 15:13:54|SAD|14|Sie|1982|15|13|54|
-|22-lis-2030 08:18:08|PT|22|Lis|2030|8|18|08|
-|21-Oct-1997 08:42:58|Wt|21|OCT|1997|8|42|58|
+|17-Jan-1990 13:32:01|Śr|17|Sty|1990|13|32|01|
+|14 — luty-2034 05:36:07|Wt|14|Lut|2034|5|36|07|
+|14-marca-2002 13:16:16|Cz|14|Mar|2002|13|16|16|
+|21-Jan-1985 05:44:43|Pn|21|Sty|1985|5|44|**43**|
+|16-sie-1985 01:11:56|Pt|16|Sie|1985|1|11|56|
+|20-gru-2033 18:36:29|Wt|20|Gru|2033|18|36|29|
+|16-lip-1984 10:21:59|Pn|16|Lip|1984|10|21|59|
+|13 stycznia 2038 r. 10:59:36|Śr|13|Sty|2038|10|59|36|
+|14-sie-1982 15:13:54|So|14|Sie|1982|15|13|54|
+|22-lis-2030 08:18:08|Pt|22|Lis|2030|8|18|08|
+|21-Oct-1997 08:42:58|Wt|21|Paź|1997|8|42|58|
 |28-lis-2006 14:19:15|Wt|28|Lis|2006|14|19|15|
-|29-kwietnia-2031 04:59:45.|Wt|29|Kwietnia|2031|4|59|45|
-|29-Jan-2032 02:38:36|Czw|29|Jan|2032|2|38|36|
-|2028-11-maja 15:31:52|Czw|11|Może|2028|15|31|52|
-|15-lip-1977 12:45:39|PT|15|Lip|1977|12|45|39|
-|27-Jan-2029 05:55:41|SAD|27|Jan|2029|5|55|41|
-|2024-03-marca 10:17:49|Sun|3|Oznacz|2024|10|17|49|
-|00:23:13 kwietnia-14-2010|Wed|14|Kwietnia|2010|0|23|13|
+|29-kwietnia-2031 04:59:45.|Wt|29|Kwi|2031|4|59|45|
+|29-Jan-2032 02:38:36|Cz|29|Sty|2032|2|38|36|
+|2028-11-maja 15:31:52|Cz|11|Maj|2028|15|31|52|
+|15-lip-1977 12:45:39|Pt|15|Lip|1977|12|45|39|
+|27-Jan-2029 05:55:41|So|27|Sty|2029|5|55|41|
+|2024-03-marca 10:17:49|N|3|Mar|2024|10|17|49|
+|00:23:13 kwietnia-14-2010|Śr|14|Kwi|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formatowanie dat
 
 Te formattings Data zostały wykonane przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data i godzina|Format1|Format2|Format3|Format4|Format5|
+|Data/godzina|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Piątek, 31 stycznia 2031**|**01312031 5:54**|**31/1/2031 5:54:00**|**2031 1.**|
 |17-Jan-1990 13:32:01|1/17/1990|Środa, 17 stycznia 1990|01171990 13:32|17/1/1990 1:32 PM.|K1 1990|
@@ -341,7 +341,7 @@ Te formattings Data zostały wykonane przy użyciu różnych przez przykład prz
 
 Te wartości Datetimes okresu mapowań zostały wykonane przy użyciu różnych przez przykład przekształcenia na tym samym zestawie danych. Ciągi Bold reprezentuje przykłady, które zostały podane w ich odpowiednich transformacji.
 
-|Data i godzina|Period(seconds)|Period(minutes)|Okres (2 godziny)|Okres (30 minut)|
+|Data/godzina|Period(seconds)|Period(minutes)|Okres (2 godziny)|Okres (30 minut)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5: 00 - 7: 00**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|13: 00 - 15: 00|13:30-14:00|
@@ -369,7 +369,7 @@ Te wartości Datetimes okresu mapowań zostały wykonane przy użyciu różnych 
 |tripduration|czas rozpoczęcia|Uruchom identyfikator stacji|rozpocząć stacja współrzędnych|rozpocząć stacja geograficzne|UserType|Kolumna|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |61|2016-01-08 16:09:32|107|42.3625|-71.08822|Subskrybent|**Subskrybent pobrane roweru ze stacji 107 lat/long (42.363,-71.088) na 08 stycznia 2016, około 16: 00. Czas trwania podróży została 61 minut**|
-|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Klienta|Klient pobrane roweru ze stacji 74, lat/long (42.373,-71.119), 17 stycznia 2016, około 9 AM. Czas trwania podróży została 61 minut|
+|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Klient|Klient pobrane roweru ze stacji 74, lat/long (42.373,-71.119), 17 stycznia 2016, około 9 AM. Czas trwania podróży została 61 minut|
 |62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Subskrybent|Subskrybent pobrane roweru ze stacji 176 lat/long (42.387,-71.119) na 25 stycznia 2016, około 8 AM. Czas trwania podróży została 62 minut|
 |63|2016-01-08 10:10:29|107|42.3625|-71.08822|Subskrybent|Subskrybent pobrane roweru ze stacji 107 lat/long (42.363,-71.088) na 08 stycznia 2016, około 10 AM. Czas trwania podróży została 63 minut|
 |64|2016-01-15 19:42:08|68|42.36507|-71.1031|Subskrybent|Subskrybent pobrane roweru ze stacji 68, lat/long (42.365,-71.103) na 15 stycznia 2016, około 19: 00. Czas trwania podróży została 64 minut|
@@ -385,5 +385,5 @@ Te wartości Datetimes okresu mapowań zostały wykonane przy użyciu różnych 
 ### <a name="conditional-transformations"></a>Warunkowe przekształcenia
 W niektórych przypadkach pojedyncze przekształcenie nie można znaleźć odpowiadającej danej przykłady. W takich przypadkach pochodzi kolumny przez przekształcenie przykład próbuje grupy wzorca niektóre z danych wejściowych i Dowiedz się oddzielne transformacji dla każdej grupy. Nazywamy to **warunkowego przekształcania**. **Transformacja warunkowego** zostanie podjęta tylko przekształcenia z jedną kolumną wejściowego. 
 
-### <a name="reference"></a>Dokumentacja
+### <a name="reference"></a>Informacje ogólne
 Więcej informacji na temat przekształcania ciągu przez technologię przykład znajduje się w [tej publikacji](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

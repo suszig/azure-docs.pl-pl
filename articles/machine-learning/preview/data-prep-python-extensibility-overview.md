@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-python-extensions"></a>Rozszerzenia języka Python przygotowań danych
 Sposób wypełniania funkcji luki pomiędzy wbudowane funkcje usługi Azure Machine Learning danych przygotowania zawiera rozszerzalności na różnych poziomach. W tym dokumencie możemy konspektu rozszerzalność dzięki skrypt w języku Python. 
@@ -27,7 +27,7 @@ Przygotowań danych ma następujące kroki niestandardowe, w którym użytkownic
 * Plik czytnika *
 * Moduł zapisujący *
 * Dodaj kolumnę
-* Filtrowanie zaawansowane
+* Filtr zaawansowany
 * Przekształć przepływu danych
 * Przekształć partycji
 
@@ -38,7 +38,7 @@ Dla każdej z tych kroków firma Microsoft obsługuje dwa typy bloku kodu. Po pi
 
 Na przykład można dodać nowej kolumny, która oblicza dziennika innej kolumny w dwóch sposobów:
 
-wyrażenie 
+Wyrażenie 
 
 ```python    
     math.log(row["Score"])
@@ -155,7 +155,7 @@ Dataframe ten zawiera następujące kolumny:
 - AuthenticationValue: Zawiera None lub token do użycia.
 
 ### <a name="syntax"></a>Składnia 
-wyrażenie 
+Wyrażenie 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +185,7 @@ Punkt rozszerzenia składnika zapisywania pozwala w pełni kontroli proces zapis
 Aby dodać ten punkt rozszerzenia, należy za pomocą bloku przepływu danych zapisu (skrypt). Jest ona dostępna na najwyższym poziomie **przekształcenia** menu.
 
 ### <a name="syntax"></a>Składnia 
-wyrażenie
+Wyrażenie
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +210,7 @@ Punkt rozszerzenia Add Column umożliwia zapisanie Python do obliczenia nowej ko
 Aby dodać ten punkt rozszerzenia, należy za pomocą bloku Dodawanie kolumny (skrypt). Jest ona dostępna na najwyższym poziomie **przekształcenia** menu, jak również na **kolumny** menu kontekstowego. 
 
 ### <a name="syntax"></a>Składnia
-wyrażenie
+Wyrażenie
 
 ```python
     math.log(row["Score"])
@@ -224,7 +224,7 @@ def newvalue(row):
 ```
  
 
-## <a name="advanced-filter"></a>Filtrowanie zaawansowane
+## <a name="advanced-filter"></a>Filtr zaawansowany
 ### <a name="purpose"></a>Przeznaczenie 
 Punkt rozszerzenia filtr zaawansowany umożliwia zapisanie filtru niestandardowego. Masz dostęp do całego wiersza i kod musi zwracać wartość True (Dołącz wiersz) lub False (wykluczyć wiersza). 
 
@@ -233,7 +233,7 @@ Aby dodać ten punkt rozszerzenia, należy za pomocą bloku zaawansowane filtru 
 
 ### <a name="syntax"></a>Składnia
 
-wyrażenie
+Wyrażenie
 
 ```python
     row["Score"] > 95
@@ -260,7 +260,7 @@ Punkt rozszerzenia przekształcenie przepływu danych umożliwia całkowicie prz
 Aby dodać ten punkt rozszerzenia, należy za pomocą bloku przepływu danych przekształcania (skrypt). Jest ona dostępna na najwyższym poziomie **przekształcenia** menu. 
 ### <a name="syntax"></a>Składnia 
 
-wyrażenie
+Wyrażenie
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +291,7 @@ Aby dodać ten punkt rozszerzenia, należy za pomocą bloku przekształcenie par
 
 ### <a name="syntax"></a>Składnia 
 
-wyrażenie 
+Wyrażenie 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +337,7 @@ DataPrepError({
 Możliwe jest uruchomienie Python punkcie rozszerzenia do generowania DataPrepErrors jako wartości zwracane przy użyciu poprzedniej metody tworzenia. Jest znacznie bardziej prawdopodobne, że DataPrepErrors wystąpią podczas przetwarzania danych w punkcie rozszerzenia. W tym momencie niestandardowy kod języka Python musi obsługiwać DataPrepError jako prawidłowy typ danych.
 
 #### <a name="syntax"></a>Składnia 
-wyrażenie 
+Wyrażenie 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

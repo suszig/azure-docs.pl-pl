@@ -3,8 +3,8 @@ title: "Przegląd stref DNS i rekordy — usługi Azure DNS | Dokumentacja firmy
 description: "Przegląd pomocy technicznej do hostowania strefy DNS i rekordy DNS firmy Microsoft Azure."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
-ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Przegląd stref DNS i rekordów
 
@@ -132,7 +132,7 @@ Na poziomie interfejsu API REST usługi Azure DNS elementy etag określono korzy
 
 | Nagłówek | Zachowanie |
 | --- | --- |
-| Brak |Umieść zawsze powiedzie się (nie są sprawdzane Etag) |
+| None |Umieść zawsze powiedzie się (nie są sprawdzane Etag) |
 | IF-match<etag> |Umieść powiedzie się tylko, jeśli zasób istnieje i element Etag odpowiada |
 | IF-match * |Umieść powiedzie się tylko, jeśli istnieje zasób |
 | IF-none-match * |Umieść powiedzie się tylko, jeśli zasób nie istnieje. |
@@ -144,7 +144,7 @@ Następujące domyślne limity stosowane podczas korzystania z usługi Azure DNS
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby rozpocząć korzystanie z usługi Azure DNS, Dowiedz się, jak [utworzyć strefę DNS](dns-getstarted-create-dnszone-portal.md) i [utworzyć rekordy DNS](dns-getstarted-create-recordset-portal.md).
 * Aby przeprowadzić migrację istniejącej strefy DNS, Dowiedz się, jak [importowanie i eksportowanie pliku strefy DNS](dns-import-export.md).

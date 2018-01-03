@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Przykłady centra zdarzeń 
 
@@ -69,7 +69,7 @@ Te przykłady pokazują różnych funkcji usługi Azure Event hubs, przeznaczony
 
 [Importuj dane z sieci web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) przykładowych pokazano, jak dane z publicznego źródła danych (na przykład dział transportu podawanie informacji ruchu) i wypchnąć go do Centrum zdarzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji na temat wersji systemu .NET Framework, przechodząc na stronę następujących łączy:
 

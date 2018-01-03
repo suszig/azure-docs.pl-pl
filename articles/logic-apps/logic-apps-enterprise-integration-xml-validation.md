@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Walidacja danych XML dla integracji przedsiębiorstwa
 
@@ -30,34 +30,34 @@ Często w scenariusze B2B partnerzy umowy należy się upewnić, które wymienia
 
 2. Dodaj **żądania - zostanie odebrane żądanie HTTP podczas** do aplikacji logiki wyzwalacza.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Aby dodać **sprawdzanie poprawności kodu XML** akcji, wybierz **Dodaj akcję**.
 
 4. Aby filtrować wszystkie akcje do tego, który ma, wprowadź *xml* w polu wyszukiwania. Wybierz **sprawdzanie poprawności kodu XML**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Aby określić, który chcesz zweryfikować zawartość XML, wybierz **zawartości**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Zaznacz tag treści jako zawartości, który chcesz zweryfikować.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. Aby określić schematu, którego chcesz użyć do zweryfikowania poprzedniej *zawartości* danych wejściowych, wybierz **nazwy SCHEMATU**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Zapisz swoją pracę  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Wykonuje się teraz w skonfigurowaniu łącznika z weryfikacji. W przypadku aplikacji rzeczywistych można przechowywać dane zweryfikowanych w aplikacji — biznesowych (LOB) takie jak SalesForce. Aby wysłać zweryfikowanych dane wyjściowe do usług Salesforce, Dodaj akcję.
 
 Aby przetestować operację sprawdzania poprawności, należy wysłać żądanie do punktu końcowego HTTP.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw")   
 

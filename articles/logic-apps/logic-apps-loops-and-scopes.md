@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Pętle, zakresy i usuwanie partii aplikacji logiki
   
@@ -26,9 +26,9 @@ Logic Apps oferuje następujące sposoby pracy z tablic, kolekcje, partie i wyko
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach — pętla i tablic
   
-Logic Apps umożliwia pętli zestawu danych i wykonywania akcji dla każdego elementu.  Jest to możliwe za pośrednictwem `foreach` akcji.  W projektancie, można określić, aby dodać dla każdej pętli.  Po wybraniu tablicy, która ma zostać wykonana iteracja, możesz rozpocząć dodawanie akcji.  Można dodać wiele akcji na pętli foreach.  Raz w pętli można rozpocząć Określ, co ma mieć miejsce w każdej wartości w tablicy.
+Logic Apps umożliwia pętli zestawu danych i wykonywania akcji dla każdego elementu.  Zapętlenie przez kolekcję jest możliwe za pośrednictwem `foreach` akcji.  W projektancie, można dodać dla każdej pętli.  Po wybraniu tablicy, która ma zostać wykonana iteracja, możesz rozpocząć dodawanie akcji.  Można dodać wiele akcji na pętli foreach.  Raz w pętli, można rozpocząć Określ, co ma mieć miejsce w każdej wartości w tablicy.
 
-Jeśli używasz widoku kodu, można określić dla każdej pętli, takie jak poniżej.  To jest przykład dla każdej pętli, który wysyła wiadomości e-mail dla każdego adresu e-mail, który zawiera "microsoft.com":
+  W tym przykładzie wysyła wiadomość e-mail dla każdego adresu e-mail, który zawiera "microsoft.com". Jeśli używasz widoku kodu, można określić dla każdej pętli, jak w następującym przykładzie:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Jeśli używasz widoku kodu, można określić dla każdej pętli, takie jak pon
 }
 ```
   
-  A `foreach` akcję można wykonać iterację w stałych do 5000 wierszy.  Domyślnie każdej iteracji będą wykonywane równolegle.  
+  A `foreach` akcji można Iterowanie przez tablice z tysiącami jednostek.  Domyślnie iteracji wykonywane równolegle.  Zobacz [limity i konfiguracji](logic-apps-limits-and-config.md) szczegółowe informacje na temat limitów tablicy i współbieżności.
 
 ### <a name="sequential-foreach-loops"></a>Sekwencyjne pętli ForEach
 
@@ -83,13 +83,15 @@ Aby włączyć pętli foreach można wykonać kolejno `Sequential` opcji operacj
   
 ## <a name="until-loop"></a>Do pętli
   
-  Do momentu spełnienia warunku można wykonać akcji lub serii akcji.  Najbardziej typowym scenariuszem dla tego wywołuje punkt końcowy do momentu uzyskania odpowiedzi, którego szukasz.  W projektancie, można określić, aby dodać do pętli.  Po dodaniu Akcje wewnątrz pętli, można ustawić warunku exit, a także pętli limity.  Istnieje opóźnienie 1 minutę, między cykle pętli.
+  Do momentu spełnienia warunku można wykonać akcji lub serii akcji.  Najbardziej typowym scenariuszem stosowania aż pętli jest wywołaniem punktu końcowego, do momentu uzyskania odpowiedzi, którego szukasz.  W projektancie, można określić, aby dodać do pętli.  Po dodaniu Akcje wewnątrz pętli, można ustawić warunku exit, a także pętli limity.
   
-  Jeśli używasz widoku kodu, można określić aż pętli, takich jak poniżej.  Jest to przykład wywołaniem punktu końcowego HTTP, dopóki treść odpowiedzi ma wartość "Ukończona".  Proces zostanie zakończony, kiedy użytkownik 
+  W tym przykładzie wywołuje punkt końcowy HTTP, dopóki treść odpowiedzi ma wartość "Ukończona".  Po ukończeniu albo: 
   
   * Odpowiedź HTTP ma stan "Ukończona"
-  * Maksymalnie 1 godziny
+  * Zostały zainstalowane na godzinę
   * Wystąpiło sprzężenie 100 razy
+  
+  Jeśli używasz widoku kodu, można określić do pętli, jak w następującym przykładzie:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Aby włączyć pętli foreach można wykonać kolejno `Sequential` opcji operacj
   
 ## <a name="spliton-and-debatching"></a>SplitOn i debatching
 
-Czasami może zostać wyświetlony wyzwalacz tablicę elementów, które mają być debatch i uruchomić przepływ pracy dla każdego elementu.  Można to zrobić za pomocą `spliton` polecenia.  Domyślnie, jeśli programu swagger wyzwalacza określa ładunku, który jest tablicą `spliton` zostanie dodany i uruchomić Uruchom dla każdego elementu.  SplitOn można dodać tylko do wyzwalacza.  Może to ręcznie skonfigurowane lub zastąpiony w definicji widoku kodu.  Obecnie można debatch SplitOn stałych elementów do 5000.  Nie może mieć `spliton` i również implementują wzorzec synchronicznej odpowiedzi.  Każdy przepływ pracy, który wywołuje ma `response` akcji oprócz `spliton` będą uruchamiane asynchronicznie i wysyłać natychmiastowego `202 Accepted` odpowiedzi.  
+Czasami może zostać wyświetlony wyzwalacz tablicę elementów, które mają być debatch i uruchomić przepływ pracy dla każdego elementu.  Ta debatching można zrealizować przy użyciu `spliton` polecenia.  Domyślnie, jeśli programu swagger wyzwalacza określa ładunku, który jest tablicą `spliton` został dodany. `spliton` Polecenie uruchamia Uruchom dla każdego elementu w tablicy.  SplitOn można dodać tylko do wyzwalania, którą można ręcznie skonfigurować lub zastąpione. Nie może mieć `spliton` i również implementują wzorzec synchronicznej odpowiedzi.  Każdy przepływ pracy, który wywołuje ma `response` akcji oprócz `spliton` asynchronicznie uruchamia i wysyła natychmiastowego `202 Accepted` odpowiedzi.  
 
-Można wybrać opcję SplitOn w widoku kodu poniższym przykładzie.  Odbiera tablicę elementów i debatches w każdym wierszu.
+  W tym przykładzie odbiera tablicę elementów i debatches w każdym wierszu. W widoku kodu można określić SplitOn jak w poniższym przykładzie:
 
 ```
 {
@@ -139,7 +141,7 @@ Można wybrać opcję SplitOn w widoku kodu poniższym przykładzie.  Odbiera ta
 
 ## <a name="scopes"></a>Zakresy
 
-Istnieje możliwość grupowania serii akcji ze sobą przy użyciu zakresu.  Jest to szczególnie przydatne dla Implementowanie obsługi wyjątków.  W Projektancie można dodać nowego zakresu i rozpocząć dodawanie wszystkie akcje wewnątrz niej.  Zakresy można zdefiniować w widoku kodu podobne do poniższych:
+Istnieje możliwość grupowania serii akcji ze sobą przy użyciu zakresu.  Zakresy są przydatne w przypadku implementowania obsługi wyjątków.  W Projektancie można dodać nowego zakresu i rozpocząć dodawanie wszystkie akcje wewnątrz niej.  Zakresy można zdefiniować w widoku kodu, jak w następującym przykładzie:
 
 
 ```

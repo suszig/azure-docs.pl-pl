@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -418,7 +419,7 @@ Wybierz unikatowy ciąg jako środowisko operationalization. W tym miejscu używ
    Aby uzyskać więcej informacji, zobacz [jak skalować operationalization w klastrze usługi kontenera platformy Azure](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten przykład prezentuje sposób użycia Machine Learning Workbench do uczenia modelu danych big Data uczenia maszynowego i operacjonalizacji trenowanego modelu. W szczególności przedstawiono sposób konfigurowania i użyć różnych obliczeniowe i uruchomić historii śledzenia metryki i korzystać z różnych uruchomień.
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Użyj węzłami pusty edge na klastrów platformy Hadoop w usłudze HDInsight
 
@@ -152,7 +152,7 @@ W portalu Azure, można usunąć węzła krawędzi.
 4. Kliknij prawym przyciskiem myszy węzeł krawędzi chcesz usunąć, a następnie kliknij przycisk **usunąć**.
 5. Kliknij przycisk **Tak**, aby potwierdzić.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule ma przedstawiono sposób dodawania węzła krawędzi oraz sposób dostępu do węzła krawędzi. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * [Instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md): dowiedz się, jak instalować aplikacje usługi HDInsight w klastrach.

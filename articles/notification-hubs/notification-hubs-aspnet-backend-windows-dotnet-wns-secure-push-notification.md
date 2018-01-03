@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpiecznego Push
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Obsługa powiadomień wypychanych w Microsoft Azure pozwala uzyskiwać dostęp do infrastruktury wypychania łatwy w użyciu, wieloplatformową skalowalnych w poziomie, co znacznie upraszcza implementacji powiadomienia wypychane dla aplikacji zarówno konsumenckie i korporacyjne dla platform urządzeń przenośnych.
 
 Z powodu przepisami ograniczeń dotyczących zabezpieczeń, czasami aplikacji może mają zostać uwzględnione coś w powiadomienie, które nie są przesyłane za pośrednictwem infrastruktury powiadomień wypychanych standardowa. Ten przewodnik opisuje sposób do osiągnięcia w tym samym środowisku, wysyłając informacje poufne za pośrednictwem bezpiecznego uwierzytelnionego połączenia od urządzeń klienckich i zaplecza aplikacji.

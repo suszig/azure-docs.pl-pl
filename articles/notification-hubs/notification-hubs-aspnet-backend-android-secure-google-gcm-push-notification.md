@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Wysyłanie powiadomień wypychanych bezpiecznego przy użyciu usługi Azure Notification Hubs
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 > [!IMPORTANT]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 

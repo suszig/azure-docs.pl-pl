@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ea959f1e95ea46c07eec3afa9d46bfeb72ca3e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17c73393ecbdff693e9b200d1506887e0f1d71e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>Projektowanie i kompilowanie rozwiązania do zarządzania w Operations Management Suite (OMS) (wersja zapoznawcza)
 > [!NOTE]
@@ -37,7 +37,7 @@ Podstawowa strategia jest zacząć od rozwiązania do zarządzania przez tworzen
 ## <a name="design-your-solution"></a>Projektowanie własnego rozwiązania
 Na poniższym diagramie przedstawiono najbardziej typowe wzorzec rozwiązania do zarządzania.  Różne składniki w tym wzorcu zostały omówione w poniżej.
 
-![Omówienie rozwiązania OMS](media/operations-management-suite-solutions/solution-overview.png)
+![Omówienie rozwiązania OMS](media/operations-management-suite-solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Źródła danych
@@ -80,7 +80,7 @@ Po wprowadzeniu i przetestowane rozwiązanie można udostępnić go do klientów
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [Utwórz plik rozwiązania](operations-management-suite-solutions-solution-file.md) rozwiązania do zarządzania.
 * Poznaj lepiej [szablonów Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Wyszukiwanie [szablonów Szybki Start Azure](https://azure.microsoft.com/documentation/templates) przykłady różnych szablonów usługi Resource Manager.

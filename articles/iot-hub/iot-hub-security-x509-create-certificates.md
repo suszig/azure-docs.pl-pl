@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 31f94686fed376fbeda2ccdcbc5ed001bcda8126
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Skrypty programu PowerShell do zarządzania certyfikatami X.509 podpisany przez urząd certyfikacji
 
@@ -200,28 +200,30 @@ Tworzenie łańcucha certyfikatów z głównego urzędu certyfikacji, na przykł
 Ten skrypt wykonuje *dowodu posiadania* przepływu dla certyfikatu X.509. 
 
 W oknie programu PowerShell z pulpitu Uruchom następujący kod:
-    ```PowerShell
-    function New-CAVerificationCert([string]$requestedSubjectName)
-    {
-        $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
-        $verifyRequestedFileName = ".\verifyCert4.cer"
-        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
-        Write-Host "Using Signing Cert:::" 
-        Write-Host $rootCACert
-    
-        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+   
+   ```PowerShell
+   function New-CAVerificationCert([string]$requestedSubjectName)
+   {
+       $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
+       $verifyRequestedFileName = ".\verifyCert4.cer"
+       $rootCACert = Get-CACertBySubjectName $_rootCertSubject
+       Write-Host "Using Signing Cert:::" 
+       Write-Host $rootCACert
+   
+       $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
 
-        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
-        if (-not (Test-Path $verifyRequestedFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
-        }
-    
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
-    }
-    New-CAVerificationCert "<your verification code>"
-    ```
-   To tworzy certyfikat z nazwą danego podmiotu, podpisany przez urząd certyfikacji jako plik o nazwie *VerifyCert4.cer* w katalogu roboczym. Ten plik certyfikatu może pomóc sprawdzić z Centrum IoT czy masz uprawnienie podpisywania (to znaczy, że klucz prywatny) tego urzędu certyfikacji.
+       Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
+       if (-not (Test-Path $verifyRequestedFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
+       }
+   
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+   }
+   New-CAVerificationCert "<your verification code>"
+   ```
+
+Ten kod tworzy certyfikat z nazwą danego podmiotu, podpisany przez urząd certyfikacji jako plik o nazwie *VerifyCert4.cer* w katalogu roboczym. Ten plik certyfikatu może pomóc sprawdzić z Centrum IoT czy masz uprawnienie podpisywania (to znaczy, że klucz prywatny) tego urzędu certyfikacji.
 
 
 <a id="createx509device"></a>
@@ -231,45 +233,56 @@ W oknie programu PowerShell z pulpitu Uruchom następujący kod:
 W tej sekcji przedstawiono, których można użyć skryptu programu PowerShell tworzącą certyfikatu liścia urządzenia i odpowiednie łańcucha certyfikatów. 
 
 W oknie programu PowerShell na komputerze lokalnym Uruchom następujący skrypt, aby utworzyć certyfikat X.509 podpisany przez urząd certyfikacji dla tego urządzenia:
-    ```PowerShell
-    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
-    {
-        $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
-        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
-        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
-        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
-        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
-    
-        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
-    
-        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
+   ```PowerShell
+   function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
+   {
+       $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
+       $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
+       $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
+       $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
+       $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
+   
+       $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
-        Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
-        if (-not (Test-Path $newDevicePfxFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
-        }
+       $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
+   
+       $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 
-        # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
-        Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
-        openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+       # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
+       Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
+       if (-not (Test-Path $newDevicePfxFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
+       }
 
-        # Convert the PEM to get formats we can process
-        if ($useEcc -eq $true)
-        {
-            openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        else
-        {
-            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
+       # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
+       Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
+       openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+
+       # Convert the PEM to get formats we can process
+       if ($useEcc -eq $true)
+       {
+           openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       else
+       {
+           openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
  
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
-    }
-    ```
-   Następnie uruchom `New-CADevice "<yourTestDevice>"` w oknie programu PowerShell przy użyciu przyjaznej nazwy, który został użyty do utworzenia urządzenia. Po wyświetleniu monitu o hasło klucza prywatnego urzędu certyfikacji, wprowadź "123". Spowoduje to utworzenie  _<yourTestDevice>PFX_ pliku w katalogu roboczym.
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
+   }
+   ```
 
+Następnie uruchom `New-CADevice "<yourTestDevice>"` w oknie programu PowerShell przy użyciu przyjaznej nazwy, który został użyty do utworzenia urządzenia. Po wyświetleniu monitu o hasło klucza prywatnego urzędu certyfikacji, wprowadź "123". Spowoduje to utworzenie  _<yourTestDevice>PFX_ pliku w katalogu roboczym.
+
+## <a name="clean-up-certificates"></a>Wyczyść certyfikatów
+
+Na pasku start lub **ustawienia** aplikacji, wyszukaj i wybierz **zarządzanie certyfikatami komputera**. Usuń wszelkie certyfikaty wystawione przez **Azure IoT urzędu certyfikacji TestOnly***. Certyfikaty te powinny istnieć w następujących trzech miejscach: 
+
+* Certyfikaty — komputer lokalny > osobiste > certyfikatów
+* Certyfikaty — komputer lokalny > Zaufane główne urzędy certyfikacji > certyfikatów
+* Certyfikaty — komputer lokalny > urzędów certyfikacji pośredniego > certyfikatów
+
+   ![Usuń certyfikaty TestOnly urzędu certyfikacji IoT Azure](./media/iot-hub-security-x509-create-certificates/cleanup.png)

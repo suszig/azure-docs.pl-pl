@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
 ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Za pomocą dynamicznego szyfrowania AES-128 i usługi dostarczania klucza
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Aby pobrać najnowszą wersję zestawu SDK Java i rozpocząć wdrażanie z językiem Java, zobacz [rozpocząć pracę z klientem programu Java SDK dla usługi Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Aby pobrać najnowsze PHP SDK dla usługi Media Services, poszukaj w wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Aby uzyskać najnowszą wersję zestawu SDK języka Java i zacząć programować w języku Java, zobacz [Rozpoczynanie korzystania z zestawu SDK klienta Java dla usług Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Aby pobrać najnowszy zestaw SDK języka PHP dla usługi Media Services, poszukaj wersji 0.5.7 pakietu Microsoft/WindowAzure w [repozytorium Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 > [!NOTE]
 > Zobacz to [wpis w blogu](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) szyfrowanie zawartości z użyciem standardu AES do dostarczenia **Safari na macOS**.
 > Zobacz [to](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) wideo omówienie sposobu ochrony zawartości z nośnika z szyfrowania AES.
@@ -69,7 +69,7 @@ Poniższa ilustracja pokazuje opisany wyżej przepływ pracy. Token jest tu uży
 
 ![Ochrona z zastosowaniem standardu AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-Pozostałe ten artykuł zawiera szczegółowe wyjaśnienia, przykłady kodu i linki do tematów, w których opisano, jak wykonać zadania opisane powyżej.
+Pozostała część tego artykułu zawiera szczegółowe wyjaśnienia, przykłady kodu i linki do tematów, w których pokazano, jak wykonać zadania opisane powyżej.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
@@ -80,7 +80,7 @@ W celu kodowania i przesyłania strumieniowego filmów oraz zarządzania nimi na
 Aby uzyskać szczegółowe informacje, zobacz artykuł [Upload Files into a Media Services account](media-services-dotnet-upload-files.md) (Przekazywanie plików na konto usługi Media Services).
 
 ## <a id="encode_asset"></a>Przekodowanie elementu zawartości zawierającego plik o adaptacyjnej szybkości bitowej MP4 zestawu
-W przypadku wszystkich szyfrowania dynamicznego, należy utworzyć element zawartości zawierający zestaw plików MP4 wielokrotnej szybkości transmisji bitów lub pliki źródłowe Smooth Streaming wielokrotnej szybkości transmisji bitów. Następnie na podstawie formatu określonego w żądaniu manifestu lub fragmentu przesyłania strumieniowego na żądanie serwera zapewnia strumienia w wybranego protokołu. Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta. Aby uzyskać więcej informacji, zobacz [omówienie tworzenia pakietów dynamicznych](media-services-dynamic-packaging-overview.md) artykułu.
+W przypadku szyfrowania dynamicznego wystarczy utworzyć element zawartości zawierający zestaw plików MP4 o różnych szybkościach transmisji bitów lub pliki źródłowe Smooth Streaming o różnych szybkościach transmisji bitów. Następnie na podstawie formatu określonego w żądaniu manifestu lub fragmentu przesyłania strumieniowego na żądanie serwera zapewnia strumienia w wybranego protokołu. Dzięki temu wystarczy przechowywać i opłacać pliki w jednym formacie magazynu, a usługa Media Services utworzy oraz udostępni właściwą odpowiedź na podstawie żądań klienta. Aby uzyskać więcej informacji, zobacz artykuł [Omówienie dynamicznego pakowania](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
@@ -242,7 +242,7 @@ Poniższy kod przedstawia sposób wysłania żądania do usługi dostarczania kl
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
  
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [to](media-services-dotnet-manage-entities.md#limit-access-policies) artykułu.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Więcej informacji znajduje się w [tym](media-services-dotnet-manage-entities.md#limit-access-policies) artykule.
 
 Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w których znajdują się pliki danych wejściowych.
 

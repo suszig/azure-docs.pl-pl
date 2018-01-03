@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure
 Alerty są odpowiedzi z usługi, czy próg zdarzenia zostały spełnione lub przekroczenia. Uzyskiwanie informacji o tym, gdy rozpoczęcia problemów może być krytyczne zachowaniu niskich kosztów biznesowych. Alerty zwykle nie występują zgodnie z harmonogramem, a więc warto wiedzieć, jak najszybciej po wystąpieniu alerty. Na przykład gdy zadanie tworzenia kopii zapasowej lub przywracania nie powiodło się, alert występuje w ciągu pięciu minut błędu. Na pulpicie nawigacyjnym magazynu w kafelku alerty kopii zapasowej Wyświetla zdarzeń krytycznych i poziom ostrzeżeń. W ustawieniach alerty kopii zapasowej można wyświetlić wszystkie zdarzenia. Ale co zrobić, jeśli alarm występuje, gdy pracujesz na oddzielnych problem? Jeśli nie znasz w przypadku alertu, może to być pomocnicza niedogodności lub może naruszyć bezpieczeństwo danych. Aby upewnić się, że osobom potrafią alertu — Jeśli występuje on, należy skonfigurować usługę, aby wysłać powiadomienia o alertach pocztą e-mail. Aby uzyskać więcej informacji na temat konfigurowania powiadomień e-mail, zobacz [skonfigurować powiadomienia](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ Aby skonfigurować powiadomienia e-mail dla alertów
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Jakie typy alertów są dostępne dla kopii zapasowych maszyn wirtualnych IaaS platformy Azure?
    | Poziom alertu | Wysyłania alertów |
    | --- | --- |
-   | Krytyczne |Niepowodzenia wykonywania kopii zapasowej, niepowodzenia odzyskiwania |
-   | Ostrzeżenie |Brak |
-   | Informacyjny |Brak |
+   | Krytyczny |Niepowodzenia wykonywania kopii zapasowej, niepowodzenia odzyskiwania |
+   | Ostrzeżenie |None |
+   | Informacyjne |None |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Czy występują sytuacje, w których wiadomość e-mail nie jest wysyłana, mimo że powiadomienia zostały skonfigurowane?
 Istnieją sytuacje, w którym alert nie są wysyłane, nawet jeśli powiadomienia zostały prawidłowo skonfigurowane. W następujących sytuacjach wiadomości e-mail powiadomienia nie są wysyłane do uniknięcia szumu alertu:
@@ -147,9 +147,9 @@ Przy użyciu **kolumn** przycisku, można włączyć atrybuty dodatkowe zdarzeni
 | Zasób |Adres URL identyfikujący zasób. znany również jako identyfikator zasobu |
 | Time |Czas, od bieżącego czasu wystąpienia zdarzenia |
 | Obiekt wywołujący |Kto lub co o nazwie lub wywołał zdarzenie; może to być system lub użytkownik |
-| Znacznik czasu |Czas, gdy zdarzenie zostało wyzwolone |
+| Sygnatura czasowa |Czas, gdy zdarzenie zostało wyzwolone |
 | Grupa zasobów |Grupy zasobów |
-| Typ zasobu |Wewnętrzny typ zasobu używany przez Menedżera zasobów |
+| Typ zasobu |Wewnętrzny typ zasobu używany przez usługę Resource Manager |
 | Identyfikator subskrypcji |Identyfikator subskrypcji skojarzone |
 | Kategoria |Kategoria zdarzenia |
 | Identyfikator korelacji |Identyfikator wspólnej dla zdarzenia powiązane |
@@ -171,7 +171,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * Zarejestruj subskrypcję <br/>
 * Unregister <br/>
 * ConfigureProtection <br/>
-* Tworzenie kopii zapasowych <br/>
+* Backup <br/>
 * Przywracanie <br/>
 * StopProtection <br/>
 * DeleteBackupData <br/>
@@ -196,7 +196,7 @@ Alerty oparte na zdarzeniu obowiązują następujące ograniczenia:
 2. Ta funkcja jest dostępna w wersji zapoznawczej. [Dowiedz się więcej](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Alerty są wysyłane z "alerts-noreply@mail.windowsazure.com". Obecnie nie można zmodyfikować nadawcą wiadomości e-mail.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dzienniki zdarzeń włączyć doskonałe których post i inspekcji obsługę operacji tworzenia kopii zapasowej. Rejestrowane są następujące operacje:
 
 * Zarejestruj subskrypcję
@@ -207,10 +207,10 @@ Dzienniki zdarzeń włączyć doskonałe których post i inspekcji obsługę ope
 * Zatrzymaj ochronę
 * Usuwanie danych kopii zapasowej
 * Dodawanie zasad
-* Usuń zasady
-* Zaktualizuj zasady
+* Usuwanie zasad
+* Aktualizowanie zasad
 * Anulowanie zadania
 
 Szerokie opis zdarzenia, operacje i dzienniki inspekcji dla usług Azure, zapoznaj się z artykułem [wyświetlania zdarzeń i dzienniki inspekcji](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Informacje dotyczące ponownego tworzenia maszyny wirtualnej z punktu odzyskiwania, zapoznaj się z [przywracanie maszyn wirtualnych Azure](backup-azure-restore-vms.md). Jeśli potrzebujesz informacji na temat ochrony maszyn wirtualnych, zobacz [Pierwsze spojrzenie: Utwórz kopię zapasową maszyn wirtualnych do magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md). Więcej informacji na temat zadań zarządzania dla kopii zapasowych maszyn wirtualnych w artykule [kopii zapasowych maszyn wirtualnych Azure zarządzanie](backup-azure-manage-vms.md).
+Informacje dotyczące ponownego tworzenia maszyny wirtualnej z punktu odzyskiwania, zapoznaj się z [przywracanie maszyn wirtualnych Azure](backup-azure-arm-restore-vms.md). Jeśli potrzebujesz informacji na temat ochrony maszyn wirtualnych, zobacz [Pierwsze spojrzenie: Utwórz kopię zapasową maszyn wirtualnych do magazynu usług odzyskiwania](backup-azure-vms-first-look-arm.md). Więcej informacji na temat zadań zarządzania dla kopii zapasowych maszyn wirtualnych w artykule [kopii zapasowych maszyn wirtualnych Azure zarządzanie](backup-azure-manage-vms.md).

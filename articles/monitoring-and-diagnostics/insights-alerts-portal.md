@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>W monitorze Azure tworzyć alerty metryki dla usługi Azure - Azure portal
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą portalu Azure. 
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
@@ -50,8 +50,8 @@ Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności
 
 Można skonfigurować i uzyskać informacje na temat metryki reguły alertów za pomocą
 
-* [Witryna Azure Portal](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
+* [Azure portal](insights-alerts-portal.md)
+* [Program PowerShell](insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
@@ -89,7 +89,7 @@ Po utworzeniu alertu, zostanie ona wybrana oraz:
 * Edytuj lub usuń go.
 * **Wyłącz** lub **włączyć** go, jeśli chcesz tymczasowo zatrzymać lub wznowić odbieranie powiadomień dla tego alertu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie monitorowania Azure](monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o nowe [pobliżu metryki alertów w czasie rzeczywistym (wersja zapoznawcza)](monitoring-near-real-time-metric-alerts.md)
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](insights-webhooks-alerts.md).

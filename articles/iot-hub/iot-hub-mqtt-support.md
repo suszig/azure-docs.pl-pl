@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Komunikować się z Centrum IoT przy użyciu protokołu MQTT
 
@@ -62,6 +62,9 @@ Jeśli urządzenia nie można używać urządzeń zestawów SDK, nadal można po
 
     Na przykład jeśli nazwą Centrum IoT jest **contoso.azure devices.net** i jeśli nazwa urządzenia jest **MyDevice01**, pełny **Username** pole powinno zawierać `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * Aby uzyskać **hasło** Użyj tokenu sygnatury dostępu Współdzielonego. Format tokenu sygnatury dostępu Współdzielonego jest taka sama jak w przypadku protokołów HTTPS i protokołu AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+
+    >[!NOTE]
+    >Hasła tokenu sygnatury dostępu Współdzielonego nie są wymagane, jeśli używane jest uwierzytelnianie certyfikatu X.509. Aby uzyskać więcej informacji, zobacz [Konfigurowanie X.509 zabezpieczeń w Centrum IoT Azure][lnk-x509]
 
     Aby uzyskać więcej informacji na temat generowania tokeny sygnatury dostępu Współdzielonego, zobacz sekcję urządzenia [tokeny zabezpieczające przy użyciu Centrum IoT][lnk-sas-tokens].
 
@@ -137,7 +140,7 @@ Aby uzyskać więcej informacji, zobacz [wiadomości przewodnik dewelopera][lnk-
 
 ### <a name="receiving-cloud-to-device-messages"></a>Odbieranie komunikatów chmury do urządzenia
 
-Do odbierania wiadomości z Centrum IoT, urządzenie powinno Subskrybuj przy użyciu `devices/{device_id}/messages/devicebound/#` jako **filtru tematu**. Symbol wieloznaczny wielopoziomowe  **#**  w filtrze tematu służą tylko do Zezwalaj urządzeniu na otrzymywanie dodatkowe właściwości Nazwa tematu. Centrum IoT nie zezwala na użycie  **#**  lub **?** symbole wieloznaczne w celu filtrowania tematy podrzędne. Ponieważ Centrum IoT nie jest brokera obsługi komunikatów pub-sub ogólnego przeznaczenia, jego obsługuje tylko nazwy udokumentowane tematów i filtry tematu.
+Do odbierania wiadomości z Centrum IoT, urządzenie powinno Subskrybuj przy użyciu `devices/{device_id}/messages/devicebound/#` jako **filtru tematu**. Symbol wieloznaczny wielopoziomowe `#` w filtrze tematu służą tylko do Zezwalaj urządzeniu na otrzymywanie dodatkowe właściwości Nazwa tematu. Centrum IoT nie zezwala na użycie `#` lub `?` symboli wieloznacznych do filtrowania tematy podrzędne. Ponieważ Centrum IoT nie jest brokera obsługi komunikatów pub-sub ogólnego przeznaczenia, jego obsługuje tylko nazwy udokumentowane tematów i filtry tematu.
 
 Urządzenie nie odbiera komunikaty z Centrum IoT, aż pomyślnie subskrybowanych do punktu końcowego specyficzne dla urządzenia, reprezentowany przez `devices/{device_id}/messages/devicebound/#` filtr tematu. Po nawiązaniu pomyślnego subskrypcji, urządzenie uruchamia odbierania tylko komunikatów chmury do urządzenia, które zostały wysłane do niej po godzinie subskrypcji. Jeśli urządzenie łączy się z **CleanSession** ustawić flagi **0**, subskrypcja jest trwała dla różnych sesji. W takim przypadku przy następnym łączy z **CleanSession 0** urządzenie odbiera komunikaty oczekujące, które zostały wysłane do niej gdy był on odłączony. Jeśli urządzenie korzysta **CleanSession** ustawić flagi **1** , nie otrzyma komunikaty z Centrum IoT dopóki subskrybuje punktu końcowego urządzenia.
 
@@ -236,7 +239,7 @@ Aby uzyskać więcej informacji, zobacz [bezpośrednie przewodnik dewelopera met
 
 Jako ostatecznego wchodzi w grę, jeśli musisz dostosować zachowanie protokołu MQTT po stronie chmury, należy przejrzeć [brama protokołu Azure IoT] [ lnk-azure-protocol-gateway] , umożliwia wdrażanie bramy protokołu niestandardowego wysokiej wydajności, która bezpośrednio z Centrum IoT. Brama protokołu Azure IoT umożliwia dostosowanie protokołu urządzenia do uwzględnienia wdrożeń MQTT brownfield lub innymi protokołami niestandardowych. Takie podejście wymaga jednak uruchamiania i działać brama protokołu niestandardowego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat protokołu MQTT, zobacz [dokumentacji MQTT][lnk-mqtt-docs].
 
@@ -250,7 +253,7 @@ Aby dowiedzieć się więcej na temat planowania wdrożenia Centrum IoT, zobacz:
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -270,6 +273,7 @@ Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

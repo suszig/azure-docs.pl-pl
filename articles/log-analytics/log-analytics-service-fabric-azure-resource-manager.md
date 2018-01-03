@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Oceń aplikacji usługi Service Fabric i micro-services przy użyciu portalu Azure
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
-> * [PowerShell](log-analytics-service-fabric.md)
+> * [Program PowerShell](log-analytics-service-fabric.md)
 >
 >
 
@@ -108,7 +108,7 @@ Aby wyświetlić dane wydajności z węzłów:
 
     ![Service Fabric](./media/log-analytics-service-fabric/11.png)
 
-    c. W przypadku, gdy chcesz przejść do określonego węzła, sprawdzając średniej godzinowej, użycie procesora CPU minimalne, maksymalne i 75 percentyl możesz to zrobić przy użyciu tej kwerendy (Zastąp pole komputera):
+    d. W przypadku, gdy chcesz przejść do określonego węzła, sprawdzając średniej godzinowej, użycie procesora CPU minimalne, maksymalne i 75 percentyl możesz to zrobić przy użyciu tej kwerendy (Zastąp pole komputera):
 
     ```
     Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR
@@ -161,6 +161,6 @@ W poniższej tabeli przedstawiono metody zbierania danych i inne szczegółowe i
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Użyj [wyszukiwania dziennika analizy dzienników](log-analytics-log-searches.md) Aby wyświetlić szczegółowe dane zdarzeń usługi sieć szkieletowa usług.

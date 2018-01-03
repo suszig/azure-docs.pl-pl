@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorowanie i zarządzanie nimi potoki fabryki danych Azure przy użyciu aplikacji monitorowanie i zarządzanie
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <td>Okno działania jest przetwarzana.</td>
 </tr>
 <tr>
-<td rowspan="4">Niepowodzenie</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
+<td rowspan="4">Błąd</td><td>Upłynął limit czasu</td><td>Wykonywanie działania trwało dłużej niż jest dozwolonych przez działanie.</td>
 </tr>
 <tr>
 <td>Anulowane</td><td>Okno działanie zostało anulowane przez akcję użytkownika.</td>
@@ -206,13 +206,13 @@ Działanie systemu windows może być w jednym z następujących stanów:
 <tr>
 <td>-</td><td>Okno działania nie powiodło się można wygenerować lub sprawdzania poprawności.</td>
 </tr>
-<td>Gotowy</td><td>-</td><td>Okno działania jest gotowy do użycia.</td>
+<td>Gotowe</td><td>-</td><td>Okno działania jest gotowy do użycia.</td>
 </tr>
 <tr>
 <td>Pominięto</td><td>-</td><td>Okno działania nie został przetworzony.</td>
 </tr>
 <tr>
-<td>Brak</td><td>-</td><td>Okno działania miał poprzednio inny stan, ale został zresetowany.</td>
+<td>None</td><td>-</td><td>Okno działania miał poprzednio inny stan, ale został zresetowany.</td>
 </tr>
 </table>
 
@@ -324,10 +324,10 @@ Poniższa tabela zawiera listę dostępnych zdarzeń oraz Stany (i podstany).
 
 | Nazwa zdarzenia | Stan | Podstan |
 | --- | --- | --- |
-| Działanie Uruchom wprowadzenie |Rozpoczęto |Uruchamianie |
+| Działanie Uruchom wprowadzenie |Uruchomiono |Uruchamianie |
 | Działanie Uruchom Zakończono |Powodzenie |Powodzenie |
-| Działanie Uruchom Zakończono |Niepowodzenie |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Upłynął limit czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
-| Rozpoczęto tworzenie klastra HDI na żądanie |Rozpoczęto |-|
+| Działanie Uruchom Zakończono |Błąd |Alokacja zasobów nie powiodło się<br/><br/>Wykonanie nie powiodło się<br/><br/>Przekroczenie limitu czasu<br/><br/>Sprawdzanie poprawności nie powiodło się<br/><br/>porzucone |
+| Rozpoczęto tworzenie klastra HDI na żądanie |Uruchomiono |-|
 | Pomyślnie utworzono klaster HDI na żądanie |Powodzenie |-|
 | Usunąć klaster HDI na żądanie |Powodzenie |-|
 

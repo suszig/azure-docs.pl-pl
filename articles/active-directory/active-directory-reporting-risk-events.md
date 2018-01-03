@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Zdarzenia o podwyższonym ryzyku Azure Active Directory
 
@@ -93,7 +93,7 @@ W poniższej tabeli wymieniono ilość czasu potrzebnego dla typu wykrywania wy�
 
 | Typ wykrywania | Opóźnienie raportowania |
 | --- | --- |
-| W czasie rzeczywistym | 5 – 10 minut |
+| Czas rzeczywisty | 5 – 10 minut |
 | Offline | 2-4 godziny |
 
 
@@ -102,9 +102,9 @@ Typy zdarzeń ryzyka, które wykrywa usługi Azure Active Directory dostępne s�
 | Typ zdarzenia ryzyka | Typ wykrywania |
 | :-- | --- | 
 | [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | W czasie rzeczywistym |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Czas rzeczywisty |
 | [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | W czasie rzeczywistym |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Czas rzeczywisty |
 | [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Offline |
 | [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
@@ -141,7 +141,7 @@ Firma Microsoft zaleca, natychmiast skontaktuj się użytkownika, aby sprawdzić
 Niemożliwa podróż jest zwykle dobry wskaźnik, że haker mógł pomyślnie logowania. Jednak alarmów false może wystąpić, gdy użytkownik podróżuje przy użyciu nowego urządzenia lub sieci VPN, który zazwyczaj nie jest używany przez innych użytkowników w organizacji. Aplikacje, które niepoprawnie przekazywania adresów IP serwera jako klient adresów IP, które mogą spowodować wygląd jest inne źródło alarmów false rejestrowania znajduje się miejsce do centrum danych, gdzie tej aplikacji do wewnętrznego (często są to Microsoft centrów danych nadających wygląd logowania biorąc umieść firmy Microsoft do adresów IP). W wyniku tych alarmów false jest poziom ryzyka dla tego zdarzenia ryzyka **średni**.
 
 > [!TIP]
-> Można zmniejszyć liczbę zgłoszonych positves false dla tego typu zdarzenia ryzyko przez skonfigurowanie [o nazwie lokalizacje](active-directory-named-locations.md). 
+> Można zmniejszyć liczbę zgłoszonych alarmów false dla tego typu zdarzenia ryzyko przez skonfigurowanie [o nazwie lokalizacje](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logowania z nieznanych lokalizacji
 
@@ -162,7 +162,7 @@ Firma Microsoft zaleca skontaktowanie się użytkownika, aby sprawdzić, czy rze
 
 
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zdarzenia o podwyższonym ryzyku są foundation ochrony tożsamości usługi Azure AD. Usługi Azure AD można obecnie wykrywa sześciu zdarzenia ryzyka: 
 
@@ -170,9 +170,9 @@ Zdarzenia o podwyższonym ryzyku są foundation ochrony tożsamości usługi Azu
 | Typ zdarzenia ryzyka | Poziom ryzyka | Typ wykrywania |
 | :-- | --- | --- |
 | [Użytkownicy z ujawnione poświadczenia](#leaked-credentials) | Wysoka | Offline |
-| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | W czasie rzeczywistym |
+| [Logowania z anonimowych adresów IP](#sign-ins-from-anonymous-ip-addresses) | Medium | Czas rzeczywisty |
 | [Niemożliwa podróż do nietypowych lokalizacji](#impossible-travel-to-atypical-locations) | Medium | Offline |
-| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | W czasie rzeczywistym |
+| [Logowania z nieznanych lokalizacji](#sign-in-from-unfamiliar-locations) | Medium | Czas rzeczywisty |
 | [Logowania z zainfekowanych urządzeń](#sign-ins-from-infected-devices) | Niska | Offline |
 | [Logowania z adresów IP związanych z podejrzanymi działaniami](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | Offline|
 

@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analizowanie zmienności klientów przy użyciu usługi Azure Machine Learning
-## <a name="overview"></a>Omówienie
-Ten artykuł przedstawia wdrożenie odwołanie do projektu analizy przenoszenie klienta skompilowanego za pomocą usługi Azure Machine Learning. W tym artykule omówiono skojarzone ogólnego modeli całościowe rozwiązanie problemu przenoszenie przemysłowych klienta. Możemy również mierzenia dokładności modeli, które są tworzone za pomocą uczenia maszynowego i możemy oceny instrukcjami w celu dalszego rozwijania.  
+## <a name="overview"></a>Przegląd
+Ten artykuł przedstawia wdrożenie odwołanie do projektu analizy przenoszenie klienta skompilowanego za pomocą usługi Azure Machine Learning. W tym artykule omówiono skojarzone ogólnego modeli całościowe rozwiązanie problemu przenoszenie przemysłowych klienta. Firma Microsoft również mierzenia dokładności modeli, które są tworzone za pomocą uczenia maszynowego i ocenić instrukcjami w celu dalszego rozwijania.  
 
 ### <a name="acknowledgements"></a>Potwierdzeń
 Tego eksperymentu został opracowany i przetestowane przez Serge Berger naukowca danych podmiot zabezpieczeń w firmie Microsoft i Roger Barga, wcześniej produktu programu Microsoft Azure Machine Learning. Zespół Azure dokumentacji gratefully uznaje ich wiedzy i Dziękujemy je do udostępniania tego oficjalny dokument.
@@ -37,14 +37,14 @@ Tego eksperymentu został opracowany i przetestowane przez Serge Berger naukowca
 ## <a name="the-problem-of-customer-churn"></a>Problem z tworzeniem klienta
 Przedsiębiorstwa na rynku konsumenta i we wszystkich sektorach przedsiębiorstwa mają radzenia sobie z zmian. Czasami zmian jest nadmierne i wpływ decyzji dotyczących zasad. Tradycyjne rozwiązania jest prognozowania churners większego ukierunkowania wysokiej i potrzeb za pośrednictwem usługi Konsjerż, kampanii, lub przez zastosowanie specjalnych zwolnień adresów. Te metody mogą się różnić z branży dla branży i nawet z klastra konkretnego użytkownika do innego w ramach jednego industry (na przykład telekomunikacyjnych).
 
-Typowe współczynnik jest czy firma potrzebuje do zminimalizowania tych działań przechowywania specjalne klienta. W związku z tym metodologię fizyczne będzie wynik każdego klienta z prawdopodobieństwo zmian i N pierwszych tych adresów. Najlepszych klientów może być najbardziej dochodowe te; na przykład w bardziej zaawansowanych scenariuszy, funkcja zysku jest zastosować podczas wybór kandydatów specjalne zwolnienia. Jednak te zagadnienia są tylko część kompleksowe strategii zajmujących się ilość danych churn. Firm również powinny uwzględniać ryzyka konta (i tolerancji ryzyka skojarzone), poziom i koszt interwencji i segmentacji odbiorców wiarygodne.  
+Typowe współczynnik jest czy firma potrzebuje do zminimalizowania tych działań przechowywania specjalne klienta. W związku z tym metodologię fizyczne będzie wynik każdego klienta z prawdopodobieństwo zmian i N pierwszych tych adresów. Najlepszych klientów może być najbardziej dochodowe te. Na przykład w bardziej zaawansowanych scenariuszy funkcja zysku jest zastosować podczas wybór kandydatów specjalne zwolnienia. Jednak te zagadnienia są tylko część pełnej strategii zajmujących się ilość danych churn. Firm również powinny uwzględniać ryzyka konta (i tolerancji ryzyka skojarzone), poziom i koszt interwencji i segmentacji odbiorców wiarygodne.  
 
 ## <a name="industry-outlook-and-approaches"></a>Outlook branżowych i metod
 Zaawansowane obsługi zmian jest znak dojrzałe branżowych. Klasycznym przykładem jest branży telekomunikacyjnych, gdy subskrybenci wiadomo, że często przełączać się między jeden dostawca. To dobrowolny zmian jest podstawowym. Ponadto dostawców współdzielenia znaczących wiedzy o *churn — sterowniki*, które są czynników, które dysków klientów do przełącznika.
 
-Na przykład wybór słuchawki lub urządzenia jest dobrze znanego sterownika z postęp dokonany w firmie telefonu komórkowego. W związku z tym popularnych zasad jest subsydiować ceny słuchawki dla nowych subskrybentów i ładowania pełną cenę dla istniejących klientów do uaktualnienia. W przeszłości te zasady spowodowało skaczące z jednego dostawcę rozwiązania do innego klientom uzyskać rabat nowe, który z kolei ma monit dostawcy, aby doprecyzować strategii.
+Na przykład wybór słuchawki lub urządzenia jest dobrze znanego sterownika z postęp dokonany w firmie telefonu komórkowego. W związku z tym popularnych zasad jest subsydiować ceny słuchawki dla nowych subskrybentów i obciążania pełną cenę dla istniejących klientów do uaktualnienia. W przeszłości te zasady spowodowało skaczące z jednego dostawcę rozwiązania do innego klientom uzyskać rabat nowe. To z kolei ma monit dostawcy, aby doprecyzować strategii.
 
-Wysoka zmienności słuchawki oferty jest czynnik, który bardzo szybko unieważnia modeli zmian, które są oparte na bieżących słuchawki modeli. Ponadto telefonów nie są tylko telekomunikacyjnych urządzenia; są one również instrukcje sposób (rozważ telefonów iPhone), a te zmienne społecznościowych predykcyjne są poza zakresem regularne telekomunikacyjnych zestawów danych.
+Wysoka zmienności słuchawki oferty jest czynnik, który szybko unieważnia modeli zmian, które są oparte na bieżących słuchawki modeli. Ponadto telefonów nie są tylko telekomunikacyjnych urządzenia, są one również instrukcje sposób (rozważ telefonów iPhone). Te zmienne społecznościowych predykcyjne są poza zakresem regularne telekomunikacyjnych zestawów danych.
 
 Wynikiem do modelowania jest, że po prostu, eliminując znane przyczyny przenoszenia nie można opracować dźwięku zasad. W rzeczywistości jest strategii ciągłego modelowania klasycznych modeli, które określenie zmienne podzielone na kategorie (takie jak drzewa decyzyjne), w tym **obowiązkowe**.
 
@@ -211,16 +211,6 @@ Mamy nadzieję kontynuować w tym temacie w przyszłości, szczególnie związan
 ## <a name="conclusion"></a>Podsumowanie
 W tym dokumencie opisano za pośrednictwem podejście do rozwiązaniu problemu wspólnej przenoszenie klienta przy użyciu ogólnych framework. Firma Microsoft traktowane jako prototyp oceniania modeli i zaimplementowana przy użyciu usługi Azure Machine Learning. Na koniec mamy ocenić niezawodność i wydajność rozwiązania prototypu w odniesieniu do porównywalnych algorytmy sygnatury dostępu Współdzielonego.  
 
-**Aby uzyskać więcej informacji:**  
-
-Czy w tym dokumencie pomóc? Daj nam swoją opinię. Powiedz nam w skali od 1 (słaby) do 5 (znakomity), jak oceniasz w tym dokumencie i dlaczego należy przyznanymi go tej klasyfikacji? Na przykład:  
-
-* Są możesz klasyfikacji ona wysoka z powodu konieczności dobre przykłady i zrzuty ekranu znakomity, wyczyść zapisywania, kolejny powód?
-* Są możesz klasyfikacji go niski z powodu słabej przykłady, zrzuty ekranu rozmytego lub jasne zapisywania?  
-
-Ta opinia pomoże nam poprawić jakość oficjalne dokumenty, które wydania.   
-
-[Wyślij opinię](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Dokumentacja

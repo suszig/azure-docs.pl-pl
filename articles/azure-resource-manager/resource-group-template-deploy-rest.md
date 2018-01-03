@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
 ms.openlocfilehash: 46856a25fb57bb2c5a3c1aeae13c11655e1a58a5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)
 > [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
+> * [Program PowerShell](resource-group-template-deploy.md)
 > * [Interfejs wiersza polecenia platformy Azure](resource-group-template-deploy-cli.md)
 > * [Portal](resource-group-template-deploy-portal.md)
 > * [Interfejs API REST](resource-group-template-deploy-rest.md)
@@ -90,7 +90,7 @@ Szablon może być lokalny plik lub pliku zewnętrznego, który jest dostępny z
 
 [!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Informacje na temat obsługi operacji asynchronicznych REST, zobacz [śledzić operacje asynchroniczne Azure](resource-manager-async-operations.md).
 * Na przykład wdrażania zasobów za pomocą biblioteki klienta .NET, zobacz [wdrażanie zasobów przy użyciu bibliotek .NET oraz szablonu](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Aby określić parametry w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).

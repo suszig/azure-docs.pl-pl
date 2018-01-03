@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute, przy użyciu interfejsu wiersza polecenia
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 12/18/2017
 W tym artykule opisano sposób tworzenia obwodu usługi Azure ExpressRoute przy użyciu interfejsu wiersza polecenia (CLI). W tym artykule przedstawiono również sposób sprawdzić stan, update lub delete i anulowanie zastrzeżenia obwodu. Jeśli chcesz użyć innej metody do pracy z obwody usługi ExpressRoute, możesz wybrać tego artykułu z poniższej listy:
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 > * [Video - portalu Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
@@ -124,7 +124,7 @@ Odpowiedź jest podobny do poniższego przykładu:
 
 Sprawdź, czy dostawca połączenia jest wyświetlana odpowiedź. Zanotuj następujące informacje, konieczne będzie utworzenie obwodu:
 
-* Nazwa
+* Name (Nazwa)
 * PeeringLocations
 * BandwidthsOffered
 
@@ -365,7 +365,7 @@ Można usunąć obwodu usługi ExpressRoute, uruchamiając następujące polecen
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po utworzeniu obwodu upewnij się, że wykonywanie następujących zadań:
 

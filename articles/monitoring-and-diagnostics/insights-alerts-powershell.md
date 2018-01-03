@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>W monitorze Azure tworzyć alerty metryki dla usługi Azure - PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym artykule przedstawiono sposób konfigurowania Azure metryki alertów za pomocą programu PowerShell.  
 
 Możesz otrzymywać alertu na podstawie metryki monitorowania lub zdarzenia na usługami Azure.
@@ -45,8 +45,8 @@ Można skonfigurować metryki alert do wyzwala, wykonaj następujące czynności
 
 Można skonfigurować i uzyskać informacje na temat przy użyciu reguły alertów
 
-* [Witryna Azure Portal](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
+* [Azure portal](insights-alerts-portal.md)
+* [Program PowerShell](insights-alerts-powershell.md)
 * [Interfejs wiersza polecenia (CLI)](insights-alerts-command-line-interface.md)
 * [Interfejs API REST Azure monitora](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
@@ -127,7 +127,7 @@ Aby uzyskać dodatkowe informacje, zawsze można wpisać ```Get-Help``` , a nast
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myLogAlertRule
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie monitorowania Azure](monitoring-overview.md) w tym typy informacji, można zbierać i monitorowania.
 * Dowiedz się więcej o [konfigurowaniu elementów webhook w alertach](insights-webhooks-alerts.md).
 * Dowiedz się więcej o [konfigurowania alertów na zdarzenia dziennika aktywności](monitoring-activity-log-alerts.md).
