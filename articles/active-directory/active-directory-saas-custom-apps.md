@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurowanie logowania jednokrotnego do aplikacji, które nie znajdują się w galerii aplikacji Azure Active Directory
 Ten artykuł dotyczy funkcja, która umożliwia administratorom na konfigurowanie rejestracji jednokrotnej do aplikacji nie znajduje się w galerii aplikacji usługi Azure Active Directory *bez pisania kodu*. Ta funkcja została wydana z wersji zapoznawczej technical preview 18 listopada 2015 i znajduje się w [Azure Active Directory Premium](active-directory-editions.md). Jeśli zamiast tego Wyszukaj wskazówki dla deweloperów na temat integracji z usługą Azure AD przez kod aplikacji niestandardowych, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md).
@@ -59,7 +59,7 @@ Wybierz tę opcję, aby skonfigurować uwierzytelnianie oparte na protokole SAML
 
 Są to:
 
-* **Zaloguj się na adres URL (SP inicjowane tylko)** — w przypadku, gdy użytkownik przechodzi do logowania się w tej aplikacji. Jeśli aplikacja jest skonfigurowana do wykonania na, a następnie, gdy użytkownik przechodzi do tego adresu URL usługi zainicjował dostawcy funkcji logowania jednokrotnego, dostawcy usług wykonuje niezbędne przekierowanie do usługi Azure AD do uwierzytelniania i logowania użytkownika w. Jeśli to pole zostanie wypełnione, usługi Azure AD będzie używać tego adresu URL do uruchamiania aplikacji z usługi Office 365 i panelu dostępu usługi Azure AD. Jeśli to pole jest ommited, po czym usługi Azure AD będzie zamiast tego wykonaj dostawcy tożsamości-inicjowane logowania po uruchomieniu aplikacji z usługi Office 365, Panel dostępu usługi Azure AD lub Azure AD pojedynczy adres URL logowania (copiable z karty Pulpit nawigacyjny).
+* **Zaloguj się na adres URL (SP inicjowane tylko)** — w przypadku, gdy użytkownik przechodzi do logowania się w tej aplikacji. Jeśli aplikacja jest skonfigurowana do wykonania na, a następnie, gdy użytkownik przechodzi do tego adresu URL usługi zainicjował dostawcy funkcji logowania jednokrotnego, dostawcy usług wykonuje niezbędne przekierowanie do usługi Azure AD do uwierzytelniania i logowania użytkownika w. Jeśli to pole zostanie wypełnione, usługi Azure AD będzie używać tego adresu URL do uruchamiania aplikacji z usługi Office 365 i panelu dostępu usługi Azure AD. Jeśli to pole zostanie pominięte, a następnie usługi Azure AD, zamiast tego zostanie przeprowadzone dostawcy tożsamości-inicjowane logowania po uruchomieniu aplikacji z usługi Office 365, Panel dostępu usługi Azure AD lub Azure AD pojedynczy adres URL logowania (copyable z karty Pulpit nawigacyjny).
 * **Adres URL wystawcy** — adres URL wystawcy musi jednoznacznie wskazywać aplikacji, dla których jednym logowania jest skonfigurowane. Jest to wartość, która wysyła usługi Azure AD z powrotem do aplikacji jako **odbiorców** parametr tokenu SAML i aplikacji powinien go zweryfikować. Ta wartość jest także wyświetlany jako **identyfikator jednostki** w dowolnym metadanych SAML udostępniany przez aplikację. Sprawdź dokumentacji SAML aplikacji, aby uzyskać szczegółowe informacje, co jest identyfikator jednostki lub jest wartość odbiorców. Poniżej przedstawiono przykładowy sposób wyświetlania adresu URL odbiorców tokenu SAML zwrócony do aplikacji:
 
 ```
@@ -128,7 +128,7 @@ Po wybraniu **dalej**, pojawi się monit o wprowadzenie adresu URL aplikacji, ab
 
 Uwaga: Możesz przekazać logo kafelka aplikacji przy użyciu **przekazać Logo** znajdującego się na **Konfiguruj** kartę dla aplikacji.
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Dostosowywanie oświadczeń wydanych w tokenie SAML dla wstępnie zintegrowanych aplikacji](active-directory-saml-claims-customization.md)
 * [Rozwiązywanie problemów z systemem SAML logowania jednokrotnego](active-directory-saml-debugging.md)

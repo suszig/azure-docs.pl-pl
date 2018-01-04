@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Data Lake Store w połączeniu z klastrami usługi Azure HDInsight
 
@@ -46,11 +46,11 @@ Aktualnie tylko niektóre typy/wersje klastra usługi HDInsight obsługują uży
 
 | Typ klastra usługi HDInsight | Usługa Data Lake Store jako magazyn domyślny | Usługa Data Lake Store jako magazyn dodatkowy| Uwagi |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight w wersji 3.6 | Tak | Tak | |
-| HDInsight w wersji 3.5 | Tak | Tak | Z wyjątkiem bazy danych HBase|
-| HDInsight w wersji 3.4 | Nie | Tak | |
+| HDInsight w wersji 3.6 | Yes | Yes | |
+| HDInsight w wersji 3.5 | Yes | Yes | Z wyjątkiem bazy danych HBase|
+| HDInsight w wersji 3.4 | Nie | Yes | |
 | HDInsight w wersji 3.3 | Nie | Nie | |
-| HDInsight w wersji 3.2 | Nie | Tak | |
+| HDInsight w wersji 3.2 | Nie | Yes | |
 | Storm | | |Usługa Data Lake Store umożliwia zapisanie danych pochodzących z topologii Storm. Usługi Data Lake Store można również używać do obsługi danych referencyjnych, które następnie mogą być odczytywane przez topologię Storm.|
 
 Używanie usługi Data Lake Store jako konta magazynu dodatkowego nie ma wpływu na wydajność ani możliwość odczytywania danych z klastra lub zapisywania ich w usłudze Azure Storage.

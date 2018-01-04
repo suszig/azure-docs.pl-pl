@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Zoptymalizować przepływność sieci maszyn wirtualnych platformy Azure
 
@@ -26,16 +26,16 @@ Maszyny wirtualne platformy Azure (VM) ma domyślne ustawienia sieci, które mog
 
 ## <a name="windows-vm"></a>Maszyna wirtualna z systemem Windows
 
-Jeśli maszyna wirtualna systemu Windows jest obsługiwana z [przyspieszony sieci](virtual-network-create-vm-accelerated-networking.md), włączenie tej funkcji może być konfiguracją optymalną przepustowości. Dla wszystkich innych maszyn wirtualnych systemu Windows przy użyciu skalowanie po stronie odbierającej (RSS) mogą skorzystać z wyższej przepustowości maksymalnej niż Maszynę wirtualną bez RSS. Funkcja RSS mogą być wyłączone domyślnie na maszynie wirtualnej systemu Windows. Wykonaj poniższe kroki, aby ustalić, czy włączono funkcję RSS i ją włączyć, jeśli jest wyłączone.
+Jeśli maszyna wirtualna systemu Windows obsługuje [przyspieszony sieci](create-vm-accelerated-networking-powershell.md), włączenie tej funkcji może być konfiguracją optymalną przepustowości. Dla wszystkich innych maszyn wirtualnych systemu Windows przy użyciu skalowanie po stronie odbierającej (RSS) mogą skorzystać z wyższej przepustowości maksymalnej niż Maszynę wirtualną bez RSS. Funkcja RSS mogą być wyłączone domyślnie na maszynie wirtualnej systemu Windows. Aby ustalić, czy funkcja RSS jest włączone i włącz go, jeśli jest obecnie wyłączona, wykonaj następujące kroki:
 
-1. Wprowadź `Get-NetAdapterRss` polecenia programu PowerShell, aby zobaczyć, czy funkcja RSS jest włączone dla karty sieciowej. W poniższym przykładzie danych wyjściowych zwrócony z `Get-NetAdapterRss`, funkcja RSS nie jest włączona.
+1. Czy funkcja RSS jest włączona dla karty sieciowej z `Get-NetAdapterRss` polecenia programu PowerShell. W poniższym przykładzie danych wyjściowych zwrócony z `Get-NetAdapterRss`, funkcja RSS nie jest włączona.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Wprowadź następujące polecenie, aby włączyć funkcję RSS:
+2. Aby włączyć funkcję RSS, wprowadź następujące polecenie:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -55,13 +55,15 @@ Funkcja RSS jest zawsze włączona domyślnie w maszynie Wirtualnej systemu Linu
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu o nowych wdrożeniach
 
-Jądro Ubuntu Azure zapewnia najlepszą wydajność sieci na platformie Azure i została jądra domyślnej od 21 września 2017 r. Aby pobrać ten jądra, najpierw zainstaluj najnowszą obsługiwaną wersję programu 16.04-LTS, zgodnie z poniższym opisem:
+Jądro Ubuntu Azure zapewnia najlepszą wydajność sieci na platformie Azure i została jądra domyślnej od 21 września 2017 r. Aby uzyskać ten jądra, najpierw zainstaluj najnowszą obsługiwaną wersję 16.04-LTS, następujący sposób:
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Po zakończeniu tworzenia, wprowadź następujące polecenia, aby pobrać najnowsze aktualizacje. Te kroki są również działać dla aktualnie uruchomionych jądra Ubuntu Azure maszyn wirtualnych.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Jeśli maszyna wirtualna nie ma Azure jądra, numer wersji zazwyczaj rozpoczyna się "4.4". W takich przypadkach uruchom następujące polecenia, jako element główny.
+Jeśli maszyna wirtualna nie ma Azure jądra, numer wersji zwykle zaczyna się od "4.4." Jeśli maszyna wirtualna nie ma jądra Azure, uruchom następujące polecenia, jako katalogu głównego:
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Aby uzyskać najnowsze funkcje optymalizacji, najlepiej utworzyć Maszynę wirtualną z najnowszej wersji obsługiwanych przez określenie następujących parametrów:
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS).
-Optymalizacji przepływności jest LIS, zaczynając od 4.2.2-2, chociaż nowsze wersje zawierają dodatkowe ulepszenia. Wprowadź następujące polecenia, aby zainstalować najnowsze LIS:
+
+Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS). Optymalizacji przepływności jest LIS, zaczynając od 4.2.2-2, chociaż nowsze wersje zawierają dodatkowe ulepszenia. Wprowadź następujące polecenia, aby zainstalować najnowsze LIS:
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Aby uzyskać optymalizacji, najlepiej utworzyć Maszynę wirtualną z najnowszej wersji obsługiwanych przez określenie następujących parametrów:
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS).
-Optymalizacji przepływności jest LIS, zaczynając od 4.2. Wprowadź następujące polecenia, aby pobrać i zainstalować LIS:
+
+Nowe i istniejące maszyny wirtualne mogą korzystać z instalowania najnowsze usługi integracji systemu Linux (LIS). Optymalizacji przepływności jest LIS, zaczynając od 4.2. Wprowadź następujące polecenia, aby pobrać i zainstalować LIS:
 
 ```bash
 mkdir lis4.2.3-1
@@ -147,6 +152,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Dowiedz się więcej o Linux Integration Services wersji 4.2 dla funkcji Hyper-V przeglądając [stronę pobierania](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Następne kroki
-* Teraz, gdy maszyna wirtualna jest optymalizowane, zobacz wynik z [przepustowości/przepływność, testowanie maszyny Wirtualnej Azure](virtual-network-bandwidth-testing.md) dla danego scenariusza.
+## <a name="next-steps"></a>Kolejne kroki
+* Zobacz zoptymalizowane wyniku [przepustowości/przepływność, testowanie maszyny Wirtualnej Azure](virtual-network-bandwidth-testing.md) dla danego scenariusza.
 * Dowiedz się więcej o [sieci wirtualnej platformy Azure — często zadawane pytania (FAQ)](virtual-networks-faq.md)

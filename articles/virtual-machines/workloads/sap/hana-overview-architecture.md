@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Architektura na platformie Azure i SAP HANA (duże wystąpień) — omówienie
 
@@ -36,16 +36,18 @@ Izolacji klienta w ramach infrastruktury sygnatury jest wykonywane w dzierżaw, 
 
 Te jednostki bez systemu operacyjnego serwera są obsługiwane tylko uruchamianie SAP HANA. SAP warstwy aplikacji lub obciążeń pośredniczącym działa w maszynach wirtualnych platformy Azure firmy Microsoft. Sygnatury infrastruktury systemie SAP HANA jednostki Azure (wystąpienia duże) są podłączone do sieci Azure szkieletowymi, więc zapewniającą łączność małe opóźnienia między maszynami wirtualnymi Azure i SAP HANA w jednostkach Azure (wystąpienia duże).
 
-Ten dokument jest jednym z pięciu dokumentów, które obejmują temat SAP HANA na platformie Azure (wystąpienia duże). W tym dokumencie rozszerzana za pomocą podstawowej architektury, obowiązki, usług i ogólne za pośrednictwem możliwości rozwiązania. Dla większości obszarów, takich jak sieć i łączność cztery dokumenty są obejmującego szczegółowe informacje i przejść do szczegółów szczegółu. Dokumentację SAP HANA na platformie Azure (wystąpienia duże) nie obejmuje aspektów instalacji SAP NetWeaver lub wdrożenia SAP NetWeaver w maszynach wirtualnych platformy Azure. W tym temacie omówiono oddzielna dokumentacja w tym samym kontenerze dokumentacji. 
+Ten dokument jest jednym z wielu dokumentów, które obejmują SAP HANA na platformie Azure (wystąpienia duże). W tym dokumencie rozszerzana za pomocą podstawowej architektury, obowiązki, usług i ogólne za pośrednictwem możliwości rozwiązania. Dla większości obszarów, takich jak sieć i łączność cztery dokumenty są obejmującego szczegółowe informacje i przejść do szczegółów szczegółu. Dokumentację SAP HANA na platformie Azure (wystąpienia duże) nie obejmuje aspektów instalacji SAP NetWeaver lub wdrożenia SAP NetWeaver w maszynach wirtualnych platformy Azure. SAP NetWeaver na platformie Azure zostało opisane w oddzielnych dokumentów, w tym samym kontenerze dokumentacji platformy Azure. 
 
 
-Pięć części tego przewodnika obejmuje następujące tematy:
+Różnych dokumentów wystąpienia dużych HANA wskazówek dotyczących opisano następujące kwestie:
 
 - [Architektura na platformie Azure i SAP HANA (duże wystąpienia) — omówienie](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastruktura SAP HANA (duże wystąpień) i łączność na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Jak zainstalować i skonfigurować SAP HANA (duże wystąpień) w systemie Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (duże wystąpień) wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Rozwiązywanie problemów SAP HANA (duże wystąpień) i monitorowania na platformie Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Wysoka dostępność skonfigurowane w systemie SUSE przy użyciu STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [Kopia zapasowa systemu operacyjnego i przywracania dla jednostki SKU II typu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Definicje
 
@@ -67,7 +69,7 @@ Kilka wspólnych definicji są powszechnie używane w zakresie architektury i te
     - **Typ klasy II:** S384, S384m S384xm, S576, S768 i S960
 
 
-Istnieje szereg dodatkowych zasobów, które zostały opublikowane na temat wdrażania SAP obciążenia w chmurze publicznej Microsoft Azure. Zdecydowanie zaleca się, każdy planowania i wykonywania wdrożenia SAP HANA na platformie Azure jest doświadczony i korzystają z zasad IaaS platformy Azure i wdrożenia SAP obciążeń na platformie Azure IaaS. Następujące zasoby zawierają dodatkowe informacje i ma być utworzone odwołanie, aby kontynuować:
+Istnieje szereg dodatkowych zasobów, które zostały opublikowane na wdrożenie SAP obciążenia w chmurze publicznej Microsoft Azure. Zdecydowanie zaleca się, każdy planowania i wykonywania wdrożenia SAP HANA na platformie Azure jest doświadczony i korzystają z zasad IaaS platformy Azure i wdrożenia SAP obciążeń na platformie Azure IaaS. Następujące zasoby zawierają dodatkowe informacje i ma być utworzone odwołanie, aby kontynuować:
 
 
 - [Za pomocą rozwiązania SAP na maszyny wirtualne Microsoft Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -357,7 +359,7 @@ Rozmiary są liczbami nierównej woluminów, które może różnić się nieznac
 
 Jako klient może być wymagane dla miejsca do magazynowania, możesz mieć możliwość dodać magazyn do zakupu dodatkowego magazynu w jednostkach 1 TB. Ten dodatkowy magazyn może być dodany jako dodatkowe woluminu lub można rozszerzyć co najmniej jeden z istniejących woluminów. Nie jest możliwe zmniejszenie rozmiarów woluminów pierwotnie wdrożone, a przede wszystkim opisane w powyższej tabeli. Ponadto nie jest można zmienić nazwy woluminów lub instalacji nazwy. Woluminy magazynu, zgodnie z powyższym opisem są dołączone do jednostki HANA dużych wystąpienia jako woluminy NFS4.
 
-Klientów można przy użyciu migawek magazynu na potrzeby odzyskiwania kopii zapasowej/przywracania i odzyskiwaniem po awarii. Więcej informacji na ten temat wyszczególnione w [SAP HANA (duże wystąpień) wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Klientów można przy użyciu migawek magazynu na potrzeby odzyskiwania kopii zapasowej/przywracania i odzyskiwaniem po awarii. Więcej szczegółów wyszczególnione w [SAP HANA (duże wystąpień) wysokiej dostępności i odzyskiwania po awarii na platformie Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="encryption-of-data-at-rest"></a>Szyfrowanie nieużywanych danych
 Magazyn używany dla wystąpień dużych HANA umożliwia przezroczystego szyfrowania danych, jak są przechowywane na dyskach. W czasie wdrażania HANA dużych wystąpienia jednostki istnieje możliwość tego typu jest włączone szyfrowanie. Można również zmienić na zaszyfrowanych woluminach po wdrożeniu już. Przenoszenie z niezaszyfrowane do woluminów zaszyfrowanych jest niewidoczny i nie wymaga przestojów. 
@@ -365,7 +367,7 @@ Magazyn używany dla wystąpień dużych HANA umożliwia przezroczystego szyfrow
 O typie I klas jednostek SKU, woluminu rozruchowego, jednostka LUN jest przechowywana na, są szyfrowane. W przypadku typu klasy II jednostki SKU z HANA dużych wystąpień należy zaszyfrować rozruchu jednostki LUN z metodami systemu operacyjnego. Aby uzyskać więcej informacji skontaktuj się z zespołu zarządzania usługami firmy Microsoft.
 
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Architektura sieci Azure jest kluczowym składnikiem pomyślne wdrożenie aplikacji SAP w wystąpieniach dużych HANA. Zazwyczaj SAP HANA we wdrożeniach Azure (wystąpienia duże) mają większy pozioma SAP z kilku różnych rozwiązań SAP o różnych rozmiarach baz danych, użycie zasobów procesora CPU i użycie pamięci. Prawdopodobnie nie wszystkie tych systemów SAP są oparte na SAP HANA, więc prawdopodobnie hybrydowych, który używa programu SAP orientacji poziomej:
 
@@ -464,14 +466,18 @@ Wdrażanie programu SAP warstwy aplikacji lub składników, przez wiele sieci wi
 
 ### <a name="routing-in-azure"></a>Routing na platformie Azure
 
-Istnieją dwie ważne routingu zagadnienia dotyczące sieci dla SAP HANA na platformie Azure (wystąpienia duże):
+Istnieją trzy ważne routingu zagadnienia dotyczące sieci dla SAP HANA na platformie Azure (wystąpienia duże):
 
-1. SAP HANA na platformie Azure (wystąpienia duże) można uzyskać tylko w maszynach wirtualnych platformy Azure dla dedykowanego połączenia ExpressRoute; nie bezpośrednio z lokalnego. Niektórzy klienci administracji i wszystkich aplikacji wymagających bezpośredniego dostępu, takie jak SAP rozwiązania Menedżera uruchomione w siedzibie firmy, nie może połączyć się bazy danych SAP HANA.
+1. SAP HANA na platformie Azure (wystąpienia duże) można uzyskać tylko za pośrednictwem maszynach wirtualnych platformy Azure oraz dedykowane połączenie ExpressRoute. nie bezpośrednio z lokalnego. Bezpośredni dostęp ze środowiska lokalnego do jednostki HANA dużych wystąpienia w dostarczonym przez firmę Microsoft, nie jest możliwe natychmiast z powodu przejściowego routingu ograniczenia bieżącej architektury sieci platformy Azure używana dla wystąpień dużych SAP HANA. Niektórzy klienci administracji i wszystkich aplikacji wymagających bezpośredniego dostępu, takie jak SAP rozwiązania Menedżera uruchomione w siedzibie firmy, nie może połączyć się bazy danych SAP HANA.
 
-2. SAP HANA Azure (duże wystąpień) w jednostkach mieć przypisanego adresu IP z puli adresów IP serwera adresu zakresu można jako klienta przesłane (zobacz [SAP HANA (duże wystąpień) infrastruktury i łączności na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) szczegółowe informacje).  Ten adres IP jest dostępny za pośrednictwem subskrypcji platformy Azure i usługi ExpressRoute, łączący sieci wirtualnych Azure HANA na platformie Azure (wystąpienia duże). Adres IP przypisany poza puli IP tego serwera zakresu adresów przypisanej bezpośrednio do jednostki sprzętu i nie jest NAT'ed już to zostało w przypadku pierwszego wdrożenia tego rozwiązania. 
+2. Jeśli masz jednostki wystąpienia dużych HANA wdrożone w dwóch różnych regionach platformy Azure na potrzeby odzyskiwania po awarii tego samego przejściowej routingu ograniczenia są stosowane. Lub innymi słowy, adresy IP HANA dużych wystąpienia jednostki w jednym regionie (np. nam zachód), nie będą kierowane do jednostki wystąpienia dużych HANA wdrożone dla Ciebie w innym regionie (np. nam wschodnie). To jest niezależny od użycia sieci platformy Azure komunikację równorzędną w regionach lub między łączenie obwody usługi ExpressRoute, który HANA dużych wystąpienia jednostki nawiązać połączenia z sieciami wirtualnymi platformy Azure. Jak pokazano nieco więcej w dół w niniejszej dokumentacji. To ograniczenie, dołączoną wdrożonej architektury, spowoduje odrzucenie natychmiastowe użycie HANA replikacji systemu jako funkcji odzyskiwania po awarii.
+
+3. SAP HANA Azure (duże wystąpień) w jednostkach mieć przypisanego adresu IP z puli adresów IP serwera adresu zakresu można jako klienta przesłane (zobacz [SAP HANA (duże wystąpień) infrastruktury i łączności na platformie Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) szczegółowe informacje).  Ten adres IP jest dostępny za pośrednictwem subskrypcji platformy Azure i usługi ExpressRoute, łączący sieci wirtualnych Azure HANA na platformie Azure (wystąpienia duże). Adres IP przypisany poza puli IP tego serwera zakresu adresów przypisanej bezpośrednio do jednostki sprzętu i nie jest NAT'ed już to zostało w przypadku pierwszego wdrożenia tego rozwiązania. 
 
 > [!NOTE] 
-> Jeśli musisz nawiązać SAP HANA na platformie Azure (duże wystąpień) w _hurtowni danych_ scenariusz, w którym aplikacje i/lub użytkownicy końcowi muszą łączyć z bazą danych SAP HANA (uruchomiony bezpośrednio), należy użyć innego składnika sieci: serwer proxy wstecznego na przesyłanie danych do i z. Na przykład F5 BIG-IP, NGINX Menedżera ruchu wdrożona na platformie Azure jako rozwiązanie routingu wirtualne zapory/ruchu.
+> Jeśli chcesz rozwiązać ograniczeń w przejściowych routingu, zgodnie z objaśnieniem w pierwszym powyższych elementów dwie listy, należy użyć dodatkowych składników dla routingu. Składniki, które pozwala pokonać ograniczenia mogą być: serwer proxy wstecznego na przesyłanie danych do i z. Na przykład F5 BIG-IP, NGINX Menedżera ruchu wdrożona na platformie Azure jako rozwiązanie routingu wirtualne zapory/ruchu.
+> Przy użyciu [reguły IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) w maszyny Wirtualnej systemu Linux, aby włączyć routing między lokalizacje lokalnymi i HANA dużych wystąpienia jednostki lub wystąpienie dużych HANA jednostki w różnych regionach.
+> Należy pamiętać, że wdrożenia i obsługę niestandardowych rozwiązań dotyczących urządzeń sieciowych innych firm lub IPTables nie jest obsługiwane przez firmę Microsoft. Obsługa musi dostarczanych przez dostawcą używany składnik lub integrator. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>Połączenie z Internetem HANA dużych wystąpień
 Wystąpienia dużych HANA nie mieć bezpośrednie połączenie z Internetem. Jest to ograniczenie z możliwości, na przykład zarejestrować obrazu systemu operacyjnego bezpośrednio z dostawcą systemu operacyjnego. Dlatego należy współpracować z lokalnego serwera SLES SMT lub RHEL subskrypcji Menedżera

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Dodaj logowanie z firmy Microsoft do aplikacji sieci web platformy ASP.NET
@@ -42,7 +42,7 @@ Na końcu tego przewodnika, aplikacja będzie akceptować logowania kont służb
 W tym przewodniku opiera się na scenariusz, w których przeglądarką uzyskuje dostęp do witryny sieci web ASP.NET, żądanie użytkownika do uwierzytelniania za pośrednictwem przycisku Zaloguj. W tym scenariuszu większość pracy do renderowania strony sieci web występuje po stronie serwera.
 
 > [!NOTE]
-> Ten przewodnik instalacji pokazuje, jak zarejestrować użytkowników na aplikację sieci Web platformy ASP.NET, zaczynając od pustego szablonu i zawierać czynności, takie jak dodanie znaku w przycisk i każdego kontrolera i metody, podczas również wyjaśniający niektóre pojęcia. Alternativelly, można również utworzyć projektu do zarejestrowania się w usłudze Azure Active Directory użytkowników (kont służbowych) za pomocą [szablonu sieci web programu Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) i wybierając *konta organizacyjne* i następnie jedną z opcji chmury — ta opcja używa bardziej zaawansowane funkcje szablonu z metod, widoków i kontrolerów dodatkowe.
+> Ten przewodnik instalacji pokazuje, jak zarejestrować użytkowników na aplikację sieci Web platformy ASP.NET, zaczynając od pustego szablonu i zawierać czynności, takie jak dodanie znaku w przycisk i każdego kontrolera i metody, podczas również wyjaśniający niektóre pojęcia. Alternatywnie można również utworzyć projektu do zarejestrowania się w usłudze Azure Active Directory użytkowników (kont służbowych) za pomocą [szablonu sieci web programu Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) i wybierając *konta organizacyjne* , a następnie jeden możliwości chmury — ta opcja używa szablonem bardziej zaawansowane funkcje, dodatkowe kontrolery, metod i widoków.
 
 ## <a name="libraries"></a>Biblioteki
 
@@ -269,7 +269,7 @@ Wybierz, aby zobaczyć oświadczenia użytkownika. Ta akcja prowadzi do kontrole
 
 | Właściwość | Wartość | Opis|
 |---|---|---|
-| Nazwa | {Pełna nazwa użytkownika} | Użytkownik miał na imię i nazwisko
+| Name (Nazwa) | {Pełna nazwa użytkownika} | Użytkownik miał na imię i nazwisko
 |Nazwa użytkownika | <span>user@domain.com</span>| Nazwa użytkownika używana do identyfikacji zalogowanego użytkownika
 | Temat| {Podmiotu}|Ciąg do unikatowego identyfikowania logowania użytkownika sieci web|
 | Identyfikator dzierżawy| {Guid}| A *guid* jednoznacznie reprezentujący użytkownika usługi Azure Active Directory organizacji.|

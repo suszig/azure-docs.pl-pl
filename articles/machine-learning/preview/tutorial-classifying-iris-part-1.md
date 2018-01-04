@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klasyfikowanie irysów, część 1: przygotowanie danych
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -144,7 +144,7 @@ Możesz postępować zgodnie z instrukcjami przewodnika Szybki start [Instalowan
 
    Więcej informacji na temat przygotowywania danych w aplikacji Azure Machine Learning Workbench zawiera przewodnik [Get started with data preparation (Wprowadzenie do przygotowywania danych)](data-prep-getting-started.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zapoznaniu się z pierwszą z trzech części samouczka wiesz już, jak używać aplikacji Azure Machine Learning Workbench, aby wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie nowego projektu. 

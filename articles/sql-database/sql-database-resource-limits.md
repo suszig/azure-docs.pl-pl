@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 63e6b21dad4f58dbaa1df58e8eb1d6e3f6b7f762
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limitom zasobów bazy danych SQL Azure
 
@@ -139,10 +139,11 @@ Gdy wystąpią wysokie użycie sesji lub procesu roboczego, są następujące op
 - Zwiększenie poziomu warstwy lub wydajności usługi bazy danych lub elastyczna pula. Zobacz [pojedynczej bazy danych: Zmienianie rozmiaru magazynu](#single-database-change-storage-size), [pojedynczej bazy danych: zmienić Dtu](#single-database-change-dtus), [puli elastycznej: Zmienianie rozmiaru magazynu](#elastic-pool-change-storage-size), i [puli elastycznej: Zmień Edtu ](#elastic-pool-change-edtus).
 - Optymalizacja zapytania, aby zmniejszyć wykorzystanie zasobów każdego zapytania, jeśli przyczyną zwiększone wykorzystanie wynika z rywalizacji o zasoby obliczeniowe. Aby uzyskać więcej informacji, zobacz [zapytania dostrajania/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać informacje dotyczące warstwy usług, zobacz [warstw usług](sql-database-service-tiers.md).
 - Aby uzyskać informacje o pojedynczych baz danych, zobacz [pojedyncze bazy danych zasobów](sql-database-resource-limits.md).
 - Informacje o pule elastyczne, zobacz [pule elastyczne](sql-database-elastic-pool.md).
 - Informacje ogólne limity Azure, zobacz [subskrypcji platformy Azure i usługi limity, przydziały i ograniczenia](../azure-subscription-service-limits.md).
 - Informacje o Dtu a Edtu, zobacz [Dtu a Edtu](sql-database-what-is-a-dtu.md).
+- Aby uzyskać informacje o limity rozmiaru bazy danych tempdb Zobacz https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

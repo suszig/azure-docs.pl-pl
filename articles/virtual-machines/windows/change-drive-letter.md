@@ -4,7 +4,7 @@ description: "Zawiera opis sposobu zmiany liter dysków dla maszyny Wirtualnej s
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Użyj dysku D: jako dysk z danymi na maszynie Wirtualnej systemu Windows
 Jeśli aplikacja wymaga na potrzeby przechowywania danych na dysku D, wykonaj te instrukcje, aby użyć innej litery dysku na dysku tymczasowym. Nigdy nie używaj tymczasowych dysku do przechowywania danych, które należy zachować.
@@ -62,6 +62,6 @@ Najpierw należy dołączyć dysku danych do maszyny wirtualnej. Aby to zrobić 
 8. Kliknij przycisk **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że wymagane zmiany zostały uwzględnione, należy uruchomić ponownie komputera.
 9. Uruchom ponownie maszynę wirtualną.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dostępny magazyn może zwiększyć się z maszyną wirtualną przez [dołączenie dysku danych dodatkowych](attach-managed-disk-portal.md).
 

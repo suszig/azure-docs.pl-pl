@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Środowisko Azure Functions Tools for Visual Studio  
 
@@ -68,7 +68,7 @@ Podczas tworzenia nowego projektu przy użyciu szablonu usługi Azure Functions,
 
 1. W programie Visual Studio Otwórz **Eksplorator chmury**, rozwiń węzeł **konta magazynu** > **Twoje konto magazynu**, a następnie wybierz pozycję **właściwości**i skopiuj **parametry połączenia podstawowej** wartość.   
 
-2. W projekcie, otwórz plik projektu local.settings.json i ustaw wartość **AzureWebJobsStorage** skopiować klucza w parametrach połączenia.
+2. W projekcie, otwórz plik local.settings.json i ustaw wartość **AzureWebJobsStorage** skopiować klucza w parametrach połączenia.
 
 3. Powtórz poprzedni krok, aby dodać unikatowy kluczy do **wartości** tablicy dla innych połączeń wymagany przez funkcje.  
 
@@ -106,7 +106,7 @@ W przypadku funkcji wstępnie skompilowanym powiązania używane przez funkcję 
     } 
     ````
  
-    Atrybut specyficzne dla powiązania jest stosowany do każdego parametru wiązania dostarczony do metody punktu wejścia. Ten atrybut ma informacje o powiązaniu jako parametry. W poprzednim przykładzie pierwszy parametr ma **QueueTrigger** atrybut, wskazujący funkcję kolejki wyzwolone. Nazwa kolejki i nazwa ustawienie parametrów połączenia są przekazywane jako parametry.  
+    Atrybut specyficzne dla powiązania jest stosowany do każdego parametru wiązania dostarczony do metody punktu wejścia. Ten atrybut ma informacje o powiązaniu jako parametry. W poprzednim przykładzie pierwszy parametr ma **QueueTrigger** atrybut, wskazujący funkcję kolejki wyzwolone. Nazwa kolejki i nazwa ustawienie parametrów połączenia są przekazywane jako parametry **QueueTrigger** atrybutu.
 
 ## <a name="testing-functions"></a>Testowanie funkcji
 
@@ -131,7 +131,7 @@ Aby dowiedzieć się więcej o korzystaniu z narzędzi podstawowych funkcji Azur
 >* [Przy użyciu `--publish-local-settings` opcja publikowania w Azure funkcje podstawowe narzędzia](functions-run-local.md#publish).
 >* [Przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/functionapp/config/appsettings#set). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat narzędzi funkcji Azure, zobacz sekcję Często zadawane pytania [2017 Visual Studio Tools dla usługi Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) wpis w blogu.
 

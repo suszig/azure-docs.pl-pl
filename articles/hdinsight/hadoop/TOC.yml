@@ -121,6 +121,9 @@
       items:
         - name: Analizowanie przy użyciu dodatku Power Query
           href: apache-hadoop-connect-excel-power-query.md
+        - name: Łączenie usługi Power BI z zapytaniem interaktywnym
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Łączenie usługi Power BI z platformą Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Łączenie programu Excel z usługą Hadoop

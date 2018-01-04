@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrydowych rozwiązań tożsamości
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrydowych rozwiązań tożsamości umożliwiają do synchronizowania obiektów katalogu lokalnego z usługą Azure AD nadal użytkowników lokalnej i zarządzania nimi. Pierwsza decyzja, aby podczas planowania do synchronizowania lokalnej systemu Windows serwer usługi Active Directory z usługą Azure AD jest Określa, czy ma być używany do synchronizacji tożsamości lub tożsamości federacyjnych. Tożsamości synchronizowane i opcjonalnie skrótów haseł, użytkownicy będą używać tego samego hasła dostępu do zarówno lokalnie, jak i oparte na chmurze zasobów organizacji. Bardziej zaawansowane wymagań scenariusza, takich jak-jednokrotnej (SSO) lub lokalnej usługi MFA należy wdrożyć usługi Active Directory Federation Services (AD FS), możliwości utworzenia federacji tożsamości. 
@@ -50,9 +50,6 @@ Przekazywanego uwierzytelniania jest skonfigurowane z programem Azure AD Connect
 
 - Windows Server 2012 R2 lub nowszy
 - Przyłączony do domeny w lesie, za pomocą którego użytkownicy są weryfikowane
-
-> [!NOTE]
-> Azure AD uwierzytelnianie przekazywane jest obecnie w wersji zapoznawczej i jest obsługiwana dla klientów przeglądarki sieci web i klientom pakietu Office, które obsługują nowoczesnego uwierzytelniania. Dla klientów, które nie są obsługiwane, takie jak starszych klientów pakietu Office i programu Exchange ActiveSync (w tym klientów natywnych poczty e-mail na urządzeniach przenośnych) zaleca się używają nowoczesnego uwierzytelniania równoważne. Nowoczesnego uwierzytelniania nie umożliwia uwierzytelnianie przekazywane tylko umożliwia również zasady dostępu warunkowego będą stosowane, takich jak uwierzytelnianie wieloskładnikowe. 
 
 Przekazywanego uwierzytelniania nie jest obecnie obsługiwane, gdy przy użyciu urządzeń z systemem Windows 10 dołączone do usługi Azure AD. Jednak synchronizacji skrótu hasła można użyć jako automatycznego powrotu do obsługi systemu Windows 10 i wspomniano starszych klientów. W wersji zapoznawczej synchronizacji skrótu hasła jest domyślnie włączona po wybraniu uwierzytelnianie przekazywane jako opcja logowania w programie Azure AD Connect.
 
@@ -91,7 +88,7 @@ Poniżej przedstawiono kilka typowych hybrydowego tożsamościami i dostępem za
 > <sup>4</sup> usług AD FS można zintegrować z przedsiębiorstwa infrastruktury kluczy publicznych, aby umożliwić logowanie za pomocą certyfikatów. Te certyfikaty mogą być elastyczne certyfikatów wdrożonych za pośrednictwem zaufanego inicjowania obsługi administracyjnej kanałów, takich jak certyfikaty zarządzania urządzeniami Przenośnymi lub zasad grupy lub za pomocą kart inteligentnych (w tym karty PIV/CAC) lub Hello dla firm (relacji zaufania certyfikatów). Aby uzyskać więcej informacji na temat obsługi uwierzytelniania za pomocą kart inteligentnych, zobacz [ten blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej w środowisku Azure koncepcji](https://aka.ms/aad-poc)
 
 [Instalowanie programu Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)

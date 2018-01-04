@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/3/2018
 ms.author: raiye
-ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure wersji systemu operacyjnego gościa i zgodność pakietu SDK
 Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego gościa Azure wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli konfigurujesz role do użycia *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
@@ -159,7 +159,7 @@ Zainstalowany program .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
-| WA-GOŚCIA-OS-2.68_201710-01 |14 grudnia 2017 r. |Post 2.70 |TBD |
+| WA-GOŚCIA-OS-2.68_201711-01 |14 grudnia 2017 r. |Post 2.70 |TBD |
 | WA-GOŚCIA-OS-2.67_201710-02 |8 listopada 2017 r. |Post 2,69 |TBD |
 |~~WA-GOŚCIA-OS-2.66_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.65_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2fccf7cae61f4d8862640b89d39f9d4480362429
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Przyznawanie dostępu do zarządzania usługi Azure AD Privileged Identity Management
-Administrator globalny, który umożliwia usłudze Azure AD Privileged Identity Management (PIM) dla organizacji, automatycznie pobrać przypisania ról i dostępu do usługi PIM. Nikt pobiera zapisu domyślnie, łącznie z innych administratorów globalnych. Inne globalne Administratorzy, administratorów zabezpieczeń i czytników zabezpieczeń mają dostęp tylko do odczytu do usługi Azure AD PIM. Aby udzielić dostępu do usługi PIM, pierwszego użytkownika można przypisać użytkownikom **administrator ról uprzywilejowanych** roli. Ten przydział musi być wykonywane za pomocą programu PIM się i nie można zmienić za pomocą programu PowerShell lub innych portalach.
+Administrator globalny, który umożliwia usłudze Azure AD Privileged Identity Management (PIM) dla organizacji, automatycznie pobrać przypisania ról i dostępu do usługi PIM. Nikt pobiera zapisu domyślnie, łącznie z innych administratorów globalnych. Innych administratorów globalnych, administratorów zabezpieczeń i czytników zabezpieczeń mają dostęp tylko do odczytu do usługi Azure AD PIM. Aby udzielić dostępu do usługi PIM, pierwszego użytkownika można przypisać użytkownikom **administrator ról uprzywilejowanych** roli. Ten przydział musi być wykonywane za pomocą programu PIM się i nie można zmienić za pomocą programu PowerShell lub innych portalach.
 
 > [!NOTE]
 > Zarządzanie programem Azure AD PIM wymaga usługi Azure MFA. Ponieważ konta Microsoft nie można zarejestrować dla usługi Azure MFA, użytkownik, który zaloguje się za pomocą konta Microsoft nie może uzyskać dostępu usługi Azure AD PIM.
@@ -54,7 +54,7 @@ Zawsze przed usunięciem ktoś z roli administrator ról uprzywilejowanych, upew
 4. Kliknij przycisk **tak** Aby usunąć użytkownika z roli.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

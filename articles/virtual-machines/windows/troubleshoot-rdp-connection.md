@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 74beeffe04fa4b6dba4db8687bdebe79e0d750f4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Rozwiązywanie problemów z połączeniami pulpitu zdalnego do maszyny wirtualnej platformy Azure
 Połączenia protokołu RDP (Remote Desktop) do systemu Windows Azure maszyny wirtualnej (VM) może zakończyć się niepowodzeniem z różnych powodów, pozostawiając użytkownik mógł uzyskać dostępu do maszyny Wirtualnej. Problem może być usługą pulpitu zdalnego na Maszynie wirtualnej, połączenie sieciowe lub klienta pulpitu zdalnego na komputerze hosta. W tym artykule przedstawiono niektóre z najczęściej metod, aby rozwiązać problemy z połączeniami RDP. 
@@ -229,7 +229,7 @@ Możesz napotkać komunikat o błędzie podczas próby nawiązania połączenia 
 * [Błąd zabezpieczeń systemu Windows: Twoje poświadczenia nie działają](troubleshoot-specific-rdp-errors.md#wincred).
 * [Ten komputer nie może połączyć się z komputerem zdalnym](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 Jeśli nadal nie można połączyć się z maszyną Wirtualną za pośrednictwem pulpitu zdalnego wystąpił żaden z tych błędów, przeczytaj szczegółowe [Podręcznik rozwiązywania problemów dotyczących usług pulpitu zdalnego](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Kroki podczas uzyskiwania dostępu do aplikacji działających na maszynie Wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie Wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Jeśli występują problemy przy użyciu protokołu Secure Shell (SSH) do połączenia z maszyną wirtualną systemu Linux na platformie Azure, zobacz [połączeń Rozwiązywanie problemów z SSH z maszyną wirtualną systemu Linux na platformie Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

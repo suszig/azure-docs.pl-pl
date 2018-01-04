@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Importowanie i eksportowanie
           href: concepts-migrate-import-export.md
+        - name: Migracja z minimalnym przestojem
+          href: howto-migrate-online.md
     - name: Łączenie aplikacji
       items:
         - name: Tworzenie użytkowników

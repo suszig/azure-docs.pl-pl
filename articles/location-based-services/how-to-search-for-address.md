@@ -6,13 +6,13 @@ keywords: "Nie dodawaj lub Edytuj słowa kluczowe bez konsultacji z ekspert od o
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Jak znaleźć adres przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza)
 Usługa wyszukiwania jest RESTful zestaw interfejsów API przeznaczone dla deweloperów wyszukać adresy, miejsca, punkty zainteresowań, listy biznesowych i innych informacji geograficznych. Usługa wyszukiwania przypisuje szerokości geograficznej/długości określonego adresu, krzyżowego ulicy, geograficzne funkcji lub z interesujących (POI). Współrzędne geograficzne wartości zwracane przez usługę wyszukiwania interfejsów API mogą być używane jako parametry w innych Azure lokalizacji na podstawie usług takich jak API przepływ ruchu i trasy.
@@ -40,7 +40,7 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
 
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | POBIERZ |
+    | Metoda HTTP | GET |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Autoryzacja | Nie autoryzacji |
 
@@ -92,7 +92,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | POBIERZ |
+    | Metoda HTTP | GET |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/JSON? |
     | Autoryzacja | Nie autoryzacji |
 
@@ -132,7 +132,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | POBIERZ |
+    | Metoda HTTP | GET |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
     | Autoryzacja | Nie autoryzacji |
     
@@ -154,7 +154,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
 
     | Klucz | Wartość |
     |-----|------------|
-    | Numer | prawda |
+    | numer | prawda |
 
     Jeśli [numer](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parametru zapytania są wysyłane z żądania, odpowiedzi może zawierać części ulicy (prawej/lewej strony), a także przesunięcia pozycji dla tego numeru.
     
@@ -200,7 +200,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
-    | Metoda HTTP | POBIERZ |
+    | Metoda HTTP | GET |
     | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
     | Autoryzacja | Nie autoryzacji |
     
@@ -214,5 +214,5 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     
 4. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Eksploruj [usługi wyszukiwania Serices na podstawie lokalizacji Azure](https://docs.microsoft.com/rest/api/location-based-services/search) dokumentacji interfejsu API 

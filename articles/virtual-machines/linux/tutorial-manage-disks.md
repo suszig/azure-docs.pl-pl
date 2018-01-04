@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Zarządzanie dyskami Azure z wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Maszyny wirtualne platformy Azure dysków do przechowywania systemu operacyjnego
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i tymczasowego
-> * Dyski danych
+> * Dyski z danymi
 > * Standard i dysków w warstwie Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywania dysków z danymi
@@ -225,7 +225,7 @@ Po ukończeniu operacji zmiany rozmiaru, uruchom maszynę Wirtualną.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Jeśli dysk systemu operacyjnego został zmieniony, jest automatycznie rozszerzana partycji. Jeśli zmieniono dysk z danymi, wszystkie partycje bieżącego musi zostać rozszerzony w systemie operacyjnym maszyny wirtualne.
+Jeśli po zmianie rozmiaru dysku systemu operacyjnego, automatycznie rozszerza partycji. Jeśli zmieniono dysk z danymi, wszystkie partycje bieżącego musi zostać rozszerzony w systemie operacyjnym maszyny wirtualne.
 
 ## <a name="snapshot-azure-disks"></a>Migawki dysków Azure
 
@@ -283,13 +283,13 @@ Użyj [dołączyć dysku maszyny wirtualnej az](https://docs.microsoft.com/cli/a
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono tematy dysków maszyny Wirtualnej takich jak:
 
 > [!div class="checklist"]
 > * Dyski systemu operacyjnego i tymczasowego
-> * Dyski danych
+> * Dyski z danymi
 > * Standard i dysków w warstwie Premium
 > * Wydajność dysku
 > * Dołączanie i przygotowywania dysków z danymi

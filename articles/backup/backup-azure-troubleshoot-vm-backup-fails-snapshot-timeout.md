@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Rozwiązywanie problemów z usługi Kopia zapasowa Azure awarii: problemy z agenta i/lub rozszerzenie
 
@@ -66,6 +66,7 @@ Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Az
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Przyczyny 3: [agent zainstalowany na maszynie wirtualnej są nieaktualne (dla maszyn wirtualnych systemu Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Przyczyna 4: [nie można pobrać stanu migawki lub migawka nie można pobrać](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Przyczyny 5: [zapasowy numer wewnętrzny nie może zaktualizować lub załadować](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Przyczyna 6: [usługi Kopia zapasowa nie ma uprawnienia do usuwania starych punktów przywracania z powodu blokady grupy zasobów](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Określona konfiguracja dysku nie jest obsługiwana.
 
@@ -203,4 +204,30 @@ Po zainstalowaniu agenta gościa maszyny Wirtualnej, uruchom program Azure Power
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
 5. Spróbuj inicjowanie kopii zapasowej. <br>
 
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Usługa tworzenia kopii zapasowej nie ma uprawnienia do usuwania starych punktów przywracania z powodu blokady grupy zasobów
+Ten problem dotyczy zarządzanych maszyn wirtualnych, których użytkownika blokuje grupy zasobów i usługi Kopia zapasowa nie jest w stanie usunąć z wcześniejszych punktów przywracania. Z tego powodu nowe kopie zapasowe zaczęło kończyć się niepowodzeniem, ponieważ istnieje limit maksymalnego 18 punktów przywracania nałożone z wewnętrznej bazy danych.
+
+#### <a name="solution"></a>Rozwiązanie
+
+Aby rozwiązać ten problem, użyj następujące kroki w celu usunięcia kolekcji punkt przywracania: <br>
+ 
+1. Usuń zablokować grupy zasobów, w którym znajduje się maszyna wirtualna 
+     
+2. Instalowanie przy użyciu Chocolatey ARMClient <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Zaloguj się do ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Punkt przywracania Get kolekcji odpowiadającej Maszynie wirtualnej <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Przykład:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Usuń kolekcję punktu przywracania <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Następnego zaplanowanego tworzenia kopii zapasowej automatycznie utworzy kolekcji punktu przywracania i nowe punkty przywracania 
+ 
+7. Problem zostanie wyświetlony ponownie w przypadku zablokowania grupy zasobów ponownie jako jest ograniczona tylko do 18 punktów przywracania, po których kopie zapasowe kończyć się niepowodzeniem 
 

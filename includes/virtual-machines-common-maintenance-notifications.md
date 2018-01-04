@@ -18,11 +18,10 @@ Można korzystać z portalu Azure i wyszukaj zaplanowane do obsługi maszyn wirt
       | Wartość | Opis |
       |-------|-------------|
       | Rozpocznij teraz | Maszyna wirtualna jest w oknie konserwacji samoobsługi, która pozwala na zainicjowanie obsługi samodzielnie. Poniżej dostępne są w sposób uruchamiania konserwacji na maszynie Wirtualnej | 
-      | Zaplanowane | Maszyna wirtualna jest zaplanowane dla obsługi z opcją nie można zainicjować obsługi. Aby dowiedzieć się okna obsługi, wybierając okno zaplanowane automatycznie w tym widoku lub przez kliknięcie przycisku na maszynie Wirtualnej | 
-      | ukończone | Pomyślnie zainicjowano i konserwację na maszynie Wirtualnej. | 
-      | Pominięto| Wybrany do inicjowania obsługi nie pomyślnie. Azure anulował konserwacji dla maszyny Wirtualnej i ponownie go w późniejszym czasie | 
-      | Spróbuj ponownie później| Wybrano opcję inicjowania obsługi i Azure nie był w stanie wykonać żądanie. W takim przypadku można spróbować ponownie w późniejszym czasie. | 
-   
+      | Zaplanowany | Maszyna wirtualna jest zaplanowane dla obsługi z opcją nie można zainicjować obsługi. Aby dowiedzieć się okna obsługi, wybierając okno zaplanowane automatycznie w tym widoku lub przez kliknięcie przycisku na maszynie Wirtualnej | 
+      | Ukończono | Pomyślnie zainicjowano i konserwację na maszynie Wirtualnej. | 
+      | Pominięto| Wybrany do inicjowania obsługi nie pomyślnie. Nie można użyć opcji samoobsługi konserwacji. Maszyny Wirtualnej musi zostać uruchomiony ponownie przez platformę Azure w fazie zaplanowanej konserwacji. | 
+
    **Konserwacja aktywnej** — przedstawia przedział czasu, gdy dla maszyn wirtualnych można uruchomić samodzielnie konserwacji.
    
    **Zaplanowanej konserwacji** — przedstawia przedział czasu, gdy Azure zostanie wykonany ponowny rozruch maszyny Wirtualnej w celu wykonania konserwacji. 

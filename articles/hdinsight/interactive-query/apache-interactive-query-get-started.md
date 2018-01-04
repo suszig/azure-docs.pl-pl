@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Użyj interaktywnego zapytania z usługą HDInsight
 Interakcyjne zapytania (skrót Hive LLAP lub [Live długich i procesu](https://cwiki.apache.org/confluence/display/Hive/LLAP)) to Azure HDInsight [typ klastra](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interakcyjne Query obsługuje buforowanie w pamięci, co czyni szybsze i bardziej interakcyjnych zapytań programu Hive.
@@ -43,8 +43,8 @@ Do wykonywania zapytań programu Hive, masz następujące opcje:
 
 * Przy użyciu usługi Power BI
 
-    Zobacz [wizualizacji danych big data w usłudze Power BI w usłudze Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Zobacz [wizualizacji interakcyjne Hive zapytania danych za pomocą usługi Power BI w usłudze Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) zobacz [wizualizacji danych big data w usłudze Power BI w usłudze Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Korzystanie z rozwiązania Zeppelin
 
     Zobacz [Zeppelin używany do uruchamiania zapytań Hive w usłudze Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
@@ -76,7 +76,7 @@ Aby znaleźć ciąg połączenia Java połączenia bazy danych (JDBC):
    
    ![JDBC LLAP interakcyjne zapytania HDInsight Hadoop](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się, jak [Tworzenie klastrów interakcyjne zapytania w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Dowiedz się, jak [wizualizacji danych big data w usłudze Power BI w usłudze Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizuj wydajność i niezawodność usługi Azure Functions
 
@@ -44,7 +44,7 @@ Jeśli to możliwe, zrefaktoryzuj długie funkcje na mniejsze funkcja ustawia kt
 
 Jeśli nie używa funkcji trwałe lub Logic Apps można zintegrować z wielu funkcji, zazwyczaj jest najlepszym rozwiązaniem jest użycie kolejek magazynu dla wielu funkcji komunikacji.  Głównym celem jest kolejki magazynu to tańsze i znacznie łatwiejsze do udostępniania. 
 
-Poszczególne wiadomości w kolejce magazynu są ograniczone w rozmiarze 64 KB. Jeśli chcesz przekazać większych wiadomości pomiędzy funkcjami usługi Azure Service Bus kolejka może służyć do obsługi wiadomości rozmiarów do 256 KB.
+Poszczególne wiadomości w kolejce magazynu są ograniczone w rozmiarze 64 KB. Jeśli chcesz przekazać większych wiadomości pomiędzy funkcjami usługi Azure Service Bus kolejka może służyć do obsługi wiadomości rozmiarów do 256 KB w warstwie standardowa i maksymalnie 1 MB w warstwie Premium.
 
 Tematy usługi Service Bus są przydatne, jeśli potrzebujesz filtrowania przed rozpoczęciem przetwarzania komunikatu.
 
@@ -115,7 +115,7 @@ Ustawienia w pliku hosts zastosowane do wszystkich funkcji w aplikacji, w *pojed
 
 Inne opcje konfiguracji hosta można znaleźć [w dokumencie konfiguracji hosta](functions-host-json.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Więcej informacji zawierają następujące zasoby:
 
 Ponieważ usługi Azure Functions używa usługi Azure App Service, należy wziąć pod uwagę wskazówki dotyczące usługi aplikacji.

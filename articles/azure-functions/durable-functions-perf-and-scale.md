@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Wydajność i skalę w funkcjach trwałe (usługi Azure Functions)
 
@@ -32,11 +32,11 @@ Historia jest tabela usługi Azure Storage, zawierający zdarzenia historii dla 
 
 ## <a name="internal-queue-triggers"></a>Wyzwalacze kolejki wewnętrznej
 
-Funkcje programu orchestrator i funkcje działania są oba wyzwalane przez wewnętrzne kolejki w aplikacji funkcji domyślne konto magazynu. Istnieją dwa typy kolejek w funkcjach trwałe: **kolejki kontroli** i **kolejki elementów pracy**.
+Funkcje programu orchestrator i funkcje działania są oba wyzwalane przez wewnętrzne kolejki w aplikacji funkcji domyślne konto magazynu. Istnieją dwa typy kolejek w funkcjach trwałe: **kolejki kontroli** i **kolejki elementu roboczego**.
 
-### <a name="the-work-item-queue"></a>Kolejki elementów pracy
+### <a name="the-work-item-queue"></a>Kolejki elementu roboczego
 
-Brak jednego kolejki elementów pracy na Centrum zadania w funkcje trwałe. To jest podstawowa kolejki i działa podobnie jak każdy inny `queueTrigger` kolejki w funkcji platformy Azure. Kolejka ta służy do wyzwalania bezstanowych *działania funkcji*. Gdy aplikacji funkcji trwałe skaluje się do wielu maszyn wirtualnych, wszystkie te maszyny wirtualne konkurować uzyskanie pracy z kolejki elementu roboczego.
+Brak jednego elementu roboczego kolejki na Centrum zadania w funkcje trwałe. To jest podstawowa kolejki i działa podobnie jak każdy inny `queueTrigger` kolejki w funkcji platformy Azure. Kolejka ta służy do wyzwalania bezstanowych *działania funkcji*. Gdy aplikacji funkcji trwałe skaluje się do wielu maszyn wirtualnych, wszystkie te maszyny wirtualne konkurować uzyskanie pracy z kolejki elementu roboczego.
 
 ### <a name="control-queues"></a>Formant kolejek
 
@@ -54,18 +54,18 @@ Na poniższym diagramie przedstawiono, jak hosta usługi Azure Functions współ
 
 ![Diagram skali](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-Jak widać, wszystkie maszyny wirtualne mogą konkurować wiadomości w kolejce elementu pracy. Jednak tylko trzech maszyn wirtualnych można uzyskać komunikaty z kolejek kontroli i każdej maszyny Wirtualnej blokuje kolejki jeden formant.
+Jak widać, wszystkie maszyny wirtualne mogą konkurować wiadomości w kolejce elementu roboczego. Jednak tylko trzech maszyn wirtualnych można uzyskać komunikaty z kolejek kontroli i każdej maszyny Wirtualnej blokuje kolejki jeden formant.
 
 Wystąpień aranżacji są dystrybuowane między wystąpieniami kolejki kontroli przez uruchomienie funkcji skrótu wewnętrznego dla identyfikatora wystąpienia aranżacji. Identyfikatory wystąpienia są generowane automatycznie i losowe domyślnie zapewniający równoważy wystąpień wszystkich kolejek dostępne formantu. Bieżący domyślny numer partycji kolejki obsługiwanych kontroli to **4**.
 
 > [!NOTE]
-> Nie jest obecnie można skonfigurować liczbę partycji w usługi Azure Functions. [Pracy do obsługi tej opcji konfiguracji jest śledzony](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Nie jest obecnie można skonfigurować liczby partycji kolejki kontroli w funkcji platformy Azure. [Pracy do obsługi tej opcji konfiguracji jest śledzony](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 Ogólnie rzecz biorąc funkcje programu orchestrator powinny być lekkie i nie będą dużo mocy obliczeniowej. Z tego powodu nie jest konieczne tworzenie dużej liczby partycji kolejki sterowania można uzyskać doskonałe przepływności. Zamiast większość pracy duże odbywa się w funkcji bezstanowych działania, które może być skalowana w poziomie nieograniczonej.
 
 ## <a name="auto-scale"></a>Automatyczne skalowanie
 
-Zgodnie z systemem w planie zużycie wszystkich funkcji Azure, trwałe funkcje obsługi automatycznego skalowania za pomocą [kontrolera skali usługi Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Kontroler skali monitoruje długość kolejki elementów pracy oraz wszystkich kolejek kontroli Dodawanie lub usuwanie odpowiednio zasobów maszyny Wirtualnej. Jeśli długości kolejki kontroli rosną wraz z upływem czasu, kontrolera skali będzie kontynuować dodawanie wystąpień, dopóki nie osiągnie liczba partycji kolejki formantu. Jeśli długości kolejki elementów pracy rosną wraz z upływem czasu, kontrolera Skala będzie kontynuować dodawanie zasobów maszyny Wirtualnej, dopóki nie może dopasować obciążenia, niezależnie od liczby partycji kolejki formantu.
+Zgodnie z systemem w planie zużycie wszystkich funkcji Azure, trwałe funkcje obsługi automatycznego skalowania za pomocą [kontrolera skali usługi Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Kontroler skali monitoruje długość kolejki elementów pracy oraz wszystkich kolejek kontroli Dodawanie lub usuwanie odpowiednio wystąpień maszyn wirtualnych. Jeśli długości kolejki kontroli rosną wraz z upływem czasu, kontrolera skali będzie kontynuować dodawanie wystąpień maszyn wirtualnych, dopóki nie osiągnie liczba partycji kolejki formantu. Jeśli długości kolejki elementu roboczego rosną wraz z upływem czasu, kontrolera skali będzie kontynuować dodawanie wystąpień maszyn wirtualnych, dopóki nie może dopasować obciążenia, niezależnie od liczby partycji kolejki formantu.
 
 ## <a name="thread-usage"></a>Użycie wątku
 
@@ -73,7 +73,7 @@ Funkcje programu orchestrator są wykonywane w jednym wątku. Jest to wymagane, 
 
 Działanie funkcji ma te same zachowania jako regularne funkcji wyzwalanych przez kolejkę. Oznacza to, bezpiecznie można wykonać operacji We/Wy, wykonać operacje o znacznym wykorzystaniu procesora CPU i użycie wiele wątków. Ponieważ działania wyzwalaczy bezstanowych, ich za darmo skalować w poziomie do niepowiązanego liczbę maszyn wirtualnych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Zainstaluj rozszerzenie funkcji trwałe i przykłady](durable-functions-install.md)

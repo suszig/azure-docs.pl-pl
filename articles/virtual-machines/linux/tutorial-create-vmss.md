@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 04fe3948f37936b43d1f2155635f0f52583d5e1b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Tworzenie zestawu skali maszyny wirtualnej i wdrażanie aplikacji wysokiej dostępności w systemie Linux
 Zestaw skali maszyny wirtualnej umożliwia wdrażanie i zarządzanie nimi zestaw identyczne, automatyczne skalowanie maszyn wirtualnych. Można ręcznie skalować liczbę maszyn wirtualnych w zestawie skalowania lub definiowania reguł do skalowania automatycznego na podstawie użycia zasobów, takie jak procesor CPU, pamięci żądanie lub ruchu sieciowego. W tym samouczku możesz wdrożyć skali maszyny wirtualnej w usłudze Azure. Omawiane kwestie:
@@ -40,7 +40,7 @@ Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lok
 ## <a name="scale-set-overview"></a>Omówienie zestawu skali
 Zestaw skali maszyny wirtualnej umożliwia wdrażanie i zarządzanie nimi zestaw identyczne, automatyczne skalowanie maszyn wirtualnych. Maszyny wirtualne w zestawie skalowania są dystrybuowane w domenach awarii i aktualizacji logikę w co najmniej jednej *umieszczania grupy*. Są to grupy podobnie skonfigurowanych maszyn wirtualnych, podobnie jak [zestawów dostępności](tutorial-availability-sets.md).
 
-Maszyny wirtualne są tworzone zgodnie z potrzebami w zestawie skalowania. Należy zdefiniować regułę automatycznego skalowania do kontrolowania sposobu i czasu maszyny wirtualne są dodawane lub usuwane z zestawu skalowania. Te reguły może wyzwolić na podstawie metryk, takich jak obciążenie procesora CPU, pamięć lub ruchu sieciowego.
+Maszyny wirtualne są tworzone zgodnie z potrzebami w zestawie skalowania. Należy zdefiniować regułę automatycznego skalowania do kontrolowania sposobu i czasu maszyny wirtualne są dodawane lub usuwane z zestawu skalowania. Reguły te mogą być wyzwalane w oparciu metryki przykład obciążenia procesora CPU, pamięć lub ruchu sieciowego.
 
 Skala ustawia obsługi maksymalnie 1000 maszyn wirtualnych, korzystając z obrazu platformy Azure. W przypadku obciążeń z instalacją znaczących lub wymagania dotyczące dostosowywania maszyny Wirtualnej, warto [utworzyć niestandardowy obraz maszyny Wirtualnej](tutorial-custom-images.md). Możesz utworzyć maksymalnie 300 maszyn wirtualnych w skali ustawić przy użyciu obrazu niestandardowego.
 

@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Ograniczone delegowanie protokołu Kerberos dla rejestracji jednokrotnej do aplikacji przy użyciu serwera Proxy aplikacji
 
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji o protokole Kerberos, zobacz [wszystkich chcesz 
 Aplikacje systemu Windows bez zwykle użytkownika nazwy użytkowników lub nazwy konta SAM zamiast domeny adresów e-mail. Jeśli taka sytuacja ma zastosowanie do aplikacji, należy skonfigurować pole tożsamości logowania delegowanego nawiązywania połączenia z Twoich tożsamości aplikacji tożsamości w chmurze. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Praca z różnych lokalnymi i tożsamościami w chmurze
-Serwer Proxy aplikacji założenia, że użytkownicy dokładnie taką samą tożsamość w chmurze i lokalnie. Jeśli nie jest wielkość liter, można nadal służy KCD dla logowania jednokrotnego. Skonfiguruj **delegowane tożsamości logowania** dla każdej aplikacji można określić tożsamości, która będzie używana podczas rejestracji jednokrotnej.  
+Serwer Proxy aplikacji założenia, że użytkownicy dokładnie taką samą tożsamość w chmurze i lokalnie. Jeśli nie jest wielkość liter, można nadal używać KCD dla logowania jednokrotnego. Skonfiguruj **delegowane tożsamości logowania** dla każdej aplikacji można określić tożsamości, która będzie używana podczas rejestracji jednokrotnej.  
 
 Ta funkcja umożliwia wiele organizacji, które mają różne lokalnymi i tożsamości w chmurze ma rejestracji Jednokrotnej z chmury do lokalnych aplikacji bez konieczności przez użytkowników wprowadzić różne nazwy użytkowników i hasła. Dotyczy to również organizacjom który:
 
@@ -121,7 +121,7 @@ Jeśli używana jest tożsamość delegowanego logowania, wartość nie muszą b
 Jeśli występuje błąd w procesie logowania jednokrotnego, wydaje się w dzienniku zdarzeń maszyny łącznika zgodnie z objaśnieniem w [Rozwiązywanie problemów](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Jednak w niektórych przypadkach, żądanie jest pomyślnie wysłane do aplikacji zaplecza podczas odpowiada tej aplikacji w różnych odpowiedzi HTTP. Rozwiązywanie problemów z tych przypadkach należy zacząć od badanie numer zdarzenia 24029 na maszynie łącznika w dzienniku zdarzeń w sesji serwera Proxy aplikacji. Tożsamość użytkownika, którego użyto do delegowania pojawia się w polu "użytkownika" w ramach szczegółów zdarzenia. Aby włączyć dziennik sesji, wybierz **wyświetlanie analityczne i debugowania dzienniki** w menu Widok podglądu zdarzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak skonfigurować serwer Proxy aplikacji aplikacji na używanie ograniczone delegowanie protokołu Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Rozwiązywanie problemów, które masz problem z serwerem Proxy aplikacji](active-directory-application-proxy-troubleshoot.md)

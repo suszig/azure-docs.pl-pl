@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala funkcji platformy Azure i hostingu
 
@@ -80,7 +80,7 @@ Jeśli zostanie uruchomione na plan usługi aplikacji, należy włączyć **zaws
 
 Zawsze włączone jest dostępna tylko na plan usługi aplikacji. Na plan zużycie platformy aktywuje automatycznie funkcji aplikacji.
 
-## <a name="storage-account-requirements"></a>Wymagania dotyczące konta magazynu
+## <a name="storage-account-requirements"></a>Wymagania konta magazynu
 
 Plan zużycia lub plan usługi aplikacji aplikacji funkcji wymaga ogólne konto magazynu Azure obsługuje magazynu obiektów Blob platformy Azure, kolejki, pliki i tabeli. Wewnętrznie usługi Azure Functions używa usługi Azure Storage dla operacji, takich jak zarządzanie wyzwalaczy i rejestrowanie wykonania funkcji. Niektóre konta magazynu nie obsługują kolejek i tabel, takich jak konta magazynu tylko do obiektów blob (w tym magazyn w warstwie premium) i kont magazynu ogólnego przeznaczenia za pomocą replikacji magazyn strefowo nadmiarowy. Te konta są filtrowane z **konta magazynu** bloku podczas tworzenia aplikacji funkcji.
 
@@ -90,7 +90,7 @@ Aby dowiedzieć się więcej na temat typów kont magazynu, zobacz [wprowadzenie
 
 ## <a name="how-the-consumption-plan-works"></a>Jak działa planu zużycie
 
-Kontroler skali w planie zużycie jest automatycznie skalowany zasobów Procesora i pamięci przez dodanie dodatkowych wystąpień funkcje hosta, na podstawie liczby zdarzeń, które funkcje są uruchamiane na. Każde wystąpienie hosta funkcji jest ograniczona do 1,5 GB pamięci.  Wystąpienie hosta jest aplikacji funkcji, co oznacza wszystkie funkcje w ramach — funkcja aplikacji współużytkowanie zasobów w ramach wystąpienia i skali, w tym samym czasie.
+Kontroler skali w planie zużycie jest automatycznie skalowany zasobów Procesora i pamięci przez dodanie dodatkowych wystąpień funkcje hosta, na podstawie liczby zdarzeń, które funkcje są uruchamiane na. Każde wystąpienie hosta funkcji jest ograniczona do 1,5 GB pamięci.  Wystąpienie hosta to funkcja aplikacji, co oznacza wszystkie funkcje w funkcji aplikacji współużytkowanie zasobów w ramach wystąpienia i skali, w tym samym czasie.
 
 Użycie zużycie plan hostingu, funkcja kodu pliki są przechowywane w udziałach plików Azure na koncie magazynu głównego funkcji. Podczas usuwania konta magazynu głównego aplikacji funkcji plików kodu funkcji zostaną usunięte i nie może zostać odzyskany.
 
@@ -119,7 +119,7 @@ Wyzwalacze różnych mogą także mieć różne ograniczonym zakresie, a także 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Najlepsze rozwiązania i wzorce dla skalowalnych aplikacji
 
-Istnieje wiele aspektów aplikacji funkcji, które mają wpływ na skuteczność go są skalowane, łącznie z konfiguracji hosta, wpływ środowiska uruchomieniowego i zasobów zależności od skuteczności działania.  Widok [skalowalności w dalszej części artykułu zagadnienia dotyczące wydajności](functions-best-practices.md#scalability-best-practices) Aby uzyskać więcej informacji.
+Istnieje wiele aspektów aplikacji funkcji, które mają wpływ na skuteczność go są skalowane, łącznie z konfiguracji hosta, środowiska uruchomieniowego rozmiaru i wydajności zasobów.  Widok [skalowalności w dalszej części artykułu zagadnienia dotyczące wydajności](functions-best-practices.md#scalability-best-practices) Aby uzyskać więcej informacji.
 
 ### <a name="billing-model"></a>Model rozliczania
 

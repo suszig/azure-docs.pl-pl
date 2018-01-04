@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?
 Logowanie jednokrotne oznacza dostępowi do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji bez konieczności uwierzytelniania (np. Wpisz hasło) po raz drugi.
@@ -54,7 +54,7 @@ Gdy użytkownik ma uwierzytelnienie przy użyciu aplikacji, muszą mieć rekord 
  Więcej informacji na temat pojedynczego logowania jednokrotnego trybów i Inicjowanie obsługi poniżej.
 
 ### <a name="federated-single-sign-on"></a>Federacyjne logowanie jednokrotne
-Federacyjne logowanie jednokrotne umożliwia logowania jednokrotnego pozwala użytkownikom w organizacji automatycznie zalogowani do aplikacji SaaS innych firm przez usługę Azure AD przy użyciu informacji o koncie użytkownika z usługi Azure AD.
+Federacyjne logowanie jednokrotne umożliwia użytkownikom można zostanie automatycznie zalogowany do aplikacji SaaS innych firm przez usługę Azure AD przy użyciu informacji o koncie użytkownika z usługi Azure AD w organizacji.
 
 W tym scenariuszu gdy można już zostały zarejestrowane w usłudze Azure Active Directory i chcesz uzyskiwać dostęp do zasobów, które są kontrolowane przez aplikacji SaaS innych firm, federacyjnego eliminuje potrzebę stosowania użytkownik musiał być ponownie uwierzytelnieni.
 
@@ -190,7 +190,7 @@ Po kliknięciu autoryzowanym użytkownikiem na jednym z poniższych linków, spe
 
 Te linki używane te same mechanizmy kontroli dostępu do panelu dostępu i usługi Office 365, i tylko ci użytkownicy lub grupy, którzy zostali przypisani do aplikacji w portalu zarządzania platformy Azure będą mógł pomyślnie wykonać uwierzytelnienia. Jednak każdy użytkownik, który nie ma autoryzacji zobaczą komunikat z informacjami o tym, że nie przyznano dostęp i podano łącza do załadowania panel dostępu, aby wyświetlić dostępne aplikacje, dla których mają dostęp.
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Znajdowanie niezatwierdzona aplikacji w chmurze z usługi Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)

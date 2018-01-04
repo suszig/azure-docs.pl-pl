@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Zarządzanie wolumin ceny i danych w usłudze Application Insights
 
@@ -90,7 +90,7 @@ Jako [zapowiedziała niedawno](https://blogs.technet.microsoft.com/msoms/2017/05
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Przejrzyj planów cenowych i Szacowanie kosztów
 
-Applicaition Insights ułatwia zrozumienie dostępnych planów cenowych i jakie koszty mogą opierać na ostatnie wzorców użycia. Uruchamianie przez otwarcie **funkcje + cennik** bloku w zasobu usługi Application Insights w portalu Azure:
+Usługi Application Insights ułatwia zrozumienie dostępnych planów cenowych i jakie koszty mogą opierać na ostatnie wzorców użycia. Uruchamianie przez otwarcie **funkcje + cennik** bloku w zasobu usługi Application Insights w portalu Azure:
 
 ![Wybierz cennik.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Poniżej przedstawiono niektóre czynności, które można wykonać, aby zmniejs
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Maksymalna ilość danych codzienne Zarządzanie
 
-Dzienny limit woluminu można używać, aby ograniczyć dane zebrane, ale spełnieniu zakończenie spowoduje utratę wszystkich telemetery wysyłanych z aplikacji w pozostałej dnia. Jest **nie zaleca się** aby aplikacja trafienie codzienne centralnych zasad dostępu, ponieważ nie można śledzić kondycji i wydajności aplikacji po jej zostaje trafiony. 
+Dzienny limit woluminu można używać, aby ograniczyć dane zebrane, ale spełnieniu zakończenie spowoduje utratę wszystkich danych telemetrycznych wysłanych z aplikacji w pozostałej dnia. Jest **nie zaleca się** aby aplikacja trafienie codzienne centralnych zasad dostępu, ponieważ nie można śledzić kondycji i wydajności aplikacji po jej zostaje trafiony. 
 
-Zamiast tego należy użyć [próbkowania](app-insights-sampling.md) dostrajania ilość danych do poziomu chcesz i użyj dzienny limit jedynie w ostateczności"", w przypadku aplikacji, który rozpoczyna się nieoczekiwanie wysyłania znacznie wyższa woluminów telemetery. 
+Zamiast tego należy użyć [próbkowania](app-insights-sampling.md) dostrajania ilość danych do poziomu chcesz i użyj dzienny limit jedynie w ostateczności"", w przypadku, gdy aplikacja rozpoczyna wysyłanie znacznie wyższa woluminów telemetrii nieoczekiwane. 
 
-Aby zmienić codzienne centralnych zasad dostępu, w sekcji konfiguracji zasobu Insihgts aplikacji, kliknij przycisk **Zarządzanie woluminami danych** następnie **dzienny limit**.
+Aby zmienić codzienne centralnych zasad dostępu, w sekcji konfiguracji zasobu usługi Application Insights, kliknij przycisk **Zarządzanie woluminami danych** następnie **dzienny limit**.
 
 ![Dopasowywanie codzienne zakończenia woluminu telemetrii](./media/app-insights-pricing/daily-cap.png) 
 
@@ -176,7 +176,7 @@ Można napisać skrypt, aby ustawić plan cen za pomocą zarządzania zasobami A
 ## <a name="limits-summary"></a>Podsumowanie limity
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Próbkowanie](app-insights-sampling.md)
 

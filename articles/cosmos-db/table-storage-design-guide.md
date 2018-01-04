@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Przewodnik projektowania tabeli magazynu systemu Azure: Projektowanie skalowalności i wydajności tabele
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ W poniższym przykładzie przedstawiono projekt prostą tabelę do przechowywani
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Sygnatura czasowa</th>
 <th></th>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ W poniższym przykładzie przedstawiono projekt prostą tabelę do przechowywani
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nazwa działu</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ Usługa tabel automatycznie indeksuje jednostek przy użyciu **PartitionKey** i 
 Wiele projektów musi spełniać wymagania, aby włączyć wyszukiwanie jednostek na podstawie wielu kryteriów. Na przykład Lokalizowanie jednostek pracownika opartych na wiadomości e-mail, identyfikator lub nazwisko. Następujące wzorce w sekcji [wzorce projektowe tabeli](#table-design-patterns) adresów tego rodzaju wymaganie oraz opisano sposoby obchodzić fakt, że usługa tabel nie udostępnia indeksów pomocniczych:  
 
 * [Wzorzec pomocniczy indeks partycji wewnątrz](#intra-partition-secondary-index-pattern) -przechowywać wiele kopii każdej jednostki przy użyciu różnych **RowKey** wartości (w tej samej partycji) Włącz szybkie i wydajne wyszukiwań i alternatywne sortowania przy użyciu różnych **RowKey** wartości.  
-* [Wzorzec między partycji pomocniczy indeks](#inter-partition-secondary-index-pattern) — przechowywać wiele kopii każdej jednostki przy użyciu różnych wartości RowKey w osobnych partycji lub w oddzielnych tabelach umożliwia szybkie i wydajne wyszukiwanie i sortowanie alternatywne porządkuje przy użyciu różnych **RowKey** wartości.  
+* [Wzorzec między partycji pomocniczy indeks](#inter-partition-secondary-index-pattern) -przechowywać wiele kopii każdej jednostki przy użyciu różnych **RowKey** wartości w osobnych partycji lub w różnych tabele, aby włączyć szybkie i wydajne wyszukiwanie i sortowanie alternatywne zamówienia przy użyciu różnych **RowKey** wartości.  
 * [Wzorzec jednostek indeksu](#index-entities-pattern) — Obsługa indeksu jednostek umożliwiające wydajne wyszukiwanie, które zwracają list jednostek.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Sortowanie danych w usłudze tabel
@@ -1107,7 +1107,7 @@ Usługa tabel jest *bez schematu* sklepu tabeli, która oznacza, że pojedynczej
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Sygnatura czasowa</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ Usługa tabel jest *bez schematu* sklepu tabeli, która oznacza, że pojedynczej
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nazwa działu</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1199,7 +1199,7 @@ Należy pamiętać, że każdy obiekt muszą mieć **PartitionKey**, **RowKey**,
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Sygnatura czasowa</th>
 <th></th>
 </tr>
 <tr>
@@ -1209,7 +1209,7 @@ Należy pamiętać, że każdy obiekt muszą mieć **PartitionKey**, **RowKey**,
 <td>
 <table>
 <tr>
-<th>Dla obiektu</th>
+<th>EntityType</th>
 <th>Imię</th>
 <th>Nazwisko</th>
 <th>Wiek</th>
@@ -1231,7 +1231,7 @@ Należy pamiętać, że każdy obiekt muszą mieć **PartitionKey**, **RowKey**,
 <td>
 <table>
 <tr>
-<th>Dla obiektu</th>
+<th>EntityType</th>
 <th>Imię</th>
 <th>Nazwisko</th>
 <th>Wiek</th>
@@ -1253,8 +1253,8 @@ Należy pamiętać, że każdy obiekt muszą mieć **PartitionKey**, **RowKey**,
 <td>
 <table>
 <tr>
-<th>Dla obiektu</th>
-<th>DepartmentName</th>
+<th>EntityType</th>
+<th>Nazwa działu</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1272,7 +1272,7 @@ Należy pamiętać, że każdy obiekt muszą mieć **PartitionKey**, **RowKey**,
 <td>
 <table>
 <tr>
-<th>Dla obiektu</th>
+<th>EntityType</th>
 <th>Imię</th>
 <th>Nazwisko</th>
 <th>Wiek</th>

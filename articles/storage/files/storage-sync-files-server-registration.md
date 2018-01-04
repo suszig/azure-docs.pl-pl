@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Zarządzanie serwerami zarejestrowanych za pomocą synchronizacji plików Azure (wersja zapoznawcza)
 Usługa Azure File Sync (wersja zapoznawcza) umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -147,7 +147,7 @@ Ponieważ synchronizacji plików Azure będzie rzadko tylko usługa działająca
 > Ustawienie zbyt małej limity ma wpływ na wydajność synchronizacji synchronizacji plików Azure i odwołania.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Ustaw limity sieci Azure synchronizacji plików
-Możesz ograniczyć utilitization sieci synchronizacji plików Azure za pomocą poleceń cmdlet "StorageSyncNetworkLimit". 
+Wykorzystanie sieci synchronizacji plików Azure można ograniczyć przy użyciu `StorageSyncNetworkLimit` polecenia cmdlet. 
 
 Na przykład można utworzyć nowego limitu sieci, aby upewnić się, czy synchronizacji plików Azure nie używa więcej niż 10 MB/s miedzy 9 a 17: 00 (h 17:00) w tygodniu pracy: 
 
@@ -171,7 +171,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Użyj funkcji QoS magazynowania systemu Windows Server 
 Podczas synchronizacji plików Azure znajduje się na maszynie wirtualnej uruchomiona na hoście wirtualizacji systemu Windows Server, można użyć QoS magazynu (jakości usług magazynowania) uregulowanie zużycie we/wy magazynu. Zasad QoS magazynu można ustawić jako maksymalną (lub limit, takich jak jak StorageSyncNetwork limit jest wymuszana powyżej) lub jako minimum (lub rezerwacji). Ustawienie minimalnej zamiast maksymalnie umożliwia synchronizacji plików Azure do serii do użycia przepustowości dostępnej pamięci, jeśli inne obciążenia nie korzystają go. Aby uzyskać więcej informacji, zobacz [jakości usług magazynowania](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Planowanie wdrożenia synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-planning.md)
 - [Wdrażanie synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-deployment-guide.md) 
 - [Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-troubleshoot.md)

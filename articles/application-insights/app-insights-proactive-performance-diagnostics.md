@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Inteligentne wykrywanie - anomalii wydajności
 
@@ -157,7 +157,7 @@ Należy zauważyć, że informuje o tym:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Inteligentne wykrywanie powolnego wzorce wykonywania 
 
-Usługa Application Insights umożliwia znalezienie problemy z wydajnością, które mogłyby dotyczą tylko części użytkowników, lub dotyczą tylko użytkownicy w niektórych przypadkach. Na przykład powiadomienia o ładowania stron jest slowler na jeden typ przeglądarki niż na inne typy przeglądarek, lub jeśli żądania są wolniej podawana z określonego serwera. Umożliwia również odnajdywanie problemów związanych z kombinacji właściwości, takie jak powolne ładuje w jednym obszarze geograficznym w przypadku klientów z określonym systemem operacyjnym.  
+Usługa Application Insights umożliwia znalezienie problemy z wydajnością, które mogłyby dotyczą tylko części użytkowników, lub dotyczą tylko użytkownicy w niektórych przypadkach. Na przykład powiadomienia o stron obciążenia działa wolniej na jeden typ przeglądarki niż na inne typy przeglądarek, lub jeśli żądania są wolniej podawana z określonego serwera. Umożliwia również odnajdywanie problemów związanych z kombinacji właściwości, takie jak powolne ładuje w jednym obszarze geograficznym w przypadku klientów z określonym systemem operacyjnym.  
 
 Anomalie, takich jak te są bardzo trudne do wykrycia sprawdzając tylko dane, ale są częściej niż się wydaje. Często ich powierzchni tylko, gdy klienci skarżą się. Do tego czasu jest za późno: narażeni użytkownicy są już przełączanie do konkurencji!
 
@@ -178,7 +178,7 @@ Kliknij łącza, aby otworzyć Eksploratora metryki i wyszukiwania w odpowiednic
 
 Zmodyfikuj przedziału czasu i filtry, aby eksplorować dane telemetryczne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Te narzędzia diagnostyczne pomóc sprawdzić dane telemetryczne z aplikacji:
 
 * [Profiler](app-insights-profiler.md) 

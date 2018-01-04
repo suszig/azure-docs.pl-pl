@@ -1,5 +1,9 @@
 - name: Dokumentacja usługi Site Recovery
   href: index.yml
+- name: Migracja maszyn lokalnych i maszyn wirtualnych platformy Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Odzyskiwanie po awarii Azure–Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Omówienie
   items:
     - name: Co to jest usługa Site Recovery?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Zestawienie obsługi replikacji Hyper-V–Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–lokacja dodatkowa
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Odzyskiwanie po awarii dla obciążeń
@@ -67,7 +73,7 @@
       href: site-recovery-faq.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Sieć
+    - name: Networking
       items:
         - name: Konfigurowanie sieci na potrzeby odzyskiwania po awarii maszyny wirtualnej platformy Azure (wersja zapoznawcza)
           href: site-recovery-azure-to-azure-networking-guidance.md
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Odzyskiwanie po awarii
       items:
+        - name: Przygotowywanie funkcji Hyper-V do replikacji na platformę Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Maszyny wirtualne funkcji Hyper-V do platformy Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Maszyny wirtualne funkcji Hyper-V w chmurach programu VMM na platformę Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Serwery fizyczne do platformy Azure
           href: tutorial-physical-to-azure.md
         - name: Maszyny wirtualne funkcji Hyper-V do lokacji dodatkowej
@@ -215,7 +225,7 @@
       items:
         - name: Usługi Active Directory i DNS
           href: site-recovery-active-directory.md
-        - name: SQL Server
+        - name: Oprogramowanie SQL Server
           href: site-recovery-sql.md
         - name: Sharepoint
           href: site-recovery-sharepoint.md

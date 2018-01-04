@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 10a9608bc35d44a800acda9406390c3944a86c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79c66fe29c8d51a8cd1db24a024974f943e89e74
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prognozowanie odpowiedzi za pomocą prostego modelu
 ## <a name="video-4-data-science-for-beginners-series"></a>Wideo 4: Nauki danych serii dla początkujących
@@ -122,7 +122,7 @@ Teraz, jeśli tak samo, jak gdyby było więcej informacji...
 * kolory (jak blisko romb jest jest białe)
 * Liczba dołączenia w romb
 
-...i firma musiałaby większą liczbę kolumn. W takim przypadku matematyczne staje się przydatne. Jeśli masz więcej niż dwie kolumny jest trudna do rysowania kropki w dokumencie. Obliczenia umożliwia bardzo dobrze nadające się tego wiersza lub tej płaszczyzny do danych.
+.. .i firma musiałaby większą liczbę kolumn. W takim przypadku matematyczne staje się przydatne. Jeśli masz więcej niż dwie kolumny jest trudna do rysowania kropki w dokumencie. Obliczenia umożliwia bardzo dobrze nadające się tego wiersza lub tej płaszczyzny do danych.
 
 Ponadto jeśli zamiast tylko kilku karo, było dwa tysiące lub dwóch milionów, a następnie wykonaj pracy znacznie szybciej z komputerem.
 
@@ -130,6 +130,6 @@ Obecnie zajmowaliśmy sposób wykonywania regresji liniowej i wprowadziliśmy pr
 
 Należy koniecznie zapoznaj się z innych plików wideo "Danych nauki dla początkujących" z Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Spróbuj pierwszego eksperymentu analizy danych z usługi Machine Learning Studio](create-experiment.md)
 * [Wprowadzenie do uczenia maszynowego w systemie Microsoft Azure](what-is-machine-learning.md)

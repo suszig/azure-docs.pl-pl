@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Używanie Sqoop z platformą Hadoop w usłudze HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,15 +47,15 @@ Klaster usługi HDInsight jest dostarczany z przykładowymi danymi. Można uży�
   
   | Pole | Typ danych |
   | --- | --- |
-  | ClientID |Ciąg |
-  | querytime |Ciąg |
-  | rynku |Ciąg |
-  | deviceplatform |Ciąg |
-  | devicemake |Ciąg |
-  | devicemodel |Ciąg |
-  | state |Ciąg |
-  | Kraju |Ciąg |
-  | querydwelltime |O podwójnej precyzji |
+  | ClientID |ciąg |
+  | querytime |ciąg |
+  | rynku |ciąg |
+  | deviceplatform |ciąg |
+  | devicemake |ciąg |
+  | devicemodel |ciąg |
+  | state |ciąg |
+  | Kraju |ciąg |
+  | querydwelltime |liczba podwójnej precyzji |
   | Identyfikator sesji |bigint |
   | sessionpagevieworder |bigint |
 
@@ -94,7 +94,7 @@ Jeśli wolisz korzystać z programu Azure PowerShell do tworzenia klastra i bazy
      
         Zapisane na stałe w sekcji zmiennych są następujące wartości:
         
-        |Nazwa|Wartość|
+        |Name (Nazwa)|Wartość|
         |----|-----|
         | Domyślna nazwa konta magazynu | &lt;CluterName > przechowywania |
         | Nazwa serwera bazy danych SQL Azure | &lt;ClusterName > dbserver |
@@ -161,7 +161,7 @@ HDInsight można uruchamiać zadania Sqoop przy użyciu różnych metod. Skorzys
 * Zbiorcze export - opartych na systemie Linux z usługi HDInsight, łącznik Sqoop, używany do eksportowania danych do programu Microsoft SQL Server lub bazy danych SQL Azure nie obsługuje obecnie zbiorcze operacje wstawiania.
 * Przetwarzanie wsadowe — z opartą na systemie Linux usługą HDInsight przy użyciu `-batch` przełączyć podczas wykonywania operacji wstawienia, Sqoop wykonuje wiele operacji wstawienia zamiast przetwarzanie wsadowe operacji insert.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz ma przedstawiono sposób używania Sqoop. Aby dowiedzieć się więcej, zobacz:
 
 * [Korzystanie z programu Hive z usługą HDInsight](../hdinsight-use-hive.md)
@@ -221,7 +221,7 @@ Przykładowe PowerShell wykonuje następujące czynności:
    > Inne niż informacje o parametrach połączenia kroki opisane w tej sekcji powinny działać dla bazy danych Azure SQL lub programu SQL Server. Kroki te zostały przetestowane przy użyciu następującej konfiguracji:
    > 
    > * **Konfiguracja punktu do lokacji sieci wirtualnej platformy Azure**: sieci wirtualnej połączenia klastra usługi HDInsight do programu SQL Server w prywatnym centrum danych. Zobacz [skonfigurowania sieci VPN punkt-lokacja w portalu zarządzania](../../vpn-gateway/vpn-gateway-point-to-site-create.md) Aby uzyskać więcej informacji.
-   > * **Azure HDInsight 3.1**: zobacz [klastrów utworzyć Hadoop w HDInsight przy użyciu niestandardowych opcji](../hdinsight-hadoop-provision-linux-clusters.md) informacji o tworzeniu klastra w sieci wirtualnej.
+   > * **Usługa Azure HDInsight**: zobacz [klastrów utworzyć Hadoop w HDInsight przy użyciu niestandardowych opcji](../hdinsight-hadoop-provision-linux-clusters.md) informacji o tworzeniu klastra w sieci wirtualnej.
    > * **SQL Server 2014**: skonfigurowanych umożliwia uwierzytelnianie i uruchamianie klienta VPN pakiet konfiguracji do nawiązania bezpiecznego sieci wirtualnej.
    > 
    > 

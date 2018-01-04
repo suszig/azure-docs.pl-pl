@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8eb4420978c0a66012f3f46d4a5f7ed0da56a3b7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 199f8c62b7aa3310bebd33c88edf57ea3bce804b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określone komunikaty o błędach protokołu RDP do maszyny Wirtualnej systemu Windows na platformie Azure
 W trakcie przy użyciu połączenia pulpitu zdalnego z maszyną wirtualną (VM) systemu Windows na platformie Azure może zostać wyświetlony komunikat o błędzie. Ten artykuł zawiera szczegóły dotyczące niektórych bardziej typowe komunikaty o błędach napotkano wraz z czynności pozwalające rozwiązać je. Jeśli występują problemy dotyczące nawiązywania połączenia z maszyną Wirtualną za pomocą protokołu RDP ale czy nie występują komunikat o błędzie, zobacz [Podręcznik rozwiązywania problemów dotyczących usług pulpitu zdalnego](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -104,7 +104,7 @@ Każdy komputer z systemem Windows ma pulpitu zdalnego użytkownicy grupy lokaln
 
 Upewnij się, że konto, którego używasz nawiązać połączenia z uprawnieniami pulpitu zdalnego logowania. Jako obejście za pomocą domeny lub lokalnego konta administratora połączenia za pośrednictwem pulpitu zdalnego. Aby dodać odpowiednie konto do lokalnej grupy użytkowników pulpitu zdalnego, należy użyć przystawki programu Microsoft Management Console (**Narzędzia systemowe > Użytkownicy i grupy lokalne > grupy > Użytkownicy pulpitu zdalnego**).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli żaden z tych błędów wystąpił i konieczne jest nieznany problem z połączeniem się przy użyciu protokołu RDP, zobacz [Podręcznik rozwiązywania problemów dotyczących usług pulpitu zdalnego](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Kroki podczas uzyskiwania dostępu do aplikacji działających na maszynie Wirtualnej, zobacz [Rozwiązywanie problemów z dostępem do aplikacji uruchomionej na maszynie Wirtualnej platformy Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

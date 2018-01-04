@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publikowanie aplikacji usługi HDInsight w portalu Azure Marketplace
 Aplikacja Azure HDInsight można zainstalować w klastrze usługi HDInsight opartej na systemie Linux. W tym artykule Dowiedz się, jak opublikować aplikację usługi HDInsight w portalu Azure Marketplace. Aby uzyskać ogólne informacje o publikowaniu w portalu Azure Marketplace, zobacz [publikowanie oferty w portalu Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -104,7 +104,7 @@ Aby opublikować aplikację usługi HDInsight:
 8. Przekaż plik zip został utworzony, gdy użytkownik [spakowanej aplikacji](#package-application).  
 9. Wybierz **żądanie certyfikacji**. Zespół certyfikacji Microsoft sprawdza pliki i oświadcza topologii.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [instalowanie aplikacji usługi HDInsight](hdinsight-apps-install-applications.md) w klastrach.
 * Dowiedz się, jak [instalowanie niestandardowych aplikacji usługi HDInsight](hdinsight-apps-install-custom-applications.md) i wdrażania aplikacji usługi HDInsight nieopublikowane do usługi HDInsight.
 * Dowiedz się, jak [umożliwia dostosowywanie klastrów usługi HDInsight opartych na systemie Linux akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md) i dodać więcej aplikacji. 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 47257bdb054b069c864ebf545b0c00bdfb05a9ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
 Pobierz szybkie wprowadzenie do analizy danych z *nauki danych dla początkujących* w pięciu krótkie filmy wideo z naukowca danych najwyższego. Tych klipów wideo są podstawowy, ale przydatne, czy interesują Cię wykonywania analizy danych lub pracować z analityków danych.
@@ -138,6 +138,6 @@ Wzmocnienie algorytmów uczenia zbierania danych, zgodnie z ich przejść uczeni
 
 Taki sposób, aby go - 5 pytania dotyczące danych nauki może odpowiedzieć.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Spróbuj pierwszego eksperymentu analizy danych z usługi Machine Learning Studio](create-experiment.md)
 * [Wprowadzenie do uczenia maszynowego w systemie Microsoft Azure](what-is-machine-learning.md)

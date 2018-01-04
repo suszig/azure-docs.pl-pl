@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/06/2017
 ms.author: genli
-ms.openlocfilehash: 35f52af5fbf0c945a766f5e5431c885d91df546a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: b50d139f62ef773fb5b9bb2638e40f8154e80979
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Rozwiązywanie problemów maszyny Wirtualnej platformy Azure przy użyciu zagnieżdżonych wirtualizacji na platformie Azure
 
@@ -137,6 +137,6 @@ Aby zainstalować problem maszyny Wirtualnej, maszyna wirtualna odzyskiwania mus
 
 Za pomocą programu PowerShell Azure można również utworzyć maszynę Wirtualną z dysku. Aby uzyskać więcej informacji, zobacz [tworzenia nowej maszyny Wirtualnej z istniejącego dysku przy użyciu programu PowerShell](create-vm-specialized.md#create-the-new-vm). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli występują problemy dotyczące nawiązywania połączenia z maszyną Wirtualną, zobacz [połączeniami RDP Rozwiązywanie problemów z maszyną wirtualną Azure](troubleshoot-rdp-connection.md). W przypadku problemów z dostępem do aplikacji działających na maszynie Wirtualnej, zobacz [Rozwiązywanie problemów z łącznością aplikacji na maszynie Wirtualnej Windows](troubleshoot-app-connection.md).

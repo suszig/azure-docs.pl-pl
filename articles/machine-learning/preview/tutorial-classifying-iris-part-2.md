@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasyfikowanie irysów, część 2: budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -373,7 +373,7 @@ Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowie
    >W przypadku wykonywania względem zdalnego klastra usługi HDInsight możesz również wyświetlić szczegóły wykonania zadania YARN (Yet Another Resource Negotiator) pod adresem `https://<cluster_name>.azurehdinsight.net/yarnui`, korzystając z konta użytkownika `admin`.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zapoznaniu się z drugą częścią trzyczęściowej serii samouczka wiesz już, jak używać usługi Azure Machine Learning, aby:
 > [!div class="checklist"]
 > * używać środowiska roboczego usługi Azure Machine Learning,
