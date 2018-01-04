@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Ustawienia konfiguracji bramy sieci VPN Azure stosu
 
@@ -31,7 +31,7 @@ Połączenie bramy sieci VPN zależy od konfiguracji wielu zasobów, z których 
 ## <a name="vpn-gateway-settings"></a>Ustawienia bramy sieci VPN
 
 ### <a name="gateway-types"></a>Typy bram
-Każdej sieci wirtualnej Azure stosu obsługuje bramy jednej sieci wirtualnej, która musi być typu **Vpn**.  Różni się to z platformy Azure, która obsługuje dodatkowe typy.  
+Każdej sieci wirtualnej Azure stosu obsługuje bramy jednej sieci wirtualnej, która musi być typu **Vpn**.  Ta obsługa różni się od Azure, która obsługuje dodatkowe typy.  
 
 Podczas tworzenia bramy sieci wirtualnej, należy się upewnić, że typ bramy jest poprawny dla danej konfiguracji. Brama sieci VPN wymaga `-GatewayType Vpn`.
 
@@ -90,9 +90,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Podczas tworzenia bramy sieci wirtualnej dla konfiguracji bramy sieci VPN, należy określić typ sieci VPN. Możesz wybrać typ sieci VPN zależy od topologii połączenia, który chcesz utworzyć.  Typ sieci VPN można również są zależne od sprzętu, którego używasz. Konfiguracje S2S wymagają urządzenia sieci VPN. Niektóre urządzenia sieci VPN obsługują tylko określonego typu sieci VPN.
 
 > [!IMPORTANT]  
-> W tej chwili stosu Azure obsługuje tylko typ sieci VPN oparte na trasy.  Jeśli urządzenie obsługuje tylko sieci VPN oparte na zasadach, połączenia z tych urządzeń z usługi Azure stosu nie są obsługiwane.
+> W tej chwili stosu Azure obsługuje tylko typ sieci VPN oparte na trasy. Jeśli urządzenie obsługuje tylko sieci VPN oparte na zasadach, połączenia z tych urządzeń z usługi Azure stosu nie są obsługiwane.
 
-- **PolicyBased**: *(obsługiwane przez platformę Azure, ale nie przez stos Azure)* sieci VPN oparte na zasadach szyfrują i kierowania pakietów przez tunel protokołu IPsec na podstawie zasad protokołu IPsec skonfigurowanych przy użyciu kombinacji prefiksów adresów między sieci lokalnej i stos sieci wirtualnej platformy Azure. Zasady (lub selektor ruchu) są zazwyczaj zdefiniowane jako lista dostępu w konfiguracji urządzenia sieci VPN.
+- **PolicyBased**: *(obsługiwane przez platformę Azure, ale nie przez stos Azure)* sieci VPN oparte na zasadach szyfrują i kierowania pakietów przez tunel protokołu IPsec na podstawie zasad protokołu IPsec, które są skonfigurowane przy użyciu kombinacji prefiksów adresów między siecią lokalną a stos sieci wirtualnej platformy Azure. Zasady (lub selektor ruchu) są zazwyczaj zdefiniowane jako lista dostępu w konfiguracji urządzenia sieci VPN.
 
 - **RouteBased**: RouteBased VPN używają "tras" IP przekazywania lub tabeli routingu do kierowania pakietów do odpowiednich interfejsów tuneli. W dalszej kolejności interfejsy tuneli szyfrują lub odszyfrowują pakiety wchodzące do tuneli lub wychodzące z nich. Zasady (lub selektor ruchu) dla sieci VPN z siecią typu RouteBased są skonfigurowane jako dowolny z każdym (lub symbole wieloznaczne). Wartość dla typu RouteBased sieci VPN jest RouteBased.
 
@@ -108,13 +108,13 @@ W poniższej tabeli wymieniono wymagania dla bram sieci VPN.
 
 | |PolicyBased Basic bramy sieci VPN | RouteBased Basic bramy sieci VPN | RouteBased Standard bramy sieci VPN | Brama sieci VPN RouteBased wysokiej wydajności|
 |--|--|--|--|--|
-| **Połączenie lokacja-lokacja (S2S)** | Nieobsługiwane | Konfiguracja sieci VPN z siecią typu RouteBased | Konfiguracja sieci VPN z siecią typu RouteBased | Konfiguracja sieci VPN z siecią typu RouteBased |
+| **Połączenie lokacja-lokacja (połączeń S2S)** | Nieobsługiwane | Konfiguracja sieci VPN z siecią typu RouteBased | Konfiguracja sieci VPN z siecią typu RouteBased | Konfiguracja sieci VPN z siecią typu RouteBased |
 | **Metoda uwierzytelniania**  | Nieobsługiwane | Klucz wstępny dla połączeń S2S  | Klucz wstępny dla połączeń S2S  | Klucz wstępny dla połączeń S2S  |   
 | **Maksymalna liczba połączeń S2S**  | Nieobsługiwane | 10 | 10| 30|
 |**Aktywna Obsługa routingu (BGP)** | Nieobsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane |
 
 ### <a name="gateway-subnet"></a>Podsieć bramy
-Przed utworzeniem bramy sieci VPN, należy utworzyć podsieć bramy. Podsieć bramy zawiera adresy IP, których bramy sieci wirtualnej maszyn wirtualnych i usług. Podczas tworzenia bramy sieci wirtualnej maszyny wirtualne bramy są wdrażane do podsieci bramy i skonfigurowane wymagane ustawienia bramy sieci VPN. Nie należy wdrażać cokolwiek innego (na przykład dodatkowe maszyny wirtualne) do podsieci bramy. Podsieć bramy musi być o nazwie "GatewaySubnet" działała poprawnie. Nazw podsieci bramy "GatewaySubnet" umożliwia stosu Azure należy wiedzieć, że jest to podsieci w celu wdrożenia bramy sieci wirtualnej maszyn wirtualnych i usług do.
+Przed utworzeniem bramy sieci VPN, należy utworzyć podsieć bramy. Podsieć bramy zawiera adresy IP, których bramy sieci wirtualnej maszyn wirtualnych i usług. Podczas tworzenia bramy sieci wirtualnej maszyny wirtualne bramy są wdrażane do podsieci bramy i skonfigurowane wymagane ustawienia bramy sieci VPN. Nie należy wdrażać cokolwiek innego (na przykład dodatkowe maszyny wirtualne) do podsieci bramy. Podsieć bramy musi być o nazwie "GatewaySubnet" działała poprawnie. Nazw podsieci bramy "GatewaySubnet" umożliwia stosu Azure do identyfikowania podsieci w celu wdrożenia bramy sieci wirtualnej maszyn wirtualnych i usług.
 
 Podczas tworzenia podsieci bramy należy określić liczbę zawartych w niej adresów IP. Adresy IP w podsieci bramy są przydzielone do usługi bramy i maszyny wirtualne bramy. Niektóre konfiguracje wymagają większej liczby adresów IP niż inne. Przyjrzyj się instrukcje dotyczące konfiguracji, który chcesz utworzyć i sprawdź, czy podsieci bramy, w której chcesz utworzyć spełnia te wymagania. Można ponadto upewnij się, że podsieć bramy zawiera za mało adresów IP w celu uwzględnienia możliwych przyszłych dodatkowe konfiguracje. Podczas tworzenia podsieci bramy jak /29, zaleca się utworzenie podsieć bramy /28 i większych (/ 28, /27, /26 itp.). W ten sposób dodania funkcji w przyszłości, nie trzeba zerwanie bramy, a następnie usuń i Utwórz ponownie podsieć bramy, aby umożliwić więcej adresów IP.
 
