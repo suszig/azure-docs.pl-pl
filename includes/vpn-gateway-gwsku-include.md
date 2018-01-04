@@ -23,10 +23,10 @@ Nowe jednostki SKU bramy usprawniają zestawy funkcji oferowane w bramach:
 | **SKU**| **Funkcje**|
 | ---    | ---         |
 |**Podstawowa**   | **VPN opartej na trasach**: 10 tuneli o P2S; nie uwierzytelniania RADIUS na potrzeby P2S; nie protokołu IKEv2 dla P2S<br>**Sieć VPN oparta na zasadach** (IKEv1): 1 tunel, bez połączeń typu punkt-lokacja|
-| **VpnGw1, VpnGw2 i VpnGw3** | **Sieć VPN oparta na trasach**: do 30 tuneli (*), połączenia typu punkt-lokacja, protokół BGP, konfiguracja aktywne-aktywne, niestandardowe zasady protokołu IPsec/IKE, współistnienie usługi ExpressRoute i sieci VPN |
+| **VpnGw1, VpnGw2 i VpnGw3** | **Sieć VPN oparta na trasach**: do 30 tuneli ( * ), połączenia typu punkt-lokacja, protokół BGP, konfiguracja aktywne-aktywne, niestandardowe zasady protokołu IPsec/IKE, współistnienie usługi ExpressRoute i sieci VPN |
 |        |             |
 
-(*) Można skonfigurować „PolicyBasedTrafficSelectors” do łączenia bramy sieci VPN opartej na trasach (VpnGw1, VpnGw2, VpnGw3) z wieloma lokalnymi urządzeniami zapory opartymi na zasadach. Aby zapoznać się ze szczegółami, zobacz artykuł [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Połączenie bram sieci VPN z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell).
+( * ) Można skonfigurować „PolicyBasedTrafficSelectors” do łączenia bramy sieci VPN opartej na trasach (VpnGw1, VpnGw2, VpnGw3) z wieloma lokalnymi urządzeniami zapory opartymi na zasadach. Aby zapoznać się ze szczegółami, zobacz artykuł [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Połączenie bram sieci VPN z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell).
 
 ###  <a name="resize"></a>Zmiana rozmiaru jednostek SKU bramy
 
