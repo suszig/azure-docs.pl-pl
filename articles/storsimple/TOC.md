@@ -10,7 +10,7 @@
 #### [Poznawanie ograniczeń](storsimple-ova-limits.md)
 #### [Przeglądanie najlepszych rozwiązań](storsimple-ova-best-practices.md)
 
-### Wdrożenie
+### Wdrażanie
 #### [Przygotowanie do wdrożenia](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Wdrażanie usługi StorSimple Manager](storsimple-virtual-array-manage-service.md)
 #### [Aprowizacja za pomocą funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -38,7 +38,6 @@
 #### [Zarządzanie rekordami ACR](storsimple-virtual-array-manage-acrs.md)
 #### [Zarządzanie zadaniami](storsimple-virtual-array-manage-jobs.md)
 #### [Zmienianie hasła urządzenia](storsimple-virtual-array-change-device-admin-password.md)
-#### [Konfigurowanie wielościeżkowego wejścia/wyjścia na hoście systemu Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Monitorowanie przy użyciu alertów](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnozowanie i rozwiązywanie problemów](storsimple-virtual-array-diagnose-problems.md)
 #### [Rejestrowanie żądania pomocy technicznej](storsimple-virtual-array-log-support-ticket.md)
@@ -78,7 +77,7 @@
 #### [Rozpakowywanie, instalowanie w stelażu, okablowywanie urządzenia 8600](storsimple-8600-hardware-installation.md)
 #### [Sprzęt obsługiwany w przypadku interfejsów sieciowych 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Wdrożenie
+### Wdrażanie
 #### [StorSimple Device Manager service (Usługa Menedżer urządzeń StorSimple)](storsimple-8000-manage-service.md)
 #### [Urządzenie fizyczne na platformie Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Urządzenie fizyczne w Portalu dla instytucji rządowych](storsimple-8000-deployment-walkthrough-gov-u2.md)
@@ -88,7 +87,7 @@
 
 ## Instrukcje
 
-### Zarządzaj
+### Zarządzanie
 
 #### [Korzystanie z usługi StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Przywracanie z kopii zapasowej](storsimple-8000-restore-from-backup-set-u2.md)
@@ -221,7 +220,7 @@
 ## Omówienie
 ### [Jakie jest rozwiązanie?](storsimple-partner-csp-overview.md)
 
-## Rozpoczynanie pracy
+## Rozpoczęcie pracy
 ### [Wdrażanie macierzy wirtualnej dla dostawców CSP](storsimple-partner-csp-deploy.md)
 
 ## Informacje o wersji
@@ -242,7 +241,7 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog pomocy technicznej](http://blogs.msdn.com/b/storsimple/)
 ## [Uwagi dotyczące innych firm](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 
