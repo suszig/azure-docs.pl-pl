@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Rozwiązanie do zarządzania aktualizacjami w usłudze OMS
 
@@ -103,7 +103,7 @@ Włączenie tego rozwiązania powoduje automatyczne skonfigurowanie każdego kom
 
 Możesz jednak dodać komputery z systemem Windows do grupy hybrydowych procesów roboczych elementów runbook na Twoim koncie usługi Automation w celu obsługi elementów runbook usługi Automation, o ile używasz tego samego konta zarówno dla tego rozwiązania, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementów runbook.  Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.  
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Wykonaj poniższe kroki, aby dodać rozwiązanie do zarządzania aktualizacjami do swojego obszaru roboczego usługi OMS, a także potwierdzić, że agenci wykonują raportowanie. Agenci systemu Windows, którzy są już połączeni z obszarem roboczym, są dodawani automatycznie bez dodatkowej konfiguracji.
 
 Możesz wdrożyć rozwiązanie za pomocą następujących metod:
@@ -144,9 +144,9 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux i inicjuje instalowanie wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Tak |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br>Bezpośrednie połączenie agenta programu Operations Manager z usługą Log Analytics nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS. |
+| Agenci dla systemu Windows |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux i inicjuje instalowanie wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Yes |Rozwiązanie zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br>Bezpośrednie połączenie agenta programu Operations Manager z usługą Log Analytics nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS. |
 | Konto magazynu Azure |Nie |Magazyn Azure nie zawiera informacji o aktualizacjach systemu. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
@@ -181,7 +181,7 @@ Właściwości wyświetlane w każdym wdrożeniu aktualizacji są opisane w poni
 
 | Właściwość | Opis |
 | --- | --- |
-| Nazwa |Nazwa wdrożenia aktualizacji. |
+| Name (Nazwa) |Nazwa wdrożenia aktualizacji. |
 | Harmonogram |Typ harmonogramu.  Dostępne opcje to *Jednorazowo*, *Co tydzień* i *Co miesiąc*. |
 | Godzina rozpoczęcia |Data i godzina zaplanowanego uruchomienia wdrożenia aktualizacji. |
 | Czas trwania |Liczba minut, przez jaką może działać wdrożenie aktualizacji.  Jeśli wszystkie aktualizacje nie zostaną zainstalowane przed upływem tego czasu, pozostałe aktualizacje zostaną odroczone do następnego wdrażania aktualizacji. |
@@ -205,7 +205,7 @@ Aby utworzyć nowe wdrożenie aktualizacji, kliknij przycisk **Dodaj** na górze
 
 | Właściwość | Opis |
 | --- | --- |
-| Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
+| Name (Nazwa) |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
 | Strefa czasowa |Strefa czasowa służąca do określenia godziny rozpoczęcia. |
 | Typ harmonogramu | Typ harmonogramu.  Dostępne opcje to *Jednorazowo*, *Co tydzień* i *Co miesiąc*.  
 | Godzina rozpoczęcia |Data i godzina rozpoczęcia wdrażania aktualizacji. **Uwaga:** Jeśli konieczne jest natychmiastowe wdrożenie, można je uruchomić najszybciej po 30 minutach od bieżącej godziny. |
@@ -247,7 +247,7 @@ Rekord o typie **Update** (Aktualizacja) jest tworzony dla każdej aktualizacji,
 | RevisionNumber |Numer poprawki aktualizacji. |
 | SourceComputerId |Identyfikator GUID służący do unikatowej identyfikacji komputera. |
 | TimeGenerated |Data i godzina ostatniej aktualizacji rekordu. |
-| Tytuł |Tytuł aktualizacji. |
+| Stanowisko |Tytuł aktualizacji. |
 | UpdateID |Identyfikator GUID służący do unikatowego identyfikowania aktualizacji. |
 | UpdateState |Określa, czy aktualizacja jest zainstalowana na tym komputerze.<br>Możliwe wartości:<br>- Installed — aktualizacja jest zainstalowana na tym komputerze.<br>- Needed — aktualizacja nie jest zainstalowana i jest wymagana na tym komputerze. |
 
@@ -339,7 +339,7 @@ Wyniki elementu runbook odpowiedzialnego za wdrożenie aktualizacji zawartych w 
 
 Aby uzyskać więcej informacji, zobacz [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md) (Dane wyjściowe i komunikaty elementu runbook usługi Automation).   
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Korzystanie z wyszukiwania w dzienniku usługi [Log Analytics](../log-analytics/log-analytics-log-searches.md) w celu wyświetlania szczegółowych danych aktualizacji.
 * [Tworzenie własnych pulpitów nawigacyjnych](../log-analytics/log-analytics-dashboards.md) przedstawiających zgodność aktualizacji na zarządzanych komputerach.
 * [Tworzenie alertów](../log-analytics/log-analytics-alerts.md) po wykryciu braku aktualizacji krytycznych na komputerach lub komputera z wyłączonymi aktualizacjami automatycznymi.  

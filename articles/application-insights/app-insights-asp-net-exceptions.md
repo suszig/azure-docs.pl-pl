@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach sieci web za pomocą usługi Application Insights
 Wyjątki w aplikacji sieci web na żywo są zgłaszane przez [usługi Application Insights](app-insights-overview.md). Żądań zakończonych niepowodzeniem może być zgodne z wyjątków i innych zdarzeń klienta i serwera, dzięki czemu można szybko diagnozowania przyczyn.
@@ -57,7 +57,7 @@ W kodzie Zwróć uwagę, że CodeLens zawiera dane dotyczące wyjątków:
 ![Powiadomienie CodeLens wyjątków.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnozowanie błędów przy użyciu portalu Azure
-Usługa Application Insights jest dostarczany z wyselekcjonowanych środowisko APM, aby ułatwić diagnozowanie błędów w monitorowanej aplikacji. Aby rozpocząć, kliknij opcję błędów w menu zasobu usługi Application Insights znajduje się w sekcji Zbadaj. Widok pełnoekranowy, pokazujący trendów szybkość awarii swoje żądania, ile z nich kończą się niepowodzeniem i wpływ na ilu użytkowników powinny być widoczne. Po prawej stronie pojawi się niektóre specyficzne dla wybranego dystrybucje najbardziej przydatne niepowodzenia operacji, łącznie z 3 pierwszych kody odpowiedzi, 3 pierwszych typów wyjątków i górny 3 niepowodzeniem depedency typów. 
+Usługa Application Insights jest dostarczany z wyselekcjonowanych środowisko APM, aby ułatwić diagnozowanie błędów w monitorowanej aplikacji. Aby rozpocząć, kliknij opcję błędów w menu zasobu usługi Application Insights znajduje się w sekcji Zbadaj. Widok pełnoekranowy, pokazujący trendów szybkość awarii swoje żądania, ile z nich kończą się niepowodzeniem i wpływ na ilu użytkowników powinny być widoczne. Po prawej stronie pojawi się niektóre specyficzne dla wybranego dystrybucje najbardziej przydatne niepowodzenia operacji, łącznie z 3 pierwszych kody odpowiedzi, typów wyjątków 3 pierwszych i 3 najlepszych niepowodzeniem typów zależności. 
 
 ![Błędy klasyfikowanie widoku (karta operacji)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -440,7 +440,7 @@ To jest inna niż liczba "Wyjątków" obliczana na podstawie zliczania TrackExce
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Monitorowanie REST, SQL i innych wywołania zależności](app-insights-asp-net-dependencies.md)
 * [Czas ładowania strony monitora, wyjątki przeglądarki i wywołania AJAX](app-insights-javascript.md)
 * [Liczniki Monitora wydajności](app-insights-performance-counters.md)

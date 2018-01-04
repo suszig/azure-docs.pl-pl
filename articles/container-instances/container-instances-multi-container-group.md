@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dc1bd6502a5362bebd845f3938ab6502e0d91c74
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Wdrożenie grupy kontenera
 
@@ -193,9 +193,10 @@ Jak widać, boczną okresowo wysłał żądanie HTTP do aplikacji głównego sie
 W tym artykule opisano kroki niezbędne do wdrożenia wystąpienie kontenerem usługi kontenera platformy Azure. End-to-end środowisko wystąpień kontenera platformy Azure zobacz samouczek wystąpień kontenera platformy Azure.
 
 > [!div class="nextstepaction"]
-> [Wystąpień kontenera azure samouczek]: container-instances-tutorial-prepare-app.md
+> [Samouczek wystąpień kontenera platformy Azure][aci-tutorial]
 
 <!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create

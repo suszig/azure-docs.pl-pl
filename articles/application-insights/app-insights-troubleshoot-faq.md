@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Usługa Application Insights: Często zadawane pytania
 
@@ -242,7 +242,7 @@ To nie jest zależny od gdzie jest hostowana zasobu usługi Application Insights
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Czy można wysłać dane telemetryczne w portalu usługi Application Insights?
 
-Zaleca się użyć nasze zestawy SDK i za pomocą interfejsu API zestawu SDK (app-insights-api-custom-events-metrics.md). Istnieje zestaw SDK dla różnych wariantów [platform](app-insights-platforms.md). Te zestawy SDK obsługuje buforowanie, kompresji, ograniczania przepustowości, ponownych prób i tak dalej. Jednak [schematu wprowadzanie](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) i [punktu końcowego protokołu](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
+Firma Microsoft zaleca Użyj nasze zestawy SDK i użyj [interfejsu API zestawu SDK](app-insights-api-custom-events-metrics.md). Istnieje zestaw SDK dla różnych wariantów [platform](app-insights-platforms.md). Te zestawy SDK obsługuje buforowanie, kompresji, ograniczania przepustowości, ponownych prób i tak dalej. Jednak [schematu wprowadzanie](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) i [punktu końcowego protokołu](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Można monitorować intranetowego serwera sieci web?
 

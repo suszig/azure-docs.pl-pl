@@ -1,0 +1,194 @@
+---
+title: "Utwórz maszynę wirtualną platformy Azure za pomocą sieci przyspieszony | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie tworzenia maszyny wirtualnej systemu Linux za pomocą przyspieszony sieci."
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: jeconnoc
+editor: 
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/02/2018
+ms.author: jdial
+ms.custom: 
+ms.openlocfilehash: cd7889be101e718e309e630a04a2e23b6b5823ac
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 01/03/2018
+---
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Utwórz maszynę wirtualną systemu Linux za pomocą przyspieszony sieci
+
+W tym samouczku Dowiedz się jak utworzyć za pomocą przyspieszony sieci maszyny wirtualnej systemu Linux (VM). Przyspieszone sieci umożliwia wirtualizację We/Wy z jednym elementem głównym (SR-IOV) do maszyny Wirtualnej, znacznie poprawia wydajność sieci. Ta ścieżka wysokiej wydajności pomija hosta z ścieżki danych, zmniejszając czas oczekiwania, zakłócenia i użycie procesora CPU do użycia z najbardziej wymagających obciążeń sieci na obsługiwanych typów maszyny Wirtualnej. Na poniższej ilustracji przedstawiono komunikację między dwiema maszynami wirtualnymi z włączonymi i wyłączonymi przyspieszonego sieci:
+
+![Porównanie](./media/create-vm-accelerated-networking/accelerated-networking.png)
+
+Bez przyspieszonego sieci hosta i przełącznik wirtualny musi przejść przez cały ruch sieciowy i maszyny Wirtualnej. Przełącznik wirtualny udostępnia wszystkie egzekwowanie zasad, takich jak grupy zabezpieczeń sieci, list kontroli dostępu, izolacji i innych usług z wirtualizacją sieci dla ruchu sieciowego. Aby dowiedzieć się więcej na temat przełączników wirtualnych, przeczytaj [wirtualizacji sieci funkcji Hyper-V i przełącznik wirtualny](https://technet.microsoft.com/library/jj945275.aspx) artykułu.
+
+Z przyspieszonego w sieci, ruch sieciowy dociera do maszyny Wirtualnej interfejsu sieciowego (NIC), a następnie jest przekazywany do maszyny Wirtualnej. Wszystkie zasady sieciowe, których dotyczy przełącznika wirtualnego bez przyspieszonego sieci Odciążone i zastosować sprzętu. Stosowanie zasad w sprzęcie umożliwia kartę Sieciową do przesyłania dalej ruchu sieciowego bezpośrednio do maszyny Wirtualnej, pomijanie hosta i przełącznik wirtualny, przy zachowaniu zasady zastosowaniu na hoście.
+
+Korzyści wynikające z przyspieszonego sieci dotyczą tylko maszynę Wirtualną, która jest włączone. Aby uzyskać najlepsze wyniki to idealne rozwiązanie w celu włączenia tej funkcji na co najmniej dwie maszyny wirtualne podłączone do tej samej sieci wirtualnej platformy Azure (VNet). Podczas komunikacji między sieciami wirtualnymi lub łączącego lokalnymi, ta funkcja ma minimalny wpływ na ogólną opóźnienia.
+
+## <a name="benefits"></a>Korzyści
+* **Zmniejszyć opóźnienia / wyższy pakietów na sekundę (pps):** usunięcie przełącznika wirtualnego z ścieżki danych usuwa czasu, jaki poświęcają pakietów na hoście dla przetwarzanie zasad i zwiększa liczbę pakietów, które mogą być przetwarzane w ramach maszyny Wirtualnej.
+* **Zmniejszona zakłócenia:** przełącznik wirtualny przetwarzania zależy od ilości zasad, które musi zostać zastosowana i obciążenia procesora CPU, który wykonuje przetwarzanie. Odciążanie wymuszanie zasad na sprzęcie usuwa tego zmienności dostarczania pakietów bezpośrednio do maszyny Wirtualnej, usunięcie hosta do komunikacji maszyny Wirtualnej i wszystkich oprogramowania przerwań i przełączenia kontekstu.
+* **Zmniejszyć użycie procesora CPU:** pomijanie przełącznika wirtualnego na hoście prowadzi do mniej użycie procesora CPU do przetwarzania ruchu sieciowego.
+
+## <a name="limitations"></a>Ograniczenia
+Podczas przy użyciu tej możliwości istnieją następujące ograniczenia:
+
+* **Tworzenie interfejsu sieci:** akcelerowanego sieci można włączyć tylko dla nowych kart sieciowych. Nie można włączyć dla istniejącej karty sieciowej.
+* **Tworzenie maszyny Wirtualnej:** A kart interfejsu Sieciowego z włączoną obsługą przyspieszonego sieci może zostać dołączona tyko do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Nie można dołączyć karty Sieciowej do istniejącej maszyny Wirtualnej. Jeśli dodawanie maszyny Wirtualnej do istniejących danych o dostępności, wszystkich maszyn wirtualnych w zestawie dostępności muszą również przyspieszyć sieci włączone.
+* **Regiony:** możliwe jest dostępny w wielu regionach platformy Azure, a następnie rozwiń w dalszym ciągu. Aby uzyskać pełną listę, zobacz [Azure aktualizacje dla sieci wirtualnej](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogu.   
+* **Obsługiwane systemy operacyjne:** Ubuntu Server 16.04 LTS i 4.4.0-77 jądra lub nowszą, SLES 12 SP2 RHEL 7.4 i CentOS 7.4 (opublikowanych przez nieautoryzowanego oprogramowania Wave).
+* **Rozmiar maszyny Wirtualnej:** ogólnego przeznaczenia i rozmiary obliczeniowe są zoptymalizowane pod kątem wystąpienia z co najmniej osiem rdzeni. Aby uzyskać więcej informacji, zobacz [rozmiarów maszyn wirtualnych systemu Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Zbiór obsługiwane rozmiary wystąpienie maszyny Wirtualnej w dalszym ciągu rozwinąć.
+* **Tylko wdrożenia za pośrednictwem usługi Azure Resource Manager:** maszyn wirtualnych (klasyczne) nie można wdrożyć za pomocą przyspieszony sieci.
+
+
+## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
+
+Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametrów uwzględnione *myResourceGroup*, *myNic*, i *myVm*.
+
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w *centralus* lokalizacji:
+
+```azurecli
+az group create --name myResourceGroup --location centralus
+```
+
+Musisz wybrać obsługiwanym regionie systemu Linux na liście [Linux przyspieszony sieci](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+
+Tworzenie sieci wirtualnej z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create). Poniższy przykład tworzy sieć wirtualną o nazwie *myVnet* z jedną podsiecią:
+
+```azurecli
+az network vnet create \
+    --resource-group myResourceGroup \
+    --name myVnet \
+    --address-prefix 192.168.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefix 192.168.1.0/24
+```
+
+## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
+Utwórz grupę zabezpieczeń sieci z [utworzyć nsg sieci az](/cli/azure/network/nsg#create). Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+
+```azurecli
+az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNetworkSecurityGroup
+```
+
+Grupa zabezpieczeń sieci zawiera kilka reguł domyślnych, z których jedna wyłącza wszystkie dostępu przychodzące z Internetu. Otwórz port SSH dostęp do maszyny wirtualnej o [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+
+```azurecli
+az network nsg rule create \
+  --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup \
+  --name Allow-SSH-Internet \
+  --access Allow \
+  --protocol Tcp \
+  --direction Inbound \
+  --priority 100 \
+  --source-address-prefix Internet \
+  --source-port-range "*" \
+  --destination-address-prefix "*" \
+  --destination-port-range 22
+```
+
+## <a name="create-a-network-interface-with-accelerated-networking"></a>Utwórz interfejs sieciowy z przyspieszonego sieci
+
+Utwórz publiczny adres IP z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#az_network_public_ip_create). Publiczny adres IP nie jest wymagane, jeśli nie planujesz dostęp do maszyny wirtualnej z Internetu, ale wykonać kroki opisane w tym artykule, jest to wymagane.
+
+```azurecli
+az network public-ip create \
+    --name myPublicIp \
+    --resource-group myResourceGroup
+```
+
+Tworzenie interfejsu sieciowego z [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) z włączoną obsługą przyspieszonego sieci. Poniższy przykład tworzy interfejs sieciowy o nazwie *myNic* w *mySubnet* podsieć *myVnet* sieć wirtualną i skojarzy  *myNetworkSecurityGroup* sieciową grupę zabezpieczeń do interfejsu sieciowego:
+
+```azurecli
+az network nic create \
+    --resource-group myResourceGroup \
+    --name myNic \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --accelerated-networking true \
+    --public-ip-address myPublicIp \
+    --network-security-group myNetworkSecurityGroup
+```
+
+## <a name="create-a-vm-and-attach-the-nic"></a>Utwórz Maszynę wirtualną i Dołącz kartę Sieciową
+Podczas tworzenia maszyny Wirtualnej, określ karty interfejsu Sieciowego zostały utworzone z `--nics`. Należy wybrać odpowiedni rozmiar i dystrybucji na liście [Linux przyspieszony sieci](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#create). Poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* z obrazu UbuntuLTS i rozmiar, który obsługuje przyspieszony Networking (*Standard_DS4_v2*):
+
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --size Standard_DS4_v2 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --nics myNic
+```
+
+Aby uzyskać listę wszystkich rozmiarów maszyn wirtualnych i właściwości, zobacz [rozmiarów maszyn wirtualnych systemu Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Po utworzeniu maszyny Wirtualnej, jest zwracana dane wyjściowe podobne do następujących przykładowe dane wyjściowe. Zwróć uwagę na **publicznego adresu IP**. Ten adres jest używany do maszyny Wirtualnej w kolejnych krokach.
+
+```azurecli
+{
+  "fqdns": "",
+  "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "centralus",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "192.168.0.4",
+  "publicIpAddress": "40.68.254.142",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+## <a name="confirm-that-accelerated-networking-is-enabled"></a>Upewnij się, że przyspieszonego sieć jest włączona
+
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną Wirtualną. Zastąp `<your-public-ip-address>` z publicznym adresem IP przypisane do wirtualnego utworzonego komputera i zastąpić *azureuser* Jeśli używasz innej wartości `--admin-username` podczas tworzenia maszyny Wirtualnej.
+
+```bash
+ssh azureuser@<your-public-ip-address>
+```
+
+Z poziomu powłoki Bash, wprowadź `uname -r` i Potwierdź, że wersja jądra jest jednym z następujących wersji lub większa:
+
+* **Ubuntu 16.04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
+
+
+Potwierdź urządzenia funkcji Wirtualnej Mellanox jest widoczne dla maszyny Wirtualnej z `lspci` polecenia. Dane wyjściowe są podobne do następujących danych wyjściowych:
+
+```bash
+0000:00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (AGP disabled) (rev 03)
+0000:00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 01)
+0000:00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+0000:00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 02)
+0000:00:08.0 VGA compatible controller: Microsoft Corporation Hyper-V virtual VGA
+0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+```
+
+Sprawdź działanie na funkcji Wirtualnej (funkcja wirtualnych) z `ethtool -S eth0 | grep vf_` polecenia. Jeśli pojawi się dane wyjściowe podobne do poniższego przykładu output przyspieszonego sieć jest włączona i działa.
+
+```bash
+vf_rx_packets: 992956
+vf_rx_bytes: 2749784180
+vf_tx_packets: 2656684
+vf_tx_bytes: 1099443970
+vf_tx_dropped: 0
+```
+Przyspieszone sieci jest teraz włączony dla maszyny Wirtualnej.

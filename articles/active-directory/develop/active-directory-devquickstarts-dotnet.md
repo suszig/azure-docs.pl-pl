@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e21af66f91835919b67af3492f55f113a00910e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET pulpitu (WPF) wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Znajdź teraz `Search(...)` metodę, która będzie wywoływana, gdy przycisk cliks użytkownika "Wyszukiwanie" w Interfejsie użytkownika aplikacji.  Ta metoda zgłasza żądanie GET interfejsu API Azure AD Graph zapytania dla użytkowników, których nazwy UPN rozpoczyna się od danego wyszukiwanego.  Jednak aby można było wykonać kwerendę interfejsu API programu Graph, należy uwzględnić ' access_token ' w `Authorization` nagłówka żądania — jest to, gdzie ADAL jest dostarczany.
+* Znajdź teraz `Search(...)` metodę, która będzie wywoływana, gdy użytkownik kliknie przycisk "Wyszukiwanie" w Interfejsie użytkownika aplikacji.  Ta metoda zgłasza żądanie GET interfejsu API Azure AD Graph zapytania dla użytkowników, których nazwy UPN rozpoczyna się od danego wyszukiwanego.  Jednak aby można było wykonać kwerendę interfejsu API programu Graph, należy uwzględnić ' access_token ' w `Authorization` nagłówka żądania — jest to, gdzie ADAL jest dostarczany.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

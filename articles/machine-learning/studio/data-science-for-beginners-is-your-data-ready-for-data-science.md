@@ -1,6 +1,6 @@
 ---
 title: "Czy Twoje dane są gotowe na analizę danych? Ocena danych - Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Dowiedz się 4 kryteria dla danych będzie gotowa do analizy danych. Nauki danych dla początkujących wideo 2 ma konkretnego przykłady ułatwiające oceny podstawowe dane."
+description: "Cztery kryteria danych trzeba spełnić, aby być gotowa do analizy danych. Ten plik wideo ma konkretnego przykłady ułatwiające oceny podstawowe dane."
 keywords: "odpowiednie dane oceny danych, należy przygotować danych kryteria danych, danych gotowe"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Czy Twoje dane są gotowe na analizę danych?
 ## <a name="video-2-data-science-for-beginners-series"></a>Wideo 2: Nauki danych serii dla początkujących
@@ -52,7 +52,7 @@ Tak w przypadku analizy danych, ma niektórych składników, które należy do s
 Potrzebujemy dane, które są:
 
 * Odpowiednie
-* połączone
+* Połączone
 * Dokładne
 * Aby pracować z
 
@@ -85,11 +85,11 @@ Następny składnik, potrzebne jest dokładności. Poniżej przedstawiono cztery
 
 ![Dokładne dane a niedokładne dane — kryteria danych](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Szukaj w celu, w prawym górnym rogu. Mamy ścisłej grupowania prawo wokół bullseye. Oczywiście jest dokładna. Dziwnie danego języka nauki danych naszych wydajności z prawej strony docelowej poniżej jest traktowana jako dokładne.
+Szukaj w celu, w prawym górnym rogu. Mamy ścisłej grupowania prawo wokół oka byków. Oczywiście jest dokładna. Dziwnie danego języka nauki danych naszych wydajności z prawej strony docelowej poniżej jest traktowana jako dokładne.
 
-Jeśli do mapowania Centrum te strzałki, zobaczysz, że bardzo jest bliski bullseye. Strzałki są rozproszone wszystkie wokół docelowej, więc są traktowane jako nieprecyzyjna, ale jest wyśrodkowane wokół bullseye, więc są traktowane jako dokładne.
+Jeśli do mapowania Centrum te strzałki, zobaczysz, że bardzo jest bliski oka byków. Strzałki są rozproszone wszystkie wokół docelowej, więc są traktowane jako nieprecyzyjna, ale jest wyśrodkowywana wokół oka byków, są traktowane jako dokładne.
 
-Teraz wyglądać w lewym górnym docelowej. W tym miejscu naszych strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum jest sposób poza bullseye. I oczywiście strzałki w lewym dolnym rogu docelowej są niedokładne i niedokładna. Ten archer wymaga więcej rozwiązań.
+Teraz wyglądać w lewym górnym docelowej. W tym miejscu naszych strzałki bardzo blisko siebie osiągnęła ścisłej grupowania. Są one dokładne, ale są one nieprawidłowe, ponieważ Centrum jest sposób poza oka byków. I oczywiście strzałki w lewym dolnym rogu docelowej są niedokładne i niedokładna. Ten archer wymaga więcej rozwiązań.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Masz za mało danych do pracy z?
 Na koniec składnik #4 - musimy mieć wystarczającej ilości danych.
@@ -108,6 +108,6 @@ Z danych, które jest odpowiednie, połączony, dokładne i wystarczająco, firm
 
 Należy koniecznie zapoznaj się z czterech wideo w *nauki danych dla początkujących* z Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Spróbuj pierwszego eksperymentu analizy danych z usługi Machine Learning Studio](create-experiment.md)
 * [Wprowadzenie do uczenia maszynowego w systemie Microsoft Azure](what-is-machine-learning.md)

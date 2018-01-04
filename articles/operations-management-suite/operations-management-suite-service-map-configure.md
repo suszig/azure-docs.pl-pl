@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5355b3ffcddf0ad0c23566dde00663bd4dc99fbc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurowanie usługi mapy w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -37,9 +37,9 @@ Mapa usług dane są pobierane z Microsoft Dependency Agent. Agent zależności 
 
 | Połączone źródło | Obsługiwane | Opis |
 |:--|:--|:--|
-| Agenci dla systemu Windows | Tak | Mapa usług analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Agenci dla systemu Linux | Tak | Mapa usług analizuje i zbiera dane z komputerów z systemem Linux agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-linux-agents.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Grupa zarządzania programu System Center Operations Manager | Tak | Mapa usług analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Bezpośrednie połączenie z komputera agenta programu System Center Operations Manager Operations Management Suite jest wymagana. Dane są przesyłane dalej z grupy zarządzania do repozytorium usługi Operations Management Suite.|
+| Agenci dla systemu Windows | Yes | Mapa usług analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Agenci dla systemu Linux | Yes | Mapa usług analizuje i zbiera dane z komputerów z systemem Linux agenta. <br><br>Oprócz [Agent pakietu OMS](../log-analytics/log-analytics-linux-agents.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Grupa zarządzania programu System Center Operations Manager | Yes | Mapa usług analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Bezpośrednie połączenie z komputera agenta programu System Center Operations Manager Operations Management Suite jest wymagana. Dane są przesyłane dalej z grupy zarządzania do repozytorium usługi Operations Management Suite.|
 | Konto magazynu Azure | Nie | Mapy usługi zbiera dane z komputerami agenta, więc nie ma żadnych danych z niego do zbierania z usługi Azure Storage. |
 
 Mapy usługi obsługuje tylko 64-bitowych platform.
@@ -367,8 +367,6 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 
 | Wersja systemu operacyjnego | Wersja jądra
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,23 +375,17 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Wersja systemu operacyjnego | Wersja jądra
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 Z DODATKIEM SP1 | 2.6.32 |
-| 11 Z DODATKIEM SP2 | 3.0.13 |
-| 11 Z DODATKIEM SP3 | 3.0.76 |
-| 11 Z DODATKIEM SP4 | 3.0.101 |
+| 11 Z DODATKIEM SP2 | 3.0.101-0.7 |
+| 11 Z DODATKIEM SP3 | 3.0.101-0.47 |
+| 11 Z DODATKIEM SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| Wersja systemu operacyjnego | Wersja jądra
-|:--|:--|
-| Z DODATKIEM SP4 10 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>Dane diagnostyczne i dane użycia
+## <a name="diagnostic-and-usage-data"></a>dane diagnostyczne i użycia
 Firma Microsoft automatycznie zbiera dane użycia i wydajności przez korzystanie z usługi mapy usługi. Firma Microsoft używa tych danych do udostępniania i ulepszania jakości, bezpieczeństwa i integralności usługi mapy usługi. Dane obejmują informacje o konfiguracji oprogramowania, takie jak wersja systemu operacyjnego i. Zawiera także adres IP, nazwę DNS i nazwę stacji roboczej zapewnić dokładne i skuteczne funkcje do rozwiązywania problemów. Nie gromadzimy nazwisk, adresów ani innych informacji kontaktowych.
 
 Aby uzyskać więcej informacji dotyczących zbierania i użycia danych, zobacz [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się, jak [użyć mapy usługi](operations-management-suite-service-map.md) po zostały wdrożone i skonfigurowane.

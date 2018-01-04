@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Aplikacja Azure Authenticator dla systemu Android
 IT administrator może zalecić przy użyciu programu Microsoft Azure Authenticator logowanie na dostęp do zasobów roboczych. Ta aplikacja zawiera te dwie opcje logowania:
@@ -41,7 +41,7 @@ Poniższe instrukcje dotyczą Samsung GS3 i telefony lub Uwaga2 i wyższych tabl
 4. Na ekranie administratora urządzenia Aktywuj kliknij **Aktywuj**.
 5. Na ekranie zasady zachowania poufności informacji, zaznacz pole wyboru, a następnie kliknij przycisk **Potwierdź**.
 6. Na ekranie dołączanie do miejsca pracy, wprowadź userID podane w organizacji, a następnie kliknij przycisk **Join**.
-7. Aby zalogować się do aplikacji Azure Authenticator, wprowadź organizacji *** konta i hasło i kliknij przycisk **Zaloguj**.
+7. Aby zalogować się do aplikacji Azure Authenticator, wprowadź swoje konto organizacyjne i hasło, a następnie kliknij przycisk **Zaloguj**.
 8. Dalej ekranu, który zawiera informacje na temat uwierzytelniania wieloskładnikowego (MFA) na dodaniu zabezpieczeń i jest opcjonalne. Zostanie wyświetlony następujący ekran, jeśli konto służbowe wymaga uwierzytelniania dwuskładnikowego do tworzenia konta służbowego. Instrukcje dodatkową weryfikację konta.
 9. Dołączanie ekranu wyświetli komunikat "**dołączenie do miejsca pracy**". Aplikacja Azure authenticator próbuje dołączyć urządzenie do miejsca pracy.
 10. Na następnym ekranie powinna zostać wyświetlona dołączone do wiadomości.

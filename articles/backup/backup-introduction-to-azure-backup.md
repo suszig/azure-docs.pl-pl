@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Omówienie funkcji usługi Azure Backup
 Azure Backup to oparta na platformie Azure usługa, która umożliwia tworzenie kopii zapasowej (lub ochronę) i przywracanie danych w chmurze Microsoft Cloud. Usługa Azure Backup pozwala zastąpić dotychczasowe rozwiązania tworzenia kopii zapasowych, istniejące lokalnie lub poza siedzibą firmy, rozwiązaniem opartym na chmurze, które jest niezawodne, bezpieczne i konkurencyjne cenowo. Usługa Azure Backup oferuje wiele składników, które możesz pobrać i wdrożyć na odpowiednim komputerze, serwerze lub w chmurze. Wdrażany składnik lub agent zależy od tego, co ma być chronione. Wszystkie składniki usługi Azure Backup (niezależnie od tego, czy dane są chronione lokalnie, czy w chmurze) mogą służyć do tworzenia kopii zapasowych danych w magazynie usługi Recovery Services na platformie Azure. Informacje o tym, jakich składników należy użyć do ochrony konkretnych danych, aplikacji lub obciążeń, znajdują się w [tabeli składników usługi Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (w dalszej części tego artykułu).
@@ -119,13 +119,13 @@ Usługa Azure Backup umożliwia przywracanie kompletnej maszyny wirtualnej z dys
 Poniższe sekcje zawierają tabele podsumowujące dostępność lub obsługę różnych funkcji w każdym składniku usługi Azure Backup. W informacjach podanych po każdej tabeli znajdziesz dodatkowe wsparcie lub szczegóły.
 
 ### <a name="storage"></a>Magazyn
-| Funkcja | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
+| Cecha | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
 | --- | --- | --- | --- | --- |
-| Magazyn usługi Recovery Services |![Tak][green] |![Tak][green] |![Tak][green] |![Tak][green] |
-| Przechowywanie na dysku | |![Tak][green] |![Tak][green] | |
-| Przechowywanie na taśmie | |![Tak][green] | | |
-| Kompresja <br/>(w magazynie usługi Recovery Services) |![Tak][green] |![Tak][green] |![Tak][green] | |
-| Przyrostowa kopia zapasowa |![Tak][green] |![Tak][green] |![Tak][green] |![Tak][green] |
+| Magazyn usługi Recovery Services |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
+| Przechowywanie na dysku | |![Yes][green] |![Yes][green] | |
+| Przechowywanie na taśmie | |![Yes][green] | | |
+| Kompresja <br/>(w magazynie usługi Recovery Services) |![Yes][green] |![Yes][green] |![Yes][green] | |
+| Przyrostowa kopia zapasowa |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
 | Deduplikacja dysku | |![Częściowo][yellow] |![Częściowo][yellow] | | |
 
 ![klucz tabeli](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -160,10 +160,10 @@ W przypadku **pełnej kopii zapasowej** każda kopia zapasowa zawiera całe źr�
 **Przyrostowa kopia zapasowa** osiąga wysoką efektywność użycia magazynu i sieci, ponieważ przechowuje tylko bloki danych, które uległy zmianie od momentu utworzenia poprzedniej kopii zapasowej. W przypadku przyrostowej kopii zapasowej nie ma potrzeby regularnego wykonywania pełnych kopii zapasowych. W tym przykładzie po wykonaniu pełnej kopii zapasowej w pierwszym miesiącu zmienione bloki A2, A3, A4 i A9 są oznaczane jako zmienione i transferowane w drugim miesiącu. W trzecim miesiącu jest oznaczany i transferowany jedynie zmieniony blok A5. Przenoszenie mniejszej ilości danych oszczędza zasoby magazynu i sieci, co zmniejsza całkowity koszt posiadania.   
 
 ### <a name="security"></a>Bezpieczeństwo
-| Funkcja | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
+| Cecha | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
 | --- | --- | --- | --- | --- |
-| Bezpieczeństwo sieci<br/> (na platformę Azure) |![Tak][green] |![Tak][green] |![Tak][green] |![Częściowo][yellow] |
-| Bezpieczeństwo danych<br/> (na platformie Azure) |![Tak][green] |![Tak][green] |![Tak][green] |![Częściowo][yellow] |
+| Bezpieczeństwo sieci<br/> (na platformę Azure) |![Yes][green] |![Yes][green] |![Tak][green] |![Częściowo][yellow] |
+| Bezpieczeństwo danych<br/> (na platformie Azure) |![Yes][green] |![Yes][green] |![Tak][green] |![Częściowo][yellow] |
 
 ![klucz tabeli](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -179,10 +179,10 @@ Cały ruch sieciowy z serwerów użytkownika do magazynu usługi Recovery Servic
 Tworzenie kopii zapasowych maszyn wirtualnych Azure wymaga skonfigurowania szyfrowania *w ramach* maszyny wirtualnej. W przypadku maszyn wirtualnych systemu Windows należy użyć funkcji BitLocker, a w przypadku maszyn wirtualnych systemu Linux programu **dm-crypt**. Usługa Azure Backup nie szyfruje automatycznie danych kopii zapasowych, które przechodzą przez tę ścieżkę.
 
 ### <a name="network"></a>Sieć
-| Funkcja | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
+| Cecha | Agent usługi Azure Backup | System Center DPM | Azure Backup Server | Usługa Backup dla maszyn wirtualnych IaaS platformy Azure |
 | --- | --- | --- | --- | --- |
-| Kompresja sieci <br/>(do **serwera kopii zapasowych**) | |![Tak][green] |![Tak][green] | |
-| Kompresja sieci <br/>(do **magazynu usługi Recovery Services**) |![Tak][green] |![Tak][green] |![Tak][green] | |
+| Kompresja sieci <br/>(do **serwera kopii zapasowych**) | |![Yes][green] |![Yes][green] | |
+| Kompresja sieci <br/>(do **magazynu usługi Recovery Services**) |![Yes][green] |![Yes][green] |![Yes][green] | |
 | Protokół sieciowy <br/>(do **serwera kopii zapasowych**) | |TCP |TCP | |
 | Protokół sieciowy <br/>(do **magazynu usługi Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -238,7 +238,7 @@ Usługa Azure Backup chroni dane lokalnie i w chmurze. Usługa Azure Site Recove
 
 Następujące pojęcia mogą ułatwić podejmowanie ważnych decyzji związanych z tworzeniem kopii zapasowych i odzyskiwaniem po awarii.
 
-| Pojęcie | Szczegóły | Tworzenie kopii zapasowych | Odzyskiwanie awaryjne (DR) |
+| Pojęcie | Szczegóły | Backup | Odzyskiwanie awaryjne (DR) |
 | --- | --- | --- | --- |
 | Cel punktu odzyskiwania (recovery point objective, RPO) |Dopuszczalna ilość utraconych danych, jeśli wymagane jest odzyskiwanie. |Rozwiązania tworzenia kopii zapasowych charakteryzują się dużą zmiennością dopuszczalnej wartości RPO. Kopie zapasowe maszyny wirtualnej mają zwykle RPO na poziomie jednego dnia, natomiast kopie zapasowe bazy danych mają RPO o wartości 15 minut. |Rozwiązania odzyskiwania awaryjnego mają niską wartość RPO. Kopia do odzyskiwania awaryjnego może być starsza o kilka sekund lub kilka minut. |
 | Cel czasu odzyskiwania (recovery time objective, RTO) |Ilość czasu potrzebnego do ukończenia odzyskiwania lub przywracania. |Ilość danych, które musi przetworzyć rozwiązanie kopii zapasowych, jest zwykle znacznie wyższa (ze względu na większą wartość RPO), a to prowadzi do większych wartości RTO. Na przykład przywrócenie danych z taśmy może potrwać kilka dni, zależnie od czasu potrzebnego do przetransportowania taśmy z oddalonej lokalizacji. |Rozwiązania w zakresie odzyskiwania awaryjnego mają mniejszą wartość RTO, ponieważ są one bardziej zsynchronizowane ze źródłem. W takim przypadku mniej zmian wymaga przetworzenia. |
@@ -254,7 +254,7 @@ Szczegółowe informacje na temat ochrony innych obciążeń możesz uzyskać w 
 
 * [Tworzenie kopii zapasowej systemu Windows Server](backup-configure-vault.md)
 * [Tworzenie kopii zapasowej obciążeń aplikacji](backup-azure-microsoft-azure-backup.md)
-* [Tworzenie kopii zapasowej maszyn wirtualnych IaaS platformy Azure](backup-azure-vms-prepare.md)
+* [Tworzenie kopii zapasowej maszyn wirtualnych IaaS platformy Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

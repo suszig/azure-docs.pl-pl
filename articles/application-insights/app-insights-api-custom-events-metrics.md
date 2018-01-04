@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Aplikacji interfejsu API Insights dla niestandardowych zdarzeń i metryk
 
@@ -900,7 +900,7 @@ Można napisać kod, aby przetworzyć telemetrii przed wysłaniem z zestawu SDK.
 
 [Dodaj właściwości](app-insights-api-filtering-sampling.md#add-properties) do telemetrii zaimplementowanie `ITelemetryInitializer`. Na przykład można dodać numery wersji lub wartości, które mają być obliczane od innych właściwości.
 
-[Filtrowanie](app-insights-api-filtering-sampling.md#filtering) można zmodyfikować lub odrzucić telemetrii przed wysłaniem z zestawu SDK zaimplementowanie `ITelemetryProcesor`. Możesz kontrolować, co jest wysyłana lub odrzucone, ale należy uwzględnić wpływu na Twoje metryki. W zależności od tego, jak można odrzucić elementów może spowodować utratę możliwość przechodzić między elementy powiązane.
+[Filtrowanie](app-insights-api-filtering-sampling.md#filtering) można zmodyfikować lub odrzucić telemetrii przed wysłaniem z zestawu SDK zaimplementowanie `ITelemetryProcessor`. Możesz kontrolować, co jest wysyłana lub odrzucone, ale należy uwzględnić wpływu na Twoje metryki. W zależności od tego, jak można odrzucić elementów może spowodować utratę możliwość przechodzić między elementy powiązane.
 
 [Próbkowanie](app-insights-api-filtering-sampling.md) spakowanych rozwiązanie, aby zmniejszyć ilość danych wysyłanych z aplikacji do portalu. Robi to bez wpływu na wyświetlonej metryki. I kopiuje je bez wpływu na możliwość diagnozowania problemów przechodzenie między powiązane elementy, takie jak wyjątki, żądania i wyświetleń strony.
 

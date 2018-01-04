@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Wdrażanie interfejsu API zarządzania za pomocą sieci szkieletowej usług
-W tym samouczku jest częścią czterech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu.  Zarządzanie interfejsami API jest przydatne, gdy należy opublikować interfejsy API z bogaty zestaw reguły routingu dla usług sieci szkieletowej usług zaplecza. Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej przeznaczone dla ruchu transfer danych przychodzących przykład aplikacji, usługi Event Hubs, Centrum IoT lub usługi Azure API Management APP.NET Core. 
+W tym samouczku jest częścią czterech serii.  Wdrażanie usługi Azure API Management z sieci szkieletowej usług jest zaawansowanym scenariuszu.  Zarządzanie interfejsami API jest przydatne, gdy należy opublikować interfejsy API z bogaty zestaw reguły routingu dla usług sieci szkieletowej usług zaplecza. Aplikacje w chmurze muszą zwykle frontonu bramy do zapewnienia pojedynczy punkt wejściowych użytkowników, urządzeń lub innych aplikacji. W sieci szkieletowej usług Brama może być dowolnej usługi bezstanowej przeznaczone dla ruchu transfer danych przychodzących przykład aplikacji platformy ASP.NET Core, Event Hubs, Centrum IoT lub usługi Azure API Management. 
 
 W tym samouczku przedstawiono sposób konfigurowania [Azure API Management](../api-management/api-management-key-concepts.md) z sieci szkieletowej usług można kierować ruchem do usługi zaplecza w sieci szkieletowej usług.  Po zakończeniu ma wdrożyć zarządzanie interfejsami API w sieci Wirtualnej, skonfigurowane do wysyłania ruchu do zaplecza usługi bezstanowej operacji interfejsu API. Aby dowiedzieć się więcej o scenariuszach usługi Azure API Management z sieci szkieletowej usług, zobacz [omówienie](service-fabric-api-management-overview.md) artykułu.
 
@@ -227,7 +227,7 @@ Wypełnij następujące parametry pusta w *apim.parameters.json* dla danego wdro
 |---|---|
 |apimInstanceName|apim rz|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Dla deweloperów|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |CertificatePassword|q6D7nN %6ck@6| 
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
@@ -328,7 +328,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]

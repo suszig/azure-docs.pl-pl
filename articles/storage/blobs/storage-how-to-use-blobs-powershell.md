@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Wykonywanie operacji magazynu obiektów Blob platformy Azure przy użyciu programu Azure PowerShell
 
@@ -40,7 +40,7 @@ Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowsze
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty BLOB są zawsze przesyłane do kontenera. Kontenery są podobne do katalogów znajdujących się na komputerze, umożliwiając organizować grupy obiektów blob w kontenerach, takich jak organizowanie plików w folderach na komputerze. Konto magazynu może zawierać dowolną liczbę kontenerów; jest ograniczona tylko według ilości miejsca zajmowanego na koncie magazynu (do 500TB). 
+Obiekty blob są zawsze przesyłane do kontenera. Kontenery są podobne do katalogów znajdujących się na komputerze, umożliwiając organizować grupy obiektów blob w kontenerach, takich jak organizowanie plików w folderach na komputerze. Konto magazynu może zawierać dowolną liczbę kontenerów; jest ograniczona tylko według ilości miejsca zajmowanego na koncie magazynu (do 500TB). 
 
 Po utworzeniu kontenera można ustawić poziomu dostępu, co pomaga zdefiniować, kto ma dostęp do obiektów blob w tym kontenerze. Na przykład może być prywatne (poziom dostępu = `Off`), co oznacza, nikt nie będzie można uzyskiwać do nich dostęp bez sygnatury dostępu współdzielonego i klucze dostępu dla konta magazynu. Jeśli nie zostanie określony poziom dostępu, podczas tworzenia kontenera, domyślnie prywatne.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>Przekaż obiekty BLOB do kontenera
 
-Azure Blob Storage obsługuje blokowe obiekty BLOB, uzupełnialne obiekty BLOB i stronicowe obiekty BLOB.  Pliki VHD używane do tworzenia kopii maszyn wirtualnych IaaS są stronicowych obiektów blob. Dołącz obiekty BLOB są używane do logowania, takie jak kiedy zachodzi potrzeba zapisane do pliku i następnie dodać więcej informacji. Większość plików przechowywanych w magazynie obiektów Blob są blokowych obiektów blob. 
+Azure Blob Storage obsługuje blokowe obiekty BLOB, uzupełnialne obiekty BLOB i stronicowe obiekty BLOB.  Pliki VHD używane do tworzenia kopii maszyn wirtualnych IaaS są stronicowymi obiektami blob. Uzupełnialne obiekty blob są używane do rejestrowania, na przykład w sytuacji, w której konieczny jest zapis do pliku, a następnie dodawanie kolejnych informacji. Większość plików przechowywanych w usłudze Blob Storage to blokowe obiekty blob. 
 
-Aby przekazać plik do blokowego obiektu blob, Pobierz odwołanie do kontenera, a następnie pobrać odwołanie do blokowych obiektów blob w tym kontenerze. Po uzyskaniu odwołania do obiektu blob możesz przekazać dane do niego przy użyciu [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Ta operacja tworzy obiektu blob, jeśli nie istnieje lub zastąpiony, jeśli już istnieje.
+Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj odwołanie do blokowego obiektu blob w tym kontenerze. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Ta operacja tworzy obiektu blob, jeśli nie istnieje lub zastąpiony, jeśli już istnieje.
 
 Poniżej pokazano, jak przekazać obiekt blob do kontenera. Najpierw należy ustawić zmienne, które wskazują do katalogu na komputerze lokalnym, gdzie znajdują się pliki i ustawienia zmiennej dla nazwy pliku do przekazania. Jest to przydatne, gdy chcesz wielokrotnie wykonać operację. Przekaż kilka plików, więc może wyświetlać wiele wpisów, gdy lista obiektów blob w kontenerze.
 
@@ -87,7 +87,7 @@ Set-AzureStorageBlobContent -File $localFile `
   -Context $ctx
 ```
 
-Przekazywanie plików tyle jak przed kontynuowaniem.
+Przed kontynuowaniem można przesłać dowolną liczbę plików.
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Pobieranie obiektów blob
 
-Pobieranie obiektów blob na lokalnym dysku twardym. Najpierw należy ustawić zmiennej, która wskazuje na folder lokalny, do którego chcesz pobrać obiekty BLOB. Następnie dla każdego obiektu blob do pobrania, ustaw nazwę i wywołanie [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) można pobrać obiektu blob.
+Pobierz obiekty blob na swój dysk twardy. Najpierw należy ustawić zmiennej, która wskazuje na folder lokalny, do którego chcesz pobrać obiekty BLOB. Następnie dla każdego obiektu blob do pobrania, ustaw nazwę i wywołanie [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) można pobrać obiektu blob.
 
 Ten przykładowy kod kopiuje obiekty BLOB do D:\\_TestImages\Downloads na dysku lokalnym. 
 
@@ -152,7 +152,7 @@ Można skopiować obiektu blob do oddzielnego konta magazynu. Jest jednym z przy
 Konfigurowanie drugiego konta magazynu, pobrania kontekstu skonfigurować kontener na tym koncie magazynu i wykonać kopiowanie. Ta część skrypt jest niemal identyczny skryptu powyżej, z wyjątkiem za pomocą drugiego konta magazynu, zamiast pierwszy.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -365,7 +365,7 @@ Usuń wszystkie zasoby, które zostały utworzone. Aby to zrobić, można usuną
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono informacje podstawowe zarządzanie magazynem obiektów Blob, np.:
 
@@ -380,7 +380,7 @@ W tym samouczku przedstawiono informacje podstawowe zarządzanie magazynem obiek
 > * Zarządzanie zabezpieczeniami przy użyciu sygnatury dostępu współdzielonego
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Polecenia cmdlet usługi Magazyn Microsoft Azure PowerShell
-* [Polecenia cmdlet programu PowerShell magazynu](/powershell/module/azurerm.storage#storage)
+* [Polecenia cmdlet programu PowerShell usługi Storage](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.

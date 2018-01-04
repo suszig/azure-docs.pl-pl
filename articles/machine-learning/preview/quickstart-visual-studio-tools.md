@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 Visual Studio Tools for AI to rozszerzenie programistyczne do tworzenia, testowania i wdrażania rozwiązań uczenia głębokiego/sztucznej inteligencji. Obejmuje ono bezproblemową integrację z usługą Azure Machine Learning. Szczególnie dotyczy to widoku historii uruchamiania zawierającej szczegółowe dane o wydajności poprzednich cykli uczenia i metryki niestandardowe. Oferuje ono przykładowy widok eksploratora pozwalający na przeglądanie i uruchamianie nowego projektu za pomocą [zestawu narzędzi Microsoft Cognitive Toolkit (wcześniej znanego jako CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) i innych platform uczenia głębokiego. Ponadto zapewnia ono eksploratora dla celów obliczeń, który umożliwia przesyłanie zadań uczenia modeli w zdalnych środowiskach, takich jak usługi Azure Virtual Machines lub serwery systemu Linux z procesorem GPU. Dodatkowo ułatwia ono dostęp do rozwiązania [Azure Batch AI (w wersji zapoznawczej)](https://docs.microsoft.com/azure/batch-ai/).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD systemu iOS wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,7 +54,7 @@ Format systemu iOS dla przekierowania jest identyfikatora URI:
 ```
 
 * **Schemat aplikacji** -to jest zarejestrowany w projekcie XCode. Jest jak inne aplikacje zadzwonić do Ciebie. Można znaleźć, to w pliku Info.plist -> adres URL identyfikatora -> typy adresu URL. Należy utworzyć jeden, jeśli nie masz jeszcze co najmniej jeden skonfigurowany.
-* **Identyfikator pakietu** — jest to identyfikator pakietu omówionych w artykule "identity" un ustawień projektu w środowisku XCode.
+* **Identyfikator pakietu** — jest to identyfikator pakietu omówionych w artykule "identity" w ustawieniach projektu XCode.
 
 Przykład dla tego kodu Szybki Start: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Samouczek: Integracji Azure Active Directory z GoToMeeting
 
@@ -104,24 +104,11 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Na **GoToMeeting domeny i adres URL** kliknij **Pokaż zaawansowane ustawienia adresu URL** i wykonywanie następujących czynności -
+3. Na **GoToMeeting domeny i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![Adresy URL i domeny GoToMeeting pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![Adresy URL i domeny GoToMeeting pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. W **identyfikator** tekstowym, wpisz adres URL:`https://authentication.logmeininc.com/saml/sp`
-
-    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL:`https://authentication.logmeininc.com/saml/acs`
-
-    c. W **stan przekazywania** tekstowym, wpisz jedno z następujących adresów URL:
-
-    **Dla GoToMeeting**:`https://global.gotomeeting.com`
-    
-    **Dla GoToTraining**:`https://global.gototraining.com`
-
-    **Dla GoToWebinar**:`https://global.gotowebinar.com`
-
-    **Dla GoToAssist**:`https://app.gotoassist.com`
-
+    W **identyfikator** tekstowym, wpisz adres URL:`https://login.citrixonline.com/saml/sp`
 
 4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
@@ -141,7 +128,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
 
-    c. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
+    d. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
      
@@ -155,7 +142,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfiguracja GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. W oknie innej przeglądarki, zaloguj się do Twojego [GoToMeeting organizacji Center](https://account.citrixonline.com/organization/administration/)
+8. W oknie innej przeglądarki, zaloguj się do Twojego [GoToMeeting organizacji Center](https://organization.logmeininc.com/)
 
 9. W obszarze **dostawcy tożsamości** kartę, można skonfigurować ustawienia usługi Azure albo przez podanie wygenerowany **adres URL metadanych** lub pobrany **pliku metadanych** lub **Ręcznego**.
 
@@ -167,7 +154,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Wklej **adres URL metadanych**, które zostały wygenerowane w poprzednich krokach w **adres URL metadanych** pola tekstowego.
 
-    c. Kliknij pozycję **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 11. Aby uzyskać **pliku metadanych** należy wykonać następujące czynności:
 
@@ -177,7 +164,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Aby przekazać plik metadanych pobranych, kliknij przycisk **przekazywania pliku metadanych**.
 
-    c. Kliknij pozycję **Zapisz**.
+    d. Kliknij pozycję **Zapisz**.
 
 12. Aby uzyskać **ręcznego** należy wykonać następujące czynności:
 
@@ -187,7 +174,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b.  W **adres URL strony wylogowania** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
 
-    c.  W **identyfikator jednostki dostawcy tożsamości** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
+    d.  W **identyfikator jednostki dostawcy tożsamości** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
 
     d. Wyodrębnij certyfikacie x 509 z pliku metadanych pobranych i przekaż certyfikat tego klikając **przekazywania certyfikatu**.
 
@@ -225,7 +212,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -275,11 +262,11 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka GoToMeeting w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji GoToMeeting.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Skonfiguruj Inicjowanie obsługi użytkowników](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Skonfiguruj Inicjowanie obsługi użytkowników](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

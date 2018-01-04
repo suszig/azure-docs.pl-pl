@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e5ed66e263c3048981279ad26cb204ded8e8fba3
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Dostosowywanie klastrów usługi HDInsight przy użyciu ładowania początkowego
 
@@ -76,7 +76,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -Config $config 
 ```
@@ -133,7 +133,7 @@ Bootstrap można użyć w szablonie usługi Resource Manager:
 
 ![HDInsight Hadoop dostosowuje klastra ładowania początkowego szablonu usługi Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Tworzenie klastrów Hadoop w usłudze HDInsight] [ hdinsight-provision-cluster] zawiera instrukcje dotyczące sposobu tworzenia klastra usługi HDInsight przy użyciu niestandardowych opcji.
 * [Tworzenie skryptów akcji skryptu dla usługi HDInsight][hdinsight-write-script]
 * [Zainstalować i używać platformy Spark w usłudze hdinsight][hdinsight-install-spark]
@@ -249,7 +249,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

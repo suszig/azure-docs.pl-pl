@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -48,7 +48,7 @@ Poprawa został dodany do programu Azure AD Connect wersji 1.1.654.0 (i po) aby 
 - Dla klientów, którzy korzystają ze starszej wersji programu Azure AD Connect do 1.1.654.0 (lub po) uprawnienie zmiany będą nie wstecz zastosowane do istniejących kont usługi AD DS utworzone przed uaktualnieniem. Tylko zostaną one zastosowane do nowych kont usług AD DS, utworzonych po uaktualnieniu. Dzieje się tak podczas dodawania nowych lasów usługi AD do synchronizacji usługi Azure AD.
 
 >[!NOTE]
->Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. W przypadku istniejących instalacji lub w przypadku, gdy samodzielnie konta możesz sould upewnij się, tę lukę w zabezpieczeniach nie istnieje.
+>Ta wersja usuwa tylko luki w zabezpieczeniach dla nowych instalacji programu Azure AD Connect, gdy konto usługi jest tworzone przez proces instalacji. W przypadku istniejących instalacji lub w przypadku, gdy samodzielnie konto należy upewnić się, tę lukę w zabezpieczeniach nie istnieje.
 
 #### <a name="lock"></a>Zablokowanie dostępu do konta usług AD DS
 Blokowanie dostępu do konta usług AD DS, implementując następujące zmiany uprawnień w lokalnej usługi AD:  
@@ -57,7 +57,7 @@ Blokowanie dostępu do konta usług AD DS, implementując następujące zmiany u
 *   Usuń wszystkie wpisy kontroli dostępu dla określonego obiektu, z wyjątkiem ACE określonych do siebie. Chcemy zachować uprawnienia domyślne po przejściu do siebie.
 *   Przypisz te określone uprawnienia:
 
-Typ     | Nazwa                          | Dostęp               | Dotyczy
+Typ     | Name (Nazwa)                          | Dostęp               | Dotyczy
 ---------|-------------------------------|----------------------|--------------|
 Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Administratorzy przedsiębiorstwa             | Pełna kontrola         | Ten obiekt  |
@@ -919,5 +919,5 @@ Wydanie: Września 2014
 
 **Początkowa wersja programu Azure AD Sync.**
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: b389151b8a1dd0c7a367f83db968bac7b832897a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3471792bba92879e446837434cbdba667cf679ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrowanie maszyn wirtualnych platformy Azure do zarządzanych dysków na platformie Azure
 
-Dyskach zarządzanych platformy Azure upraszcza zarządzanie magazynu, usuwając konieczność oddzielnie zarządzania kontami magazynu.  Istniejące maszyny wirtualne Azure można migrować do zarządzanych dysków, aby korzystać z większą niezawodność maszyn wirtualnych w zestawie dostępności. Gwarantuje, że dyski różnych maszyn wirtualnych w zestawie dostępności będzie wystarczająco odizolowane od siebie, aby uniknąć pojedynczy punkt awarii. Automatycznie umieszcza dysków różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury) ograniczająca skutków błędów jednostki skalowania magazynu w jednym spowodowany sprzętu i oprogramowania błędów.
+Dyskach zarządzanych platformy Azure upraszcza zarządzanie magazynu, usuwając konieczność oddzielnie zarządzania kontami magazynu.  Istniejące maszyny wirtualne Azure można migrować do zarządzanych dysków, aby korzystać z większą niezawodność maszyn wirtualnych w zestawie dostępności. Gwarantuje, że dyski różnych maszyn wirtualnych w zestawie dostępności jest wystarczająco odizolowane od siebie, aby uniknąć pojedynczy punkt awarii. Automatycznie umieszcza dysków różnych maszyn wirtualnych w zestawie dostępności w różnych jednostkach skalowania magazynu (sygnatury) ograniczająca skutków błędów jednostki skalowania magazynu w jednym spowodowany sprzętu i oprogramowania błędów.
 Na podstawie Twoich potrzeb, możesz wybrać z dwóch typów pamięci masowej:
 
-- [Dysków zarządzanych w warstwie Premium](premium-storage.md) nośnika, który dostarcza wysokowydajnej, małe opóźnienia dysku obsługę maszyn wirtualnych działających obciążeń/O wykonujących podstawie stałych dysków stanu (SSD). Zaletą szybkości i wydajności tych dysków może potrwać przy użyciu funkcji migracji do dysków zarządzanych w warstwie Premium.
+- [Dysków zarządzanych w warstwie Premium](premium-storage.md) nośniki, które zapewniają wysoką wydajność, małe opóźnienia dysku obsługę maszyn wirtualnych działających obciążeń/O wykonujących podstawie stałych dysków stanu (SSD). Zaletą szybkości i wydajności tych dysków może potrwać przy użyciu funkcji migracji do dysków zarządzanych w warstwie Premium.
 
 - [Dyski standardowe zarządzane](standard-storage.md) Użyj stacji dysków twardych (HDD) na podstawie nośnikach magazynowania i są najbardziej odpowiednie dla: tworzenie i testowanie i inne obciążenia rzadkim dostępu, które są mniej wrażliwe na zmienności wydajności.
 
@@ -63,21 +63,21 @@ Przejrzyj charakterystyki wydajności maszyn wirtualnych, które pracy z magazyn
 
 Istnieje siedem typów dysków zarządzanych w warstwie premium, które mogą być używane z maszyny Wirtualnej i każdy ma określonych IOPs i przepływność limity. Wziąć pod uwagę następujące limity gdy wybieranie typu dysku Premium dla maszyny Wirtualnej na podstawie potrzeb aplikacji pod względem wydajności, wydajności, skalowalności i ładuje godzinami szczytu.
 
-| Typ dysków Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Rozmiar dysku           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Przepływność na dysk | 25 MB na sekundę  | 50 MB / s  | 100 MB na sekundę | 150 MB na sekundę | 200 MB / s | 250 MB na sekundę | 250 MB na sekundę |
+| Typ dysków Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Rozmiar dysku           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Przepływność na dysk | 25 MB na sekundę  | 50 MB / s  | 100 MB na sekundę | 125 MB na sekundę |150 MB na sekundę | 200 MB / s | 250 MB na sekundę | 250 MB na sekundę |
 
 **Dyski standardowe zarządzanych**
 
 Istnieje siedem typów dyski standardowe zarządzanych, które mogą być używane z maszyny Wirtualnej. Każdej z nich ma inną wydajności, ale ma tego samego IOPS i limity przepustowości. Wybierz typ dyski standardowe zarządzane na podstawie potrzeb wydajność aplikacji.
 
-| Typ dysku standardowego  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Rozmiar dysku           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
-| Przepływność na dysk | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 
+| Typ dysku standardowego  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Rozmiar dysku           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Liczba operacji wejścia/wyjścia na sekundę na dysk       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Przepływność na dysk | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę |60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 60 MB na sekundę | 
 
 ## <a name="disk-caching-policy"></a>Dyskowej pamięci podręcznej zasad
 
@@ -87,10 +87,10 @@ Domyślnie jest dyskowej pamięci podręcznej zasad *tylko do odczytu* dla wszys
 
 ## <a name="pricing"></a>Cennik
 
-Przegląd [ceny dysków zarządzanych](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
+Przegląd [ceny dysków zarządzanych](https://azure.microsoft.com/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [dysków zarządzanych](managed-disks-overview.md)

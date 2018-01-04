@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analizowanie trendów w programie Visual Studio
 Narzędzie Trendy usługi Application Insights wizualizuje sposób, w jaki ważne zdarzenia telemetrii aplikacji sieci Web zmieniają się z upływem czasu, co ułatwia szybkie identyfikowanie problemów i anomalii. Łącząc Cię z bardziej szczegółowymi informacjami diagnostycznymi, narzędzie Trendy może ułatwić zwiększenie wydajności aplikacji, śledzenie przyczyn wyjątków oraz odkrywanie szczegółowych danych w zdarzeniach niestandardowych.
@@ -57,7 +57,7 @@ Narzędzie Trendy usługi Application Insights tworzy wizualizację szeregu czas
 
 Aby dostosować wyświetlane typy telemetrii, użyj kontrolek w górnej części okna. Najpierw wybierz interesujące Cię typy telemetrii:
 
-* **Typ telemetrii** — żądania serwera, wyjątki, zależności lub zdarzenia niestandardowe
+* **Typ danych telemetrycznych** -żądań serwera, wyjątków, zależności lub zdarzeń niestandardowych
 * **Zakres czasu** — dowolny zakres od ostatnich 30 minut do ostatnich 3 dni
 * **Grupuj według** — typ wyjątku, identyfikator problemu, kraj/region itd.
 

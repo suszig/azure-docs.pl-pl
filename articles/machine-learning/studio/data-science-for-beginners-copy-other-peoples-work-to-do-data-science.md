@@ -1,6 +1,6 @@
 ---
 title: "Skopiuj innych danych nauki przykłady — usługi Azure Machine Learning | Dokumentacja firmy Microsoft"
-description: "Tajemnice handlowe, dane nauki: inne osoby do pracy można pobrać. Pobierz przykłady learning maszyny z galerii Analytics Cortana."
+description: "Tajemnice handlowe, dane nauki: inne osoby do pracy można pobrać. Pobierz przykłady learning maszyny z galerii AI Azure."
 keywords: "Przykłady analizy danych, machine learning przykład algorytm klastrowanie przykład algorytm klastrowanie"
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiowanie pracy innych osób w celu przeprowadzenia analizy danych
 ## <a name="video-5-data-science-for-beginners-series"></a>Wideo 5: Nauki danych serii dla początkujących
-Jeden tajemnice handlowe, dane nauki otrzymuje inne osoby do pracy dla Ciebie. Znajdź klastrowania przykład algorytmu w galerii Analytics Cortana do użycia na potrzeby własne eksperymentu uczenia maszynowego.
+Jeden tajemnice handlowe, dane nauki otrzymuje inne osoby do pracy dla Ciebie. Znajdź klastrowania przykład algorytmu w galerii Azure AI do użycia na potrzeby własne eksperymentu uczenia maszynowego.
+
+> [!IMPORTANT]
+> Zmieniono Cortana Intelligence Gallery **galerii Azure AI**. W związku z tym tekst i obrazy, w tym wykaz nieznacznie różnić wideo, która używa nazwy wcześniejsze.
+>
 
 Aby uzyskać wykorzystanie serii, obejrzyj je wszystkie. [Przejdź do listy filmów wideo](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ W tym przypadku dowiesz się, miejsce do znajdowania przykłady, których można
 
 Jeden tajemnice handlowe, dane nauki otrzymuje inne osoby do pracy dla Ciebie.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Znajdź przykłady Cortana Intelligence Gallery
-Firma Microsoft jest oparta na chmurze usługa o nazwie [usługi Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) bardzo Zapraszamy spróbuj bezpłatnie. Zapewnia ona obszar roboczy w przypadku, gdy możesz eksperymentować z algorytmów uczenia maszynowego różnych oraz, jeśli masz już rozwiązania określone, będzie można uruchomić jako usługę sieci web.
+## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Znajdź przykłady w galerii Azure analizy AI
 
-Coś jest częścią tej usługi o nazwie  **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Zawiera zasoby, łącznie z kolekcją usługi Azure Machine Learning eksperymenty lub modeli, które osoby utworzone i przyczyniły się do innych użytkowników. Te eksperymenty są to dobry sposób na myśli i twardych pracy innych ułatwiających rozpoczęcie pracy na własnych rozwiązań.
+Firma Microsoft jest oparta na chmurze usługa o nazwie [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) bardzo Zapraszamy spróbuj bezpłatnie. Zapewnia ona obszar roboczy w przypadku, gdy możesz eksperymentować z algorytmów uczenia maszynowego różnych oraz, jeśli masz już rozwiązania określone, będzie można uruchomić jako usługę sieci web.
 
-Można znaleźć w galerii [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Wszyscy jest Zapraszamy do przeglądania przy jego użyciu.
+Coś jest częścią tej usługi o nazwie  **[galerii Azure AI](https://gallery.cortanaintelligence.com/)**. Zawiera zasoby, łącznie z kolekcją usługi Azure Machine Learning eksperymenty lub modeli, które osoby utworzone i przyczyniły się do innych użytkowników. Te eksperymenty są to dobry sposób na myśli i twardych pracy innych ułatwiających rozpoczęcie pracy na własnych rozwiązań. Wszyscy jest Zapraszamy do przeglądania przy jego użyciu.
 
-![Cortana Intelligence Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Galerii Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Jeśli klikniesz przycisk **eksperymenty** u góry, zobaczysz liczba najbardziej aktualne i popularne eksperymenty w galerii. Można przeszukiwać reszty eksperymentów, klikając **Przeglądaj wszystko** w górnej części ekranu i można wprowadzić terminy wyszukiwania i wybrać filtry wyszukiwania.
 
@@ -83,14 +86,14 @@ Kliknięciu na tej i zajmuje mnie prawo, aby **Azure Machine Learning Studio**. 
 I już punkt początkowy. I wymienić swoje własne dane i wykonać własne Dostosowywanie modelu. Daje mnie rozpoczęcia pracy i pozwala kompilacji na pracy osoby znające naprawdę co robią.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Znaleźć eksperymenty, które przedstawiają machine learning techniki
-Istnieją inne eksperymenty w [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) zostały które przyczyniły się specjalnie w celu zapewnienia porad przykłady dla nowych użytkowników programu analizy danych. Na przykład istnieje eksperymentu w galerii, który demonstruje sposób obsługi brakujące wartości ([metody obsługi brakujące wartości](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Prowadzi użytkownika przez 15 różne sposoby zastępując wartości puste i zawiera informacje o zalet każda metoda i kiedy należy używać go.
+Istnieją inne eksperymenty w [galerii Azure AI](https://gallery.cortanaintelligence.com) zostały które przyczyniły się specjalnie w celu zapewnienia porad przykłady dla nowych użytkowników programu analizy danych. Na przykład istnieje eksperymentu w galerii, który demonstruje sposób obsługi brakujące wartości ([metody obsługi brakujące wartości](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Prowadzi użytkownika przez 15 różne sposoby zastępując wartości puste i zawiera informacje o zalet każda metoda i kiedy należy używać go.
 
 ![Otwórz eksperymenty w galerii w usłudze Machine Learning Studio - metod dla brakujących wartości](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) jest miejscem, aby znaleźć eksperymenty pracy, które służy jako punkt początkowy dla własnych rozwiązań.
+[Galerii Azure AI](https://gallery.cortanaintelligence.com) jest miejscem, aby znaleźć eksperymenty pracy, które służy jako punkt początkowy dla własnych rozwiązań.
 
 Należy koniecznie zapoznaj się z innych plików wideo "Danych nauki dla początkujących" z Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Spróbuj pierwszego eksperymentu analizy danych przy użyciu usługi Azure Machine Learning](create-experiment.md)
 * [Wprowadzenie do uczenia maszynowego w systemie Microsoft Azure](what-is-machine-learning.md)

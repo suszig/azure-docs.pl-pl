@@ -187,8 +187,10 @@
               href: programming.md
             - name: Testowanie wydajności
               href: performance-testing.md
-            - name: Porady dotyczące wydajności
+            - name: Porady dotyczące wydajności kodu .NET
               href: performance-tips.md
+            - name: Porady dotyczące wydajności kodu Java
+              href: performance-tips-java.md
             - name: Konfiguracja wielu wzorców
               href: multi-region-writers.md
             - name: Elementy DateTime

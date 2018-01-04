@@ -6,7 +6,7 @@
 ## [Poziom zgodności](analysis-services-compat-level.md)
 ## [Wysoka dostępność](analysis-services-bcdr.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Tworzenie serwera w witrynie Azure Portal](analysis-services-create-server.md)
 ## [Tworzenie serwera za pomocą programu Azure PowerShell](analysis-services-create-powershell.md)
 ## [Wdrażanie modelu z programu Visual Studio](analysis-services-deploy.md)
@@ -23,6 +23,7 @@
 ### [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
 ### [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
 ### [Monitorowanie metryk serwera](analysis-services-monitor.md)
+### [Setup diagnostic logging (Konfigurowanie rejestrowania diagnostycznego)](analysis-services-logging.md)
 ## Połączenie
 ### [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ### [Łączenie z programem Excel](analysis-services-connect-excel.md)
@@ -64,5 +65,5 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Witryna Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Wideo](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod testu Azure funkcji i lokalnie
 
@@ -29,7 +29,7 @@ Jeśli program Visual Studio C# dewelopera usługi Azure Functions także są [i
 >[!IMPORTANT]  
 > Nie można mieszać lokalne działania projektowe z portalu Programowanie w tej samej aplikacji funkcji. Podczas tworzenia i publikowania funkcji z lokalnym projektu nie należy zachować lub zmodyfikować kod projektu w portalu.
 
-## <a name="install-the-azure-functions-core-tools"></a>Zainstaluj usługę Azure Functions podstawowe narzędzia
+## <a name="install-the-azure-functions-core-tools"></a>Instalowanie podstawowych narzędzi usługi Azure Functions
 
 [Azure funkcje podstawowe narzędzia] jest lokalna wersja środowiska uruchomieniowego usługi Azure Functions, który można uruchomić na komputerze deweloperskim lokalnego. Nie jest emulatorem ani symulatorem. Jest tym samym środowisko uruchomieniowe, które uprawnienia działa na platformie Azure. Istnieją dwie wersje Azure funkcje podstawowe narzędzia, jeden dla wersji 1.x środowiska uruchomieniowego i jeden dla wersji 2.x. Obie wersje są przekazywane jako [pakietu npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
@@ -132,7 +132,7 @@ Local.settings.json pliku przechowuje ustawienia Azure funkcje podstawowe narzę
 | **Wartości** | Kolekcja ustawień aplikacji, używane podczas uruchamiania lokalnego. **AzureWebJobsStorage** i **AzureWebJobsDashboard** przedstawiono; Aby uzyskać pełną listę, zobacz [informacje dotyczące ustawień aplikacji](functions-app-settings.md).  |
 | **Host** | Ustawienia w tej sekcji dostosować funkcje procesu hosta podczas uruchamiania lokalnego. | 
 | **LocalHttpPort** | Ustawia domyślny port używany podczas uruchamiania lokalnego hosta funkcji (`func host start` i `func run`). `--port` Opcji wiersza polecenia mają pierwszeństwo przed tej wartości. |
-| **CORS** | Definiuje źródeł dozwolony dla [współużytkowanie zasobów między źródłami (CORS) do udostępniania](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Źródła są określane jako listę rozdzielaną przecinkami, nie może zawierać spacji. Wartość symbolu wieloznacznego (**\***) jest obsługiwana, która zezwala na żądania pochodzące z dowolnego źródła. |
+| **CORS** | Definiuje źródeł dozwolony dla [współużytkowanie zasobów między źródłami (CORS) do udostępniania](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Źródła są określane jako listę rozdzielaną przecinkami, nie może zawierać spacji. Wartość symbolu wieloznacznego (\*) jest obsługiwana, która zezwala na żądania pochodzące z dowolnego źródła. |
 | **ConnectionStrings** | Zawiera parametry połączenia bazy danych dla funkcji. Parametry połączenia w tym obiekcie są dodawane do środowiska z typem dostawcy **System.Data.SqlClient**.  | 
 
 Większość wyzwalaczy i powiązań ma **połączenia** właściwości, który jest mapowany na nazwę zmiennej lub aplikacji ustawienia środowiska. Dla każdej właściwości połączenia musi być zdefiniowana w pliku local.settings.json ustawienia aplikacji. 
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Azure funkcje podstawowe narzędzia jest [otworzyć źródła i w usłudze GitHub](https://github.com/azure/azure-functions-cli).  
 W pliku żądanie usterki lub funkcji [Otwórz problem GitHub](https://github.com/azure/azure-functions-cli/issues). 

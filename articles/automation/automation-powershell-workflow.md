@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Nauka podstawowych pojęć przepływu pracy środowiska Windows PowerShell dla elementów runbook automatyzacji 
 Elementy Runbook automatyzacji Azure są zaimplementowane jako przepływy pracy Windows PowerShell.  Przepływu pracy środowiska Windows PowerShell jest podobny do skryptu programu Windows PowerShell, ale ma pewne istotne różnice, które mogą być mylące dla nowego użytkownika.  Gdy ten artykuł dotyczy ułatwia pisanie elementów runbook za pomocą przepływu pracy programu PowerShell, zaleca się zapisu elementów runbook za pomocą programu PowerShell, chyba że potrzebne punkty kontrolne.  Istnieje kilka różnic składni podczas tworzenia elementów runbook przepływu pracy programu PowerShell i różnice te wymaga nieco więcej pracy pisanie przepływów pracy skuteczne.  
@@ -199,7 +199,7 @@ Poniższy przykład jest podobny do poprzedniego przykładu kopiowanie plików r
 >
 
 ## <a name="checkpoints"></a>Punkty kontrolne
-A *punktu kontrolnego* jest migawką bieżącego stanu przepływu pracy, który zawiera bieżące wartości zmiennych i wszelkie dane wyjściowe wygenerowane do tego punktu. Jeśli przepływ pracy kończy się na błąd lub jest wstrzymana, następnie przy następnym uruchomieniu będzie uruchamiany z ostatniego punktu kontrolnego zamiast uruchamiania worfklow.  Punkt kontrolny można ustawić w przepływie pracy z **Checkpoint-Workflow** działania.
+A *punktu kontrolnego* jest migawką bieżącego stanu przepływu pracy, który zawiera bieżące wartości zmiennych i wszelkie dane wyjściowe wygenerowane do tego punktu. Jeśli przepływ pracy kończy się na błąd lub jest wstrzymana, następnie przy następnym uruchomieniu będzie uruchamiany z ostatniego punktu kontrolnego zamiast uruchamiania przepływu pracy.  Punkt kontrolny można ustawić w przepływie pracy z **Checkpoint-Workflow** działania.
 
 W poniższym przykładowym kodzie wyjątek wystąpi po działaniu Activity2 powoduje przepływu pracy zakończyć. Gdy przepływ pracy jest uruchamiana ponownie, rozpoczyna się od działania Activity2, ponieważ przypadało ono zaraz po ostatnim ustawionym punkcie kontrolnym.
 
@@ -209,7 +209,7 @@ W poniższym przykładowym kodzie wyjątek wystąpi po działaniu Activity2 powo
     <Exception>
     <Activity3>
 
-Należy ustawić punkty kontrolne w przepływie pracy po działań, które mogą być podatne na wyjątek i nie powinien być powtarzany, jeśli przepływ pracy zostanie wznowione. Przepływ pracy może na przykład utworzyć maszynę wirtualną. Punkt kontrolny można ustawić przed i po poleceń, aby utworzyć maszynę wirtualną. Jeśli tworzenie zakończy się niepowodzeniem, polecenia będzie powtarzany Jeśli przepływ pracy zostanie uruchomiona ponownie. Jeśli worfklow zakończy się niepowodzeniem, po utworzenie zakończy się powodzeniem, następnie maszyna wirtualna zostanie nie można utworzyć ponownie po wznowieniu przepływu pracy.
+Należy ustawić punkty kontrolne w przepływie pracy po działań, które mogą być podatne na wyjątek i nie powinien być powtarzany, jeśli przepływ pracy zostanie wznowione. Przepływ pracy może na przykład utworzyć maszynę wirtualną. Punkt kontrolny można ustawić przed i po poleceń, aby utworzyć maszynę wirtualną. Jeśli tworzenie zakończy się niepowodzeniem, polecenia będzie powtarzany Jeśli przepływ pracy zostanie uruchomiona ponownie. Jeśli przepływ pracy zakończy się niepowodzeniem, po utworzenie zakończy się powodzeniem, następnie maszyna wirtualna zostanie nie można utworzyć ponownie po wznowieniu przepływu pracy.
 
 W poniższym przykładzie kopiuje pliki do lokalizacji sieciowej i ustawia punkt kontrolny po każdym pliku.  W przypadku utraty lokalizacji sieciowej przepływu pracy kończy się za błąd.  Gdy jest ona uruchamiana ponownie, zostanie wznowiona ostatniego punktu kontrolnego, co oznacza, że tylko pliki, które zostały już skopiowane są pomijane.
 
@@ -258,5 +258,5 @@ Nie jest to wymagane, jeśli są uwierzytelniani za pomocą konta Uruchom jako s
 
 Aby uzyskać więcej informacji na temat punktów kontrolnych, zobacz [Dodawanie punktów kontrolnych do skryptowego przepływu pracy](http://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [My first PowerShell workflow runbook](automation-first-runbook-textual.md) (Mój pierwszy element Runbook przepływu pracy programu PowerShell).

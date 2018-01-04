@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -42,6 +42,9 @@ Przejrzyj installer.log, aby ustalić przyczynę niepowodzenia instalacji.
 
 > [!Note]  
 > Instalacja agenta zakończy się niepowodzeniem, jeśli komputer jest skonfigurowany do użycia usługi Microsoft Update i usługa Windows Update nie jest uruchomiona.
+
+<a id="agent-installation-websitename-failure"></a>**Instalacja agenta zakończy się niepowodzeniem z powodu następującego błędu: "Magazynu synchronizacji agenta przedwcześnie zakończył"**  
+Ten problem może wystąpić, jeśli zostanie zmieniona nazwa domyślnej witryny sieci Web usług IIS. Aby obejść ten problem, Zmień nazwę domyślna witryna sieci Web IIS jako "Default Web Site", a następnie ponów próbę instalacji. Problem zostanie rozwiązany w przyszłej aktualizacji agenta. 
 
 <a id="server-registration-missing"></a>**Serwer nie jest wyszczególniony w obszarze zarejestrowane serwery w portalu Azure**  
 Jeśli serwer nie jest wymieniony w obszarze **zarejestrowanych serwerów** dla usługi synchronizacji magazynu:
@@ -208,7 +211,7 @@ Jeśli problem nie zniknie, uruchom narzędzie AFSDiag:
 5. Odtwórz problem. Po zakończeniu, wprowadź **D**.
 6. Plik zip, który zawiera dzienników i pliki śledzenia są zapisywane na katalog wyjściowy, który można określić.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 - [Usługa pliki Azure — często zadawane pytania](storage-files-faq.md)
 - [Rozwiązywanie problemów plików Azure w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Rozwiązywanie problemów plików Azure w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)

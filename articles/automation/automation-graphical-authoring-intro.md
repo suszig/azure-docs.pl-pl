@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Graficzny tworzenia w programie usługi Automatyzacja Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -122,7 +122,7 @@ Podczas określania wartości dla parametru wybraniu źródła danych, aby okre�
 | Zasób certyfikatu |Wybierz certyfikat usługi Automatyzacja jako dane wejściowe. |
 | Zasób połączenia |Wybierz połączenie automatyzacji jako dane wejściowe. |
 | Wyrażenie programu PowerShell |Określ prosty [wyrażenie programu PowerShell](#powershell-expressions).  Wyrażenie, które zostanie obliczone przed działania i wynik używany dla wartości parametru.  Aby odwołać się do danych wyjściowych działania lub parametr wejściowy elementu runbook można używać zmiennych. |
-| Nie skonfigurowano |Czyści żadnej wartości, który został wcześniej skonfigurowany. |
+| Nieskonfigurowane |Czyści żadnej wartości, który został wcześniej skonfigurowany. |
 
 #### <a name="optional-additional-parameters"></a>Dodatkowe parametry opcjonalne
 Wszystkie polecenia cmdlet będzie mieć opcję, aby zapewnić dodatkowe parametry.  Są to typowe parametry programu PowerShell lub inne parametry niestandardowe.  Jest wyświetlane pole tekstowe, w którym można podać parametry, używając składni programu PowerShell.  Na przykład, aby użyć **pełne** wspólnego parametru należy określić **"-Verbose: $True"**.
@@ -198,7 +198,7 @@ Linku potoku należy określić warunek dla pojedynczego obiektu, a obliczania w
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Łącza sekwencji jest tylko wynikiem obliczania warunku raz od pojedynczej tablicy jest zwracany zawierający wszystkie obiekty dane wyjściowe działania źródłowego.  W związku z tym łącze sekwencji nie może służyć do filtrowania jak łącze potoku, ale po prostu określić, czy jest uruchomienie następnego działania. Przyjmować na przykład następujący zestaw działań w naszym runbook uruchamianie maszyny Wirtualnej.<br> ![Łączy warunkowych sekwencja](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Istnieją trzy łącza inną sekwencję, które sprawdzania dostarczonych wartości do dwóch parametrów wejściowych runbook reprezentujący nazwę maszyny Wirtualnej i nazwa grupy zasobów w celu określenia, które jest odpowiednie działanie podejmowane — uruchamianie jednej maszyny Wirtualnej, uruchom wszystkie maszyny wirtualne w grupie zasobów lub wszystkich maszyn wirtualnych w ramach subskrypcji.  Łącza sekwencji między Connect do platformy Azure i Get jednej maszyny Wirtualnej w tym miejscu jest logiki warunek:
+Istnieją trzy łącza inną sekwencję, które sprawdzania dostarczonych wartości do dwóch parametrów wejściowych runbook reprezentujący nazwę maszyny Wirtualnej i nazwa grupy zasobów w celu ustalenia, które jest odpowiednie działanie podejmowane — uruchamianie jednej maszyny Wirtualnej, uruchom wszystkie maszyny wirtualne w zasobie Grupa, lub wszystkich maszyn wirtualnych w ramach subskrypcji.  Łącza sekwencji między Connect do platformy Azure i Get jednej maszyny Wirtualnej w tym miejscu jest logiki warunek:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -288,7 +288,7 @@ Każdy parametr wejściowy jest zdefiniowana przez właściwości w poniższej t
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa |Unikatowa nazwa parametru.  To może zawierać tylko znaków alfanumerycznych i nie może zawierać spacji. |
+| Name (Nazwa) |Unikatowa nazwa parametru.  To może zawierać tylko znaków alfanumerycznych i nie może zawierać spacji. |
 | Opis |Opcjonalny opis parametru wejściowego. |
 | Typ |Oczekiwano wartości parametru typu danych.  Portalu Azure zapewni odpowiednią kontrolkę dla typu danych dla każdego parametru monitując o dane wejściowe. |
 | Obowiązkowy |Określa, czy należy podać wartość parametru.  Nie można uruchomić elementu runbook, jeśli nie zostanie określona wartość dla każdego obowiązkowy parametr, który nie ma zdefiniowanej wartości domyślnej. |

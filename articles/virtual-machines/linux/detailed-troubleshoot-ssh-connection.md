@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
+ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH szczegółowe kroki rozwiązywania problemów dotyczących problemów, połączenie z maszyną wirtualną systemu Linux na platformie Azure
 Istnieje wiele przyczyn, które klient SSH mogą nie być możliwe nawiązanie łączności usługi SSH na maszynie Wirtualnej. Jeśli wykonano za pomocą bardziej [SSH ogólne kroki rozwiązywania problemów](troubleshoot-ssh-connection.md), należy rozwiązać problem z połączeniem. W tym artykule przedstawiono szczegółowe kroki rozwiązywania problemów, aby określić, gdzie kończy się niepowodzeniem połączenia SSH i sposobu rozwiązania go.
@@ -129,5 +129,5 @@ Spróbuj ponownie nawiązać połączenie z komputera. Jeśli nadal nie, poniże
 * Zapory lokalnej na docelowej maszynie wirtualnej ma reguł, które uniemożliwiają przychodzącego i wychodzącego ruchu SSH.
 * Włamań lub oprogramowania, który działa na maszynie wirtualnej platformy Azure do monitorowania sieci uniemożliwia nawiązanie połączenia SSH.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 Aby uzyskać więcej informacji dotyczących rozwiązywania problemów z dostęp do aplikacji, zobacz [Rozwiązywanie problemów z dostępem do aplikacji działających na maszynie wirtualnej platformy Azure](troubleshoot-app-connection.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Podłącz urządzenie Pi malina do zdalnego wstępnie skonfigurowane rozwiązanie monitorowania (C)
 
@@ -47,9 +47,11 @@ Należy klient SSH na komputerze pulpitu umożliwia zdalny dostęp do wiersza po
 
 ### <a name="required-raspberry-pi-software"></a>Wymagane oprogramowanie Pi malina
 
+W tym artykule przyjęto założenie, zainstalowano najnowszą wersję [OS Raspbian na Twoje Pi malina](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 Poniższe kroki pokazują, jak przygotować Twojej Pi malina do tworzenia aplikacji C, która łączy się wstępnie skonfigurowane rozwiązanie:
 
-1. Nawiązać połączenie przy użyciu Pi malina `ssh`. Aby uzyskać więcej informacji, zobacz [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) na [witryny sieci Web Pi malina](https://www.raspberrypi.org/).
+1. Nawiązać połączenie przy użyciu Pi malina **ssh**. Aby uzyskać więcej informacji, zobacz [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) na [witryny sieci Web Pi malina](https://www.raspberrypi.org/).
 
 1. Można zaktualizować Twojego Pi malina, użyj następującego polecenia:
 
@@ -60,31 +62,27 @@ Poniższe kroki pokazują, jak przygotować Twojej Pi malina do tworzenia aplika
 1. Aby dodać biblioteki i narzędzia deweloperskie wymagane do Twojej Pi malina, użyj następującego polecenia:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Aby zainstalować Centrum IoT bibliotek klienta, należy użyć następujących poleceń:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Klonowanie analizator Parson JSON do Twojej Pi malina przy użyciu następujących poleceń:
+1. Aby pobrać, kompilacji i zainstalować bibliotek klienckich Centrum IoT na Twoje Pi malina, użyj następujących poleceń:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Utwórz projekt
 
-Wykonaj następujące czynności, za pomocą `ssh` połączenie z Pi malina:
+Wykonaj następujące czynności, za pomocą **ssh** połączenie z Pi malina:
 
-1. Utwórz folder o nazwie `remote_monitoring` w folderze macierzysty na malina Pi. Przejdź do tego folderu, w wierszu polecenia:
+1. Utwórz folder o nazwie `remote_monitoring` w folderze macierzysty na malina Pi. Przejdź do tego folderu w powłoki:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Wykonaj następujące czynności, za pomocą `ssh` połączenie z Pi malina:
     cd remote_monitoring
     ```
 
-1. Utwórz cztery pliki `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, i `CMakeLists.txt` w `remote_monitoring` folderu.
+1. Utwórz cztery pliki **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, i **CMakeLists.txt** w `remote_monitoring` folder.
 
-1. Utwórz folder o nazwie `parson` w `remote_monitoring` folderu.
-
-1. Skopiuj pliki `parson.c` i `parson.h` z kopii lokalnej do repozytorium Parson `remote_monitoring/parson` folderu.
-
-1. W edytorze tekstu Otwórz `remote_monitoring.c` pliku. Na Pi malina, możesz użyć dowolnej `nano` lub `vi` edytora tekstu. Dodaj następujące instrukcje `#include`:
+1. W edytorze tekstu Otwórz **remote_monitoring.c** pliku. Na Pi malina, możesz użyć dowolnej **nano** lub **vi** edytora tekstu. Dodaj następujące instrukcje `#include`:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Wykonaj następujące czynności, za pomocą `ssh` połączenie z Pi malina:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Zapisz **remote_monitoring.c** plik i zamknij Edytor.
+
 ## <a name="add-code-to-run-the-app"></a>Dodaj kod, aby uruchomić aplikację
 
-W edytorze tekstu Otwórz `remote_monitoring.h` pliku. Dodaj następujący kod:
+W edytorze tekstu Otwórz **remote_monitoring.h** pliku. Dodaj następujący kod:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-W edytorze tekstu Otwórz `main.c` pliku. Dodaj następujący kod:
+Zapisz **remote_monitoring.h** plik i zamknij Edytor.
+
+W edytorze tekstu Otwórz **main.c** pliku. Dodaj następujący kod:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Zapisz **main.c** plik i zamknij Edytor.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
@@ -158,18 +158,16 @@ W poniższych krokach opisano sposób użycia *CMake* do tworzenia aplikacji kli
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ W poniższych krokach opisano sposób użycia *CMake* do tworzenia aplikacji kli
         m
     )
     ```
+
+1. Zapisz **CMakeLists.txt** plik i zamknij Edytor.
 
 1. W `remote_monitoring` folderu, Utwórz folder do przechowywania *upewnij* pliki, które generuje CMake. Następnie uruchom **cmake** i **upewnij** polecenia w następujący sposób:
 

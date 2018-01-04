@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Samouczek udostępniania roweru: przygotowanie zaawansowanych danych za pomocą usługi Azure Machine Learning Workbench
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -647,7 +647,7 @@ df.to_csv('Your Training Data File Path here')
 
 Aby przesłać nowe zadanie, należy użyć ikony **Uruchom** w górnej części strony. **Zadanie** jest przesyłane z nową konfiguracją. Danymi wyjściowymi tego zadania są dane szkoleniowe. Te dane są tworzone przy użyciu tej samej utworzonej wcześniej procedury przygotowywania danych. Zakończenie tego zadania może potrwać kilka minut.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Samouczek przygotowywania danych udostępniania roweru został ukończony. W tym samouczku była używana usługa Azure Machine Learning (wersja zapoznawcza), aby dowiedzieć się, jak:
 > [!div class="checklist"]
 > * Interaktywnie przygotować dane za pomocą narzędzia do przygotowywania danych usługi Azure Machine Learning

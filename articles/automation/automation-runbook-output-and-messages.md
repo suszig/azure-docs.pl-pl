@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 875e5c804251047f4a413e99018968564b6107c8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Element Runbook danych wyjściowych i komunikatów w usłudze Automatyzacja Azure
 Większość elementów runbook automatyzacji Azure ma dane wyjściowe, np. komunikat o błędzie dla użytkownika lub obiekt złożony przeznaczony do użycia przez inny przepływ pracy. Środowisko Windows PowerShell udostępnia [wiele strumieni](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) do wysyłania danych wyjściowych w skrypcie lub przepływ pracy. Automatyzacja Azure działa z każdym z tych strumieni inaczej, a należy stosować najlepsze rozwiązania dotyczące sposobu używania każdej podczas tworzenia elementu runbook.
@@ -30,7 +30,7 @@ Poniższa tabela zawiera krótki opis każdego strumienia i jego zachowanie w po
 | Dane wyjściowe |Obiekty, które mają być używane przez inne elementy runbook. |Zapisywany w historii zadania. |Wyświetlane w okienku danych wyjściowych testu. |
 | Ostrzeżenie |Komunikat ostrzegawczy przeznaczony dla użytkownika. |Zapisywany w historii zadania. |Wyświetlane w okienku danych wyjściowych testu. |
 | Błąd |Komunikat o błędzie przeznaczony dla użytkownika. W odróżnieniu od wyjątek element runbook kontynuuje po komunikat o błędzie domyślnie. |Zapisywany w historii zadania. |Wyświetlane w okienku danych wyjściowych testu. |
-| Pełne informacje |Komunikaty z informacjami ogólne lub debugowania. |Zapisywany w historii zadań tylko wtedy, gdy jest włączone pełne rejestrowanie dla elementu runbook. |Wyświetlane w okienku danych wyjściowych testu tylko wtedy, gdy $VerbosePreference ma ustawioną wartość Kontynuuj w elemencie runbook. |
+| Pełne |Komunikaty z informacjami ogólne lub debugowania. |Zapisywany w historii zadań tylko wtedy, gdy jest włączone pełne rejestrowanie dla elementu runbook. |Wyświetlane w okienku danych wyjściowych testu tylko wtedy, gdy $VerbosePreference ma ustawioną wartość Kontynuuj w elemencie runbook. |
 | Postęp |Rekordy są generowane automatycznie przed i po każdym działaniu elementu runbook. Element runbook nie powinny podejmować próby tworzenia swoich własnych rekordów postępu, ponieważ są one przeznaczone dla użytkownika interaktywnego. |Zapisywany w historii zadań tylko wtedy, gdy dla elementu runbook jest włączone rejestrowanie postępu. |Nie są wyświetlane w okienku danych wyjściowych testu. |
 | Debugowanie |Komunikaty przeznaczone dla użytkownika interaktywnego. Nie można używać w elementach runbook. |Nie jest zapisywany w historii zadań. |Nie zapisać w okienku danych wyjściowych testu. |
 
@@ -206,7 +206,7 @@ Z powyższych zrzut ekranu widać, gdy jest włączone pełne rejestrowanie i ś
 2. Kliknij kafelek **Elementy Runbook**, aby otworzyć listę elementów Runbook.
 3. W bloku elementów Runbook kliknij, aby wybrać graficznego elementu runbook z listy elementów runbook.
 4. W bloku ustawień dla wybranego elementu runbook, kliknij przycisk **rejestrowania i śledzenia**.
-5. Rejestrowanie i śledzenie bloku, w obszarze rejestrowania rekordów pełnych, kliknij przycisk **na** Aby włączyć pełne rejestrowanie i śledzenie udner poziom aktywności, zmień poziom śledzenia do **podstawowe** lub **szczegółowy** na podstawie poziomu śledzenia wymagane.<br>
+5. Rejestrowanie i śledzenie bloku, w obszarze rejestrowania rekordów pełnych, kliknij przycisk **na** Aby włączyć pełne rejestrowanie i w obszarze Śledzenie poziom aktywności, zmień poziom śledzenia do **podstawowe** lub **szczegółowy** na podstawie poziomu śledzenia wymagane.<br>
    
    ![Graficzny tworzenia rejestrowania i śledzenia bloku](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
@@ -221,7 +221,7 @@ Automatyzacja może wysyłać runbook strumieni zadania stanu i zadania do swoje
 
 Aby uzyskać więcej informacji na temat konfigurowania integracji z analizy dzienników do zbierania, korelowania i działają na dane zadania, zobacz [przekazuj strumienie zadania i stan zadania z automatyzacji analizy dzienników (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [Track a runbook job](automation-runbook-execution.md) (Śledzenie zadania elementu Runbook)
 * Aby zrozumieć sposób projektowania i używania podrzędnych elementów runbook, zobacz [podrzędnych elementów runbook automatyzacji Azure](automation-child-runbooks.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e642a63486317387d66a9403b8276d2e0bd38fb6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Zasoby zmiennej usługi Automatyzacja Azure
 
@@ -96,10 +96,10 @@ Funkcje w poniższej tabeli są używane do uzyskania dostępu i pobrać zmienny
 
 W następujących przykładowych poleceniach pokazano, jak utworzyć zmienną typu ciąg, a następnie wróć jej wartość.
 
-    New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+    New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 W następujących przykładowych poleceniach pokazano, jak utworzyć zmienną typu złożonego, a następnie wróć jego właściwości. W takim przypadku obiekt maszyny wirtualnej z **Get-AzureRmVm** jest używany.
@@ -125,8 +125,8 @@ Użyj **Set-AutomationVariable** działanie w celu ustawienia wartości zmiennej
 
 Następujące przykładowe polecenia pokazują, jak ustawiania i pobierania zmiennej w tekstowy. W tym przykładzie zakłada się, że zmienne typu całkowitoliczbowego o nazwie *NumberOfIterations* i *NumberOfRunnings* oraz zmienna typu ciąg o nazwie *SampleMessage* zostały już utworzone.
 
-    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
     $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
     
     Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -134,7 +134,7 @@ Następujące przykładowe polecenia pokazują, jak ustawiania i pobierania zmie
     for ($i = 1; $i -le $NumberOfIterations; $i++) {
        Write-Output "$i`: $SampleMessage"
     }
-    Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+    Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Ustawianie i pobieranie obiekt złożony w zmiennej
 

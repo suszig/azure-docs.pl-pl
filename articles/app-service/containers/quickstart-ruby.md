@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b609756f6fcea2a57210889d8082ffb45cbc92de
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Tworzenie aplikacji Ruby w usłudze App Service w systemie Linux
 
@@ -96,13 +96,13 @@ Wymagana jest grupa zasobów, która zawiera zasoby wymagane przez aplikację in
 az group create --location westeurope --name myResourceGroup
 ```
 
-Użyj polecenia [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create), aby utworzyć plan usługi aplikacji dla swojej aplikacji internetowej.
+Użyj polecenia [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create), aby utworzyć plan usługi aplikacji dla swojej aplikacji internetowej.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Następnie wydaj polecenie [az webapp create](https://docs.microsoft.com/cli/azure/webapp), aby utworzyć aplikację internetową korzystającą z nowo utworzonego planu usługi. Zauważ, że środowisko uruchomieniowe ma ustawioną wartość `ruby|2.3`. Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
+Następnie wydaj polecenie [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create), aby utworzyć aplikację internetową korzystającą z nowo utworzonego planu usługi. Zauważ, że środowisko uruchomieniowe ma ustawioną wartość `ruby|2.3`. Nie zapomnij zastąpić elementu `<app name>` unikatową nazwą aplikacji.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Po zakończeniu wdrożenia uruchom ponownie swoją aplikację internetową, aby wdrożenie weszło w życie, korzystając z polecenia [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart), jak pokazano poniżej:
+Po zakończeniu wdrożenia uruchom ponownie swoją aplikację internetową, aby wdrożenie weszło w życie, korzystając z polecenia [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart), jak pokazano poniżej:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup

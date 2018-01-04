@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurowanie replikacji klastra HBase w sieciach wirtualnych platformy Azure
 
@@ -182,7 +182,7 @@ W poniższych krokach opisano sposób wywoływania skryptu akcji skryptu z porta
 
 Wymagane argumenty:
 
-|Nazwa|Opis|
+|Name (Nazwa)|Opis|
 |----|-----------|
 |-s, - src-klaster | Określa nazwę DNS klastra HBase źródła. Na przykład: hbsrccluster -s, klaster — src = hbsrccluster |
 |-d, klaster — czasu letniego | Określa nazwę DNS klastra HBase docelowego (repliki). Na przykład: dsthbcluster -s, klaster — src = dsthbcluster |
@@ -191,7 +191,7 @@ Wymagane argumenty:
 
 Argumenty opcjonalne:
 
-|Nazwa|Opis|
+|Name (Nazwa)|Opis|
 |----|-----------|
 |-su,--src-ambari-user | Określa nazwę użytkownika administratora dla Ambari w klastrze źródłowym HBase. Wartość domyślna to **admin**. |
 |-du, czasu letniego — ambari użytkownika | Określa nazwę użytkownika administratora dla Ambari w docelowym klastrze HBase. Wartość domyślna to **admin**. |
@@ -276,7 +276,7 @@ Aby wyłączyć replikacji, użyj innego skryptu akcji skryptu z [GitHub](https:
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono sposób skonfigurowania replikacji bazy danych HBase w ramach sieci wirtualnej lub między dwiema sieciami wirtualnymi. Aby dowiedzieć się więcej na temat usługi HDInsight i HBase, zobacz następujące artykuły:
 

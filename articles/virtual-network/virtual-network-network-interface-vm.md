@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Dodawanie interfejsów sieciowych lub usuwanie interfejsów sieciowych z maszyn wirtualnych
 
@@ -118,4 +118,4 @@ Aby utworzyć Maszynę wirtualną z wielu interfejsów sieciowych lub adresów I
 - Dowolnego adresu IP dla żadnej konfiguracji adresu IP z żadnym interfejsem sieciowym podstawowy lub pomocniczy można dodać do puli zaplecza modułu równoważenia obciążenia Azure. W przeszłości tylko podstawowy adres IP dla interfejsu sieci podstawowej można można dodać do puli zaplecza. Aby dowiedzieć się więcej na temat adresów IP i konfiguracje, przeczytaj [Dodaj, Zmień lub Usuń adresy IP](virtual-network-network-interface-addresses.md) artykułu.
 - Usuwanie maszyny Wirtualnej nie powoduje usunięcia interfejsów sieciowych, które są dołączone do niego. Po usunięciu maszyny Wirtualnej, interfejsy sieciowe są odłączone od maszyny Wirtualnej. Można dodać interfejsy sieciowe do różnych maszyn wirtualnych, lub usuń je.
 - Jeśli interfejs sieciowy ma przypisany prywatny adres IPv6, należy dodać (Dołącz) do maszyny Wirtualnej podczas tworzenia maszyny Wirtualnej. Nie można dodać karty sieciowej z adresu IPv6 przypisany do maszyny Wirtualnej, po utworzeniu maszyny Wirtualnej. Jeśli dodasz karty sieciowej z przypisany prywatny adres IPv6, podczas tworzenia maszyny wirtualnej, można tylko dodać ten interfejs sieciowy do maszyny wirtualnej, niezależnie od tego, jak wiele interfejsów sieciowych obsługuje rozmiar maszyny Wirtualnej. Zobacz [sieci adresów IP interfejsu](virtual-network-network-interface-addresses.md) Aby dowiedzieć się więcej o przypisanie adresów IP do interfejsów sieciowych.
-- Podobny do protokołu IPv6, nie można dołączyć karty sieciowej z siecią przyspieszonego włączona do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Co więcej Aby skorzystać z przyspieszonego sieci, musi również wykonaj kroki w ramach systemu operacyjnego maszyny Wirtualnej. Aby dowiedzieć się więcej na temat przyspieszonego sieci i innych ograniczeń podczas korzystania z niego, zobacz [utworzyć Maszynę wirtualną z siecią przyspieszonego](virtual-network-create-vm-accelerated-networking.md).
+- Podobny do protokołu IPv6, nie można dołączyć karty sieciowej z siecią przyspieszonego włączona do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Co więcej Aby skorzystać z przyspieszonego sieci, musi również wykonaj kroki w ramach systemu operacyjnego maszyny Wirtualnej. Aby dowiedzieć się więcej o sieci przyspieszonego i inne ograniczenia, podczas korzystania z niego, zobacz akcelerowanego sieci dla [Windows](create-vm-accelerated-networking-powershell.md) lub [Linux](create-vm-accelerated-networking-cli.md) maszyn wirtualnych.

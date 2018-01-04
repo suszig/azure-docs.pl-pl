@@ -5,7 +5,7 @@
     - name: Obsługa wersji składników
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Rozpoczynanie pracy
+- name: Rozpoczęcie pracy
   items:
     - name: Rozpoczynanie pracy z zapytaniem interakcyjnym
       href: ./apache-interactive-query-get-started.md
@@ -98,6 +98,8 @@
         - name: Analizowanie przy użyciu dodatku Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Łączenie usługi Power BI z zapytaniem interaktywnym
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Łączenie usługi Power BI z platformą Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true

@@ -9,16 +9,16 @@ tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Wdrożenie maszyny wirtualnej systemu Linux do nowego węzła Azure
 Jeśli pokonywaniu trudności Rozwiązywanie problemów z SSH lub aplikacji dostęp do maszyny wirtualnej systemu Linux (VM) na platformie Azure, ponownego wdrażania maszyny Wirtualnej może pomóc. Podczas ponownego wdrażania maszyny Wirtualnej maszyny Wirtualnej są przenoszone do nowego węzła w ramach infrastruktury platformy Azure i uprawnień go ponownie. Opcje konfiguracji i skojarzonych zasobów są zachowywane. W tym artykule przedstawiono sposób ponownego wdrażania maszyny Wirtualnej przy użyciu wiersza polecenia platformy Azure lub w portalu Azure.
@@ -30,7 +30,7 @@ Można wdrożyć ponownie Maszynę wirtualną przy użyciu jednej z następując
 
 - [Interfejs wiersza polecenia platformy Azure 2.0](#azure-cli-20)
 - [Interfejs wiersza polecenia platformy Azure 1.0](#azure-cli-10)
-- [Witryna Azure Portal](#using-azure-portal)
+- [Azure portal](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Użyj Azure CLI 2.0
 Zainstaluj najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login).
@@ -52,6 +52,6 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli występują problemy dotyczące nawiązywania połączenia z maszyną Wirtualną, możesz znaleźć pomoc w [Rozwiązywanie problemów z połączeniami SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [szczegółowe kroki rozwiązywania problemów SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Jeśli nie można uzyskać dostęp do aplikacji działających na maszynie Wirtualnej, możesz przeczytać [aplikacji Rozwiązywanie problemów z](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

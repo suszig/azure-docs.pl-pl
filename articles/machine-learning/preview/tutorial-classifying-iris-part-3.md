@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: HT
+ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -160,6 +160,9 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
    ``` 
 
    W trzecim wierszu danych wyjściowych znajduje się następująca informacja: **„registrationState”: „Rejestrowanie”**. Poczekaj chwilę i powtarzaj polecenie **show** do momentu, gdy dane wejściowe będą zawierać następującą informację: **„registrationState”: „Registered”**.
+
+   >[!NOTE] 
+   Jeśli wdrażasz do klastra usługi ACS, należy zarejestrować **Microsoft.ContainerService** również metoda dokładnie tego samego dostawcy zasobów.
 
 3. Utwórz środowisko. Ten krok należy uruchomić raz dla każdego środowiska. Możesz na przykład uruchomić go jeden raz dla środowiska programistycznego i jeden raz dla środowiska produkcyjnego. Dla pierwszego środowiska użyj _trybu lokalnego_. Aby później skonfigurować środowisko w _trybie klastra_, możesz w poniższym poleceniu wypróbować przełącznik `-c` lub `--cluster`.
 
@@ -336,7 +339,7 @@ W celu przetestowania uruchomienia usługi internetowej **irisapp** użyj rekord
       ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zapoznaniu się z trzecią częścią trzyczęściowej serii samouczków wiesz już, jak używać usług Azure Machine Learning w celu wykonania następujących czynności:
 > [!div class="checklist"]
 > * Lokalizowanie pliku modelu.

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tworzenie infrastruktury programowanie na maszynie Wirtualnej systemu Linux na platformie Azure z Wpięć, GitHub i Docker
 Aby zautomatyzować fazy kompilacji i testowania projektowanie aplikacji, można użyć ciągłej integracji i wdrażania (CI/CD) potoku. W tym samouczku, możesz utworzyć potok CI/CD na maszynie Wirtualnej platformy Azure w tym jak:
@@ -146,7 +146,7 @@ W witrynie sieci Web Wpięć wybierz **tworzenie nowych zadań** na stronie gł�
 - W obszarze **ogólne** zaznacz **GitHub** projektu i wprowadź adres URL repozytorium rozwidlonych, takich jak *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - W obszarze **źródła zarządzania kodem** zaznacz **Git**, wprowadź Twojego repozytorium rozwidlonych *.git* adres URL, takie jak *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - W obszarze **kompilacji wyzwalaczy** zaznacz **wyzwalacza haku GitHub dla sondowania GITscm**.
-- W obszarze **kompilacji** wybierz **kroku kompilacji Dodaj**. Wybierz **wykonywania powłoki**, wprowadź `echo "Testing"` w oknie polecenia.
+- W obszarze **kompilacji** wybierz **kroku kompilacji Dodaj**. Wybierz **wykonywania powłoki**, wprowadź `echo "Testing"` w oknie wiersza polecenia.
 - Wybierz **zapisać** w dolnej części okna zadań.
 
 
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Aby zatwierdzić zmiany, wybierz **Zatwierdź zmiany** znajdujący się u dołu.
 
-W Wpięć, nowej kompilacji zaczyna się w obszarze **kompilacji historii** sekcji lewym dolnym rogu strony zadania. Wybierz łącze numer kompilacji **dane wyjściowe konsoli** rozmiaru po lewej stronie. Można wyświetlić kroki Wpięć przyjmuje jako kodu są pobierane z usługi GitHub i Akcja kompilacji generuje komunikat `Testing` do konsoli. Zawsze, gdy zatwierdzenie jest przeprowadzane w witrynie GitHub, elementu webhook osiągnie do Wpięć i wyzwalają nowej kompilacji w ten sposób.
+W Wpięć, nowej kompilacji zaczyna się w obszarze **kompilacji historii** sekcji lewym dolnym rogu strony zadania. Wybierz łącze numer kompilacji **dane wyjściowe konsoli** po lewej stronie. Można wyświetlić kroki Wpięć przyjmuje jako kodu są pobierane z usługi GitHub i Akcja kompilacji generuje komunikat `Testing` do konsoli. Zawsze, gdy zatwierdzenie jest przeprowadzane w witrynie GitHub, elementu webhook osiągnie do Wpięć i wyzwala nową kompilację w ten sposób.
 
 
 ## <a name="define-docker-build-image"></a>Zdefiniuj obraz kompilacji Docker
@@ -173,7 +173,7 @@ Połączenie SSH maszyny Wirtualnej przejdź do katalogu roboczego Wpięć o naz
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Utwórz plik o w bieżącym katalogu roboczym z `sudo sensible-editor Dockerfile` i Wklej poniższą zawartość. Upewnij się, że cały plik Dockerfile zostały skopiowane poprawnie, szczególnie pierwszy wiersz:
+Utwórz plik w bieżącym katalogu roboczym z `sudo sensible-editor Dockerfile` i Wklej poniższą zawartość. Upewnij się, że cały plik Dockerfile zostały skopiowane poprawnie, szczególnie pierwszy wiersz:
 
 ```yaml
 FROM node:alpine

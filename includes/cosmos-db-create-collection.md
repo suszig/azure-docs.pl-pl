@@ -14,8 +14,7 @@ Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby 
     Identyfikator kolekcji|Items|Wprowadź *Elementy* jako nazwę nowej kolekcji. W przypadku identyfikatorów kolekcji obowiązują takie same wymagania dotyczące znaków, jak dla nazw baz danych.
     Pojemność magazynu| Stała (10 GB)|Zmień wartość na **Stała (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
     Przepływność|400 RU|Zmień przepływność na 400 jednostek żądania na sekundę (RU/s). Pojemność magazynu musi być ustawiona na **Stałe (10 GB)**, aby możliwe było ustawienie przepływności na 400 RU/s. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. 
-    Klucz partycji|/category|Wprowadź */category* jako klucz partycji. Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji w bazie danych. Więcej informacji na temat partycjonowania zawiera temat [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Projektowanie pod kątem partycjonowania).
-
+    
     Kliknij przycisk **OK**.
 
     W Eksploratorze danych zostanie wyświetlona nowa baza danych i kolekcja.

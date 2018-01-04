@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -30,7 +30,11 @@ Bezproblemowe logowanie Jednokrotne można łączyć z jedną [synchronizacji sk
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Jest funkcją wolnego bezproblemowe logowanie Jednokrotne?
 
-Bezproblemowe rejestracji Jednokrotnej jest funkcją wolnego i nie wymagają żadnych wersji płatnej usługi Azure AD z niego korzystać. Nadal pozostaje wolny, gdy funkcja osiągnie ogólnej dostępności.
+Bezproblemowe rejestracji Jednokrotnej jest funkcją wolnego i nie wymagają żadnych wersji płatnej usługi Azure AD z niego korzystać.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Jest dostępna w bezproblemowe logowanie Jednokrotne [chmury Microsoft Azure Niemcy](http://www.microsoft.de/cloud-deutschland) i [chmury Microsoft Azure dla instytucji rządowych](https://azure.microsoft.com/features/gov/)?
+
+Nie. Bezproblemowe rejestracji Jednokrotnej jest dostępna tylko w wystąpieniu na całym świecie usługi Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Jakie aplikacje korzystać z `domain_hint` lub `login_hint` parametru możliwości łatwego logowania jednokrotnego?
 
@@ -57,7 +61,7 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym uruchomiony jest pr
 
 1. Najpierw należy pobrać i zainstalować [Microsoft Online Services Asystenta logowania](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Następnie Pobierz i zainstaluj [64-bitowy moduł usługi Azure Active Directory dla środowiska Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Przejdź do `%programfiles%\Microsoft Azure Active Directory Connect` folderu.
+3. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Zaimportuj moduł bezproblemowe PowerShell logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1`.
 5. Uruchom program PowerShell jako Administrator. W programie PowerShell, wywołaj `New-AzureADSSOAuthenticationContext`. To polecenie powinien zapewnić podręcznego o wprowadzenie poświadczeń administratora globalnego Twojej dzierżawy.
 6. Wywołanie `Get-AzureADSSOStatus`. To polecenie zawiera listę lasów usługi AD (odszukaj na liście "Domeny"), na którym ta funkcja została włączona.
@@ -87,14 +91,14 @@ Aby ukończyć proces, wykonaj następujące kroki ręcznego na serwerze lokalny
 
 1. Najpierw należy pobrać i zainstalować [Microsoft Online Services Asystenta logowania](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Następnie Pobierz i zainstaluj [64-bitowy moduł usługi Azure Active Directory dla środowiska Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Przejdź do `%programfiles%\Microsoft Azure Active Directory Connect` folderu.
+3. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Zaimportuj moduł bezproblemowe PowerShell logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1`.
 5. Uruchom program PowerShell jako Administrator. W programie PowerShell, wywołaj `New-AzureADSSOAuthenticationContext`. To polecenie powinien zapewnić podręcznego o wprowadzenie poświadczeń administratora globalnego Twojej dzierżawy.
 6. Wywołanie `Get-AzureADSSOStatus`. To polecenie zawiera listę lasów usługi AD (odszukaj na liście "Domeny"), na którym ta funkcja została włączona.
 
 ### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Krok 2. Ręcznie usuń `AZUREADSSOACCT` konta komputera w każdym lesie usługi AD, który zostanie wyświetlony na liście.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [**Szybki Start** ](active-directory-aadconnect-sso-quick-start.md) — Uzyskaj i systemem Azure AD bezproblemowe Usługa rejestracji Jednokrotnej.
 - [**Nowości techniczne** ](active-directory-aadconnect-sso-how-it-works.md) -zrozumieć sposób działania tej funkcji.

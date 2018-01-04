@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Co to jest Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ Możesz rozpocząć korzystanie z usługi Azure AD Privileged Identity Managemen
 3. Wybierz polecenie **Więcej usług** i użyj pola tekstowego filtru, aby wyszukać **Azure AD Privileged Identity Management**.
 4. Zaznacz opcję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij pozycję **Utwórz**. Nastąpi otwarcie aplikacji Privileged Identity Management.
 
-Jeśli jesteś pierwszą osobą, aby użyć usługi Azure AD Privileged Identity Management w katalogu, a następnie przejdź do usługi Azure AD directory ról, a i przejściu do usługi Azure AD directory ról, [Kreator zabezpieczeń](active-directory-privileged-identity-management-security-wizard.md) przeprowadzi Cię przez początkowy etap przypisania. Po wykonaniu tej automatycznie staje się pierwszym **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** katalogu.
+Jeśli jesteś pierwszą osobą, aby użyć usługi Azure AD Privileged Identity Management w katalogu, przejdź do usługi Azure AD directory ról, a następnie przejdź do ról katalogu usługi Azure AD, [Kreator zabezpieczeń](active-directory-privileged-identity-management-security-wizard.md) przeprowadzi Cię przez początkowy etap przypisania. Po wykonaniu tej automatycznie staje się pierwszym **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** katalogu.
 
 Dla ról usługi Azure AD tylko użytkownik, który należy do roli Administrator ról uprzywilejowanych można zarządzać przydziały dla innych administratorów w usłudze Azure AD PIM. Możesz [przekazać innym użytkownikom możliwość zarządzania rolami katalogu w PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Globalne administratorów, administratorów zabezpieczeń i czytników zabezpieczeń można wyświetlić przypisania do ról usługi Azure AD w usłudze Azure AD PIM.
 Dla ról Azure RBAC administratorem subskrypcji, właściciela zasobów lub zasobów administrator dostępu użytkowników można zarządzać przydziały dla innych administratorów w usłudze Azure AD PIM.  Użytkownicy, którzy są uprzywilejowani Administratorzy roli, administratorów zabezpieczeń lub zabezpieczeń czytelnicy nie domyślnie mają dostęp do wyświetlania przypisań ról Azure RBAC w usłudze Azure AD PIM.
@@ -80,7 +80,7 @@ Aktywacja ról zasobów Azure (wersja zapoznawcza) wprowadza nową funkcjonalno�
 
 W przypadku zaplanowanego aktywacji nie jest już potrzebne, użytkowników można anulować ich oczekujące żądania przechodzenia do żądań oczekujących w menu nawigacji po lewej stronie, a następnie klikając polecenie Anuluj przycisk śródwierszowej z tym żądaniem.
 
-![oczekujące żądania](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Żądania oczekujące](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Uprzywilejowane pulpitu nawigacyjnego administratora zarządzania tożsamościami
 
@@ -148,7 +148,7 @@ Drugą opcją jest skonfigurowanie regular [dostępu przeglądami](active-direct
 Dzierżawca musi mieć Azure AD Premium P2 (lub EMS E5) subskrypcji próbnej lub płatnej w swojej dzierżawy, przed rozpoczęciem korzystania z usługi Azure AD PIM.  Ponadto należy przypisać licencje do administratorów dzierżawy.  W szczególności należy przypisać licencje do administratorów w usłudze Azure AD ról zarządzanych za pomocą usługi Azure AD PIM, Administratorzy w rolach Azure RBAC zarządzanych za pomocą usługi Azure AD PIM i użytkowników bez uprawnień administratora, które wykonują przeglądami dostępu.
 Jeśli Twoja organizacja nie odnowić Azure AD Premium P2 lub wersja próbna wygaśnie, funkcje usługi Azure AD PIM nie będzie już dostępna w dzierżawie, przypisań ról kwalifikujących się zostaną usunięte i użytkownicy nie będą mogli aktywować role. Możesz przeczytać więcej informacji, zobacz [wymagań dotyczących subskrypcji usługi Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

@@ -1,14 +1,16 @@
 # [Omówienie](cdn-overview.md)
 ## [Co to jest Azure CDN?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Włączanie usługi Azure CDN](cdn-create-new-endpoint.md)
 
 # Instrukcje
 ## Integracja
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Magazyn
+#### [Integrate a storage account (Integrowanie konta magazynu)](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS storage support (Magazyn SAS — pomoc techniczna)](cdn-sas-storage-support.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
 ### [Dodawanie domeny niestandardowej do punktu końcowego usługi CDN](cdn-map-content-to-custom-domain.md)
 ### [Konfigurowanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
@@ -77,5 +79,5 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 

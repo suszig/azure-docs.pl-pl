@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Zarządzanie wydajnością magazynu Azure stosu
 
@@ -63,7 +63,7 @@ Po umieszczeniu w kontenerze obiektu blob, tego obiektu blob może zwiększyć w
 
 Kontenery nie są ograniczone do jednego udziału. Gdy danych połączonych obiektów blob w kontenerze rozwoju Użyj 80% lub więcej dostępnego miejsca, wprowadza kontenera *przepełnienie* tryb. W trybie przepełnienia, nowe obiekty BLOB, które są tworzone w tym kontenerze są przydzielane na inny wolumin, który ma wystarczającą ilość miejsca. Wraz z upływem czasu kontenera w trybie przepełnienie mogą mieć obiektów blob, które są rozproszone na wielu woluminach.
 
-W przypadku 80%, a następnie 90% miejsca dostępnego na woluminie systemu zgłasza alerty w portalu administratora platformy Azure stosu. Operatorzy chmury powinien przejrzeć dostępnej pojemności i zaplanować rebalance zawartości. Usługa magazynu zatrzymuje, praca, gdy dysk jest używany w 100% i znajdują się dodatkowe alerty są zgłaszane.
+W przypadku 80%, a następnie 90% miejsca dostępnego na woluminie systemu zgłasza alerty w portalu administratora platformy Azure stosu. Operatorzy chmury powinien przejrzeć dostępnej pojemności i zaplanować rebalance zawartości. Usługa magazynu zatrzymuje, praca, gdy dysk jest używany w 100% i żadne dodatkowe alerty są zgłaszane.
 
 ### <a name="disks"></a>Dyski
 Dyski maszyny Wirtualnej są dodawane do kontenerów przez dzierżawców i dołączyć dysku systemu operacyjnego. Maszyny wirtualne mogą mieć także co najmniej jeden dysk danych. Oba typy dysków są przechowywane jako stronicowych obiektów blob. Wskazówki dotyczące dzierżawcy jest umieszczenie każdego dysku w oddzielnych kontenera, aby poprawić wydajność maszyny wirtualnej.
@@ -123,7 +123,7 @@ Możesz spróbować wolnego miejsca na udział nadmiernego obciążenia za pomoc
 
 Migracja konsoliduje obiektu blob kontenery nowego udziału.
 
-- Jeśli kontener został przełączony w tryb przepełnienie i umieścił obiekty BLOB na dodatkowych woluminów, nowy udział musi mieć wystarczającą pojemność do przechowywania wszystkich obiektów blob do kontenera, które można migrować. W tym blogi, które znajdują się na dodatkowe udziały.
+- Jeśli kontener został przełączony w tryb przepełnienie i umieścił obiekty BLOB na dodatkowych woluminów, nowy udział musi mieć wystarczającą pojemność do przechowywania wszystkich obiektów blob do kontenera, które można migrować. W tym obiektów blob, które znajdują się na dodatkowe udziały.
 
 - Polecenia cmdlet programu PowerShell *Get AzsStorageContainer* identyfikuje tylko zajętego miejsca na na woluminie początkowej kontenera. Polecenie cmdlet nie będzie rozpoznawał miejsca, który jest używany przez obiekty BLOB, zaznacz pole obok dodatkowych woluminów. W związku z tym pełnego rozmiaru kontenera nie może być widoczne. Istnieje możliwość, że konsolidacji kontenera na nowy udział przesyłania tego nowego udziału na nastąpiło przepełnienie gdzie umieszczane dane na dodatkowe udziały. W związku z tym może być konieczne ponowne zrównoważenie udziałów ponownie.
 
