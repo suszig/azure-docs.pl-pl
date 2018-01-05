@@ -4,8 +4,8 @@ description: "Dowiedz się, jak pracować z serwera wewnętrznej bazy danych .NE
 keywords: "usługi aplikacji, usługa aplikacji azure, aplikacji mobilnej, usługi mobilnej, wdrażanie aplikacji wdrożenia usługi azure app skali, skalowalna,"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Praca z zestawem SDK serwera zaplecza platformy .NET na potrzeby usługi Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -188,7 +188,7 @@ Jeśli masz zainstalowany zestaw SDK platformy Azure, można teraz utworzyć kon
    * W **klasa modelu** listy rozwijanej wybierz Twoje nowe DTO.
    * W **DbContext** listy rozwijanej wybierz klasę DbContext usługi mobilnej.
    * Nazwa kontrolera jest tworzona.
-4. Kliknij pozycję **Dodaj**.
+4. Kliknij pozycję **Add** (Dodaj).
 
 Projekt serwera szybkiego startu zawiera przykład prostą **TodoItemController**.
 

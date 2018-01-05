@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Zasoby poświadczeń usługi Automatyzacja Azure
 Zawiera zasób poświadczenia usługi automatyzacja [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Konfiguracje elementów Runbook i DSC może używać poleceń cmdlet, które akceptuje obiekt PSCredential uwierzytelniania lub ich może wyodrębnić nazwy użytkownika i hasła obiektu PSCredential zapewnienie niektórych aplikacja lub usługa wymaga uwierzytelnienia. Właściwości dla poświadczenia są bezpiecznie przechowywane w usłudze Automatyzacja Azure i jest dostępny w element runbook lub Konfiguracja DSC o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) działania.
@@ -81,13 +81,6 @@ W następujących przykładowych poleceniach pokazano, jak utworzyć nowe poświ
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Do utworzenia nowego zasobu poświadczeń z klasycznego portalu Azure
-1. Twoje konto usługi Automatyzacja kliknij **zasoby** w górnej części okna.
-2. W dolnej części okna kliknij **Dodaj ustawienie**.
-3. Kliknij przycisk **Dodaj poświadczenie**.
-4. W **typ poświadczeń** listy rozwijanej wybierz **poświadczenie programu PowerShell**.
-5. Ukończ pracę kreatora, a następnie kliknij pole wyboru, aby zapisać nowe poświadczenie.
 
 ## <a name="using-a-powershell-credential"></a>Używanie poświadczenia programu PowerShell
 Pobieranie zasobu poświadczeń na element runbook lub Konfiguracja DSC o **Get-AutomationPSCredential** działania. To polecenie zwróci [obiektu PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) korzystając z działania lub polecenia cmdlet, które wymaga parametru PSCredential. Można również pobrać właściwości obiektu poświadczeń można użyć pojedynczo. Obiekt ma właściwość dla nazwy użytkownika i bezpieczne hasło lub użyć **GetNetworkCredential** metodę, aby zwrócić [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) obiekt, który zapewni niezabezpieczona wersji hasła.

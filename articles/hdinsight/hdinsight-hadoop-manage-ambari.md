@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari
 
@@ -32,7 +32,7 @@ W tym dokumencie Dowiedz się jak używać interfejsu użytkownika sieci Web Amb
 
 ## <a id="whatis"></a>Co to jest Ambari?
 
-[Apache Ambari](http://ambari.apache.org) ułatwia zarządzanie Hadoop, zapewniając łatwy w użyciu interfejsu użytkownika sieci web. Można używać narzędzia Ambari tworzenia, zarządzania i monitorowania klastrów platformy Hadoop. Deweloperzy mogą integrować te możliwości w swoich aplikacjach przy użyciu [interfejsów API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) ułatwia zarządzanie Hadoop, zapewniając łatwy w użyciu interfejsu użytkownika sieci web. Ambari służy do zarządzania i monitorowania klastrów platformy Hadoop. Deweloperzy mogą integrować te możliwości w swoich aplikacjach przy użyciu [interfejsów API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Interfejs sieci Web Ambari jest udostępniana domyślnie z klastrami usługi HDInsight, które używają systemu operacyjnego Linux.
 
@@ -246,6 +246,6 @@ Następujące operacje Ambari nie są obsługiwane w usłudze HDInsight:
 
 * __Przenoszenie Usługa modułu zbierającego metryki__. Podczas wyświetlania informacji w usłudze modułu zbierającego metryki jest jedną z akcji, które są dostępne w menu Akcje usługi __modułu zbierającego Przenieś metryki__. To nie jest obsługiwane z usługą HDInsight.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak używać [interfejsu API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) z usługą HDInsight.

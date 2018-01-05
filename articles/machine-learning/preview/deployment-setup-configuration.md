@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Model konfiguracji zarządzania
 
@@ -81,7 +81,7 @@ Aby rozpocząć, należy skonfigurować środowisko wdrażania. Konfigurowanie �
 
 Po zakończeniu instalacji środowiska:
 - Zostanie wyświetlony monit logowanie do platformy Azure. Do logowania, aby otworzyć https://aka.ms/devicelogin strony i wprowadź kod podany w celu uwierzytelnienia korzystanie z przeglądarki internetowej.
-- W procesie uwierzytelniania zostanie wyświetlony monit o konta do uwierzytelniania. Ważne: Należy wybrać konto, które ma ważnej subskrypcji platformy Azure i wystarczających uprawnień do utworzenia zasobów na koncie. - zobaczy podczas logowania zostanie zakończone, informacji o subskrypcji i zostanie wyświetlony monit, czy chcesz kontynuować z wybrane konto.
+- W procesie uwierzytelniania zostanie wyświetlony monit o konta do uwierzytelniania. Ważne: Wybierz konto, które ma ważnej subskrypcji platformy Azure i wystarczających uprawnień do utworzenia zasobów w ramach konta. Podczas logowania zostanie zakończone, zobaczy informacji o subskrypcji i zostanie wyświetlony monit, czy chcesz kontynuować z wybranym kontem.
 
 ### <a name="environment-setup"></a>Konfigurowanie środowiska
 Aby rozpocząć proces instalacji, należy zarejestrować kilku dostawców środowiska, wprowadzając następujące polecenia:

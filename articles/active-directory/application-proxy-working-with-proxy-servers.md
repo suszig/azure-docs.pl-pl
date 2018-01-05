@@ -3,7 +3,7 @@ title: "Praca z istniejącym lokalnych serwerów proxy i Azure AD | Dokumentacja
 description: "Uwzględniono również sposób pracy z istniejących serwerów proxy lokalnymi."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d8573ff43d9a2d0a356cb75db3abd7e107557a4e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącym lokalnych serwerów proxy
 
@@ -182,7 +182,7 @@ Poprzedni filtru zawiera tylko żądania HTTPs i odpowiedzi z port serwera proxy
 
 Jeśli widzisz innych kodów odpowiedzi, na przykład 407 lub 502, oznacza to, że serwer proxy jest wymaganie uwierzytelniania lub nie zezwala na ruch innego powodu. W tym momencie Uwzględnij się z zespołem pomocy technicznej serwera proxy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zrozumienie łączniki serwera Proxy aplikacji usługi Azure AD](application-proxy-understand-connectors.md)
 

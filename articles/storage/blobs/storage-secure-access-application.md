@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Bezpieczny dostęp do danych aplikacji w chmurze
 
@@ -55,7 +55,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 W części tego samouczka serii aplikacji sieci web został wyświetlanie obrazów z publicznego kontenera. W tej części serii, użyj [podpisu bezpiecznego dostępu (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokenów można pobrać obrazów miniatur. Tokeny sygnatury dostępu Współdzielonego umożliwiają dostęp ograniczony kontener obiektów blob na podstawie adresu IP, protokół, interwał czasu lub praw dozwolone.
 
-W tym przykładzie korzysta z repozytorium kodu źródłowego `sasTokens` gałęzi, który został zaktualizowany kod przykładowy. Usuń istniejące wdrożenie GitHub z [usuwania źródła wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployments/source#delete). Skonfiguruj GitHub wdrożenia w aplikacji sieci web przy użyciu [konfiguracji źródła wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/source#config) polecenia.  
+W tym przykładzie korzysta z repozytorium kodu źródłowego `sasTokens` gałęzi, który został zaktualizowany kod przykładowy. Usuń istniejące wdrożenie GitHub z [usuwania źródła wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Skonfiguruj GitHub wdrożenia w aplikacji sieci web przy użyciu [konfiguracji źródła wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) polecenia.  
 
 W poniższym poleceniu `<web-app>` to nazwa aplikacji sieci web.  
 
@@ -135,7 +135,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 Poniższe klasy, właściwości i metody są używane w poprzednich zadań:
 
-|Klasy  |Właściwości| Metody  |
+|Klasa  |Właściwości| Metody  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet#Microsoft_WindowsAzure_Storage_CloudStorageAccount_CreateCloudBlobClient)        |
@@ -194,7 +194,7 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Włącz tylko protokół HTTPS
 
-Aby upewnić się, że żądania danych do i z konta magazynu są bezpieczne, można ograniczyć tylko żądania HTTPS. Zaktualizuj protokół wymagane konto magazynu przy użyciu [aktualizacja konta magazynu az](/cli/azure/storage/account#update) polecenia.
+Aby upewnić się, że żądania danych do i z konta magazynu są bezpieczne, można ograniczyć tylko żądania HTTPS. Zaktualizuj protokół wymagane konto magazynu przy użyciu [aktualizacja konta magazynu az](/cli/azure/storage/account#az_storage_account_update) polecenia.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
@@ -212,7 +212,7 @@ Teraz, wymagana jest zapewnienia bezpiecznego transferu, pojawi się następują
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W części trzech serii przedstawiono sposób bezpieczny dostęp do konta magazynu, np.:
 

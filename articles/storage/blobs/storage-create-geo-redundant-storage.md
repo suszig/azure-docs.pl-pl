@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Wysokiej dostępności danych aplikacji z usługą Azure storage
 
-W tym samouczku wchodzi w jednej serii. W tym samouczku przedstawiono sposób wysokiej dostępności danych aplikacji na platformie Azure. Po zakończeniu, masz operacji przekazywania, który pobiera obiekt blob do aplikacji konsoli .NET core [dostęp do odczytu z magazynu geograficznie nadmiarowego](../common/storage-redundancy.md#read-access-geo-redundant-storage) konta magazynu (RA-GRS). RA-GRS polega na replikowanie transakcji z serwera podstawowego w regionie pomocniczym. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym jest ostatecznie spójna. Aplikacja używa [wyłącznika](/azure/architecture/patterns/circuit-breaker.md) wzorzec, aby określić, które punktu końcowego do nawiązania połączenia. Aplikacja przełącza do dodatkowej punktu końcowego, gdy symulacji awarii.
+W tym samouczku wchodzi w jednej serii. W tym samouczku przedstawiono sposób wysokiej dostępności danych aplikacji na platformie Azure. Po zakończeniu, masz operacji przekazywania, który pobiera obiekt blob do aplikacji konsoli .NET core [dostęp do odczytu z magazynu geograficznie nadmiarowego](../common/storage-redundancy.md#read-access-geo-redundant-storage) konta magazynu (RA-GRS). RA-GRS polega na replikowanie transakcji z serwera podstawowego w regionie pomocniczym. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym jest ostatecznie spójna. Aplikacja używa [wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) wzorzec, aby określić, które punktu końcowego do nawiązania połączenia. Aplikacja przełącza do dodatkowej punktu końcowego, gdy symulacji awarii.
 
 W części jednej serii, możesz dowiedzieć się, jak:
 
@@ -109,11 +109,11 @@ Uruchamia okno konsoli i rozpocznie się aplikacja uruchomiona. Aplikacja wysył
 
 ![Uruchomieniu aplikacji konsoli](media/storage-create-geo-redundant-storage/figure3.png)
 
-W przykładowym kodzie `RunCircuitBreakerAsync` zadań w `Program.cs` plik jest używany do pobierania obrazu z konta magazynu przy użyciu [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) metody. Przed pobierania [elementu OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) jest zdefiniowany. Kontekst operacji definiuje procedury obsługi zdarzeń, wyzwalać podczas pobierania zostało ukończone pomyślnie, lub jeśli pobieranie kończy się niepowodzeniem i jest ponowną próbą.
+W przykładowym kodzie `RunCircuitBreakerAsync` zadań w `Program.cs` plik jest używany do pobierania obrazu z konta magazynu przy użyciu [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metody. Przed pobierania [elementu OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) jest zdefiniowany. Kontekst operacji definiuje procedury obsługi zdarzeń, wyzwalać podczas pobierania zostało ukończone pomyślnie, lub jeśli pobieranie kończy się niepowodzeniem i jest ponowną próbą.
 
 ### <a name="retry-event-handler"></a>Ponów próbę wykonania programu obsługi zdarzeń
 
-`OperationContextRetrying` Program obsługi zdarzeń jest wywoływana podczas pobierania obrazu nie powiedzie się i jest ustawiona, aby ponowić próbę. Jeśli osiągnięciu maksymalnej liczby ponownych prób, które są zdefiniowane w aplikacji [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania jest zmieniana na `SecondaryOnly`. Ustawienie to wymusza aplikacja próbuje pobrać obrazu z punktu końcowego dodatkowej. Ta konfiguracja ogranicza czas potrzebny na żądanie dotyczące obrazu jako podstawowy punkt końcowy nie podjęta przez nieograniczony czas.
+`OperationContextRetrying` Program obsługi zdarzeń jest wywoływana podczas pobierania obrazu nie powiedzie się i jest ustawiona, aby ponowić próbę. Jeśli osiągnięciu maksymalnej liczby ponownych prób, które są zdefiniowane w aplikacji [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) żądania jest zmieniana na `SecondaryOnly`. Ustawienie to wymusza aplikacja próbuje pobrać obrazu z punktu końcowego dodatkowej. Ta konfiguracja ogranicza czas potrzebny na żądanie dotyczące obrazu jako podstawowy punkt końcowy nie podjęta przez nieograniczony czas.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Program obsługi zdarzeń żądanie zostało ukończone
 
-`OperationContextRequestCompleted` Program obsługi zdarzeń jest wywoływana po pomyślnym zakończeniu operacji pobierania obrazu. Jeśli aplikacja używa dodatkowej punktu końcowego, aplikacja będzie później nadal używać tego punktu końcowego do 20 razy. Po 20 razy zestawów aplikacji [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do `PrimaryThenSecondary` i ponawia podstawowy punkt końcowy. Jeśli żądanie zakończy się pomyślnie, aplikacja nadal odczytywać podstawowy punkt końcowy.
+`OperationContextRequestCompleted` Program obsługi zdarzeń jest wywoływana po pomyślnym zakończeniu operacji pobierania obrazu. Jeśli aplikacja używa dodatkowej punktu końcowego, aplikacja będzie później nadal używać tego punktu końcowego do 20 razy. Po 20 razy zestawów aplikacji [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do `PrimaryThenSecondary` i ponawia podstawowy punkt końcowy. Jeśli żądanie zakończy się pomyślnie, aplikacja nadal odczytywać podstawowy punkt końcowy.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

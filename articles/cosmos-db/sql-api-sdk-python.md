@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 709a17b6d14e896fea7fce21e40a92e516e661c6
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK Python DB rozwiązania Cosmos dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -53,6 +53,9 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Informacje o wersji
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Zaktualizowana dokumentacja odwołania do bazy danych rozwiązania Cosmos Azure zamiast usługi Azure DocumentDB.
+
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Ta wersja zestawu SDK wymaga najnowszej wersji emulatora DB rozwiązania Cosmos Azure dostępne do pobrania z https://aka.ms/cosmosdb-emulator.
 
@@ -136,6 +139,7 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 
 | Wersja | Data wydania | Dacie wycofania |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |21 grudnia 2017 r. |--- |
 | [2.3.0](#2.3.0) |10 listopada 2017 r. |--- |
 | [2.2.1](#2.2.1) |2017 wrz 29 |--- |
 | [2.2.0](#2.2.0) |10 maja 2017 |--- |
@@ -163,6 +167,6 @@ Każde żądanie do rozwiązania Cosmos bazy danych przy użyciu wycofane zestaw
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat rozwiązania Cosmos bazy danych, zobacz [bazy danych programu Microsoft Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/) stronę usługi. 
 

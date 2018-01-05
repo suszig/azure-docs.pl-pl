@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Zapis do systemu plików HDFS z systemu Apache Storm w usłudze HDInsight
 
@@ -34,7 +34,7 @@ Projekt zawierający Ta topologia jest dostępny do pobrania z [https://github.c
 
 Aby skompilować ten projekt, należy następującej konfiguracji dla swojego środowiska programowania:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) lub nowszej. HDInsight w wersji 3.5 lub nowszej wymagają Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) lub nowszej. HDInsight w wersji 3.5 lub nowszej wymagają Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Aby uzyskać więcej informacji w ramach strumienia, zobacz [https://storm.apach
 
 Domyślnie Storm w usłudze HDInsight nie zawiera składniki używane do komunikacji z magazynu Azure lub usługi Data Lake Store w ścieżce Storm w HdfsBolt. Użyj następujących akcji skryptu można dodać te składniki `extlib` katalogu systemu STORM w klastrze:
 
-* Identyfikator URI skryptu:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Identyfikator URI skryptu:`https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
 * Węzły do zastosowania do: Nimbus, opiekuna
 * Parametry: Brak
 
@@ -222,7 +222,7 @@ STORM topologie działają aż do zatrzymania lub usunąć klastra. Aby zatrzyma
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz jak używać systemu Storm do zapisu do usługi Azure Storage i Azure Data Lake Store, odnajdywanie innych [Storm przykłady dla usługi HDInsight](apache-storm-example-topology.md).
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Przywracanie plików do maszyny z systemem Windows Server lub Client przy użyciu modelu wdrażania używającego usługi Resource Manager
 
@@ -33,7 +33,7 @@ W stycznia 2017 r firma Microsoft opublikowała Podgląd aktualizacji agenta MAR
 > [Stycznia 2017 aktualizacji kopia zapasowa Azure](https://support.microsoft.com/en-us/help/3216528?preview) jest wymagany, jeśli chcesz użyć błyskawicznych przywracania, aby przywrócić dane. Również dane kopii zapasowej muszą być chronione w magazynach przy ustawieniach regionalnych wymienione w artykule pomocy technicznej. Zapoznaj się [stycznia 2017 aktualizacji kopia zapasowa Azure](https://support.microsoft.com/en-us/help/3216528?preview) najbardziej aktualną listę ustawień regionalnych, obsługujących błyskawicznych przywracania. Przywracanie błyskawicznych jest **nie** dostępne dla wszystkich ustawień regionalnych.
 >
 
-Błyskawicznych Przywracanie jest dostępne do użycia w Magazyny usług odzyskiwania w portalu Azure i magazyny kopii zapasowych w klasycznym portalu. Jeśli chcesz użyć błyskawicznych przywracania, Pobierz aktualizację MARS i postępuj zgodnie z procedurami, których występuje błyskawicznych przywracania.
+Za pomocą błyskawicznych przywrócić Magazyny usług odzyskiwania w portalu Azure. Jeśli dane są przechowywane w magazyny kopii zapasowych, ich został przekonwertowany na magazyny usług odzyskiwania. Jeśli chcesz użyć błyskawicznych przywracania, Pobierz aktualizację MARS i postępuj zgodnie z procedurami, których występuje błyskawicznych przywracania.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Zastąp węzeł jednostki skali w systemie Azure stosu zintegrowane
 
@@ -28,23 +28,23 @@ W tym artykule opisano ogólny proces Zastąp komputera fizycznego (zwaną takż
 
 Poniższy diagram przepływu przedstawia ogólny proces FRU Zastąp węzeł jednostki skali całego.
 
-![Schemat blokowy procesu węzła Zamień](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Schemat blokowy procesu węzła Zamień](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Tej akcji nie może być wymagany na podstawie warunku fizycznego sprzętu.
 
 ## <a name="review-alert-information"></a>Przeglądanie informacji o alertach
 
-Jeśli węzeł jednostki skalowania nie działa, otrzymasz następujące krytyczne alerty:
+Jeśli węzeł jednostki skalowania nie działa, otrzymasz następujący alerty krytyczne:
 
 - Węzeł nie jest podłączony do kontrolera sieci
 - Węzeł jest niedostępny do umieszczania maszyny wirtualnej
 - Węzeł jednostki skalowania jest w trybie offline
 
-![Lista alertów dla jednostki skali w dół](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Lista alertów dla jednostki skali w dół](media/azure-stack-replace-node/nodedownalerts.png)
 
-Po otwarciu alert "węzeł jednostki skalowania jest w trybie offline" Opis alertu zawiera węzeł jednostki skalowania, który jest niedostępny. Dodatkowe alerty może zostać wyświetlony w specyficzne dla producenta OEM rozwiązanie monitorowania, która jest uruchomiona na hoście cyklu życia sprzętu.
+Po otwarciu **węzeł jednostki skalowania jest w trybie offline** alertu, opis alertu zawiera węzeł jednostki skalowania, który jest niedostępny. Dodatkowe alerty może zostać wyświetlony w specyficzne dla producenta OEM rozwiązanie monitorowania, która jest uruchomiona na hoście cyklu życia sprzętu.
 
-![Szczegóły alertu w trybie offline węzła](media/azure-stack-replace-node/NodeOffline.PNG)
+![Szczegóły alertu w trybie offline węzła](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Proces zmiany węzła jednostki skalowania
 
@@ -53,7 +53,7 @@ Następujące kroki służą jako ogólne omówienie procesu wymiany węzła jed
 1. Użyj [opróżnienia](azure-stack-node-actions.md#scale-unit-node-actions) akcji w celu uruchomienia trybu konserwacji węzła jednostki skalowania. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
 
    > [!NOTE]
-   > W każdym przypadku opróżnione można tylko jeden węzeł i odłączony od zasilania w tym samym czasie bez przerywania dysków SSD (bezpośrednie miejsca do magazynowania).
+   > W każdym przypadku tylko jeden węzeł można opróżnione i odłączony od zasilania w tym samym czasie bez przerywania S2D (bezpośrednie miejsca do magazynowania).
 
 2. Jeśli węzeł nadal jest włączona, należy użyć [wyłączenie](azure-stack-node-actions.md#scale-unit-node-actions) akcji. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
  
@@ -68,4 +68,4 @@ Następujące kroki służą jako ogólne omówienie procesu wymiany węzła jed
 ## <a name="next-steps"></a>Kolejne kroki
 
 - Uzyskać informacji dotyczących zastępowania wyłączania dysku fizycznego, zobacz [wymienić dysk](azure-stack-replace-disk.md). 
-- Aby dowiedzieć się, jak wymiana sprzętu z systemem innym niż wyłączania składnika, zobacz [Zastąp składnik sprzętowy](azure-stack-replace-component.md). 
+- Aby dowiedzieć się, jak wymiana sprzętu z systemem innym niż wyłączania składnika, zobacz [Zastąp składnik sprzętowy](azure-stack-replace-component.md).

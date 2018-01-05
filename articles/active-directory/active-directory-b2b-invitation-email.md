@@ -1,5 +1,5 @@
 ---
-title: "Elementy wiadomość e-mail z zaproszeniem Azure Active Directory B2B współpracy | Dokumentacja firmy Microsoft"
+title: "Elementy współpracy B2B zaproszenie — Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Azure Active Directory B2B współpracy zaproszenia szablon wiadomości e-mail"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementy współpracy B2B zaproszenie
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy współpracy B2B zaproszenie — Azure Active Directory
 
 Wiadomości e-mail z zaproszeniem jest składnikiem krytycznym, aby przenieść do partnerów na statku jako użytkownicy współpracy B2B w usłudze Azure AD. Można używać ich, aby zwiększyć zaufanie adresata. Umożliwia dodanie legalności i doświadczenia z zaznaczenie tak społecznościowych dowód do wiadomości e-mail, aby upewnić się, że odbiorca **wprowadzenie** przycisk o zaakceptowanie zaproszenia. Zaufanie jest klucza oznacza, że zmniejszyć tarcia udostępniania. A także ma być e-mail wygląda świetnie!
 
@@ -71,7 +69,7 @@ Stopki zawiera marki firmy Microsoft i umożliwia tym adresata, jeśli wiadomoś
   ![Kiedy adresat nie trzeba zrealizować zaproszenia](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

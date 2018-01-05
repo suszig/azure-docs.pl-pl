@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Konfigurowanie i Przywróć z długoterminowego przechowywania kopii zapasowych bazy danych SQL Azure
 
@@ -82,6 +82,9 @@ Możesz [skonfigurować magazyn usług odzyskiwania Azure do przechowywania auto
 12. Na **Konfiguruj** , podaj prawidłową nazwę dla nowej zasady przechowywania, zmodyfikować domyślne zasady przechowywania, zależnie od potrzeb, a następnie kliknij przycisk **OK**.
 
    ![definiowanie zasad przechowywania](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Nazwy zasad przechowywania nie zezwalaj na niektórych znaków, łącznie ze spacjami.
 
 13. Na **długoterminowego przechowywania kopii zapasowych** stron dla bazy danych, kliknij przycisk **zapisać** , a następnie kliknij przycisk **OK** do stosowania zasad długoterminowego przechowywania kopii zapasowych do wszystkich wybranych baz danych.
 
@@ -263,7 +266,7 @@ $restoredDb
 > [!NOTE]
 > W tym miejscu możesz nawiązać przywróconej bazy danych przy użyciu programu SQL Server Management Studio do wykonywania wymaganych zadań, np. wyodrębnienie bit danych z przywróconej bazy danych ma zostać skopiowany do istniejącej bazy danych lub usuń istniejącą bazę danych i zmienić nazwę przywróconej Baza danych do nazwy istniejącej bazy danych. Zobacz [punktu w czasie przywracania](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby dowiedzieć się więcej o automatycznych kopiach zapasowych generowanych przez usługi, zobacz artykuł dotyczący [automatycznych kopii zapasowych](sql-database-automated-backups.md)
 - Aby dowiedzieć się więcej o długoterminowym przechowywaniu kopii zapasowych, zobacz temat dotyczący [długoterminowego przechowywania kopii zapasowych](sql-database-long-term-retention.md)

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Zastąp składnik sprzętowy w węźle jednostki skali Azure stosu
 
 *Dotyczy: Azure stosu zintegrowane systemy*
 
-W tym artykule opisano ogólny proces Zastąp składniki sprzętowe, które są bez wyłączania. Rzeczywiste zastąpienie, które kroki będą się różnić w oparciu z dostawcą sprzętu producenta sprzętu (OEM). W dokumentacji udostępnianej przez dostawcę pola zamiennych (FRU) szczegółowy opis kroków, które są specyficzne dla systemu Azure stosu zintegrowane.
+W tym artykule opisano ogólny proces Zastąp składniki sprzętowe, które są bez wyłączania. Rzeczywiste zastąpienie, które kroki różnią się od oparte na z dostawcą sprzętu producenta sprzętu (OEM). W dokumentacji udostępnianej przez dostawcę pola zamiennych (FRU) szczegółowy opis kroków, które są specyficzne dla systemu Azure stosu zintegrowane.
 
 Następujące składniki bez wyłączania:
 
@@ -40,7 +40,7 @@ Następujące składniki bez wyłączania:
 
 Poniższy diagram przepływu przedstawia ogólny proces FRU wymiana sprzętu z systemem innym niż wyłączania części.
 
-![Diagram przepływu pokazujący składnika zastąpienia przepływu](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Diagram przepływu pokazujący składnika zastąpienia przepływu](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Tej akcji nie może być wymagany na podstawie warunku fizycznego sprzętu.
 
@@ -48,11 +48,11 @@ Poniższy diagram przepływu przedstawia ogólny proces FRU wymiana sprzętu z s
 
 ## <a name="review-alert-information"></a>Przeglądanie informacji o alertach
 
-Kondycja stosu Azure i monitorowania systemu monitoruje kondycję kart sieciowych i dysków z danymi, które są kontrolowane przez bezpośrednie miejsca do magazynowania. Nie monitoruje innych składników sprzętowych. Dla innych składników sprzętowych specyficznych dla dostawcy sprzętu rozwiązanie monitorujące, które działa na hoście cyklu życia sprzętu pojawienia się alertów.
+Kondycja stosu Azure i monitorowania systemu śledzenia stanu kart sieciowych i dysków z danymi kontrolowane przez bezpośrednie miejsca do magazynowania. Nie śledzi innych składników sprzętowych. Dla innych składników sprzętowych specyficznych dla dostawcy sprzętu rozwiązanie monitorujące, które działa na hoście cyklu życia sprzętu pojawienia się alertów.
 
 ## <a name="component-replacement-process"></a>Proces zamiany składnika
 
-Następujące kroki służą jako ogólne omówienie proces zamiany składnika. Bez odwołujących się do dokumentacji przez producentów OEM FRU nie wykonaj następujące kroki.
+W poniższych krokach przedstawiono ogólne omówienie proces zamiany składnika. Bez odwołujących się do dokumentacji przez producentów OEM FRU nie wykonaj następujące kroki.
 
 1. Użyj [opróżnienia](azure-stack-node-actions.md#scale-unit-node-actions) akcji w celu uruchomienia trybu konserwacji węzła jednostki skalowania. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
 2. Po węzeł jednostki skalowania jest w trybie konserwacji, użyj [wyłączenie](azure-stack-node-actions.md#scale-unit-node-actions) akcji. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
@@ -66,7 +66,8 @@ Następujące kroki służą jako ogólne omówienie proces zamiany składnika. 
 6. Użyj uprzywilejowanych punktu końcowego [sprawdzić stan naprawy dysku wirtualnego](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Nowe dyski danych zadania naprawy pełne magazynu może zająć kilka godzin w zależności od obciążenia systemu i zużytego miejsca.
 7. Akcja naprawy zakończy działanie, aby zweryfikować, że wszystkie aktywne alerty zostało automatycznie zamknięte.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Uzyskać informacji dotyczących zastępowania wyłączania dysku fizycznego, zobacz [wymienić dysk](azure-stack-replace-disk.md).
-- Uzyskać informacji dotyczących zastępowania na węźle fizycznym, zobacz [zamienić węzła jednostki skali](azure-stack-replace-node.md). 
+- Uzyskać informacji dotyczących zastępowania na węźle fizycznym, zobacz [zamienić węzła jednostki skali](azure-stack-replace-node.md).
+- 

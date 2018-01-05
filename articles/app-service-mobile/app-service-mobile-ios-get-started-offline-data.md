@@ -2,8 +2,8 @@
 title: "Włącz synchronizację w trybie offline z aplikacji mobilnych systemu iOS | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak używać aplikacji mobilnych w usłudze Azure App Service na potrzeby pamięci podręcznej i synchronizacji danych w trybie offline w aplikacjach systemu iOS."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Włącz synchronizację w trybie offline z aplikacji mobilnych systemu iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten samouczek obejmuje synchronizacji w trybie offline z funkcji Mobile Apps w usłudze Azure App Service dla systemu iOS. Z synchronizacji w trybie offline w użytkownicy końcowi mogą współdziałać z aplikacji mobilnej, aby wyświetlić, dodawanie lub modyfikowanie danych, nawet w przypadku, gdy mają oni połączenia sieciowego. Zmiany są przechowywane w lokalnej bazie danych. Gdy urządzenie jest w trybie online, zmiany są synchronizowane z zdalnego zaplecza.
 
 Jeśli jest to usprawnić pierwszy Mobile Apps, należy najpierw Ukończ samouczek [tworzenie aplikacji systemu iOS]. Jeśli projekt pobrany szybki start serwera nie jest używany, należy dodać pakietów rozszerzenia dostępu do danych do projektu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -163,7 +163,7 @@ Korzystając z funkcji synchronizacji w trybie offline, zdefiniuj tabel systemow
 | id | Liczba całkowita 64 |
 | Identyfikator elementu | Ciąg |
 | properties | Dane binarne |
-| Tabela | Ciąg |
+| tabela | Ciąg |
 | tableKind | Liczba całkowita 16 |
 
 
@@ -187,7 +187,7 @@ Korzystając z funkcji synchronizacji w trybie offline, zdefiniuj tabel systemow
 | id |Ciąg |
 | key |Ciąg |
 | Właściwość KeyType |Liczba całkowita 64 |
-| Tabela |Ciąg |
+| tabela |Ciąg |
 | wartość |Ciąg |
 
 ### <a name="data-table"></a>Tabela danych
@@ -201,7 +201,7 @@ Korzystając z funkcji synchronizacji w trybie offline, zdefiniuj tabel systemow
 | Tekst |Ciąg |Pole elementu zadań do wykonania |
 | CreatedAt | Date | (opcjonalnie) Mapuje **createdAt** właściwości systemu |
 | updatedAt | Date | (opcjonalnie) Mapuje **updatedAt** właściwości systemu |
-| Wersja | Ciąg | (opcjonalnie) Używane do wykrywania konfliktów, mapy wersji |
+| wersja | Ciąg | (opcjonalnie) Używane do wykrywania konfliktów, mapy wersji |
 
 ## <a name="setup-sync"></a>Należy zmienić to zachowanie synchronizacji aplikacji
 W tej sekcji możesz zmodyfikować aplikację tak, aby nie synchronizuje się na początku aplikacji lub podczas wstawiania i aktualizowania elementów. Synchronizuje tylko wtedy, gdy jest wykonywana na przycisku odświeżania gestu.
@@ -269,7 +269,7 @@ Normalne tworzenia, odczytu, aktualizacji operacji i usuwania (CRUD) na pracę a
 
 Lokalny magazyn firma Microsoft synchronizowane z serwerem, użyliśmy **MSSyncTable.pullWithQuery** metody.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [synchronizacji danych w trybie Offline w aplikacjach mobilnych]
 * [Okładce chmury: Synchronizacja w trybie Offline w usłudze Azure Mobile Services] \(jest wideo dotyczące usługi Mobile Services, ale działa synchronizacja Mobile Apps w tryb offline w podobny sposób.\)
 

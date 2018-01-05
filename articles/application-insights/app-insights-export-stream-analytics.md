@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Używać usługi Stream Analytics do przetworzenia wyeksportowane dane z usługi Application Insights
 [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) to idealne narzędzie do przetwarzania danych [wyeksportowany z usługi Application Insights](app-insights-export-telemetry.md). Analiza strumienia może pobierają dane z różnych źródeł. Go transformacji i filtrowanie danych i kierowania go do różnych sink.
@@ -76,27 +76,27 @@ Eksport ciągły zawsze generuje dane do konta usługi Azure Storage, należy na
 Zdarzenia są zapisywane do obiektu blob pliki w formacie JSON. Każdy plik może zawierać co najmniej jednego zdarzenia. Dlatego chcemy odczytuje dane zdarzenia i filtrować polami, którą chcemy udostępnić. Wszystkie rodzaje czynności, które firma Microsoft może wykonywać z danymi, ale naszego planu jest obecnie przekazać dane do usługi Power BI za pomocą usługi analiza strumienia.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Utwórz wystąpienie usługi Azure Stream Analytics
-Z [klasycznego portalu Azure](https://manage.windowsazure.com/), wybierz usługę Azure Stream Analytics i utworzyć nowe zadanie usługi Stream Analytics:
+Z [portalu Azure](https://portal.azure.com/), wybierz usługę Azure Stream Analytics i utworzyć nowe zadanie usługi Stream Analytics:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Po utworzeniu nowego zadania, należy rozwinąć jego szczegóły:
+Po utworzeniu nowego zadania, wybierz **przejdź do zasobu**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Ustawianie lokalizacji obiektu blob
+### <a name="add-a-new-input"></a>Dodaj nowe dane wejściowe
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Ustaw, aby pobrać dane wejściowe z obiektu blob z eksportu ciągłego:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Teraz musisz podstawowy klucz dostępu z konta magazynu, który wcześniej zapisany. Ustaw jako klucz konta magazynu.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Wzorzec prefiksu ścieżki zestawu
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Pamiętaj ustawienie formatu RRRR-MM-DD (Łączniki).**
 
@@ -114,33 +114,19 @@ W tym przykładzie:
 > [!NOTE]
 > Sprawdź, czy Magazyn upewnij się, że można uzyskać ścieżki prawo.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Zakończ początkowej konfiguracji
-Upewnij się, format serializacji:
+## <a name="add-new-output"></a>Dodaj nowe dane wyjściowe
+Teraz wybierz zadanie > **dane wyjściowe** > **Dodaj**.
 
-![Potwierdź i zamknąć kreatora](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Zamknij kreatora i poczekaj, aż do ukończenia instalacji.
 
-> [!TIP]
-> Polecenie przykładowe można pobrać niektórych danych. Zachowaj go jako przykład testu, aby debugować zapytania.
-> 
-> 
-
-## <a name="set-the-output"></a>Ustaw dane wyjściowe
-Wybierz swoją pracę i ustawić dane wyjściowe.
-
-![Wybierz nowy kanał, kliknij pozycję dane wyjściowe, Dodaj usługi Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Wybierz nowy kanał, kliknij pozycję dane wyjściowe, Dodaj usługi Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Podaj Twojej **konto służbowe** do autoryzacji Stream Analytics, aby uzyskać dostęp do zasobów usługi Power BI. Następnie magazynowa nazwę dla danych wyjściowych i docelowy zestaw danych z usługi Power BI i tabeli.
 
-![Trzy nazwy magazynu](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Ustawianie zapytania
 Zapytanie podlega translacji z danych wejściowych i wyjściowych.
-
-![Wybierz zadanie, a następnie kliknij przycisk zapytanie. Wklej poniższy przykład.](./media/app-insights-export-stream-analytics/180.png)
 
 Funkcja testu Aby sprawdzić, czy możesz uzyskać prawo danych wyjściowych. Nadaj przykładowych danych, które miał na stronie dane wejściowe. 
 
@@ -162,7 +148,7 @@ Wklej tego zapytania:
 
 * dane wejściowe eksportu jest alias, który firma Microsoft udostępniła do strumienia danych wejściowych
 * dane wyjściowe pbi jest alias wyjściowy, który zdefiniowanego
-* Używamy [zewnętrzne GetElements ZASTOSOWAĆ](https://msdn.microsoft.com/library/azure/dn706229.aspx) ponieważ nazwa zdarzenia jest zagnieżdżony arrray JSON. Następnie wybierz wybiera nazwę zdarzenia, wraz z licznik wystąpienia o tej nazwie w przedziale czasu. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) klauzuli grupuje elementy w okresach czasu wynoszącym 1 minutę.
+* Używamy [zewnętrzne GetElements ZASTOSOWAĆ](https://msdn.microsoft.com/library/azure/dn706229.aspx) ponieważ nazwa zdarzenia jest zagnieżdżony tablicy JSON. Następnie wybierz wybiera nazwę zdarzenia, wraz z licznik wystąpienia o tej nazwie w przedziale czasu. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) klauzuli grupuje elementy w okresach jednej minuty.
 
 ### <a name="query-to-display-metric-values"></a>Aby wyświetlić wartości metryki
 ```SQL
@@ -203,10 +189,10 @@ Wklej tego zapytania:
 
 * To zapytanie zawiera wartości bez właściwości wymiaru, w zależności od określonego wymiaru w stałej indeks w tablicy wymiaru.
 
-## <a name="run-the-job"></a>Uruchamianie zadania
+## <a name="run-the-job"></a>Uruchom zadanie
 W przeszłości, aby uruchomić zadanie z można wybrać datę. 
 
-![Wybierz zadanie, a następnie kliknij przycisk zapytanie. Wklej poniższy przykład.](./media/app-insights-export-stream-analytics/190.png)
+![Wybierz zadanie, a następnie kliknij przycisk zapytanie. Wklej poniższy przykład.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Zaczekaj, aż zadanie jest uruchomione.
 
@@ -234,7 +220,7 @@ Noam Ben Zeev pokazuje, jak można przetworzyć wyeksportowane dane przy użyciu
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Eksport ciągły](app-insights-export-telemetry.md)
 * [Szczegółowe dane modelu odwołania dla typów właściwości i wartości.](app-insights-export-data-model.md)
 * [Usługa Application Insights](app-insights-overview.md)

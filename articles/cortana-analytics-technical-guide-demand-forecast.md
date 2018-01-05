@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Podręcznik techniczny do szablonu Cortana analizy rozwiązania dla Prognoza energii
 ## <a name="overview"></a>**Omówienie**
@@ -150,7 +150,7 @@ Po uruchomieniu Generator danych, potoku rozpocznie uzyskiwanie uwodniony i ró�
     Jeden z zadania usługi analiza strumienia zapisuje nieprzetworzone dane przychodzące do magazynu obiektów blob. Po kliknięciu **magazyn obiektów Blob Azure** składnika rozwiązania z ekranu pomyślnie wdrożone rozwiązanie, a następnie kliknij przycisk **Otwórz** na prawym panelu, spowoduje to przejście do [Azure Portal](https://portal.azure.com). Wyświetlonym edytorze kliknij na **obiekty BLOB**. W panelu dalej możesz wyświetlić listę kontenerów. Polecenie **"energysadata"**. W następnym panelu, zobacz **"demandongoing"** folderu. W folderze rawdata Zobacz folderów przy użyciu nazwy, takie jak Data = 2016-01-28 itp. Jeśli widzisz tych folderów wskazuje pomyślnie jest nieprzetworzone dane są generowane na komputerze i przechowywane w magazynie obiektów blob. Powinny pojawić się pliki, które powinny mieć ograniczone rozmiary MB w tych folderach.
 2. Sprawdzenie, czy dane z bazy danych SQL Azure.
 
-    Ostatnim krokiem potoku jest zapis danych (na przykład predykcje uzyskiwane z uczenia maszynowego) do bazy danych SQL. Może być konieczne poczekaj godziny oftwo maksymalna, aby te dane są wyświetlane w bazie danych SQL. Jednym ze sposobów monitorowania, jak dużo danych jest dostępne w bazie danych SQL jest za pośrednictwem [portalu Azure](https://manage.windowsazure.com/). W lewym panelu zlokalizować bazy danych SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) i kliknij ją. Następnie odszukaj bazy danych (tj. demo123456db) i kliknij go. Na następnej stronie w obszarze **"Połącz z bazą danych"** kliknij **"Uruchom języka Transact-SQL zapytań dotyczących bazy danych SQL"**.
+    Ostatnim krokiem potoku jest zapis danych (na przykład predykcje uzyskiwane z uczenia maszynowego) do bazy danych SQL. Może być konieczne poczekaj maksymalnie dwie godziny, aby te dane są wyświetlane w bazie danych SQL. Jednym ze sposobów monitorowania, jak dużo danych jest dostępne w bazie danych SQL jest za pośrednictwem [portalu Azure](https://portal.azure.com/). W lewym panelu, zlokalizuj baz danych SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) i kliknij ją. Następnie odszukaj bazy danych (tj. demo123456db) i kliknij go. Na następnej stronie w obszarze **"Połącz z bazą danych"** kliknij **"Uruchom języka Transact-SQL zapytań dotyczących bazy danych SQL"**.
 
     W tym miejscu możesz kliknąć opcję Nowa kwerenda i zapytanie o liczbę wierszy (na przykład "select count(*) z DemandRealHourly)" wraz z rozwojem bazy danych, liczba wierszy w tabeli należy zwiększyć.)
 3. Sprawdzenie, czy dane z pulpitu nawigacyjnego usługi Power BI.
@@ -158,7 +158,7 @@ Po uruchomieniu Generator danych, potoku rozpocznie uzyskiwanie uwodniony i ró�
     Pulpit nawigacyjny aktywnej ścieżki usługi Power BI można skonfigurować do monitorowania nieprzetworzone dane przychodzące. Postępuj zgodnie z instrukcjami w sekcji "Power BI pulpitu nawigacyjnego".
 
 ## <a name="power-bi-dashboard"></a>**Pulpit nawigacyjny programu Power BI**
-### <a name="overview"></a>Omówienie
+### <a name="overview"></a>Przegląd
 W tej sekcji opisano, jak skonfigurować pulpit nawigacyjny usługi Power BI, aby wizualizować dane w czasie rzeczywistym z usługi Azure stream analytics (ścieżka gorących), a także do przewidywania wyników z Azure machine learning (ścieżka zimnych).
 
 ### <a name="setup-hot-path-dashboard"></a>Pulpit nawigacyjny aktywnej ścieżki Instalatora
@@ -167,7 +167,7 @@ Poniższe kroki ułatwiają jak do wizualizacji danych w czasie rzeczywistym dan
 1. Dodawanie danych wyjściowych usługi Power BI w Azure Stream Analytics (ASA).
 
    * Musisz postępować zgodnie z instrukcjami wyświetlanymi w [Azure Stream Analytics & usługi Power BI: pulpitu nawigacyjnego analytics w czasie rzeczywistym uzyskać wgląd w czasie rzeczywistym przesyłać strumieniowo danych](stream-analytics/stream-analytics-power-bi-dashboard.md) skonfigurować dane wyjściowe zadania usługi analiza strumienia Azure jako pulpit nawigacyjny usługi Power BI .
-   * Znajdź zadania usługi analiza strumienia w Twojej [portalu Azure](https://manage.windowsazure.com). Nazwa zadania powinna być: YourSolutionName + streamingjob"" + losowe numer + "asapbi" (tj. demostreamingjob123456asapbi).
+   * Znajdź zadania usługi analiza strumienia w Twojej [portalu Azure](https://portal.azure.com). Nazwa zadania powinna być: YourSolutionName + streamingjob"" + losowe numer + "asapbi" (tj. demostreamingjob123456asapbi).
    * Dodawanie danych wyjściowych zadania ASA usługi Power BI. Ustaw **Output Alias** jako **"PBIoutput"**. Ustaw użytkownika **nazwę zestawu danych** i **Nazwa tabeli** jako **"EnergyStreamData"**. Po dodaniu dane wyjściowe, kliknij przycisk **"Start"** w dolnej części strony, aby uruchomić zadanie usługi Stream Analytics. Należy uzyskać potwierdzenia (na przykład "Uruchamianie zadania stream analytics zakończyło się pomyślnie myteststreamingjob12345asablob").
 2. Zaloguj się do [online usługi Power BI](http://www.powerbi.com)
 

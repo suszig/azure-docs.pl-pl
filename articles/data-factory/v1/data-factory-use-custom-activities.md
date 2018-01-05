@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -112,7 +112,9 @@ Metoda zwraca słownik, który może służyć do łańcuch niestandardowych dzi
      <li>Wybierz <b>C:\ADFGetStarted</b> dla <b>lokalizacji</b>.</li>
      <li>Kliknij przycisk <b>OK</b>, aby utworzyć projekt.</li>
    </ol>
-2.Kliknij przycisk **narzędzia**, wskaż polecenie **Menedżera pakietów NuGet**i kliknij przycisk **Konsola Menedżera pakietów**.
+   
+2. Kliknij pozycję **Narzędzia**, wskaż pozycję **Menedżer pakietów NuGet**, a następnie kliknij pozycję **Konsola menedżera pakietów**.
+
 3. W konsoli Menedżera pakietów, wykonaj następujące polecenie, aby zaimportować **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell

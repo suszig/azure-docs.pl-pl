@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
 
+## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
+| Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
+| --- | --- | --- | --- | --- |
+| ReL 17 12 | [4053579], [4054517] |Aktualizacje zabezpieczeń systemu Windows 10 |4.49, 5.14 |12 grudnia 2017 r. |
+| ReL 17 12 | [4054521], [4054522], [4054523] |Tylko zabezpieczenia systemu Windows |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
+| ReL 17 12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
+| ReL 17 12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 grudnia 2017 r. |
+| ND | [4048957] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |2.67 |14 listopada 2017 r. |
+| ND | [4048959] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |3.56 |14 listopada 2017 r. |
+| ND | [4048958] |Zbiorcze informacje z systemem innym niż zabezpieczeniach listopada |4.49 |14 listopada 2017 r. |
+| ND | [4049068] |Strefa czasowa grudnia aktualizacji |2.69, 3.56, 4.49 |12 grudnia 2017 r. |
+
 ## <a name="november-guest-os"></a>Listopad systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
 | --- | --- | --- | --- | --- |
-| ReL 17 10 | [4048953] |Aktualizacje systemu Windows 10 |5.13 |14 listopada 2017 r. |
-| ReL 17 10 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2.68, 3.55, 4.48 |14 listopada 2017 r. |
-| ReL 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
-| ReL 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 listopada 2017 r. |
+| ReL 17-11 | [4048953] |Aktualizacje systemu Windows 10 |5.13 |14 listopada 2017 r. |
+| ReL 17-11 | [4048960], [4048962], [4048961] |Tylko zabezpieczenia systemu Windows |2.68, 3.55, 4.48 |14 listopada 2017 r. |
+| ReL 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 listopada 2017 r. |
+| ReL 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 listopada 2017 r. |
 | ND | [4041681] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |2.67 |10 października 2017 r. |
 | ND | [4041690] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |3.55 |10 października 2017 r. |
 | ND | [4041693] |Zbiorcze informacje z systemem innym niż zabezpieczeniach października |4.48 |10 października 2017 r. |
@@ -562,6 +574,19 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ND |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | ND |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | ND |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

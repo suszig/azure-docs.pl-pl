@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Skalowanie kodowania za pomocą zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Przegląd
 > [!IMPORTANT]
-> Upewnij się przejrzeć [omówienie](media-services-scale-media-processing-overview.md) tematu, aby uzyskać więcej informacji na temat skalowania przetwarzania tematu nośnika.
+> Upewnij się przejrzeć [omówienie](media-services-scale-media-processing-overview.md) Aby uzyskać więcej informacji na temat skalowania przetwarzania multimediów.
 > 
 > 
 
@@ -56,17 +56,7 @@ Aby zmienić typ jednostki zarezerwowane i liczba zastrzeżone jednostki przy u�
 Domyślnie co konto usługi Media Services można skalować do maksymalnie 25, kodowanie i 5 na żądanie jednostek zarezerwowanego przesyłania strumieniowego. Wyższy limit mogą żądać przez otwarcie biletu pomocy technicznej.
 
 ### <a name="open-a-support-ticket"></a>Otwórz bilet pomocy technicznej
-Aby otworzyć obsługi biletów, wykonaj następujące czynności:
-
-1. Kliknij przycisk [uzyskać pomoc techniczną](https://manage.windowsazure.com/?getsupport=true). Jeśli użytkownik nie jest zalogowany, pojawi się monit o podanie poświadczeń.
-2. Wybierz subskrypcję.
-3. Wybierz pozycję "Technical" w obszarze typu pomocy technicznej.
-4. Kliknij pozycję "Utwórz bilet".
-5. Wybierz "Azure Media Services" w liście produktów wyświetlone na następnej stronie.
-6. Wybierz opcję "Typ problemu" odpowiednią dla tego problemu.
-7. Kliknij przycisk Kontynuuj.
-8. Postępuj zgodnie z instrukcjami wyświetlanymi na następnej stronie, a następnie wprowadź szczegóły problemu.
-9. Kliknij przycisk Zatwierdź, aby otworzyć bilet.
+W portalu Azure, przejdź do [Pomoc i obsługa techniczna](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Jeśli użytkownik nie jest zalogowany na platformie Azure, monit o podanie poświadczeń.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

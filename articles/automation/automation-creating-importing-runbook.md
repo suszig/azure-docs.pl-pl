@@ -14,25 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Tworzenie lub importowanie elementu runbook automatyzacji Azure
 Można dodać elementu runbook automatyzacji Azure przez [tworzenia nowej](#creating-a-new-runbook) lub importując istniejący element runbook z pliku lub [galerię elementów Runbook](automation-runbook-gallery.md). Ten artykuł zawiera informacje na temat tworzenia i importowania elementów runbook z pliku.  Można pobrać szczegółów na uzyskiwanie dostępu do społeczności elementów runbook i modułów w [galerie elementów Runbook i modułów w automatyzacji Azure](automation-runbook-gallery.md).
 
 ## <a name="creating-a-new-runbook"></a>Tworzenie nowego elementu runbook
 Możesz utworzyć nowy element runbook w automatyzacji Azure przy użyciu jednej z portali Azure lub programu Windows PowerShell. Po utworzeniu elementu runbook można edytować je przy użyciu informacji w [przepływu pracy programu PowerShell Learning](automation-powershell-workflow.md) i [tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md).
-
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-classic-portal"></a>Aby utworzyć nowy element runbook usługi Automatyzacja Azure z klasycznego portalu Azure
-Może pracować tylko z [elementach runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) w portalu Azure.
-
-1. W klasycznym portalu Azure kliknij przycisk, **nowy**, **usługi aplikacji**, **automatyzacji**, **Runbook**, **szybkie tworzenie**.
-2. Wprowadź wymagane informacje, a następnie kliknij przycisk **Utwórz**. Nazwa elementu runbook musi zaczynać się od litery i może mieć litery, cyfry, podkreślenia i łączniki.
-3. Jeśli chcesz teraz edytować element runbook, należy kliknąć **Edytuj element Runbook**. W przeciwnym razie kliknij przycisk **OK**.
-4. Nowy element runbook jest wyświetlany na **elementów Runbook** kartę.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Aby utworzyć nowy element runbook usługi Automatyzacja Azure za pomocą portalu Azure
 1. W witrynie Azure Portal otwórz konto usługi Automation.
@@ -55,16 +47,6 @@ Można utworzyć nowy element runbook automatyzacji Azure, importując skrypt pr
 * Plik graphrunbook można importować tylko do nowego [graficznym elementem runbook](automation-runbook-types.md#graphical-runbooks), i graficznych elementów runbook można tworzyć tylko z pliku graphrunbook.
 * Plik .ps1 zawierającego przepływu pracy programu PowerShell można importować tylko do [runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Jeśli plik zawiera wiele przepływów pracy programu PowerShell, następnie import zakończy się niepowodzeniem. Należy zapisać każdego przepływu pracy do własnego pliku i zaimportować każdy osobno.
 * Plik .ps1, który nie zawiera przepływu pracy mogą być importowane do albo [runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).  Po zaimportowaniu do elementu runbook przepływu pracy programu PowerShell, następnie jest konwertowana do przepływu pracy i komentarze są uwzględnione w elemencie runbook, określania wprowadzone zmiany.
-
-### <a name="to-import-a-runbook-from-a-file-with-the-azure-classic-portal"></a>Aby zaimportować element runbook z pliku za pomocą klasycznego portalu Azure
-Poniższa procedura służy do importowania plików skryptów do automatyzacji Azure.  Należy pamiętać, że można importować tylko plik .ps1 do elementu runbook przepływu pracy programu PowerShell przy użyciu tego portalu.  Dla innych typów, musi korzystać z portalu Azure.
-
-1. W klasycznym portalu Azure, wybierz **automatyzacji** , a następnie wybierz konto automatyzacji.
-2. Kliknij przycisk **Importuj**.
-3. Kliknij przycisk **Przeglądaj w poszukiwaniu pliku** i Znajdź plik skryptu do zaimportowania.
-4. Jeśli chcesz teraz edytować element runbook, należy kliknąć **Edytuj element Runbook**. W przeciwnym razie kliknij przycisk OK.
-5. Nowy element runbook jest wyświetlany na **elementów Runbook** karty dla konta automatyzacji.
-6. Należy [opublikować elementu runbook](#publishing-a-runbook) przed jej uruchomieniem.
 
 ### <a name="to-import-a-runbook-from-a-file-with-the-azure-portal"></a>Aby zaimportować element runbook z pliku za pomocą portalu Azure
 Poniższa procedura służy do importowania plików skryptów do automatyzacji Azure.  
@@ -105,11 +87,6 @@ W następujących przykładowych poleceniach pokazano, jak zaimportować plik sk
 
 ## <a name="publishing-a-runbook"></a>Publikowanie elementu runbook
 Podczas tworzenia lub zaimportować nowy element runbook należy opublikować przed jej uruchomieniem.  Każdy element runbook w automatyzacji ma wersję roboczą i opublikowaną wersję. Opublikowana wersja jest dostępna do uruchamiania i tylko wersję roboczą można edytowane. Wersję opublikowaną nie mają wpływu żadne zmiany wprowadzone w wersji roboczej. Gdy wersja robocza powinna zostać udostępniona, należy ją opublikować, co powoduje nadpisanie wersji opublikowanej wersją roboczą.
-
-## <a name="to-publish-a-runbook-using-the-azure-classic-portal"></a>Aby opublikować element runbook przy użyciu klasycznego portalu Azure
-1. Otwórz element runbook w klasycznym portalu Azure.
-2. W górnej części ekranu kliknij **autora**.
-3. W dolnej części ekranu kliknij **publikowania** , a następnie **tak** w komunikacie weryfikacyjnym.
 
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Aby opublikować element runbook przy użyciu portalu Azure
 1. Otwórz element runbook w portalu Azure.

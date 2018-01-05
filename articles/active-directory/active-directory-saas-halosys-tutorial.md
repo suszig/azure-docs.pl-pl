@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: cfd932fa87ffd40ffc6ac96ad72ae7eac31e0b98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: jeedes
+ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Samouczek: Integracji Azure Active Directory z Halosys
 
@@ -27,7 +28,7 @@ Integracja z usługą Azure AD Halosys zapewnia następujące korzyści:
 
 - Można kontrolować w usłudze Azure AD, który ma dostęp do Halosys
 - Umożliwia użytkownikom automatycznie pobrać zalogowane do Halosys (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -63,22 +64,17 @@ Aby skonfigurować integrację usługi Azure AD Halosys, należy dodać Halosys 
 
 **Aby dodać Halosys z galerii, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
 
-3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
-
-4. Kliknij przycisk **Dodaj** w dolnej części strony.
+    
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
-
-5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
-
-    ![Aplikacje][4]
 
 6. W polu wyszukiwania wpisz **Halosys**.
 
@@ -105,101 +101,74 @@ Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z H
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w klasycznym portalu i skonfigurować logowanie jednokrotne w aplikacji Halosys.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu i skonfigurować logowanie jednokrotne w aplikacji Halosys.
 
 
 **Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Halosys, wykonaj następujące czynności:**
 
-1. W klasycznym portalu na **Halosys** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
-     
-    ![Konfigurowanie rejestracji jednokrotnej][6] 
+1. W portalu Azure na **cyklu życia SCC** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-2. Na **jak chcesz użytkownikom zalogować się na Halosys** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+    ![Konfigurowanie rejestracji jednokrotnej][4]
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_03.png) 
-
-3. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:
-
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
-
-    a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji Halosys przy użyciu następującego wzorca: `https://<company-name>.Halosys.com/client-api/api`.
-
-    b.In **adres URL identyfikatora** tekstowym, wpisz adres URL do następującego wzorca: `https://<company-name>.Halosys.com`.   
-         
-4. Na **skonfigurować logowanie jednokrotne w Halosys** kliknij przycisk **pobierania metadanych**, a następnie zapisz plik na komputerze:
-
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_05.png)
-   
-5. Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z zespołem pomocy technicznej Halosys i podaj z następujących czynności:
-
-    • Pobrany **pliku metadanych**
-    
-    • **Adres URL logowania jednokrotnego SAML**
-    
-
-6. W klasycznym portalu, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**.
-    
-    ![Azure AD rejestracji jednokrotnej][10]
-
-7. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
-    ![Azure AD rejestracji jednokrotnej][11]
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+
+3. Na **Halosys domeny i adres URL** sekcji, wykonaj następujące czynności:
+    1. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
+
+    2. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:
+    | |
+    |--|--|
+    | `https://bs1.hs.com/<entity>`|
+    | `https://lifecycle.hs.com/<entity>`|
+    
+    > [!NOTE] 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta cyklu życia SCC](mailto:lifecycle.support@scc.com) uzyskać te wartości. 
+         
+4. Na **SAML certyfikat podpisywania** wybierz opcję **XML metadanych** w obszarze **Pobierz**, a następnie zapisz plik metadanych na komputerze.
+   
+5. Aby uzyskać rejestracji jednokrotnej skonfigurowana dla aplikacji, skontaktuj się z zespołem pomocy technicznej Halosys i podaj z następujących czynności:
+
+  * Pobrany **pliku metadanych**
+  * **Adres URL logowania jednokrotnego SAML**
+    
+
+  >[!NOTE]
+  >Logowanie jednokrotne musi zostać włączona przez zespół pomocy technicznej Halosys.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-W tej sekcji utworzysz użytkownika testowego w klasycznym portalu o nazwie Simona Britta.
+W tej sekcji utworzysz użytkownika testowego, w portalu o nazwie Simona Britta.
 
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_09.png) 
+    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
 
-2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+    
+    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
 
-3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
+ 
+    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_03.png) 
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
+ 
+    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
 
-4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj następujące kroki: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+    d. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
-    a. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
-
-    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
-
-    c. Kliknij przycisk **Dalej**.
-
-6.  Na **profilu użytkownika** okna dialogowego wykonaj następujące kroki: ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
-
-    a. W **imię** pole tekstowe, typ **Britta**.  
-
-    b. W **nazwisko** pole tekstowe, typ **Simona**.
-
-    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-
-    d. W **roli** listy, wybierz **użytkownika**.
-
-    e. Kliknij przycisk **Dalej**.
-
-7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
-
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_07.png) 
-
-8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
-
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-Halosys-tutorial/create_aaduser_08.png) 
-
-    a. Zanotuj wartość **nowe hasło**.
-
-    b. Kliknij przycisk **Complete** (Zakończ).   
-
+    d. Kliknij przycisk **Utwórz**.
 
 
 ### <a name="creating-a-halosys-test-user"></a>Tworzenie użytkownika testowego Halosys
@@ -215,33 +184,34 @@ W tej sekcji można włączyć Simona Britta do udostępnienia jej Halosys za po
 
 **Aby przypisać Simona Britta Halosys, wykonaj następujące czynności:**
 
-1. W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje.**
 
     ![Przypisz użytkownika][201] 
 
 2. Na liście aplikacji zaznacz **Halosys**.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_50.png) 
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-3. W menu u góry kliknij **użytkowników**.
+    ![Przypisz użytkownika][202] 
+
+4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
     ![Przypisz użytkownika][203]
 
-4. Na liście użytkowników wybierz **Simona Britta**.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
-5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
+6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
-    ![Przypisz użytkownika][205]
-
+7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
 W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Halosys w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Halosys.
+Po kliknięciu kafelka Halosys w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Halosys. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -261,6 +231,8 @@ Po kliknięciu kafelka Halosys w panelu dostępu użytkownik powinien pobrać au
 
 [200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
+ 

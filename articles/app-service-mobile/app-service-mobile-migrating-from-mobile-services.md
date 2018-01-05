@@ -3,8 +3,8 @@ title: "Migracja z usług mobilnych do aplikacji mobilnej usługi aplikacji"
 description: "Dowiedz się, jak łatwo przeprowadzić migrację aplikacji usługi Mobile Services do aplikacji usługi Mobile App Service"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Migracji istniejącej usługi mobilnej Azure w usłudze Azure App Service
 Z [ogólnej dostępności usługi Azure App Service], lokacji usług Azure Mobile Services można łatwo migracji w miejscu, aby korzystać ze wszystkich funkcji usługi Azure App Service.  W tym dokumencie opisano, czego można oczekiwać podczas migracji lokacji z usług Azure Mobile Services w usłudze Azure App Service.
@@ -81,7 +81,7 @@ Jako punkt początkowy zaleca się następujące poziomy:
 |:--- |:--- |
 | Bezpłatna |Bezpłatna F1 |
 | Podstawowa |B1 Basic |
-| Standardowa |Standardowa S1 |
+| Standardowa (Standard) |Standardowa S1 |
 
 Brak dużą elastyczność w wyborze prawo warstwę cenową dla aplikacji.  Zapoznaj się [App Service — ceny] szczegółowe informacje o cenach nowej usługi aplikacji.
 

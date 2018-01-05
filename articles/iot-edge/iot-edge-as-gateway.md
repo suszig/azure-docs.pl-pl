@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>W jaki sposób urządzenia IoT może służyć jako brama - preview
 
@@ -23,7 +23,7 @@ Celem bramy w rozwiązania IoT jest przeznaczony do rozwiązania i łączenie ur
 Istnieją trzy wzorce dla jako bramy przy użyciu urządzenia IoT: przezroczyste, protokołu, tłumaczenia i translację tożsamości:
 * **Przezroczysty** — urządzenia, które teoretycznie można połączyć się z Centrum IoT można zamiast tego łączenie się z urządzeniem bramy. Oznacza to, że podrzędne urządzenia ma własną tożsamość Centrum IoT i korzystania z protokołów HTTP MQTT lub AMQP. Brama po prostu przekazuje komunikację między urządzeniami a Centrum IoT. Urządzenia są wie, że komunikują się w chmurze za pośrednictwem bramy i interakcji z urządzeniami w Centrum IoT użytkownik nie zna urządzenia bramy pośredniej. W związku z tym bramy jest niewidoczny. Zapoznaj się [utworzyć przezroczystego bramy] [ lnk-iot-edge-as-transparent-gateway] porad dla szczegółowych informacji na temat używania urządzenia IoT jako przezroczysty bramy.
 * **Protokół tłumaczenia** — urządzenia, które nie obsługują MQTT AMQP i HTTP umożliwia wysyłanie danych do Centrum IoT urządzenia bramy. Brama jest zrozumienie protokołu używany przez urządzenia podrzędne; jednak jest tylko urządzenia, które ma tożsamość w Centrum IoT. Wszystkie informacje wygląda ona pochodzi jedno urządzenie, bramy. Oznacza to, że podrzędne urządzeń należy osadzić dodatkowe informacje identyfikacyjne w ich komunikatach, jeśli chcesz, aby aplikacje w chmurze przeglądanie informacji o danych na podstawie na urządzenie. Ponadto Centrum IoT w nim elementów podstawowych, takich jak dwie i metody są dostępne tylko dla urządzenie bramy nie podrzędne urządzeń.
-* **Tłumaczenie tożsamości** — urządzenia, których nie można nawiązać połączenia z Centrum IoT łączyć się urządzenie bramy, która zapewnia Centrum IoT tożsamości i protokół tłumaczenia imieniu podrzędne urządzeń. Brama jest zrozumienie protokół używany przez urządzenia podrzędne, podaj je tożsamości i przetłumaczyć elementów podstawowych Centrum IoT. Urządzenia podrzędne są wyświetlane w Centrum IoT jako najwyższej jakości urządzeniami przy użyciu twins i metod. Użytkownik może interakcyjnie urządzeń w Centrum IoT jest nie rozpoznaje urządzenia bramy pośredniej.
+* **Tłumaczenie tożsamości** — urządzenia, których nie można nawiązać połączenia z Centrum IoT łączyć się urządzenie bramy, która zapewnia Centrum IoT tożsamości i protokół tłumaczenia imieniu podrzędne urządzeń. Brama jest zrozumienie protokół używany przez urządzenia podrzędne, podaj je tożsamości i przetłumaczyć elementów podstawowych Centrum IoT. Urządzenia podrzędne są wyświetlane w Centrum IoT jako najwyższej jakości urządzeniami przy użyciu twins i metod. Użytkownik mogą współdziałać z urządzeniami w Centrum IoT i nie rozpoznaje urządzenia bramy pośredniej.
 
 ![Diagramy wzorców bramy][1]
 
@@ -49,9 +49,9 @@ W tym miejscu jest szybkie cheat arkusz, który porównuje podstawowych Centrum 
 | Bezpośrednie metod i komunikaty chmury do urządzenia | Chmury mogą indywidualnie adresów każdego podłączonego urządzenia | Chmury można usunąć tylko z urządzeniem bramy | Chmury mogą indywidualnie adresów każdego podłączonego urządzenia |
 | [Limity Centrum IoT i przydziały][lnk-iothub-throttles-quotas] | Zastosuj do każdego urządzenia | Zastosuj z urządzeniem bramy | Zastosuj do każdego urządzenia |
 
-Gdy za pomocą wzorca nieprzezroczyste bramy wszystkich urządzeń łączących się za pośrednictwem tej bramy współużytkują tę samą kolejkę chmury do urządzenia, który może zawierać maksymalnie 50 wiadomości. Wynika, że wzorzec nieprzezroczyste bramy należy używać, tylko wtedy, gdy tylko kilka urządzeń jest nawiązywane za pośrednictwem bramy każdego pola i ich ruch z chmury do urządzenia jest niska.
+Gdy za pomocą wzorca nieprzezroczyste bramy (tłumaczenia protokołów) wszystkich urządzeń łączących się za pośrednictwem tej bramy współużytkują tę samą kolejkę chmury do urządzenia, który może zawierać maksymalnie 50 wiadomości. Wynika, że wzorzec nieprzezroczyste bramy należy używać, tylko wtedy, gdy tylko kilka urządzeń jest nawiązywane za pośrednictwem bramy każdego pola i ich ruch z chmury do urządzenia jest niska.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Użyj urządzenia IoT jako [przezroczysty bramy][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md

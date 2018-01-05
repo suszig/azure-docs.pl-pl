@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure wersji systemu operacyjnego gościa i zgodność pakietu SDK
 Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego gościa Azure wersje usługi w chmurze. Informacje te pomagają sobie planowanie uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli konfigurujesz role do użycia *automatyczne* aktualizacji systemu operacyjnego gościa, zgodnie z opisem w [ustawienia aktualizacji systemu operacyjnego gościa Azure][Azure Guest OS Update Settings], nie jest istotne, aby odczytać tę stronę.
@@ -42,6 +42,10 @@ Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego g
 Nie wiesz, o jaką systemu operacyjnego gościa jest lub jak systemu operacyjnego gościa wersje robocze? Odczyt [to](#how-it-works) sekcji.
 
 ## <a name="news-updates"></a>Wiadomości
+
+###### <a name="january-4-2018"></a>**4 stycznia 2018**
+Wydała grudnia systemu operacyjnego gościa.
+
 ###### <a name="december-14-2017"></a>**14 grudnia 2017 r.**
 Wydała listopada systemu operacyjnego gościa.
 
@@ -69,12 +73,6 @@ Wydała czerwca systemu operacyjnego gościa.
 ###### <a name="june-16-2017"></a>**16 czerwca 2017 r.**
 Wdrożenie systemu operacyjnego gościa czerwca uruchamia 16 czerwca i ma planowanego zlecenia lipca 11.
 
-###### <a name="june-5-2017"></a>**5 czerwca 2017 r.**
-Może wydała systemu operacyjnego gościa.
-
-###### <a name="may-17-2017"></a>**17 maja 2017 r.**
-Z powodu błędu zabezpieczeń, możemy wyłączania następujące grudnia 2016 i stycznia 2017 r poszczególnych wersji systemu operacyjnego, które nie mają [rozwiązać] z portalu: WA — GOŚCIA — systemu operacyjnego — 5.4_201612 — WA 01, — GOŚCIA — systemu operacyjnego — 4.39_201612-01, WA — GOŚCIA — systemu operacyjnego — 3.46_201612-01, WA-GOŚCIA-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>Wersje
 ## <a name="family-5-releases"></a>Zwalnia rodziny 5
@@ -90,8 +88,9 @@ Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-5.14_201712-01 |4 stycznia 2018 |Post 5.16 |TBD |
 | WA-GOŚCIA-OS-5.13_201711-01 |14 grudnia 2017 r. |Post 5.15 |TBD |
-| WA-GOŚCIA-OS-5.12_201710-02 |8 listopada 2017 r. |Post 5.14 |TBD |
+|~~WA-GOŚCIA-OS-5.12_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GOŚCIA-OS-5.11_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.10_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-5.9_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -113,8 +112,9 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-4.49_201712-01 |4 stycznia 2018 |Post 4.51 |TBD |
 | WA-GOŚCIA-OS-4.48_201711-01 |14 grudnia 2017 r. |Post 4.50 |TBD |
-| WA-GOŚCIA-OS-4.47_201710-02 |8 listopada 2017 r. |Post 4.49 |TBD |
+|~~WA-GOŚCIA-OS-4.47_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GOŚCIA-OS-4.46_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.45_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-4.44_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -136,8 +136,9 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-3.56_201712-01 |4 stycznia 2018 |Post 3.58 |TBD |
 | WA-GOŚCIA-OS-3.55_201711-01 |14 grudnia 2017 r. |Post 3.57 |TBD |
-| WA-GOŚCIA-OS-3.54_201710-02 |8 listopada 2017 r. |Post 3.56 |TBD |
+|~~WA-GOŚCIA-OS-3.54_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GOŚCIA-OS-3.53_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.52_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-3.51_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -159,8 +160,9 @@ Zainstalowany program .NET framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-2.69_201712-01 |4 stycznia 2018 |Post 2.71 |TBD |
 | WA-GOŚCIA-OS-2.68_201711-01 |14 grudnia 2017 r. |Post 2.70 |TBD |
-| WA-GOŚCIA-OS-2.67_201710-02 |8 listopada 2017 r. |Post 2,69 |TBD |
+|~~WA-GOŚCIA-OS-2.67_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
 |~~WA-GOŚCIA-OS-2.66_201709-01~~ |6 października 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.65_201708-01~~ |24 sierpnia 2017 r. |14 grudnia 2017 r. |TBD |
 |~~WA-GOŚCIA-OS-2.64_201707-01~~ |3 sierpnia 2017 r. |8 listopada 2017 r. |TBD |
@@ -246,4 +248,4 @@ Zasady obsługi i wycofania systemu operacyjnego gościa jest wyjaśniono [tutaj
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[rozwiązać]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Jak używać zestawu SDK usługi Azure Mobile Apps Node.js
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -320,9 +320,9 @@ Większość ustawień w *azureMobile.js* plik ma odpowiednik ustawienia aplikac
 
 | Ustawienia aplikacji | *azureMobile.js* ustawienie | Opis | Prawidłowe wartości |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nazwa aplikacji |Ciąg |
+| **MS_MobileAppName** |name |Nazwa aplikacji |ciąg |
 | **MS_MobileLoggingLevel** |Logging.level |Poziom minimalna dziennika komunikatów do zarejestrowania |błąd, ostrzeżenie, informacje o verbose, debug, niemądre |
-| **MS_DebugMode** |Debugowania |Włącz lub wyłącz tryb debugowania |wartość true, false |
+| **MS_DebugMode** |debuguj |Włącz lub wyłącz tryb debugowania |wartość true, false |
 | **MS_TableSchema** |Data.Schema |Domyślna nazwa schematu dla tabel SQL |ciąg (domyślne: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Włącz lub wyłącz tryb debugowania |wartość true, false |
 | **MS_DisableVersionHeader** |Wersja (Ustaw do niezdefiniowanego) |Wyłącza nagłówka X-ZUMO-Server-Version |wartość true, false |
@@ -797,7 +797,7 @@ Aplikacje środowiska node.js mają dostęp do szeroką gamę narzędzi diagnost
 * CreatedAt
 * updatedAt
 * usunięte
-* Wersja
+* wersja
 
 Operacje tabeli za pomocą edytora usługi aplikacji nawet można edytować. Po kliknięciu **łatwe tabel** w ustawieniach wewnętrznej bazy danych lokacji można Dodawanie, modyfikowanie lub usuwanie tabeli. Można również wyświetlić dane w tabeli.
 
@@ -827,7 +827,7 @@ Azure portal umożliwia edytowanie plików skryptów zaplecza Node.js w edytorze
 
 1. W bloku zaplecza aplikacji mobilnej, kliknij **wszystkie ustawienia** > albo **łatwe tabel** lub **łatwe interfejsów API**, kliknij tabelę lub interfejsu API, a następnie kliknij przycisk **edytowanie skryptu**. Plik skryptu jest otwarty w edytorze usługi aplikacji.
 
-    ![Edytor usługi aplikacji](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![Edytor usługi App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Wprowadź zmiany w pliku kodu w edytorze online. Zmiany zostaną zapisane automatycznie podczas pisania.
 
 <!-- Images -->

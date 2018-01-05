@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Dodawanie lub zmienianie administratorów subskrypcji platformy Azure
 
@@ -40,9 +40,11 @@ Aby zapewnić lepszą kontrolę i uprościć zarządzanie dostępem, zaleca się
 Aby dodać osobę administratora dla subskrypcji platformy Azure usługi administracji, nadanie im rolę właściciela RBAC do subskrypcji. Rola właściciela można zarządzać zasobów w subskrypcji przypisany i nie ma uprawnień dostępu do innych subskrypcji.
 
 1. Odwiedź stronę [ **subskrypcje** w portalu Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Wybierz subskrypcję, przyznanie dostępu.
-1. Wybierz **(IAM) kontroli dostępu** w menu.
-1. Wybierz **dodać** > **roli** > **właściciela**. Wpisz adres e-mail użytkownika, aby dodać jako właściciela, wybierz użytkownika, a następnie wybierz **zapisać**.
+2. Wybierz subskrypcję, którą chcesz przyznać dostęp.
+3. Wybierz **(IAM) kontroli dostępu** w menu.
+4. W **roli** wybierz opcję **właściciela**. 
+5. W **przypisany dostęp** wybierz opcję **użytkownika usługi Azure AD, grupy lub aplikacji**. 
+6. W **wybierz** wpisz adres e-mail użytkownika, które chcesz dodać jako właściciela. Wybierz użytkownika, a następnie wybierz **zapisać**.
 
     ![Zrzut ekranu pokazujący rolę właściciela wybrane](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

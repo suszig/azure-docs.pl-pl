@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Rozszerzenie diagnostycznych Linux służy do monitorowania, metryki i dzienniki
 
@@ -127,13 +127,17 @@ Ten zestaw informacji o konfiguracji zawiera poufne informacje, które powinny b
 }
 ```
 
-Nazwa | Wartość
+Name (Nazwa) | Wartość
 ---- | -----
 storageAccountName | Nazwa konta magazynu, w którym dane są zapisywane przez rozszerzenie.
 storageAccountEndPoint | (opcjonalnie) Punkt końcowy identyfikowanie chmury, w której istnieje konto magazynu. Jeśli to ustawienie jest nieobecne, LAD domyślnie chmurze publicznej Azure `https://core.windows.net`. Aby korzystać z konta magazynu platformy Azure w Niemczech, Azure dla instytucji rządowych lub chińskiej wersji platformy Azure, w związku z tym Ustaw tę wartość.
 storageAccountSasToken | [Tokenu sygnatury dostępu Współdzielonego konta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) usług obiektów Blob i tabeli (`ss='bt'`), mające zastosowanie do kontenerów i obiektów (`srt='co'`), która przyznaje dodać, tworzenie listy, aktualizacji i uprawnienia do zapisu (`sp='acluw'`). Czy *nie* zawierać wiodących znak zapytania (?).
 mdsdHttpProxy | (opcjonalnie) Wymagane do włączenia rozszerzenia do nawiązania połączenia z określonego konta magazynu i punktu końcowego informacji serwera proxy HTTP.
 sinksConfig | (opcjonalnie) Szczegóły dotyczące alternatywnych miejsc docelowych, do których mogą być dostarczane metryk i zdarzeń. W poniższych sekcjach opisano konkretne szczegółowe informacje o każdym ujścia danych obsługiwane przez rozszerzenie.
+
+
+> [!NOTE]
+> W przypadku wdrażania rozszerzeń z szablonem wdrożenia usługi Azure, konta magazynu i tokenu sygnatury dostępu Współdzielonego musi wcześniej utworzony i następnie przekazywane do szablonu. Nie można wdrożyć maszyny Wirtualnej, konta magazynu i skonfigurować rozszerzenia w jednym szablonie. Tworzenie tokenu sygnatury dostępu Współdzielonego, w ramach szablonu nie jest obecnie obsługiwane.
 
 Można łatwo utworzyć wymagany token sygnatury dostępu Współdzielonego za pośrednictwem portalu Azure.
 
@@ -491,7 +495,7 @@ PercentFreeInodes | Wartość procentowa węzłów i nieużywanych
 PercentUsedInodes | Wartość procentowa przydzielonych (w użyciu) węzły i sumowane przez wszystkie systemy plików
 BytesReadPerSecond | Bajtów odczytanych na sekundę
 BytesWrittenPerSecond | Bajtów zapisanych na sekundę
-BytesPerSecond | Bajty odczytu lub zapisu na sekundę
+Bajty na sekundę | Bajty odczytu lub zapisu na sekundę
 ReadsPerSecond | Operacje odczytu na sekundę
 WritesPerSecond | Zapis operacji na sekundę
 TransfersPerSecond | Operacje odczytu lub zapisu na sekundę
@@ -513,7 +517,7 @@ AverageTransferTime | Średnia liczba sekund na operację
 AverageDiskQueueLength | Średnia liczba operacji w kolejce dysku
 ReadBytesPerSecond | Liczba bajtów odczytanych na sekundę
 WriteBytesPerSecond | Liczba bajtów zapisanych na sekundę
-BytesPerSecond | Liczba bajtów odczytywanych lub zapisywanych na sekundę
+Bajty na sekundę | Liczba bajtów odczytywanych lub zapisywanych na sekundę
 
 Zagregowane wartości na wszystkich dyskach można uzyskać przez ustawienie `"condition": "IsAggregate=True"`. Aby uzyskać informacje dotyczące określonego urządzenia (na przykład/dev/sdf1), należy ustawić `"condition": "Name=\\"/dev/sdf1\\""`.
 
@@ -699,7 +703,7 @@ Tej migawki sesji Eksploratora usługi Microsoft Azure Storage jest wyświetlana
 
 Zobacz odpowiedniego [dokumentacji EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) aby nauczyć się korzystać komunikaty opublikowane do punktu końcowego EventHubs.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Tworzenie metryki alertów w [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) dla metryki zbierania.
 * Utwórz [monitorowania wykresy](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) dla Twojego metryki.

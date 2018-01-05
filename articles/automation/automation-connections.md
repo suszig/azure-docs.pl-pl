@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Trwałe połączenie z usługi Automatyzacja Azure
 
@@ -71,14 +71,6 @@ W poniższej tabeli funkcji służy do połączenia w elemencie runbook Python2 
 3. Kliknij przycisk **dodać połączenie** w górnej części bloku.
 4. W **typu** listy rozwijanej wybierz typ połączenia, którego chcesz utworzyć. Formularz przedstawia właściwości dla tego typu.
 5. Wypełnij formularz, a następnie kliknij przycisk **Utwórz** można zapisać nowego połączenia.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Aby utworzyć nowe połączenie za pomocą klasycznego portalu Azure
-
-1. Twoje konto usługi Automatyzacja kliknij **zasoby** w górnej części okna.
-2. W dolnej części okna kliknij **Dodaj ustawienie**.
-3. Kliknij przycisk **Dodaj połączenie**.
-4. W **typ połączenia** listy rozwijanej wybierz typ połączenia, którego chcesz utworzyć.  Kreator przedstawi właściwości dla tego typu.
-5. Ukończ pracę kreatora, a następnie kliknij pole wyboru, aby zapisać nowe połączenie.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Aby utworzyć nowe połączenie za pomocą środowiska Windows PowerShell
 
@@ -154,7 +146,7 @@ Poniższy przykład przedstawia sposób uwierzytelniania przy użyciu połączen
     runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
     azure_credential = get_automation_runas_credential(runas_connection)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przegląd [łącza w tworzeniu graficznego](automation-graphical-authoring-intro.md#links-and-workflow) sposób bezpośredni i sterowanie przepływem logikę w elementach runbook.  
 

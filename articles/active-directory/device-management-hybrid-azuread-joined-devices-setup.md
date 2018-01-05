@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Konfigurowanie hybrydowego urządzeń przyłączonych do usługi Azure Active Directory
 
@@ -32,11 +32,12 @@ Jeśli masz w lokalnym środowisku Active Directory i chcesz przyłączyć urzą
 
 Przed rozpoczęciem konfigurowania urządzeń usługi Azure AD przyłączone do hybrydowych w danym środowisku, należy zapoznać się z obsługiwanych scenariuszach i ograniczeniach.  
 
+Jeśli używasz [narzędzie przygotowywania systemu (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), upewnij się, tworzenie obrazów z instalacji systemu Windows, która nie została jeszcze zarejestrowana z usługą Azure AD.
+
 Aby zwiększyć czytelność opisy, w tym temacie używa następujących termin: 
 
 - **Urządzenia z systemem Windows bieżącego** -określenie to odnosi się do urządzeń przyłączonych do domeny z systemem Windows 10 lub Windows Server 2016.
 - **Urządzenia z systemem Windows niższego poziomu** -określenie to odnosi się do wszystkich **obsługiwane** przyłączonych do domeny urządzenia z systemem Windows, które nie są uruchomione systemu Windows 10 ani Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Bieżący urządzeń z systemem Windows
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Umożliwia zachowanie skojarzenia między konta komputera w lokalnej usłudze Active Directory (AD) i obiekt urządzenia w usłudze Azure AD. 
 - Umożliwia urządzeniu innych powiązanych funkcji, takich jak Windows Hello dla firm.
 
+Upewnij się, że następujące adresy URL są dostępne z komputerów w sieci organizacji rejestrację komputerów z usługą Azure AD:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.Login.microsoftonline.com
+
+Jeśli w Twojej organizacji wymaga dostępu do Internetu za pośrednictwem serwera proxy ruchu wychodzącego, musi implementować autowykrywania serwera Proxy sieci Web (WPAD) umożliwia komputerom z systemem Windows 10 można zarejestrować się w usłudze Azure AD.
 
 
 ## <a name="configuration-steps"></a>Kroki konfiguracji
@@ -574,7 +584,7 @@ Można sprawdzić pomyślnie przyłączone do urządzeń w Twojej organizacji za
 
 Dane wyjściowe tego polecenia cmdlet zawierają urządzeń, które są zarejestrowane i połączony z usługą Azure AD. Aby uzyskać wszystkie urządzenia, należy użyć **— wszystkie** parametr, a następnie przeprowadź filtrowanie ich przy użyciu **deviceTrustType** właściwości. Przyłączony do domeny urządzenia mają wartość **przyłączonych do domeny**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](device-management-introduction.md)
 

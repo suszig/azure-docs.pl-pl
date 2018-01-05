@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Skonfigurowane, zrozumieć, jak moduły krawędzi IoT mogą być używane i ponownie - preview
 
@@ -96,10 +96,10 @@ Warunek może być warunki obsługiwane przez [język zapytań Centrum IoT] [ ln
 
 Obiekt sink może być jedną z następujących czynności:
 
-| obiekt sink | Opis |
+| Ujście | Opis |
 | ---- | ----------- |
 | `$upstream` | Wysyła komunikat do Centrum IoT |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Wyślij wiadomość do wprowadzania `{input}` modułu`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Wyślij wiadomość do wprowadzania `{input}` modułu`{moduleId}` |
 
 Należy pamiętać, że Centrum krawędzi zapewnia na najmniej jednokrotne gwarancje, co oznacza, że komunikaty będą przechowywane lokalnie w przypadku trasy nie może dostarczyć wiadomości do jego odbioru, np. Centrum krawędzi nie może połączyć się Centrum IoT lub moduł docelowy nie jest połączona.
 
@@ -195,24 +195,24 @@ Dwie modułu dla agenta krawędzi jest nazywany `$edgeAgent` i koordynuje komuni
 
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| Atrybut schemaVersion | Musi być "1.0" | Tak |
-| Runtime.Type | Musi być "docker" | Tak |
-| runtime.settings.minDockerVersion | Wartość minimalna wersja platformy Docker wymaganych przez ten manifest wdrażania | Tak |
+| Atrybut schemaVersion | Musi być "1.0" | Yes |
+| Runtime.Type | Musi być "docker" | Yes |
+| runtime.settings.minDockerVersion | Wartość minimalna wersja platformy Docker wymaganych przez ten manifest wdrażania | Yes |
 | runtime.settings.loggingOptions | Stringified JSON, zawierające opcje rejestrowania dla kontenera agenta krawędzi. [Opcje rejestrowania platformy docker][lnk-docker-logging-options] | Nie |
-| systemModules.edgeAgent.type | Musi być "docker" | Tak |
-| systemModules.edgeAgent.settings.image | Identyfikator URI agenta krawędzi obrazu. Krawędź agent nie jest obecnie mogli automatycznie zaktualizowana. | Tak |
+| systemModules.edgeAgent.type | Musi być "docker" | Yes |
+| systemModules.edgeAgent.settings.image | Identyfikator URI agenta krawędzi obrazu. Krawędź agent nie jest obecnie mogli automatycznie zaktualizowana. | Yes |
 | systemModules.edgeAgent.settings.createOptions | Stringified JSON, zawierające opcje tworzenia kontenera agenta krawędzi. [Opcje tworzenia docker][lnk-docker-create-options] | Nie |
 | systemModules.edgeAgent.configuration.id | Identyfikator wdrożenia, które wdrożyć ten moduł. | Zostało to określone przez Centrum IoT, po zastosowaniu tego manifestu przy użyciu wdrożenia. Nie jest częścią manifest wdrażania. |
-| systemModules.edgeHub.type | Musi być "docker" | Tak |
-| systemModules.edgeHub.status | Musi być "uruchomiona" | Tak |
-| systemModules.edgeHub.restartPolicy | Musi być "zawsze" | Tak |
-| systemModules.edgeHub.settings.image | Identyfikator URI obrazu Centrum krawędzi. | Tak |
+| systemModules.edgeHub.type | Musi być "docker" | Yes |
+| systemModules.edgeHub.status | Musi być "uruchomiona" | Yes |
+| systemModules.edgeHub.restartPolicy | Musi być "zawsze" | Yes |
+| systemModules.edgeHub.settings.image | Identyfikator URI obrazu Centrum krawędzi. | Yes |
 | systemModules.edgeHub.settings.createOptions | Stringified JSON, zawierające opcje tworzenia kontenera Centrum krawędzi. [Opcje tworzenia docker][lnk-docker-create-options] | Nie |
 | systemModules.edgeHub.configuration.id | Identyfikator wdrożenia, które wdrożyć ten moduł. | Zostało to określone przez Centrum IoT, po zastosowaniu tego manifestu przy użyciu wdrożenia. Nie jest częścią manifest wdrażania. |
-| moduły. {moduleId} .version | Zdefiniowane przez użytkownika ciąg reprezentujący wersję tego modułu. | Tak |
-| moduły. .type {moduleId} | Musi być "docker" | Tak |
-| moduły. .restartPolicy {moduleId} | {"nigdy" \| "-nie powiodło się" \| "na — zła" \| "zawsze"} | Tak |
-| moduły. .settings.image {moduleId} | Identyfikator URI do obrazu modułu. | Tak |
+| moduły. {moduleId} .version | Zdefiniowane przez użytkownika ciąg reprezentujący wersję tego modułu. | Yes |
+| moduły. .type {moduleId} | Musi być "docker" | Yes |
+| moduły. .restartPolicy {moduleId} | {"nigdy" \| "-nie powiodło się" \| "na — zła" \| "zawsze"} | Yes |
+| moduły. .settings.image {moduleId} | Identyfikator URI do obrazu modułu. | Yes |
 | moduły. .settings.createOptions {moduleId} | Stringified JSON, zawierające opcje tworzenia kontenera modułu. [Opcje tworzenia docker][lnk-docker-create-options] | Nie |
 | moduły. .configuration.id {moduleId} | Identyfikator wdrożenia, które wdrożyć ten moduł. | Zostało to określone przez Centrum IoT, po zastosowaniu tego manifestu przy użyciu wdrożenia. Nie jest częścią manifest wdrażania. |
 
@@ -266,9 +266,9 @@ Dwie modułu dla koncentratora krawędzi jest nazywany `$edgeHub` i koordynuje k
 
 | Właściwość | Opis | Wymagane w manifeście rozmieszczenia |
 | -------- | ----------- | -------- |
-| Atrybut schemaVersion | Musi być "1.0" | Tak |
+| Atrybut schemaVersion | Musi być "1.0" | Yes |
 | trasy. {routeName} | Ciąg reprezentujący trasę koncentratora krawędzi. | `routes` Element może być istnieje, ale jest pusty. |
-| storeAndForwardConfiguration.timeToLiveSecs | Czas w sekundach, które przechowuje krawędzi Centrum wiadomości w przypadku odłączonych routingu punktów końcowych, np. odłączony od centrum IoT lub lokalnego modułu | Tak |
+| storeAndForwardConfiguration.timeToLiveSecs | Czas w sekundach, które przechowuje krawędzi Centrum wiadomości w przypadku odłączonych routingu punktów końcowych, np. odłączony od centrum IoT lub lokalnego modułu | Yes |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Dwie Centrum krawędzi zgłosił właściwości
 
@@ -281,7 +281,7 @@ Dwie modułu dla koncentratora krawędzi jest nazywany `$edgeHub` i koordynuje k
 | Klienci. .lastConnectTime {tożsamość urządzenia lub moduł} | Czas ostatniego urządzenia lub moduł połączone |
 | Klienci. .lastDisconnectTime {tożsamość urządzenia lub moduł} | Czas ostatniego urządzenia lub moduł odłączona |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy wiesz, jak są używane moduły krawędzi IoT, [zrozumieć wymagania i narzędzi do tworzenia modułów krawędzi IoT][lnk-module-dev].
 
