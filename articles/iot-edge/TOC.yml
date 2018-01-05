@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Tworzenie przezroczystej bramy
-      href: how-to-create-transparent-gateway.md
+    - name: Tworzenie bram
+      items:
+        - name: Tworzenie przezroczystej bramy
+          href: how-to-create-transparent-gateway.md
+        - name: Brama Modbus
+          href: deploy-modbus-gateway.md
     - name: Wdrażanie i monitorowanie na dużą skalę
       href: how-to-deploy-monitor.md
     - name: Aprowizowanie urządzenia IoT Core

@@ -20,7 +20,7 @@
 #### [Dodawanie dysku zarządzanego w strefach dostępności przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Zestawy skalowania maszyn wirtualnych
-#### [Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu witryny Azure Portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Create a scale set in an Availability Zone (Tworzenie zestawu skalowania w strefie dostępności)](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Moduł równoważenia obciążenia
 #### [Co to jest moduł równoważenia obciążenia?](../load-balancer/load-balancer-standard-overview.md)

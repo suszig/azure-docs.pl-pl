@@ -49,9 +49,10 @@
 ### [Skalowanie w celu zwiększenia przepływności](stream-analytics-scale-jobs.md)
 ### [Skalowanie funkcji usługi Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
-## Zarządzaj
+## Zarządzanie
 ### [Zamiana poświadczeń wejściowych i wyjściowych](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Niezawodność zadania podczas aktualizacji](stream-analytics-job-reliability.md)
+### [Configure compatibility level (Konfigurowanie poziomu zgodności)](stream-analytics-compatibility-level.md)
 
 ## Rozwiązywanie problemów
 ### [Przewodnik rozwiązywania problemów](stream-analytics-troubleshooting-guide.md)
@@ -83,4 +84,4 @@
 ## [Informacje o wersji](stream-analytics-release-notes.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)

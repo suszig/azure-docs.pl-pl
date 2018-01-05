@@ -9,22 +9,23 @@
 ## [Rozwiązywanie problemów z połączeniem sieci VPN](network-watcher-troubleshoot-overview.md)
 ## [Connectivity check (Kontrola połączeń)](network-watcher-connectivity-overview.md)
 ## [Limity usługi](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
-# Wprowadzenie
+
+# Rozpoczęcie pracy
 ## [Konfigurowanie usługi Network Watcher](network-watcher-create.md)
 ## Zarządzanie przechwytywaniem pakietów
-### [Witryna Azure Portal](network-watcher-packet-capture-manage-portal.md)
+### [Azure portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Sprawdzanie przepływów adresów IP z maszyny wirtualnej i do niej
-### [Witryna Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analizowanie następnego przeskoku
-### [Witryna Azure Portal](network-watcher-check-next-hop-portal.md)
+### [Azure portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-check-next-hop-cli.md)
@@ -35,7 +36,7 @@
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Rozwiązywanie problemów z usługą VPN Gateway i połączeniami
-### [Witryna Azure Portal](network-watcher-troubleshoot-manage-portal.md)
+### [Azure portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -46,16 +47,17 @@
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testowanie łączności
-### [Witryna Azure Portal](network-watcher-connectivity-portal.md)
+### [Azure portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń
-### [Witryna Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+### [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Instrukcje
 ## [Monitorowanie usługi VPN Gateway za pomocą usługi Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnozowanie połączeń lokalnych za pomocą usługi VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,6 +74,7 @@
 ### [Korzystanie z elastycznego stosu](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Korzystanie z narzędzia Grafana](network-watcher-nsg-grafana.md)
 ### [Korzystanie z narzędzia Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determine relative latency between a location and Azure region (Określanie względnego opóźnienia między lokalizacją a regionem świadczenia usługi Azure)](view-relative-latencies.md)
 
 # Dokumentacja
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/watcher)
