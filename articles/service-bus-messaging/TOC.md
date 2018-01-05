@@ -4,9 +4,8 @@
 ## [Architektura usługi Service Bus](service-bus-architecture.md)
 ## [Często zadawane pytania](service-bus-faq.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie przestrzeni nazw](service-bus-create-namespace-portal.md)
-### [Kolejki, tematy i subskrypcje](service-bus-queues-topics-subscriptions.md)
 ## Korzystanie z kolejek
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Programowanie
 ### Obsługa komunikatów
+#### [Kolejki, tematy i subskrypcje](service-bus-queues-topics-subscriptions.md)
 #### [Komunikaty, ładunki i serializacja](service-bus-messages-payloads.md)
 #### [Transferowanie, blokady i uzgadnianie komunikatów](message-transfers-locks-settlement.md)
 #### [Sekwencjonowanie i sygnatury czasowe komunikatów](message-sequencing.md)
@@ -102,6 +102,6 @@
 ## [Eksplorator usługi Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
