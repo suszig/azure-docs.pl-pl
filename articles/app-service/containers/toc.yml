@@ -29,6 +29,8 @@
       items:
         - name: .NET Core z bazą danych SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby z bazą danych MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP z bazą danych MySQL
           href: tutorial-php-mysql-app.md
         - name: Środowisko Node.js z bazą danych MongoDB

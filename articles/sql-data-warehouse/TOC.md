@@ -91,11 +91,11 @@
 
 ## Ładowanie i przenoszenie danych
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso public data (Publiczne dane firmy Contoso)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Fabryka danych](sql-data-warehouse-load-with-data-factory.md)
-### [Program PolyBase z usługi Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [Program PolyBase z programu SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [Narzędzie AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -135,7 +135,7 @@
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Pomoc techniczna](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partnerzy
 ### [Analiza biznesowa](sql-data-warehouse-partner-business-intelligence.md)

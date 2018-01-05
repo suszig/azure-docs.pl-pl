@@ -1,7 +1,7 @@
 # Omówienie
 ## [Co to są zestawy skalowania maszyn wirtualnych?](virtual-machine-scale-sets-overview.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Tworzenie w witrynie Azure Portal](virtual-machine-scale-sets-create-portal.md)
 ## [Tworzenie przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0](virtual-machine-scale-sets-create-cli.md)
 ## [Tworzenie przy użyciu programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
@@ -22,6 +22,7 @@
 ## Wdrażanie
 ### [Tworzenie przy użyciu programu Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Zestaw skalowania z dyskami zarządzanymi](virtual-machine-scale-sets-managed-disks.md)
+### [Use Availability Zones (Korzystanie ze stref dostępności)](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Automatyczne skalowanie zestawu skalowania](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Korzystanie z witryny Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Korzystanie z interfejsu wiersza polecenia platformy Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
