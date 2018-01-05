@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Zarządzanie wydajnością magazynu Azure stosu
 
@@ -53,7 +53,7 @@ Udziały na woluminach przechowywania danych dzierżawy. Dane dzierżawy zawiera
 Jeśli udział kończy się wolne miejsce oraz akcji do [odzyskać](#reclaim-capacity) miejsca nie są pomyślnie lub dostępne, można operatorowi chmury Azure stosu [migracji](#migrate-a-container-between) kontenerów obiektów blob z jednego udziału na inny.
 
 - Aby uzyskać więcej informacji na temat kontenerów i obiektów blob, zobacz [magazynu obiektów Blob](azure-stack-key-features.md#blob-storage) w funkcji klucza i pojęcia dotyczące stosu Azure.
-- Aby uzyskać informacje dotyczące działania użytkowników dzierżawy z magazynem blogu w stosie Azure, zobacz [usług Azure stosu magazynu](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Aby uzyskać informacje dotyczące działania użytkowników dzierżawy z magazynem obiektów blob Azure stosu, zobacz [usług Azure stosu magazynu](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Kontenery
