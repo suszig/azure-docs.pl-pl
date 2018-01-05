@@ -54,8 +54,10 @@
 #### [Zgodność — OFICJALNE UK](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Omówienie](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Omówienie zasad](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Zgodność — usługi finansowe
+##### [Usługi finansowe dla obciążeń podlegających regulacjom](./blueprints/financial-services-regulated-workloads.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z zabezpieczeniami platformy Azure](azure-security-getting-started.md)
 ## [Najlepsze rozwiązania i wzorce dotyczące zabezpieczeń](security-best-practices-and-patterns.md)
 ## [Usługi i technologie zabezpieczeń](azure-security-services-technologies.md)

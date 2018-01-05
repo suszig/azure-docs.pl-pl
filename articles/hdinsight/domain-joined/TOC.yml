@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Konfigurowanie zasad technologii
       href: apache-domain-joined-run-hive.md
-    - name: Planowanie pojemności
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Zarządzanie klastrami przyłączonymi do domeny
       href: apache-domain-joined-manage.md
