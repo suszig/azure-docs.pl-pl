@@ -51,9 +51,9 @@ Spójrzmy bliższe spojrzenie na te.
 
 W tym miejscu są dostępne dla dysków zarządzanych w warstwie premium rozmiary dysków:
 
-| **Premium zarządzane <br>typ dysku** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium zarządzane <br>typ dysku** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 W tym miejscu są dostępne dla standardowych dysków zarządzanych rozmiary dysków:
@@ -111,7 +111,7 @@ Istnieją dwa rodzaje szyfrowania omówimy w odniesieniu do zarządzanych dyskó
 
 Szyfrowanie dysków Azure umożliwia szyfrowanie dysków systemu operacyjnego i danych, używanych przez maszyny wirtualne IaaS. W tym dyski zarządzanych. W systemie Windows dyski są szyfrowane za pomocą technologii szyfrowania BitLocker standardowych. Dla systemu Linux dyski są szyfrowane za pomocą technologii DM-Crypt. To jest zintegrowany z usługą Azure Key Vault, co pozwala na kontrolowanie i zarządzać kluczami szyfrowania dysku. Aby uzyskać więcej informacji, zobacz [Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat zarządzanych dysków można znaleźć w następujących artykułach.
 
