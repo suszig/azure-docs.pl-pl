@@ -59,6 +59,6 @@ Użytkownicy mogą łączyć się z platformą Azure za pomocą wbudowanego klie
 
 Platforma Azure obsługuje tylko systemy Windows i Mac dla sieci VPN typu punkt-lokacja.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Mam już wdrożoną usługę Azure VPN Gateway. Czy mogę w niej włączyć sieć VPN z protokołem RADIUS i/lub IKEv2?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Mam już wdrożoną usługę Azure VPN Gateway. Na nim można włączyć usługi RADIUS i/lub IKEv2 sieci VPN?
 
-Tak, można włączyć te nowe funkcje w już wdrożonych bramach, zarówno za pomocą programu Powershell, jak i witryny Azure Portal.
+Tak, aby umożliwić te nowe funkcje w bramach już wdrożony przy użyciu programu Powershell lub w portalu Azure, pod warunkiem, że jednostka SKU, używanej bramy obsługuje usługi RADIUS i/lub IKEv2. Na przykład podstawowa jednostka SKU bramy sieci VPN nie obsługuje usługi RADIUS lub IKEv2.

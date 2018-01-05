@@ -14,12 +14,12 @@ Zarezerwowane wystąpień maszyn wirtualnych można kupić [portalu Azure](https
 
     | Pole      | Opis|
     |:------------|:--------------|
-    |name        |Nazwa tego zastrzeżenia.| 
+    |Name (Nazwa)        |Nazwa tego zastrzeżenia.| 
     |Subskrypcja|Z subskrypcją użytą do opłacać rezerwacji. Formy płatności subskrypcji jest pobierana góry koszty rezerwacji. Typ subskrypcji musi być umowy enterprise agreement (numer oferty: MS-AZR - 0017P) lub płatność za rzeczywiste użycie (numer oferty: MS-AZR - 0003P). Dla subskrypcji enterprise opłaty są odjąć od salda zobowiązania pieniężnego rejestracji lub rozliczany jako nadwyżkowe. Płatność za rzeczywiste użycie subskrypcji opłaty są rozliczane do metody płatności kartą kredytową lub faktury dla tej subskrypcji.|    
     |Zakres       |Zakresu zastrzeżenia mogą obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony). W przypadku wybrania: <ul><li>Jedną subskrypcją - rabat rezerwacji jest stosowany do maszyn wirtualnych w tej subskrypcji. </li><li>Shared - rabat rezerwacji jest stosowany do maszyn wirtualnych uruchomionych w żadnych subskrypcji w ramach kontekstu rozliczeń. Dla przedsiębiorstw zakres udostępniony jest rejestracji i zawiera wszystkie subskrypcje (z wyjątkiem subskrypcje tworzenie/testowanie oprogramowania) w ramach rejestracji. W przypadku klientów płatność za rzeczywiste użycie zakres udostępniony jest wszystkie subskrypcje płatność za rzeczywiste użycie utworzone przez administratora konta.</li></ul>|
     |Lokalizacja    |Region platformy Azure jest objęta rezerwacji.|    
-    |Rozmiar maszyny Wirtualnej     |Liczba wystąpień maszyn wirtualnych.|
-    |Okres        |Rok lub trzy lata.|
+    |Rozmiar maszyny wirtualnej     |Liczba wystąpień maszyn wirtualnych.|
+    |Termin        |Rok lub trzy lata.|
     |Ilość    |Liczba wystąpień, które zostały zakupione w ramach rezerwacji. Ilość jest liczba uruchomionych wystąpień maszyn wirtualnych, które można uzyskać rabat rozliczeń. Na przykład jeśli używasz 10 Standard_D2 maszyn wirtualnych w wschodnie stany USA, następnie należy określić ilość jako 10, aby zmaksymalizować korzyści dla wszystkich działających maszyn. |
 5. Po wybraniu można wyświetlić koszt zastrzeżenia **obliczenia kosztu**.
 
@@ -33,5 +33,5 @@ Zarezerwowane wystąpień maszyn wirtualnych można kupić [portalu Azure](https
 ## <a name="next-steps-after-buying-a-reservation"></a>Następne kroki po kupowanie zastrzeżenia
 Zniżki rezerwacji jest stosowana automatycznie do liczba uruchomionych maszyn wirtualnych, które pasują do zakresu zastrzeżenia i atrybutów. Można zaktualizować zakresu zastrzeżenia za pośrednictwem [portalu Azure](https://portal.azure.com), programu PowerShell, interfejsu wiersza polecenia lub za pośrednictwem interfejsu API. 
 
-Aby dowiedzieć się, jak zarządzać zastrzeżenie, zobacz [zarządzania Azure zastrzeżone wystąpień maszyn wirtualnych](https://go.microsoft.com/fwlink/?linkid=861613).
+Aby dowiedzieć się, jak zarządzać zastrzeżenie, zobacz [zarządzania Azure zastrzeżone wystąpień maszyn wirtualnych](../articles/billing/billing-manage-reserved-vm-instance.md).
 
