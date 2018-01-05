@@ -2,8 +2,8 @@
 title: "Włączanie synchronizacji w trybie offline dla aplikacji uniwersalnych platformy systemu Windows (UWP) z usługą Mobile Apps | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak używać aplikacji mobilnej Azure do pamięci podręcznej i synchronizacji danych w trybie offline w aplikacji Windows platformy Uniwersalnej."
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a16de4cef82c29f9b6becfae1901662ee1936934
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Włączanie synchronizacji w trybie offline dla aplikacji systemu Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym samouczku przedstawiono sposób dodawania obsługi w trybie offline do aplikacji systemu Windows platformy Uniwersalnej przy użyciu zaplecza aplikacji mobilnej Azure. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacji mobilnej — przeglądanie, dodawanie lub modyfikowanie danych — nawet wtedy, gdy istnieje połączenie sieciowe. Zmiany są przechowywane w lokalnej bazie danych. Gdy urządzenie jest w trybie online, te zmiany są synchronizowane z zdalnego wewnętrznej bazy danych.
 
 W tym samouczku zaktualizować projekt aplikacji platformy uniwersalnej systemu Windows z tego samouczka [tworzenie aplikacji systemu Windows] do obsługi funkcji w trybie offline z usługą Azure Mobile Apps. Jeśli nie używasz szybki start pobrany Projekt serwera, należy dodać pakietów rozszerzenia dostępu do danych do projektu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).

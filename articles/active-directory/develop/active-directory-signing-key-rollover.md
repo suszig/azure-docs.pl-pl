@@ -1,12 +1,11 @@
 ---
-title: "Podpisywanie przerzucania kluczy w usłudze Azure AD | Dokumentacja firmy Microsoft"
+title: "Podpisywanie przerzucania kluczy w usłudze Azure AD"
 description: "W tym artykule omówiono podpisywania Przerzucanie klucza najlepsze rozwiązania dotyczące usługi Azure Active Directory"
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +14,17 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Podpisywanie przerzucania kluczy w usłudze Azure Active Directory
-W tym temacie opisano, co należy wiedzieć o kluczy publicznych, które są używane w usłudze Azure Active Directory (Azure AD) do podpisywania tokenów zabezpieczających. Należy pamiętać, że te przerzucania kluczy w regularnych odstępach czasu i w razie zagrożenia, może być przerzuceniem natychmiast. Wszystkie aplikacje, które używają usługi Azure AD powinno być możliwe do programowego obsługuje procesu Przerzucanie klucza lub ustanowić proces okresowej ręczne przerzucania. Materiały, aby zrozumieć, jak działają kluczy ocenić wpływ Przerzucanie aplikacji oraz sposobu aktualizacji aplikacji lub ustanawiania proces okresowej przerzucania ręcznej obsługi Przerzucanie klucza, jeśli jest to konieczne.
+W tym artykule opisano, co należy wiedzieć o kluczy publicznych, które są używane w usłudze Azure Active Directory (Azure AD) do podpisywania tokenów zabezpieczających. Należy pamiętać, że te przerzucania kluczy w regularnych odstępach czasu i w razie zagrożenia, może być przerzuceniem natychmiast. Wszystkie aplikacje, które używają usługi Azure AD powinno być możliwe do programowego obsługuje procesu Przerzucanie klucza lub ustanowić proces okresowej ręczne przerzucania. Materiały, aby zrozumieć, jak działają kluczy ocenić wpływ Przerzucanie aplikacji oraz sposobu aktualizacji aplikacji lub ustanawiania proces okresowej przerzucania ręcznej obsługi Przerzucanie klucza, jeśli jest to konieczne.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Omówienie kluczy podpisywania w usłudze Azure AD
-Usługi Azure AD używa oparte na standardach branżowych kryptografii klucza publicznego, aby ustanowić zaufanie między sobą i aplikacje, które go używają. W praktyce, to działa w następujący sposób: klucz podpisujący, który składa się z pary kluczy publicznych i prywatnych używa usługi Azure AD. Po zalogowaniu się do aplikacji, która używa usługi Azure AD do uwierzytelniania usługi Azure AD tworzy token zabezpieczający, który zawiera informacje o użytkowniku. Token ten jest podpisany przez usługę Azure AD przy użyciu jego klucz prywatny, przed wysłaniem do aplikacji. Aby sprawdzić, czy token jest prawidłowy i faktycznie zdalnych z usługi Azure AD, aplikacja musi zweryfikować podpisu tokenu przy użyciu klucza publicznego udostępnianych przez usługi Azure AD, który jest zawarty w dzierżawie programu [OpenID Connect dokument](http://openid.net/specs/openid-connect-discovery-1_0.html) lub SAML/WS-Fed [dokument metadanych usług federacyjnych](active-directory-federation-metadata.md).
+Usługi Azure AD używa oparte na standardach branżowych kryptografii klucza publicznego, aby ustanowić zaufanie między sobą i aplikacje, które go używają. W praktyce, to działa w następujący sposób: klucz podpisujący, który składa się z pary kluczy publicznych i prywatnych używa usługi Azure AD. Po zalogowaniu się do aplikacji, która używa usługi Azure AD do uwierzytelniania usługi Azure AD tworzy token zabezpieczający, który zawiera informacje o użytkowniku. Token ten jest podpisany przez usługę Azure AD przy użyciu jego klucz prywatny, przed wysłaniem do aplikacji. Aby sprawdzić, czy token jest prawidłowy i zdalnych z usługi Azure AD, aplikacja musi zweryfikować podpisu tokenu przy użyciu klucza publicznego udostępnianych przez usługi Azure AD, który jest zawarty w dzierżawie programu [OpenID Connect dokument](http://openid.net/specs/openid-connect-discovery-1_0.html) lub SAML / WS-Fed [dokument metadanych usług federacyjnych](active-directory-federation-metadata.md).
 
 Ze względów bezpieczeństwa klucza przedstawia w regularnych odstępach czasu i, w przypadku wystąpienia sytuacji awaryjnych podpisywania Azure AD może być przerzuceniem natychmiast. Każda aplikacja, która integruje się z usługą Azure AD powinna być przygotowana do obsługi zdarzenia przerzucania kluczy niezależnie od tego, jak często występuje. Jeśli nie, a aplikacja próbuje użyć wygasły klucz można zweryfikować podpisu tokenu, żądanie logowania nie powiedzie się.
 
@@ -128,7 +127,7 @@ passport.use(new OIDCStrategy({
 ### <a name="vs2015"></a>Aplikacje sieci Web / interfejsy API ochrony zasobów i utworzone za pomocą programu Visual Studio 2015 lub Visual Studio 2017 r.
 Jeśli aplikacja została skompilowana przy użyciu szablonu aplikacji sieci web w programie Visual Studio 2015 lub Visual Studio 2017 i wybrano **konta służbowego i pracy** z **Zmień uwierzytelnianie** menu, jest już Logika niezbędne do obsługi automatycznego przerzucania klucza. Tę logikę osadzone w pośredniczącym OWIN OpenID Connect pobiera i przechowuje klucze z OpenID Connect dokument i okresowo odświeża je.
 
-Ręcznie dodane uwierzytelniania do rozwiązania, aplikacja może nie mieć logiki niezbędne przerzucania klucza. Musisz zapisać samodzielnie lub postępuj zgodnie z instrukcjami [aplikacji sieci Web / interfejsów API przy użyciu innych bibliotek lub ręcznego wykonania dowolnego z obsługiwanych protokołów.](#other).
+Ręcznie dodane uwierzytelniania do rozwiązania, aplikacja może nie mieć logiki niezbędne przerzucania klucza. Musisz zapisać samodzielnie lub postępuj zgodnie z instrukcjami [aplikacji sieci Web / interfejsów API przy użyciu innych bibliotek lub ręcznego wykonania dowolnego z obsługiwanych protokołów](#other).
 
 ### <a name="vs2013"></a>Aplikacje sieci Web, ochrona zasobów i utworzone za pomocą programu Visual Studio 2013
 Jeśli aplikacja została skompilowana przy użyciu szablonu aplikacji sieci web w programie Visual Studio 2013 i wybrano **konta organizacyjne** z **Zmień uwierzytelnianie** menu, jest już konieczne logiki do obsługi automatycznego przerzucania klucza. Istotą takiej logiki przechowuje unikatowy identyfikator organizacji i podpisywania kluczowych informacji w dwóch tabelach bazy danych skojarzony z projektem. Parametry połączenia dla bazy danych można znaleźć w pliku Web.config dla projektu.
@@ -183,7 +182,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -284,7 +283,7 @@ Wykonaj poniższe kroki, aby zweryfikować logiki przerzucania klucza.
           </keys>
    ```
 2. W  **<add thumbprint=””>**  Zmień ustawienie wartości odcisku palca przez zamianę dowolny znak inny. Zapisz **Web.config** pliku.
-3. Tworzenie aplikacji, a następnie uruchom go. Jeśli można ukończyć procesu logowania, aplikacja jest pomyślnie aktualizowanie klucza pobierając wymaganych informacji z dokument metadanych usług federacyjnych w Twoim katalogu. Jeśli występują problemy dotyczące logowania, upewnij się, zmiany w aplikacji są poprawne, odczytując [Dodawanie logowania jednokrotnego w sieci Web aplikacji używanie usługi Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) tematu lub pobieranie i zapoznanie się poniższy przykładowy kod: [ Chmury wielodostępne aplikacji dla usługi Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Tworzenie aplikacji, a następnie uruchom go. Jeśli można ukończyć procesu logowania, aplikacja jest pomyślnie aktualizowanie klucza pobierając wymaganych informacji z dokument metadanych usług federacyjnych w Twoim katalogu. Jeśli występują problemy dotyczące logowania, upewnij się, zmiany w aplikacji są poprawne, odczytując [Dodawanie logowania jednokrotnego w sieci Web aplikacji używanie usługi Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artykułu, lub pobieranie i zapoznanie się poniższy przykładowy kod: [ Chmury wielodostępne aplikacji dla usługi Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Aplikacje sieci Web ochrona zasobów i utworzone za pomocą programu Visual Studio 2008 lub 2010 i .NET 3.5 w wersji 1.0 systemu Windows Identity Foundation (WIF)
 Jeśli utworzono aplikację na 1.0 WIF nie istnieje mechanizm podany na automatyczne odświeżanie konfiguracji aplikacji do użycia nowego klucza.
@@ -303,11 +302,11 @@ Instrukcje dotyczące korzystania z FedUtil o zaktualizowanie konfiguracji:
 ### <a name="other"></a>Aplikacje sieci Web / interfejsy API ochrony zasobów przy użyciu innych bibliotek lub ręcznego wykonania dowolnego z obsługiwanych protokołów
 Jeśli używasz niektóre inne biblioteki lub ręcznie zaimplementowana dowolną z obsługiwanych protokołów, należy sprawdzić w bibliotece lub implementacji, aby upewnić się, że klucz jest pobierana z metadanych Federacji lub dokument odnajdywania OpenID Connect dokument. Jednym ze sposobów sprawdzenia tego jest przeprowadzenie wyszukiwania w kodzie lub kod biblioteki wszelkie wywołania limit dokumencie odnajdywania OpenID lub dokument metadanych federacji.
 
-Jeśli klucz jest magazynowana gdzieś lub zapisane na stałe w aplikacji, możesz ręcznie pobrać klucz i odpowiednio przez wykonuje ręczne przerzucania zgodnie z instrukcjami znajdującymi się na końcu niniejszego dokumentu wskazówki dotyczące aktualizacji. **Zdecydowanie zaleca się, że ulepszanie aplikacji do obsługi automatycznego przerzucania** przy użyciu dowolnej z metod konspektu w tym artykule Aby uniknąć zakłócenia w przyszłości i koszty usługi Azure AD ma nagłych lub zwiększa jego okresach przerzucania Przerzucanie poza pasmem.
+Jeśli klucz jest magazynowana gdzieś lub zapisane na stałe w aplikacji, można ręcznie pobrać klucza i zaktualizować go przez wykonanie ręczne przerzucania zgodnie z instrukcjami znajdującymi się na końcu niniejszego dokumentu wskazówki. **Zdecydowanie zaleca się, że ulepszanie aplikacji do obsługi automatycznego przerzucania** przy użyciu dowolnej z metod konspektu w tym artykule Aby uniknąć zakłócenia w przyszłości i koszty usługi Azure AD ma nagłych lub zwiększa jego okresach przerzucania Przerzucanie poza pasmem.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Jak przetestować aplikację, aby określić, czy będzie miała wpływ
 Można sprawdzić, czy aplikacja obsługuje automatyczne Przerzucanie klucza, pobierając skrypty i instrukcje podane w następujących [to repozytorium GitHub.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Jak wykonać przerzucania ręczne, jeśli użytkownik aplikacji nie obsługuje automatycznego przerzucania
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Jak wykonać przerzucania ręcznie, jeśli aplikacja nie obsługuje automatycznego przerzucania
 Jeśli aplikacja obsługuje **nie** obsługują automatyczne przerzucanie, należy ustanowić proces, który okresowo podpisywania monitory usługi Azure AD kluczy i odpowiednio wykonuje ręczne przerzucania. [To repozytorium GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) zawiera skrypty oraz instrukcje, jak to zrobić.
 

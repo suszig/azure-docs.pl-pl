@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Architektura na platformie Azure i SAP HANA (duże wystąpień) — omówienie
 
@@ -468,7 +468,7 @@ Wdrażanie programu SAP warstwy aplikacji lub składników, przez wiele sieci wi
 
 Istnieją trzy ważne routingu zagadnienia dotyczące sieci dla SAP HANA na platformie Azure (wystąpienia duże):
 
-1. SAP HANA na platformie Azure (wystąpienia duże) można uzyskać tylko za pośrednictwem maszynach wirtualnych platformy Azure oraz dedykowane połączenie ExpressRoute. nie bezpośrednio z lokalnego. Bezpośredni dostęp ze środowiska lokalnego do jednostki HANA dużych wystąpienia w dostarczonym przez firmę Microsoft, nie jest możliwe natychmiast z powodu przejściowego routingu ograniczenia bieżącej architektury sieci platformy Azure używana dla wystąpień dużych SAP HANA. Niektórzy klienci administracji i wszystkich aplikacji wymagających bezpośredniego dostępu, takie jak SAP rozwiązania Menedżera uruchomione w siedzibie firmy, nie może połączyć się bazy danych SAP HANA.
+1. SAP HANA na platformie Azure (wystąpienia duże) można uzyskać tylko za pośrednictwem maszynach wirtualnych platformy Azure oraz dedykowane połączenie ExpressRoute. nie bezpośrednio z lokalnego. Bezpośredni dostęp ze środowiska lokalnego do jednostki HANA dużych wystąpienia w dostarczonym przez firmę Microsoft, nie jest możliwe natychmiast z powodu ograniczenia routingu przechodnie bieżącej architektury sieci platformy Azure używana dla wystąpień dużych SAP HANA. Niektórzy klienci administracji i wszystkich aplikacji wymagających bezpośredniego dostępu, takie jak SAP rozwiązania Menedżera uruchomione w siedzibie firmy, nie może połączyć się bazy danych SAP HANA.
 
 2. Jeśli masz jednostki wystąpienia dużych HANA wdrożone w dwóch różnych regionach platformy Azure na potrzeby odzyskiwania po awarii tego samego przejściowej routingu ograniczenia są stosowane. Lub innymi słowy, adresy IP HANA dużych wystąpienia jednostki w jednym regionie (np. nam zachód), nie będą kierowane do jednostki wystąpienia dużych HANA wdrożone dla Ciebie w innym regionie (np. nam wschodnie). To jest niezależny od użycia sieci platformy Azure komunikację równorzędną w regionach lub między łączenie obwody usługi ExpressRoute, który HANA dużych wystąpienia jednostki nawiązać połączenia z sieciami wirtualnymi platformy Azure. Jak pokazano nieco więcej w dół w niniejszej dokumentacji. To ograniczenie, dołączoną wdrożonej architektury, spowoduje odrzucenie natychmiastowe użycie HANA replikacji systemu jako funkcji odzyskiwania po awarii.
 

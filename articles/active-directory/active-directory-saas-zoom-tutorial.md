@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Samouczek: Integracji Azure Active Directory z powiększenia
 
@@ -113,29 +113,57 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta powiększenie](https://support.zoom.us/hc) uzyskać te wartości. 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta powiększenie](https://support.zoom.us/hc) uzyskać te wartości.
+
+4. Aplikacja powiększenia oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do konfiguracji atrybuty tokenu SAML. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. 
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na powyższej ilustracji i wykonaj następujące czynności:
+    
+    | Nazwa atrybutu | Wartość atrybutu | Wartość Namespace |
+    | ------------------- | -----------|--------- |    
+    | Adres e-mail | User.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Imię | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Nazwisko | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Numer telefonu | User.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Dział | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
+
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+
+    d. W **Namespace** tekstowym, wpisz wartość przestrzeni nazw wyświetlany dla danego wiersza.
+    
+    e. Kliknij przycisk **OK**. 
  
-4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
+6. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![Łącze pobierania certyfikatu](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Kliknij przycisk **zapisać** przycisku.
+7. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Na **powiększenie konfiguracji** , kliknij przycisk **skonfigurować powiększenie** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+8. Na **powiększenie konfiguracji** , kliknij przycisk **skonfigurować powiększenie** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
-    ![Konfiguracja powiększenia](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Konfiguracja powiększenia](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy powiększenia.
+9. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy powiększenia.
 
-8. Kliknij przycisk **rejestracji jednokrotnej** kartę.
+10. Kliknij przycisk **rejestracji jednokrotnej** kartę.
    
     ![Karta rejestracji jednokrotnej](./media/active-directory-saas-zoom-tutorial/IC784700.png "logowanie jednokrotne")
 
-9. Kliknij przycisk **zabezpieczeniem** karcie, a następnie przejdź do **rejestracji jednokrotnej** ustawienia.
+11. Kliknij przycisk **zabezpieczeniem** karcie, a następnie przejdź do **rejestracji jednokrotnej** ustawienia.
 
-10. W sekcji rejestracji jednokrotnej wykonaj następujące czynności:
+12. W sekcji rejestracji jednokrotnej wykonaj następujące czynności:
    
     ![Pojedynczy znak w sekcji](./media/active-directory-saas-zoom-tutorial/IC784701.png "logowanie jednokrotne")
    
@@ -143,11 +171,14 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
    
     b. W **adres URL strony wylogowania** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
      
-    c. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikat dostawcy tożsamości** pola tekstowego.
+    d. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikat dostawcy tożsamości** pola tekstowego.
 
     d. W **wystawcy** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure. 
 
     e. Kliknij pozycję **Zapisz**.
+
+    > [!NOTE] 
+    > Aby uzyskać więcej informacji, odwiedź stronę dokumentacji powiększenia [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -181,7 +212,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -207,7 +238,7 @@ Aby umożliwić użytkownikom zalogować się do powiększenia usługi Azure AD,
 
     b. W **wiadomości E-mail** tekstowym, wpisz adres e-mail prawidłowe usługi Azure AD konto ma chcesz udostępnić.
 
-    c. Kliknij pozycję **Dodaj**.
+    d. Kliknij pozycję **Add** (Dodaj).
 
 > [!NOTE]
 > Możesz użyć innych powiększenia użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez powiększenia do świadczenia usługi Azure Active Directory kont użytkowników.
@@ -248,7 +279,7 @@ Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczeg
 
 Po kliknięciu kafelka powiększenia w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji powiększenia.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

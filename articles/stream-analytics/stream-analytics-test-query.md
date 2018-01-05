@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.openlocfilehash: 5e7bab0b0c3222ba093a93dc2d15f1e41898e62c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testowanie zapytań usługi Azure Stream Analytics w portalu Azure
 
@@ -27,7 +27,7 @@ Z usługi Azure Stream Analytics można przetestować zapytań w portalu Azure, 
 
 ## <a name="test-the-input"></a>Dane wejściowe testu
 
-1. Aby przetestować przykładowych danych wejściowych, kliknij prawym przyciskiem myszy dane wejściowe, a następnie wybierz **przekazać dane przykładowe z pliku**.
+1. Aby przetestować przykładowych danych wejściowych, kliknij prawym przyciskiem myszy dane wejściowe, a następnie wybierz **przekazać dane przykładowe z pliku**. Obecnie można przekazać tylko dane w formacie JSON. Jeśli dane są w różnych formatach, takich jak CSV, należy ją przekonwertować na format JSON, przed przesłaniem. Można użyć dowolnego narzędzia konwersji opensource, takich jak [woluminu CSV do przetwarzania JSON](http://www.convertcsv.com/csv-to-json.htm) można przekonwertować danych na notację JSON.
 
     ![Edytor testów zapytania zapytań usługi Stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -47,7 +47,7 @@ Po zakończeniu wyniki wyświetlane w przeglądarce, można zapisać zapytania, 
 
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)

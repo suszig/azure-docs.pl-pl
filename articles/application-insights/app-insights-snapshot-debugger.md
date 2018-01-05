@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek na wyjątków w aplikacji .NET
 
@@ -62,8 +62,6 @@ Są obsługiwane w następujących środowiskach:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -161,7 +159,7 @@ Są obsługiwane w następujących środowiskach:
    }
     ```
     
-## <a name="grant-permissions"></a>Udzielanie uprawnień
+## <a name="grant-permissions"></a>Udziel uprawnień
 
 Właściciele subskrypcji platformy Azure można sprawdzić migawki. Inni użytkownicy muszą mieć uprawnienie przez właściciela.
 
@@ -174,8 +172,8 @@ Aby przyznać uprawnienia, Przypisz `Application Insights Snapshot Debugger` rol
 1. Kliknij przycisk Zapisz, aby dodać użytkownika do roli.
 
 
-[!IMPORTANT]
-    Migawki potencjalnie może zawierać informacje osobiste i innych poufnych w zmiennej i wartości parametrów.
+> [!IMPORTANT]
+> Migawki potencjalnie może zawierać informacje osobiste i innych poufnych w zmiennej i wartości parametrów.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Debugowanie migawek w portalu usługi Application Insights
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 W przypadku aplikacji, które są _nie_ hostowanych w usłudze App Service, dzienniki przesyłania znajdują się w tym samym folderze co minizrzutów: `%TEMP%\Dumps\<ikey>` (gdzie `<ikey>` jest klucz Instrumentacji).
 
+Dla ról usług w chmurze domyślny folder tymczasowy jest zbyt mały do przechowywania plików minizrzutu. W takim przypadku można określić alternatywnego folderu za pomocą właściwości TempFolder w ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Użyj usługi Application Insights Wyszukaj, aby znaleźć wyjątki z migawkami
 
 Po utworzeniu migawki przerzucane wyjątek zostanie oznaczony przy użyciu identyfikatora migawki. Gdy dane telemetryczne wyjątku jest zgłaszane do usługi Application Insights, czy identyfikator migawki jest uwzględniona jako właściwości niestandardowej. Za pomocą bloku wyszukiwania w usłudze Application Insights, można znaleźć wszystkie dane telemetryczne z `ai.snapshot.id` właściwości niestandardowej.
@@ -297,7 +306,7 @@ Aby wyszukać Identyfikatora określoną migawkę z dzienników przesyłania, na
 
 Jeśli nadal nie widać Wystąpił wyjątek o takim identyfikatorze migawki, dane telemetryczne wyjątku nie zgłosił do usługi Application Insights. Taka sytuacja może się zdarzyć, jeśli awaria aplikacji po zajęło migawki, ale przed zgłosiła ona dane telemetryczne wyjątku. W takim wypadku zapoznaj się z dziennikami usługi aplikacji w obszarze `Diagnose and solve problems` aby zobaczyć, czy wystąpiły nieoczekiwane ponowne uruchomienia lub nieobsługiwane wyjątki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Ustaw snappoints w kodzie](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) można pobrać migawek bez oczekiwania na wyjątek.
 * [Diagnozowanie wyjątków w aplikacjach sieci web](app-insights-asp-net-exceptions.md) wyjaśniono, jak wyświetlić więcej wyjątków do usługi Application Insights. 

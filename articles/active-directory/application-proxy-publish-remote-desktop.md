@@ -3,7 +3,7 @@ title: "Publikowanie pulpitu zdalnego z serwera Proxy aplikacji usługi Azure AD
 description: "Zawiera podstawowe informacje dotyczące serwera Proxy aplikacji usługi Azure AD łączników."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: kgremban
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 06d217b38ff8e33bd6c5a42a93aa532c0d1efa4d
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie pulpitu zdalnego z serwerem Proxy aplikacji usługi Azure AD
 
@@ -124,7 +124,7 @@ Aby używać uwierzytelniania passthrough, istnieją tylko dwie zmiany, aby wszy
 1. W [publikowania usług pulpitu zdalnego punktu końcowego hosta](#publish-the-rd-host-endpoint) kroku 1, ustaw metoda uwierzytelniania wstępnego **Passthrough**.
 2. W [ruch RDS bezpośrednio do serwera Proxy aplikacji](#direct-rds-traffic-to-application-proxy), całkowicie pominąć krok 8.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Włączenie dostępu zdalnego do programu SharePoint przy użyciu serwera Proxy aplikacji usługi Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Zagadnienia dotyczące zabezpieczeń do uzyskiwania dostępu do aplikacji zdalnie przy użyciu serwera Proxy aplikacji usługi Azure AD](application-proxy-security-considerations.md)

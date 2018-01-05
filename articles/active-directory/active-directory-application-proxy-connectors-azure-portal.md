@@ -3,7 +3,7 @@ title: "Publikowanie aplikacji w odrębnych sieci i lokalizacje przy użyciu ł�
 description: "Opisano sposób tworzenia i zarządzania grupami łączników w serwera Proxy aplikacji usługi Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publikowanie aplikacji w odrębnych sieci i lokalizacje przy użyciu grup łącznika
 
@@ -123,7 +123,7 @@ W poniższym przykładzie firma ma dwoma centrami danych, A i B, z dwa łącznik
 
 ![AzureAD żadnych grup łącznika](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zrozumienie łączniki serwera Proxy aplikacji usługi Azure AD](application-proxy-understand-connectors.md)
 * [Włączanie logowania jednokrotnego](application-proxy-sso-overview.md)

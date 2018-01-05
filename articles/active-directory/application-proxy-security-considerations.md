@@ -3,7 +3,7 @@ title: "Zagadnienia dotyczące zabezpieczeń dla serwera Proxy aplikacji usługi
 description: "Obejmuje zagadnienia dotyczące zabezpieczeń dla przy użyciu serwera Proxy aplikacji usługi Azure AD"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5a2ab5c68345deee3a34173d38d529a911c7ff3e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2370c4717e2cff6b4b8113b09624ef873b309647
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Zagadnienia dotyczące zabezpieczeń w celu uzyskania dostępu do aplikacji zdalnie z serwera Proxy aplikacji usługi Azure AD
 
@@ -180,7 +180,7 @@ Po otrzymaniu odpowiedzi łącznika sprawia, że wychodzące połączenie z usł
 Przetwarza aplikacji może występować w tym miejscu. Jeśli skonfigurowano serwer Proxy aplikacji do tłumaczenia nagłówków lub adresy URL w aplikacji, przetwarzanie odbywa się zgodnie z potrzebami w tym kroku.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Zagadnienia dotyczące topologii sieci przy użyciu serwera Proxy aplikacji usługi Azure AD](application-proxy-network-topology-considerations.md)
 

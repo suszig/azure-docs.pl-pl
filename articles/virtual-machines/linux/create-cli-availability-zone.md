@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 986cc450302a04720dc92e55eb8d1248cd3b8f26
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Utwórz maszynę wirtualną systemu Linux w strefie dostępności z wiersza polecenia platformy Azure
 
@@ -29,6 +29,35 @@ Ta procedura artykułu przy użyciu wiersza polecenia platformy Azure, aby utwor
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Upewnij się, że zainstalowano najnowszą [Azure CLI 2.0](/cli/azure/install-az-cli2) i zalogowany do konta platformy Azure z [logowania az](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Sprawdź dostępność SKU maszyny Wirtualnej
+Dostępność rozmiarów maszyn wirtualnych lub jednostki SKU, może się różnić od regionu i strefy. Aby zaplanować użycie stref dostępności, można wyświetlić dostępne jednostki SKU maszyny Wirtualnej w regionie platformy Azure i strefy. Ta możliwość upewnia się, wybierz odpowiedni rozmiar maszyny Wirtualnej i uzyskać odpowiednią odporności różnych strefach. Aby uzyskać więcej informacji o różnych typach maszyn wirtualnych i rozmiary, zobacz [rozmiarów maszyn wirtualnych — omówienie](sizes.md).
+
+Możesz wyświetlić dostępne jednostki SKU maszyny Wirtualnej z [wirtualna az listy SKU](/cli/azure/vm#az_vm_list_skus) polecenia. Poniższy przykład zawiera listę dostępnych SKU maszyny Wirtualnej w *eastus2* regionu:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+Wynik jest podobny do poniższego przykładu skrócone pokazuje stref dostępności, w których każdy rozmiar maszyny Wirtualnej są dostępne:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów
 

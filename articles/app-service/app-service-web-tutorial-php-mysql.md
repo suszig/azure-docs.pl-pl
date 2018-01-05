@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Tworzenie aplikacji sieci web PHP i MySQL na platformie Azure
 
@@ -167,7 +167,7 @@ W powłoce chmury Tworzenie serwera w bazie danych Azure dla programu MySQL (wer
 W poniższym poleceniu zastąp nazwę serwera MySQL, w której występuje  _&lt;mysql_server_name >_ symbolu zastępczego (prawidłowe znaki to `a-z`, `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.database.windows.net`), musi on być globalnie unikatowe.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Połączyć się z produkcyjnym serwerem MySQL lokalnie
 
-W oknie terminalu lokalnego nawiązać serwer MySQL na platformie Azure. Użyj wartości określonej wcześniej dla  _&lt;mysql_server_name >_. Po wyświetleniu monitu o podanie hasła, użyj _MySQLAzure2017_, która została określona podczas tworzenia bazy danych na platformie Azure.
+W oknie terminalu lokalnego nawiązać serwer MySQL na platformie Azure. Użyj wartości określonej wcześniej dla  _&lt;mysql_server_name >_. Po wyświetleniu monitu o podanie hasła, użyj _My5up3r$ tr0ngPa$ w0rd!_, która została określona podczas tworzenia bazy danych na platformie Azure.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
@@ -341,7 +341,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
+### <a name="configure-database-settings"></a>Konfiguruj ustawienia bazy danych
 
 Jak wskazano wcześniej, można połączyć się do bazy danych MySQL na platformie Azure przy użyciu zmiennych środowiskowych w usłudze App Service.
 
@@ -626,7 +626,7 @@ Menu po lewej stronie zawiera strony konfigurowania aplikacji.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

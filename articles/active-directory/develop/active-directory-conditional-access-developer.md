@@ -1,5 +1,5 @@
 ---
-title: "Wskazówki dla deweloperów na potrzeby dostępu warunkowego dla usługi Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Wskazówki dla deweloperów na potrzeby dostępu warunkowego dla usługi Azure Active Directory"
 description: "Wskazówki dla deweloperów i scenariuszy dostępu warunkowego dla usługi Azure AD"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów na potrzeby dostępu warunkowego dla usługi Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) oferuje kilka sposobów zabezpieczania aplikacji i u
 * Stosowanie Intune tylko zarejestrowane urządzenia dostępu do określonych usług
 * Ograniczenie lokalizacji użytkownika i adres IP z zakresów
 
-Aby uzyskać więcej informacji na pełne możliwości dostępu warunkowego, zobacz [dostępu warunkowego w klasycznym portalu Azure](../active-directory-conditional-access-azure-portal.md). 
+Aby uzyskać więcej informacji na pełne możliwości dostępu warunkowego, zobacz [dostępu warunkowego w usłudze Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 W tym artykule możemy skupić się na jakie dostępu warunkowego oznacza, że Deweloperzy tworzący aplikacje dla usługi Azure AD.  Zakłada się znajomość [pojedynczego](active-directory-integrating-applications.md) i [wielodostępne](active-directory-devhowto-multi-tenant-overview.md) aplikacji i [typowe wzorce uwierzytelniania](active-directory-authentication-scenarios.md).
 
@@ -216,9 +215,9 @@ Nasze aplikacja powinna catch `error=interaction_required`.  Aplikacja może nas
 Aby wypróbować ten scenariusz, zobacz nasze [przykładowy kod w imieniu — z JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Ten przykładowy kod korzysta z zasad dostępu warunkowego i zarejestrowane wcześniej z SPA JS, aby zademonstrować, w tym scenariuszu interfejsu API sieci web. Widoczny jest sposób poprawnie obsługiwać żądania oświadczeń i uzyskania tokenu dostępu, który może służyć do interfejsu API sieci Web. Alternatywnie wyewidencjonowania ogólne [przykładowy kod Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) wskazówki dotyczące SPA dyrektywy Angular
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* Aby dowiedzieć się więcej o możliwościach, zobacz [dostępu warunkowego w usłudze Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Aby dowiedzieć się więcej o możliwościach, zobacz [dostępu warunkowego w usłudze Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Aby uzyskać przykłady kodu więcej Azure AD, zobacz [repozytorium Github przykładów kodu](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Aby uzyskać więcej informacji na ADAL zestawu SDK i dostęp do dokumentacji, zobacz [przewodnik biblioteki](active-directory-authentication-libraries.md).
 * Aby dowiedzieć się więcej o scenariuszach z wieloma dzierżawcami, zobacz [jak do logowania użytkowników przy użyciu wzorca wielodostępne](active-directory-devhowto-multi-tenant-overview.md).

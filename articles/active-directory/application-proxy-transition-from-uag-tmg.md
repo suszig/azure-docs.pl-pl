@@ -3,7 +3,7 @@ title: "Uaktualnij do serwera Proxy aplikacji usługi Azure AD | Dokumentacja fi
 description: "Wybierz, jakie rozwiązanie do serwera proxy jest najlepsze w przypadku uaktualniania z programu Microsoft Forefront lub Unified bramy dostępu."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b124def6195da93eee61b0ec30698b935111ac4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Porównanie rozwiązań dostępu zdalnego
 
@@ -30,23 +30,23 @@ Azure Active Directory serwera Proxy aplikacji jest jednym z dwóch rozwiązań 
 
 Użyj tej tabeli, aby zrozumieć, jak Threat Management Gateway (TMG), Unified Access Gateway (UAG), serwer Proxy aplikacji sieci Web (WAP) i serwera Proxy aplikacji usługi Azure AD (AP) porównać ze sobą.
 
-| Funkcja | TMG | UAG | WAP | Interfejs API |
+| Cecha | TMG | UAG | WAP | Interfejs API |
 | ------- | --- | --- | --- | --- |
-| Uwierzytelnianie certyfikatu | Tak | Tak | - | - |
-| Selektywnie publikować aplikacje przeglądarki | Tak | Tak | Tak | Tak |
-| Wstępnego uwierzytelniania i pojedynczego logowania jednokrotnego | Tak | Tak | Tak | Tak | 
-| Warstwy 2/3 zapory | Tak | Tak | - | - |
-| Funkcje serwera proxy do przodu | Tak | - | - | - |
-| Funkcje sieci VPN | Tak | Tak | - | - |
-| Obsługa protokołu sformatowanego | - | Tak | Tak, jeśli uruchomiony za pośrednictwem protokołu HTTP | Tak, jeśli uruchomiony za pośrednictwem protokołu HTTP lub za pośrednictwem bramy usług pulpitu zdalnego |
-| Służy jako serwer proxy usług AD FS | - | Tak | Tak | - |
-| Jednego portalu dostępu do aplikacji | - | Tak | - | Tak |
-| Tłumaczenie łącze treści odpowiedzi | Tak | Tak | - | Tak | 
-| Uwierzytelnianie za pomocą nagłówków | - | Tak | - | Tak, z PingAccess | 
-| Zabezpieczenia w skali chmury | - | - | - | Tak | 
-| Dostęp warunkowy | - | Tak | - | Tak |
-| Brak składników w strefą zdemilitaryzowaną (DMZ) | - | - | - | Tak |
-| Nie połączenia przychodzące | - | - | - | Tak |
+| Uwierzytelnianie certyfikatu | Yes | Yes | - | - |
+| Selektywnie publikować aplikacje przeglądarki | Yes | Yes | Yes | Yes |
+| Wstępnego uwierzytelniania i pojedynczego logowania jednokrotnego | Yes | Yes | Yes | Yes | 
+| Warstwy 2/3 zapory | Yes | Yes | - | - |
+| Funkcje serwera proxy do przodu | Yes | - | - | - |
+| Funkcje sieci VPN | Yes | Yes | - | - |
+| Obsługa protokołu sformatowanego | - | Yes | Tak, jeśli uruchomiony za pośrednictwem protokołu HTTP | Tak, jeśli uruchomiony za pośrednictwem protokołu HTTP lub za pośrednictwem bramy usług pulpitu zdalnego |
+| Służy jako serwer proxy usług AD FS | - | Yes | Yes | - |
+| Jednego portalu dostępu do aplikacji | - | Yes | - | Yes |
+| Tłumaczenie łącze treści odpowiedzi | Yes | Yes | - | Yes | 
+| Uwierzytelnianie za pomocą nagłówków | - | Yes | - | Tak, z PingAccess | 
+| Zabezpieczenia w skali chmury | - | - | - | Yes | 
+| Dostęp warunkowy | - | Yes | - | Yes |
+| Brak składników w strefą zdemilitaryzowaną (DMZ) | - | - | - | Yes |
+| Nie połączenia przychodzące | - | - | - | Yes |
 
 W przypadku większości scenariuszy zalecamy aplikacji usługi Azure AD jako nowoczesnego rozwiązania. Serwer Proxy aplikacji sieci Web jest tylko preferowane w scenariuszach wymagających serwera proxy usług AD FS i nie można używać niestandardowych domen w usłudze Azure Active Directory. 
 
@@ -60,7 +60,7 @@ Serwer Proxy aplikacji usługi Azure AD oferują unikatowych zalet w porównaniu
 - Panel dostępu jednego użytkownika można przejść do dla wszystkich aplikacji, włącznie z usługi Office 365, Azure AD zintegrowanych aplikacji SaaS i lokalnej sieci web aplikacji. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Użyj aplikacji usługi Azure AD, aby zapewnić bezpieczny zdalny dostęp do aplikacji lokalnych](active-directory-application-proxy-get-started.md)
 - [Przejście z programu Forefront TMG i UAG do serwera Proxy aplikacji](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

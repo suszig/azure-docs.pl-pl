@@ -3,8 +3,8 @@ title: "Klient i serwer przechowywanie wersji zestawu SDK w Mobile Apps i usług
 description: "Lista zestawów SDK klienta i zgodności serwera wersje zestawu SDK usług Mobile Services i usługi Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Przechowywanie wersji klienta i serwera w usługach Mobile i aplikacje mobilne
 Najnowszą wersję usług Azure Mobile Services **Mobile Apps** funkcji Azure App Service.
@@ -54,8 +54,8 @@ Poniższej tabeli przedstawiono informacje o zgodności między wszystkie typy k
 
 |  | **Usługi mobilne** Node.js lub .NET | **Aplikacje mobilne** Node.js lub .NET |
 | --- | --- | --- |
-| [Klienci usług Mobile Services] |Ok |Błąd\* |
-| [Aplikacje mobilne klientów] |Błąd\* |Ok |
+| [Klienci usług Mobile Services] |OK |Błąd\* |
+| [Aplikacje mobilne klientów] |Błąd\* |OK |
 
 \*Może to być kontrolowane przez określenie **MS_SkipVersionCheck**.
 
@@ -115,7 +115,7 @@ Sprawdzanie wersji znajduje się w następujących wersjach zestawu SDK serwera:
 | ZUMO-API-VERSION | Wartość MS_SkipVersionCheck | Odpowiedź |
 | --- | --- | --- |
 | x.y.z ani mieć wartości Null |True |200 - OK |
-| Wartość null |Określona wartość false nie |400 - Niewłaściwe żądanie |
+| Null |Określona wartość false nie |400 - Niewłaściwe żądanie |
 | 1.x.y |Określona wartość false nie |400 - Niewłaściwe żądanie |
 | 2.0.0-2.x.y |Określona wartość false nie |200 - OK |
 | 3.0.0-3.x.y |Określona wartość false nie |400 - Niewłaściwe żądanie |

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Często zadawane pytania (FAQ)
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory Domain Services. Sprawdzanie wstecz do aktualizacji.
@@ -26,12 +26,12 @@ Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azur
 ### <a name="troubleshooting-guide"></a>Przewodnik rozwiązywania problemów
 Zapoznaj się [przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md) rozwiązania typowych problemów napotykanych podczas konfigurowania lub administrowania usługami domenowymi Azure AD.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Można utworzyć wiele domen zarządzanych w jednym katalogu usługi Azure AD?
 Nie. Można tworzyć tylko jednej domeny zarządzanej, obsługiwanych przez usługi domenowe Azure AD z jednym katalogu usługi Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Można włączyć usługi domenowe Azure AD w sieci wirtualnej platformy Azure Resource Manager?
-Tak. Można włączyć usługi domenowe Azure AD w sieci wirtualnej platformy Azure Resource Manager. Ta funkcja jest obecnie w przeglądzie.
+Tak. Można włączyć usługi domenowe Azure AD w sieci wirtualnej platformy Azure Resource Manager. Klasyczne sieci wirtualnych platformy Azure nie są już obsługiwane do tworzenia nowych domen zarządzanych.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Można przeprowadzić migrację mojej istniejącej domeny zarządzanej z klasycznych sieci wirtualnych Menedżera zasobów sieci wirtualnej?
 Nie można obecnie. Firma Microsoft będzie dostarczać mechanizm do migracji istniejącej domeny zarządzanej z klasycznej sieci wirtualnej do sieci wirtualnej Resource Manager w przyszłości.

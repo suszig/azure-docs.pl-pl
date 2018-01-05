@@ -2,8 +2,8 @@
 title: "Włączanie synchronizacji w trybie offline dla aplikacji mobilnej Azure (Cordova) | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak używać aplikacji usługi Mobile App do pamięci podręcznej i synchronizacji danych w trybie offline w aplikacji Cordova"
 documentationcenter: cordova
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Włączanie synchronizacji w trybie offline dla aplikacji mobilnej oprogramowania Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -185,11 +185,11 @@ W tej sekcji ponowne łączenie aplikacji zaplecza mobilnego, która symuluje ap
 
     Zwróć uwagę, dane zostały zsynchronizowane między bazy danych i Magazyn lokalny i zawiera elementy, które dodano odłączeniu aplikacji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [synchronizacji danych w trybie Offline w usłudze Azure Mobile Apps]
 * [Visual Studio Tools for Apache Cordova]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przejrzyj bardziej zaawansowane funkcje synchronizacji w trybie offline, takie jak rozwiązywania konfliktów w [próbki synchronizacji w trybie offline]
 * Przejrzyj odwołanie do synchronizacji w trybie offline interfejsu API w [dokumentacji interfejsu API](https://azure.github.io/azure-mobile-apps-js-client).
 

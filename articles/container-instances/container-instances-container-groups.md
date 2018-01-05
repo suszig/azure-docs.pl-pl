@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Kontener grupy wystąpień kontenera platformy Azure
 
@@ -33,6 +33,9 @@ Ten przykład grupy kontenerów:
 * Przedstawia jeden publiczny adres IP, z jedną dostępnego portu.
 * Składa się z dwóch kontenerów. Jeden kontener nasłuchuje na porcie 80, podczas innych wykrywa port 5000.
 * Zawiera dwie udziały plików platformy Azure jako instalacji woluminu i każdego kontenera instaluje jednej akcji lokalnie.
+
+> [!NOTE]
+> Kontener wielu grup są obecnie ograniczone do kontenerów systemu Linux. Gdy pracujemy, aby wyświetlić wszystkie funkcje w celu kontenery systemu Windows, można znaleźć bieżącej platformy różnice w [przydziały i dostępność wystąpień kontenera platformy Azure w danym regionie](container-instances-quotas.md).
 
 ### <a name="networking"></a>Networking
 

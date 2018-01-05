@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testowanie trybu Failover na platformie Azure w usłudze Site Recovery
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 W tym artykule opisano sposób uruchamiania wyszczególniania odzyskiwania po awarii na platformę Azure przy użyciu usługi Site Recovery test trybu failover.  
 
-Możesz uruchomić test trybu failover do weryfikowanie replikacji i strategii reecovery po awarii bez utraty danych lub przestoju. Test trybu failover bez wpływu na trwającej replikacji lub w środowisku produkcyjnym. Można uruchomić testowy tryb failover na określonej maszyny wirtualnej (VM) lub na [planu odzyskiwania](site-recovery-create-recovery-plans.md) zawierający wiele maszyn wirtualnych. 
+Możesz uruchomić test trybu failover do weryfikowanie replikacji i strategii odzyskiwania po awarii bez utraty danych lub przestoju. Test trybu failover bez wpływu na trwającej replikacji lub w środowisku produkcyjnym. Można uruchomić testowy tryb failover na określonej maszyny wirtualnej (VM) lub na [planu odzyskiwania](site-recovery-create-recovery-plans.md) zawierający wiele maszyn wirtualnych. 
 
 
 ## <a name="run-a-test-failover"></a>Wykonywanie próby przejścia w tryb failover
@@ -119,5 +119,5 @@ Aby nawiązać połączenie przy użyciu protokołu RDP po pracy awaryjnej maszy
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zakończeniu wyszczególniania odzyskiwania po awarii, więcej informacji na temat innych typów [pracy awaryjnej](site-recovery-failover.md).

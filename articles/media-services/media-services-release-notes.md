@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji usługi Azure Media Services
 Te informacje o wersji zawierają podsumowanie zmian z poprzednich wersji i znane problemy.
@@ -59,13 +59,7 @@ Informacje o historii wersji interfejsu API REST usług nośnika, zobacz [dokume
 2.  Jeśli masz źródła wideo, które są zakodowane za pomocą H.265(HEVC) kodera-dekodera wideo, takich jak przechwycić za pomocą iOS11 lub GoPro bohater 6, wideo koder Premium i standardowa — koder można teraz używać do kodowania tych klipów wideo. Zapoznaj się z [warunki dotyczące usług Online](https://azure.microsoft.com/support/legal/) ważne uwagi dotyczące patentowe licencje.
 3.  Jeśli masz zawartość, która zawiera wiele ścieżek audio języka, następnie tak długo, jak wartości języka są poprawnie etykietą zgodnie z odpowiedniego specyfikacją formatu pliku (np. MP4 ISO), można standardowego kodera do tej zawartości do kodowania przesyłania strumieniowego. Wynikowe Lokalizator przesyłania strumieniowego spowoduje wyświetlenie listy dostępnych języków audio.
 4.  Standardowa — koder obsługuje teraz dwa nowe ustawienia systemu tylko dźwięk, "AAC Audio" i "AAC dobrej jakości Audio". Zarówno odpowiednio utworzyć stereo AAC danych wyjściowych w szybkości transmisji bitów 128 Kb/s i 192 kb/s.
-5.  Koder Premium obsługuje teraz formatów plików QuickTime/MOV jako danych wejściowych kodera-dekodera wideo jest jedną z [Apple ProRes odmian wymienione w tym miejscu](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), i jest audio AAC lub PCM.
-
-> [!NOTE]
-> Koder Premium nie obsługuje, na przykład DVC/DVCPro wideo opakowane w plikach QuickTime/MOV jako dane wejściowe.  Standardowa — koder obsługuje jednak te kodery-dekodery wideo.
->
->
-
+5.  Koder Premium obsługuje teraz formatów plików QuickTime/MOV jako danych wejściowych kodera-dekodera wideo jest jedną z [Apple ProRes odmian wymienione w tym miejscu](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), i jest audio AAC lub PCM. Koder Premium nie obsługuje, na przykład DVC/DVCPro wideo opakowane w plikach QuickTime/MOV jako dane wejściowe.  Standardowa — koder obsługuje jednak te kodery-dekodery wideo.
 6.  Poprawki błędów w kodery:
     * Można teraz przesyłania zadań przy użyciu zasobów danych wejściowych i po tych pełną zmodyfikować zasobów (na przykład przez dodawanie/usuwanie/zmiana nazwy plików w ramach elementu zawartości) i przesyłania dodatkowych zadań. 
     * Poprawy jakości produkowane przez koder standardowe miniatur JPEG
@@ -563,7 +557,7 @@ Następujące funkcje to nowość w wersji listopada zestawu SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [nośnika — omówienie szablon licencji PlayReady usług]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [zawartości szyfrowane przesyłania strumieniowego magazynu]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dynamicznego tworzenia pakietów]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blogu Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [ochrona Smooth Stream przy użyciu usług PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

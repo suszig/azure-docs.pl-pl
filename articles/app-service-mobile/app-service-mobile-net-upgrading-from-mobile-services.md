@@ -3,8 +3,8 @@ title: "Uaktualnienie z usług mobilnych Azure App Service"
 description: "Dowiedz się, jak łatwo przeprowadzić uaktualnienie aplikacji usługi Mobile Services do aplikacji usługi Mobile App Service"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uaktualnij istniejącą usługę Mobile .NET Azure App Service
 Mobile App Service jest nowy sposób tworzenia aplikacji dla urządzeń przenośnych przy użyciu programu Microsoft Azure. Aby dowiedzieć się więcej, zobacz [co to są Mobile Apps?].
@@ -89,7 +89,7 @@ Następnie w WebApiConfig.cs, można zastąpić:
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 
-Z
+z 
 
         HttpConfiguration config = new HttpConfiguration();
         new MobileAppConfiguration()
@@ -139,7 +139,7 @@ W usłudze Azure Mobile Apps właściwości systemu nie mają specjalne format i
 * CreatedAt
 * updatedAt
 * usunięte
-* Wersja
+* wersja
 
 Zestawów SDK klienta Mobile Apps Użyj nowych nazw właściwości systemu, więc zmiany nie są wymagane do kodu klienta. Jednak jeśli bezpośrednio wykonywania wywołań REST z usługą następnie należy zmienić zapytań odpowiednio.
 
@@ -155,7 +155,7 @@ W systemach iOS należy zmienić schemat danych podstawowych dla jednostek danyc
 | id |Ciąg, oznaczona jako wymagana |klucz podstawowy w magazynie zdalnym |
 | CreatedAt |Date |(opcjonalnie) mapowany do właściwości systemu createdAt |
 | updatedAt |Date |(opcjonalnie) mapowany do właściwości systemu updatedAt |
-| Wersja |Ciąg |(opcjonalnie) używane do wykrywania konfliktów, mapy wersji |
+| wersja |Ciąg |(opcjonalnie) używane do wykrywania konfliktów, mapy wersji |
 
 #### <a name="querying-system-properties"></a>Badanie właściwości systemu
 W usłudze Azure Mobile Services właściwości systemu nie są wysyłane domyślnie, ale tylko wtedy, gdy żądanie przy użyciu ciągu zapytania `__systemProperties`. Z kolei w systemie Azure Mobile Apps właściwości są **zawsze zaznaczone** ponieważ są one częścią modelu obiektów serwera zestawu SDK.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Ustawienia rejestrowania diagnostycznego
 
@@ -34,7 +34,7 @@ Możesz wybrać **aparat**, **usługi**, i **metryki** kategorii.
 
 ### <a name="engine"></a>Aparat
 
-Wybieranie aparat wszystkie dzienniki [systemu xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nie można wybrać poszczególnych zdarzeń. 
+Wybieranie **aparat** wszystkie dzienniki [systemu xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Nie można wybrać poszczególnych zdarzeń. 
 
 |Kategorie systemu XEvent |Nazwa zdarzenia  |
 |---------|---------|
@@ -73,17 +73,17 @@ Wybieranie aparat wszystkie dzienniki [systemu xEvents](https://docs.microsoft.c
 
 ### <a name="all-metrics"></a>Wszystkie metryki
 
-Kategoria AllMetrics dzienniki takie same [metryki serwera](analysis-services-monitor.md#server-metrics) wyświetlane w metryki.
+Kategoria metryki rejestruje takie same [metryki serwera](analysis-services-monitor.md#server-metrics) wyświetlane w metryki.
 
 ## <a name="setup-diagnostics-logging"></a>Konfiguracja rejestrowania diagnostyki
 
-### <a name="by-using-the-azure-portal"></a>Za pomocą portalu Azure
+### <a name="azure-portal"></a>Azure Portal
 
-1. W [portalu Azure](https://portal.azure.com), na serwerze usług Azure Analysis Services, kliknij przycisk **dzienniki diagnostyczne** nawigacji po lewej stronie, a następnie kliknij polecenie **Włącz diagnostykę**.
+1. W [portalu Azure](https://portal.azure.com) > serwera, kliknij przycisk **dzienniki diagnostyczne** nawigacji po lewej stronie, a następnie kliknij polecenie **Włącz diagnostykę**.
 
     ![Włączanie rejestrowania diagnostyki dla bazy danych Azure rozwiązania Cosmos w portalu Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. W **ustawień diagnostycznych** strony, wykonaj następujące czynności: 
+2. W **ustawień diagnostycznych**, wykonaj następujące czynności: 
 
     * **Nazwa**. Wprowadź nazwę dla dzienników do utworzenia.
 
@@ -101,8 +101,9 @@ Kategoria AllMetrics dzienniki takie same [metryki serwera](analysis-services-mo
 
     Jeśli chcesz zmienić sposób dzienników diagnostycznych są zapisywane w dowolnym momencie w przyszłości, można powrócić do tej strony, aby zmodyfikować ustawienia.
 
-### <a name="by-using-powershell"></a>Za pomocą programu PowerShell
-Poniżej przedstawiono podstawowe polecenia umożliwiające przechodząc. Jeśli chcesz pomoc krok po kroku dotyczące konfigurowania rejestrowania na konto magazynu przy użyciu programu PowerShell, zobacz [samouczek](#tutorial) dalszej części tego artykułu.
+### <a name="powershell"></a>PowerShell
+
+Poniżej przedstawiono podstawowe polecenia umożliwiające przechodząc. Jeśli chcesz pomoc krok po kroku dotyczące konfigurowania rejestrowania na konto magazynu przy użyciu programu PowerShell, zobacz samouczek w dalszej części tego artykułu.
 
 Aby włączyć metryki i diagnostyki rejestrowanie przy użyciu programu PowerShell, użyj następujących poleceń:
 
@@ -156,13 +157,11 @@ Dzienniki są zwykle dostępne w ramach konfigurowania rejestrowania kilka godzi
 * Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
 * Pamiętaj ustawić okres przechowywania, tak aby stare dzienniki są usuwane z konta magazynu.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Wyświetl dzienniki w analizy dzienników
 
 Zdarzenia metryki i serwera są zintegrowane z systemu xEvents w analizy dzienników dla side-by-side analizy. Analiza dzienników można również skonfigurować do odbierania zdarzeń z innymi usługami Azure, zapewniając holistyczny widok danych diagnostycznych rejestrowania między architektury.
 
-Aby wyświetlić dane diagnostyczne analizy dzienników, otwórz stronę wyszukiwania dziennika z menu po lewej stronie lub z obszaru zarządzania strony, jak pokazano na poniższej ilustracji:
+Aby wyświetlić dane diagnostyczne analizy dzienników, otwórz stronę wyszukiwania dziennika z menu po lewej stronie lub z obszaru zarządzania, jak pokazano poniżej.
 
 ![Opcje wyszukiwania dziennika w portalu Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Kliknij przycisk **EventClass\_s** lub jedną z nazw zdarzeń i analizy dziennik
 
 Pamiętaj, aby wyewidencjonowania Operations Management Suite, który zapewnia witryny sieci Web z rozszerzoną zapytania, dashboarding i możliwości alertów na danych analizy dzienników.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Zapytania
 
 Brak setki zapytania, których można użyć. Poniżej przedstawiono kilka ułatwiających rozpoczęcie pracy.
@@ -199,7 +197,6 @@ Aby dowiedzieć się więcej o korzystaniu z nowego języka zapytań wyszukiwani
 > Ma dużą zapytania analizy dzienników, które chcesz udostępnić? Jeśli masz konto GitHub, można dodać go do tego artykułu. Po prostu kliknij **Edytuj** w prawym górnym rogu strony.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Samouczek - Włącz rejestrowanie przy użyciu programu PowerShell
 W tym samouczku szybki co serwer usług Analysis tworzenia konta magazynu w tej samej subskrypcji i grupy zasobów. Następnie należy Set-AzureRmDiagnosticSetting Aby włączyć diagnostykę rejestrowania, wysyłanie danych wyjściowych do nowego konta magazynu.
 
@@ -208,8 +205,7 @@ Do ukończenia tego samouczka, musi mieć następujące zasoby:
 
 * Istniejący serwer usług Azure Analysis Services. Aby uzyskać instrukcje tworzenia zasobów serwerów, zobacz [utworzyć serwer w portalu Azure](analysis-services-create-server.md), lub [Tworzenie serwera usług Analysis Services dla platformy Azure przy użyciu programu PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Nawiązywanie połączenia z subskrypcjami
+### <a name="aconnect-to-your-subscriptions"></a></a>Nawiązać połączenia z subskrypcjami
 
 Uruchom sesję programu PowerShell Azure i zaloguj się na konto platformy Azure przy użyciu następującego polecenia:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Tworzenie nowego konta magazynu dla dzienników
+### <a name="create-a-new-storage-account-for-your-logs"></a>Tworzenie nowego konta magazynu dla dzienników
 
 Można użyć istniejącego konta magazynu dla dzienników, pod warunkiem że jest w tej samej subskrypcji co serwer. W tym samouczku utworzysz nowe konto magazynu dedykowane do dzienników usług Analysis Services. Aby ułatwić, są przechowywane szczegóły konta magazynu w zmiennej o nazwie **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Zidentyfikowanie konta serwera dla dzienników
+### <a name="identify-the-server-account-for-your-logs"></a>Zidentyfikowanie konta serwera dla dzienników
 
 Ustaw nazwę konta do zmiennej o nazwie **konta**, gdzie ResourceName jest nazwa konta.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Włączanie rejestrowania
+### <a name="enable-logging"></a>Włącz rejestrowanie
 
 Aby włączyć rejestrowanie, należy użyć polecenia cmdlet Set-AzureRmDiagnosticSetting wraz ze zmiennymi dla nowego konta magazynu, konto serwera i kategorii. Uruchom następujące polecenie, ustawienie **-włączone** flaga **$true**:
 

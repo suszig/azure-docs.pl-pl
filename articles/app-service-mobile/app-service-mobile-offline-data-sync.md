@@ -2,8 +2,8 @@
 title: "Synchronizacja danych w trybie offline w usługi Azure Mobile Apps | Dokumentacja firmy Microsoft"
 description: "Omówienie funkcji synchronizacji danych w trybie offline dla usługi Azure Mobile Apps i koncepcyjny odwołania"
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronizowanie danych w trybie offline w usłudze Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>Co to jest synchronizacja danych w trybie offline?
@@ -88,7 +88,7 @@ Korzystając z tabel synchronizacji, kod klienta określa, kiedy lokalne zmiany 
 
   Na przykład stare dane klienta Załóżmy, że w tym przykładzie "Lista czynności do wykonania" Device1 pobiera tylko elementy, które nie zostały zakończone. Czynność do wykonania "Kup mleka" jest oznaczona jako zakończona na serwerze przez inne urządzenie. Jednak Device1 nadal ma todoitem "Kup mleka" w lokalnym magazynie, ponieważ jest on tylko ściąganie elementy, które nie są oznaczone jako ukończone. Przeczyszczanie usuwa ten element stare.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [iOS: Włączanie synchronizacji w trybie offline]
 * [Xamarin iOS: Włączanie synchronizacji w trybie offline]
 * [Dla systemu Xamarin Android: Włączanie synchronizacji w trybie offline]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galeria elementów Runbook i modułów dla usługi Automatyzacja Azure
 Zamiast tworzenia własnych elementów runbook i modułów w automatyzacji Azure, można uzyskać dostępu do szerokiej gamy scenariuszy, które zostały już utworzone przez firmę Microsoft i społecznością.  Możesz użyć tych scenariuszy bez żadnych modyfikacji lub można ich używać jako punktu wyjścia i edytować je do swoich specyficznych wymagań.
@@ -26,23 +26,14 @@ Zamiast tworzenia własnych elementów runbook i modułów w automatyzacji Azure
 Można pobrać elementów runbook z [galerię elementów Runbook](#runbooks-in-runbook-gallery) i modułów [galerii programu PowerShell](#modules-in-powerShell-gallery).  Również może przyczynić się do społeczności za pomocą udostępniania scenariusze, które można rozwijać.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Elementy Runbook w galerii elementu Runbook
-[Galerię elementów Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) z firmy Microsoft oraz społeczności, który można zaimportować do usługi Automatyzacja Azure jest dostępnych wiele elementów runbook. Możesz pobrać elementu runbook z galerii, który jest obsługiwany w [Centrum skryptów w witrynie TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload), lub bezpośrednio można zaimportować elementy runbook z galerii z klasycznego portalu Azure lub w portalu Azure.
+[Galerię elementów Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) z firmy Microsoft oraz społeczności, który można zaimportować do usługi Automatyzacja Azure jest dostępnych wiele elementów runbook. Możesz pobrać elementu runbook z galerii, który jest obsługiwany w [Centrum skryptów w witrynie TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload), lub bezpośrednio można zaimportować elementy runbook z galerii w portalu Azure.
 
-Można importować tylko bezpośrednio z poziomu galerii elementu Runbook za pomocą portalu Azure lub klasycznego portalu Azure. Nie można wykonać tej funkcji za pomocą środowiska Windows PowerShell.
+Można importować tylko bezpośrednio z poziomu galerii elementu Runbook przy użyciu portalu Azure. Nie można wykonać tej funkcji za pomocą środowiska Windows PowerShell.
 
 > [!NOTE]
 > Należy sprawdzić, czy zawartość żadnych elementów runbook uzyskanie galerię elementów Runbook i należy zachować szczególną ostrożność przy instalacji i uruchamiania ich w środowisku produkcyjnym. |
 > 
 > 
-
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>Aby zaimportować element runbook z galerii elementu Runbook z klasycznego portalu Azure
-1. W portalu Azure kliknij przycisk, **nowy**, **usługi aplikacji**, **automatyzacji**, **Runbook**, **z galerii**.
-2. Wybierz kategorię, aby wyświetlić powiązane elementy runbook, a następnie wybierz element runbook, aby wyświetlić jego szczegóły. Po wybraniu elementu runbook, który ma przycisk strzałki w prawo.
-   
-    ![Galeria elementów Runbook](media/automation-runbook-gallery/runbook-gallery.png)
-3. Przejrzyj zawartość elementu runbook i zapisz wszelkie wymagania w opisie. Gdy wszystko będzie gotowe, kliknij przycisk strzałki w prawo.
-4. Wprowadź szczegóły elementu runbook, a następnie kliknij przycisk znacznika wyboru. Nazwa elementu runbook są już wypełnione.
-5. Element runbook jest wyświetlany na **elementów Runbook** karty dla konta automatyzacji.
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Aby zaimportować element runbook z galerii elementu Runbook w portalu Azure
 1. W witrynie Azure Portal otwórz konto usługi Automation.
@@ -70,21 +61,21 @@ Firma Microsoft zaleca dodanie elementów runbook do galerii elementu Runbook, k
 * Podsumowanie dla przekazywania jest wyświetlana w wynikach galerię elementów Runbook, należy podać szczegółowe informacje, które pomaga w identyfikacji funkcji elementu runbook użytkownika.
 * Jednej do trzech z następujących tagów, należy przypisać do przekazywania.  Element runbook jest wyświetlana w Kreatorze w kategoriach, spełniających jego tagów.  Dowolne tagi nie ma na liście, są ignorowane przez kreatora. Jeśli nie określono żadnych pasujących tagów, elementu runbook znajduje się w innych kategorii.
   
-  * Tworzenie kopii zapasowych
+  * Backup
   * Zarządzanie pojemnością
   * Zmiana kontroli
   * Zgodność
   * Deweloperów i testowania środowisk
   * Odzyskiwanie po awarii
   * Monitorowanie
-  * Stosowanie poprawek
+  * Poprawianie
   * Inicjowanie obsługi
   * Korygowanie
   * Zarządzanie cyklem życia maszyny Wirtualnej
 * Automatyzacja aktualizuje galerii raz na godzinę, nie będą widzieć Twój wkład natychmiast.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduły w galerii programu PowerShell
-Moduły programu PowerShell zawierają polecenia cmdlet, których można używać w elementach runbook, a istniejące modułów, które można zainstalować w automatyzacji Azure są dostępne w [galerii programu PowerShell](http://www.powershellgallery.com).  Można uruchomić tej galerii z portalu Azure i zainstaluj je bezpośrednio do usługi Automatyzacja Azure, lub można je pobrać i zainstalować je ręcznie.  Nie można zainstalować moduły bezpośrednio z klasycznego portalu Azure, ale można je pobrać je zainstalować, jak w przypadku innych modułów.
+Moduły programu PowerShell zawierają polecenia cmdlet, których można używać w elementach runbook, a istniejące modułów, które można zainstalować w automatyzacji Azure są dostępne w [galerii programu PowerShell](http://www.powershellgallery.com).  Można uruchomić tej galerii z portalu Azure i zainstaluj je bezpośrednio do usługi Automatyzacja Azure, lub można je pobrać i zainstalować je ręcznie.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Aby zaimportować moduł z galerii moduł usługi Automatyzacja z portalu Azure
 1. W witrynie Azure Portal otwórz konto usługi Automation.

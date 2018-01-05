@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurowanie i dzienników serwera dostępu w portalu Azure
 
@@ -26,7 +26,7 @@ Do wykonania kroków opisanych ten przewodnik, potrzebne są:
 ## <a name="configure-logging"></a>Konfigurowanie rejestrowania
 Konfigurowanie dostępu do dzienników zapytania i dzienników błędów. 
 
-1. Zaloguj się w witrynie [Azure Portal](http://portal.azure.com/).
+1. Zaloguj się w [Portalu Azure](http://portal.azure.com/).
 
 2. Wybierz bazy danych Azure, PostgreSQL serwera.
 
@@ -53,7 +53,7 @@ Konfigurowanie dostępu do dzienników zapytania i dzienników błędów.
 ## <a name="view-list-and-download-logs"></a>Wyświetl listę i Pobierz dzienniki
 Po rozpoczęciu rejestrowania, można wyświetlić listę dostępnych dzienników i pobrać osobnych plikach dziennika w okienku dzienniki serwera. 
 
-1. Otwórz Azure portal.
+1. Otwórz witrynę Azure Portal.
 
 2. Wybierz bazy danych Azure, PostgreSQL serwera.
 
@@ -72,8 +72,8 @@ Po rozpoczęciu rejestrowania, można wyświetlić listę dostępnych dziennikó
 
    ![Kliknij ikonę pobierania](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Zobacz [Access Server Logs WE CLI](howto-configure-server-logs-using-cli.md) Aby dowiedzieć się, jak pobrać dzienniki programowo.
 - Dowiedz się więcej o [dzienniki serwera](concepts-server-logs.md) w usłudze Azure DB dla PostgreSQL. 
-- Aby uzyskać więcej informacji o definicji parametrów i PostgreSQL rejestrowania, zobacz dokumentację PosgreSQL na [rejestrowania i raportowania błędów](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Aby uzyskać więcej informacji o definicji parametrów i PostgreSQL rejestrowania, zobacz dokumentację PostgreSQL na [rejestrowania i raportowania błędów](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

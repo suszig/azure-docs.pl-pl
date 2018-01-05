@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Tworzenie aplikacji sieci web PHP i MySQL w usłudze Azure App Service w systemie Linux
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/15/2017
 > W tym artykule wdraża aplikację usługi aplikacji w systemie Linux. Aby wdrożyć w usłudze App Service na _Windows_, zobacz [tworzenie aplikacji sieci web PHP i MySQL na platformie Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-[Usługa aplikacji w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, własnym poprawiania usługi hosta sieci web przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację sieci web PHP i podłącz go do bazy danych MySQL. Po zakończeniu będziesz mieć [Laravel](https://laravel.com/) aplikacji uruchomionej w usłudze aplikacji w systemie Linux.
+Usługa [App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną i samonaprawialną usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. W tym samouczku pokazano, jak utworzyć aplikację sieci web PHP i podłącz go do bazy danych MySQL. Po zakończeniu będziesz mieć [Laravel](https://laravel.com/) aplikacji uruchomionej w usłudze aplikacji w systemie Linux.
 
 ![Aplikacja PHP działające w usłudze aplikacji Azure](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -164,7 +164,7 @@ Tworzenie serwera w bazie danych Azure dla programu MySQL (wersja zapoznawcza) z
 W poniższym poleceniu zastąp nazwę serwera MySQL, w której występuje  _&lt;mysql_server_name >_ symbolu zastępczego (prawidłowe znaki to `a-z`, `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql_server_name>.database.windows.net`), musi on być globalnie unikatowe.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 Po utworzeniu serwer MySQL, interfejsu wiersza polecenia Azure zawiera informacje podobne do poniższego przykładu:
@@ -202,7 +202,7 @@ W oknie terminalu nawiązać serwer MySQL na platformie Azure. Użyj wartości o
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Po wyświetleniu monitu o podanie hasła, użyj _$tr0ngPa$ w0rd!_, która została określona podczas tworzenia bazy danych.
+Po wyświetleniu monitu o podanie hasła, użyj _$tr0ngPa$ w0rd!_, która została określona podczas tworzenia serwera bazy danych.
 
 ### <a name="create-a-production-database"></a>Utwórz bazę danych produkcyjnych
 
@@ -243,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -333,7 +333,7 @@ W tym kroku możesz wdrożyć aplikację PHP, MySQL, podłączone do usługi Azu
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurowanie ustawień bazy danych
+### <a name="configure-database-settings"></a>Konfiguruj ustawienia bazy danych
 
 W usłudze App Service można ustawić zmienne środowiskowe jako _ustawień aplikacji_ za pomocą [az aplikacji sieci Web config appsettings zestaw](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) polecenia.
 
@@ -596,7 +596,7 @@ Menu po lewej stronie zawiera strony konfigurowania aplikacji.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

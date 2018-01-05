@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Symulacja błędu podczas uzyskiwania dostępu do magazynu geograficznie nadmiarowego dostęp do odczytu
 
@@ -88,7 +88,7 @@ Przejdź do Fiddler i wybierz **reguły** -> **dostosować zasady...** .  Usuń 
 
 Aby wznowić aplikacji, naciśnij klawisz **dowolny klawisz,** .
 
-Po uruchomieniu aplikacji ponownie, żądania do punktu końcowego podstawowego zacząć się nie powieść. Aplikacja próbuje ponownie połączyć się z punktem końcowym głównej 5 razy. Po próg niepowodzeń pięć prób obraz żąda od dodatkowej punktu końcowego tylko do odczytu. Po aplikacji pomyślnie pobiera obraz 20 razy z pomocniczy punkt końcowy, aplikacja próbuje połączyć się podstawowy punkt końcowy. Jeśli podstawowy punkt końcowy jest nadal jest nieosiągalny, aplikacja wznawia odczytu z punktu końcowego dodatkowej. Ten wzorzec jest [wyłącznika](/azure/architecture/patterns/circuit-breaker.md) wzorzec opisanych w poprzednich instrukcji.
+Po uruchomieniu aplikacji ponownie, żądania do punktu końcowego podstawowego zacząć się nie powieść. Aplikacja próbuje ponownie połączyć się z punktem końcowym głównej 5 razy. Po próg niepowodzeń pięć prób obraz żąda od dodatkowej punktu końcowego tylko do odczytu. Po aplikacji pomyślnie pobiera obraz 20 razy z pomocniczy punkt końcowy, aplikacja próbuje połączyć się podstawowy punkt końcowy. Jeśli podstawowy punkt końcowy jest nadal jest nieosiągalny, aplikacja wznawia odczytu z punktu końcowego dodatkowej. Ten wzorzec jest [wyłącznika](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) wzorzec opisanych w poprzednich instrukcji.
 
 ![Wklej reguły niestandardowe](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
@@ -108,7 +108,7 @@ Po zakończeniu naciśnij klawisz **dowolny klawisz,** wznowić działania aplik
 
 ![Wznów aplikacji](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W części dwóch serii poznanie symulację awarii do testowania magazynu geograficznie nadmiarowego dostęp do odczytu, np.:
 

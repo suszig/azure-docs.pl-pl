@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Powiadomienia o raportach usługi Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Jakie raporty generowanie powiadomień e-mail
@@ -36,13 +36,13 @@ Wiadomości e-mail są wysyłane do wszystkich administratorów globalnych, któ
 Wiadomości e-mail są wysyłane, jeśli 10 nowych nieregularne logowania działań występuje w ciągu ostatnich 30 dni lub od momentu ostatniego wiadomość e-mail została wysłana, ta wartość jest mniejsza.
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>Jak uzyskać dostępu do raportów wymienionych w wiadomości e-mail
-Po kliknięciu łącza nastąpi przekierowanie do strony raportu w klasycznym portalu Azure. Aby uzyskać dostęp do raportu, musisz być:
+Po kliknięciu łącza nastąpi przekierowanie do strony raportu w portalu Azure. Aby uzyskać dostęp do raportu, musisz być:
 
 * Administrator lub współadministratora subskrypcji platformy Azure
 * Administrator globalny w katalogu i przypisaniu licencji usługi Active Directory — wersja Premium. Aby uzyskać więcej informacji, zobacz [Wersje usługi Azure Active Directory](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>Można wyłączyć te wiadomości e-mail?
-Tak, aby wyłączyć powiadomienia dotyczące nietypowe logowania w klasycznym portalu Azure, kliknij przycisk **Konfiguruj**, a następnie wybierz **wyłączone** w obszarze **powiadomienia** sekcji.
+Tak, aby wyłączyć powiadomienia dotyczące nietypowe logowania w portalu Azure, kliknij przycisk **Konfiguruj**, a następnie wybierz **wyłączone** w obszarze **powiadomienia** sekcji.
 
 ## <a name="whats-next"></a>Co dalej
 * Zastanawiasz się, jak zabezpieczeń, inspekcji i raporty dotyczące działań są dostępne? Zapoznaj się z [zabezpieczeń platformy Azure AD, inspekcji i raporty dotyczące działań](active-directory-view-access-usage-reports.md)

@@ -3,7 +3,7 @@ title: "Tłumaczenie łącza i serwer Proxy aplikacji adresów URL usługi Azure
 description: "Zawiera podstawowe informacje dotyczące serwera Proxy aplikacji usługi Azure AD łączników."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 877c4491b3ebc2164f7cb2ecb9392d9c71e1667a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj zapisane na stałe łącza do aplikacji opublikowanych przy użyciu serwera Proxy aplikacji usługi Azure AD
 
@@ -82,11 +82,11 @@ Wprowadzenie do tłumaczenia łącze jest tak proste, jak kliknięcie przycisku:
 
 Teraz gdy użytkownicy uzyskują dostęp do tej aplikacji, serwer proxy będzie automatycznie skanowanie w poszukiwaniu wewnętrzne adresy URL, które zostały opublikowane za pośrednictwem serwera Proxy aplikacji w dzierżawie.
 
-## <a name="send-feedback"></a>Wyślij opinię
+## <a name="send-feedback"></a>Prześlij opinię
 
 Chcemy Twojej pomocy, aby ta funkcja działa w przypadku wszystkich aplikacji. Firma Microsoft wyszukiwania ponad 30 tagów w kodzie HTML i CSS i rozważa którego przypadków JavaScript do obsługi. Przykład wygenerowanego linki, które nie są tłumaczonym, przesyłać fragmentu kodu [opinii serwera Proxy aplikacji](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Domen niestandardowych za pomocą serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-custom-domains.md) mają ten sam adres URL wewnętrznych i zewnętrznych
 
 [Konfigurowanie mapowań dostępu alternatywnego for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

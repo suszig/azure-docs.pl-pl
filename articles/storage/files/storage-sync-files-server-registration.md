@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Zarządzanie serwerami zarejestrowanych za pomocą synchronizacji plików Azure (wersja zapoznawcza)
 Usługa Azure File Sync (wersja zapoznawcza) umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -147,9 +147,9 @@ Ponieważ synchronizacji plików Azure będzie rzadko tylko usługa działająca
 > Ustawienie zbyt małej limity ma wpływ na wydajność synchronizacji synchronizacji plików Azure i odwołania.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Ustaw limity sieci Azure synchronizacji plików
-Wykorzystanie sieci synchronizacji plików Azure można ograniczyć przy użyciu `StorageSyncNetworkLimit` polecenia cmdlet. 
+Możliwość ograniczania użycia sieci synchronizacji plików Azure przy użyciu `StorageSyncNetworkLimit` polecenia cmdlet. 
 
-Na przykład można utworzyć nowego limitu sieci, aby upewnić się, czy synchronizacji plików Azure nie używa więcej niż 10 MB/s miedzy 9 a 17: 00 (h 17:00) w tygodniu pracy: 
+Na przykład można utworzyć nowy limit przepustnicy, aby upewnić się, czy synchronizacji plików Azure nie używa więcej niż 10 MB/s miedzy 9 a 17: 00 (h 17:00) w tygodniu pracy: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

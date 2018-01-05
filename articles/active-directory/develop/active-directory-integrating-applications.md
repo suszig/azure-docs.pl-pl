@@ -3,10 +3,9 @@ title: "Integrowanie aplikacji z usługą Azure Active Directory"
 description: "Jak dodać, zaktualizować lub usunąć aplikacji w usłudze Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrowanie aplikacji z usługą Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Ponadto, zanim klient może uzyskać dostęp do składnika web API udostępniany
 - Delegowane uprawnienia: Aplikacja kliencka musi uzyskać dostępu do interfejsu API sieci web jako zalogowany użytkownik, ale dostęp ograniczony przez wybrane ustawienia. Ten typ uprawnień może zostać przydzielony przez użytkownika, chyba że uprawnienie wymaga zgody administratora. 
 
   > [!NOTE]
-  > Dodawanie delegowane uprawnienia do aplikacji nie automatycznie udziela zgody dla użytkowników w dzierżawie, tak jak w klasycznym portalu Azure. Użytkownicy muszą nadal ręcznie zgoda na dodano uprawnień delegowanych w czasie wykonywania, chyba że kliknięciu przez administratora **udzielanie uprawnień** przycisk z **wymagane uprawnienia** sekcji Strona aplikacji w portalu Azure. 
+  > Dodawanie delegowane uprawnienia do aplikacji nie udziela automatycznie zgody dla użytkowników w dzierżawie. Użytkownicy muszą nadal ręcznie zgoda na dodano uprawnień delegowanych w czasie wykonywania, chyba że kliknięciu przez administratora **udzielanie uprawnień** przycisk z **wymagane uprawnienia** sekcji Strona aplikacji w portalu Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Aby dodać poświadczeń aplikacji lub uprawnienia dostępu do interfejsów API sieci web
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
@@ -312,7 +311,7 @@ Część aplikacji, które Pokaż w filtrze "Wszystkie aplikacje" (z wyłączeni
 
 Aby usunąć aplikację wielodostępne dostępu do katalogu (po udzielenia zgody), administrator firmy, należy usunąć jego nazwy głównej usługi. Administrator musi mieć dostęp administratora globalnego i usunąć za pomocą portalu Azure [poleceń cmdlet programu Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) Aby usunąć dostęp.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji dotyczących działania uwierzytelniania w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md).
 - Zobacz [znakowanie wytyczne dotyczące zintegrowanych aplikacji](active-directory-branding-guidelines.md) dotyczące visual wskazówki dotyczące aplikacji.
 - Aby uzyskać więcej informacji na relacje między obiektów aplikacji i nazwę główną usługi dla aplikacji, zobacz [obiekty aplikacji i nazwy głównej usługi](active-directory-application-objects.md).

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Przegląd stref dostępności na platformie Azure (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Podgląd stref dostępności jest dostępne wschodnie stany USA 2 Europa Zachodn
 3. Wybierz region, który obsługuje stref dostępności.
 4. Aby rozpocząć korzystanie z usługą dostępność strefy, użyj jednej z poniższych łączy. 
     - [Utwórz maszynę wirtualną](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Utwórz zestaw skali maszyny wirtualnej zonal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Utwórz zestaw skali maszyny wirtualnej](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Dodaj dysk zarządzane przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Moduł równoważenia obciążenia](../load-balancer/load-balancer-standard-overview.md)
 

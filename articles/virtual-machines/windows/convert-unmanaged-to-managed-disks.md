@@ -4,7 +4,7 @@ description: "Sposób konwertowania maszyny Wirtualnej systemu Windows z dysków
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f6376bb9e7f172df317b2ec857025bf37793799
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd9ebaf9a1c8b3112623af4228efa0d9063c1e52
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertuj maszynę wirtualną systemu Windows z dysków niezarządzanych do zarządzanych dysków
 
@@ -31,6 +31,7 @@ W tym artykule przedstawiono sposób konwertowania maszyn wirtualnych przy użyc
 
 
 * Przegląd [planowanie migracji do zarządzanych dysków](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
+
 * Przegląd [— często zadawane pytania dotyczące migracji do zarządzanych dysków](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
@@ -104,7 +105,7 @@ Jeśli występuje błąd podczas konwersji lub Jeśli maszyna wirtualna jest w s
 Przed przekonwertowaniem, upewnij się, wszystkie rozszerzenia maszyny Wirtualnej są w stanie pomyślnie udostępnianie lub konwersji zakończy się niepowodzeniem z kodem błędu 409.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Konwertuj dyski standardowe zarządzanego na — wersja premium](convert-disk-storage.md)
 

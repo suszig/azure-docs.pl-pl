@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Zagadnienia związane z planowaniem pojemności klastra sieci szkieletowej usług
 Wszystkie wdrożenia produkcyjnego planowania pojemności jest ważnym krokiem. Poniżej przedstawiono niektóre elementy, które należy wziąć pod uwagę w ramach tego procesu.
@@ -69,7 +69,7 @@ Warstwa trwałości jest służy do wskazania systemowi uprawnienia, które maj�
 
 To uprawnienie jest wyrażona w następujących wartości:
 
-* Czas trwania dwóch godzin na UD można wstrzymywać złota - infrastruktury zadań. Złoty trwałości można włączyć tylko dla jednostki SKU wirtualna pełne węzła jak D15_V2, G5 itp.
+* Czas trwania dwóch godzin na UD można wstrzymywać złota - infrastruktury zadań. Złoty trwałości można włączyć tylko w węźle pełne jednostki SKU maszyny Wirtualnej, takie jak L32s, GS5, G5, DS15_v2 itp D15_v2 (ogólnie wszystkich rozmiarów maszyn wirtualnych wymienione w http://aka.ms/vmspecs, które są oznaczone jako "Wystąpienia jest izolowane sprzętu przeznaczonego do jednego odbiorcy" z uwagi maszyn wirtualnych węzła pełna)
 * Srebrny - zadania infrastruktury może być wstrzymana na okres 10 minut na każdą UD i jest dostępny na wszystkich standardowych maszyn wirtualnych z pojedynczego rdzenia i powyżej.
 * Brązowy - żadnych uprawnień. Jest to wartość domyślna. Ten poziom trwałości należy używać tylko dla typów węzłów, które uruchamiane _tylko_ bezstanowe. 
 
@@ -214,7 +214,7 @@ W przypadku obciążeń produkcyjnych
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zakończeniu, planowanie pojemności i konfigurowanie klastra, przeczytaj następujące artykuły:
 
 * [Zabezpieczenia klastra sieci szkieletowej usług](service-fabric-cluster-security.md)

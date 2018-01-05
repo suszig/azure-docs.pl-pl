@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?
 Logowanie jednokrotne oznacza dostępowi do wszystkich aplikacji i zasobów potrzebnych do prowadzenia działalności, logując się tylko raz przy użyciu jednego konta użytkownika. Po zalogowaniu możesz uzyskać dostęp do wszystkich aplikacji bez konieczności uwierzytelniania (np. Wpisz hasło) po raz drugi.
@@ -49,7 +49,7 @@ Usługi Azure AD obsługuje trzy różne sposoby, aby zalogować się do aplikac
 * **Oparte na hasłach rejestracji jednokrotnej** umożliwia bezpiecznego magazynu haseł aplikacji i powtarzania przy użyciu rozszerzenia przeglądarki sieci web lub aplikacji mobilnej. Wykorzystuje istniejący proces logowania udostępniany przez aplikację, ale umożliwia administratorowi zarządzać hasłami i wymaga od użytkownika znać hasło.
 * **Istniejące rejestracji jednokrotnej** umożliwia usłudze Azure AD korzystać z żadnych istniejących rejestracji jednokrotnej, który został skonfigurowany do aplikacji, ale umożliwia te aplikacje do odnosić się do portali panel dostępu usługi Office 365 lub Azure AD, a także umożliwia dodatkowe Raportowanie w usłudze Azure AD, gdy istnieje uruchamiania aplikacji.
 
-Gdy użytkownik ma uwierzytelnienie przy użyciu aplikacji, muszą mieć rekord konta zainicjowane w aplikacji, która określa, że aplikacja gdzie istnieje uprawnienia i poziom dostępu są wewnątrz aplikacji. Inicjowanie obsługi administracyjnej z tego konta można albo automatycznie są wykonywane, lub może być wykonywane ręcznie przez administratora, zanim użytkownik podano dostępu rejestracji jednokrotnej.
+Gdy użytkownik został uwierzytelniony przy użyciu aplikacji, muszą mieć rekord konta zainicjowane w aplikacji, która określa, że aplikacja gdzie istnieje uprawnienia i poziom dostępu są wewnątrz aplikacji. Inicjowanie obsługi administracyjnej z tego konta można albo automatycznie są wykonywane, lub może być wykonywane ręcznie przez administratora, zanim użytkownik podano dostępu rejestracji jednokrotnej.
 
  Więcej informacji na temat pojedynczego logowania jednokrotnego trybów i Inicjowanie obsługi poniżej.
 

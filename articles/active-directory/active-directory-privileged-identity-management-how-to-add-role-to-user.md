@@ -6,23 +6,21 @@ documentationcenter:
 author: billmath
 manager: mtillman
 editor: 
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 5a2150b67fb4926ac9bb04c74a281ba78692c5f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: dodawanie i usuwanie roli użytkownika
-Z usługi Azure Active Directory (AD), administrator globalny (lub administrator firmy) można aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD. Jest to zrobić za pomocą poleceń cmdlet programu PowerShell, takie jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`. Można też używać klasycznego portalu Azure, zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Z usługi Azure Active Directory (AD), administrator globalny (lub administrator firmy) można aktualizować której użytkownicy są **trwale** przypisane do ról w usłudze Azure AD. Jest to zrobić za pomocą poleceń cmdlet programu PowerShell, takie jak `Add-MsolRoleMember` i `Remove-MsolRoleMember`. Można też używać portalu Azure, zgodnie z opisem w [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Aplikacja Azure AD Privileged Identity Management umożliwia administratorom ról uprzywilejowanych upewnij przypisań ról trwałe, jak również. Ponadto administratorzy ról uprzywilejowanych ułatwia użytkownikom **kwalifikujących się** dla ról administratora. Administrator kwalifikujących się może aktywować rolę, gdy potrzebują, a następnie ich uprawnienia wygasają po ich wszystko gotowe.
 
@@ -63,6 +61,6 @@ Wykonaj następujące kroki, aby usunąć użytkowników z roli:
 
 Jeśli nie masz pewności, którzy użytkownicy nadal muszą ich przypisania ról, a następnie możesz [rozpocząć Przegląd dostępu dla roli](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

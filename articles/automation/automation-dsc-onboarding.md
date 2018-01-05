@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure
 
@@ -36,7 +36,7 @@ Konfiguracja DSC automatyzacji Azure mogą służyć do zarządzania różnych k
 Ponadto jeśli firma nie jest gotowa do zarządzania konfiguracji komputera z chmury, konfiguracja DSC automatyzacji Azure mogą służyć jako punktu końcowego tylko do raportu. Dzięki temu można ustawić żądaną konfiguracją (push) za pośrednictwem usługi Konfiguracja DSC lokalnego oraz sformatowanego Szczegóły raportowania zgodności węzła z żądanego stanu w automatyzacji Azure.
 
 > [!NOTE]
-> Zarządzanie maszynach wirtualnych platformy Azure w usłudze Konfiguracja DSC jest dołączony bez dodatkowych opłat, jeśli zainstalowane rozszerzenia maszyny wirtualnej DSC jest większa niż 2.7.  Zapoznaj się z [ **automatyzacji cennikiem** ](https://azure.microsoft.com/en-us/pricing/details/automation/) więcej szczegółów.
+> Zarządzanie maszynach wirtualnych platformy Azure w usłudze Konfiguracja DSC jest dołączony bez dodatkowych opłat, jeśli zainstalowane rozszerzenia maszyny wirtualnej DSC jest większa niż 2.70. Zapoznaj się z [ **automatyzacji cennikiem** ](https://azure.microsoft.com/en-us/pricing/details/automation/) więcej szczegółów.
 
 
 W poniższych sekcjach opisano, jak można dołączyć każdego typu maszyny do usługi Konfiguracja DSC automatyzacji Azure.
@@ -390,7 +390,7 @@ Po zarejestrowaniu komputera jako węzła DSC w konfiguracji DSC automatyzacji A
 
 Ponowna rejestracja można wykonać w taki sam sposób, w zarejestrowany węzeł początkowo przy użyciu dowolnej z metod dołączania opisanych w tym dokumencie. Nie trzeba wyrejestrować węzła z usługi Konfiguracja DSC automatyzacji Azure przed ponownie go zarejestrować.
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 
 * [Omówienie usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md)
 * [Polecenia cmdlet systemu Azure Automation DSC](/powershell/module/azurerm.automation/#automation)

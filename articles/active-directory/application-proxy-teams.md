@@ -3,7 +3,7 @@ title: "Dostęp do aplikacji serwera Proxy aplikacji usługi Azure AD w zespoła
 description: "Użyj serwera Proxy aplikacji usługi Azure AD na dostęp do aplikacji lokalnych poprzez Teams firmy Microsoft."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 57ae4c38a528251dee89d56f6fdb7cf1d1dc922d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Dostęp do aplikacji lokalnych poprzez Teams firmy Microsoft
 
@@ -52,7 +52,7 @@ Po opublikowaniu aplikacji za pośrednictwem serwera Proxy aplikacji, należy po
 
 Po jednego członka do zespołu dodaje kartę, jest wyświetlane dla wszystkich użytkowników w kanale. Wszyscy użytkownicy, którzy mają dostęp do aplikacji korzystać pojedynczego logowania jednokrotnego przy użyciu poświadczeń używanych dla Teams firmy Microsoft. Wszyscy użytkownicy, którzy nie mają dostępu do aplikacji można zobaczyć karty w zespołach, ale są zablokowane, dopóki nie można nadać mu uprawnienia do aplikacji lokalnych i portalu Azure opublikowanej wersji aplikacji. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak [publikowanie witryn programu SharePoint lokalnymi](application-proxy-enable-remote-access-sharepoint.md) z serwerem Proxy aplikacji.
 - Konfigurowanie aplikacji do użycia [domen niestandardowych](active-directory-application-proxy-custom-domains.md) dla ich zewnętrznego adresu URL. 

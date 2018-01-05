@@ -3,7 +3,7 @@ title: "Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azur
 description: "Publikowanie aplikacji lokalnych do chmury z serwera Proxy aplikacji usługi Azure AD w portalu Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publikowanie aplikacji przy użyciu serwera proxy aplikacji usługi Azure AD
 
@@ -86,7 +86,7 @@ Aby przetestować aplikację został poprawnie opublikowany, należy dodać kont
   ![Dodaj użytkownika lub grupę](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. W bloku przypisania Dodaj, wybierz **użytkowników i grup** następnie wybierz konto, które chcesz dodać. 
-4. Wybierz **przypisać**.
+4. Wybierz opcję **Przypisz**.
 
 ## <a name="test-your-published-app"></a>Testowanie opublikowanych aplikacji
 
@@ -95,7 +95,7 @@ W przeglądarce przejdź do zewnętrznego adresu URL skonfigurowanego w kroku pu
 ![Testowanie opublikowanych aplikacji](./media/application-proxy-publish-azure-portal/test-app.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Pobierz łączniki](active-directory-application-proxy-enable.md) i [tworzenie grup łącznika](active-directory-application-proxy-connectors-azure-portal.md) do publikowania aplikacji w różnych sieciach i lokalizacji.
 
 - [Konfigurowanie rejestracji jednokrotnej](application-proxy-sso-azure-portal.md) nowo opublikowanych aplikacji

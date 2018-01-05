@@ -3,8 +3,8 @@ title: "Praca z biblioteką klientów zarządzanych aplikacji usługi Mobile App
 description: "Dowiedz się, jak za pomocą klienta .NET dla usługi Azure App Service Mobile Apps w aplikacjach systemu Windows i Xamarin."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: a92fc21881375989f4ebd192c2c42e419e7aee59
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Jak używać zarządzanego klienta usługi Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy użyciu biblioteki zarządzanego klienta dla usługi Azure App Service Mobile aplikacji dla systemu Windows i aplikacje platformy Xamarin. Jeśli jesteś nowym użytkownikiem Mobile Apps, należy rozważyć wykonanie najpierw [szybkiego startu usługi Azure Mobile Apps] [ 1] samouczka. W tym przewodniku możemy skupić się na SDK zarządzanego klienta. Aby dowiedzieć się więcej o zestawów SDK po stronie serwera dla aplikacji mobilnych, zobacz dokumentację [.NET SDK serwera] [ 2] lub [Node.js Server SDK] [ 3].
 
 ## <a name="reference-documentation"></a>Dokumentacja referencyjna

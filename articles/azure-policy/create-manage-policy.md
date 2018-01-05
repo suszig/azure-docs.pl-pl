@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/20/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Tworzenie i zarządzanie zasadami, by wymuszał zgodność
 
@@ -51,7 +51,7 @@ Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać d
 6. Określ właściwość **Nazwa** przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
 7. Zmień warstwę cenową na **Standardowa**, aby upewnić się, że zasady zostaną zastosowane do istniejących zasobów.
 
-   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Usługa jest nadal dostępna w ograniczonej wersji zapoznawczej, dlatego nie wprowadziliśmy jeszcze modelu cenowego, w związku z czym nie otrzymasz rachunku za wybranie warstwy *Standardowa*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Usługa jest nadal dostępna w ograniczonej wersji zapoznawczej, dlatego nie wprowadziliśmy jeszcze modelu cenowego, w związku z czym nie otrzymasz rachunku za wybranie warstwy *Standardowa*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) został wcześniej zarejestrowany. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów.
 

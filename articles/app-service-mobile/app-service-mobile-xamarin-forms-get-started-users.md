@@ -4,7 +4,7 @@ description: "Dowiedz się, jak korzystać z aplikacji mobilnej uwierzytelniać 
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Dodawanie uwierzytelniania do aplikacji platformy Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym temacie przedstawiono, jak uwierzytelniać użytkowników aplikacji usługi Mobile aplikacji z poziomu aplikacji klienta. W tym samouczku Dodawanie uwierzytelniania do projektu szybkiego startu Xamarin Forms przy użyciu dostawcy tożsamości, która jest obsługiwana przez usługę App Service. Po pomyślnie trwa uwierzytelnieniu i autoryzacji w aplikacji mobilnej, jest wyświetlana wartość Identyfikatora użytkownika i będzie można uzyskać dostęp do danych tabeli ograniczone.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -332,7 +332,7 @@ W tej sekcji przedstawiono sposób wykonania **IAuthenticate** interfejsu w proj
 
 4. Skompiluj ponownie aplikację, uruchom go, a następnie zaloguj się przy użyciu dostawcy uwierzytelniania wybraną i sprawdź, czy można uzyskać dostępu do danych jako użytkownik uwierzytelniony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, aby ukończyć w tym samouczku uwierzytelnianie podstawowe, należy wziąć pod uwagę kontynuowanie na jedno z następujących samouczków:
 
 * [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-xamarin-forms-get-started-push.md)

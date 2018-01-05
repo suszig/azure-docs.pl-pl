@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Samouczek: Integracji Azure Active Directory z usług sieci Web firmy Amazon (AWS)
 
@@ -110,7 +110,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
 4. Aplikacji Amazon Web Services (AWS) oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
 
-    ![Konfigurowanie atrybutów rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Konfigurowanie rejestracji jednokrotnej attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej i wykonaj następujące czynności:
     
@@ -126,7 +126,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej Dodaj](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Konfigurowanie atrybutów rejestracji jednokrotnej](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Konfigurowanie rejestracji jednokrotnej addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
@@ -230,18 +230,18 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Tworzenie własnych zasad można pobrać z kont usług AWS wszystkich ról. W **Utwórz swój własny zasady** kliknij na **wybierz** przycisku.
+25. Tworzenie własnych zasad można pobrać z kont usług AWS wszystkich ról. W **tworzenie własnych zasad** kliknij sekcję **wybierz** przycisku.
     
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Definiowanie nowych zasad, wykonując następujące czynności:
 
-    ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Podaj **Nazwa zasady** jako **AzureAD_SSOUserRole_Policy**.
 
     b. Możesz podać **opis** do zasad jako **umożliwi tej zasady można pobrać ról z kont usług AWS**.
-
+    
     d. W dokumencie zasady dodawania poniżej JSON.
     
     ```
@@ -271,16 +271,14 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     }
     
     ```
-
-    d. Upewnij się, że Sprawdź na **używane automatycznego formatowania podczas edycji zasady**.
-
-    e. Polecenie **zweryfikować zasad** znajdujący się u dołu.
-
-    f. Gdy zasady jest został zweryfikowany pomyślnie, a następnie możesz kliknąć **Utwórz zasady** przycisku.
-
-    ![Utwórz nowe zasady](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
-27. Utwórz nowe konto użytkownika w usłudze IAM usług AWS, wykonując następujące kroki:
+    d. Upewnij się, że Sprawdź na **używane automatycznego formatowania podczas edycji zasady**.
+    
+    e. Polecenie **zweryfikować zasad** znajdujący się u dołu.
+    
+    f. Gdy zasady jest został zweryfikowany pomyślnie, a następnie możesz kliknąć **Utwórz zasady** przycisku.
+    
+27. Utwórz nowe konto użytkownika w usłudze IAM usług AWS, wykonując następujące czynności:
 
     a. Polecenie **użytkowników** nawigacji w konsoli usług AWS IAM.
 
@@ -300,9 +298,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     * Polecenie **dalej uprawnienia** przycisk w prawym dolnym rogu.
 
-28. Teraz należy utworzyć nowe zasady dla tego użytkownika, wykonując następujące kroki:
+28. Teraz należy utworzyć nowe zasady dla tego użytkownika, wykonując następujące czynności:
 
-    ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Polecenie **dołączyć istniejących zasad bezpośrednio** przycisku.
 
@@ -332,7 +330,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Wprowadź **klucz dostępu** i **klucz tajny** w **klucz tajny klienta** i **klucz tajny tokenu** odpowiednio pola.
+32. Wprowadź **klucz dostępu** i **klucz tajny** w **klucz tajny klienta** i **klucz tajny tokenu** odpowiednio do pola.
 
     ![Dodawanie użytkownika](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 Po kliknięciu kafelka Amazon Web Services (AWS) w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi sieci Web firmy Amazon (AWS).
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Znane problemy
-
- * W **inicjowania obsługi administracyjnej** sekcji **mapowania** podsekcja zostanie pokazuj komunikatu "Trwa ładowanie..." i nigdy nie wyświetlaj mapowań atrybutów. Tylko inicjowania obsługi administracyjnej przepływ pracy obecnie obsługiwane jest importu ról z usług AWS z usługą Azure AD do wyboru podczas przypisywania użytkownika/grupy. Mapowanie atrybutu dla tego są wcześniej i nie można skonfigurować.
- 
- * **Inicjowania obsługi administracyjnej** sekcji obsługuje tylko wprowadzić jeden zestaw poświadczeń dla jednego dzierżawcy usług AWS naraz. Wszystkie role importowanych są zapisywane do właściwości appRoles usługi Azure AD [servicePrincipal obiektu](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) dla usług AWS dzierżawy. Wiele dzierżaw usług AWS (reprezentowane przez servicePrincipals) mogą być dodawane do usługi Azure AD z galerii do inicjowania obsługi, jednak jest to znany problem z niemożność automatycznie zapis wszystkich importowanych ról z wielu servicePrincipals usług AWS używany dla Inicjowanie obsługi administracyjnej do pojedynczego servicePrincipal, używane do logowania jednokrotnego. Jako obejście [interfejsu API programu Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) można wyodrębnić wszystkie appRoles zaimportować do poszczególnych usług AWS servicePrincipal których inicjowanie obsługi administracyjnej jest skonfigurowany. Te ciągi roli może być dodane do servicePrincipal usług AWS, w którym rejestracji jednokrotnej jest skonfigurowane.
-
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

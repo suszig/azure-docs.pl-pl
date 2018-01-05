@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Limity przydziału i ograniczenia
 W tym artykule opisano, przydziały i ograniczenia związane z programem Microsoft Azure Media Services.
@@ -29,17 +29,8 @@ W tym artykule opisano, przydziały i ograniczenia związane z programem Microso
 Aby zażądać zmiany przydziałów domyślnych, pod warunkiem, możesz otworzyć bilet pomocy technicznej. Podaj szczegółowe informacje w żądaniu zmiany żądany limit przydziału, scenariusze przypadek użycia i regiony wymagane.
 
 ### <a name="how-to-open-a-support-ticket"></a>Jak otworzyć bilet pomocy technicznej
-Aby otworzyć bilet pomocy technicznej, wykonaj następujące czynności:
+W portalu Azure, przejdź do [Pomoc i obsługa techniczna](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Jeśli użytkownik nie jest zalogowany na platformie Azure, pojawi się monit o podanie poświadczeń.
 
-1. Kliknij przycisk [uzyskać pomoc techniczną](https://manage.windowsazure.com/?getsupport=true). Jeśli użytkownik nie jest zalogowany, pojawi się monit o podanie poświadczeń.
-2. Wybierz subskrypcję.
-3. W obszarze typu pomocy technicznej wybierz "Technical."
-4. Kliknij przycisk "Utwórz bilet."
-5. Wybierz "Azure Media Services" w liście produktów wyświetlone na następnej stronie.
-6. Wybierz opcję "Typ problemu" odpowiednią dla tego problemu.
-7. Kliknij przycisk Kontynuuj.
-8. Postępuj zgodnie z instrukcjami wyświetlanymi na następnej stronie, a następnie wprowadź szczegóły problemu.
-9. Kliknij przycisk Zatwierdź, aby otworzyć bilet.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

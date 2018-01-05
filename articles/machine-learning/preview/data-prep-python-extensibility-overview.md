@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Rozszerzenia języka Python przygotowań danych
 Sposób wypełniania funkcji luki pomiędzy wbudowane funkcje usługi Azure Machine Learning danych przygotowania zawiera rozszerzalności na różnych poziomach. W tym dokumencie możemy konspektu rozszerzalność dzięki skrypt w języku Python. 
@@ -123,6 +123,31 @@ Następnie uruchom jedno z następujących poleceń:
 lub 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Użyj niestandardowych modułów
+W transformacji przepływu danych (skrypt) zapisać python kodu w następujący sposób:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+Dodaj kolumny (skrypt), należy ustawić typ bloku kodu = modułu i zapisać python kod następujący:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Do wykonywania różnych kontekstach (lokalny, spark docker) wskaż ścieżkę bezwzględną we właściwym miejscu. Można użyć "os.getcwd() + relativePath", aby go zlokalizować.
+
 
 ## <a name="column-data"></a>Kolumny danych 
 Kolumny danych jest możliwy z wiersza przy użyciu kropkowego lub notacji klucz wartość. Nie można uzyskać dostępu do nazw kolumn, które zawierają spacje lub znaki specjalne za pomocą kropkowego. `row` Zmiennej zawsze powinien być zdefiniowany w obu trybach rozszerzenia języka Python (modułu i wyrażenie). 

@@ -3,9 +3,9 @@ title: "Dodawanie powiadomień wypychanych do aplikacji systemu Android z usług
 description: "Dowiedz się, jak korzystać z aplikacji mobilnej do wysyłania powiadomień wypychanych do aplikacji systemu Android."
 services: app-service\mobile
 documentationcenter: android
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
-ms.author: glenga
-ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: crdun
+ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Dodawanie powiadomień wypychanych do aplikacji systemu Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym samouczku, dodawanie powiadomień wypychanych do [Android szybki start] projektu, aby powiadomienia wypychane są wysyłane do urządzenia, za każdym razem, gdy wstawieniu rekordu.
 
 Szybki start pobrany Projekt serwera nie jest używany, należy najpierw pakiet rozszerzenia powiadomień wypychanych. Aby uzyskać więcej informacji, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -69,7 +69,7 @@ Jeśli testujesz starsze urządzenia, należy skontaktować się [Firebase Dodaj
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Testowanie aplikacji opublikowanych usługi mobilnej
 Można przetestować aplikację, dołączając bezpośrednio telefonie z systemem Android za pomocą kabla USB lub za pomocą urządzenia wirtualnego w emulatorze.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po ukończeniu tego samouczka, rozważ kontynuowanie na jedno z następujących samouczków:
 
 * [Dodawanie uwierzytelniania do aplikacji systemu Android](app-service-mobile-android-get-started-users.md).

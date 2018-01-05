@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Żądanie jednostki w Azure rozwiązania Cosmos bazy danych
 Teraz dostępne: Azure DB rozwiązania Cosmos [Kalkulator jednostki żądania](https://www.documentdb.com/capacityplanner). Dowiedz się więcej w [Szacowanie przepustowość sieci musi](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Zalecamy rozpoczęcie pracy od obejrzenia poniższego klipu wideo, w którym Ara
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Określanie pojemność jednostki żądania w usłudze Azure DB rozwiązania Cosmos
 Przy uruchamianiu nową kolekcję, tabeli lub wykres, określ liczbę jednostek żądań na sekundę (RU na sekundę) mają zastrzeżone. Na podstawie udostępnionej przepływności, bazy danych rozwiązania Cosmos Azure przydziela fizycznej partycji do obsługi kolekcji i podziałów/rebalances danych na partycji jako ich przyrostu.
 
-Azure DB rozwiązania Cosmos wymaga klucza partycji, należy określić, gdy kolekcja jest inicjowana z 2500 jednostek żądania lub nowszej. Klucz partycji jest wymagany również skalować przepływność kolekcji poza 2500 jednostki żądania w przyszłości. W związku z tym zdecydowanie zaleca się konfigurowanie [klucza partycji](partition-data.md) podczas tworzenia kontenera niezależnie od programu początkowej przepływności. Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
+Kontenery DB rozwiązania Cosmos Azure można utworzyć ustalonej lub nieograniczone. Kontenery o stałym rozmiarze mieć maksymalnie 10 GB i 10 000 RU/s przepustowości. Aby utworzyć kontener nieograniczone należy określić minimalnej przepustowości 1 000 RU/s i [klucza partycji](partition-data.md). Ponieważ danych może być konieczne można podzielić na wiele partycji, jest konieczne pobranie klucz partycji, który ma dużej kardynalności (od 100 do milionów unikatowe wartości). Wybierając klucza partycji z wielu różnych wartości upewnieniu się, że żądania i kolekcji/tabeli/graph mogą być skalowane jednolicie Azure DB rozwiązania Cosmos. 
 
 > [!NOTE]
 > Klucz partycji to logiczne granic, a nie jeden fizyczny. W związku z tym nie należy ograniczyć liczbę wartości klucza partycji distinct. W rzeczywistości jest lepiej użyć więcej różne wartości klucza partycji niż mniej, jako bazy danych rozwiązania Cosmos Azure ma więcej opcje równoważenia obciążenia.
@@ -348,7 +348,7 @@ Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego powyżej liczby �
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a>Przekraczanie limitów zarezerwowaną przepływnością w interfejsie API, bazy danych mongodb
 Aplikacje, które przekraczają żądania elastycznie jednostki dla kolekcji będzie ograniczony, dopóki częstotliwość spadnie poniżej poziomu zastrzeżone. W przypadku przepustnicy wewnętrznej bazy danych preemptively zakończy się żądanie z *16500* kod błędu: - *zbyt wiele żądań*. Domyślnie interfejsu API dla bazy danych MongoDB automatycznie ponowi próbę maksymalnie 10 razy przed zwróceniem *zbyt wiele żądań* kod błędu. W przypadku otrzymania wiele *zbyt wiele żądań* kody błędów, można rozważyć albo dodanie zachowanie ponownych prób w aplikacji Błąd procedury obsługi lub [zwiększenie zarezerwowaną przepływnością dla kolekcji](set-throughput.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat zarezerwowaną przepływnością z bazami danych bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:
 
 * [Cennik platformy Azure DB rozwiązania Cosmos](https://azure.microsoft.com/pricing/details/cosmos-db/)

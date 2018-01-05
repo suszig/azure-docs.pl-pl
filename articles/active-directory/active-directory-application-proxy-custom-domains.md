@@ -3,7 +3,7 @@ title: "Domen niestandardowych w serwera Proxy aplikacji usługi Azure AD | Doku
 description: "Zarządzanie domenami niestandardowymi w serwera Proxy aplikacji usługi Azure AD, aby adres URL aplikacji jest taki sam, niezależnie od tego, gdzie użytkownicy do niego dostęp."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: billmath
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 48e074f3f7bd60bc02e26c4bd634ec646b1ff401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Praca z domenami niestandardowymi w serwera Proxy aplikacji usługi Azure AD
 
@@ -80,7 +80,7 @@ Zostanie wyświetlone ostrzeżenie po wygaśnięciu certyfikatu informujący, ab
 
 Wszystkie zarządzania certyfikatami jest obecnie stronach poszczególnych aplikacji, należy do zarządzania certyfikatami w kontekście odpowiednie aplikacje. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Włącz rejestrację jednokrotną](active-directory-application-proxy-sso-using-kcd.md) do aplikacji opublikowanych przy użyciu uwierzytelniania usługi Azure AD.
 * [Włącz dostęp warunkowy](application-proxy-enable-remote-access-sharepoint.md) do opublikowanej aplikacji.
 * [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](active-directory-domains-add-azure-portal.md)
