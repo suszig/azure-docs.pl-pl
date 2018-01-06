@@ -1,5 +1,5 @@
 ---
-title: Co to jest Microsoft Power BI Embedded? | Microsoft Docs
+title: "O Azure usługi Power BI Embedded | Dokumentacja firmy Microsoft"
 description: "Power BI Embedded ma na celu uproszczenie niezależnym dostawcom oprogramowania i deweloperom wykorzystania możliwości usługi Power BI, pomagając im szybko dodać wspaniałych elementy wizualne, raportów i pulpitów nawigacyjnych w swoich aplikacjach."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>Co to jest usługa Power BI Embedded
+# <a name="about-power-bi-embedded"></a>O usłudze Power BI Embedded
 
 Power BI Embedded ma na celu uproszczenie wykorzystania możliwości usługi Power BI niezależnym dostawcom oprogramowania i deweloperów. Usługa Power BI Embedded upraszcza możliwości usługi Power BI pomaga szybko dodać wspaniałych elementy wizualne, raporty i pulpity nawigacyjne do aplikacji. Podobnie jak aplikacje oparte na Microsoft Azure korzystania z usług takich jak Machine Learning i IoT. Przez włączenie Eksploracja danych łatwe do nawigacji w swoich aplikacjach, niezależnym dostawcom oprogramowania pozwalają użytkownikom dokonanie szybki i świadomych decyzji w kontekście.
 
@@ -52,7 +52,7 @@ Przy użyciu interfejsu API REST, Power BI Embedded umożliwia programowania z u
 * [Power BI pomysły](https://ideas.powerbi.com): żądanie i głosów dla funkcji
 * [Reddit](https://www.reddit.com/r/PowerBI/): omówienia usługi Power BI
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz [cennikiem](https://azure.microsoft.com/pricing/details/power-bi-embedded/) szczegółowe węzła pojemności.
 

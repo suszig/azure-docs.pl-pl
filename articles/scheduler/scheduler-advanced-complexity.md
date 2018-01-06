@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Sposób tworzenia harmonogramów złożone i zaawansowane cyklu z harmonogramem Azure
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Istotą Harmonogram systemu Azure jest zadanie *harmonogram*. Harmonogram Określa, kiedy i jak planista wykonuje zadanie.
 
 Harmonogram systemu Azure można określić różne harmonogramy jednorazowe i cyklicznego dla zadania. *Jednorazowe* harmonogramy wyzwalać raz o określonej godzinie — skutecznie znajdują się one *cyklicznego* harmonogramy, które są wykonywane tylko raz. Harmonogramów cyklicznych wyzwalać na wstępnie określoną częstotliwością.
@@ -59,7 +59,7 @@ Aby utworzyć przy użyciu prostego harmonogramu [interfejsu API REST harmonogra
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -90,12 +90,12 @@ Po tym omówieniu omówimy każdego z tych elementów szczegółowo opcji.
 | **Nazwy JSON** | **Typ wartości** | **Wymagane?** | **Wartość domyślna** | **Prawidłowe wartości** | **Przykład** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | ***czas rozpoczęcia*** |Ciąg |Nie |Brak |Daty i godziny ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***cyklu*** |Obiekt |Nie |Brak |Obiekt cyklu |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***częstotliwość*** |Ciąg |Tak |Brak |"min", "Godzina", "day", "tydzień", "miesiąc" |<code>"frequency" : "hour"</code> |
-| ***Interwał*** |Liczba |Nie |1 |1 do 1000. |<code>"interval":10</code> |
-| ***wartość endTime*** |Ciąg |Nie |Brak |Wartość daty i godziny reprezentująca godzinę w przyszłości |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***Liczba*** |Liczba |Nie |Brak |>= 1 |<code>"count": 5</code> |
-| ***Harmonogram*** |Obiekt |Nie |Brak |Obiekt harmonogramu |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***cyklu*** |Obiekt |Nie |None |Obiekt cyklu |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***częstotliwość*** |Ciąg |Yes |None |"min", "Godzina", "day", "tydzień", "miesiąc" |<code>"frequency" : "hour"</code> |
+| ***Interwał*** |Liczba |Yes |None |1 do 1000. |<code>"interval":10</code> |
+| ***wartość endTime*** |Ciąg |Nie |None |Wartość daty i godziny reprezentująca godzinę w przyszłości |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***Liczba*** |Liczba |Nie |None |>= 1 |<code>"count": 5</code> |
+| ***Harmonogram*** |Obiekt |Nie |None |Obiekt harmonogramu |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Szczegółowe informacje na temat: *startTime*
 W poniższej tabeli sposobu przechwytywania *startTime* kontroluje sposób uruchamiania zadania.
@@ -125,11 +125,11 @@ W poniższej tabeli opisano *harmonogram* elementy szczegółowo.
 
 | **Nazwy JSON** | **Opis** | **Prawidłowe wartości** |
 |:--- |:--- |:--- |
-| **minut** |Minuty, godziny, o której zadanie zostanie uruchomione |<ul><li>Liczba całkowita, lub</li><li>Tablica liczb całkowitych</li></ul> |
-| **godziny** |Godziny, dnia, o której zadanie zostanie uruchomione |<ul><li>Liczba całkowita, lub</li><li>Tablica liczb całkowitych</li></ul> |
-| **dni tygodnia** |Dni tygodnia zadanie zostanie uruchomione. Można określić tylko z częstotliwością tygodniową. |<ul><li>"Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota" i "Niedziela"</li><li>Tablica dowolnych z powyższych wartości (maksymalny rozmiar tablicy: 7)</li></ul>*Nie* z uwzględnieniem wielkości liter |
+| **minut** |Minuty, godziny, o której zadanie zostanie uruchomione |<ul><li>Tablica liczb całkowitych</li></ul> |
+| **godziny** |Godziny, dnia, o której zadanie zostanie uruchomione |<ul><li>Tablica liczb całkowitych</li></ul> |
+| **dni tygodnia** |Dni tygodnia zadanie zostanie uruchomione. Można określić tylko z częstotliwością tygodniową. |<ul><li>Tablica któregokolwiek z poniższych wartości (tablicy maksymalny rozmiar 7)<ul><li>"Poniedziałek"</li><li>"Wtorek"</li><li>"Środa"</li><li>"Czwartek"</li><li>"Piątek"</li><li>"Sobota"</li><li>"Niedziela"</li></ul></li></ul>*Nie* z uwzględnieniem wielkości liter |
 | **monthlyOccurrences** |Określa, które dni miesiąca, zadanie zostanie uruchomione. Można określić tylko z częstotliwością miesięczną. |<ul><li>Tablica obiektów monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dzień* dzień tygodnia zadanie zostanie uruchomione, np. {niedziela} jest niedziela każdego miesiąca. Wymagany.</p><p>Wystąpienie jest *wystąpienie* dzień w miesiącu, np. {niedziela, -1} jest niedzielę ostatniego dnia miesiąca. Opcjonalny.</p> |
-| **monthDays** |Dzień miesiąca, który uruchomi zadanie. Można określić tylko z częstotliwością miesięczną. |<ul><li>Dowolna wartość < = -1 i > =-31.</li><li>Dowolna wartość > = 1 i < = 31.</li><li>Tablica powyższych wartości</li></ul> |
+| **monthDays** |Dzień miesiąca, który uruchomi zadanie. Można określić tylko z częstotliwością miesięczną. |<ul><li>Tablica poniżej wartości</li><ul><li>Dowolna wartość < = -1 i > =-31.</li><li>Dowolna wartość > = 1 i < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Przykłady: Harmonogramy cyklu
 Poniżej przedstawiono przykłady różnych harmonogramów cyklu — koncentrujących się na obiekt harmonogramu i jego elementów podrzędnych.

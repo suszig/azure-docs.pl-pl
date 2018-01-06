@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>W zrozumieniu i użytkowaniu twins urządzenie w Centrum IoT
 
 *Urządzenie twins* są dokumentów JSON, w których są przechowywane informacje o stanie urządzenie tym metadanych, konfiguracji i warunki. Centrum IoT Azure obsługuje dwie urządzenia, dla każdego urządzenia, na którym jest nawiązywane połączenie z Centrum IoT. W tym artykule opisano:
+
 
 * Struktura dwie urządzenia: *tagi*, *żądany* i *zgłosił właściwości*.
 * Operacje, które aplikacje urządzenia i zaplecza, które można wykonywać na twins urządzenia.
@@ -51,8 +52,7 @@ Dwie urządzenia jest dokumentem JSON, który zawiera:
 * **Tagi**. Sekcja zaplecza rozwiązania można odczytywać i zapisywać do dokumentu JSON. Tagi nie są widoczne dla aplikacji dla urządzeń.
 * **Żądany właściwości**. Używać razem z właściwości zgłoszony do synchronizowania konfiguracji urządzenia lub warunków. Zaplecze rozwiązania można ustawić odpowiednie właściwości, oraz aplikacji urządzenia można je odczytać. Aplikacji urządzenia może również odbierać powiadomienia o zmianach w odpowiednich właściwościach.
 * **Zgłoszone właściwości**. Umożliwia oraz odpowiednie właściwości synchronizacji konfiguracji urządzenia lub warunków. Aplikacji urządzenia można ustawić właściwości zgłoszone, a zaplecze rozwiązania może odczytywać i wyszukiwać w nich.
-
-Ponadto głównego dokumentu JSON dwie urządzenia zawiera właściwości tylko do odczytu z odpowiedniego tożsamości urządzenia przechowywany w [rejestru tożsamości][lnk-identity].
+* **Właściwości tożsamości urządzenia**. Głównego dokumentu JSON dwie urządzenia zawiera właściwości tylko do odczytu z odpowiedniego tożsamości urządzenia przechowywany w [rejestru tożsamości][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ W poniższym przykładzie przedstawiono dwie urządzenia dokumentu JSON:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ W poniższym przykładzie przedstawiono dwie urządzenia dokumentu JSON:
             }
         }
 
-W obiekcie głównym są właściwości systemu i kontener obiektów na `tags` i oba `reported` i `desired` właściwości. `properties` Kontener zawiera niektóre elementy tylko do odczytu (`$metadata`, `$etag`, i `$version`) opisano w [metadane dwie urządzenia] [ lnk-twin-metadata] i [ Optymistycznej współbieżności] [ lnk-concurrency] sekcje.
+W obiekcie głównym są urządzenia właściwości tożsamości i kontener obiektów na `tags` i oba `reported` i `desired` właściwości. `properties` Kontener zawiera niektóre elementy tylko do odczytu (`$metadata`, `$etag`, i `$version`) opisano w [metadane dwie urządzenia] [ lnk-twin-metadata] i [ Optymistycznej współbieżności] [ lnk-concurrency] sekcje.
 
 ### <a name="reported-property-example"></a>Przykład zgłoszony właściwości
 W poprzednim przykładzie zawiera dwie urządzenia `batteryLevel` właściwość, która jest zgłoszony przez aplikację urządzenia. Ta właściwość umożliwia zapytania i działają na urządzeniach, na podstawie ostatniego poziomu zgłoszone baterii. Przykładami innych możliwości raportowania urządzenia aplikacji urządzenia lub opcji łączności.
@@ -158,7 +164,7 @@ Zaplecze rozwiązania działa na dwie urządzenia przy użyciu następujących o
 
     - Właściwości
 
-    | Nazwa | Wartość |
+    | Name (Nazwa) | Wartość |
     | --- | --- |
     $content — typ | application/json |
     $iothub-enqueuedtime |  Czas wysłania powiadomienia |
@@ -240,7 +246,7 @@ Znaczniki, odpowiednie właściwości i zgłoszone właściwości są obiektów 
 * Wszystkie wartości ciągu może mieć maksymalnie 4 KB długości.
 
 ## <a name="device-twin-size"></a>Rozmiar dwie urządzenia
-Centrum IoT wymusza ograniczenia rozmiarze 8KB łączne wartości `tags`, `properties/desired`, i `properties/reported`, z wyjątkiem elementów tylko do odczytu.
+Centrum IoT wymusza ograniczenie rozmiaru 8KB na wszystkich odpowiednich wartości całkowitej `tags`, `properties/desired`, i `properties/reported`, z wyjątkiem elementów tylko do odczytu.
 Rozmiar jest obliczany poprzez zliczanie wszystkie znaki oprócz znaków sterujących UNICODE (segmenty C0 i C1) i spacje, które znajdują się poza stałe typu string.
 Centrum IoT z powodu błędu odrzuca wszystkie operacje, które spowoduje zwiększenie rozmiaru tych dokumentów powyżej limitu.
 
@@ -324,7 +330,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości] [ lnk-query] artykule język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] artykuł zawiera więcej informacji na temat obsługi protokołu MQTT Centrum IoT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz wiesz już, o twins urządzenie, może Cię zainteresować następujące tematy przewodnik dewelopera Centrum IoT:
 
 * [Wywoływanie metody bezpośrednio na urządzeniu][lnk-methods]

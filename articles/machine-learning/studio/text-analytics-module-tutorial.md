@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Tworzenie modeli analizy tekstu w usłudze Azure Machine Learning Studio
 Uczenie maszynowe Azure umożliwia tworzenie i operacjonalizuj modele analizy tekstu. Te modele mogą ułatwić rozwiązywanie, na przykład problemy analizy dokumentu klasyfikacji i wskaźniki nastrojów klientów.
@@ -33,7 +33,7 @@ W eksperymencie analytics tekst ma zazwyczaj:
 
 Z tego samouczka, dowiesz się, te kroki jako możemy przeprowadzenie modelu analizy wskaźniki nastrojów klientów przy użyciu zestawu Amazon książki przeglądy danych (zobacz ten dokument research "Biographies, Bollywood, wysięgnik pola i mieszalni: dostosowanie domeny klasyfikacji wskaźniki nastrojów klientów" Blitzer Jan, oznacz Dredze i Fernando Pereira; Skojarzenie Linguistics obliczeniową (ACL), 2007.) Ten zestaw danych składa się z przeglądu wyniki (1-2 lub 4-5) i dowolnego tekstu. Celem jest przewidywanie wyników przeglądu: Niski (1 - 2) lub high (4 – 5).
 
-Można znaleźć eksperymenty omówione w tym samouczku w Cortana Intelligence Gallery:
+Można znaleźć eksperymenty omówione w tym samouczku w galerii Azure AI:
 
 [Przewidywanie książki przeglądów](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorowanie aktualizacji w stosie Azure przy użyciu uprzywilejowanych punktu końcowego
 
 *Dotyczy: Azure stosu zintegrowane systemy*
 
-Aby monitorować postęp przebiegu aktualizacji stosu Azure i wznowić aktualizacji nie powiodło się, uruchom w ostatnim kroku pomyślne, można użyć uprzywilejowanych punktu końcowego. 
+Można monitorować postęp przebiegu aktualizacji stosu Azure uprzywilejowanych punktu końcowego, a wznowienie aktualizacji nie powiodło się, uruchom w ostatnim kroku pomyślne powinien stosu Azure portal staną się niedostępne.  Przy użyciu portalu Azure stos jest to zalecana metoda zarządzania aktualizacjami w stosie Azure.
 
 Następujące nowe polecenia cmdlet programu PowerShell do zarządzania aktualizacjami są zawarte w aktualizacji 1710 stosu Azure zintegrowanych systemów.
 
@@ -109,9 +109,9 @@ $statusString.Value
 
 Możliwe wartości obejmują:
 
-- Uruchomione
-- Ukończony
-- Niepowodzenie 
+- Działa
+- Ukończono
+- Błąd 
 - Anulowane
 
 Można uruchomić te polecenia, aby zobaczyć stan najbardziej aktualne. Nie trzeba ponownie ustanowić połączenia, aby ponownie sprawdzić.
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 Uprzywilejowane punkt końcowy jest dostępny na wszystkich maszynach wirtualnych ERCS w środowisku Azure stosu. Ponieważ połączenie nie jest możliwe do punktu końcowego wysokiej dostępności, mogą wystąpić przerwy okazjonalne, ostrzeżenia lub komunikaty o błędach. Te komunikaty może wskazywać, że sesja została rozłączona lub wystąpił błąd podczas komunikacji z usługą NZ. To zachowanie jest oczekiwane. Można ponowić próbę za kilka minut lub utworzyć nową sesję uprzywilejowanych punktu końcowego na jednym z innych maszyn wirtualnych ERCS. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie aktualizacjami w stosie Azure](azure-stack-updates.md) 
 

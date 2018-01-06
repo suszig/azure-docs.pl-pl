@@ -1,5 +1,5 @@
 ---
-title: "Praca z wyzwalaczy i powiązań w usługi Azure Functions"
+title: "Wyzwalaczy i powiązań w usługi Azure Functions"
 description: "Dowiedz się, jak używać wyzwalaczy i powiązań w usługi Azure Functions nawiązać połączenia z wykonanie kodu zdarzenia w sieci i usług w chmurze."
 services: functions
 documentationcenter: na
@@ -15,24 +15,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 92194b0d54de1271580a237e16e652b761b4d6d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure funkcje wyzwalaczy i powiązań pojęcia
-Środowisko Azure Functions umożliwia pisanie kodu w odpowiedzi na zdarzenia w Azure i innych usług za pośrednictwem *wyzwalaczy* i *powiązania*. Ten artykuł zawiera omówienie wyzwalaczy i powiązań dla wszystkich obsługiwanych języków programowania. Funkcje, które są wspólne dla wszystkich powiązań są opisane poniżej.
+
+Ten artykuł zawiera omówienie wyzwalaczy i powiązań w funkcji platformy Azure. W tym miejscu opisano funkcje, które są wspólne dla wszystkich powiązań i wszystkich obsługiwanych językach.
 
 ## <a name="overview"></a>Przegląd
 
-Wyzwalaczy i powiązań są deklaratywne Definiowanie sposób wywoływania funkcji i co działa z danych. A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mieć skojarzone dane, co jest zazwyczaj ładunku, który wywołał funkcję.
+A *wyzwalacza* definiuje sposób wywoływania funkcji. Funkcja musi mieć dokładnie jeden wyzwalacz. Wyzwalacze mieć skojarzone dane, co jest zazwyczaj ładunku, który wywołał funkcję.
 
-Wejście i wyjście *powiązania* Podaj deklaratywne, aby nawiązać połączenie danych z poziomu kodu. Podobnie jak wyzwalaczy, należy określić parametry połączenia i inne właściwości konfiguracji funkcji. Powiązania są opcjonalne i mieć wielu danych wejściowych i wyjściowych powiązania funkcji. 
+Wejście i wyjście *powiązania* Podaj deklaratywne, aby nawiązać połączenie danych z poziomu kodu. Powiązania są opcjonalne i mieć wielu danych wejściowych i wyjściowych powiązania funkcji. 
 
-Przy użyciu wyzwalaczy i powiązań, napisać kod, który jest więcej ogólny i nie umieszczaj szczegóły usługi, z którego nastąpi interakcja. Dane pochodzące z usługi po prostu stają się wartości wejściowe dla kodu funkcji. Do wysyłania danych do innej usługi (np. utworzenie nowego wiersza w magazynie tabel platformy Azure), użyj wartości zwracanej metody. Lub, jeśli zajdzie potrzeba output wiele wartości, użyj obiektu pomocnika. Mieć wyzwalaczy i powiązań **nazwa** właściwość, która jest identyfikatorem w kodzie uzyskiwania dostępu za pomocą powiązania.
+Wyzwalaczy i powiązań pozwalają uniknąć hardcoding szczegółowe informacje o pracy z usługi. Funkcja użytkownik odbiera dane (na przykład zawartość komunikatu w kolejce) w parametrów funkcji. Wysyłanie danych (na przykład można utworzyć komunikatu w kolejce) przy użyciu funkcji, wartość zwracana `out` parametru lub [obiekt moduł zbierający](functions-reference-csharp.md#writing-multiple-output-values).
 
-Można skonfigurować wyzwalaczy i powiązań w **integracji** kartę w portalu Azure Functions. W obszarze obejmuje, interfejs użytkownika modyfikuje plik o nazwie *function.json* pliku w katalogu funkcji. Ten plik można edytować, zmieniając **Zaawansowany edytor**.
+Podczas opracowywania funkcji przy użyciu portalu Azure, wyzwalaczy i powiązań są konfigurowane w *function.json* pliku. Portal zawiera interfejsu użytkownika dla tej konfiguracji, ale plik można edytować bezpośrednio przez zmianę na **Zaawansowany edytor**.
+
+Podczas opracowywania funkcji za pomocą programu Visual Studio do tworzenia biblioteki klas, skonfiguruj wyzwalaczy i powiązań przez dekoracji parametry z atrybutami i metod.
 
 ## <a name="supported-bindings"></a>Obsługiwane powiązania
 
@@ -42,66 +45,9 @@ Aby uzyskać informacje o tym, które są w wersji zapoznawczej powiązań, lub 
 
 ## <a name="example-queue-trigger-and-table-output-binding"></a>Przykład: wyzwalacz kolejki i tabeli powiązania wyjściowego
 
-Załóżmy, że chcesz zapisać nowy wiersz do magazynu tabel Azure przy każdym wyświetleniu nowego komunikatu w magazynie kolejek Azure. W tym scenariuszu można implementować przy użyciu kolejek Azure wyzwalacza i Azure Table Storage powiązania wyjściowego. 
+Załóżmy, że chcesz zapisać nowy wiersz do magazynu tabel Azure przy każdym wyświetleniu nowego komunikatu w magazynie kolejek platformy Azure. W tym scenariuszu można implementować przy użyciu kolejek Azure wyzwalacza z magazynu i magazynu tabel Azure powiązania wyjściowego. 
 
-Wyzwalacz magazynu kolejek Azure wymaga następujących informacji w **integracji** karty:
-
-* Nazwa ustawienia aplikacji, która zawiera parametry połączenia konta magazynu Azure dla magazynu kolejek Azure
-* Nazwa kolejki
-* Identyfikator w kodzie do odczytu treści wiadomości kolejki, takich jak `order`.
-
-Można zapisać do magazynu tabel Azure, użyj powiązania danych wyjściowych z następującymi szczegółami:
-
-* Nazwa ustawienia aplikacji, który zawiera parametry połączenia konta magazynu Azure do magazynu tabel Azure
-* Nazwa tabeli
-* Identyfikator kod w celu utworzenia elementów wyjściowych lub wartości zwracanej z funkcji.
-
-Powiązania Użyj parametrów połączenia z wartościami przechowywanymi w ustawieniach aplikacji w celu wymuszenia najlepszych rozwiązań, które *function.json* nie zawiera kluczy tajnych usługi, a zamiast tego po prostu zawierają nazwy ustawień aplikacji.
-
-Następnie należy użyć identyfikatorów, które są dostarczane do integracji z usługą Azure Storage w kodzie.
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json.Linq;
-
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
-{
-    return new Person() { 
-            PartitionKey = "Orders", 
-            RowKey = Guid.NewGuid().ToString(),  
-            Name = order["Name"].ToString(),
-            MobileNumber = order["MobileNumber"].ToString() };  
-}
- 
-public class Person
-{
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
-    public string Name { get; set; }
-    public string MobileNumber { get; set; }
-}
-```
-
-```javascript
-// From an incoming queue message that is a JSON object, add fields and write to Table Storage
-// The second parameter to context.done is used as the value for the new row
-module.exports = function (context, order) {
-    order.PartitionKey = "Orders";
-    order.RowKey = generateRandomId(); 
-
-    context.done(null, order);
-};
-
-function generateRandomId() {
-    return Math.random().toString(36).substring(2, 15) +
-        Math.random().toString(36).substring(2, 15);
-}
-```
-
-Oto *function.json* odpowiadający poprzedni kod. Należy pamiętać, że tej samej konfiguracji mogą być używane, niezależnie od języka implementację funkcji.
+Oto *function.json* pliku dla tego scenariusza. 
 
 ```json
 {
@@ -123,9 +69,88 @@ Oto *function.json* odpowiadający poprzedni kod. Należy pamiętać, że tej sa
   ]
 }
 ```
+
+Pierwszym elementem w `bindings` tablica ma wyzwalacz magazynu kolejki. `type` i `direction` właściwości zidentyfikować wyzwalacza. `name` Właściwość identyfikuje parametru funkcji, które otrzymają zawartość komunikatu w kolejce. Nazwa kolejki, aby monitorować jest `queueName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
+
+Drugi element w `bindings` tablica jest magazyn tabel Azure powiązania wyjściowego. `type` i `direction` właściwości identyfikacji powiązania. `name` Właściwość określa, jak funkcja zapewni nowego wiersza tabeli, w tym przypadku przy użyciu wartości zwracanej funkcji. Nazwa tabeli jest `tableName`, i parametry połączenia są identyfikowane przez ustawienie aplikacji `connection`.
+
 Aby wyświetlić i edytować zawartość *function.json* w portalu Azure kliknij **Zaawansowany edytor** opcja **integracji** kartę funkcji.
 
-Aby uzyskać więcej przykładów kodu i szczegółowe informacje o integracji z usługą Azure Storage, zobacz [usługi Azure Functions wyzwalaczy i powiązań usługi Azure Storage](functions-bindings-storage.md).
+> [!NOTE]
+> Wartość `connection` jest nazwą ustawienia aplikacji, które zawiera parametry połączenia, a nie parametry połączenia się. Powiązania połączenia ciągi przechowywane w ustawieniach aplikacji w celu wymuszenia najlepszych rozwiązań, które *function.json* nie zawiera kluczy tajnych usługi.
+
+Oto C# kodu skryptu, który współpracuje z tego wyzwalacza i powiązania. Należy zauważyć, że nazwa parametru, który udostępnia zawartość komunikatu w kolejce jest `order`; ta nazwa jest wymagana, ponieważ `name` wartości właściwości w *function.json* jest`order` 
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json.Linq;
+
+// From an incoming queue message that is a JSON object, add fields and write to Table storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
+{
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
+}
+ 
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
+```
+
+Tego samego pliku function.json można użyć z funkcją JavaScript:
+
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
+
+    context.done(null, order);
+};
+
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+W bibliotece klas, taki sam wyzwalacz i informacje o powiązaniu &mdash; nazwy kolejki i tabeli kont magazynu funkcji parametry wejściowe i wyjściowe &mdash; są dostarczane przez atrybuty:
+
+```csharp
+ public static class QueueTriggerTableOutput
+ {
+     [FunctionName("QueueTriggerTableOutput")]
+     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+     public static Person Run(
+         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
+         TraceWriter log)
+     {
+         return new Person() {
+                 PartitionKey = "Orders",
+                 RowKey = Guid.NewGuid().ToString(),
+                 Name = order["Name"].ToString(),
+                 MobileNumber = order["MobileNumber"].ToString() };
+     }
+ }
+
+ public class Person
+ {
+     public string PartitionKey { get; set; }
+     public string RowKey { get; set; }
+     public string Name { get; set; }
+     public string MobileNumber { get; set; }
+ }
+```
 
 ## <a name="binding-direction"></a>Kierunek powiązania
 
@@ -135,9 +160,11 @@ Wszystkich wyzwalaczy i powiązań ma `direction` właściwości w *function.jso
 - Użyj powiązań wejściowych i wyjściowych `in` i`out`
 - Niektóre powiązania obsługuje specjalne kierunku `inout`. Jeśli używasz `inout`, tylko **Zaawansowany edytor** jest dostępna w **integracji** kartę.
 
+Jeśli używasz [atrybutów w bibliotece klas](functions-dotnet-class-library.md) skonfigurować wyzwalaczy i powiązań, kierunek dostarczony w Konstruktorze atrybutu lub wywnioskować typu parametru.
+
 ## <a name="using-the-function-return-type-to-return-a-single-output"></a>Zwraca jeden z za pomocą zwracanego typu funkcji
 
-Poprzedni przykład przedstawia sposób użycia funkcji zwracana wartość zapewnienie dane wyjściowe do powiązania, które jest realizowane za pośrednictwem parametru specjalną nazwą `$return`. (To jest tylko obsługiwana w językach, które mają wartość zwracaną, takich jak C#, JavaScript i F #.) Jeśli funkcja ma wiele powiązań danych wyjściowych, użyj `$return` tylko jednego powiązania danych wyjściowych. 
+Poprzedni przykład przedstawia sposób użycia funkcji zwracana wartość zapewnienie powiązania, które jest określone w danych wyjściowych *function.json* przy użyciu wartości specjalne `$return` dla `name` właściwości. (To jest tylko obsługiwana w językach, które mają wartość zwracaną, takie jak skryptu C#, JavaScript i F #.) Jeśli funkcja ma wiele powiązań danych wyjściowych, użyj `$return` tylko jednego powiązania danych wyjściowych. 
 
 ```json
 // excerpt of function.json
@@ -149,7 +176,7 @@ Poprzedni przykład przedstawia sposób użycia funkcji zwracana wartość zapew
 }
 ```
 
-Przykłady poniżej Pokaż jak przywrócić typy są używane z powiązaniami danych wyjściowych w języku C#, JavaScript i F #.
+Przykłady poniżej Pokaż jak przywrócić typy są używane z powiązaniami danych wyjściowych w języku C# skrypt, JavaScript i F #.
 
 ```cs
 // C# example: use method return value for output binding
@@ -190,9 +217,9 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Właściwość dataType powiązania
 
-W środowisku .NET należy użyć typów do definiowania typu danych dla danych wejściowych. Na przykład użyć `string` powiązać tekstu wyzwalacza kolejki, tablica bajtów do odczytu jako binarny i niestandardowego typu do deserializacji do obiektu POCO.
+W środowisku .NET należy użyć typu parametru do definiowania typu danych dla danych wejściowych. Na przykład użyć `string` powiązać tekstu wyzwalacza kolejki, tablica bajtów do odczytu jako binarny i niestandardowego typu do deserializacji do obiektu POCO.
 
-Dla języków, które są dynamicznie wpisane takich jak JavaScript, użyj `dataType` właściwości w definicji powiązania. Na przykład można odczytać treści żądania HTTP w formacie binarnym, użyj typu `binary`:
+Dla języków, które są dynamicznie wpisane takich jak JavaScript, użyj `dataType` właściwości w *function.json* pliku. Na przykład można odczytać treści żądania HTTP w formacie binarnym, należy ustawić `dataType` do `binary`:
 
 ```json
 {
@@ -206,6 +233,7 @@ Dla języków, które są dynamicznie wpisane takich jak JavaScript, użyj `data
 Inne opcje `dataType` są `stream` i `string`.
 
 ## <a name="resolving-app-settings"></a>Rozpoznawanie ustawień aplikacji
+
 Najlepszym rozwiązaniem kluczy tajnych i parametry połączenia mają być zarządzane przy użyciu ustawienia aplikacji, a nie plików konfiguracyjnych. To ogranicza dostęp do tych kluczy tajnych i pozwala bezpiecznie przechowywać *function.json* w repozytorium kontroli źródła publicznego.
 
 Ustawienia aplikacji są przydatne także w przypadku, gdy chcesz zmienić konfigurację na podstawie środowiska. Na przykład w środowisku testowym można monitorować różne kontenera magazynu kolejek i obiektów blob.
@@ -228,11 +256,23 @@ Poniższy przykład jest magazyn kolejek Azure wyzwalacz, który używa ustawien
 }
 ```
 
+Można użyć tej samej metody w bibliotekach klas:
+
+```csharp
+[FunctionName("QueueTrigger")]
+public static void Run(
+    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+}
+```
+
 ## <a name="trigger-metadata-properties"></a>Właściwości metadanych wyzwalacza
 
 Oprócz ładunku danych dostarczonych przez wyzwalacz (na przykład kolejki komunikatów, który wywołał funkcję) wiele wyzwalaczy, podaj wartości dodatkowe metadane. Te wartości może służyć jako parametry wejściowe w języku C# i F # lub właściwości na `context.bindings` obiektu w języku JavaScript. 
 
-Na przykład wyzwalacz kolejki magazynu Azure obsługuje następujące właściwości:
+Na przykład wyzwalacz magazynu kolejek Azure obsługuje następujące właściwości:
 
 * QueueTrigger - wyzwalania zawartość komunikatu, jeśli prawidłowy ciąg
 * DequeueCount
@@ -242,9 +282,7 @@ Na przykład wyzwalacz kolejki magazynu Azure obsługuje następujące właściw
 * NextVisibleTime
 * Elementu PopReceipt
 
-Szczegółowe informacje o właściwości metadanych dla każdego wyzwalacza są opisane w odpowiedni temat odwołania. Dokumentacja jest również dostępna w **integracji** kartę portalu w **dokumentacji** sekcji poniżej obszar konfiguracji powiązania.  
-
-Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożliwia wyzwalacz kolejki uruchomienia funkcji (zobacz [wyzwalacza magazynu obiektów Blob](functions-bindings-storage-blob.md#trigger)). Komunikat z kolejki może zawierać filename obiektu blob do wyzwolenia na. Przy użyciu `queueTrigger` właściwości metadanych to zachowanie można określić w konfiguracji, a nie w kodzie.
+Te wartości metadanych są dostępne w *function.json* właściwości pliku. Na przykład użyć wyzwalacza kolejki i kolejki wiadomości zawiera nazwę obiektu blob, który chcesz odczytać. W *function.json* plików, można użyć `queueTrigger` metadanych właściwości w obiekcie blob `path` właściwości, jak pokazano w poniższym przykładzie:
 
 ```json
   "bindings": [
@@ -264,13 +302,13 @@ Na przykład, ponieważ wyzwalacze obiektu blob mają pewne opóźnienia, umożl
   ]
 ```
 
-Właściwości metadanych od wyzwalacza można również w *powiązanie wyrażenie* dla innego powiązania, zgodnie z opisem w poniższej sekcji.
+Szczegółowe informacje o właściwości metadanych dla każdego wyzwalacza są opisane w odpowiedniej artykule. Na przykład zobacz [kolejki wyzwalacza metadanych](functions-bindings-storage-queue.md#trigger---message-metadata). Dokumentacja jest również dostępna w **integracji** kartę portalu w **dokumentacji** sekcji poniżej obszar konfiguracji powiązania.  
 
 ## <a name="binding-expressions-and-patterns"></a>Wyrażenia wiązania i wzorce
 
-Jedną z najbardziej zaawansowanych funkcji, wyzwalaczy i powiązań jest *wyrażenia powiązania*. W ramach wiązania, można zdefiniować wzorzec wyrażenia, które mogą być następnie używane w pozostałych powiązaniach lub kodu. Można także metadanych wyzwalacza w wyrażenia, powiązania jako Pokaż w próbce w poprzedniej sekcji.
+Jedną z najbardziej zaawansowanych funkcji, wyzwalaczy i powiązań jest *wyrażenia powiązania*. W konfiguracji dla powiązania można zdefiniować wzorzec wyrażenia, które mogą być następnie używane w pozostałych powiązaniach lub kodu. Wyzwalacz metadanych można również w wyrażeniach wiązania, jak pokazano w poprzedniej sekcji.
 
-Załóżmy na przykład, aby zmienić rozmiar obrazów w kontenera magazynu obiektów blob w określonym, podobnie jak **zmiany rozmiaru obrazu** szablonu w **nową funkcję** strony. Przejdź do **nową funkcję** -> języka **C#** -> Scenariusz **przykłady** -> **ImageResizer CSharp**. 
+Załóżmy na przykład, aby zmienić rozmiar obrazów w szczególności kontenera magazynu obiektów blob, podobnie jak **zmiany rozmiaru obrazu** szablonu w **nową funkcję** strony portalu Azure (zobacz **próbek**  scenariusz). 
 
 Oto *function.json* definicji:
 
@@ -295,7 +333,7 @@ Oto *function.json* definicji:
 }
 ```
 
-Zwróć uwagę, że `filename` parametr jest używany zarówno definicję wyzwalacza obiektu blob, jak również obiektu blob powiązania wyjściowego. Ten parametr może również w kodzie funkcji.
+Zwróć uwagę, że `filename` parametr jest używany w definicji wyzwalacza obiektu blob i obiektu blob powiązania wyjściowego. Ten parametr może również w kodzie funkcji.
 
 ```csharp
 // C# example of binding to {filename}
@@ -309,9 +347,41 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
+Tej samej możliwość używania wyrażeń powiązania i wzorce ma zastosowanie do atrybutów w bibliotekach klas. Na przykład w tym miejscu to obraz zmiany rozmiaru w bibliotece klas funkcji:
 
-### <a name="random-guids"></a>Losowe identyfikatory GUID
-Środowisko Azure Functions zapewnia składni wygody generowania identyfikatorów GUID w powiązania, za pośrednictwem `{rand-guid}` powiązanie wyrażenia. W poniższym przykładzie użyto to nazwy obiektu blob unikatowy: 
+```csharp
+[FunctionName("ResizeImage")]
+[StorageAccount("AzureWebJobsStorage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```
+
+### <a name="create-guids"></a>Tworzenie identyfikatorów GUID
+
+`{rand-guid}` Powiązanie wyrażenia tworzy identyfikator GUID. W poniższym przykładzie użyto identyfikatora GUID, aby utworzyć nazwę unikatową obiektów blob: 
 
 ```json
 {
@@ -324,7 +394,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 
 ### <a name="current-time"></a>Bieżący czas
 
-Można użyć wyrażenia powiązania `DateTime`, który jest rozpoznawany jako `DateTime.UtcNow`.
+Wyrażenie powiązania `DateTime` jest rozpoznawana jako `DateTime.UtcNow`.
 
 ```json
 {
@@ -335,7 +405,7 @@ Można użyć wyrażenia powiązania `DateTime`, który jest rozpoznawany jako `
 }
 ```
 
-## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Powiązania niestandardowe właściwości wejściowych w wyrażeniu powiązania
+## <a name="bind-to-custom-input-properties"></a>Powiązania niestandardowe właściwości wejściowych
 
 Wyrażenia powiązania można także odwoływać właściwości, które są zdefiniowane w ładunku wyzwalacza samej siebie. Na przykład można dynamicznie powiązania do pliku magazynu obiektów blob z nazwą w elementu webhook.
 
@@ -408,13 +478,14 @@ module.exports = function (context, info) {
 
 ## <a name="configuring-binding-data-at-runtime"></a>Konfigurowanie powiązania danych w czasie wykonywania
 
-W języku C# i innych języków .NET, można użyć wzorca wiązania konieczne, w przeciwieństwie do deklaratywne powiązania w *function.json*. Powiązanie konieczne jest przydatne, gdy Parametry wiążące muszą ma zostać obliczony w czasie środowiska uruchomieniowego zamiast projektu. Aby dowiedzieć się więcej, zobacz [powiązania w czasie wykonywania za pośrednictwem powiązania imperatywnych](functions-reference-csharp.md#imperative-bindings) w dokumentacja dla deweloperów języka C#.
+W języku C# i innych języków .NET, można użyć wzorca wiązania konieczne, w przeciwieństwie do deklaratywne powiązania w *function.json* i atrybutów. Powiązanie konieczne jest przydatne, gdy Parametry wiążące muszą ma zostać obliczony w czasie środowiska uruchomieniowego zamiast projektu. Aby dowiedzieć się więcej, zobacz [powiązania w czasie wykonywania za pośrednictwem powiązania imperatywnych](functions-reference-csharp.md#imperative-bindings) w dokumentacja dla deweloperów języka C#.
 
 ## <a name="functionjson-file-schema"></a>Schemat pliku Function.JSON
 
 *Function.json* schemat pliku znajduje się w temacie [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Kolejne kroki
+
 Aby uzyskać więcej informacji na określone powiązanie zobacz następujące artykuły:
 
 - [HTTP i elementy webhook](functions-bindings-http-webhook.md)

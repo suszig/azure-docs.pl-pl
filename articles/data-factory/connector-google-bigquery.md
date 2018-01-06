@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Kopiowanie danych z Google BigQuery przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -47,13 +47,13 @@ Następujące właściwości są obsługiwane w przypadku Google BigQuery połą
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **GoogleBigQuery** | Tak |
-| Projekt | BigQuery projektu domyślnego zapytanie.  | Tak |
-| additionalProjects | Rozdzielana przecinkami lista publicznego BigQuery projekty do dostępu.  | Nie |
+| type | Właściwość type musi mieć ustawioną: **GoogleBigQuery** | Yes |
+| Projekt | Identyfikator projektu BigQuery domyślne zapytanie.  | Yes |
+| additionalProjects | Rozdzielana przecinkami lista identyfikatorów projektów publicznych BigQuery projekty do dostępu.  | Nie |
 | requestGoogleDriveScope | Określa, czy żądania dostępu do dysku Google. Zezwalanie na dostęp dysk Google umożliwia obsługę tabel federacyjnych łączące dane BigQuery z danymi w usłudze dysk Google. Wartość domyślna to false.  | Nie |
-| Typ authenticationType | Mechanizm uwierzytelniania OAuth 2.0, używany do uwierzytelniania. ServiceAuthentication można używać tylko na siebie IR. <br/>Dozwolone wartości to: **ServiceAuthentication**, **UserAuthentication** | Tak |
+| Typ authenticationType | Mechanizm uwierzytelniania OAuth 2.0, używany do uwierzytelniania. ServiceAuthentication można używać tylko na siebie IR. <br/>Dozwolone wartości to: **ServiceAuthentication**, **UserAuthentication** | Yes |
 | refreshToken | Token odświeżania uzyskane z usługi Google w celu autoryzowania dostępu do BigQuery dla UserAuthentication. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
-| wyślij wiadomość e-mail | Identyfikator wiadomości e-mail konta usługi, jest używana do ServiceAuthentication, który można używać tylko na siebie IR.  | Nie |
+| e-mail | Identyfikator wiadomości e-mail konta usługi, jest używana do ServiceAuthentication, który można używać tylko na siebie IR.  | Nie |
 | Atrybut keyFilePath | Pełna ścieżka do pliku klucza .p12, który jest używany do uwierzytelniania adres e-mail konta usługi i można używać tylko na hosta samodzielnego IR.  | Nie |
 | trustedCertPath | Pełna ścieżka pliku PEM, zawierająca zaufane certyfikaty urzędu certyfikacji do weryfikowania serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Tej właściwości można ustawić tylko w przypadku korzystania z protokołu SSL na siebie IR. Wartość domyślna to plik cacerts.pem zainstalowane z IR.  | Nie |
 | useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to false.  | Nie |
@@ -66,13 +66,13 @@ Następujące właściwości są obsługiwane w przypadku Google BigQuery połą
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }
@@ -110,8 +110,8 @@ Aby skopiować dane z Google BigQuery, należy ustawić typ źródła w przypadk
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **GoogleBigQuerySource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **GoogleBigQuerySource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Yes |
 
 **Przykład:**
 
@@ -145,5 +145,5 @@ Aby skopiować dane z Google BigQuery, należy ustawić typ źródła w przypadk
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

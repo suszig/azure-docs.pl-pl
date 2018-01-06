@@ -1,6 +1,6 @@
 ---
-title: Konkursami Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
-description: Wykryj konkursami w Cortana Intelligence Gallery.
+title: Konkursami AI galerii Azure | Dokumentacja firmy Microsoft
+description: Wykryj konkursami w galerii Azure AI.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Odnajdywanie konkursami w Cortana Intelligence Gallery
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Odnajdywanie konkursami w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence konkursami
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Aby uzyskać odpowiedzi na często zadawane pytania dotyczące konkursami, zobacz [często zadawane pytania dotyczące programu Microsoft Cortana Intelligence konkursami](competition-faq.md).
 
 ## <a name="discover"></a>Wykrywanie
-  Aby wyszukać konkursami w galerii, otwórz [galerii](http://gallery.cortanaintelligence.com), myszy, aby punkt **więcej** w górnej części galerii strony głównej, a następnie wybierz **konkursami**.
+ **[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  strony ([aka.ms/CIComp](http://aka.ms/CIComp)) zostanie wyświetlona lista najpopularniejszych konkursami.
 
 ![Wybierz konkursami z galerii strony głównej](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- **[Konkursami](https://gallery.cortanaintelligence.com/competitions)**  zostanie wyświetlona lista najpopularniejszych konkursami.
-Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie konkursami.
+ 
+ Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie konkursami.
 Na tej stronie można przeglądać wszystkie konkursami w galerii. Można również przeszukać wybierając kryteria filtrowania po lewej stronie i wprowadzanie terminy wyszukiwania w górnej.
 
  Kliknij pozycję Wszystkie konkurencji, aby otworzyć stronę szczegółów konkurencji i uzyskania bardziej szczegółowych informacji. Na tej stronie można komentarz, wyrazić swoją opinię lub zadać pytania za pośrednictwem sekcji komentarzy. Można nawet udostępniać znajomym lub współpracowników za pomocą funkcji udziału LinkedIn i Twitter. Można również wysłać pocztą e-mail łącze do konkurencji z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.

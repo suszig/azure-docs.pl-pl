@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: e8eb95649d9af1c8bf801df82f0f78aae0656d9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure przekazywanego uwierzytelnianie usługi Active Directory: Techniczne nowości
 W tym artykule przedstawiono sposób działania przekazywanego uwierzytelniania w usłudze Azure Active directory (Azure AD). Bezpośrednie technicznych i informacji o zabezpieczeniach, zobacz [nowości zabezpieczeń](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artykułu.
@@ -31,7 +31,7 @@ Gdy użytkownik próbuje zalogować się do aplikacji zabezpieczonej przez usłu
 2. Jeśli użytkownik nie jest już zalogowany, zostanie przekierowany użytkownik w usłudze Azure AD **logowania użytkownika** strony.
 3. Użytkownik wejścia strona logowania usługi Azure AD swoją nazwę użytkownika i hasło, a następnie wybiera **Zaloguj** przycisku.
 4. Azure AD, po otrzymaniu żądania do logowania, umieszcza nazwy użytkownika i hasła (zaszyfrowane przy użyciu klucza publicznego) w kolejce.
-5. Agent uwierzytelniania lokalnego pobiera nazwę użytkownika i hasło zaszyfrowanych z kolejki.
+5. Agent uwierzytelniania lokalnego pobiera nazwę użytkownika i hasło zaszyfrowanych z kolejki. Należy pamiętać, że Agent nie często sondowania żądań z kolejki, ale pobiera żądań za pośrednictwem połączenia wstępnie ustalonych trwałych.
 6. Agent odszyfrowuje hasło przy użyciu jego klucz prywatny.
 7. Agent weryfikuje nazwy użytkownika i hasła w usłudze Active Directory przy użyciu standardowych interfejsów API systemu Windows, który jest podobny mechanizm jakie Active Directory Federation Services (AD FS) używa. Nazwa użytkownika może być albo lokalnymi domyślna nazwa użytkownika, zazwyczaj `userPrincipalName`, lub inny atrybut skonfigurowane w programie Azure AD Connect (nazywane `Alternate ID`).
 8. Kontroler domeny usługi Active Directory lokalnymi (DC) ocenia żądanie i zwraca właściwą odpowiedź (Powodzenie, Niepowodzenie, hasło wygasło lub użytkownika zablokowane) do agenta.
@@ -43,7 +43,7 @@ Na poniższym diagramie przedstawiono wszystkie składniki i kroki do wykonania:
 
 ![Uwierzytelnianie przekazywane](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Bieżące ograniczenia](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Dowiedz się, jakie scenariusze są obsługiwane i zostały.
 - [Szybki Start](active-directory-aadconnect-pass-through-authentication-quick-start.md): rozpocząć pracę na Azure AD przekazywanego uwierzytelniania.
 - [Inteligentne blokady](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Konfigurowanie funkcji blokady inteligentnej na swojej dzierżawy, aby chronić kont użytkowników.

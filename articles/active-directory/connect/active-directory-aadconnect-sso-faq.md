@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -38,11 +38,17 @@ Nie. Bezproblemowe rejestracji Jednokrotnej jest dostępna tylko w wystąpieniu 
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Jakie aplikacje korzystać z `domain_hint` lub `login_hint` parametru możliwości łatwego logowania jednokrotnego?
 
-Trwa kompilowanie listę aplikacji, które wysyłają te parametry i te, które nie. Jeśli masz aplikacje, które są zainteresowani, Daj nam znać w sekcji uwag.
+Trwa kompilowanie listę aplikacji, które wysyłają te parametry i te, które nie. Jeśli masz aplikacje, które planuje się Daj nam znać w sekcji uwag.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Obsługuje rejestracji Jednokrotnej bezproblemowe `Alternate ID` jako nazwa użytkownika, a nie `userPrincipalName`?
 
 Tak. Bezproblemowe logowanie Jednokrotne obsługuje `Alternate ID` jako nazwy użytkownika, gdy skonfigurowane w programie Azure AD Connect, jak pokazano [tutaj](active-directory-aadconnect-get-started-custom.md). Nie wszystkie aplikacje usługi Office 365 obsługują `Alternate ID`. Zajrzyj do dokumentacji aplikacji określonych w instrukcji obsługi.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Jaka jest różnica między jednym środowisko logowania dostępna przez [Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemowego logowania jednokrotnego?
+
+[Azure AD Join](../active-directory-azureadjoin-overview.md) zapewnia użytkownikom logowania jednokrotnego, jeśli ich urządzenia są zarejestrowane w usłudze Azure AD. Te urządzenia nie ma musi być przyłączony do domeny. Usługa rejestracji Jednokrotnej jest realizowane przy użyciu *tokenów odświeżania podstawowego* lub *PRTs*, a nie protokołu Kerberos. Środowisko użytkownika jest optymalny na urządzeniach z systemem Windows 10. Usługa rejestracji Jednokrotnej odbywa się automatycznie w przeglądarce Edge. Działa na Chrome przy użyciu rozszerzenia przeglądarki.
+
+Azure AD Join i bezproblemowego logowania jednokrotnego służy w dzierżawie. Te dwie funkcje są uzupełniające. Jeśli włączone są obie funkcje, następnie rejestracji Jednokrotnej z usługi Azure AD Join mają pierwszeństwo przed bezproblemowe logowania jednokrotnego.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Chcę zarejestrować urządzenia z systemem innym niż Windows 10 z usługą Azure AD, bez korzystania z usług AD FS. Można używać logowania jednokrotnego bezproblemowe zamiast niego?
 

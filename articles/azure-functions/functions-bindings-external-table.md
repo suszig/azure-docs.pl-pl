@@ -1,5 +1,5 @@
 ---
-title: "Powiązanie funkcji tabeli zewnętrznej Azure (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Zewnętrznego powiązania tabeli dla usługi Azure Functions (eksperymentalne)"
 description: "Przy użyciu powiązań zewnętrznych tabeli w funkcji Azure"
 services: functions
 documentationcenter: 
@@ -14,24 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Powiązanie funkcji tabeli zewnętrznej Azure (wersja zapoznawcza)
-W tym artykule przedstawiono sposób manipulować danymi tabelarycznego na dostawców w modelu SaaS (np. Sharepoint, Dynamics) w funkcji z powiązaniami wbudowanych. Środowisko Azure Functions obsługuje powiązań wejściowych i wyjściowych tabel zewnętrznych.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Zewnętrznego powiązania tabeli dla usługi Azure Functions (eksperymentalne)
+
+W tym artykule opisano sposób pracy z tabelarycznego na dostawców w modelu SaaS, takich jak Sharepoint i Dynamics w usługi Azure Functions. Azure Functions obsługuje wejściowa i wyjściowa powiązania dla tabel zewnętrznych.
+
+> [!IMPORTANT]
+> Powiązania tabeli zewnętrznej jest eksperymentalna i nigdy nie może osiągnąć stanu ogólnie dostępna (GA). Znajduje się tylko na platformie Azure funkcje 1.x i nie ma żadnych planów, aby dodać go do usługi Azure Functions 2.x. W przypadku scenariuszy, które wymagają dostępu do danych w modelu SaaS dostawców, rozważ zastosowanie [logikę aplikacji, które wywołują funkcje](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>Połączenia interfejsu API
 
-Powiązania tabeli korzystać z połączeń zewnętrznych interfejsu API do uwierzytelniania za pomocą 3 SaaS dostawców. 
+Powiązania tabeli korzystać z połączeń zewnętrznych interfejsu API do uwierzytelniania za pomocą dostawcy SaaS. 
 
-Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu API lub użyć istniejącego połączenia interfejsu API w tej samej grupie zasobów
+Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu API lub użyć istniejącego połączenia interfejsu API w tej samej grupie zasobów.
 
-### <a name="supported-api-connections-tables"></a>Połączeń obsługiwanych interfejsu API (tabeli) s
+### <a name="available-api-connections-tables"></a>Dostępne połączenia interfejsu API (tabele)
 
 |Łącznik|Wyzwalacz|Dane wejściowe|Dane wyjściowe|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Podczas przypisywania powiązanie możesz utworzyć nowe połączenie interfejsu
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Połączenia zewnętrzne tabeli można również w [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Połączenia zewnętrzne tabeli można również w [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Tworzenie połączenia interfejsu API: krok po kroku
+## <a name="creating-an-api-connection-step-by-step"></a>Tworzenie połączenia interfejsu API: krok po kroku
 
-1. Utwórz funkcję > funkcji niestandardowej ![Tworzenie funkcji niestandardowej](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scenariusz `Experimental`  >  `ExternalTable-CSharp` szablonu > Utwórz nowy `External Table connection` 
- ![wybierz tabelę wejściowego szablonu](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Wybierz dostawcę SaaS > Wybierz/utworzyć połączenie ![SaaS skonfigurować połączenia](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Wybierz połączenie z interfejsem API > Utwórz funkcję ![Tworzenie tabeli w funkcji](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Wybierz`Integrate` > `External Table`
-    1. Skonfiguruj połączenie z tabeli docelowej. Te ustawienia będą bardzo między dostawców w modelu SaaS. Są one konspektu poniżej w [ustawienia źródła danych](#datasourcesettings)
-![Konfigurowanie tabeli](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Na stronie portalu platformy Azure dla aplikacji funkcji, kliknij znak plus (**+**) można utworzyć funkcji.
 
-## <a name="usage"></a>Sposób użycia
+1. W **scenariusza** wybierz opcję **eksperymentalne**.
+
+1. Wybierz **tabeli zewnętrznej**.
+
+1. Wybierz język.
+
+2. W obszarze **połączenia tabeli zewnętrznej**, wybrać istniejące połączenie, lub wybierz **nowe**.
+
+1. Nowe połączenie, skonfiguruj ustawienia, a następnie wybierz **autoryzacji**.
+
+1. Wybierz **Utwórz** można utworzyć funkcji.
+
+1. Wybierz **integracji > tabeli zewnętrznej**.
+
+1. Skonfiguruj połączenie z tabeli docelowej. Te ustawienia będą się różnić od dostawców w modelu SaaS. Przykłady znajdują się w poniższej sekcji.
+
+## <a name="example"></a>Przykład
 
 W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię o nazwie "Skontaktuj się z". Kod wyświetla jednostkami kontaktowymi w tabeli i dzienniki imiona i nazwiska.
 
-### <a name="bindings"></a>Powiązania
+Oto *function.json* pliku:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ W tym przykładzie łączy do tabeli z kolumnami Identyfikator, nazwisko i imię
   "disabled": false
 }
 ```
-`entityId`może być puste dla powiązania tabeli.
 
-`ConnectionAppSettingsKey`Określa ustawienie aplikacji, które są przechowywane w parametrach połączenia interfejsu API. Ustawienia aplikacji jest tworzona automatycznie podczas dodawania połączenia interfejsu API w integracji interfejsu użytkownika.
-
-Łącznik tabelarycznych zawiera zestawy danych, a każdy zestaw danych zawiera tabele. Nazwa domyślnego zestawu danych to "domyślny". Poniżej wymieniono tytułów dla zestawu danych i tabeli w różnych dostawców SaaS:
-
-|Łącznik|Zestaw danych|Tabela|
-|:-----|:---|:---| 
-|**SharePoint**|Witryna|Listy programu SharePoint
-|**SQL**|Database (Baza danych)|Tabela 
-|**Arkusz Google**|Arkusz kalkulacyjny|Arkusz 
-|**Excel**|Plik programu Excel|Arkusz 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Użycie w języku C# #
+Oto kod skryptu C#:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>Źródło danych programu SQL Server
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Ustawienia źródła danych
-
-### <a name="sql-server"></a>Oprogramowanie SQL Server
-
-Skrypt do tworzenia i wypełniania tabeli Kontakt jest niższa. dataSetName jest "domyślny".
+Aby utworzyć tabelę w programie SQL Server do użycia z tym przykładem, w tym miejscu jest skrypt. `dataSetName`to "domyślny".
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Arkusze Google
-W Google Docs, należy utworzyć arkusz kalkulacyjny w arkuszu o nazwie `Contact`. Łącznik nie można użyć Nazwa wyświetlana arkusza kalkulacyjnego. Potrzeb wewnętrzna nazwa (pogrubione) ma być używany jako dataSetName, na przykład: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  dodać nazwy kolumn `Id`, `LastName`, `FirstName` do pierwszego wiersza, następnie wypełnij dane na kolejne wiersze.
+### <a name="google-sheets-data-source"></a>Źródło danych Google arkuszy
+
+Aby utworzyć tabelę do użycia z tym przykładem w Google Docs, należy utworzyć arkusz kalkulacyjny w arkuszu o nazwie `Contact`. Łącznik nie można użyć Nazwa wyświetlana arkusza kalkulacyjnego. Potrzeb wewnętrzna nazwa (pogrubione) ma być używany jako dataSetName, na przykład: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  dodać nazwy kolumn `Id`, `LastName`, `FirstName` do pierwszego wiersza, następnie wypełnij dane na kolejne wiersze.
 
 ### <a name="salesforce"></a>SalesForce
-dataSetName jest "domyślny".
+
+Aby użyć tego przykładu z usług Salesforce, `dataSetName` jest "domyślny".
+
+## <a name="configuration"></a>Konfigurowanie
+
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku.
+
+|Właściwość Function.JSON | Opis|
+|---------|----------------------|
+|**Typ** | należy wybrać opcję `apiHubTable`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure.|
+|**Kierunek** | należy wybrać opcję `in`. Ta właściwość ma wartość automatycznie, podczas tworzenia wyzwalacza w portalu Azure. |
+|**Nazwa** | Nazwa zmiennej, która reprezentuje element zdarzeń w kodzie funkcji. | 
+|**połączenia**| Określa ustawienie aplikacji, które są przechowywane w parametrach połączenia interfejsu API. Ustawienia aplikacji jest tworzona automatycznie podczas dodawania połączenia interfejsu API w integracji interfejsu użytkownika.|
+|**dataSetName**|Nazwa zestawu danych, który zawiera tabelę do odczytu.|
+|**tableName**|Nazwa tabeli|
+|**Identyfikator jednostki**|Może być puste dla powiązania tabeli.
+
+Łącznik tabelarycznych zawiera zestawy danych, a każdy zestaw danych zawiera tabele. Nazwa domyślnego zestawu danych to "domyślny". Poniżej wymieniono tytułów dla zestawu danych i tabeli w różnych dostawców SaaS:
+
+|Łącznik|Zestaw danych|Tabela|
+|:-----|:---|:---| 
+|**SharePoint**|Witryna|Listy programu SharePoint
+|**SQL**|Database (Baza danych)|Tabela 
+|**Arkusz Google**|Arkusz kalkulacyjny|Arkusz 
+|**Excel**|Plik programu Excel|Arkusz 
 
 ## <a name="next-steps"></a>Kolejne kroki
 

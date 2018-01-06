@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usługi sieci Web systemu Azure Machine Learning
 Można Zarządzanie Machine Learning nowy i usług sieci Web klasycznego przy użyciu portalu usługi sieci Web Microsoft Azure Machine Learning. Ponieważ usługi nowej sieci Web i usług sieci Web klasycznego są oparte na różnych technologii podstawowej, masz możliwości zarządzania nieco inne dla każdego z nich.
@@ -110,7 +110,7 @@ Pulpit nawigacyjny plan zawiera następujące informacje:
 
 ## <a name="manage-classic-web-services"></a>Zarządzanie usługami sieci Web klasycznego
 > [!NOTE]
-> Procedury przedstawione w tej sekcji mają zastosowanie do zarządzania usługami sieci web klasycznego portalu usługi sieci Web systemu Azure Machine Learning. Aby uzyskać informacji o zarządzaniu klasycznych sieci Web usługi Machine Learning Studio i klasycznego portalu Azure, zobacz [Zarządzanie obszarem roboczym usługi Azure Machine Learning](manage-workspace.md).
+> Procedury przedstawione w tej sekcji mają zastosowanie do zarządzania usługami sieci web klasycznego portalu usługi sieci Web systemu Azure Machine Learning. Aby uzyskać informacji o zarządzaniu klasycznych sieci Web usługi Machine Learning Studio i portalu Azure, zobacz [Zarządzanie obszarem roboczym usługi Azure Machine Learning](manage-workspace.md).
 > 
 > 
 

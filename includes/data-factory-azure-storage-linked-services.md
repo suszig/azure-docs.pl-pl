@@ -3,8 +3,8 @@
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną: **AzureStorage** |Tak |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z magazynem platformy Azure dla właściwości connectionString. |Tak |
+| type |Właściwość type musi mieć ustawioną: **AzureStorage** |Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z magazynem platformy Azure dla właściwości connectionString. |Yes |
 
 Zawiera następujący artykuł w celu widoku/kopiowania klucza konta usługi Azure Storage: [wyświetlanie, kopiowanie i regenerate magazynu, klucze dostępu](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
@@ -27,14 +27,17 @@ Sygnatury dostępu współdzielonego (SAS) umożliwiają dostęp delegowany do z
 
 > [!IMPORTANT]
 > Azure obsługuje teraz tylko w fabryce danych **sygnatury dostępu Współdzielonego usługi** , ale nie SAS konta. Zobacz [typy z sygnatury dostępu współdzielonego](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) szczegóły dotyczące tych dwóch typów oraz sposobu tworzenia. Zanotuj adres URL SAS generable z portalu Azure lub Eksploratora usługi Storage jest SAS konta, który nie jest obsługiwany.
-> 
+
+> [!TIP]
+> Możesz wykonać poniżej polecenia programu PowerShell, aby wygenerować sygnaturę dostępu Współdzielonego usługi dla konta magazynu (Zastąp posiadaczy miejsce i przyznaj uprawnienie wymagane):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Usługa połączone SAS magazynu Azure umożliwia łączenie konto magazynu Azure do fabryki danych Azure za pomocą udostępnionego podpis dostępu (SAS). Fabryka danych zapewnia ograniczony/czas-powiązane z dostęp do określonego/all zasobów (kontener/obiektów blob) w magazynie. Poniższa tabela zawiera opis specyficzne dla usługi Azure magazynu SAS połączone elementy JSON. 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną: **element AzureStorageSas** |Tak |
-| sasUri |Określ udostępniony URI sygnatury dostępu do zasobów usługi Azure Storage, takich jak obiektów blob, kontenera lub tabeli.  |Tak |
+| type |Właściwość type musi mieć ustawioną: **element AzureStorageSas** |Yes |
+| sasUri |Określ udostępniony URI sygnatury dostępu do zasobów usługi Azure Storage, takich jak obiektów blob, kontenera lub tabeli.  |Yes |
 
 **Przykład:**
 

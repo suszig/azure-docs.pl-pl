@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Wskazówki: Eksportowanie do bazy danych SQL z usługi Application Insights przy użyciu usługi analiza strumienia
 W tym artykule pokazano, jak przenieść dane telemetryczne z [Azure Application Insights] [ start] do bazy danych Azure SQL za pomocą [eksportu ciągłego] [ export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 W tym przykładzie użyto dane wyświetleń strony. Aby wyświetlić dostępne dane, sprawdź dane wyjściowe JSON, a następnie zobacz [wyeksportować modelu danych](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Utwórz wystąpienie usługi Azure Stream Analytics
-Z [klasycznego portalu Azure](https://manage.windowsazure.com/), wybierz usługę Azure Stream Analytics i utworzyć nowe zadanie usługi Stream Analytics:
+Z [portalu Azure](https://portal.azure.com/), wybierz usługę Azure Stream Analytics i utworzyć nowe zadanie usługi Stream Analytics:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Po utworzeniu nowego zadania, należy rozwinąć jego szczegóły:
+Po utworzeniu nowego zadania, wybierz **przejdź do zasobu**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Ustawianie lokalizacji obiektu blob
+#### <a name="add-a-new-input"></a>Dodaj nowe dane wejściowe
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Ustaw, aby pobrać dane wejściowe z obiektu blob z eksportu ciągłego:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Teraz musisz podstawowy klucz dostępu z konta magazynu, który wcześniej zapisany. Ustaw jako klucz konta magazynu.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Wzorzec prefiksu ścieżki zestawu
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Pamiętaj ustawić Format daty **RRRR-MM-DD** (z **łączniki**).
+**Pamiętaj ustawienie formatu RRRR-MM-DD (Łączniki).**
 
 Wzorzec prefiksu ścieżki Określa sposób odnajdowania usługi Stream Analytics plików wejściowych w magazynie. Należy ustawić odpowiadają jak eksportu ciągłego przechowuje dane. Ustaw go następująco:
 
@@ -178,22 +178,12 @@ W tym przykładzie:
 
 Aby uzyskać nazwę i iKey zasobu usługi Application Insights, otwórz Essentials na stronie Przegląd, lub Otwórz ustawienia.
 
-#### <a name="finish-initial-setup"></a>Zakończ początkowej konfiguracji
-Upewnij się, format serializacji:
-
-![Potwierdź i zamknąć kreatora](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Zamknij kreatora i poczekaj, aż do ukończenia instalacji.
-
 > [!TIP]
 > Funkcja próbki do sprawdzenia poprawnie ustawiona ścieżka wejściowa. Jeśli działanie nie powiodło się: Sprawdź, czy dane w magazynie dla wybrano zakresu czasu próbki. Dokonaj edycji definicji wejściowego i sprawdź ustawić konto magazynu, ścieżkę prefiks i Data formacie poprawnie.
 > 
 > 
-
 ## <a name="set-query"></a>Zapytanie zestawu
 Otwórz sekcję zapytania:
-
-![Analiza strumienia wybierz zapytanie](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Zastąp domyślne zapytanie z:
 
@@ -238,22 +228,20 @@ Zwróć uwagę, że pierwsze kilka właściwości są specyficzne dla danych wid
 ## <a name="set-up-output-to-database"></a>Konfigurowanie danych wyjściowych do bazy danych
 Wybierz SQL jako dane wyjściowe.
 
-![Analiza strumienia wybierz dane wyjściowe](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![Analiza strumienia wybierz dane wyjściowe](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Określ bazę danych SQL.
 
-![Uzupełnij informacje dotyczące bazy danych](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Uzupełnij informacje dotyczące bazy danych](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Zamknij kreatora i zaczekaj na powiadomienie, które skonfigurowano dane wyjściowe.
 
 ## <a name="start-processing"></a>Rozpocznij przetwarzanie
 Uruchom zadanie na pasku akcji:
 
-![W module analiz strumienia kliknij przycisk Start](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![W module analiz strumienia kliknij przycisk Start](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Można wybrać, czy można uruchomić przetwarzania danych, zaczynając od teraz, lub do uruchomienia z wcześniejszych danych. Drugie polecenie jest przydatne, jeśli masz już uruchomione na chwilę eksportu ciągłego.
-
-![W module analiz strumienia kliknij przycisk Start](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Po kilku minutach Przejdź wstecz do narzędzia do zarządzania serwerem SQL i obserwować dane przepływające w. Na przykład użyć zapytania następująco:
 

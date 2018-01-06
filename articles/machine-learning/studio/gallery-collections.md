@@ -1,6 +1,6 @@
 ---
-title: Kolekcje Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
-description: "Odnajdywanie i udostępnić kolekcje w programie Cortana Intelligence Gallery."
+title: Kolekcje AI galerii Azure | Dokumentacja firmy Microsoft
+description: "Odnajdywanie i udostępnić kolekcje w galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Odnajdywanie i udostępnić kolekcje w programie Cortana Intelligence Gallery
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Odnajdywanie i udostępnić kolekcje w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Kolekcje
@@ -31,7 +31,7 @@ Do przeglądania kolekcji [w galerii](http://gallery.cortanaintelligence.com)w o
 
 ![Wybierz kolekcje na stronie głównej galerii](./media/gallery-collections/select-collections-in-gallery.png)
 
-**[Kolekcje](https://gallery.cortanaintelligence.com/collections)**  zostanie wyświetlona lista kolekcje ostatnio dodany i popularnych. Zaznacz, aby wyświetlić wszystkie kolekcje **zobaczyć wszystkie**. Do wyszukiwania dla określonej kolekcji, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+ **[Kolekcje](https://gallery.cortanaintelligence.com/collections)**  zostanie wyświetlona lista kolekcje ostatnio dodany i popularnych. Zaznacz, aby wyświetlić wszystkie kolekcje **zobaczyć wszystkie**. Do wyszukiwania dla określonej kolekcji, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 Możesz uzyskać więcej informacji na temat kolekcji na stronie Szczegóły dotyczące kolekcji. Aby otworzyć stronę szczegółów kolekcji, wybierz kolekcję. W kolekcji szczegółów strony w **komentarze** sekcji, możesz dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące kolekcji. Możesz nawet udostępniać kolekcja znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów kolekcji z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
 
@@ -71,7 +71,7 @@ Na przykład można użyć kolekcji grupować elementy na dany temat lub można 
     ![Wybierz "Public" lub "Nieznajdujące się na liście"](./media/gallery-collections/create-collection-page-3.png)
 7. Wybierz pozycję **Utwórz**.
 
-Kolekcja jest teraz Cortana Intelligence Gallery. Kolekcji są wyświetlane na stronie konta na **kolekcji** kartę.
+Kolekcja jest w galerii Azure AI. Kolekcji są wyświetlane na stronie konta na **kolekcji** kartę.
 
 ### <a name="add-items-to-a-collection"></a>Dodawanie elementów do kolekcji
 Do dodawania elementów do kolekcji, otwórz kolekcji, wybierz **Edytuj**, a następnie wybierz **Dodaj element**.

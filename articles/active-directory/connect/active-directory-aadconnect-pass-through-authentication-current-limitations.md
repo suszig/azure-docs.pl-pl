@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -45,6 +45,7 @@ Poniższe scenariusze są _nie_ obsługiwane:
 - Hasła aplikacji w usłudze Multi-Factor Authentication.
 - Wykrywanie użytkownikom [ujawnione poświadczenia](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Usługi domenowe Azure AD wymaga synchronizacji skrótu hasła w dzierżawie. W związku z tym dzierżawcami, które korzystają z uwierzytelniania przekazywanego _tylko_ nie działa w przypadku scenariuszy, które wymagają usług domenowych Azure AD.
+- Przekazywanego uwierzytelniania nie jest zintegrowany z [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
 >Jako obejścia nieobsługiwane scenariusze _tylko_, włączanie synchronizacji skrótów haseł na [funkcje opcjonalne](active-directory-aadconnect-get-started-custom.md#optional-features) strony kreatora programu Azure AD Connect.
@@ -52,7 +53,7 @@ Poniższe scenariusze są _nie_ obsługiwane:
 >[!NOTE]
 Włączanie synchronizacji skrótów haseł umożliwia uwierzytelnianie trybu failover, jeśli jest zakłócona infrastruktury lokalnej. Ten tryb failover z uwierzytelniania przekazywanego synchronizacji skrótu hasła usługi Active Directory nie jest automatyczna. Musisz przełączyć metoda logowania ręcznie za pomocą usługi Azure AD Connect. Jeśli serwer z systemem Azure AD Connect ulegnie awarii, potrzebna pomoc od firmy Microsoft Support wyłączyć uwierzytelniania przekazywanego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md): szybkim rozpoczynaniu pracy związanej z usługi Azure AD przekazywanego uwierzytelniania.
 - [Inteligentne blokady](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): informacje o sposobie konfigurowania funkcji blokady inteligentnej na swojej dzierżawy, aby chronić kont użytkowników.
 - [Nowości techniczne](active-directory-aadconnect-pass-through-authentication-how-it-works.md): zrozumieć sposób działania funkcji uwierzytelniania przekazywanego.

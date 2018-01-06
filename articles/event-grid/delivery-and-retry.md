@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Dostarczanie komunikatów siatki zdarzeń i spróbuj ponownie 
 
@@ -62,9 +62,33 @@ Siatka zdarzeń dodaje małe losowe do wszystkich interwałów ponów próbę.
 
 ## <a name="retry-duration"></a>Spróbuj ponownie czas trwania
 
-W wersji zapoznawczej siatki zdarzeń Azure wygasa wszystkie zdarzenia, które nie zostały dostarczone w ciągu dwóch godzin. Przed ogólnej dostępności tego czasu zostanie zwiększony do 24 godzin. 
+W wersji zapoznawczej siatki zdarzeń Azure wygasa wszystkie zdarzenia, które nie zostały dostarczone w ciągu dwóch godzin.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="monitoring"></a>Monitorowanie
+
+Aby wyświetlić stan dostawy zdarzeń, można użyć portalu.
+
+Aby widzieć metryki dla subskrypcji zdarzeń, wyszukaj **subskrypcji zdarzeń** dostępnych usług i zaznacz je.
+
+![Wyszukaj subskrypcji zdarzeń](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Filtruj według typu zdarzenia, subskrypcji i lokalizacji. Wybierz **metryki** subskrypcji do wyświetlenia.
+
+![Filtr subskrypcji zdarzeń](./media/delivery-and-retry/filter-events.png)
+
+Wyświetl metryki zdarzenia tematu i subskrypcji.
+
+![Wyświetlaj metryki zdarzenia](./media/delivery-and-retry/subscription-metrics.png)
+
+Po opublikowaniu niestandardowego tematu, można wyświetlić dla niej metryki. Wybierz grupę zasobów, zawierającą tematu, a następnie wybierz temat.
+
+![Wybierz niestandardowego tematu](./media/delivery-and-retry/select-custom-topic.png)
+
+Wyświetl metryki dla tematu zdarzenie niestandardowe.
+
+![Wyświetlaj metryki zdarzenia](./media/delivery-and-retry/custom-topic-metrics.png)
+
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do siatki zdarzeń, zobacz [o siatki zdarzeń](overview.md).
 * Aby szybko rozpocząć korzystanie z siatki zdarzeń, zobacz [tworzenie i tras niestandardowych zdarzeń siatki zdarzeń Azure](custom-event-quickstart.md).

@@ -1,6 +1,6 @@
 ---
-title: Samouczki Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
-description: "Odnajdywanie i udostępnić samouczki Cortana Intelligence Gallery."
+title: Samouczki AI galerii Azure | Dokumentacja firmy Microsoft
+description: "Odnajdywanie i udostępniać samouczków w galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Odnajdywanie i udostępnianie samouczków w Cortana Intelligence Gallery
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Odnajdywanie i udostępnianie samouczków w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Samouczki
-Cortana Intelligence Gallery oferuje kilka [samouczki](https://gallery.cortanaintelligence.com/tutorials) która prowadzi użytkownika przez machine learning technologie i pojęcia. Samouczki może również opisano zaawansowane metody rozwiązywania problemów z machine learning.
+Galeria AI Azure oferuje kilka [samouczki](https://gallery.cortanaintelligence.com/tutorials) która prowadzi użytkownika przez machine learning technologie i pojęcia. Samouczki może również opisano zaawansowane metody rozwiązywania problemów z machine learning.
 
 ## <a name="discover"></a>Wykrywanie
 Aby przeglądać samouczki [w galerii](http://gallery.cortanaintelligence.com)w obszarze **więcej**, wybierz pozycję **samouczki**.
 
 ![Wybierz samouczki na stronie głównej galerii](./media/gallery-tutorials/select-tutorials-in-gallery.png)
 
-**[Samouczki](https://gallery.cortanaintelligence.com/tutorials)**  zostanie wyświetlona lista samouczków ostatnio dodany i popularnych. Aby wyświetlić wszystkie samouczki, wybierz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych samouczek, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+ **[Samouczki](https://gallery.cortanaintelligence.com/tutorials)**  zostanie wyświetlona lista samouczków ostatnio dodany i popularnych. Aby wyświetlić wszystkie samouczki, wybierz **zobaczyć wszystkie** przycisku. Do wyszukiwania określonych samouczek, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 Możesz uzyskać więcej informacji na temat samouczek na stronie szczegółów samouczka. Aby otworzyć stronę samouczka szczegóły, wybierz samouczka. W **komentarze** sekcja na stronie szczegółów samouczek, można dodać komentarz, wyrazić swoją opinię lub zadać pytania dotyczące samouczka. Możesz nawet udostępniać samouczka znajomych lub współpracowników w serwisie Twitter i LinkedIn. Można również e-mail łącze do strony szczegółów samouczek z zaproszeniem dla innych użytkowników, aby wyświetlić stronę.
 
@@ -72,7 +72,7 @@ Samouczek można dodać do galerii, aby pomóc innym użytkownikom rozwiązania 
 
 7. Wybierz pozycję **Utwórz**.
 
-Samouczek jest teraz Cortana Intelligence Gallery. Twojej samouczki są wyświetlane na stronie konta na **elementów** kartę.
+Samouczek znajduje się w galerii Azure AI. Twojej samouczki są wyświetlane na stronie konta na **elementów** kartę.
 
 **[Przejdź do galerii](http://gallery.cortanaintelligence.com)**
 

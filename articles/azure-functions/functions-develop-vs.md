@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Środowisko Azure Functions Tools for Visual Studio  
 
@@ -46,7 +46,8 @@ Tworzenie i wdrażanie funkcji, należy również:
 
 * Aktywna subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [wolnego konta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) są dostępne.
 
-* Konto magazynu Azure. Aby utworzyć konto magazynu, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Konto magazynu Azure. Aby utworzyć konto magazynu, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Tworzenie projektu usługi Azure Functions 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ Aby dowiedzieć się więcej o korzystaniu z narzędzi podstawowych funkcji Azur
 Aby uzyskać więcej informacji na temat narzędzi funkcji Azure, zobacz sekcję Często zadawane pytania [2017 Visual Studio Tools dla usługi Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) wpis w blogu.
 
 Aby dowiedzieć się więcej o podstawowych narzędzi funkcji platformy Azure, zobacz [kodu i przetestuj usługę Azure functions lokalnie](functions-run-local.md).  
-Aby dowiedzieć się więcej o projektowaniu funkcji jako bibliotek klasy .NET, zobacz [Korzystanie z bibliotek klasy .NET w usłudze Azure Functions](functions-dotnet-class-library.md). Ten temat zawiera również przykłady tego, jak używać atrybutów, aby zadeklarować różnych typów powiązania obsługiwane przez usługi Azure Functions.    
+Aby dowiedzieć się więcej o wdrażaniu funkcji jako biblioteki klas .NET, zobacz [dokumentacja dla deweloperów Azure funkcje C#](functions-dotnet-class-library.md). Ten temat zawiera również linki do przykłady tego, jak używać atrybutów, aby zadeklarować różnych typów powiązania obsługiwane przez usługi Azure Functions.    

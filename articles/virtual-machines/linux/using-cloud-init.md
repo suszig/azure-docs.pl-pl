@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa inicjowania chmury maszyn wirtualnych na platformie Azure
 W tym artykule opisano obsługę, czy istnieje dla [init chmury](https://cloudinit.readthedocs.io) do skonfigurowania maszyny wirtualnej (VM) lub maszyny wirtualnej zestawach skali (VMSS) na inicjowanie obsługi administracyjnej czas na platformie Azure. Skrypty te init chmury są uruchamiane po pierwszym uruchomieniu komputera po zasoby zostały udostępnione przez platformę Azure.  
 
-## <a name="cloud-init-overview"></a>Init chmury — omówienie
+## <a name="cloud-init-overview"></a>Omówienie pakietu cloud-init
 [Init chmury](https://cloudinit.readthedocs.io) jest powszechnie używaną podejście, aby dostosować Maszynę wirtualną systemu Linux, ponieważ jest on uruchamiany po raz pierwszy. Init chmury można użyć, aby zainstalować pakiety i zapisywać pliki, lub aby skonfigurować użytkowników i zabezpieczeń. Ponieważ init chmury jest wywoływana podczas początkowego procesu rozruchu, nie są żadne dodatkowe kroki lub agentów wymaganych do zastosowania konfiguracji.  Aby uzyskać więcej informacji na temat sposobu poprawnie sformatowana Twojej `#cloud-config` plików, zobacz [witryna dokumentacji usługi chmury init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowane w formacie base64.
 
 Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji stanie get** lub **yum zainstalować** do zainstalowania pakietu. Zamiast tego można zdefiniować listę pakietów do zainstalowania. Init chmury automatycznie używa narzędzia do zarządzania natywnego pakietu dla distro, którą wybierzesz.
@@ -36,18 +36,18 @@ Init chmury działa także w dystrybucji. Na przykład nie używaj **instalacji 
 |Canonical |UbuntuServer |16.04 LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
 |CoreOS |CoreOS |Stable |najnowsza |tak |
-|OpenLogic |CentOS |7-CI |najnowsza |wersja zapoznawcza |
-|RedHat |RHEL |7-RAW-CI |najnowsza |wersja zapoznawcza |
+|OpenLogic |CentOS |7-CI |najnowsza |okresie zapoznawczym |
+|RedHat |RHEL |7-RAW-CI |najnowsza |okresie zapoznawczym |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Jaka jest różnica między init chmury i agenta systemu Linux (WALA)?
 WALA jest używany do obsługi administracyjnej i skonfigurować maszyny wirtualne i obsługi rozszerzeń Azure agenta specyficzne dla platformy Azure. Firma Microsoft są udoskonalanie zadanie konfigurowania maszyn wirtualnych do korzystania z chmury init zamiast agenta systemu Linux w celu umożliwienia istniejących klientów init chmury za pomocą ich bieżący skryptów init chmury.  Jeśli dokonano już inwestycji w chmurze init skrypty do konfigurowania serwerów z systemem Linux są **są wymagane nie dodatkowe ustawienia** je włączyć. 
 
-Jeśli nie ma przełącznika wiersza polecenia AzureCLI `--custom-data` na inicjowanie obsługi administracyjnej czasu WALA wykonuje minimalnego obsługi parametrów wymaganych do obsługi administracyjnej maszyny Wirtualnej i ukończyć wdrażanie przy użyciu ustawień domyślnych maszyny Wirtualnej.  Jeśli odwołanie init chmury `--custom-data` przełącznika, niezależnie od znajduje się w danych niestandardowych (poszczególnych ustawień lub skryptu pełne) zastępuje WALA zdefiniowane wartości domyślne. 
+Jeśli nie ma interfejsu wiersza polecenia Azure `--custom-data` przełącznik na inicjowanie obsługi administracyjnej czas WALA przyjmuje minimalnego obsługi parametrów wymaganych do obsługi administracyjnej maszyny Wirtualnej i ukończyć wdrażanie przy użyciu ustawień domyślnych maszyny Wirtualnej.  Jeśli odwołanie init chmury `--custom-data` przełącznika, niezależnie od znajduje się w danych niestandardowych (poszczególnych ustawień lub skryptu pełne) zastępuje wartości domyślne WALA. 
 
-Konfiguracje WALA maszyn wirtualnych jest ograniczone do pracy w ramach maksymalny czas inicjowania obsługi administracyjnej maszyny Wirtualnej.  Konfiguracje init chmury stosowane do maszyn wirtualnych bez ograniczeń czasowych i nie powoduje wdrożenia niepowodzenie przez przekroczeniem limitu czasu. 
+Konfiguracje WALA maszyn wirtualnych są ograniczone na czas do pracy z maksymalną obsługi czasu maszyny Wirtualnej.  Konfiguracje init chmury stosowane do maszyn wirtualnych bez ograniczeń czasowych i nie powoduje wdrożenia niepowodzenie przez przekroczeniem limitu czasu. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Wdrażanie inicjowania chmury włączone maszyny wirtualnej
-Wdrażanie włączone inicjowania chmury maszyny wirtualnej jest tak proste, jak odwołujące się do dystrybucji chmury inicjowaniem włączona podczas wdrażania.  Maintainers dystrybucji systemu Linux musiał wybrać włączyć i integrowanie init chmury podstawowej Azure obrazów opublikowanych. Po potwierdzeniu chmury inicjowaniem włączone jest obraz, który chcesz wdrożyć, można użyć AzureCLI do wdrożenia obrazu. 
+Wdrażanie włączone inicjowania chmury maszyny wirtualnej jest tak proste, jak odwołujące się do dystrybucji chmury inicjowaniem włączona podczas wdrażania.  Maintainers dystrybucji systemu Linux musiał wybrać włączyć i integrowanie init chmury podstawowej Azure obrazów opublikowanych. Po potwierdzeniu chmury inicjowaniem włączone jest obraz, który chcesz wdrożyć, można użyć wiersza polecenia platformy Azure do wdrożenia obrazu. 
 
 Pierwszym etapem wdrożenia tego obrazu jest utworzenie grupy zasobów z [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
@@ -89,7 +89,7 @@ Po zainicjowano maszyny Wirtualnej, init chmurze zostanie uruchomiony za pośred
 
 Więcej informacji o chmurze init rejestrowania, zapoznaj się [dokumentacji init chmury](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przykłady init chmury zmian konfiguracji można znaleźć w następujących dokumentach:
  
 - [Dodaj dodatkowe użytkownika w systemie Linux na maszynie Wirtualnej](cloudinit-add-user.md)

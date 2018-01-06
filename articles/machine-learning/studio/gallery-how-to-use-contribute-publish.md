@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Dokumentacja firmy Microsoft
-description: "Udostępnianie i odnajdywanie oraz analiza zasobów w Cortana Intelligence Gallery. Dowiedz się od innych użytkowników i wprowadź własny wkład społeczności."
+title: Galerii Azure AI | Dokumentacja firmy Microsoft
+description: "Udostępnianie i odnajdywanie oraz analiza zasobów w galerii Azure AI. Dowiedz się od innych użytkowników i wprowadź własny wkład społeczności."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Udostępnianie i odnajdywanie zasobów w Cortana Intelligence Gallery
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Udostępnianie i odnajdywanie zasobów w galerii Azure AI
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Co można znaleźć w galerii?
-Cortana Intelligence Gallery zawiera różne zasoby, które służy do opracowywania własnych rozwiązań analitycznych.
+AI galerii Azure zawiera różne zasoby, które służy do opracowywania własnych rozwiązań analitycznych.
 
 * **[Eksperymenty](gallery-experiments.md)**  — Galeria zawiera szeroką gamę eksperymenty, które zostały opracowane w usłudze Azure Machine Learning Studio. Te w zakresie od szybkie eksperymenty Weryfikacja koncepcji, które pokazują określonej maszyny uczenia technikę do pełni rozwinięte rozwiązań do uczenia maszynowego złożonych problemów.
 * **[Notesów Jupyter](gallery-jupyter-notebooks.md)**  — notesów Jupyter obejmują kod, wizualizacje danych i dokumentacji w pojedynczym interaktywny obszar roboczy.
@@ -48,7 +48,7 @@ Te podstawowe zasoby galerii można grupować logicznie na kilka sposobów:
 
 Na koniec  **[konkursami](gallery-competitions.md)**  umożliwiają atrakcyjnych konkurują ze społecznością data scientsts rozwiązywania złożonych problemów za pomocą pakietu Cortana Intelligence Suite.
 
-![Strona główna Cortana Intelligence Gallery](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Strona główna AI galerii Azure](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Odnajdywanie i Dowiedz się więcej
 Każda osoba, która można przeglądać i wyszukiwać różnych typów zasobów w galerii, które zostały udostępnione przez firmę Microsoft i społecznością zaawansowana analityka.

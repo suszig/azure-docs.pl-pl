@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
@@ -210,10 +210,12 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 ## <a name="trigger---usage"></a>Wyzwalacz — użycie
 
-W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru metody, takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+W języku C# i skryptu C#, dostęp do danych obiektów blob za pomocą parametru metody, takie jak `T paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
 * `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
 * `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)
@@ -498,10 +500,16 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(tylko w danych wejściowych)
+* `string`(tylko w danych wejściowych)
+* `Byte[]`(tylko w danych wejściowych)
+* `TextWriter`(tylko dane wyjściowe)
+* `out string`(tylko dane wyjściowe)
+* `out Byte[]`(tylko dane wyjściowe)
+*  `CloudBlobStream`(tylko dane wyjściowe)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
 * `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
 * `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)

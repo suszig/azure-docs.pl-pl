@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiowanie danych z/do Dynamics 365 / Dynamics CRM przy użyciu fabryki danych Azure
 
@@ -68,10 +68,10 @@ Obsługiwane są następujące właściwości dla połączonej usługi Dynamics:
 | Typ authenticationType | Typ uwierzytelniania, aby połączyć się z serwerem programu Dynamics. Określ **"Usługi Office 365"** dla Dynamics w trybie Online. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie Dynamics. | Yes |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Konieczne umieszczanie hasła w usłudze Azure Key Vault i skonfigurować hasło jako "AzureKeyVaultSecret". Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie dla źródła tak dla obiekt sink Jeśli źródło jest połączona usługa nie ma IR. |
 
 >[!IMPORTANT]
->Aby skopiować dane do programu Dynamics, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją w pobliżu Dynamics i skojarz w połączonej usłudze jak w poniższym przykładzie.
+>Podczas kopiowania danych **do** Dynamics, domyślnego środowiska uruchomieniowego integracji Azure nie może służyć do wykonywania kopii. W innym słowie, jeśli połączone źródła usługa nie ma określonej IR, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją w pobliżu Dynamics i skojarz w połączonej usłudze Dynamics jak w poniższym przykładzie.
 
 **Przykład: Dynamics online przy użyciu uwierzytelniania usługi Office 365**
 

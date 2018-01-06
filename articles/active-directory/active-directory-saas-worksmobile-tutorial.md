@@ -1,42 +1,43 @@
 ---
-title: "Samouczek: Integracji usługi Azure Active Directory z WORKS MOBILE | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługi Azure Active Directory i działa MOBILE."
+title: "Samouczek: Integracji Azure Active Directory z działania wiersza | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługi Azure Active Directory i działa wiersza."
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 23d57bf81e15bf23d26a1e323f7cd04ee5f35d13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Samouczek: Integracji Azure Active Directory z MOBILE działania
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Samouczek: Integracji Azure Active Directory z działania wiersza
 
-Z tego samouczka dowiesz się integrowanie MOBILE WSPÓŁPRACUJE z usługą Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie wiersza WSPÓŁPRACUJE z usługą Azure Active Directory (Azure AD).
 
-Integrowanie MOBILE WSPÓŁPRACUJE z usługą Azure AD zapewnia następujące korzyści:
+Integrowanie wiersza WSPÓŁPRACUJE z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, który ma dostęp do MOBILNEJ działa
-- Umożliwia użytkownikom automatycznie pobrać zalogowane powyżej WORKS (logowanie jednokrotne) z konta usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do działania wiersza.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane Works wiersza (logowanie jednokrotne) z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z MOBILE WSPÓŁPRACUJE, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z działania wiersza, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- MOBILE działa logowanie jednokrotne włączone subskrypcji
+- WIERSZ działa logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
@@ -44,162 +45,153 @@ Aby skonfigurować integrację usługi Azure AD z MOBILE WSPÓŁPRACUJE, potrzeb
 Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
-- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
+- Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie MOBILE WSPÓŁPRACUJE z galerii
+1. Dodawanie wiersza WSPÓŁPRACUJE z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-works-mobile-from-the-gallery"></a>Dodawanie MOBILE WSPÓŁPRACUJE z galerii
-Aby skonfigurować integrację MOBILE WSPÓŁPRACUJE z usługą Azure AD, należy dodać MOBILE WSPÓŁPRACUJE z galerii do listy zarządzanych aplikacji SaaS.
+## <a name="adding-line-works-from-the-gallery"></a>Dodawanie wiersza WSPÓŁPRACUJE z galerii
+Aby skonfigurować integrację usługi Azure AD wiersza działa, należy dodać wiersza działa z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać MOBILE WSPÓŁPRACUJE z galerii, wykonaj następujące czynności:**
+**Aby dodać wiersz działa z galerii, wykonaj następujące czynności:**
 
 1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![Usługa Active Directory][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
 2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Aplikacje][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
 3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Aplikacje][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania wpisz **MOBILE WSPÓŁPRACUJE**.
+4. W polu wyszukiwania wpisz **WORKS wiersza**, wybierz pozycję **działania wiersza** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_search.png)
+    ![WIERSZ działa na liście wyników](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
-5. W panelu wyników wybierz **MOBILE WSPÓŁPRACUJE**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_addfromgallery.png)
+W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z wiersza działa w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z MOBILE działa na podstawie użytkownika testowego, nazywany "Britta Simona".
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w wierszu działania jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w wierszu musi się.
 
-Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w MOBILE WSPÓŁPRACUJE jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w MOBILE WSPÓŁPRACUJE musi się.
+W wierszu przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w MOBILE WSPÓŁPRACUJE.
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z działania wiersza, należy wykonać poniższe bloki konstrukcyjne:
 
-Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z MOBILE WSPÓŁPRACUJE, należy wykonać poniższe bloki konstrukcyjne:
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego działa wiersza](#create-a-line-works-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta WORKS wiersza, połączonej z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego MOBILE WSPÓŁPRACUJE](#creating-a-works-mobile-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta MOBILE WSPÓŁPRACUJE, połączonej z usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji działa wiersza.
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji MOBILNEJ działa.
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z wiersza działa, wykonaj następujące czynności:**
 
-**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z MOBILE działa, wykonaj następujące czynności:**
+1. W portalu Azure na **WORKS wiersza** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
-1. W portalu Azure na **MOBILE WSPÓŁPRACUJE** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
-
-    ![Konfigurowanie rejestracji jednokrotnej][4]
+    ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
 2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_samlbase.png)
+    ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
-3. Na **WORKS MOBILE domeny i adres URL** sekcji, wykonaj następujące czynności:
+3. Na **wiersza domeny działa i adres URL** sekcji, wykonaj następujące czynności:
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
+    ![Adresy URL i domeny działa wiersza pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-    b. W **identyfikator** tekstowym, wpisz wartość jako`worksmobile.com`
+    b. W **identyfikator** tekstowym, wpisz wartość:`worksmobile.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [klienta MOBILE WSPÓŁPRACUJE z pomocą techniczną](mailto:dl_ssoinfo@worksmobile.com) aby zyskać tę wartość. 
- 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta działa wiersza](mailto:dl_ssoinfo@worksmobile.com) aby zyskać tę wartość.
+
 4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Raw)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_general_400.png)
+    ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
-6. Na **konfiguracji MOBILE WSPÓŁPRACUJE** kliknij **skonfigurować MOBILE WSPÓŁPRACUJE** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
+6. Na **konfiguracja działa linii** , kliknij przycisk **skonfigurować działania wiersza** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_configure.png) 
+    ![Konfiguracja działania linii](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
-7. Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z [MOBILE WSPÓŁPRACUJE z pomocą techniczną](mailto:dl_ssoinfo@worksmobile.com) i podaj następujące informacje: 
-
-    • Pobrany **plik certyfikatu**
-
-    • **Adres URL usługi rejestracji jednokrotnej SAML**
-
-    • **Identyfikator jednostki SAML**
-
-    • **Adresu URL wylogowania**
+7. Skonfigurować logowanie jednokrotne w **WORKS wiersza** stronie, musisz wysłać pobrany **plik, adres URL Sign-Out, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi certyfikatu** do [obsługuje działania wiersza zespół](mailto:dl_ssoinfo@worksmobile.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+
 Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
-![Tworzenie użytkowników usługi Azure AD][100]
+   ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
 **Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_01.png) 
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-lineworks-tutorial/create_aaduser_01.png)
 
-2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
-    
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_02.png) 
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
- 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_03.png) 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-lineworks-tutorial/create_aaduser_02.png)
 
-4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
- 
-    ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_04.png) 
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
+    ![Przycisk Dodaj](./media/active-directory-saas-lineworks-tutorial/create_aaduser_03.png)
 
-    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-lineworks-tutorial/create_aaduser_04.png)
+
+    a. W **nazwa** wpisz **BrittaSimon**.
+
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
+
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
-### <a name="creating-a-works-mobile-test-user"></a>Tworzenie użytkownika testowego MOBILE działania
+### <a name="create-a-line-works-test-user"></a>Tworzenie użytkownika testowego działa wiersza
 
- W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w przenośnych działa. We współpracy z [MOBILE WSPÓŁPRACUJE z pomocą techniczną](mailto:dl_ssoinfo@worksmobile.com) Aby dodać użytkowników do platformy MOBILE działa.
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w wierszu. We współpracy z [wiersza WORKS obsługuje zespołu](mailto:dl_ssoinfo@worksmobile.com) Aby dodać użytkowników na platformie działa wiersza.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do działania MOBILE.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do działania wiersza.
 
-![Przypisz użytkownika][200] 
+![Przypisanie roli użytkownika][200] 
 
-**Aby przypisać Simona Britta MOBILE działa, wykonaj następujące czynności:**
+**Aby przypisać Simona Britta wiersza działa, wykonaj następujące czynności:**
 
 1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Na liście aplikacji zaznacz **MOBILE WSPÓŁPRACUJE**.
+2. Na liście aplikacji zaznacz **WORKS wiersza**.
 
-    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_app.png) 
+    ![Łącze działa wiersza na liście aplikacji](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![Przypisz użytkownika][202] 
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Przypisz użytkownika][203]
+    ![W okienku Dodaj przydziału][203]
 
 5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
@@ -207,31 +199,29 @@ W tej sekcji można włączyć Simona Britta do używania Azure logowania jednok
 
 7. Kliknij przycisk **przypisać** znajdującego się na **Dodaj przydziału** okna dialogowego.
     
-### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
+### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka MOBILE WSPÓŁPRACUJE w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji MOBILE WSPÓŁPRACUJE.
+Po kliknięciu kafelka działa wiersza w panelu dostępu należy należy pobrać automatycznie zalogowane do aplikacji działa wiersza.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_203.png
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Skonfiguruj wygaśnięcia dla grup usługi Office 365 (wersja zapoznawcza)
 
@@ -30,9 +30,7 @@ Umożliwia teraz Zarządzanie cyklem życia grup usługi Office 365 przez ustawi
 -   Można przywrócić żadnej grupy usługi Office 365, która zostanie usunięta w ciągu 30 dni przez właścicieli grupy lub administrator
 
 > [!NOTE]
-> Ustawianie ważności dla grup usługi Office 365 wymaga licencji usługi Azure AD Premium lub licencji usługi Azure AD podstawowa Education dla wszystkich członków grupy, do której są stosowane ustawienia wygaśnięcia.
-> 
-> Dla usługi Azure AD podstawowa Education licencjonowane klientów: Aby po raz pierwszy, należy skonfigurować te zasady, użyj poleceń cmdlet środowiska PowerShell usługi Azure Active Directory. Po tym należy zaktualizować ustawienia wygaśnięcia przy użyciu programu PowerShell lub portalu usługi Azure AD przy użyciu konta, które jest administratorem konta użytkownika lub administratora globalnego dzierżawy usługi Azure AD.
+> Ustawianie ważności dla grup usługi Office 365 wymaga licencji usługi Azure AD Premium dla wszystkich członków grupy, do której są stosowane ustawienia wygaśnięcia.
 
 Aby uzyskać informacje na temat Pobierz i zainstaluj polecenia cmdlet programu PowerShell usługi Azure AD, zobacz [Azure Active Directory PowerShell wykresu — publicznej wersji zapoznawczej 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -73,7 +71,7 @@ Jeśli grupy, które są przywracane zawiera dokumentów, witryn programu ShareP
 >   Na przykład A grupa została utworzona 400 dni temu i interwał wygaśnięcia jest ustawiony na wartość 180 dni. Podczas stosowania ustawień wygasania grupy A ma 30 dni przed usunięciem, chyba że właściciel odnawia go.
 > * Gdy dynamiczna grupa jest usuwane i przywrócić, jest traktowany jako nową grupę i ponownie wypełniane zgodnie z zasadą. Ten proces może potrwać do 24 godzin.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Te artykuły zawierają dodatkowe informacje o grup usługi Azure AD.
 
 * [Zobacz istniejących grup](active-directory-groups-view-azure-portal.md)
