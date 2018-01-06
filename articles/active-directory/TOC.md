@@ -8,7 +8,7 @@
 ## [Co nowego](whats-new.md)
 
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Rozpoczynanie pracy z usługą Azure AD](get-started-azure-ad.md)
 ## [Tworzenie konta w usłudze Azure AD Premium](active-directory-get-started-premium.md)
 ## [Dodawanie niestandardowej nazwy domeny](add-custom-domain.md)
@@ -286,7 +286,6 @@
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrowanie zasad klasycznych](active-directory-conditional-access-migration.md)
-#### [Narzędzie analizy warunkowej](active-directory-conditional-access-whatif.md)
 #### Zadania
 ##### [Migrowanie klasycznych zasad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
