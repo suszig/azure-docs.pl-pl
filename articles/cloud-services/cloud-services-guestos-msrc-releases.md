@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa Azure
 Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpowiedzi Center (MSRC) stosowany do systemu operacyjnego gościa Azure. Wyszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczą systemu operacyjnego gościa w przypadku korzystania. Aktualizacje zawsze przeniesieniu dla konkretnej [rodziny] [ family-explain] zostały wprowadzone w.
+
+## <a name="january-guest-os"></a>Stycznia systemu operacyjnego gościa
+| Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
+| --- | --- | --- | --- | --- |
+| ND | [4056898] |Tylko zabezpieczenia systemu Windows |4.50 |3 stycznia 2018 |
+| ND | [4056890] |Tylko zabezpieczenia systemu Windows |5.15 |3 stycznia 2018 |
 
 ## <a name="december-guest-os"></a>Grudnia systemu operacyjnego gościa
 | Kategoria produktów | Artykułem nadrzędnym KB | Opis luki w zabezpieczeniach | System operacyjny gościa | Wprowadzona data |
@@ -574,6 +580,9 @@ Poniższe tabele zawierają informacje o aktualizacjach Microsoft Security odpow
 | ND |[3007054] |Pokazuje chronionego numerem PIN drukowania opcja zawsze podczas drukowania dokumentów w ramach aplikacji Sklepu Windows w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | ND |[2999802] |Zamiast wierszy przerywana linia ciągła są podane w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
 | ND |[2896881] |Długi czas logowania, jeśli używasz polecenia AddPrinterConnection VBScript mapować drukarki dla użytkowników podczas procesu logowania w systemie Windows |4.15, 3.22, 2.34 |2015 13 stycznia |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

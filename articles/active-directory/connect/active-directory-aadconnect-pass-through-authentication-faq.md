@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory przekazywanego uwierzytelniania: Często zadawane pytania
 
@@ -82,6 +82,12 @@ Tak. Automatyczne odnajdowanie serwera Proxy sieci Web (WPAD) jest włączona w 
 
 Nie, tylko można zainstalować jeden Agent uwierzytelniania przekazywanego na jednym serwerze. Jeśli chcesz skonfigurować uwierzytelniania przekazywanego wysokiej dostępności, postępuj zgodnie z instrukcjami [uwierzytelniania przekazywanego Azure Active Directory: Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Jak usunąć Agent uwierzytelniania przekazywanego?
+
+Tak długo, jak działa Agent uwierzytelniania przekazywanego, pozostaje aktywna i stale obsługi żądania logowania użytkownika. Jeśli chcesz odinstalować agenta uwierzytelniania, przejdź do **Panel sterowania -> programy -> programy i funkcje** i odinstalować zarówno **agenta programu Microsoft Azure AD Connect uwierzytelniania** i  **Microsoft Azure AD Connect Agent Updater** programy.
+
+Jeśli wybierzesz bloku uwierzytelniania przekazywanego na [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) po ukończeniu poprzedniego kroku zobaczysz Agent uwierzytelniania przedstawiający jako **nieaktywne**. Jest to _Oczekiwano_. Agent uwierzytelniania jest automatycznie usuwane z listy, po upływie kilku dni.
+
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Już używać usług AD FS do logowania do usługi Azure AD. Jak przełączać jej do uwierzytelniania przekazywanego?
 
 Jeśli usługi AD FS zostały skonfigurowane jako metody do logowania za pomocą Kreatora programu Azure AD Connect, zmień metodę, których użytkownik używa do logowania do uwierzytelniania przekazywanego. Ta zmiana umożliwia użycie uwierzytelniania przekazywanego dla dzierżawcy i konwertuje _wszystkie_ Twojego Sfederowanych domen w domenach zarządzanych. Uwierzytelniania przekazywanego obsługuje wszystkie kolejne żądania logować się do dzierżawy. Obecnie nie istnieje sposób obsługiwane w ramach usługi Azure AD Connect być zastosowanie kombinacji uwierzytelniania przekazywanego i usług AD FS w różnych domenach.
@@ -122,7 +128,7 @@ Uruchom ponownie Kreatora programu Azure AD Connect i zmień metodę logowania u
 
 Po odinstalowaniu agenta uwierzytelniania przekazywanego z serwera powoduje serwer przestał akceptować żądania logowania. Aby uniknąć dzielenia funkcji logowania użytkowników w dzierżawie, upewnij się, że masz innego uwierzytelniania Agent uruchomiony przed odinstalowaniem agenta uwierzytelniania przekazywanego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Bieżące ograniczenia](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Dowiedz się, jakie scenariusze są obsługiwane i zostały.
 - [Szybki start](active-directory-aadconnect-pass-through-authentication-quick-start.md): rozpocząć pracę na Azure AD przekazywanego uwierzytelniania.
 - [Inteligentne blokady](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): informacje o sposobie konfigurowania funkcji blokady inteligentnej na swojej dzierżawy, aby chronić kont użytkowników.

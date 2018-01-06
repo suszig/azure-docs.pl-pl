@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelniania przekazywanego usługi Azure Active Directory
 
@@ -165,7 +165,7 @@ Jeśli włączono rejestrowanie inspekcji, dodatkowe informacje można znaleźć
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Liczniki Monitora wydajności
+## <a name="performance-monitor-counters"></a>Liczniki Monitora wydajności
 
 Innym sposobem monitorowania agentów uwierzytelniania jest do śledzenia liczniki Monitora wydajności dotyczące na każdym serwerze, w którym jest zainstalowany Agent uwierzytelniania. Służą następujące liczniki globalne (**uwierzytelnienia # PTA**, **#PTA nie powiodło się uwierzytelnienia** i **#PTA informacji o pomyślnym uwierzytelnieniu**) i liczniki błędu (**Błędy uwierzytelniania # PTA**):
 

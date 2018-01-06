@@ -1,6 +1,6 @@
 ---
-title: "Notesów Cortana Intelligence Gallery Jupyter | Dokumentacja firmy Microsoft"
-description: "Wykryj notesów Jupyter w Cortana Intelligence Gallery."
+title: "Azure notesów Jupyter galerii AI | Dokumentacja firmy Microsoft"
+description: "Wykryj notesów Jupyter w galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Odnajdywanie notesów Jupyter w Cortana Intelligence Gallery
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Odnajdywanie notesów Jupyter w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Notesy programu Jupyter
@@ -30,7 +30,7 @@ Notesów w galerii Podaj samouczki i szczegółowe wyjaśnienia zaawansowane mac
 ## <a name="discover"></a>Wykrywanie
   Aby wyszukać notesów w galerii, otwórz [galerii](http://gallery.cortanaintelligence.com) i kliknij przycisk **notesów** w górnej części strony głównej galerii.
 
- **[Notesów Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  zostanie wyświetlona lista najpopularniejszych notesów.
+  **[Notesów Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  zostanie wyświetlona lista najpopularniejszych notesów.
 Kliknij przycisk **zobaczyć wszystkie** Aby wyświetlić wszystkie notesy.
 Na tej stronie można przejrzeć wszystkie notesy w galerii. Można również przeszukać wybierając kryteria filtrowania po lewej stronie i wprowadzanie terminy wyszukiwania w górnej.
 

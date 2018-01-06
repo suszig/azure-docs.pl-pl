@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Ponowne szkolenie klasycznej usługi internetowej
 Usługa sieci Web predykcyjnych, wdrożone jest domyślnego punktu końcowego oceniania. Domyślne punkty końcowe są utrzymywane w synchronizacji z oryginalnego szkolenia i oceniania eksperymentów, a w związku z tym nie można zamienić trenowanego modelu dla domyślnego punktu końcowego. Aby ponownie ucz usługi sieci web, należy dodać nowy punkt końcowy usługi sieci web. 
@@ -54,7 +54,7 @@ Możesz dodać oceniania punktów końcowych przy użyciu przykładowy kod podan
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Dodawanie punktu końcowego za pomocą portalu usługi sieci Web platformy Microsoft Azure
 1. W usłudze Machine Learning Studio w kolumnie nawigacji po lewej stronie kliknij usług sieci Web.
 2. W dolnej części pulpitu nawigacyjnego usługi sieci web, kliknij przycisk **Zarządzaj punktami końcowymi Podgląd**.
-3. Kliknij pozycję **Dodaj**.
+3. Kliknij pozycję **Add** (Dodaj).
 4. Wpisz nazwę i opis dla nowego punktu końcowego. Wybierz poziom rejestrowania i czy jest włączone przykładowych danych. Aby uzyskać więcej informacji, zobacz [należy włączyć rejestrowanie dla usługi sieci web uczenie maszynowe](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Zaktualizuj uczonego modelu dodano punkt końcowy
@@ -116,7 +116,7 @@ Następujący przykładowy kod przedstawia sposób użycia *BaseLocation*, *Rela
 
 Wartość *nazwa* parametru w *zasobów* powinna odpowiadać nazwie zasobu zapisane Uczonego modelu w eksperyment predykcyjny. Aby uzyskać nazwę zasobu:
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W menu po lewej stronie kliknij **uczenia maszynowego**.
 3. W obszarze nazwy, kliknij obszar roboczy, a następnie kliknij **usług sieci Web**.
 4. W obszarze nazwy, kliknij przycisk **modelu spisu [exp predykcyjnych.]** .
@@ -134,6 +134,6 @@ Interfejsy API ponownego trenowania można aktualizować trenowanego modelu pred
 * Model okresowego ponownego trenowania nowymi danymi.
 * Dystrybucja klientów przy użyciu modelu w celu umożliwienie je ponownie ucz modelu, używając własnych danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Rozwiązywanie problemów z ponownego trenowania usługi sieci web klasycznego Azure Machine Learning](troubleshooting-retraining-models.md)
 

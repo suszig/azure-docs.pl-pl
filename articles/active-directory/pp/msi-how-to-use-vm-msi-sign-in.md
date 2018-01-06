@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Zaloguj się przy użyciu maszyn wirtualnych zarządzanych tożsamości usługi (MSI) przypisany użytkownik
 
@@ -51,7 +51,7 @@ Poniższy skrypt pokazuje, jak:
 2. Wywołanie usługi Azure Resource Manager i pobrać lokalizacji region platformy Azure dla maszyny Wirtualnej. Interfejs wiersza polecenia odpowiada on za zarządzanie tokenu użycia nabycia zostanie automatycznie. Pamiętaj zastąpić nazwę maszyny Wirtualnej dla `<VM NAME>`, a użytkownik przypisany identyfikator zasobu MSI dla `<MSI ID>`. Identyfikator zasobu MSI jest zwracany w `id` właściwości podczas tworzenia pliku msi przypisanych do użytkowników (zobacz [skonfigurować przypisany użytkownik zarządzane usługi tożsamości (MSI) dla maszyny Wirtualnej, przy użyciu interfejsu wiersza polecenia Azure](msi-qs-configure-cli-windows-vm.md) przykłady `az identity create` polecenia ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

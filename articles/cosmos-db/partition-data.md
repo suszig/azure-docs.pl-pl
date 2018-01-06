@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ W usłudze Azure DB rozwiązania Cosmos można przechowywać i zapytania na dany
 
 Kontenery są zasoby logiczne i może obejmować co najmniej jednej partycji fizycznej lub serwerów. Liczba partycji zależy od bazy danych rozwiązania Cosmos Azure na podstawie rozmiaru magazynu i udostępnionej przepływności kontenera. 
 
-Partycji fizycznej jest stałą zastrzeżone magazynu kopii dysków SSD, z maksymalnie 10 GB. Każda partycja fizycznych są replikowane wysokiej dostępności. Co najmniej jednej partycji fizycznej tworzą kontenera. Zarządzanie partycji fizycznej pełni zarządza bazy danych Azure rozwiązania Cosmos i nie trzeba pisania złożonego kodu lub Zarządzanie partycjami. Azure kontenery DB rozwiązania Cosmos jest nieograniczony pod względem pamięci masowej i przepływność. 
+Partycji fizycznej jest stałą zastrzeżone magazynu kopii dysków SSD. Każda partycja fizycznych są replikowane wysokiej dostępności. Co najmniej jednej partycji fizycznej tworzą kontenera. Zarządzanie partycji fizycznej pełni zarządza bazy danych Azure rozwiązania Cosmos i nie trzeba pisania złożonego kodu lub Zarządzanie partycjami. Azure kontenery DB rozwiązania Cosmos jest nieograniczony pod względem pamięci masowej i przepływność. 
 
-Partycji logicznej jest partycji w obrębie partycji fizycznej, która przechowuje wszystkie dane skojarzone z jedną partycją wartości klucza. Na poniższym diagramie jeden kontener ma trzy partycje logiczne. Każdej partycji logicznej przechowuje dane dla jednego klucza partycji, LAX AMS i MEL odpowiednio. Nie można każdej partycji logicznej LAX AMS i MEL rosnąć przekroczenie limitu maksymalnej partycji fizycznej wynosi 10 GB. 
+Partycji logicznej jest partycji w obrębie partycji fizycznej, która przechowuje wszystkie dane skojarzone z jedną partycją wartości klucza. Partycji logicznej ma maksymalnie 10 GB. Na poniższym diagramie jeden kontener ma trzy partycje logiczne. Każdej partycji logicznej przechowuje dane dla jednego klucza partycji, LAX AMS i MEL odpowiednio. Nie można każdej partycji logicznej LAX AMS i MEL rosnąć przekroczenie limitu maksymalnej partycji logicznej wynosi 10 GB. 
 
 ![Partycjonowanie zasobów](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Jeśli kolekcja spełnia [partycjonowania wymagania wstępne](#prerequisites), P
 
 ## <a name="how-does-partitioning-work"></a>Jak działa partycjonowania
 
-Jak działa partycjonowania? Każdy element musi mieć klucz partycji i klucz wiersza, które identyfikują go. Klucz partycji działa jako partycji logicznej danych i zapewnia bazy danych Azure rozwiązania Cosmos z granicą fizycznych dystrybucję danych partycji. Należy pamiętać, że partycji logicznej może obejmować wiele partycji fizycznej, ale zarządza zarządzania partycji fizycznej bazy danych Azure rozwiązania Cosmos. 
+Jak działa partycjonowania? Każdy element musi mieć klucz partycji i klucz wiersza, które identyfikują go. Klucz partycji działa jako partycji logicznej danych i zapewnia bazy danych Azure rozwiązania Cosmos z granicą fizycznych dystrybucję danych partycji fizycznej. Należy pamiętać, że dane dla jednej partycji logicznej musi znajdować się wewnątrz jednej partycji fizycznej, ale zarządza zarządzania partycji fizycznej bazy danych Azure rozwiązania Cosmos. 
 
 Krótko mówiąc Oto jak partycjonowania działa w usłudze Azure DB rozwiązania Cosmos:
 

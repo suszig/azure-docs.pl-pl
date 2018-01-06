@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości
 
@@ -35,6 +35,17 @@ Przykładowa, na przykład, że Twoje twins urządzenia Centrum IoT ma następuj
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ To zapytanie grupowania zwróci wynik podobny do poniższego przykładu. W tym m
         "status": "Error"
     }
 ]
+```
+
+Kwerend projekcji umożliwiają deweloperom zwracać tylko właściwości, które ich interesują. Na przykład można pobrać ostatniego działania wszystkich rozłączona urządzeń, użyj następującej kwerendy:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>Przykład C#
@@ -347,7 +364,7 @@ FROM <from_specification>
 [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>Klauzula FROM
+## <a name="from-clause"></a>klauzula FROM
 **z < from_specification >** klauzuli może przyjmować tylko dwie wartości: **z urządzeń** do twins urządzenia zapytania, lub **z devices.jobs** do szczegółów na urządzenie zadania zapytania.
 
 ## <a name="where-clause"></a>Klauzula WHERE
@@ -355,7 +372,7 @@ FROM <from_specification>
 
 Dozwolone warunki opisane w sekcji [wyrażeń i warunki][lnk-query-expressions].
 
-## <a name="select-clause"></a>Klauzula SELECT
+## <a name="select-clause"></a>klauzula SELECT
 **Wybierz < select_list >** jest wymagana i określa, jakie wartości są pobierane z zapytania. Określa wartości JSON ma być używany do generowania nowych obiektów JSON.
 Dla każdego elementu filtrowane (i opcjonalnie grupowanych) podzestaw kolekcji FROM faza projekcji generuje nowy obiekt JSON, skonstruowany przy wartości określone w klauzuli SELECT.
 
@@ -460,7 +477,7 @@ Aby zrozumieć, co oznacza każdy symbol w składni wyrażeń, można skorzysta�
 ### <a name="operators"></a>Operatory
 Obsługiwane są następujące operatory:
 
-| Rodziny | Operatory |
+| Rodzina | Operatory |
 | --- | --- |
 | Operacje arytmetyczne |+, -, *, /, % |
 | Logiczne |I, LUB NIE |
@@ -514,7 +531,7 @@ Obsługiwane są następujące funkcje ciągów w warunkach trasy:
 | ENDS_WITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu kończy się na sekundę. |
 | CONTAINS(x,y) | Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu zawiera drugi. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się, jak wykonywać zapytania w aplikacjach za pomocą [Azure IoT SDK][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

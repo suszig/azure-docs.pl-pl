@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów z usługi Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -27,6 +27,7 @@ Ten artykuł pomaga informacje o typowych problemów dotyczących usługi Azure 
 ## <a name="known-problems"></a>Znane problemy
 
 - W niektórych przypadkach włączenie logowania jednokrotnego bezproblemowe może potrwać do 30 minut.
+- Jeśli Wyłącz i ponownie włącz bezproblemowe logowanie Jednokrotne dzierżawy, użytkownicy nie otrzymywali pojedynczego środowisko logowania, dopóki wygasły pamięci podręcznej bilet protokołu Kerberos, zwykle dotyczy 10 godzin.
 - Obsługa przeglądarki Edge nie jest dostępna.
 - Uruchamianie klientom pakietu Office, szczególnie w sytuacjach współużytkowanego komputera, powoduje, że monity bardzo logowania dla użytkowników. Użytkownicy muszą wprowadzić często ich nazw użytkowników, ale nie ich hasła.
 - Jeśli bezproblemowe logowanie Jednokrotne zakończy się powodzeniem, użytkownik nie ma możliwość wybierz **wylogowuj mnie**. Ze względu na to zachowanie scenariuszy mapowania programu SharePoint i usługi OneDrive nie działają.
@@ -68,13 +69,15 @@ Przejdź do **usługi Azure Active Directory** > **logowania** w [Centrum admini
 Poniższa lista kontrolna umożliwia rozwiązywanie problemów bezproblemowe rejestracji Jednokrotnej:
 
 - Upewnij się, że funkcja bezproblemowe logowanie Jednokrotne jest włączona w programie Azure AD Connect. Jeśli nie można włączyć funkcję (na przykład z powodu zablokowanych port), upewnij się, że masz wszystkie [wymagania wstępne](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) w miejscu.
+- Jeśli włączono zarówno [Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemowe logowanie Jednokrotne w dzierżawie, upewnij się, że problem nie jest z usługi Azure AD Join. Usługa rejestracji Jednokrotnej z usługi Azure AD Join mają pierwszeństwo przed bezproblemowe logowanie Jednokrotne Jeśli urządzenie jest zarejestrowane w usłudze Azure AD i przyłączonych do domeny. Z logowania jednokrotnego z usługi Azure AD Join użytkownik widzi kafelka logowania, stwierdzający "Podłączone do systemu Windows".
 - Upewnij się, że obie te usługi Azure AD URL (https://autologon.microsoftazuread-sso.com i https://aadg.windows.net.nsatc.net) należą ustawienia strefy Intranet użytkownika.
 - Upewnij się, że urządzeń firmowych jest przyłączony do domeny usługi Active Directory.
 - Upewnij się, że użytkownik jest zalogowany na urządzeniu w ramach konta domeny usługi Active Directory.
 - Upewnij się, że konto użytkownika z lasu usługi Active Directory, gdzie zostały bezproblemowe logowanie Jednokrotne skonfigurowano.
 - Upewnij się, że urządzenie jest połączone z siecią firmową.
 - Upewnij się, że godzina na urządzeniu jest zsynchronizowany z czasem w usłudze Active Directory i kontrolery domeny i że są one w ciągu pięciu minut od siebie.
-- Listy istniejące bilety Kerberos na urządzeniu za pomocą `klist` polecenia z wiersza polecenia. Upewnij się, że bilety wystawione dla `AZUREADSSOACCT` istnieją konta komputera. Bilety Kerberos użytkowników są zazwyczaj prawidłowe 12 godzin. Konieczne może być różne ustawienia w usłudze Active Directory.
+- Listy istniejące bilety Kerberos na urządzeniu za pomocą `klist` polecenia z wiersza polecenia. Upewnij się, że bilety wystawione dla `AZUREADSSOACCT` istnieją konta komputera. Bilety Kerberos użytkowników są zazwyczaj ważne 10 godzin. Konieczne może być różne ustawienia w usłudze Active Directory.
+- Jeśli wyłączona, a następnie ponownie włączona bezproblemowe logowanie Jednokrotne w swojej dzierżawy, użytkownicy nie otrzymywali pojedynczego środowisko logowania, dopóki ich pamięci podręcznej biletów Kerberos wygasły.
 - Wyczyść istniejące bilety Kerberos z urządzenia przy użyciu `klist purge` polecenia, a następnie spróbuj ponownie.
 - Aby ustalić, czy istnieją problemy związane ze JavaScript, przejrzyj dzienniki konsoli przeglądarki (w obszarze **Developer Tools**).
 - Przegląd [dzienniki kontrolera domeny](#domain-controller-logs).

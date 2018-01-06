@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Kopiowanie danych z i do Oracle przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,8 +56,8 @@ Obsługiwane są następujące właściwości dla Oracle połączone usługi:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Oracle** | Tak |
-| Parametry połączenia | Podaj informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString. | Tak |
+| type | Właściwość type musi mieć ustawioną: **Oracle** | Yes |
+| Parametry połączenia | Podaj informacje wymagane do nawiązania połączenia z wystąpieniem bazy danych programu Oracle. Zaznacz to pole jako SecureString.<br><br>**Obsługiwany typ połączenia**: mogą być używane **Oracle SID** lub **nazwa usługi Oracle** Aby zidentyfikować bazy danych:<br>— Za pomocą identyfikatora SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Przy użyciu nazwy usługi:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -89,8 +89,8 @@ Aby skopiować dane z/do Oracle, ustaw właściwość Typ zestawu danych do **Or
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **OracleTable** | Tak |
-| tableName |Nazwa tabeli w bazie danych programu Oracle, odnoszący się do połączonej usługi. | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **OracleTable** | Yes |
+| tableName |Nazwa tabeli w bazie danych programu Oracle, odnoszący się do połączonej usługi. | Yes |
 
 **Przykład:**
 
@@ -121,7 +121,7 @@ Aby skopiować dane z bazy danych Oracle, należy ustawić typ źródła w przyp
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **OracleSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **OracleSource** | Yes |
 | oracleReaderQuery | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie |
 
 Jeśli nie określisz "oracleReaderQuery" kolumny zdefiniowane w sekcji "structure" w zestawie danych są używane do utworzenia kwerendy (`select column1, column2 from mytable`) w celu uruchomienia bazy danych Oracle. Jeśli definicji zestawu danych nie ma "structure", wszystkie kolumny są wybierane w tabeli.
@@ -164,7 +164,7 @@ Aby skopiować dane do bazy danych Oracle, należy ustawić typ ujścia w dział
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OracleSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OracleSink** | Yes |
 | writeBatchSize | Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (domyślna to 10 000) |
 | writeBatchTimeout | Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: Timespan. Przykład: 00:30:00 (30 minut). | Nie |
 | preCopyScript | Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do bazy danych Oracle w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. | Nie |
@@ -210,7 +210,7 @@ Podczas kopiowania danych z/na Oracle, następujące mapowania są używane z ty
 | OBIEKT BLOB |Byte]<br/>(obsługiwana tylko w bazie danych Oracle 10 GB/s i nowsze) |
 | CHAR |Ciąg |
 | CLOB |Ciąg |
-| DATA |Data/godzina |
+| DATE |Data/godzina |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
 | DŁUGA |Ciąg |
@@ -232,5 +232,5 @@ Podczas kopiowania danych z/na Oracle, następujące mapowania są używane z ty
 > Typ danych roku INTERWAŁ miesiąca i INTERWAŁ dzień do drugiego nie są obsługiwane.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

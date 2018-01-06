@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 5e771026950652c7d9c8e817773915a5a4c4ab63
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Jak używać usługi Azure VM zarządzane usługi tożsamości (MSI) w celu logowania się 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Ten artykuł zawiera przykłady skryptów środowiska PowerShell i interfejsu wiersza polecenia dla Zaloguj się przy użyciu nazwy głównej usługi MSI i wskazówki dotyczące ważnych kwestii, takich jak obsługa błędów.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Ten artykuł zawiera przykłady skryptów środowiska PowerShell i interfejsu wiersza polecenia dla Zaloguj się przy użyciu nazwy głównej usługi MSI i wskazówki dotyczące ważnych kwestii, takich jak obsługa błędów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +34,7 @@ Jeśli planujesz używać programu Azure PowerShell lub interfejsu wiersza polec
 > - Wszystkie przykładowy skrypt w tym artykule przyjęto założenie, że klient wiersza polecenia jest uruchomiona na maszynie wirtualnej włączone MSI. Funkcja maszyny Wirtualnej "Połącz" w portalu Azure, aby zdalnie nawiązać połączenia z maszyną Wirtualną. Aby uzyskać więcej informacji na temat włączania MSI w maszynie Wirtualnej, zobacz [skonfigurować maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vm.md), lub jednego z artykułów variant (przy użyciu programu PowerShell, interfejsu wiersza polecenia, szablonu lub zestawu SDK platformy Azure). 
 > - Aby zapobiec błędom podczas dostępu do zasobów, MSI maszyny Wirtualnej należy podać co najmniej odpowiedni zakres dostępu "Czytnika" (maszyny Wirtualnej lub nowszej) umożliwia operacji usługi Azure Resource Manager na maszynie Wirtualnej. Zobacz [przypisywanie dostępu zarządzane tożsamości usługi (MSI) do zasobów przy użyciu portalu Azure](msi-howto-assign-access-portal.md) szczegółowe informacje.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Udostępnia MSI [nazwy głównej usługi](develop/active-directory-dev-glossary.md#service-principal-object), która jest [utworzony po włączeniu MSI](msi-overview.md#how-does-it-work) na maszynie Wirtualnej. Nazwy głównej usługi można uzyskać dostęp do zasobów platformy Azure i użyć jako tożsamości dla skryptu/polecenia-wiersza klientów w celu logowania się i dostęp do zasobów. Tradycyjnie Aby uzyskać dostęp do zabezpieczonych zasobów w ramach jego tożsamość, klient skryptu musi:  
 

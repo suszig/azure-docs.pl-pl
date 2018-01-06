@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ Zapewnia użytkownikowi aktualne informacje o najnowszych systemu operacyjnego g
 Nie wiesz, o jaką systemu operacyjnego gościa jest lub jak systemu operacyjnego gościa wersje robocze? Odczyt [to](#how-it-works) sekcji.
 
 ## <a name="news-updates"></a>Wiadomości
+###### <a name="january-4-2018"></a>**4 stycznia 2018**
+Systemu operacyjnego gościa stycznia została wydana 4 rodzin systemu operacyjnego (WA-GOŚCIA — systemu operacyjnego — 4.50_201801-01) & 5 (WA-GOŚCIA-systemu operacyjnego — 5.15_201801-01) i zawiera poprawki zabezpieczeń ważne.  
 
 ###### <a name="january-4-2018"></a>**4 stycznia 2018**
 Wydała grudnia systemu operacyjnego gościa.
@@ -88,6 +90,7 @@ Zainstalowany program .NET framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-5.15_201801-01 |4 stycznia 2018 |Post 5.17 |TBD |
 | WA-GOŚCIA-OS-5.14_201712-01 |4 stycznia 2018 |Post 5.16 |TBD |
 | WA-GOŚCIA-OS-5.13_201711-01 |14 grudnia 2017 r. |Post 5.15 |TBD |
 |~~WA-GOŚCIA-OS-5.12_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |
@@ -112,6 +115,7 @@ Zainstalowany program .NET framework: 4.0 4.5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Wyłącz daty | Wygasłe daty |
 | --- | --- | --- | --- |
+| WA-GOŚCIA-OS-4.50_201801-01 |4 stycznia 2018 |Post 4,52 |TBD |
 | WA-GOŚCIA-OS-4.49_201712-01 |4 stycznia 2018 |Post 4.51 |TBD |
 | WA-GOŚCIA-OS-4.48_201711-01 |14 grudnia 2017 r. |Post 4.50 |TBD |
 |~~WA-GOŚCIA-OS-4.47_201710-02~~ |8 listopada 2017 r. |4 stycznia 2018 |TBD |

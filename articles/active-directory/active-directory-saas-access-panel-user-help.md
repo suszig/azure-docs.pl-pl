@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Potrzebujesz pomocy przy użyciu portalu Moje aplikacje?
 
@@ -51,17 +51,17 @@ Jeśli nie pamiętasz hasła, nigdy nie otrzymanych z działu IT, zostały zablo
 Jako użytkownik końcowy może zresetować hasło lub odblokować konto bez konieczności mowy do osoby za pomocą Samoobsługowego resetowania hasła (SSPR). Przed użyciem tej funkcji musisz zarejestrować metody uwierzytelniania lub potwierdzić wstępnie zdefiniowane metody uwierzytelniania podane przez administratora. Aby uzyskać więcej informacji, zobacz [rejestrowanie się w celu samodzielnego resetowania hasła](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Problemy dotyczące instalowania rozszerzenia przeglądarki portalu Moje aplikacje
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Problemy dotyczące instalowania Moje aplikacje bezpiecznego logowania rozszerzenia
 
 Sprawdź, czy spełniasz wymagania dotyczące przeglądarki:
 
 - Portal wymaga przeglądarki obsługującej JavaScript i włączył CSS. Jeśli używasz hasła aplikacji opartych na jednym logowania jednokrotnego towarzyszący rozszerzenia musi być zainstalowany także. To rozszerzenie jest pobierany automatycznie podczas uruchamiania aplikacji, która jest skonfigurowana dla hasła aplikacji opartych na jednym logowania jednokrotnego.
 
 - Wymagania dotyczące przeglądarki rozszerzenia są:
-    - Internet Explorer 8, 9, 10, 11, w systemie Windows 7 lub nowszy
     - Krawędź w systemie Windows 10 Anniversary Edition lub nowszy
     - Chrome w systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
     - Firefox 26.0 lub nowszej w systemie Windows XP SP2 lub nowszym i w systemie Mac OS X 10.6 lub nowszej
+    - Internet Explorer 8, 9, 10, 11, w systemie Windows 7 lub nowszy (ograniczony pomocy technicznej)
 
 Możesz również pobrać rozszerzenia dla programu Chrome i krawędzi, z poniższe linki bezpośrednie:
 
@@ -76,6 +76,32 @@ Po instalacji spróbuj wykonać następujące kroki, jeśli wystąpią problemy:
 - Uruchom ponownie przeglądarkę i zaloguj się do portalu Moje aplikacje.
 
 - Wyczyszczenie plików cookie w przeglądarce i zaloguj się do portalu Moje aplikacje.
+- Postępuj zgodnie z [Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) przewodniku dostęp do narzędzia diagnostycznego i instrukcje krok po kroku dotyczące konfigurowania rozszerzenia dla programu Internet Explorer.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Jak używać Moje aplikacje bezpiecznego logowania rozszerzenie?
+Zmiana domyślnego adresu URL aplikacji Moje rozszerzenia
+
+Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
+1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
+2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
+3. **Wybierz** Twojego domyślny adres URL.
+4. Kliknij ikonę rozszerzenia.
+5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+
+Zaloguj się bezpośrednio do aplikacji z przeglądarki
+1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+2. Przejdź do **adres URL logowania na** aplikacji, które chcesz logować się do, zazwyczaj jest to adres URL aplikacji, która wyświetla formularz logowania.
+3. Rozszerzenia należy zmiany stanu i umożliwiają znać hasło jest dostępna, kliknij pozycję **ikona rozszerzenia** do logowania
+
+Uruchom aplikację z rozszerzenia
+1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+2. Kliknij ikonę rozszerzenia, aby otworzyć menu.
+3. **Wyszukiwanie** dla aplikacji, które są dostępne w portalu Moje aplikacje.
+4. Kliknij aplikację z **wyniki wyszukiwania** można go uruchomić.
+5. Ostatnie trzy aplikacje uruchomione będą również widoczne w **ostatnio używane** listy skrótów
+
+> [!NOTE]
+> Te opcje są dostępne tylko na krawędzi, Chrome, Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Jak dodać nową aplikację?
 
@@ -92,9 +118,9 @@ Po instalacji spróbuj wykonać następujące kroki, jeśli wystąpią problemy:
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Jak zarządzać członkostwa w grupach?
 
-1. Kliknij Kafelek grupy aplikacji. 
-2. Aby utworzyć grupę, w obszarze grupy własnego, kliknij polecenie Utwórz grupę, a następnie postępuj zgodnie z instrukcjami.
-3. Aby dołączyć do grupy, w obszarze grupy w, kliknij dołączanie do grupy, a następnie postępuj zgodnie z instrukcjami.
+1. Kliknij przycisk **grup** kafelka. 
+2. Aby utworzyć grupę, w obszarze grupy własnego, kliknij przycisk **Utwórz grupę**, a następnie postępuj zgodnie z instrukcjami.
+3. Aby dołączyć do grupy, w obszarze grupy w, kliknij przycisk **dołączanie do grupy**, a następnie postępuj zgodnie z instrukcjami.
 
 **Uwagi:**
 
@@ -105,7 +131,7 @@ Po instalacji spróbuj wykonać następujące kroki, jeśli wystąpią problemy:
 - Grupy, który jest właścicielem służy do wyświetlania szczegółów, Dodaj lub usuń elementy członkowskie i pozostawić grupę.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Powiązane informacje dotyczące rozwiązywania problemów, zobacz [problemów za pomocą aplikacji dostęp do panelu witryny sieci Web lub aplikacji mobilnej](active-directory-application-access-panel-content-map.md)
 

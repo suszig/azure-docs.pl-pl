@@ -1,6 +1,6 @@
 ---
 title: Ustawienia elementu Runbook | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano ustawienia konfiguracji dla elementu runbook w automatyzacji Azure oraz sposobu zmiany ich za pomocą portalu zarządzania Azure i programu Windows PowerShell."
+description: "W tym artykule opisano ustawienia konfiguracji dla elementu runbook w automatyzacji Azure oraz sposobu zmiany ich przy użyciu portalu Azure i programu Windows PowerShell."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Ustawienia elementu Runbook
 Każdy element runbook automatyzacji Azure ma wiele ustawień, które ułatwiają jego identyfikację i zmianę jego zachowania rejestrowania. Każde z tych ustawień opisano poniżej; dołączono instrukcji na temat sposobu ich modyfikacji.
@@ -55,7 +55,7 @@ Następujące przykładowe polecenia pokazują, jak można ustawić właściwoś
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się, jak utworzyć i pobrać dane wyjściowe i komunikaty o błędach z elementów runbook, zobacz [Runbook dane wyjściowe i komunikaty](automation-runbook-output-and-messages.md) 
 * Zrozumienie, jak można dodać elementu runbook, który już został opracowany przez społeczność lub inne źródło lub utworzyć własne można znaleźć elementu runbook [Tworzenie lub importowanie elementu Runbook](automation-creating-importing-runbook.md) 
 

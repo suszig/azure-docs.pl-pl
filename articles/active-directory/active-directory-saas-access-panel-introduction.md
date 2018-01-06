@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co to jest panel dostępu?
 
@@ -70,7 +70,31 @@ Gdy użytkownik jest uwierzytelniony, mogą współdziałać z aplikacjami, któ
 
 Co najmniej panelu dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Aby użytkownik mógł zalogowani do aplikacji za pomocą opartego na hasłach rejestracji jednokrotnej (SSO) rozszerzenie panelu dostępu musi być zainstalowany w przeglądarce. Rozszerzenie jest pobierany automatycznie po wybraniu aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
 
-Rozszerzenie panelu dostępu jest obecnie dostępny dla programu Internet Explorer 8 lub nowszy, krawędzi i Chrome, Firefox przeglądarek.
+Rozszerzenie panelu dostępu jest obecnie dostępny dla:
+-   Krawędź w systemie Windows 10 Anniversary Edition lub nowszy 
+
+-   Chrome — W systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
+
+-   Firefox 26.0 lub później — w systemie Windows XP z dodatkiem SP2 lub nowszy oraz w systemie Mac OS X 10,6 lub nowszy
+
+-   Internet Explorer 8, 9, 10, 11 — w systemie Windows 7 lub nowszy (obsługa ograniczona)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Rozszerzenie bezpiecznego logowania do moich aplikacji
+Rozszerzenie jest wymagane dla użytkowników zalogować się do opartego na hasłach rejestracji jednokrotnej. Gdy zainstalowana użytkowników można również włączyć dodatkowe funkcje po zalogowaniu się do rozszerzenia, klikając **Zaloguj się rozpocząć**. 
+
+- Użytkownicy mogą zalogować się do aplikacji bezpośrednio, przechodząc na stronę aplikacji **adres URL logowania**. Gdy użytkownik przechodzi do aplikacji adres URL logowania rozszerzenia wykryje to i podaj opcję dla użytkownika do logowania się do jej z rozszerzenia.
+- Użytkownicy również można uruchamiać aplikacje z panelu dostępu przy użyciu **szybkiego wyszukiwania** funkcji rozszerzenia. 
+- Rozszerzenie zostanie również Pokaż użytkowników ostatnie trzy aplikacje podjęte w ramach **ostatnio używane** sekcji.
+> [!NOTE]
+> Dodatkowe funkcje są dostępne tylko na krawędzi, Chrome, Firefox.
+
+
+Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
+1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
+2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
+3. **Wybierz** Twojego domyślny adres URL.
+4. Kliknij ikonę rozszerzenia.
+5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
 
 ## <a name="mobile-app-support"></a>Obsługa aplikacji mobilnej
 

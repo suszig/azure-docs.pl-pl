@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 66e002b092e02f92a33c6e498b176331ebdc190f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problem podczas instalowania aplikacji dostępu panelu rozszerzenia przeglądarki
 
@@ -32,14 +32,13 @@ Panel dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. 
 
 Logowanie Jednokrotne opartego na hasłach można przeglądarki przez użytkownika końcowego:
 
--   Internet Explorer 8, 9, 10, 11 — w systemie Windows 7 lub nowszy
-
 -   Krawędź w systemie Windows 10 Anniversary Edition lub nowszy 
 
 -   Chrome — W systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
 
 -   Firefox 26.0 lub później — w systemie Windows XP z dodatkiem SP2 lub nowszy oraz w systemie Mac OS X 10,6 lub nowszy
 
+-   Internet Explorer 8, 9, 10, 11 — w systemie Windows 7 lub nowszy (obsługa ograniczona)
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Jak zainstalować rozszerzenie przeglądarki panelu dostępu
 
 Aby zainstalować rozszerzenie przeglądarki panelu dostępu, wykonaj następujące czynności:
@@ -64,6 +63,31 @@ Może również pobrać rozszerzenia dla programu Chrome i krawędzi z bezpośre
 
 -   [Rozszerzenie panelu dostępu krawędzi](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Jak używać Moje aplikacje bezpiecznego logowania rozszerzenie?
+Zmiana domyślnego adresu URL aplikacji Moje rozszerzenia
+
+Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
+1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
+2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
+3. **Wybierz** Twojego domyślny adres URL.
+4. Kliknij ikonę rozszerzenia.
+5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+
+Zaloguj się bezpośrednio do aplikacji z przeglądarki
+1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+2. Przejdź do **adres URL logowania na** aplikacji, które chcesz logować się do, zazwyczaj jest to adres URL aplikacji, która wyświetla formularz logowania.
+3. Rozszerzenia należy zmiany stanu i umożliwiają znać hasło jest dostępna, kliknij pozycję **ikona rozszerzenia** do logowania.
+
+Uruchom aplikację z rozszerzenia
+1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+2. Kliknij ikonę rozszerzenia, aby otworzyć jego **menu**.
+3. **Wyszukiwanie** dla aplikacji, które są dostępne w portalu Moje aplikacje.
+4. Kliknij aplikację z **wyniki wyszukiwania** można go uruchomić.
+5. Ostatnie trzy aplikacje uruchomione będą również widoczne w **ostatnio używane** listy skrótów
+
+> [!NOTE]
+> Te opcje są dostępne tylko na krawędzi, Chrome, Firefox.
+
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Konfigurowanie zasad grupy dla programu Internet Explorer
 
 Możesz skonfigurować zasady grupy, które umożliwiają zdalnie zainstalować rozszerzenie Panel dostępu dla programu Internet Explorer na komputerach użytkowników.
@@ -76,9 +100,12 @@ Wymagania wstępne należą:
 
 Czynności opisane w samouczku [wdrażanie rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md) instrukcje krok po kroku dotyczące sposobu konfigurowania zasad grupy oraz wdrażanie dla użytkowników.
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Rozwiązywanie problemów z panelu dostępu w programie Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Rozwiązywanie problemów z rozszerzeniem panelu dostępu w programie Internet Explorer
 
 Postępuj zgodnie z [Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer](active-directory-saas-ie-troubleshooting.md) przewodnik dostępu narzędzia diagnostycznego i instrukcje krok po kroku dotyczące konfigurowania rozszerzenia dla programu Internet Explorer.
+
+> [!NOTE]
+> Programu Internet Explorer znajduje się na ograniczony pomocy technicznej i nie będzie już otrzymywać nowe aktualizacje oprogramowania. Krawędź jest zalecane przeglądarki.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Jeśli te kroki rozwiązywania problemów nie rozwiąże problemu
 
@@ -96,5 +123,5 @@ Otwórz bilet pomocy technicznej następujące informacje, jeśli są dostępne:
 
 -   Ślady fiddler
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

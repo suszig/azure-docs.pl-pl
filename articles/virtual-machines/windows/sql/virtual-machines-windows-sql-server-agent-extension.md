@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatyzacji zadań zarządzania na maszynach wirtualnych Azure z rozszerzeniem agenta serwera SQL (Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,6 +71,9 @@ Rozszerzenie agenta programu SQL Server IaaS jest automatycznie instalowany podc
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
 
+> [!IMPORTANT]
+> Jeśli rozszerzenie nie jest już zainstalowany, instalowania rozszerzenia uruchamia ponownie usługę SQL Server.
+
 Istnieje również możliwość zainstalować rozszerzenie agenta IaaS serwera SQL na maszynie wirtualnej tylko do systemu operacyjnego Windows Server. To ustawienie jest obsługiwane tylko, jeśli ręcznie zainstalowano program SQL Server na tym komputerze. Następnie zainstaluj rozszerzenie ręcznie przy użyciu takie same **AzureVMSqlServerExtension zestaw** polecenia cmdlet programu PowerShell.
 
 > [!NOTE]
@@ -101,7 +103,7 @@ Można również użyć **AzureRmVMSqlServerExtension Usuń** polecenia cmdlet p
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Rozpocznij przy użyciu jednej z usług obsługiwanych przez rozszerzenie. Aby uzyskać więcej informacji, zobacz artykuły, do którego odwołuje się [obsługiwane usługi](#supported-services) sekcji tego artykułu.
 
 Aby uzyskać więcej informacji na temat uruchamiania programu SQL Server na maszynach wirtualnych platformy Azure, zobacz [programu SQL Server na maszynach wirtualnych platformy Azure — omówienie](virtual-machines-windows-sql-server-iaas-overview.md).

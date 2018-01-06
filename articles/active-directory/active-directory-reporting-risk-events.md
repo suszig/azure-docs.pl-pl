@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Zdarzenia o podwyższonym ryzyku Azure Active Directory
 
@@ -36,7 +36,7 @@ Obecnie usługa Azure Active Directory wykrywa sześć typów zdarzeń o podwyż
 
 ![Zdarzenia ryzyka](./media/active-directory-reporting-risk-events/91.png)
 
-Wgląd w informacje o uzyskać zdarzenie wykryte zagrożenie jest powiązany z subskrypcją usługi Azure AD. Jeśli masz wersji Azure AD Premium P1 (uwzględniona w ofercie EMS E3), wykrywania, które nie są objęte licencję są raportowane klientowi jako **logowanie z dodatkowych ryzyka wykryto**. Innymi słowy Zobacz zdarzenia ryzyka, logowania z dodatkowych ryzyka dla wykryć wyłącznie dla subskrybentów usługi Azure AD Identity Protection wykryte.
+Wgląd w informacje o uzyskać zdarzenie wykryte zagrożenie jest powiązany z subskrypcją usługi Azure AD. Możesz uzyskać bardziej szczegółowe informacje o wszystkich wykryć podstawowej wersji Azure AD Premium P2. Z wersji Azure AD Premium P1 wykryć, które nie są objęte licencję są wyświetlane jako zdarzenie ryzyka **logowanie z dodatkowych ryzyka wykryto**.
 
 
 Ten temat zawiera możesz są szczegółowe omówienie jakie zdarzenia o podwyższonym ryzyku i jak ich używać do ochrony Twojej tożsamości usługi Azure AD.

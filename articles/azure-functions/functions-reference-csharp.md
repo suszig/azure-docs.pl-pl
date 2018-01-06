@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja dla deweloperów usługi Azure funkcje skryptu C# | Dokumentacja firmy Microsoft"
-description: "Zrozumienie sposobu tworzenia usługi Azure Functions przy użyciu języka C#."
+title: "Azure funkcje skryptu developer odwołanie w C#"
+description: "Zrozumienie sposobu tworzenia funkcji platformy Azure przy użyciu skryptu C#."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,34 +8,81 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "usługa Azure Functions, funkcje, przetwarzanie zdarzeń, elementy webhook, obliczanie dynamiczne, architektura bez serwera"
-ms.assetid: f28cda01-15f3-4047-83f3-e89d5728301c
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e1259e3e2c9e8d445ed8b02d6907d2e2705e882
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 855a03c504667b7141b51ce0470b66a5297c0583
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-c-script-developer-reference"></a>Azure funkcje skryptu developer odwołanie w C#
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Azure funkcje skryptu (csx) developer odwołanie w C#
 
-Środowisko skryptu C# dla usługi Azure Functions opiera się na zestaw SDK zadań Webjob Azure. Przepływy danych w funkcji języka C# za pomocą argumenty metody. Argument nazwy zostały określone w `function.json`, i jest wstępnie zdefiniowanych nazw do uzyskiwania dostępu do elementów, jak funkcja tokenów rejestratora i anulowania.
+<!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-W tym artykule przyjęto założenie, że został już przeczytany [dokumentacja dla deweloperów usługi Azure Functions](functions-reference.md).
+Ten artykuł zawiera wprowadzenie do tworzenia usługi Azure Functions przy użyciu skryptu C# (*csx*).
 
-Aby uzyskać informacje o użyciu języka C# klasy biblioteki, zobacz [.NET przy użyciu biblioteki klas z usługi Azure Functions](functions-dotnet-class-library.md).
+Środowisko Azure Functions obsługuje C# i C# skrypt języków programowania. Jeśli szukasz wskazówki [przy użyciu języka C# projektu biblioteki klas programu Visual Studio](functions-develop-vs.md), zobacz [dokumentacja dla deweloperów języka C#](functions-dotnet-class-library.md).
+
+W tym artykule przyjęto założenie, że został już przeczytany [przewodnik dla deweloperów usługi Azure Functions](functions-reference.md).
 
 ## <a name="how-csx-works"></a>Jak działa csx
-`.csx` Format umożliwia pisanie mniej "standardowy" i skoncentrować się na zapisywanie tylko C# funkcję. Jak zwykle obejmują wszelkie odwołania do zestawów i przestrzeni nazw na początku pliku. Zamiast zawijania wszystkie elementy w przestrzeni nazw i klasy, wystarczy zdefiniować `Run` metody. Jeśli musisz obejmują wszystkie klasy, na przykład aby zdefiniować obiekty zwykłego obiektu CLR stary (POCO), można dołączyć klasy wewnątrz tego samego pliku.   
+
+Środowisko skryptu C# dla usługi Azure Functions opiera się na [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). Przepływy danych w funkcji języka C# za pomocą argumenty metody. Argument nazwy zostały określone w `function.json` pliku, a są wstępnie zdefiniowane nazwy do uzyskiwania dostępu do elementów, takich jak funkcja tokenów rejestratora i anulowania.
+
+*Csx* format umożliwia pisanie mniej "standardowy" i skoncentrować się na zapisywanie tylko C# funkcję. Zamiast zawijania wszystkie elementy w przestrzeni nazw i klasy, wystarczy zdefiniować `Run` metody. Jak zwykle obejmują wszelkie odwołania do zestawów i przestrzeni nazw na początku pliku.
+
+Aplikacja funkcji *csx* pliki są kompilowane po zainicjowaniu wystąpienia. W tym kroku kompilacji oznacza czynności, takie jak zimny start może trwać dłużej, C# funkcji skryptu w porównaniu do bibliotek klas C#. Ten krok kompilacji jest również, dlaczego funkcji skryptu C# są edytowalne w portalu Azure, a nie bibliotek klas C#.
 
 ## <a name="binding-to-arguments"></a>Powiązanie z argumentów
-Różne powiązania są powiązane z funkcją języka C# za pomocą `name` właściwości w *function.json* konfiguracji. Każdego powiązania ma własną obsługiwanych typów; na przykład wyzwalacza obiektu blob może obsługiwać ciąg, POCO lub CloudBlockBlob. Obsługiwane typy są udokumentowane w odwołaniu dla każdego powiązania. Obiekt POCO musi mieć określonej metody pobierającej i ustawiającej zdefiniowane dla każdej właściwości.
+
+Powiązania danych wejściowych lub wyjściowych z C# funkcja skryptu za pomocą `name` właściwości w *function.json* pliku konfiguracji. W poniższym przykładzie przedstawiono *function.json* pliku i *run.csx* plików dla funkcji wyzwalanych kolejki. Nosi nazwę parametru, który odbiera dane z komunikatu w kolejce `myQueueItem` ponieważ jest to wartość `name` właściwości.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "type": "queueTrigger",
+            "direction": "in",
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"MyStorageConnectionAppSetting"
+        }
+    ]
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+
+using Microsoft.WindowsAzure.Storage.Queue;
+using System;
+
+public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}");
+}
+```
+
+`#r` Objaśniono instrukcji [dalszej części tego artykułu](#referencing-external-assemblies).
+
+## <a name="supported-types-for-bindings"></a>Obsługiwane typy dla powiązania
+
+Każdego powiązania ma własną obsługiwanych typów; na przykład można użyć wyzwalacza obiektu blob z parametr typu string, a parametr POCO `CloudBlockBlob` parametr lub dowolną inne obsługiwane typy. [Artykule powiązanie dla obiekt blob powiązania](functions-bindings-storage-blob.md#trigger---usage) Wyświetla wszystkie obsługiwane typy parametrów wyzwalaczy obiektu blob. Aby uzyskać więcej informacji, zobacz [wyzwalaczy i powiązań](functions-triggers-bindings.md) i [docs odwołania wiązania dla każdego typu powiązania](functions-triggers-bindings.md#next-steps).
+
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="referencing-custom-classes"></a>Odwołanie do klas niestandardowych
+
+Jeśli musisz użyć niestandardowej klasy zwykłego obiektu CLR stary (POCO), można uwzględnić definicji klasy wewnątrz tego samego pliku lub umieść ją w oddzielnym pliku.
+
+W poniższym przykładzie przedstawiono *run.csx* przykład, który zawiera definicję klasy POCO.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -50,214 +97,10 @@ public class MyClass
 }
 ```
 
-[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
-
-## <a name="using-method-return-value-for-output-binding"></a>Dla powiązania danych wyjściowych przy użyciu wartości zwracanej — metoda
-
-Można użyć wartość zwracaną metody dla powiązania danych wyjściowych przy użyciu nazwy `$return` w *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
-
-## <a name="writing-multiple-output-values"></a>Trwa zapisywanie wielu wartości danych wyjściowych
-
-Aby napisać wiele wartości do powiązania danych wyjściowych, użyj [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typów. Te typy są kolekcji tylko do zapisu, które są zapisywane w powiązaniu danych wyjściowych, po zakończeniu metody.
-
-W tym przykładzie zapisuje wiele wiadomości w kolejce do tej samej kolejki przy użyciu `ICollector`:
-
-```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
-{
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
-}
-```
-
-## <a name="logging"></a>Rejestrowanie
-Aby rejestrować dane wyjściowe do dzienników przesyłania strumieniowego w języku C#, obejmują argumentu typu `TraceWriter`. Zaleca się jej nazwa `log`. Unikaj używania `Console.Write` w funkcji platformy Azure. 
-
-`TraceWriter`jest zdefiniowany w [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Poziom dziennika `TraceWriter` można skonfigurować w [host.json](functions-host-json.md).
-
-```csharp
-public static void Run(string myBlob, TraceWriter log)
-{
-    log.Info($"C# Blob trigger function processed: {myBlob}");
-}
-```
-
-## <a name="async"></a>Asynchroniczne
-Aby funkcja asynchronicznego, użyj `async` — słowo kluczowe i przywracać `Task` obiektu.
-
-```csharp
-public async static Task ProcessQueueMessageAsync(
-        string blobName,
-        Stream blobInput,
-        Stream blobOutput)
-{
-    await blobInput.CopyToAsync(blobOutput, 4096, token);
-}
-```
-
-## <a name="cancellation-token"></a>Token anulowania
-Niektóre operacje wymagają łagodne zamykanie. Mimo że zawsze jest najlepiej napisać kod, który może obsługiwać awarii, w przypadkach, w którym ma do obsługi bezpiecznego zamknięcia żądań, należy zdefiniować [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typu argumentu.  A `CancellationToken` podano sygnalizują wyzwoleniu zamknięcie hosta.
-
-```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-        string blobName,
-        Stream blobInput,
-        Stream blobOutput,
-        CancellationToken token)
-    {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
-    }
-```
-
-## <a name="importing-namespaces"></a>Importowanie przestrzenie nazw
-Należy zaimportować przestrzeni nazw, należy tak jak zwykle, z `using` klauzuli.
-
-```csharp
-using System.Net;
-using System.Threading.Tasks;
-
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-```
-
-Następujących przestrzeni nazw są automatycznie importowane i w związku z tym są opcjonalne:
-
-* `System`
-* `System.Collections.Generic`
-* `System.IO`
-* `System.Linq`
-* `System.Net.Http`
-* `System.Threading.Tasks`
-* `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`
-
-## <a name="referencing-external-assemblies"></a>Zewnętrzne zestawy odwołujące
-Dla zestawów struktury, dodaj odwołania przy użyciu `#r "AssemblyName"` dyrektywy.
-
-```csharp
-#r "System.Web.Http"
-
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-```
-
-Następujące zestawy są automatycznie dodawane przez usługi Azure Functions Środowisko hostingu:
-
-* `mscorlib`
-* `System`
-* `System.Core`
-* `System.Xml`
-* `System.Net.Http`
-* `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`
-* `Microsoft.Azure.WebJobs.Extensions`
-* `System.Web.Http`
-* `System.Net.Http.Formatting`
-
-Następujące zestawy mogą być używane przez prostą nazwę (na przykład `#r "AssemblyName"`):
-
-* `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`
-* `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNet.WebHooks.Common`
-* `Microsoft.Azure.NotificationHubs`
-
-## <a name="referencing-custom-assemblies"></a>Odwołania do zestawów niestandardowych
-
-Aby odwołać niestandardowego zestawu, możesz użyć dowolnej *udostępnionego* zestawu lub *prywatnej* zestawu:
-- Zestawy udostępnione są współużytkowane przez wszystkie funkcje w aplikacji funkcji. Aby odwołać się do niestandardowego zestawu Przekaż zestawu do aplikacji funkcji, takich jak w `bin` folder w katalogu głównym aplikacji funkcji. 
-- Zestawy prywatne są częścią kontekstu daną funkcję i obsługuje ładowania bezpośredniego w różnych wersjach. Zestawy prywatne należy przekazać w `bin` folderu w katalogu funkcji. Odwołanie przy użyciu nazwy pliku, takich jak `#r "MyAssembly.dll"`. 
-
-Aby uzyskać informacje na temat przekazywania plików do folderu funkcji zobacz sekcję poniżej pakietu zarządzania.
-
-### <a name="watched-directories"></a>Monitorowane katalogów
-
-Katalog zawierający plik skryptu funkcji automatycznie jest monitorowana zmian do zestawów. Aby obejrzeć zmiany zestawu w innych katalogów, dodaj je do `watchDirectories` na liście [host.json](functions-host-json.md).
-
-## <a name="using-nuget-packages"></a>Za pomocą pakietów NuGet
-Aby użyć pakietów NuGet w funkcji języka C#, Przekaż *project.json* plik do folderu funkcji w systemie plików aplikacji funkcji. Oto przykład *project.json* pliku, który dodaje odwołanie do wersji 1.1.0 Microsoft.ProjectOxford.Face:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
-```
-
-Obsługiwane jest tylko .NET Framework 4.6, upewnij się, że Twoje *project.json* Określa plik `net46` w sposób pokazany poniżej.
-
-Po przekazaniu *project.json* plików, środowisko uruchomieniowe pobiera pakiety i automatycznie dodaje odwołania do zestawów pakietu. Nie trzeba dodać `#r "AssemblyName"` dyrektywy. Aby użyć typów zdefiniowanych w pakietach NuGet, Dodaj wymagane `using` instrukcje do Twojej *run.csx* pliku. 
-
-W środowisku wykonawczym funkcji Przywracanie NuGet działa na podstawie porównania ilości `project.json` i `project.lock.json`. Jeśli pliki sygnatur Data i godzina **nie** uruchamia Przywracanie NuGet dopasowania i pliki do pobrania NuGet zaktualizowane pakiety. Jednak jeśli oznaczenie daty i godziny plików **czy** dopasowania, NuGet nie wykonuje operację przywracania. W związku z tym `project.lock.json` nie powinny zostać wdrożone, ponieważ powoduje on NuGet pominąć Przywracanie pakietu. Aby uniknąć wdrażanie pliku blokady, Dodaj `project.lock.json` do `.gitignore` pliku.
-
-Aby użyć niestandardowej NuGet źródła danych, określ źródła danych w *Nuget.Config* w katalogu głównym aplikacji funkcji. Aby uzyskać więcej informacji, zobacz [NuGet Konfigurowanie zachowania](/nuget/consume-packages/configuring-nuget-behavior).
-
-### <a name="using-a-projectjson-file"></a>Przy użyciu pliku project.json
-1. Otwarcie funkcji w portalu Azure. Na karcie dzienniki są wyświetlane dane wyjściowe instalacji pakietu.
-2. Aby przekazać plik project.json, użyj jednej z metod opisanych w [jak zaktualizować pliki aplikacji funkcji](functions-reference.md#fileupdate) w temacie Odwołanie do usługi Azure Functions dla deweloperów.
-3. Po *project.json* przekazać pliku, wyświetlone dane wyjściowe podobne do poniższego przykładu w funkcji do przesyłania strumieniowego dzienników:
-
-```
-2016-04-04T19:02:48.745 Restoring packages.
-2016-04-04T19:02:48.745 Starting NuGet restore
-2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
-2016-04-04T19:02:50.261 Feeds used:
-2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
-2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
-2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
-2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
-2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.455 Packages restored.
-```
-
-## <a name="environment-variables"></a>Zmienne środowiskowe
-Aby uzyskać wartość zmiennej środowiskowej lub wartość ustawienia aplikacji, należy użyć `System.Environment.GetEnvironmentVariable`, jak pokazano w poniższym przykładzie:
-
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-}
-
-public static string GetEnvironmentVariable(string name)
-{
-    return name + ": " +
-        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
-}
-```
+Klasa POCO musi mieć określonej metody pobierającej i ustawiającej zdefiniowane dla każdej właściwości.
 
 ## <a name="reusing-csx-code"></a>Ponowne wykorzystywanie kodu csx
+
 Można użyć klasy i metody zdefiniowane w innych *csx* pliki w Twojej *run.csx* pliku. Aby to zrobić, użyj `#load` dyrektywy w Twojej *run.csx* pliku. W poniższym przykładzie o nazwie Procedura rejestrowania `MyLogger` są udostępniane w *myLogger.csx* i ładowane do *run.csx* przy użyciu `#load` dyrektywy:
 
 Przykład *run.csx*:
@@ -281,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Za pomocą udostępnionej *csx* jest wspólnym wzorcem można zdecydowanie wpisz argumentów pomiędzy funkcjami przy użyciu obiektu POCO. W poniższym przykładzie uproszczony wyzwalacza HTTP i kolejki wyzwalacza udziału obiektu POCO o nazwie `Order` do silnie typu danych kolejności:
+Za pomocą udostępnionej *csx* plik jest wspólnym wzorcem można zdecydowanie wpisz thet danych przesyłanych między funkcji przez obiekt POCO. W poniższym przykładzie uproszczony wyzwalacza HTTP i kolejki wyzwalacza udziału obiektu POCO o nazwie `Order` do silnie typu danych kolejności:
 
 Przykład *run.csx* wyzwalacza HTTP:
 
@@ -352,11 +195,227 @@ Można użyć ścieżki względnej z `#load` dyrektywy:
 * `#load "loadedfiles\mylogger.csx"`ładuje plik znajdujący się w folderze w folderze funkcji.
 * `#load "..\shared\mylogger.csx"`ładuje plik znajdujący się w folderze na tym samym poziomie co folder funkcji, bezpośrednio pod *wwwroot*.
 
-`#load` Dyrektywy działa tylko w przypadku *csx* plików (C# skrypt), nie z *.cs* plików.
+`#load` Dyrektywy działa tylko w przypadku *csx* plików, nie z *.cs* plików.
+
+## <a name="binding-to-method-return-value"></a>Powiązanie z wartości zwracanej — metoda
+
+Można użyć wartość zwracaną metody dla powiązania danych wyjściowych przy użyciu nazwy `$return` w *function.json*:
+
+```json
+{
+    "type": "queue",
+    "direction": "out",
+    "name": "$return",
+    "queueName": "outqueue",
+    "connection": "MyStorageConnectionString",
+}
+```
+
+```csharp
+public static string Run(string input, TraceWriter log)
+{
+    return input;
+}
+```
+
+## <a name="writing-multiple-output-values"></a>Trwa zapisywanie wielu wartości danych wyjściowych
+
+Aby napisać wiele wartości do powiązania danych wyjściowych, użyj [ `ICollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [ `IAsyncCollector` ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) typów. Te typy są kolekcji tylko do zapisu, które są zapisywane w powiązaniu danych wyjściowych, po zakończeniu metody.
+
+W tym przykładzie zapisuje wiele wiadomości w kolejce do tej samej kolejki przy użyciu `ICollector`:
+
+```csharp
+public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+{
+    myQueueItem.Add("Hello");
+    myQueueItem.Add("World!");
+}
+```
+
+## <a name="logging"></a>Rejestrowanie
+
+Aby rejestrować dane wyjściowe do dzienników przesyłania strumieniowego w języku C#, obejmują argumentu typu `TraceWriter`. Zaleca się jej nazwa `log`. Unikaj używania `Console.Write` w funkcji platformy Azure. 
+
+`TraceWriter`jest zdefiniowany w [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Poziom dziennika `TraceWriter` można skonfigurować w [host.json](functions-host-json.md).
+
+```csharp
+public static void Run(string myBlob, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function processed: {myBlob}");
+}
+```
+
+> [!NOTE]
+> Informacji o nowszej struktury rejestrowania, który można użyć zamiast `TraceWriter`, zobacz [zapisu dzienniki w języku C# funkcje](functions-monitoring.md#write-logs-in-c-functions) w **Monitor usługi Azure Functions** artykułu.
+
+## <a name="async"></a>Asynchroniczne
+
+Aby funkcja asynchronicznego, użyj `async` — słowo kluczowe i przywracać `Task` obiektu.
+
+```csharp
+public async static Task ProcessQueueMessageAsync(
+        string blobName,
+        Stream blobInput,
+        Stream blobOutput)
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
+```
+
+## <a name="cancellation-tokens"></a>Anulowanie tokenów
+
+Niektóre operacje wymagają łagodne zamykanie. Mimo że zawsze jest najlepiej napisać kod, który może obsługiwać awarii, w przypadkach, w którym mają być obsługiwane żądania zamknięcia, zdefiniuj [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) typu argumentu.  A `CancellationToken` podano sygnalizują wyzwoleniu zamknięcie hosta.
+
+```csharp
+public async static Task ProcessQueueMessageAsyncCancellationToken(
+    string blobName,
+    Stream blobInput,
+    Stream blobOutput,
+    CancellationToken token)
+    {
+        await blobInput.CopyToAsync(blobOutput, 4096, token);
+    }
+```
+
+## <a name="importing-namespaces"></a>Importowanie przestrzenie nazw
+
+Należy zaimportować przestrzeni nazw, należy tak jak zwykle, z `using` klauzuli.
+
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+```
+
+Następujących przestrzeni nazw są automatycznie importowane i w związku z tym są opcjonalne:
+
+* `System`
+* `System.Collections.Generic`
+* `System.IO`
+* `System.Linq`
+* `System.Net.Http`
+* `System.Threading.Tasks`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+
+## <a name="referencing-external-assemblies"></a>Zewnętrzne zestawy odwołujące
+
+Dla zestawów struktury, dodaj odwołania przy użyciu `#r "AssemblyName"` dyrektywy.
+
+```csharp
+#r "System.Web.Http"
+
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+```
+
+Następujące zestawy są automatycznie dodawane przez usługi Azure Functions Środowisko hostingu:
+
+* `mscorlib`
+* `System`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `System.Web.Http`
+* `System.Net.Http.Formatting`
+
+Następujące zestawy mogą być używane przez prostą nazwę (na przykład `#r "AssemblyName"`):
+
+* `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNet.WebHooks.Common`
+* `Microsoft.Azure.NotificationHubs`
+
+## <a name="referencing-custom-assemblies"></a>Odwołania do zestawów niestandardowych
+
+Aby odwołać niestandardowego zestawu, możesz użyć dowolnej *udostępnionego* zestawu lub *prywatnej* zestawu:
+- Zestawy udostępnione są współużytkowane przez wszystkie funkcje w aplikacji funkcji. Aby odwołać się do niestandardowego zestawu Przekaż zestawu do aplikacji funkcji, takich jak w `bin` folder w katalogu głównym aplikacji funkcji. 
+- Zestawy prywatne są częścią kontekstu daną funkcję i obsługuje ładowania bezpośredniego w różnych wersjach. Zestawy prywatne należy przekazać w `bin` folderu w katalogu funkcji. Odwołuje się do zestawów przy użyciu nazwy pliku, takich jak `#r "MyAssembly.dll"`. 
+
+Aby uzyskać informacje na temat przekazywania plików do folderu funkcji, zobacz sekcję dotyczącą [pakietu zarządzania](#using-nuget-packages).
+
+### <a name="watched-directories"></a>Monitorowane katalogów
+
+Katalog zawierający plik skryptu funkcji automatycznie jest monitorowana zmian do zestawów. Aby obejrzeć zmiany zestawu w innych katalogów, dodaj je do `watchDirectories` na liście [host.json](functions-host-json.md).
+
+## <a name="using-nuget-packages"></a>Za pomocą pakietów NuGet
+
+Aby użyć pakietów NuGet w funkcji języka C#, Przekaż *project.json* plik do folderu funkcji w systemie plików aplikacji funkcji. Oto przykład *project.json* pliku, który dodaje odwołanie do wersji 1.1.0 Microsoft.ProjectOxford.Face:
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+Na platformie Azure funkcji 1.x, obsługiwana jest tylko .NET Framework 4.6, upewnij się, że Twoje *project.json* Określa plik `net46` w sposób pokazany poniżej.
+
+Po przekazaniu *project.json* plików, środowisko uruchomieniowe pobiera pakiety i automatycznie dodaje odwołania do zestawów pakietu. Nie trzeba dodać `#r "AssemblyName"` dyrektywy. Używanie typów zdefiniowanych w pakietach NuGet; po prostu Dodaj wymagane `using` instrukcje do Twojej *run.csx* pliku. 
+
+W środowisku wykonawczym funkcji Przywracanie NuGet działa na podstawie porównania ilości `project.json` i `project.lock.json`. Jeśli pliki sygnatur Data i godzina **nie** uruchamia Przywracanie NuGet dopasowania i pliki do pobrania NuGet zaktualizowane pakiety. Jednak jeśli oznaczenie daty i godziny plików **czy** dopasowania, NuGet nie wykonuje operację przywracania. W związku z tym `project.lock.json` nie powinny być wdrażane, ponieważ powoduje on NuGet pominąć Przywracanie pakietu. Aby uniknąć wdrażanie pliku blokady, Dodaj `project.lock.json` do `.gitignore` pliku.
+
+Aby użyć niestandardowej NuGet źródła danych, określ źródła danych w *Nuget.Config* w katalogu głównym aplikacji funkcji. Aby uzyskać więcej informacji, zobacz [NuGet Konfigurowanie zachowania](/nuget/consume-packages/configuring-nuget-behavior).
+
+### <a name="using-a-projectjson-file"></a>Przy użyciu pliku project.json
+
+1. Otwarcie funkcji w portalu Azure. Na karcie dzienniki są wyświetlane dane wyjściowe instalacji pakietu.
+2. Aby przekazać plik project.json, użyj jednej z metod opisanych w [jak zaktualizować pliki aplikacji funkcji](functions-reference.md#fileupdate) w temacie Odwołanie do usługi Azure Functions dla deweloperów.
+3. Po *project.json* przekazać pliku, wyświetlone dane wyjściowe podobne do poniższego przykładu w funkcji do przesyłania strumieniowego dzienników:
+
+```
+2016-04-04T19:02:48.745 Restoring packages.
+2016-04-04T19:02:48.745 Starting NuGet restore
+2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
+2016-04-04T19:02:50.261 Feeds used:
+2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
+2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
+2016-04-04T19:02:50.261
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
+2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
+2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.455 Packages restored.
+```
+
+## <a name="environment-variables"></a>Zmienne środowiskowe
+
+Aby uzyskać wartość zmiennej środowiskowej lub wartość ustawienia aplikacji, należy użyć `System.Environment.GetEnvironmentVariable`, jak pokazano w poniższym przykładzie:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " +
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
+```
 
 <a name="imperative-bindings"></a> 
 
-## <a name="binding-at-runtime-via-imperative-bindings"></a>Powiązanie w czasie wykonywania za pośrednictwem powiązania imperatywne
+## <a name="binding-at-runtime"></a>Powiązanie w czasie wykonywania
 
 W języku C# i innych języków .NET, można użyć [imperatywnych](https://en.wikipedia.org/wiki/Imperative_programming) powiązanie wzorzec, w przeciwieństwie do [ *deklaratywne* ](https://en.wikipedia.org/wiki/Declarative_programming) powiązania w *function.json*. Powiązanie konieczne jest przydatne, gdy Parametry wiążące muszą ma zostać obliczony w czasie środowiska uruchomieniowego zamiast projektu. Z tego wzorca można powiązać z obsługiwanych danych wejściowych i wyjściowych powiązania na bieżąco w kodzie funkcji.
 
@@ -373,7 +432,9 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`atrybut .NET, który definiuje wiązania jest i `T` jest typ danych wejściowych lub wyjściowych, który jest obsługiwany przez ten typ powiązania. `T`nie może być `out` typ parametru (takie jak `out JObject`). Na przykład, w tabeli Mobile Apps output powiązanie obsługuje [sześć output typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale można używać tylko [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) dla `T`.
+`BindingTypeAttribute`atrybut .NET, który definiuje wiązania jest i `T` jest typem danych wejściowych lub wyjściowych, który jest obsługiwany przez ten typ powiązania. `T`nie może być `out` typ parametru (takie jak `out JObject`). Na przykład, w tabeli Mobile Apps output powiązanie obsługuje [sześć output typy](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ale można używać tylko [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) lub [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) dla `T`.
+
+### <a name="single-attribute-example"></a>Przykład pojedynczy atrybut
 
 Poniższy przykładowy kod tworzy [powiązania wyjściowego obiektu blob magazynu](functions-bindings-storage-blob.md#input--output) z obiektu blob ścieżki, która jest zdefiniowana w czasie wykonywania, następnie zapisuje ciąg obiektu blob.
 
@@ -391,7 +452,10 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definiuje [obiektu blob magazynu](functions-bindings-storage-blob.md) wejściowych lub wyjściowych powiązanie, i [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) jest typ powiązania obsługiwanych danych wyjściowych.
-W poprzednim przykładzie kodu, kod pobiera ustawienia aplikacji dla aplikacji funkcja parametrów połączenia w głównym konta magazynu (czyli `AzureWebJobsStorage`). Można określić ustawienie niestandardowych aplikacji, aby użyć konta magazynu przez dodanie [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazanie tablicy atrybut do `BindAsync<T>()`. Na przykład:
+
+### <a name="multiple-attribute-example"></a>Wiele przykład atrybutu
+
+Powyższy przykład pobiera ustawienia aplikacji dla aplikacji funkcja parametrów połączenia w głównym konta magazynu (czyli `AzureWebJobsStorage`). Można określić ustawienie niestandardowych aplikacji, aby użyć konta magazynu przez dodanie [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) i przekazanie tablicy atrybut do `BindAsync<T>()`. Użyj `Binder` parametru nie `IBinder`.  Na przykład:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -417,21 +481,20 @@ W poniższej tabeli przedstawiono atrybuty .NET dla każdego typu powiązania i 
 > [!div class="mx-codeBreakAll"]
 | Powiązanie | Atrybut | Dodaj odwołanie |
 |------|------|------|
-| Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Usługa Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
+| Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
+| Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 | Kolejka magazynu | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Obiektu blob magazynu | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Tabela magazynu | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
+## <a name="next-steps"></a>Kolejne kroki
 
+> [!div class="nextstepaction"]
+> [Dowiedz się więcej o wyzwalaczy i powiązań](functions-triggers-bindings.md)
 
-## <a name="next-steps"></a>Następne kroki
-Więcej informacji zawierają następujące zasoby:
-
-* [Najlepsze rozwiązania dotyczące usługi Azure Functions](functions-best-practices.md)
-* [Dokumentacja usługi Azure Functions dla deweloperów](functions-reference.md)
-* [Azure funkcje wyzwalaczy i powiązań](functions-triggers-bindings.md)
+> [!div class="nextstepaction"]
+> [Więcej informacji na temat najlepszych rozwiązań dla usługi Azure Functions](functions-best-practices.md)

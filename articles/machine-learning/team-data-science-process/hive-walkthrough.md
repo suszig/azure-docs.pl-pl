@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: d10026b4f04ab77accf7d089e98270c4c769b636
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proces nauki danych zespołu w działaniu: klastrów użycia usługi Azure HDInsight Hadoop
-W tym przewodniku używamy [zespołu danych nauki procesu (TDSP)](overview.md) w scenariuszu end-to-end przy użyciu [klastra usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, Eksploruj i odtwarzania danych z publicznie dostępnych funkcji [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych i w dół przykładowe dane. Modele danych są tworzone przy użyciu usługi Azure Machine Learning do obsługi binarnej i wieloklasowej klasyfikacji i regresji predykcyjnej zadania.
+W tym przewodniku używamy [zespołu danych nauki procesu (TDSP)](overview.md) w scenariuszu end-to-end. Używamy [klastra usługi Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) do przechowywania, Analizuj i dane funkcji odtwarzania z publicznie dostępnych [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych i w dół przykładowych danych. Modele danych są tworzone przy użyciu usługi Azure Machine Learning do obsługi binarnej i wieloklasowej klasyfikacji i regresji predykcyjnej zadania.
 
 Aby uzyskać wskazówki, pokazujący sposób obsługi większych zestawu danych (1 terabajt) dla podobny scenariusz using klastrów HDInsight Hadoop do przetwarzania danych, zobacz [zespołu danych nauki proces — za pomocą usługi Azure HDInsight klastrów platformy Hadoop w zestawie danych 1 TB](hive-criteo-walkthrough.md).
 
 Istnieje również możliwość Notes IPython służy do wykonywania zadań przedstawione wskazówki przy użyciu zestawu danych 1 TB. Aby skorzystać z tej metody użytkownicy powinni skontaktować [wskazówki Criteo za pomocą połączenia ODBC programu Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) tematu.
 
 ## <a name="dataset"></a>Opis elementu Dataset rund taksówki NYC
-Dane podróży taksówki NYC to około 20GB skompresowanego wartości rozdzielanych przecinkami (CSV) plików (~ 48GB nieskompresowane), składającej się z więcej niż 173 milionów poszczególnych podróży i opłaty płatnej dla każdej podróży. Każdy rekord podróży obejmuje odbiór i przyjmowania lokalizacji i czasu, hack anonimowe (sterownik) numer licencji i numer Medalionu (taksówki jego unikatowy identyfikator). Dane obejmuje wszystkie rund w roku 2013 i jest dostępne w następujących dwóch zestawów danych dla każdego miesiąca:
+Dane podróży taksówki NYC to około 20GB skompresowanego wartości rozdzielanych przecinkami (CSV) plików (~ 48GB nieskompresowane). Zawiera więcej niż 173 milionów poszczególnych podróży i opłaty za każdy podróży. Każdy rekord podróży obejmuje odbiór i przyjmowania lokalizacji i czasu, hack anonimowe (sterownik) numer licencji i numer Medalionu (taksówki jego unikatowy identyfikator). Dane obejmuje wszystkie rund w roku 2013 i jest dostępne w następujących dwóch zestawów danych dla każdego miesiąca:
 
-1. Pliki CSV "trip_data" zawierają szczegóły podróży, takie jak liczba pasażerów, pobranie i punkty dropoff czas trwania podróży i długość podróży. Poniżej przedstawiono kilka przykładowych rekordów:
+1. Pliki CSV "trip_data" zawierają szczegóły podróży. W tym liczba pasażerów, pobranie i punkty dropoff czas trwania podróży i długość podróży. Poniżej przedstawiono kilka przykładowych rekordów:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -38,7 +38,7 @@ Dane podróży taksówki NYC to około 20GB skompresowanego wartości rozdzielan
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-2. Pliki CSV "trip_fare" zawierają szczegółowe informacje o klasie za każdym razem, takie jak typ płatności, kwota taryfy, przeciążenia i podatków, porady i przejazd i sumy płatnej. Poniżej przedstawiono kilka przykładowych rekordów:
+2. Pliki CSV "trip_fare" zawierają szczegółowe informacje o klasie płatnej w odniesieniu do każdej podróży. Zawiera typ płatności, kwota taryfy przeciążenia i podatków, porady i przejazd oraz łączna kwota płatności. Poniżej przedstawiono kilka przykładowych rekordów:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -57,7 +57,7 @@ Gdy są przechowywane ich do tabele programu Hive wkrótce opisano niektóre szc
 Gdy zbliża się dane, do określenia rodzaj prognoz, które mają być oparty na jego analizy pomaga wyjaśnienia zadania, które należy uwzględnić w procesie.
 Poniżej przedstawiono trzy przykłady problemów prognozowania, które można rozwiązać w ramach tego przewodnika, w której skład opiera się na *Porada\_kwota*:
 
-1. **Klasyfikacji binarnej**: prognozowania, czy etykietki został płatnej podróży, tj. *Porada\_kwota* większą niż $0 jest przykład dodatnią, podczas gdy *Porada\_kwota* $ 0 jest ujemny przykład.
+1. **Klasyfikacji binarnej**: przewidywanie czy poradę został płatnej w podróży. Oznacza to *Porada\_kwota* większą niż $0 jest przykład dodatnią, podczas gdy *Porada\_kwota* $ 0 jest ujemny przykład.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
@@ -91,9 +91,9 @@ Można skonfigurować środowiska platformy Azure zaawansowana analityka używaj
 > 
 > 
 
-Aby uzyskać [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych z lokalizacji publicznej, możesz użyć dowolnej z metod opisanych w [przenoszenie danych do i z magazynu obiektów Blob Azure](move-azure-blob.md) do skopiowania danych na tym komputerze.
+Aby skopiować [rund taksówki NYC](http://www.andresmh.com/nyctaxitrips/) zestawu danych na komputerze w lokalizacji publicznej, możesz użyć dowolnej z metod opisanych w [przenoszenie danych do i z magazynu obiektów Blob Azure](move-azure-blob.md).
 
-Opisano jak transfer plików zawierających dane za pomocą narzędzia AzCopy. Aby pobrać i zainstalować narzędzia AzCopy postępuj zgodnie z instrukcjami w [wprowadzenie do korzystania z wiersza polecenia Azcopy](../../storage/common/storage-use-azcopy.md).
+Opisano sposób użycia narzędzia AzCopy do transferu plików zawierających dane. Aby pobrać i zainstalować narzędzia AzCopy, postępuj zgodnie z instrukcjami w [wprowadzenie do korzystania z wiersza polecenia Azcopy](../../storage/common/storage-use-azcopy.md).
 
 1. Z poziomu okna wiersza polecenia, należy wydać następujące polecenia narzędzia AzCopy, zastępując *< path_to_data_folder >* z docelowej:
 
@@ -109,7 +109,7 @@ Opisano jak transfer plików zawierających dane za pomocą narzędzia AzCopy. A
 
 W poniższych poleceniach narzędzia AzCopy, Zamień następujące parametry rzeczywistej wartości, które można określić podczas tworzenia klastra usługi Hadoop i rozpakować pliki danych.
 
-* ***&#60; path_to_data_folder >*** katalogu (wraz ze ścieżką) na komputerze, zawierających pliki rozpakowane danych  
+* ***&#60; path_to_data_folder >*** katalogu (wraz ze ścieżką) na komputerze znajdują się pliki danych rozpakowane  
 * ***&#60; nazwa konta magazynu z klastra usługi Hadoop >*** konta magazynu skojarzone z klastrem usługi HDInsight
 * ***&#60; domyślny kontener klastra usługi Hadoop >*** domyślny kontener używane przez klaster. Należy pamiętać, że nazwa kontenera domyślnego zwykle taką samą nazwę jak samego klastra. Na przykład jeśli klaster jest nazywany "abc123.azurehdinsight.net", domyślny kontener jest abc123.
 * ***&#60; klucz konta magazynu >*** klucza dla konta magazynu używane przez klaster
@@ -126,15 +126,15 @@ To polecenie wysyła dane taryfy ***nyctaxifareraw*** katalogu w domyślnym kont
 
 Dane powinno się teraz w magazynie obiektów Blob Azure i są gotowe do użycia w klastrze usługi HDInsight.
 
-## <a name="#download-hql-files"></a>Zaloguj się do węzła głównego klastra usługi Hadoop i i przygotować do analizy danych poznawcze
+## <a name="#download-hql-files"></a>Zaloguj się do węzła głównego klastra usługi Hadoop i Przygotuj się do analizy danych poznawcze
 > [!NOTE]
 > Jest to zazwyczaj **Admin** zadań.
 > 
 > 
 
-Aby uzyskać dostęp do węzła głównego klastra do analizy danych poznawcze i w dół próbkowania danych, wykonaj procedurę opisaną w [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md).
+Dostęp do węzła głównego klastra do analizy danych poznawcze i w dół pobierania próbek danych, wykonaj procedurę opisaną w [dostęp węzła Head klastra usługi Hadoop](customize-hadoop-cluster.md).
 
-W tym przewodniku używamy głównie zapytań w [Hive](https://hive.apache.org/), język kwerendy przypominającego SQL, do wykonywania eksploracji wstępne dane. Zapytania Hive są przechowywane w plikach .hql. Firma Microsoft następnie wyłącza przykładowe tych danych do użycia w usłudze Azure Machine Learning przeznaczone do budowania modeli.
+W tym przewodniku używamy głównie zapytań w [Hive](https://hive.apache.org/), język kwerendy przypominającego SQL, do wykonywania eksploracji wstępne dane. Zapytania Hive są przechowywane w plikach .hql. Firma Microsoft następnie dół — przykład tych danych do użycia w usłudze Azure Machine Learning przeznaczone do budowania modeli.
 
 Aby przygotować klaster do analizy danych poznawcze, możemy pobrać pliki .hql zawierające odpowiednie skrypty Hive z [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) do katalogu lokalnego (C:\temp) w węźle głównym. Aby to zrobić, otwórz **wiersza polecenia** z wewnątrz węzła głównego klastra i wydać następujące dwa polecenia:
 
@@ -142,7 +142,7 @@ Aby przygotować klaster do analizy danych poznawcze, możemy pobrać pliki .hql
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Te dwa polecenia pobierze wszystkie pliki .hql potrzebne w tym przewodniku do katalogu lokalnego ***C:\temp &#92;*** w węzła głównego.
+Te dwa polecenia Pobierz wszystkie pliki .hql potrzebne w tym przewodniku do katalogu lokalnego ***C:\temp &#92;*** w węzła głównego.
 
 ## <a name="#hive-db-tables"></a>Utwórz gałąź bazy danych i tabele partycjonowane według miesięcy
 > [!NOTE]
@@ -150,7 +150,7 @@ Te dwa polecenia pobierze wszystkie pliki .hql potrzebne w tym przewodniku do ka
 > 
 > 
 
-Firma Microsoft są teraz gotowe do tworzenia tabel gałęzi dla naszego zestawu danych taksówki NYC.
+Firma Microsoft są teraz gotowe do utworzenia zestawu danych taksówki NYC tabele programu Hive.
 Węzła głównego klastra usługi Hadoop, otwórz ***wiersza polecenia platformy Hadoop*** na pulpicie węzła głównego i wprowadź katalog Hive przez wprowadzenie polecenia
 
     cd %hive_home%\bin
@@ -207,10 +207,10 @@ Oto zawartość ***C:\temp\sample\_hive\_utworzyć\_db\_i\_tables.hql*** pliku, 
 
 Ten skrypt Hive tworzy dwie tabele:
 
-* Tabela "podróży" zawiera podróży szczegóły każdego jazdy (Szczegóły sterownika, czasu odbioru, odległość podróży i razy)
-* Tabela "opłata" zawiera szczegóły taryfy (kwota taryfy, kwota poradę, przejazd i opłaty).
+* Tabela "podróży" zawiera podróży szczegóły każdego jazdy (Szczegóły sterownika, czas podnoszenia odległość podróży i razy)
+* w tabeli "opłata" zawiera szczegóły taryfy (kwota taryfy, kwota Porada przejazd i opłaty).
 
-Jeśli potrzebna jest uzyskania dodatkowej pomocy z tych procedur, i chcesz zbadać tych alternatywnych, zobacz sekcję [Hive przesyłania kwerend bezpośrednio z wiersza polecenia usługi Hadoop ](move-hive-tables.md#submit).
+Jeśli potrzebna jest uzyskania dodatkowej pomocy z tych procedur, i chcesz zbadać tych alternatywnych, zobacz sekcję [Hive przesyłania kwerend bezpośrednio z wiersza polecenia usługi Hadoop](move-hive-tables.md#submit).
 
 ## <a name="#load-data"></a>Ładowanie danych do tabel Hive przez partycje
 > [!NOTE]
@@ -218,11 +218,11 @@ Jeśli potrzebna jest uzyskania dodatkowej pomocy z tych procedur, i chcesz zbad
 > 
 > 
 
-Zestaw danych taksówki NYC ma fizycznych partycjonowania według miesięcy, której używamy umożliwiające szybsze przetwarzanie i zapytania. Poniższe polecenia programu PowerShell (wystawiony na podstawie przy użyciu katalogu Hive **wiersza polecenia platformy Hadoop**) ładowanie danych do tabel gałąź "podróży" i "opłata" podzielona na partycje według miesięcy.
+Zestaw danych taksówki NYC ma fizycznych partycjonowania według miesięcy, której używamy umożliwiające szybsze przetwarzanie i zapytania. Następujące polecenia programu PowerShell (wystawiony na podstawie przy użyciu katalogu Hive **wiersza polecenia platformy Hadoop**) ładowanie danych do tabel gałąź "podróży" i "opłata" podzielona na partycje według miesięcy.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-*Próbki\_hive\_załadować\_danych\_przez\_partitions.hql* plik zawiera następujące **ZAŁADOWAĆ** poleceń.
+*Próbki\_hive\_załadować\_danych\_przez\_partitions.hql* plik zawiera następujące **ZAŁADOWAĆ** polecenia:
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -309,7 +309,7 @@ Aby uzyskać top 10 rekordów w tabeli "opłata" od pierwszego miesiąca:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-Często jest to przydatne można zapisać do pliku w celu wyświetlenia wygodny rekordy. Niewielkie zmiany w zapytaniu powyżej rozwiązanie to:
+Często jest to przydatne można zapisać do pliku w celu wyświetlenia wygodny rekordy. Niewielkie zmiany do poprzedniego zapytania rozwiązanie to:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -319,7 +319,7 @@ Często jest to przydatne można zapisać do pliku w celu wyświetlenia wygodny 
 > 
 > 
 
-Odsetek jest jak Liczba podróży może być różna w roku kalendarzowym. Grupowanie według miesięcy pozwala zobaczyć, jak wygląda rozkład ten rund.
+Odsetek jest jak Liczba rund różni się w roku kalendarzowym. Grupowanie według miesięcy pozwala zobaczyć, jak wygląda rozkład ten rund.
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
@@ -341,7 +341,7 @@ Daje dane wyjściowe:
 
 W tym miejscu pierwszej kolumny jest miesiąc, a drugą jest wartość liczbę rund w danym miesiącu.
 
-Firma Microsoft liczba całkowita liczba rekordów w naszym zestawie danych podróży wydając polecenie w wierszu polecenia programu Hive katalogu.
+Firma Microsoft liczba całkowita liczba rekordów w naszym zestawie danych podróży wydając polecenie w wierszu polecenia programu Hive katalogu:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -372,7 +372,7 @@ Daje dane wyjściowe:
 
 Należy pamiętać, że dokładnie samą liczbę rund miesięcznie jest zwracany w obu zestawach danych. Zapewnia to pierwsze sprawdzenie, czy dane zostały załadowane poprawnie.
 
-Całkowita liczba rekordów w zestawie danych taryfy zliczania może odbywać się przy użyciu poniższe polecenie w wierszu katalogu gałęzi:
+Całkowita liczba rekordów w zestawie danych taryfy zliczania może odbywać się przy użyciu następującego polecenia w wierszu katalogu gałęzi:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -413,7 +413,7 @@ Oto zawartość *próbki\_hive\_podróży\_liczba\_przez\_medallion.hql* pliku i
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-W wierszu katalogu Hive należy wydać polecenie poniżej:
+W wierszu katalogu Hive należy wydać następujące polecenie:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -423,9 +423,9 @@ W wierszu katalogu Hive należy wydać polecenie poniżej:
 > 
 > 
 
-Podczas eksplorowania zestawu danych, chcemy często Sprawdź liczbę wystąpień co grupy wartości. W tej sekcji zawierają przykładem, w tym dla plików cab i sterowników.
+Podczas eksplorowania zestawu danych, chcemy często Sprawdź liczbę wystąpień co grupy wartości. Ta sekcja zawiera przykładowy sposób, w tym dla plików cab i sterowników.
 
-*Próbki\_hive\_podróży\_liczba\_przez\_Medalionu\_license.hql* pliku grup taryfy zestawu danych na "Medalionu" i "hack_license" i zwraca liczby w każdej kombinacji. Poniżej przedstawiono jego zawartość.
+*Próbki\_hive\_podróży\_liczba\_przez\_Medalionu\_license.hql* pliku grup taryfy zestawu danych na "Medalionu" i "hack_license" i zwraca liczby w każdej kombinacji. Poniżej przedstawiono zawartością:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -448,7 +448,7 @@ Wyniki zapytania są zapisywane do pliku lokalnego C:\temp\queryoutput.tsv.
 > 
 > 
 
-Typowe celem analizy danych poznawcze jest chwastów limit rekordów nieprawidłowe lub uszkodzone. Przykład w tej sekcji określa, czy albo wartość współrzędnych geograficznych pola zawiera wartości do tej pory poza obszarem NYC. Ponieważ istnieje prawdopodobieństwo, że takie rekordów mają wartości błędne współrzędne geograficzne, chcemy Usuń je z żadnych danych, która ma być używana do modelowania.
+Typowe celem analizy danych poznawcze jest chwastów limit rekordów nieprawidłowe lub uszkodzone. Przykład w tej sekcji określa, czy albo wartość współrzędnych geograficznych pola zawiera wartości do tej pory poza obszarem NYC. Ponieważ istnieje prawdopodobieństwo, że takie rekordy zawierają wartość błędne współrzędne geograficzne, chcemy Usuń je z żadnych danych, która ma być używana do modelowania.
 
 Oto zawartość *próbki\_hive\_jakości\_assessment.hql* pliku inspekcji.
 
@@ -477,7 +477,7 @@ W przypadku problemu klasyfikacji binarnej opisane w temacie [przykłady zadań 
 * Porada podane (klasy 1, porada\_ilość > $0)  
 * Brak porady (klasa 0, porada\_kwota = $0).
 
-*Próbki\_hive\_Przechylony\_frequencies.hql* pliku pokazano poniżej robi to.
+Następujące *próbki\_hive\_Przechylony\_frequencies.hql* pliku robi to:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -498,7 +498,7 @@ W wierszu katalogu Hive Uruchom polecenie:
 > 
 > 
 
-W przypadku problemu wieloklasowej klasyfikacji opisane w [przykłady zadań prognozowania](hive-walkthrough.md#mltasks) sekcji ten zestaw danych również jest przydatna do fizycznych klasyfikacji, gdy chcemy przewidzieć ilość wskazówki podane. Możemy użyć bins, aby zdefiniować zakresów Porada w zapytaniu. Uzyskanie dystrybucje klasy dla różnych Porada zakresów, używamy *próbki\_hive\_Porada\_zakres\_frequencies.hql* pliku. Poniżej przedstawiono jego zawartość.
+W przypadku problemu wieloklasowej klasyfikacji opisane w [przykłady zadań prognozowania](hive-walkthrough.md#mltasks) sekcji, ten zestaw danych również jest przydatna w fizycznych klasyfikacji, gdy chcemy przewidzieć ilość wskazówki podane. Możemy użyć bins, aby zdefiniować zakresów Porada w zapytaniu. Uzyskanie dystrybucje klasy dla różnych Porada zakresów, używamy *próbki\_hive\_Porada\_zakres\_frequencies.hql* pliku. Poniżej przedstawiono jego zawartość.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -544,9 +544,9 @@ Aby zobaczyć porównanie odległość rzeczywiste podróży i [odległość Hav
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-W powyższym zapytaniu R jest radius ziemi w milach i pi jest konwertowana na wartość w radianach. Należy pamiętać, że punkty współrzędne geograficzne są "filtrowane" można usunąć wartości, które są daleko od obszaru NYC.
+W poprzedniego zapytania R jest radius ziemi w milach i pi jest konwertowana na wartość w radianach. Należy pamiętać, że punkty współrzędne geograficzne są "filtrowane" można usunąć wartości, które są daleko od obszaru NYC.
 
-W takim przypadku możemy zapisać naszych wyników katalog o nazwie "queryoutputdir". Sekwencji poleceń pokazano poniżej najpierw tworzy ten katalog wyjściowy, a następnie uruchamia polecenie gałęzi.
+W takim przypadku możemy zapisać wyniki katalog o nazwie "queryoutputdir". Sekwencji poleceń pokazano poniżej najpierw tworzy ten katalog wyjściowy, a następnie uruchamia polecenie gałęzi.
 
 W wierszu katalogu Hive Uruchom polecenie:
 
@@ -555,7 +555,7 @@ W wierszu katalogu Hive Uruchom polecenie:
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-Wyniki zapytania są zapisywane do 9 obiektów blob Azure ***queryoutputdir/000000\_0*** do ***queryoutputdir/000008\_0*** w ramach kontenera domyślnego klastra usługi Hadoop.
+Wyniki zapytania są zapisywane na dziewięć obiektów blob Azure ***queryoutputdir/000000\_0*** do ***queryoutputdir/000008\_0*** w ramach kontenera domyślnego klastra usługi Hadoop.
 
 Aby wyświetlić rozmiar poszczególnych obiektów blob, możemy uruchom następujące polecenie w wierszu katalogu gałęzi:
 
@@ -578,18 +578,18 @@ Zaletą tych danych znajdują się w obiekcie blob Azure jest, że firma Microso
 > 
 > 
 
-Po fazie analizy danych poznawcze mamy teraz przystąpić do przykładowych danych do tworzenia modeli w usłudze Azure Machine Learning w dół. W tej sekcji zostanie przedstawiony sposób Użyj zapytania programu Hive w dół przykładowych danych, który następnie jest dostępny z [i zaimportuj dane] [ import-data] modułu w usłudze Azure Machine Learning.
+Po fazie analizy danych poznawcze mamy teraz przystąpić do dół — przykładowych danych do tworzenia modeli w usłudze Azure Machine Learning. W tej sekcji zostanie przedstawiony sposób umożliwia zapytań programu Hive w dół przykładowych danych. Następnie jest dostępny z [i zaimportuj dane] [ import-data] modułu w usłudze Azure Machine Learning.
 
 ### <a name="down-sampling-the-data"></a>Próbkowanie danych w dół
 Istnieją dwa kroki tej procedury. Najpierw dołączyć możemy **nyctaxidb.trip** i **nyctaxidb.fare** tabel w trzech kluczy, które znajdują się we wszystkich rekordach: "Medalionu", "hack\_licencji", i "podnoszenia\_datetime". Następnie możemy wygenerować etykiety klasyfikacji binarnej **Przechylony** i etykiety klasyfikacji wielu klasy **Porada\_klasy**.
 
-Aby można było użyć w dół pobrane dane bezpośrednio z [i zaimportuj dane] [ import-data] modułu w usłudze Azure Machine Learning, należy go przechowywać wyniki zapytania powyżej do wewnętrznej tabeli Hive. W poniżej możemy utworzyć wewnętrznej tabeli Hive i wypełnić zawartością z połączonych i w dół próbki danych.
+Aby można było użyć danych próbkowania w dół bezpośrednio z [i zaimportuj dane] [ import-data] modułu w usłudze Azure Machine Learning, należy go przechowywać wyniki poprzedniego zapytania do wewnętrznej tabeli Hive. W poniżej możemy utworzyć wewnętrznej tabeli Hive i wypełnić jego zawartość z danymi sprzężonych i próbkowany w dół.
 
 Zapytanie stosuje standardowe funkcje Hive bezpośrednio do wygenerowania godzinę dnia, tygodnia w roku, dzień tygodnia (1 zawiera poniedziałek i 7 zawiera niedziela) z "podnoszenia\_datetime" pola i bezpośredniego odległość między lokalizacjami odbiór i dropoff. Użytkownicy mogą odwoływać się do [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) pełną listę funkcji.
 
-Zapytanie następnie wyłącza próbek danych tak, aby wyniki zapytania można umieścić w usłudze Azure Machine Learning Studio. Tylko około 1% oryginalnego zestawu danych jest importowany do programu Studio.
+Następnie w dół — przykłady zapytań danych tak, aby wyniki zapytania można umieścić w usłudze Azure Machine Learning Studio. Tylko około 1% oryginalnego zestawu danych jest importowany do programu Studio.
 
-Poniżej przedstawiono zawartość *próbki\_hive\_przygotowanie\_dla\_aml\_full.hql* pliku, który przygotowuje danych do tworzenia w usłudze Azure Machine Learning model.
+Poniżej przedstawiono zawartość *próbki\_hive\_przygotowanie\_dla\_aml\_full.hql* pliku, który przygotowuje danych dla modelu kompilacji w usłudze Azure Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -718,8 +718,8 @@ Do uruchomienia tego zapytania z poziomu wiersza katalogu gałęzi:
 
 Mamy teraz wewnętrznej tabeli "nyctaxidb.nyctaxi_downsampled_dataset", który można uzyskać dostęp za pomocą [i zaimportuj dane] [ import-data] modułu na podstawie usługi Azure Machine Learning. Ponadto firma Microsoft może używać tego elementu dataset do budowania modeli uczenia maszynowego.  
 
-### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Używaj modułu importowanie danych w usłudze Azure Machine Learning dostępu dół próbki danych do
-Jako wymagania wstępne dotyczące wystawiania Hive zapytania w programie [i zaimportuj dane] [ import-data] moduł usługi Azure Machine Learning, potrzebujemy dostęp do Azure Machine Learning obszaru roboczego i dostęp do poświadczeń klastra i jego skojarzone konto magazynu.
+### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Używaj modułu importowanie danych w usłudze Azure Machine Learning dostępu do danych próbkowania w dół
+Jako wymagania wstępne dotyczące wystawiania Hive zapytania w programie [i zaimportuj dane] [ import-data] moduł usługi Azure Machine Learning, potrzebujemy dostęp do Azure Machine Learning obszaru roboczego. Należy również dostęp do poświadczeń klastra i jego skojarzone konto magazynu.
 
 Niektóre szczegóły na [i zaimportuj dane] [ import-data] modułu i parametry wejściowe:
 
@@ -750,7 +750,7 @@ W tym miejscu jest migawką zapytanie Hive i [i zaimportuj dane] [ import-data] 
 
 ![Zapytanie hive dla modułu importowanie danych](./media/hive-walkthrough/1eTYf52.png)
 
-Od naszych dół próbki danych znajduje się w domyślnym kontenerze, wynikowe zapytanie Hive z usługi Azure Machine Learning jest bardzo prosty i jest tylko "Wybierz * z nyctaxidb.nyctaxi\_próbkowane w dół\_danych".
+Ponieważ nasze dane próbkowania w dół znajduje się w domyślnym kontenerze, wynikowe zapytanie Hive z usługi Azure Machine Learning jest bardzo prosty i jest tylko "Wybierz * z nyctaxidb.nyctaxi\_próbkowane w dół\_danych".
 
 Zestaw danych może teraz używać jako punktu wyjścia do tworzenia modeli uczenia maszynowego.
 
@@ -761,19 +761,19 @@ Możemy teraz przystąpić do konstruowania modelu i wdrażania modelu w [usług
 
 **Uczeń używane:** Regresja logistyczna Two-class
 
-a. W przypadku tego problemu naszą etykietę docelowego (lub klasy) jest "Przechylony". Nasze oryginalnego zestawu danych próbkowania w dół ma kilka kolumn, które są przecieki docelowych do tego eksperymentu klasyfikacji. W szczególności: Porada\_klasy, porada\_kwota i całkowitej\_ilość ujawniania informacji o etykiecie docelowej, która nie jest dostępny na czas testowania. Firma Microsoft Usuń te kolumny z brany pod uwagę przy użyciu [Select Columns in Dataset] [ select-columns] modułu.
+a. W przypadku tego problemu etykiety docelowej (lub klasy) jest "Przechylony". Oryginalnego zestawu danych próbkowania w dół ma kilka kolumn, które są przecieki docelowych do tego eksperymentu klasyfikacji. W szczególności: Porada\_klasy, porada\_kwota i całkowitej\_ilość ujawniania informacji o etykiecie docelowej, która nie jest dostępny na czas testowania. Firma Microsoft Usuń te kolumny z brany pod uwagę przy użyciu [Select Columns in Dataset] [ select-columns] modułu.
 
-Migawki poniżej przedstawia naszych eksperymentu do prognozowania, czy poradę został płatnej dla danego podróży.
+Następującej migawki przedstawia naszych eksperymentu do prognozowania, czy etykietki został płatnej w podróży danego:
 
 ![Migawki eksperymentu](./media/hive-walkthrough/QGxRz5A.png)
 
 b. W tym eksperymencie naszych dystrybucje etykiety docelowego zostały około 1:1.
 
-Migawki poniżej pokazuje rozkład porady etykiety klasy dla problemu klasyfikacji binarnej.
+Następującej migawki pokazuje rozkład porady etykiety klasy dla problemu klasyfikacji binarnej:
 
 ![Dystrybucji Porada etykiet — klasa](./media/hive-walkthrough/9mM4jlD.png)
 
-W związku z tym możemy uzyskać AUC 0.987, jak pokazano na poniższej ilustracji.
+W związku z tym możemy uzyskać AUC 0.987, jak pokazano na poniższej ilustracji:
 
 ![Wartość AUC](./media/hive-walkthrough/8JDT0F8.png)
 
@@ -783,43 +783,43 @@ W związku z tym możemy uzyskać AUC 0.987, jak pokazano na poniższej ilustrac
 
 a. W przypadku tego problemu jest naszą etykietę docelowego (lub klasy) "Porada\_klasy" może to zająć jednej z pięciu wartości (0,1,2,3,4). Tak jak w przypadku klasyfikacji binarnej mamy kilka kolumn, które są przecieki docelowych do tego eksperymentu. W szczególności: Przechylony, porada\_łączna kwota\_ilość ujawniania informacji o etykiecie docelowej, która nie jest dostępny na czas testowania. Firma Microsoft Usuń te kolumny za pomocą [Select Columns in Dataset] [ select-columns] modułu.
 
-Migawki poniżej przedstawia naszych eksperymentu do prognozowania, w których bin Porada jest mogącego wchodzić (klasy 0: Porada = $0, 1 klasy: Porada > $0 i Porada < = $5, 2 klasy: Porada > $5 i porady < = $10 klasy 3: Porada > $10 i Porada < = $20 Klasa 4: Porada > $20)
+Następującej migawki pokazuje eksperymentu do prognozowania, w których bin Porada jest mogącego wchodzić (klasa 0: Porada = $0, 1 — klasa: Porada > $0 i Porada < = $5, klasy 2: Porada > $5 i porady < = $10 klasy 3: Porada > $10 i Porada < = $20 Klasa 4: Porada > $20)
 
 ![Migawki eksperymentu](./media/hive-walkthrough/5ztv0n0.png)
 
-Teraz Pokaż się wygląd naszego dystrybucji klasy rzeczywiste testu. Widzimy, że klasa 0 i 1 klasy są powszechnie znane, innych klas są rzadko.
+Teraz Pokaż się wygląda dystrybucji klasy rzeczywiste testu. Widzimy, że klasa 0 i 1 klasy są powszechnie znane, innych klas są rzadko.
 
 ![Testowanie dystrybucji — klasa](./media/hive-walkthrough/Vy1FUKa.png)
 
-b. W tym eksperymencie używamy macierzy pomyłek spojrzeć na naszych dokładności przewidywania. Jest to pokazane poniżej.
+b. W tym eksperymencie używamy macierzy pomyłek aby przyjrzeć się dokładności przewidywania. To jest następujący:
 
 ![Macierz pomyłek](./media/hive-walkthrough/cxFmErM.png)
 
-Należy pamiętać, że nasze dokładności klasy w klasach powszechnie znane są bardzo dobre, modelu, które nie są dobrym zadanie "learning" w rzadkich klasy.
+Należy pamiętać, że dokładności klas na klasy powszechnie znane są bardzo dobre, modelu, które nie są dobrym zadanie "learning" w klasach rzadkich.
 
 **3. Zadanie regresji**: przewidywanie ilość Porada płatnej w podróży.
 
 **Uczeń używane:** Boosted drzewa decyzyjnego
 
-a. W przypadku tego problemu jest naszą etykietę docelowego (lub klasy) "Porada\_kwota". Nasze przecieki docelowego w tym przypadku są: Przechylony, porada\_klasy całkowita\_kwota; te zmienne ujawnienia informacji o ilości poradę, która jest zazwyczaj niedostępna na czas testowania. Firma Microsoft Usuń te kolumny za pomocą [Select Columns in Dataset] [ select-columns] modułu.
+a. W przypadku tego problemu jest etykieta docelowego (lub klasy) "Porada\_kwota". Przecieki docelowego w tym przypadku są: Przechylony, porada\_klasy całkowita\_kwota; te zmienne ujawnienia informacji o ilości poradę, która jest zazwyczaj niedostępna na czas testowania. Firma Microsoft Usuń te kolumny za pomocą [Select Columns in Dataset] [ select-columns] modułu.
 
-Belows migawki pokazuje naszych eksperymentu do prognozowania ilość danego poradę.
+Następującej migawki przedstawia eksperymentu do prognozowania ilość danego Porada:
 
 ![Migawki eksperymentu](./media/hive-walkthrough/11TZWgV.png)
 
-b. Regresja problemów firma Microsoft pomiarów dokładności przewidywania naszych analizując kwadratów błąd w prognozy, współczynnik determinacji i podobne. Zostanie przedstawiony je poniżej.
+b. Regresja problemów firma Microsoft mierzyć dokładności przewidywania analizując kwadratów błąd w prognozy, współczynnik determinacji i podobne:
 
 ![Statystyki prognozowania](./media/hive-walkthrough/Jat9mrz.png)
 
-Widzimy o współczynnik determinacji jest 0.709, co oznacza około 71% wariancję tłumaczy naszych współczynników modelu.
+Widzimy o współczynnik determinacji jest 0.709, co oznacza około 71% wariancję tłumaczy współczynników modelu.
 
 > [!IMPORTANT]
-> Aby dowiedzieć się więcej na temat usługi Azure Machine Learning oraz sposób dostępu i przy jego użyciu, zapoznaj się [co to jest Machine Learning](../studio/what-is-machine-learning.md). Jest bardzo przydatny zasobów do odtwarzania z licznych eksperymenty uczenia maszynowego w usłudze Azure Machine Learning [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galerii obejmuje gamy eksperymenty i zapewnia kompleksowy wprowadzenia zakres możliwości usługi Azure Machine Learning.
+> Aby dowiedzieć się więcej na temat usługi Azure Machine Learning oraz sposób dostępu i przy jego użyciu, zapoznaj się [co to jest Machine Learning](../studio/what-is-machine-learning.md). Jest bardzo przydatny zasobów do odtwarzania z licznych eksperymenty uczenia maszynowego w usłudze Azure Machine Learning [galerii Azure AI](https://gallery.cortanaintelligence.com/). Galerii obejmuje gamy eksperymenty i zapewnia kompleksowy wprowadzenia zakres możliwości usługi Azure Machine Learning.
 > 
 > 
 
 ## <a name="license-information"></a>Informacje o licencji
-Ten przewodnik próbki i jego towarzyszący skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Sprawdź, czy w pliku LICENSE.txt w katalogu przykładowy kod w serwisie GitHub więcej szczegółów.
+Ten przewodnik próbki i jego towarzyszący skrypty są udostępniane przez firmę Microsoft w ramach licencji MIT. Sprawdź plik LICENSE.txt w katalogu przykładowy kod w serwisie GitHub więcej szczegółów.
 
 ## <a name="references"></a>Dokumentacja
 • [Andrés Monroy taksówki NYC rund stronę pobierania](http://www.andresmh.com/nyctaxitrips/)  

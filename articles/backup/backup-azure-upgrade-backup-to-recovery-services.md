@@ -1,5 +1,5 @@
 ---
-title: "Uaktualnij magazynu kopii zapasowych do magazynu usług odzyskiwania (wersja zapoznawcza) | Dokumentacja firmy Microsoft"
+title: "Uaktualnij magazynu kopii zapasowych do magazynu usług odzyskiwania | Dokumentacja firmy Microsoft"
 description: "Instrukcje i informacje pomocy technicznej w celu uaktualnienia magazynu usługi Kopia zapasowa Azure do magazynu usług odzyskiwania."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uaktualnij magazynu kopii zapasowych do magazynu usług odzyskiwania
 
@@ -120,7 +120,7 @@ Po uaktualnieniu do magazynu usług odzyskiwania, skonfiguruj raporty dla usług
 Nie. Kopie zapasowe trwającą nadal przerwana podczas i po uaktualnieniu.
 
 **Jeśli nie należy zaplanować na temat uaktualniania wkrótce, co się dzieje z mojej magazynów?**</br>
-Ponieważ wszystkie nowe funkcje dotyczą tylko Magazyny usług odzyskiwania, zalecamy uaktualnienie z magazynów. Microsoft ostatecznie wycofuje klasycznego portalu. Uruchamianie 1 września 2017 Microsoft rozpocznie uaktualniania automatycznie magazynów kopii zapasowych do magazynów usług odzyskiwania. Od listopada 30,2017, możesz już tworzyć magazyny kopii zapasowych przy użyciu programu PowerShell. Magazyn można automatycznie uaktualnić wszystkie czas między. Firma Microsoft zaleca się, że jak najszybciej Uaktualnij magazynu.
+Ponieważ wszystkie nowe funkcje dotyczą tylko Magazyny usług odzyskiwania, zalecamy uaktualnienie z magazynów. Uruchamianie 1 września 2017 Microsoft rozpocznie uaktualniania automatycznie magazynów kopii zapasowych do magazynów usług odzyskiwania. Od listopada 30,2017, możesz już tworzyć magazyny kopii zapasowych przy użyciu programu PowerShell. Magazyn można automatycznie uaktualnić wszystkie czas między. Firma Microsoft zaleca się, że jak najszybciej Uaktualnij magazynu.
 
 **Jaki jest średnia ta uaktualnienia do mojej istniejącej oprzyrządowania?**</br>
 Aktualizacja z narzędziami do modelu wdrażania usługi Resource Manager. Usługi odzyskiwania, który magazynów zostały utworzone dla używać w modelu wdrażania usługi Resource Manager. Planowanie modelu wdrażania usługi Resource Manager i ewidencjonowanie aktywności różnicy z magazynów jest ważne. 
@@ -133,9 +133,6 @@ Nie. ROLLBACK nie jest obsługiwana, gdy zasoby zostały pomyślnie uaktualnione
 
 **Moja subskrypcja lub zasobów, aby sprawdzić, czy są one w stanie uaktualnienia I zweryfikować?**</br>
 Tak. Pierwszym krokiem podczas uaktualnienia weryfikuje, czy zasoby są w stanie uaktualnienia. W przypadku niepowodzenia weryfikacji wymagań wstępnych komunikaty z przyczyn, którego nie można ukończyć uaktualnianie.
-
-**Jakie uprawnienia mają celu wyzwolenia aktualizacji magazynu**</br>
-Aby przeprowadzić uaktualnienie magazynu, muszą zostać dodane jako współadministrator subskrypcji w klasycznym portalu Azure. Jest to wymagane, nawet jeśli już zostały przedstawione jako właściciela w portalu Azure. Spróbuj dodać współadministratorem subskrypcji w klasycznym portalu Azure, aby dowiedzieć się, jeśli jesteś współadministratorem subskrypcji. Jeśli nie jest możliwe dodać administratora współpracującego, skontaktuj się z administratorem usługi ani współadministratorem subskrypcji, który można dodać jako współadministrator.
 
 **Można uaktualnić mój opartych na dostawcy usług Kryptograficznych magazynu kopii zapasowej?**</br>
 Nie. Obecnie nie można uaktualnić magazynów kopii zapasowych opartych na dostawcy usług Kryptograficznych. Firma Microsoft zostanie dodana obsługa uaktualniania opartych na dostawcy usług Kryptograficznych magazyny kopii zapasowych w następnej wersji.

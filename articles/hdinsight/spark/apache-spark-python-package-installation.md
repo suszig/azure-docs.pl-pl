@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Aby zainstalować pakiety języka Python zewnętrzne notesów Jupyter w klastrach Apache Spark w usłudze HDInsight, użyj akcji skryptu
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Dowiedz się, jak użyć akcji skryptu do skonfigurowania klastra Apache Spark w
 > 
 > 
 
-Możesz przeszukać [indeksu pakietów](https://pypi.python.org/pypi) Aby uzyskać pełną listę pakietów, które są dostępne. Można również uzyskać listę dostępnych pakietów z innych źródeł. Na przykład można zainstalować pakietów dostępne za pośrednictwem [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) lub [conda forge](https://conda-forge.github.io/feedstocks.html).
+Możesz przeszukać [indeksu pakietów](https://pypi.python.org/pypi) Aby uzyskać pełną listę pakietów, które są dostępne. Można również uzyskać listę dostępnych pakietów z innych źródeł. Na przykład można zainstalować pakietów dostępne za pośrednictwem [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) lub [conda forge](https://conda-forge.org/feedstocks/).
 
 W w tym artykule przedstawiono sposób instalowania [TensorFlow](https://www.tensorflow.org/) pakietu przy użyciu akcji skryptu w klastrze i używać go za pomocą notesu Jupyter.
 

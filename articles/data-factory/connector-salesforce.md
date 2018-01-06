@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Kopiowanie danych z i do usług Salesforce przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,15 +62,15 @@ Obsługiwane są następujące właściwości usługi Salesforce połączone:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną: **Salesforce**. |Tak |
+| type |Właściwość type musi mieć ustawioną: **Salesforce**. |Yes |
 | environmentUrl | Określ wystąpienie adres URL usługi Salesforce. <br> -Domyślna to `"https://login.salesforce.com"`. <br> -Aby skopiować dane z piaskownicy, określ `"https://test.salesforce.com"`. <br> -Aby skopiować dane z domeny niestandardowej, na przykład określić, `"https://[domain].my.salesforce.com"`. |Nie |
-| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak |
-| hasło |Określ hasło dla konta użytkownika.<br/><br/>Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działaniach kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Tak |
-| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) instrukcje dotyczące resetowania/Get tokenu zabezpieczającego. Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywać tokenu zabezpieczającego w usłudze Azure Key Vault i umożliwić działaniach kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
+| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Yes |
+| hasło |Określ hasło dla konta użytkownika.<br/><br/>Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działaniach kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) instrukcje dotyczące resetowania/Get tokenu zabezpieczającego. Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywać tokenu zabezpieczającego w usłudze Azure Key Vault i umożliwić działaniach kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). |Yes |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie dla źródła tak dla obiekt sink Jeśli źródło jest połączona usługa nie ma IR. |
 
 >[!IMPORTANT]
->Aby skopiować dane do usługi Salesforce, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją w pobliżu Salesforce i kojarzenie w połączonej usłudze jak w poniższym przykładzie.
+>Podczas kopiowania danych **do** Salesforce, domyślnego środowiska uruchomieniowego integracji Azure nie może służyć do wykonywania kopii. W innym słowie, jeśli połączone źródła usługa nie ma określonej IR, jawnie [utworzyć IR Azure](create-azure-integration-runtime.md#create-azure-ir) z lokalizacją w pobliżu Salesforce i kojarzenie w usług Salesforce połączonej usługi, jak w poniższym przykładzie.
 
 **Przykład: przechowywanie poświadczeń w ADF**
 
@@ -140,7 +140,7 @@ Aby skopiować dane z i do usług Salesforce, ustaw właściwość Typ zestawu d
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SalesforceObject**  | Tak |
+| type | Właściwość type musi mieć ustawioną: **SalesforceObject**  | Yes |
 | objectApiName | Nazwa obiektu Salesforce można pobrać danych z. | Brak źródła tak dla obiekt sink |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ Aby skopiować dane z i do usług Salesforce, ustaw właściwość Typ zestawu d
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w usłudze Salesforce. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -184,7 +184,7 @@ Aby skopiować dane z witryny Salesforce, Ustaw typ źródła w przypadku dział
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SalesforceSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SalesforceSource** | Yes |
 | query |Użyj niestandardowych zapytania można odczytać danych. Można użyć zapytania SQL 92 lub [Salesforce obiektu Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) zapytania. Na przykład: `select * from MyTable__c`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 > [!IMPORTANT]
@@ -233,7 +233,7 @@ Aby skopiować dane do usługi Salesforce, należy ustawić typ ujścia w dział
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SalesforceSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SalesforceSink** | Yes |
 | WriteBehavior | Zachowanie zapisu dla tej operacji.<br/>Dozwolone wartości to: **Wstaw**, i **Upsert**. | Nie (wartość domyślna to Insert) |
 | externalIdFieldName | Nazwa pola identyfikator zewnętrznego dla operacji upsert. Określone pole musi być zdefiniowany jako "Zewnętrzne pole Id" w obiekcie Salesforce i go nie może mieć wartości NULL w odpowiednich danych wejściowych. | Tak, aby "Upsert" |
 | writeBatchSize | Liczba wierszy z danymi zapisywanymi w Salesforce w każdej z partii. | Nie (wartość domyślna to 5000) |
@@ -304,7 +304,7 @@ Podczas kopiowania danych z usług Salesforce, z typów danych Salesforce są u�
 | Pole wyboru |Wartość logiczna |
 | Waluta |O podwójnej precyzji |
 | Date |Data/godzina |
-| Data i godzina |Data/godzina |
+| Data/godzina |Data/godzina |
 | Adres e-mail |Ciąg |
 | Identyfikator |Ciąg |
 | Relacja wyszukiwania |Ciąg |
@@ -320,5 +320,5 @@ Podczas kopiowania danych z usług Salesforce, z typów danych Salesforce są u�
 | Tekst (zaszyfrowane) |Ciąg |
 | Adres URL |Ciąg |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

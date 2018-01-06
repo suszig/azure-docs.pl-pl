@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopiowanie danych do i z tabel Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,8 +48,8 @@ Połączoną usługą magazynu Azure można utworzyć przy użyciu klucza konta,
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureStorage** |Tak |
-| Parametry połączenia | Podaj informacje wymagane do połączenia z magazynem platformy Azure dla właściwości connectionString. Zaznacz to pole jako SecureString. |Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureStorage** |Yes |
+| Parametry połączenia | Podaj informacje wymagane do połączenia z magazynem platformy Azure dla właściwości connectionString. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -81,14 +81,17 @@ Dostęp do sygnatury dostępu Współdzielonego umożliwiają dostęp delegowany
 
 > [!IMPORTANT]
 > Azure obsługuje teraz tylko w fabryce danych **sygnatury dostępu Współdzielonego usługi** , ale nie SAS konta. Zobacz [typy z sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) szczegóły dotyczące tych dwóch typów oraz sposobu tworzenia. Adres URL SAS generable z portalu Azure lub Eksploratora usługi Storage jest SAS konta, który nie jest obsługiwany.
->
+
+> [!TIP]
+> Możesz wykonać poniżej polecenia programu PowerShell, aby wygenerować sygnaturę dostępu Współdzielonego usługi dla konta magazynu (Zastąp posiadaczy miejsce i przyznaj uprawnienie wymagane):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Aby używać uwierzytelniania sygnatury dostępu Współdzielonego usługi, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureStorage** |Tak |
-| sasUri | Określ udostępniony URI sygnatury dostępu do zasobów usługi Azure Storage, takich jak obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString. |Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureStorage** |Yes |
+| sasUri | Określ udostępniony URI sygnatury dostępu do zasobów usługi Azure Storage, takich jak obiektów blob, kontenera lub tabeli. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -126,8 +129,8 @@ Aby skopiować dane do/z tabel Azure, ustaw właściwość Typ zestawu danych do
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureTable** |Tak |
-| tableName |Nazwa tabeli w wystąpieniu bazy danych w tabeli platformy Azure, odnoszący się do połączonej usługi. |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureTable** |Yes |
+| tableName |Nazwa tabeli w wystąpieniu bazy danych w tabeli platformy Azure, odnoszący się do połączonej usługi. |Yes |
 
 **Przykład:**
 
@@ -167,7 +170,7 @@ Aby skopiować dane z tabel Azure, należy ustawić typ źródła w przypadku dz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzureTableSource** |Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzureTableSource** |Yes |
 | azureTableSourceQuery |Użyj zapytania niestandardowe tabeli platformy Azure, aby odczytać danych. Przykłady w następnej sekcji. |Nie |
 | azureTableSourceIgnoreTableNotFound |Wskazuje, czy swallow wyjątek tabela nie istnieje.<br/>Dozwolone wartości to: **True**, i **False** (ustawienie domyślne). |Nie |
 
@@ -193,7 +196,7 @@ Aby skopiować dane do tabeli platformy Azure, należy ustawić typ ujścia w dz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **AzureTableSink** |Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **AzureTableSink** |Yes |
 | azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, które mogą być używane przez obiekt sink. |Nie |
 | azureTablePartitionKeyName |Określ nazwę kolumny, których wartości są używane jako klucze partycji. Jeśli nie zostanie określony, "AzureTableDefaultPartitionKeyValue" jest używana jako klucza partycji. |Nie |
 | azureTableRowKeyName |Określ nazwę kolumny, których wartości kolumn używanych jako klucz wiersza. Jeśli nie zostanie określony, użyj identyfikatora GUID dla każdego wiersza. |Nie |
@@ -273,5 +276,5 @@ Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefini
 | Edm.Int64 |Int64 |64-bitową liczbę całkowitą. |
 | Edm.String |Ciąg |Wartość algorytmem UTF-16. Ciągi może być maksymalnie 64 KB. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

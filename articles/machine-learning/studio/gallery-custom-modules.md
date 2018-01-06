@@ -1,6 +1,6 @@
 ---
-title: "Niestandardowe moduły Cortana Intelligence Gallery | Dokumentacja firmy Microsoft"
-description: "Odkryj maszyny niestandardowych modułów uczenia w Cortana Intelligence Gallery."
+title: "Azure galerii AI niestandardowe moduły | Dokumentacja firmy Microsoft"
+description: "Odkryj maszyny niestandardowych modułów uczenia w galerii Azure AI."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Odkryj maszyny niestandardowych modułów uczenia w Cortana Intelligence Gallery
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Odkryj maszyny niestandardowych modułów uczenia w galerii Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Niestandardowych modułów usługi Machine Learning Studio
-Cortana Intelligence Gallery oferuje kilka [niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules) który rozszerzyć możliwości usługi Azure Machine Learning Studio. Możesz zaimportować moduły, aby używać w eksperymentów, dlatego można tworzyć bardziej zaawansowane rozwiązania analizy predykcyjnej.
+Galeria AI Azure oferuje kilka [niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules) który rozszerzyć możliwości usługi Azure Machine Learning Studio. Możesz zaimportować moduły, aby używać w eksperymentów, dlatego można tworzyć bardziej zaawansowane rozwiązania analizy predykcyjnej.
 
 Obecnie galerii oferuje modułów na *czasu analytics serii*, *reguł kojarzenia*, *klastrowanie algorytmów* (poza k średnich) i  *wizualizacje*oraz inne moduły narzędzie najważniejszą metodą roboczą.
 
@@ -34,7 +34,7 @@ Aby przeglądać niestandardowe moduły [w galerii](http://gallery.cortanaintell
 
 ![Wybierz niestandardowe moduły na stronie głównej galerii](./media/gallery-custom-modules/select-custom-modules-in-gallery.png)
 
-**[Niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules)**  zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Zaznacz, aby wyświetlić wszystkie niestandardowe moduły **zobaczyć wszystkie** przycisku. Aby wyszukać określony moduł niestandardowe, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
+ **[Niestandardowe moduły](https://gallery.cortanaintelligence.com/customModules)**  zostanie wyświetlona lista ostatnio dodany i popularnych modułów. Zaznacz, aby wyświetlić wszystkie niestandardowe moduły **zobaczyć wszystkie** przycisku. Aby wyszukać określony moduł niestandardowe, wybierz **zobaczyć wszystkie**, a następnie wybierz kryteria. Można również wprowadzić terminy wyszukiwania w **wyszukiwania** u góry strony galerii.
 
 ![Wybierz opcję "Zobacz wszystkie" Aby przeglądać wszystkie niestandardowe moduły](./media/gallery-custom-modules/click-see-all-for-all-custom-modules.png)
 
@@ -52,7 +52,7 @@ W module niestandardowe strony szczegółów, **komentarze** sekcji, można doda
 ## <a name="import"></a>Import
 Każdy moduł niestandardowych z galerii można importować do własnych eksperymentów.
 
-Cortana Intelligence Gallery udostępnia dwa sposoby importowania kopii modułu:
+Galeria AI Azure oferuje dwa sposoby importowania kopii modułu:
 
 * **Z poziomu galerii**. Po zaimportowaniu niestandardowego modułu z poziomu galerii, możesz również uzyskać eksperymentu przykładowego, który zapewnia przykładem użyć modułu programu.
 * **Za pomocą uczenia maszynowego Studio**. Podczas pracy w usłudze Machine Learning Studio, można zaimportować każdy moduł niestandardowych (w tym przypadku nie otrzymasz eksperymentu przykładowego).

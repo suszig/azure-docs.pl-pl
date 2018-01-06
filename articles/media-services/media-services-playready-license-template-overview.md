@@ -1,6 +1,6 @@
 ---
 title: "Omówienie szablon licencji PlayReady usługi multimediów"
-description: "Ten temat zawiera omówienie szablon licencji PlayReady, które umożliwiają skonfigurowanie licencje PlayReady."
+description: "Ten temat zawiera omówienie szablon licencji PlayReady, który jest używany do konfigurowania licencje PlayReady."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: b8d691d9a25847c4ab0b99d1fe5b889f314c404f
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2b21765c53c9f9f37efb71924f12a5135170f788
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="media-services-playready-license-template-overview"></a>Omówienie szablon licencji PlayReady usługi multimediów
-Usługa Azure Media Services udostępnia teraz usługę dostarczania licencji PlayReady firmy Microsoft. Przez użytkownika końcowego (na przykład Silverlight) próbą odtwarzanie zawartości PlayReady chronione, żądanie jest wysyłane do usługi dostarczania licencji uzyskanie licencji. Jeśli usługa licencji zatwierdza żądanie, wystawia licencję, są wysyłane do klienta, który może służyć do odszyfrowania i odtwarzania zawartości określonego.
+Usługa Azure Media Services udostępnia teraz usługę dostarczania licencji PlayReady. (Na przykład Silverlight) próbą odtwarzanie zawartości chronionej przez PlayReady, żądanie jest wysyłane do usługi dostarczania licencji uzyskanie licencji. Jeśli usługa licencji zatwierdza żądanie, wystawia licencję, są wysyłane do klienta, który jest używany do odszyfrowania i odtwarzania zawartości określonego.
 
-Media Services dostarcza również interfejsy API, które umożliwiają skonfigurowanie licencji PlayReady. Licencje zawierają prawa i ograniczenia, które chcesz środowiska uruchomieniowego PlayReady DRM wymusić, gdy użytkownik próbuje odtworzyć chronionej zawartości.
-Poniżej przedstawiono niektóre ograniczenia licencji PlayReady, które można określić:
+Media Services dostarcza również interfejsy API, którego można użyć do skonfigurowania licencji PlayReady. Licencje zawierają praw i ograniczeń, które mają PlayReady prawami cyfrowymi zarządzania (prawami cyfrowymi DRM) środowiska uruchomieniowego wymusić, gdy użytkownik próbuje odtworzyć chronionej zawartości.
+Poniżej przedstawiono przykłady ograniczeń licencji PlayReady, które można określić:
 
-* Element DateTime, z którego licencja jest nieprawidłowa.
+* Data i godzina, z którego licencja jest nieprawidłowa.
 * Wartość daty i godziny wygaśnięcia licencji. 
 * Licencję na zapisywanie w magazynu trwałego na kliencie. Trwałe licencji zwykle są używane do odtwarzania zawartości w trybie offline.
 * Minimalny poziom zabezpieczeń odtwarzacza wymaganą do odtwarzanie zawartości. 
 * Poziom ochrony danych wyjściowych dla formantów danych wyjściowych audio\video zawartości. 
-* Aby uzyskać więcej informacji, zobacz sekcję formantów danych wyjściowych (3.5) w [reguły zgodności PlayReady](https://www.microsoft.com/playready/licensing/compliance/) dokumentu.
+* Aby uzyskać więcej informacji, zobacz sekcję "Dane wyjściowe kontrolek" (3.5) w [reguły zgodności PlayReady](https://www.microsoft.com/playready/licensing/compliance/) dokumentu.
 
 > [!NOTE]
-> Obecnie można skonfigurować tylko PlayRight licencji PlayReady (to prawo jest wymagane). PlayRight daje klientowi możliwość odtwarzanie zawartości. PlayRight także zezwala na Konfigurowanie ograniczeń specyficzne dla odtwarzania. Aby uzyskać więcej informacji, zobacz [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Obecnie można skonfigurować tylko PlayRight licencji PlayReady. To prawo jest wymagane. PlayRight daje klientowi możliwość odtwarzanie zawartości. Za pomocą PlayRight można również skonfigurować ograniczenia dotyczące odtwarzania. Aby uzyskać więcej informacji, zobacz [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
 Aby skonfigurować licencje PlayReady przy użyciu usługi Media Services, należy skonfigurować szablon licencji PlayReady usługi multimediów. Szablon jest zdefiniowany w pliku XML.
 
-Poniższy przykład przedstawia najprostszy (i najbardziej typowych) szablon, który konfiguruje podstawowe licencji przesyłania strumieniowego. Ta licencja klienci będą mogli odtwarzać zawartość PlayReady chronione.
+Poniższy przykład przedstawia najprostszy (i najbardziej typowych) szablon, który konfiguruje podstawowe licencji przesyłania strumieniowego. Ta licencja klientów można odtworzyć z zawartości chronionej PlayReady.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -53,34 +53,34 @@ Poniższy przykład przedstawia najprostszy (i najbardziej typowych) szablon, kt
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-XML jest zgodny ze schematem XML szablonu licencji PlayReady zdefiniowaną w szablonie licencji PlayReady sekcji schematu XML.
+Kod XML jest zgodny ze schematem XML szablonu licencji PlayReady zdefiniowane w sekcji "Schematu XML szablonu licencji PlayReady".
 
-Usługa Media Services również definiuje zestaw klas .NET, które mogłyby zostać użyte do serializacji i deserializacji do i z pliku XML. Aby uzyskać opis klasy głównym, zobacz [klasy Media Services na platformie .NET](media-services-playready-license-template-overview.md#classes) służące do konfigurowania szablonów licencji.
+Usługa Media Services również definiuje zestaw klas .NET, które mogą służyć do serializacji i deserializacji do i z pliku XML. Aby uzyskać opis klasy głównym, zobacz [klasy Media Services na platformie .NET](media-services-playready-license-template-overview.md#classes) służące do konfigurowania szablonów licencji.
 
-Na przykład na trasie używającej klasy .NET, aby skonfigurować szablon licencji PlayReady, zobacz [za pomocą szyfrowania dynamicznego PlayReady i usługi dostarczania licencji](media-services-protect-with-playready-widevine.md).
+Na przykład na trasie używającej klasy .NET, aby skonfigurować szablon licencji PlayReady, zobacz [PlayReady Użyj szyfrowania dynamicznego i usługi dostarczania licencji](media-services-protect-with-playready-widevine.md).
 
 ## <a id="classes"></a>Klasy Media Services na platformie .NET, które są używane do konfigurowania szablonów licencji
-Poniżej przedstawiono główne klasy .NET są używane do konfigurowania szablonów licencji PlayReady usługi multimediów. Te klasy mapowania typów zdefiniowanych w [schematu XML szablonu licencji PlayReady](media-services-playready-license-template-overview.md#schema).
+Następujące klasy są głównego klasy .NET, które są używane do konfigurowania szablonów licencji PlayReady usługi multimediów. Te klasy mapowania typów zdefiniowanych w [schematu XML szablonu licencji PlayReady](media-services-playready-license-template-overview.md#schema).
 
 [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) klasa jest używana do serializacji i deserializacji do i z plik XML szablonu licencji Media Services.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) — ta klasa reprezentuje szablonu dla odpowiedzi wysyłane z powrotem do użytkownika końcowego. Zawiera on pole niestandardowe dane ciągu między serwera licencji i aplikacji (może być przydatne w przypadku aplikacji niestandardowej logiki), a także listę co najmniej jeden szablon licencji.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): Ta klasa reprezentuje szablonu dla odpowiedzi wysyłane z powrotem do użytkownika. Zawiera on pole ciągu niestandardowych danych między serwerem licencji i aplikacji (które mogą być przydatne w przypadku aplikacji niestandardowej logiki). Zawiera listę co najmniej jeden szablon licencji.
 
-To jest klasa "najwyższego poziomu" w hierarchii szablonu. Co oznacza, że szablon odpowiedzi zawiera listę szablonów licencji i szablony licencji obejmują (bezpośrednio lub pośrednio) wszystkie klasy, które tworzą dane szablonu, aby można było serializować.
+Jako klasa "najwyższego poziomu" w hierarchii szablonu szablon odpowiedzi zawiera listę szablonów licencji. Szablony licencji obejmują (bezpośrednio lub pośrednio) wszystkie klasy, które tworzą dane szablonu, aby można było serializować.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) — klasa reprezentuje szablon licencji do tworzenia licencje PlayReady zwracaną dla użytkowników końcowych. Zawiera dane na klucz zawartości w licencji oraz wszelkich praw i ograniczeń mają być egzekwowane przez środowisko uruchomieniowe PlayReady DRM, gdy przy użyciu klucza zawartości.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): Ta klasa reprezentuje szablon licencji, który służy do tworzenia licencje PlayReady ma zostać zwrócona do użytkowników. Zawiera dane dla zawartości klucza licencji. Obejmuje również praw i ograniczeń wymuszających środowiska uruchomieniowego PlayReady DRM musi po klucz zawartości jest używany.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) — ta klasa reprezentuje PlayRight licencji PlayReady. Użytkownik go daje możliwość odtwarzania zawartości ograniczeniom zero lub więcej skonfigurowane w licencji i na PlayRight (dla odtwarzania zasad). Ma wiele zasad na PlayRight z danych wyjściowych ograniczenia, które kontrolę typów danych wyjściowych, które można odtwarzać zawartość za pośrednictwem i ograniczeń, które można umieścić w miejscu korzystając z danym danych wyjściowych. Na przykład jeśli włączono DigitalVideoOnlyContentRestriction, następnie środowiska uruchomieniowego DRM zezwala tylko wideo, który będzie wyświetlany na cyfrowe dane wyjściowe (analogowy wyjść wideo nie będzie mógł przekazać zawartość).
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): Ta klasa reprezentuje PlayRight licencji PlayReady. Użytkownik go daje możliwość odtwarzania zawartości ograniczeniom skonfigurowane w licencji i na PlayRight (dla odtwarzania zasad). Większość zasad na PlayRight dotyczy ograniczenia danych wyjściowych, które kontrolę typów danych wyjściowych, które można odtwarzać zawartość za pośrednictwem. Zawiera także ograniczeń, które można umieścić w miejscu po danym dane wyjściowe są używane. Na przykład po włączeniu DigitalVideoOnlyContentRestriction środowiska uruchomieniowego DRM tylko umożliwia wideo do wyświetlenia na cyfrowe dane wyjściowe. (Analogowy wyjść wideo nie są dozwolone do przekazywania zawartości).
 
 > [!IMPORTANT]
-> Tego rodzaju ograniczenia może być wydajne, ale również może mieć wpływ na środowisko użytkownika. Jeśli ochrony dane wyjściowe są skonfigurowane zbyt restrykcyjne, zawartość może być odtworzona w niektórych klientów. Aby uzyskać więcej informacji, zobacz [reguły zgodności PlayReady](https://www.microsoft.com/playready/licensing/compliance/) dokumentu.
+> Tego rodzaju ograniczenia mogą być wydajne, ale również wpływają na środowisko użytkownika. Jeśli ochrony dane wyjściowe są zbyt restrykcyjne, zawartość może być odtworzona w niektórych klientów. Aby uzyskać więcej informacji, zobacz [reguły zgodności PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 > 
 > 
 
-Przykład jakie ochrony poziomy obsługuje Silverlight, zobacz: [Silverlight obsługę ochrony danych wyjściowych](http://go.microsoft.com/fwlink/?LinkId=617318).
+Aby uzyskać przykład ochrony poziomy obsługiwane przez program Silverlight, zobacz [Silverlight obsługę ochrony danych wyjściowych](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>Schemat XML szablonu licencji PlayReady
     <?xml version="1.0" encoding="utf-8"?>

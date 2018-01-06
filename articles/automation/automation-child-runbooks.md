@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Podrzędne elementy runbook automatyzacji Azure
 Jest najlepszym rozwiązaniem w automatyzacji Azure zapisu wielokrotnego użytku, moduły elementów runbook zawierających osobne funkcje, które mogą być używane przez inne elementy runbook. Nadrzędny element runbook często wywołuje jeden lub więcej podrzędnych elementów runbook do wykonania wymaganej funkcjonalności. Istnieją dwa sposoby do wywoływania podrzędnego elementu runbook, a każdy odznacza się istotnymi różnicami, które należy zrozumieć, dzięki czemu można określić, który będzie najlepiej w różnych sytuacjach.
@@ -30,7 +30,7 @@ Po wywołaniu wbudowanego elementu runbook jest uruchamiany w tym samym zadaniu 
 
 Po opublikowaniu elementu runbook należy opublikować już wszelkimi podrzędnymi elementami runbook, który wywołuje. Jest to spowodowane usługi Automatyzacja Azure tworzy skojarzenie z wszelkimi podrzędnymi elementami runbook podczas kompilowania elementu runbook. Jeśli nie są, nadrzędny element runbook będzie wydawać się opublikowany prawidłowo, ale wygeneruje wyjątek po uruchomieniu. W takim przypadku można ponownie opublikować nadrzędny element runbook, aby prawidłowo utworzyć odwołanie do podrzędnych elementów runbook. Nie trzeba ponownie opublikować nadrzędny element runbook, jeśli jedną z podrzędnych elementów runbook są zmieniane, ponieważ skojarzenie będzie zostały już utworzone.
 
-Parametry podrzędnego elementu runbook wywoływanego śródwierszowo mogą być dowolnego typu danych, włącznie z obiektami złożonymi, a nie Brak [serializacji JSON](automation-starting-a-runbook.md#runbook-parameters) się po uruchomieniu elementu runbook za pomocą portalu zarządzania Azure lub za pomocą polecenia cmdlet Start-AzureRmAutomationRunbook.
+Parametry podrzędnego elementu runbook wywoływanego śródwierszowo mogą być dowolnego typu danych, włącznie z obiektami złożonymi, a nie Brak [serializacji JSON](automation-starting-a-runbook.md#runbook-parameters) się po uruchomieniu elementu runbook przy użyciu portalu Azure lub z Polecenie cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Typy elementów Runbook
 Typy, które można wywołać siebie:
@@ -83,7 +83,7 @@ Poniższa tabela zawiera podsumowanie różnic między obiema metodami wywoływa
 | Konto usługi Automation |Nadrzędny element runbook można używać tylko podrzędnego elementu runbook na tym samym koncie automatyzacji. |Nadrzędny element runbook można użyć podrzędnego elementu runbook z dowolnego konta automatyzacji z tej samej subskrypcji platformy Azure i innej subskrypcji, jeśli masz połączenia z nią. |
 | Publikowanie |Podrzędnego elementu runbook należy opublikować przed opublikowaniem nadrzędnego elementu runbook. |Podrzędnego elementu runbook należy opublikować w dowolnym momencie przed uruchomieniem nadrzędnego elementu runbook. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Uruchamianie elementu runbook automatyzacji Azure](automation-starting-a-runbook.md)
 * [Element Runbook danych wyjściowych i komunikatów w usłudze Automatyzacja Azure](automation-runbook-output-and-messages.md)
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Zarządzanie aktualizacjami w stosie Azure — omówienie
 
 *Dotyczy: Azure stosu zintegrowane systemy*
 
-Firma Microsoft będzie udostępniać pakietów aktualizacji dla systemów stosu Azure zintegrowane w regularnych okresach, który będzie zazwyczaj dzielą czwarty wtorek każdego miesiąca, zaczynając od ogólnej dostępności. Poproś o ich procesu określonych powiadomień, aby zapewnić reach powiadomienia o aktualizacji organizacji OEM lub sprawdź, w tym miejscu w systemach notes\Integrated Concepts\Release informacje o wersji, aby uzyskać więcej informacji na temat określonych wersji.
+Firma Microsoft będzie udostępniać pakietów aktualizacji dla systemów stosu Azure zintegrowane w regularnych okresach, który będzie zazwyczaj dzielą czwarty wtorek każdego miesiąca, zaczynając od ogólnej dostępności. Poproś o ich procesu określonych powiadomień, aby zapewnić reach powiadomienia o aktualizacji organizacji OEM lub sprawdź, w tym miejscu w systemach Notes\Integrated Overview\Release informacje o wersji, aby uzyskać więcej informacji na temat określonych wersji.
 
 Każde wydanie aktualizacji oprogramowania firmy Microsoft jest powiązane jako jedna aktualizacja pakietu. Jako operator stosu Azure można łatwo importować, instalacji i Monitoruj postęp instalacji tych aktualizacji pakietów z portalu administratora. 
 
@@ -62,7 +62,7 @@ Na kafelku aktualizacji pokazuje bieżącą wersję programu Azure stosu. Na kaf
  
 - Na **zarządzania Region** kafelka, kliknij nazwę regionu. Wyświetl bieżącą wersję w **aktualizacji** kafelka.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Azure stos obsługi zasad](azure-stack-servicing-policy.md) 
 - [Zarządzanie regionu Azure stosu](azure-stack-region-management.md)     

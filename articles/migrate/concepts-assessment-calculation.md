@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Obliczenia dotyczące oceny
 
@@ -18,7 +18,7 @@ ms.lasthandoff: 12/12/2017
 
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Ocena migracji Azure ma trzy etapy. Ocena rozpoczyna się od analizy przydatności, po której następuje ocen wydajności na podstawie rozmiaru i w końcu co miesiąc kosztów szacowania. Maszyna tylko przenosi na późniejszym etapie Jeśli przekazaniem poprzedni. Na przykład w przypadku niepowodzenia sprawdzania Azure przydatności maszyna jest oznaczony jako nieodpowiednie dla platformy Azure oraz zmiany rozmiaru i kosztów nie można obliczyć. 
 
@@ -47,10 +47,11 @@ Maszyny, które chcesz przeprowadzić migrację do usługi Azure musi spełniać
 
 Po maszyna jest oznaczona jako odpowiednią dla platformy Azure, Azure migracji mapuje go do rozmiaru maszyny Wirtualnej na platformie Azure, używając następujących kryteriów:
 
-- **Wyboru magazynu**: Migrowanie Azure próbuje zamapować co dysk dołączony do maszyny na dysku na platformie Azure:-Azure migracji mnoży we/wy na sekundę (IOPS) przez współczynnik komfort. On również wielokrotności przepustowość (w MB/s) każdego dysku przez współczynnik komfort. Zapewnia to obowiązującą IOPS i przepływność dysku. Na podstawie tych, Azure migracji map na standard lub premium dysku na platformie Azure.
-    - Jeśli usługa nie może znaleźć dysku o wymagane IOPS & przepływności, oznacza maszynę jako nieodpowiednie dla platformy Azure.
-    - W przypadku odnalezienia zestaw odpowiednich dysków, Azure migracji wybiera te, które obsługują metody nadmiarowość magazynu i lokalizacji określonej w ustawieniach oceny.
-    - W przypadku wielu dysków kwalifikujących się wybiera jeden z najniższy koszt.
+- **Sprawdź magazynu**: Migrowanie Azure próbuje zamapować co dysk dołączony do maszyny na dysku na platformie Azure:
+    - Azure migracji mnoży we/wy na sekundę (IOPS) przez współczynnik komfort. On również wielokrotności przepustowość (w MB/s) każdego dysku przez współczynnik komfort. Zapewnia to obowiązującą IOPS i przepływność dysku. Na podstawie tych, Azure migracji map na standard lub premium dysku na platformie Azure.
+      - Jeśli usługa nie może znaleźć dysku o wymagane IOPS & przepływności, oznacza maszynę jako nieodpowiednie dla platformy Azure.
+      - W przypadku odnalezienia zestaw odpowiednich dysków, Azure migracji wybiera te, które obsługują metody nadmiarowość magazynu i lokalizacji określonej w ustawieniach oceny.
+      - W przypadku wielu dysków kwalifikujących się wybiera jeden z najniższy koszt.
 - **Przepływność dysku magazynu**: [więcej](../azure-subscription-service-limits.md#storage-limits) o Azure ogranicza na dysku i maszyny Wirtualnej.
 - **Typ dysku**: Migrowanie Azure obsługuje tylko dysków zarządzanych.
 - **Sieci wyboru**: Migrowanie Azure próbuje znaleźć maszyny Wirtualnej platformy Azure, który może obsługiwać liczbę kart sieciowych na komputerze lokalnym.
@@ -73,6 +74,6 @@ Po zakończeniu zmiany rozmiaru zalecenia dotyczące migracji Azure oblicza kosz
 Koszty są wyświetlane w walucie określonego w ustawieniach oceny. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Konfigurowanie oceny dla lokalnych maszyn wirtualnych VMware](tutorial-assessment-vmware.md)
