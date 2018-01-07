@@ -1,6 +1,6 @@
 ---
-title: "Najlepsze rozwiązania łagodzenia rozważana wykonywania na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Najlepsze rozwiązania dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach na platformie Azure."
+title: "Wskazówki dotyczące zmniejszenia rozważana wykonywania na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Wskazówki dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach na platformie Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 58d68a71785b1fc4a682c6d5dca1cf000457ee65
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 55cabb1df612474dd67a0bf7429ef10f63c6d193
+ms.sourcegitcommit: 113fe856a110b5522d2759ba1788b01697ae2b32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/07/2018
 ---
-# <a name="best-practices-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Najlepsze rozwiązania dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Wskazówki dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

@@ -8,11 +8,11 @@ Z publicznego ujawniania luki w zabezpieczeniach firma Microsoft [przyspieszony 
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Jak sprawdzić, które z maszyn wirtualnych są już zaktualizowany? 
 
-Można zobaczyć stan maszyn wirtualnych i jeśli ponownym w ramach w [listy maszyny Wirtualnej w portalu Azure](https://aka.ms/T08tdc). Maszyny wirtualne zostaną wyświetlone jako "Już zaktualizowany", jeśli aktualizacji została zastosowana, lub "Zaplanowane", jeśli nadal wymagana jest aktualizacja. Jeśli chcesz wyświetlić tylko maszyn wirtualnych "Zaplanowane" odnoszą się do Twojego [kondycja usługi Azure](https://portal.azure.com/).
+Można zobaczyć stan maszyn wirtualnych, i ponownym, w [listy maszyny Wirtualnej w portalu Azure](https://aka.ms/T08tdc). Maszyny wirtualne są wyświetlane jako "Już zaktualizowany", jeśli aktualizacji została zastosowana, lub "Zaplanowane", jeśli nadal wymagana jest aktualizacja. Jeśli chcesz wyświetlić tylko maszyn wirtualnych "Zaplanowane" odnoszą się do Twojego [kondycja usługi Azure](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Można sprawdzić dokładnie po maszyn wirtualnych zostanie uruchomiony ponownie?
 
-Najlepszy sposób pozyskania alert o ponownym uruchomieniu komputera jest skonfigurowanie [zaplanowane zdarzenia](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). To zapewnia powiadomienie 15 minut maszyny wirtualnej przechodzi w dół z powodu konserwacji — powoduje wywołanie interfejsu API do maszyny Wirtualnej, a ponadto wpis dziennika aktywności można wyzwalacza Azure Monitor do wysyłania wiadomości e-mail, SMS lub elementów webhook. Nie jest możliwe żadnych starszych powiadomienia.
+Najlepszy sposób pozyskania alert o ponownym uruchomieniu komputera jest skonfigurowanie [zaplanowane zdarzenia](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Zapewnia powiadomienie 15 minut maszyny wirtualnej, przechodząc w dół z powodu konserwacji.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>Można I ręcznie wdrożyć ponownie teraz, aby wykonać wymagane działania konserwacyjne? 
 
@@ -24,7 +24,7 @@ Ponowne uruchomienie większości trwa około **30 minut**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Czy należy zaktualizować system operacyjny gościa? 
 
-Ta aktualizacja infrastruktury platformy Azure adresów lukę w zabezpieczeniach na poziomie funkcji hypervisor i nie wymaga aktualizacji obrazów systemu Windows lub maszyny Wirtualnej systemu Linux. Jako zawsze należy kontynuować do zastosowania najlepsze rozwiązania dotyczące obrazów maszyny Wirtualnej. Należy zapoznać się z dostawcą systemów operacyjnych, aktualizacji i instrukcje, zgodnie z potrzebami. W przypadku klientów maszyny Wirtualnej systemu Windows Server wskazówki dotyczące teraz został opublikowany i jest dostępnych tutaj.
+Ta aktualizacja infrastruktury platformy Azure adresów lukę w zabezpieczeniach na poziomie funkcji hypervisor i nie wymaga aktualizacji obrazów systemu Windows lub maszyny Wirtualnej systemu Linux. Jako zawsze należy kontynuować do zastosowania najlepsze rozwiązania dotyczące obrazów maszyny Wirtualnej. Należy zapoznać się z dostawcą systemów operacyjnych, aktualizacji i instrukcje, zgodnie z potrzebami. W przypadku klientów maszyny Wirtualnej systemu Windows Server, wskazówki teraz została opublikowana i jest dostępny [tutaj](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Będzie negatywny wpływ na wydajność wyniku rozpoznawania tej aktualizacji?
 
