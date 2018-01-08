@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure
 Ten dokument przedstawia sposób użycia zalecenia w Centrum zabezpieczeń Azure ułatwiają ochronę zasobów platformy Azure.
@@ -73,7 +73,7 @@ Użyj poniższej tabeli jako odwołanie, aby lepiej zrozumieć dostępne zalecen
 | Zalecenie | Opis |
 | --- | --- |
 | [Włącz zbieranie danych dla subskrypcji](security-center-enable-data-collection.md) |Zaleca się włączenie funkcji zbierania danych w zasadach zabezpieczeń dla każdej subskrypcji i wszystkich maszyn wirtualnych platformy Azure (maszyny wirtualne) oraz komputerów z systemem innym niż Azure. |
-| [Koryguj luki w zabezpieczeniach systemu operacyjnego](security-center-remediate-os-vulnerabilities.md) |Zaleca się, że Dopasuj konfiguracje systemu operacyjnego przy użyciu reguł zalecanych konfiguracji, na przykład, nie zezwalaj na zapisywanie haseł. |
+| [Korygowanie konfiguracji zabezpieczeń](security-center-remediate-os-vulnerabilities.md) |Zaleca się, że Dopasuj konfiguracje systemu operacyjnego z zasadami konfiguracji zabezpieczeń, na przykład, nie zezwalaj na zapisywanie haseł. |
 | [Zastosuj aktualizacje systemu](security-center-apply-system-updates.md) |Zaleca się wdrożyć Brak zabezpieczenia systemu i krytycznych aktualizacji do systemu Windows i maszyn wirtualnych systemu Linux i komputerów. |
 | [Zastosuj Just In Time kontroli dostępu do sieci](security-center-just-in-time.md) | Zaleca się zastosowanie tylko w dostęp maszyny Wirtualnej. Tylko w czasie jest funkcja w wersji zapoznawczej i dostępne w warstwie standardowa Centrum zabezpieczeń. Zobacz [cennik](security-center-pricing.md) Aby dowiedzieć się więcej na temat Centrum zabezpieczeń firmy ceny warstw. |
 | [Uruchom ponownie po zaktualizowaniu systemu](security-center-apply-system-updates.md#reboot-after-system-updates) |Zaleca ponowne uruchomienie maszyny wirtualnej w celu ukończenia procesu stosowania aktualizacji systemu. |
@@ -108,7 +108,7 @@ Po przejrzeniu wszystkie zalecenia decyzji, które co należy najpierw zastosowa
 
 W tabeli powyższe zalecenia wybierz zalecenia i przeprowadzenie go jako przykład sposobu stosowania zaleceń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym dokumencie Przedstawiliśmy zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md) — informacje o sposobie konfigurowania zasad zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.

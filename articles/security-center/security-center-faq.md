@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące usługi Azure Security Center
 Często zadawane pytania odpowiedzi na pytania dotyczące Centrum zabezpieczeń Azure to usługa, która pomaga zapobiec, wykrywania i reagowania na zagrożenia lepszy wgląd w i kontroli w zakresie bezpieczeństwa zasobów na platformie Microsoft Azure.
@@ -35,13 +35,13 @@ Centrum zabezpieczeń Azure ułatwia zapobieganie zagrożeniom, ich wykrywanie i
 ### <a name="how-do-i-get-azure-security-center"></a>Jak uzyskać Centrum zabezpieczeń Azure?
 Centrum zabezpieczeń Azure jest włączone w ramach subskrypcji Microsoft Azure i są dostępne w [portalu Azure](https://azure.microsoft.com/features/azure-portal/). ([Zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj**, a Przewiń **Centrum zabezpieczeń**).  
 
-## <a name="billing"></a>Rozliczenia
+## <a name="billing"></a>Rozliczenie
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Jak działa rozliczeń dla Centrum zabezpieczeń Azure?
 Centrum zabezpieczeń jest oferowana w dwóch warstw:
 
 **Warstwę bezpłatna** zapewnia wgląd w stan zabezpieczeń zasobów platformy Azure, zasady zabezpieczeń podstawowych, zalecenia dotyczące zabezpieczeń i integracja z produktów i usług zabezpieczeń z partnerami.
 
-**Warstwy standardowa** dodaje zagrożeń zaawansowane możliwości wykrywania, takie jak zagrożenia analizy, analizy behawioralnej, wykrywania anomalii, przypadki naruszenia zabezpieczeń i zagrożenia autorstwa raportów. Warstwy standardowa zwolnieniu przez pierwsze 60 dni. Należy wybrać w dalszym ciągu korzystać z usługi ponad 60 dni, firma Microsoft automatycznie uruchomić do obciążania dla usługi.  Aby przeprowadzić uaktualnienie, wybierz [warstwy cenowej](https://docs.microsoft.com/azure/security-center/security-center-pricing) w zasadach zabezpieczeń.
+**Warstwy standardowa** dodaje zagrożeń zaawansowane możliwości wykrywania, takie jak zagrożenia analizy, analizy behawioralnej, wykrywania anomalii, przypadki naruszenia zabezpieczeń i zagrożenia autorstwa raportów. Korzystanie z warstwy Standardowa jest bezpłatne przez pierwsze 60 dni. Należy wybrać w dalszym ciągu korzystać z usługi ponad 60 dni, firma Microsoft automatycznie uruchomić do obciążania dla usługi.  Aby przeprowadzić uaktualnienie, wybierz [warstwy cenowej](https://docs.microsoft.com/azure/security-center/security-center-pricing) w zasadach zabezpieczeń.
 
 ## <a name="permissions"></a>Uprawnienia
 Centrum zabezpieczeń Azure używa [kontroli dostępu opartej na rolach (RBAC)](../active-directory/role-based-access-control-configure.md), która zapewnia [wbudowane role](../active-directory/role-based-access-built-in-roles.md), które można przypisać do użytkowników, grup i usług Azure.
@@ -131,7 +131,7 @@ Ten komunikat jest wyświetlany, gdy nie ma żadnych danych skanowania dla maszy
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Jak często Centrum zabezpieczeń skanowania w poszukiwaniu luk w zabezpieczeniach systemu operacyjnego, aktualizacji systemu i problemy z ochroną punktu końcowego?
 Czas oczekiwania w Centrum zabezpieczeń skanowania pod kątem luk w zabezpieczeniach, aktualizacje i problemów:
 
-- Luki w zabezpieczeniach systemu operacyjnego (przez Microsoft) — dane są aktualizowane w ciągu 48 godzin
+- Konfiguracje zabezpieczeń systemu operacyjnego — danych jest aktualizowany w ciągu 48 godzin
 - Aktualizacje systemu — danych jest aktualizowany w ciągu 24 godzin
 - Problemy z ochroną punktu końcowego — dane są aktualizowane w ramach 8 godzin
 

@@ -3,19 +3,19 @@ title: "Tworzenie środowiska usługi Azure Time Series Insights | Microsoft Doc
 description: "W tym artykule opisano, jak używać portalu Azure do tworzenia nowego środowiska Insights serii czasu."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Tworzenie nowego środowiska usługi Time Series Insights w witrynie Azure Portal
 W tym artykule opisano sposób tworzenia nowego środowiska Insights serii czasu przy użyciu portalu Azure.
@@ -60,7 +60,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko:
 
 Jeśli wdrożenie zakończy się powodzeniem, można wybrać **przejdź do zasobu** można skonfigurować inne właściwości, ustawienia zabezpieczeń, używając danych zasad dostępu, dodać źródła zdarzeń, a także innych działaniach.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Definiowanie zasad dostępu danych](time-series-insights-data-access.md) do zabezpieczania środowiska.
 * [Dodawanie źródła zdarzeń Centrum zdarzeń](time-series-insights-how-to-add-an-event-source-eventhub.md) do środowiska Azure czas serii Insights. 
 * [Wysyłanie zdarzeń](time-series-insights-send-events.md) w źródle zdarzeń.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Połącz z analizą dzienników programu Configuration Manager
 System Center Configuration Manager można połączyć z analizą dzienników w OMS, na synchronizowanie danych kolekcji urządzeń. Dzięki temu dane z hierarchii programu Configuration Manager dostępne w OMS.
@@ -30,8 +30,8 @@ Analiza dzienników obsługuje System Center Configuration Manager bieżącej ga
 ## <a name="configuration-overview"></a>Przegląd konfiguracji
 Poniższe instrukcje stanowią podsumowanie procesu do nawiązania połączenia analizy dzienników programu Configuration Manager.  
 
-1. W portalu zarządzania Azure rejestrowania programu Configuration Manager jako aplikacji sieci Web, aplikacji i/lub interfejs API sieci Web i upewnij się, że użytkownik ma identyfikator klienta i klucz tajny klienta z rejestracji z usługi Azure Active Directory. Zobacz [użycia portalu do tworzenia aplikacji i usług podmiot zabezpieczeń, który ma dostęp do zasobów usługi Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) Aby uzyskać szczegółowe informacje na temat wykonywania tego kroku.
-2. W portalu zarządzania Azure [Określ programu Configuration Manager (aplikacja sieci web w zarejestrowany) z uprawnieniami do OMS](#provide-configuration-manager-with-permissions-to-oms).
+1. W portalu Azure Zarejestruj programu Configuration Manager jako aplikację aplikacji sieci Web i/lub interfejs API sieci Web i upewnij się, że użytkownik ma identyfikator klienta i klucz tajny klienta z rejestracji z usługi Azure Active Directory. Zobacz [użycia portalu do tworzenia aplikacji i usług podmiot zabezpieczeń, który ma dostęp do zasobów usługi Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) Aby uzyskać szczegółowe informacje na temat wykonywania tego kroku.
+2. W portalu Azure [Określ programu Configuration Manager (aplikacja sieci web w zarejestrowany) z uprawnieniami do OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. W programie Configuration Manager [dodać połączenie za pomocą Kreatora dodawania pakietu OMS połączenia](#add-an-oms-connection-to-configuration-manager).
 4. W programie Configuration Manager [zaktualizować właściwości połączenia](#update-oms-connection-properties) Jeśli kiedykolwiek klucza tajnego klienta lub hasło wygaśnie lub zostaną utracone.
 5. Informacje z portalu OMS [pobrać i zainstalować program Microsoft Monitoring Agent](#download-and-install-the-agent) na komputerze z systemem roli systemu lokacji punktu połączenia programu Configuration Manager service. Agent wysyła dane programu Configuration Manager z usługą OMS.
@@ -41,7 +41,7 @@ Poniższe instrukcje stanowią podsumowanie procesu do nawiązania połączenia 
 Więcej o łączeniu programu Configuration Manager z usługą OMS na [synchronizowanie danych z programu Configuration Manager do programu Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Określ programu Configuration Manager z uprawnieniami do OMS
-Poniższa procedura zawiera portalu zarządzania Azure z uprawnieniami dostępu OMS. W szczególności należy przyznać *roli współautora* użytkownikom w grupie zasobów, aby umożliwić portalu zarządzania Azure, do łączenia programu Configuration Manager z usługą OMS.
+Poniższa procedura zawiera portalu Azure z uprawnieniami dostępu OMS. W szczególności należy przyznać *roli współautora* użytkownikom w grupie zasobów, aby umożliwić portalu Azure do łączenia programu Configuration Manager z usługą OMS.
 
 > [!NOTE]
 > Należy określić uprawnienia w OMS programu Configuration Manager. W przeciwnym razie zostanie wyświetlony komunikat o błędzie, korzystając z Kreatora konfiguracji w programie Configuration Manager.
@@ -81,9 +81,9 @@ Aby dodać połączenie OMS, środowiska programu Configuration Manager, należy
 1. W **administracji** obszaru roboczego programu Configuration Manager, wybierz **łącznik OMS**. Spowoduje to otwarcie **Kreatora dodawania pakietu OMS połączenia**. Wybierz **dalej**.
 2. Na **ogólne** ekranu, upewnij się, że wykonano następujące czynności i czy masz szczegółów dla każdego elementu, a następnie wybierz **dalej**.
 
-   1. W portalu zarządzania Azure programu Configuration Manager został zarejestrowany jako aplikację aplikacji sieci Web i/lub interfejs API sieci Web i czy masz [identyfikator klienta z rejestracji](../active-directory/active-directory-integrating-applications.md).
-   2. W portalu zarządzania Azure, zostanie utworzona aplikacja klucz tajny aplikacji zarejestrowanych w usłudze Azure Active Directory.  
-   3. W portalu zarządzania Azure podane aplikacji sieci web w zarejestrowany z uprawnieniami do OMS.  
+   1. W portalu Azure jako aplikację aplikacji sieci Web i/lub interfejs API sieci Web został zarejestrowany programu Configuration Manager i czy masz [identyfikator klienta z rejestracji](../active-directory/active-directory-integrating-applications.md).
+   2. W portalu Azure zostanie utworzona aplikacja klucz tajny aplikacji zarejestrowanych w usłudze Azure Active Directory.  
+   3. W portalu Azure podane aplikacji sieci web w zarejestrowany z uprawnieniami do OMS.  
       ![Połączenie do strony głównej kreatora OMS](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Na **usługi Azure Active Directory** ekranu, skonfigurować ustawienia połączenia z usługą OMS zapewniając Twojej **dzierżawy**, **identyfikator klienta**, i **klucz tajny klienta** , a następnie wybierz pozycję **dalej**.  
    ![Połączenie do strony OMS Kreatora usługi Azure Active Directory](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
@@ -132,5 +132,5 @@ Zaimportowane kolekcje widać wykryto liczbę komputerów z członkostwa w kolek
 
 Po kliknięciu jednej otworzy wyszukiwania, wyświetlanie wszystkich zaimportowane grupy albo wszystkie komputery, które należą do każdej grupy. Przy użyciu [wyszukiwania dziennika](log-analytics-log-searches.md), możesz uruchomić dokładnych analiz danych programu Configuration Manager.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Użyj [wyszukiwania dziennika](log-analytics-log-searches.md) Aby wyświetlić szczegółowe informacje o danych programu Configuration Manager.

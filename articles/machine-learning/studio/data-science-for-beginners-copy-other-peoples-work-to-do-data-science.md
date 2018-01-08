@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiowanie pracy innych osób w celu przeprowadzenia analizy danych
 ## <a name="video-5-data-science-for-beginners-series"></a>Wideo 5: Nauki danych serii dla początkujących
 Jeden tajemnice handlowe, dane nauki otrzymuje inne osoby do pracy dla Ciebie. Znajdź klastrowania przykład algorytmu w galerii Azure AI do użycia na potrzeby własne eksperymentu uczenia maszynowego.
 
 > [!IMPORTANT]
-> Zmieniono Cortana Intelligence Gallery **galerii Azure AI**. W związku z tym tekst i obrazy, w tym wykaz nieznacznie różnić wideo, która używa nazwy wcześniejsze.
+> **Cortana Intelligence Gallery** zmieniono **galerii Azure AI**. W związku z tym tekst i obrazy, w tym wykaz nieznacznie różnić wideo, która używa nazwy wcześniejsze.
 >
 
 Aby uzyskać wykorzystanie serii, obejrzyj je wszystkie. [Przejdź do listy filmów wideo](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ W tym przypadku dowiesz się, miejsce do znajdowania przykłady, których można
 
 Jeden tajemnice handlowe, dane nauki otrzymuje inne osoby do pracy dla Ciebie.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Znajdź przykłady w galerii Azure analizy AI
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Znajdź przykłady w galerii Azure AI
 
 Firma Microsoft jest oparta na chmurze usługa o nazwie [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) bardzo Zapraszamy spróbuj bezpłatnie. Zapewnia ona obszar roboczy w przypadku, gdy możesz eksperymentować z algorytmów uczenia maszynowego różnych oraz, jeśli masz już rozwiązania określone, będzie można uruchomić jako usługę sieci web.
 
