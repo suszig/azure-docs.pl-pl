@@ -36,6 +36,8 @@
   items:
     - name: Strumieniowe przesyłanie danych z usługi Event Hubs do magazynu danych
       href: event-grid-event-hubs-integration.md
+    - name: Szablony subskrypcji zdarzeń
+      href: event-subscription-template.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

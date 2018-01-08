@@ -39,14 +39,18 @@
       href: kubernetes-helm.md
     - name: Tworzenie aplikacji za pomocą narzędzia Draft
       href: kubernetes-draft.md
-    - name: Utrwalanie danych za pomocą usługi Azure Files
-      href: azure-files.md
     - name: Integracja z platformą Azure za pomocą usługi OSBA
       href: integrate-azure.md
     - name: Używanie pulpitu nawigacyjnego rozwiązania Kubernetes
       href: kubernetes-dashboard.md
     - name: Tworzenie jednostki usługi
       href: kubernetes-service-principal.md
+    - name: Konfigurowanie woluminów danych
+      items:
+        - name: Azure Files — trwały wolumin
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files — wolumin
+          href: azure-files.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

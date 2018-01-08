@@ -90,6 +90,7 @@
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Security Center Readiness Roadmap (Mapa gotowości usługi Security Center)](security-center-readiness-roadmap.md)
 ## [Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Omówienie usługi](https://azure.microsoft.com/services/security-center/)

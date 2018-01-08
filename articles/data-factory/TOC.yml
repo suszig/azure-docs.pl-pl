@@ -94,7 +94,7 @@
               href: connector-azure-file-storage.md
             - name: Azure Search
               href: connector-azure-search.md
-            - name: Usługa Azure SQL Database
+            - name: Azure SQL Database
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
@@ -303,6 +303,8 @@
       items:
         - name: Tworzenie wyzwalacza harmonogramu
           href: how-to-create-schedule-trigger.md
+        - name: Tworzenie wyzwalacza okna wirowania
+          href: how-to-create-tumbling-window-trigger.md
 - name: Dokumentacja
   items:
     - name: .NET
