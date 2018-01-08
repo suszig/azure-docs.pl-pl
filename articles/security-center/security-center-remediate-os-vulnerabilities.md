@@ -1,6 +1,6 @@
 ---
-title: "Korygowanie luk w zabezpieczeniach systemu operacyjnego w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
-description: "Ten dokument przedstawia sposób wykonania zalecenia Centrum zabezpieczeń Azure ** luk w zabezpieczeniach ** skorygować systemu operacyjnego."
+title: "Korygowanie konfiguracjach zabezpieczeń w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
+description: "Ten dokument przedstawia sposób wykonania zalecenia Centrum zabezpieczeń Azure **skorygować konfiguracjach zabezpieczeń**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Korygowanie luk w zabezpieczeniach systemu operacyjnego w Centrum zabezpieczeń Azure
-Centrum zabezpieczeń Azure codziennie analizuje systemu operacyjnego (OS), maszynach wirtualnych (VM) i na komputerach w konfiguracji, który można utworzyć maszyny wirtualne i bardziej narażony na ataki. Centrum zabezpieczeń zaleca Rozwiąż luk w zabezpieczeniach w przypadku konfiguracji systemu operacyjnego jest niezgodny z reguł zalecanych konfiguracji i zaleca zmiany konfiguracji, aby rozwiązać te luki w zabezpieczeniach.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Korygowanie konfiguracjach zabezpieczeń w Centrum zabezpieczeń Azure
+Centrum zabezpieczeń Azure codziennie analizuje systemu operacyjnego (OS), maszynach wirtualnych (VM) i na komputerach w konfiguracji, który można utworzyć maszyny wirtualne i bardziej narażony na ataki. Centrum zabezpieczeń zaleca Rozwiąż luk w zabezpieczeniach w przypadku konfiguracji systemu operacyjnego jest niezgodny z reguły konfiguracji zabezpieczeń i zaleca zmiany konfiguracji, aby rozwiązać te luki w zabezpieczeniach.
 
-> [!NOTE]
-> Aby uzyskać więcej informacji o określonych monitorowanych konfiguracji, zobacz [lista reguł zalecanych konfiguracji](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Aby uzyskać więcej informacji o określonych monitorowanych konfiguracji, zobacz [lista reguł zalecanych konfiguracji](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Zobacz [Dostosowywanie konfiguracji zabezpieczeń systemu operacyjnego](security-center-customize-os-security-config.md) Aby dowiedzieć się, jak dostosować oceny konfiguracji zabezpieczeń w Centrum zabezpieczeń.
 
 ## <a name="implement-the-recommendation"></a>Wykonania zalecenia
-Korygowanie systemu operacyjnego luk w zabezpieczeniach zostaje przedstawiony jako zalecenia w Centrum zabezpieczeń. To zalecenie będą wyświetlane w obszarze **zalecenia** i w obszarze **obliczeniowe**.
+Skoryguj zabezpieczeń, które niezgodność konfiguracji jest przedstawiany jako zalecenia w Centrum zabezpieczeń. To zalecenie będą wyświetlane w obszarze **zalecenia** i w obszarze **obliczeniowe**.
 
-W tym przykładzie przedstawiono **luk w zabezpieczeniach skorygować systemu operacyjnego (przez firmę Microsoft)** zalecenie, w obszarze **obliczeniowe**.
+W tym przykładzie przedstawiono **skorygować konfiguracjach zabezpieczeń** zalecenie, w obszarze **obliczeniowe**.
 1. Wybierz **obliczeniowe** w menu głównym Centrum zabezpieczeń.
 
-   ![Koryguj luki w zabezpieczeniach systemu operacyjnego][1]
+   ![Korygowanie konfiguracji zabezpieczeń][1]
 
-2. W obszarze **obliczeniowe**, wybierz pozycję **luk w zabezpieczeniach skorygować systemu operacyjnego (przez firmę Microsoft)**. **Niezgodność luk w zabezpieczeniach systemu operacyjnego (przez firmę Microsoft)** otwiera pulpitu nawigacyjnego.
+2. W obszarze **obliczeniowe**, wybierz pozycję **skorygować konfiguracjach zabezpieczeń**. **Konfiguracje zabezpieczeń** otwiera.
 
-   ![Koryguj luki w zabezpieczeniach systemu operacyjnego][2]
+   ![Konfiguracje zabezpieczeń][2]
 
   Udostępnia górnej części pulpitu nawigacyjnego:
 
@@ -77,11 +74,11 @@ W tym przykładzie przedstawiono **luk w zabezpieczeniach skorygować systemu op
   - RZECZYWISTA wartość--Zwracana wartość po analizie względem reguły konfiguracji systemu operacyjnego maszyny Wirtualnej
   - — Reguła zasada operacji używane przez Centrum zabezpieczeń podczas analizy konfiguracji systemu operacyjnego maszyny Wirtualnej względem reguły
 
-4. Wybierz **wyszukiwania** ikona na Wstążce top. Wyszukiwanie Otwiera listę obszarów roboczych, których maszyn wirtualnych i komputerów z wybranych luki w zabezpieczeniach systemu operacyjnego. Tego bloku wybór obszaru roboczego jest wyświetlana tylko w przypadku wybranej reguły dotyczą wiele maszyn wirtualnych, które są podłączone do różnych obszarów roboczych.
+4. Wybierz **wyszukiwania** ikona na Wstążce top. Wyszukiwanie Otwiera listę obszarów roboczych, mających maszyn wirtualnych i komputerów z niezgodność konfiguracji wybranego zabezpieczeń. Tego bloku wybór obszaru roboczego jest wyświetlana tylko w przypadku wybranej reguły dotyczą wiele maszyn wirtualnych, które są podłączone do różnych obszarów roboczych.
 
   ![Obszary robocze wymienione][4]
 
-5. Wybierz obszar roboczy. Zapytania wyszukiwania analizy dzienników otwiera filtrowane do obszaru roboczego z luk w zabezpieczeniach systemu operacyjnego.
+5. Wybierz obszar roboczy. Zapytania wyszukiwania analizy dzienników otwiera filtrowane do obszaru roboczego z niezgodność konfiguracji zabezpieczeń.
 
   ![Obszar roboczy z luk w zabezpieczeniach systemu operacyjnego][5]
 
@@ -89,8 +86,10 @@ W tym przykładzie przedstawiono **luk w zabezpieczeniach skorygować systemu op
 
   ![Filtrowane dla tego komputera][6]
 
-## <a name="next-steps"></a>Następne kroki
-W tym artykule przedstawiono sposób wykonania zalecenia Centrum zabezpieczeń "Luk Skoryguj systemu operacyjnego". Możesz przejrzeć zestaw reguł konfiguracji [tutaj](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Centrum zabezpieczeń używane CCE (typowych konfiguracji wyliczenie) do przypisywania unikatowych identyfikatorów dla reguły konfiguracji. Odwiedź stronę [CCE](https://nvd.nist.gov/cce/index.cfm) witryny, aby uzyskać więcej informacji.
+## <a name="next-steps"></a>Kolejne kroki
+W tym artykule przedstawiono sposób wykonania zalecenia Centrum zabezpieczeń "Skoryguj konfiguracje zabezpieczeń". Zobacz [Dostosowywanie konfiguracji zabezpieczeń systemu operacyjnego](security-center-customize-os-security-config.md) Aby dowiedzieć się, jak dostosować oceny konfiguracji zabezpieczeń w Centrum zabezpieczeń.
+
+Możesz przejrzeć zestaw reguł konfiguracji [tutaj](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Centrum zabezpieczeń używane CCE (typowych konfiguracji wyliczenie) do przypisywania unikatowych identyfikatorów dla reguły konfiguracji. Odwiedź stronę [CCE](https://nvd.nist.gov/cce/index.cfm) witryny, aby uzyskać więcej informacji.
 
 Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące zasoby:
 

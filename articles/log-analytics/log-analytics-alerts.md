@@ -4,7 +4,7 @@ description: "Alerty w analizy dzienników zidentyfikować ważne informacje zaw
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 6cfd2a46-b6a2-4f79-a67b-08ce488f9a91
 ms.service: log-analytics
@@ -12,23 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Opis alertów w analizy dzienników
 
-Alerty w analizy dzienników zidentyfikować ważne informacje zawarte w repozytorium analizy dzienników.  Ten artykuł zawiera szczegółowe informacje, jak alertu reguł w pracach analizy dzienników i opisano różnice między różnych typów reguł alertów.
+Alerty w analizy dzienników zidentyfikować ważne informacje zawarte w repozytorium analizy dzienników.  W tym artykule omówiono niektóre decyzji projektowych, które należy podjąć takie decyzje na podstawie częstotliwości zbierania danych jest kwerendy, losowego opóźnienia z wprowadzanie danych prawdopodobnie spowodowane opóźnieniem sieci lub wydajności przetwarzania i zatwierdzania danych w Dzienniku Repozytorium Analytics.  Również szczegółowe reguły jak alertów w pracach analizy dzienników i opisano różnice między różnych typów reguł alertów.
 
 W procesie tworzenia reguły alertów zobacz następujące artykuły:
 
 - Tworzyć reguły alertów za pomocą [portalu Azure](log-analytics-alerts-creating.md)
 - Tworzyć reguły alertów za pomocą [szablonu usługi Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
 - Tworzyć reguły alertów za pomocą [interfejsu API REST](log-analytics-api-alerts.md)
+
+## <a name="considerations"></a>Zagadnienia do rozważenia
+
+Szczegółowe informacje o częstotliwości zbierania danych dla różnych rozwiązań i typu danych są dostępne w [szczegóły kolekcji danych](log-analytics-add-solutions.md#data-collection-details) artykułu Omówienie rozwiązania. Jak wspomniano w tym artykule, częstotliwość zbierania może być jako rzadkim jako co siedem dni do *na powiadomienie*. Należy zrozumieć i należy wziąć pod uwagę częstotliwość zbierania danych, przed rozpoczęciem konfigurowania alertów. 
+
+- Częstotliwość zbierania Określa, jak często agent pakietu OMS na maszynach będzie wysyłać dane do analizy dzienników. Na przykład, jeśli częstotliwość kolekcji to 10 minut i nie bez innych opóźnień w systemie, następnie sygnatury czasowe przekazywanych danych może być dowolnym przedziału od 0 do 10 minut przed dodaniem go do repozytorium i jest wyszukiwanie w analizy dzienników.
+
+- Przed wyzwoleniu alertu danych musi być przystosowana do repozytorium, aby była ona dostępna po otrzymaniu kwerendy. Z powodu opóźnienia opisane powyżej częstotliwość kolekcji nie jest taki sam jak czas, który dane są dostępne dla zapytań. Na przykład, gdy dane mogą być zbierane dokładnie na 10 minut, dane będą dostępne w repozytorium danych w nieregularnych odstępach czasu. Hipotetycznie dane zebrane na zero, 10 do 20 minut mogą być dostępne wyszukiwania 25, 28 i 35 minut odpowiednio lub w nieregularnych odstępach zależeć od wprowadzanie opóźnienia. Najgorszy te opóźnienia jest udokumentowany w [umowy SLA dla analizy dzienników](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), nie obejmuje opóźnienia wynikające z kolekcji częstotliwość lub sieci opóźnienia między komputerem a usługi analizy dzienników.
 
 
 ## <a name="alert-rules"></a>Reguły alertów
@@ -37,11 +45,27 @@ Alerty są tworzone przez reguły alertów, które automatycznie uruchamiać dzi
 
 ![Alerty usługi Log Analytics](media/log-analytics-alerts/overview.png)
 
+Ponieważ ma oczekiwanego opóźnienia z wprowadzanie danych dziennika, bezwzględnego czasu między indeksowanie danych i gdy jest ona dostępna do wyszukiwania może być nieprzewidywalne.  Dostępność w pobliżu czasie rzeczywistym danych zebranych powinien brane pod uwagę podczas definiowania reguł alertów.    
+
+Istnieje zależność między niezawodności alertów i elastyczność alertów. Możesz skonfigurować alert parametry, aby zminimalizować fałszywe alerty i Brak alertów lub możesz wybrać alert parametry, aby szybko reagować na warunki, które są monitorowane, ale od czasu do czasu generowania alertów FAŁSZ lub pominięta.
+
 Reguły alertów są określone przez następujące informacje:
 
 - **Dziennik wyszukiwania**.  Zapytanie, do którego jest uruchamiany za każdym razem, gdy generowane reguły alertów.  Rekordów zwróconych przez to zapytanie jest używany do określenia, czy alert jest tworzony.
-- **Przedział czasu**.  Określa przedział czasu dla zapytania.  Zapytanie zwraca tylko te rekordy, które zostały utworzone w ramach tego zakresu bieżącego czasu.  Może to być dowolna wartość od 5 minut do 24 godzin. Na przykład jeśli przedział czasu jest ustawiona na 60 minut, a godzina 13:15 będzie uruchomieniu kwerendy, jest zwracana tylko rekordy między 12:15:00 a 13:15:00.
-- **Częstotliwość**.  Określa, jak często mają być uruchamiane zapytania. Może być dowolną wartość z zakresu od 5 minut do 24 godzin. Powinna być równa lub mniejsza niż przedział czasu.  Jeśli wartość jest większa niż przedział czasu, istnieje ryzyko rekordów jest pominięte.<br>Rozważmy na przykład okno czasu 30 minut i częstotliwość 60 minut.  Jeśli zapytanie jest uruchomione 1:00, zwraca rekordów między 12:30 i 1:00 PM.  Przy następnym uruchom zapytanie to 2:00 po zwróci rekordów między 1:30 i 2:00.  Nigdy nie będzie można obliczyć wszystkie rekordy między 1:00 i 1:30.
+- **Przedział czasu**.  Określa przedział czasu dla zapytania.  Zapytanie zwraca tylko te rekordy, które zostały utworzone w ramach tego zakresu bieżącego czasu.  Może to być dowolna wartość od 5 minut do 24 godzin. Zakres musi być dostatecznie szerokie, aby pomieścić uzasadnione opóźnienia w wprowadzanie. Przedział czasu musi mieć dwa razy długość najdłuższego opóźnienia, które mają być w stanie obsłużyć.<br> Na przykład jeśli chcesz otrzymywać alerty są wiarygodne opóźnienia 30 minut, następnie zakres musi być jedną godzinę.  
+
+    Istnieją dwa objawy, które mogą wystąpić, jeśli przedział czasu jest za mały.
+
+    - **Brak alertów**. Przykładowa opóźnienie wprowadzanie jest czasami 60 minut, ale w większości przypadków jest 15 minut.  Jeśli przedział czasu jest ustawiona na 30 minut następnie go nie spełni alert, gdy wartość opóźnienia wynosi 60 minut, ponieważ danych nie będzie dostępnych do wyszukiwania, gdy jest wykonywana kwerenda alertu. 
+   
+        >[!NOTE]
+        >Sprawdź, dlaczego alert zostało pominięte w trakcie jest niemożliwe. Na przykład w przypadku powyżej, dane są zapisywane w repozytorium 60 minut po wykonaniu kwerendy alertów. Jeśli alert została pominięta, czy następnego dnia zapytanie jest wykonywane dla interwału czasu poprawne jest zauważeniu następnego dnia, kryteria wyszukiwania dziennika umożliwi dopasowanie wynik. Wydaje się, że alert powinien mieć zostało wyzwolone. W rzeczywistości alert nie został uruchomiony, ponieważ dane nie jest jeszcze dostępna po alertu zapytanie zostało wykonane. 
+        >
+ 
+    - **Alerty false**. Czasami alertu zapytania są przeznaczone do identyfikowania braku zdarzeń. Przykładem jest wykrywanie, gdy maszyna wirtualna jest offline przez wyszukiwanie brakujących interwałów pulsu. Jako powyżej, jeśli pulsu nie jest dostępna dla wyszukiwania w oknie alertu następnie alert zostanie wygenerowany, ponieważ dane pulsu nie została jeszcze można wyszukiwać i dlatego nie istnieją. Jest to samo, jakby został legalnie offline maszyny Wirtualnej i nie było żadnych danych pulsu generowane przez nią. Wykonywania zapytania w następnym dniu nad oknem prawidłową godzinę będzie wskazują, że wystąpiły pulsów i tworzenia alertu nie powiodło się. W rzeczywistości impulsy nie były jeszcze dostępne dla wyszukiwania ponieważ przedział czasu alertów została ustawiona za mały.  
+
+- **Częstotliwość**.  Określa, jak często zapytanie powinna być uruchamiana i można wprowadzić bardziej odpowiednie w przypadku normalnych alerty. Wartość może należeć do zakresu od 5 minut do 24 godzin i powinna być równa lub mniejsza niż okno czasu alertu.  Jeśli wartość jest większa niż przedział czasu, istnieje ryzyko rekordów jest pominięte.<br>Jeśli celem jest wiarygodne dla opóźnienia do 30 minut i normalne opóźnienie to 10 minut, przedział czasu musi być jedną godzinę i wartość częstotliwości powinna być 10 minut. To spowoduje wywołanie alertu o danych z opóźnieniem 10 minut wprowadzanie od 10 do 20 minut od wygenerowania alertu danych.<br>Aby uniknąć tworzenia wielu alertów dla tych samych danych, ponieważ przedział czasu jest zbyt szeroki [pomijania alertów](log-analytics-tutorial-response.md#create-alerts) opcji można użyć do pomijania alertów dla co najmniej tak długo, jak przedział czasu.
+  
 - **Próg**.  Wyniki wyszukiwania dziennika są oszacowywane, aby określić, czy można utworzyć alertu.  Próg jest różne dla różnych typów reguł alertów.
 
 Każdej reguły alertu w analizy dzienników jest jednym z dwóch typów.  Każdy z tych typów jest szczegółowo opisane w kolejnych sekcjach.
@@ -76,18 +100,15 @@ W niektórych przypadkach warto utworzyć alert w przypadku braku zdarzeń.  Na 
 
 Na przykład, jeśli chcesz alertów po uruchomieniu procesor ponad 90%, można skorzystać podobnie do następującej kwerendy z progiem dla reguły alertu **większa niż 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-    
+Jeśli chcesz alert, gdy procesor średnio ponad 90% okna określony czas, należy użyć zapytania za pomocą [miar polecenia](log-analytics-search-reference.md#commands) podobnie do następującego z progiem dla reguły alertu **większa niż 0**.
 
-Jeśli chce się alert, gdy procesor średnio ponad 90% okna określony czas, użyj zapytania podobnie do następującej z progiem dla reguły alertu **większa niż 0**.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
-
-    
 >[!NOTE]
-> Jeśli obszar roboczy nie została jeszcze uaktualniona do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie powyżej zapytania zostałby zmieniony na następujący ostatnim korzystanie z [miar polecenia](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
-> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
+> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie zmieniłby powyżej zapytania do następującego:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Metryki pomiaru reguły alertów
@@ -102,7 +123,7 @@ Za pomocą dowolnego zapytania dla **liczba wyników** reguły alertu, istnieją
 
 - **Funkcję agregacji**.  Określa obliczeń, który jest wykonywane i potencjalnie liczbową pole do zagregowania.  Na przykład **count()** zwróci liczbę rekordów w zapytaniu, **avg(CounterValue)** zwróci średnią pole równowartości dla interwału.
 - **Pole grupy**.  Zostaje utworzony rekord z zagregowane wartości dla poszczególnych wystąpień tego pola, a alert jest generowany dla każdego.  Na przykład, jeśli chcesz generować alert dla każdego komputera, możesz użyć **przez komputer**.   
-- **Interwał**.  Określa przedział czasu, w którym są agregowane.  Na przykład, jeśli określono **5minutes**, może zostać utworzony rekord dla każdego wystąpienia pola grupy przez przedział czasu określony dla alertu agregowana co 5 minut.
+- **Interwał**.  Określa przedział czasu, w którym są agregowane.  Na przykład, jeśli określono **5 minut**, może zostać utworzony rekord dla każdego wystąpienia pola grupy przez przedział czasu określony dla alertu agregowana co 5 minut.
 
 #### <a name="threshold"></a>Próg
 Próg metryki pomiaru reguły alertów jest definiowany przez wartości zagregowanej i liczbę naruszeń.  Dowolnego punktu danych w dzienniku wyszukiwania przekracza tę wartość, jest uznawane za naruszenia.  Jeśli liczba naruszeń w dla dowolnego obiektu w wynikach przekracza określoną wartość, alert zostanie utworzony dla tego obiektu.
@@ -110,11 +131,11 @@ Próg metryki pomiaru reguły alertów jest definiowany przez wartości zagregow
 #### <a name="example"></a>Przykład
 Rozważmy scenariusz, w którym chce alert dowolnego komputera przekroczeniu użycie procesora przez 90% trzy razy ponad 30 minut.  Należy utworzyć regułę alertu z poniższymi szczegółami.  
 
-**Zapytanie:** wydajności | gdzie ObjectName == "Procesor" i CounterName == "% czasu procesora" | Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 5 m), komputer<br>
+**Zapytanie:** typu = wydajności ObjectName = CounterName procesora = "% czasu procesora" | miar avg(CounterValue) interwał komputera 5 minut<br>
 **Przedział czasu:** 30 minut<br>
 **Alert częstotliwości:** 5 minut<br>
 **Wartość agregacji:** większa niż 90<br>
-**Na podstawie wyzwalania alertu:** łączna liczba naruszeń większej niż 2<br>
+**Na podstawie wyzwalania alertu:** naruszeń łączna liczba jest większa niż 5<br>
 
 Zapytanie spowodowałoby średnią wartość dla każdego komputera co 5 minut.  To zapytanie może działać co 5 minut przez dane zbierane przez poprzednie 30 minut.  Poniżej przedstawiono przykładowe dane na trzech komputerach.
 
@@ -146,5 +167,5 @@ Istnieją inne rodzaje rekordy alertu przez [rozwiązania do zarządzania Alert]
 ## <a name="next-steps"></a>Kolejne kroki
 * Zainstaluj [rozwiązania zarządzania alertami](log-analytics-solution-alert-management.md) do analizowania alertach tworzonych w analizy dzienników oraz alertów zebranych z programu System Center Operations Manager.
 * Przeczytaj więcej na temat [dziennika wyszukiwania](log-analytics-log-searches.md) który generowania alertów.
-* Zakończenie wskazówki dla [Konfigurowanie elementu webhook](log-analytics-alerts-webhooks.md) z reguły alertu.  
+* Zakończenie wskazówki dla [Konfigurowanie webook](log-analytics-alerts-webhooks.md) z reguły alertu.  
 * Dowiedz się, jak napisać [elementy runbook automatyzacji Azure](https://azure.microsoft.com/documentation/services/automation) skorygować problemy zidentyfikowane przez alertów.

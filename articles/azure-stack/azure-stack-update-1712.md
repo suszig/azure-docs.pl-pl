@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure aktualizacji 1712 stosu
 
@@ -31,17 +31,9 @@ W tym artykule opisano ulepszenia i poprawki w tym pakiecie aktualizacji znane p
 
 ## <a name="build-reference"></a>Tworzenie odwołania
 
-Numer kompilacji aktualizacji 1712 stosu Azure jest **180103.2**.
+Numer kompilacji aktualizacji 1712 stosu Azure jest **180106.1**. Jeśli klient został wdrożony **180103.2** wcześniej, nie trzeba zastosować **180106.1**.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-
-> [!WARNING]
-> Jeśli włączony jest obecnie aktywny program ten zdalnej sesji interaktywnej, należy zakończyć sesję przed rozpoczęciem procesu instalacji aktualizacji stosu Azure. Możesz wpisać **zakończyć** w konsoli zdalnej, aby zakończyć sesję.
-> Można sprawdzić, czy jest wszelkie istniejące sesje zdalne program ten uruchamiając dwóch poleceń programu PowerShell, **Get-PSSession** która wyświetla wszystkie aktywne sesje zdalne, następnie **Remove-PSSession** zakończenie i Usuń aktywne sesje zdalne. Polecenia programu PowerShell trzeba uruchomić z dowolnego komputera użyty do utworzenia sesji zdalnych program ten w środowisku Azure stosu. Poniżej przedstawiono przykładowe polecenia programu PowerShell:
-```
-Get-PSSession | Remove-PSSession
-```
-Ponadto nie należy tworzyć sesji program ten, nawet po aktualizacji stosu Azure została uruchomiona.
 
 > [!IMPORTANT]
 > Nie należy próbować tworzyć maszyn wirtualnych podczas procesu instalacji aktualizacji 1712. Zobacz [zarządzania aktualizacjami w omówieniu stosu Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) więcej szczegółów.
@@ -100,7 +92,7 @@ Ta sekcja zawiera znane problemy, które mogą wystąpić podczas instalacji akt
 
 ### <a name="known-issues-post-installation"></a>Znane problemy (po instalacji)
 
-Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **180103.2**.
+Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **180106.1**.
 
 #### <a name="portal"></a>Portal
 
@@ -123,17 +115,17 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **180103.2**.
 
 - Jeśli ponowne uruchomienie wystąpienia roli infrastruktury, może zostać wyświetlony komunikat informujący, że ponowne uruchomienie nie powiodło się. Jednak ponownego uruchamiania faktycznie zakończyło się pomyślnie.
 
-#### <a name="marketplace"></a>Portal Marketplace
+#### <a name="marketplace"></a>Marketplace
 - Niektóre elementy marketplace są usuwane w tej wersji z powodu problemów ze zgodnością. Te zostaną ponownie włączone po dalszych weryfikacji.
 - Użytkownicy można przeglądać pełnego portalu marketplace bez subskrypcji i widoczne elementy administracyjne, takie jak plany i oferty. Te elementy są niefunkcjonalne dla użytkowników.
 
-#### <a name="compute"></a>Wystąpienia obliczeniowe
+#### <a name="compute"></a>Compute
 - Użytkownicy skorzystać z opcji, aby utworzyć maszynę wirtualną z magazynu geograficznie nadmiarowego. Ta konfiguracja powoduje niepowodzenie tworzenia maszyny wirtualnej.
 - Można skonfigurować dostępność maszyn wirtualnych, ustaw tylko z jednej domeny błędów i jedną domenę aktualizacji.
 - Brak nie doświadczenie marketplace, aby utworzyć zestawy skalowania maszyny wirtualnej. Można utworzyć skali ustawić za pomocą szablonu.
 - Ustawienia skalowania dla zestawy skalowania maszyny wirtualnej nie są dostępne w portalu. Jako rozwiązanie alternatywne można zastosować [programu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z powodu różnic wersji programu PowerShell, należy użyć `-Name` parametru zamiast `-VMScaleSetName`.
  
-#### <a name="networking"></a>Networking
+#### <a name="networking"></a>Sieć
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
@@ -161,6 +153,11 @@ W usłudze Azure Active Directory Federation Services (ADFS) wdrożone w środow
 
 Możesz pobrać pakiet aktualizacji 1712 stosu Azure z [tutaj](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Więcej informacji
+
+Firma Microsoft udostępnia sposób monitorowania i wznowić aktualizacji za pomocą uprzywilejowanych punktu końcowego (program ten) zainstalowanych z 1712 aktualizacji.
+
+- Zobacz [monitorowania aktualizacji w stosie Azure, korzystając z dokumentacji uprzywilejowanych punktu końcowego](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Zobacz także
 
 - Zobacz [zarządzania aktualizacjami w omówieniu stosu Azure](azure-stack-updates.md) omówienie zarządzania aktualizacjami w stosie Azure.
