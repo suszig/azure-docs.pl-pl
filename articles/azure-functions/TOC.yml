@@ -71,10 +71,10 @@
       items:
         - name: Obsługiwane języki
           href: supported-languages.md
-        - name: 'Skrypt języka C#'
-          href: functions-reference-csharp.md
-        - name: Biblioteka klas programu .NET
+        - name: 'C# (biblioteka klas)'
           href: functions-dotnet-class-library.md
+        - name: 'Skrypt języka C# (csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -183,7 +183,7 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
-        - name: Usługa Event Hubs
+        - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Plik zewnętrzny
           href: functions-bindings-external-file.md

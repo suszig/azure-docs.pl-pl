@@ -2,7 +2,7 @@
 ## [Co to jest Cloud Services?](cloud-services-choose-me.md)
 ## [Pliki konfiguracji usługi Cloud Service i tworzenie pakietów](cloud-services-model-and-package.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Przykładowa usługa Cloud Service — .NET](cloud-services-dotnet-get-started.md)
 ## [Przykładowy kod w języku Python dla usługi w chmurze w programie Visual Studio](cloud-services-python-ptvs.md)
 ## [Konfigurowanie hybrydowego klastra HPC za pomocą pakietu Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md)
@@ -35,7 +35,7 @@
 
 ### Konfigurowanie pulpitu zdalnego
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Program PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Wdrażanie
 ### [Tworzenie i wdrażanie usługi w chmurze w portalu](cloud-services-how-to-create-deploy-portal.md)
@@ -44,6 +44,7 @@
 ### [Połączenie z niestandardowym kontrolerem domeny](cloud-services-connect-to-custom-domain.md)
 
 ## Zarządzanie usługą
+### [Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym](mitigate-se.md)
 ### [Typowe zadania zarządzania](cloud-services-how-to-manage-portal.md)
 ### [Konfigurowanie usługi w chmurze](cloud-services-how-to-configure-portal.md)
 ### [Zarządzanie usługą w chmurze przy użyciu usługi Azure Automation](automation-manage-cloud-services.md)
@@ -111,4 +112,4 @@
 ## [Cennik](https://azure.microsoft.com/pricing/details/cloud-services/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

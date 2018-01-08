@@ -73,7 +73,7 @@
 
 ## [Zarządzanie grupami i członkami](active-directory-manage-groups.md)
 ### Zarządzanie grupami
-#### [Witryna Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Zarządzanie członkami grup](active-directory-groups-members-azure-portal.md)
 ### [Zarządzenie właścicielami grup](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,7 +93,7 @@
 #### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Polecenia cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Tworzenie reguł zaawansowanych
-#### [Witryna Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurowanie grup samoobsługi](active-directory-accessmanagement-self-service-group-management.md)
 ### [Rozwiązywanie problemów](active-directory-accessmanagement-troubleshooting.md)
 
@@ -140,7 +140,7 @@
 ### [Wymagania dotyczące danych związane z samoobsługowym resetowaniem haseł](active-directory-passwords-data.md)
 ### [Raportowanie samoobsługowego resetowania haseł](active-directory-passwords-reporting.md)
 ### Administratorzy IT: resetowanie haseł
-#### [Witryna Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [Licencjonowanie funkcji samoobsługowego resetowania haseł](active-directory-passwords-licensing.md)
 ### [Zapisywanie zwrotne haseł](active-directory-passwords-writeback.md)
 ### [Rozwiązywanie problemów](active-directory-passwords-troubleshoot.md)
@@ -364,4 +364,4 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
