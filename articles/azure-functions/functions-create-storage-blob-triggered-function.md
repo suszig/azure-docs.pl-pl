@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Tworzenie funkcji wyzwalanej przez magazyn obiektów Blob
 
@@ -51,19 +51,23 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Wybierz szablon **BlobTrigger** dla żądanego języka i użyj ustawień określonych w tabeli.
+2. W polu wyszukiwania wpisz `blob`, a następnie wybierz żądany język dla szablonu wyzwalacza usługi Blob Storage.
 
-    ![Tworzenie funkcji wyzwalanej przez magazyn obiektów Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Wybierz szablon wyzwalacza usługi Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Użyj ustawień w sposób określony w tabeli znajdującej się poniżej obrazu.
+
+    ![Tworzenie funkcji wyzwalanej przez magazyn obiektów Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|
-    | **Ścieżka**   | mycontainer/{nazwa}    | Lokalizacja w monitorowanym magazynie obiektów Blob. Nazwa pliku obiektu Blob jest przekazywana w powiązaniu jako parametr _nazwa_.  |
-    | **Połączenie konta magazynu** | AzureWebJobStorage | Możesz skorzystać z połączenia konta magazynu już używanego przez aplikację funkcji lub utworzyć nowe.  |
-    | **Nazwa funkcji** | Unikatowa w obrębie aplikacji funkcji | Nazwa funkcji wyzwalanej przez obiekt blob. |
+    | **Nazwa** | Unikatowa w obrębie aplikacji funkcji | Nazwa funkcji wyzwalanej przez obiekt blob. |
+    | **Ścieżka**   | samples-workitems/{name}    | Lokalizacja w monitorowanym magazynie obiektów Blob. Nazwa pliku obiektu Blob jest przekazywana w powiązaniu jako parametr _nazwa_.  |
+    | **Połączenie konta magazynu** | AzureWebJobsStorage | Możesz skorzystać z połączenia konta magazynu już używanego przez aplikację funkcji lub utworzyć nowe.  |
 
 3. Kliknij przycisk **Utwórz**, aby utworzyć funkcję.
 
-Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz kontener **mycontainer**.
+Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz kontener **samples-workitems**.
 
 ## <a name="create-the-container"></a>Tworzenie kontenera
 
@@ -79,7 +83,7 @@ Następnie nawiąż połączenie z kontem usługi Azure Storage i utwórz konten
 
     ![Wprowadzanie poświadczeń magazynu i nawiązywanie połączenia.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Rozwiń dołączone konto magazynu, kliknij prawym przyciskiem myszy pozycję **Blob containers** (Kontenery obiektów Blob), kliknij polecenie **Create blob container** (Utwórz kontener obiektów Blob), wpisz nazwę `mycontainer`, a następnie naciśnij klawisz Enter.
+1. Rozwiń dołączone konto magazynu, kliknij prawym przyciskiem myszy pozycję **Blob containers** (Kontenery obiektów Blob), kliknij polecenie **Create blob container** (Utwórz kontener obiektów Blob), wpisz nazwę `samples-workitems`, a następnie naciśnij klawisz Enter.
 
     ![Tworzenie kolejki magazynu.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Teraz, gdy masz już kontener obiektów Blob, możesz przetestować funkcję, pr
 
 1. Wróć do witryny Azure Portal, przejdź do swoich funkcji, rozwiń pozycję **Dzienniki** w dolnej części strony i upewnij się, że strumieniowe przesyłanie dzienników nie jest wstrzymane.
 
-1. W programie Storage Explorer rozwiń swoje konto magazynu i wybierz kolejno pozycje **Blob containers** (Kontenery obiektów Blob) oraz **mycontainer**. Kliknij pozycję **Upload** (Przekaż), a następnie pozycję **Upload files...** (Przekaż pliki...).
+1. W Eksploratorze usługi Storage rozwiń swoje konto magazynu, pozycję **Blob containers** (Kontenery obiektów Blob) oraz kontener **samples-workitems**. Kliknij pozycję **Upload** (Przekaż), a następnie pozycję **Upload files...** (Przekaż pliki...).
 
     ![Przekazywanie pliku do kontenera obiektów Blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

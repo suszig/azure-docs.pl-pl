@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Znajdź i wybierz szablon **Azure CosmosDBTrigger** dla odpowiedniego języka.
+2. W polu wyszukiwania wpisz `cosmos`, a następnie wybierz żądany język dla szablonu wyzwalacza usługi Azure Cosmos DB.
 
-    ![Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Wybieranie wyzwalacza usługi Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Skonfiguruj nowy wyzwalacz, wprowadzając ustawienia wymienione w tabeli pod ilustracją.
 
@@ -60,10 +60,10 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
     
     | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nazwa funkcji** | Domyślne | Użyj domyślnej nazwy funkcji sugerowanej przez szablon. |
-    | **Nazwa bazy danych** | Zadania | Nazwa bazy danych zawierającej monitorowaną kolekcję. |
+    | **Nazwa** | Domyślne | Użyj domyślnej nazwy funkcji sugerowanej przez szablon. |
     | **Nazwa kolekcji** | Items | Nazwa monitorowanej kolekcji. |
     | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Zaznaczone | Kolekcja jeszcze nie istnieje, więc należy ją utworzyć. |
+    | **Nazwa bazy danych** | Zadania | Nazwa bazy danych zawierającej monitorowaną kolekcję. |
 
 4. Wybierz pozycję **Nowe** obok etykiety **Połączenie konta usługi Azure Cosmos DB** i wybierz istniejące konto usługi Cosmos DB lub pozycję **+ Utwórz nowe**. 
  
@@ -149,4 +149,4 @@ Utworzono funkcję uruchamianą w przypadku dodania lub zmodyfikowania dokumentu
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Aby uzyskać więcej informacji na temat wyzwalaczy usługi Queue Storage, zobacz [Powiązania usługi Queue Storage w usłudze Azure Functions](functions-bindings-storage-queue.md).
+Aby uzyskać więcej informacji na temat wyzwalaczy bazy danych Azure Cosmos DB, zobacz [Azure Cosmos DB bindings for Azure Functions](functions-bindings-documentdb.md) (Powiązania bazy danych Azure Cosmos DB na potrzeby usługi Azure Functions).

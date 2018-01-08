@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Tworzenie aplikacji platformy .NET w usłudze Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -39,7 +39,7 @@ Korzystając z tej aplikacji, nauczysz się wykonywać następujące czynności:
 > * Przeprowadzanie stopniowego uaktualnienia aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Aby ukończyć ten przewodnik Szybki Start:
+Aby ukończyć ten przewodnik Szybki start:
 1. [Zainstaluj program Visual Studio 2017](https://www.visualstudio.com/) z obciążeniami **Programowanie na platformie Azure** i **Tworzenie aplikacji na platformie ASP.NET i tworzenie aplikacji internetowych**.
 2. [Zainstaluj oprogramowanie Git](https://git-scm.com/)
 3. [Zainstaluj zestaw SDK usługi Microsoft Azure Service Fabric](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -49,7 +49,7 @@ Aby ukończyć ten przewodnik Szybki Start:
     ```
 
 ## <a name="download-the-sample"></a>Pobierz przykład
-W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na maszynę lokalną.
+W oknie polecenia uruchom następujące polecenie, aby sklonować przykładowe repozytorium aplikacji na komputer lokalny.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
@@ -92,7 +92,7 @@ Podczas debugowania aplikacji w programie Visual Studio używany jest lokalny kl
 Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
 1. Otwórz plik **/VotingWeb/Controllers/VotesController.cs** i ustaw punkt przerwania w metodzie **Put** internetowego interfejsu API (wiersz 47) — możesz wyszukać ten plik w Eksploratorze rozwiązań w programie Visual Studio.
 
-2. Otwórz plik **/VotingData/ControllersVoteDataController.cs** i ustaw punkt przerwania w metodzie **Put** tego internetowego interfejsu API (wiersz 50).
+2. Otwórz plik **/VotingData/Controllers/VoteDataController.cs** i ustaw punkt przerwania w metodzie **Put** tego internetowego interfejsu API (wiersz 50).
 
 3. Wróć do przeglądarki i kliknij opcję głosowania lub dodaj nową opcję głosowania. Zostanie trafiony pierwszy punkt przerwania w kontrolerze interfejsu API frontonu internetowego.
     - Jest to punkt, w którym skrypt JavaScript w przeglądarce wysyła żądanie do kontrolera internetowego interfejsu API w usłudze frontonu.
@@ -145,7 +145,7 @@ Kiedy aplikacja jest gotowa, można wdrożyć ją w klastrze bezpośrednio z pro
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skalowanie aplikacji i usług w klastrze
 Usługi Service Fabric można łatwo skalować w klastrze w celu dostosowania do zmiany obciążenia w usługach. Skalowanie usługi odbywa się przez zmienianie liczby wystąpień uruchomionych w klastrze. Istnieje wiele sposobów skalowania usług. Można użyć skryptów lub poleceń programu PowerShell lub interfejsu wiersza polecenia usługi Service Fabric (sfctl). W tym przykładzie używane jest narzędzie Service Fabric Explorer.
 
-Narzędzie Service Fabric Explorer działa we wszystkich klastrach usługi Service Fabric i można do niego uzyskać dostęp z przeglądarki, przechodząc do portu HTTP zarządzania klastrami (19080), na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Narzędzie Service Fabric Explorer działa we wszystkich klastrach usługi Service Fabric i można uzyskać do niego dostęp z przeglądarki, przechodząc do portu HTTP zarządzania klastrami (19080), na przykład `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 Aby skalować usługę internetową frontonu, wykonaj następujące czynności:
 
@@ -171,7 +171,7 @@ Podczas wdrażania nowych aktualizacji aplikacji usługa Service Fabric wprowadz
 Aby uaktualnić aplikację, wykonaj następujące czynności:
 
 1. Otwórz plik **/VotingWeb/Views/Home/Index.cshtml** w programie Visual Studio.
-2. Zmień nagłówek <h2> na stronie przez dodanie lub zaktualizowanie tekstu. Na przykład zmień nagłówek na „Service Fabric Voting Sample v2”.
+2. Zmień nagłówek na stronie przez dodanie lub zaktualizowanie tekstu. Na przykład zmień nagłówek na „Service Fabric Voting Sample v2”.
 3. Zapisz plik.
 4. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy pozycję **Voting (Głosowanie)** i wybierz polecenie **Publikuj**. Zostanie wyświetlone okno dialogowe Publikowanie.
 5. Kliknij przycisk **Wersja manifestu**, aby zmienić wersję usługi i aplikacji.

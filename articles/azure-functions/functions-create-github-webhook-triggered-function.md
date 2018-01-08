@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Tworzenie funkcji wyzwalanej przez element webhook GitHub
 
@@ -51,9 +51,13 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Wybierz szablon **GitHub WebHook** dla odpowiedniego języka. **Nadaj nazwę funkcji**, a następnie wybierz pozycję **Utwórz**.
+2. W polu wyszukiwania wpisz `github`, a następnie wybierz żądany język dla szablonu wyzwalacza elementu webhook GitHub. 
 
-     ![Tworzenie funkcji wyzwalanej przez element webhook GitHub w witrynie Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Wybieranie szablonu wyzwalacza elementu webhook GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Wpisz **nazwę** funkcji, a następnie wybierz pozycję **Utwórz**. 
+
+     ![Konfigurowanie funkcji wyzwalanej przez element webhook GitHub w witrynie Azure portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartości. Powtórz te czynności po kliknięciu pozycji **</> Pobierz wpis tajny usługi GitHub**. Wartości te będą potrzebne podczas konfigurowania elementu webhook w usłudze GitHub.
 

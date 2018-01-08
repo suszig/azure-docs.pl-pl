@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 673cbc71202ffb3861ab1d2be6368ec7a07bb5d3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: a8a6bf83f0e76aebdfd5accd3e86cccda8f36eed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Wdrażanie klastra usługi Azure Container Service (AKS)
 
@@ -21,7 +21,7 @@ W tym przewodniku Szybki start wdrażany jest klaster AKS przy użyciu witryny A
 
 ![Obraz przedstawiający przechodzenie do aplikacji Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać szczegółowe informacje na jego temat, zapoznaj się z [dokumentacją rozwiązania Kubernetes](https://kubernetes.io/docs/home/).
+W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać szczegółowe informacje na jego temat, zapoznaj się z [dokumentacją rozwiązania Kubernetes][kubernetes-documentation].
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -77,13 +77,13 @@ Po krótkim czasie oczekiwania klaster AKS zostanie wdrożony i będzie gotowy d
 
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 
-Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes, narzędzia [kubectl](https://kubernetes.io/docs/user-guide/kubectl/). Klient kubectl jest preinstalowany wraz z usługą Azure Cloud Shell.
+Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes, narzędzia [kubectl][kubectl]. Klient kubectl jest preinstalowany wraz z usługą Azure Cloud Shell.
 
 Otwórz usługę Cloud Shell za pomocą przycisku w prawym górnym rogu witryny Azure Portal.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
-Za pomocą polecenia [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials) skonfiguruj narzędzie kubectl w celu nawiązania połączenia z klastrem Kubernetes.
+Za pomocą polecenia [az aks get-credentials][az-aks-get-credentials] skonfiguruj narzędzie kubectl w celu nawiązania połączenia z klastrem Kubernetes.
 
 Skopiuj poniższe polecenie i wklej je w usłudze Cloud Shell. W razie potrzeby zmodyfikuj nazwę klastra i nazwę grupy zasobów.
 
@@ -91,7 +91,7 @@ Skopiuj poniższe polecenie i wklej je w usłudze Cloud Shell. W razie potrzeby 
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get), aby powrócić do listy węzłów klastra.
+Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-get], aby powrócić do listy węzłów klastra.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -110,7 +110,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Plik manifestu rozwiązania Kubernetes definiuje żądany stan klastra, w tym informacje o obrazach kontenerów, które powinny zostać uruchomione. W tym przykładzie manifest służy do tworzenia wszystkich obiektów potrzebnych do uruchomienia aplikacji Azure Vote.
 
-Utwórz plik o nazwie `azure-vote.yml` i skopiuj go do poniższego kodu YAML. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik możesz utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym.
+Utwórz plik o nazwie `azure-vote.yaml` i skopiuj go do poniższego kodu YAML. Jeśli pracujesz w usłudze Azure Cloud Shell, ten plik możesz utworzyć przy użyciu serwera vi lub Nano tak jak podczas pracy w systemie wirtualnym lub fizycznym.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -173,10 +173,10 @@ spec:
     app: azure-vote-front
 ```
 
-Użyj polecenia [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create), aby uruchomić aplikację.
+Użyj polecenia [kubectl create][kubectl-create], aby uruchomić aplikację.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yml
+kubectl create -f azure-vote.yaml
 ```
 
 Dane wyjściowe:
@@ -190,9 +190,9 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
 
-Podczas uruchamiania aplikacji tworzona jest [usługa Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/), która uwidacznia fronton aplikacji w Internecie. Ten proces może potrwać kilka minut.
+Podczas uruchamiania aplikacji tworzona jest [usługa Kubernetes][kubernetes-service], która uwidacznia fronton aplikacji w Internecie. Ten proces może potrwać kilka minut.
 
-Aby monitorować postęp, użyj polecenia [kubectl get-service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) z argumentem `--watch`.
+Aby monitorować postęp, użyj polecenia [kubectl get-service][kubectl-get] z argumentem `--watch`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
@@ -217,7 +217,7 @@ Teraz możesz przejść do zewnętrznego adresu IP, aby wyświetlić aplikację 
 
 ## <a name="delete-cluster"></a>Usuwanie klastra
 
-Gdy klaster nie jest już potrzebny, można usunąć grupę zasobów klastra, co spowoduje usunięcie wszystkich skojarzonych zasobów. Można to zrobić w witrynie Azure Portal, wybierając grupę zasobów, a następnie klikając przycisk Usuń. Ewentualnie można użyć polecenia [az group delete](/cli/azure/group#delete) w usłudze Cloud Shell.
+Gdy klaster nie jest już potrzebny, można usunąć grupę zasobów klastra, co spowoduje usunięcie wszystkich skojarzonych zasobów. Można to zrobić w witrynie Azure Portal, wybierając grupę zasobów, a następnie klikając przycisk Usuń. Ewentualnie można użyć polecenia [az group delete][az-group-delete] w usłudze Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
@@ -227,7 +227,7 @@ az group delete --name myAKSCluster --no-wait
 
 W tym przewodniku Szybki start jest tworzone wdrożenie rozwiązania Kubernetes za pomocą utworzonych wcześniej obrazów kontenerów. Powiązany kod aplikacji, plik Dockerfile i plik manifestu rozwiązania Kubernetes są dostępne w serwisie GitHub.
 
-[https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
+[https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -236,5 +236,19 @@ W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim
 Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Zarządzanie klastrem AKS](./tutorial-kubernetes-prepare-app.md)
+> [Zarządzanie klastrem AKS][aks-tutorial]
+
+<!-- LINKS - external -->
+[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az-group-delete]: /cli/azure/group#delete
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+
 

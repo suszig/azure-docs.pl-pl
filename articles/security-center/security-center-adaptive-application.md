@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Funkcje adaptacyjnego sterowania aplikacjami w usłudze Azure Security Center (wersja zapoznawcza)
 Z tego przewodnika dowiesz się, jak skonfigurować funkcje sterowania aplikacjami w usłudze Azure Security Center.
@@ -36,12 +36,11 @@ Funkcje adaptacyjnego sterowania aplikacjami ułatwiają sterowanie tym, które 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Jak włączyć funkcje adaptacyjnego sterowania aplikacjami?
 Funkcje adaptacyjnego sterowania aplikacjami ułatwiają zdefiniowanie zestawu aplikacji, które mogą być uruchamiane w skonfigurowanych grupach zasobów. Ta funkcja jest dostępna tylko dla maszyn z systemem Windows (we wszystkich wersjach, klasycznych lub usługi Azure Resource Manager). Poniższe kroki umożliwiają skonfigurowanie listy dozwolonych aplikacji w usłudze Security Center:
 
-1.  Otwórz pulpit nawigacyjny **Centrum zabezpieczeń**, a następnie kliknij przycisk **Przegląd**.
-2.  W obszarze **Zaawansowana ochrona w chmurze** na kafelku **Funkcje adaptacyjnego sterowania aplikacjami** wskazana jest liczba maszyn wirtualnych, do których są obecnie zastosowane te funkcje w porównaniu do liczby wszystkich maszyn wirtualnych. Podana jest też liczba problemów znalezionych w ostatnim tygodniu: 
+1.  Otwórz pulpit nawigacyjny **Centrum zabezpieczeń** i kliknij pozycję **Adaptacyjne kontrolki aplikacji** w sekcji **Zaawansowana ochrona w chmurze** w okienku nawigacji po lewej stronie.
 
-    ![Funkcje adaptacyjnego sterowania aplikacjami](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Ochrona](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Kliknij kafelek **Adaptacyjne kontrole aplikacji**, aby wyświetlić więcej opcji.
+2. Zostanie wyświetlona strona **Adaptacyjne kontrolki aplikacji**.
 
     ![funkcje sterowania](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

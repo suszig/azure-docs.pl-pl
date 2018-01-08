@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Wybieranie między przepływem, aplikacjami logiki, funkcjami a zadaniami WebJob
 W tym artykule porównano i zestawiono ze sobą następujące usługi w chmurze firmy Microsoft, które mogą rozwiązać problemy z integracją i zautomatyzować procesy biznesowe:
@@ -41,22 +41,22 @@ Usługi Microsoft Flow i Azure Logic Apps możemy omówić razem, ponieważ są 
 * Mają one tego samego projektanta przepływów pracy
 * [Łączniki](../connectors/apis-list.md), które działają w jednej usłudze, mogą również działać w drugiej
 
-Usługa Flow umożliwia każdemu pracownikowi biurowemu wykonywanie prostych integracji (na przykład odbieranie wiadomości SMS dotyczących ważnych wiadomości e-mail) bez konieczności zwracania się do deweloperów lub działu IT. Z drugiej strony usługa Logic Apps umożliwia korzystanie z zaawansowanych lub krytycznych dla działalności firmy integracji (na przykład procesów B2B), w których są wymagane operacje deweloperskie i praktyki dotyczące zabezpieczeń na poziomie przedsiębiorstw. Typowe dla biznesowego przepływu pracy jest zwiększanie się stopnia skomplikowania wraz z upływem czasu. W związku z tym możesz zacząć od przepływu, a następnie przekonwertować go na aplikację logiki odpowiednio do potrzeb.
+Usługa Flow umożliwia każdemu pracownikowi biurowemu wykonywanie prostych integracji (na przykład procesu zatwierdzania w bibliotece dokumentów programu SharePoint) bez konieczności zwracania się do deweloperów lub działu IT. Z drugiej strony usługa Logic Apps umożliwia korzystanie z zaawansowanych integracji (na przykład procesów B2B), w których są wymagane operacje deweloperskie i praktyki dotyczące zabezpieczeń na poziomie przedsiębiorstw. Typowe dla biznesowego przepływu pracy jest zwiększanie się stopnia skomplikowania wraz z upływem czasu. W związku z tym możesz zacząć od przepływu, a następnie przekonwertować go na aplikację logiki odpowiednio do potrzeb.
 
 Poniższa tabela ułatwia określenie, czy dla danej integracji najlepsza jest usługa Flow, czy Logic Apps.
 
-|  | Flow | Logic Apps |
+|  | Ruch | Logic Apps |
 | --- | --- | --- |
-| Grupy odbiorców |Pracownicy biurowi, użytkownicy biznesowi |Informatycy, deweloperzy |
-| Scenariusze |Samoobsługa |Operacje krytyczne dla działalności firmy |
+| Grupy odbiorców |Pracownicy biurowi, użytkownicy biznesowi, administratorzy programu SharePoint |Profesjonalni integratorzy i programiści, informatycy |
+| Scenariusze |Samoobsługa |Zaawansowane integracje |
 | Narzędzie do projektowania |Aplikacja w przeglądarce i aplikacja mobilna, tylko interfejs użytkownika |Aplikacja w przeglądarce i program [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), dostępny [widok kodu](../logic-apps/logic-apps-author-definitions.md) |
-| DevOps |Ad hoc, opracowywanie w środowisku produkcyjnym |Kontrola kodu źródłowego, testowanie, obsługa, automatyzacja oraz możliwości zarządzania w usłudze [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Doświadczenie administratora |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Bezpieczeństwo |Standardowe rozwiązania: [niezależność danych](https://wikipedia.org/wiki/Technological_Sovereignty), [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) poufnych danych itd. |Zapewnienie bezpieczeństwa platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) itd. |
+| Zarządzanie cyklem życia aplikacji |Projektowanie i testowanie w środowiskach nieprodukcyjnych, przenoszenie do środowiska produkcyjnego, gdy aplikacja będzie gotowa. |Operacje deweloperskie: kontrola kodu źródłowego, testowanie, pomoc techniczna, automatyzacja oraz możliwości zarządzania w usłudze [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Doświadczenie administratora |Zarządzanie środowiskami usługi Flow i zasadami ochrony przed utratą danych, śledzenie licencjonowania [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Zarządzanie grupami zasobów, połączeniami, zarządzanie dostępem i rejestrowanie [https://portal.azure.com](https://portal.azure.com) |
+| Bezpieczeństwo |Dzienniki inspekcji dotyczące zabezpieczeń i zgodności usługi Office 365, ochrona przed utratą danych, [szyfrowanie w spoczynku](https://wikipedia.org/wiki/Data_at_rest#Encryption) poufnych danych itp. |Zapewnienie bezpieczeństwa platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) itd. |
 
 <a name="function"></a>
 
-## <a name="functions-vs-webjobs"></a>Functions a WebJobs
+## <a name="functions-vs-webjobs"></a>Functions a Zadania WebJob
 Usługi Azure Functions i Azure App Service WebJobs możemy omówić razem, ponieważ są one usługami integracji, w których *pierwszeństwo ma kod*, i są przeznaczone dla deweloperów. Umożliwiają one użytkownikom uruchamianie skryptów lub fragmentów kodu w odpowiedzi na różne zdarzenia, takie jak [nowe obiekty blob magazynu](functions-bindings-storage.md) czy [żądanie elementu webhook](functions-bindings-http-webhook.md). Oto ich podobieństwa: 
 
 * Obie są wbudowane w usłudze [Azure App Service](../app-service/app-service-web-overview.md) i korzystają z funkcji, takich jak [kontrola kodu źródłowego](../app-service/app-service-continuous-deployment.md), [uwierzytelnianie](../app-service/app-service-authentication-overview.md) i [monitorowanie](../app-service/web-sites-monitor.md).
@@ -76,7 +76,7 @@ Usługa Functions to naturalna ewolucja usługi WebJobs, w której przejęto i u
 
 W poniższej tabeli zestawiono różnice między usługami Functions i WebJobs:
 
-|  | Functions | WebJobs |
+|  | Funkcje | Zadania WebJob |
 | --- | --- | --- |
 | Skalowanie |Skalowanie bez konfiguracji |Skalowanie z planem usługi App Service |
 | Cennik |Płatność za użycie lub w ramach planu usługi App Service |W ramach planu usługi App Service |
@@ -106,7 +106,7 @@ Wybór między usługą Functions i WebJobs ostatecznie zależy od aktualnie wyk
 Jak wspomniano wcześniej, to, która usługa najlepiej nadaje się do Twoich celów, zależy od sytuacji. 
 
 * W przypadku prostej optymalizacji biznesowej użyj usługi Flow.
-* Jeśli scenariusz integracji jest zbyt zaawansowany dla usługi Flow lub potrzebujesz funkcji środowiska DevOps i zgodności z zabezpieczeniami, użyj usługi Logic Apps.
+* Jeśli scenariusz integracji jest zbyt zaawansowany dla usługi Flow lub potrzebujesz funkcji środowiska DevOps, użyj usługi Logic Apps.
 * Jeśli jakiś krok w scenariuszu integracji wymaga bardzo niestandardowej transformacji lub wyspecjalizowanego kodu, napisz funkcję i wywołaj ją jako akcję w aplikacji logiki.
 
 Aplikację logiki możesz wywołać w przepływie. Możesz również wywołać funkcję w aplikacji logiki i aplikację logiki w funkcji. Integracja usług Flow, Logic Apps i Functions jest cały czas ulepszana. Możesz utworzyć jakiś element w jednej usłudze i używać go w innych usługach. W związku z tym każda inwestycja w te trzy technologie jest cenna.

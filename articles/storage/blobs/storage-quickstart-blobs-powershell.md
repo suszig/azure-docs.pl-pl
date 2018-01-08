@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą programu Azure PowerShell
 
@@ -33,7 +33,7 @@ Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell w wersji
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty blob są zawsze przesyłane do kontenera. Umożliwia to organizowanie grup obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
+Obiekty blob są zawsze przesyłane do kontenera. Możesz organizować grupy obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
 
 Określ nazwę kontenera, a następnie utwórz kontener przy użyciu polecenia [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), ustawiając uprawnienia do elementów „blob”, tak aby pozwolić na publiczny dostęp do plików. W tym przykładzie nazwą kontenera jest *quickstartblobs*.
 
@@ -48,7 +48,7 @@ Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob
 
 Aby przekazać plik do blokowego obiektu blob, pobierz odwołanie do kontenera i uzyskaj odwołanie do blokowego obiektu blob w tym kontenerze. Po uzyskaniu odwołania do obiektu blob możesz przekazać do niego dane przy użyciu polecenia [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Ta operacja tworzy obiekt blob, jeśli jeszcze nie istnieje, lub zastępuje go, jeśli już istnieje.
 
-Poniższe przykłady umożliwiają przekazanie plików Image001.jpg i Image002.png z folderu D:\\_TestImages na dysku lokalnym do właśnie utworzonego kontenera.
+Poniższe przykłady umożliwiają przekazanie plików Image001.jpg i Image002.png z folderu D:\\_TestImages na dysku lokalnym do utworzonego kontenera.
 
 ```powershell
 # upload a file
@@ -118,7 +118,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start przedstawiono metodę transferowania plików między dyskiem lokalnym i usługą Azure Blob Storage. Aby dowiedzieć się więcej na temat pracy z usługą Blob Storage, przejdź do instrukcji dotyczących magazynu obiektów blob.
+W tym przewodniku Szybki start przedstawiono metodę transferowania plików między dyskiem lokalnym a usługą Azure Blob Storage. Aby dowiedzieć się więcej na temat pracy z usługą Blob Storage, przejdź do instrukcji dotyczących magazynu obiektów blob.
 
 > [!div class="nextstepaction"]
 > [Instrukcje: Operacje wykonywane w usłudze Blob Storage](storage-how-to-use-blobs-powershell.md)

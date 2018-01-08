@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/01/2017
 ms.author: mimig
-ms.openlocfilehash: 44637049dd5d6cfe353afe98427d843a0d4e403a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c3d4637871ed56bd32e514c9de4374257e55d844
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabeli przy użyciu platformy .NET i usługi Azure Cosmos DB 
 
 Ten przewodnik szybkiego startu pokazuje, jak używać programu .NET i [interfejsu API tabeli](table-introduction.md) usługi Azure Cosmos DB do tworzenia aplikacji przez sklonowanie przykładu z usługi GitHub. Ten przewodnik Szybki start pokazuje również, jak utworzyć konto usługi Azure Cosmos DB i jak korzystać z Eksploratora danych do tworzenia tabel i jednostek w witrynie internetowej Azure Portal.
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafów. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -60,9 +60,9 @@ Teraz możesz dodać dane do swojej nowej tabeli za pomocą Eksploratora danych.
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
-Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
+Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połączenia i uruchomimy ją. Zobaczysz, jak łatwo jest pracować programowo z danymi. 
 
-1. Otwórz okno terminala usługi Git, na przykład git bash, i użyj polecenia `cd`, aby przejść do folderu instalacji aplikacji przykładowej. 
+1. Otwórz okno terminala usługi Git, na przykład Git Bash, i użyj polecenia `cd`, aby przejść do folderu instalacji przykładowej aplikacji. 
 
     ```bash
     cd "C:\git-samples"
@@ -73,8 +73,15 @@ Teraz sklonujemy aplikację Tabela z repozytorium GitHub, ustawimy parametry po�
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
+## <a name="open-the-sample-application-in-visual-studio"></a>Otwieranie przykładowej aplikacji w programie Visual Studio
 
-3. Następnie otwórz plik rozwiązania TableStorage w programie Visual Studio. 
+1. W programie Visual Studio wybierz z menu **Plik** pozycję **Otwórz**, a następnie wybierz pozycję **Projekt/Rozwiązanie**. 
+
+   ![Otwieranie rozwiązania](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+
+2. Przejdź do folderu, do którego sklonowano przykładową aplikację, i otwórz plik TableStorage.sln.
+
+   ![Otwieranie sklonowanej aplikacji](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
@@ -82,20 +89,20 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Parametry połączenia**. 
 
-    Użyj przycisków kopiowania po prawej stronie ekranu, aby skopiować PODSTAWOWE PARAMETRY POŁĄCZENIA.
+    Użyj przycisku kopiowania po prawej stronie okna, aby skopiować **PODSTAWOWE PARAMETRY POŁĄCZENIA**.
 
     ![Wyświetlanie i kopiowanie PODSTAWOWYCH PARAMETRÓW POŁĄCZENIA w okienku parametrów połączenia](./media/create-table-dotnet/connection-string.png)
 
 2. W programie Visual Studio otwórz plik App.config. 
 
-3. Usuń znaczniki komentarza dla ciągu StorageConnectionString w wierszu 8 i wstaw znaczniki komentarza dla ciągu StorageConnectionString w wierszu 7, ponieważ ten samouczek nie korzysta z emulatora pamięci. Wiersze 7 i 8 powinny teraz wyglądać następująco:
+3. Usuń znaczniki komentarza dla ciągu StorageConnectionString w wierszu 8 i wstaw znaczniki komentarza dla ciągu StorageConnectionString w wierszu 7, ponieważ w tym samouczku nie jest używany emulator pamięci zestawu SDK platformy Azure. Wiersze 7 i 8 powinny teraz wyglądać następująco:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Wklej PODSTAWOWE PARAMETRY POŁĄCZENIA z portalu do wartości StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów. 
+4. Wklej **PODSTAWOWE PARAMETRY POŁĄCZENIA** z portalu do wartości StorageConnectionString w wierszu 8. Wklej parametry wewnątrz cudzysłowów. 
 
     > [!IMPORTANT]
     > Jeśli dany punkt końcowy korzysta z adresu documents.azure.com, oznacza to, że masz konto w wersji zapoznawczej i musisz utworzyć [nowe konto interfejsu API tabeli](#create-a-database-account), aby korzystać z dostępnego ogólnie zestawu SDK API tabeli. 
@@ -107,7 +114,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Zapisz plik App.config.
+5. Naciśnij klawisze Ctrl+S, aby zapisać plik App.config.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
@@ -115,29 +122,43 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 1. W programie Visual Studio kliknij projekt **TableStorage** prawym przyciskiem myszy w **Eksploratorze rozwiązań**, a następnie kliknij polecenie **Zarządzaj pakietami NuGet**. 
 
-2. W polu **Przeglądaj** obszaru pakietów NuGet wpisz ciąg *Microsoft.Azure.CosmosDB.Table*.
+   ![Zarządzanie pakietami NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+2. W polu **Przeglądaj** obszaru pakietów NuGet wpisz ciąg *Microsoft.Azure.CosmosDB.Table*. Spowoduje to wyszukanie biblioteki klienta interfejsu API tabeli usługi Cosmos DB.
+   
+   ![Karta Przeglądaj pakietu NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. Korzystając z wyników, zainstaluj bibliotekę **Microsoft.Azure.CosmosDB.Table**. Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
+3. Kliknij pozycję **Zainstaluj**, aby zainstalować bibliotekę **Microsoft.Azure.CosmosDB.Table**. Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
 
-4. Otwórz plik BasicSamples.cs i dodaj punkt przerwania do wierszy 30 i 52.
+    ![Kliknięcie pozycji Zainstaluj](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-5. Naciśnij klawisze CTRL + F5, aby uruchomić aplikację.
+4. Otwórz plik BasicSamples.cs. Kliknij prawym przyciskiem myszy wiersz 52, wybierz pozycję **Punkt przerwania**, a następnie wybierz pozycję **Wstaw punkt przerwania**. Wstaw kolejny punkt przerwania w wierszu 55.
 
-    W oknie konsoli zostaną wyświetlone dane tabeli dodawane do nowej bazy danych tabel w usłudze Azure Cosmos DB. 
+   ![Dodawanie punktu przerwania](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+
+5. Naciśnij klawisz F5, aby uruchomić aplikację.
+
+    W oknie konsoli zostanie wyświetlona nazwa nowej bazy danych tabel (w tym przypadku „demo91ab4”) w usłudze Azure Cosmos DB. 
     
+    ![Dane wyjściowe konsoli](media/create-table-dotnet/azure-cosmosdb-console.png)
+
     W przypadku wystąpienia błędu dotyczącego zależności zobacz [Rozwiązywanie problemów](table-sdk-dotnet.md#troubleshooting).
 
-    Po dotarciu do pierwszego punktu przerwania wróć do Eksploratora danych w witrynie Azure Portal, rozwiń tabelę demo* i kliknij pozycję **Jednostki**. Karta **Jednostki** po prawej stronie zawiera nową dodaną jednostkę. Zwróć uwagę, że numer telefonu użytkownika to 425-555-0101.
+    Po dotarciu do pierwszego punktu przerwania wróć do Eksploratora danych w witrynie Azure Portal. Kliknij przycisk **Odśwież**, rozwiń tabelę demo* i kliknij pozycję **Jednostki**. Karta **Jednostki** po prawej stronie zawiera nową jednostkę dodaną dla Waltera Harpa. Zauważ, że numer telefonu nowej jednostki to 425-555-0101.
+
+    ![Nowa jednostka](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
-6. Zamknij kartę Jednostki w Eksploratorze danych.
+6. Zamknij kartę **Jednostki** w Eksploratorze danych.
     
-7. Kontynuuj pracę aplikację do następnego punktu przerwania.
+7. Naciśnij klawisz F5, aby kontynuować pracę aplikacji do następnego punktu przerwania. 
 
-    Po dotarciu do punktu przerwania wróć do portalu, kliknij ponownie pozycję Jednostki w celu otwarcia karty Jednostki i zwróć uwagę, że numer telefonu został zaktualizowany do 425-555-0105.
+    Po dotarciu do punktu przerwania wróć do witryny Azure Portal, kliknij ponownie pozycję **Jednostki** w celu otwarcia karty **Jednostki** i zauważ, że numer telefonu został zaktualizowany do 425-555-0105.
 
-8. W oknie konsoli naciśnij klawisze CTRL + C, aby zakończyć wykonywanie aplikacji. 
+8. Naciśnij klawisz F5, aby kontynuować pracę aplikacji. 
+ 
+   Aplikacja doda jednostki na potrzeby zaawansowanej przykładowej aplikacji, której interfejs API tabeli obecnie nie obsługuje. Następnie aplikacja usunie tabelę utworzoną przez przykładową aplikację.
 
-    Teraz możesz wrócić do Eksploratora danych i dodać lub zmodyfikować jednostki oraz wykonać zapytanie o dane.
+9. W oknie konsoli naciśnij klawisz Enter, aby zakończyć wykonywanie aplikacji. 
+  
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 

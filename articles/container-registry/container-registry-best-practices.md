@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 11/05/2017
+ms.date: 12/20/2017
 ms.author: marsma
-ms.openlocfilehash: 5ccbb3022dc38f13eed9b5aa24beb14dfdb3b5b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d94c6801f96ce684ebb912667dc4aa381c171216
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Najlepsze rozwiązania dla usługi Azure Container Registry
 
@@ -22,12 +22,12 @@ Stosując te najlepsze rozwiązania, można osiągnąć maksymalną wydajność 
 
 Utwórz rejestr kontenerów w tym samym regionie świadczenia usług Azure, w którym zostały wdrożone kontenery. Dzięki umieszczeniu rejestru w regionie blisko sieci, w której hostowane są kontenery, można zmniejszyć opóźnienia i obniżyć koszty.
 
-Wdrożenie w pobliskiej sieci jest jednym z głównych powodów używania prywatnego rejestru kontenerów. Obrazy platformy Docker mają świetną [konstrukcję warstw](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/), która umożliwia wdrożenia przyrostowe. Jednak nowe węzły muszą ściągać wszystkie warstwy wymagane dla danego obrazu. Ten początkowy `docker pull` może szybko powiększyć się do wielu gigabajtów. Posiadanie prywatnego rejestru blisko wdrożenia minimalizuje opóźnienia sieci.
+Wdrożenie w pobliskiej sieci jest jednym z głównych powodów używania prywatnego rejestru kontenerów. Obrazy platformy Docker mają wydajną [konstrukcję warstw](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/), która umożliwia przeprowadzanie wdrożeń przyrostowych. Jednak nowe węzły muszą ściągać wszystkie warstwy wymagane dla danego obrazu. Ten początkowy `docker pull` może szybko powiększyć się do wielu gigabajtów. Posiadanie prywatnego rejestru blisko wdrożenia minimalizuje opóźnienia sieci.
 Ponadto wszystkich chmury publiczne, w tym Azure, stosują opłaty za transfer danych wychodzących z sieci. Ściąganie obrazów z jednego centrum danych do innego skutkuje dodatkowymi opłatami za dane wychodzące z sieci, a poza tym zwiększa opóźnienia.
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Replikacja geograficzna wdrożeń w wielu regionach
 
-Użyj funkcji [replikacji geograficznej](container-registry-geo-replication.md) usługi Azure Container Registry, jeśli wdrażasz kontenery w wielu regionach. Bez względu na to, czy obsługujesz globalnych klientów z lokalnych centrów danych, czy też Twój zespół deweloperów znajduje się w różnych lokalizacjach, możesz uprościć zarządzanie rejestrem i zminimalizować opóźnienia dzięki replikacji geograficznej rejestru. Ta funkcja (obecnie w wersji zapoznawczej) jest dostępna w rejestrach w warstwie [Premium](container-registry-skus.md#premium).
+Użyj funkcji [replikacji geograficznej](container-registry-geo-replication.md) usługi Azure Container Registry, jeśli wdrażasz kontenery w wielu regionach. Bez względu na to, czy obsługujesz globalnych klientów z lokalnych centrów danych, czy też Twój zespół deweloperów znajduje się w różnych lokalizacjach, możesz uprościć zarządzanie rejestrem i zminimalizować opóźnienia dzięki replikacji geograficznej rejestru. Ta funkcja (obecnie w wersji zapoznawczej) jest dostępna w rejestrach w warstwie [Premium](container-registry-skus.md).
 
 Aby dowiedzieć się, jak korzystać z replikacji geograficznej, zobacz trzyczęściowy samouczek [Replikacja geograficzna w usłudze Azure Container Registry](container-registry-tutorial-prepare-registry.md).
 
@@ -61,6 +61,47 @@ Istnieją dwa podstawowe scenariusze uwierzytelniania w usłudze Azure Container
 
 Aby uzyskać szczegółowe informacje o uwierzytelnianiu w usłudze Azure Container Registry, zobacz [Authenticate with an Azure container registry](container-registry-authentication.md) (Uwierzytelnianie w usłudze Azure Container Registry).
 
+## <a name="manage-registry-size"></a>Zarządzanie rozmiarem rejestru
+
+Ograniczenia magazynu każdej [jednostki SKU rejestru kontenerów][container-registry-skus] służą zachowaniu zgodności z typowym scenariuszem: **Podstawowa** służąca do rozpoczynania pracy, **Standardowa** przeznaczona do większości aplikacji produkcyjnych oraz **Premium** zapewniająca wydajność w hiperskali i [replikację geograficzną][container-registry-geo-replication]. W ciągu cyklu życia rejestru należy zarządzać jego rozmiarem, okresowo usuwając nieużywaną zawartość.
+
+Bieżące użycie rejestru można znaleźć w obszarze **Przegląd** rejestru kontenerów w witrynie Azure Portal:
+
+![Informacje o użyciu rejestru w witrynie Azure Portal][registry-overview-quotas]
+
+Możesz zarządzać rozmiarem rejestru za pomocą [interfejsu wiersza polecenia platformy Azure][azure-cli] lub witryny [Azure Portal][azure-portal]. Tyko zarządzane jednostki SKU (warstw Podstawowa, Standardowa i Premium) obsługują usuwanie repozytoriów i obrazów. W rejestrze klasycznym nie można usuwać repozytoriów, obrazów ani tagów.
+
+### <a name="delete-in-azure-cli"></a>Usuwanie w interfejsie wiersza polecenia platformy Azure
+
+Repozytorium lub znajdującą się w nim zawartość można usunąć za pomocą polecenia [az acr repository delete][az-acr-repository-delete].
+
+Aby usunąć repozytorium, wraz ze wszystkimi znajdującymi się w nim tagami i danymi warstw obrazów, podaj tylko nazwę repozytorium podczas wykonywania polecenia [az acr repository delete][az-acr-repository-delete]. W następującym przykładzie usuniemy repozytorium *myapplication* oraz wszystkie znajdujące się w nim tagi i dane warstw obrazów:
+
+```azurecli
+az acr repository delete --name myregistry --repository myapplication
+```
+
+Dane obrazów można usunąć z repozytorium także za pomocą argumentów `--tag` i `--manifest`. Aby uzyskać szczegółowe informacje o tych argumentach, zobacz [dokumentację polecenia az acr repository delete][az-acr-repository-delete].
+
+### <a name="delete-in-azure-portal"></a>Usuwanie w witrynie Azure Portal
+
+Aby usunąć repozytorium z rejestru w witrynie Azure Portal, przejdź najpierw do rejestru kontenerów. Następnie w obszarze **USŁUGI** wybierz pozycję **Repozytoria** i kliknij prawym przyciskiem myszy repozytorium, które chcesz usunąć. Wybierz pozycję **Usuń**, aby usunąć repozytorium oraz znajdujące się w nim obrazy platformy Docker.
+
+![Usuwanie repozytorium w witrynie Azure Portal][delete-repository-portal]
+
+W podobny sposób można również usunąć z repozytorium tagi. Przejdź do repozytorium, w obszarze **TAGI** kliknij prawym przyciskiem myszy tag, który chcesz usunąć, i wybierz pozycję **Usuń**.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Usługa Azure Container Registry jest dostępna w kilku warstwach, nazywanych jednostkami SKU, z których każda oferuje różne możliwości. Aby uzyskać szczegółowe informacje na temat dostępnych jednostek SKU, zobacz [Jednostki SKU usługi Azure Container Registry](container-registry-skus.md).
+
+<!-- IMAGES -->
+[delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png
+[registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
+
+<!-- LINKS - Internal -->
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[azure-cli]: /cli/azure/overview
+[azure-portal]: https://portal.azure.com
+[container-registry-geo-replication]: container-registry-geo-replication.md
+[container-registry-skus]: container-registry-skus.md

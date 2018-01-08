@@ -3,7 +3,7 @@ title: "Tworzenie aplikacji .NET Framework lub Core usługi Azure Cosmos DB za p
 description: "Przykładowy kod programu .NET Framework/Core, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: tworzenie aplikacji .NET Framework lub Core za pomocą interfejsu API programu Graph
 
-Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafowe. 
+Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, możesz szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość oraz grafów. 
 
-Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych i grafu (kontenera) przy użyciu witryny Azure Portal. Następnie przy użyciu [interfejsu API programu Graph](graph-sdk-dotnet.md) (wersja zapoznawcza) zostanie utworzona i uruchomiona aplikacja konsolowa.  
+Ten przewodnik Szybki start przedstawia sposób tworzenia konta usługi Azure Cosmos DB, bazy danych i grafu (kontenera) przy użyciu witryny Azure Portal. Następnie przy użyciu [interfejsu API programu Graph](graph-sdk-dotnet.md) zostanie utworzona i uruchomiona aplikacja konsolowa.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -108,19 +108,31 @@ Dokonajmy szybkiego przeglądu działań wykonywanych w aplikacji. Otwórz plik 
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
 
-1. W programie Visual Studio 2017 otwórz plik appsettings.json. 
+1. W witrynie [Azure Portal](http://portal.azure.com/) kliknij pozycję **Klucze**. 
 
-2. W witrynie Azure Portal, korzystając ze swojego konta usługi Azure Cosmos DB, kliknij pozycję **Klucze** na lewym panelu nawigacyjnym. 
+    Skopiuj pierwszą część wartości identyfikatora URI.
 
-    ![Wyświetlanie i kopiowanie klucza podstawowego w witrynie Azure Portal, na stronie Klucze](./media/create-graph-dotnet/keys.png)
+    ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze](./media/create-graph-dotnet/keys.png)
 
-3. Skopiuj wartość **Identyfikator URI** z portalu i przypisz ją do klucza punktu końcowego w pliku appsettings.json. Aby skopiować wartość, możesz użyć przycisku kopiowania, jak pokazano na poprzednim zrzucie ekranu.
+2. W programie Visual Studio 2017 otwórz plik appsettings.json i wklej wartość w miejsce elementu `FILLME` w lokalizacji `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    Wartość punktu końcowego powinna wyglądać następująco:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Jeśli konto bazy danych programu Graph zostało utworzone przed 27 listopada 2017 r., zmień element `documents` na `graphs` w wartości `endpoint`. Jeśli konto bazy danych programu Graph zostało utworzone 27 listopada 2017 r. lub później, zmień element `documents` na `gremlin.cosmosdb` w wartości `endpoint`.
+
+    Wartość punktu końcowego powinna wyglądać następująco:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` lub `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Skopiuj wartość **KLUCZ PODSTAWOWY** z portalu i przypisz ją do klucza AuthKey w pliku App.config, a następnie zapisz zmiany. 
 
     `"authkey": "FILLME"`
+
+5. Zapisz plik appsettings.json. 
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
