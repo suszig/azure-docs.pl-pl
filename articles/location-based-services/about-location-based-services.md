@@ -1,41 +1,41 @@
 ---
-title: "Omówienie lokalizacji platformy Azure na podstawie usług | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do usługi na podstawie lokalizacji platformy Azure (wersja zapoznawcza)"
+title: "Omówienie usług Azure Location Based Services | Microsoft Docs"
+description: "Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)"
 services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="an-introduction-to-azure-location-based-services-preview"></a>Wprowadzenie do usługi na podstawie lokalizacji platformy Azure (wersja zapoznawcza)
-Usługi platformy Azure na podstawie lokalizacji jest portfolio usług dane geograficzne, które obejmują interfejsów API usługi mapy, wyszukiwania, routingu, ruchu i stref czasowych. Wchodzących w skład zestawu usługi zgodne z Azure OneAPI umożliwia przy użyciu narzędzia dla deweloperów znanych szybkiego tworzenia i skalowania rozwiązania, które zintegrować informacji o lokalizacji rozwiązań platformy Azure. Usługi platformy Azure na podstawie lokalizacji udostępnia deweloperom z wszystkich branżach geograficzne zaawansowanych możliwości mnóstwo świeże mapowanie danych staje się niezbędna dla dostarczanie geograficzne kontekst do sieci web i aplikacji dla urządzeń przenośnych. Usługi platformy Azure na podstawie lokalizacji jest zestawem zgodne jednego interfejsu API Azure interfejsów API REST wraz z formantem JavaScript opartych na sieci web aby programowanie bardzo łatwe, elastyczne i przenośnych przez wiele nośników. 
+# <a name="an-introduction-to-azure-location-based-services-preview"></a>Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)
+Usługi Azure Location Based Services to portfel usług geoprzestrzennych obejmujący interfejsy API usług dla map, wyszukiwania, wyznaczania tras, ruchu drogowego oraz stref czasowych. Portfel usług zgodnych z interfejsem Azure OneAPI umożliwia używanie znanych narzędzi deweloperskich do szybkiego tworzenia i skalowania rozwiązań, które będą integrować informacje o lokalizacji w rozwiązaniach platformy Azure. Usługi Azure Location Based Services udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Usługi Azure Location Based Services to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest bardzo łatwe i elastyczne, a rezultaty można przenosić na różne platformy. 
 
-Usług Azure na podstawie lokalizacji składa się z pięciu podstawowe usługi możliwość niemal Azure aplikacji wymagających geograficzne kontekstu. Każdy z nich omówiono szczegółowo poniżej.
+Usługi Azure Location Based Services składają się z pięciu głównych usług wspierających aplikacje platformy Azure wymagające kontekstu geograficznego. Każdą z tych usług omówiono poniżej.
 
-**Renderowanie usługi** — usługa renderowania jest przeznaczony dla deweloperów do tworzenia sieci web i aplikacji dla urządzeń przenośnych wokół mapowania. Usługa używa graficzne obrazy rastrowe wysokiej jakości, dostępne na poziomach powiększenia 19 lub można swobodnie dostosowywać wektor format mapy obrazów.
+**Render Service** — usługa Render Service została zaprojektowana dla deweloperów do tworzenia aplikacji internetowych i mobilnych związanych z mapowaniem. Usługa używa rastrowych obrazów graficznych o wysokiej jakości — dostępnych z 19 poziomami powiększenia — lub w pełni konfigurowalnych obrazów map w formacie wektorowym.
 
-![Map.png usługi na podstawie lokalizacji platformy Azure](media/about-location-based-services/Introduction_Map.png)
+![Azure Location Based Services Map.png](media/about-location-based-services/Introduction_Map.png)
 
-**Trasy usługi** — usługa trasy został skompilowany za obliczenia geometrii niezawodną infrastrukturę rzeczywistych i wieloma instrukcjami trybu transportu. Usługa umożliwia deweloperom obliczenia kierunki liczba tryby podróży, takie jak samochód ciężarówka, rowerów albo przejście; Podobnie jak, liczbę wejść, takie jak warunki ruchu, ograniczenia wagi lub niebezpiecznych materiału transportu.
+**Route Service** — usługa Route Service została opracowana z niezawodnymi obliczeniami geometrycznymi rzeczywistej infrastruktury oraz wieloma trybami wytycznych transportowych. Usługa umożliwia deweloperom obliczanie wytycznych w różnych trybach podróży, np. podróży samochodem, ciężarówką, rowerem lub pieszo; a także użycie wielu różnych danych wejściowych, np. warunków w ruchu drogowym, ograniczeń dotyczących masy pojazdu lub informacji dotyczących transportu materiałów niebezpiecznych.
 
-![Route.png usługi na podstawie lokalizacji platformy Azure](media/about-location-based-services/Introduction_Route.png)
+![Azure Location Based Services Route.png](media/about-location-based-services/Introduction_Route.png)
 
-**Usługa wyszukiwania** — Usługa wyszukiwania jest przeznaczony dla deweloperów wyszukać adresy, miejsca, business listy według nazwy lub kategorii i innych informacji geograficznych. Usługa wyszukiwania może również [wstecznego geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) adresy i krzyżowego streets oparte na współrzędne/długości. 
+**Search Service** — usługa Search Service została opracowana dla deweloperów do wyszukiwania adresów, miejsc, list biznesowych według nazwy lub kategorii oraz innych informacji geograficznych. Usługa Search Service może też [odwracać adresy geokodowania](https://en.wikipedia.org/wiki/Reverse_geocoding) i przechodzić przez ulice w oparciu o długość/szerokość geograficzną. 
 
-![Search.png usługi na podstawie lokalizacji platformy Azure](media/about-location-based-services/Introduction_Search.png)
+![Azure Location Based Services Search.png](media/about-location-based-services/Introduction_Search.png)
 
-**Usługa strefy czasowej** — usługa strefy czasowej pozwala na informacje o strefie czasowej bieżącego historycznych i przyszłych zapytania przy użyciu pary albo współrzędne geograficzne lub [identyfikator IANA](http://www.iana.org/). Usługa strefy czasowej umożliwia również konwertowanie Microsoft Windows strefy czasowej ID ze strefami czasowymi IANA, pobieranie przesunięcia strefy czasowej UTC i pobieranie bieżącego czasu w odpowiedniej strefy czasowej. Typowy odpowiedź w formacie JSON dla zapytania do usługi strefy czasowej wygląda następująco:
+**Time Zone Service** — usługa Time Zone Service umożliwia wysyłanie zapytań o bieżące, historyczne i przyszłe informacje o strefie czasowej przy użyciu par szerokość-długość geograficzna lub identyfikatora [IANA ID](http://www.iana.org/). Usługa Time Zone ponadto umożliwia konwertowanie identyfikatorów strefy czasowej systemu Microsoft Windows na strefy czasowe IANA, pobieranie przesunięcia strefy czasowej względem czasu UTC oraz pobieranie bieżącego czasu w odpowiedniej strefie czasowej. Typowa odpowiedź JSON na zapytanie wysyłane do usługi Time Zone Service wygląda następująco:
 
 ```JSON
 {
@@ -55,22 +55,22 @@ Usług Azure na podstawie lokalizacji składa się z pięciu podstawowe usługi 
 }
 ```
 
-**Ruch usługi** — ruch usługa to zestaw usług sieci web przeznaczone dla deweloperów do tworzenia sieci web i aplikacji dla urządzeń przenośnych wymagające ruchu. Oferta jest podzielony na następujące czynności:
-1. Przepływu ruchu - zapewnia szybkości obserwowanych w czasie rzeczywistym i podróży razy dla wszystkich drogi klucza w sieci. a 
-2. Ruch zdarzenia - zapewnia dokładnego widoku o blokada ruch i zdarzenia wokół sieci drogowej.
+**Traffic Service** — usługa Traffic Service to zbiór usług internetowych zaprojektowanych dla deweloperów do tworzenia aplikacji internetowych i mobilnych wymagających informacji o ruchu. Oferta jest podzielona następująco:
+1. Traffic Flow — zapewnia prędkości i czasy podróży w czasie rzeczywistym dla wszystkich kluczowych dróg w sieci; oraz 
+2. Traffic Incidents — zapewnia dokładny wgląd w korki na drogach i zdarzenia w sieci dróg.
 
-![Lokalizacja platformy Azure na podstawie ruchu usług](media/about-location-based-services/Introduction_Traffic.png)
+![Azure Location Based Services Traffic](media/about-location-based-services/Introduction_Traffic.png)
 
-Usługi platformy Azure na podstawie lokalizacji zaprojektowano pod kątem mobilności i można włączenie aplikacji dla wielu platform, ponieważ model programowania jest niezależny i obsługuje dane wyjściowe JSON za pośrednictwem interfejsów API REST. Ponadto kg Azure oferuje wygodny formantu mapy JavaScript z prosty model programowania do szybkiego ułatwiający projektowanie sieci web i aplikacji dla urządzeń przenośnych. 
+Usługi Azure Location Based Services zostały opracowane z myślą o mobilności i mogą wspierać aplikacje międzyplatformowe, ponieważ model programowania jest niezależny i obsługuje dane wyjściowe JSON za pośrednictwem interfejsów API REST. Ponadto usługi Azure LBS oferują wygodną kontrolkę mapy JavaScript z prostym modelem programowania, która umożliwia szybkie opracowywanie aplikacji internetowych i mobilnych. 
 
-Schemat uwierzytelniania opartego na kluczach korzysta z usług Azure na podstawie lokalizacji, więc dostęp do usług jest przejście do sprawę [portalu Azure](http://portal.azure.com) i tworzenia konta usługi na podstawie lokalizacji platformy Azure. Twoje konto ma dwa klucze wstępnie wygenerowane automatycznie. Rozpocząć integrowanie tych możliwości lokalizacji bezpośrednio do aplikacji przy użyciu kluczy w żądaniach wysyłanych do usługi Azure usług lokalizacji.
+Usługi Azure Location Based Services używają schematu uwierzytelniania opartego na kluczach, więc uzyskanie dostępu do usług wymaga jedynie przejścia do witryny [Azure Portal](http://portal.azure.com) i utworzenia konta usług Azure Location Based Services. Konto będzie zawierać dwa wstępnie wygenerowane klucze do użycia. Rozpocznij integrowanie tych możliwości opartych na lokalizacji bezpośrednio w aplikacjach przy użyciu dowolnego z kluczy w żądaniach wysyłanych do usług Azure Location Based Services.
 
-Zaloguj się do [usługi na podstawie lokalizacji Azure konto już dziś!](http://aka.ms/azurelbsportal)
+Utwórz [konto usług Azure Location Based Services już dzisiaj!](http://aka.ms/azurelbsportal)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Masz teraz omówienie lokalizacji na podstawie usług Azure (wersja zapoznawcza). Następnym krokiem jest wypróbowanie przykładowej aplikacji prezentacji usługi na podstawie lokalizacji, a także utworzyć scenariusz end-to-end w aplikacji sieci web.
+Omówiliśmy pokrótce usługi Azure Location Based Services (wersja zapoznawcza). Następnym krokiem będzie wypróbowanie prostej aplikacji z przykładem użycia usług Location Based Services oraz utworzenie kompleksowego scenariusza w Twojej aplikacji internetowej.
 
 > [!div class="nextstepaction"]
-> [Uruchamianie interaktywnego mapy pokaz wyszukiwanie przy użyciu usługi na podstawie lokalizacji platformy Azure (wersja zapoznawcza)](quick-demo-map-app.md)
-> [wyszukiwania w pobliżu z interesujących przy użyciu usługi na podstawie lokalizacji platformy Azure](tutorial-search-location.md)
+> [Uruchamianie demonstracyjnego wyszukiwania na mapie za pomocą usług Azure Location Based Services (wersja zapoznawcza)](quick-demo-map-app.md)
+> [Wyszukiwanie pobliskiego punktu orientacyjnego przy użyciu usług Azure Location Based Services](tutorial-search-location.md)

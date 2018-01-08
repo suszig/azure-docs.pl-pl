@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 Kontenery szybko stają się preferowanym sposobem tworzenia pakietów aplikacji w chmurze, ich wdrażania oraz zarządzania nimi. Usługa Azure Container Instances to najszybszy i najprostszy sposób uruchomienia kontenera na platformie Azure, bez konieczności aprowizowania żadnych maszyn wirtualnych ani korzystania z usługi wyższego poziomu.
 
-Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scenariuszy, które może działać w kontenerach izolowanych, w tym w przypadku prostych aplikacji, automatyzacji zadań i zadań kompilacji. W przypadku scenariuszy, w których potrzebujesz pełnej aranżacji kontenerów, w tym opcji odnajdowania usług w wielu kontenerach, automatycznego skalowania i skoordynowanych uaktualnień aplikacji, zalecamy skorzystanie z usługi [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
+Usługa Azure Container Instances to doskonałe rozwiązanie dla wszystkich scenariuszy, które może działać w kontenerach izolowanych, w tym w przypadku prostych aplikacji, automatyzacji zadań i zadań kompilacji. W przypadku scenariuszy, w których potrzebujesz pełnej aranżacji kontenerów, w tym opcji odnajdowania usług w wielu kontenerach, automatycznego skalowania i skoordynowanych uaktualnień aplikacji, zalecamy skorzystanie z usługi [Azure Container Service](../aks/index.yml) (AKS).
 
 ## <a name="fast-startup-times"></a>Krótki czas uruchamiania
 
@@ -31,7 +31,7 @@ W przeszłości kontenery oferowały zarządzanie zasobami i izolację zależno�
 
 ## <a name="custom-sizes"></a>Rozmiary niestandardowe
 
-Kontenery są przeważnie optymalizowane do uruchamiania tylko jednej aplikacji, ale szczegółowe potrzeby poszczególnych aplikacji mogą się bardzo różnić. W usłudze Azure Container Instances możesz zażądać dokładnie tylu rdzeni i pamięci, ile potrzebujesz. Opłaty są naliczane zgodnie z żądaniami i za sekundę, dlatego można skutecznie zoptymalizować wydatki o oparciu o potrzeby.
+Kontenery są przeważnie optymalizowane do uruchamiania tylko jednej aplikacji, ale szczegółowe potrzeby poszczególnych aplikacji mogą się bardzo różnić. W usłudze Azure Container Instances możesz zażądać dokładnie tylu rdzeni procesora CPU i pamięci, ile potrzebujesz. Opłaty są naliczane zgodnie z żądaniami i za sekundę, dlatego można skutecznie zoptymalizować wydatki o oparciu o potrzeby.
 
 ## <a name="public-ip-connectivity"></a>Łączność przy użyciu publicznych adresów IP
 
@@ -39,7 +39,7 @@ Dzięki usłudze Azure Container Instances można uwidaczniać kontenery bezpoś
 
 ## <a name="persistent-storage"></a>Magazyn trwały
 
-Aby umożliwić pobieranie i utrwalanie stanu przy użyciu usługi Azure Container Instances, firma Microsoft oferuje bezpośrednie instalowanie udziałów plików platformy Azure.
+Aby umożliwić pobieranie i utrwalanie stanu przy użyciu usługi Azure Container Instances, firma Microsoft oferuje bezpośrednie [instalowanie udziałów usługi Azure Files](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="linux-and-windows-containers"></a>Kontenery systemów Linux i Windows
 
@@ -47,7 +47,7 @@ Usługa Azure Container Instances umożliwia planowanie kontenerów systemów Wi
 
 ## <a name="co-scheduled-groups"></a>Grupy planowane wspólnie
 
-Usługa Azure Container Instances obsługuje planowanie grup wielu kontenerów, które współużytkują maszynę hosta, sieć lokalną, magazyn i cykl życia. Dzięki temu można łączyć główną aplikację z innymi, które pełnią rolę pomocniczą, takimi jak rejestrowanie.
+Usługa Azure Container Instances obsługuje planowanie [grup wielu kontenerów](container-instances-container-groups.md), które współużytkują maszynę hosta, sieć lokalną, magazyn i cykl życia. Dzięki temu można łączyć główną aplikację z innymi, które pełnią rolę pomocniczą, takimi jak rejestrowanie.
 
 ## <a name="next-steps"></a>Następne kroki
 

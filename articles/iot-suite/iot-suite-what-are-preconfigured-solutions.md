@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 
@@ -30,6 +30,10 @@ Pakiet IoT Azure jest zestawem *wstępnie skonfigurowanych rozwiązań* który:
 * Można dostosować do własnych wymagań.
 
 Wszystkie wstępnie skonfigurowane rozwiązania *Pakietu IoT* zostały zaprojektowane według tych samych reguł i celów.
+
+Poniższe wideo zawiera omówienie wstępnie skonfigurowanego rozwiązania do monitorowania zdalnego:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Omówienie wstępnie skonfigurowanych rozwiązań
 
@@ -56,9 +60,9 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 
 | Rozwiązanie | Wprowadzanie danych | Tożsamość urządzenia | Zarządzanie urządzeniami | Przetwarzanie brzegowe | Sterowanie i kontrola | Reguły i akcje | Analiza predykcyjna |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Zdalne monitorowanie](iot-suite-remote-monitoring-explore.md)  |Tak |Tak |Tak |-   |Tak |Tak |-   |
-| [Konserwacja predykcyjna](iot-suite-predictive-overview.md)   |Tak |Tak |-   |-   |Tak |Tak |Tak |
-| [Połączona fabryka](iot-suite-connected-factory-overview.md) |Tak |Tak |Tak |Tak |Tak |Tak |-   |
+| [Zdalne monitorowanie](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
+| [Konserwacja predykcyjna](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
+| [Połączona fabryka](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
 
 * *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
 * *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami urządzeń i sterowanie dostępem urządzeń do rozwiązania.
@@ -76,14 +80,14 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania ob
 
 |                      | Zdalne monitorowanie  | Konserwacja zapobiegawcza | Połączona fabryka |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| Usługa IoT Hub              | Tak                |                        | Tak               |
-| Usługa Event Hubs           |                    | Tak                    |                   |
-| Time Series Insights |                    |                        | Tak               |
-| Usługi kontenerów   | Tak                |                        | Tak               |
-| Stream Analytics     |                    | Tak                    |                   |
-| Web Apps             | Tak                | Tak                    | Tak               |
-| Cosmos DB            | Tak                | Tak                    | Tak               |
-| Tabele platformy Azure         |                    | Tak                    | Tak               |
+| Usługa IoT Hub              | Yes                |                        | Yes               |
+| Event Hubs           |                    | Yes                    |                   |
+| Time Series Insights |                    |                        | Yes               |
+| Usługi kontenerów   | Yes                |                        | Yes               |
+| Stream Analytics     |                    | Yes                    |                   |
+| Web Apps             | Yes                | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    | Yes               |
+| Tabele platformy Azure         |                    | Yes                    | Yes               |
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat zasobów wdrożonych we wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego, zobacz ten [artykuł](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) w witrynie GitHub.

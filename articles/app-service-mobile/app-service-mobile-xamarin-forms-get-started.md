@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Tworzenie aplikacji platformy Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -59,7 +59,7 @@ Na komputerze Mac lub w systemie Windows wykonaj następujące czynności:
 
 1. Przejdź do witryny [Azure Portal].
 
-2. W bloku **Ustawienia** aplikacji mobilnej w obszarze **Mobilne** wybierz pozycję **Wprowadzenie** > **Xamarin.Forms**. W **kroku 3** wybierz pozycję **Utwórz nową aplikację**, a następnie wybierz pozycję **Pobierz**.
+2. W bloku ustawień aplikacji mobilnej kliknij pozycję **Szybki start** (w obszarze Wdrożenie > **Xamarin.Forms**). W kroku 3 kliknij pozycję **Utwórz nową aplikację**, jeśli nie została jeszcze wybrana.  Następnie kliknij przycisk **Pobierz**.
 
    Ta akcja spowoduje pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 

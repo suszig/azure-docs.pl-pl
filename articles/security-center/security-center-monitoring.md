@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure
 Informacje zawarte w tym artykule ułatwiają korzystanie z funkcji monitorowania w usłudze Azure Security Center w celu monitorowania zgodności z zasadami.
@@ -45,13 +45,14 @@ Po kliknięciu kafelka **Obliczenia** będą widoczne trzy karty:
 
 ![Brak aktualizacji systemu na maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Na każdej karcie znajduje się kilka sekcji, a w każdej sekcji można wybrać poszczególne opcje, aby wyświetlić więcej szczegółowych informacji dotyczących zalecanych kroków rozwiązania konkretnego problemu. 
+Na każdej karcie znajduje się kilka sekcji, a w każdej sekcji można wybrać poszczególne opcje, aby wyświetlić więcej szczegółowych informacji dotyczących zalecanych kroków rozwiązania konkretnego problemu.
 
 #### <a name="monitoring-recommendations"></a>Zalecenia dotyczące monitorowania
-W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych i komputerów, dla których zainicjowano automatyczną aprowizację, oraz ich bieżący stan. Po kliknięciu tego wpisu zostanie otwarty blok **Brak agenta maszyny wirtualnej lub agent nie odpowiada**. 
+W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych i komputerów, dla których zainicjowano automatyczną aprowizację, oraz ich bieżący stan. Po kliknięciu tego wpisu zostanie otwarte okno **Monitorowanie problemów dotyczących kondycji agenta**.
 
-![Brak aktualizacji systemu na maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Monitorowanie problemów dotyczących kondycji agenta](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Zawiera ono listę maszyn wirtualnych i komputerów, których usługa Security Center nie mogła pomyślnie monitorować. Wybierz maszynę wirtualną lub komputer, aby uzyskać szczegółowe informacje. Pole **STAN MONITOROWANIA** definiuje problem.
 
 #### <a name="recommendations"></a>Zalecenia
 Ta sekcja zawiera zestaw [zaleceń dla każdej maszyny wirtualnej i komputera](security-center-virtual-machine-recommendations.md) monitorowanych przez usługę Azure Security Center. W pierwszej kolumnie wyświetlane są zalecenia. Druga kolumna zawiera całkowitą liczbę maszyn wirtualnych i komputerów, na które dane zalecenie ma wpływ. Trzecia kolumna pokazuje wagę problemu, co przedstawiono na następującym zrzucie ekranu:
@@ -79,7 +80,7 @@ Obszar **Brak aktualizacji systemu** zawiera podsumowanie krytycznych aktualizac
   * **Średnia**: niekrytyczne lub dodatkowe kroki są wymagane w celu ukończenia procesu lub wyeliminowania luki w zabezpieczeniach.
   * **Niska**: luka w zabezpieczeniach powinna zostać usunięta, ale nie wymaga natychmiastowej uwagi. (Domyślnie zalecenia o niskiej ważności nie są prezentowane, ale możesz ustawić filtr umożliwiający wyświetlanie zaleceń o niskiej ważności, jeśli chcesz je przeglądać).
 
-Aby wyświetlić szczegóły zalecenia, kliknij nazwę brakującej aktualizacji na liście. 
+Aby wyświetlić szczegóły zalecenia, kliknij nazwę brakującej aktualizacji na liście.
 
 ![Brak aktualizacji systemu na określonej maszynie wirtualnej](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ W scenariuszu, w którym masz zalecenie (nieprzedstawionym w poprzednim przykła
 
 ![Szczegóły dotyczące usługi w chmurze](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Aby zobaczyć więcej normatywnych wyjaśnień dotyczących tego zalecenia, kliknij pozycję **Aktualizuj wersję systemu operacyjnego** w kolumnie **OPIS**. 
+Aby zobaczyć więcej normatywnych wyjaśnień dotyczących tego zalecenia, kliknij pozycję **Aktualizuj wersję systemu operacyjnego** w kolumnie **OPIS**.
 
 ![Zalecenia dotyczące usług w chmurze](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

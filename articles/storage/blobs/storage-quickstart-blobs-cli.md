@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferowanie obiektów do usługi Azure Blob Storage i z niej za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +35,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty blob są zawsze przesyłane do kontenera. Kontenery umożliwiają organizowanie grup obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
+Obiekty blob są zawsze przesyłane do kontenera. Możesz organizować grupy obiektów blob w sposób podobny do organizowania plików w folderach na komputerze.
 
 Do tworzenia kontenera do przechowywania obiektów blob służy polecenie [az storage container create](/cli/azure/storage/container#create).
 
@@ -47,6 +47,9 @@ az storage container create --name mystoragecontainer
 
 Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob. Większość plików przechowywanych w usłudze Blob Storage jest przechowywana jako blokowe obiekty blob. Uzupełnialne obiekty blob są używane w razie konieczności dodania danych do istniejącego obiektu blob bez modyfikowania jego zawartości, na przykład w przypadku rejestrowania. Stronicowe obiekty blob obsługują pliki VHD maszyn wirtualnych IaaS.
 
+Najpierw utwórz plik do przekazania do obiektu blob.
+Jeśli używasz usługi Azure Cloud Shell, utwórz plik za pomocą następującego polecenia: `vi helloworld` po otwarciu pliku, naciśnij klawisz **Insert**, wpisz „Hello wrold”, a następnie naciśnij klawisz **Esc**, wpisz `:x` i naciśnij klawisz **Enter**.
+
 W tym przykładzie do kontenera utworzonego w ostatnim kroku zostanie przekazany obiekt blob za pomocą polecenia [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Jeśli w usłudze Azure Cloud Shell utworzono plik przy użyciu wcześniej opisanej metody, możesz zamiast tego użyć następującego polecenia interfejsu wiersza polecenia (zauważ, że nie trzeba było podawać ścieżki, ponieważ plik utworzono w katalogu podstawowym; zazwyczaj podanie ścieżki jest konieczne):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Jeśli obiekt blob nie istnieje, zostanie utworzony. W przeciwnym razie zostanie zastąpiony. Przed kontynuowaniem można przesłać dowolną liczbę plików.
+
+Aby przekazać jednocześnie wiele plików, możesz użyć polecenia [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 

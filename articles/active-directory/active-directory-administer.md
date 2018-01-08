@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Zarządzanie swoim katalogiem usługi Azure AD
 
@@ -80,7 +80,6 @@ Przy użyciu dowolnego z tych portali (lub poleceń cmdlet) możesz:
 * Konfigurowanie lokalnej integracji z usługami tożsamości i uwierzytelniania usługi Azure AD
 
 Centrum administracyjne usługi Azure AD, centrum administracyjne usługi Office 365, portal konta usługi Microsoft Intune i polecenia cmdlet usługi Azure AD odczytują i zapisują dane w ramach pojedynczego, współdzielonego wystąpienia usługi Azure AD, które jest skojarzone z katalogiem organizacji. Każde z tych narzędzi działa jako interfejs frontonu, który ściąga lub zmienia dane katalogu.
-
 Kiedy wprowadzisz zmiany w danych organizacji przy użyciu dowolnego z portali lub poleceń cmdlet, będąc zalogowanym w kontekście jednej z tych usług, to jednocześnie zmiany są także wyświetlane w innych portalach po następnym zalogowaniu. Dane są współużytkowane przez usługi firmy Microsoft w chmurze, które subskrybujesz.
 
 Jeśli na przykład użyjesz centrum administracyjnego usługi Office 365, aby uniemożliwić użytkownikowi logowanie, ta akcja zablokuje także logowanie użytkownika do wszystkich innych usług, które obecnie subskrybuje Twoja organizacja. Jeśli wyświetlisz to samo konto użytkownika w portalu konta usługi Microsoft Intune, możesz również zobaczyć, że użytkownik jest zablokowany.
@@ -117,8 +116,8 @@ Są sprawdzane następujące warunki:
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Forum usługi Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Forum usługi Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Pytania w witrynie Stack Overflow dotyczące platformy Azure](http://stackoverflow.com/questions/tagged/azure)
+* [Forum usługi Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Forum usługi Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Witryna StackOverflow z pytaniami dotyczącymi platformy Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles-azure-portal.md)

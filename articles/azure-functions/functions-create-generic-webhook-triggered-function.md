@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/12/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Tworzenie funkcji wyzwalanej przez ogólny element webhook
 
@@ -48,9 +48,13 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
     ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Wybierz szablon **Ogólny element webhook — C#**. Wpisz nazwę funkcji języka C#, a następnie wybierz pozycję **Utwórz**.
+2. W polu wyszukiwania wpisz `generic`, a następnie wybierz żądany język dla szablonu wyzwalacza ogólnego elementu webhook. W tym temacie użyto funkcji języka C#.
 
-     ![Tworzenie funkcji wyzwalanej przez ogólny element webhook w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Wybieranie szablonu wyzwalacza ogólnego elementu webhook](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png)
+
+2. Wpisz **nazwę** funkcji, a następnie wybierz pozycję **Utwórz**. 
+
+     ![Tworzenie funkcji wyzwalanej przez ogólny element webhook w witrynie Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger-2.png) 
 
 2. W nowej funkcji kliknij pozycję **</> Pobierz adres URL funkcji**, po czym skopiuj i zapisz wartość. Będzie ona używana do skonfigurowania elementu webhook. 
 

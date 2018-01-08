@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Wprowadzenie do połączeń hybrydowych usługi Relay
 
@@ -28,7 +28,7 @@ Ten samouczek zawiera wprowadzenie do [połączeń hybrydowych usługi Azure Rel
 
 ## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
 
-Połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, dlatego w tym samouczku utworzymy dwie aplikacje konsolowe. Oto konkretne kroki:
+Połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, dlatego w tym samouczku utworzysz dwie aplikacje konsolowe. Oto konkretne kroki:
 
 1. Utworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal.
 2. Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal.
@@ -56,13 +56,13 @@ Jeśli masz już utworzone połączenie hybrydowe, przejdź do sekcji [Tworzenie
 
 ## <a name="3-create-a-server-application-listener"></a>3. Tworzenie aplikacji serwera (odbiornika)
 
-Aby nasłuchiwać i odbierać komunikaty z usługi Relay, napiszemy aplikację konsoli Node.js.
+Aby nasłuchiwać i odbierać komunikaty z usługi Relay, napisz aplikację konsolową Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Tworzenie aplikacji klienta (nadawcy)
 
-Aby wysyłać komunikaty do usługi Relay, napiszemy aplikację konsoli Node.js.
+Aby wysyłać komunikaty do usługi Relay, napisz aplikację konsolową Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ Aby wysyłać komunikaty do usługi Relay, napiszemy aplikację konsoli Node.js.
 
 Gratulacje! Aplikacja typu end-to-end do obsługi połączeń hybrydowych korzystająca ze środowiska Node.js jest gotowa.
 
-## <a name="next-steps"></a>Następne kroki:
+## <a name="next-steps"></a>Następne kroki
 
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)
