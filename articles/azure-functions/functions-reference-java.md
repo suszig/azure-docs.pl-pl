@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera usługi Azure Java funkcji
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ Czasami funkcję musi dokładną kontrolę nad wejścia i wyjścia. Specjalizowa
 | `HttpResponseMessage<T>` | Powiązanie wyniku HTTP | Zwrotny stan innych niż 200   |
 
 > [!NOTE] 
-> Można również użyć `@BindingName` adnotacji można pobrać nagłówków HTTP i zapytania. Na przykład `@Bind("name") String query` iteruje nagłówków żądań HTTP i zapytań i przekazać tę wartość do metody. Na przykład `query` będzie `"test"` Jeśli adres URL żądania jest `http://example.org/api/echo?name=test`.
+> Można również użyć `@BindingName` adnotacji można pobrać nagłówków HTTP i zapytania. Na przykład `@BindingName("name") String query` iteruje nagłówków żądań HTTP i zapytań i przekazać tę wartość do metody. Na przykład `query` będzie `"test"` Jeśli adres URL żądania jest `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadane
 

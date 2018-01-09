@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Dane wyjściowe metadanych
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Zadania kodowania jest skojarzony z zasób wejściowy (lub zasoby), na którym chcesz wykonać kilka zadań kodowania. Na przykład kodowanie pliku MP4 do zestawów o adaptacyjnej szybkości bitowej H.264 MP4; Tworzenie miniatur; Utwórz nakładki. Po zakończeniu zadania jest generowany zawartości wyjściowej.  Elementu zawartości wyjściowej zawiera wideo, audio, miniatur itp. Elementu zawartości wyjściowej zawiera także plik o metadane dotyczące zawartości wyjściowej. Nazwa pliku XML metadanych ma następujący format: &lt;source_file_name&gt;_manifest.xml (na przykład BigBuckBunny_manifest.xml).  
 
 Jeśli chcesz sprawdzić jego pliku metadanych, możesz utworzyć **SAS** lokalizator i pobierania plików na komputerze lokalnym.  
 
-W tym temacie omówiono elementów i typy schematu XML, na którym metada danych wyjściowych (&lt;source_file_name&gt;_manifest.xml) opiera się. Informacji o pliku, który zawiera metadanych dotyczących zasobów wejściowych znajduje się w temacie [wejściowych metadanych](media-services-input-metadata-schema.md).  
+W tym artykule opisano elementy i typy schematu XML, na którym metada danych wyjściowych (&lt;source_file_name&gt;_manifest.xml) opiera się. Informacji o pliku, który zawiera metadanych dotyczących zasobów wejściowych znajduje się w temacie [wejściowych metadanych](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Można znaleźć schematu pełny kod i przykład XML na końcu tego tematu.  
+> Można znaleźć schematu pełny kod i przykład XML na końcu tego artykułu.  
 >
 >
 
@@ -37,7 +37,7 @@ W tym temacie omówiono elementów i typy schematu XML, na którym metada danych
 Kolekcja wpisów AssetFile dla zadania kodowania.  
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs = maxOccurs "0" = "1" |[Elementu AssetFile](media-services-output-metadata-schema.md) będącego częścią kolekcji AssetFiles. |
 
@@ -45,17 +45,17 @@ Kolekcja wpisów AssetFile dla zadania kodowania.
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | **Nazwa**<br/><br/> Wymagane |**xs:String** |Nazwa pliku zasobu multimediów. |
 | **Rozmiar**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**xs:Long** |Rozmiar pliku elementu zawartości w bajtach. |
 | **Czas trwania**<br/><br/> Wymagane |**DURATION** |Czas trwania wstecz odtwarzania zawartości. |
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **Źródeł** |Kolekcja plików multimedialnych źródła danych wejściowych /, który był przetwarzany w celu utworzenia tego AssetFile. Aby uzyskać więcej informacji, zobacz [elementu źródła](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek wideo przeplatana do formatu odpowiedniego kontenera. Jest to kolekcja tych ścieżek wideo. Aby uzyskać więcej informacji, zobacz [VideoTracks elementu](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Każdy fizyczny AssetFile może zawierać w nim wideo zero lub więcej ścieżek przeplatana do formatu odpowiedniego kontenera. Aby uzyskać więcej informacji, zobacz [VideoTracks elementu](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek audio przeplatana do formatu odpowiedniego kontenera. Jest to kolekcja tych ścieżek audio. Aby uzyskać więcej informacji, zobacz [AudioTracks elementu](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Element źródeł
@@ -64,7 +64,7 @@ Kolekcja plików multimedialnych źródła danych wejściowych /, który był pr
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **Źródło**<br/><br/> minOccurs = maxOccurs "1" = "unbounded" |Plik źródła danych wejściowych/używana podczas generowania ten zasób. Aby uzyskać więcej informacji, zobacz [elementu źródła](media-services-output-metadata-schema.md). |
 
@@ -74,17 +74,17 @@ Plik źródła danych wejściowych/używana podczas generowania ten zasób.
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | **Nazwa**<br/><br/> Wymagane |**xs:String** |Nazwa pliku źródła danych wejściowych. |
 
 ## <a name="VideoTracks "></a>VideoTracks element
-Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek wideo przeplatana do formatu odpowiedniego kontenera. Jest to kolekcja tych ścieżek wideo.  
+Każdy fizyczny AssetFile może zawierać w nim wideo zero lub więcej ścieżek przeplatana do formatu odpowiedniego kontenera. **VideoTracks** — element reprezentuje kolekcję wideo ścieżki.  
 
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs = maxOccurs "1" = "unbounded" |Określonej ścieżki wideo w obiekcie nadrzędnym AssetFile. Aby uzyskać więcej informacji, zobacz [VideoTrack elementu](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -94,9 +94,9 @@ Określonej ścieżki wideo w obiekcie nadrzędnym AssetFile.
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
-| **Identyfikator**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**xs:int** |Liczony od zera indeks tej ścieżki wideo. **Uwaga:** nie jest TrackID w pliku MP4. |
+| **Identyfikator**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**xs:int** |Liczony od zera indeks tej ścieżki wideo. **Uwaga:** to **identyfikator** niekoniecznie TrackID w pliku MP4. |
 | **FourCC**<br/><br/> Wymagane |**xs:String** |Kodera-dekodera wideo FourCC kodu. |
 | **Profil** |**xs:String** |Profil H264 (dotyczy tylko koder-dekoder H264). |
 | **Poziom** |**xs:String** |Poziom H264 (dotyczy tylko koder-dekoder H264). |
@@ -111,12 +111,12 @@ Można znaleźć przykład XML [przykład XML](media-services-output-metadata-sc
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**xs:int** |Maksymalna liczba GOP średnia szybkość transmisji bitów dla tej ścieżki wideo, w kilobitów na sekundę. |
 
 ## <a name="AudioTracks "></a>AudioTracks element
-Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek audio przeplatana do formatu odpowiedniego kontenera. Jest to kolekcja tych ścieżek audio.  
+Każdy fizyczny AssetFile może zawierać w nim zero lub więcej ścieżek audio przeplatana do formatu odpowiedniego kontenera. **AudioTracks** — element reprezentuje kolekcję tych ścieżek audio.  
 
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs = maxOccurs "1" = "unbounded" |Określonej ścieżki audio w obiekcie nadrzędnym AssetFile. Aby uzyskać więcej informacji, zobacz [AudioTrack elementu](media-services-output-metadata-schema.md). |
 
@@ -126,7 +126,7 @@ Określonej ścieżki audio w obiekcie nadrzędnym AssetFile.
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | **Identyfikator**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**xs:int** |Liczony od zera indeks tej ścieżki audio. **Uwaga:** nie jest TrackID w pliku MP4. |
 | **Koder-dekoder** |**xs:String** |Ciąg kodera-dekodera audio ścieżki. |
@@ -137,7 +137,7 @@ Można znaleźć przykład XML [przykład XML](media-services-output-metadata-sc
 | **BitsPerSample**<br/><br/> minInclusive = "0"<br/><br/> Wymagane |**xs:int** |Bity na przykład dla formatu wFormatTag typu. |
 
 ### <a name="child-elements"></a>Elementy podrzędne
-| Nazwa | Opis |
+| Name (Nazwa) | Opis |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs = maxOccurs "0" = "1" |Parametry wynik zliczania głośności. Aby uzyskać więcej informacji, zobacz [LoudnessMeteringResultParameters elementu](media-services-output-metadata-schema.md). |
 
@@ -147,7 +147,7 @@ Parametry wynik zliczania głośności.
 Można znaleźć przykład XML [przykład XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atrybuty
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:String** |**Dolby** professional głośności pomiaru wersji zestawu. |
 | **DialogNormalization**<br/><br/> minInclusive = "-31" maxInclusive "-, 1" =<br/><br/> Wymagane |**xs:int** |DialogNormalization wygenerowane za pomocą DPLM LoudnessMetering jest ustawiona. |
@@ -510,7 +510,8 @@ Można znaleźć przykład XML [przykład XML](media-services-output-metadata-sc
 
 
 ## <a name="xml"></a>Przykład pliku XML
- Oto przykład danych wyjściowych pliku metadanych.  
+
+Następujący kod XML jest przykład danych wyjściowych pliku metadanych.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
@@ -598,7 +599,7 @@ Można znaleźć przykład XML [przykład XML](media-services-output-metadata-sc
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii

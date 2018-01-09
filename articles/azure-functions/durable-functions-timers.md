@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 27312846caf4f51e708b48655578846a52cbd1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e29e472860890e3f44af79c42c31ff524acb9276
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Czasomierze w funkcji trwałe (funkcje platformy Azure)
 
 [Funkcje trwałe](durable-functions-overview.md) zapewnia *trwałe czasomierze* do użytku w funkcjach programu orchestrator do zaimplementowania opóźnienia lub ustawienie przekroczeń limitu czasu na asynchronicznych akcji. Czasomierze trwałe powinien być używany w funkcji orchestrator zamiast `Thread.Sleep` lub `Task.Delay`.
 
-Utwórz trwałe czasomierza, wywołując [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). Metoda zwraca klasę task, która zostanie wznowione od określonej daty i godziny.
+Utwórz trwałe czasomierza, wywołując [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) metody w [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Metoda zwraca klasę task, która zostanie wznowione od określonej daty i godziny.
 
 ## <a name="timer-limitations"></a>Ograniczenia czasomierza
 
@@ -95,7 +95,7 @@ Ten mechanizm nie faktycznie kończy wykonywanie funkcja działania w toku. Zami
 
 Na pełniejsze przykład sposób implementowania limitów czasu w funkcjach programu orchestrator, zobacz [człowieka & limity czasu - weryfikację telefoniczną](durable-functions-phone-verification.md) wskazówki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak podnieść i obsługiwać zdarzenia zewnętrzne](durable-functions-external-events.md)

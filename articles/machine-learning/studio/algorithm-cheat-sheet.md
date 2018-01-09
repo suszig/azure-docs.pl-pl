@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Ściągawka dotycząca algorytmu uczenia maszynowego w usłudze Microsoft Azure Machine Learning Studio
 **Microsoft Azure Machine Learning algorytmu Cheat arkusza** pomaga wybrać prawa algorytmu dla modelu analizy predykcyjnej.
@@ -53,7 +53,7 @@ Pobrać i wydrukować maszyny Learning algorytmu Cheat arkusza w rozmiarze tablo
 
 * Sugestie oferowana w tym arkuszu, wskazówkami algorytmu są przybliżonej reguły z podglądu. Niektóre mogą być wygięte, a niektóre mogą flagrantly naruszone. Ta wartość jest przeznaczona do Sugeruj punkt początkowy. Nie jest niejasne, należy uruchomić head-to-head konkurencji między kilka algorytmów na podstawie danych. Nie jest po prostu nie zastąpi zrozumienie zasad poszczególnych algorytmów i opis systemu, które wygenerowało dane.
 
-* Każdy algorytmu uczenia maszynowego ma własnego stylu lub *indukcyjna odchylenia*. Dla konkretnego problemu odpowiednie może być kilka algorytmów i jeden algorytm może być lepszym rozwiązaniem niż inne. Ale nie zawsze jest możliwe wcześniej znać, co jest najlepszym rozwiązaniem. W takich przypadkach kilka algorytmy są wyświetlane razem w przydatną ściągawkę. Właściwej strategii byłoby jeden algorytm, a jeśli wyniki nie są jeszcze zadowalające, ponów innych. Oto przykład z [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) eksperymentu, która próbuje kilka algorytmów na tych samych danych i porównanie wyników: [porównania klasyfikatory wielu klas: list rozpoznawania](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Każdy algorytmu uczenia maszynowego ma własnego stylu lub *indukcyjna odchylenia*. Dla konkretnego problemu odpowiednie może być kilka algorytmów i jeden algorytm może być lepszym rozwiązaniem niż inne. Ale nie zawsze jest możliwe wcześniej znać, co jest najlepszym rozwiązaniem. W takich przypadkach kilka algorytmy są wyświetlane razem w przydatną ściągawkę. Właściwej strategii byłoby jeden algorytm, a jeśli wyniki nie są jeszcze zadowalające, ponów innych. Oto przykład z [galerii Azure AI](http://gallery.cortanaintelligence.com/) eksperymentu, która próbuje kilka algorytmów na tych samych danych i porównanie wyników: [porównania klasyfikatory wielu klas: list rozpoznawania](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Istnieją trzy główne kategorie uczenia maszynowego: **uczenia nadzorowanego**, **uczenie nienadzorowane**, i **learning wzmocnienie**.
 

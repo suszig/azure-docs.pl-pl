@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Zarządzanie usługami IT — produktów/usług Uzyskuj dostęp do łącznika zarządzania usługi IT (wersja zapoznawcza)
 Ten artykuł zawiera informacje dotyczące połączenia usługi/produktów Zarządzanie usługami IT — aby IT usługi zarządzania łącznika (ITSMC) w OMS i centralne zarządzanie elementami pracy. Aby uzyskać więcej informacji o ITSMC, zobacz [omówienie](log-analytics-itsmc-overview.md).
@@ -171,17 +171,21 @@ Na poniższej ilustracji próbki przedstawiono szczegóły połączenia:
 Poniższe sekcje zawierają szczegółowe informacje na temat nawiązywania połączenia z ITSMC w OMS produktu usługi ServiceNow.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-
 Upewnij się, że są spełnione następujące wymagania wstępne:
-
 - ITSMC zainstalowane. Więcej informacji: [Dodawanie rozwiązania do zarządzania łącznika usługi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Usługi ServiceNow obsługiwane wersje — Fuji, serwera Geneva, Helsinkach.
+- Usługi ServiceNow obsługiwane wersje: Dżakarta, Stambuł, Helsinki, serwera Geneva
 
-Administratorzy usługi ServiceNow należy wykonać następujące opcje w ich wystąpienia usługi ServiceNow:
-- Generują identyfikator klienta i klucz tajny klienta usługi ServiceNow produktu. Aby uzyskać informacje na temat generowania identyfikator klienta i klucz tajny, zobacz [instalacji uwierzytelniania OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Zainstaluj aplikację użytkownika integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Administratorzy usługi ServiceNow musi wykonać następujące czynności w ich wystąpienia usługi ServiceNow**:
+- Generują identyfikator klienta i klucz tajny klienta usługi ServiceNow produktu. Aby uzyskać informacje na temat generowania identyfikator klienta i klucz tajny zobacz poniższe informacje zgodnie z wymaganiami:
+
+    - [Konfigurowanie uwierzytelniania OAuth dla Dżakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurowanie uwierzytelniania OAuth dla Stambuł](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurowanie uwierzytelniania OAuth dla Helsinkach](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurowanie uwierzytelniania OAuth dla serwera Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Zainstaluj aplikację użytkownika integracji OMS firmy Microsoft (usługi ServiceNow aplikacji). [Dowiedz się więcej](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Utworzenie roli użytkownika integracji dla zainstalowanej aplikacji użytkownika. Informacje dotyczące sposobu tworzenia roli użytkownika integracji [tutaj](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Procedura połączenia**
 Użyj poniższej procedury, aby utworzyć połączenie usługi ServiceNow:
@@ -361,7 +365,7 @@ Aby wygenerować identyfikator/klucz klienta dla Cherwell, użyj następującej 
     ![Identyfikator użytkownika Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
  - [Tworzenie elementów roboczych Zarządzanie usługami IT — OMS alertów](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Tworzenie elementów roboczych Zarządzanie usługami IT — z dzienników OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
  - [Tworzenie elementów roboczych Zarządzanie usługami IT — Azure alertów](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

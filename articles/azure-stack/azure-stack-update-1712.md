@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 
 #### <a name="new-features"></a>Nowe funkcje
 
-- Nowe środowisko użytkownika podczas tworzenia elementów z witryny Marketplace
 - Polecenia cmdlet test AzureStack do sprawdzania poprawności dostępne za pośrednictwem punktu końcowego uprzywilejowanych chmury Azure stosu
 - Możliwość zarejestrowania odłączonego wdrożenia stosu Azure
 - Monitorowanie alertów dotyczących certyfikatów i użytkownika okres ważności konta
@@ -76,7 +75,7 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 
 - [Stycznia, 3-2018 — KB4056890 (kompilacja 14393.2007 systemu operacyjnego)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Ta aktualizacja obejmuje poprawki oprogramowania problemu zabezpieczeń branżowym opisanego przez [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Znane problemy związane z procesem aktualizacji
 
 Ta sekcja zawiera znane problemy, które mogą wystąpić podczas instalacji aktualizacji 1712.
@@ -103,7 +102,7 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **180106.1**.
 
    - Może pojawić się pusty wiersz na początku listy. Nadal można wybrać elementu zgodnie z oczekiwaniami.
    - Jeśli na liście elementów na liście rozwijanej jest krótki, nie można przeglądać nazwy elementu.
-   - Jeśli masz wiele subskrypcji użytkownika listy rozwijanej grupy zasobów może być pusta. 
+   - Jeśli masz wiele subskrypcji użytkownika listy rozwijanej grupy zasobów może być pusta.
 
         > [!NOTE]
         > Aby obejść problemy z ostatnich dwóch, możesz wpisać nazwę subskrypcji lub grupy zasobów (jeśli ją znasz), lub można użyć programu PowerShell.
@@ -115,25 +114,25 @@ Ta sekcja zawiera poinstalacyjne znane problemy z kompilacją **180106.1**.
 
 - Jeśli ponowne uruchomienie wystąpienia roli infrastruktury, może zostać wyświetlony komunikat informujący, że ponowne uruchomienie nie powiodło się. Jednak ponownego uruchamiania faktycznie zakończyło się pomyślnie.
 
-#### <a name="marketplace"></a>Marketplace
+#### <a name="marketplace"></a>Portal Marketplace
 - Niektóre elementy marketplace są usuwane w tej wersji z powodu problemów ze zgodnością. Te zostaną ponownie włączone po dalszych weryfikacji.
 - Użytkownicy można przeglądać pełnego portalu marketplace bez subskrypcji i widoczne elementy administracyjne, takie jak plany i oferty. Te elementy są niefunkcjonalne dla użytkowników.
 
-#### <a name="compute"></a>Compute
+#### <a name="compute"></a>Wystąpienia obliczeniowe
 - Użytkownicy skorzystać z opcji, aby utworzyć maszynę wirtualną z magazynu geograficznie nadmiarowego. Ta konfiguracja powoduje niepowodzenie tworzenia maszyny wirtualnej.
 - Można skonfigurować dostępność maszyn wirtualnych, ustaw tylko z jednej domeny błędów i jedną domenę aktualizacji.
 - Brak nie doświadczenie marketplace, aby utworzyć zestawy skalowania maszyny wirtualnej. Można utworzyć skali ustawić za pomocą szablonu.
 - Ustawienia skalowania dla zestawy skalowania maszyny wirtualnej nie są dostępne w portalu. Jako rozwiązanie alternatywne można zastosować [programu Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Z powodu różnic wersji programu PowerShell, należy użyć `-Name` parametru zamiast `-VMScaleSetName`.
- 
-#### <a name="networking"></a>Sieć
+
+#### <a name="networking"></a>Networking
 - Nie można utworzyć modułu równoważenia obciążenia z publicznym adresem IP, za pomocą portalu. Jako rozwiązanie alternatywne można utworzyć modułu równoważenia obciążenia za pomocą programu PowerShell.
 - Podczas tworzenia modułu równoważenia obciążenia sieciowego, należy utworzyć regułę translatora adresów sieciowych adres. Jeśli nie, otrzymasz wystąpił błąd podczas próby dodania reguły NAT po utworzeniu usługi równoważenia obciążenia.
 - Nie można usunąć skojarzenie publicznego adresu IP z maszyną wirtualną (VM), po utworzeniu maszyny Wirtualnej i skojarzonych z tym adresem IP. Usuwanie skojarzeń pojawi się do pracy, ale poprzednio przypisanych publiczny adres IP pozostają skojarzone z oryginalna maszyna wirtualna. Dzieje się tak nawet w przypadku ponownego przypisywania adresów IP do nowej maszyny Wirtualnej (nazywane *wymiany wirtualnych adresów IP*). Wszystkie przyszłe próbuje nawiązać połączenie za pośrednictwem tego wyniku adresów IP w przypadku połączenia pierwotnie skojarzonego VM, a nie nowy. Obecnie tylko musi używać nowego publiczne adresy IP do tworzenia nowej maszyny Wirtualnej.
 - Operatory stosu Azure może być niemożliwe do wdrożenia, usuwanie, modyfikowanie, sieciami wirtualnymi lub grup zabezpieczeń sieci. Ten problem występuje przede wszystkim prób kolejnych aktualizacji tego samego pakietu. Jest to spowodowane problemem pakietów za pomocą aktualizacji, który jest obecnie badanym.
 - Wewnętrzny równoważenia obciążenia (ILB) nieprawidłowo obsługuje adresów MAC dla maszyn wirtualnych zaplecza, które dzieli wystąpień systemu Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Może potrwać do godziny dzierżawców można utworzyć bazy danych w nowym SQL lub MySQL jednostki SKU. 
+- Może potrwać do godziny dzierżawców można utworzyć bazy danych w nowym SQL lub MySQL jednostki SKU.
 - Tworzenie elementów bezpośrednio na SQL i MySQL serwerów, które nie są wykonywane przez dostawcę zasobów hosta nie jest obsługiwana i może spowodować niezgodne stanu.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Możesz pobrać pakiet aktualizacji 1712 stosu Azure z [tutaj](https://aka.ms/az
 Firma Microsoft udostępnia sposób monitorowania i wznowić aktualizacji za pomocą uprzywilejowanych punktu końcowego (program ten) zainstalowanych z 1712 aktualizacji.
 
 - Zobacz [monitorowania aktualizacji w stosie Azure, korzystając z dokumentacji uprzywilejowanych punktu końcowego](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Zobacz także
 
 - Zobacz [zarządzania aktualizacjami w omówieniu stosu Azure](azure-stack-updates.md) omówienie zarządzania aktualizacjami w stosie Azure.

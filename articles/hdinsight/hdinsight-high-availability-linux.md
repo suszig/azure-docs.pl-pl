@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Dostępność i niezawodność klastrów Hadoop w usłudze HDInsight
 
@@ -60,7 +60,7 @@ Węzły nimbus są dostępne z klastrami Storm. Węzłów Nimbus zawiera funkcje
 
 Węzłów procesu roboczego do wykonywania analizy danych rzeczywistych po przesłaniu zadania do klastra. W przypadku niepowodzenia węzłem procesu roboczego zadania, które zostało zostanie wykonana jest przesyłany do innego węzła procesu roboczego. Domyślnie HDInsight tworzy czterech węzłów procesu roboczego. Ten numer do własnych potrzeb, podczas i po utworzeniu klastra można zmienić.
 
-### <a name="edge-node"></a>Węzeł krawędzi
+### <a name="edge-node"></a>Węzeł brzegowy
 
 Węzeł krawędzi nie aktywnie uczestniczy w analizy danych w ramach klastra. Jest on używany przez programistów i analityków danych, podczas pracy z platformą Hadoop. Węzeł brzegowy znajduje się w tej samej sieci wirtualnej Azure, co inne węzły w klastrze i można uzyskać dostęp do innych węzłów. Można użyć węzła krawędzi bez konieczności przełączania zasoby zadań analizy i krytycznych usług Hadoop.
 
@@ -179,7 +179,7 @@ Jeśli nie wiadomo, które składniki są dostarczane przez usługę, służy na
 
 ## <a name="how-to-access-log-files-on-the-head-nodes"></a>Jak uzyskać dostęp do plików dziennika o węzłach głównych
 
-### <a name="ssh"></a>SSH
+### <a name="ssh"></a>Protokół SSH
 
 Podczas połączenia z węzłem głównym za pośrednictwem protokołu SSH, pliki dziennika można znaleźć w **/var/log**. Na przykład **/var/log/hadoop-yarn/yarn** zawiera dzienników YARN.
 
@@ -224,7 +224,7 @@ Podczas tworzenia klastra, można określić rozmiaru węzłów. Poniższe infor
 
 * **Program Azure PowerShell**: korzystając z `New-AzureRmHDInsightCluster` polecenia cmdlet, należy określić rozmiar, head, proces roboczy i węzły dozorcy przy użyciu `-HeadNodeVMSize`, `-WorkerNodeSize`, i `-ZookeeperNodeSize` parametrów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Skorzystaj z poniższych linków, aby dowiedzieć się więcej na temat rzeczy, o których wspomniano w tym dokumencie.
 

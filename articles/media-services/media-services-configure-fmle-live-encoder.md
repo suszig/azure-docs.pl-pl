@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be84225eca9cbaa25b9a0dfb8e74e0981b283096
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj koder FMLE, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-W tym temacie przedstawiono sposób konfigurowania [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) kodera (FMLE) do wysyłania strumienia pojedynczej szybkości transmisji bitów AMS kanałów, które są włączone kodowanie na żywo. Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+W tym artykule przedstawiono sposób konfigurowania [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) kodera (FMLE) do wysyłania strumienia pojedynczej szybkości transmisji bitów AMS kanałów, które są włączone kodowanie na żywo. Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 W tym samouczku przedstawiono sposób zarządzania usługi Azure Media Services (AMS) za pomocą narzędzia Azure Media Services Explorer (AMSE). To narzędzie jest uruchamiane tylko na komputerze z systemem Windows. Jeśli na Mac lub Linux, użyj portalu Azure do utworzenia [kanałów](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) i [programy](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Należy pamiętać, że w tym samouczku opisano przy użyciu AAC. FMLE nie obsługuje jednak AAC domyślnie. Musisz kupić wtyczki AAC kodowania przykład MainConcept: [AAC wtyczki](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+W tym samouczku opisano, przy użyciu AAC. FMLE nie obsługuje jednak AAC domyślnie. Musisz kupić wtyczki AAC kodowania przykład MainConcept: [AAC wtyczki](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [Tworzenie konta usługi Azure Media Services](media-services-portal-create-account.md)
@@ -43,11 +43,11 @@ Należy pamiętać, że w tym samouczku opisano przy użyciu AAC. FMLE nie obsł
 
 ## <a name="tips"></a>Porady
 * Jeśli to możliwe, użyj połączenia internetowego hardwired.
-* Regułą podczas określania wymaganiach odnośnie do przepustowości jest dwukrotnie przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, może pomóc zmniejszyć skuteczność przeciążenie sieci.
-* Gdy za pomocą oprogramowania na podstawie koderów, zamknij wszystkie zbędne programy.
+* Regułą podczas określania wymaganiach odnośnie do przepustowości jest dwukrotnie przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, ułatwia ograniczanie wpływu sieci przeciążona.
+* Korzystając z koderów opartych na oprogramowaniu, zamknij wszystkie zbędne programy.
 
 ## <a name="create-a-channel"></a>Tworzenie kanału
-1. W przy użyciu narzędzia AMSE, przejdź do **Live** karcie, a następnie kliknij prawym przyciskiem myszy w obszarze kanału. Wybierz **Utwórz kanał...** z menu.
+1. W przy użyciu narzędzia AMSE, przejdź do **Live** , a następnie kliknij prawym przyciskiem myszy w obszarze kanału. Wybierz **Utwórz kanał...** z menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
@@ -91,7 +91,7 @@ W tym samouczku są używane następujące ustawienia danych wyjściowych. Pozos
 ### <a name="configuration-steps"></a>Kroki konfiguracji
 1. Przejdź do interfejsu Flash Media na żywo kodera (FMLE) na maszynie używane.
 
-    Interfejs jest jednej strony głównej ustawień. Poświęć należy wziąć pod uwagę następujące ustawienia, aby zacząć korzystać z przesyłania strumieniowego przy użyciu FMLE zalecane.
+    Interfejs jest jednej strony głównej ustawień. Zwróć uwagę na następujące ustawienia, aby zacząć korzystać z przesyłania strumieniowego przy użyciu FMLE zalecane.
 
    * Format: Szybkość klatek H.264: 30,00
    * Rozmiar wejściowe: 1280 x 720
@@ -142,7 +142,7 @@ Przejdź do przy użyciu narzędzia AMSE, a następnie kliknij prawym przyciskie
 
 Strumień jest widoczna w player, następnie koder został poprawnie skonfigurowany do nawiązania połączenia usługi AMS.
 
-Jeśli błąd kanału należy zresetować i dostosowane ustawienia kodera. Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.  
+Jeśli błąd kanału powinna zostać zresetowana i dostosowane ustawienia kodera. Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) artykułu, aby uzyskać wskazówki.  
 
 ## <a name="create-a-program"></a>Utwórz program
 1. Po potwierdzeniu kanału odtwarzania, tworzenia programu. W obszarze **Live** w przy użyciu narzędzia AMSE, kliknij prawym przyciskiem myszy w obszarze program i wybierz **utworzyć nowy Program**.  
@@ -156,12 +156,12 @@ Jeśli błąd kanału należy zresetować i dostosowane ustawienia kodera. Zobac
     >Tworzenie programu zajmuje mniej czasu niż tworzenie kanału.
         
 5. Po uruchomieniu programu potwierdzić odtwarzania przez kliknięcie prawym przyciskiem myszy program i przechodząc do **odtwarzania programach** , a następnie wybierając **z usługi Azure Media Player**.  
-6. Po potwierdzeniu, kliknij prawym przyciskiem myszy program ponownie i wybierz **skopiuj dane wyjściowe adres URL do Schowka** (lub pobrać tych informacji z **programu informacji i ustawień** opcji z menu).
+6. Po potwierdzeniu, ponownie kliknij prawym przyciskiem myszy program i wybierz **skopiuj dane wyjściowe adres URL do Schowka** (lub pobrać tych informacji z **programu informacji i ustawień** opcji z menu).
 
 Strumień jest teraz gotowy do osadzonego w odtwarzacza lub dystrybuowane do odbiorców w celu wyświetlenia na żywo.  
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.
+Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) artykułu, aby uzyskać wskazówki.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

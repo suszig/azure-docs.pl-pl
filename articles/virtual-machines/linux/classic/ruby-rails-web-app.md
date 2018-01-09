@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
 ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplikacja sieci Web Ruby on Rails na maszynie wirtualnej platformy Azure
 Ten samouczek pokazuje, jak udostępniać Ruby na szyny witryny sieci Web na platformie Azure przy użyciu maszyny wirtualnej systemu Linux.  
@@ -127,7 +127,7 @@ Powinny pojawić się dane wyjściowe podobne do następujących:
 
     ![Domyślna strona szyny][default-rails-cloud]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym samouczku jak większość czynności ręcznie. W środowisku produkcyjnym może napisać aplikację na komputerze deweloperskim i wdrożyć go na maszynie Wirtualnej platformy Azure. Ponadto większość środowisk produkcyjnych hostowania aplikacji szyny w połączeniu z innym procesem serwera, takich jak Apache lub NginX, która obsługuje żądania routingu do wielu wystąpień aplikacji szyny i obsługująca zasoby statyczne. Aby uzyskać więcej informacji zobacz http://rubyonrails.org/deploy/.
 
 Aby dowiedzieć się więcej na temat Ruby na szyny, odwiedź stronę [dopisków fonetycznych w przewodnikach szyny][rails-guides].

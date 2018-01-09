@@ -22,7 +22,7 @@ W poniższych ofertach Oto nasze zalecane działania, aby zaktualizować System 
 <td>Maszyny wirtualne systemu Linux platformy Azure</td> <td>Zainstaluj aktualizacje z dostawcą systemu operacyjnego, jeśli jest dostępna. </td>
 </tr>
 <tr>
-<td>Maszyny wirtualne systemu Windows Azure </td> <td><ul><li>Sprawdź, czy używasz obsługiwanej aplikacji oprogramowania antywirusowego przed zainstalowaniem aktualizacji systemu operacyjnego. Skontaktuj się z dostawcą oprogramowania antywirusowego, aby uzyskać informacje o zgodności. </li> <li> Zainstaluj [zbiorczy zabezpieczeń stycznia](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Maszyny wirtualne systemu Windows Azure </td> <td>Sprawdź, czy używasz obsługiwanej aplikacji oprogramowania antywirusowego przed zainstalowaniem aktualizacji systemu operacyjnego. Skontaktuj się z dostawcą oprogramowania antywirusowego, aby uzyskać informacje o zgodności.<p> Zainstaluj [zbiorczy zabezpieczeń stycznia](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Inne usługi Azure PaaS</td> <td>Brak akcji wymagane dla klientów korzystających z tych usług. Azure automatycznie aktualizuje Twojej wersji systemu operacyjnego aktualne. </td>

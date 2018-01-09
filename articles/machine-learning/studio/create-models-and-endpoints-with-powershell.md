@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-ms.openlocfilehash: 3386e3bab7a92b080276c4f03f0b006bd5f68e98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 44551908c31151e7d8945a3c7c03303b17d8f059
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Tworzenie wielu modeli usługi Machine Learning i punktów końcowych usługi sieci Web na podstawie jednego eksperymentu przy użyciu programu PowerShell
-W tym miejscu jest to powszechny problem learning maszyny: Aby utworzyć wiele modeli, które ma tego samego przepływu pracy szkolenia i korzystać z tego samego algorytmu, ale zestaw danych szkoleniowych różnych jako dane wejściowe. W tym artykule opisano w tym celu na dużą skalę w usłudze Azure Machine Learning Studio za pomocą tylko jednego eksperymentu.
+W tym miejscu jest to powszechny problem learning maszyny: Aby utworzyć wiele modeli, w tym samym przepływie pracy szkolenia, które używają tego samego algorytmu. Jednak użytkownicy powinni mieć szkolenia różnych zestawów danych, jako dane wejściowe. W tym artykule opisano w tym celu na dużą skalę w usłudze Azure Machine Learning Studio za pomocą tylko jednego eksperymentu.
 
-Załóżmy na przykład, że właścicielem firmy franchisingowe roweru globalnego dzierżawy. Chcesz skompilować modelu regresji do prognozowania żądanie dzierżawy na podstawie danych historycznych. Masz 1000 lokalizacje wynajem całym świecie. Dla każdej lokalizacji, która zawiera ważne funkcje, takie jak dzień, godzina pogodą i ruchu, które są specyficzne dla każdej lokalizacji zestawu danych zostały zebrane.
+Załóżmy na przykład, że właścicielem firmy franchisingowe roweru globalnego dzierżawy. Chcesz skompilować modelu regresji do prognozowania żądanie dzierżawy na podstawie danych historycznych. Masz 1000 lokalizacje wynajem całym świecie i zostały zebrane zestawu danych dla każdej lokalizacji. Obejmują one ważne funkcje takich jak daty, godziny, pogody i ruchu, które są specyficzne dla każdej lokalizacji.
 
-Można uczenia modelu raz przy użyciu wersji scalonych wszystkie zestawy danych we wszystkich lokalizacjach. Jednak ponieważ każdy z lokalizacji ma unikatowy środowiska, lepszym rozwiązaniem byłoby do uczenia modelu regresji oddzielnie dla każdej lokalizacji za pomocą zestawu danych. W ten sposób każdego uczonego modelu można wziąć pod uwagę magazynu różne rozmiary, woluminu, geography, populacji, ruch roweru przyjaznego środowiska i więcej.
+Można uczenia modelu raz przy użyciu wersji scalonych wszystkie zestawy danych we wszystkich lokalizacjach. Jednak każdy z lokalizacji ma unikatowy środowiska. Dlatego lepszym rozwiązaniem byłoby uczenia modelu regresji oddzielnie dla każdej lokalizacji za pomocą zestawu danych. W ten sposób każdego uczonego modelu można wziąć pod uwagę magazynu różne rozmiary, woluminu, geography, populacji, ruch roweru przyjaznego środowiska i więcej.
 
 Może to być najlepszym rozwiązaniem, ale nie chcesz utworzyć 1000 szkolenia eksperymentów w usłudze Azure Machine Learning z każdą z nich reprezentujący unikatową lokalizację. Oprócz jest utrudnione zadań, należy również wydaje się mało wydajne, ponieważ każdego doświadczenia byłyby same składników z wyjątkiem zestawu danych szkoleniowych.
 
 Na szczęście, możesz to zrobić przy użyciu [ponownego trenowania interfejsu API uczenia maszynowego Azure](retrain-models-programmatically.md) i automatyzację zadań z [programu PowerShell usługi Azure Machine Learning](powershell-module.md).
 
 > [!NOTE]
-> Aby przykładu szybsze, Zmniejsz liczbę lokalizacji, z 1 000 do 10. Jednak z zasadami i procedurami stosować do 1000 lokalizacji. Jedyna różnica polega na tym, jeśli chcesz uczenia z 1000 zestawów danych prawdopodobnie chcesz wziąć pod uwagę uruchomionych poniższych skryptów programu PowerShell równolegle. Jak to zrobić, wykracza poza zakres tego artykułu, ale można znaleźć przykłady PowerShell wielowątkowości w Internecie.  
+> Aby przykładu szybsze, Zmniejsz liczbę lokalizacji, z 1 000 do 10. Jednak z zasadami i procedurami stosować do 1000 lokalizacji. Jednak jeśli chcesz uczenia z 1000 zestawów danych można równolegle poniższych skryptów programu PowerShell. Jak to zrobić, wykracza poza zakres tego artykułu, ale można znaleźć przykłady PowerShell wielowątkowości w Internecie.  
 > 
 > 
 
@@ -40,7 +40,7 @@ Na szczęście, możesz to zrobić przy użyciu [ponownego trenowania interfejsu
 Skorzystaj z przykładu [eksperyment uczenia](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Otwórz tego eksperymentu w Twojej [Azure Machine Learning Studio](https://studio.azureml.net) obszaru roboczego.
 
 > [!NOTE]
-> Aby można było skorzystać z tego przykładu, można użyć standardowego obszaru roboczego, a nie wolnego obszaru roboczego. Utwórz jeden punkt końcowy dla każdego klienta — dla wszystkich punktów końcowych 10 - i wymaga standardowe obszaru roboczego, ponieważ obszar roboczy wolne wynosi 3 punkty końcowe. Jeśli masz tylko wolnego obszaru roboczego, można zmienić skrypty umożliwiające tylko 3 lokalizacji.
+> Aby można było skorzystać z tego przykładu, można użyć standardowego obszaru roboczego, a nie wolnego obszaru roboczego. Utwórz jeden punkt końcowy dla każdego klienta — dla wszystkich punktów końcowych 10 - i wymaga standardowe obszaru roboczego, ponieważ obszar roboczy wolne wynosi 3 punkty końcowe. Jeśli masz tylko wolnego obszaru roboczego, można zmienić skrypty umożliwiające tylko tej lokalizacji.
 > 
 > 
 
@@ -51,8 +51,8 @@ Używa eksperyment **Import danych** modułu, aby zaimportować zestaw danych sz
 Należy pamiętać, że **wyjście usługi sieci Web** moduł został dodany do **Train Model** modułu.
 Po wdrożeniu tego eksperymentu jako usługę sieci web punktu końcowego skojarzone z danych wyjściowych zwracanych uczonego modelu w formacie pliku .ilearner.
 
-Pamiętaj także parametr usługi sieci web jest skonfigurowana dla adresu URL który **i zaimportuj dane** korzysta z modułu. Umożliwia to parametr umożliwia określenie poszczególnych szkolenia zestawów danych, do nauczenia modelu, dla każdej lokalizacji.
-Istnieją inne sposoby można zostało to zrobione. Zapytania SQL z parametr usługi sieci web służy do pobrania danych z bazy danych SQL Azure lub użyj **wprowadzania usługi sieci Web** modułu do przekazania w zestawie danych do usługi sieci web.
+Należy również zauważyć, skonfigurować parametr usługi sieci web, który określa adres URL który **i zaimportuj dane** korzysta z modułu. Umożliwia to parametr umożliwia określenie poszczególnych szkolenia zestawów danych, do nauczenia modelu, dla każdej lokalizacji.
+Istnieją inne sposoby można zostało to zrobione. Zapytania SQL z parametrem usługi sieci web umożliwia pobranie danych z bazy danych SQL Azure. Lub użyć **wprowadzania usługi sieci Web** modułu do przekazania w zestawie danych do usługi sieci web.
 
 ![Obraz](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -65,7 +65,7 @@ Teraz należy wdrożyć oceniania usługi sieci web.
 Aby to zrobić, kliknij przycisk **ustawić usługę sieci Web** poniżej kanwy i wybierz **predykcyjnej usługi sieci Web**. Spowoduje to utworzenie oceniania eksperymentu.
 Należy dostosować kilka pomocnicza do własnych preferencji jako usługę sieci web. Usuń kolumnę etykiety "cnt" z danych wejściowych i ograniczyć dane wyjściowe do identyfikatora wystąpienia i odpowiednie przewidzianej wartości.
 
-Aby zaoszczędzić pracy, możesz po prostu otworzyć [eksperyment predykcyjny](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) w galerii jest już przygotowane.
+Aby zaoszczędzić pracy, możesz otworzyć [eksperyment predykcyjny](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) w galerii, które zostało już przygotowane.
 
 Aby wdrożyć usługę sieci web, uruchom eksperyment predykcyjny, a następnie kliknij przycisk **wdrażanie usługi sieci Web** znajdujący się poniżej obszaru roboczego. Oceniania usługi sieci web "Roweru oceniania dzierżawa" name ".
 
@@ -94,9 +94,9 @@ Teraz utworzyć 10 punktów końcowych i wszystkie zawierają takie same uczenia
 ![Obraz](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Zaktualizuj punktów końcowych do użycia osobnych szkolenia zestawów danych przy użyciu programu PowerShell
-Następnym krokiem jest aby zaktualizować punkty końcowe z modelami jednoznacznie ćwiczenie poszczególnych danych każdego klienta. Jednak najpierw potrzebne do tworzenia tych modeli z **roweru wynajem szkolenia** usługi sieci web. Wróć do **roweru wynajem szkolenia** usługi sieci web. należy wywołać punktu końcowego usługi BES 10 razy z 10 szkolenia różnych zestawów danych, aby można było utworzyć 10 różne modele. Użyjemy **InovkeAmlWebServiceBESEndpoint** polecenia cmdlet programu PowerShell, aby to zrobić.
+Następnym krokiem jest aby zaktualizować punkty końcowe z modelami jednoznacznie ćwiczenie poszczególnych danych każdego klienta. Jednak najpierw potrzebne do tworzenia tych modeli z **roweru wynajem szkolenia** usługi sieci web. Wróć do **roweru wynajem szkolenia** usługi sieci web. należy wywołać punktu końcowego usługi BES 10 razy z 10 szkolenia różnych zestawów danych, aby można było utworzyć 10 różne modele. Użyj **InovkeAmlWebServiceBESEndpoint** polecenia cmdlet programu PowerShell, aby to zrobić.
 
-Należy również podać poświadczenia dla konta magazynu obiektów blob do `$configContent`, to znaczy, pola `AccountName`, `AccountKey` i `RelativeLocation`. `AccountName` Może być jedną z nazwy konta, jak pokazano w **portalu Azure** (*magazynu* kartę). Po kliknięciu na koncie magazynu, jego `AccountKey` można znaleźć, naciskając klawisz **Zarządzaj kluczami dostępu** znajdujący się u dołu i kopiowanie *podstawowy klucz dostępu*. `RelativeLocation` Jest ścieżką względną wobec miejsca przechowywania nowego modelu. Na przykład ścieżka `hai/retrain/bike_rental/` w skrypcie poniżej punktów do kontenera o nazwie `hai`, i `/retrain/bike_rental/` znajdują się podfoldery. Obecnie nie można utworzyć podfoldery za pośrednictwem interfejsu użytkownika portalu, ale istnieją [kilka eksploratory usługi Storage Azure](../../storage/common/storage-explorers.md) umożliwiające zrobić. Zalecane jest, Utwórz nowy kontener w Twoim magazynie do przechowywania nowe modele przeszkolone (.ilearner pliki) w następujący sposób: na stronie magazynu, kliknij **Dodaj** znajdujący się u dołu i nadaj mu nazwę `retrain`. Podsumowując, niezbędne zmiany w poniższym skrypcie odnoszą się do `AccountName`, `AccountKey` i `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Należy również podać poświadczenia dla konta magazynu obiektów blob do `$configContent`. To znaczy, w polach `AccountName`, `AccountKey`, i `RelativeLocation`. `AccountName` Może być jedną z nazwy konta, jak pokazano w **portalu Azure** (*magazynu* kartę). Po kliknięciu na koncie magazynu, jego `AccountKey` można znaleźć, naciskając klawisz **Zarządzaj kluczami dostępu** znajdujący się u dołu i kopiowanie *podstawowy klucz dostępu*. `RelativeLocation` Jest ścieżką względną wobec miejsca przechowywania nowego modelu. Na przykład ścieżka `hai/retrain/bike_rental/` w następujących punktach skryptu do kontenera o nazwie `hai`, i `/retrain/bike_rental/` znajdują się podfoldery. Obecnie nie można utworzyć podfoldery za pośrednictwem interfejsu użytkownika portalu, ale istnieją [kilka eksploratory usługi Storage Azure](../../storage/common/storage-explorers.md) umożliwiające zrobić. Zalecane jest, Utwórz nowy kontener w Twoim magazynie do przechowywania nowe modele przeszkolone (.iLearner pliki) w następujący sposób: na stronie magazynu, kliknij **Dodaj** znajdujący się u dołu i nadaj mu nazwę `retrain`. Podsumowując, wymagane zmiany dotyczące poniższy skrypt odnoszą się do `AccountName`, `AccountKey`, i `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -116,9 +116,9 @@ Należy również podać poświadczenia dla konta magazynu obiektów blob do `$c
 > 
 > 
 
-Jak pokazano powyżej, zamiast tworzenia 10 różnych BES zadania konfiguracji json plików, są dynamicznie zamiast tego utworzyć parametry konfiguracji i umieść go do *jobConfigString* parametr  **InvokeAmlWebServceBESEndpoint** polecenia cmdlet, ponieważ nie istnieje naprawdę nie trzeba przechowywać kopię na dysku.
+Jak pokazano powyżej, zamiast tworzenia 10 różnych BES zadania konfiguracji json plików, można dynamicznie utworzyć ciągu konfiguracji. Następnie źródła danych do *jobConfigString* parametr **InvokeAmlWebServceBESEndpoint** polecenia cmdlet. To naprawdę nie trzeba przechowywać kopię na dysku.
 
-Jeśli wszystko odbędzie się poprawnie, po chwili powinno być widoczne 10 plików .ilearner, z *model001.ilearner* do *model010.ilearner*, na Twoim koncie magazynu Azure. Teraz już wszystko gotowe do zaktualizowania naszych 10 oceniania punktów końcowych usługi sieci web przy użyciu tych modeli przy użyciu **AmlWebServiceEndpoint poprawki** polecenia cmdlet programu PowerShell. Ponownie należy pamiętać, że tylko stosowania poprawek innych niż domyślne punkty końcowe, programowo utworzonego wcześniej.
+Jeśli wszystko odbędzie się poprawnie, po chwili powinno być widoczne 10 plików .iLearner, z *model001.ilearner* do *model010.ilearner*, na Twoim koncie magazynu Azure. Teraz wszystko jest gotowe do aktualizacji 10 oceniania punktów końcowych usługi sieci web przy użyciu tych modeli przy użyciu **AmlWebServiceEndpoint poprawki** polecenia cmdlet programu PowerShell. Ponownie należy pamiętać, że tylko stosowania poprawek innych niż domyślne punkty końcowe, programowo utworzonego wcześniej.
 
     # Patch the 10 endpoints with respective .ilearner models
     $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
@@ -131,7 +131,7 @@ Jeśli wszystko odbędzie się poprawnie, po chwili powinno być widoczne 10 pli
         Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
     }
 
-To powinno być ono uruchomione stosunkowo szybko. Po zakończeniu wykonywania, firma Microsoft będzie pomyślnie utworzono 10 predykcyjnej usługi punktów końcowych sieci web, zawierający uczonego modelu jednoznacznie ćwiczenie określonego zestawu danych do lokalizacji wynajem, wszystko z eksperyment pojedynczego szkolenia. Aby to sprawdzić, możesz spróbować wywoływania tych punktów końcowych przy użyciu **InvokeAmlWebServiceRRSEndpoint** dane wejściowe polecenia cmdlet, zapewnienie im o takim samym i należy oczekiwać zobaczyć wyniki prognozowania inny, ponieważ modele są uczone szkolenie różnych zestawów.
+To powinno być ono uruchomione stosunkowo szybko. Po zakończeniu wykonywania pracy będzie pomyślnie utworzono 10 punktów końcowych usługi sieci web predykcyjnej. Każdy z nich będzie zawierać uczonego modelu jednoznacznie ćwiczenie określonego zestawu danych do lokalizacji wynajem, wszystko z eksperyment pojedynczego szkolenia. Aby to sprawdzić, możesz spróbować wywoływania tych punktów końcowych przy użyciu **InvokeAmlWebServiceRRSEndpoint** polecenia cmdlet, zapewnienie im z tymi samymi danymi wejściowymi. Należy oczekiwać zobaczyć wyniki prognozowania inny, ponieważ modele są uczone z szkolenia różnych zestawów.
 
 ## <a name="full-powershell-script"></a>Pełna skrypt programu PowerShell
 Oto lista pełny kod źródłowy:

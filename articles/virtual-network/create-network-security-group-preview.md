@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrowanie ruchu sieciowego z grup zabezpieczeń sieci i aplikacji (wersja zapoznawcza)
 
@@ -42,14 +42,14 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 3. Logowanie do platformy Azure z `az login` polecenia.
 4. Zarejestruj w wersji zapoznawczej, wprowadzając następujące polecenia:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Upewnij się, że są zarejestrowane dla wersji zapoznawczej, wprowadzając następujące polecenie:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 6. Uruchom poniższy skrypt bash, aby utworzyć grupę zasobów:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 7. Utwórz trzy grupy zabezpieczeń aplikacji, po jednej dla każdego typu serwera:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 8. Utwórz grupę zabezpieczeń sieci:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 9. Utwórz zasady zabezpieczeń w ramach grupy NSG, ustawienia grupy zabezpieczeń aplikacji jako miejsce docelowe:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 10. Utwórz sieć wirtualną: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 11. Skojarz sieciową grupę zabezpieczeń do podsieci w sieci wirtualnej:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
     
 12. Utwórz trzy interfejsów sieciowych, po jednej dla każdego typu serwera: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --application-security-groups "DatabaseServers"
     ```
 
-    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 9 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myNic1*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myNic1*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
+    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 9 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *AppRule* reguła ma zastosowanie w przypadku *myNic2*, ponieważ interfejs sieciowy jest elementem członkowskim *AppServers* grupy zabezpieczeń aplikacji i zasady Określa *AppServers* grupy zabezpieczeń aplikacji jako miejsca docelowego. *WebRule* i *DatabaseRule* reguły nie są stosowane do *myNic2*, ponieważ interfejs sieci nie jest elementem członkowskim *serwery sieci Web*i *DatabaseServers* grup zabezpieczeń aplikacji. Zarówno *WebRule* i *AppRule* obowiązują dla *myNic1* , ponieważ *myNic1* interfejsu sieciowego jest elementem członkowskim zarówno *serwery sieci Web* i *AppServers* grup zabezpieczeń aplikacji i zasady określ *serwery sieci Web* i *AppServers* grup zabezpieczeń aplikacji jako ich miejsc docelowych. 
 
 13. Tworzenie maszyn wirtualnych dla każdego typu serwera, dołączanie odpowiedniego interfejsu sieciowego do każdej maszyny wirtualnej. W tym przykładzie tworzy maszyny wirtualne systemu Windows, ale można zmienić *win2016datacenter* do *UbuntuLTS* zamiast tego utworzyć maszyn wirtualnych systemu Linux.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Utwórz grupę zabezpieczeń sieci:
@@ -361,7 +363,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 8 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *WebRule* ma zastosowanie w przypadku *myNic1*, ponieważ interfejs sieciowy jest elementem członkowskim *serwery sieci Web* grupy zabezpieczeń aplikacji i zasady Określa *serwery sieci Web* grupy zabezpieczeń aplikacji jako miejsca docelowego. *AppRule* i *DatabaseRule* reguły nie są stosowane do *myNic1*, ponieważ interfejs sieci nie jest elementem członkowskim *AppServers*i *DatabaseServers* grup zabezpieczeń aplikacji.
+    Dotyczy tylko odpowiadająca im zasada zabezpieczeń, który został utworzony w kroku 8 interfejsu sieciowego, na podstawie interfejsu sieciowego jest członkiem grupy zabezpieczeń aplikacji. Na przykład tylko *AppRule* reguła ma zastosowanie w przypadku *myNic2*, ponieważ interfejs sieciowy jest elementem członkowskim *AppServers* grupy zabezpieczeń aplikacji i zasady Określa *AppServers* grupy zabezpieczeń aplikacji jako miejsca docelowego. *WebRule* i *DatabaseRule* reguły nie są stosowane do *myNic2*, ponieważ interfejs sieci nie jest elementem członkowskim *serwery sieci Web*i *DatabaseServers* grup zabezpieczeń aplikacji. Zarówno *WebRule* i *AppRule* obowiązują dla *myNic1* , ponieważ *myNic1* interfejsu sieciowego jest elementem członkowskim zarówno *serwery sieci Web* i *AppServers* grup zabezpieczeń aplikacji i zasady określ *serwery sieci Web* i *AppServers* grup zabezpieczeń aplikacji jako ich miejsc docelowych. 
 
 13. Tworzenie maszyn wirtualnych dla każdego typu serwera, dołączanie odpowiedniego interfejsu sieciowego do każdej maszyny wirtualnej. W tym przykładzie tworzy maszyny wirtualne systemu Windows, ale przed wykonaniem skryptu, można zmienić *-Windows* do *- Linux*, *MicrosoftWindowsServer* do *Canonical*, *Windows Server* do *UbuntuServer* i *2016 Datacenter* do *14.04.2-LTS*zamiast tego utworzyć maszyn wirtualnych systemu Linux.
 
@@ -429,6 +431,33 @@ Polecenia interfejsu wiersza polecenia platformy Azure są takie same, czy możn
 
 14. **Opcjonalne**: usunięcie zasobów, utworzonych w tym samouczku, wykonując kroki opisane w [zasoby zostaną usunięte](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Usuń karty Sieciowej z ASG
+Po usunięciu interfejsu sieciowego z grupy zabezpieczeń aplikacji, Brak reguł, które określają grupy zabezpieczeń aplikacji są stosowane do interfejsu sieciowego, który należy usunąć.
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Aby usunąć *myNic3* ze wszystkich grup zabezpieczeń aplikacji, wprowadź następujące polecenie:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Aby usunąć *myNic3* ze wszystkich grup zabezpieczeń aplikacji, wprowadź następujące polecenia:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Usuwanie zasobów
 
 Po zakończeniu tego samouczka można usunąć zasoby, które zostały utworzone, tak aby nie wiąże się z opłatami użycia. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów, które znajdują się w grupie zasobów.
@@ -443,7 +472,7 @@ Po zakończeniu tego samouczka można usunąć zasoby, które zostały utworzone
 
 W sesji interfejsu wiersza polecenia wprowadź następujące polecenie:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

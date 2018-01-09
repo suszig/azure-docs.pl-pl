@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła tabeli sieci Web przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Fabryka danych aktualnie obsługuje tylko przenoszenia danych z tabeli sieci Web
 
 > [!IMPORTANT]
 > Ten łącznik sieci Web obsługuje obecnie tylko wyodrębnianie zawartości tabeli ze strony HTML. Aby pobrać dane z punktu końcowego protokołu HTTP/s, użyj [łącznika HTTP](data-factory-http-connector.md) zamiast tego.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby użyć tego łącznika tabeli sieci Web, musisz skonfigurować Self-hosted integrację środowiska uruchomieniowego (alias brama zarządzania danymi) i `gatewayName` właściwości w obiekt sink połączonej usługi. Na przykład można skopiować danych z tabeli sieci Web do magazynu obiektów Blob platformy Azure, skonfiguruj połączoną usługą magazynu Azure następujące parametry:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Wprowadzenie
 Można utworzyć potok z działania kopiowania, który przenosi dane z magazynu lokalnego Cassandra danych przy użyciu różnych narzędzi/interfejsów API. 
@@ -57,9 +74,9 @@ Poniższa tabela zawiera opis elementów JSON specyficzne dla połączonej usłu
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **sieci Web** |Tak |
-| Url |Adres URL źródła w sieci Web |Tak |
-| Typ authenticationType |Anonimowe. |Tak |
+| type |Właściwość type musi mieć ustawioną: **sieci Web** |Yes |
+| Url |Adres URL źródła w sieci Web |Yes |
+| Typ authenticationType |Anonimowe. |Yes |
 
 ### <a name="using-anonymous-authentication"></a>Przy użyciu uwierzytelniania anonimowego
 
@@ -85,9 +102,9 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Typ zestawu danych. należy wybrać opcję **tabeli WebTable** |Tak |
-| Ścieżka |Względny adres URL do zasobu, który zawiera tabelę. |Nie. Jeśli ścieżka nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. |
-| Indeks |Indeks tabeli w zasobie. Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji, aby instrukcje dotyczące pobierania indeksu tabeli na stronie HTML. |Tak |
+| type |Typ zestawu danych. należy wybrać opcję **tabeli WebTable** |Yes |
+| ścieżka |Względny adres URL do zasobu, który zawiera tabelę. |Nie. Jeśli ścieżka nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. |
+| indeks |Indeks tabeli w zasobie. Zobacz [Get indeksu tabeli na stronie HTML](#get-index-of-a-table-in-an-html-page) sekcji, aby instrukcje dotyczące pobierania indeksu tabeli na stronie HTML. |Yes |
 
 **Przykład:**
 
@@ -156,7 +173,8 @@ Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -189,7 +207,7 @@ Poniższy przykład pokazuje, jak można skopiować danych z tabeli sieci Web do
 ```
 
 
-**Azure Blob wyjściowy zestaw danych**
+**Wyjściowy zestaw danych obiektów blob platformy Azure**
 
 Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ W tym artykule opisano sposób integracji i przetestować serwer licencji Widevi
 * Generowanie tokenu JWT w celu spełnienia wymagań dotyczących licencji serwera;
 * Tworzenie aplikacji usługi Azure Media Player, która obsługuje nabycie licencji przy użyciu uwierzytelniania tokenu JWT;
 
-Całego systemu i przepływu zawartość, którą kluczy, kluczy identyfikator klucza inicjatora, JTW token i jego oświadczeń można najlepiej opisać za pomocą poniższym diagramie.
+Całego systemu i przepływ klucz zawartości klucz identyfikator, klucza inicjatora JTW token i jego oświadczeń może być najlepiej opisany przez poniższym diagramie:
 
 ![KRESKA i CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,13 +47,13 @@ Do konfigurowania ochrony dynamiczne i zasady dostarczania klucza, zobacz Mingfe
 
 Można skonfigurować dynamiczne ochrony CENC z wieloma DRM DASH przesyłania strumieniowego o z następujących czynności:
 
-1. Ochrona PlayReady MS Edge i IE11, mające ograniczenia tokenu autoryzacji. Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez Secure Token Service (STS), takich jak Azure Active Directory;
+1. Ochrona PlayReady MS Edge i IE11, mające ograniczenie tokenu autoryzacji. Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez Secure Token Service (STS), takich jak Azure Active Directory;
 2. Widevine ochrony dla programu Chrome, ich wymaga tokenu uwierzytelniania z token wystawiony przez inną usługę STS. 
 
 Zobacz [generowania tokenów JWT](media-services-axinom-integration.md#jwt-token-generation) sekcji dlaczego usługi Azure Active Directory nie można użyć jako tokenu Zabezpieczającego serwera licencji Widevine przez Axinom.
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
-1. Należy użyć Axinom określony inicjatora klucza (8888000000000000000000000000000000000000) i z wygenerowany lub wybranego Identyfikatora do wygenerowania klucza zawartości do konfigurowania usługi dostarczania klucza klucza. Serwer licencji Axinom będzie wystawiać wszystkie licencje zawierający klucze zawartości oparte na tym samym inicjatora klucza jest prawidłowy dla testowania i produkcji.
+1. Należy użyć Axinom określony inicjatora klucza (8888000000000000000000000000000000000000) i z wygenerowany lub wybranego Identyfikatora do wygenerowania klucza zawartości do konfigurowania usługi dostarczania klucza klucza. Serwer licencji Axinom wystawia wszystkie licencje zawierający klucze zawartości oparte na tym samym inicjatora klucza jest prawidłowy dla testowania i produkcji.
 2. Adres URL pozyskiwania licencji Widevine do testowania: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Protokół HTTP ani HTTS są dozwolone.
 
 ## <a name="azure-media-player-preparation"></a>Przygotowanie odtwarzacz multimediów Azure
@@ -65,14 +65,14 @@ Serwer licencji Widevine dostarczonych przez Axinom wymaga uwierzytelnienia toke
 
 Pozostałe kodzie AMP to standardowa API AMP jak dokument AMP [tutaj](http://amp.azure.net/libs/amp/latest/docs/).
 
-Należy pamiętać, że powyższe javascript dla nagłówka autoryzacji niestandardowe ustawienie nadal podejście krótkoterminowa przed oficjalnym wydania długoterminowej podejścia AMP.
+Powyżej javascript dla nagłówka autoryzacji niestandardowej ustawienie jest nadal krótkoterminowej podejście przed wydaniem oficjalnego długoterminowego podejścia w AMP.
 
 ## <a name="jwt-token-generation"></a>Generowanie tokenów JWT
 Serwer licencji Axinom Widevine testowania wymaga uwierzytelnienia tokenu JWT. Ponadto jednym z oświadczeń w JWT token jest typu obiekt złożony zamiast typu danych pierwotnych.
 
 Niestety usługi Azure AD może wystawiać tokeny JWT z typami pierwotnymi. Podobnie interfejsu API dla platformy .NET Framework (Klasa System.IdentityModel.Tokens.SecurityTokenHandler i JwtPayload) umożliwia tylko do wejściowego typu obiektu złożonego jako oświadczenia. Jednak oświadczenia nadal są serializowane jako ciąg. W związku z tym nie można użyć, dowolne dwa do generowania tokenu JWT dla żądania licencji Widevine.
 
-Jan Sheehan [pakietu JWT Nuget](https://www.nuget.org/packages/JWT) zaspokoi potrzeby, dlatego firma Microsoft będzie używany ten pakiet Nuget.
+Jan Sheehan [pakietu JWT NuGet](https://www.nuget.org/packages/JWT) zaspokoi potrzeby, dlatego firma Microsoft będzie używany ten pakiet NuGet.
 
 Poniżej znajduje się kod generowania tokenu JWT z wymagane oświadczenia, co jest wymagane przez serwer licencji Axinom Widevine do testowania:
 
@@ -136,12 +136,12 @@ Serwer licencji Axinom Widevine
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 1. Mimo że wymaga usługi dostarczania licencji AMS PlayReady "Bearer =" kolejnych tokenu uwierzytelniania serwera licencji Axinom Widevine nie używa ich.
-2. Klucz komunikacji Axinom jest używany jako klucza podpisywania. Należy pamiętać, że klucz ciąg szesnastkowy, jednak ją muszą być traktowane jako serię bajtów nie ciągu podczas kodowania. Jest to osiągane przez metodę ConvertHexStringToByteArray.
+2. Klucz komunikacji Axinom jest używany jako klucza podpisywania. Klucz jest ciąg znaków szesnastkowych, jednak ją muszą być traktowane jako serię bajtów nie ciągu podczas kodowania. Jest to osiągane przez metodę ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Pobieranie Identyfikatora klucza
 Można zauważyć, że w kodzie generowania token JWT identyfikator tokenu, klucza jest wymagana. Ponieważ musi tokenu JWT jest gotowy, zanim player AMP ładowania klucza identyfikator musi być pobierane w celu wygenerowania tokenu JWT.
 
-Oczywiście, który wiele sposobów, aby pomieścić pobrać klucza identyfikatora. Na przykład, co może przechowywać Identyfikatora klucza wraz z zawartością metadanych w bazie danych. Lub może pobrać Identyfikatora z MPD DASH (opis prezentacji nośnika) pliku klucza. Poniższy kod jest dla niego.
+Oczywiście istnieje wiele sposobów uzyskania blokady klucza identyfikatora. Na przykład, co może przechowywać Identyfikatora klucza wraz z zawartością metadanych w bazie danych. Lub może pobrać Identyfikatora z MPD DASH (opis prezentacji nośnika) pliku klucza. Poniższy kod jest dla niego.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)

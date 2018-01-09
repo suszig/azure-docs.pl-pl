@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ustawianie klastrów w usłudze HDInsight Hadoop, Spark, Kafka i
 
@@ -248,7 +248,7 @@ Jeśli rozwiązanie wymaga technologie, które są rozkładane między wieloma t
 
 Aby uzyskać więcej informacji na temat używania sieci wirtualnej platformy Azure z usługą HDInsight, zobacz [rozszerzenie usługi HDInsight za pomocą sieci wirtualnych platformy Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Na przykład za pomocą dwóch typów klastra w ramach sieci wirtualnej platformy Azure, zobacz [analizowanie danych czujnika przy użyciu platformy Storm oraz bazy danych HBase](storm/apache-storm-sensor-data-analysis.md). Aby uzyskać więcej informacji o korzystaniu z usługi HDInsight z sieci wirtualnej, łącznie z określonymi wymaganiami konfiguracji dla sieci wirtualnej, zobacz [możliwości rozszerzania HDInsight przy użyciu usługi Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Na przykład za pomocą dwóch typów klastra w ramach sieci wirtualnej platformy Azure, zobacz [Użyj Spark strukturalnych przesyłania strumieniowego z Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Aby uzyskać więcej informacji o korzystaniu z usługi HDInsight z sieci wirtualnej, łącznie z określonymi wymaganiami konfiguracji dla sieci wirtualnej, zobacz [możliwości rozszerzania HDInsight przy użyciu usługi Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Rozwiązywanie problemów z kontrolą dostępu
 

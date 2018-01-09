@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Tworzenie kopii zapasowych maszyn wirtualnych systemu Linux na platformie Azure
 
@@ -157,10 +157,10 @@ W tym przykładzie zostanie przedstawiony sposób odzyskiwania /var/www/html/ind
 
     ![Domyślna strona sieci web nginx](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Na komputerze lokalnym, wróć do karty przeglądarki dla portalu Azure i w **krok 3: odinstaluj dyski po odzyskaniu** kliknij **odinstalować dyski** przycisku. Jeśli zapomnisz wykonać ten krok, połączenie punktu instalacji jest automatycznie Zamknij po 12 godzinach. Po tych 12 godzin należy pobrać nowe skryptu można utworzyć nowego punktu instalacji.
+18. Na komputerze lokalnym, wróć do karty przeglądarki dla portalu Azure i w **krok 3: odinstaluj dyski po odzyskaniu** kliknij **odinstalować dyski** przycisku. Jeśli zapomnisz wykonać ten krok, połączenie punktu instalacji zostaje automatycznie zamknięty po 12 godzinach. Po tych 12 godzin należy pobrać nowe skryptu można utworzyć nowego punktu instalacji.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

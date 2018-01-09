@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Osadzania wideo adaptacyjnego przesyłania strumieniowego MPEG-DASH w aplikacji HTML5 z DASH.js
-## <a name="overview"></a>Omówienie
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Osadzanie adaptacyjną wideo przesyłania strumieniowego MPEG-DASH aplikacji HTML5 z DASH.js
+## <a name="overview"></a>Przegląd
 MPEG-DASH jest standardem ISO do adaptacyjnego przesyłania strumieniowego zawartości wideo, która oferuje istotne korzyści dla tych, którzy chcą dostarczania wideo wysokiej jakości, adaptacyjne przesyłanie strumieniowe danych wyjściowych. Z MPEG-DASH strumienia wideo automatycznie porzuca do dolnej definicji gdy sieć staje się przeciążona. Zmniejsza to prawdopodobieństwo podglądu wyświetlanie "Wstrzymano" wideo, gdy odtwarzacz pobiera dalej kilka sekund, aby odtworzyć (alias buforowania). Ponieważ zmniejsza przeciążenie sieci, odtwarzacza wideo z kolei powróci do strumienia wyższej jakości. Możliwość dostosowania przepustowość wymagana powoduje również skrócić czas rozpoczęcia wideo. Oznacza to pierwsze sekundy można odtworzyć w segmencie jakości niższe fast do pobierania, a następnie krok do wyższej jakości raz wystarczającej zawartości została buforowana.
 
-Dash.js jest typu open source MPEG-DASH odtwarzacza wideo napisane w języku JavaScript. Jego celem jest zapewnienie odtwarzacz niezawodne, między platformami, który może nastąpić za darmo w aplikacjach, które wymagają odtwarzania wideo. Zapewnia odtwarzanie MPEG-DASH w dowolnej przeglądarce, która obsługuje obecnie W3C nośnika źródłowego rozszerzenia (MSE) Chrome, Microsoft Edge i IE11 (innych przeglądarek wskazał zamiaru obsługuje MSE). Aby uzyskać więcej informacji na temat DASH.js js Zobacz dash.js repozytorium GitHub.
+Dash.js jest open source MPEG-DASH odtwarzacza wideo napisane w języku JavaScript. Jego celem jest zapewnienie odtwarzacz niezawodne, między platformami, który może nastąpić za darmo w aplikacjach, które wymagają odtwarzania wideo. Zapewnia odtwarzanie MPEG-DASH w dowolnej przeglądarce, która obsługuje obecnie W3C nośnika źródłowego rozszerzenia (MSE) Chrome, Microsoft Edge i IE11 (innych przeglądarek wskazał zamiaru obsługuje MSE). Aby uzyskać więcej informacji na temat DASH.js js Zobacz dash.js repozytorium GitHub.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Tworzenie przeglądarki przesyłania strumieniowego odtwarzacza wideo
-Aby utworzyć prostą stronę sieci web, który wyświetla odtwarzacza wideo z oczekiwanym formanty takie play, Wstrzymaj, przewiń itp., konieczne będzie:
+Aby utworzyć prostą stronę sieci web, który wyświetla odtwarzacza wideo z oczekiwanym formanty takie play, Wstrzymaj, przewiń itp., musisz:
 
 1. Tworzenie strony HTML
 2. Dodaj tag wideo
@@ -51,7 +51,7 @@ Pierwszym krokiem jest utworzenie standardowego zawierający HTML strony **wideo
     </html>
 
 ## <a name="adding-the-dashjs-player"></a>Dodawanie DASH.js Player
-Aby dodać dash.js implementacji odwołania do aplikacji, należy do pobrania pliku dash.all.js z wersji 1.0 dash.js projektu. To ma zostać zapisany w folderze JavaScript aplikacji. Ten plik jest plikiem wygody, ściągający kod dash.js niezbędne do jednego pliku w razem. Jeśli masz wyszukiwania wokół repozytorium dash.js będzie znaleźć pojedyncze pliki, testowania kodu i wiele innych, ale jeśli wszystkie chcesz zrobić jest dash.js użycia, a następnie plik dash.all.js jest, co jest potrzebne.
+Aby dodać dash.js implementacji odwołania do aplikacji, należy do pobrania pliku dash.all.js z wersji 1.0 dash.js projektu. To ma zostać zapisany w folderze JavaScript aplikacji. Ten plik jest plikiem wygody, ściągający kod dash.js niezbędne do jednego pliku w razem. Jeśli masz wyszukiwania wokół repozytorium dash.js można znaleźć pojedyncze pliki, testowania kodu i wiele innych, ale jeśli wszystkie chcesz zrobić jest użyć dash.js, plik dash.all.js jest, co jest potrzebne.
 
 Aby dodać dash.js player do aplikacji, należy dodać tag skryptu do sekcji head basicPlayer.html:
 
@@ -73,7 +73,7 @@ Następnie Utwórz funkcję, aby zainicjować odtwarzacz podczas ładowania stro
     }
     </script>
 
-Ta funkcja najpierw tworzy DashContext. Służy do konfigurowania aplikacji dla środowiska wykonawczego specyficzne. Z technicznego punktu widzenia definiuje klasy, które framework iniekcji zależności należy używać podczas tworzenia aplikacji. W większości przypadków będzie używany Dash.di.DashContext.
+Ta funkcja najpierw tworzy DashContext. Służy do konfigurowania aplikacji dla środowiska wykonawczego specyficzne. Z technicznego punktu widzenia definiuje klasy, które framework iniekcji zależności należy używać podczas tworzenia aplikacji. W większości przypadków należy użyć Dash.di.DashContext.
 
 Następnie można utworzyć wystąpienia klasy podstawowej struktury dash.js MediaPlayer. Ta klasa zawiera podstawowe metody takie jak odtwarzanie i wstrzymywanie, zarządza relacji z elementem wideo i zarządza także interpretacji pliku opisu prezentacji nośnika (MPD), który opisuje wideo do odtworzenia.
 

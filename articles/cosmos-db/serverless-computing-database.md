@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure rozwiązania Cosmos bazy danych: Za pomocą usługi Azure Functions obliczeniowych bez serwera bazy danych
 
@@ -26,13 +26,16 @@ Obliczanie niekorzystającą jest możliwość skupić się na poszczególnych c
 
 Z natywna integracja pomiędzy usługą [bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db) i usługi Azure Functions można utworzyć wyzwalaczy bazy danych, powiązania wejściowe i powiązania danych wyjściowych bezpośrednio z Twojego konta bazy danych Azure rozwiązania Cosmos. Przy użyciu usługi Azure Functions i bazy danych rozwiązania Cosmos platformy Azure, możesz tworzenie i wdrażanie sterowane zdarzeniami niekorzystającą aplikacji, o małych opóźnieniach dostępu do sformatowanego danych globalnych bazę użytkowników.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Bazę danych rozwiązania Cosmos systemu Azure i usługi Azure Functions umożliwiają integrowanie baz danych i pliki aplikacji w następujący sposób:
 
 * Utwórz sterowane zdarzeniami **wyzwalacza bazy danych Azure rozwiązania Cosmos** w funkcji platformy Azure. Zależy od tego wyzwalacza [zmienić źródła strumieniowego](change-feed.md) strumieni do monitorowania kontener zmiany z bazy danych Azure rozwiązania Cosmos. Podczas wprowadzania żadnych zmian do kontenera, zmiany źródła danych strumienia są wysyłane do wyzwalacz, który wywołuje funkcję platformy Azure.
 * Alternatywnie powiązać funkcji platformy Azure z kolekcji bazy danych rozwiązania Cosmos Azure przy użyciu **wejściowych powiązania**. Powiązania wejściowe odczytać danych z kontenera, jeśli funkcja wykonuje.
 * Powiązać kolekcji bazy danych rozwiązania Cosmos Azure przy użyciu funkcji **powiązania wyjściowego**. Powiązania danych wyjściowych zapisu danych do kontenera, po zakończeniu działania funkcji.
+
+> [!NOTE]
+> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta interfejsu API SQL i interfejsu API programu Graph.
 
 Poniższy diagram ilustruje każdą z tych trzech integracji: 
 
@@ -42,9 +45,6 @@ W następujących kombinacji można wyzwalacza bazy danych Azure rozwiązania Co
 * Wyzwalacz bazy danych rozwiązania Cosmos Azure może służyć wraz z powiązaniem danych wyjściowych do innego kontenera Azure DB rozwiązania Cosmos. Po funkcji wykonuje akcję elementu w źródle danych zmiany może zapisywać innego kontenera (pisania go do tego samego kontenera, z której pochodzi skutecznie spowoduje utworzenie pętli cyklicznej). Lub wyzwalacz bazy danych Azure rozwiązania Cosmos umożliwia efektywne migrację wszystkie zmienione elementy z jednego kontenera do innego kontenera podczas korzystania z wiązania danych wyjściowych.
 * W tej samej funkcji platformy Azure można powiązania wejściowe i powiązania danych wyjściowych dla bazy danych Azure rozwiązania Cosmos. To działa dobrze w przypadkach, gdy chcesz znaleźć niektórych danych z powiązania wejściowego, zmodyfikuj go w funkcji platformy Azure, a następnie zapisz go na tym samym kontenerze lub innego kontenera po modyfikacji.
 * Powiązania wejściowego do kontenera Azure DB rozwiązania Cosmos można użyć w tej samej funkcji jako wyzwalacz bazy danych Azure rozwiązania Cosmos i mogą być używane z lub bez wyjścia również powiązania. Ta kombinacja do stosowania aktualne waluty wymiany informacji (pobierane za pomocą powiązania wejściowego do kontenera programu exchange) można użyć do zmiany źródła nowych zamówień w usługą koszyka zakupów. Zaktualizowano łączną koszyka zakupów, z bieżącej konwersja zastosowane, mogą być zapisywane na trzeci kontener używanie powiązania danych wyjściowych.
-
-> [!NOTE]
-> W tej chwili wyzwalacza, powiązania wejściowe i powiązania danych wyjściowych bazy danych Azure rozwiązania Cosmos współpracować tylko konta interfejsu API SQL i interfejsu API programu Graph.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
@@ -146,7 +146,7 @@ Zalety funkcji platformy Azure:
 
 Jeśli nie masz pewności, czy są najlepsze w przypadku implementacji przepływu, Logic Apps, usługi Azure Functions lub zadań Webjob, zobacz [wybór między przepływu, Logic Apps, funkcje i zadań Webjob](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz załóżmy połączenia bazy danych rozwiązania Cosmos Azure i usługi Azure Functions rzeczywistym: 
 

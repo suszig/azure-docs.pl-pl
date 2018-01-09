@@ -4,13 +4,13 @@ description: "Opisuje sposób odnajdywania i oceny lokalnych maszyn wirtualnych 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/20/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Odnajdywanie i ocenić lokalnych maszyn wirtualnych VMware do migracji do usługi Azure
 
@@ -73,17 +73,18 @@ Sprawdź, czy. Plik komórek jajowych jest bezpieczne, przed jego wdrożeniem.
     - Przykład użycia:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Skrót wygenerowanego powinna odpowiadać te ustawienia.
     
-    Dla wersji komórek jajowych 1.0.8.38
+    Dla wersji komórek jajowych 1.0.8.49
     **Algorytm** | **Wartość skrótu**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7 
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
-    Dla wersji komórek jajowych 1.0.8.40
+    W wersji komórek jajowych 1.0.8.40:
+
     **Algorytm** | **Wartość skrótu**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -123,7 +124,7 @@ Pobrany plik należy zaimportować do programu vCenter Server.
     - Określ nazwę (FQDN) lub adres IP serwera vCenter.
     - W **nazwy użytkownika** i **hasło**, określ poświadczenia konta tylko do odczytu, które moduł zbierający będzie używane do wykrywania maszyn wirtualnych na serwerze vCenter.
     - W **zakresu kolekcji**, wybierz zakres odnajdywania maszyny Wirtualnej. Moduł zbierający można tylko odnajdywanie maszyn wirtualnych w podanym zakresie. Można ustawić zakresu na określony folder, w centrum danych lub w klastrze. Nie powinien on zawierać więcej niż 1000 maszyn wirtualnych. 
-    - W **Tag kategorii do grupowania**, wybierz pozycję **Brak**.
+
 6. W **Określ migrację**, określ identyfikator projektu migracji Azure i klucza skopiowany z portalu. Jeśli nie skopiuj je, otwórz Azure portal z modułu zbierającego maszyny Wirtualnej. W projekcie **omówienie** kliknij przycisk **odnajdywanie maszyn**i skopiuj wartości.  
 7. W **wyświetlić postęp kolekcji**, monitorować odnajdywania i sprawdź, że metadane zbierane z maszyn wirtualnych znajduje się w zakresie. Moduł zbierający zapewnia odnajdywania przybliżony czas.
 

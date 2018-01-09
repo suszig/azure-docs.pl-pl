@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Odbieranie zdarzeń z usługi Event Hubs przy użyciu platformy Apache Storm
 
@@ -130,7 +130,7 @@ W tym samouczku używana [HDInsight Storm] [ HDInsight Storm] instalacji, która
     }
     ```
     
-    Dany element bolt Storm rejestruje zawartość odebranych zdarzeń. To można z łatwością rozszerzyć do przechowywania spójnych kolekcji w usłudze magazynowania. [Samouczek analizy czujnik HDInsight] korzysta z tej samej metody do przechowywania danych do bazy danych HBase.
+    Dany element bolt Storm rejestruje zawartość odebranych zdarzeń. To można z łatwością rozszerzyć do przechowywania spójnych kolekcji w usłudze magazynowania. [HDInsight Storm przykładu Centrum zdarzeń] korzysta z tej samej metody do przechowywania danych do magazynu Azure i usługi Power BI.
 11. Tworzenie klasy o nazwie **LogTopology** następującym kodem:
     
     ```java
@@ -237,7 +237,7 @@ W tym samouczku używana [HDInsight Storm] [ HDInsight Storm] instalacji, która
 
     Ta klasa tworzy nowe spout usługi Event Hubs przy użyciu właściwości w pliku konfiguracji, można go utworzyć. Należy pamiętać, w tym przykładzie tworzony jako wiele zadań elementach spout jako liczbę partycji w Centrum zdarzeń, aby można było używać równoległości maksymalne dozwolone w tym Centrum zdarzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Przegląd usługi Event Hubs][Event Hubs overview]
@@ -247,7 +247,7 @@ Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event H
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Samouczek analizy czujnik HDInsight]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[HDInsight Storm przykładu Centrum zdarzeń]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integracja przedsiębiorstwa z transformacji XML
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Łącznik przekształcenia integracji przedsiębiorstwa konwertuje dane z jednego formatu do innego formatu. Przykładowo może istnieć wiadomości przychodzącej, która zawiera bieżącą datę w formacie YearMonthDay. Transformacja służy do ponownego formatowania daty w formacie MonthDayYear.
 
 ## <a name="what-does-a-transform-do"></a>Do czego służy transformacji?
@@ -72,6 +72,28 @@ Teraz możesz przetestować z transformacji, wysyłając żądania do punktu ko�
 * Funkcja testu mapy do dodania przykładowy komunikat XML. Pojedynczym kliknięciem można przetestować mapy, który został utworzony, a Zobacz wygenerowanych danych wyjściowych.  
 * Przekazywanie istniejącej mapy  
 * Obsługuje XML format.
+
+## <a name="adanced-features"></a>Funkcje Adanced
+Następujące funkcje są dostępne tylko w widoku kodu.
+
+### <a name="byte-order-mark"></a>Znacznik porządku bajtów
+Domyślnie odpowiedzi z transformacja rozpocznie się o znacznik kolejności bajtów (BOM). Aby wyłączyć tę funkcję, podaj `disableByteOrderMark` dla `transformOptions` właściwości:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 * [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw")  

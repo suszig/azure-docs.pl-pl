@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Co to są hasła aplikacji w usłudze Azure Multi-Factor Authentication?
 Niektóre aplikacje korzystające z przeglądarki, takie jak klienta natywnego poczty e-mail firmy Apple, który używa programu Exchange Active Sync aktualnie nie obsługują uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe jest włączone dla użytkownika. Oznacza to, że jeśli użytkownik został włączony dla usługi Multi-Factor authentication i próbuje korzystać z aplikacji korzystających z przeglądarki, będą mogli w tym celu. Hasła aplikacji umożliwia to możliwe. Jeśli wymusić uwierzytelnianie wieloskładnikowe za pośrednictwem zasad dostępu warunkowego, a nie za pomocą usługi MFA dla poszczególnych użytkowników, nie można utworzyć hasła aplikacji. Aplikacje używające zasad dostępu warunkowego do kontroli dostępu nie ma potrzeby haseł aplikacji.
@@ -55,30 +55,12 @@ Podczas początkowej logowanie podano hasło aplikacji, które można użyć.  P
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Zarządzanie hasłami aplikacji w portalu Azure
 Jeśli używasz weryfikacji dwuetapowej z platformy Azure, chcesz utworzyć hasła aplikacji za pośrednictwem portalu Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Aby utworzyć hasła aplikacji w portalu Azure
-1. Zaloguj się do klasycznego portalu Azure.
-2. U góry kliknij prawym przyciskiem myszy nazwę użytkownika, a następnie wybierz dodatkowa weryfikacja zabezpieczeń.
-3. Na stronie biurowego u góry wybierz haseł aplikacji
-4. Kliknij przycisk **Utwórz**.
-5. Wprowadź nazwę hasła aplikacji, a następnie kliknij przycisk **dalej**
-6. Kopiuj hasło aplikacji do Schowka i wklej go do aplikacji.
-
-   ![Chmura](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Aby usunąć hasła aplikacji w portalu Azure
-1. Zaloguj się do klasycznego portalu Azure.
-2. U góry kliknij prawym przyciskiem myszy nazwę użytkownika, a następnie wybierz dodatkowa weryfikacja zabezpieczeń.
-3. W górnej części strony obok dodatkowej weryfikacji zabezpieczeń, wybierz **hasła aplikacji.**
-4. Obok hasło aplikacji do usunięcia, wybierz **usunąć**.
-5. Potwierdź decyzję, klikając **tak**.
-6. Po usunięciu hasła aplikacji, możesz kliknąć **zamknąć**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Zarządzanie hasłami aplikacji przy użyciu portalu MyApps.
 Jeśli nie masz pewności, jak używać usługi Multi-Factor authentication, następnie zawsze możesz utworzyć i usunąć hasła aplikacji za pośrednictwem portalu myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Aby utworzyć hasło aplikacji przy użyciu portalu Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Aby utworzyć hasło aplikacji przy użyciu portalu MyApps
 1. Zaloguj się do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Kliknij nazwę górnym rogu i wybierz **profilu**.
 3. Wybierz **dodatkowej weryfikacji zabezpieczeń**.
@@ -92,7 +74,7 @@ Jeśli nie masz pewności, jak używać usługi Multi-Factor authentication, nas
 7. Kopiuj hasło aplikacji do Schowka i wklej go do aplikacji.
    ![Utwórz hasło aplikacji](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Aby usunąć hasła aplikacji przy użyciu portalu Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Aby usunąć hasła aplikacji przy użyciu portalu MyApps
 1. Zaloguj się do [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. U góry wybierz profil.
 3. Wybierz **dodatkowej weryfikacji zabezpieczeń**.
@@ -110,7 +92,7 @@ Jeśli nie masz pewności, jak używać usługi Multi-Factor authentication, nas
 6. Upewnij się, czy chcesz usunąć to hasło, klikając **tak**.
 7. Po usunięciu hasła aplikacji, możesz kliknąć **zamknąć**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie ustawieniami weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analizowanie zmienności klientów przy użyciu usługi Azure Machine Learning
 ## <a name="overview"></a>Przegląd
@@ -28,14 +28,14 @@ Ten artykuł przedstawia wdrożenie odwołanie do projektu analizy przenoszenie 
 Tego eksperymentu został opracowany i przetestowane przez Serge Berger naukowca danych podmiot zabezpieczeń w firmie Microsoft i Roger Barga, wcześniej produktu programu Microsoft Azure Machine Learning. Zespół Azure dokumentacji gratefully uznaje ich wiedzy i Dziękujemy je do udostępniania tego oficjalny dokument.
 
 > [!NOTE]
-> Dane używane do tego eksperymentu nie jest publicznie dostępna. Na przykład sposobu tworzenia modelu uczenia maszynowego, analizy zmian, zobacz: [handlowej churn — szablonu modelu](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Dane używane do tego eksperymentu nie jest publicznie dostępna. Na przykład sposobu tworzenia modelu uczenia maszynowego, analizy zmian, zobacz: [handlowej churn — szablonu modelu](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) w [galerii Azure AI](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Problem z tworzeniem klienta
-Przedsiębiorstwa na rynku konsumenta i we wszystkich sektorach przedsiębiorstwa mają radzenia sobie z zmian. Czasami zmian jest nadmierne i wpływ decyzji dotyczących zasad. Tradycyjne rozwiązania jest prognozowania churners większego ukierunkowania wysokiej i potrzeb za pośrednictwem usługi Konsjerż, kampanii, lub przez zastosowanie specjalnych zwolnień adresów. Te metody mogą się różnić z branży dla branży i nawet z klastra konkretnego użytkownika do innego w ramach jednego industry (na przykład telekomunikacyjnych).
+Przedsiębiorstwa na rynku konsumenta i we wszystkich sektorach przedsiębiorstwa mają radzenia sobie z zmian. Czasami zmian jest nadmierne i wpływ decyzji dotyczących zasad. Tradycyjne rozwiązania jest prognozowania churners większego ukierunkowania wysokiej i potrzeb za pośrednictwem usługi Konsjerż, kampanii, lub przez zastosowanie specjalnych zwolnień adresów. Te metody mogą się różnić z branży branży. Można nawet różnią z klastra z określonego klienta do innego w ramach jednego industry (na przykład telekomunikacyjnych).
 
 Typowe współczynnik jest czy firma potrzebuje do zminimalizowania tych działań przechowywania specjalne klienta. W związku z tym metodologię fizyczne będzie wynik każdego klienta z prawdopodobieństwo zmian i N pierwszych tych adresów. Najlepszych klientów może być najbardziej dochodowe te. Na przykład w bardziej zaawansowanych scenariuszy funkcja zysku jest zastosować podczas wybór kandydatów specjalne zwolnienia. Jednak te zagadnienia są tylko część pełnej strategii zajmujących się ilość danych churn. Firm również powinny uwzględniać ryzyka konta (i tolerancji ryzyka skojarzone), poziom i koszt interwencji i segmentacji odbiorców wiarygodne.  
 
@@ -109,7 +109,7 @@ Poniższych diagramach przedstawiono dane, które zostało użyte.
  
 
 > Należy pamiętać, że te dane jest prywatny i dlatego nie może być współużytkowana modelu i danych.
-> Jednak dla podobnych modelu przy użyciu dostępnych publicznie danych, zobacz ten przykład eksperymentu w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco churn klienta —](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Jednak dla podobnych modelu przy użyciu dostępnych publicznie danych, zobacz ten przykład eksperymentu w [galerii Azure AI](http://gallery.cortanaintelligence.com/): [Telco churn klienta —](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Aby dowiedzieć się więcej na temat implementacji zmian modelu analizy przy użyciu pakietu Cortana Intelligence Suite, zalecamy również [ten film](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) przez Tok Hyong Wee starszy Menedżer programu. 
 > 
@@ -222,7 +222,7 @@ W tym dokumencie opisano za pośrednictwem podejście do rozwiązaniu problemu w
 
 [4] [Marketing danych big Data: efektywniej kontaktować się z klientami i dysk wartość](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn — szablonu modelu](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) w [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco churn — szablonu modelu](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) w [galerii Azure AI](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Dodatek

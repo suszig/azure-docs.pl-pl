@@ -1,6 +1,6 @@
 ---
-title: "Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł pomaga szybko rozpocząć pracę z usługą Azure Security Center. Omówiono w nim składniki monitorowania zabezpieczeń i zarządzania zasadami oraz podano linki do następnych kroków."
+title: "Centrum zabezpieczeń Azure — Szybki Start - dołączyć subskrypcją Azure Security Center Standard | Dokumentacja firmy Microsoft"
+description: "Ta opcja szybkiego startu pokazano, jak uaktualnić do Centrum zabezpieczeń warstwy cenowej standardowa celu zapewnienia dodatkowych zabezpieczeń."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,125 +12,109 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/07/2018
 ms.author: terrylan
-ms.openlocfilehash: c28f92af96f31d1c386cf072f83fc142b9a7f588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="azure-security-center-quick-start-guide"></a>Przewodnik Szybki start dotyczący usługi Azure Security Center
-Ten artykuł pomaga szybko rozpocząć pracę z usługą Azure Security Center. Omówiono w nim składniki monitorowania zabezpieczeń i zarządzania zasadami usługi Security Center.
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Szybki Start: Dołączyć subskrypcją Azure Security Center Standard
+Centrum zabezpieczeń Azure zapewnia ujednolicone zarządzanie i zagrożeń ochronę dla obciążeń chmury hybrydowej. Gdy warstwę bezpłatna zapewnia ograniczone bezpieczeństwo dla zasobów platformy Azure tylko, warstwy standardowa rozszerza możliwości lokalnych i innych chmur. Standard Centrum zabezpieczeń pomaga wyszukiwania i napraw luk w zabezpieczeniach, zastosowanie kontroli dostępu i aplikacji w celu blokowania złośliwych działań, wykrywać zagrożenia, korzystając z analizy i analizy oraz szybko reagować, gdy trwa atak. Możesz spróbować Security Center Standard bezpłatnie przez pierwsze 60 dni.
+
+W tym artykule uaktualnienie do warstwy standardowa, aby zwiększyć bezpieczeństwo i zainstalować program Microsoft Monitoring Agent na maszynach wirtualnych do monitorowania luk w zabezpieczeniach i zagrożenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
 
-Warstwa bezpłatna Centrum zabezpieczeń jest automatycznie włączona dla wszystkich subskrypcji platformy Azure i zawiera zasady zabezpieczeń, oceny ciągłego zabezpieczeń i zalecenia dotyczące zabezpieczeń można wykonać, aby ułatwić ochronę zasobów platformy Azure.
+Aby uaktualnić subskrypcję do warstwy standardowa, musi mieć przypisaną rolę właściciela subskrypcji, współautor subskrypcji lub administratora zabezpieczeń.
 
-Usługa Security Center jest dostępna w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Aby dowiedzieć się więcej o witrynie Azure Portal, zobacz [dokumentację portalu](https://azure.microsoft.com/documentation/services/azure-portal/).
+## <a name="enable-your-azure-subscription"></a>Włączenie subskrypcji platformy Azure
 
-## <a name="permissions"></a>Uprawnienia
-W Centrum zabezpieczeń widoczne są tylko informacje związane z zasobem, jeśli przypisano rolę właściciela, współautora lub czytelnika subskrypcji lub grupy zasobów, do której należy zasób. Zobacz [uprawnienia w Centrum zabezpieczeń Azure](security-center-permissions.md) Aby dowiedzieć się więcej o rolach i akcji dozwolonych w Centrum zabezpieczeń.
+1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+2. W menu platformy **Microsoft Azure** wybierz pozycję **Security Center**. **Centrum zabezpieczeń — omówienie** otwiera.
 
-## <a name="data-collection"></a>Zbieranie danych
-Centrum zabezpieczeń zbiera dane z maszyn wirtualnych platformy Azure (maszyny wirtualne) i komputerów z systemem innym niż Azure monitorowanie luk w zabezpieczeniach i zagrożeń. Dane są zbierane za pomocą programu Microsoft Monitoring Agent, która odczytuje różnych konfiguracji związanych z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do swojego obszaru roboczego do analizy. Centrum zabezpieczeń przepisy programu Microsoft Monitoring Agent na wszystkich istniejących obsługiwane maszynach wirtualnych platformy Azure i nowe pliki, które są tworzone. Zobacz [Włącz zbieranie danych](security-center-enable-data-collection.md) Aby dowiedzieć się więcej na temat działania zbierania danych.
+ ![Omówienie Centrum zabezpieczeń][2]
 
-Automatyczne udostępnianie zdecydowanie zaleca się i jest wymagany dla subskrypcji w warstwie standardowa Centrum zabezpieczeń. Wyłączanie automatycznego inicjowania obsługi administracyjnej limitów monitorowania zabezpieczeń dla zasobów.
+**Centrum zabezpieczeń — omówienie** zapewnia ujednolicone wgląd w stan zabezpieczeń hybrydowego obciążeń chmury, co pozwala na potrzeby odnajdywania i ocenę zabezpieczeń obciążeń i identyfikacji i ograniczenia ryzyka. Centrum zabezpieczeń automatycznie włącza żadnej z Twoich subskrypcji platformy Azure został wcześniej załadowany przez innego użytkownika subskrypcji do warstwy bezpłatna.
 
-Zobacz [cennik Centrum zabezpieczeń](security-center-pricing.md) Aby dowiedzieć się więcej o wolnym i Standard warstw cenowych.
+Możesz wyświetlić i filtrować listy subskrypcji, klikając **subskrypcje** elementu menu. Centrum zabezpieczeń rozpocznie teraz oceny zabezpieczeń te subskrypcje, aby zidentyfikować luki w zabezpieczeniach. Aby dostosować typy ocen, można zmodyfikować zasady zabezpieczeń. Zasady zabezpieczeń definiują pożądaną konfigurację Twoich obciążeń oraz pomagają zapewnić zgodność z wymaganiami dotyczącymi zabezpieczeń określonymi przez firmę lub przepisy.
 
-Poniższe kroki zawierają opis sposobu uzyskania dostępu do usługi Security Center i używania jej składników.
+W ciągu minut uruchamiania Centrum zabezpieczeń po raz pierwszy może wystąpić błąd:
 
-> [!NOTE]
-> Informacje na temat usługi przedstawiono w tym artykule za pomocą przykładowego wdrożenia. Ten artykuł nie jest przewodnikiem krok po kroku.
->
->
+- **Zalecenia dotyczące** sposobów poprawy zabezpieczeń subskrypcji platformy Azure. Kliknięcie przycisku **zalecenia** kafelka spowoduje uruchomienie listy priorytetów.
+- Spis **obliczeniowe**, **sieci**, **magazyn & danych**, i **aplikacji** zasobów, które obecnie są oceniane przez Centrum zabezpieczeń oraz strukturę każdego z nich.
 
-## <a name="access-security-center"></a>Dostęp do usługi Security Center
-Aby uzyskać dostęp do usługi Security Center, wykonaj następujące kroki w portalu:
+Aby w pełni korzystać z Centrum zabezpieczeń, należy wykonać poniższe kroki, aby uaktualnienie do warstwy standardowa i zainstalować program Microsoft Monitoring Agent.
 
-1. W menu platformy **Microsoft Azure** wybierz pozycję **Security Center**.
+## <a name="upgrade-to-the-standard-tier"></a>Uaktualnij do planu Standard
+Przewodniki Szybki Start Centrum zabezpieczeń i samouczki na potrzeby można uaktualnić do warstwy standardowa. Twoje pierwsze 60 dni są wolne i można było powrócić do warstwy bezpłatna dowolnej chwili.
 
-   ![Azure menu][1]
-2. Jeśli po raz pierwszy uzyskujesz dostęp do usługi Security Center, zostanie otwarty blok **Witamy**. Wybierz **Centrum zabezpieczeń uruchamiania** otworzyć **Centrum zabezpieczeń**.
-   ![Ekran powitalny][10]
-3. Po po uruchomieniu Centrum zabezpieczeń z bloku powitalnej lub Centrum zabezpieczeń, wybierz z menu Microsoft Azure, **Centrum zabezpieczeń** otwiera. Aby mieć w przyszłości łatwiejszy dostęp do bloku **Security Center**, wybierz opcję **Przypnij blok do pulpitu nawigacyjnego** (w prawym górnym rogu).
-   ![Opcja Przypnij blok do pulpitu nawigacyjnego][2]
+1. W menu głównym Centrum zabezpieczeń, wybierz **dołączania do zaawansowanych zabezpieczeń**.
 
-## <a name="use-security-center"></a>Korzystanie z usługi Security Center
-Skonfigurować można zasady zabezpieczeń dla subskrypcji i grup zasobów platformy Azure. Skonfigurujmy zasady zabezpieczeń dla subskrypcji:
+2. W obszarze **dołączania z zabezpieczeniami zaawansowanymi**, Centrum zabezpieczeń zawiera listę subskrypcji i kwalifikujących się do dołączenia do obszarów roboczych. Wybierz subskrypcję z listy.
+
+  ![Wybierz subskrypcję][4]
+
+3. **Zasady zabezpieczeń** zawiera informacje na temat grup zasobów zawartych w subskrypcji. **Cennik** otwiera również.
+4. W obszarze **cennik**, wybierz pozycję **standardowe** do uaktualnienia z wolnym do standardowego i kliknij przycisk **zapisać**.
+
+  ![Wybierz opcję standardowe][5]
+
+Teraz, gdy wcześniej przeprowadzano uaktualnienie do warstwy standardowa, masz dostęp do dodatkowych funkcji Centrum zabezpieczeń, w tym **formanty adaptacyjną aplikacji**, **na wszelki dostęp do maszyny Wirtualnej czasu**, **zabezpieczeń alerty**, **analizy zagrożeń**, **playbooks automatyzacji**itd. Należy pamiętać, że alerty zabezpieczeń będą wyświetlane tylko, gdy Centrum zabezpieczeń wykryje złośliwe działania.
+
+  ![Alerty zabezpieczeń][7]
+
+## <a name="automate-data-collection"></a>Automatyzowanie zbierania danych
+Centrum zabezpieczeń zbiera dane z maszyn wirtualnych platformy Azure i komputerów z systemem innym niż Azure monitorowanie luk w zabezpieczeniach i zagrożeń. Dane są zbierane za pomocą programu Microsoft Monitoring Agent, która odczytuje różnych konfiguracji związanych z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do swojego obszaru roboczego do analizy. Domyślnie Centrum zabezpieczeń będzie tworzy nowy obszar roboczy.
+
+Po włączeniu automatycznej obsługi Centrum zabezpieczeń instaluje program Microsoft Monitoring Agent na wszystkich obsługiwanych maszyn wirtualnych platformy Azure i nowe pliki, które są tworzone. Zdecydowanie zalecane jest automatyczne udostępnianie.
+
+Aby włączyć automatyczne Inicjowanie obsługi programu Microsoft Monitoring Agent:
 
 1. W menu głównym Centrum zabezpieczeń, wybierz **zasady zabezpieczeń**.
-2. W obszarze **Centrum zabezpieczeń — zasady zabezpieczeń**, wybierz subskrypcję.
-3. W obszarze **zasady zabezpieczeń — zbieranie danych**, **automatyczne udostępnianie** jest włączona. Centrum zabezpieczeń przepisy programu Microsoft Monitoring Agent na wszystkich istniejących obsługiwane maszynach wirtualnych platformy Azure i nowe pliki, które są tworzone.
+2. Wybierz subskrypcję.
+3. W obszarze **zasady zabezpieczeń**, wybierz pozycję **zbierania danych**.
+4. W obszarze **zbierania danych**, wybierz pozycję **na** Aby włączyć automatyczne udostępnianie.
+5. Wybierz pozycję **Zapisz**.
 
-    ![Zasady zabezpieczeń][12]
+  ![Włącz automatyczne Inicjowanie obsługi][6]
 
-4. Na **zasady zabezpieczeń** bloku, wybierz składnik zasad **zasady zabezpieczeń**.
+Dzięki tej nowej wgląd w maszynach wirtualnych platformy Azure Centrum zabezpieczeń mogą udostępnić dodatkowe zalecenia dotyczące systemu aktualizacji stanu, konfiguracji zabezpieczeń systemu operacyjnego, program endpoint protection, a także wygenerować dodatkowe alerty zabezpieczeń.
 
-     ![Zasady zabezpieczeń][11]
+  ![Zalecenia][8]
 
-5. W obszarze **Pokaż zalecenia dotyczące**, Włącz zaleceń, które mają być wyświetlane jako część zasad zabezpieczeń. Przykłady:
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+Inne elementy szybkiego startu i samouczki w tej kolekcji zależą od tego przewodnika Szybki Start. Jeśli planujesz na pracę z kolejne Przewodniki Szybki Start i samouczki, nadal działać warstwy standardowa i Zachowaj automatyczne udostępnianie włączone. Jeśli nie planujesz kontynuować, lub chcesz powrócić do warstwy bezpłatna:
 
-   * Ustawienie **aktualizacji systemu** do **na** skanowanie wszystkich obsługiwanych maszyn wirtualnych dla brakujących aktualizacji systemu operacyjnego.
-   * Ustawienie **luk w zabezpieczeniach systemu operacyjnego** do **na** skanowanie wszystkich obsługiwanych maszyn wirtualnych, aby zidentyfikować konfiguracji systemu operacyjnego, które maszyna wirtualna jest bardziej narażony na ataki.
+1. Wrócić do menu głównego Centrum zabezpieczeń i wybrać **zasady zabezpieczeń**.
+2. Wybierz zasady, które chcesz powrócić do wolnego lub subskrypcji. **Zasady zabezpieczeń** otwiera.
+3. W obszarze **składniki zasad**, wybierz pozycję **warstwa cenowa**.
+4. Wybierz **wolne** zmienić subskrypcję zgodne ze standardem warstwy do warstwy bezpłatna.
+5. Wybierz pozycję **Zapisz**.
 
-6. Wybierz pozycję **Zapisz**.
+Jeśli chcesz wyłączyć automatyczne Inicjowanie obsługi administracyjnej:
 
-### <a name="view-recommendations"></a>Wyświetlanie zaleceń
-1. Wróć do bloku **Security Center** i wybierz kafelek **Zalecenia**. Usługa Security Center okresowo analizuje stan zabezpieczeń zasobów platformy Azure. Po znalezieniu przez usługę Security Center potencjalnych luk w zabezpieczeniach wyświetla ono zalecenia w bloku **Zalecenia**.
-   ![Zalecenia w usłudze Azure Security Center][5]
-2. W bloku **Zalecenia** wybierz zalecenie, aby wyświetlić więcej informacji lub podjąć działania w celu rozwiązania problemu.
+1. Wrócić do menu głównego Centrum zabezpieczeń i wybrać **zasady zabezpieczeń**.
+2. Wybierz subskrypcję, która ma zostać Wyłącz automatyczne udostępnianie.
+3. W obszarze **zasady zabezpieczeń — zbieranie danych**, wybierz pozycję **poza** w obszarze **dołączania** do Wyłącz automatyczne udostępnianie.
+4. Wybierz pozycję **Zapisz**.
 
-### <a name="view-the-security-state-of-your-resources"></a>Wyświetl stan zabezpieczeń zasobów
-1. Wróć do bloku **Security Center**. **Zapobiegania** pulpitu nawigacyjnego zawiera wskaźniki stanu zabezpieczeń dla maszyn wirtualnych, sieci, danych i aplikacji.
-2. Wybierz **obliczeniowe** Aby wyświetlić więcej informacji. **Obliczeniowe** zostanie otwarty blok przedstawiający trzy karty:
+>[!NOTE]
+> Wyłączanie automatycznego inicjowania obsługi administracyjnej nie powoduje usunięcia programu Microsoft Monitoring Agent z maszyn wirtualnych platformy Azure, w którym zainicjowano agenta. Wyłączanie automatycznego inicjowania obsługi administracyjnej limitów monitorowania zabezpieczeń dla zasobów.
+>
 
-  - **Omówienie** — zawiera, monitorowania i zalecenia dotyczące maszyny Wirtualnej.
-  - **Maszyny wirtualne i komputerach** -Wyświetla bieżący stan zabezpieczeń wszystkich maszyn wirtualnych i komputerów.
-  - **Usługi w chmurze** — zawiera listę ról sieci web i proces roboczy, które są monitorowane przez Centrum zabezpieczeń.
+## <a name="next-steps"></a>Kolejne kroki
+W tym szybkiego startu uaktualnione do warstwy standardowa i udostępniane między obciążeń chmury hybrydowej programu Microsoft Monitoring Agent zarządzania ujednoliconego zabezpieczeń i ochrony przed zagrożeniami. Aby dowiedzieć się więcej na temat korzystania z Centrum zabezpieczeń, nadal szybkiego startu dla dołączania komputerów z systemem Windows lokalnie i w innych chmur.
 
-    ![Obliczenia bazy danych kondycji zabezpieczeń][6]
-
-3. Na **omówienie** , a następnie wybierz zalecenie poniżej, aby wyświetlić więcej informacji lub podjąć działania w celu skonfigurowania niezbędnych opcji.
-4. Na **maszyn wirtualnych i komputery** , a następnie wybierz zasób w celu wyświetlenia dodatkowych szczegółów.
-
-### <a name="view-security-alerts"></a>Wyświetlanie alertów zabezpieczeń
-1. Wróć do bloku **ecurity Center** i wybierz kafelek **Alerty zabezpieczeń**. Zostanie otwarty blok **Alerty zabezpieczeń** z listą alertów. Te alerty są generowane na podstawie analizy usługi Security Center uwzględniającej dzienniki zabezpieczeń i aktywność sieciową. Uwzględniane są alerty zintegrowanych rozwiązań partnerskich.
-   ![Alerty zabezpieczeń w usłudze Azure Security Center][7]
-
-2. Wybierz alert, aby wyświetlić dodatkowe informacje. W tym przykładzie załóżmy wybierz **zmodyfikować systemowym pliku binarnym odnalezione w filtrze zrzutu**. Spowoduje to otwarcie bloków udostępniających dodatkowe szczegóły dotyczące alertu.
-   ![Szczegóły alertów zabezpieczeń w usłudze Azure Security Center][8]
-
-### <a name="view-the-health-of-your-partner-solutions"></a>Wyświetlanie informacji o kondycji rozwiązań partnerskich
-1. Wróć do bloku **Security Center**. **Rozwiązań zabezpieczeń** kafelka umożliwia monitorowanie, w skrócie, stan kondycji rozwiązań partnerskich zintegrowanych z subskrypcją platformy Azure.
-2. Wybierz **rozwiązań zabezpieczeń** kafelka. Zostanie otwarty blok zawierający listę rozwiązań partnerskich połączonych z usługą Security Center.
-   ![Rozwiązania partnerskie][9]
-3. Wybierz rozwiązanie partnerskie. Zostanie otwarty blok pokazujący stan rozwiązania partnerskiego oraz zasoby skojarzone z rozwiązaniem. Wybierz opcję **Konsola rozwiązań**, aby otworzyć narzędzie do zarządzania rozwiązaniem partnerskim.
-
-   ![Rozwiązania partnerskie][13]
-
-## <a name="next-steps"></a>Następne kroki
-W tym artykule zostały opisane składniki monitorowania zabezpieczeń i zarządzania zasadami w usłudze Security Center. Teraz, kiedy znasz już usługę Security Center, spróbuj wykonać następujące czynności:
-
-* Konfigurowanie zasad zabezpieczeń dla subskrypcji platformy Azure, zobacz [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md).
-* Użyj zaleceń w Centrum zabezpieczeń, aby ułatwić ochronę zasobów platformy Azure, zobacz [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md).
-* Przejrzyj i zarządzanie bieżące alerty zabezpieczeń, zobacz [reagowanie na alerty zabezpieczeń w Centrum zabezpieczeń Azure i zarządzanie nimi](security-center-managing-and-responding-alerts.md).
-- Dowiedz się więcej o integracji z partnerami, aby zwiększyć poziom bezpieczeństwa ogólnej, zobacz [partnera i integracja z rozwiązań](security-center-partner-integration.md).
-- Dowiedz się, jak zarządzanie danymi i chronione w Centrum zabezpieczeń, zobacz [bezpieczeństwo danych w Centrum zabezpieczeń Azure](security-center-data-security.md).
-* Dowiedz się więcej o [zaawansowanych funkcjach wykrywania zagrożeń](security-center-detection-capabilities.md) pochodzących z [warstwy standardowej](security-center-pricing.md) usługi Security Center. Warstwa Standardowa jest oferowana za darmo przez pierwsze 60 dni.
-* Jeśli masz pytania dotyczące korzystania z usługi Security Center, zobacz [Często zadawane pytania dotyczące usługi Azure Security Center](security-center-faq.md).
+> [!div class="nextstepaction"]
+> [Szybki Start: Dodać komputery do Centrum zabezpieczeń Azure](quick-onboard-windows-computer.md)
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/azure-menu.png
-[2]: ./media/security-center-get-started/security-center-pin.png
-[5]: ./media/security-center-get-started/recommendations.png
-[6]: ./media/security-center-get-started/resources-health.png
-[7]: ./media/security-center-get-started/security-alert.png
-[8]: ./media/security-center-get-started/security-alert-detail.png
-[9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/welcome.png
-[11]: ./media/security-center-get-started/show-recommendations-for.png
-[12]: ./media/security-center-get-started/automatic-provisioning.png
-[13]: ./media/security-center-get-started/partner-solutions-detail.png
+[2]: ./media/security-center-get-started/overview.png
+[4]: ./media/security-center-get-started/onboarding.png
+[5]: ./media/security-center-get-started/pricing.png
+[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
+[7]: ./media/security-center-get-started/security-alerts.png
+[8]: ./media/security-center-get-started/recommendations.png
