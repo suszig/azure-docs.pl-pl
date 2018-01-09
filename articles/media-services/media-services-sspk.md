@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencjonowania Microsoft® Smooth Streaming Client Eksportowanie zestawu
-## <a name="overview"></a>Omówienie
-Microsoft Smooth Streaming klienta Eksportowanie zestawu (**SSPK** skrócie) jest Smooth Streaming implementacji klienta, który jest zoptymalizowany do pomocy producenci urządzeń osadzonych, kabel i operatorów komórkowych, dostawców usług zawartości, słuchawki producenci, niezależnym dostawcom oprogramowania (ISV) i dostawców rozwiązań do utworzenia produktów i usług do przesyłania strumieniowego z adaptacyjną przesyłania strumieniowego zawartości w formacie Smooth Streaming. SSPK jest platforma i urządzenie niezależnie od implementacji klienta Smooth Streaming, które mogą być przenoszone przez licencjobiorcę do dowolnego urządzenia i platformy. 
+## <a name="overview"></a>Przegląd
+Microsoft Smooth Streaming klienta Eksportowanie zestawu (**SSPK** skrócie) jest Smooth Streaming implementacji klienta, który jest zoptymalizowany do pomocy producenci urządzeń osadzonych, kabel i operatorów komórkowych, dostawców usług zawartości, słuchawki producenci, niezależnym dostawcom oprogramowania (ISV) i dostawców rozwiązań do utworzenia produktów i usług do przesyłania strumieniowego z adaptacyjną zawartości w formacie Smooth Streaming. SSPK to urządzenie i niezależne od platformy implementację klienta Smooth Streaming, które mogą być przenoszone przez licencjobiorcę do dowolnego urządzenia i platformy. 
 
-Przedstawionym poniżej jest wysokiego poziomu architektury i pole IIS Smooth Streaming Eksportowanie zestawu implementacji Smooth Streaming Client obsługiwane przez firmę Microsoft i zawiera całą logikę core odtwarzanie zawartości Smooth Streaming. Jest to następnie przenoszone przez partnerów dla określonego urządzenia lub platformy zaimplementowanie odpowiednich interfejsów. 
+Przedstawionym poniżej jest wysokiego poziomu architektury i pole IIS Smooth Streaming Eksportowanie zestawu implementacji Smooth Streaming Client obsługiwane przez firmę Microsoft i zawiera całą logikę core odtwarzanie zawartości Smooth Streaming. Ta zawartość jest następnie przenoszone przez partnerów dla określonego urządzenia lub platformy zaimplementowanie odpowiednich interfejsów. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Smooth Streaming klienta produktu końcowego jest oferowanych w ramach jako mode
 * Nie licencjonowanych w pierwszych 10 000 urządzeń implementacji każdego roku 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedurę licencjonowania i SSPK dostępu
-Wyślij wiadomość e-mail [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) dla wszystkich licencjonowania zapytania.
+Wiadomości e-mail [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) dla wszystkich licencjonowania zapytania.
 
 [Portal dystrybucji SSPK](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) jest dostępny dla zarejestrowanego licencjobiorców przejściowej.
 
@@ -103,7 +103,7 @@ Licencjobiorców przejściowej i końcowe SSPK mogą przesyłać pytania technic
 * SoftAtHome
 * Sony Corporation
 * Tatung technologii Inc.
-* Electronics Technoly (Huizhou) TCL Company, Ltd.
+* Electronics (Huizhou) technologii TCL Company, Ltd.
 * TOP zwycięstwa inwestycji, Ltd.
 * Pisz Vestel Elektronik Sanayi Ticaret A.S.
 * VisualOn, Inc.

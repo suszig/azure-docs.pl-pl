@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Store
 Dowiedz się włączyć diagnostyczne dla konta usługi Data Lake Store i sposób wyświetlania dzienników zbierane dla Twojego konta.
 
-Organizacje mogą włączyć rejestrowanie diagnostyczne dla swojego konta usługi Azure Data Lake Store zbierać zapisy inspekcji dostępu do danych, która udostępnia informacje, takie jak listy użytkowników uzyskujących dostęp do danych, jak często jest uzyskiwany dostęp do danych, jak dużo danych jest przechowywany w konta itp.
+Organizacje mogą włączyć rejestrowanie diagnostyczne dla swojego konta usługi Azure Data Lake Store zbierać zapisy inspekcji dostępu do danych, która udostępnia informacje, takie jak listy użytkowników uzyskujących dostęp do danych, jak często jest uzyskiwany dostęp do danych, jak dużo danych jest przechowywany w konta itp. Po włączeniu diagnostyki i/lub żądania są rejestrowane w sposób optymalny. Zarówno żądań i Diagnostyka wpisy dziennika są tworzone tylko w przypadku żądań wysyłanych do punktu końcowego usługi.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -114,7 +114,7 @@ Oto przykładowy wpis w dzienniku żądania w formacie JSON. Każdy obiekt blob 
     }
 
 #### <a name="request-log-schema"></a>Schemat dziennika żądania
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | time |Ciąg |Znacznik czasu (w formacie UTC) dziennika |
 | resourceId |Ciąg |Identyfikator zasobu, na którym została wykonana operacja umieść na |
@@ -127,7 +127,7 @@ Oto przykładowy wpis w dzienniku żądania w formacie JSON. Każdy obiekt blob 
 | properties |JSON |Wymienione poniżej, aby uzyskać więcej informacji |
 
 #### <a name="request-log-properties-schema"></a>Schemat właściwości dziennika żądania
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | HttpMethod |Ciąg |Metoda HTTP używana dla tej operacji. Na przykład GET. |
 | Ścieżka |Ciąg |Ścieżka operacja została wykonana na |
@@ -160,7 +160,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
     }
 
 #### <a name="audit-log-schema"></a>Schemat dziennika inspekcji
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | time |Ciąg |Znacznik czasu (w formacie UTC) dziennika |
 | resourceId |Ciąg |Identyfikator zasobu, na którym została wykonana operacja umieść na |
@@ -172,7 +172,7 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt blob 
 | properties |JSON |Wymienione poniżej, aby uzyskać więcej informacji |
 
 #### <a name="audit-log-properties-schema"></a>Schemat właściwości dziennika inspekcji
-| Nazwa | Typ | Opis |
+| Name (Nazwa) | Typ | Opis |
 | --- | --- | --- |
 | StreamName |Ciąg |Ścieżka operacja została wykonana na |
 
@@ -188,7 +188,7 @@ search *
 
 Azure Data Lake Store zapewnia próbkę na temat przetwarzanie i analizowanie danych dziennika. Na przykład można znaleźć [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md)
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 

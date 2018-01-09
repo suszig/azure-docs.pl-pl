@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Grafika informacyjna do pobrania: podstawy uczenia maszynowego z przykładowymi algorytmami
 Pobierz ten przegląd łatwy do zrozumienia infographic machine learning podstawowe informacje o Aby dowiedzieć się więcej o popularnych algorytmów odpowiedzi na często zadawane pytania learning maszyny. Przykłady algorytm pomocy początkujących learning maszyny zrozumieć, jakie algorytmy i ich używać.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Popularne algorytmy w usłudze Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) jest dostarczany z obszernej biblioteki algorytmów analizy predykcyjnej. Infographic identyfikuje cztery rodzin popularnych algorytmów - regresji, wykrywania anomalii klastrowania i klasyfikacji - i łącza do pracy przykłady w [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galeria zawiera przykład eksperymenty i samouczki, które pokazują, jak te algorytmy mogą być stosowane w przypadku wielu rozwiązań w rzeczywistych.
+[Azure Machine Learning Studio](https://studio.azureml.net/) jest dostarczany z obszernej biblioteki algorytmów analizy predykcyjnej. Infographic identyfikuje cztery rodzin popularnych algorytmów - regresji, wykrywania anomalii klastrowania i klasyfikacji - i łącza do pracy przykłady w [galerii Azure AI](https://gallery.cortanaintelligence.com/). Galeria zawiera przykład eksperymenty i samouczki, które pokazują, jak te algorytmy mogą być stosowane w przypadku wielu rozwiązań w rzeczywistych.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Pobierz infographic wraz z przykładami algorytmu
 **[Pobieranie: Infographic z machine learning podstawy wraz z łączami do algorytmu przykłady (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Pobierz ten przegląd łatwy do zrozumienia infographic machine learning podstaw
 * Aby uzyskać listę według kategorii wszystkich algorytmów uczenia maszynowego dostępnych w usłudze Machine Learning Studio, zobacz [zainicjować modelu] [ initialize-model] Machine Learning Studio algorytmu i pomóc w Module.
 * Aby uzyskać alfabetyczną listę wszystkich algorytmów i modułów w usłudze Machine Learning Studio, zobacz [A — Z listy modułów usługi Machine Learning Studio] [ a-z-list] algorytmu Studio uczenia maszynowego i pomóc w Module.
 * Aby pobrać i wydrukować diagram, który zawiera przegląd możliwości usługi Machine Learning Studio, zobacz [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](studio-overview-diagram.md).
-* Omówienie Cortana Intelligence Gallery i wiele generowanych przez społeczność dostępnych zasobów, zobacz [udziału i odnajdywania zasobów w Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+* Omówienie galerii AI Azure i wiele generowanych przez społeczność dostępnych zasobów, zobacz [udziału i odnajdywania zasobów w galerii Azure AI](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -75,8 +75,8 @@ Poniższa tabela jest odwołaniem innych formatów danych, który może obsługi
 
 Interfejs API | Domyślny Format danych | W innych formatach
 --------|---------------------|--------------
-/instance | JSON | Tekst
-/scheduledevents | JSON | brak
+/instance | json | Tekst
+/scheduledevents | json | brak
 
 Aby uzyskać dostęp, format odpowiedzi z systemem innym niż domyślny, określ żądany format jako parametr querystring w żądaniu. Na przykład:
 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Język | Przykład 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Przejdź Lang  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
+Przejdź  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>Często zadawane pytania
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.sh
 
    ![Obsługa metadanych wystąpienia](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md) interfejsu API **w publicznej wersji zapoznawczej** udostępniony przez usługę wystąpienie metadanych.

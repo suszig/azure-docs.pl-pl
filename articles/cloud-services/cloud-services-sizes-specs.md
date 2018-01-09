@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Rozmiary dla usług w chmurze
 W tym temacie opisano dostępne rozmiary i opcje dla wystąpień roli usługi w chmurze (role sieci web i proces roboczy). Umożliwia także zagadnienia dotyczące wdrażania pod uwagę podczas planowania użycia tych zasobów. Rozmiar każdego ma identyfikator umieszczony w sieci [pliku definicji usługi](cloud-services-model-and-package.md#csdef). Ceny dla każdego rozmiaru są dostępne na [cennik usługi w chmurze](https://azure.microsoft.com/pricing/details/cloud-services/) strony.
@@ -188,12 +188,12 @@ Jako charakteru zmiany obciążenia lub nowe rozmiary maszyn wirtualnych, które
 >
 
 ## <a name="get-a-list-of-sizes"></a>Pobierz listę rozmiary
-Aby uzyskać listę rozmiarów można użyć programu PowerShell lub interfejsu API REST. Interfejs API REST jest udokumentowany [tutaj](https://msdn.microsoft.com/library/azure/dn469422.aspx). Następujący kod jest polecenia programu PowerShell, która będzie zawierała listę wszystkich rozmiarów dostępnych dla usługi w chmurze.
+Aby uzyskać listę rozmiarów można użyć programu PowerShell lub interfejsu API REST. Interfejs API REST jest udokumentowany [tutaj](https://msdn.microsoft.com/library/azure/dn469422.aspx). Następujący kod jest polecenia programu PowerShell, która będzie zawierała listę wszystkich rozmiarów dla danej lokalizacji. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej na temat [limitów, przydziałów i ograniczeń usługi i subskrypcji platformy Azure](../azure-subscription-service-limits.md).
 * Dowiedz się więcej [o wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) dla obciążeń HPC.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Wdrażanie synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -72,6 +72,7 @@ Agent synchronizacji plików Azure jest pobrania pakietu, który umożliwia syst
 > [!Important]  
 > Jeśli zamierzasz używać synchronizacji plików Azure z klastrem trybu Failover, musi być zainstalowany agent synchronizacji plików Azure w na każdym węźle w klastrze.
 
+
 Pakiet instalacyjny agenta synchronizacji plików Azure należy zainstalować stosunkowo szybko i bez zbyt wiele dodatkowych monitów. Zaleca się wykonanie następujących czynności:
 - Pozostaw domyślnej ścieżki instalacji (C:\Program Files\Azure\StorageSyncAgent), aby uprościć zarządzanie Rozwiązywanie problemów i serwera.
 - Włączyć usługę Microsoft Update aktualności synchronizacji plików Azure. Wszystkie aktualizacje agenta synchronizacji plików Azure, w tym aktualizacje funkcji i poprawek, wystąpić z witryny Microsoft Update. Zaleca się zainstalowanie najnowszej aktualizacji do synchronizacji plików Azure. Aby uzyskać więcej informacji, zobacz [zasady aktualizacji synchronizacji plików Azure](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
@@ -119,6 +120,36 @@ Aby dodać punkt końcowy serwera, wybierz **Utwórz**. Pliki są teraz zsynchro
 > [!Important]  
 > Można wprowadzić zmiany do dowolnego punktu końcowego w chmurze lub punkt końcowy serwera w grupie synchronizacji i zsynchronizowaniu pliki do punktów końcowych w grupie synchronizacji. Jeśli bezpośrednio wprowadzić zmianę do punktu końcowego w chmurze (udział plików na platformę Azure), zmiany najpierw trzeba być odnajdowane przez zadanie wykrywania zmian synchronizacji plików Azure. Zadanie wykrywania zmian jest inicjowane dla punktu końcowego w chmurze tylko raz na 24 godziny. Aby uzyskać więcej informacji, zobacz [plików Azure — często zadawane pytania](storage-files-faq.md#afs-change-detection).
 
+## <a name="onboarding-with-azure-file-sync"></a>Dołączania z synchronizacją plików na platformę Azure
+Zalecane kroki do dołączenia na synchronizacji plików Azure w pierwszym z zero przestoju przy zachowaniu całego pliku wierności i listy kontroli dostępu (ACL) są następujące:
+ 
+1.  Wdrażanie usługi synchronizacji magazynu.
+2.  Utwórz grupę synchronizacji.
+3.  Zainstaluj agenta synchronizacji plików Azure na serwerze z pełnym zestawem danych.
+4.  Zarejestruj tego serwera i utworzyć punktu końcowego serwera w udziale. 
+5.  Let synchronizacji wykonaj pełny przekazywania do udziału plików na platformę Azure (punktu końcowego w chmurze).  
+6.  Po zakończeniu przekazywania początkowej synchronizacji plików Azure agenta należy zainstalować na każdej z pozostałych serwerów.
+7.  Utwórz nowe udziały plików na każdej z pozostałych serwerów.
+8.  Utwórz punkty końcowe serwera na nowe udziały plików z zasadami obsługi poziomów w chmurze, w razie potrzeby. (Ten krok wymaga dodatkowego magazynu, które mają być dostępne dla konfiguracji początkowej).
+9.  Let agent synchronizacji plików Azure do szybkiego przywracania pełne przestrzeni nazw bez przenoszenia danych rzeczywistych. Po zakończeniu synchronizacji pełnej przestrzeni nazw aparatu synchronizacji spowoduje wypełnienie miejsce na dysku lokalnym na podstawie zasad warstw chmury dla punktu końcowego serwera. 
+10. Upewnij się, synchronizacji kończy i przetestować topologii zgodnie z potrzebami. 
+11. Przekieruj użytkowników i aplikacji do tego nowego udziału.
+12. Opcjonalnie można usunąć wszystkie zduplikowane udziałów na serwerach.
+ 
+Jeśli nie masz dodatkowe miejsce do magazynowania do dołączenia do początkowej i chcesz dołączyć do istniejących udziałów, można wstępne dodanie danych w udziałach plików platformy Azure. Takie podejście jest zalecane tylko wtedy, gdy mogą akceptować Przestój i absolutnie zagwarantować żadne zmiany danych w udziałach serwera podczas procesu dołączania początkowej. 
+ 
+1.  Upewnij się, że dane na żadnym serwerze nie można zmienić podczas procesu dołączania.
+2.  Wstępnie nasion plików na platformę Azure udostępnia dane serwera przy użyciu dowolnego narzędzia transferu danych za pośrednictwem protokołu SMB np. Robocopy, kopiowania SMB direct. Ponieważ AzCopy nie przekazywanie danych za pośrednictwem protokołu SMB, więc nie może służyć do obsługi wstępnie.
+3.  Utwórz topologia synchronizacji plików Azure z punktami końcowymi żądanego serwera, wskazując do istniejących udziałów.
+4.  Pozwolić, aby zakończyć proces uzgadniania dla wszystkich punktów końcowych synchronizacji. 
+5.  Po zakończeniu uzgadniania możesz otworzyć udziałów zmian.
+ 
+Należy pamiętać, że obecnie wstępnie wstępne wypełnianie podejście ma kilka ograniczeń- 
+- Pełnej rozdzielczości na pliki nie są zachowywane. Na przykład pliki utratę listy kontroli dostępu i sygnatur czasowych.
+- Zmiany danych na serwerze przed topologia synchronizacji pełni jest uruchomiony i działa może spowodować konflikty w punktach końcowych serwera.  
+- Po utworzeniu punktu końcowego w chmurze Azure plik synchronizacji uruchamia proces do wykrywania plików w chmurze przed rozpoczęciem synchronizacji początkowej. Czas potrzebny na zakończenie tego procesu zależy od różnych czynników, takich jak szybkość sieci, dostępnej przepustowości i liczby plików i folderów. Dla nierównej oszacowania w wersji zapoznawczej proces wykrywania uruchamia od 10 plików na sekundę.  W związku z tym nawet wtedy, gdy wstępnie wstępne wypełnianie uruchamia szybkie, to całkowity czas można uzyskać w pełni systemem może być znaczne wydłużenie, gdy dane są wstępnie wprowadzonych w chmurze.
+
+
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migracja wdrożenia replikacji systemu plików DFS (DFS-R) do synchronizacji plików Azure
 Migracja wdrożenia systemu plików DFS-R do synchronizacji usługi Azure pliku:
 
@@ -135,6 +166,6 @@ Migracja wdrożenia systemu plików DFS-R do synchronizacji usługi Azure pliku:
 
 Aby uzyskać więcej informacji, zobacz [interop synchronizacji plików Azure z rozproszonego systemu plików (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Dodawanie lub usuwanie punktu końcowego serwera synchronizacji plików Azure](storage-sync-files-server-endpoint.md)
 - [Zarejestruj lub Wyrejestruj serwer z synchronizacji plików Azure](storage-sync-files-server-registration.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Wybór algorytmów dla usługi Microsoft Azure Machine Learning
 Odpowiedź na pytanie "Jakie Algorytm uczenia maszynowego należy używać?" jest zawsze "Zależy." To zależy od rozmiaru, jakości i charakter danych. To zależy co chcesz zrobić z odpowiedzią. To zależy jak matematyczne algorytmu był przekształcić instrukcje dla komputera, którego używasz. I jest ono zależne na czas, jaki ma. Nawet najbardziej doświadczeni analityków danych nie wiadomo, który algorytm będzie wykonywać najlepiej przed podjęciem próby je.
@@ -42,7 +42,7 @@ Przeczytaj ścieżkę i algorytmu etykiet na wykresie jako "dla  *&lt;etykieta �
 Czasami żaden z nich nie jest dokładne dopasowanie. Są one przeznaczone do można reguły z thumb zalecenia, nie martw się o dokładnie.
 Kilka analityków danych, które I zawsze mówię z wymienionych które tylko się sposobem znaleźć bardzo najlepsze algorytm jest spróbuj je wszystkie.
 
-Oto przykład z [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) eksperymentu, która próbuje kilka algorytmów na tych samych danych i porównanie wyników: [porównania klasyfikatory wielu klas: list rozpoznawania](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Oto przykład z [galerii Azure AI](http://gallery.cortanaintelligence.com/) eksperymentu, która próbuje kilka algorytmów na tych samych danych i porównanie wyników: [porównania klasyfikatory wielu klas: list rozpoznawania](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Aby pobrać i wydrukować diagram, który zawiera przegląd możliwości usługi Machine Learning Studio, zobacz [Diagram przeglądowy możliwości usługi Azure Machine Learning Studio](studio-overview-diagram.md).

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie serii StorSimple 8000, wysokiej dostępności i wymagań sieciowych
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Zapraszamy do platformy Microsoft Azure StorSimple. W tym artykule opisano wymagania systemowe i najlepsze rozwiązania dla urządzenia StorSimple i magazynu klientów podczas uzyskiwania dostępu do urządzenia. Firma Microsoft zaleca, aby zapoznać się z informacjami dokładnie przed wdrożeniem systemu StorSimple i następnie odwołują się do niego w razie potrzeby podczas wdrażania kolejnych operacji.
 
@@ -63,10 +63,10 @@ Urządzenia StorSimple to urządzenie w trybie blokady. Jednak porty muszą być
 | Nr portu<sup>1,2</sup> | Przychodzący lub wychodzący | Zakres portów | Wymagane | Uwagi |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |limit |WAN |Nie |<ul><li>Port wyjściowy jest używana do dostępu do Internetu do pobierania aktualizacji.</li><li>Serwer proxy sieci web wychodzącego jest konfigurowane przez użytkownika.</li><li>Aby umożliwić aktualizacje systemu, ten port również musi być otwarty dla kontrolera, stałe adresy IP.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |limit |WAN |Tak |<ul><li>Wychodzący port jest używany do uzyskiwania dostępu do danych w chmurze.</li><li>Serwer proxy sieci web wychodzącego jest konfigurowane przez użytkownika.</li><li>Aby umożliwić aktualizacje systemu, ten port również musi być otwarty dla kontrolera, stałe adresy IP.</li><li>Port ten jest również używany na obu kontrolerów dla wyrzucanie elementów bezużytecznych.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |limit |WAN |Yes |<ul><li>Wychodzący port jest używany do uzyskiwania dostępu do danych w chmurze.</li><li>Serwer proxy sieci web wychodzącego jest konfigurowane przez użytkownika.</li><li>Aby umożliwić aktualizacje systemu, ten port również musi być otwarty dla kontrolera, stałe adresy IP.</li><li>Port ten jest również używany na obu kontrolerów dla wyrzucanie elementów bezużytecznych.</li></ul> |
 | UDP 53 (DNS) |limit |WAN |W niektórych przypadkach; Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy używasz serwera DNS w Internecie. |
 | UDP 123 (NTP) |limit |WAN |W niektórych przypadkach; Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy używasz serwera NTP internetowego. |
-| TCP 9354 |limit |WAN |Tak |Wychodzący port jest używany przez urządzenia StorSimple do komunikowania się z usługą Menedżera urządzeń StorSimple. |
+| TCP 9354 |limit |WAN |Yes |Wychodzący port jest używany przez urządzenia StorSimple do komunikowania się z usługą Menedżera urządzeń StorSimple. |
 | 3260 (iSCSI) |W |SIECI LAN |Nie |Port ten jest używany do dostępu do danych za pośrednictwem interfejsu iSCSI. |
 | 5985 |W |SIECI LAN |Nie |Przychodzący port jest używany przez StorSimple Snapshot Manager do komunikowania się z urządzeniem StorSimple.<br>Port ten jest również używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple za pośrednictwem protokołu HTTP. |
 | 5986 |W |SIECI LAN |Nie |Port ten jest używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple przy użyciu protokołu HTTPS. |
@@ -95,7 +95,7 @@ Firma Microsoft zaleca, aby ustawić regułach zapory dla ruchu wychodzącego, o
 
 | Wzorzec URL | Składnik/funkcji | Adresy IP urządzeń |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Usługa menedżera urządzenia StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Usługa menedżera urządzeń StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
 | `https://*.backup.windowsazure.com` |Rejestracja urządzenia |Tylko dane 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odwoływanie certyfikatów |Interfejsy sieciowe z obsługą chmury |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorowanie i kontami magazynu Azure |Interfejsy sieciowe z obsługą chmury |
@@ -107,7 +107,7 @@ Firma Microsoft zaleca, aby ustawić regułach zapory dla ruchu wychodzącego, o
 
 | Wzorzec URL | Składnik/funkcji | Adresy IP urządzeń |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |Usługa menedżera urządzenia StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Usługa menedżera urządzeń StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
 | `https://*.backup.windowsazure.us` |Rejestracja urządzenia |Tylko dane 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odwoływanie certyfikatów |Interfejsy sieciowe z obsługą chmury |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorowanie i kontami magazynu Azure |Interfejsy sieciowe z obsługą chmury |
@@ -241,7 +241,7 @@ Uważnie przejrzyj następujące najlepsze rozwiązania zapewniające wysoką do
 * Konfigurowanie StorSimple z [konfiguracje klastrów serwera plików z dwoma węzłami][1]. Przez usunięcie pojedynczego punktu awarii i tworzenia w nadmiarowość po stronie hosta, całe rozwiązanie staje się wysokiej dostępności.
 * Użyj stale dostępnych udziałów (CA) z systemem Windows Server 2012 (protokół SMB 3.0) wysokiej dostępności podczas pracy w trybie failover kontrolerów magazynu. Aby uzyskać dodatkowe informacje dotyczące konfigurowania klastrów serwera plików i stale dostępnych udziałów w systemie Windows Server 2012, zapoznaj się to [pokaz wideo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Więcej informacji na temat limitów systemu StorSimple](storsimple-8000-limits.md).
 * [Dowiedz się, jak wdrażanie rozwiązania StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

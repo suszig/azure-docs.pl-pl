@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprowizowanie maszyny wirtualnej nauki danych systemu Windows, na platformie Azure
 Maszyna wirtualna nauki danych firmy Microsoft znajduje się obraz maszyny wirtualnej (VM) systemu Windows Azure wstępnie zainstalowany i skonfigurowany z kilku popularnych narzędzi, które są często używane do analizy danych i uczenia maszynowego. Narzędzia uwzględnione są:
@@ -200,5 +200,5 @@ Poniżej przedstawiono niektóre kolejne kroki, aby kontynuować learning eksplo
 * Przejdź do **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** dla przykładów przy użyciu biblioteki RevoScaleR w R obsługującego analizy danych w skali przedsiębiorstwa.  
 * Przeczytaj artykuł: [10 sposobów na nauki danych maszyny wirtualnej](http://aka.ms/dsvmtenthings)
 * Dowiedz się, jak tworzyć kompleksowe rozwiązania analityczne systematycznie przy użyciu [proces nauki danych zespołu](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Odwiedź stronę [Azure Machine Learning galerii](http://gallery.cortanaintelligence.com) maszyny uczenie i danych analytics przykłady korzystających z usługi Azure Machine learning oraz dane dotyczące usług na platformie Azure. Ikona zostały również zamieszczone na **Start** menu i na pulpicie maszyny wirtualnej do tej galerii.
+* Odwiedź stronę [galerii Azure AI](http://gallery.cortanaintelligence.com) maszyny uczenie i danych analytics przykłady korzystających z usługi Azure Machine learning oraz dane dotyczące usług na platformie Azure. Ikona zostały również zamieszczone na **Start** menu i na pulpicie maszyny wirtualnej do tej galerii.
 

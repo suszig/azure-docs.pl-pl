@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Zarejestruj stosu Azure z subskrypcją platformy Azure
 
@@ -36,7 +36,7 @@ Przed zarejestrowaniem stosu Azure przy użyciu platformy Azure, musi mieć:
 
 - Identyfikator subskrypcji dla subskrypcji platformy Azure. Można uzyskać Identyfikatora, logowanie do platformy Azure, kliknij przycisk **więcej usług** > **subskrypcje**, kliknij subskrypcję, którego chcesz użyć, a następnie w obszarze **Essentials** można znaleźć **Identyfikator subskrypcji**. Chin, Niemczech i instytucji rządowych Stanów Zjednoczonych subskrypcje w chmurze nie są obecnie obsługiwane.
 - Nazwa użytkownika i hasło dla konta, które jest właścicielem subskrypcji (kont MSA/2FA są obsługiwane).
-- *Niewymagana, począwszy od wersji aktualizacji 1712 stosu Azure (1.0.180103.2):* Azure Active Directory subskrypcji platformy Azure. Ten katalog można znaleźć na platformie Azure, ustawiając kursor nad Awatar w prawym górnym rogu portalu Azure.
+- *Niewymagana, począwszy od wersji aktualizacji 1712 stosu Azure (180106.1):* Azure Active Directory subskrypcji platformy Azure. Ten katalog można znaleźć na platformie Azure, ustawiając kursor nad Awatar w prawym górnym rogu portalu Azure.
 
 Jeśli nie masz subskrypcji platformy Azure, która spełnia te wymagania, możesz [utworzyć tutaj bezpłatne konto platformy Azure](https://azure.microsoft.com/en-us/free/?b=17.06). Rejestrowanie stosu Azure wiąże się bez kosztów w ramach subskrypcji platformy Azure.
 
@@ -126,7 +126,7 @@ Jeśli chcesz zmienić modelu rozliczeń lub zespolonego funkcji dla instalacji,
 
 
 ## <a name="disconnected-registration"></a>Rozłączona rejestracji
-*Informacje przedstawione w tej sekcji ma zastosowanie, począwszy od wersji aktualizacji 1712 stosu Azure (1.0.180103.2) i nie jest obsługiwane we wcześniejszych wersjach.*
+*Informacje przedstawione w tej sekcji ma zastosowanie, począwszy od wersji aktualizacji 1712 stosu Azure (180106.1) i nie jest obsługiwane we wcześniejszych wersjach.*
 
 W przypadku rejestracji Azure stosu w środowisku bez połączenia, należy pobrać rejestracji tokenu ze środowiska Azure stosu, a następnie użyj tokenu na komputerze, na którym mogą łączyć się z platformy Azure dla rejestracji.  
 

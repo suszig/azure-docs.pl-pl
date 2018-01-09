@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -75,8 +75,8 @@ Poniższa tabela jest odwołaniem innych formatów danych, który może obsługi
 
 Interfejs API | Domyślny Format danych | W innych formatach
 --------|---------------------|--------------
-/instance | JSON | Tekst
-/scheduledevents | JSON | Brak
+/instance | json | Tekst
+/scheduledevents | json | brak
 
 Aby uzyskać dostęp, format odpowiedzi z systemem innym niż domyślny, określ żądany format jako parametr querystring w żądaniu. Na przykład:
 
@@ -283,10 +283,10 @@ Dane | Opis | Wprowadzona wersja
 -----|-------------|-----------------------
 location | Region platformy Azure, maszyna wirtualna jest uruchomiona | 2017-04-02 
 name | Nazwa maszyny Wirtualnej | 2017-04-02
-Oferta | Oferują informacji o obrazie maszyny Wirtualnej. Ta wartość ma tylko obrazy wdrożone z galerii Azure obrazu. | 2017-04-02
+oferta | Oferują informacji o obrazie maszyny Wirtualnej. Ta wartość ma tylko obrazy wdrożone z galerii Azure obrazu. | 2017-04-02
 Wydawcy | Wydawcy obrazu maszyny Wirtualnej | 2017-04-02
 Jednostka SKU | Określonej jednostki SKU dla obrazu maszyny Wirtualnej | 2017-04-02
-Wersja | Wersja obrazu maszyny Wirtualnej | 2017-04-02
+wersja | Wersja obrazu maszyny Wirtualnej | 2017-04-02
 osType | Linux lub Windows | 2017-04-02
 platformUpdateDomain |  [Domeny aktualizacji](manage-availability.md) wirtualna jest uruchomiona | 2017-04-02
 platformFaultDomain | [Domena błędów](manage-availability.md) wirtualna jest uruchomiona | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Język | Przykład 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Przejdź Lang  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
+Przejdź  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>Często zadawane pytania
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.sh
 
    ![Obsługa metadanych wystąpienia](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [zaplanowane zdarzenia](scheduled-events.md) interfejsu API **w publicznej wersji zapoznawczej** udostępniony przez usługę wystąpienie metadanych.

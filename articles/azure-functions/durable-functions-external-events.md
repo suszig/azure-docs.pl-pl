@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Obsługa zdarzeń zewnętrzne w funkcji trwałe (funkcje platformy Azure)
 
@@ -26,7 +26,7 @@ Funkcje programu orchestrator mają możliwość poczekać i nasłuchiwania zdar
 
 ## <a name="wait-for-events"></a>Poczekaj na zdarzenia
 
-[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoda pozwala funkcji orchestrator asynchronicznie poczekać i nasłuchiwania zdarzenie zewnętrzne. Deklaruje element wywołujący *nazwa* zdarzenia i *kształtu danych* oczekuje do odbierania.
+[WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoda pozwala funkcji orchestrator asynchronicznie poczekać i nasłuchiwania zdarzenie zewnętrzne. Deklaruje nasłuchiwania funkcja orchestrator *nazwa* zdarzenia i *kształtu danych* oczekuje do odbierania.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Powyższy przykład nasłuchuje pojedyncze zdarzenie i podejmuje działania, po odebraniu.
+Powyższy przykład nasłuchuje określonych pojedyncze zdarzenie i podejmuje działanie po odebraniu.
 
 Nasłuchiwanie wielu zdarzeń jednocześnie, podobnie jak w poniższym przykładzie czeka na jedno z trzech powiadomienia o zdarzeniach możliwe.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) oczekiwania przez czas nieokreślony niektórych danych wejściowych.  Funkcja aplikacji może być bezpiecznie zwolniony podczas oczekiwania. Jeśli dla tego wystąpienia aranżacji odebraniu zdarzenia jest automatycznie wznowione i natychmiast przetwarza zdarzenia.
 
 > [!NOTE]
-> Nie są naliczane opłaty podczas funkcja orchestrator oczekuje na zadanie `WaitForExternalEvent`, niezależnie od tego, jak długo czekać.
+> Jeśli aplikacja funkcja korzysta z Planowanie użycia, nie są naliczane opłaty podczas funkcja orchestrator oczekuje na zadanie `WaitForExternalEvent`, niezależnie od tego, jak długo czekać.
 
 Jeśli ładunek zdarzenia nie można przekonwertować na typ oczekiwany `T`, jest zgłaszany wyjątek.
 
@@ -122,7 +122,7 @@ Wewnętrznie `RaiseEventAsync` enqueues komunikat, który pobiera pobrania przez
 > [!WARNING]
 > Jeśli żadne wystąpienie aranżacji z określonym *identyfikator wystąpienia* lub jeśli wystąpienie nie oczekuje na określonym *Nazwa zdarzenia*, komunikaty o zdarzeniach zostaną odrzucone. Aby uzyskać więcej informacji dotyczących tego zachowania, zobacz [problem GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się, jak skonfigurować eternal orchestrations](durable-functions-eternal-orchestrations.md)

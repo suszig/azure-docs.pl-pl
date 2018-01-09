@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Konkursy dotyczące usługi Microsoft Cortana Intelligence — często zadawane pytania
 **Co to jest Cortana Intelligence konkursami?**
 
-Microsoft Cortana Intelligence konkursami umożliwiają łączą globalną społeczność entuzjastów danych przez zbiorczo rozwiązywanie niektórych najbardziej złożonych problemów nauki danych na świecie. Cortana Intelligence konkursami Zezwalaj entuzjastów danych z na całym świecie do konkurowania i skompilować modele nauki bardzo dokładne i inteligentnego danych. Nasze hostowanej Konkursami są oparte na unikatowe zbiory danych, które są udostępniane w publicznie po raz pierwszy. Uczestnicy można win korzyści lub rozpoznawania za pośrednictwem naszego top 10 Liderzy publicznego. Przejdź [tutaj](http://aka.ms/CIComp) uzyskać dostęp do strony głównej konkursami.
+Microsoft Cortana Intelligence konkursami unites globalną społeczność entuzjastów danych przez zbiorczo rozwiązywanie niektórych najbardziej złożonych problemów nauki danych na świecie. Cortana Intelligence konkursami Zezwalaj entuzjastów danych z na całym świecie do konkurowania i skompilować modele nauki bardzo dokładne i inteligentnego danych. Te hostowanej Konkursami są oparte na unikatowe zbiory danych, które są udostępniane w publicznie po raz pierwszy. Uczestnicy można win korzyści lub rozpoznawania za pomocą górnej 10 Liderzy publicznego. Można uzyskać dostępu do konkursami stronę główną w [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Jak często Microsoft opublikuje konkursami nowe?**
 
@@ -31,33 +31,33 @@ Firma Microsoft będzie uruchamiany konkursami 1 firm, należące do firmy Micro
 
 **Gdzie zadać pytania ogólne dotyczące analizy danych**
 
-Skorzystaj z naszych [forum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Pytania ogólne, można użyć [forum Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **Sposób wprowadzania konkurencji?**
 
-Dostęp [konkursami](https://gallery.cortanaintelligence.com/competitions) strony głównej w [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), lub przejdź do [http://aka.ms/CIComp](http://aka.ms/CIComp). Strona główna zawiera listę wszystkich konkursami, które są aktualnie uruchomione. Każdy konkurencji przedstawiono szczegółowe instrukcje i zasadami uczestnictwa, nagrody i czas trwania na stronie tworzenia konta.
+Dostęp [konkursami](https://gallery.cortanaintelligence.com/competitions) strony głównej w [galerii Azure AI](https://gallery.cortanaintelligence.com/), lub przejdź do [http://aka.ms/CIComp](http://aka.ms/CIComp). Strona główna zawiera listę wszystkich konkursami, które są aktualnie uruchomione. Każdy konkurencji przedstawiono szczegółowe instrukcje i zasadami uczestnictwa, nagrody i czas trwania na stronie tworzenia konta.
 
-1. Znajdź konkurencji chce uczestniczyć w programie, zapoznaj się z instrukcjami i Obejrzyj klip wideo samouczek, a następnie kliknij **wprowadź konkurencji** przycisk, aby skopiować eksperymentu Starter z istniejącego obszaru roboczego uczenia maszynowego Azure. Jeśli masz już dostępu do obszaru roboczego, należy go utworzyć wcześniej. Uruchom eksperyment Starter, obserwować metryki wydajności, a następnie użyj na wyższy poziom kreatywności, aby poprawić wydajność modelu. Prawdopodobnie będziesz spędzają większość czasu w tym kroku.   
+1. Znajdź konkurencji, którą chcesz uczestniczyć w programie, zapoznaj się z instrukcjami i obejrzyj film samouczka. Następnie kliknij przycisk **wprowadź konkurencji** przycisk i skopiowany eksperymentu Starter z istniejącym obszarem roboczym usługi Azure Machine Learning. Jeśli masz już dostępu do obszaru roboczego, należy go utworzyć wcześniej. Uruchom eksperyment Starter, obserwować metryki wydajności, a następnie użyj na wyższy poziom kreatywności, aby poprawić wydajność modelu. Prawdopodobnie będziesz spędzają większość czasu w tym kroku.   
 
-2. Utwórz eksperyment predykcyjny z trenowanego modelu poza eksperymentu początkowego. Następnie dokładnie dopasować danych wejściowych i wyjściowych schematu usługi sieci web, aby upewnić się, że są one zgodne z wymaganiami określonymi w dokumentacji konkurencji. Samouczek dokumentu zazwyczaj będzie mieć szczegółowe instrukcje dotyczące to. Można również obejrzeć film samouczek, jeśli jest dostępna.   
+2. Utwórz eksperyment predykcyjny z trenowanego modelu poza eksperymentu początkowego. Następnie dokładnie dopasować danych wejściowych i wyjściowych schematu usługi sieci web, aby upewnić się, że są one zgodne z wymaganiami określonymi w dokumentacji konkurencji. Samouczek dokumentu zwykle zawiera szczegółowe instrukcje dotyczące to. Można również obejrzeć film samouczek, jeśli jest dostępna.   
 
 3. Wdrażanie usługi sieci web poza predykcyjnej eksperymentu. Test sieci web usługi przy użyciu **testu** przycisku lub szablon programu Excel utworzony automatycznie upewnić się, że działa prawidłowo.   
 
-4. Prześlij usługi sieci web jako wpis konkurencji i zobacz publicznego wynik na stronie konkurencji Cortana Intelligence Gallery. I udanej sprzedaży, jeśli będzie to na Liderzy!  
+4. Prześlij usługi sieci web jako wpis konkurencji i zobacz publicznego wynik w galerii Azure AI strony konkurencji. I udanej sprzedaży, jeśli będzie to na Liderzy!  
 
-Po pomyślnym przesłaniu wpis, można przejść do skopiowanych eksperymentu Starter, iteracji i zaktualizuj predykcyjnej eksperymentu, aktualizowanie usługi sieci web i przesyłanie nowy wpis.   
+Po pomyślnym przesłaniu wpis, można przejść wstecz do skopiowanych eksperymentu początkowego. Następnie iteracji i zaktualizować predykcyjnej eksperymentu usługi sieci web aktualizacji i przesyłania nowy wpis.   
 
-**Czy można używać narzędzi typu open source do uczestnictwa w tych konkursami?**
+**Czy można używać narzędzia open source do uczestnictwa w tych konkursami?**
 
-Uczestnicy konkurencji korzystaj z usługi Azure Machine Learning Studio, usługi opartej na chmurze w ramach pakietu Cortana Intelligence Suite do tworzenia modeli analizy danych i utworzyć wpisy konkurencji do przesłania. Nie tylko Machine Learning Studio udostępnia interfejsem Graficznym do konstruowania uczeniem maszynowym, umożliwia również przełączyć własnych skryptów R lub Python natywnego wykonywania. R i Python środowisk uruchomieniowych w Studio dostarczane z bogaty zestaw pakietów R/Python typu open source, i w ramach eksperymentu, a także można importować własne pakiety. Studio ma również wbudowane usługi notesu Jupyter można zwolnić styl Eksploracja danych. Oczywiście zawsze można pobrać zestawów danych użytych w konkurencji i Eksploruj go w ulubionego narzędzia poza Machine Learning Studio. 
+Uczestnicy konkurencji użyć usługi Azure Machine Learning Studio, oparte na chmurze usługi w ramach pakietu Cortana Intelligence Suite do tworzenia modeli analizy danych i utworzyć wpisy konkurencji do przesłania. Nie tylko Machine Learning Studio udostępnia interfejsem Graficznym do konstruowania uczeniem maszynowym, umożliwia również przełączyć własnych skryptów R lub Python natywnego wykonywania. R i Python środowisk uruchomieniowych w Studio mają bogaty zestaw pakietów R/Python open source. W ramach eksperymentu, a także można importować własne pakiety. Studio ma również wbudowane usługi notesu Jupyter można zwolnić styl Eksploracja danych. Oczywiście zawsze można pobrać zestawów danych użytych w konkurencji i Eksploruj go w ulubionego narzędzia poza Machine Learning Studio. 
 
 **Czy muszę być naukowca danych, aby wprowadzić?**
 
-Nie. W rzeczywistości firma Microsoft zachęca entuzjastów danych tych zastanawiasz się, jak nauki danych i innych aspiring analityków danych wprowadzenia naszych kontekstem. Firma Microsoft zaprojektowany dokumenty, aby zezwolić wszystkim konkurować. Nasze docelowych odbiorców jest:
+Nie. W rzeczywistości, firma Microsoft zachęca entuzjastów danych każdy zastanawiasz się, jak nauki danych i innych aspiring analityków danych, aby wprowadzić naszych kontekstem. Firma Microsoft zaprojektowany dokumenty, aby zezwolić wszystkim konkurować. Odbiorcy docelowi jest:
 
 * **Deweloperzy danych**, **analityków danych**, **BI** i **specjalistów Analytics**: tych, którzy są odpowiedzialni za tworzenie danych i ich analiza zawartość innym użytkownikom korzystać z
 * **Stewards danych**: tych, którzy mają wiedzę o danych, co oznacza i jak jest przeznaczona do użycia i dla których cel
-* **Studenci** & **pracowników naukowo-badawczych:** osób uczenia i uzyskania danych powiązane umiejętności za pośrednictwem programów academic w uczelni lub uczestnikami ogromną Otwórz szkoleń w trybie Online (MOOCs)
+* **Studenci** & **pracowników naukowo-badawczych:** osób uczenia i uzyskaniu umiejętności związanych z danymi za pomocą programów academic w uczelni lub uczestnikami ogromną Otwórz szkoleń w trybie Online (MOOCs)
 
 **Można wprowadzić Moje współpracownikom w zespole?**
 
@@ -65,7 +65,7 @@ Platforma konkurencji aktualnie nie obsługuje współdziałania ze strony zespo
 
 **Należy zwrócić się do udziału w konkurencji?**
 
-Konkursami mogą uczestniczyć w. Należy jednak wymagany dostęp do obszaru roboczego uczenia maszynowego Azure do udziału. Obszar roboczy wolne bez karty kredytowej można utworzyć przez po prostu rejestrowanie się przy użyciu prawidłowego konta Microsoft lub konta usługi Office 365. Jeśli masz już Azure lub pakietu Cortana Intelligence Suite klienta, można tworzyć i używanie standardowych obszaru roboczego w ramach tej samej subskrypcji platformy Azure. Jeśli chcesz kupić subskrypcję platformy Azure, przejdź do [cennik platformy Azure](https://azure.microsoft.com/pricing) strony. Należy pamiętać, że standardowa opłata zostaną zastosowane po przy użyciu standardowych obszaru roboczego do utworzenia eksperymentów. Zobacz [usługi Azure Machine Learning, informacje o cenach](https://azure.microsoft.com/pricing/details/machine-learning/) Aby uzyskać więcej informacji. 
+Konkursami mogą uczestniczyć w. Należy jednak wymagany dostęp do obszaru roboczego uczenia maszynowego Azure do udziału. Obszar roboczy wolne bez karty kredytowej można utworzyć przez po prostu rejestrowanie się przy użyciu prawidłowego konta Microsoft lub konta usługi Office 365. Jeśli masz już Azure lub pakietu Cortana Intelligence Suite klienta, można tworzyć i używanie standardowych obszaru roboczego w ramach tej samej subskrypcji platformy Azure. Jeśli chcesz kupić subskrypcję platformy Azure, przejdź do [cennik platformy Azure](https://azure.microsoft.com/pricing) strony. Należy pamiętać, że standardowa opłata zostaną zastosowane po przy użyciu standardowych obszaru roboczego do utworzenia eksperymentów. Aby uzyskać więcej informacji, zobacz [usługi Azure Machine Learning, informacje o cenach](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -78,7 +78,7 @@ Oto, co się stanie:
 * Losowo podzieleniu cały zestaw danych używany w konkurencji z stratyfikacji na zestaw szkoleniowy i testowania (pozostałe) danych. Losowe podziału jest uporządkować, aby upewnić się, że dystrybucje etykiety zarówno uczenie i testowanie danych są zgodne.
 * Dane szkoleniowe jest przekazywane i dostarczone w ramach eksperymentu Starter w importowanie danych konfiguracji modułu.
 * Testowanie danych dalsze jest podzielony na publiczne i prywatne danych testowych, przy użyciu tego samego stratyfikacji.
-* Publiczny danych testowych służy do początkowej rundzie oceniania. Wynik jest określany jako wynik publicznego i jest widoczna w historii przesyłania po przesłaniu wpis. Ten wynik jest obliczana dla każdego wpisu przesyłanego. Ten publiczny wynik jest używany do rank należy na Liderzy publicznego.
+* Publiczny danych testowych służy do początkowej rundzie oceniania. Wynik jest określana jako wynik publicznego. Jest widoczna w historii przesyłania po przesłaniu wpis. Ten wynik jest obliczana dla każdego wpisu przesyłanego. Ten publiczny wynik jest używany do rank należy na Liderzy publicznego.
 * Dane prywatne testowania służy do znalazła usunięto po zakończeniu konkurencji. Jest to określane jako wynik prywatnych. 
 * Dla każdego uczestnika stała liczba wpisów z najwyższym wyniki publicznych zostaną zaznaczone automatycznie wprowadzić prywatnej round oceniania (ta liczba może się różnić w zależności od konkurencji). Wpis o najwyższym wynik prywatnej następnie został wybrany do wprowadzić końcowej klasyfikację ostatecznie określającą zwycięzców nagrody.  
 

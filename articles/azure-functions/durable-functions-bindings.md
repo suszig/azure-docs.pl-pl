@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Powiązania dla funkcji trwałe (funkcje platformy Azure)
 
@@ -66,7 +66,7 @@ Poniżej przedstawiono niektóre uwagi dotyczące wyzwalacza orchestration:
 
 Wyzwalacz aranżacji powiązanie obsługuje danych wejściowych i danych wyjściowych. Poniżej przedstawiono niektóre czynności, aby wiedzieć o dane wejściowe i wyjściowe obsługi:
 
-* **dane wejściowe** -funkcji aranżacji obsługują tylko [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) jako parametr typu. Dane wejściowe deserializacji bezpośrednio w sygnaturze funkcji nie są obsługiwane. Należy użyć kodu [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metodę, aby pobrać dane wejściowe funkcji programu orchestrator. Te dane wejściowe muszą być typów możliwych do serializacji JSON.
+* **dane wejściowe** -funkcji aranżacji obsługują tylko [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) jako parametr typu. Deserializacja danych wejściowych bezpośrednio w sygnaturze funkcji nie jest obsługiwana. Należy użyć kodu [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metodę, aby pobrać dane wejściowe funkcji programu orchestrator. Te dane wejściowe muszą być typów możliwych do serializacji JSON.
 * **generuje** -wyzwalacze aranżacji obsługują wartości danych wyjściowych, a także dane wejściowe. Zwracana wartość funkcji jest używana do przypisywania wartości wyjściowych i musi być możliwy do serializacji JSON. Jeśli funkcja zwraca `Task` lub `void`, `null` wartość zostanie zapisany jako dane wyjściowe.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-Większość funkcji programu orchestrator wywołania innych funkcji, dlatego poniżej przedstawiono przykład "Hello World", który demonstruje sposób wywołania funkcji:
+Większość funkcji programu orchestrator wywołania funkcji działania, Oto przykład "Hello World", który demonstruje sposób wywołania funkcji działania:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Poniżej przedstawiono niektóre uwagi dotyczące działania wyzwalacza:
 Wyzwalacz działania powiązanie obsługuje danych wejściowych i danych wyjściowych, podobnie jak wyzwalacza aranżacji. Poniżej przedstawiono niektóre czynności, aby wiedzieć o dane wejściowe i wyjściowe obsługi:
 
 * **dane wejściowe** — funkcje działania natywnie używają [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) jako parametr typu. Możesz też funkcję działania mogą być deklarowane z dowolnego typu parametru, który jest możliwy do serializacji JSON. Jeśli używasz `DurableActivityContext`, można wywołać [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) do pobrania i deserializacji działania funkcji danych wejściowych.
-* **generuje** -wyzwalacze działania obsługują wartości danych wyjściowych, a także dane wejściowe. Zwracana wartość funkcji jest używana do przypisywania wartości wyjściowych i musi być możliwy do serializacji JSON. Jeśli funkcja zwraca `Task` lub `void`, `null` wartość zostanie zapisany jako dane wyjściowe.
+* **generuje** — działanie funkcji obsługi wartości danych wyjściowych, a także dane wejściowe. Zwracana wartość funkcji jest używana do przypisywania wartości wyjściowych i musi być możliwy do serializacji JSON. Jeśli funkcja zwraca `Task` lub `void`, `null` wartość zostanie zapisany jako dane wyjściowe.
 * **metadane** -działania funkcji można powiązać z `string instanceId` parametru można pobrać Identyfikatora wystąpienia aranżacji nadrzędnej.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ Powiązanie klienta orchestration umożliwia pisanie funkcji, które interakcję
 
 Jeśli używasz programu Visual Studio, można powiązać aranżacji klienta za pomocą [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) atrybut platformy .NET.
 
-Jeśli używasz języków skryptów (np. *csx* plików) do tworzenia aplikacji, wyzwalacz orchestration jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicy function.json:
+Jeśli używasz języków skryptów (np. *csx* plików) do tworzenia aplikacji, wyzwalacz orchestration jest zdefiniowany przez następujący obiekt JSON w `bindings` tablicę *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Jeśli używasz języków skryptów (np. *csx* plików) do tworzenia aplikacji, 
 ```
 
 * `taskHub`-Używane w sytuacji, gdy wiele aplikacji funkcji Udostępnianie tego samego konta magazynu, ale musi być od siebie odizolowane. Jeśli nie zostanie określony, wartością domyślną z `host.json` jest używany. Ta wartość musi odpowiadać wartości przez funkcje programu orchestrator docelowej.
-* `connectionName`-Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu. Konto magazynu reprezentowany przez ten ciąg połączenia musi być taka sama, używany przez funkcje programu orchestrator docelowej. Jeśli nie określono domyślnego ciągu połączenia dla aplikacji funkcja jest używana.
+* `connectionName`-Nazwa ustawienia aplikacji, która zawiera parametry połączenia konta magazynu. Konto magazynu reprezentowany przez ten ciąg połączenia musi być taka sama, używany przez funkcje programu orchestrator docelowej. Jeśli nie zostanie określony, jest używany domyślny ciąg połączenia konta magazynu dla funkcji aplikacji.
 
 > [!NOTE]
 > W większości przypadków zaleca się, Pomiń te właściwości oraz polegać na zachowanie domyślne.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Przykładowe klienta (nie Visual Studio)
 
-Jeśli nie używasz programu Visual Studio do tworzenia aplikacji, można utworzyć następującego pliku function.json. W tym przykładzie przedstawiono sposób konfigurowania funkcji wyzwalane kolejki, które używa klienta aranżacji trwałego powiązania:
+Jeśli nie używasz programu Visual Studio do tworzenia aplikacji, można utworzyć następujące *function.json* pliku. W tym przykładzie przedstawiono sposób konfigurowania funkcji wyzwalane kolejki, które używa klienta aranżacji trwałego powiązania:
 
 ```json
 {
@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Więcej informacji na temat uruchamiania wystąpień znajdują się w [wystąpienie zarządzania](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Więcej informacji na temat zachowania punkty kontrolne i powtórzeń](durable-functions-checkpointing-and-replay.md)

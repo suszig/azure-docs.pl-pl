@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e4fb0b7c915969da1760eaccc77aa399030752e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj koder Wirecast, aby wysyłać strumień na żywo o pojedynczej szybkości transmisji bitów
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-W tym temacie przedstawiono sposób konfigurowania [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kodera na żywo do wysyłania strumienia pojedynczej szybkości transmisji bitów AMS kanałów, które są włączone kodowanie na żywo.  Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+W tym artykule przedstawiono sposób konfigurowania [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) kodera na żywo do wysyłania strumienia pojedynczej szybkości transmisji bitów AMS kanałów, które są włączone kodowanie na żywo.  Aby uzyskać więcej informacji, zobacz temat [Praca z kanałami obsługującymi funkcję Live Encoding w usłudze Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 W tym samouczku przedstawiono sposób zarządzania usługi Azure Media Services (AMS) za pomocą narzędzia Azure Media Services Explorer (AMSE). To narzędzie jest uruchamiane tylko na komputerze z systemem Windows. Jeśli na Mac lub Linux, użyj portalu Azure do utworzenia [kanałów](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) i [programy](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -41,11 +41,11 @@ W tym samouczku przedstawiono sposób zarządzania usługi Azure Media Services 
 
 ## <a name="tips"></a>Porady
 * Jeśli to możliwe, użyj połączenia internetowego hardwired.
-* Regułą podczas określania wymaganiach odnośnie do przepustowości jest dwukrotnie przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, może pomóc zmniejszyć skuteczność przeciążenie sieci.
-* Gdy za pomocą oprogramowania na podstawie koderów, zamknij wszystkie zbędne programy.
+* Regułą podczas określania wymaganiach odnośnie do przepustowości jest dwukrotnie przesyłania strumieniowego szybkości transmisji bitów. Chociaż nie jest to wymagane, ułatwia ograniczanie wpływu sieci przeciążona.
+* Korzystając z koderów opartych na oprogramowaniu, zamknij wszystkie zbędne programy.
 
 ## <a name="create-a-channel"></a>Tworzenie kanału
-1. W przy użyciu narzędzia AMSE, przejdź do **Live** karcie, a następnie kliknij prawym przyciskiem myszy w obszarze kanału. Wybierz **Utwórz kanał...** z menu.
+1. W przy użyciu narzędzia AMSE, przejdź do **Live** , a następnie kliknij prawym przyciskiem myszy w obszarze kanału. Wybierz **Utwórz kanał...** z menu.
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -65,7 +65,7 @@ W tym samouczku przedstawiono sposób zarządzania usługi Azure Media Services 
 Podczas uruchamiania kanału możesz [skonfigurować koder](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
-> Należy pamiętać, że rozliczanie zaczyna się jak kanału przechodzi do stanu gotowości. Aby uzyskać więcej informacji, zobacz [stanów kanału](media-services-manage-live-encoder-enabled-channels.md#states).
+> Rozliczanie zaczyna się, jak kanału przechodzi do stanu gotowości. Aby uzyskać więcej informacji, zobacz [stanów kanału](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
@@ -132,7 +132,7 @@ W tym samouczku są używane następujące ustawienia danych wyjściowych. Pozos
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Kliknij przycisk **OK**.
-2. W głównym **Wirecast** Sprawdź źródeł danych wejściowych dla audio i wideo są gotowe, a następnie naciśnij **strumienia** w lewego górnego rogu.
+2. W głównym **Wirecast** Sprawdź źródeł danych wejściowych dla audio i wideo są gotowe, a następnie naciśnij **strumienia** w lewym górnym rogu.
 
    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
@@ -150,7 +150,7 @@ Przejdź do przy użyciu narzędzia AMSE, a następnie kliknij prawym przyciskie
 
 Strumień jest widoczna w player, następnie koder został poprawnie skonfigurowany do nawiązania połączenia usługi AMS.
 
-Jeśli błąd kanału należy zresetować i dostosowane ustawienia kodera. Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.  
+Jeśli błąd kanału powinna zostać zresetowana i dostosowane ustawienia kodera. Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) artykułu, aby uzyskać wskazówki.  
 
 ## <a name="create-a-program"></a>Utwórz program
 1. Po potwierdzeniu kanału odtwarzania, tworzenia programu. W obszarze **Live** w przy użyciu narzędzia AMSE, kliknij prawym przyciskiem myszy w obszarze program i wybierz **utworzyć nowy Program**.  
@@ -164,12 +164,12 @@ Jeśli błąd kanału należy zresetować i dostosowane ustawienia kodera. Zobac
    >Tworzenie programu zajmuje mniej czasu niż tworzenie kanału.
        
 5. Po uruchomieniu programu potwierdzić odtwarzania przez kliknięcie prawym przyciskiem myszy program i przechodząc do **odtwarzania programach** , a następnie wybierając **z usługi Azure Media Player**.  
-6. Po potwierdzeniu, kliknij prawym przyciskiem myszy program ponownie i wybierz **skopiuj dane wyjściowe adres URL do Schowka** (lub pobrać tych informacji z **programu informacji i ustawień** opcji z menu).
+6. Po potwierdzeniu, ponownie kliknij prawym przyciskiem myszy program i wybierz **skopiuj dane wyjściowe adres URL do Schowka** (lub pobrać tych informacji z **programu informacji i ustawień** opcji z menu).
 
 Strumień jest teraz gotowy do osadzonego w odtwarzacza lub dystrybuowane do odbiorców w celu wyświetlenia na żywo.  
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) tematu, aby uzyskać wskazówki.
+Zobacz [Rozwiązywanie problemów z](media-services-troubleshooting-live-streaming.md) artykułu, aby uzyskać wskazówki.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

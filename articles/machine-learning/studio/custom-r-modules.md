@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Tworzenie niestandardowych modułów R w usłudze Azure Machine Learning
 W tym temacie opisano sposób tworzenia i wdrażania niestandardowego modułu R w usłudze Azure Machine Learning. Wyjaśniono, co to są niestandardowych modułów R i które pliki są używane do definiowania ich. Go ilustruje sposób tworzenia plików, które definiują modułu i jak można zarejestrować modułu do wdrożenia w obszarze roboczym uczenia maszynowego. Elementy i atrybuty używane w definicji niestandardowego modułu następnie są opisane bardziej szczegółowo. Również omówiono sposób użycia funkcji pomocniczych, plików i wielu wyjść. 
@@ -28,7 +28,7 @@ W tym temacie opisano sposób tworzenia i wdrażania niestandardowego modułu R 
 ## <a name="what-is-a-custom-r-module"></a>Co to jest niestandardowego modułu R?
 A **niestandardowego modułu** jest modułem zdefiniowane przez użytkownika, które można przekazać do swojego obszaru roboczego i wykonywane w ramach eksperymentu uczenia maszynowego Azure. A **niestandardowego modułu R** jest niestandardowy moduł, który wykonuje funkcję R zdefiniowane przez użytkownika. **R** to język programowania statystyczne obliczeniowych i grafiki, powszechnie używaną służące chi i dane dotyczące implementowania algorytmów. R jest obecnie jedynym obsługiwanym niestandardowe moduły, ale pomocy technicznej dla dodatkowych języków zostało zaplanowane w przyszłych wersjach językiem.
 
-Niestandardowe moduły mają **najwyższej jakości stan** w usłudze Azure Machine Learning, w tym sensie, że mogą być używane tak samo jak inne modułu. Można je wykonać na inne moduły zawarte w opublikowanych eksperymenty lub wizualizacji. Masz kontrolę nad algorytm implementowane przez moduł, danych wejściowych i wyjściowych porty mają zostać użyte parametry modelowania i innych różne zachowania środowiska uruchomieniowego. Eksperymentu, która zawiera niestandardowe moduły mogą być publikowane również do witryny Cortana Intelligence Gallery łatwe udostępnianie.
+Niestandardowe moduły mają **najwyższej jakości stan** w usłudze Azure Machine Learning, w tym sensie, że mogą być używane tak samo jak inne modułu. Można je wykonać na inne moduły zawarte w opublikowanych eksperymenty lub wizualizacji. Masz kontrolę nad algorytm implementowane przez moduł, danych wejściowych i wyjściowych porty mają zostać użyte parametry modelowania i innych różne zachowania środowiska uruchomieniowego. Eksperymentu, która zawiera niestandardowe moduły również mogą być publikowane w galerii Azure AI łatwe udostępnianie.
 
 ## <a name="files-in-a-custom-r-module"></a>Pliki w niestandardowego modułu R
 Niestandardowego modułu R jest zdefiniowane przez plik zip, który zawiera co najmniej dwa pliki:
@@ -290,9 +290,9 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
     * Podzielone na kategorie
     * Ciąg
     * Etykieta
-    * Funkcja
+    * Cecha
     * Wynik
-    * Wszystkie
+    * Wszyscy
   * **domyślne** -prawidłowy domyślny wybór selektor kolumn obejmują: 
     
     * Brak
@@ -315,7 +315,7 @@ Parametr modułu jest definiowana za pomocą **Arg** elementem podrzędnym **arg
     * AllLabel
     * AllFeature
     * AllScore
-    * Wszystkie
+    * Wszyscy
 
 **Lista rozwijana**: listę wyliczany określone przez użytkownika (rozwijaną). Elementy listy rozwijanej są określane w **właściwości** przy użyciu elementu **elementu** elementu. **Identyfikator** dla każdego **elementu** musi być unikatowa i prawidłową zmienną R. Wartość **nazwa** z **elementu** służy jako tekst, który zostanie wyświetlony i wartość, która została przekazana do funkcji R.
 
