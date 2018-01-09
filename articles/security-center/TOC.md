@@ -21,6 +21,7 @@
 ### [Zasady zabezpieczeń korzystające z zasad platformy Azure](security-center-azure-policy.md)
 ### [Powiadomienia e-mail](security-center-provide-security-contact-details.md)
 ### [Warstwa cenowa](security-center-pricing.md)
+### [Konfiguracje zabezpieczeń](security-center-customize-os-security-config.md)
 
 ## [Dołączanie](security-center-onboarding.md)
 ## [Zdarzenia](security-center-events-dashboard.md)
@@ -54,7 +55,7 @@
 #### [Włącz agenta maszyny wirtualnej](security-center-enable-vm-agent.md)
 #### [Zainstaluj punkt końcowy](security-center-install-endpoint-protection.md)
 #### [Uruchom ponownie po zaktualizowaniu systemu](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Koryguj luki w zabezpieczeniach systemu operacyjnego](security-center-remediate-os-vulnerabilities.md)
+#### [Korygowanie konfiguracji zabezpieczeń](security-center-remediate-os-vulnerabilities.md)
 #### [Aktualizacja wersji systemu operacyjnego](security-center-update-os-version.md)
 #### [Funkcja oceny luk w zabezpieczeniach nie jest zainstalowana](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitorowanie kondycji zabezpieczeń](security-center-monitoring.md)
@@ -90,7 +91,7 @@
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Security Center Readiness Roadmap (Mapa gotowości usługi Security Center)](security-center-readiness-roadmap.md)
+## [Harmonogram działania dotyczący gotowości](security-center-readiness-roadmap.md)
 ## [Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Omówienie usługi](https://azure.microsoft.com/services/security-center/)

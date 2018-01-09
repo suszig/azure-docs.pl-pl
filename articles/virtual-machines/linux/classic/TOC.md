@@ -1,59 +1,39 @@
 # [Omówienie](../overview.md)
-## [Obrazy](about-images.md)
-## [Rozszerzenia maszyn wirtualnych](agents-and-extensions.md)
-## [Dostępność](configure-availability.md)
-## [Często zadawane pytania](faq.md)
+## [Rozszerzenia maszyn wirtualnych](agents-and-extensions-classic.md)
+## [Dostępność](configure-availability-classic.md)
+## [Często zadawane pytania](faq-classic.md)
 
-# Wprowadzenie
-## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal](createportal.md)
-## [Instalowanie interfejsu wiersza polecenia platformy Azure](../../../cli-install-nodejs.md)
-## [Tworzenie kluczy SSH](../mac-create-ssh-keys.md)
+# Rozpoczęcie pracy
+## [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu witryny Azure Portal](createportal-classic.md)
 
 # Instrukcje
 ## Wystąpienia obliczeniowe
-### [Tworzenie niestandardowej maszyny wirtualnej](create-custom.md)
-### [Przechwytywanie maszyny wirtualnej](capture-image.md)
-### [Używanie pulpitu zdalnego z maszyną wirtualną z systemem Linux](remote-desktop.md)
-### [Zarządzanie rozszerzeniami maszyn wirtualnych](manage-extensions.md)
-### [Zarządzanie maszynami wirtualnymi za pomocą programu Visual Studio](manage-visual-studio.md)
-### [Monitorowanie maszyn wirtualnych za pomocą diagnostycznego rozszerzenia maszyny wirtualnej](../diagnostic-extension.md)
+### [Tworzenie niestandardowej maszyny wirtualnej](create-custom-classic.md)
+### [Przechwytywanie maszyny wirtualnej](capture-image-classic.md)
+### [Używanie pulpitu zdalnego z maszyną wirtualną z systemem Linux](remote-desktop-classic.md)
+### [Zarządzanie rozszerzeniami maszyn wirtualnych](manage-extensions-classic.md)
 ### [Monitorowanie maszyn wirtualnych za pomocą diagnostycznego rozszerzenia maszyny wirtualnej w wersji 2.x](diagnostic-extension-v2.md)
-### [Wstawianie niestandardowych danych](inject-custom-data.md)
-### [Resetowanie haseł lub kluczy systemu Linux, naprawianie kluczy SSH i sprawdzanie dysków](reset-access.md)
-### [Maintenance (Konserwacja)](planned-maintenance-schedule.md)
-### [Tworzenie hosta platformy Docker przy użyciu interfejsu wiersza polecenia](cli-use-docker.md)
-### [Tworzenie hosta platformy Docker przy użyciu witryny Azure Portal](portal-use-docker.md)
-### [Jak używać platformy Docker przy użyciu koordynatora Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Resetowanie haseł lub kluczy systemu Linux, naprawianie kluczy SSH i sprawdzanie dysków](reset-access-classic.md)
+### [Maintenance (Konserwacja)](planned-maintenance-schedule-classic.md)
 
 ## Korzystanie z usługi Storage
-### [Dołączanie dysku danych](attach-disk.md)
-### [Odłączanie dysku danych](detach-disk.md)
+### [Dołączanie dysku danych](attach-disk-classic.md)
+### [Odłączanie dysku danych](detach-disk-classic.md)
 
 ## Sieć
 ### [Otwieranie portów dla maszyny wirtualnej](setup-endpoints.md)
-### [Łączenie maszyn wirtualnych z siecią wirtualną lub usługą w chmurze](connect-vms.md)
-
-## Wdrażanie obrazów
-### [Tworzenie i przekazywanie wirtualnego dysku twardego](create-upload-vhd.md)
-### [Tworzenie i przekazywanie wirtualnego dysku twardego systemu FreeBSD](freebsd-create-upload-vhd.md)
-### [Lista obrazów maszyn wirtualnych firmy Oracle](oracle-images.md)
 
 ## Zarządzanie obciążeniami
-### [SAP](sap-get-started.md)
-### MySQL i MariaDB
-#### [Samouczek klastra MariaDB](mariadb-mysql-cluster.md)
-#### [Instalowanie programu MySQL na maszynie wirtualnej z systemem OpenSUSE](mysql-on-opensuse.md)
-#### [Używanie zestawów o zrównoważonym obciążeniu do klastrowania programu MySQL](mysql-cluster.md)
-#### [Optymalizacja wydajności programu MySQL](optimize-mysql.md)
+### [Samouczek klastra MariaDB](mariadb-mysql-cluster.md)
+### [Instalowanie programu MySQL na maszynie wirtualnej z systemem OpenSUSE](mysql-on-opensuse.md)
+### [Używanie zestawów o zrównoważonym obciążeniu do klastrowania programu MySQL](mysql-cluster.md)
+### [Optymalizacja wydajności programu MySQL](optimize-mysql.md)
 
 ## Uruchamianie aplikacji
-### [Aplikacja sieci Web Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Aplikacja sieci Web Ruby on Rails](ruby-rails-web-app.md)
 ### [Program Cassandra i klient Node.js](cassandra-nodejs.md)
-### [Stos LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Aplikacja sieci Web z programem Visual Studio](web-app-visual-studio.md)
 ### [Klaster RDMA do uruchamiania aplikacji MPI](rdma-cluster.md)
-### [Jak używać podrzędnej wtyczki platformy Azure z ciągłą integracją rozwiązania Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Tworzenie klastra dla obciążeń systemu Linux](hpcpack-cluster-powershell-script.md)
 #### [Zarządzanie klastrem z węzłami z systemem Linux](hpcpack-cluster.md)

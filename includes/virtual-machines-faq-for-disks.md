@@ -101,6 +101,10 @@ Dyskach zarządzanych platformy Azure obsługuje obecnie tylko lokalnie nadmiaro
 
 Nie. Ta funkcja nie jest obecnie obsługiwana. 
 
+**Dzierżawy mogą być dzielone na tym dysku?**
+
+Nie. Nie jest to obsługiwane obecnie dzierżawy jest obecny zapobiega przypadkowemu usunięciu, gdy dysk jest używany.
+
 **Właściwość Nazwa komputera można zmienić po specjalistycznej (nie utworzone przy użyciu narzędzia przygotowywania systemu lub uogólniony) dysku systemu operacyjnego jest używany do udostępnienia maszyny Wirtualnej?**
 
 Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirtualna dziedziczy z elementu nadrzędnego maszyny Wirtualnej, który został użyty do utworzenia dysku systemu operacyjnego. 

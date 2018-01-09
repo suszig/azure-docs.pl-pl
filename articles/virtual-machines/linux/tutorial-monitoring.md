@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Jak monitorować i aktualizować maszyny wirtualnej systemu Linux na platformie Azure
 
@@ -130,7 +130,7 @@ Maszynę wirtualną systemu Linux zawiera dedykowany hosta na platformie Azure, 
 >
 > Zamiast tego można włączyć w wersji 3.0 rozszerzenia diagnostyczne systemu Linux. Aby uzyskać więcej informacji, zobacz [dokumentacji](./diagnostic-extension.md).
 
-Metryki podstawowych hostów są dostępne, ale bardziej szczegółowe i metryki specyficzne dla maszyny Wirtualnej, można, należy zainstalować rozszerzenie diagnostycznych platformy Azure na maszynie Wirtualnej. Rozszerzenia diagnostyki Azure umożliwia dodatkowe funkcje monitorowania i dane diagnostyczne mają zostać pobrane z maszyny Wirtualnej. Możesz wyświetlić te metryki wydajności i tworzyć alerty oparte na sposób wykonywania maszyny Wirtualnej. Rozszerzenia diagnostycznych jest zainstalowany za pośrednictwem portalu Azure w następujący sposób:
+Metryki podstawowych hostów są dostępne, ale aby wyświetlić bardziej szczegółowe i specyficzne dla maszyny Wirtualnej metryki, należy zainstalować rozszerzenie diagnostycznych platformy Azure na maszynie Wirtualnej. Rozszerzenia diagnostyki Azure umożliwia dodatkowe funkcje monitorowania i dane diagnostyczne mają zostać pobrane z maszyny Wirtualnej. Możesz wyświetlić te metryki wydajności i tworzyć alerty oparte na sposób wykonywania maszyny Wirtualnej. Rozszerzenia diagnostycznych jest zainstalowany za pośrednictwem portalu Azure w następujący sposób:
 
 1. W portalu Azure kliknij **grup zasobów**, wybierz pozycję **myResourceGroup**, a następnie wybierz **myVM** na liście zasobów.
 1. Kliknij przycisk **ustawienia diagnostyki**. Lista wskazuje, że *diagnostyki rozruchu* są już włączone w poprzedniej sekcji. Kliknij pole wyboru dla *podstawowe metryki*.
@@ -167,7 +167,7 @@ Poniższy przykład tworzy alert dla średniego użycia procesora CPU.
 
 Przy użyciu zarządzania aktualizacjami, można zarządzać pakietu aktualizacje i poprawki dla maszyn wirtualnych systemu Linux platformy Azure. Bezpośrednio z maszyny Wirtualnej, można szybko ocenić stan dostępne aktualizacje, zaplanowanie instalacji wymaganych aktualizacji i przejrzeć wyniki wdrożenia, aby sprawdzić, czy aktualizacje zostały pomyślnie zastosowane do maszyny Wirtualnej.
 
-Aby uzyskać informacje o cenach, zobacz [ceny Automatyzacja zarządzania aktualizacjami](https://azure.microsoft.com/pricing/details/automation/)
+Aby uzyskać informacje o cenach, zobacz [cennik usługi Automation dla rozwiązania Update Management](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management-preview"></a>Włącz zarządzanie aktualizacjami (wersja zapoznawcza)
 
@@ -177,40 +177,40 @@ Włącz zarządzanie aktualizacji dla maszyny Wirtualnej
 1. Z listy wybierz maszynę Wirtualną.
 1. Na ekranie maszyny Wirtualnej w **operacji** kliknij **zarządzanie aktualizacjami**. **Zarządzania aktualizacjami włączyć** ekranu zostanie otwarta.
 
-Weryfikacja jest przeprowadzana w celu ustalenia, czy zarządzanie aktualizacjami jest włączony dla tej maszyny Wirtualnej. Sprawdzanie poprawności obejmuje sprawdza, czy obszar roboczy analizy dzienników i połączonego konta automatyzacji, a jeśli rozwiązanie znajduje się w obszarze roboczym.
+Jest przeprowadzana walidacja w celu ustalenia, czy rozwiązanie Update Management jest włączone dla tej maszyny wirtualnej. Walidacja obejmuje kontrole obszaru roboczego usługi Log Analytics i powiązanego konta usługi Automation i tego, czy rozwiązanie znajduje się w obszarze roboczym.
 
-Obszar roboczy analizy dzienników służy do zbierania danych, który jest generowany przez funkcji i usług, takich jak zarządzanie aktualizacjami. Obszar roboczy zawiera pojedynczej lokalizacji, aby przejrzeć i analizowania danych z wielu źródeł. Do wykonania dodatkowych czynności na maszynach wirtualnych, które wymagają aktualizacji, usługi Automatyzacja Azure pozwala na uruchamianie skryptów przed maszynami wirtualnymi, takie jak do pobrania i zastosowania aktualizacji.
+Obszar roboczy analizy dzienników służy do zbierania danych, który jest generowany przez funkcji i usług, takich jak zarządzanie aktualizacjami. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł. Do wykonania dodatkowych czynności na maszynach wirtualnych, które wymagają aktualizacji, usługi Automatyzacja Azure pozwala na uruchamianie skryptów przed maszynami wirtualnymi, takie jak do pobrania i zastosowania aktualizacji.
 
-Proces weryfikacji sprawdza również, jeśli maszyna wirtualna jest udostępniane z programu Microsoft Monitoring Agent (MMA) i hybrydowy proces roboczy. Ten agent jest używany do komunikowania się z maszyną Wirtualną i uzyskiwania informacji o stanie aktualizacji. 
+Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego. Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących stanu aktualizacji. 
 
 Te wymagania wstępne nie są spełnione, zostanie wyświetlony transparent daje możliwość włączenia rozwiązania.
 
-![Zaktualizuj transparent dołączyć konfiguracji zarządzania](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+![Transparent konfiguracji dołączony do rozwiązania Update Management](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
 Kliknij transparent, aby włączyć rozwiązanie. W przypadku dowolnej z następujących warunków wstępnych zostały brakować po weryfikacji, zostaną automatycznie dodane:
 
-* [Zaloguj się Analytics](../../log-analytics/log-analytics-overview.md) obszaru roboczego
+* Obszar roboczy usługi [Log Analytics](../../log-analytics/log-analytics-overview.md)
 * [Automatyzacja](../../automation/automation-offering-get-started.md)
-* A [hybrydowy proces roboczy elementu runbook](../../automation/automation-hybrid-runbook-worker.md) jest włączona na maszynie Wirtualnej
+* [Hybrydowy proces roboczy elementu Runbook](../../automation/automation-hybrid-runbook-worker.md) jest włączony na maszynie wirtualnej
 
 **Włączyć zarządzanie aktualizacjami** ekranu zostanie otwarta. Skonfiguruj ustawienia, a następnie kliknij przycisk **włączyć**.
 
 ![Włącz rozwiązanie do zarządzania aktualizacji](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
 Włączanie rozwiązania może potrwać do 15 minut, a w tym czasie nie powinna zamykać okna przeglądarki. Po włączeniu rozwiązania, informacje o brakujących aktualizacji przez Menedżera pakietu na maszynie Wirtualnej przechodzi do analizy dzienników.
-Może upłynąć od 30 minut do 6 godzin dla danych, które mają być dostępne dla analizy.
+Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
 
 ### <a name="view-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
 Po **zarządzanie aktualizacjami** rozwiązania jest włączona, **zarządzanie aktualizacjami** pojawi się ekran. Możesz wyświetlić listę brakujących aktualizacji na karcie **Brakujące aktualizacje**.
 
-![Wyświetl stan aktualizacji](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+![Wyświetlanie stanu aktualizacji](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
 ### <a name="schedule-an-update-deployment"></a>Planowanie wdrożenia aktualizacji
 
 Do instalowania aktualizacji, należy zaplanować wdrożenie znajdujący się okna harmonogramu i obsługa wersji.
 
-Planowanie nowego wdrożenia aktualizacji dla maszyny Wirtualnej, klikając **harmonogram wdrożenia aktualizacji** w górnej części **zarządzanie aktualizacjami** ekranu. W **nowego wdrożenia aktualizacji** ekranu, podaj następujące informacje:
+Planowanie nowego wdrożenia aktualizacji dla maszyny Wirtualnej, klikając **harmonogram wdrożenia aktualizacji** w górnej części **zarządzanie aktualizacjami** ekranu. Na ekranie **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
 * **Nazwa** — wprowadź unikatową nazwę identyfikującą wdrożenie aktualizacji.
 * **Aktualizacje, które mają zostać wykluczone** — wybierz, aby wprowadzić nazwy pakietów, które mają zostać wykluczone z aktualizacji.
@@ -232,21 +232,21 @@ Zarządzanie aktualizacjami stosuje istniejącego Menedżera pakietów na maszyn
 
 Po rozpoczęciu zaplanowanego wdrażania stan tego wdrożenia można sprawdzić na karcie **Wdrożenia aktualizacji** na ekranie **Update Management**.
 Jeśli wdrażanie trwa, wdrożenie ma stan **W toku**. Po pomyślnym ukończeniu wdrażania stan zmienia się na **Powodzenie**.
-W przypadku awarii z co najmniej jednej aktualizacji we wdrożeniu, stan jest **niepowodzenie**.
+W przypadku awarii z co najmniej jednej aktualizacji we wdrożeniu, stan jest .
 Kliknij ukończone wdrożenie aktualizacji, aby wyświetlić pulpit nawigacyjny tego wdrożenia.
 
-![Pulpit nawigacyjny stan wdrożenia aktualizacji dla określonego wdrożenia](./media/tutorial-monitoring/manage-updates-view-results.png)
+![Pulpit nawigacyjny stanu wdrożenia aktualizacji dla określonego wdrożenia](./media/tutorial-monitoring/manage-updates-view-results.png)
 
 W **wyniki aktualizacji** kafelka znajduje się podsumowanie całkowita liczba aktualizacji i wyniki wdrożenia na maszynie Wirtualnej.
 Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyniki instalacji, które mogą mieć jedną z następujących wartości:
 
-* **Nie podjęto** — aktualizacja nie została zainstalowana w powodu niewystarczających czas dostępne w oparciu o czas trwania okna obsługi, które zostały zdefiniowane.
+* **Nie podjęto próby** — nie zainstalowano aktualizacji z powodu niewystarczającego czasu w zdefiniowanym oknie konserwacji.
 * **Pomyślnie** -aktualizacja została pomyślnie pobrana i zainstalowana na maszynie Wirtualnej
 * **Nie powiodło się** — nie można pobrać lub zainstalować na maszynie Wirtualnej aktualizacji.
 
 Kliknij pozycję **Wszystkie dzienniki**, aby wyświetlić wszystkie wpisy dziennika utworzone przez wdrożenie.
 
-Kliknij przycisk **dane wyjściowe** Kafelek, aby zobaczyć strumień zadań elementu runbook odpowiedzialny za zarządzanie wdrożenia aktualizacji w celu maszyny Wirtualnej.
+Kliknij kafelek **Dane wyjściowe**, aby wyświetlić strumień zadań elementu runbook odpowiedzialnego za zarządzanie wdrożeniem aktualizacji na docelowej maszynie wirtualnej.
 
 Kliknij pozycję **Błędy**, aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem.
 
@@ -271,7 +271,7 @@ W bloku dziennika wyszukiwania portalu OMS, powinna zostać wyświetlona *myVM* 
 
 ![Blok OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku został skonfigurowany, przejrzeć i zarządzane aktualizacje dla maszyny Wirtualnej. W tym samouczku omówiono:
 

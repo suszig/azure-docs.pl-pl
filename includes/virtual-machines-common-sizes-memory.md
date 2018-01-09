@@ -61,7 +61,7 @@ ACU: 160–180
 
 <sup>1</sup> funkcja wirtualna serii M technologią Intel® Hyper-Threading
 
-<sup>2</sup> więcej niż 64 vCPU, muszą mieć jedną z tych gościa obsługiwanych systemów operacyjnych: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 z dodatkiem SP2 i Red Hat Enterprise Linux lub 7.3 CentOS z LIS 4.2.1 
+<sup>2</sup> więcej niż 64 vCPU, muszą mieć jedną z tych gościa obsługiwanych systemów operacyjnych: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 z dodatkiem SP2 i Red Hat Enterprise Linux, CentOS 7.3 lub Oracle 7.3 Linux z LIS 4.2.1 
 
 <sup>3</sup> ograniczone dostępne rozmiary core.
 

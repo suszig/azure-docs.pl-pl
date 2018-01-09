@@ -12,7 +12,7 @@
 
 # Instrukcje
 ## Ładowanie i przenoszenie danych
-### [Używanie usługi Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Używanie usługi Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Korzystanie z narzędzia AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Korzystanie z narzędzia DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Korzystanie z narzędzia Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -98,4 +98,4 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Forum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
