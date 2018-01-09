@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Grupowanie maszyn przy użyciu zależności maszyn
       href: how-to-create-group-machine-dependencies.md
-    - name: Grupowanie maszyn za pomocą tagowania programu VMware
-      href: how-to-tag-v-center.md
     - name: Uściślanie zawartości grupy za pomocą zależności grupy
       href: how-to-create-group-dependencies.md
     - name: Dostosowywanie oceny

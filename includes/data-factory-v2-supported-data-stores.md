@@ -61,9 +61,9 @@
 | &nbsp; |[Usługi ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Kwadratowe (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Tabela internetowa (tabela HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Tabela internetowa (tabela HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Każdy łącznik oznaczona jako *Beta* oznacza, że możesz spróbować ją out i przekaż nam swoją opinię i nie należy używać w środowiskach produkcyjnych.
+> Każdy łącznik oznaczona jako *Beta* oznacza, że można wypróbować jej możliwości i przekaż nam swoją opinię. Jeśli chcesz wykonać zależności dla łączników w wersji Beta w rozwiązaniu, skontaktuj się z [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/).
