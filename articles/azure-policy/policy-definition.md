@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -200,7 +200,6 @@ Zasady obsługuje następujące typy wpływu:
 * **Dołącz**: dodaje zestaw określonych pól na żądanie
 * **AuditIfNotExists**: włącza inspekcji, jeśli zasób nie istnieje.
 * **DeployIfNotExists**: wdraża zasobu, jeśli jeszcze nie istnieje. Obecnie ten efekt jest obsługiwana tylko przy użyciu wbudowanych zasad.
-* **DenyIfNotExists**: odrzuca tworzenie istnieje, jeśli nie istnieje
 
 Aby uzyskać **Dołącz**, należy podać następujące informacje:
 
@@ -216,7 +215,7 @@ Aby uzyskać **Dołącz**, należy podać następujące informacje:
 
 Wartość może być ciągiem lub obiekt do formatu JSON.
 
-Z **AuditIfNotExists**, **DeployIfNotExists**, i **DenyIfNotExists**, można ocenić istnienia zasobu podrzędnego i zastosować regułę i ich wpływ Jeśli ten zasób nie istnieje. Można na przykład wymagać, że dla wszystkich sieci wirtualnych jest wdrażany obserwatora sieciowego.
+Z **AuditIfNotExists** i **DeployIfNotExists** można ocenić istnienia zasobu podrzędnego i Zastosuj regułę i ich wpływ, gdy ten zasób nie istnieje. Można na przykład wymagać, że dla wszystkich sieci wirtualnych jest wdrażany obserwatora sieciowego.
 Przykład inspekcję, gdy rozszerzenie maszyny wirtualnej nie została wdrożona, zobacz [inspekcji, jeśli rozszerzenie nie istnieje](scripts/audit-ext-not-exist.md).
 
 
@@ -337,7 +336,7 @@ Aliasy właściwości umożliwia dostęp do właściwości specyficzne dla typu 
 | Microsoft.Storage/storageAccounts/sku.name | Nazwa jednostki SKU zestawu. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Ustaw, aby zezwolić tylko na ruch protokołu https do usługi Magazyn. |
 
-## <a name="initiatives"></a>Inicjatyw
+## <a name="initiatives"></a>Inicjatywy
 
 Włącz inicjatyw kilka grupy powiązane definicje zasad, aby uprościć zadania i zarządzania, ponieważ współdziała z grupą jako pojedynczy element. Na przykład można grupować wszystkie powiązane definicje zasad znakowania w jednym inicjatywy. Zamiast przypisywać każdej zasady pojedynczo, należy zastosować tej inicjatywy.
 
@@ -417,6 +416,6 @@ Poniższy przykład przedstawia sposób tworzenia inicjatywą obsługi dwa tagi:
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przejrzyj przykłady szablonu zasad Azure w [szablony zasad Azure](json-samples.md).

@@ -3,8 +3,8 @@ title: "Opis połączeń wychodzących na platformie Azure | Dokumentacja firmy 
 description: "W tym artykule opisano, jak Azure umożliwia maszyny wirtualne do komunikowania się z publicznej usługi internetowe."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Informacje o połączeniach wychodzących na platformie Azure
 
@@ -46,7 +46,7 @@ Można użyć [analizy dzienników dla usługi równoważenia obciążenia](load
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Równoważeniem obciążenia maszyny Wirtualnej z żaden adres publiczny adres IP na poziomie wystąpienia
 
-W tym scenariuszu maszyna wirtualna jest częścią puli usługi równoważenia obciążenia Azure.  Maszyna wirtualna nie ma publicznego adresu IP przypisane do niej. Zasób usługi równoważenia obciążenia musi być skonfigurowany z regułą, aby połączyć publicznego frontonu IP z puli zaplecza.  Jeśli nie wykonasz tej konfiguracji, zachowanie jest zgodnie z opisem w poprzedniej sekcji, aby uzyskać [autonomiczny maszynę Wirtualną za pomocą wystąpienia poziomu publiczny adres IP nie](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+W tym scenariuszu maszyna wirtualna jest częścią puli usługi równoważenia obciążenia Azure.  Maszyna wirtualna nie ma publicznego adresu IP przypisane do niej. Zasób usługi równoważenia obciążenia musi być skonfigurowany z reguły modułu równoważenia obciążenia, aby utworzyć łącze między publicznego frontonu IP z puli zaplecza. Jeśli nie wykonasz tej konfiguracji, zachowanie jest zgodnie z opisem w poprzedniej sekcji, aby uzyskać [autonomiczny maszynę Wirtualną za pomocą wystąpienia poziomu publiczny adres IP nie](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Gdy maszyna wirtualna z równoważeniem obciążenia tworzy przepływu wychodzącego, Azure tłumaczy prywatnej źródłowy adres IP przepływu wychodzącego do publicznego adresu IP publiczny moduł równoważenia obciążenia serwera sieci Web. Platforma Azure korzysta źródła sieci adresu tłumaczenia (SNAT) do tej funkcji. Porty efemeryczne publicznego adresu IP usługi równoważenia obciążenia są używane do rozróżniania poszczególnych przepływów pochodzi przez maszynę Wirtualną. SNAT dynamicznie przydziela porty efemeryczne, podczas tworzenia przepływów wychodzących. W tym kontekście tymczasowych portów używanych do SNAT są określane jako porty SNAT.
 

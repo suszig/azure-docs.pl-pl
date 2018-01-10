@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 37f6049f2fc39bfa93135ce7c0d0013d7e37217c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcb52e9de98d881474007410f3db599682e151ce
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Przypisz użytkownika do ról administratora w usłudze Azure Active Directory
 W tym artykule opisano sposób przypisywania roli administracyjnej dla użytkownika w usłudze Azure Active Directory (Azure AD). Aby uzyskać informacje dotyczące dodawania nowych użytkowników w organizacji, zobacz [Dodawanie nowych użytkowników do usługi Azure Active Directory](active-directory-users-create-azure-portal.md). Dodani użytkownicy domyślnie nie mają uprawnień administratora, ale możesz przypisać im role w dowolnym momencie.
@@ -30,17 +30,17 @@ W tym artykule opisano sposób przypisywania roli administracyjnej dla użytkown
 
    ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. Wybierz **wszyscy użytkownicy**.
-
-   ![Otwieranie wszystkie grupy użytkowników](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-1. Wybierz użytkownika z listy.
-2. Dla wybranego użytkownika, wybierz **roli katalogu** , a następnie przypisz użytkownika do roli z **roli katalogu** listy. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles-azure-portal.md).
+  
+  ![Otwieranie wszystkie grupy użytkowników](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+4. Wybierz użytkownika z listy.
+5. Dla wybranego użytkownika, wybierz **roli katalogu** , a następnie przypisz użytkownika do roli z **roli katalogu** listy. Aby uzyskać więcej informacji dotyczących ról użytkowników i administratorów, zobacz [Przypisywanie ról administratorów w usłudze Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 
       ![Przypisanie użytkownika do roli](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
-* [Dodaj użytkownika](active-directory-users-create-azure-portal.md)
-* [Resetuj hasło użytkownika w portalu Azure](active-directory-users-reset-password-azure-portal.md)
-* [Zmień informacje dotyczące pracy użytkownika](active-directory-users-work-info-azure-portal.md)
+## <a name="next-steps"></a>Kolejne kroki
+* [Szybki Start: Dodawanie lub usuwanie użytkowników w usłudze Azure Active Directory](add-users-azure-active-directory.md)
 * [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
-* [Usunięcie użytkownika w usługi Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Dodaj gości z innego katalogu](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [Przypisanie użytkownika do roli w usługi Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Przywracanie usuniętych użytkowników](active-directory-users-restore.md)

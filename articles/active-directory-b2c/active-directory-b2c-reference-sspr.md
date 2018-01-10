@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Usługa Azure Active Directory B2C: Konfigurowanie samoobsługowego resetowania haseł dla użytkowników
 Dzięki funkcji resetowania hasła samoobsługi użytkowników (którzy utworzyli konto dla kont lokalnych) można zresetować hasła na ich własnych. Pozwala to znacznie ograniczyć obciążenie działu pomocy technicznej, zwłaszcza, jeśli aplikacja ma miliony użytkowników przy użyciu go na bieżąco. Aktualnie obsługiwany jest tylko metoda odzyskiwania przy użyciu ze zweryfikowanym adresem e-mail. Teraz dodamy metody dodatkowe odzyskiwania (numer telefonu zweryfikowane, pytań zabezpieczających, itp.) w przyszłości.
@@ -30,14 +30,11 @@ Dzięki funkcji resetowania hasła samoobsługi użytkowników (którzy utworzyl
 
 Domyślnie katalogu nie będzie miał hasła Samoobsługowe Resetowanie włączona. Aby włączyć tę funkcję, wykonaj następujące kroki:
 
-1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com/) jako administrator subskrypcji. To jest tej samej pracy lub konta służbowego lub tego samego konta Microsoft, który został użyty do utworzenia katalogu.
-2. Przejdź do rozszerzenia usługi Active Directory na pasku nawigacyjnym po lewej stronie.
-3. Znajdź katalogu, w obszarze **katalogu** i kliknij ją.
-4. Kliknij kartę **Konfiguracja**.
-5. Przewiń w dół do **zasady resetowania hasła użytkownika** sekcji, a następnie **użytkownicy włączeni do resetowania hasła** opcji w celu **tak**. Zwróć uwagę, że **alternatywny adres E-mail** zaznaczono opcję; pozostaw, ponieważ jest on.
-   
-    ![Samoobsługowe resetowanie haseł](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Kliknij przycisk **Zapisz** w dolnej części strony. Gotowe!
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/) jako Administrator subskrypcji. To jest tej samej pracy lub konta służbowego lub tego samego konta Microsoft, który został użyty do utworzenia katalogu.
+2. Otwórz usługi Active Directory (na pasku nawigacyjnym po lewej stronie).
+3. Wybierz **właściwości**.
+4. Przewiń w dół do **włączyć samoobsługowe Resetowanie hasła** sekcji i przełączyć go do **wszystkich**. 
+5. Kliknij przycisk **zapisać** w górnej części strony. Gotowe!
 
 Aby przetestować, funkcja "Uruchom teraz" na żadnych zasad logowania z kontami lokalnymi funkcję dostawcy tożsamości. Na logowanie lokalne konto strony (gdzie należy wprowadzić adres e-mail i hasło lub nazwę użytkownika i hasło), kliknij przycisk **nie może uzyskać dostępu do konta?** można zweryfikować środowiska użytkownika.
 

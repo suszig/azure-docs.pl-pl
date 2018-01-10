@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy tworzenia kopii zapasowych w trybie offline w usłudze Azure Backup
 Kopia zapasowa Azure zawiera kilka wbudowanych korzyści, które zapisania koszty sieci i magazynu podczas początkowej pełne kopie zapasowe danych na platformie Azure. Początkowa pełnych kopii zapasowych zwykle transfer dużych ilości danych i wymagają większej przepustowości sieci w porównaniu do kolejnych kopii zapasowych, które transfer tylko delty/przyrostowa. Kopia zapasowa Azure kompresuje początkowej kopii zapasowych. W procesie wstępnego wypełniania w trybie offline kopia zapasowa Azure można użyć dysków do przekazania skompresowane dane początkowej kopii zapasowej w trybie offline na platformie Azure.  
@@ -46,7 +46,7 @@ Po zakończeniu przekazywania danych kopii zapasowej na platformie Azure, kopia 
   * Utworzono magazynie usługi Kopia zapasowa Azure.
   * Pobrano poświadczenia magazynu.
   * Agent usługi Kopia zapasowa Azure został zainstalowany na systemu Windows Server/Windows klienta lub serwera programu System Center Data Protection Manager, a komputer jest zarejestrowany w magazynie kopii zapasowej Azure.
-* [Pobieranie ustawień publikowania na platformie Azure pliku](https://manage.windowsazure.com/publishsettings) na komputerze, z którego planujesz do tworzenia kopii zapasowej danych.
+* [Pobieranie ustawień publikowania na platformie Azure pliku](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) na komputerze, z którego planujesz do tworzenia kopii zapasowej danych.
 * Przygotuj tymczasowej lokalizacji, która może być udziału sieciowego lub dodatkowego dysku na komputerze. Tymczasowej lokalizacji przejściowej magazynu i jest używane tymczasowo w tym przepływie pracy. Upewnij się, że w lokalizacji tymczasowej jest za mało miejsca na dysku do przechowywania kopii początkowej. Na przykład jeśli chcesz utworzyć kopię zapasową na serwerze plików 500 GB, upewnij się, że obszaru przemieszczania jest co najmniej 500 GB. (Mniejszą ilość jest używany z powodu kompresji).
 * Upewnij się, że dysk obsługiwane. Tylko 2,5 SSD lub 2,5 lub 3,5 cala SATA II/III wewnętrzne dyski twarde są obsługiwane do użycia z usługą importu i eksportu. Dyski twarde można użyć do 10 TB. Sprawdź [dokumentację usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md#hard-disk-drives) najnowszego zestawu dysków, obsługiwanych przez usługę.
 * Należy włączyć funkcję BitLocker na komputerze, do którego jest podłączony twórcę dysków SATA.
@@ -67,7 +67,7 @@ Informacje przedstawione w tej sekcji pomaga ukończenia przepływu pracy w tryb
 
     * **Miejsce przemieszczania**: lokalizacji tymczasowej, do którego początkowa kopia zapasowa jest zapisywany. Może to być na komputerze lokalnym lub w udziale sieciowym. Jeśli kopia komputera i komputera źródłowego są różne, zaleca się czy określić pełną ścieżkę sieciową do lokalizacji tymczasowej.
     * **Nazwa zadania importowania platformy Azure**: unikatową nazwę importu platformy Azure, które usługi i kopia zapasowa Azure śledzić transferu danych przesyłanych na dyskach w systemie Azure.
-    * **Ustawień publikowania platformy Azure**: plik XML, który zawiera informacje o profilu subskrypcji. Zawiera ona także bezpiecznych poświadczeń, które są skojarzone z subskrypcją. Możesz [Pobierz plik](https://manage.windowsazure.com/publishsettings). Podaj ścieżkę lokalną do pliku ustawień publikowania.
+    * **Ustawień publikowania platformy Azure**: plik XML, który zawiera informacje o profilu subskrypcji. Zawiera ona także bezpiecznych poświadczeń, które są skojarzone z subskrypcją. Możesz [Pobierz plik](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Podaj ścieżkę lokalną do pliku ustawień publikowania.
     * **Identyfikator subskrypcji platformy Azure**: identyfikator subskrypcji platformy Azure dla subskrypcji, w których planuje się zainicjowanie zadania importu platformy Azure. Jeśli masz wiele subskrypcji Azure, należy użyć Identyfikatora subskrypcji, która ma zostać skojarzona z zadaniem importu.
     * **Konto usługi Azure Storage**: Konto magazynu w subskrypcji platformy Azure skojarzone z zadaniem importu platformy Azure.
     * **Kontener magazynu Azure**: Nazwa magazynu docelowego obiektu blob na koncie magazynu Azure, gdzie importowania danych z tego zadania.

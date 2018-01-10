@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Usługa Azure AD B2C: Często zadawane pytania (FAQ) 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory (Azure AD) B2C. Sprawdzanie wstecz do aktualizacji.
@@ -105,7 +105,7 @@ Nie, usługi Azure AD B2C obsługuje ten sam zestaw raportów, jako Azure AD Pre
 Tak!  Przeczytaj informacje o [dostosowywania języka](active-directory-b2c-reference-language-customization.md), która znajduje się w publicznej wersji zapoznawczej.  Firma Microsoft udostępnia tłumaczenia dla 36 języków, można zmienić dowolny ciąg, w zależności od potrzeb.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Czy można użyć własnych adresów URL na stronach rejestracji i logowania, które są obsługiwane przez usługę Azure AD B2C? Na przykład można zmienić adres URL z login.microsoftonline.com na login.contoso.com?
-Nie można obecnie. Ta funkcja jest naszego planu. Weryfikowanie domeny w **domen** karty w klasycznym portalu Azure nie realizację tego celu.
+Nie można obecnie. Ta funkcja jest naszego planu. Weryfikowanie domeny w **domen** kartę w portalu Azure nie realizację tego celu.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Jak usunąć mojej dzierżawy usługi Azure AD B2C?
 Wykonaj następujące kroki, aby usunąć dzierżawy usługi Azure AD B2C:

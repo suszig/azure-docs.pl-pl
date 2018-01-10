@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>AZ3166 zestaw deweloperski IoT nawiązać połączenia z Centrum IoT Azure w chmurze
 
@@ -104,7 +104,7 @@ Domyślna aplikacja uruchomiona na zestaw deweloperski sprawdza najnowszej wersj
 > [!NOTE] 
 > Od wersji 1.1 zestaw deweloperski umożliwia bezpieczne ST w program inicjujący. Konieczne jest uaktualnienie oprogramowania układowego, jeśli są uruchomione w wersji 1.1, aby stał się prawdopodobnie działa.
 
-Jeśli konieczne jest uaktualnienie oprogramowania układowego ekranu wyświetli wersji bieżących i najnowszego oprogramowania układowego. Aby przeprowadzić uaktualnienie, należy wykonać [uaktualnienie oprogramowania układowego](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) przewodnik.
+Jeśli konieczne jest uaktualnienie oprogramowania układowego ekranu wyświetli wersji bieżących i najnowszego oprogramowania układowego. Aby przeprowadzić uaktualnienie, należy wykonać [uaktualnienie oprogramowania układowego](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) przewodnik.
 
 ![Wyświetlanie wersji bieżących i najnowszego oprogramowania układowego](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -297,7 +297,7 @@ Przykładowa aplikacja działa prawidłowo, gdy pojawi się następujące wyniki
 
 W razie wystąpienia problemów można znaleźć [— często zadawane pytania](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Możesz również zapewnić nam opinii pozostawić komentarz na tej stronie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Pomyślnie nawiązano zestaw deweloperski IoT MXChip do Centrum IoT i dane czujników przechwyconych zostały wysłane do Centrum IoT.
 

@@ -1,5 +1,5 @@
 ---
-title: Zrozumienie rachunku dla platformy Azure | Dokumentacja firmy Microsoft
+title: Zrozumienie rachunku dla platformy Azure
 description: "Dowiedz się, jak i dokładnie zapoznać się z użycia i Kwota rachunku dla subskrypcji platformy Azure"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Opis zawartości rachunku za korzystanie z platformy Microsoft Azure
 Aby zrozumieć rachunku Azure, porównaj faktury z szczegółowe codzienne pliku użycia i kosztów zarządzania raportów w portalu Azure.
@@ -34,9 +34,8 @@ Szczegółowe warunki i opisy faktury i szczegółowe pliku codziennego użycia,
 Aby uzyskać więcej informacji dotyczących raportów zarządzania koszt, zobacz [portalu Azure koszt zarządzania](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Jak utworzyć się, że opłaty w fakturą są poprawne?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Jeśli Twoja faktura, który ma więcej szczegółów na jest opłat, istnieje kilka opcji.
 
@@ -49,7 +48,7 @@ Twoje opłaty za użycie są wyświetlane na poziomie miernika. Poniższe termin
  | Faktura (PDF) | Szczegółowe dane użycia (CSV)|
  | --- | --- |
 |Cykl rozliczeń | Okres rozliczeniowy |
- |Nazwa |Kategoria miernika |
+ |Name (Nazwa) |Kategoria miernika |
  |Typ |Licznik podkategorii |
  |Zasób |Nazwa miernika |
  |Region |Region miernika |

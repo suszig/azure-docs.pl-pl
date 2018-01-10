@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Usługi domenowe w usłudze Azure Active Directory (AD)
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Usług infrastruktury platformy Azure umożliwiają wdrażanie szeroką gamę rozwiązań opartych na przetwarzaniu w sposób elastyczne. Z maszyn wirtualnych platformy Azure można wdrożyć niemal natychmiast i płacisz tylko za minutę. Przy użyciu pomocy technicznej dla systemu Windows, Linux, SQL Server, Oracle, IBM, SAP i BizTalk, można wdrożyć żadnych obciążenie, dowolnego języka, w niemal dowolnym systemie operacyjnym. Korzyści te umożliwiają Migrowanie starszych aplikacji wdrożonych lokalnie na platformie Azure, aby zapisać na kosztów operacyjnych.
 
 Kluczowym aspektem migrowanie aplikacji lokalnych do platformy Azure obsługuje potrzeb tożsamości tych aplikacji. Aplikacje z obsługą katalogu może polegać na LDAP do odczytu lub zapisu w katalogu firmy lub polegać na zintegrowane uwierzytelnianie systemu Windows (uwierzytelnianie Kerberos lub NTLM) do uwierzytelniania użytkowników końcowych. Biznesowych (LOB) w systemie Windows Server zwykle wdrożenia aplikacji na komputerach przyłączonych do domeny, więc będą one zarządzane przy użyciu zasad grupy. Aby "przyrostu i zmiana" aplikacji lokalnych do chmury te zależności w infrastrukturze tożsamością firmową muszą zostać rozwiązane.
@@ -37,15 +37,17 @@ Tych sposobów obniżenie kosztu wysokiej i koszty administracyjne. Administrato
 Firma Microsoft zaprojektowane usług domenowych Azure AD jako alternatywa łatwiejsze.
 
 ### <a name="watch-an-introductory-video"></a>Obejrzyj klip wideo wprowadzenia
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Wprowadzenie do usług domenowych Azure AD
+
 Usługi domenowe Azure AD zapewnia domeny zarządzanej usług, takich jak przyłączanie do domeny, uwierzytelniania Kerberos/NTLM zasad, LDAP, grupy, który są w pełni zgodne z usługą Active Directory systemu Windows Server. Będzie można korzystać z tych usług domeny bez konieczności wdrażania, zarządzania i poprawka kontrolerów domeny w chmurze. Usługi domenowe Azure AD jest zintegrowany z dzierżawy usługi Azure AD istniejących, umożliwiając użytkownikom zalogowanie się przy użyciu swoich poświadczeń firmowych. Ponadto można użyć istniejących grup i kont użytkowników do bezpieczny dostęp do zasobów, w związku z tym zapewnienie płynniejszy "przyrostu i shift" lokalnych zasobów usługi infrastruktury platformy Azure.
 
 Azure funkcjonalności usług domenowych AD współdziała niezależnie od tego, czy dzierżawy usługi Azure AD tylko w chmurze lub zsynchronizowanej lokalnej usługi Active Directory.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Usługi domenowe Azure AD dla organizacji, tylko w chmurze
+
 Tylko w chmurze dzierżawę usługi Azure AD (często określany jako "dzierżaw zarządzanych") nie ma żadnych wpływ tożsamości lokalnych. Innymi słowy konta użytkowników, hasła i członkostwa w grupach są wszystkie natywna względem chmury — to znaczy tworzone i zarządzane w usłudze Azure AD. Należy wziąć pod uwagę chwilę czy firma Contoso jest tylko w chmurze dzierżawę usługi Azure AD. Jak pokazano na poniższej ilustracji, administrator firmy Contoso została skonfigurowana sieć wirtualną w usługi infrastruktury platformy Azure. Aplikacje i obciążenia serwera są wdrażane w tej sieci wirtualnej w maszynach wirtualnych platformy Azure. Ponieważ firma Contoso używa dzierżawy tylko w chmurze, wszystkie tożsamości użytkownika, poświadczeń i członkostwa w grupach są tworzone i zarządzane w usłudze Azure AD.
 
 ![Omówienie usług domenowych Azure AD](./media/active-directory-domain-services-overview/aadds-overview.png)
@@ -88,7 +90,7 @@ Z usług domenowych Azure AD można korzystać z zalet następujące:
 * **Ekonomiczne** — z usługami domenowymi w usłudze Azure AD, można uniknąć obciążenia infrastruktury i zarządzania skojarzony z zarządzania infrastrukturą tożsamości do obsługi tradycyjnych obsługujący katalogu aplikacji. Można przenieść te aplikacje do usługi infrastruktury platformy Azure i korzystać z niższych kosztów operacyjnych.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Dowiedz się więcej o usługach domenowych Azure AD
 * [Funkcje](active-directory-ds-features.md)
 * [Scenariusze wdrażania](active-directory-ds-scenarios.md)

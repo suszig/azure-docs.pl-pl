@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala funkcji platformy Azure i hostingu
 
@@ -97,7 +97,7 @@ Użycie zużycie plan hostingu, funkcja kodu pliki są przechowywane w udziałac
 > [!NOTE]
 > Podczas korzystania z wyzwalacza obiektu blob w planie zużycia, może istnieć maksymalnie 10-minutowych opóźnienia w przetwarzaniu nowe obiekty BLOB, jeśli aplikacja funkcji przeszedł bezczynności. Po uruchomieniu aplikacji funkcja obiekty BLOB są przetwarzane natychmiast. Aby uniknąć tego opóźnienia początkowej, weź pod uwagę jedną z następujących opcji:
 > - Host aplikacji funkcji na plan usługi aplikacji z na zawsze włączone.
-> - Użyj innego mechanizmu wyzwalanie blob przetwarzania, takich jak subskrypcja siatki zdarzeń lub komunikat z kolejki, zawierający nazwę obiektu blob. Na przykład zobacz [skryptu C# i JavaScript przykłady dla obiektu blob wejściowa i wyjściowa powiązania](functions-bindings-storage-blob.md#input--output---example).
+> - Użyj innego mechanizmu wyzwalanie blob przetwarzania, takich jak subskrypcja siatki zdarzeń lub komunikat z kolejki, zawierający nazwę obiektu blob. Na przykład zobacz [przykłady dla obiektu blob danych wejściowych powiązania](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Skalowanie środowiska wykonawczego
 

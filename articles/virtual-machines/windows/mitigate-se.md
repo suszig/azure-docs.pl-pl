@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1c5c822a646e8728bbfc5a4b1b225341f2b8572b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6d34a4f6e165d2925594783ce198aca8a810451d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Wskazówki dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Wskazówki dotyczące zmniejszenia rozważana wykonywania kanału po stronie luk w zabezpieczeniach na platformie Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]

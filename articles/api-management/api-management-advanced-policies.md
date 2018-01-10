@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>Zarządzanie interfejsami API zaawansowane zasady
 W tym temacie znajdują się informacje na następujące zasady usługi API Management. Aby uzyskać informacje dotyczące dodawania i konfigurowania zasad, zobacz [zasad w usłudze API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -124,15 +124,15 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Wybierz pozycję|Element główny.|Tak|  
-|Kiedy|Warunek, którego chcesz użyć dla `if` lub `ifelse` części `choose` zasad. Jeśli `choose` zasad ma wiele `when` sekcje są oceniane po kolei. Raz `condition` z o tym, kiedy element daje w wyniku `true`, nie musisz `when` oceny warunków.|Tak|  
+|Wybierz pozycję|Element główny.|Yes|  
+|Kiedy|Warunek, którego chcesz użyć dla `if` lub `ifelse` części `choose` zasad. Jeśli `choose` zasad ma wiele `when` sekcje są oceniane po kolei. Raz `condition` z o tym, kiedy element daje w wyniku `true`, nie musisz `when` oceny warunków.|Yes|  
 |w przeciwnym razie|Zawiera fragment zasad do użycia, jeśli żadna z `when` warunki obliczać `true`.|Nie|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|  
 |---------------|-----------------|--------------|  
-|warunek = "wyrażenie warunkowe &#124; Wartość logiczna stała"|Wyrażenia logicznego lub stała się obliczone, gdy zawierający `when` oceny deklaracji zasad.|Tak|  
+|warunek = "wyrażenie warunkowe &#124; Wartość logiczna stała"|Wyrażenia logicznego lub stała się obliczone, gdy zawierający `when` oceny deklaracji zasad.|Yes|  
   
 ###  <a name="ChooseUsage"></a>Użycie  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -236,7 +236,7 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|żądanie do przodu|Element główny.|Tak|  
+|żądanie do przodu|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
@@ -283,14 +283,14 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|    
-|limit współbieżności|Element główny.|Tak|  
+|limit współbieżności|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|--------------|  
-|key|Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Może być współużytkowane przez wiele zasad.|Tak|Nie dotyczy|  
-|Maksymalna liczba|Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wprowadzać zasady.|Tak|Nie dotyczy|  
+|key|Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Może być współużytkowane przez wiele zasad.|Yes|ND|  
+|Maksymalna liczba|Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wprowadzać zasady.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -333,13 +333,13 @@ W tym temacie znajdują się informacje na następujące zasady usługi API Mana
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|dziennika do Centrum eventhub|Element główny. Wartość tego elementu jest ciąg do logowania się do Centrum zdarzeń.|Tak|  
+|dziennika do Centrum eventhub|Element główny. Wartość tego elementu jest ciąg do logowania się do Centrum zdarzeń.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|  
 |---------------|-----------------|--------------|  
-|identyfikator rejestratora|Identyfikator rejestratora zarejestrowana przy użyciu usługi API Management.|Tak|  
+|identyfikator rejestratora|Identyfikator rejestratora zarejestrowana przy użyciu usługi API Management.|Yes|  
 |Identyfikator partycji|Określa indeks partycji, którego wysyłane są wiadomości.|Opcjonalny. Ten atrybut nie może być używany, jeśli `partition-key` jest używany.|  
 |Klucz partycji|Określa wartość służącą do przypisania partycji podczas wysyłania wiadomości.|Opcjonalny. Ten atrybut nie może być używany, jeśli `partition-id` jest używany.|  
   
@@ -376,14 +376,14 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|makiety odpowiedzi|Element główny.|Tak|  
+|makiety odpowiedzi|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|--------------|  
 |Kod stanu|Określa kod stanu odpowiedzi i umożliwia wybranie odpowiedniego przykład lub schematu.|Nie|200|  
-|Typ zawartości|Określa `Content-Type` wartość nagłówka odpowiedzi i umożliwia wybranie odpowiedniego przykład lub schematu.|Nie|Brak|  
+|Typ zawartości|Określa `Content-Type` wartość nagłówka odpowiedzi i umożliwia wybranie odpowiedniego przykład lub schematu.|Nie|None|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Przykład  
- W poniższych przykład forewarding próba zostanie ponowiona maksymalnie 10 razy przy użyciu wykładniczej ponów algorytmu. Ponieważ `first-fast-retry` jest ustawiona na false, wszystkie ponownych prób podlegają exponsntial Algorytm ponownych prób.  
+ W poniższym przykładzie przekazywania żądania próba zostanie ponowiona maksymalnie 10 razy przy użyciu algorytm wykładnicze ponów próbę. Ponieważ `first-fast-retry` jest ustawiona na false, wszystkie ponownych prób podlegają algorytm wykładnicze ponownych prób.  
   
 ```xml  
   
@@ -432,17 +432,17 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|retry|Element główny. Może zawierać inne zasady jako jego elementy podrzędne.|Tak|  
+|retry|Element główny. Może zawierać inne zasady jako jego elementy podrzędne.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|warunek|Logiczna literał lub [wyrażenie](api-management-policy-expressions.md) określenie ponownych prób powinna zostać zatrzymana (`false`) lub nadal (`true`).|Tak|Nie dotyczy|  
-|liczba|Liczba dodatnia określająca maksymalną liczbę ponownych prób.|Tak|Nie dotyczy|  
-|interval|Liczba dodatnia, w sekundach, określając oczekiwania interwału ponawiania prób.|Tak|Nie dotyczy|  
-|Maksymalny interwał|Liczba dodatnia, w sekundach określający maksymalną poczekaj interwał między ponownymi próbami. Służy do implementowania algorytm wykładnicze ponów próbę.|Nie|Nie dotyczy|  
-|delta|Liczba dodatnia, w sekundach, określając przyrost interwału oczekiwania. Służy do zaimplementowania algorytmów liniowej i wykładniczej ponów próbę.|Nie|Nie dotyczy|  
+|warunek|Logiczna literał lub [wyrażenie](api-management-policy-expressions.md) określenie ponownych prób powinna zostać zatrzymana (`false`) lub nadal (`true`).|Yes|ND|  
+|liczba|Liczba dodatnia określająca maksymalną liczbę ponownych prób.|Yes|ND|  
+|interval|Liczba dodatnia, w sekundach, określając oczekiwania interwału ponawiania prób.|Yes|ND|  
+|Maksymalny interwał|Liczba dodatnia, w sekundach określający maksymalną poczekaj interwał między ponownymi próbami. Służy do implementowania algorytm wykładnicze ponów próbę.|Nie|ND|  
+|delta|Liczba dodatnia, w sekundach, określając przyrost interwału oczekiwania. Służy do zaimplementowania algorytmów liniowej i wykładniczej ponów próbę.|Nie|ND|  
 |pierwszy ponownej próby fast|Jeśli ustawiono `true` , pierwszy ponowienia próby jest wykonywane bezpośrednio.|Nie|`false`|  
   
 > [!NOTE]
@@ -487,7 +487,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|odpowiedź Return|Element główny.|Tak|  
+|odpowiedź Return|Element główny.|Yes|  
 |set — nagłówek|A [nagłówka set](api-management-transformation-policies.md#SetHTTPheader) deklaracji zasad.|Nie|  
 |zestaw treści|A [treści zestaw](api-management-transformation-policies.md#SetBody) deklaracji zasad.|Nie|  
 |Ustaw stan|A [Ustaw stan](api-management-advanced-policies.md#SetStatus) deklaracji zasad.|Nie|  
@@ -553,7 +553,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|sposób żądania, Wyślij co w-|Element główny.|Tak|  
+|sposób żądania, Wyślij co w-|Element główny.|Yes|  
 |adres url|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
@@ -563,8 +563,8 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|tryb = "string"|Określa, czy jest to nowe żądanie lub kopię bieżącego żądania. W trybie wychodzących tryb = kopiowania nie inicjuje treści żądania.|Nie|Nowy|  
-|name|Określa nazwę nagłówka do ustawienia.|Tak|Nie dotyczy|  
+|tryb = "string"|Określa, czy jest to nowe żądanie lub kopię bieżącego żądania. W trybie wychodzących tryb = kopiowania nie inicjuje treści żądania.|Nie|Nowa|  
+|name|Określa nazwę nagłówka do ustawienia.|Yes|ND|  
 |istnieje akcja|Określa, jakie działania w sytuacji, gdy nagłówek został już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override - zastępuje wartość istniejący nagłówek.<br />-skip — nie zastępuje istniejącą wartość nagłówka.<br />-dołączania - dołącza wartość do istniejącej wartości nagłówka.<br />-Usunięcie — usuwa nagłówek z żądania.<br /><br /> Jeśli wartość `override` powoduje rejestrowanie wiele wpisów o takiej samej nazwie w nagłówku ustawiany zgodnie ze wszystkich zapisów (które zostaną wyświetlone wiele razy); zostanie ustawiona tylko wartości wyświetlane w wynikach.|Nie|zastąpienie|  
   
 ### <a name="usage"></a>Sposób użycia  
@@ -632,7 +632,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Żądanie wysłania|Element główny.|Tak|  
+|Żądanie wysłania|Element główny.|Yes|  
 |adres url|Adres URL żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |— Metoda|Metoda HTTP dla żądania.|Jeśli nie trybu = kopiowania; tak, w przeciwnym razie wartość.|  
 |nagłówek|Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądania.|Nie|  
@@ -642,11 +642,11 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|tryb = "string"|Określa, czy jest to nowe żądanie lub kopię bieżącego żądania. W trybie wychodzących tryb = kopiowania nie inicjuje treści żądania.|Nie|Nowy|  
-|Nazwa zmiennej odpowiedzi = "string"|Jeśli nie istnieje `context.Response` jest używany.|Nie|Nie dotyczy|  
+|tryb = "string"|Określa, czy jest to nowe żądanie lub kopię bieżącego żądania. W trybie wychodzących tryb = kopiowania nie inicjuje treści żądania.|Nie|Nowa|  
+|Nazwa zmiennej odpowiedzi = "string"|Jeśli nie istnieje `context.Response` jest używany.|Nie|ND|  
 |limit czasu = "int"|Interwał limitu czasu w sekundach przed wywołaniem do adresu URL nie powiedzie się.|Nie|60|  
 |Ignoruj błąd|Jeśli wartość PRAWDA, a wyniki żądania w błąd:<br /><br /> — Jeśli nazwa zmiennej odpowiedzi został określony, będzie zawierać wartości null.<br />— Jeśli nie określono odpowiedzi zmienna nazwy, kontekstu. Żądanie nie zostanie zaktualizowany.|Nie|fałsz|  
-|name|Określa nazwę nagłówka do ustawienia.|Tak|Nie dotyczy|  
+|name|Określa nazwę nagłówka do ustawienia.|Yes|ND|  
 |istnieje akcja|Określa, jakie działania w sytuacji, gdy nagłówek został już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override - zastępuje wartość istniejący nagłówek.<br />-skip — nie zastępuje istniejącą wartość nagłówka.<br />-dołączania - dołącza wartość do istniejącej wartości nagłówka.<br />-Usunięcie — usuwa nagłówek z żądania.<br /><br /> Jeśli wartość `override` powoduje rejestrowanie wiele wpisów o takiej samej nazwie w nagłówku ustawiany zgodnie ze wszystkich zapisów (które zostaną wyświetlone wiele razy); zostanie ustawiona tylko wartości wyświetlane w wynikach.|Nie|zastąpienie|  
   
 ### <a name="usage"></a>Sposób użycia  
@@ -678,15 +678,15 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Serwer proxy|Element główny|Tak|  
+|Serwer proxy|Element główny|Yes|  
 
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|adres URL = "string"|Adres URL serwera proxy w postaci http://host:port.|Tak|Nie dotyczy|  
-|Nazwa użytkownika = "string"|Nazwa użytkownika używanego do uwierzytelniania z serwerem proxy.|Nie|Nie dotyczy|  
-|hasło = "string"|Hasło będzie używany do uwierzytelniania z serwerem proxy.|Nie|Nie dotyczy|  
+|adres URL = "string"|Adres URL serwera proxy w postaci http://host:port.|Yes|ND|  
+|Nazwa użytkownika = "string"|Nazwa użytkownika używanego do uwierzytelniania z serwerem proxy.|Nie|ND|  
+|hasło = "string"|Hasło będzie używany do uwierzytelniania z serwerem proxy.|Nie|ND|  
 
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -738,7 +738,7 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|set, metoda|Element główny. Wartość elementu określa metodę HTTP.|Tak|  
+|set, metoda|Element główny. Wartość elementu określa metodę HTTP.|Yes|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -778,14 +778,14 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Ustaw stan|Element główny.|Tak|  
+|Ustaw stan|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|Kod = "int"|Kod stanu HTTP do zwrócenia.|Tak|Nie dotyczy|  
-|Przyczyna = "string"|Opis powodu zwróciło kod stanu.|Tak|Nie dotyczy|  
+|Kod = "int"|Kod stanu HTTP do zwrócenia.|Yes|ND|  
+|Przyczyna = "string"|Opis powodu zwróciło kod stanu.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -813,14 +813,14 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|Ustaw zmienną|Element główny.|Tak|  
+|Ustaw zmienną|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|  
 |---------------|-----------------|--------------|  
-|name|Nazwa zmiennej.|Tak|  
-|wartość|Wartość zmiennej. Może to być wyrażenie lub ciągiem literałowym.|Tak|  
+|name|Nazwa zmiennej.|Yes|  
+|wartość|Wartość zmiennej. Może to być wyrażenie lub ciągiem literałowym.|Yes|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -880,13 +880,13 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|śledzenia|Element główny.|Tak|  
+|śledzenia|Element główny.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
 |Atrybut|Opis|Wymagane|Domyślne|  
 |---------------|-----------------|--------------|-------------|  
-|źródło|Literał ciągu zrozumiały dla przeglądarki śledzenia i Określanie źródła komunikatu.|Tak|Nie dotyczy|  
+|źródło|Literał ciągu zrozumiały dla przeglądarki śledzenia i Określanie źródła komunikatu.|Yes|ND|  
   
 ### <a name="usage"></a>Sposób użycia  
  Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresy](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -947,7 +947,7 @@ Zwróć uwagę na użycie [właściwości](api-management-howto-properties.md) j
   
 |Element|Opis|Wymagane|  
 |-------------|-----------------|--------------|  
-|oczekiwania|Element główny. Może zawierać jako elementy podrzędne tylko `send-request`, `cache-lookup-value`, i `choose` zasad.|Tak|  
+|oczekiwania|Element główny. Może zawierać jako elementy podrzędne tylko `send-request`, `cache-lookup-value`, i `choose` zasad.|Yes|  
   
 ### <a name="attributes"></a>Atrybuty  
   
@@ -962,7 +962,7 @@ Te zasady służą następujące zasady [sekcje](http://azure.microsoft.com/docu
 -   **Sekcje zasad:** przychodzący, wychodzący wewnętrznej bazy danych  
 -   **Zakresy zasad:** wszystkich zakresów  
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, Praca z zasad Zobacz:
 + [Zasady w usłudze API Management](api-management-howto-policies.md) 

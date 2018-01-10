@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Najlepsze rozwiązania dotyczące usługi Azure App Service
 W tym artykule przedstawiono najlepsze rozwiązania dotyczące używania [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -35,9 +35,9 @@ Wspólnej lokalizacji, w tym samym regionie jest najlepsze w przypadku tworzenia
 Gdy zauważysz aplikacji wymaga więcej pamięci niż oczekiwano wskazywany przez monitorowanie lub usługi zalecenia należy wziąć pod uwagę [aplikacji usługi automatyczne naprawianie funkcji](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Jedną z opcji dla funkcji Automatyczne naprawianie trwa akcje niestandardowe w oparciu próg pamięci. Akcje obejmują spektrum z powiadomienia e-mail do badania za pośrednictwem zrzutu pamięci, aby ograniczenie na miejscu przez odtwarzania procesu roboczego. Automatyczne naprawianie można skonfigurować za pomocą pliku web.config i za pośrednictwem interfejsu użytkownika przyjazną zgodnie z opisem w w tym blogu dla [aplikacji usługi pomocy technicznej witryny rozszerzenia](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
 ## <a name="CPUresources"></a>Gdy aplikacje korzystać więcej procesorów niż oczekiwano
-Jeśli widać, że aplikacja wykorzystuje więcej procesorów niż oczekiwano lub napotyka powtarzany nagłego Procesora wskazywany przez monitorowanie lub usługi zalecenia należy wziąć pod uwagę skalowanie w i skalowania plan usługi aplikacji. Jeśli aplikacja jest statefull, skalowanie w jest jedyną opcją, natomiast w przypadku aplikacji bezstanowych, skalowania w poziomie zapewni większą elastyczność i wyższe możliwości skalowania. 
+Jeśli widać, że aplikacja wykorzystuje więcej procesorów niż oczekiwano lub napotyka powtarzany nagłego Procesora wskazywany przez monitorowanie lub usługi zalecenia należy wziąć pod uwagę skalowanie w i skalowania plan usługi aplikacji. Jeśli aplikacja jest stanowa, skalowanie w jest jedyną opcją, natomiast w przypadku aplikacji bezstanowych, skalowania w poziomie zapewni większą elastyczność i wyższe możliwości skalowania. 
 
-Aby uzyskać więcej informacji o aplikacjach "bezstanowych", "statefull" vs można Obejrzyj ten film: [planowanie skalowalności End-to-End wielowarstwowej aplikacji w aplikacji sieci Web platformy Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Aby uzyskać więcej informacji na temat opcji skalowania i skalowanie automatyczne usługi aplikacji przeczytaj: [skalowanie aplikacji sieci Web w usłudze Azure App Service](web-sites-scale.md).  
+Aby uzyskać więcej informacji o aplikacjach "bezstanowych", "stanowe" vs można Obejrzyj ten film: [planowanie skalowalności End-to-End wielowarstwowej aplikacji w aplikacji sieci Web platformy Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Aby uzyskać więcej informacji na temat opcji skalowania i skalowanie automatyczne usługi aplikacji przeczytaj: [skalowanie aplikacji sieci Web w usłudze Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Gdy wyczerpania zasobów gniazda
 Typową przyczyną wyczerpuje wychodzące połączenia TCP jest używana bibliotek klienta, które nie są zaimplementowane do ponownego użycia połączenia TCP lub w przypadku poziomu protokół wyższej takich jak HTTP - Keep-Alive nie wykorzystywane. Przejrzyj dokumentację dla poszczególnych bibliotek odwołuje się do aplikacji w Twojego planu usługi App Service zapewnienie są skonfigurowane lub dostępne w kodzie wydajne ponowne połączeń wychodzących. Wykonaj również biblioteki dokumentacji wskazówki dotyczące utworzenia prawidłowego i wersji lub czyszczenia, aby uniknąć przeciek połączenia. W czasie dochodzenia takie biblioteki klienta wpływ postępu mogą skorygowane przez skalowanie w poziomie do wielu wystąpień.

@@ -1,5 +1,5 @@
 ---
-title: "Najlepsze rozwiązania maszyny wirtualnej platformy Azure | Dokumentacja firmy Microsoft"
+title: "Najlepsze rozwiązania maszyny wirtualnej platformy Azure"
 description: "Ten artykuł zawiera szereg najlepszych rozwiązań dotyczących zabezpieczeń do użycia w przypadku maszyn wirtualnych znajdujących się na platformie Azure."
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Najlepsze rozwiązania dotyczące zabezpieczeń maszyny Wirtualnej Azure
 
@@ -114,7 +114,7 @@ Centrum zabezpieczeń aktywnie można monitorować w przypadku zagrożeń i pote
 
 Aby zrozumieć, jak Centrum zabezpieczeń może ułatwić zidentyfikowanie potencjalnych zagrożeń w maszyn wirtualnych znajdujących się na platformie Azure, obejrzyj film następujące:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Organizacje, które nie wymuszają postawie silne zabezpieczenie ich maszyn wirtualnych pozostają bez "świadomości" potencjalnych prób przez nieautoryzowanych użytkowników do obejścia zabezpieczeń ustalonych.
 

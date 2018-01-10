@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrowanie ruchu sieciowego z grup zabezpieczeń sieci i aplikacji (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ W następujących sekcjach opisano kroki, które można utworzyć sieciowej grup
 Ten artykuł zawiera kroki, aby utworzyć sieciowej grupy zabezpieczeń, za pomocą modelu wdrażania usługi Resource Manager, który jest modelem wdrożenia, które firma Microsoft zaleca używanie podczas tworzenia grup zabezpieczeń sieci. Jeśli musisz utworzyć grupę zabezpieczeń sieci (klasyczne), zobacz [Utwórz grupę zabezpieczeń sieci (klasyczne)](virtual-networks-create-nsg-classic-ps.md). Jeśli nie masz doświadczenia w obsłudze modele wdrażania platformy Azure, zobacz [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> W tym samouczku korzysta z funkcji grupy zabezpieczeń sieci, które są obecnie w wersji zapoznawczej. Funkcje w wersji zapoznawczej nie mają tej samej dostępność i niezawodność jako funkcje ogólnie wersji. W wersji zapoznawczej, funkcje są dostępne tylko w następujących regionach: WestCentralUS. Aby zaimplementować zabezpieczenia sieci grup ogólnie przy użyciu tylko funkcje wersji, zobacz [Utwórz grupę zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md). 
+> W tym samouczku korzysta z funkcji grupy zabezpieczeń sieci, które są obecnie w wersji zapoznawczej. Funkcje w wersji zapoznawczej nie mają tej samej dostępność i niezawodność jako funkcje ogólnie wersji. Aby zaimplementować zabezpieczenia sieci grup ogólnie przy użyciu tylko funkcje wersji, zobacz [Utwórz grupę zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

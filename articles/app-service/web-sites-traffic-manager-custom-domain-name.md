@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurowanie niestandardowej nazwy domeny dla aplikacji sieci web w usłudze Azure App Service przy użyciu Menedżera ruchu
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Aby skojarzyć domenę niestandardową z aplikacji sieci web w usłudze Azure Ap
 Gdy różnią się szczegółowe informacje na temat każdego z dostawców domeny mapy *z* niestandardową nazwę domeny (takich jak **contoso.com**) *do* nazwę domeny usługi Traffic Manager ( **contoso.trafficmanager.NET**) może być zintegrowana z aplikacji sieci web.
    
 > [!NOTE]
-> Jeśli rekord jest już w użyciu, i chcesz pre-emptively powiązać go z aplikacji, można utworzyć dodatkowy rekord CNAME. Na przykład, aby powiązać pre-emptively **www.contoso.com** do aplikacji sieci web, należy utworzyć rekord CNAME z **awverify.www** do **contoso.trafficmanager.net**. Następnie można dodać "www.contoso.com" do aplikacji sieci Web bez konieczności zmieniania rekord CNAME "www". Aby uzyskać więcej informacji, zobacz [rekordy DNS Utwórz dla aplikacji sieci web w domenie niestandardowych][CREATEDNS].
+> Jeśli rekord jest już w użyciu, i chcesz preemptively powiązać go z aplikacji, można utworzyć dodatkowy rekord CNAME. Na przykład, aby powiązać preemptively **www.contoso.com** do aplikacji sieci web, należy utworzyć rekord CNAME z **awverify.www** do **contoso.trafficmanager.net**. Następnie można dodać "www.contoso.com" do aplikacji sieci Web bez konieczności zmieniania rekord CNAME "www". Aby uzyskać więcej informacji, zobacz [rekordy DNS Utwórz dla aplikacji sieci web w domenie niestandardowych][CREATEDNS].
 > 
 > 
 
@@ -67,7 +67,7 @@ Po zakończeniu dodawania lub modyfikowania rekordów DNS u dostawcy usługi dom
 ## <a name="enable-traffic-manager"></a>Menedżer ruchu
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

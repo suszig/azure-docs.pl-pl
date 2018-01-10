@@ -1,22 +1,22 @@
 ---
-title: "Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi GitHub | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z usługi GitHub"
+title: "Tworzenie funkcji platformy Azure, które zostało wdrożone z serwisu GitHub | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji funkcji i wdrażanie kodu funkcji z repozytorium GitHub, za pomocą usługi Azure Functions."
 services: functions
 ms.service: functions
 keywords: 
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 8b148651d041bbc27e2deccec57b1759ce0095d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Utwórz usługę aplikacji
+# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Tworzenie funkcji platformy Azure, które zostało wdrożone z usługi GitHub
 
 Ten przykładowy skrypt tworzy aplikacji funkcji przy użyciu [planu zużycie](../functions-scale.md#consumption-plan) z jego powiązanych zasobów i stale wdraża kodu funkcji z repozytorium GitHub. W tym przykładzie należy:
 
@@ -27,7 +27,7 @@ Ten przykładowy skrypt tworzy aplikacji funkcji przy użyciu [planu zużycie](.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
+Jeśli zamiast używasz interfejsu wiersza polecenia Azure lokalnie, musisz zainstalować i używać w wersji 2.0 lub nowszej wersji. Aby określić wersję interfejsu wiersza polecenia Azure, uruchom `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -39,7 +39,7 @@ Ten przykład tworzy aplikację funkcji platformy Azure i wdraża kod funkcji z 
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Każde polecenie w tabeli łącza do dokumentacji określonego polecenia. Ten skrypt korzysta z następujących czynności:
+Każde polecenie w tabeli łącza do dokumentacji określonego polecenia. Ten skrypt używa następujących poleceń:
 
 | Polecenie | Uwagi |
 |---|---|
@@ -48,7 +48,7 @@ Każde polecenie w tabeli łącza do dokumentacji określonego polecenia. Ten sk
 | [Utwórz az functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
 | [Konfiguracja kontroli źródła programu az usługi aplikacji sieci web](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Kojarzy aplikacji funkcji za pomocą Git lub repozytorium Mercurial. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).
 

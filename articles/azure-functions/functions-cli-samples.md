@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Przykłady Azure CLI
 
@@ -34,12 +34,17 @@ Poniższa tabela zawiera linki do bash skryptów dla usługi Azure Functions, ko
 | | |
 |**Integracja**||
 | [Tworzenie aplikacji funkcji i Połącz z kontem magazynu](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Tworzenie aplikacji funkcji i podłącz go do konta magazynu. |
-| [Tworzenie aplikacji funkcji i nawiązać połączenie bazy danych Azure rozwiązania Cosmos](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Tworzenie aplikacji funkcji i podłącz go do bazy danych Azure rozwiązania Cosmos |
+| [Tworzenie aplikacji funkcji i nawiązać połączenie bazy danych Azure rozwiązania Cosmos](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Tworzenie aplikacji funkcji i podłącz go do bazy danych Azure rozwiązania Cosmos. |
+| | |
+|**Ciągłe wdrażanie**||
+| [Wdrażanie z usługi GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Tworzenie aplikacji funkcja, która wdraża z repozytorium GitHub.  |
+| [Wdrażanie z programu VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Tworzenie aplikacji funkcja, która wdraża z repozytorium programu Visual Studio Team Services (VSTS).  |
 | | |
 |**Konfigurowanie aplikacji**||
 | [Zamapować niestandardową domenę do aplikacji funkcji](scripts/functions-cli-configure-custom-domain.md) | Zdefiniuj niestandardową domenę na potrzeby funkcji.  |
 | [Powiąż certyfikat SSL do aplikacji funkcji](scripts/functions-cli-configure-ssl-certificate.md)  |  Przekaż certyfikaty SSL dla funkcji w domeny niestandardowej. |
-<!--
+
+<!---
 
 |**Scale app**||
 

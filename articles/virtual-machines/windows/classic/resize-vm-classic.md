@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Zmień rozmiar maszyny Wirtualnej systemu Windows tworzone w klasycznym modelu wdrażania
 W tym artykule przedstawiono sposób zmiany rozmiaru maszyny Wirtualnej systemu Windows, utworzone w klasycznym modelu wdrażania przy użyciu programu Azure Powershell.
@@ -66,6 +66,6 @@ Aby zmienić rozmiar maszyny Wirtualnej na rozmiar nie jest dostępna w klastrze
 
 Przykładowy skrypt do usuwania i ponowne utworzenie usługi w chmurze przy użyciu nowego rozmiaru maszyny Wirtualnej można znaleźć [tutaj](https://github.com/Azure/azure-vm-scripts). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zmień rozmiar maszyny Wirtualnej utworzonej w modelu wdrażania usługi Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

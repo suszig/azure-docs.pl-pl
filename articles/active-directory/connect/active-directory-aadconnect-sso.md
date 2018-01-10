@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Usługa Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory bezproblemowe logowanie jednokrotne (Azure AD bezproblemowe logowanie Jednokrotne) automatycznie podpisuje użytkowników, gdy są w ich urządzenia podłączone do sieci firmowej. Po włączeniu użytkownicy nie muszą o wpisanie hasła, aby zalogować się do usługi Azure AD i zazwyczaj nawet wpisz w ich nazwami użytkowników. Ta funkcja zapewnia użytkownikom łatwy dostęp do aplikacji opartej na chmurze bez konieczności żadnych składników dodatkowych lokalnych.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Bezproblemowe logowanie Jednokrotne można łączyć z jedną [synchronizacji skrótu hasła](active-directory-aadconnectsync-implement-password-synchronization.md) lub [uwierzytelniania przekazywanego](active-directory-aadconnect-pass-through-authentication.md) metody logowania.
 
@@ -55,20 +55,20 @@ Bezproblemowe logowanie Jednokrotne można łączyć z jedną [synchronizacji sk
 - Jest bezpłatna funkcji i nie wymagają żadnych wersji płatnej usługi Azure AD z niego korzystać.
 - Jest obsługiwana na klientach przeglądarki sieci web i klientom pakietu Office, które obsługują [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga) na różnych platformach i przeglądarki umożliwia uwierzytelnianie Kerberos:
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Brzeg|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Tak|Nie|Tak|Tak\*|Nie dotyczy
-|Windows 8.1|Tak|Nie dotyczy|Tak|Tak\*|Nie dotyczy
-|Windows 8|Tak|Nie dotyczy|Tak|Tak\*|Nie dotyczy
-|Windows 7|Tak|Nie dotyczy|Tak|Tak\*|Nie dotyczy
-|Mac OS X|Nie dotyczy|Nie dotyczy|Tak\*|Tak\*|Tak\*
+|Windows 10|Yes|Nie|Yes|Tak\*|ND
+|Windows 8.1|Yes|ND|Yes|Tak\*|ND
+|Windows 8|Yes|ND|Yes|Tak\*|ND
+|Windows 7|Yes|ND|Yes|Tak\*|ND
+|Mac OS X|ND|ND|Tak\*|Tak\*|Tak\*
 
 \*Wymaga [dodatkowej konfiguracji](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >W systemie Windows 10, zalecane jest użycie [Azure AD Join](../active-directory-azureadjoin-overview.md) w celu uzyskania optymalnej pojedynczego logowania jednokrotnego wyników z usługą Azure AD.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [**Szybki Start** ](active-directory-aadconnect-sso-quick-start.md) — Uzyskaj i systemem Azure AD bezproblemowe Usługa rejestracji Jednokrotnej.
 - [**Nowości techniczne** ](active-directory-aadconnect-sso-how-it-works.md) -zrozumieć sposób działania tej funkcji.
