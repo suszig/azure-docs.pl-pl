@@ -15,7 +15,7 @@
       href: faq.md
     - name: Co nowego?
       href: whats-new.md
-- name: Wprowadzenie
+- name: Rozpoczęcie pracy
   items:
     - name: Tworzenie pierwszego eksperymentu
       href: create-experiment.md
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Powiązane
   items:
-    - name: Cortana Intelligence Gallery
+    - name: Galeria sztucznej inteligencji platformy Azure
       items:
         - name: Omówienie
           href: gallery-how-to-use-contribute-publish.md
