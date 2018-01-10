@@ -1,6 +1,6 @@
 ---
-title: "Indeksowanie źródła danych rozwiązania Cosmos bazy danych dla usługi Azure Search | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono sposób tworzenia indeksator usługi Azure Search DB rozwiązania Cosmos w postaci źródła danych."
+title: "Indeksowanie źródła danych interfejsu API Azure rozwiązania Cosmos bazy danych SQL dla usługi Azure Search | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono sposób tworzenia indeksator usługi Azure Search ze źródłem danych bazy danych Azure rozwiązania Cosmos (interfejsu API SQL)."
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,32 +12,56 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 08/10/2017
+ms.date: 01/08/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: c7c883f683c744415a1b600cea45c1882939e021
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e449f13adcd1a3651e1cac852b23f21d0227038a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Łączenie z usługi Azure Search przy użyciu indeksatorów DB rozwiązania Cosmos
 
-Jeśli chcesz wdrożyć środowisko wyszukiwania dużą za pośrednictwem danych DB rozwiązania Cosmos, można użyć indeksator usługi Azure Search do pobierania danych do indeksu usługi Azure Search. W tym artykule firma Microsoft opisano, jak zintegrować bazy danych Azure rozwiązania Cosmos z usługi Azure Search bez konieczności pisania kodu do obsługi infrastruktury indeksowania.
+[Azure DB rozwiązania Cosmos](../cosmos-db/introduction.md) jest bazą danych globalnie rozproszone i wiele modeli firmy Microsoft. Z jego [interfejsu API SQL](../cosmos-db/sql-api-introduction.md), bazy danych rozwiązania Cosmos Azure udostępnia znane i zaawansowanych możliwości zapytania SQL z stale małe opóźnienia w porównaniu z danych JSON bez schematu. Usługa wyszukiwanie Azure bezproblemowo integruje się z interfejsu API SQL. Dokumentów JSON można pobierać bezpośrednio do indeksu usługi Azure Search przy użyciu [indeksator usługi Azure Search](search-indexer-overview.md), zaprojektowany specjalnie z myślą o interfejsu API Azure rozwiązania Cosmos bazy danych SQL. 
 
-Aby skonfigurować indeksator rozwiązania Cosmos bazy danych, musisz mieć [usługi Azure Search](search-create-service-portal.md)i Utwórz indeks, źródła danych, a na końcu indeksatora. Można utworzyć te obiekty przy użyciu [portal](search-import-data-portal.md), [zestawu .NET SDK](/dotnet/api/microsoft.azure.search), lub [interfejsu API REST](/rest/api/searchservice/) dla wszystkich języków innych niż .NET. 
+W tym artykule przedstawiono sposób:
 
-Jeśli wybierzesz portalu, [Kreatora importu danych](search-import-data-portal.md) prowadzi użytkownika przez utworzenie wszystkich tych zasobów.
+> [!div class="checklist"]
+> * Konfigurowanie usługi Azure Search do używania bazy danych interfejsu API Azure rozwiązania Cosmos bazy danych SQL jako źródła danych. Opcjonalnie możesz podać kwerendę do wybierania podzbioru.
+> * Tworzenie indeksu wyszukiwania z typami danych zgodnego JSON.
+> * Skonfiguruj indeksator na żądanie i indeksowania cyklicznego.
+> * Odśwież przyrostowo indeksu na podstawie zmian w danych źródłowych.
 
 > [!NOTE]
-> Azure DB rozwiązania Cosmos jest generacji usługi DocumentDB. Mimo że nazwa produktu została zmieniona, składnia jest taka sama jak przed. Przejdź dalej, aby określić `documentdb` zgodnie ze wskazówkami zawartymi w tym artykule indeksatora. 
+> Interfejsu API Azure rozwiązania Cosmos bazy danych SQL to nowa generacja usługi documentdb. Mimo że nazwa produktu została zmieniona, `documentdb` składni w indeksatory usługi Azure Search nadal istnieje dla zapewnienia zgodności z interfejsów API usługi Azure Search i na stronach portalu. Podczas konfigurowania indeksatorów, należy określić `documentdb` składni zgodnie z instrukcją w tym artykule.
+
+<a name="supportedAPIs"></a>
+
+## <a name="supported-api-types"></a>Obsługiwane typy interfejsu API
+
+Mimo że bazy danych rozwiązania Cosmos Azure obsługuje wiele interfejsów API i modeli danych, obsługa indeksatora rozszerza do interfejsu API SQL. 
+
+Nadchodzi obsługę dodatkowych interfejsów API. W celu ułatwienia określenia priorytetu, które z nich do obsługi najpierw, wykonaj najpierw rzutowanie w witrynie sieci web głos użytkownika:
+
+* [Obsługa źródła danych interfejsu API tabeli](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab)
+* [Obsługa źródła danych wykresu interfejsu API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4)
+* [Obsługa źródła danych bazy danych MongoDB interfejsu API](https://feedback.azure.com/forums/263029-azure-search/suggestions/18861421-documentdb-indexer-should-be-able-to-index-mongodb)
+* [Obsługa źródła danych Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu)
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby skonfigurować indeksator bazy danych rozwiązania Cosmos platformy Azure, musi mieć [usługi Azure Search](search-create-service-portal.md)i Utwórz indeks, źródła danych, a na końcu indeksatora. Można utworzyć te obiekty przy użyciu [portal](search-import-data-portal.md), [zestawu .NET SDK](/dotnet/api/microsoft.azure.search), lub [interfejsu API REST](/rest/api/searchservice/) dla wszystkich języków innych niż .NET. 
+
+Jeśli wybierzesz portalu, [Kreatora importu danych](search-import-data-portal.md) prowadzi użytkownika przez utworzenie wszystkich tych zasobów, w tym indeksu.
 
 > [!TIP]
-> Możesz uruchomić **importowania danych** kreatora z poziomu pulpitu nawigacyjnego rozwiązania Cosmos DB uprościć indeksowania dla tego źródła danych. Aby rozpocząć, w obszarze nawigacyjnym po lewej stronie przejdź do pozycji **Kolekcje** > **Dodaj usługę Azure Search**.
+> W celu uproszczenia indeksowania dla danego źródła danych można uruchomić kreator **Importuj dane** na pulpicie nawigacyjnym usługi Azure Cosmos DB. Aby rozpocząć, w obszarze nawigacyjnym po lewej stronie przejdź do pozycji **Kolekcje** > **Dodaj usługę Azure Search**.
 
 <a name="Concepts"></a>
+
 ## <a name="azure-search-indexer-concepts"></a>Azure pojęcia indeksatora wyszukiwania
-Azure obsługuje wyszukiwania, tworzenie i zarządzanie nimi danych źródła (w tym rozwiązania Cosmos bazy danych) i indeksatorów, które działają na tych źródłach danych.
+Azure Search obsługuje tworzenie i zarządzanie nimi danych źródła (łącznie z interfejsu API Azure rozwiązania Cosmos bazy danych SQL) i indeksatorów, które działają na tych źródłach danych.
 
 A **źródła danych** Określa dane do indeksu, poświadczenia i zasad do identyfikowania zmian w danych (takich jak dokumenty zmodyfikowany lub usunięty w kolekcji). Źródło danych jest zdefiniowany jako niezależnym zasobem, dzięki czemu mogą być używane przez wiele indeksatorów.
 
@@ -48,6 +72,7 @@ A **źródła danych** Określa dane do indeksu, poświadczenia i zasad do ident
 * Wywołaj aktualizacje na żądanie do indeksu w razie potrzeby.
 
 <a name="CreateDataSource"></a>
+
 ## <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 Aby utworzyć źródło danych, wykonaj ogłoszenie (POST):
 
@@ -70,20 +95,20 @@ Aby utworzyć źródło danych, wykonaj ogłoszenie (POST):
 
 Treść żądania zawiera definicję źródła danych, które powinny zawierać następujące pola:
 
-* **Nazwa**: Nazwa do reprezentowania bazy danych DB rozwiązania Cosmos.
+* **Nazwa**: Nazwa do reprezentowania bazy danych.
 * **Typ**: musi być `documentdb`.
 * **poświadczenia**:
   
   * **connectionString**: wymagane. Określ informacje o połączeniu z bazą danych Azure DB rozwiązania Cosmos w następującym formacie:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **kontener**:
   
-  * **Nazwa**: wymagane. Określ identyfikator kolekcji DB rozwiązania Cosmos do indeksowania.
+  * **Nazwa**: wymagane. Określ identyfikator kolekcji bazy danych do indeksowania.
   * **Zapytanie**: opcjonalne. Można określić zapytania do spłaszczenia dowolnych dokumentów JSON na płaskiej schemat, który można indeksu usługi Azure Search.
 * **dataChangeDetectionPolicy**: zalecane. Zobacz [indeksowania dokumentów zmienić](#DataChangeDetectionPolicy) sekcji.
 * **dataDeletionDetectionPolicy**: opcjonalne. Zobacz [indeksowania dokumentów usunięte](#DataDeletionDetectionPolicy) sekcji.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Za pomocą zapytań do kształtu indeksowane danych
-Określ zapytanie DB rozwiązania Cosmos do spłaszczenia właściwości zagnieżdżonych lub tablic, właściwości projektu JSON i filtrowanie danych do indeksowania. 
+Określ zapytanie SQL do spłaszczenia właściwości zagnieżdżonych lub tablic, właściwości projektu JSON i filtrowanie danych do indeksowania. 
 
 Przykładowy dokument:
 
@@ -145,12 +170,12 @@ Poniższy przykład tworzy indeks z polem Identyfikator i opis:
 Upewnij się, że schemat indeksu docelowego jest zgodna z schematu dokumentów JSON źródła lub dane wyjściowe z projekcji zapytań niestandardowych.
 
 > [!NOTE]
-> Dla kolekcji partycjonowanych domyślny klucz dokumentu jest DB rozwiązania Cosmos `_rid` właściwość, która pobiera zmieniona na `rid` w usłudze Azure Search. Ponadto rozwiązania Cosmos bazy danych w `_rid` wartości zawiera znaki, które nie są prawidłowe w kluczach usługi Azure Search. Z tego powodu `_rid` wartości są kodowany w standardzie Base64.
+> Dla kolekcji partycjonowanych domyślny klucz dokumentu jest Azure rozwiązania Cosmos DB `_rid` właściwość, która pobiera zmieniona na `rid` w usłudze Azure Search. Ponadto rozwiązania Cosmos bazy danych Azure w `_rid` wartości zawiera znaki, które nie są prawidłowe w kluczach usługi Azure Search. Z tego powodu `_rid` wartości są kodowany w standardzie Base64.
 > 
 > 
 
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapowanie między typami danych JSON i typy danych w usłudze Azure Search
-| TYP DANYCH JSON | TYPY ELEMENTÓW DOCELOWYCH ZGODNY INDEKS POLA |
+| Typ danych JSON | Typy elementów docelowych zgodny indeks pola |
 | --- | --- |
 | wartość logiczna |Typem Edm.Boolean, typem Edm.String |
 | Numery, które wyglądają jak liczby całkowite |Typem Edm.String z typem Edm.Int32, Edm.Int64, |
@@ -162,6 +187,7 @@ Upewnij się, że schemat indeksu docelowego jest zgodna z schematu dokumentów 
 | Inne obiekty JSON |ND |
 
 <a name="CreateIndexer"></a>
+
 ## <a name="step-3-create-an-indexer"></a>Krok 3: Utwórz indeksator
 
 Po utworzeniu indeks i źródło danych, możesz przystąpić do tworzenia indeksatora:
@@ -232,7 +258,7 @@ Historii wykonywania zawiera maksymalnie 50 najnowszych wykonaniami zakończonyc
 
 <a name="DataChangeDetectionPolicy"></a>
 ## <a name="indexing-changed-documents"></a>Indeksowanie dokumentów zmienione
-Zasady wykrywania zmian danych ma na celu wydajnie zidentyfikować elementy zmienione dane. Obecnie jest obsługiwane tylko zasady `High Water Mark` przy użyciu zasad `_ts` właściwości (sygnatury czasowej) udostępniane przez rozwiązania Cosmos bazy danych, które jest określone w następujący sposób:
+Zasady wykrywania zmian danych ma na celu wydajnie zidentyfikować elementy zmienione dane. Obecnie jest obsługiwane tylko zasady `High Water Mark` przy użyciu zasad `_ts` właściwości (sygnatury czasowej) udostępniane przez DB rozwiązania Cosmos Azure, którą określono w następujący sposób:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -294,7 +320,7 @@ Poniższy przykład tworzy źródła danych za pomocą zasad usuwania nietrwałe
     }
 
 ## <a name="NextSteps"></a>Następne kroki
-Gratulacje! Znasz sposobu integracji bazy danych Azure rozwiązania Cosmos z usługi Azure Search przy użyciu indeksatora rozwiązania Cosmos bazy danych.
+Gratulacje! Znasz sposobu integracji z usługi Azure Search przy użyciu indeksatora przeszukiwania i przekazywania dokumentów z modelem danych SQL Azure DB rozwiązania Cosmos.
 
-* Aby dowiedzieć się, jak więcej informacji na temat bazy danych rozwiązania Cosmos platformy Azure, zobacz [stronę usługi bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/).
-* Aby dowiedzieć się, jak więcej informacji na temat usługi Azure Search, zobacz [strony usługi wyszukiwania](https://azure.microsoft.com/services/search/).
+* Aby dowiedzieć się więcej na temat bazy danych rozwiązania Cosmos Azure, zobacz [stronę usługi bazy danych Azure rozwiązania Cosmos](https://azure.microsoft.com/services/cosmos-db/).
+* Aby dowiedzieć się więcej na temat usługi Azure Search, zobacz [strony usługi wyszukiwania](https://azure.microsoft.com/services/search/).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Często zadawane pytania (FAQ)
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące usługi Azure Active Directory Domain Services. Sprawdzanie wstecz do aktualizacji.
@@ -47,9 +47,6 @@ Sama usługa nie obsługuje bezpośrednio w tym scenariuszu. Domeny zarządzanej
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Można włączyć usługi domenowe Azure AD przy użyciu programu PowerShell?
 Tak. Zobacz [sposób, aby włączyć domenowych Azure AD usług przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Usługi domenowe Azure AD jest dostępne w portalu Azure?
-Tak. Usługi domenowe Azure AD można skonfigurować za pomocą [portalu Azure](https://portal.azure.com). [Klasycznego portalu Azure](https://manage.windowsazure.com) nie jest już obsługiwana.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Można włączyć usługi domenowe Azure AD przy użyciu szablonu usługi Resource Manager?
 Tak. Zobacz [sposób, aby włączyć domenowych Azure AD usług przy użyciu programu PowerShell](active-directory-ds-enable-using-powershell.md).

@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Rozpoczynanie pracy z usługą Azure AD
 Zarządzanie tożsamościami nowoczesnych wymaga skalowalnych, spójne reliablity w celu zapewnienia dostępności aplikacji i usług tylko do uwierzytelnionych użytkowników. Do obsługi potrzeb zarządzania tożsamościami użytkowników, dział IT musi odpowiednio, sposób, aby zapewnić dostęp do oprogramowania zatwierdzone, public jako aplikacje usługi (SaaS), sposób hosta wewnętrzne aplikacje biznesowe, a nawet sposobów zwiększenia lokalnych tworzenia aplikacji i użycia. Wszystkie te wymagania dotyczące punktu na potrzeby rozwiązania do zarządzania tożsamościami w chmurze.      
 
 Azure Active Directory (Azure AD) jest wielodostępne firmy Microsoft, chmurze Usługa zarządzania katalogami i tożsamościami. Usługi Azure AD łączy podstawowych usług katalogowych, Zarządzanie zaawansowane tożsamości i zarządzania dostępem do aplikacji. Podczas projektowania wielodostępne, rozproszona geograficznie o wysokiej dostępności usługi Azure AD oznacza, że mogą polegać na nim do najważniejszych potrzeb biznesowych.
 
-Usługi Azure AD zawiera całą gamę możliwości zarządzania tożsamościami, w tym możliwość synchronizowania lokalnych informacji o zasobach, można dostosować logo firmy, zarządzanie licencjami proste i zarządzanie hasłami nawet samoobsługi.  Te łatwo skonfigurować możliwości może pomóc rozpocząć korzystanie z usługi Azure AD do zabezpieczenia aplikacji opartej na chmurze, usprawnić procesów IT zmniejszenie kosztów i zapewnienia, że są spełnione cele zgodność z zasadami firmowymi.
+Usługi Azure AD zawiera całą gamę możliwości zarządzania tożsamościami, w tym możliwość synchronizowania lokalnych informacji o zasobach, można dostosować logo firmy, zarządzanie licencjami proste i zarządzanie hasłami nawet samoobsługi. Te możliwości łatwa do wdrożenia może pomóc rozpocząć używanie programu Azure AD do zabezpieczenia aplikacji opartych na chmurze, usprawnić procesów IT, zmniejszyć koszty i ułatwić, upewnij się, że są spełnione cele zgodność z zasadami firmowymi.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -80,14 +80,14 @@ Przypisanie oparte na grupach licencji umożliwia konfigurowanie reguł, w poni�
 ### <a name="verification-step"></a>Krok weryfikacji
 Przegląd przypisane i dostępnych licencji w obszarze **usługi Azure Active Directory** > **licencji** > **wszystkie produkty**.
 
-## <a name="configure-self-service-password-reset"></a>Konfigurowanie samoobsługowego resetowania hasła
+## <a name="configure-self-service-password-reset"></a>Konfiguruj samoobsługowe resetowanie haseł
 [Samoobsługowego resetowania hasła (SSPR)](active-directory-passwords-getting-started.md) oferuje prosty oznacza dla administratorów IT umożliwić użytkownikom Resetowanie lub odblokować ich hasła lub konta. System obejmuje szczegółowe raporty pozwalające śledzić, kiedy użytkownicy korzystają z systemu, oraz powiadomienia ostrzegające o jego nieprawidłowym wykorzystaniu.
 
 ### <a name="verification-step"></a>Krok weryfikacji
 Przejrzyj włączone właściwości SSPR pod **usługi Azure Active Directory** > **resetowania hasła** zapewnienie wprowadzono prawidłowego użytkownika i przypisania grupy. 
 
 
-## <a name="next-steps"></a>Następne kroki
-[Strona produktu usługi Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## <a name="next-steps"></a>Kolejne kroki
+[Strony usługi Active Directory systemu Azure](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory cenową strona informacji o](https://azure.microsoft.com/pricing/details/active-directory/)

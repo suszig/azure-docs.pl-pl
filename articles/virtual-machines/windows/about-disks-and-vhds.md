@@ -1,24 +1,20 @@
 ---
 title: "O niezarządzanych (stronicowych obiektów blob) i zarządzanych dyski magazynu dla maszyn wirtualnych systemu Windows, Microsoft Azure | Dokumentacja firmy Microsoft"
 description: "Poznaj podstawy niezarządzane (stronicowych obiektów blob), a zarządzane dyski magazynu dla maszyn wirtualnych systemu Windows Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Temat dyski magazynu dla maszyn wirtualnych systemu Windows Azure
 Podobnie jak dowolnego innego komputera maszynach wirtualnych platformy Azure używać dysków jako miejsce do przechowywania systemu operacyjnego, aplikacji i danych. Wszystkie maszyny wirtualne platformy Azure są co najmniej dwa dyski — dysk systemu operacyjnego Windows i dysku tymczasowym. Dysk systemu operacyjnego jest tworzony z obrazu, a jednocześnie dysku systemu operacyjnego i obrazu są wirtualnych dysków twardych (VHD) przechowywane w koncie magazynu platformy Azure. Maszyny wirtualne mogą także mieć co najmniej jeden dysk danych, które są także przechowywane jako wirtualne dyski twarde. 
@@ -51,7 +47,7 @@ Dysk z danymi jest wirtualnego dysku twardego, który jest dołączony do maszyn
 
 Azure tworzy dysk systemu operacyjnego, podczas tworzenia maszyny wirtualnej z obrazu. Jeśli używasz obrazu, który zawiera dyski danych Azure tworzy także dysków danych podczas tworzenia maszyny wirtualnej. W przeciwnym razie możesz dodać dysk danych, po utworzeniu maszyny wirtualnej.
 
-Można dodać dysków z danymi do maszyny wirtualnej w dowolnym momencie przez **dołączanie** dysku do maszyny wirtualnej. Można użyć wirtualnego dysku twardego, który został przekazany lub kopiowane do konta magazynu lub taki, który tworzy Azure. Dołączenie dysku danych skojarzenie pliku wirtualnego dysku twardego z maszyną Wirtualną przez umieszczenie dzierżawy na dysku VHD nie może być usunięty z magazynu nadal będzie dołączony.
+Można dodać dysków z danymi do maszyny wirtualnej w dowolnym momencie przez **dołączanie** dysku do maszyny wirtualnej. Możesz użyć wirtualnego dysku twardego, który został przekazany lub kopiowane do konta magazynu, lub pusty wirtualny dysk twardy tworzy Azure. Dołączenie dysku danych skojarzenie pliku wirtualnego dysku twardego z maszyną Wirtualną przez umieszczenie dzierżawy na dysku VHD nie może być usunięty z magazynu nadal będzie dołączony.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
@@ -78,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dołączenie dysku](attach-disk-portal.md) dodać dodatkowy magazyn dla maszyny Wirtualnej.
 * [Utwórz migawkę](snapshot-copy-managed-disk.md).
 * [Konwertuj na dyskach zarządzanych](convert-unmanaged-to-managed-disks.md).

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Połączenie bazy danych SQL Azure do usługi Azure Search przy użyciu indeksatorów
 
@@ -26,7 +26,7 @@ Zanim można zbadać [indeksu usługi Azure Search](search-what-is-an-index.md),
 
 W tym artykule omówiono mechanika przy użyciu [indeksatory](search-indexer-overview.md), ale także w tym artykule opisano funkcje dostępne tylko w przypadku baz danych Azure SQL (na przykład zintegrowane śledzenie zmian). 
 
-Oprócz bazy danych Azure SQL, Azure Search udostępnia indeksatory dla [bazy danych Azure rozwiązania Cosmos](search-howto-index-documentdb.md), [magazynu obiektów Blob Azure](search-howto-indexing-azure-blob-storage.md), i [magazynu tabel Azure](search-howto-indexing-azure-tables.md). Aby poprosić o obsługę innych źródeł danych, reagowanie na [forum opinii usługi Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Oprócz bazy danych Azure SQL, Azure Search udostępnia indeksatory dla [bazy danych Azure rozwiązania Cosmos](search-howto-index-cosmosdb.md), [magazynu obiektów Blob Azure](search-howto-indexing-azure-blob-storage.md), i [magazynu tabel Azure](search-howto-indexing-azure-tables.md). Aby poprosić o obsługę innych źródeł danych, reagowanie na [forum opinii usługi Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indeksatorami i źródłami danych
 
@@ -294,8 +294,8 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, typem Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Lokalizacja geograficzna |Edm.GeographyPoint |Obsługiwane są tylko geograficzne wystąpienia typu punktu z 4326 SRID, (która jest wartością domyślną) |
-| ROWVERSION |Nie dotyczy |Kolumny wersji wiersza nie mogą być przechowywane w indeksie wyszukiwania, ale może służyć do śledzenia zmian |
-| czas, timespan, binary, varbinary, obraz, xml, geometry, typy CLR |Nie dotyczy |Nieobsługiwane |
+| ROWVERSION |ND |Kolumny wersji wiersza nie mogą być przechowywane w indeksie wyszukiwania, ale może służyć do śledzenia zmian |
+| czas, timespan, binary, varbinary, obraz, xml, geometry, typy CLR |ND |Nieobsługiwane |
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 Indeksator SQL udostępnia kilka ustawień konfiguracji:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Wprowadzenie do języka R Server i open source możliwości R w usłudze HDInsight
 
@@ -46,7 +46,7 @@ Istnieje możliwość dodania dostęp do dodatkowych obiektów Blob i usługi Da
 Można również użyć [plików Azure](../../storage/files/storage-how-to-use-files-linux.md) jako opcji magazynu do użycia w węźle krawędzi. Usługa pliki Azure umożliwia zainstalowanie udziału plików, który został utworzony w usłudze Azure Storage w systemie Linux. Aby uzyskać więcej informacji o tych opcjach przechowywania danych platformy R Server w klastrze usługi HDInsight, zobacz [usługi Azure Storage opcje dla klastrów serwerów R w usłudze HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Serwer R dostępu w klastrze
-Można łączyć z serwerem R w węzła krawędzi w przeglądarce. Jest instalowana domyślnie podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [uzyskać stared z serwerem R w usłudze HDInsight](r-server-get-started.md).
+Można łączyć z serwerem R w węzła krawędzi w przeglądarce. Jest instalowana domyślnie podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z serwerem R w usłudze HDInsight](r-server-get-started.md).
 
 Można również nawiązać serwerem R w wierszu polecenia przy użyciu protokołu SSH/PuTTY dostęp do konsoli R. 
 
@@ -100,7 +100,7 @@ Ponadto są dostępne Konsola R Server w węźle krawędzi, wpisując **R** w wi
 ## <a name="learn-about-pricing"></a>Informacje na temat cen
 Opłaty, które są skojarzone z klastrem usługi HDInsight, z serwerem R mają strukturę podobną do opłaty za klastry usługi HDInsight standard. Są one oparte na zmiany rozmiaru źródłowej maszyn wirtualnych na nazwę, danych i węzły krawędzi, z uwzględnieniem wzrost core godzinnym. Aby uzyskać więcej informacji na temat cen usługi HDInsight, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o sposobie używania R Server z klastrami usługi HDInsight, zobacz następujące tematy:
 
 * [Rozpoczynanie pracy z serwerem R w usłudze HDInsight](r-server-get-started.md)

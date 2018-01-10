@@ -9,14 +9,14 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: f61fe2930bc70e800e5d79773e0de6827621e845
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Usługa wyszukiwanie Azure — często zadawane pytania (FAQ)
- 
+
  Odpowiedzi na często zadawane pytania dotyczące pojęć, kodu i scenariusze związane z usługi Azure Search.
 
 ## <a name="platform"></a>Platforma
@@ -33,23 +33,23 @@ Porównując technologii wyszukiwania, klienci często uzyskać charakterystykę
 + Firmy Microsoft [procesorów języka naturalnego](https://docs.microsoft.com/rest/api/searchservice/language-support) oferują językową analiza krawędzi.  
 + [Usługa Azure Search indeksatory](search-indexer-overview.md) może przeszukiwać różnych źródeł danych Azure początkowa i przyrostowa indeksowania.
 + Jeśli potrzebujesz szybką odpowiedź na wahań zapytania lub indeksowania woluminów, możesz użyć [suwaków](search-manage.md#scale-up-or-down) na platformie Azure, w portalu lub wykonywania [skrypt programu PowerShell](search-manage-powershell.md), bezpośrednio obchodzenia zarządzania niezależnego fragmentu.  
-+ [Ocenianie i dostrajania funkcji](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) Podaj środki wpływające na wyszukiwanie randze poza co można podać tylko aparatu wyszukiwania. 
++ [Ocenianie i dostrajania funkcji](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) Podaj środki wpływające na wyszukiwanie randze poza co można podać tylko aparatu wyszukiwania.
 
 ### <a name="can-i-pause-azure-search-service-and-stop-billing"></a>Można wstrzymać usługi Azure Search i Zatrzymaj rozliczeń?
 
-Nie można wstrzymać usługi. Przydzielania zasobów obliczeniowych i magazynu do wyłącznego użytku podczas tworzenia usługi. Nie jest możliwe wersji i odzyskania tych zasobów na żądanie. 
+Nie można wstrzymać usługi. Przydzielania zasobów obliczeniowych i magazynu do wyłącznego użytku podczas tworzenia usługi. Nie jest możliwe wersji i odzyskania tych zasobów na żądanie.
 
 ## <a name="indexing-operations"></a>Operacje indeksowania
 
 ### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>Indeksy kopii zapasowej i przywracania (lub pobierania i przenieś) lub indeks migawki?
 
-Mimo że można [pobrać definicji indeksu](https://docs.microsoft.com/rest/api/searchservice/get-index) w dowolnym momencie, nie jest dostępna wyodrębniania indeksu, migawki ani funkcja przywracania kopii zapasowej pobierania *wypełnione* indeksu działającą w chmurze w systemie lokalnym, lub przeniesienie jej do innej usługi Azure Search. 
+Mimo że można [pobrać definicji indeksu](https://docs.microsoft.com/rest/api/searchservice/get-index) w dowolnym momencie, nie jest dostępna wyodrębniania indeksu, migawki ani funkcja przywracania kopii zapasowej pobierania *wypełnione* indeksu działającą w chmurze w systemie lokalnym, lub przeniesienie jej do innej usługi Azure Search.
 
 Indeksy są wbudowane i wypełnione z kodu, który zapisu i uruchomić tylko na usłudze Azure Search w chmurze. Zazwyczaj klientów, którzy mają zostać przeniesione do innej usługi indeksu zrobić, edytując ich kodu do nowego punktu końcowego i spróbować ponownie indeksowania. Utworzenie migawki i kopii zapasowej indeksu należy rzutować głosowanie [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>Może indeksować z repliki bazy danych SQL (dotyczy [indeksatory bazy danych SQL Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
- Nie ma żadnych ograniczeń na korzystanie z repliki podstawowej lub pomocniczej jako źródła danych, podczas tworzenia indeksu od początku. Odświeżanie indeksu z aktualizacji przyrostowych (uwzględnieniem zmienionych rekordów) wymaga jednak repliki podstawowej. To wymaganie jest dostarczany z bazy danych SQL, które gwarantuje Zmień śledzenie na tylko podstawowy replik. Jeśli spróbujesz się przy użyciu repliki pomocniczej dla obciążenia odświeżania indeksu, nie ma żadnej gwarancji, uzyskasz wszystkie dane.
+Nie ma żadnych ograniczeń na korzystanie z repliki podstawowej lub pomocniczej jako źródła danych, podczas tworzenia indeksu od początku. Odświeżanie indeksu z aktualizacji przyrostowych (uwzględnieniem zmienionych rekordów) wymaga jednak repliki podstawowej. To wymaganie jest dostarczany z bazy danych SQL, które gwarantuje Zmień śledzenie na tylko podstawowy replik. Jeśli spróbujesz się przy użyciu repliki pomocniczej dla obciążenia odświeżania indeksu, nie ma żadnej gwarancji, uzyskasz wszystkie dane.
 
 ## <a name="search-operations"></a>Operacji wyszukiwania
 
@@ -59,17 +59,21 @@ Nie, ta operacja nie jest obsługiwana. Indeks zawsze obejmuje wyszukiwania.
 
 ### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>Czy można ograniczyć dostęp Boże wyszukiwania przez tożsamość użytkownika
 
-Usługa Azure Search nie ma modelu zabezpieczeń opartego na rolach dla dostępu do danych użytkownika. Uwierzytelnianie jest albo pełne prawa lub w trybie tylko do odczytu na poziomie usługi. Niektórzy klienci zostały zaimplementowane rozwiązań opartych na [ `$filter` parametru wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents), ale co najlepiej jest obejście tego problemu. Jeśli chcesz, aby ta funkcja, rzutowanie głos na [User Voice](https://feedback.azure.com/forums/263029-azure-search/category/86074-security).
+Można zaimplementować [filtrów zabezpieczeń](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) z `search.in()` filtru. Filtr Redaguj z [tożsamości usługi zarządzania, takich jak Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) trim wyniki wyszukiwania na podstawie zdefiniowanych członkostwo w grupie użytkowników.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Dlaczego są zero odpowiada na postanowienia, które sprawdzić ważność?
 
 Najbardziej typowych przypadkach jest nie wiedząc, że każdy typ zapytania obsługuje zachowań wyszukiwania różnych i poziomy językowe analiz. Wyszukiwanie pełnotekstowe, czyli dominujący obciążenie obejmuje faza analizy języka, który dzieli warunków do głównego formularzy. Ten aspekt analizowania zapytania rzutuje szerszych net za pośrednictwem dopasowania, ponieważ tokenami termin jest zgodna z większą liczbą elementów typu Variant.
 
-Jeśli należy wywołać [inne typy zapytań](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (symbol wieloznaczny wyszukiwania, Wyszukiwanie rozmyte, wyszukiwanie w sąsiedztwie, masz sugestie, między innymi), nie językowe analizą. Warunki zostaną dodane do drzewa zapytania jako — jest. 
+Symboli wieloznacznych, rozmytego regex zapytań, jednak nie są analizowane jak regularne termin lub frazę zapytania i może prowadzić do Odwołaj słabej, jeśli zapytanie nie jest zgodny z przeanalizowane formularz programu word w indeksie wyszukiwania. Aby uzyskać więcej informacji dotyczących analizy zapytania i analizy, zobacz [zapytania architektura](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+
+### <a name="my-wildcard-searches-are-slow"></a>Moje wyszukiwania symboli wieloznacznych jest mała.
+
+Większość zapytania wyszukiwania symboli wieloznacznych, takie jak prefiks rozmytego i wyrażeń regularnych, są ulegną wewnętrznie spełniające warunki w indeksie wyszukiwania. To dodatkowe przetwarzanie skanowania indeksu wyszukiwania dodaje do opóźnienia. Ponadto szerokie wyszukiwania wysyła zapytanie, tak samo, jak `a*` na przykład, które są prawdopodobnie ponownego z wielu warunki mogą być bardzo wolno. Wyszukiwanie symboli wieloznacznych wydajności, rozważ zdefiniowanie [analizatora niestandardowego](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Dlaczego jest ranking wyszukiwania wynikiem stałej lub równa 1.0 dla każdego trafień?
 
-Domyślnie wyniki wyszukiwania są oceniane na podstawie [statystyczne właściwości pasujących warunki](search-lucene-query-architecture.md#stage-4-scoring)i wysoko lub nisko w wyniku zestaw uporządkowany. Jednak niektóre typy (symbol wieloznaczny, prefiksu, wyrażenie regularne) zapytań zawsze współtworzenia stałej wynik do ogólny wynik dokumentu. To zachowanie jest celowe. Wyszukiwanie Azure nakłada stałej wynik, aby umożliwić dopasowań za pośrednictwem rozszerzenia zapytania mają zostać uwzględnione w wynikach, bez wywierania wpływu na kolejność. 
+Domyślnie wyniki wyszukiwania są oceniane na podstawie [statystyczne właściwości pasujących warunki](search-lucene-query-architecture.md#stage-4-scoring)i wysoko lub nisko w wyniku zestaw uporządkowany. Jednak niektóre typy (symbol wieloznaczny, prefiksu, wyrażenie regularne) zapytań zawsze współtworzenia stałej wynik do ogólny wynik dokumentu. To zachowanie jest celowe. Wyszukiwanie Azure nakłada stałej wynik, aby umożliwić dopasowań za pośrednictwem rozszerzenia zapytania mają zostać uwzględnione w wynikach, bez wywierania wpływu na kolejność.
 
 Na przykład załóżmy, że danych wejściowych "samouczek *" w wyszukiwaniu symboli wieloznacznych tworzy dopasowania "przewodniki", "tourettes" i "tourmaline". Biorąc pod uwagę rodzaj tych wyników, nie istnieje sposób rozsądnych rozpoznać terminów są większej wartości niż inne. Z tego powodu możemy Ignoruj określenie częstotliwości podczas oceniania wyników w kwerendach typów symboli wieloznacznych, prefiksu i wyrażenia regularnego. Wyniki wyszukiwania na podstawie częściowe danych wprowadzonych podano stałej wynik w celu uniknięcia odchylenia kierunku potencjalnie nieoczekiwany dopasowań.
 
@@ -77,16 +81,14 @@ Na przykład załóżmy, że danych wejściowych "samouczek *" w wyszukiwaniu sy
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Co to jest najlepszym rozwiązaniem dla Implementowanie wyszukiwania zlokalizowanych?
 
-Większość klientów wybierz pola dedykowanych przez kolekcję po przejściu do obsługi różnych ustawień regionalnych (języki) w tym samym indeksie. Pola ustawień regionalnych umożliwiają przypisać odpowiednie analizatora. Na przykład przypisywanie analizatora francuski firmy Microsoft do pola zawierającego ciągi francuskim. Ułatwia także filtrowania. Jeśli wiesz, że zapytanie jest inicjowana na stronie fr-fr, można ograniczyć wyniki wyszukiwania do tego pola. Lub Utwórz [profilu oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) umożliwiają więcej względną wagę pola.
+Większość klientów wybierz pola dedykowanych przez kolekcję po przejściu do obsługi różnych ustawień regionalnych (języki) w tym samym indeksie. Pola ustawień regionalnych umożliwiają przypisać odpowiednie analizatora. Na przykład przypisywanie analizatora francuski firmy Microsoft do pola zawierającego ciągi francuskim. Ułatwia także filtrowania. Jeśli wiesz, że zapytanie jest inicjowana na stronie fr-fr, można ograniczyć wyniki wyszukiwania do tego pola. Lub Utwórz [profilu oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) umożliwiają więcej względną wagę pola. Usługa Azure Search obsługuje przez [50 analizatorów języka](https://docs.microsoft.com/azure/search/search-language-support) do wyboru.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 To pytanie dotyczące funkcji lub funkcjonalności? Żądania funkcji na [witryny User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [StackOverflow: Usługa Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Ile wyszukiwanie pełnotekstowe działa w usłudze Azure Search](search-lucene-query-architecture.md)  
  [Co to jest usługa Azure Search?](search-what-is-azure-search.md)
-
- 

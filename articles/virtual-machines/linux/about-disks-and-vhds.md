@@ -1,24 +1,20 @@
 ---
 title: "O niezarządzanych (stronicowych obiektów blob) i zarządzanych dyski magazynu dla maszyn wirtualnych systemu Linux, Microsoft Azure | Dokumentacja firmy Microsoft"
 description: "Poznaj podstawy niezarządzane (stronicowych obiektów blob), a zarządzane dyski magazynu dla maszyn wirtualnych systemu Linux na platformie Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Temat dyski magazynu dla maszyn wirtualnych systemu Linux platformy Azure
 Podobnie jak dowolnego innego komputera maszynach wirtualnych platformy Azure używać dysków jako miejsce do przechowywania systemu operacyjnego, aplikacji i danych. Wszystkie maszyny wirtualne platformy Azure są co najmniej dwa dyski — dysk systemu operacyjnego Linux i dysku tymczasowym. Dysk systemu operacyjnego jest tworzony z obrazu, a zarówno dysku systemu operacyjnego i obrazu są faktycznie wirtualnych dysków twardych (VHD) przechowywane w koncie magazynu platformy Azure. Maszyny wirtualne mogą także mieć co najmniej jeden dysk danych, które są także przechowywane jako wirtualne dyski twarde. 
@@ -45,7 +41,7 @@ Aby uzyskać więcej informacji o używaniu dysku tymczasowym Azure, zobacz [opi
 Dysk z danymi jest wirtualnego dysku twardego, który jest dołączony do maszyny wirtualnej do przechowywania danych aplikacji lub innych danych, które należy zachować. Dyski danych są rejestrowane jako dyski SCSI i są oznaczone literą, którą można wybrać. Każdy dysk danych ma maksymalną pojemność 4095 GB. Rozmiar maszyny wirtualnej Określa, jak wiele dysków z danymi można dołączyć do jego i typ magazynu służy do obsługi dysków.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o pojemności maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych systemu Linux](../windows/sizes.md).
+> Aby uzyskać więcej informacji o pojemności maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych systemu Linux](./sizes.md).
 > 
 
 Azure tworzy dysk systemu operacyjnego, podczas tworzenia maszyny wirtualnej z obrazu. Jeśli używasz obrazu, który zawiera dyski danych Azure tworzy także dysków danych podczas tworzenia maszyny wirtualnej. W przeciwnym razie możesz dodać dysk danych, po utworzeniu maszyny wirtualnej.
@@ -57,7 +53,7 @@ Można dodać dysków z danymi do maszyny wirtualnej w dowolnym momencie przez *
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dołączenie dysku](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dodać dodatkowy magazyn dla maszyny Wirtualnej.
 * [Utwórz migawkę](snapshot-copy-managed-disk.md).
 * [Konwertuj na dyskach zarządzanych](convert-unmanaged-to-managed-disks.md).

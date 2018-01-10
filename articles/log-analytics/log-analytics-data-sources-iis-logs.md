@@ -1,6 +1,6 @@
 ---
-title: "Rejestrowania przez usługi IIS w Log Analytics | Dokumentacja firmy Microsoft"
-description: "Internet Information Services (IIS) są przechowywane działań użytkownika w plikach dziennika, które mogą zostać zebrane przez analizy dzienników.  W tym artykule opisano sposób konfigurowania zbierania dzienników usług IIS i szczegóły rekordów tworzonych w repozytorium OMS."
+title: "Rejestrowania przez usługi IIS w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Internet Information Services (IIS) są przechowywane działań użytkownika w plikach dziennika, które mogą zostać zebrane przez analizy dzienników.  W tym artykule opisano sposób konfigurowania zbierania dzienników usług IIS i szczegóły rekordów tworzonych w obszarze roboczym analizy dzienników."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Rejestrowania przez usługi IIS w analizy dzienników
 Internet Information Services (IIS) są przechowywane działań użytkownika w plikach dziennika, które mogą zostać zebrane przez analizy dzienników.  
@@ -76,7 +76,7 @@ Poniższa tabela zawiera przykłady różnych dziennika zapytań, które pobiera
 | W3CIISLog &#124; gdzie csHost == "www.contoso.com" &#124; Podsumowanie funkcji count() przez csUriStem |Liczba usług IIS dziennika wpisy przez adres URL dla www.contoso.com hosta. |
 | W3CIISLog &#124; Podsumuj sum(csBytes) przez komputer &#124; podejmij 500000 |Całkowita liczba bajtów odebranych przez każdy komputer usług IIS. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Konfigurowanie analizy dzienników do gromadzenia innych [źródeł danych](log-analytics-data-sources.md) do analizy.
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.
 * Konfigurowanie alertów w analizy dzienników do aktywnego powiadomienia ważne warunków znaleziono w dziennikach usług IIS.

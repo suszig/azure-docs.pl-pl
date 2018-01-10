@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 243db5f8af48009bd89a304e6514a7d162e01e35
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e050fd4b1924223fffbe8173b7d3ad5ead269f81
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Kopiowanie danych z bazy danych platformy Azure dla PostgreSQL przy użyciu fabryki danych Azure 
 
@@ -44,8 +44,8 @@ Bazy danych Azure PostgreSQL połączone usługi, obsługiwane są następujące
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzurePostgreSql** | Tak |
-| Parametry połączenia | Parametry połączenia ODBC do łączenia z bazą danych Azure dla PostgreSQL. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Tak |
+| type | Właściwość type musi mieć ustawioną: **AzurePostgreSql** | Yes |
+| Parametry połączenia | Parametry połączenia ODBC do łączenia z bazą danych Azure dla PostgreSQL. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -96,8 +96,8 @@ Aby skopiować dane z bazy danych Azure dla PostgreSQL, należy ustawić typ źr
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzurePostgreSqlSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzurePostgreSqlSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Yes |
 
 **Przykład:**
 
@@ -121,7 +121,7 @@ Aby skopiować dane z bazy danych Azure dla PostgreSQL, należy ustawić typ źr
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "<custom query e.g. SELECT * FROM MyTable>"
             },
             "sink": {
                 "type": "<sink type>"
@@ -131,5 +131,5 @@ Aby skopiować dane z bazy danych Azure dla PostgreSQL, należy ustawić typ źr
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

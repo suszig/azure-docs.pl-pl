@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Woluminy trwałe z plikami Azure - dynamicznego inicjowania obsługi administracyjnej.
 
@@ -79,7 +79,7 @@ parameters:
 Oświadczenie trwały wolumin używa obiektu klasy magazynu, aby dynamicznie inicjują obsługę część magazynu. Podczas korzystania z usługi pliki Azure, tworzenie udziału plików Azure na koncie magazynu wybrany lub określony w obiekcie klasy magazynu.
 
 >  [!NOTE]
->   Upewnij się, że wstępnie utworzono konto magazynu odpowiednie w tej samej grupie zasobów co klaster AKS. Oświadczenia trwały wolumin nie będzie można udostępnić udziału plików na platformę Azure, jeśli konto magazynu nie jest dostępna. 
+>   Upewnij się, że konto magazynu odpowiednie zostało utworzone wcześniej w tej samej grupie zasobów co AKS zasobów klastra. Ta grupa zasobów ma nazwę, takich jak *MC_myAKSCluster_myAKSCluster_eastus*. Oświadczenia trwały wolumin nie będzie można udostępnić udziału plików na platformę Azure, jeśli konto magazynu nie jest dostępna. 
 
 Manifest następujące może służyć do tworzenia oświadczeń trwały wolumin `5GB` rozmiaru w `ReadWriteOnce` dostępu. Aby uzyskać więcej informacji na PVC tryby dostępu, zobacz [tryby dostępu do][access-modes].
 

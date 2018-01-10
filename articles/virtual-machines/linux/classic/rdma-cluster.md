@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurowanie klastra RDMA systemu Linux na potrzeby uruchamiania aplikacji MPI
 Dowiedz się, jak skonfigurować klaster RDMA systemu Linux na platformie Azure z [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) na uruchamianie równoległe aplikacji komunikat interfejsu (Passing Interface). Ten artykuł zawiera kroki, aby przygotować obraz HPC systemu Linux, aby uruchomić Intel MPI w klastrze. Po przygotowaniu można wdrożyć klaster maszyn wirtualnych przy użyciu tego obrazu i jeden rozmiary maszyny Wirtualnej platformy Azure z funkcją RDMA (obecnie H16r H16mr, A8 i A9). Klaster umożliwia uruchamianie aplikacji MPI wydajne komunikowanie się przez sieć małym opóźnieniu i dużej przepustowości oparte na technologii dostępu (do pamięci RDMA) zdalnego pamięci.
@@ -304,7 +304,7 @@ cluster12
 Następujące polecenie Intel MPI uruchamia testu pingpong, aby sprawdzić konfigurację klastra i połączenie z siecią RDMA.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 W klastrze pracy z dwoma węzłami powinny zostać wyświetlone dane wyjściowe podobne do następujących. W sieci Azure RDMA oczekuje się, że czas oczekiwania na poziomie lub poniżej 3 mikrosekundach wiadomości rozmiary maksymalnie 512 bajtów.
@@ -375,7 +375,7 @@ W klastrze pracy z dwoma węzłami powinny zostać wyświetlone dane wyjściowe 
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Wdrażanie i uruchamianie sieci MPI Linux aplikacji w klastrze systemu Linux.
 * Zobacz [dokumentację biblioteki MPI Intel](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) wskazówki dotyczące Intel MPI.
 * Spróbuj [szablon szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) do utworzenia klastra połysk Intel przy użyciu obrazu na podstawie CentOS HPC. Aby uzyskać więcej informacji, zobacz [wdrażanie Intel chmury Edition dla połysk w systemie Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).

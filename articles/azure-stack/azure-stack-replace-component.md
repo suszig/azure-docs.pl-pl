@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Zastąp składnik sprzętowy w węźle jednostki skali Azure stosu
 
@@ -55,6 +55,10 @@ Kondycja stosu Azure i monitorowania systemu śledzenia stanu kart sieciowych i 
 W poniższych krokach przedstawiono ogólne omówienie proces zamiany składnika. Bez odwołujących się do dokumentacji przez producentów OEM FRU nie wykonaj następujące kroki.
 
 1. Użyj [opróżnienia](azure-stack-node-actions.md#scale-unit-node-actions) akcji w celu uruchomienia trybu konserwacji węzła jednostki skalowania. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
+
+   > [!NOTE]
+   > W każdym przypadku tylko jeden węzeł można opróżnione i odłączony od zasilania w tym samym czasie bez przerywania S2D (bezpośrednie miejsca do magazynowania).
+
 2. Po węzeł jednostki skalowania jest w trybie konserwacji, użyj [wyłączenie](azure-stack-node-actions.md#scale-unit-node-actions) akcji. Ta akcja nie może być wymagany na podstawie warunku fizycznego sprzętu.
  
    > [!NOTE]

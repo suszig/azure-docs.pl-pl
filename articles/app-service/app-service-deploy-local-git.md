@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Wdrażanie lokalnej usługi Git w usłudze Azure App Service
 W tym samouczku przedstawiono sposób wdrażania aplikacji [Azure Web Apps](app-service-web-overview.md) z repozytorium Git na komputerze lokalnym. Usługi aplikacji obsługuje tej metody z **Git lokalnego** opcji wdrażania w [Azure Portal].  
@@ -72,7 +72,7 @@ Wykonaj poniższe kroki, aby włączyć repozytorium Git aplikację usługi apli
 2. W bloku aplikację usługi aplikacji, kliknij przycisk **Ustawienia > źródło wdrożenia**. Kliknij przycisk **wybierz źródło**, następnie kliknij przycisk **lokalnego repozytorium Git**, a następnie kliknij przycisk **OK**.  
    
     ![Lokalne repozytorium Git](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Jeśli jest to pierwszy ustawienia czasu zapasowej repozytorium na platformie Azure, musisz utworzyć poświadczenia logowania dla niego. Użyje ich do zalogowania się do platformy Azure zmiany repozytorium i wypychania z lokalnym repozytorium Git. W bloku aplikacji kliknij **Ustawienia > poświadczenia wdrożenia**, skonfiguruj wdrożenia, nazwę użytkownika i hasło. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać**.
+3. Jeśli jest to pierwszy ustawienia czasu zapasowej repozytorium na platformie Azure, musisz utworzyć poświadczenia logowania dla niego. Użyje ich do zalogowania się do platformy Azure zmiany repozytorium i wypychania z lokalnym repozytorium Git. W bloku aplikacji kliknij **wdrożenia > poświadczenia wdrożenia**, skonfiguruj wdrożenia, nazwę użytkownika i hasło. Gdy wszystko będzie gotowe, kliknij przycisk **zapisać**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -168,7 +168,7 @@ git config --global http.postBuffer 524288000
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Dokumentacja usługi Git](http://git-scm.com/documentation)
 * [Dokumentacja Kudu projektu](https://github.com/projectkudu/kudu/wiki)
-* [Wdrożenie ciągłej w usłudze Azure App Service](app-service-continuous-deployment.md)
+* [Ciągłe wdrażanie w usłudze Azure App Service](app-service-continuous-deployment.md)
 * [Jak korzystać z programu PowerShell dla platformy Azure](/powershell/azure/overview)
 * [Sposób użycia interfejsu wiersza polecenia platformy Azure](../cli-install-nodejs.md)
 

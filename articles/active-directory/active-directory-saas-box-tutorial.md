@@ -4,7 +4,7 @@ description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej mię
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c1a03a4d0a2507f99dd0df8a96b949af8a8412d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Samouczek: Integracji Azure Active Directory z polem
 
@@ -110,9 +110,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.box.com`
 
-    b. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**.
-
-    c. W **identyfikator** tekstowym, wpisz adres URL jako:`https://sso.services.box.net/sp/ACS.saml2`
+    b. W **identyfikator** tekstowym, wpisz adres URL:`box.net`
      
     > [!NOTE] 
     > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z adresem URL logowania rzeczywistych. Skontaktuj się z [zespołem pomocy technicznej klienta pole](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) aby zyskać tę wartość. 
@@ -158,7 +156,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -203,7 +201,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 
 Po kliknięciu kafelka pole w panelu dostępu, należy pobrać strony logowania, aby pobrać zalogowane do aplikacji pole.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Tryby sieci kontenera sieci szkieletowej usług
 
@@ -179,7 +179,7 @@ Gdy usługi kontenera uruchamia ponownie lub przenoszone do innego węzła w kla
    |Ustawienie |Wartość | |
    | --- | --- | --- |
    |Priorytet |2000 | |
-   |Nazwa |Custom_Dns  | |
+   |Name (Nazwa) |Custom_Dns  | |
    |Element źródłowy |VirtualNetwork | |
    |Element docelowy | VirtualNetwork | |
    |Usługa | DNS (UDP/53) | |
@@ -221,7 +221,17 @@ Gdy usługi kontenera uruchamia ponownie lub przenoszone do innego węzła w kla
     >W systemie Linux klastrów mieszanie tryby sieci dla różnych usług nie jest obsługiwane. 
     >
 
-## <a name="next-steps"></a>Następne kroki
+5. Gdy **Otwórz** wybrany jest tryb, **punktu końcowego** definicji w manifeście usługi jawnie powinny wskazywać pakietu kodu odpowiadający punktu końcowego, nawet jeśli pakiet usługi ma tylko jeden kod pakiet w nim. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
+## <a name="next-steps"></a>Kolejne kroki
 * [Informacje o modelu aplikacji usługi Service Fabric](service-fabric-application-model.md)
 * [Dowiedz się więcej o zasoby manifestu usługi sieci szkieletowej usług](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Wdrażanie kontenera systemu Windows w sieci szkieletowej usług w systemie Windows Server 2016](service-fabric-get-started-containers.md)

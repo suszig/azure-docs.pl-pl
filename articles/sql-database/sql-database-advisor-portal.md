@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Znajdź i stosować zalecenia wydajności
 
@@ -45,7 +45,7 @@ Zalecenia są sortowane według ich potencjalny wpływ na wydajność na następ
 |:--- |:--- |
 | Wysoka |Duże znaczenie zalecenia powinien zapewnić najbardziej znaczący wpływ na wydajność. |
 | Medium |Średni wpływ zalecenia należy zwiększyć wydajność, ale nie w znacznym stopniu. |
-| Niska |Niski wpływ zalecenia należy zapewnić lepszą wydajność niż bez, ale ulepszenia może być niewielka. |
+| Małe |Niski wpływ zalecenia należy zapewnić lepszą wydajność niż bez, ale ulepszenia może być niewielka. |
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Można również wyświetlić stan historyczne operacje. Wybierz zalecenie lub s
 
 Oto przykład "Create index" zalecenia w portalu Azure.
 
-![Tworzenie indeksu](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Utwórz indeks](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Zalecenia dotyczące stosowania
 Baza danych SQL Azure umożliwia pełną kontrolę nad jak zalecenia są włączone, przy użyciu dowolnej z trzech opcji: 
@@ -91,13 +91,17 @@ W razie potrzeby można dodać odrzucone elementy z powrotem do **zalecenia** li
 2. Wybierz odrzuconego elementu z listy, aby wyświetlić jego szczegóły.
 3. Opcjonalnie kliknij **Cofnij odrzucić** można dodać indeksu z powrotem do głównego listę **zalecenia**.
 
+> [!NOTE]
+> Należy pamiętać, że jeśli baza danych SQL [automatycznego dostrajania](sql-database-automatic-tuning.md) jest włączona, a jeśli ręcznie usunąć zgodnie z zaleceniami listy tych zaleceń zostanie nigdy nie można automatycznie zastosować. Odrzucanie zalecenie jest to wygodna metoda użytkownicy mogli automatycznego dostrajania, włączyć w przypadkach, gdy wymaganie nie można zastosować określonego zalecenia.
+> To zachowanie można przywrócić przez dodanie odrzuconych zaleceń powrót do listy zalecenia, wybierając opcję Cofnij odrzucić.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Włączanie automatycznego dostrajania
 Można ustawić baza danych SQL Azure, aby automatycznie wdrożyć zalecenia. Zgodnie z zaleceniami staną się dostępne, są one automatycznie stosowane. Podobnie jak w przypadku zarządzanych przez usługę, jeśli jego wpływ na wydajność jest ujemny wszystkie zalecenia, zalecenie zostanie przywrócony.
 
 1. Na **zalecenia** kliknij przycisk **automatyzacja**:
    
-    ![Ustawienia usługi Advisor](./media/sql-database-advisor-portal/settings.png)
+    ![Ustawienia doradcy](./media/sql-database-advisor-portal/settings.png)
 2. Wybierz akcje do automatyzacji:
    
     ![Zalecane indeksy](./media/sql-database-advisor-portal/automation.png)
@@ -123,8 +127,8 @@ Zalecamy stosowanie może odbywa się natychmiast. Portal zawiera szczegóły do
 | Weryfikowanie |Zalecenie zostało pomyślnie zastosowane i usługa jest pomiaru korzyści. |
 | Powodzenie |Zalecenie zostało pomyślnie zastosowane i zostały zmierzone korzyści. |
 | Błąd |Wystąpił błąd w trakcie procesu stosowania zalecenia. Może to być przejściowy problem lub schematu zmiany do tabeli i skrypt nie jest już prawidłowy. |
-| Przywracanie |Zalecenie została zastosowana, ale został uznany za z systemem innym niż wydajność i zostanie automatycznie przywrócony. |
-| Przywrócono |Zalecenie została przywrócona. |
+| Cofanie |Zalecenie została zastosowana, ale został uznany za z systemem innym niż wydajność i zostanie automatycznie przywrócony. |
+| Cofnięte |Zalecenie została przywrócona. |
 
 Kliknij zalecenie w trakcie z listy, aby zobaczyć więcej szczegółów:
 
@@ -146,14 +150,14 @@ Po pomyślnie zostały zaimplementowane zalecenia (obecnie indeksu operacji i pa
 ## <a name="summary"></a>Podsumowanie
 Baza danych SQL Azure zawiera zalecenia dotyczące poprawy wydajności bazy danych SQL. Zapewniając skryptów T-SQL, możesz uzyskać pomoc przy optymalizacji bazy danych i ostatecznie poprawę wydajności zapytań.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Monitorowanie zalecenia i zastosować je do ograniczania wydajności w dalszym ciągu. Obciążeń bazy danych są dynamiczne i zmienianie w sposób ciągły. Baza danych SQL Azure kontynuuje monitorowanie i podano zalecenia, które może potencjalnie podnieść wydajność bazy danych. 
 
 * Zobacz [automatycznego dostrajania](sql-database-automatic-tuning.md) Aby dowiedzieć się więcej na temat automatycznego dostrajania w bazie danych SQL Azure.
 * Zobacz [zaleceń](sql-database-advisor.md) omówienie zaleceń wydajności bazy danych SQL Azure.
 * Zobacz [szczegółowe informacje o wydajności zapytań](sql-database-query-performance.md) Aby dowiedzieć się więcej o wyświetlaniu wpływu na wydajność kwerend top.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Magazyn zapytań](https://msdn.microsoft.com/library/dn817826.aspx)
 * [TWORZENIE INDEKSU](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Kontrola dostępu oparta na rolach](../active-directory/role-based-access-control-what-is.md)

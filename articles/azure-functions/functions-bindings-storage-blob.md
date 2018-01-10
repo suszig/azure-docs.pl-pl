@@ -15,15 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure powiązania magazynu obiektów Blob dla usługi Azure Functions
 
-W tym artykule opisano sposób pracy z usługi Azure Functions powiązania magazynu obiektów Blob platformy Azure. Usługi Azure Functions obsługuje wyzwolenia, danych wejściowych i wyjściowych powiązań dla obiektów blob.
+W tym artykule opisano sposób pracy z usługi Azure Functions powiązania magazynu obiektów Blob platformy Azure. Usługi Azure Functions obsługuje wyzwolenia, danych wejściowych i wyjściowych powiązań dla obiektów blob. Artykuł zawiera sekcja dla każdego powiązania:
+
+* [Wyzwalacz obiektów blob](#trigger)
+* [Powiązania wejściowego obiektu blob](#input)
+* [Powiązania wyjściowego obiektu blob](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,7 +41,7 @@ Użyj wyzwalacz magazynu obiektów Blob, aby uruchomić funkcję o wykryciu nowy
 > [!NOTE]
 > Podczas korzystania z wyzwalacza obiektu blob w planie zużycia, może istnieć maksymalnie 10-minutowych opóźnienia w przetwarzaniu nowe obiekty BLOB po aplikacji funkcji przeszedł bezczynności. Po uruchomieniu aplikacji funkcja obiekty BLOB są przetwarzane natychmiast. Aby uniknąć tego opóźnienia początkowej, weź pod uwagę jedną z następujących opcji:
 > - Za pomocą plan usługi aplikacji na zawsze włączone.
-> - Użyj innego mechanizmu wyzwalanie obiektów blob, przetwarzanie, takie jak wiadomość z kolejki nazwa obiektu blob. Na przykład zobacz [przykład wejścia/wyjścia powiązania obiektu blob w dalszej części tego artykułu](#input--output---example).
+> - Użyj innego mechanizmu wyzwalanie obiektów blob, przetwarzanie, takie jak wiadomość z kolejki nazwa obiektu blob. Na przykład zobacz [przykład powiązań wejściowych obiektu blob w dalszej części tego artykułu](#input---example).
 
 ## <a name="trigger---example"></a>Wyzwalacz — przykład
 
@@ -310,52 +314,37 @@ Jeśli nie wszystkie próby 5, usługi Azure Functions dodaje komunikat do kolej
 
 Jeśli kontenera obiektów blob monitorowanych zawiera więcej niż 10 000 obiektów blob, funkcje skanowania środowiska uruchomieniowego plików dziennika do wyszukiwać nowych lub zmienionych obiektów blob. Ten proces może spowodować opóźnienia. Funkcja może nie pobrać są uruchamiane kilka minut lub dłużej po utworzeniu obiektu blob. Ponadto [magazynu dzienniki są tworzone na "optymalnego"](/rest/api/storageservices/About-Storage-Analytics-Logging) podstawy. Nie ma żadnej gwarancji, że wszystkie zdarzenia są przechwytywane. W niektórych warunkach Dzienniki mogą zostać pominięci. Jeśli potrzebujesz przetwarzania szybsze i bardziej niezawodny obiektów blob, należy rozważyć utworzenie [komunikatu w kolejce](../storage/queues/storage-dotnet-how-to-use-queues.md) podczas tworzenia obiektu blob. Następnie użyj [wyzwalacza kolejki](functions-bindings-storage-queue.md) zamiast wyzwalacza obiektu blob do przetworzenia w obiekcie blob. Inną opcją jest użycie siatki zdarzeń; Zobacz samouczek [zmiana rozmiaru Automatyzacja przekazać obrazów przy użyciu siatki zdarzeń](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="input--output"></a>Dane wejściowe & e wyjściowe
+## <a name="input"></a>Dane wejściowe
 
-Użyj magazynu obiektów Blob wejściowa i wyjściowa powiązania do odczytywania i zapisywania obiektów blob.
+Odczytywanie obiektów blob przy użyciu powiązania wejściowego magazynu obiektów Blob.
 
-## <a name="input--output---example"></a>Wejście i wyjście — przykład
+## <a name="input---example"></a>Dane wejściowe — przykład
 
 Zapoznaj się z przykładem specyficzny dla języka:
 
-* [C#](#input--output---c-example)
-* [Skryptu C# (csx)](#input--output---c-script-example)
-* [JavaScript](#input--output---javascript-example)
+* [C#](#input---c-example)
+* [Skryptu C# (csx)](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-### <a name="input--output---c-example"></a>Dane wejściowe & e wyjściowe — przykład C#
+### <a name="input---c-example"></a>Dane wejściowe — przykład C#
 
-Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz obiektów blob i output dwa powiązania obiektu blob. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
+Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz kolejki i powiązanie blob danych wejściowych. Messagge kolejki zawiera nazwę obiektu blob, a funkcja rejestruje rozmiar obiektu blob.
 
 ```csharp
-[FunctionName("ResizeImage")]
+[FunctionName("BlobInput")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
 ```        
 
-### <a name="input--output---c-script-example"></a>Dane wejściowe & e wyjściowe — przykładowy skrypt w języku C#
+### <a name="input---c-script-example"></a>Dane wejściowe — przykładowy skrypt w języku C#
+
+<!--Same example for input and output. -->
 
 W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob tekstu. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
 
@@ -390,7 +379,7 @@ W *function.json* pliku `queueTrigger` metadanych jest używana do określenia n
 }
 ``` 
 
-[Konfiguracji](#input--output---configuration) sekcji opisano te właściwości.
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
 
 Oto kod skryptu C#:
 
@@ -402,7 +391,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### <a name="input--output---javascript-example"></a>Dane wejściowe & e wyjściowe — przykład JavaScript
+### <a name="input---javascript-example"></a>Dane wejściowe — przykład JavaScript
+
+<!--Same example for input and output. -->
 
 W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* plików i [kod JavaScript] (funkcje — odwołanie node.md), która używa powiązania. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
 
@@ -437,7 +428,7 @@ W *function.json* pliku `queueTrigger` metadanych jest używana do określenia n
 }
 ``` 
 
-[Konfiguracji](#input--output---configuration) sekcji opisano te właściwości.
+[Konfiguracji](#input---configuration) sekcji opisano te właściwości.
 
 Oto kod JavaScript:
 
@@ -449,7 +440,219 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes"></a>Wejście i wyjście — atrybuty
+## <a name="input---attributes"></a>Dane wejściowe — atrybuty
+
+W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+Konstruktor atrybutu ma ścieżki do obiektu blob i `FileAccess` parametr wskazujący odczytu lub zapisu, jak pokazano w poniższym przykładzie:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+
+```
+
+Można ustawić `Connection` właściwości w celu określenia konta magazynu do użycia, jak pokazano w poniższym przykładzie:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
+
+## <a name="input---configuration"></a>Dane wejściowe — Konfiguracja
+
+W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `Blob` atrybutu.
+
+|Właściwość Function.JSON | Właściwość atrybutu |Opis|
+|---------|---------|----------------------|
+|**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
+|**Kierunek** | Nie dotyczy | należy wybrać opcję `in`. Wyjątki w [użycia](#input---usage) sekcji. |
+|**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.|
+|**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
+|**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|Nie dotyczy | **Dostęp** | Wskazuje, czy będzie można odczytu lub zapisu. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="input---usage"></a>Dane wejściowe — użycie
+
+Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
+
+* `TextReader`
+* `string`
+* `Byte[]`
+* `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `CloudBlockBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `CloudPageBlob`(wymaga kierunek powiązania "inout" *function.json*)
+* `CloudAppendBlob`(wymaga kierunek powiązania "inout" *function.json*)
+
+Jak wspomniano, niektóre z tych typów wymagają `inout` powiązanie kierunek *function.json*. Tym kierunku nie jest obsługiwany przez standardowy edytor w portalu Azure, trzeba używać Zaawansowany edytor.
+
+Podczas czytania tekstu obiekty BLOB można powiązać `string` typu. Ten typ jest zalecane tylko w przypadku, gdy zawartość całego obiektu blob są ładowane do pamięci jest mała, rozmiar obiektu blob. Ogólnie rzecz biorąc, zaleca się używania `Stream` lub `CloudBlockBlob` typu.
+
+W języku JavaScript, uzyskiwać dostęp za pomocą danych obiektów blob `context.bindings.<name>`.
+
+## <a name="output"></a>Dane wyjściowe
+
+Powiązania danych wyjściowych magazynu obiektów Blob umożliwia zapis obiektów blob.
+
+## <a name="output---example"></a>OUTPUT — przykład
+
+Zapoznaj się z przykładem specyficzny dla języka:
+
+* [C#](#output---c-example)
+* [Skryptu C# (csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Dane wyjściowe — przykład C#
+
+Poniżej przedstawiono przykład [C# funkcja](functions-dotnet-class-library.md) używającą wyzwalacz obiektów blob i output dwa powiązania obiektu blob. Funkcja jest wyzwalany przez utworzenie obiektu blob obrazu w *przykładowe obrazy* kontenera. Tworzy kopie małych i średnich obiekt blob obrazu. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```        
+
+### <a name="output---c-script-example"></a>Dane wyjściowe — przykładowy skrypt w języku C#
+
+<!--Same example for input and output. -->
+
+W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* pliku i [skryptu C# (csx)](functions-reference-csharp.md) kodu korzystającego z powiązania. Funkcja tworzy kopię obiektu blob tekstu. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
+
+W *function.json* pliku `queueTrigger` metadanych jest używana do określenia nazwy obiektów blob w `path` właściwości:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[Konfiguracji](#output---configuration) sekcji opisano te właściwości.
+
+Oto kod skryptu C#:
+
+```cs
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
+
+### <a name="output---javascript-example"></a>Dane wyjściowe — przykład JavaScript
+
+<!--Same example for input and output. -->
+
+W poniższym przykładzie przedstawiono obiektu blob danych wejściowych i wyjściowych powiązania w *function.json* plików i [kod JavaScript] (funkcje — odwołanie node.md), która używa powiązania. Funkcja tworzy kopię obiektu blob. Funkcja jest wyzwalany przez komunikat z kolejki, zawierający nazwę można skopiować obiektu blob. Nosi nazwę nowego obiektu blob *{originalblobname}-kopiowania*.
+
+W *function.json* pliku `queueTrigger` metadanych jest używana do określenia nazwy obiektów blob w `path` właściwości:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+[Konfiguracji](#output---configuration) sekcji opisano te właściwości.
+
+Oto kod JavaScript:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+## <a name="output---attributes"></a>Dane wyjściowe — atrybuty
 
 W [bibliotek klas C#](functions-dotnet-class-library.md), użyj [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), która jest zdefiniowana w pakiecie NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -477,18 +680,18 @@ public static void Run(
 }
 ```
 
-Pełny przykład, zobacz [danych wejściowych i wyjściowych — przykład C#](#input--output---c-example).
+Pełny przykład, zobacz [dane wyjściowe — przykład C#](#output---c-example).
 
 Można użyć `StorageAccount` atrybutu, aby określić konto magazynu na poziomie klasy, metody lub parametru. Aby uzyskać więcej informacji, zobacz [wyzwalacza — atrybuty](#trigger---attributes).
 
-## <a name="input--output---configuration"></a>Wejście i wyjście — Konfiguracja
+## <a name="output---configuration"></a>OUTPUT — Konfiguracja
 
 W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które można ustawić w *function.json* pliku i `Blob` atrybutu.
 
 |Właściwość Function.JSON | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Typ** | Nie dotyczy | należy wybrać opcję `blob`. |
-|**Kierunek** | Nie dotyczy | Należy wybrać opcję `in` dla powiązania wejściowego lub `out` dla powiązania danych wyjściowych. Wyjątki w [użycia](#input--output---usage) sekcji. |
+|**Kierunek** | Nie dotyczy | Należy wybrać opcję `out` dla powiązania danych wyjściowych. Wyjątki w [użycia](#output---usage) sekcji. |
 |**Nazwa** | Nie dotyczy | Nazwa zmiennej, która reprezentuje obiektu blob w kodzie funkcji.  Ustaw `$return` odwoływać się do wartości zwracane funkcji.|
 |**Ścieżka** |**BlobPath** | Ścieżka do obiektu blob. | 
 |**połączenia** |**Połączenia**| Nazwa ustawienia aplikacji, która zawiera parametry połączenia magazynu do użycia dla tego powiązania. Jeśli nazwa ustawienia aplikacji rozpoczyna się od "AzureWebJobs", można określić tylko w pozostałej części nazwy w tym miejscu. Na przykład jeśli ustawisz `connection` do "MyStorage" środowisko uruchomieniowe Functions szuka ustawienie aplikacji o nazwie "AzureWebJobsMyStorage." Jeśli opuścisz `connection` pusta, środowisko uruchomieniowe Functions używa domyślnego ciągu połączenia magazynu w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.<br><br>Ciąg połączenia nie może być dla konta magazynu ogólnego przeznaczenia, [konta magazynu tylko do obiektów blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
@@ -496,17 +699,14 @@ W poniższej tabeli opisano powiązania właściwości konfiguracyjne, które mo
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="input--output---usage"></a>Dane wejściowe & e wyjściowe — użycie
+## <a name="output---usage"></a>Dane wyjściowe — użycie
 
 Biblioteki klas C# i skryptu C#, dostęp do obiektu blob przy użyciu parametru metody takie jak `Stream paramName`. W języku C# skryptu `paramName` jest wartością określoną w `name` właściwość *function.json*. Można powiązać żadnego z następujących typów:
 
-* `TextReader`(tylko w danych wejściowych)
-* `string`(tylko w danych wejściowych)
-* `Byte[]`(tylko w danych wejściowych)
-* `TextWriter`(tylko dane wyjściowe)
-* `out string`(tylko dane wyjściowe)
-* `out Byte[]`(tylko dane wyjściowe)
-*  `CloudBlobStream`(tylko dane wyjściowe)
+* `TextWriter`
+* `out string`
+* `out Byte[]`
+* `CloudBlobStream`
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bfe4ab71bb7311d1bbca27f8de196b2297c2a994
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 65ddd1efac11bd7f4795e7319e0f66c17f8d5a4f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiowanie danych z serwera SFTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,12 +49,12 @@ Usługa SFTP połączone obsługuje następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Sftp**. |Tak |
-| Host | Nazwa lub adres IP serwera SFTP. |Tak |
-| port | Port, na którym nasłuchuje serwer SFTP.<br/>Dozwolone wartości to: liczba całkowita, wartość domyslnie jest **22**. |Nie |
+| type | Właściwość type musi mieć ustawioną: **Sftp**. |Yes |
+| host | Nazwa lub adres IP serwera SFTP. |Yes |
+| port | Port, na którym nasłuchuje serwer SFTP.<br/>Dozwolone wartości to: liczba całkowita, wartość domyślna to **22**. |Nie |
 | skipHostKeyValidation | Określ, czy pominąć sprawdzanie poprawności klucza hosta.<br/>Dozwolone wartości to: **true**, **false** (ustawienie domyślne).  | Nie |
 | hostKeyFingerprint | Podaj odcisk palca klucza hosta. | Tak, jeśli "skipHostKeyValidation" jest ustawiona na wartość false.  |
-| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **parametry SshPublicKey**. Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Tak |
+| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **parametry SshPublicKey**. Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 ### <a name="using-basic-authentication"></a>Przy użyciu uwierzytelniania podstawowego
@@ -63,8 +63,8 @@ Aby uwierzytelnianie podstawowe, ustaw właściwość "authenticationType" **pod
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP. |Tak |
-| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Tak |
+| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
+| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
 
 **Przykład:**
 
@@ -99,7 +99,7 @@ Aby używać uwierzytelniania klucza publicznego SSH, ustaw właściwość "auth
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP |Tak |
+| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP |Yes |
 | privateKeyPath | Określ ścieżkę bezwzględną do pliku klucza prywatnego środowiska uruchomieniowego integracji może uzyskać dostęp. Ma zastosowanie tylko wtedy, gdy określono siebie typu środowiska uruchomieniowego integracji w "connectVia". | Określ `privateKeyPath` lub `privateKeyContent`.  |
 | privateKeyContent | Treści klucza prywatnego SSH w formacie Base64. Klucz prywatny SSH powinna być w formacie OpenSSH. Zaznacz to pole jako SecureString. | Określ `privateKeyPath` lub `privateKeyContent`. |
 | Hasło | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. Zaznacz to pole jako SecureString. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
@@ -172,8 +172,8 @@ Aby skopiować dane z użyciem protokołu SFTP, ustaw właściwość Typ zestawu
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Tak |
-| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Yes |
+| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Yes |
 | fileName | Określ nazwę pliku w **folderPath** Aby kopiować z określonego pliku. Jeśli nie określono żadnej wartości dla tej właściwości, punktów zestawu danych do wszystkich plików w folderze źródłowym. |Nie |
 | obiektu fileFilter | Określ filtr służący do wybierania podzbioru pliki w ścieżce folderu, a nie wszystkie pliki. Ma zastosowanie tylko wtedy, gdy nie jest określona nazwa pliku. <br/><br/>Dozwolone symbole wieloznaczne są: `*` (wielu znaków) i `?` (pojedynczy znak).<br/>— Przykład 1:`"fileFilter": "*.log"`<br/>— Przykład 2:`"fileFilter": 2017-09-??.txt"` |Nie |
 | Format | Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz przeanalizować pliki w określonym formacie, obsługiwane są następujące typy plików w formacie: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](supported-file-formats-and-compression-codecs.md#text-format), [formatu Json](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), i [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sekcje. |Nie (tylko w przypadku scenariusza kopiowania binarny) |
@@ -217,7 +217,7 @@ Aby skopiować dane z użyciem protokołu SFTP, należy ustawić typ źródła w
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Yes |
 | Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 
 **Przykład:**
@@ -253,5 +253,5 @@ Aby skopiować dane z użyciem protokołu SFTP, należy ustawić typ źródła w
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure współpracy B2B usługi Active Directory — często zadawane pytania
 
 Te usługi Azure Active Directory (Azure AD) biznesowych między firmami (B2B) współpracy — często zadawane pytania (FAQ) są okresowo aktualizowane, aby uwzględnić nowe tematy.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>Współpraca B2B usługi Azure AD jest dostępna w klasycznym portalu Azure?
-Nie. Funkcje współpracy B2B usługi AD platformy Azure są dostępne tylko w [portalu Azure](https://portal.azure.com) i [panelu dostępu](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Dlatego jest bardziej intuicyjne dla naszych gości współpracy B2B możemy dostosować stronę logowania?
 Absolutnie! Zobacz nasze [wpis w blogu o tej funkcji](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Aby uzyskać więcej informacji na temat dostosowywania stronę logowania Twojej organizacji, zobacz [dodać znakowanie firmowe do Zaloguj się i strony panelu dostępu](customize-branding.md).
@@ -129,7 +127,7 @@ Tak. Azure obsługuje współpracy AD B2B listy zezwalania i odmowy dla.
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>Jakie licencje musimy użyć B2B usługi Azure AD?
 Aby dowiedzieć się, jak co licencje potrzeb organizacji do używania B2B usługi Azure AD, zobacz [współpracy usługi Azure Active Directory B2B licencjonowania wskazówki](active-directory-b2b-licensing.md).
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

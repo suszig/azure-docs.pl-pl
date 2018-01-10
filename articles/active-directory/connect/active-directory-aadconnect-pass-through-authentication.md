@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Logowanie użytkownika do uwierzytelniania przekazywanego Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory (Azure AD) przekazywanego uwierzytelniania umożliwia użytkownikom logowanie się zarówno lokalnie, jak i aplikacji działających w chmurze przy użyciu takich samych haseł w. Ta funkcja zapewnia użytkownikom lepsze środowisko — jedno hasło mniej do zapamiętania i ogranicza koszty pomocy technicznej IT, ponieważ są rzadziej zapomnieć, jak zalogować się użytkownicy. Podczas logowania przy użyciu usługi Azure AD, ta funkcja sprawdza poprawność haseł użytkowników bezpośrednio z lokalnej usługi Active Directory.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Ta funkcja stanowi alternatywę dla [synchronizacji skrótu hasła programu Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), którym znajdują się takie same korzyści uwierzytelniania w chmurze dla organizacji. Jednak zasady zabezpieczeń i zgodności w niektórych organizacjach nie zezwolić na te organizacje do wysłania hasła użytkowników, nawet w formie skrótu, poza ich granice wewnętrznego. Uwierzytelniania przekazywanego to odpowiednie rozwiązanie dla tych organizacji.
 
@@ -64,7 +64,7 @@ Możesz łączyć uwierzytelniania przekazywanego z [bezproblemowe logowanie jed
 - Instalowanie wielu agentów zapewnia wysoką dostępność żądań logowania.
 - On [chroni](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) złamania hasła w chmurze force konta lokalnego przed metodą siłową.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [**Szybki Start** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) — Uzyskaj i systemem Azure AD przekazywanego uwierzytelniania.
 - [**Inteligentne blokady** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) — funkcja Konfigurowanie blokady inteligentnej na dzierżawy do ochrony kont użytkowników.

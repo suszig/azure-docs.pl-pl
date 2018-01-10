@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Szybki Start: Dodawanie nowych użytkowników do usługi Azure Active Directory
-W tym artykule opisano sposób dodawania nowych użytkowników w organizacji w usłudze Azure Active Directory (Azure AD) za pomocą portalu Azure lub przez synchronizację danych konta użytkownika systemu Windows Server AD lokalnymi. 
+W tym artykule wyjaśniono, jak usunąć lub dodanie użytkowników w organizacji do dzierżawy usługi Azure Active Directory (Azure AD) z orgnization przy użyciu portalu Azure lub synchronizowanie danych konta użytkownika systemu Windows Server AD lokalnymi. 
 
 ## <a name="add-cloud-based-users"></a>Dodaj użytkowników w chmurze
 1. Zaloguj się do [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
@@ -48,10 +48,13 @@ W tym artykule opisano sposób dodawania nowych użytkowników w organizacji w u
 
 ### <a name="learn-more"></a>Dowiedz się więcej 
 * [Dodaj gości z innego katalogu](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Przypisanie użytkownika do roli w usługi Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
+* [Przywracanie usuniętych użytkowników](active-directory-users-restore.md)
 
-## <a name="next-steps"></a>Następne kroki
+
+
+## <a name="next-steps"></a>Kolejne kroki
 W tym szybkiego startu kiedy znasz już sposób dodawania nowych użytkowników do usługi Azure AD Premium. 
 
 Poniższe łącze służy do tworzenia nowego użytkownika w usłudze Azure AD z portalu Azure.

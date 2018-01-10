@@ -1,5 +1,5 @@
 ---
-title: "Określić sposób użycia szczegółowe Azure | Dokumentacja firmy Microsoft"
+title: "Określić sposób użycia szczegółowe Azure"
 description: "Dowiedz się, jak przeczytane i zrozumiane sekcji szczegółowe użycie woluminów CSV dla subskrypcji platformy Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Zrozumienie warunki na opłaty za programu Microsoft Azure szczegółowe dane użycia 
+
 Szczegółowe dane użycia pliku CSV opłat zawiera codziennie i licznika użycia poziomu opłat dla bieżącego okresu rozliczeniowego. 
 
 Aby uzyskać szczegółowe dane użycia pliku, zobacz [jak uzyskać Azure rozliczeń faktury i dziennego użycia danych](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Jest ona dostępna w formacie wartości rozdzielanych przecinkami (CSV), który 
 
 Opłaty za użycie są łączną liczbę **miesięczne** opłat w ramach subskrypcji. Opłaty za użycie nie uwzględniać żadnych środków ani rabatów.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Szczegółowe warunki i opisy szczegółowe dane użycia pliku
+
 W poniższych sekcjach opisano ważne pojęcia, które przedstawiono w wersji 2 szczegółowe dane użycia pliku.
 
-### <a name="statement"></a>— Instrukcja
+### <a name="statement"></a>Oświadczenie
+
 W górnej części szczegółowe dane użycia pliku CSV zawiera usługi, które są używane w okresie rozliczeniowym w miesiącu. W poniższej tabeli wymieniono terminy i opisy przedstawionym w tej sekcji.
 
 | Termin | Opis |

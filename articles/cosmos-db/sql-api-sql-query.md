@@ -4,7 +4,7 @@ description: "Dowiedz się więcej o składni SQL, pojęcia bazy danych i zapyta
 keywords: "Składnia SQL, zapytanie sql, zapytania sql, język zapytań json, koncepcje bazy danych i zapytania sql, funkcje agregujące"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
-ms.openlocfilehash: 0bd24082f3b323919493fc8e9fdb642f065afb47
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Zapytania SQL dla bazy danych Azure rozwiązania Cosmos
 
@@ -376,136 +376,136 @@ W poniższej tabeli przedstawiono wynik porównania równości w interfejsie API
             <strong>Niezdefiniowana<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Wartość null<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Wartość logiczna<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Numer<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Ciąg<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Obiekt<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Tablica<strong>
          </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
-Nie zdefiniowano </td>
+Niezdefiniowane </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
@@ -541,23 +541,23 @@ Główną różnicą między przy użyciu BETWEEN interfejsu API SQL i ANSI SQL 
 ### <a name="logical-and-or-and-not-operators"></a>Logiczne (AND, OR i NOT) operatory
 Operatory logiczne działają na wartości logiczne. W poniższych tabelach przedstawiono tabel logicznych prawdy dla tych operatorów.
 
-| LUB | True | False | Nie zdefiniowano |
+| LUB | True | False | Niezdefiniowane |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Nie zdefiniowano |
-| Nie zdefiniowano |True |Nie zdefiniowano |Nie zdefiniowano |
+| False |True |False |Niezdefiniowane |
+| Niezdefiniowane |True |Niezdefiniowane |Niezdefiniowane |
 
-| I | True | False | Nie zdefiniowano |
+| I | True | False | Niezdefiniowane |
 | --- | --- | --- | --- |
-| True |True |False |Nie zdefiniowano |
+| True |True |False |Niezdefiniowane |
 | False |False |False |False |
-| Nie zdefiniowano |Nie zdefiniowano |False |Nie zdefiniowano |
+| Niezdefiniowane |Niezdefiniowane |False |Niezdefiniowane |
 
 | NIE |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Nie zdefiniowano |Nie zdefiniowano |
+| Niezdefiniowane |Niezdefiniowane |
 
 ### <a name="in-keyword"></a>IN — słowo kluczowe
 IN — słowo kluczowe może służyć do sprawdzenia, czy określona wartość odpowiada wartości na liście. Na przykład ta kwerenda zwraca wszystkie dokumenty rodziny których identyfikator jest "WakefieldFamily" lub "AndersenFamily". 
@@ -932,7 +932,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w 
 | SUMA   | Zwraca sumę wszystkich wartości w wyrażeniu. |
 | MIN.   | Zwraca minimalną wartość wyrażenia. |
 | MAKS.   | Zwraca maksymalną wartość wyrażenia. |
-| ŚR.   | Zwraca średnią z wartości wyrażenia. |
+| ŚREDNIA   | Zwraca średnią z wartości wyrażenia. |
 
 Można również przeprowadzić agregacje w wynikach iteracji tablicy. Aby uzyskać więcej informacji, zobacz [iteracji tablicy w zapytaniach](#Iteration).
 

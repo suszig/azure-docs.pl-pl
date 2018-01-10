@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Czym jest współpraca B2B w usłudze Azure AD?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Azure AD business-to-business (B2B) możliwości współpracy Włącz każdej przy użyciu usługi Azure AD do pracy bezpiecznie z użytkowników z dowolnej innej organizacji, małych i dużych organizacji. Te organizacje mogą być z usługą Azure AD lub bez, lub nawet w przypadku organizacji IT lub bez. 
 
@@ -100,7 +100,7 @@ Przy użyciu [zaproszenia współpracy B2B interfejsów API](https://developer.m
 
 Współpracy B2B usługi Azure AD możesz uzyskać pełną moc usługi Azure AD, aby chronić Twoje relacje z partnerami w taki sposób, aby znaleźć użytkownikom końcowym proste i intuicyjne. Dlatego dalej, Dołącz do tysięcy organizacji, które już używają B2B usługi Azure AD dla ich współpracy zewnętrznej!
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Administrator środowiska znajdują się w [portalu Azure](https://portal.azure.com).
 

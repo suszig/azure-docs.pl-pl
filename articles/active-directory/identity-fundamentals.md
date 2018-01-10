@@ -1,5 +1,5 @@
 ---
-title: "Podstawowe informacje na temat zarządzania tożsamość platformy Azure | Dokumentacja firmy Microsoft"
+title: "Podstawowe informacje na temat zarządzania tożsamość platformy Azure"
 description: "Tożsamości w chmurze są teraz najlepszy sposób, aby zachować kontrolę nad i widoczność, jak i kiedy użytkownicy uzyskują dostęp do danych i aplikacji firmy."
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Podstawowe informacje na temat zarządzania tożsamość platformy Azure
+
 Jak coraz więcej zasobów cyfrowych firmy na żywo poza siecią firmową w chmurze i na urządzeniach, doskonałe oparte na chmurze tożsamościami i dostępem rozwiązania do zarządzania staje się to konieczne. Tożsamości w chmurze są teraz najlepszy sposób, aby zachować kontrolę nad i widoczność, jak i kiedy użytkownicy uzyskują dostęp do danych i aplikacji firmy.
 
 Microsoft ma zostały zabezpieczanie tożsamości opartej na chmurze dla za pośrednictwem dekadę, a teraz z [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), tych samych systemów ochrony są dostępne dla Ciebie. Z usługą Azure AD Administratorzy przedsiębiorstwa można łatwo zapewnienia accountability użytkownika i administratora z lepszych zabezpieczeń i zarządzania niż kiedykolwiek wcześniej.
@@ -27,7 +28,7 @@ Microsoft ma zostały zabezpieczanie tożsamości opartej na chmurze dla za poś
 Azure AD Premium jest oparta na chmurze tożsamościami i dostępem rozwiązaniem do zarządzania z funkcji ochrony zaawansowane umożliwiającą jedną tożsamość bezpieczne dla wszystkich aplikacji, ochrona tożsamości (rozszerzone przez [Microsoft analizy zabezpieczeń wykres](https://www.microsoft.com/en-us/security/intelligence)), a Privileged Identity Management. Nie po prostu inną monitorowania lub narzędzia do raportowania usługi Azure AD Premium chronić tożsamości użytkownika w czasie rzeczywistym i umożliwiają tworzenie zasad dostępu ryzyka, adaptacyjną do ochrony danych organizacji.
 
 Obejrzyj ten krótki film, aby szybko zapoznać zarządzania tożsamościami w usłudze Azure AD i ochrony:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft nie tylko udostępnia tożsamości, która przyjmuje wszędzie, ale także zestaw narzędzi umożliwiających zautomatyzowanie, zabezpieczania oraz zarządzania nimi IT w organizacji. Nawet po pojawienie przetwarzania w chmurze jest nadal żądanie zarządzanie i sterowanie IT zadań, takich jak pomoc techniczna wywołania do resetowania hasła użytkownika, Zarządzanie grupami użytkowników i żądań aplikacji. Komplikując dalsze czynności, pracownicy są teraz dostarczają swoich urządzeń osobistych do pracy i przy użyciu aplikacji SaaS łatwo dostępne. Dzięki temu zachowując kontrolę nad ich aplikacji firmowych centrów danych i chmurze publicznej platformy istotne wyzwanie.
 
@@ -74,5 +75,5 @@ Tożsamość platformy Azure management można:
 
 -   Korzystać z [wysokiej dostępności i niezawodności](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) na całym świecie, klasy przedsiębiorstwa, oparte na chmurze tożsamościami i dostępem rozwiązania do zarządzania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Więcej informacji o rozwiązaniach tożsamość platformy Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

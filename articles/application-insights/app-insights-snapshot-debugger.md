@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek na wyjątków w aplikacji .NET
 
@@ -75,8 +75,8 @@ Są obsługiwane w następujących środowiskach:
 
 1. [Włącz usługę Application Insights w aplikacji sieci web platformy ASP.NET Core](app-insights-asp-net-core.md), jeśli nie jeszcze go jeszcze gotowe.
 
-> [!NOTE]
-> Należy się upewnić, że aplikacja odwołuje się do wersji 2.1.1 lub nowszego, Microsoft.ApplicationInsights.AspNetCore pakietu.
+    > [!NOTE]
+    > Należy się upewnić, że aplikacja odwołuje się do wersji 2.1.1 lub nowszego, Microsoft.ApplicationInsights.AspNetCore pakietu.
 
 2. Obejmują [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pakietu NuGet w aplikacji.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 W przypadku aplikacji, które są _nie_ hostowanych w usłudze App Service, dzienniki przesyłania znajdują się w tym samym folderze co minizrzutów: `%TEMP%\Dumps\<ikey>` (gdzie `<ikey>` jest klucz Instrumentacji).
 
-Dla ról usług w chmurze domyślny folder tymczasowy jest zbyt mały do przechowywania plików minizrzutu. W takim przypadku można określić alternatywnego folderu za pomocą właściwości TempFolder w ApplicationInsights.config.
+### <a name="troubleshooting-cloud-services"></a>Rozwiązywanie problemów z usługami w chmurze
+Dla ról usług w chmurze domyślny folder tymczasowy jest zbyt mały do przechowywania plików minizrzutu, co może prowadzić do utraty migawki.
+Potrzebne miejsce zależy od całkowitej zestaw roboczy aplikacji i liczby równoczesnych migawek.
+Zestaw roboczy rolę sieci web ASP.NET 32-bitowych jest zwykle od 200 MB do 500 MB.
+Zezwól na co najmniej dwóch jednoczesnych migawek.
+Na przykład jeśli aplikacja korzysta z 1 GB całkowita zestaw roboczy, należy się upewnić, że istnieje co najmniej 2 GB miejsca na dysku do przechowywania migawek.
+Wykonaj poniższe kroki konfigurowania roli użytkownika usługi w chmurze z dedykowanym zasobu lokalnego migawek.
 
+1. Dodaj nowego zasobu lokalnego do usługi w chmurze, edytując plik definicji (.csdf) usługa w chmurze. W poniższym przykładzie zdefiniowano zasób o nazwie `SnapshotStore` o rozmiarze 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Modyfikowanie roli użytkownika `OnStart` metodę, aby dodać zmienną środowiskową, który wskazuje `SnapshotStore` zasobu lokalnego.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Zaktualizuj plik ApplicationInsights.config roli użytkownika, aby zastąpić lokalizacja folderu tymczasowego używanego przez`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Użyj usługi Application Insights Wyszukaj, aby znaleźć wyjątki z migawkami

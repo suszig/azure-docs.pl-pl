@@ -1,5 +1,5 @@
 ---
-title: Zrozumienie faktura Azure | Dokumentacja firmy Microsoft
+title: Zrozumienie faktura Azure
 description: "Dowiedz się, jak czytać i zrozumieć dane użycia oraz rachunek dotyczące subskrypcji platformy Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Zrozumienie warunki na fakturę Microsoft Azure
+
 Faktury zawiera podsumowanie informacji o opłatach i zawiera instrukcje dotyczące płatności. Nie jest dostępny do pobrania w Portable Document Format (PDF) z [portalu Azure](https://portal.azure.com/) albo mogą być przesłane za pośrednictwem poczty e-mail. Aby uzyskać więcej informacji, zobacz [jak uzyskać Azure rozliczeń faktury i dziennego użycia danych](billing-download-azure-invoice-daily-usage-date.md).
 
 Kilka rzeczy do uwzględnienia:
@@ -31,9 +32,7 @@ Kilka rzeczy do uwzględnienia:
 
 -   Opłaty za wymienionych w instrukcjach rozliczeń dla klientów międzynarodowych dotyczą tylko do celów oceny. Banki mogą mieć różne koszty dla kursy wymiany.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Szczegółowe warunki i opisy faktury
 W poniższych sekcjach wymieniono ważne pojęcia, które widać na fakturze wraz z opisami dla każdego warunku.
@@ -99,7 +98,7 @@ W poniższej tabeli opisano nagłówki kolumn opłaty za użycie wyświetlany na
 
 | Termin |Opis |
 | --- | --- |
-| Nazwa |Identyfikuje usługi najwyższego poziomu do użycia |
+| Name (Nazwa) |Identyfikuje usługi najwyższego poziomu do użycia |
 | Typ |Definiuje typ usługi Azure, które mogą wpływać na szybkość |
 | Zasób |Określa jednostkę miary dla pomiaru są używane |
 | Region |Określa lokalizację centrum danych dla niektórych usług, które kosztują na podstawie lokalizacji centrum danych |

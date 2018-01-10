@@ -2,7 +2,7 @@
 title: "Azure DB rozwiązania Cosmos: Odwołania do zapytań składni SQL | Dokumentacja firmy Microsoft"
 description: "Dokumentacja referencyjna dla języka zapytań usługi Azure rozwiązania Cosmos bazy danych SQL."
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Odwołania do składni rozwiązania Cosmos bazy danych SQL Azure
 
@@ -2791,7 +2791,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
  [Składnia SQL i kwerendy SQL dla bazy danych Azure rozwiązania Cosmos](sql-api-sql-query.md)   
  [Dokumentację platformy Azure DB rozwiązania Cosmos](https://docs.microsoft.com/azure/cosmos-db/)  
   

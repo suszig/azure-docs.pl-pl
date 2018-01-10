@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Samouczek: Integracji Azure Active Directory z usług sieci Web firmy Amazon (AWS)
 
@@ -116,8 +116,8 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     | Nazwa atrybutu  | Wartość atrybutu | Przestrzeń nazw |
     | --------------- | --------------- | --------------- |
-    | rolesessionname | User.userPrincipalName | https://awS.amazon.com/SAML/Attributes |
-    | rola            | User.assignedroles |  https://awS.amazon.com/SAML/Attributes |
+    | RoleSessionName | User.userPrincipalName | https://awS.amazon.com/SAML/Attributes |
+    | Rola            | User.assignedroles |  https://awS.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Należy skonfigurować Inicjowanie obsługi użytkowników w usłudze Azure AD można pobrać za pomocą konsoli usług AWS wszystkich ról. Zobacz poniższe kroki inicjowania obsługi administracyjnej.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
 ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Niestandardowych skryptów rozszerzenia dla systemu Windows przy użyciu klasycznego modelu wdrażania
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/08/2017
 > Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak [wykonać te kroki przy użyciu modelu usługi Resource Manager](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji wdrożenia post, instalacja oprogramowania lub dowolnej innej konfiguracji / zadanie zarządzania. Skryptów można pobrać z magazynu Azure lub usługi GitHub lub dostarczone do portalu Azure pod adresem rozszerzenia czas wykonywania. Rozszerzenie skryptu niestandardowego integruje się z szablonów usługi Azure Resource Manager i mogą być także uruchamiane przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyny wirtualnej Azure.
+Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalowania oprogramowania lub każdego innego zadania związanego z konfiguracją lub zarządzaniem. Skryptów można pobrać z magazynu Azure lub usługi GitHub lub dostarczone do portalu Azure pod adresem rozszerzenia czas wykonywania. Rozszerzenie skryptu niestandardowego integruje się z szablonów usługi Azure Resource Manager i mogą być także uruchamiane przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyny wirtualnej Azure.
 
 Ten dokument zawiera szczegóły dotyczące sposobu używania niestandardowe rozszerzenie skryptu przy użyciu modułu Azure PowerShell, szablony usługi Azure Resource Manager i szczegóły dotyczące rozwiązywania problemów z w systemach Windows.
 
@@ -73,7 +73,7 @@ Następujące JSON zawiera schemat niestandardowe rozszerzenie skryptu. Rozszerz
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość / przykład |
+| Name (Nazwa) | Wartość / przykład |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | Wydawcy | Microsoft.Compute |

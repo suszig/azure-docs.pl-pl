@@ -1,5 +1,5 @@
 ---
-title: "Wyświetl dzienniki aktywności platformy Azure z Log Analytics | Dokumentacja firmy Microsoft"
+title: "Zbieranie i analizowanie dzienników Azure aktywności w Log Analytics | Dokumentacja firmy Microsoft"
 description: "Rozwiązania Azure Dzienniki aktywności służy do analizowania i przeszukiwać dziennik aktywności platformy Azure Twojej subskrypcji platformy Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Wyświetl dzienniki aktywności platformy Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Zbieranie i analizowanie dzienników aktywności platformy Azure w analizy dzienników
 
 ![Symbol Dzienniki aktywności platformy Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -61,7 +61,7 @@ W przeciwieństwie do większości innych rozwiązań analizy dzienników danych
 
 - Aby uzyskać dostęp do informacji dziennika aktywności platformy Azure, musi mieć subskrypcję platformy Azure.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj poniższe kroki, aby skonfigurować rozwiązanie działania analizy dzienników dla obszarów roboczych.
 
@@ -97,7 +97,7 @@ Dane dziennika aktywności jest wyświetlany tylko *po* skonfigurowaniu Dziennik
 
 ![Azure Dzienniki aktywności pulpitu nawigacyjnego](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Utwórz [alert](log-analytics-alerts-creating.md) po sytuacji określonego działania.
 - Użyj [wyszukiwania dziennika](log-analytics-log-searches.md) do wyświetlenia szczegółowych informacji z dzienników działania.
