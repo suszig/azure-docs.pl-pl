@@ -1,7 +1,7 @@
 # [Omówienie](search-what-is-azure-search.md)
 ## [Co to jest usługa Azure Search?](search-what-is-azure-search.md)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 
 ## [Tworzenie usługi](search-create-service-portal.md)
 ## [Tworzenie indeksu](search-what-is-an-index.md)
@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Dodawanie danych](search-what-is-data-import.md)
-### [Azure Portal](search-import-data-portal.md)
+### [Azure portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Przeszukiwanie indeksu](search-query-overview.md)
@@ -51,7 +51,7 @@
 ### [Indeksator usługi Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indeksator usługi Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indeksator usługi Azure Cosmos DB](search-howto-index-documentdb.md)
+### [Indeksator usługi Azure Cosmos DB](search-howto-index-cosmosdb.md)
 ### [Indeksowanie obiektów blob CSV](search-howto-index-csv-blobs.md)
 ### [Indeksowanie obiektów blob JSON](search-howto-index-json-blobs.md)
 ### [Konfigurowanie połączeń indeksatora z programem SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -84,7 +84,7 @@
 ### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
 ### [Wydajność i optymalizacja](search-performance-optimization.md)
 
-# Dokumentacja
+# Odwołanie
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (zarządzanie)](/dotnet/api/?term=microsoft.azure.management.search)
