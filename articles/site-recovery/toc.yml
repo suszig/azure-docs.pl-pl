@@ -1,10 +1,6 @@
 - name: Dokumentacja usługi Site Recovery
   href: index.yml
-- name: Migracja maszyn lokalnych i maszyn wirtualnych platformy Azure
-  href: migrate/tutorial-migrate-on-premises-to-azure.md
-- name: Odzyskiwanie po awarii Azure–Azure
-  href: azure-to-azure/azure-to-azure-quickstart.md
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Co to jest usługa Site Recovery?
       href: site-recovery-overview.md
@@ -35,14 +31,30 @@
           href: tutorial-dr-drill-azure.md
         - name: Uruchamianie trybu failover i powrotu po awarii
           href: tutorial-vmware-to-azure-failover-failback.md
-    - name: Migracja na platformę Azure
+    - name: Maszyny wirtualne funkcji Hyper-V
       items:
         - name: Przygotowywanie platformy Azure
+          href: tutorial-prepare-azure.md
+        - name: Przygotowywanie lokalnej funkcji Hyper-V
+          href: tutorial-prepare-on-premises-hyper-v.md
+        - name: Konfigurowanie odzyskiwania po awarii dla maszyn wirtualnych funkcji Hyper-V
+          href: tutorial-hyper-v-to-azure.md
+        - name: Konfigurowanie odzyskiwania po awarii maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM
+          href: tutorial-hyper-v-vmm-to-azure.md
+        - name: Uruchamianie próbnego odzyskiwania
+          href: tutorial-dr-drill-azure.md
+        - name: Uruchamianie trybu failover i powrotu po awarii
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+    - name: Migracja na platformę Azure
+      items:
+        - name: Przygotowanie platformy Azure do replikacji lokalnej
           href: tutorial-prepare-azure.md
         - name: Migrowanie maszyn lokalnych do platformy Azure
           href: tutorial-migrate-on-premises-to-azure.md
         - name: Migrowanie wystąpień usługi AWS na platformę Azure
           href: tutorial-migrate-aws-to-azure.md
+        - name: Migrowanie maszyn wirtualnych platformy Azure do innego regionu
+          href: tutorial-migrate-azure-to-azure.md
 - name: Pojęcia
   items:
     - name: Architektura Azure–Azure
@@ -89,45 +101,36 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Odzyskiwanie po awarii
       items:
-        - name: Przygotowywanie funkcji Hyper-V do replikacji na platformę Azure
-          href: tutorial-prepare-on-premises-hyper-v.md
-        - name: Maszyny wirtualne funkcji Hyper-V do platformy Azure
-          href: tutorial-hyper-v-to-azure.md
-        - name: Maszyny wirtualne funkcji Hyper-V w chmurach programu VMM na platformę Azure
-          href: tutorial-hyper-v-vmm-to-azure.md
-        - name: Serwery fizyczne do platformy Azure
+        - name: Odzyskiwanie po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure
+          href: site-recovery-azure-to-azure-after-migration.md
+        - name: Odzyskiwanie po awarii serwerów fizycznych na platformę Azure
           href: tutorial-physical-to-azure.md
-        - name: Maszyny wirtualne funkcji Hyper-V do lokacji dodatkowej
+        - name: Replikacja maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej
           href: tutorial-vmm-to-vmm.md
-        - name: Serwery fizyczne i maszyny wirtualne oprogramowania VMware do lokacji dodatkowej
+        - name: Replikacja maszyn wirtualnych VMware i serwerów fizycznych do lokacji dodatkowej
           href: tutorial-vmware-to-vmware.md
         - name: Uruchamianie próbnego odzyskiwania na platformie Azure
-          href: tutorial-dr-drill-azure.md
+          href: site-recovery-test-failover-to-azure.md
         - name: Uruchamianie próbnego odzyskiwania w lokacji dodatkowej
-          href: tutorial-dr-drill-secondary.md
+          href: site-recovery-test-failover-vmm-to-vmm.md
         - name: Maszyny wirtualne oprogramowania VMware z obsługą wielodostępu do platformy Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-    - name: Praca w trybie failover i powrót po awarii
+    - name: Przechodzenie do trybu failover i powrót po awarii
       items:
         - name: Konfigurowanie planów odzyskiwania
           href: site-recovery-create-recovery-plans.md
+        - name: Dodawanie elementów Runbook platformy Azure do planów odzyskiwania
+          href: site-recovery-runbook-automation.md
+        - name: Tryb failover
           items:
-            - name: Dodawanie elementów Runbook platformy Azure do planów odzyskiwania
-              href: site-recovery-runbook-automation.md
-        - name: Wykonywanie próby przejścia w tryb failover
-          items:
-            - name: Wykonywanie próby przejścia w tryb failover na platformę Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Wykonywanie próby przejścia w tryb failover między chmurami programu VMM
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Przełączanie chronionych maszyn w tryb failover
-          href: site-recovery-failover.md
-        - name: Uruchamianie trybu failover i powrotu po awarii dla serwerów fizycznych
-          href: tutorial-vmware-to-azure-failover-failback.md
-        - name: Uruchamianie trybu failover i powrotu po awarii dla maszyn wirtualnych funkcji Hyper-V
-          href: tutorial-hyper-v-to-azure-failover-failback.md
-        - name: Uruchamianie trybu failover i powrotu po awarii między lokacjami lokalnymi
-          href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Informacje o trybie failover
+              href: site-recovery-failover.md
+            - name: Testowe uruchamianie trybu failover do lokacji dodatkowej
+              href: tutorial-dr-drill-secondary.md
+            - name: Uruchamianie trybu failover i powrotu po awarii dla serwerów fizycznych
+              href: physical-to-azure-failover-failback.md
+            - name: Uruchamianie trybu failover i powrotu po awarii między lokacjami lokalnymi
+              href: tutorial-vmm-to-vmm-failover-failback.md
         - name: Ponowne włączanie ochrony maszyn po zakończeniu pracy w trybie failover
           items:
             - name: Ponowne włączanie ochrony po przejściu z regionu pomocniczego platformy Azure do podstawowego
@@ -186,25 +189,28 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Środowisko docelowe dla replikacji maszyna fizyczna–Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Konfigurowanie ustawień replikacji oprogramowania VMware na platformie Azure
-          href: site-recovery-setup-replication-settings-vmware.md
-        - name: Wykluczanie dysków z replikacji VMware–Azure
-          href: site-recovery-exclude-disk.md
-        - name: Wykluczanie dysków z replikacji Hyper-V–Azure
-          href: site-recovery-hyper-v-exclude-disk.md
-        - name: Wdrażanie usługi mobilności na potrzeby replikacji oprogramowania VMware
-          href: site-recovery-vmware-to-azure-install-mob-svc.md
+        - name: Konfigurowanie ustawień replikacji
           items:
-            - name: Wdrażanie usługi mobilności za pomocą programu System Center Configuration Manager
-              href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Wdrażanie usługi mobilności przy użyciu usługi Azure Automation DSC
-              href: site-recovery-automate-mobility-service-install.md
+            - name: Konfigurowanie ustawień replikacji oprogramowania VMware na platformie Azure
+              href: site-recovery-setup-replication-settings-vmware.md
+            - name: Wykluczanie dysków z replikacji VMware–Azure
+              href: site-recovery-exclude-disk.md
+            - name: Wykluczanie dysków z replikacji Hyper-V–Azure
+              href: site-recovery-hyper-v-exclude-disk.md
         - name: Włączanie replikacji
           items:
             - name: Włączanie replikacji Azure–Azure
               href: site-recovery-replicate-azure-to-azure.md
             - name: Włączanie replikacji VMware–Azure
               href: site-recovery-replicate-vmware-to-azure.md
+        - name: Wdrażanie usługi mobilności dla oprogramowania VMware
+          items:
+            - name: Informacje o usłudze mobilności
+              href: site-recovery-vmware-to-azure-install-mob-svc.md
+            - name: Wdrażanie usługi mobilności za pomocą programu System Center Configuration Manager
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Wdrażanie usługi mobilności przy użyciu usługi Azure Automation DSC
+              href: site-recovery-automate-mobility-service-install.md
     - name: Automatyzacja
       items:
         - name: Replikowanie maszyn wirtualnych programu VMware na platformę Azure za pomocą programu PowerShell
@@ -215,12 +221,6 @@
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Konfigurowanie replikacji funkcji Hyper-V w lokacji dodatkowej programu VMM przy użyciu programu PowerShell
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
-    - name: Migrate (Migracja)
-      items:
-        - name: Migrowanie maszyn wirtualnych platformy Azure do innego regionu świadczenia usługi Azure
-          href: site-recovery-migrate-azure-to-azure.md
-        - name: Replikowanie maszyn do innych regionów świadczenia usługi Azure po migracji
-          href: site-recovery-azure-to-azure-after-migration.md
     - name: Obciążenia
       items:
         - name: Usługi Active Directory i DNS
@@ -273,7 +273,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Zbieranie dzienników i rozwiązywanie problemów lokalnych
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery
