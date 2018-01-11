@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Cosmos DB
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Informacje o usłudze Azure Cosmos DB
       href: introduction.md
@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Korzystanie z narzędzia Robomongo
               href: mongodb-robomongo.md
+            - name: Korzystanie z programu Mongoose
+              href: mongodb-mongoose.md
             - name: Obsługa funkcji bazy danych MongoDB
               href: mongodb-feature-support.md
             - name: Angular — seria samouczków
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: Używanie programu Spring Boot Starter z interfejsami API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

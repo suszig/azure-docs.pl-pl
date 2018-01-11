@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Azure Log Analytics
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Co to jest usługa Log Analytics?
       href: log-analytics-overview.md
@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Brama pakietu OMS
               href: log-analytics-oms-gateway.md
-            - name: Rozwiązywanie problemów z agentem systemu Linux
-              href: log-analytics-agent-linux-support.md
         - name: Źródła danych
           items:
             - name: Omówienie źródeł danych
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Niestandardowe pola
               href: log-analytics-custom-fields.md
+            - name: Interfejs API modułu zbierającego dane
+              href: log-analytics-data-collector-api.md
     - name: Zapytania o dane
       items:
         - name: Dokumentacja języka
@@ -128,7 +128,7 @@
           href: log-analytics-dashboards.md
         - name: Projektant widoków
           items:
-            - name: Omówienie
+            - name: Przegląd
               href: log-analytics-view-designer.md
             - name: Dokumentacja dotycząca kafelków
               href: log-analytics-view-designer-tiles.md
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Usuwanie obszaru roboczego
           href: log-analytics-manage-del-workspace.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Rozwiązywanie problemów z rozszerzeniami maszyn wirtualnych
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Rozwiązywanie problemów z agentem systemu Linux
+          href: log-analytics-agent-linux-support.md
     - name: Korzystanie z rozwiązań
       items:
         - name: Omówienie rozwiązań
           href: log-analytics-add-solutions.md
         - name: Rozwiązania docelowe
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Activity Log Analytics
-          href: log-analytics-activity.md
-        - name: Sprawdzanie kondycji usługi AD
+        - name: Dzienniki aktywności platformy Azure
+          items:
+            - name: Analiza
+              href: log-analytics-activity.md
+            - name: Gromadzenie z różnych subskrypcji
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: Ocena usługi AD
           href: log-analytics-ad-assessment.md
         - name: Stan replikacji usługi AD
           href: log-analytics-ad-replication-status.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Programowanie
       items:
-        - name: Interfejs API modułu zbierającego dane
-          href: log-analytics-data-collector-api.md
         - name: Polecenia cmdlet programu PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Szablony usługi Resource Manager
@@ -257,7 +265,7 @@
               href: log-analytics-log-search-api-python.md
         - name: Interfejs API alertów
           href: log-analytics-api-alerts.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Dokumentacja języka
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

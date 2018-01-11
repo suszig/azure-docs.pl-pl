@@ -1,4 +1,4 @@
-# Omówienie
+# Przegląd
 ## [Co to są komunikaty usługi Service Bus?](service-bus-messaging-overview.md)
 ## [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architektura usługi Service Bus](service-bus-architecture.md)
@@ -64,6 +64,7 @@
 #### [Łączenie jednostek w łańcuchy z automatycznym przekazywaniem](service-bus-auto-forwarding.md)
 #### [Przetwarzanie transakcji](service-bus-transactions.md)
 #### [Implementacja sparowanej przestrzeni nazw](service-bus-paired-namespaces.md)
+### [Pełne śledzenie i diagnostyka](service-bus-end-to-end-tracing.md)
 ## Zarządzanie
 ### [Monitorowanie usługi Service Bus przy użyciu funkcji monitorowania platformy Azure](service-bus-metrics-azure-monitor.md)
 ### [Biblioteki zarządzania usługi Service Bus](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Aprowizacja jednostek za pomocą programu Azure PowerShell](service-bus-manage-with-ps.md)
 
-# Dokumentacja
+# Odwołanie
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

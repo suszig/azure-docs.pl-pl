@@ -1,4 +1,4 @@
-# Omówienie
+# Przegląd
 ## [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 ## [Informacje o zarządzaniu tożsamościami na platformie Azure](identity-fundamentals.md)
 ## [Omówienie rozwiązań do obsługi tożsamości na platformie Azure](understand-azure-identity-solutions.md)
@@ -44,6 +44,7 @@
 ### [Zarządzanie profilami użytkowników](active-directory-users-profile-azure-portal.md)
 ### [Udostępnianie kont](active-directory-sharing-accounts.md)
 ### [Przypisywanie użytkowników do ról administratorów](active-directory-users-assign-role-azure-portal.md)
+### [Przywracanie usuniętego użytkownika](active-directory-users-restore.md)
 ### [Dodawanie użytkowników-gości z innego katalogu (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Administratorzy dodający użytkowników B2B](active-directory-b2b-admin-add-users.md)
 #### [Pracownicy przetwarzający informacje dodający użytkowników B2B](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [Konfigurowanie nazwanych lokalizacji](active-directory-named-locations.md)
 #### [Znajdowanie raportów aktywności](active-directory-reporting-migration.md)
 #### [Używanie pakietu zawartości usługi Power BI dla usługi Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Dokumentacja
+### Odwołanie
 #### [Przechowywanie](active-directory-reporting-retention.md)
 #### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
 #### [Powiadomienia](active-directory-reporting-notifications.md)
@@ -342,7 +343,7 @@
 ### [Podręcznik prototypu: bloki konstrukcyjne](active-directory-playbook-building-blocks.md)
 
 
-# Dokumentacja
+# Odwołanie
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Polecenia cmdlet programu Azure PowerShell](/powershell/azure/overview)
 ## [Dokumentacja interfejsu API języka Java](/java/api)
