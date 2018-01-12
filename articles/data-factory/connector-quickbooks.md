@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 62ac7e5d87e1a062ffeb6667377db4f6795b26aa
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4127123ffcf8eb2ae18c8b9833b2235d7ac219e7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Kopiowanie danych z programu QuickBooks przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -39,7 +39,7 @@ Ten łącznik obsługuje obecnie tylko 1.0a, co oznacza, że musisz mieć konto 
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika programu QuickBooks.
 
@@ -49,11 +49,11 @@ Obsługiwane są następujące właściwości usługi QuickBooks połączone:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **QuickBooks** | Tak |
-| punkt końcowy | Punkt końcowy serwera programu QuickBooks. (to znaczy quickbooks.api.intuit.com)  | Tak |
-| companyId | Identyfikator firmy firmy QuickBooks do autoryzacji.  | Tak |
-| accessToken | Token dostępu do uwierzytelniania OAuth 1.0. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Tak |
-| accessTokenSecret | Klucz tajny tokenu dostępu do uwierzytelniania OAuth 1.0. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Tak |
+| type | Właściwość type musi mieć ustawioną: **QuickBooks** | Yes |
+| endpoint | Punkt końcowy serwera programu QuickBooks. (to znaczy quickbooks.api.intuit.com)  | Yes |
+| companyId | Identyfikator firmy firmy QuickBooks do autoryzacji.  | Yes |
+| accessToken | Token dostępu do uwierzytelniania OAuth 1.0. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
+| accessTokenSecret | Klucz tajny tokenu dostępu do uwierzytelniania OAuth 1.0. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |
 
 **Przykład:**
@@ -111,8 +111,8 @@ Aby skopiować dane z usługą QuickBooks, należy ustawić typ źródła w przy
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **QuickBooksSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **QuickBooksSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Yes |
 
 **Przykład:**
 
@@ -146,5 +146,5 @@ Aby skopiować dane z usługą QuickBooks, należy ustawić typ źródła w przy
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

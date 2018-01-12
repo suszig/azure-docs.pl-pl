@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klasyfikowanie irysów, część 2: budowanie modelu
 Usługa Azure Machine Learning (wersja zapoznawcza) stanowi zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków, którzy będą z niego korzystać w celu przygotowywania danych, opracowywania eksperymentów i wdrażania modeli na skalę chmury.
@@ -345,7 +345,8 @@ W celu wykonania skryptu w kontenerze platformy Docker na komputerze zdalnym z s
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Wykonywanie skryptu w klastrze usługi HDInsight
 Ten skrypt można również uruchomić w klastrze usługi HDInsight Spark. Dowiedz się, [jak utworzyć klaster usługi HDInsight Spark do użycia w aplikacji Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->![UWAGA] Klaster usługi HDInsight musi używać usługi Azure Blob Storage jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
+>[!NOTE] 
+>Klaster usługi HDInsight, musisz użyć obiektów Blob platformy Azure jako magazynu głównego. Korzystanie z magazynu usługi Azure Data Lake nie jest jeszcze obsługiwane.
 
 1. Jeśli masz dostęp do platformy Spark dla klastra usługi Azure HDInsight, wygeneruj polecenie konfiguracji uruchomieniowej HDInsight podobne do pokazanego tutaj. Jako parametry podaj nazwę klastra usługi HDInsight, swoją nazwę użytkownika usługi HDInsight i hasło. Użyj następującego polecenia:
 

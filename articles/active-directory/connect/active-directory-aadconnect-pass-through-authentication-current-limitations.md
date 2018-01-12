@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Bieżące ograniczenia
 
@@ -46,6 +46,7 @@ Poniższe scenariusze są _nie_ obsługiwane:
 - Wykrywanie użytkownikom [ujawnione poświadczenia](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Usługi domenowe Azure AD wymaga synchronizacji skrótu hasła w dzierżawie. W związku z tym dzierżawcami, które korzystają z uwierzytelniania przekazywanego _tylko_ nie działa w przypadku scenariuszy, które wymagają usług domenowych Azure AD.
 - Przekazywanego uwierzytelniania nie jest zintegrowany z [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Apple Device Enrollment Program (DEP firmy Apple) nie obsługuje nowoczesnego uwierzytelniania.  Urządzeń DEP firmy Apple nie będzie można zarejestrować w usłudze Intune dla domen przy użyciu uwierzytelniania przekazywanego.
 
 >[!IMPORTANT]
 >Jako obejścia nieobsługiwane scenariusze _tylko_, włączanie synchronizacji skrótów haseł na [funkcje opcjonalne](active-directory-aadconnect-get-started-custom.md#optional-features) strony kreatora programu Azure AD Connect.

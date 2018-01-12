@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: HT
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizowanie uwierzytelniania konta usługi Automation przy użyciu kont Uruchom jako 
 Istniejące konto usługi Automation można zaktualizować w witrynie Azure Portal lub przy użyciu programu PowerShell, gdy:
@@ -225,7 +225,7 @@ Ten skrypt programu PowerShell obsługuje następujące konfiguracje:
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,9 +277,9 @@ Ten skrypt programu PowerShell obsługuje następujące konfiguracje:
 
 Po pomyślnym wykonaniu skryptu pamiętaj o następujących kwestiach:
 * Jeśli zostało utworzone klasyczne konto Uruchom jako z certyfikatem publicznym z podpisem własnym (plik CER), skrypt tworzy i zapisuje je w folderze plików tymczasowych na komputerze w ramach profilu użytkownika *%USERPROFILE%\AppData\Local\Temp* użytego do uruchomienia sesji programu PowerShell.
-* Jeśli zostało utworzone klasyczne konto Uruchom jako z publicznym certyfikatem przedsiębiorstwa (plik CER), użyj tego certyfikatu. Postępuj zgodnie z instrukcjami [przekazywania certyfikatu interfejsu API zarządzania do klasycznej witryny Azure Portal](../azure-api-management-certs.md), a następnie zweryfikuj konfigurację poświadczeń za pomocą zasobów klasycznego wdrożenia, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów klasycznego wdrożenia platformy Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Jeśli zostało utworzone klasyczne konto Uruchom jako z publicznym certyfikatem przedsiębiorstwa (plik CER), użyj tego certyfikatu. Postępuj zgodnie z instrukcjami dotyczącymi [przekazywanie certyfikatu zarządzania interfejsu API w portalu Azure](../azure-api-management-certs.md), a następnie zweryfikować konfigurację poświadczeń przy użyciu zasobów klasycznych wdrożenia przy użyciu [przykładowy kod w celu uwierzytelnienia z zasobów platformy Azure wdrożenia klasycznego](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Jeśli klasyczne konto Uruchom jako *nie* zostało utworzone, uwierzytelnij się za pomocą zasobów usługi Resource Manager i zweryfikuj konfigurację poświadczeń, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów usługi Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Więcej informacji na temat nazw głównych usługi można znaleźć w temacie [Obiekty aplikacji i obiekty nazwę głównej usługi](../active-directory/active-directory-application-objects.md).
 * Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Omówienie certyfikatów usług Azure Cloud Services).

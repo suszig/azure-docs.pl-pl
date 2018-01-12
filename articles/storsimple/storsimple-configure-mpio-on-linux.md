@@ -4,7 +4,7 @@ description: "Konfigurowanie wielościeżkowego wejścia/wyjścia w połączeniu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie wielościeżkowego wejścia/wyjścia na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania Wielościeżkowe We/Wy (MPIO) na serwerze hosta Centos 6.6. Serwer hosta jest podłączony do urządzenia Microsoft Azure StorSimple wysokiej dostępności za pośrednictwem inicjatorów iSCSI. Opisuje szczegółowo automatycznego wykrywania urządzeń wielościeżkowego i ustawieniach określonych tylko dla woluminów StorSimple.
@@ -26,9 +26,8 @@ W tym artykule opisano kroki wymagane do skonfigurowania Wielościeżkowe We/Wy 
 Ta procedura ma zastosowanie do wszystkich modeli urządzeń z serii StorSimple 8000.
 
 > [!NOTE]
-> Nie można użyć tej procedury dla urządzenia wirtualnego StorSimple. Aby uzyskać więcej informacji zobacz Konfigurowanie serwerów hosta dla urządzenia wirtualnego.
-> 
-> 
+> Nie można użyć tej procedury dla urządzenia StorSimple chmury. Aby uzyskać więcej informacji zobacz Konfigurowanie serwerów hosta dla urządzenia chmury.
+
 
 ## <a name="about-multipathing"></a>O wiele ścieżek
 Funkcja wielu ścieżek pozwala na skonfigurowanie wielu ścieżek wejścia/wyjścia między serwerem hosta a urządzeniem magazynującym. Te ścieżki We/Wy są fizycznych połączeń sieci SAN, które mogą zawierać osobne kable, przełączniki interfejsów sieciowych i kontrolerów. Wiele ścieżek agreguje ścieżek wejścia/wyjścia, aby skonfigurować nowe urządzenie, którego jest skojarzony z wszystkie zagregowane ścieżki.
@@ -298,7 +297,7 @@ Ten algorytm równoważenia obciążenia używa wszystkich dostępnych multipath
 
     Jeśli zostanie wyświetlony interfejs tylko jednego hosta i dwóch ścieżek, należy włączyć interfejsy na hoście dla interfejsu iSCSI. Możesz wykonać [szczegółowe instrukcje w dokumentacji systemu Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Wolumin jest narażony na serwerze CentOS z urządzenia StorSimple. Aby uzyskać więcej informacji, zobacz [krok 6: Tworzenie woluminu](storsimple-deployment-walkthrough.md#step-6-create-a-volume) za pośrednictwem klasycznego portalu Azure w urządzeniu StorSimple.
+2. Wolumin jest narażony na serwerze CentOS z urządzenia StorSimple. Aby uzyskać więcej informacji, zobacz [krok 6: Tworzenie woluminu](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) za pośrednictwem portalu Azure w urządzeniu StorSimple.
 
 3. Sprawdź dostępne ścieżki. Wpisz:
 
@@ -341,7 +340,7 @@ A. Jeśli zostały wprowadzone żadne zmiany, aby `multipath.conf` pliku, należ
 
 Q. Dwa interfejsy sieci na urządzeniu StorSimple i dwa interfejsy sieciowe na hoście został włączony. Podczas wyświetlania dostępnych ścieżek, są widoczne tylko dwie ścieżki. Oczekiwanej cztery ścieżki dostępne w temacie.
 
-A. Upewnij się, że dwie ścieżki są w tej samej podsieci i wzajemnie obsługują routing. Jeśli interfejsów sieciowych znajdują się na różnych sieci VLAN, a nie obsługuje routingu, wyświetlona zostanie tylko dwie ścieżki. Jest jednym ze sposobów to sprawdzić, aby upewnić się, że może nawiązać połączenie interfejsy hosta z karty sieciowej na urządzeniu StorSimple. Konieczne będzie [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) jako weryfikacji jest możliwe tylko za pośrednictwem sesji pomocy technicznej.
+A. Upewnij się, że dwie ścieżki są w tej samej podsieci i wzajemnie obsługują routing. Jeśli interfejsów sieciowych znajdują się na różnych sieci VLAN, a nie obsługuje routingu, wyświetlona zostanie tylko dwie ścieżki. Jest jednym ze sposobów to sprawdzić, aby upewnić się, że może nawiązać połączenie interfejsy hosta z karty sieciowej na urządzeniu StorSimple. Konieczne będzie [skontaktuj się z Microsoft Support](storsimple-8000-contact-microsoft-support.md) jako weryfikacji jest możliwe tylko za pośrednictwem sesji pomocy technicznej.
 
 Q. Podczas wyświetlania dostępnych ścieżek, nie ma żadnych danych wyjściowych.
 
@@ -441,7 +440,7 @@ Aby uzyskać więcej informacji, przejdź do [Użyj Rozwiązywanie problemów z 
 | &nbsp; |`mpathconf --enable` |Utwórz plik przykładowy mulitpath.conf w`/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jak skonfigurować wielościeżkowego We/Wy na hoście z systemem Linux, również może być konieczne można znaleźć w następujących dokumentach CentoS 6.6:
 
 * [Konfigurowanie wielościeżkowego wejścia/wyjścia na CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

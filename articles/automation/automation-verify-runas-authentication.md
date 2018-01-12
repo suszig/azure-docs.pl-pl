@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 187673fad2b5984441b93aa5313df31f1e8a3d2d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Sprawdzanie uwierzytelniania konta Uruchom jako usługi Azure Automation
 Po pomyślnym utworzeniu konta usługi Automation możesz wykonać prosty test, aby potwierdzić, że możesz poprawnie przeprowadzić uwierzytelnienie w usłudze Azure Resource Manager lub klasycznym wdrożeniu platformy Azure przy użyciu nowo utworzonego lub zaktualizowanego konta Uruchom jako usługi Automation.    
@@ -108,6 +108,6 @@ Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane w
 
 W przypadku ponownego użycia kodu w elementach runbook usuń polecenie cmdlet **Get-AzureVM**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).

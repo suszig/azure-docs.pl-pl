@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Uwierzytelniania przekazywanego usługi Azure Active Directory: Blokady inteligentnej
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Azure Active Directory (Azure AD) chroni przed atakami siłowymi hasła i uniemożliwia użytkownikom oryginalnego blokowanie poza ich usługi Office 365 i aplikacji SaaS. Ta funkcja o nazwie *blokady inteligentnej*, jest obsługiwana w przypadku korzystania z uwierzytelniania przekazywanego jako metodę logowania. Inteligentne blokada jest włączona domyślnie dla wszystkich dzierżawców i nieprzerwanie chroni kont użytkowników.
 
@@ -36,7 +36,7 @@ Blokady inteligentnej rozróżnia również logowania z oryginalnego użytkownik
 Uwierzytelniania przekazywanego przekazuje żądania weryfikacji haseł do usługi Active Directory lokalnymi, dlatego należy całkowicie uniemożliwić osobom atakującym blokowania kont usługi Active Directory użytkowników. Usługi Active Directory ma własne zasady blokady konta, w szczególności [próg blokady konta](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) i [resetowania licznik blokady konta po](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) zasad. Odpowiednio Skonfiguruj usługi Azure AD blokady próg i blokady wartości czasu trwania, aby odfiltrować ataków w chmurze przed dotarciem w lokalnej usłudze Active Directory.
 
 >[!NOTE]
->Funkcji blokady inteligentnej jest wolny i jest _na_ domyślnie dla wszystkich klientów. Ale jeśli chcesz zmodyfikować za pomocą interfejsu API programu Graph usługi Azure AD blokady próg i blokady wartości czasu trwania dzierżawy musi mieć co najmniej jedną licencję usługi Azure AD Premium P2. Nie wymagają licencji usługi Azure AD Premium P2 _dla każdego użytkownika_ uzyskanie funkcji blokady inteligentnej przy użyciu uwierzytelniania przekazywanego.
+>>Funkcji blokady inteligentnej jest wolny i jest _na_ domyślnie dla wszystkich klientów. Modyfikowanie progu blokady konta i czas trwania blokady wartości przy użyciu interfejsu API programu Graph usługi Azure AD musi jednak dzierżawy, aby aktywować dla usługi Azure AD Premium P2. 
 
 Aby upewnić się, że użytkowników lokalnych kont usługi Active Directory są również chronione, należy upewnić się, że:
 
@@ -148,5 +148,5 @@ Wykonaj następujące kroki, aby zaktualizować wartości blokady inteligentnej 
 
 Zweryfikuj, że wartości blokady inteligentnej Twojej dzierżawy ma zaktualizowany poprawnie za pomocą kroków w [wartości blokady inteligentnej widoku](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): plik nowego żądania funkcji za pomocą na Forum usługi Azure Active Directory.

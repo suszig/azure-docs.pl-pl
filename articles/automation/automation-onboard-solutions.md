@@ -9,16 +9,17 @@ editor:
 ms.assetid: edae1156-2dc7-4dab-9e5c-bf253d3971d0
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: eamono
-ms.openlocfilehash: 25ad5e04c96aab9dddd39cdb4d33bd8411817e8e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Dołączenia aktualizacji i rozwiązań zmian do usługi Automatyzacja Azure
 
@@ -37,7 +38,7 @@ Do ukończenia tego samouczka wymagane są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Konto automatyzacji](automation-offering-get-started.md) do zarządzania maszynami.
-* A [maszyny wirtualnej](../virtual-machines/windows/quick-create-portal.md) dołączyć.
+* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) do dołączenia.
 
 ## <a name="onboard-an-azure-vm"></a>Dołączyć maszyny Wirtualnej platformy Azure
 

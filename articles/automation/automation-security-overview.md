@@ -10,17 +10,17 @@ keywords: "zabezpieczenia usługi automation, bezpieczna usługa automation, uwi
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Wprowadzenie do uwierzytelniania w usłudze Azure Automation  
 Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury, takich jak usługa Amazon Web Services (AWS).  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.
@@ -31,10 +31,6 @@ W tym artykule uwzględniono różne scenariusze uwierzytelniania obsługiwane p
 Kiedy uruchamiasz usługę Azure Automation po raz pierwszy, musisz utworzyć co najmniej jedno konto usługi Automation. Konta usługi Automation umożliwiają izolowanie zasobów usługi Automation (elementy Runbook, elementy zawartości, konfiguracje) od zasobów znajdujących się na innych kontach usługi Automation. Konta usługi Automation można wykorzystać do rozdzielenia zasobów w ramach oddzielnych środowisk logicznych. Na przykład jednego konta można użyć dla środowiska rozwojowego, innego dla produkcyjnego, a jeszcze innego dla lokalnego.  Konto usługi Azure Automation różni się od konta Microsoft lub kont utworzonych w ramach subskrypcji platformy Azure.
 
 Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczym regionem świadczenia usługi Azure, ale za pomocą kont usługi Automation można zarządzać wszystkimi zasobami w ramach subskrypcji. Głównym powodem tworzenia kont usługi Automation w różnych regionach jest istnienie zasad, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
-
-> [!NOTE]
-> Utworzone w witrynie Azure Portal konta usługi Automation i zawarte w nich zasoby nie są dostępne w klasycznym portalu Azure. Aby zarządzać tymi kontami lub ich zasobami za pomocą programu Windows PowerShell, należy skorzystać z modułów usługi Azure Resource Manager.
->
 
 Wszystkie zadania, które wykonuje się w odniesieniu do zasobów za pomocą usługi Azure Resource Manager i poleceń cmdlet platformy Azure w usłudze Azure Automation, muszą zostać uwierzytelnione na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory.  Uwierzytelnianie oparte na certyfikatach było pierwotną metodą uwierzytelniania za pomocą klasycznej platformy Azure, ale jego konfigurowanie było skomplikowane.  Uwierzytelnianie na platformie Azure za pomocą użytkownika usługi Azure AD zostało wprowadzone w 2014 roku nie tylko po to, aby uprościć proces konfigurowania konta usługi Automation, ale także po to, aby umożliwić uwierzytelnianie nieinteraktywne na platformie Azure za pomocą jednego konta użytkownika, które współdziała zarówno z usługą Azure Resource Manager, jak i zasobami klasycznymi.   
 

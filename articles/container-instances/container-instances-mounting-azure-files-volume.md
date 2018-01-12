@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Instalowanie udziału plików na platformę Azure z wystąpień kontenera platformy Azure
 
@@ -92,6 +92,46 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 ```
 
 Można użyć [portalu Azure] [ portal] lub narzędzia, takich jak [Eksploratora usługi Microsoft Azure Storage] [ storage-explorer] do pobierania i sprawdź zapisywane w pliku udziału plików.
+
+## <a name="mount-multiple-volumes"></a>Instalowanie wielu woluminów
+
+Aby zainstalować wiele woluminów w wystąpieniu kontenera, należy wdrożyć przy użyciu [szablonu usługi Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+
+Najpierw podaj szczegóły udziału i zdefiniować woluminy przy wprowadzaniu `volumes` tablicy w `properties` sekcji szablonu. Na przykład, jeśli utworzono dwa udziały plików platformy Azure o nazwie *share1* i *share2* na koncie magazynu *Mojekontomagazynu*, `volumes` pojawiały się tablicy podobny do następującego:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+Następnie dla każdego kontenera w grupie kontenera, w którym chcesz zainstalować woluminów należy wypełnić `volumeMounts` tablicy w `properties` sekcja definicji kontenera. Na przykład to instaluje dwa woluminy, *myvolume1* i *myvolume2*, wcześniej zdefiniowany:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Aby zapoznać się przykładem kontenera wystąpienia wdrożenia z szablonem usługi Azure Resource Manager, zobacz [wdrożenia kontenera wielu grup wystąpień kontenera Azure](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 

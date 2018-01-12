@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: v-craic
-ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 97822d5fb11c5c106c67aaaab0b8972e1ec8deee
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Użyj szablonu usługi Azure Resource Manager maszynę wirtualną
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu usługi Azure Resource Manager 
 
 Podczas tworzenia maszyny wirtualnej (VM) w usłudze DevTest Labs za pośrednictwem [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), można wyświetlić szablonu usługi Azure Resource Manager, aby zapisać maszynę Wirtualną. Szablon można następnie służyć jako podstawa można utworzyć więcej laboratorium maszyn wirtualnych z tymi samymi ustawieniami.
 
-W tym artykule opisano sposób wyświetlania szablonu usługi Resource Manager, podczas tworzenia maszyny Wirtualnej i wdrażanie go później w celu automatyzacji tworzenia tej samej maszyny Wirtualnej.
+W tym artykule opisano wielu maszyn wirtualnych i szablony Menedżera zasobów maszyn wirtualnych na jednym i przedstawiono sposób wyświetlania i zapisywania szablonu podczas tworzenia maszyny Wirtualnej.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Wielu maszyn wirtualnych i szablony Menedżera zasobów maszyn wirtualnych na jednym
-Istnieją dwa sposoby tworzenia maszyn wirtualnych w usłudze DevTest Labs przy użyciu szablonu usługi Resource Manager: udostępnianie zasobów Microsoft.DevTestLab/labs/virtualmachines i inicjowania obsługi administracyjnej zasobów Microsoft.Commpute/virtualmachines. Każda jest używane w różnych scenariuszach i wymagają różnych uprawnień.
+Istnieją dwa sposoby tworzenia maszyn wirtualnych w usłudze DevTest Labs przy użyciu szablonu usługi Resource Manager: udostępnianie zasobów Microsoft.DevTestLab/labs/virtualmachines i inicjowania obsługi administracyjnej zasobów Microsoft.Commpute/virtualmachines. Każda jest używane w różnych scenariuszach i wymaga inne uprawnienia.
 
 - Szablony Menedżera zasobów, korzystających z typu zasobu Microsoft.DevTestLab/labs/virtualmachines (podaną we właściwości "zasobu" w szablonie) można udostępnić laboratorium poszczególnych maszyn wirtualnych. Każda maszyna wirtualna następnie jest wyświetlany jako jeden element na liście DevTest Labs maszyn wirtualnych:
 
@@ -53,18 +53,15 @@ W dalszej części tego artykułu opisano szablony Menedżera zasobów, używaj�
    ![Szablon ARM przycisk](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Skopiuj i Zapisz szablonu usługi Resource Manager w celu użycia później, aby utworzyć inną maszynę wirtualną.
 
-   ![Szablon usługi resource manager można zapisać do późniejszego użycia](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Szablon usługi Resource Manager, aby zapisać do późniejszego użycia](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 Po zapisaniu szablonu usługi Resource Manager, musisz zaktualizować sekcję parametrów szablonu przed jego użyciem. Można utworzyć parameter.json, który dostosowuje tylko parametry, poza rzeczywiste szablonu usługi Resource Manager. 
 
-![Dostosowywanie ma parametrów przy użyciu pliku JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Dostosuj parametry, używając pliku JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Wdrażanie szablonu usługi Resource Manager, aby utworzyć Maszynę wirtualną
-Po zapisać szablon usługi Resource Manager i dostosować go do swoich potrzeb, można go zautomatyzować tworzenie maszyny Wirtualnej. [Wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i programu Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) opisano, jak wdrażanie zasobów na platformie Azure przy użyciu programu Azure PowerShell z szablonami usługi Resource Manager. [Wdrażanie zasobów przy użyciu szablonów usługi Resource Manager i interfejsu wiersza polecenia Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) opisano sposób użycia interfejsu wiersza polecenia Azure z szablonami usługi Resource Manager do wdrażania zasobów platformy Azure.
-
-> [!NOTE]
-> Tylko użytkownik z uprawnieniami właściciela laboratorium można utworzyć maszyny wirtualne z szablonem usługi Resource Manager przy użyciu programu Azure PowerShell. Jeśli chcesz zautomatyzować tworzenie maszyny Wirtualnej przy użyciu szablonu usługi Resource Manager i tylko mają uprawnienia użytkowników, można użyć [ **tworzenia maszyny wirtualnej laboratorium az** w interfejsu wiersza polecenia polecenie](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+Szablon Menedżera zasobów jest teraz gotowa do użytku [tworzenie maszyny Wirtualnej](devtest-lab-create-environment-from-arm.md).
 
 ### <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, jak [utworzyć środowiska wielu maszyn wirtualnych z szablonami usługi Resource Manager](devtest-lab-create-environment-from-arm.md).
-* Poznaj więcej szablonów usługi Resource Manager szybki start DevTest Labs automatyzacji z [publicznego repozytorium DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).
+* [Wdrażanie szablonu usługi Resource Manager, aby utworzyć Maszynę wirtualną](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* Poznaj więcej szablonów usługi Resource Manager szybkiego startu DevTest Labs automatyzacji z [publicznego repozytorium DevTest Labs GitHub](https://github.com/Azure/azure-quickstart-templates).

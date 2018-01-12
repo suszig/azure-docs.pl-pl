@@ -1,5 +1,5 @@
 ---
-title: 'Zasady: Azure AD SSPR | Dokumentacja firmy Microsoft'
+title: "Samoobsługowego resetowania hasła zasad — Azure Active Directory"
 description: "Azure AD samoobsługowego resetowania hasła opcji zasad"
 services: active-directory
 keywords: "Zarządzanie hasłami w usłudze Active directory, zarządzanie hasłami, usługi Azure AD samodzielnego resetowania hasła usługi"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Ograniczenia w usłudze Azure Active Directory i zasad haseł
 
@@ -38,18 +38,18 @@ Za pomocą zasad dwa bramy administratorzy nie mają możliwość używania pyta
   * Administrator pomocy technicznej
   * Administrator pomocy technicznej usługi
   * Administrator rozliczeń
-  * Obsługa Tier1 partnera
-  * Obsługa Tier2 partnera
+  * Pomoc techniczna dla partnerów (warstwa 1)
+  * Pomoc techniczna dla partnerów (warstwa 2)
   * Administrator usługi Exchange
   * Administrator usługi Lync
   * Administrator konta użytkownika
-  * Składniki zapisywania katalogu
+  * Zapisywanie katalogów
   * Administrator globalny lub administrator firmy
   * Administrator usługi programu SharePoint
-  * Administrator zgodności
+  * Administrator do spraw zgodności
   * Administrator aplikacji
   * Administrator zabezpieczeń
-  * Administrator ról uprzywilejowanych
+  * Administrator roli uprzywilejowanej
   * Administratora usługi Microsoft Intune
   * Administrator usługi serwera proxy aplikacji
   * Administrator programu CRM usługi
@@ -146,7 +146,7 @@ Aby rozpocząć pracę, musisz [Pobierz i zainstaluj moduł programu PowerShell 
    > [!WARNING]
    > Ustaw hasła `-PasswordNeverExpires $true` nadal wieku na podstawie `pwdLastSet` atrybutu. Ustaw hasła użytkowników nigdy nie wygasa, przejdź 90 dni wygaśnięcia hasła. Na podstawie `pwdLastSet` atrybutów, w przypadku zmiany ważności do `-PasswordNeverExpires $false`, wszystkie hasła, które mają `pwdLastSet` starsze niż 90 dni wymagają od użytkownika je zmienić przy następnym zalogowaniu. Ta zmiana może mieć wpływ na wielu użytkowników. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za pośrednictwem usługi Azure AD:
 

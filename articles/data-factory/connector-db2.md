@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z bazy danych DB2 przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,8 @@ W szczególności ten łącznik DB2 obsługuje następujące platformy IBM DB2 i
 Umożliwia kopiowanie danych z bazy danych DB2, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Informacje na temat środowisk uruchomieniowych siebie integracji, zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykułu. Środowiska uruchomieniowego integracji oferuje wbudowane sterownik bazy danych DB2, dlatego nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z bazy danych DB2.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika bazy danych DB2.
 
@@ -63,13 +64,13 @@ Dla bazy danych DB2 połączone usługi, obsługiwane są następujące właści
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **bazy danych Db2** | Tak |
-| serwer |Nazwa serwera bazy danych DB2. |Tak |
-| Bazy danych |Nazwa bazy danych DB2. |Tak |
+| type | Właściwość type musi mieć ustawioną: **bazy danych Db2** | Yes |
+| serwer |Nazwa serwera bazy danych DB2. |Yes |
+| baza danych |Nazwa bazy danych DB2. |Yes |
 | Schemat |Nazwa schematu w bazie danych. Nazwa schematu jest rozróżniana wielkość liter. |Nie |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych DB2.<br/>Dozwolone wartości to: **podstawowe**. |Tak |
-| nazwa użytkownika |Określ nazwę użytkownika do połączenia z bazą danych DB2. |Tak |
-| hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Tak |
+| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych DB2.<br/>Dozwolone wartości to: **podstawowe**. |Yes |
+| nazwa użytkownika |Określ nazwę użytkownika do połączenia z bazą danych DB2. |Yes |
+| hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -105,7 +106,7 @@ Aby skopiować dane z bazy danych DB2, ustaw właściwość Typ zestawu danych d
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w bazie danych DB2. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 **Przykład**
@@ -135,7 +136,7 @@ Aby skopiować dane z bazy danych DB2, należy ustawić typ źródła w przypadk
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
 | query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 **Przykład:**
@@ -177,11 +178,11 @@ Podczas kopiowania danych z bazy danych DB2, następujące mapowania są używan
 | Typ bazy danych DB2 | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binarne |Byte] |
+| Binarny |Byte] |
 | Obiekt blob |Byte] |
 | char |Ciąg |
 | CLOB |Ciąg |
-| Date |Data i godzina |
+| Date |Data/godzina |
 | DB2DynArray |Ciąg |
 | DbClob |Ciąg |
 | Decimal |Decimal |
@@ -194,15 +195,15 @@ Podczas kopiowania danych z bazy danych DB2, następujące mapowania są używan
 | LongVarChar |Ciąg |
 | LongVarGraphic |Ciąg |
 | numeryczne |Decimal |
-| Real |Pojedynczy |
+| Real |Kawaler/panna |
 | SmallInt |Int16 |
 | Time |Zakres czasu |
-| Znacznik czasu |Data i godzina |
+| Sygnatura czasowa |Data/godzina |
 | VarBinary |Byte] |
 | VarChar |Ciąg |
 | VarGraphic |Ciąg |
 | XML |Byte] |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

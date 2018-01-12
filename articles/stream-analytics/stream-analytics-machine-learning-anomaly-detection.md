@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Przy użyciu operatora ANOMALYDETECTION
 
@@ -89,7 +89,7 @@ Anomalii określonego typu została wykryta, gdy jeden z tych wyników anomalii 
 
 **ANOMALYDETECTION** używa przedłużanie semantyki okna, co oznacza, że wykonuje obliczenia na zdarzenie, które wprowadza funkcji i wynikiem jest generowany dla tego zdarzenia. Obliczenia jest oparta na Martingales zamienności, które działają przez sprawdzenie, czy rozkład wartości zdarzenia został zmieniony. Jeśli tak, Wykryto potencjalną anomalii. Zwrócony wynik jest wskaźnik poziomu zaufania z tym anomalii. Wewnętrzny optymalizacji **ANOMALYDETECTION** oblicza wynik anomalii zdarzenia na podstawie *d* do *2d* które zdarzenia, gdzie *d*jest wykrywania określonego rozmiaru okna.
 
-**ANOMALYDETECTION** oczekuje serii godzina jest jednolita. Strumień zdarzeń można ujednolicone przez agregowanie za pośrednictwem wirowania lub Skaczące okno. W scenariuszach, w którym odstęp między zdarzeniami zawsze jest mniejszy niż okno agregacji okno wirowania jest wystarczające, aby wprowadzić uniform szeregów czasowych. Gdy przerwa może być większy, luk może zostać wypełniony powtarzając ostatnią wartość przy użyciu okna przeskoku. Oba te scenariusze są obsługiwane przez następującym przykładzie. Obecnie `FillInMissingValuesStep` krok nie może być pominięty. Nie ma tego kroku wystąpi błąd kompilacji.
+**ANOMALYDETECTION** oczekuje serii godzina jest jednolita. Strumień zdarzeń można ujednolicone przez agregowanie za pośrednictwem wirowania lub Skaczące okno. W scenariuszach, w którym odstęp między zdarzeniami zawsze jest mniejszy niż okno agregacji okno wirowania jest wystarczające, aby wprowadzić uniform szeregów czasowych. Gdy przerwa może być większy, luk może zostać wypełniony powtarzając ostatnią wartość przy użyciu okna przeskoku. Oba te scenariusze są obsługiwane przez następującym przykładzie.
 
 ## <a name="performance-guidance"></a>Wytyczne dotyczące wydajności
 
@@ -105,8 +105,6 @@ Anomalii określonego typu została wykryta, gdy jeden z tych wyników anomalii 
 
 Następujące zapytanie może służyć do wyjściowego alert w przypadku wykrycia anomalii.
 Jeśli strumień wejściowy nie jest jednolite, krok agregacji może pomóc przekształcania serii jednolita postać czasu. W przykładzie użyto **AVG** , ale określony typ agregacji jest zależny od scenariusza użytkownika. Ponadto po szeregów czasowych ma luki większe niż okno agregacji, nie będą żadne zdarzenia w szeregi czasowe do wykrywania anomalii wyzwalacza (zgodnie z harmonogramem przesuwanego okna semantyki). W związku z tym założeniu jednolitość przestaną działać po nadejściu następne zdarzenie. W takich sytuacjach należy sposób wypełniania luk w szeregu czasowym. Jednym z podejść możliwe ma mieć ostatnie zdarzenie co okno przeskoku, jak pokazano poniżej.
-
-Nie należy pomijać wspomnianego przed `FillInMissingValuesStep` krok teraz. Pominięcie tego kroku wystąpi błąd kompilacji.
 
     WITH AggregationStep AS 
     (
@@ -177,7 +175,7 @@ Nie należy pomijać wspomnianego przed `FillInMissingValuesStep` krok teraz. Po
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 Aby uzyskać dodatkową pomoc, spróbuj naszych [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do usługi Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)

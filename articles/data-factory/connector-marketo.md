@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 80c377938005ba699c8632003b215bf2c52b6c33
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 20cac53847f9f93805f8064bd8ad5c682b5a8452
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Kopiowanie danych z programu Marketo przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -37,7 +37,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi Marketo.
 
@@ -48,7 +48,7 @@ Obsługiwane są następujące właściwości usługi Marketo połączone:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Marketo** | Yes |
-| punkt końcowy | Punkt końcowy serwera usługi Marketo. (np. 123-ABC-321.mktorest.com)  | Yes |
+| endpoint | Punkt końcowy serwera usługi Marketo. (np. 123-ABC-321.mktorest.com)  | Yes |
 | clientId | Identyfikator usługi Marketo klienta.  | Yes |
 | clientSecret | Klucz tajny klienta usługi Marketo. Istnieje możliwość Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i pozwól ADF skopiuj ściągania działaniach stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |

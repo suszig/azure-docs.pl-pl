@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/09/2018
 ms.author: JeffGo
-ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: e2f29a1686d0f4baa88b9d37bac0261952f4caa6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych SQL Microsoft Azure stosu
 
@@ -60,11 +60,10 @@ Należy utworzyć jeden (lub więcej) serwerów SQL lub zapewniają dostęp do z
 
     | Azure stosu kompilacji | Instalator SQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Proszę czekać, aby uzyskać więcej informacji, bieżącej kompilacji nie zostaną zainstalowane, ale będzie nadal działać na wielowęzłowego po uaktualnieniu stosu Azure.** |
-    | 1.0.171122.1 | [RP SQL w wersji 1.1.12.0](https://aka.ms/azurestacksqlrp) |
+    |1.0.180102.3 lub 1.0.180106.1 (wielowęzłowego) | [RP SQL w wersji 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1.0.171122.1 | [RP SQL w wersji 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [RP SQL w wersji 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
-    | 1.0.170928.3 | [RP SQL w wersji 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
-   
+  
 
 4. Certyfikat główny stos Azure są pobierane z punktu końcowego uprzywilejowanych. ASDK, aby uzyskać certyfikat z podpisem własnym jest tworzony w ramach tego procesu. Wieloma węzłami trzeba podać odpowiedni certyfikat.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: af9050d41502f55b0426b858654b8af6985b93ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z gałęzi przy użyciu fabryki danych Azure 
 
@@ -34,7 +34,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do gałęzi łącznika.
 
@@ -44,12 +44,12 @@ Hive połączone usługi, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Hive** | Tak |
-| Host | IP adres lub nazwę hosta serwera Hive, rozdzielone znakiem ";" na wielu hostach, (tylko wtedy, gdy serviceDiscoveryMode jest włączona).  | Tak |
+| type | Właściwość type musi mieć ustawioną: **Hive** | Yes |
+| host | IP adres lub nazwę hosta serwera Hive, rozdzielone znakiem ";" na wielu hostach, (tylko wtedy, gdy serviceDiscoveryMode jest włączona).  | Yes |
 | port | Port TCP używany przez serwer gałęzi do nasłuchiwania dla połączeń klienta.  | Nie |
 | Typ | Typ serwera Hive. <br/>Dozwolone wartości to: **HiveServer1**, **serwera HiveServer2**, **HiveThriftServer** | Nie |
 | thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, ** HTTP ** | Nie |
-| Typ authenticationType | Metoda uwierzytelniania używany do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
+| Typ authenticationType | Metoda uwierzytelniania używany do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | serviceDiscoveryMode | wartość true, aby wskazać, przy użyciu usługi dozorcy false nie.  | Nie |
 | zooKeeperNameSpace | Przestrzeń nazw na dozorcy, w których Hive Server 2 dodawania węzłów.  | Nie |
 | useNativeQuery | Określa, czy sterownik używa natywnego zapytania HiveQL lub konwertuje je na równoważne formularza w HiveQL.  | Nie |
@@ -116,8 +116,8 @@ Aby skopiować dane z gałęzi, należy ustawić typ źródła w przypadku dzia�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HiveSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HiveSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Yes |
 
 **Przykład:**
 
@@ -151,5 +151,5 @@ Aby skopiować dane z gałęzi, należy ustawić typ źródła w przypadku dzia�
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

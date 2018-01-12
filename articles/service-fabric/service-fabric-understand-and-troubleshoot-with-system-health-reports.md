@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki sieci szkieletowej usług Azure udostępnia raporty kondycji systemu na wszystkich jednostek w klastrze dodatkowych zabiegów. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemu. Również organizuje ona je w hierarchii, która przechwytuje interakcje jednostki.
@@ -56,7 +56,7 @@ Raport określa limit czasu globalnego dzierżawy jako czas wygaśnięcia (TTL).
 * **Właściwość**: rozpoczyna się od **otoczenie** i zawiera informacje na węźle.
 * **Następne kroki**: Sprawdź, dlaczego otoczenie zostaną utracone, na przykład, Sprawdź komunikację między węzłami klastra.
 
-### <a name="rebuild"></a>Skompiluj ponownie
+### <a name="rebuild"></a>Kompiluj ponownie
 
 **Menedżera trybu Failover** usługi (**FM**) zarządza informacjami o węzłach klastra. FM utraci swoje dane i przechodzi do utraty danych, który go nie może zagwarantować, że ma najnowszych informacji o węzłach klastra. W takim przypadku system przechodzi przez **odbudować**, i **System.FM** zbiera dane ze wszystkich węzłów w klastrze, aby można było odbudować jego stanu. Czasami z powodu sieci lub zagadnienia węzła Odbuduj można pobrać zablokował lub zablokowany. Taki sam może się zdarzyć z **główny menedżer trybu Failover** usługi (**FMM**). **FMM** jest usługi bezstanowej system, który śledzi where wszystkie **FMs** znajdują się w klastrze. **FMMs** podstawowy jest zawsze węzeł o identyfikatorze najbliżej 0. Jeśli ten węzeł zostanie porzucone, **odbudować** zostanie wywołany.
 Gdy wystąpi jeden z powyższych warunków, **System.FM** lub **System.FMM** Flaga go za pośrednictwem raportów o błędach. Ponowna kompilacja może zostać zatrzymane w jednym z dwóch faz:
@@ -708,7 +708,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication systemowych raportów kondycji
 **System.Hosting** urzędu na wdrożonym jednostek.
 
-### <a name="activation"></a>aktywacji
+### <a name="activation"></a>Uaktywnienie
 System.Hosting raportów, jako OK gdy aplikacji został pomyślnie uaktywniony na węźle. W przeciwnym razie go zgłasza błąd.
 
 * **SourceId**: System.Hosting
@@ -842,7 +842,7 @@ System.Hosting zgłosi ostrzeżenie, jeśli węzeł pojemności nie są zdefinio
 * **Właściwość**: ResourceGovernance
 * **Następne kroki**: jest preferowany sposób, aby rozwiązać ten problem, aby zmienić manifest klastra, aby umożliwić automatyczne wykrywanie dostępnych zasobów. Innym sposobem jest uaktualnianie prawidłowo określony węzeł pojemności dla tych metryk manifestu klastra.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wyświetl raporty dotyczące kondycji sieci szkieletowej usług](service-fabric-view-entities-aggregated-health.md)
 
 [Jak zgłosić i Sprawdź kondycję usług](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Użycie magazynu Azure, interfejsu API REST
+# <a name="using-the-azure-storage-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure Storage
 
 W tym artykule przedstawiono sposób użycia interfejsów API REST usługi Magazyn obiektów Blob oraz sposób uwierzytelniania połączenia z usługą. Jest ona zapisywana z punktu widzenia osoby, która nie zna o REST i nie wiadomo jak wykonywać wywołanie interfejsu REST, ale jest dewelopera. Możemy znaleźć w dokumentacji dla wywołania REST i zobacz, jak do rzeczywistego wywołania REST — umożliwiło pola, które go where? Po dowiedzieć, jak skonfigurować wywołanie interfejsu REST, można wykorzystać wiedzy pod kątem używania dowolnych innych magazynów usługi interfejsów API REST.
 
@@ -32,7 +32,7 @@ Aplikacja Wyświetla kontenery w magazynie obiektów blob dla konta magazynu. Wy
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Konto magazynu ogólnego przeznaczenia. Jeśli nie masz żadnych kont magazynu, możesz utworzyć go przy użyciu [portalu Azure](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), lub [interfejsu wiersza polecenia Azure](storage-quickstart-create-storage-account-cli.md).
+* Konto magazynu ogólnego przeznaczenia. Jeśli nie masz jeszcze konta magazynu, zobacz [Utwórz konto magazynu](storage-quickstart-create-account.md).
 
 * W przykładzie w tym artykule przedstawiono sposób do listy kontenerów na koncie magazynu. Aby wyświetlić dane wyjściowe, należy dodać niektóre kontenerów do magazynu w ramach konta magazynu obiektów blob, przed rozpoczęciem.
 
@@ -40,13 +40,13 @@ Aplikacja Wyświetla kontenery w magazynie obiektów blob dla konta magazynu. Wy
 
 Przykładowa aplikacja jest aplikacji konsoli napisanych w języku C#.
 
-Użyj [git](https://git-scm.com/) do pobrania kopii aplikacji w środowisku deweloperskim. 
+Użyj narzędzia [git](https://git-scm.com/), aby pobrać kopię tej aplikacji do swojego środowiska projektowego. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-To polecenie klonów repozytorium do folderu lokalnego git. Aby otworzyć rozwiązanie programu Visual Studio, wyszukaj storage-dotnet-rest-api-with-auth folder, otwórz go, a następnie kliknij dwukrotnie na StorageRestApiAuth.sln. 
+To polecenie klonuje repozytorium do lokalnego folderu git. Aby otworzyć rozwiązanie programu Visual Studio, wyszukaj storage-dotnet-rest-api-with-auth folder, otwórz go, a następnie kliknij dwukrotnie na StorageRestApiAuth.sln. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Dlaczego należy znać REST
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 W tym artykule przedstawiono sposób przesyłania żądania do magazynu obiektów blob interfejsu API REST, aby pobrać listę kontenery lub listę obiektów blob w kontenerze. Przedstawiono również sposób tworzenia podpisu autoryzacji dla wywołania interfejsu API REST, jak z niego korzystać w żądaniu REST i jak zbadać odpowiedzi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Interfejs API REST usługi blob](/rest/api/storageservices/blob-service-rest-api)
 * [Interfejs API REST usługi plików](/rest/api/storageservices/file-service-rest-api)

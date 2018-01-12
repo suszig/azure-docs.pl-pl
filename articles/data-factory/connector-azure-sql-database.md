@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych do lub z bazą danych SQL Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ W szczególności ten łącznik bazy danych SQL Azure obsługuje:
 - Jako obiekt sink dodanie danych do tabeli docelowej lub wywoływania procedury składowanej z niestandardowej logiki podczas kopiowania.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi Azure SQL Database.
 
@@ -50,8 +51,8 @@ Obsługiwane są następujące właściwości dla bazy danych SQL Azure połącz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureSqlDatabase** | Tak |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem bazy danych SQL Azure dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString. |Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureSqlDatabase** | Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem bazy danych SQL Azure dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 > [!IMPORTANT]
@@ -86,8 +87,8 @@ Aby skopiować dane z i do bazy danych SQL Azure, ustaw właściwość Typ zesta
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSqlTable** | Tak |
-| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych SQL Azure, odnoszący się do połączonej usługi. | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSqlTable** | Yes |
+| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych SQL Azure, odnoszący się do połączonej usługi. | Yes |
 
 **Przykład:**
 
@@ -118,7 +119,7 @@ Aby skopiować dane z bazy danych SQL Azure, należy ustawić typ źródła w pr
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SqlSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SqlSource** | Yes |
 | sqlReaderQuery |Użyj niestandardowych zapytania SQL można odczytać danych. Przykład: `select * from MyTable`. |Nie |
 | sqlReaderStoredProcedureName |Nazwa procedury przechowywanej, która odczytuje dane z tabeli źródłowej. Ostatniej instrukcji SQL musi być instrukcji SELECT w procedurze składowanej. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej.<br/>Dozwolone wartości to: par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
@@ -222,7 +223,7 @@ Aby skopiować dane do bazy danych SQL Azure, należy ustawić typ ujścia w dzi
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlSink** | Yes |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (domyślna to 10 000) |
 | writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
 | sqlWriterStoredProcedureName |Nazwa procedury składowanej danych upserts (aktualizacje/INSERT) do tabeli docelowej. |Nie |
@@ -454,9 +455,9 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | Binarne |Byte] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
-| datetime2 |Data i godzina |
+| data |Data/godzina |
+| Data/godzina |Data/godzina |
+| datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atrybut FILESTREAM (varbinary(max)) |Byte] |
@@ -468,9 +469,9 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | ntext |Ciąg, Char] |
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
-| rzeczywiste |Pojedynczy |
+| rzeczywiste |Kawaler/panna |
 | ROWVERSION |Byte] |
-| smalldatetime |Data i godzina |
+| smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
@@ -483,5 +484,5 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | varchar |Ciąg, Char] |
 | xml |XML |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

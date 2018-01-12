@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scenariusz użycia usługi Azure Automation — automatyczne usuwanie grup zasobów
 Wielu klientów tworzy więcej niż jedną grupę zasobów. Niektóre grupy mogą służyć do zarządzania aplikacjami produkcyjnymi, a inne mogą być używane jako środowiska rozwojowe, testowe lub przejściowe. Automatyzacja wdrażania tych zasobów to jedno, ale wymagane jest również zapewnienie możliwości łatwej likwidacji grupy zasobów. To typowe zadanie zarządzania można uprościć przy użyciu usługi Azure Automation. Przydaje się to w przypadku korzystania z subskrypcji platformy Azure z limitem wydatków w ramach takich ofert jak MSDN lub program Microsoft Partner Network Cloud Essentials.
@@ -64,6 +64,6 @@ Aby wyświetlić szczegóły zadania elementu Runbook **Remove-ResourceGroup** w
 
 W obszarze **Podsumowanie zadania** są widoczne ostrzeżenia i komunikaty o błędach oraz dane ze strumienia wyjściowego. Kliknij kafelek **Dane wyjściowe**, aby wyświetlić szczegółowe wyniki wykonania elementu Runbook.<br> ![Dane wyjściowe elementu Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby rozpocząć tworzenie własnego elementu Runbook, zobacz artykuł [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md) (Tworzenie lub importowanie elementu Runbook w usłudze Azure Automation).
 * Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz artykuł [Mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).

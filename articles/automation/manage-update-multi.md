@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn
 
@@ -112,9 +112,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiąz
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Tak |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Tak |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux i inicjuje instalowanie wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Tak |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania. |
+| Agenci dla systemu Windows |Yes |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów dla systemu Windows i inicjuje instalowanie wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Yes |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów dla systemu Linux i inicjuje instalowanie wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Yes |Rozwiązanie Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania. |
 | Konto magazynu Azure |Nie |Magazyn Azure nie zawiera informacji o aktualizacjach systemu. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
@@ -180,7 +180,7 @@ Aby wyświetlić strumień zadań elementu runbook, który zarządza wdrożeniem
 
 Aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem, wybierz pozycję **Błędy**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat zarządzania aktualizacjami — w tym o dziennikach, danych wyjściowych i o błędach — zobacz [Rozwiązanie Update Management w pakiecie OMS](../operations-management-suite/oms-solution-update-management.md).
 

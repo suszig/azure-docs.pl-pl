@@ -4,7 +4,7 @@ description: "Baza danych SQL dane dynamiczne maskowanie ogranicza ujawnienie da
 services: sql-database
 documentationcenter: 
 author: ronitr
-manager: jhubbard
+manager: shaik
 editor: 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 03/09/2017
-ms.author: ronitr; ronmat
-ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: ronitr
+ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maskowanie danych dynamicznych bazy danych SQL
 
@@ -44,7 +44,7 @@ Maskowanie danych dynamicznych można skonfigurować przez administratora bazy d
 | --- | --- |
 | **Domyślne** |**Pełna maskowania zgodnie z typów danych w odpowiednich polach**<br/><br/>• Użyj XXXX lub mniej Xs, jeśli rozmiar pola jest mniejszy niż 4 znaki dla danych typu ciąg (nchar, ntext, nvarchar).<br/>• Użyj wartości 0 dla typów danych liczbowych (bigint, bit, decimal, int, pieniądze, liczbowe, smallint, smallmoney, tinyint, float, rzeczywistym).<br/>• Użyj 01-01-1900 dla typów danych daty i godziny (Data, datetime2, datetime, datetimeoffset, smalldatetime, czas).<br/>• Aby wariantu języka SQL, wartością domyślną bieżącego typu jest używany.<br/>• XML dokumentu <masked/> jest używany.<br/>• Na użytek pustą wartość specjalne typy danych (tabeli sygnatury czasowej, hierarchyid, GUID, binary, obraz, typy przestrzenne varbinary). |
 | **Karty kredytowej** |**Maskowanie metodę, która udostępnia cztery ostatnie cyfry wyznaczone pola** i dodaje ciąg stałej jako prefiksu w formularzu karty kredytowej.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Adres e-mail** |**Maskowanie metodę, która udostępnia pierwszą literę i zastępuje domeny XXX.com** przy użyciu prefiksu stałym ciągiem w postaci adresu e-mail.<br/><br/>aXX@XXXX.com |
+| **Wiadomość e-mail** |**Maskowanie metodę, która udostępnia pierwszą literę i zastępuje domeny XXX.com** przy użyciu prefiksu stałym ciągiem w postaci adresu e-mail.<br/><br/>aXX@XXXX.com |
 | **Liczby losowe** |**Metoda, która generuje losową liczbę maskowania** zgodnie z wybranych granic i typy danych rzeczywistych. Jeśli wyznaczonych granicach są takie same, funkcja maskowania jest stałej liczbowej.<br/><br/>![Okienko nawigacji](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Niestandardowy tekst** |**Metoda, która udostępnia pierwszy i ostatni znak maskowania** i dodaje ciąg niestandardowego dopełnienie w środku. Jeśli oryginalny ciąg jest krótszy niż narażonych prefiksu i sufiksu, tylko ciąg uzupełnienie jest używany. <br/>sufiks prefiks [dopełnienie]<br/><br/>![Okienko nawigacji](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 

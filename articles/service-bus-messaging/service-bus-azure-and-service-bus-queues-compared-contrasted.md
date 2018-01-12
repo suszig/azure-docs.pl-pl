@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Magazyn kolejek i kolejek usługi Service Bus - porównywane i odróżniające
 W tym artykule analizuje różnice i podobieństwa między tymi dwoma typami kolejek oferowanych przez system Microsoft Azure obecnie: magazyn kolejek i kolejek usługi Service Bus. Dzięki tym informacjom można porównać odpowiednie technologie i świadomie wybrać rozwiązanie, które najlepiej odpowiada danym potrzebom.
@@ -66,7 +66,7 @@ Tabele w poniższych sekcjach umożliwiają logiczne grupowanie funkcji kolejki 
 ## <a name="foundational-capabilities"></a>Podstawowych możliwości
 Ta sekcja porównuje niektórych podstawowych kolejkowania możliwości oferowane przez wersję magazynu kolejek i kolejek usługi Service Bus.
 
-| Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
+| Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Porządkowanie gwarancji |**Nie** <br/><br>Aby uzyskać więcej informacji zobacz uwagę pierwszy w części "Informacje dodatkowe".</br> |**Tak — pierwszy w pierwszym Out (FIFO)**<br/><br>(przy użyciu sesji do obsługi komunikatów) |
 | Gwarancji dostarczenia |**W najmniej jednokrotne** |**W najmniej jednokrotne**<br/><br/>**Większość jednocześnie** |
@@ -98,7 +98,7 @@ Ta sekcja porównuje niektórych podstawowych kolejkowania możliwości oferowan
 ## <a name="advanced-capabilities"></a>Funkcje zaawansowane
 Ta sekcja porównuje zaawansowane możliwości oferowane przez wersję magazynu kolejek i kolejek usługi Service Bus.
 
-| Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
+| Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Dostarczania zaplanowanych |**Tak** |**Tak** |
 | Automatyczne martwy litery |**Nie** |**Tak** |
@@ -107,7 +107,7 @@ Ta sekcja porównuje zaawansowane możliwości oferowane przez wersję magazynu 
 | Aktualizacja w miejscu |**Tak** |**Tak** |
 | Dziennik transakcji po stronie serwera |**Tak** |**Nie** |
 | Metryki magazynu |**Tak**<br/><br/>**Minuty metryki**: zapewnia metryk w czasie rzeczywistym dla interfejsu API dostępności, TPS, wywołaj liczby, liczby błędów i więcej, w czasie rzeczywistym (zagregowane na minutę i zgłaszanych w ciągu kilku minut od naturę tylko w środowisku produkcyjnym. Aby uzyskać więcej informacji, zobacz [o metryki analityka magazynu](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Tak**<br/><br/>(zbiorcze zapytań przez wywołanie metody [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Stan zarządzania |**Nie** |**Tak**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Stan zarządzania |**Nie** |**Tak**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Automatyczne przekazywanie komunikatów |**Nie** |**Tak** |
 | Przeczyścić kolejki — funkcja |**Tak** |**Nie** |
 | Komunikat grup |**Nie** |**Tak**<br/><br/>(przy użyciu sesji do obsługi komunikatów) |
@@ -129,7 +129,7 @@ Ta sekcja porównuje zaawansowane możliwości oferowane przez wersję magazynu 
 ## <a name="capacity-and-quotas"></a>Pojemności i przydziałów
 Ta sekcja porównuje magazynu kolejek i kolejek usługi Service Bus z punktu widzenia [pojemności i przydziałów](service-bus-quotas.md) , mogą być stosowane.
 
-| Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
+| Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Maksymalny rozmiar kolejki |**500 TB.**<br/><br/>(maksymalnie [pojemności konta magazynu z jednym](../storage/common/storage-introduction.md#queue-storage)) |**1 GB do 80 GB**<br/><br/>(zdefiniowane podczas tworzenia kolejki i [włączenie partycjonowania](service-bus-partitioning.md) — zobacz sekcję "Informacje dodatkowe") |
 | Maksymalny rozmiar wiadomości |**64 KB**<br/><br/>(48 KB, korzystając z **Base64** kodowanie)<br/><br/>Azure obsługuje dużych wiadomości, łącząc kolejek i obiektów blob — w takim przypadku można umieścić w kolejce do 200 GB dla pojedynczego elementu. |**256 KB** lub **1 MB**<br/><br/>(w tym zarówno nagłówek i treść, rozmiar maksymalny nagłówka: 64 KB).<br/><br/>Zależy od [warstwy usług](service-bus-premium-messaging.md). |
@@ -148,7 +148,7 @@ Ta sekcja porównuje magazynu kolejek i kolejek usługi Service Bus z punktu wid
 ## <a name="management-and-operations"></a>Zarządzanie i operacje
 Ta sekcja porównuje funkcji zarządzania dostarczanych przez magazyn kolejek i kolejek usługi Service Bus.
 
-| Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
+| Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Protokół zarządzania |**REST za pośrednictwem protokołu HTTP/HTTPS** |**Zatrzymaj przy użyciu protokołu HTTPS** |
 | Protokół środowiska wykonawczego |**REST za pośrednictwem protokołu HTTP/HTTPS** |**Zatrzymaj przy użyciu protokołu HTTPS**<br/><br/>**Protokół AMQP 1.0 Standard (TCP z protokołem TLS)** |
@@ -172,7 +172,7 @@ Ta sekcja porównuje funkcji zarządzania dostarczanych przez magazyn kolejek i 
 ## <a name="authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja
 W tej sekcji omówiono funkcji uwierzytelniania i autoryzacji obsługiwanych przez magazyn kolejek i kolejek usługi Service Bus.
 
-| Kryteria porównania | Magazyn kolejek | Kolejki usługi Service Bus |
+| Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
 | Authentication |**Klucz symetryczny** |**Klucz symetryczny** |
 | Model zabezpieczeń |Delegowane dostęp za pośrednictwem tokeny sygnatury dostępu Współdzielonego. |SYGNATURY DOSTĘPU WSPÓŁDZIELONEGO |
@@ -187,7 +187,7 @@ Przejmując lepiej zrozumieć te dwie technologie, będzie mogła wprowadzać ba
 
 Ponieważ kolejek usługi Service Bus zapewniają zaawansowane funkcje, takie jak sesje, transakcje, zduplikowany wykrywania automatycznego Obsługa utraconych komunikatów i trwałe możliwości publikowania/subskrybowania, mogą one być preferowanym rozwiązaniem budowania aplikacji hybrydowych, lub jeśli w przeciwnym razie aplikacja wymaga tych funkcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Poniższe artykuły zawierają więcej wskazówki i informacje o używaniu magazynu kolejki lub kolejek usługi Service Bus.
 
 * [Wprowadzenie do kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)

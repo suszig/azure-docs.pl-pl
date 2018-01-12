@@ -1,5 +1,5 @@
 ---
-title: "Usługi Azure AD: Rejestracji SSPR | Dokumentacja firmy Microsoft"
+title: "Zarejestruj się w celu samodzielnego resetowania haseł — Azure Active Directory"
 description: "Zarejestruj dane uwierzytelniania dla usługi Azure AD hasła samoobsługi resetowania"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: bae62762decf530521ba10ce684d5db9afa0b86c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 976eb5e710b0ffca48dae268b394b3d31fe2e938
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Rejestrowanie na potrzeby samoobsługowego resetowania hasła
 
@@ -58,7 +58,7 @@ Administratorzy w Twojej organizacji mogą wymagać potwierdzić metody uwierzyt
 | Pojawia się komunikat o błędzie "Twoje konto nie ma uprawnień do resetowania hasła" po wprowadzeniu mój identyfikator użytkownika | Twoje konto nie jest włączona w celu resetowania haseł. <br> <br> Przepraszamy, ale pracownicy działu informatycznego nie skonfigurował tego konta do korzystania z tej usługi. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ pracownicy działu informatycznego nie włączył resetowania haseł dla organizacji z **nie może uzyskać dostępu do konta** łącze lub nie ma licencji można korzystać z funkcji. <br> <br> Aby zresetować hasło, wybierz **skontaktuj się z administratorem** łącza. Wiadomości e-mail będą wysyłane do firmy personel działu informatycznego. Wiadomości e-mail umożliwia go poinformować, że chcesz zresetować hasło, więc ich włączenia tej funkcji można. |
 | Pojawia się komunikat o błędzie "nie można zweryfikować konto" po wprowadzeniu mój identyfikator użytkownika | Nie można zweryfikować Twoje konto. <br> <br> Jeśli chcesz, możemy skontaktować się z administratorem w Twojej organizacji, aby zresetował Twoje hasło. | Ten komunikat jest wyświetlany, ponieważ jest włączona w celu resetowania haseł, ale nie został zarejestrowany do korzystania z usługi. Aby zarejestrować do resetowania hasła, przejdź do [strony rejestracji resetowania haseł](http://aka.ms/ssprsetup) po ma odzyskać dostęp do Twojego konta. <br> <br> Aby zresetować hasło, wybierz **skontaktuj się z administratorem** łącze, aby wysłać wiadomość e-mail w Twojej firmie personel działu informatycznego. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zmienianie hasła przy użyciu samodzielnego resetowania hasła](active-directory-passwords-update-your-own-password.md)
 * [Strona rejestracji w celu resetowania hasła](http://aka.ms/ssprsetup)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiowanie danych z Cassandra przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ W szczególności ten łącznik Cassandra obsługuje:
 Aby skopiować dane z bazy danych Cassandra, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykuł, aby poznać szczegóły. Środowiska uruchomieniowego integracji zawiera wbudowane sterownik Cassandra, dlatego nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z/na Cassandra.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do Cassandra łącznika.
 
@@ -54,10 +55,10 @@ Cassandra połączone usługi, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną: **Cassandra** |Tak |
-| Host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Tak |
+| type |Właściwość type musi mieć ustawioną: **Cassandra** |Yes |
+| host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Yes |
 | port |Port TCP używany przez serwer Cassandra nasłuchiwanie dla połączeń klienta. |Nie (wartość domyślna to 9042) |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych Cassandra.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Tak |
+| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych Cassandra.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
 | hasło |Określ hasło dla konta użytkownika. Zaznacz to pole jako SecureString. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -94,7 +95,7 @@ Aby skopiować dane z Cassandra, ustaw właściwość Typ zestawu danych do **Re
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **CassandraTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **CassandraTable** | Yes |
 | przestrzeni kluczy |Nazwa schematu bazy danych Cassandra lub przestrzeni kluczy. |Nie (Jeśli określono parametr "zapytania" dla "CassandraSource") |
 | tableName |Nazwa tabeli w bazie danych Cassandra. |Nie (Jeśli określono parametr "zapytania" dla "CassandraSource") |
 
@@ -128,7 +129,7 @@ Aby skopiować dane z Cassandra, należy ustawić typ źródła w przypadku dzia
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **CassandraSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **CassandraSource** | Yes |
 | query |Użyj niestandardowych zapytania można odczytać danych. |Zapytania SQL 92 lub CQL zapytania. Zobacz [odwołania CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Korzystając z zapytania SQL, określ **przestrzeni kluczy name.table nazwy** do reprezentowania tabeli ma dotyczyć zapytanie. |Nie (Jeśli określono "Nazwa_tabeli" i "przestrzeni kluczy" w zestawie danych). |
 | consistencyLevel |Poziom spójności Określa, jak wiele replik musi odpowiedzieć na żądanie odczytu przed zwróceniem danych do aplikacji klienckiej. Cassandra sprawdza określonej liczby replik danych do spełnienia żądania odczytu. Zobacz [Konfigurowanie spójność danych](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) szczegółowe informacje.<br/><br/>Dozwolone wartości to: **jeden**, **dwóch**, **trzy**, **KWORUM**, **wszystkie**, **LOCAL_ KWORUM**, **EACH_QUORUM**, i **LOCAL_ONE**. |Nie (domyślnie jest `ONE`) |
 
@@ -176,11 +177,11 @@ Podczas kopiowania danych z Cassandra, następujące mapowania są używane z Ca
 | WARTOŚĆ LOGICZNA |Wartość logiczna |
 | DECIMAL |Decimal |
 | O PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
-| FLOAT |Pojedynczy |
+| FLOAT |Kawaler/panna |
 | INET |Ciąg |
 | INT |Int32 |
 | TEKST |Ciąg |
-| ZNACZNIK CZASU |Data i godzina |
+| ZNACZNIK CZASU |Data/godzina |
 | TIMEUUID |Identyfikator GUID |
 | IDENTYFIKATOR UUID |Identyfikator GUID |
 | VARCHAR |Ciąg |
@@ -255,5 +256,5 @@ W poniższych tabelach przedstawiono wirtualnego tabel, które renormalize danyc
 | 3 |A |
 | 3 |E |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

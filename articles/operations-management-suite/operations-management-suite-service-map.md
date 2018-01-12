@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Użycie rozwiązania mapy usługi w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Z mapy usługi można przeglądać serwery w taki sposób, który należy wziąć pod uwagę ich: jako połączonych systemy, które dostarczają usług krytycznych. Mapy usługi pokazuje połączeń między serwerami, procesów, i portów w dowolnej połączenia TCP architekturze, bez konieczności wykonywania konfiguracyjnych wymaganych innych niż instalację agenta.
@@ -333,34 +333,34 @@ Rekordy z typem *ServiceMapProcess_CL* mają dane spisu dla procesów połączen
 ## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
 
 ### <a name="list-all-known-machines"></a>Wyświetl listę wszystkich maszyn znane
-Typ = ServiceMapComputer_CL | Funkcja deduplikacji ResourceId
+ServiceMapComputer_CL | Podsumuj arg_max(TimeGenerated, *) przez ResourceId
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Wyświetl listę wszystkich zarządzanych komputerów pojemność pamięci fizycznej.
-Typ = ServiceMapComputer_CL | Wybierz PhysicalMemory_d, ComputerName_s | ResourceId deduplikacji
+ServiceMapComputer_CL | Podsumuj arg_max(TimeGenerated, *) przez ResourceId | Projekt PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Nazwa komputera listy, DNS, adresu IP i systemu operacyjnego.
-Typ = ServiceMapComputer_CL | Wybierz ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s | Funkcja deduplikacji ResourceId
+ServiceMapComputer_CL | Podsumuj arg_max(TimeGenerated, *) przez ResourceId | Projekt ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Znajdź wszystkie procesy z "sql" w wierszu polecenia
-Typ = ServiceMapProcess_CL CommandLine_s = \*sql\* | deduplikacji ResourceId
+ServiceMapProcess_CL | gdzie contains_cs CommandLine_s "sql" | Podsumuj arg_max(TimeGenerated, *) przez ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Znajdź maszyny (najnowszych rekord) według nazwy zasobu
-Typ = "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" ServiceMapComputer_CL | Funkcja deduplikacji ResourceId
+Szukaj w "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" (ServiceMapComputer_CL) | Podsumuj arg_max(TimeGenerated, *) przez ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Znajdź maszyny (najnowszych rekord) za pomocą adresu IP
-Typ = "10.229.243.232" ServiceMapComputer_CL | Funkcja deduplikacji ResourceId
+Szukaj w "10.229.243.232" (ServiceMapComputer_CL) | Podsumuj arg_max(TimeGenerated, *) przez ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Wyświetl listę wszystkich procesów znanych na określonym komputerze
-Typ ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b =" | Funkcja deduplikacji ResourceId
+ServiceMapProcess_CL | gdzie MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | Podsumuj arg_max(TimeGenerated, *) przez ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Lista wszystkich komputerów z programem SQL
-Typ w ResourceName_s ServiceMapComputer_CL = {typu = ServiceMapProcess_CL \*sql\* | Różne MachineResourceName_s} | Funkcja deduplikacji ResourceId | Różne ComputerName_s
+ServiceMapComputer_CL | gdzie ResourceName_s w ((wyszukiwanie w (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Wyświetla listę wszystkich wersji produktu unikatowy curl w mojej centrum danych
-Typ = ServiceMapProcess_CL ExecutableName_s = curl | Różne ProductVersion_s
+ServiceMapProcess_CL | gdzie ExecutableName_s == "curl" | różne ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Tworzenie grupy komputerów wszystkich komputerów z systemem CentOS
-Typ = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Różne ComputerName_s
+ServiceMapComputer_CL | gdzie contains_cs OperatingSystemFullName_s "CentOS" | różne ComputerName_s
 
 
 ## <a name="rest-api"></a>Interfejs API REST

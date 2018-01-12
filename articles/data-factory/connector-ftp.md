@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 925171ab00bcf2e36e1f8109dceac72ad33be51e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera FTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,8 +38,9 @@ W szczególności ten łącznik FTP obsługuje:
 - Kopiowanie plików za pomocą **podstawowe** lub **anonimowe** uwierzytelniania.
 - Kopiowanie plików jako — jest lub analizowanie plików z [obsługiwane formaty plików i kodery-dekodery kompresji](supported-file-formats-and-compression-codecs.md).
 
-## <a name="get-started"></a>Rozpoczynanie pracy
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](create-self-hosted-integration-runtime.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+## <a name="get-started"></a>Rozpoczęcie pracy
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do FTP.
 
@@ -49,12 +50,12 @@ Obsługiwane są następujące właściwości dla usługi FTP połączone:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SerwerFTP**. | Tak |
-| Host | Określ nazwę lub adres IP serwera FTP. | Tak |
+| type | Właściwość type musi mieć ustawioną: **SerwerFTP**. | Yes |
+| host | Określ nazwę lub adres IP serwera FTP. | Yes |
 | port | Określ port, na którym nasłuchuje serwer FTP.<br/>Dozwolone wartości to: liczba całkowita, wartość domyślna to **21**. | Nie |
 | enableSsl | Określ, czy używać FTP za pośrednictwem kanału SSL/TLS.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false**. | Nie |
 | enableServerCertificateValidation | Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false**. | Nie |
-| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **anonimowe** | Tak |
+| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **anonimowe** | Yes |
 | Nazwa użytkownika | Określ użytkownika, który ma dostęp do serwera FTP. | Nie |
 | hasło | Określ hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -116,8 +117,8 @@ Aby skopiować dane z FTP, ustaw właściwość Typ zestawu danych do **FileShar
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Tak |
-| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Yes |
+| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Yes |
 | fileName | Określ nazwę pliku w **folderPath** Aby kopiować z określonego pliku. Jeśli nie określono żadnej wartości dla tej właściwości, punktów zestawu danych do wszystkich plików w folderze źródłowym. |Nie |
 | obiektu fileFilter | Określ filtr służący do wybierania podzbioru pliki w ścieżce folderu, a nie wszystkie pliki. Ma zastosowanie tylko wtedy, gdy nie jest określona nazwa pliku. <br/><br/>Dozwolone symbole wieloznaczne są: `*` (wielu znaków) i `?` (pojedynczy znak).<br/>— Przykład 1:`"fileFilter": "*.log"`<br/>— Przykład 2:`"fileFilter": 2017-09-??.txt"` |Nie |
 | Format | Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz przeanalizować pliki w określonym formacie, obsługiwane są następujące typy plików w formacie: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](supported-file-formats-and-compression-codecs.md#text-format), [formatu Json](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), i [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sekcje. |Nie (tylko w przypadku scenariusza kopiowania binarny) |
@@ -162,7 +163,7 @@ Aby skopiować dane z FTP, należy ustawić typ źródła w przypadku działania
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Yes |
 | Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 
 **Przykład:**
@@ -198,5 +199,5 @@ Aby skopiować dane z FTP, należy ustawić typ źródła w przypadku działania
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

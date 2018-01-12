@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące usługi Azure Security Center
 Często zadawane pytania odpowiedzi na pytania dotyczące Centrum zabezpieczeń Azure to usługa, która pomaga zapobiec, wykrywania i reagowania na zagrożenia lepszy wgląd w i kontroli w zakresie bezpieczeństwa zasobów na platformie Microsoft Azure.
@@ -35,7 +35,7 @@ Centrum zabezpieczeń Azure ułatwia zapobieganie zagrożeniom, ich wykrywanie i
 ### <a name="how-do-i-get-azure-security-center"></a>Jak uzyskać Centrum zabezpieczeń Azure?
 Centrum zabezpieczeń Azure jest włączone w ramach subskrypcji Microsoft Azure i są dostępne w [portalu Azure](https://azure.microsoft.com/features/azure-portal/). ([Zaloguj się do portalu](https://portal.azure.com), wybierz pozycję **Przeglądaj**, a Przewiń **Centrum zabezpieczeń**).  
 
-## <a name="billing"></a>Rozliczenie
+## <a name="billing"></a>Rozliczenia
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Jak działa rozliczeń dla Centrum zabezpieczeń Azure?
 Centrum zabezpieczeń jest oferowana w dwóch warstw:
 
@@ -61,6 +61,10 @@ Zbieranie danych można włączyć dla Twojej subskrypcji platformy Azure w zasa
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Co się stanie po włączeniu funkcji zbierania danych?
 Po włączeniu funkcji zbierania danych programu Microsoft Monitoring Agent jest udostępniany automatycznie na wszystkich istniejących i nowych obsługiwanych maszyn wirtualnych, które są wdrażane w ramach subskrypcji.
+
+Agent umożliwia zdarzeń tworzenia procesu 4688 i *CommandLine* pole wewnątrz zdarzenia 4688. Nowe procesy utworzone na maszynie Wirtualnej są rejestrowane w dzienniku zdarzeń i monitorowane przez Centrum zabezpieczeń wykrywania usługi. Aby uzyskać informacje dotyczące szczegółów zarejestrowanych dla każdego nowego procesu, zobacz [pola Opis 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agent również zbiera dane zdarzeń 4688 utworzone na maszynie Wirtualnej i przechowuje je w obszarze wyszukiwania.
+
+Jeśli Centrum zabezpieczeń wykryje podejrzanych działań na maszynie Wirtualnej, w przypadku klienta jest powiadamiany za pośrednictwem poczty e-mail [informacje kontaktowe zabezpieczeń](security-center-provide-security-contact-details.md) podano. Alert jest również widoczne na pulpicie nawigacyjnym alerty zabezpieczeń Centrum zabezpieczeń.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Agenta monitorowania na wydajność serwerów?
 Agent wykorzystuje nominalnego ilość zasobów systemowych, a powinien mieć mały wpływ na wydajność. Aby uzyskać więcej informacji dotyczących wpływu na wydajność i agent i rozszerzenia, zobacz [przewodnik dotyczący planowania i operacje](security-center-planning-and-operations-guide.md#data-collection-and-storage).

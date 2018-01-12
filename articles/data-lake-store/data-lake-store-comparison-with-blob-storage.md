@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Porównanie usługi Azure Data Lake Store i magazynu obiektów Blob platformy Azure
 W tabeli w tym artykule przedstawiono różnice między Azure Data Lake Store i magazynu obiektów Blob Azure wzdłuż niektóre kluczowe aspekty przetwarzania danych big. Magazyn obiektów Blob Azure jest ogólnego przeznaczenia, magazynu skalowalne obiektów, które jest przeznaczone do szerokiej gamy scenariuszy magazynu. Azure Data Lake Store to repozytorium hiperskali, zoptymalizowana pod kątem obciążeń analizy danych big data.
@@ -31,7 +31,7 @@ W tabeli w tym artykule przedstawiono różnice między Azure Data Lake Store i 
 | Struktura |Hierarchiczny system plików |Obiekt magazynu z prosty obszar nazw |
 | Interfejs API |Interfejs API REST za pośrednictwem protokołu HTTPS |Interfejs API REST za pośrednictwem protokołu HTTP/HTTPS |
 | Interfejs API po stronie serwera |[Interfejs API REST WebHDFS zgodny](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Interfejs API REST magazynu obiektów Blob platformy Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Klient systemu plików usługi Hadoop |Tak |Tak |
+| Klient systemu plików usługi Hadoop |Yes |Yes |
 | Operacje na danych - uwierzytelniania |Na podstawie [tożsamości usługi Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Oparte na wspólne klucze tajne - [klucze dostępu do konta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) i [kluczy współużytkowanych podpisu dostępu](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operacje na danych — protokół uwierzytelniania |OAuth 2.0. Wywołania musi zawierać prawidłowy token JWT (JSON Web Token) wydanego przez usługę Azure Active Directory |Kod uwierzytelniania wiadomości na podstawie skrótu (HMAC). Wywołania musi zawierać skrótu SHA-256 algorytmem Base64 częścią żądania HTTP. |
 | Operacje na danych - autoryzacji |Listy kontroli dostępu POSIX (ACL).  Listy ACL oparte na Azure Active Directory tożsamości można ustawić poziomu plików i folderów. |Na poziomie konta autoryzacji — użyj [klucze dostępu do konta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Dla konta, kontenera lub obiektu blob autoryzacji - użyj [udostępnionych kluczy podpisów dostępu](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
@@ -46,7 +46,7 @@ W tabeli w tym artykule przedstawiono różnice między Azure Data Lake Store i 
 | Dostępność regionalna |Zobacz [tutaj](https://azure.microsoft.com/regions/#services) |Zobacz [tutaj](https://azure.microsoft.com/regions/#services) |
 | Cena |Zobacz [ceny](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zobacz [ceny](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 * [Omówienie usługi Azure Data Lake Store](data-lake-store-overview.md)
 * [Rozpoczynanie pracy z usługą Data Lake Store](data-lake-store-get-started-portal.md)
 

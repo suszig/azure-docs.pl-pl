@@ -1,5 +1,5 @@
 ---
-title: 'Licencjonowanie: Azure AD SSPR | Dokumentacja firmy Microsoft'
+title: "Licencja samoobsługowego resetowania hasła — Azure Active Directory"
 description: "Azure AD samoobsługowego resetowania hasła wymagania licencyjne"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Wymagania dotyczące usługi Azure AD samoobsługi hasła licencjonowania resetowania
 
 Aby usługi Azure Active Directory (Azure AD) resetowania hasła, aby funkcja możesz *musi mieć co najmniej jedną licencję przypisane w Twojej organizacji*. Firma Microsoft nie wymuszają licencjonowania na środowisku resetowania hasła użytkownika. Aby zachować zgodność z umowy licencyjnej firmy Microsoft, należy przypisać licencje do użytkowników korzystających z funkcji premium.
 
 * **Tylko w chmurze użytkowników**: usługi Office 365 żadnego płatnej SKU lub Azure AD podstawowa
-* **Chmura** lub **lokalnych użytkowników**: Azure AD Premium P1 lub P2 pakietu Enterprise Mobility + Security (EMS) i Secure produktywności przedsiębiorstwa (p)
+* **Chmura** lub **lokalnych użytkowników**: Azure AD Premium P1 lub P2 pakietu Enterprise Mobility + Security (EMS) i Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licencjami wymaganymi do zapisywania zwrotnego haseł
 
@@ -42,6 +42,7 @@ Aby użyć funkcji zapisywania zwrotnego haseł, musi mieć jedną z następują
 
 > [!WARNING]
 > Plany licencjonowania usługi Office 365 autonomiczny *nie obsługują funkcji zapisywania zwrotnego haseł* i mieć jeden z poprzednim planów dla tej funkcji do pracy.
+>
 
 Dodatkowe informacje licencyjne, wraz z kosztami, można znaleźć na następujących stronach:
 
@@ -56,7 +57,7 @@ Teraz usługi Azure AD obsługuje oparte na grupach licencji. Administratorzy mo
 
 Pewnych usług firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Zanim można przypisać licencję do użytkownika, administrator musi określić **lokalizacji użytkowania** właściwości użytkownika. Można wykonać przypisania licencji w obszarze **użytkownika** > **profilu** > **ustawienia** sekcji w portalu Azure. *Gdy używasz przypisanie do grupy licencji użytkowników bez użycia lokalizacji określonej dziedziczą lokalizację katalogu.*
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)
@@ -69,4 +70,3 @@ Pewnych usług firmy Microsoft nie są dostępne we wszystkich lokalizacjach. Za
 * [Jakie są dostępne opcje funkcji samoobsługowego resetowania haseł i do czego one służą?](active-directory-passwords-how-it-works.md)
 * [Myślę, że coś działa niewłaściwie. Jak rozwiązywać problemy z funkcją samoobsługowego resetowania haseł?](active-directory-passwords-troubleshoot.md)
 * [Mam pytanie, na które nie mogę znaleźć odpowiedzi](active-directory-passwords-faq.md)
-

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Praca z zestawem SDK serwera zaplecza platformy .NET na potrzeby usługi Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Uwierzytelnianie można dodać do projektu serwera, rozszerzając **MobileAppCon
 Aby uzyskać informacje dotyczące sposobu uwierzytelniania klientów z wewnętrzną bazą danych Mobile Apps, zobacz [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Porady: użycie uwierzytelniania niestandardowego dla aplikacji
+> [!IMPORTANT]
+> Aby włączyć uwierzytelnianie niestandardowe, należy najpierw włączyć uwierzytelnianie usługi aplikacji bez zaznaczania dostawcy usługi aplikacji w portalu Azure. Spowoduje to włączenie zmiennej środowiskowej WEBSITE_AUTH_SIGNING_KEY podczas udostępniania.
+> 
+> 
 Jeśli nie chcesz używać jednego z dostawców uwierzytelniania/autoryzacji dla aplikacji usługi, można zaimplementować systemu logowania. Zainstaluj [Microsoft.Azure.Mobile.Server.Login] pakietu z generowania tokenu uwierzytelniania.  Sprawdzanie poprawności poświadczeń użytkownika Podaj własny kod. Na przykład sprawdzić przed solone i skrótu hasła w bazie danych. W poniższym przykładzie `isValidAssertion()` — metoda (zdefiniowany w innym miejscu) jest odpowiedzialny za kontrole.
 
 Niestandardowe uwierzytelnianie jest udostępniany przez tworzenie klasy ApiController i udostępnianie `register` i `login` akcje. Niestandardowy interfejs użytkownika powinien używać klient do zbiera informacje o użytkowniku.  Informacje jest następnie przesłane do interfejsu API przy użyciu standardowych wywołania metody POST protokołu HTTP. Gdy serwer sprawdza to potwierdzenie, token jest wystawiane przy użyciu `AppServiceLoginHandler.CreateToken()` metody.  Klasy ApiController **nie powinien** użyj `[MobileAppController]` atrybutu.

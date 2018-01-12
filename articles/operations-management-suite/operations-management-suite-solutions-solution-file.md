@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Tworzenie pliku rozwiązania zarządzania w Operations Management Suite (OMS) (wersja zapoznawcza)
 > [!NOTE]
@@ -39,7 +39,7 @@ Można użyć dowolnego edytora tekstu do pracy z plikami rozwiązania, ale zale
 
 
 ## <a name="structure"></a>Struktura
-Podstawowa struktura pliku rozwiązania zarządzania jest taka sama jak [szablonu usługi Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) którego ma następującą składnię.  Każdy z poniższych sekcjach opisano elementy najwyższego poziomu i i ich zawartość w rozwiązaniu.  
+Podstawowa struktura pliku rozwiązania zarządzania jest taka sama jak [szablonu usługi Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format), który ma następującą składnię.  Każdy z poniższych rozdziałach opisano elementów najwyższego poziomu i ich zawartość w rozwiązaniu.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -86,12 +86,12 @@ W poniższej tabeli wymieniono standardowe parametry dla wszystkich rozwiązań 
 
 | Parametr | Typ | Opis |
 |:--- |:--- |:--- |
-| Nazwa konta |Ciąg |Nazwa konta automatyzacji Azure. |
-| pricingTier |Ciąg |Warstwa cenowa obszaru roboczego analizy dzienników i konto usługi Automatyzacja Azure. |
-| regionId |Ciąg |Region konto usługi Automatyzacja Azure. |
-| Nazwa rozwiązania |Ciąg |Nazwa rozwiązania.  Jeśli wdrażasz rozwiązania za pomocą szablonów Szybki Start, następnie należy zdefiniować Nazwa rozwiązania jako parametru, można zdefiniować zamiast tego, gdyż użytkownik musi określić jeden ciąg. |
-| workspaceName |Ciąg |Nazwa obszaru roboczego analizy dzienników. |
-| workspaceRegionId |Ciąg |Obszar roboczy analizy dzienników. |
+| Nazwa konta |ciąg |Nazwa konta automatyzacji Azure. |
+| pricingTier |ciąg |Warstwa cenowa obszaru roboczego analizy dzienników i konto usługi Automatyzacja Azure. |
+| regionId |ciąg |Region konto usługi Automatyzacja Azure. |
+| Nazwa rozwiązania |ciąg |Nazwa rozwiązania.  Jeśli wdrażasz rozwiązania za pomocą szablonów Szybki Start, następnie należy zdefiniować Nazwa rozwiązania jako parametru, można zdefiniować zamiast tego, gdyż użytkownik musi określić jeden ciąg. |
+| workspaceName |ciąg |Nazwa obszaru roboczego analizy dzienników. |
+| workspaceRegionId |ciąg |Obszar roboczy analizy dzienników. |
 
 
 Poniżej znajduje się struktury standardowe parametry, które można skopiować i wkleić do pliku rozwiązania.  
@@ -166,7 +166,7 @@ W takim przypadku można odwoływać się do wartości zmiennych za pośrednictw
 
 
 ### <a name="dependencies"></a>Zależności
-**DependsOn** określa elementy [zależności](../azure-resource-manager/resource-group-define-dependencies.md) na inny zasób.  Po zainstalowaniu rozwiązania zasobu nie jest tworzony, dopóki wszystkie jego zależności zostały utworzone.  Na przykład może rozwiązania [uruchomienia elementu runbook](operations-management-suite-solutions-resources-automation.md#runbooks) po zainstalowaniu przy użyciu [zadania zasobu](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Zasobów zadania będzie zależał od zasobu elementu runbook, aby upewnić się, że element runbook został utworzony przed utworzeniem zadania.
+**DependsOn** określa element [zależności](../azure-resource-manager/resource-group-define-dependencies.md) na inny zasób.  Po zainstalowaniu rozwiązania zasobu nie jest tworzony, dopóki wszystkie jego zależności zostały utworzone.  Na przykład może rozwiązania [uruchomienia elementu runbook](operations-management-suite-solutions-resources-automation.md#runbooks) po zainstalowaniu przy użyciu [zadania zasobu](operations-management-suite-solutions-resources-automation.md#automation-jobs).  Zasobów zadania będzie zależał od zasobu elementu runbook, aby upewnić się, że element runbook został utworzony przed utworzeniem zadania.
 
 ### <a name="oms-workspace-and-automation-account"></a>Obszar roboczy OMS i konta automatyzacji
 Rozwiązania do zarządzania wymagają [obszarem roboczym pakietu OMS](../log-analytics/log-analytics-manage-access.md) zawiera widoki i [konto automatyzacji](../automation/automation-security-overview.md#automation-account-overview) zawiera elementy runbook i powiązanych zasobów.  Te muszą być dostępne, przed zasobów w rozwiązaniu są tworzone i nie powinna być zdefiniowana w rozwiązaniu do samej siebie.  Użytkownik będzie [Określ obszar roboczy i konta](operations-management-suite-solutions.md#oms-workspace-and-automation-account) podczas ich wdrażania rozwiązania, ale Autor powinien wziąć pod uwagę następujące kwestie.
@@ -176,7 +176,7 @@ Każde rozwiązanie wymaga zapisu zasobów w **zasobów** element, który defini
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Każde rozwiązanie wymaga zapisu zasobów w **zasobów** element, który defini
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -225,20 +225,20 @@ W powyższym przykładzie jest rozwiązania z elementu runbook, harmonogram i wi
 | Właściwość | Opis |
 |:--- |:--- |
 | name |Nazwa rozwiązania. |
-| Wersja |Wersja rozwiązania zgodnie z ustaleniami autora. |
-| Produktu |Unikatowy ciąg do identyfikowania rozwiązania. |
+| wersja |Wersja rozwiązania zgodnie z ustaleniami autora. |
+| produkt |Unikatowy ciąg do identyfikowania rozwiązania. |
 | Wydawcy |Wydawca rozwiązania. |
 
 
 
-## <a name="sample"></a>Przykład
+## <a name="sample"></a>Sample
 Można wyświetlić przykłady pliki rozwiązania z zasobem rozwiązania w następujących lokalizacjach.
 
 - [Zasoby do automatyzacji](operations-management-suite-solutions-resources-automation.md#sample)
 - [Zasoby wyszukiwania i alertów](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dodaj zapisanych wyszukiwań i alerty](operations-management-suite-solutions-resources-searches-alerts.md) do rozwiązania do zarządzania.
 * [Dodawanie widoków](operations-management-suite-solutions-resources-views.md) do rozwiązania do zarządzania.
 * [Dodawanie elementów runbook i innych zasobów automatyzacji](operations-management-suite-solutions-resources-automation.md) do rozwiązania do zarządzania.

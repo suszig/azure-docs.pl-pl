@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Użyj narzędzia Diagnostyka StorSimple rozwiązywać problemy dotyczące urządzenia z serii 8000
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Narzędzie diagnostyczne StorSimple diagnozuje problemy związane z kondycja składnika systemu, wydajności sieci i sprzętu dla urządzenia StorSimple. Narzędzie diagnostyczne można w różnych scenariuszach. Te scenariusze obejmują obciążenia planowania, wdrażania urządzenia StorSimple oceny środowiska sieciowego i określania wydajności działającego urządzenia. Ten artykuł zawiera omówienie narzędzia diagnostycznego i opisano, jak można użyć narzędzia z urządzeniem StorSimple.
 
@@ -32,15 +32,15 @@ Narzędzie diagnostyczne jest przeznaczone głównie dla urządzeń lokalnych, s
 
 To narzędzie można uruchomić za pomocą interfejsu programu Windows PowerShell urządzenia StorSimple. Istnieją dwa sposoby dostępu lokalnego interfejsu urządzenia:
 
-* [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Zdalny dostęp do narzędzia programu Windows PowerShell dla urządzenia StorSimple](storsimple-remote-connect.md).
+* [Łączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Zdalny dostęp do narzędzia programu Windows PowerShell dla urządzenia StorSimple](storsimple-8000-remote-connect.md).
 
 W tym artykule przyjęto założenie, że nawiązano połączenie z konsolą szeregową urządzenia przy użyciu programu PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Aby uruchomić narzędzie diagnostyczne
 
 Po podłączeniu do interfejsu programu Windows PowerShell, urządzenia, wykonaj następujące kroki, aby uruchomić polecenie cmdlet.
-1. Zaloguj się do konsoli szeregowej urządzenia, wykonując kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Zaloguj się do konsoli szeregowej urządzenia, wykonując kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Wpisz następujące polecenie:
 
@@ -85,11 +85,11 @@ Ten test określa stan składników sprzętu, oprogramowania układowego należy
 * Składniki sprzętowe zgłaszane są tych składników, które nie powiodło się uruchomienie testu lub nie są dostępne w systemie.
 * Wersje oprogramowania układowego dysk i oprogramowania układowego należy są zgłaszane dla kontrolera 0 i kontrolera 1 i udostępnionych składników w systemie. Aby uzyskać pełną listę składników sprzętowych przejdź do:
 
-    * [Składniki w obudowie podstawowego](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Składniki w obudowie EBOD](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Składniki w obudowie podstawowego](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Składniki w obudowie EBOD](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Jeśli test sprzętu zgłasza błędne składniki [Zaloguj żądania obsługi ze Microsoft Support](storsimple-contact-microsoft-support.md).
+> Jeśli test sprzętu zgłasza błędne składniki [Zaloguj żądania obsługi ze Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Przykładowe dane wyjściowe testu sprzętu uruchamianie na urządzeniu 8100
 
@@ -210,7 +210,7 @@ Ten test raportuje informacje o systemie, dostępne aktualizacje, informacje o k
 * Informacje o systemie zawiera model, numer seryjny urządzenia strefy czasowej, stan kontrolera i wersji oprogramowania szczegółowe uruchomiona w systemie. Aby poznać różne parametry systemu zgłoszone jako dane wyjściowe, przejdź do [interpretacji informacji o systemie](#appendix-interpreting-system-information).
 
 * Czy tryby zwykłych oraz obsługi są dostępne raporty dostępności aktualizacji i ich nazw skojarzonego pakietu. Jeśli `RegularUpdates` i `MaintenanceModeUpdates` są `false`, oznacza to, że aktualizacje nie są dostępne. Urządzenie jest aktualny.
-* Informacje o klastrze zawiera informacje dotyczące różnych składników logicznych wszystkie grupy klastra moduł HCS oraz ich odpowiednich stanów. Jeśli widzisz grupy klastra w trybie offline, w tej sekcji raportu, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).
+* Informacje o klastrze zawiera informacje dotyczące różnych składników logicznych wszystkie grupy klastra moduł HCS oraz ich odpowiednich stanów. Jeśli widzisz grupy klastra w trybie offline, w tej sekcji raportu, [skontaktuj się z Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Informacje o usłudze zawiera nazwy i Stanami wszystkich usług moduł HCS i konfiguracji (ci) uruchomione na urządzeniu. Informacje te są przydatne do firmy Microsoft Support przy rozwiązywaniu problemu urządzenia.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Przykładowe dane wyjściowe testu systemu uruchamianie na urządzeniu 8100
@@ -365,7 +365,7 @@ Web proxy                               Not enabled         Web proxy is not...
 --------------------------------------------------
 ```
 
-### <a name="performance-test"></a>Test wydajności
+### <a name="performance-test"></a>Test wydajnościowy
 
 Ten test raportów wydajności chmury za pośrednictwem chmury opóźnienia odczytu i zapisu dla danego urządzenia. To narzędzie można ustalić linię bazową wydajności chmury, który można uzyskać z StorSimple. Narzędzie Raporty maksymalną wydajność (najlepsze scenariusz dla opóźnienia odczytu i zapisu) można uzyskać połączenia.
 
@@ -416,7 +416,7 @@ Oto opisujące jaki różne parametry programu Windows PowerShell w mapie inform
 | Parametr programu PowerShell    | Opis  |
 |-------------------------|------------------|
 | Identyfikator wystąpienia             | Każdy kontroler ma unikatowego identyfikatora lub identyfikator GUID skojarzony z nim.|
-| Nazwa                    | Przyjazna nazwa urządzenia, zgodnie z konfiguracją za pośrednictwem portalu Azure podczas wdrażania urządzenia. Przyjazna nazwa domyślna jest numer seryjny urządzenia. |
+| Name (Nazwa)                    | Przyjazna nazwa urządzenia, zgodnie z konfiguracją za pośrednictwem portalu Azure podczas wdrażania urządzenia. Przyjazna nazwa domyślna jest numer seryjny urządzenia. |
 | Model                   | Model urządzenia serii StorSimple 8000. Model może być 8100 lub 8600.|
 | numer seryjny            | Numer seryjny urządzenia jest przypisana w fabryce i 15 znaków. Wskazuje, na przykład 8600 SHX0991003G44HT:<br> 8600 — jest to model urządzenia.<br>SHX — jest miejsce produkcji.<br> 0991003 — jest określony produkt. <br> G44HT-5 ostatnich cyfr numeru są zwiększane, aby utworzyć unikatowe numery seryjne. Nie można sekwencyjnych zestawu.|
 | Strefa czasowa                | Strefa czasowa urządzenia, zgodnie z konfiguracją w portalu Azure podczas wdrażania urządzenia.|
@@ -437,7 +437,7 @@ Oto opisujące jaki różne parametry programu Windows PowerShell w mapie inform
 | RemoteManagementMode    | Wskazuje, czy urządzenia mogą być zarządzane zdalnie za pośrednictwem jej interfejsu programu Windows PowerShell. |
 | FipsMode                | Wskazuje, czy tryb Stanów Zjednoczonych informacji przetwarzania Standard FIPS (Federal) jest włączony na twoim urządzeniu. Standard FIPS 140 definiuje zatwierdzone do użycia przez nas federalne dla instytucji rządowych systemów komputerowych do ochrony danych poufnych algorytmów kryptograficznych. W przypadku urządzeń programu Update 4 lub nowszego trybie FIPS jest domyślnie włączona. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się [składni polecenia cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

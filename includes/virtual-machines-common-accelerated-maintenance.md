@@ -24,7 +24,7 @@ Ponowne uruchomienie większości trwa około **30 minut**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Czy należy zaktualizować system operacyjny gościa? 
 
-Ta aktualizacja infrastruktury platformy Azure adresów lukę w zabezpieczeniach na poziomie funkcji hypervisor i nie wymaga aktualizacji obrazów systemu Windows lub maszyny Wirtualnej systemu Linux. Jako zawsze należy kontynuować do zastosowania najlepsze rozwiązania dotyczące obrazów maszyny Wirtualnej. Należy zapoznać się z dostawcą systemów operacyjnych, aktualizacji i instrukcje, zgodnie z potrzebami. W przypadku klientów maszyny Wirtualnej systemu Windows Server, wskazówki teraz została opublikowana i jest dostępny [tutaj](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Ta aktualizacja infrastruktury platformy Azure adresów lukę w zabezpieczeniach na poziomie funkcji hypervisor i nie wymaga aktualizacji obrazów systemu Windows lub maszyny Wirtualnej systemu Linux. Jako zawsze należy kontynuować do zastosowania najlepsze rozwiązania dotyczące obrazów maszyny Wirtualnej. Należy zapoznać się z dostawcą systemów operacyjnych, aktualizacji i instrukcje, zgodnie z potrzebami. W przypadku klientów maszyny Wirtualnej systemu Windows Server, wskazówki teraz została opublikowana i jest dostępny [tutaj](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Będzie negatywny wpływ na wydajność wyniku rozpoznawania tej aktualizacji?
 

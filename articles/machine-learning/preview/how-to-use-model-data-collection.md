@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Zbieranie danych modelu przy użyciu funkcji zbierania danych
 
-Funkcji zbierania danych modelu w konsoli usługi Azure Machine Learning Workbench służy do archiwizowania wejść modelu i prognozowanie z usługi sieci web.
+Funkcji zbierania danych modelu w usłudze Azure Machine Learning służy do archiwizowania wejść modelu i prognozowanie z usługi sieci web.
 
 ## <a name="install-the-data-collection-package"></a>Zainstaluj pakiet kolekcji danych
 Biblioteka zbierania danych można zainstalować natywnie w systemie Linux i Windows.
@@ -37,6 +37,12 @@ W systemie Linux najpierw zainstaluj biblioteki libxml ++. Uruchom następujące
 Następnie uruchom następujące polecenie:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Ustaw zmienne środowiskowe
+
+Zbieranie danych modelu zależy od dwóch zmiennych środowiskowych. Musi mieć ustawioną AML_MODEL_DC_STORAGE_ENABLED **true** (tylko małe litery) i AML_MODEL_DC_STORAGE musi być ustawione parametry połączenia dla konta usługi Magazyn Azure, w którym chcesz przechowywać dane.
+
+Te zmienne środowiskowe są ustawiane dla Ciebie już, gdy usługa sieci web działa w klastrze na platformie Azure. Podczas uruchamiania lokalnego należy ustawić samodzielnie. Jeśli używasz Docker należy użyć parametru -e docker polecenia do przekazania zmiennych środowiskowych.
 
 ## <a name="collect-data"></a>Zbieranie danych
 

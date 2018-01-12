@@ -1,6 +1,6 @@
 ---
 title: "Włączenia kopii zapasowej Azure stosu przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
-description: "Włącz infrastruktury ponownie usługę przy użyciu programu Windows PowerShell, aby w przypadku awarii można przywrócić stosu Azure."
+description: "Włącz usługę kopia zapasowa infrastruktury przy użyciu programu Windows PowerShell, tak, aby w przypadku awarii można przywrócić stosu Azure."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Włączenia kopii zapasowej Azure stosu przy użyciu programu PowerShell
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Włącz infrastruktury ponownie usługę przy użyciu programu Windows PowerShell, aby w przypadku awarii można przywrócić stosu Azure. Można uzyskać dostępu do poleceń cmdlet programu PowerShell do włączenia kopii zapasowej, rozpocząć tworzenie kopii zapasowej i uzyskać informacje o kopii zapasowej za pośrednictwem punktu końcowego zarządzania operatora.
+Włącz usługę kopia zapasowa infrastruktury przy użyciu programu Windows PowerShell, tak, aby w przypadku awarii można przywrócić stosu Azure. Można uzyskać dostępu do poleceń cmdlet programu PowerShell do włączenia kopii zapasowej, rozpocząć tworzenie kopii zapasowej i uzyskać informacje o kopii zapasowej za pośrednictwem punktu końcowego zarządzania operatora.
 
 ## <a name="download-azure-stack-tools"></a>Pobieranie narzędzia Azure stosu
 
@@ -90,6 +90,9 @@ W tej samej sesji programu PowerShell uruchom następujące polecenia:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> Należy użyć narzędzia AzureStack do wygenerowania klucza.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Podaj klucz udziału, poświadczeń i szyfrowanie kopii zapasowej do włączenia kopii zapasowej
 
 W tej samej sesji programu PowerShell należy edytować następujący skrypt programu PowerShell, dodając zmienne dla danego środowiska. Uruchom skrypt zaktualizowane zapewnienie kopii zapasowej klucza udziału, poświadczeń i szyfrowanie usługi tworzenia kopii zapasowej infrastruktury.
@@ -98,18 +101,18 @@ W tej samej sesji programu PowerShell należy edytować następujący skrypt pro
 |---              |---                                        |
 | $username       | Typ **Username** przy użyciu domena i nazwa użytkownika dla lokalizacji udostępnionego dysku. Na przykład `Contoso\administrator`. |
 | $password       | Typ **hasło** dla użytkownika. |
-| $sharepath      | Wpisz ścieżkę do **lokalizacja magazynu kopii zapasowej**. Ścieżka udziału plików hostowane na osobnych urządzenia, musisz użyć ciągu Universal Naming Convention (UNC). Ciąg UNC Określa lokalizację zasobów, takich jak udostępnione pliki lub urządzeń. W celu zapewnienia dostępności danych kopii zapasowej, urządzenia powinny być w innej lokalizacji. |
+| $sharepath      | Wpisz ścieżkę do **lokalizacja magazynu kopii zapasowej**. Ścieżka do udziału plików hostowane na osobnych urządzenie, musisz użyć ciągu Universal Naming Convention (UNC). Ciąg UNC Określa lokalizację zasobów, takich jak udostępnione pliki lub urządzeń. W celu zapewnienia dostępności danych kopii zapasowej, urządzenia powinny być w innej lokalizacji. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Potwierdź ustawienia kopii zapasowej
 
 W tej samej sesji programu PowerShell uruchom następujące polecenia:

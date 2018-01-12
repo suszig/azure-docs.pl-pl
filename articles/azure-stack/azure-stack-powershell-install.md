@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instalowanie programu PowerShell dla usługi Azure stosu  
 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono szczegółowe instrukcje dotyczące instalacji prog
 > [!NOTE]
 > Poniższe kroki wymagają programu PowerShell 5.0. Aby sprawdzić swoją wersję, uruchom $PSVersionTable.PSVersion i porównaj "Główny" numer wersji.
 
-Polecenia programu PowerShell dla usługi Azure stosu są instalowane za pośrednictwem galerii programu PowerShell. Aby regiser repozytorium PSGallery Otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z zestaw deweloperski lub klient zewnętrznych z systemem Windows, jeśli są połączone za pośrednictwem sieci VPN i uruchom następujące polecenie:
+Polecenia programu PowerShell dla usługi Azure stosu są instalowane za pośrednictwem galerii programu PowerShell. Aby zarejestrować repozytorium PSGallery, otwórz sesję programu PowerShell z podwyższonym poziomem uprawnień z zestaw deweloperski lub klient zewnętrznych z systemem Windows Jeśli są połączone za pośrednictwem sieci VPN i uruchom następujące polecenie:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Przed zainstalowaniem wersji wymagane, upewnij się, odinstalowanie żadnych ist
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Zaloguj się development Kit lub do systemu Windows klienta zewnętrznego Jeśli planujesz ustanowić połączenie sieci VPN. Usuń wszystkie foldery, które zaczynają się "Azure" z `C:\Program Files (x86)\WindowsPowerShell\Modules` i `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folderów. Usunięcie tych folderów usuwa wszystkie istniejące moduły programu PowerShell z "AzureStackAdmin" i "globalny" użytkownik zakresów. 
+* Zaloguj się development Kit lub do systemu Windows klienta zewnętrznego Jeśli planujesz ustanowić połączenie sieci VPN. Usuń wszystkie foldery, które zaczynają się "Azure" z `C:\Program Files\WindowsPowerShell\Modules` i `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folderów. Usunięcie tych folderów usuwa wszystkie istniejące moduły programu PowerShell z "AzureStackAdmin" i "globalny" użytkownik zakresów. 
 
 W poniższych sekcjach opisano kroki wymagane do zainstalowania programu PowerShell dla usługi Azure stosu. Na stosie Azure, która jest świadczona w połączone, częściowo połączone lub w scenariuszu bez połączenia można zainstalować programu PowerShell. 
 
@@ -126,7 +126,6 @@ W przypadku odłączonych należy najpierw Pobierz moduły programu PowerShell n
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 
@@ -134,7 +133,7 @@ W przypadku odłączonych należy najpierw Pobierz moduły programu PowerShell n
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Pobieranie narzędzia Azure stosu z usługi GitHub](azure-stack-powershell-download.md)
 * [Konfigurowanie środowiska PowerShell użytkownika Azure stosu](user/azure-stack-powershell-configure-user.md)  

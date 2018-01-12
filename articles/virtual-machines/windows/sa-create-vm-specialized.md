@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Utwórz maszynę Wirtualną z wirtualnego dysku twardego specjalne konta magazynu
 
 Tworzenie nowej maszyny Wirtualnej przez dołączenie dysku niezarządzane specjalne jako dysk systemu operacyjnego przy użyciu programu Powershell. Specjalne dysku jest kopią wirtualnego dysku twardego z istniejącej maszyny Wirtualnej, który przechowuje konta użytkowników, aplikacji i innych danych o stanie z oryginalnego maszyny Wirtualnej. 
 
 Dostępne są dwie opcje:
-* [Przekazywanie wirtualnego dysku twardego](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Skopiuj wirtualny dysk twardy z istniejącej maszyny Wirtualnej Azure](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Przekazywanie wirtualnego dysku twardego](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Skopiuj wirtualny dysk twardy z istniejącej maszyny Wirtualnej Azure](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 Jeśli używasz programu PowerShell, upewnij się, że masz najnowszą wersję modułu programu AzureRM.Compute PowerShell. Uruchom następujące polecenie, aby go zainstalować.
@@ -318,6 +319,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby zalogować się do nowej maszyny wirtualnej, przejdź do maszyny Wirtualnej w [portal](https://portal.azure.com), kliknij przycisk **Connect**i Otwórz plik RDP pulpitu zdalnego. Korzystać z poświadczeń konta oryginalnego maszyny wirtualnej, aby zalogować się do nowej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [jak połączenia i zaloguj się do maszyny wirtualnej platformy Azure systemem Windows](connect-logon.md).
 

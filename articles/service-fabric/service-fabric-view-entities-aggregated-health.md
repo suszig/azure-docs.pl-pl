@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 8815d4409b9b18d34fae737c1c0dc22d2ed633a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd3168adc6624e172099c8d62124f7b5ae4839a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="view-service-fabric-health-reports"></a>Wyświetl raporty dotyczące kondycji sieci szkieletowej usług
 Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) z jednostek kondycji, na którym składników systemu i watchdogs można raportu lokalnego warunki, które są monitorowania. [Magazynu kondycji](service-fabric-health-introduction.md#health-store) agreguje wszystkie dane kondycji, aby określić, czy jednostki są w dobrej kondycji.
@@ -1237,7 +1237,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Używanie raportów kondycji systemu do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Dodawanie niestandardowych raportów kondycji sieci szkieletowej usług](service-fabric-report-health.md)

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
-ms.openlocfilehash: 4699673255706a69d597ce28b47ab05a5f8eb957
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 6a57576704d1814d08514dc436070cab07f12b39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Omówienie przesyłania strumieniowego Spark
 
@@ -210,7 +210,7 @@ Zwykle skompilować przesyłania strumieniowego Spark aplikację lokalnie, a nas
 
 Można również sprawdzić stan wszystkich aplikacji z żądanie GET względem punktu końcowego programu LIVY. Na koniec można zakończyć działającej aplikacji, wysyłając żądanie usunięcia, względem punktu końcowego na żywo. Aby uzyskać więcej informacji na temat interfejsu API programu LIVY, zobacz [zdalnego zadań z programu LIVY](apache-spark-livy-rest-interface.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Utworzyć klaster Apache Spark w usłudze HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Przewodnik programowania w języku przesyłania strumieniowego Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

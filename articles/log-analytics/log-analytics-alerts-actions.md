@@ -1,6 +1,6 @@
 ---
-title: Odpowiedzi na alerty w OMS Log Analytics | Dokumentacja firmy Microsoft
-description: "Alerty w analizy dzienników zidentyfikować ważne informacje zawarte w repozytorium OMS i aktywne powiadamia użytkownika o problemy lub akcji, aby je poprawić.  W tym artykule opisano sposób tworzenia reguły alertu i szczegóły dla różnych działań podejmowanych przez nich."
+title: Odpowiedzi na alerty w Azure Log Analytics | Dokumentacja firmy Microsoft
+description: "Alerty w analizy dzienników zidentyfikować ważne informacje w obszarze roboczym Azure i aktywne powiadamia użytkownika o problemy lub akcji, aby je poprawić.  W tym artykule opisano sposób tworzenia reguły alertu i szczegóły dla różnych działań podejmowanych przez nich."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Dodawanie akcji do reguły alertów w analizy dzienników
 Gdy [alert jest tworzony w analizy dzienników](log-analytics-alerts.md), masz możliwość [konfigurowanie reguły alertu](log-analytics-alerts.md) przeprowadzenie jedną lub więcej akcji.  W tym artykule opisano różne akcje, które są dostępne i szczegółowe informacje na temat konfigurowania każdego rodzaju.
 
 | Akcja | Opis |
 |:--|:--|
-| [Adres e-mail](#email-actions) | Wyślij wiadomość e-mail ze szczegółami alertu do co najmniej jednego adresata. |
+| [Wiadomość e-mail](#email-actions) | Wyślij wiadomość e-mail ze szczegółami alertu do co najmniej jednego adresata. |
 | [Element Webhook](#webhook-actions) | Wywołaj procesu zewnętrznego przez pojedyncze żądanie HTTP POST. |
 | [Element Runbook](#runbook-actions) | Uruchom element runbook automatyzacji Azure. |
 
@@ -57,7 +57,7 @@ Akcje elementu Webhook wymagają właściwości w poniższej tabeli.
 Elementów Webhook obejmują adres URL i zapisany w formacie JSON, które to dane wysyłane do zewnętrznych usługi ładunku.  Domyślnie ładunek zawiera wartości w tabeli poniżej.  Można zastąpić to ładunku niestandardowego własny.  W takim przypadku służy zmiennych w tabeli dla każdego z parametrów do uwzględnienia w niestandardowy ładunek ich wartości.
 
 >[!NOTE]
-> Jeśli został uaktualniony do obszaru roboczego [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), ładunek webook została zmieniona, a następnie.  Szczegółowe informacje o formacie znajdują się w [interfejsu API REST usługi Analiza dzienników Azure](https://aka.ms/loganalyticsapiresponse).  Można zobaczyć przykład w [przykłady](#sample-payload) poniżej.
+> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](log-analytics-log-search-upgrade.md), ładunek elementu webhook uległ zmianie.  Szczegółowe informacje na temat tego formatu zawiera artykuł [Azure Log Analytics REST API (Interfejs API REST usługi Azure Log Analytics)](https://aka.ms/loganalyticsapiresponse).  Można zobaczyć przykład w [przykłady](#sample-payload) poniżej.
 
 | Parametr | Zmienna | Opis |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Elementów Webhook obejmują adres URL i zapisany w formacie JSON, które to dan
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Godzina rozpoczęcia dla zapytania w formacie UTC. |
 | SearchQuery |#searchquery |Dziennik wyszukiwania używane przez reguły alertów. |
 | Wynikówwyszukiwania |Zobacz poniżej |Rekordów zwróconych przez zapytanie w formacie JSON.  Ograniczone do pierwszych 5000 rekordów. |
-| WorkspaceID |#workspaceid |Identyfikator obszaru roboczego OMS. |
+| WorkspaceID |#workspaceid |Identyfikator obszaru roboczego analizy dzienników. |
 
 Można na przykład określić następujące niestandardowy ładunek, który zawiera jeden parametr o nazwie *tekstu*.  Usługa, która wywołuje ten element webhook czy oczekiwano tego parametru.
 
@@ -97,11 +97,11 @@ Na przykład aby utworzyć niestandardowy ładunek, zawierający tylko nazwę al
     }
 
 
-Można przeprowadzić za pomocą pełny przykład tworzenie reguły alertu z elementu webhook można uruchomić usługi zewnętrzne w [utworzenie alertu elementu webhook w OMS analizy dzienników do wysyłania wiadomości zapas czasu](log-analytics-alerts-webhooks.md).
+Można przeprowadzić za pomocą pełny przykład tworzenie reguły alertu z elementu webhook można uruchomić usługi zewnętrzne w [utworzenie alertu elementu webhook w analizy dzienników do wysyłania wiadomości zapas czasu](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Działania elementu Runbook
-Działania elementu Runbook uruchamiania elementu runbook automatyzacji Azure.  Aby użyć tego typu akcji, należy skonfigurować [rozwiązania automatyzacja](log-analytics-add-solutions.md) zainstalowany i skonfigurowany w obszarze roboczym pakietu OMS.  Możesz wybrać elementów runbook w ramach konta automatyzacji, skonfigurowanego w rozwiązaniu automatyzacji.
+Działania elementu Runbook uruchamiania elementu runbook automatyzacji Azure.  Aby użyć tego typu akcji, należy skonfigurować [rozwiązania automatyzacja](log-analytics-add-solutions.md) zainstalowany i skonfigurowany w obszarze roboczym analizy dzienników.  Możesz wybrać elementów runbook w ramach konta automatyzacji, skonfigurowanego w rozwiązaniu automatyzacji.
 
 Działania elementu Runbook wymagają właściwości w poniższej tabeli.
 
@@ -115,7 +115,7 @@ Uruchom działania elementu Runbook przy użyciu elementu runbook [webhook](../a
 Nie można bezpośrednio wypełnić wszystkie parametry elementu runbook, ale [parametru $WebhookData](../automation/automation-webhooks.md) będzie zawierać szczegóły alertu, w tym wyniki wyszukiwania dziennika, który go utworzył.  Element runbook, należy zdefiniować **$WebhookData** jako parametr, aby uzyskać dostęp do właściwości alertu.  Dane alertu jest dostępny w formacie json w jedną właściwość o nazwie **właściwości SearchResult** (dla działania elementu runbook i Akcje elementu webhook z ładunku standardowe) lub **wynikówwyszukiwania** (Akcje elementu webhook z niestandardowych w tym ładunku **IncludeSearchResults ": true**) w **RequestBody** właściwość **$WebhookData**.  Będzie to mieć z właściwościami w poniższej tabeli.
 
 >[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie ładunku element runbook został zmieniony.  Szczegółowe informacje o formacie znajdują się w [interfejsu API REST usługi Analiza dzienników Azure](https://aka.ms/loganalyticsapiresponse).  Można zobaczyć przykład w [przykłady](#sample-payload) poniżej.  
+> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie ładunku element runbook został zmieniony.  Szczegółowe informacje na temat tego formatu zawiera artykuł [Azure Log Analytics REST API (Interfejs API REST usługi Azure Log Analytics)](https://aka.ms/loganalyticsapiresponse).  Można zobaczyć przykład w [przykłady](#sample-payload) poniżej.  
 
 | Węzeł | Opis |
 |:--- |:--- |
@@ -620,6 +620,6 @@ Poniżej przedstawiono przykładowe ładunku dla działania elementu runbook w o
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Zakończenie wskazówki dla [Konfigurowanie webook](log-analytics-alerts-webhooks.md) z reguły alertu.  
 - Dowiedz się, jak napisać [elementy runbook automatyzacji Azure](https://azure.microsoft.com/documentation/services/automation) skorygować problemy zidentyfikowane przez alertów.

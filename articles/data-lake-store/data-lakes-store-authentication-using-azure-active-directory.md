@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Uwierzytelnianie za pomocą usługi Data Lake Store za pomocą usługi Azure Active Directory
 
@@ -48,7 +48,7 @@ W poniższej tabeli przedstawiono, jak są obsługiwane przez użytkownika końc
 
 Zobacz [scenariusze uwierzytelniania usługi Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) Aby uzyskać więcej informacji na temat korzystania z usługi Azure Active Directory do uwierzytelniania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Uwierzytelnianie użytkowników końcowych](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Uwierzytelnianie między usługami](data-lake-store-service-to-service-authenticate-using-active-directory.md)

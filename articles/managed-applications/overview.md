@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Omówienie aplikacji zarządzanych platformy Azure
 
@@ -48,6 +48,8 @@ Aby dowiedzieć się, jak publikowanie aplikacji zarządzanych katalogu usług, 
 
 Dostawców chcą naliczać opłaty za swoje usługi można udostępnić zarządzanych aplikacji za pośrednictwem portalu Azure marketplace. Dostawcy publikuje aplikacji, jest dostępny dla użytkowników spoza organizacji. Z tego podejścia, dostawców usług zarządzanych (MSPs) niezależnym dostawcom oprogramowania (ISV) i system integratory (SIs) może oferować ich rozwiązania wszystkich klientów platformy Azure.
 
+Informacje o publikowaniu zarządzanej aplikacji do witryny Marketplace, zobacz [tworzenie aplikacji marketplace](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Grupy zasobów zarządzanych aplikacji
 
 Zazwyczaj zasobów zarządzanych aplikacji znajdują się w dwie grupy zasobów. Użytkownik zarządza jedna grupa zasobów oraz wydawcy zarządza grupie zasobów. Podczas definiowania zarządzanej aplikacji, wydawca Określa poziomy dostępu. Na poniższej ilustracji przedstawiono scenariusz, w którym wydawcy żądań rolę właściciela grupy zasobów zarządzanych. Wydawcy umieścić blokady tylko do odczytu w tej grupie zasobów dla konsumentów.
@@ -66,8 +68,8 @@ Ta grupa zasobów zawiera zasoby, które są wymagane przez aplikację. Na przyk
 
 Gdy użytkownik usunie aplikacja zarządzana, grupa zasobów zarządzanych również zostanie usunięta.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do definiowania i wdrażania aplikacji zarządzanych, zobacz [tworzenie i wdrażanie platformy Azure zarządzanych aplikacji przy użyciu wiersza polecenia platformy Azure](managed-apps-quickstart-cli.md)
 * Informacje dotyczące publikowania aplikacji wewnętrznych, zobacz [Utwórz aplikację usługi wykazu](publish-service-catalog-app.md).
-
+* Uzyskać informacji dotyczących publikowania aplikacji zarządzanych do witryny marketplace, zobacz [tworzenie aplikacji marketplace](publish-marketplace-app.md).

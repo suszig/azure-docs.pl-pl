@@ -4,7 +4,7 @@ description: "Dowiedz się, jak rejestrować żądania pomocy technicznej i rozp
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Kontakt z pomocą techniczną firmy Microsoft
 
@@ -79,15 +79,15 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 1. Aby przejść do strony pomocy i obsługi technicznej, przejdź do **Przeglądaj > Pomoc i obsługa techniczna**.
 
-    ![Zarządzanie żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Zarządzaj żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
 2. Tabelaryczny spis wszystkich żądań pomocy technicznej jest wyświetlany w **Pomoc i obsługa techniczna** bloku.
 
-    ![Zarządzanie żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Zarządzaj żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Wybierz, a następnie kliknij przycisk żądania pomocy technicznej. Można wyświetlić stan i szczegóły dla tego żądania. Kliknij przycisk **+ nowy komunikat** aby kolejnych czynności związanych z tym żądaniem.
 
-    ![Zarządzanie żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Zarządzaj żądaniami obsługi](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Rozpocznij sesję pomocy technicznej w programie Windows PowerShell dla urządzenia StorSimple
 
@@ -97,7 +97,7 @@ Wykonaj poniższe kroki, aby rozpocząć sesję pomocy technicznej:
 
 #### <a name="to-start-a-support-session"></a>Aby rozpocząć sesję pomocy technicznej
 
-1. Dostęp do urządzenia, za pomocą konsoli szeregowej lub za pośrednictwem sesji telnet z komputera zdalnego. Aby to zrobić, wykonaj kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Dostęp do urządzenia, za pomocą konsoli szeregowej lub za pośrednictwem sesji telnet z komputera zdalnego. Aby to zrobić, wykonaj kroki opisane w [przy użyciu programu PuTTY można nawiązać połączenia z konsolą szeregową urządzenia](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. W sesji, który zostanie otwarty, naciśnij klawisz **Enter** klawisz, aby wyświetlić wiersz polecenia.
 3. W menu konsoli szeregowej wybierz opcję 1, **Zaloguj się przy użyciu pełnego dostępu**.
 4. W wierszu polecenia wpisz następujące hasło:
@@ -113,6 +113,6 @@ Wykonaj poniższe kroki, aby rozpocząć sesję pomocy technicznej:
 > Dostęp do pomocy technicznej można wyłączyć, uruchamiając `Disable-HcsSupportAccess`. Urządzenia StorSimple spróbuje również wyłączyć dostęp do pomocy technicznej 8 godzin po sesji zostało zainicjowane. Jest najlepszym rozwiązaniem jest zmiana poświadczeń urządzenia StorSimple po zainicjowaniu sesji pomocy technicznej.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się, jak [zdiagnozować i rozwiązać problemy związane z serii StorSimple 8000 urządzenia](storsimple-troubleshoot-deployment.md)
+Dowiedz się, jak [zdiagnozować i rozwiązać problemy związane z serii StorSimple 8000 urządzenia](storsimple-8000-troubleshoot-deployment.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 1506488193638400af7c71b3ecd00e99512daa62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8ae91e0dc0f3173b770bc8360a85abfe5d1e7740
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Wdrażanie brama brzegowa dla rozwiązania połączonych fabryki wstępnie skonfigurowane w systemie Windows lub Linux
 
@@ -167,7 +167,7 @@ Teraz można podłączyć do bramy z chmury, a wszystko będzie gotowe dodać se
 
 ## <a name="add-your-own-opc-ua-servers"></a>Dodaj serwery OPC UA
 
-Aby dodać własne OPC USA serwerów do podłączonej fabryki wstępnie skonfigurowane rozwiązanie:
+Aby dodać serwery OPC UA do połączonych fabryki wstępnie skonfigurowane rozwiązanie:
 
 1. Przejdź do **połączyć z serwerem OPC UA** w portalu rozwiązania fabryka połączenia. Wykonaj te same czynności, jak w poprzedniej sekcji, aby ustanowić relację zaufania między portalem fabryki połączonych i OPC UA serwera.
 

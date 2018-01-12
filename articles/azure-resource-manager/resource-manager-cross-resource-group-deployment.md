@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Wdrażanie zasobów platformy Azure na więcej niż jedną subskrypcję lub grupy zasobów
 
@@ -121,7 +121,7 @@ Poniższy przykład wdraża dwóch kont magazynu — w grupie zasobów określon
 
 Jeśli ustawisz `resourceGroup` Nazwa grupy zasobów, która nie istnieje, wdrożenie zakończy się niepowodzeniem.
 
-Aby wdrożyć przykładowy szablon, użyj wersji programu Azure PowerShell lub interfejsu wiersza polecenia Azure z maja 2017 lub nowszego.
+Aby wdrożyć przykładowy szablon, użyj programu Azure PowerShell 4.0.0 lub nowszej lub Azure CLI 2.0.0 lub nowszym.
 
 ## <a name="use-the-resourcegroup-function"></a>Użyj funkcji resourceGroup()
 

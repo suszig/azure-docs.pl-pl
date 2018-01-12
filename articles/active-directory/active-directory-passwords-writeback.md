@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-writeback-overview"></a>Omówienie funkcji zapisywania zwrotnego haseł
 
@@ -217,7 +217,7 @@ Zapisywanie zwrotne haseł jest usługą niskiej przepustowości, która tylko w
 
 Rozmiar każdego z opisanych powyżej wiadomości jest zazwyczaj poniżej 1 KB. Nawet w przypadku obciążeń extreme sama usługa zapisywania zwrotnego haseł zajmuje kilka kilobitów na sekundę przepustowości. Ponieważ każdy komunikat jest wysyłany w czasie rzeczywistym, tylko wtedy, gdy jest to wymagane przez operację aktualizacji hasła i rozmiar wiadomości jest to mała przepustowość możliwości zapisywania zwrotnego jest za mały do ma zauważalnego wpływu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).

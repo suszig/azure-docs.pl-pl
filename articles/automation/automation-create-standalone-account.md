@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 W tym temacie przedstawiono sposób tworzenia konta usługi Automation w witrynie Azure Portal, jeśli chcesz ocenić i dowiedzieć się o usłudze Azure Automation bez uwzględniania dodatkowych rozwiązań do zarządzania lub integracji z usługą OMS Log Analytics w celu zapewnienia zaawansowanego monitorowania zadań elementów Runbook.  W dowolnym momencie w przyszłości możesz dodać te rozwiązania do zarządzania lub zintegrować je z usługą Log Analytics.  Konto usługi Automation umożliwia uwierzytelnianie elementów Runbook zarządzających zasobami w usłudze Azure Resource Manager albo w klasycznym wdrożeniu platformy Azure.
@@ -85,7 +85,7 @@ Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jak
 | AzureClassicRunAsConnection |Automatycznie utworzony zasób Połączenie, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów Runbook. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby rozpocząć pracę z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiowanie danych z programu MySQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Aby użyć tego łącznika MySQL, musisz:
 > Jeśli zostanie osiągnięty błąd "Uwierzytelnianie nie powiodło się, ponieważ strona zdalna zamknęła strumień transportu.", należy wziąć pod uwagę, aby uaktualnić MySQL Connector/Net do nowszej wersji.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika MySQL.
 
@@ -56,13 +57,13 @@ Obsługiwane są następujące właściwości usługi MySQL połączone:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **MySql** | Tak |
-| serwer | Nazwa serwera MySQL. | Tak |
-| Bazy danych | Nazwa bazy danych MySQL. | Tak |
+| type | Właściwość type musi mieć ustawioną: **MySql** | Yes |
+| serwer | Nazwa serwera MySQL. | Yes |
+| baza danych | Nazwa bazy danych MySQL. | Yes |
 | Schemat | Nazwa schematu w bazie danych. | Nie |
-| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych MySQL. | Tak |
-| hasło | Określ hasło dla określonego konta użytkownika. Zaznacz to pole jako SecureString. | Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Tak |
+| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych MySQL. | Yes |
+| hasło | Określ hasło dla określonego konta użytkownika. Zaznacz to pole jako SecureString. | Yes |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład:**
 
@@ -96,7 +97,7 @@ Aby skopiować dane z programu MySQL, ustaw właściwość Typ zestawu danych do
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w bazie danych MySQL. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 **Przykład**
@@ -126,7 +127,7 @@ Aby skopiować dane z programu MySQL, należy ustawić typ źródła w przypadku
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
 | query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 **Przykład:**
@@ -208,5 +209,5 @@ Podczas kopiowania danych z programu MySQL, następujące mapowania są używane
 | `year` |`Int` |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

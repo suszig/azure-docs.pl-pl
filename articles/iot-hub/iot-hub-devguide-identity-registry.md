@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje w rejestrze tożsamości w Centrum IoT
 
@@ -84,7 +84,7 @@ Aby uzyskać szczegółowe informacje na temat importowania i eksportowania inte
 
 Dane urządzenie, które przechowuje danego rozwiązania IoT zależy od konkretnych wymogów obowiązujących w tym rozwiązania. Ale co najmniej rozwiązanie musi przechowywać tożsamości urządzenia i klucze uwierzytelniania. Centrum IoT Azure obejmuje rejestru tożsamości, które można przechowywać wartości dla każdego urządzenia, takie jak nazwy, klucze uwierzytelniania i kodów stanu. Rozwiązanie można użyć innych usług Azure, takich jak magazyn tabel, magazyn obiektów blob lub rozwiązania Cosmos bazy danych do przechowywania wszelkich danych dodatkowych urządzeń.
 
-*Inicjowanie obsługi administracyjnej urządzeń* jest proces dodawania dane urządzenie początkowe sklepów w rozwiązaniu. Aby włączyć nowe urządzenia w celu nawiązania połączenia z koncentratorem, należy dodać identyfikator urządzenia i kluczy rejestru tożsamości Centrum IoT. W ramach procesu inicjowania obsługi administracyjnej może być konieczne Inicjuj dane specyficzne dla urządzenia w innych magazynach rozwiązania.
+*Inicjowanie obsługi administracyjnej urządzeń* jest proces dodawania dane urządzenie początkowe sklepów w rozwiązaniu. Aby włączyć nowe urządzenia w celu nawiązania połączenia z koncentratorem, należy dodać identyfikator urządzenia i kluczy rejestru tożsamości Centrum IoT. W ramach procesu inicjowania obsługi administracyjnej może być konieczne Inicjuj dane specyficzne dla urządzenia w innych magazynach rozwiązania. Usługa udostępniania urządzeń Centrum IoT Azure umożliwia również włączyć bezobsługową, just-in-time alokacji dla co najmniej jeden centra IoT bez udziału człowieka. Aby dowiedzieć się więcej, zobacz [inicjowania obsługi usługi dokumentacji][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Urządzenie pulsu
 
@@ -105,7 +105,7 @@ Centrum IoT można powiadomić rozwiązania IoT, po utworzeniu lub usunięciu, w
 
 Właściwości: Właściwości systemu wiadomości są poprzedzane prefiksem `'$'` symbolu.
 
-| Nazwa | Wartość |
+| Name (Nazwa) | Wartość |
 | --- | --- |
 $content — typ | application/json |
 $iothub-enqueuedtime |  Czas wysłania powiadomienia |
@@ -149,10 +149,10 @@ Tożsamości urządzenia są reprezentowane jako dokumenty JSON z następującym
 | deviceId |wymagane, tylko do odczytu na aktualizacje |Ciąg z uwzględnieniem wielkości liter (maksymalnie 128 znaków) znaki alfanumeryczne ASCII 7-bitowego oraz niektórych znaków specjalnych: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | Identyfikator generacji |wymagane, tylko do odczytu |IoT generowanych przez koncentrator, z uwzględnieniem wielkości liter ciąg maksymalnie 128 znaków. Ta wartość jest używana do rozróżniania urządzeń o takiej samej **deviceId**, gdy został usunięty i utworzony ponownie. |
 | Element etag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości tego urządzenia zgodnie [RFC7232][lnk-rfc7232]. |
-| uwierzytelniania |Opcjonalne |Obiekt złożony zawierające materiały informacji i zabezpieczeń uwierzytelniania. |
-| auth.symkey |Opcjonalne |Złożony obiekt zawierający podstawowy i klucz pomocniczy, są przechowywane w formacie base64. |
+| uwierzytelniania |opcjonalne |Obiekt złożony zawierające materiały informacji i zabezpieczeń uwierzytelniania. |
+| auth.symkey |opcjonalne |Złożony obiekt zawierający podstawowy i klucz pomocniczy, są przechowywane w formacie base64. |
 | status |Wymagane |Wskaźnik dostępu. Może być **włączone** lub **wyłączone**. Jeśli **włączone**, urządzenie może nawiązać połączenie. Jeśli **wyłączone**, to urządzenie nie ma dostępu do dowolnego punktu końcowego skierowane do urządzenia. |
-| statusReason |Opcjonalne |128 ciąg znaków długości, który przechowuje Przyczyna stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
+| statusReason |opcjonalne |128 ciąg znaków długości, który przechowuje Przyczyna stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
 | statusUpdateTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający Data i godzina ostatniej aktualizacji stanu. |
 | Element connectionState |tylko do odczytu |Pole wskazujący stan połączenia: albo **połączony** lub **Rozłączono**. To pole reprezentuje Widok Centrum IoT dla stanu połączenia urządzenia. **Ważne**: w tym polu należy używać tylko na potrzeby tworzenia/debugowania. Stan połączenia jest aktualizowany tylko w przypadku urządzeń przy użyciu MQTT lub AMQP. Ponadto jest oparty na poziomie protokołu ping (ping MQTT lub polecenia ping protokołu AMQP) i może mieć Maksymalne opóźnienie tylko 5 minut. Z tego względu mogą być fałszywych alarmów, takie jak urządzenia zgłoszone jako połączona, ale które zostały odłączone. |
 | connectionStateUpdatedTime |tylko do odczytu |Zaktualizowano danych czasowych wskaźnik, przedstawiający datę i godzinę ostatniego stanu połączenia. |
@@ -171,7 +171,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Język zapytań Centrum IoT] [ lnk-query] opisuje język kwerendy można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz jak korzystać z Centrum IoT rejestru tożsamości, mogą być zainteresowane w następujących tematach przewodnik dewelopera Centrum IoT:
 
@@ -183,6 +183,11 @@ Teraz, kiedy znasz jak korzystać z Centrum IoT rejestru tożsamości, mogą by�
 Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
 
 * [Rozpoczynanie pracy z Centrum IoT Azure][lnk-getstarted-tutorial]
+
+Aby zapoznać się z usługi IoT Centrum urządzeń inicjowania obsługi administracyjnej Włącz bezobsługową, w czasie inicjowania obsługi, zobacz: 
+
+* [Usługi inicjowania obsługi administracyjnej urządzeniu Centrum IoT Azure][lnk-dps]
+
 
 <!-- Links and images -->
 
@@ -205,3 +210,4 @@ Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

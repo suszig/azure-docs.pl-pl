@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w Centrum zabezpieczeń Azure
 Centrum zabezpieczeń zbiera dane z maszyn wirtualnych platformy Azure (maszyny wirtualne) i komputerów z systemem innym niż Azure monitorowanie luk w zabezpieczeniach i zagrożeń. Dane są zbierane za pomocą programu Microsoft Monitoring Agent, która odczytuje różnych konfiguracji związanych z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do swojego obszaru roboczego do analizy. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Microsoft Monitoring Agent kopiuje pliki zrzutu awaryjnego do swojego obszaru roboczego.
@@ -90,14 +90,24 @@ Centrum zabezpieczeń może zmniejszyć ilość danych zdarzeń przy zachowaniu 
 
 Aby określić zdarzenia, które będą należeć do **typowe** i **minimalnego** zestawów zdarzeń, możemy doświadczenie z klientów i standardy branżowe, aby dowiedzieć się więcej o częstotliwości niefiltrowane każdego zdarzenia i ich użycia. Poniższe wskazówki zostały użyte podczas tego procesu:
 
-- **Minimalny** — upewnij się, że ten zestaw obejmuje tylko zdarzenia, które mogą wskazywać pomyślne naruszenia i ważnych wydarzeń, które mają bardzo niskim poziomie. Na przykład ten zestaw zawiera udane i nieudane logowania użytkownika (zdarzenie 4624 identyfikatorów 4625), ale nie zawiera on wylogowania, co jest ważne w przypadku inspekcji, ale nie ma istotnego znaczenia do wykrywania i ma stosunkowo dużej liczby. Większość ilość danych tego zestawu jest zdarzenia logowania i procesu tworzenia zdarzeń (event ID 4688).
+- **Minimalny** — upewnij się, że ten zestaw obejmuje tylko zdarzenia, które mogą wskazywać pomyślne naruszenia i ważnych wydarzeń, które mają bardzo niskim poziomie. Na przykład ten zestaw zawiera udane i nieudane logowania użytkownika (zdarzenie 4624 identyfikatorów 4625), ale nie zawiera on wylogowania, co jest ważne w przypadku inspekcji, ale nie ma istotnego znaczenia do wykrywania i ma stosunkowo dużej liczby. Większość ilość danych tego zestawu jest zdarzenia logowania i procesem tworzenia zdarzeń (event ID 4688, zobacz Centrum zabezpieczeń [— często zadawane pytania](security-center-faq.md#what-happens-when-data-collection-is-enabled) Aby uzyskać więcej informacji na temat procesu tworzenia zdarzeń 4688).
 - **Typowe** — Podaj dziennik inspekcji logowania, w tym zestawie. Na przykład ten zestaw zawiera identyfikatory logowania użytkownika i wylogowywania użytkowników (zdarzenie ID 4634). Firma Microsoft obejmują akcje, takie jak zmiany grupy zabezpieczeń, operacje Kerberos kontrolera domeny klucza i inne zdarzenia, które są zalecane przez organizacje z branży inspekcji.
 
 Zdarzenia, które mają bardzo niskim poziomie zostały uwzględnione we wspólnym Ustaw jako głównym celem wybranie wszystkich zdarzeń jest zmniejszyć wolumin, a nie odfiltrowywania określonych zdarzeń.
 
 Poniżej przedstawiono pełną podział zabezpieczeń i funkcji AppLocker identyfikatory zdarzeń dla każdego zestawu:
 
-   ![Identyfikatory zdarzeń][4]
+| Warstwa danych | Wskaźniki o zdarzeniach |
+| --- | --- |
+| Minimalny | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Typowe (ustawienie domyślne) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 Aby wybrać zasady filtrowania:
 1. Na **ustawienia i zasady zabezpieczeń** bloku, wybierz filtrowania zasad w obszarze **zdarzenia zabezpieczeń**.
@@ -121,7 +131,7 @@ Możesz wyłączyć automatyczne Inicjowanie obsługi administracyjnej z zasobó
 3. Na **zasady zabezpieczeń — zbieranie danych** bloku, w obszarze **dołączania** wybierz **poza** do Wyłącz automatyczne udostępnianie.
 4. Wybierz pozycję **Zapisz**.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule pokazano możesz sposób zbierania danych i automatyczne udostępnianie w Centrum zabezpieczeń działa. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](security-center-policies.md) — informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów na platformie Azure.
@@ -137,6 +147,5 @@ W tym artykule pokazano możesz sposób zbierania danych i automatyczne udostęp
 [1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

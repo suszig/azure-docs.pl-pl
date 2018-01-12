@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4774d9db2487baeba1f94e026d17864d6e837810
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 949052900f341f2a933196fbd798d8b89facbd57
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Kopiowanie danych z usługi sieci Web portalu Marketplace Amazon przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -37,7 +37,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi sieci Web portalu Marketplace firmy Amazon.
 
@@ -47,13 +47,13 @@ Obsługiwane są następujące właściwości dla usługi sieci Web portalu Mark
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AmazonMWS** | Tak |
-| punkt końcowy | Punkt końcowy serwera Amazon MWS, (czyli mws.amazonservices.com)  | Tak |
-| marketplaceID | Identyfikator witryny Marketplace Amazon chcesz pobrać dane. Pobieranie danych z wielu identyfikatorów Marketplace, rozdziel je przecinkami (`,`). (to znaczy A2EUQ1WTGCTBG2)  | Tak |
-| sellerID | Identyfikator Amazon sprzedawcy.  | Tak |
-| mwsAuthToken | Token uwierzytelniania Amazon MWS. Można wybrać Oznacz to pole jako SecureString bezpiecznie przechowywać przez usługi fabryka danych lub przechowywania haseł w usłudze Azure Key Vault i umożliwić acitivity kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy ](store-credentials-in-key-vault.md). | Tak |
-| accessKeyId | Dostęp do klucza identyfikator umożliwiający dostęp do danych.  | Tak |
-| secretKey | Klucz tajny, który umożliwia dostęp do danych. Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić acitivity kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Tak |
+| type | Właściwość type musi mieć ustawioną: **AmazonMWS** | Yes |
+| endpoint | Punkt końcowy serwera Amazon MWS, (czyli mws.amazonservices.com)  | Yes |
+| marketplaceID | Identyfikator witryny Marketplace Amazon chcesz pobrać dane. Pobieranie danych z wielu identyfikatorów Marketplace, rozdziel je przecinkami (`,`). (to znaczy A2EUQ1WTGCTBG2)  | Yes |
+| sellerID | Identyfikator Amazon sprzedawcy.  | Yes |
+| mwsAuthToken | Token uwierzytelniania Amazon MWS. Można wybrać Oznacz to pole jako SecureString bezpiecznie przechowywać przez usługi fabryka danych lub przechowywania haseł w usłudze Azure Key Vault i umożliwić acitivity kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy ](store-credentials-in-key-vault.md). | Yes |
+| accessKeyId | Dostęp do klucza identyfikator umożliwiający dostęp do danych.  | Yes |
+| secretKey | Klucz tajny, który umożliwia dostęp do danych. Można wybrać Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić acitivity kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Określa, czy punkty końcowe źródła danych są szyfrowane przy użyciu protokołu HTTPS. Wartość domyślna to true.  | Nie |
 | useHostVerification | Określa, czy nazwa hosta w certyfikacie serwera, aby dopasować nazwę hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to true.  | Nie |
 | usePeerVerification | Określa, czy można zweryfikować tożsamości serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to true.  | Nie |
@@ -115,8 +115,8 @@ Aby skopiować dane z usługi sieci Web portalu Marketplace Amazon, należy usta
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AmazonMWSSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AmazonMWSSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Yes |
 
 **Przykład:**
 
@@ -150,5 +150,5 @@ Aby skopiować dane z usługi sieci Web portalu Marketplace Amazon, należy usta
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

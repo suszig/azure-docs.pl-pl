@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: b422b3a721511a25b976586cd324d65f383ad140
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ba25bb71857ee91cc078fd87de074f0ea954b558
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiowanie danych z platformy Spark przy użyciu fabryki danych Azure 
 
@@ -35,7 +35,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonego łącznikiem Spark.
 
@@ -45,12 +45,12 @@ Spark połączone usługi, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Spark** | Tak |
-| Host | IP adres lub nazwę hosta serwera Spark  | Tak |
-| port | Port TCP używany przez serwer Spark nasłuchiwanie dla połączeń klienta.  | Tak |
+| type | Właściwość type musi mieć ustawioną: **Spark** | Yes |
+| host | IP adres lub nazwę hosta serwera Spark  | Yes |
+| port | Port TCP używany przez serwer Spark nasłuchiwanie dla połączeń klienta.  | Yes |
 | Typ | Typ serwera Spark. <br/>Dozwolone wartości to: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nie |
 | thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, ** HTTP ** | Nie |
-| Typ authenticationType | Metodę uwierzytelniania używaną do uzyskania dostępu do serwera Spark. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Tak |
+| Typ authenticationType | Metodę uwierzytelniania używaną do uzyskania dostępu do serwera Spark. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | nazwa użytkownika | Nazwa użytkownika, który umożliwia dostęp do serwera Spark.  | Nie |
 | hasło | Hasło odpowiadający nazwie użytkownika, podane w pole nazwy użytkownika, istnieje możliwość Oznacz to pole jako SecureString do przechowywania bezpiecznie w ADF, lub przechowywania haseł w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych - linie wio jeden z rn [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
 | httpPath | Adres URL częściowe odpowiadający serwera Spark.  | Nie |
@@ -114,8 +114,8 @@ Aby skopiować dane z platformy Spark, Ustaw typ źródła w przypadku działani
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SparkSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **SparkSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Yes |
 
 **Przykład:**
 
@@ -149,5 +149,5 @@ Aby skopiować dane z platformy Spark, Ustaw typ źródła w przypadku działani
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

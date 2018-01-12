@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 8afb0075eba0093aba8841db1731fb64afb7f6a5
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 490db57e9f36bed5575b7af5a6e2673fb63af3a8
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Przepustowość/przepływność, testowanie (NTTTCP)
 
@@ -159,6 +159,7 @@ Nadawca <Windows>:
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * W zależności od wyników, może być miejsca, aby [zoptymalizować maszyny przepustowość sieci](virtual-network-optimize-network-bandwidth.md) dla danego scenariusza.
+* Przeczytaj temat [przepustowości jest przydzielona do maszyny wirtualnej] (wirtualny machine sieci throughput.md)
 * Dowiedz się więcej o [sieci wirtualnej platformy Azure — często zadawane pytania (FAQ)](virtual-networks-faq.md)

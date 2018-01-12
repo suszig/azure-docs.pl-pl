@@ -4,7 +4,7 @@ description: "Wyjaśniono, jak włączyć nowe urządzenie StorSimple, Włącz u
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Włącz lub wyłącz urządzenie serii StorSimple 8000
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Wyłączanie urządzenia Microsoft Azure StorSimple nie jest wymagane w ramach normalnego działania. Jednak należy włączyć nowe urządzenie lub urządzenia, które ma zostać wyłączony. Ogólnie rzecz biorąc wyłączania jest wymagany w przypadku których należy wymienić sprzęt nie powiodło się, fizycznie przenieść jednostkę lub podjąć urządzenia z usługi. W tym samouczku opisano procedury wymagane włączanie i wyłączanie urządzenia StorSimple w różnych scenariuszach.
 
 ## <a name="turn-on-a-new-device"></a>Włącz nowe urządzenie
@@ -147,16 +147,16 @@ Uruchomione urządzenia StorSimple może być konieczne można zamknąć, jeżel
 * [Urządzenia z EBOD obudowy](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Urządzenia z głównej obudowy<a name="8100a">
-Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowane, możesz zrobić to za pośrednictwem klasycznego portalu Azure lub za pomocą programu Windows PowerShell dla urządzenia StorSimple. 
+Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowane, możesz zrobić to za pośrednictwem portalu Azure lub za pomocą programu Windows PowerShell dla urządzenia StorSimple. 
 
 > [!IMPORTANT]
 > Nie są zamykane uruchomionych urządzenia przy użyciu przycisku zasilania z tyłu urządzenia.
 > 
-> Przed zamknięciem na urządzeniu, upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W klasycznym portalu Azure, przejdź do **urządzeń** > **konserwacji** > **stan sprzętu**i sprawdź stan wszystkich składników jest zielony. Dotyczy to tylko w przypadku dobrej kondycji systemu. Jeśli system jest wyłączone w celu zastąpienia nieprawidłowo działający składnik, zostanie wyświetlony nie powiodło się (czerwony) lub nieprawidłowe działanie stan (żółty) dla odpowiednich składników w **stan sprzętu**.
+> Przed zamknięciem na urządzeniu, upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W portalu Azure, przejdź do **urządzeń** > **Monitor** > **kondycji sprzętu**i sprawdź, czy stan wszystkich składników jest zielony. Dotyczy to tylko w przypadku dobrej kondycji systemu. Jeśli system jest wyłączone w celu zastąpienia nieprawidłowo działający składnik, zostanie wyświetlony nie powiodło się (czerwony) lub nieprawidłowe działanie stan (żółty) dla odpowiednich składników w **stan sprzętu**.
 > 
 > 
 
-Po uzyskaniu dostępu programu Windows PowerShell dla StorSimple lub klasycznego portalu Azure, postępuj zgodnie z instrukcjami [wyłączyć urządzenie StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Po uzyskaniu dostępu programu Windows PowerShell dla StorSimple lub w portalu Azure, postępuj zgodnie z instrukcjami [wyłączyć urządzenie StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Urządzenia z EBOD obudowy<a name="8600a">
 > [!IMPORTANT]
@@ -171,6 +171,6 @@ Po uzyskaniu dostępu programu Windows PowerShell dla StorSimple lub klasycznego
 > [!NOTE]
 > Nie należy usuwać kabli SAS, które są używane do połączenia z obudowy EBOD obudowy głównej dopiero po zamknięciu systemu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Skontaktuj się z Microsoft Support](storsimple-8000-contact-microsoft-support.md) w razie wystąpienia problemów podczas Włączanie lub wyłączanie urządzenia StorSimple.
 
