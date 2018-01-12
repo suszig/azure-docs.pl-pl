@@ -1,6 +1,6 @@
 - name: Dokumentacja maszyny wirtualnej z systemem Windows
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Informacje o maszynach wirtualnych
       href: overview.md
@@ -125,7 +125,11 @@
         - name: 'Korzystanie z języka C#'
           href: csharp.md
         - name: Korzystanie z wyspecjalizowanego dysku
-          href: create-vm-specialized.md
+          items:
+            - name: Portal
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Korzystanie z szablonu w języku C#'
           href: csharp-template.md
         - name: Tworzenie maszyny wirtualnej przy użyciu programu Chef
@@ -414,7 +418,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Używanie wirtualizacji zagnieżdżonej
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/vm

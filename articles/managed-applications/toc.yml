@@ -1,6 +1,6 @@
 - name: Aplikacje zarządzane na platformie Azure
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Informacje o aplikacjach zarządzanych
       href: overview.md
@@ -12,6 +12,8 @@
   items:
     - name: Tworzenie plików aplikacji zarządzanej
       href: publish-service-catalog-app.md
+    - name: Tworzenie aplikacji w witrynie Marketplace
+      href: publish-marketplace-app.md
 - name: Przykłady
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -28,7 +30,7 @@
       href: update-managed-resources.md
     - name: Publikowanie za pomocą portalu
       href: publish-portal.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/managedapp
