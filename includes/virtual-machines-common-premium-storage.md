@@ -60,7 +60,7 @@ Oto niektóre z funkcji Premium Storage:
     Azure używa konta magazynu jako kontener dla niezarządzanego dysków. Podczas tworzenia Azure serii DS, DSv2 serii GS-series lub serii Fs maszynę Wirtualną za pomocą dysków niezarządzane, a wybierz konto magazynu premium, systemu operacyjnego i dyski danych są przechowywane na tym koncie magazynu.
 
 ## <a name="supported-vms"></a>Obsługiwane maszyny wirtualne
-Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-serii, serie Ls i Fs serii maszyn wirtualnych. Z tych typów maszyny Wirtualnej służy dyski magazynu standard i premium. Nie można używać dysków premium magazynu serii maszyn wirtualnych, które nie są Premium zgodnych z magazynu.
+Magazyn w warstwie Premium obsługuje serii DS, DSv2 serii GS-series, Ls serii Fs serii i B serii maszyn wirtualnych. Z tych typów maszyny Wirtualnej służy dyski magazynu standard i premium. Nie można używać dysków premium magazynu serii maszyn wirtualnych, które nie są Premium zgodnych z magazynu.
 
 Aby uzyskać informacje o typach maszyn wirtualnych i rozmiary Azure dla systemu Windows, zobacz [rozmiarów maszyn wirtualnych systemu Windows](../articles/virtual-machines/windows/sizes.md). Aby uzyskać informacje o typach maszyn wirtualnych i rozmiary na platformie Azure dla systemu Linux, zobacz [rozmiarów maszyn wirtualnych systemu Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -293,7 +293,7 @@ Regionalnej awarii, musisz należy wykonać kopię zapasową dysków maszyny Wir
 
 Aby utworzyć zadanie tworzenia kopii zapasowej z kopii zapasowych opartych na czas, łatwe przywrócenie maszyny Wirtualnej, a zasady przechowywania kopii zapasowych, użyj kopia zapasowa Azure. Narzędzie Kopia zapasowa służy zarówno z dyskami niezarządzane i zarządzane. Aby uzyskać więcej informacji, zobacz [kopia zapasowa Azure dla maszyn wirtualnych z dyskami niezarządzane](../articles/backup/backup-azure-vms-first-look-arm.md) i [kopia zapasowa Azure dla maszyn wirtualnych z dyskami zarządzanych](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat magazyn w warstwie Premium zobacz następujące artykuły.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Projektowanie i implementowanie z magazyn w warstwie Premium
