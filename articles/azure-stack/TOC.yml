@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Włączanie wielodostępu
               href: azure-stack-enable-multitenancy.md
+        - name: Obróć kluczy tajnych
+          href: azure-stack-rotate-secrets.md
     - name: Oferowanie usług
       items:
         - name: Omówienie usług w ofercie
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostyka w usłudze Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Sprawdzanie poprawności Azure stosu
+          href: azure-stack-diagnostic-test.md
         - name: Wdrażanie zestawu Azure Stack Development Kit
           href: azure-stack-redeploy.md
 - name: Informacje ogólne

@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Usługa HBase w usłudze HDInsight
   items:
-    - name: Omówienie
+    - name: Przegląd
       href: apache-hbase-overview.md
     - name: Składniki usługi Hadoop na usłudze HDInsight
       href: ../hdinsight-component-versioning.md
@@ -121,6 +121,8 @@
         - name: Przekazywanie danych na potrzeby zadań usługi Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Zbiorcze ładowanie danych do oprogramowania Phoenix za pomocą programu psql
+          href: apache-hbase-phoenix-psql.md
         - name: Wiele klastrów usługi HDInsight z usługą Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true
@@ -218,7 +220,7 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

@@ -6,14 +6,14 @@ keywords: "zmiana, śledzenie, automatyzacja"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Rozwiązywanie problemów ze zmianami we własnym środowisku
 
@@ -138,8 +138,8 @@ W oknie **Konfiguracja obszaru roboczego** dodaj klucze rejestru systemu Windows
 4. (Opcjonalnie) W polu **Grupa** wprowadź nazwę grupy.
 5. W polu **Wprowadź ścieżkę** wprowadź pełną ścieżkę i nazwę pliku, który ma być śledzony.
 6. W polu **Typ ścieżki** wybierz pozycję **Plik** albo **Katalog**.
-7. W obszarze **Rekursja**, aby śledzić zmiany na określonej ścieżce oraz wszystkich plikach i ścieżkach poniżej niej, wybierz pozycję **Wł.**. Aby śledzić tylko wybraną ścieżkę lub plik, wybierz pozycję **Wył.**.
-8. W obszarze **Użyj Sudo**, aby śledzić pliki, które wymagają wydania polecenia `sudo` do uzyskania dostępu, wybierz polecenie **Wł.**. W przeciwnym razie wybierz **Wył.**.
+7. W obszarze **Rekursja**, aby śledzić zmiany na określonej ścieżce oraz wszystkich plikach i ścieżkach poniżej niej, wybierz pozycję **Wł**. Aby śledzić tylko wybraną ścieżkę lub plik, wybierz pozycję **Wył**.
+8. W obszarze **Użyj Sudo**, aby śledzić pliki, które wymagają wydania polecenia `sudo` do uzyskania dostępu, wybierz polecenie **Wł**. W przeciwnym razie wybierz **Wył**.
 9. Wybierz pozycję **Zapisz**.
 
 ## <a name="enable-activity-log-connection"></a>Włączanie połączenia dziennika aktywności
@@ -158,7 +158,7 @@ Po włączeniu rozwiązania śledzenia zmian i spisu możesz wyświetlić wyniki
 
 W ramach maszyny wirtualnej zaznacz pozycję **Śledzenie zmian** w obszarze **OPERACJE**.
 
-![Tworzenie alertu w klasycznym portalu OMS](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Zrzut ekranu pokazujący listy zmian do maszyny Wirtualnej](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Wykres pokazuje zmiany, które wystąpiły w czasie.
 Po dodaniu połączenia dziennika aktywności wykres liniowy u góry wyświetla zdarzenia dziennika aktywności platformy Azure.

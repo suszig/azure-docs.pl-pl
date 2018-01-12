@@ -1,4 +1,4 @@
-# Omówienie
+# Przegląd
 ## [Informacje o usłudze Azure DevTest Labs](devtest-lab-overview.md)
 ## [Pojęcia](devtest-lab-concepts.md)
 ## Scenariusze
@@ -16,6 +16,7 @@
 ### [Tworzenie maszyn wirtualnych](devtest-lab-add-vm.md)
 ### [Tworzenie możliwych do przejęcia maszyn wirtualnych i zarządzanie nimi](devtest-lab-add-claimable-vm.md)
 ### [Tworzenie maszyn wirtualnych i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](devtest-lab-vmcli.md)
+### [Tworzenie maszyny wirtualnej na podstawie szablonu usługi Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Ponowne uruchamianie maszyny wirtualnej](devtest-lab-restart-vm.md)
 
 ## Korzystanie ze środowisk w laboratorium
@@ -46,7 +47,6 @@
 
 ## Zarządzanie szablonami wielokrotnego użytku
 ### [Dodawanie repozytorium Git dla artefaktów i szablonów](devtest-lab-add-artifact-repo.md)
-### [Use a resource manager template (Używanie szablonu usługi Resource Manager)](devtest-lab-use-resource-manager-template.md)
 ### [Zarządzanie formułami](devtest-lab-manage-formulas.md)
 
 ## Zarządzanie artefaktami
@@ -65,9 +65,9 @@
 ## Integrowanie z ciągłą integracją/ciągłym dostarczaniem
 ### [Integrowanie laboratoriów z potokiem ciągłej integracji/ciągłego dostarczania usługi VSTS](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Dokumentacja
+# Odwołanie
 ## [Interfejs wiersza polecenia 2.0](/cli/azure/lab)
-## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [Program PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Automatyczne tworzenie lub modyfikowanie laboratoriów](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [Interfejs API REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Szablony usługi Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
@@ -79,7 +79,7 @@
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Blog zespołu](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Cennik](https://azure.microsoft.com/pricing/details/devtest-lab/)
 
 

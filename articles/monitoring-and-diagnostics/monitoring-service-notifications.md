@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Wyświetlanie powiadomień o kondycji usługi za pomocą portalu Azure
 
@@ -41,7 +41,7 @@ kanały | Jedną z następujących wartości: **Admin** lub **operacji**.
 correlationId | Zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia, które należą do tego samego działania zwykle udostępnianie tego samego correlationId.
 eventDataId | Unikatowy identyfikator zdarzenia.
 EventName | Tytuł zdarzenia.
-poziom | Poziom zdarzenia. Jedną z następujących wartości: **krytyczny**, **błąd**, **ostrzeżenie**, **komunikat o charakterze informacyjnym**, lub **pełne** .
+poziom | Poziom zdarzenia. Jedną z następujących wartości: **krytyczny**, **błąd**, **ostrzeżenie** lub **komunikat o charakterze informacyjnym**.
 resourceProviderName | Nazwa dostawcy zasobów dla zasobu objęte wpływem.
 Typ zasobu| Typ zasobu ryzyko zasobu.
 Podstan | Zazwyczaj REST odpowiedni kod stanu HTTP wywołań, ale można również uwzględnić inne parametry opisujące podstanu. Na przykład: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), serwer wewnętrzny Błąd (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503) i limit czasu bramy (kod stanu HTTP: 504).

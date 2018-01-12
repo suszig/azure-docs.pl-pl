@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Usługa Hadoop w usłudze HDInsight
   items:
-    - name: Omówienie
+    - name: Przegląd
       href: apache-hadoop-introduction.md
     - name: Składniki usługi Hadoop na usłudze HDInsight
       href: ../hdinsight-component-versioning.md
@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Programowanie
       items:
+        - name: Uruchamianie niestandardowych programów MapReduce
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Tworzenie programów MapReduce przesyłania strumieniowego w języku C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Opracowywanie programów MapReduce w języku Java
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Używanie programu Apache Hive jako narzędzia do wyodrębniania, przekształcania i ładowania (ETL)'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Wyodrębnianie, przekształcanie i ładowanie na dużą skalę'
+          href: apache-hadoop-etl-at-scale.md
         - name: Używanie pustych węzłów brzegowych
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Analizowanie dzienników telemetrii w usłudze Application Insights
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Zaawansowana analiza dla usługi HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Rozszerzanie klastrów
       items:
         - name: Dostosowywanie klastrów za pomocą narzędzia Bootstrap
@@ -335,7 +343,7 @@
   items:
     - name: Zabezpieczenia przedsiębiorstwa
       items:
-        - name: Omówienie
+        - name: Przegląd
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planowanie zabezpieczeń przedsiębiorstwa
@@ -378,7 +386,9 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Dokumentacja
+        - name: Analizowanie dzienników usługi Hadoop
+          href: apache-hadoop-debug-jobs.md
+- name: Odwołanie
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
