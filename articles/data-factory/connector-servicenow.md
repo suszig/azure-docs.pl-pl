@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 28ac55dd21e9496a9e7c480d984a518dd03e4c94
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Kopiowanie danych z usługi ServiceNow przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -37,7 +37,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi ServiceNow.
 
@@ -47,9 +47,9 @@ Obsługiwane są następujące właściwości usługi ServiceNow połączone:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **ServiceNow** | Tak |
-| punkt końcowy | Punkt końcowy serwera usługi ServiceNow. (to znaczy http://ServiceNowData.com)  | Tak |
-| Typ authenticationType | Typ uwierzytelniania do użycia. <br/>Dozwolone wartości to: **podstawowe**, **OAuth2** | Tak |
+| type | Właściwość type musi mieć ustawioną: **ServiceNow** | Yes |
+| endpoint | Punkt końcowy serwera usługi ServiceNow. (to znaczy http://ServiceNowData.com)  | Yes |
+| Typ authenticationType | Typ uwierzytelniania do użycia. <br/>Dozwolone wartości to: **podstawowe**, **OAuth2** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem usługi ServiceNow uwierzytelniania Basic i protokołu OAuth2.  | Nie |
 | hasło | Hasło odpowiadający nazwie użytkownika do uwierzytelniania Basic i OAuth2. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
 | clientId | Identyfikator klienta do uwierzytelniania protokołu OAuth2.  | Nie |
@@ -109,8 +109,8 @@ Aby skopiować dane z usługi ServiceNow, należy ustawić typ źródła w przyp
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **ServiceNowSource** | Tak |
-| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM alm.asset"`. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **ServiceNowSource** | Yes |
+| query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM alm.asset"`. | Yes |
 
 **Przykład:**
 
@@ -144,5 +144,5 @@ Aby skopiować dane z usługi ServiceNow, należy ustawić typ źródła w przyp
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

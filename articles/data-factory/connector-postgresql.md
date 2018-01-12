@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiowanie danych z PostgreSQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Aby użyć tego łącznika PostgreSQL, musisz:
 - Zainstaluj [Ngpsql dostawcy danych PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) z wersją między 2.0.12 i 3.1.9 na komputerze środowiska uruchomieniowego integracji.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika PostgreSQL.
 
@@ -54,13 +55,13 @@ PostgreSQL połączone usługi, obsługiwane są następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **PostgreSql** | Tak |
-| serwer | Nazwa serwera PostgreSQL. |Tak |
-| Bazy danych | Nazwa bazy danych PostgreSQL. |Tak |
+| type | Właściwość type musi mieć ustawioną: **PostgreSql** | Yes |
+| serwer | Nazwa serwera PostgreSQL. |Yes |
+| baza danych | Nazwa bazy danych PostgreSQL. |Yes |
 | Schemat | Nazwa schematu w bazie danych. Nazwa schematu jest rozróżniana wielkość liter. |Nie |
-| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych PostgreSQL. |Tak |
-| hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Tak |
+| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych PostgreSQL. |Yes |
+| hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Yes |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład:**
 
@@ -94,7 +95,7 @@ Aby skopiować dane z PostgreSQL, ustaw właściwość Typ zestawu danych do **R
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w bazie danych programu PostgreSQL. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 **Przykład**
@@ -124,7 +125,7 @@ Aby skopiować dane z PostgreSQL, należy ustawić typ źródła w przypadku dzi
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
 | query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 > [!NOTE]
@@ -210,5 +211,5 @@ Podczas kopiowania danych z PostgreSQL, następujące mapowania są używane z t
 | `text` | |`String` |&nbsp;
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

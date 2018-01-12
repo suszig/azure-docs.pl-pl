@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 39734153a757d4665f2a15d3af244d2fab9ad9d7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Korzystanie z platformy Spark strukturę przesyłania strumieniowego z Kafka w usłudze HDInsight
 
@@ -127,7 +127,7 @@ Kod, na przykład opisanych w niniejszym dokumencie jest dostępny na [https://g
 
 Wykonaj następujące kroki, aby przekazać notesów z projektu do programu Spark w klastrze usługi HDInsight:
 
-1. W przeglądarce sieci web nawiązać notesu Jupyter w klastrze Spark. Następujący adres URL, Zastąp `CLUSTERNAME` o nazwie klastra Kafka:
+1. W przeglądarce sieci web nawiązać notesu Jupyter w klastrze Spark. Następujący adres URL, Zastąp `CLUSTERNAME` z nazwą użytkownika __Spark__ klastra:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
@@ -153,7 +153,7 @@ Gdy pliki zostały przekazane, wybierz __strumienia-Tweetów-To_Kafka.ipynb__ wp
 
 Na stronie głównej notesu Jupyter wybierz __Spark-strukturę-przesyłania strumieniowego-od-Kafka.ipynb__ wpisu. Postępuj zgodnie z instrukcjami notesu załadować tweetów z Kafka przy użyciu strukturalnych przesyłania strumieniowego Spark.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz sposób użycia strukturalnych przesyłania strumieniowego Spark, należy znaleźć w następujących dokumentach, aby dowiedzieć się więcej na temat pracy z platformy Spark i Kafka:
 

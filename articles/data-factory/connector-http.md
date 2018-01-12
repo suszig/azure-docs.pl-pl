@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,8 @@ W szczególności ten łącznik HTTP obsługuje:
 Różnica między tego łącznika i [łącznika sieci Web w tabeli](connector-web-table.md) jest, że jego służy do wyodrębniania zawartości tabeli ze strony sieci web w formacie HTML.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md)) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika HTTP.
 
@@ -52,10 +53,10 @@ Usługa HTTP połączone obsługuje następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **HttpServer**. | Tak |
-| adres URL | Podstawowy adres URL do serwera sieci Web | Tak |
+| type | Właściwość type musi mieć ustawioną: **HttpServer**. | Yes |
+| adres url | Podstawowy adres URL do serwera sieci Web | Yes |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikacji certyfikatu serwera SSL podczas nawiązywania połączenia punkt końcowy HTTP. | Nie, domyślna to true |
-| Typ authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Tak |
+| Typ authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Uwierzytelnianie podstawowe, szyfrowane lub systemu Windows
@@ -64,8 +65,8 @@ Ustaw dla właściwości "authenticationType" **podstawowe**, **szyfrowanego**, 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Tak |
-| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Tak |
+| Nazwa użytkownika | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Yes |
+| hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
 
 **Przykład**
 
@@ -160,7 +161,7 @@ Aby skopiować dane z protokołu HTTP, ustaw właściwość Typ zestawu danych d
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **HttpFile** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **HttpFile** | Yes |
 | relativeUrl | Względny adres URL do zasobu, który zawiera dane. Gdy ta właściwość nie jest określona, tylko adres URL określony w definicji połączonej usługi jest używany. | Nie |
 | requestMethod | Metoda HTTP.<br/>Dozwolone wartości to **uzyskać** (ustawienie domyślne) lub **Post**. | Nie |
 | additionalHeaders | Dodatkowych nagłówków żądania HTTP. | Nie |
@@ -217,7 +218,7 @@ Aby skopiować dane z protokołu HTTP, należy ustawić typ źródła w przypadk
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HttpSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HttpSource** | Yes |
 | httpRequestTimeout | Limit czasu (TimeSpan) dla żądania HTTP można uzyskać odpowiedzi. Limit czasu jest uzyskanie odpowiedzi nie limitu czasu można odczytać danych odpowiedzi.<br/> Wartość domyślna to: 00:01:40  | Nie |
 
 **Przykład:**
@@ -253,5 +254,5 @@ Aby skopiować dane z protokołu HTTP, należy ustawić typ źródła w przypadk
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

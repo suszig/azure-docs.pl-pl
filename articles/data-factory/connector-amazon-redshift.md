@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ W szczególności ten łącznik Amazon Redshift obsługuje pobieranie danych z R
 * Jeśli dane są kopiowane do magazynu danych Azure, zobacz [zakresy IP centrum danych Azure](https://www.microsoft.com/download/details.aspx?id=41653) koncentruje się na adres IP obliczeniowe i zakresy SQL używane przez usługi Azure data.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika Amazon Redshift.
 
@@ -55,12 +56,12 @@ Obsługiwane są następujące właściwości usługi Amazon Redshift połączon
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AmazonRedshift** | Tak |
-| serwer |IP adres lub nazwę hosta serwera Amazon Redshift. |Tak |
+| type | Właściwość type musi mieć ustawioną: **AmazonRedshift** | Yes |
+| serwer |IP adres lub nazwę hosta serwera Amazon Redshift. |Yes |
 | port |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwania dla połączeń klienta. |Nie, domyślnie jest 5439 |
-| baza danych |Nazwa bazy danych Amazon Redshift. |Tak |
-| nazwa użytkownika |Nazwa użytkownika, który ma dostęp do bazy danych. |Tak |
-| hasło |Hasło dla konta użytkownika. Zaznacz to pole jako SecureString. |Tak |
+| baza danych |Nazwa bazy danych Amazon Redshift. |Yes |
+| nazwa użytkownika |Nazwa użytkownika, który ma dostęp do bazy danych. |Yes |
+| hasło |Hasło dla konta użytkownika. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -97,7 +98,7 @@ Aby skopiować dane z Amazon Redshift, ustaw właściwość Typ zestawu danych d
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w Amazon Redshift. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 **Przykład**
@@ -127,7 +128,7 @@ Aby skopiować dane z Amazon Redshift, należy ustawić typ źródła w przypadk
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AmazonRedshiftSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AmazonRedshiftSource** | Yes |
 | query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 | redshiftUnloadSettings | Grupa właściwości używając Amazon Redshift UNLOAD. | Nie |
 | s3LinkedServiceName | Odwołuje się do Amazon S3 do-być używane jako magazyn tymczasowy, określając nazwę połączonej usługi typu "AmazonS3". | Tak, jeśli przy użyciu zwolnienia |
@@ -214,7 +215,7 @@ Podczas kopiowania danych z Amazon Redshift, następujące mapowania są używan
 | BIGINT |Int64 |
 | WARTOŚĆ LOGICZNA |Ciąg |
 | CHAR |Ciąg |
-| DATA |Data/godzina |
+| DATE |Data/godzina |
 | DECIMAL |Decimal |
 | PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
 | LICZBA CAŁKOWITA |Int32 |
@@ -224,5 +225,5 @@ Podczas kopiowania danych z Amazon Redshift, następujące mapowania są używan
 | ZNACZNIK CZASU |Data/godzina |
 | VARCHAR |Ciąg |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

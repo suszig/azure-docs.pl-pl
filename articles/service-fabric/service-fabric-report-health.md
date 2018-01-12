@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: ed10eef347d4d93012078456b3a145589e66d30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Dodawanie niestandardowych raportów kondycji usługi Service Fabric
 Sieć szkieletowa usług Azure wprowadza [model kondycji](service-fabric-health-introduction.md) umożliwiającą Flaga zła klastra i warunki aplikacji na konkretnych obiektów. Model kondycji używa **Raporty kondycji** (składników systemu i watchdogs). Celem jest łatwe i szybkie diagnozowanie i naprawy. Moduły zapisujące usługi należy wziąć pod uwagę góry o kondycji. Wszelkie warunek, który może mieć wpływ na kondycji należy podać, zwłaszcza, jeśli może pomóc problemów flagi bliski katalogu głównego. Informacje o kondycji można oszczędzić czas i wysiłek na analizie i debugowania. Przydatność jest jasne, szczególnie, gdy usługa jest uruchomiona na dużą skalę w chmurze (prywatny czy Azure).
@@ -300,7 +300,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Wysyłanie raportów o kondycji za pomocą usługi REST z żądania POST, przejdź do żądanego jednostki, które w treści opis raportu kondycji. Zobacz na przykład, jak wysyłać REST [klastra raportów o kondycji](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) lub [raportów o kondycji usługi](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Obsługiwane są wszystkie jednostki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Na podstawie kondycji danych, moduły zapisujące usługi i Administratorzy klastra/aplikacji można traktować sposobów, aby korzystać z informacji. Na przykład one można skonfigurować alerty na podstawie stanu kondycji do wychwytywania poważne problemy, zanim one powodować awarie. Administratorzy mogą również skonfigurować systemy naprawy Aby automatycznie rozwiązać problemy.
 
 [Wprowadzenie do kondycji sieci szkieletowej usług monitorowania](service-fabric-health-introduction.md)

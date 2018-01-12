@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
-ms.author: nitinme
-ms.openlocfilehash: e9467523da10333f1bb3c888f6e2768c2fdee4c1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Uruchom Spark z poziomu powłoki Spark
 
@@ -73,7 +73,7 @@ Polecenia powłoki Spark (`spark-shell`, `pyspark`, lub `sparkR`) obsługuje wie
 | --pakietów MAVEN_COORDS | Rozdzielana przecinkami lista maven współrzędne słoików do uwzględnienia w ścieżki klas sterownik i moduł wykonujący. Wyszukuje maven lokalnego repozytorium, a następnie centralnego maven, a następnie określić żadnych dodatkowych repozytoria zdalne za pomocą `--repositories`. Format współrzędnych jest *groupId*:*artifactId*:*wersji*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | LISTY py — pliki | Dla języka Python, rozdzielana przecinkami lista plików zip, .egg lub .py do umieszczenia na PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz [wprowadzenie do platformy Spark w usłudze Azure HDInsight](apache-spark-overview.md) omówienie.
 - Zobacz [utworzyć klaster Apache Spark w usłudze Azure HDInsight](apache-spark-jupyter-spark-sql.md) do pracy z klastrami Spark oraz SparkSQL.

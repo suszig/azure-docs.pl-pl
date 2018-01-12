@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Użyj węzłami pusty edge na klastrów platformy Hadoop w usłudze HDInsight
 
@@ -64,7 +64,7 @@ Rozmiar maszyny wirtualnej węzła krawędzi musi spełniać wymagania rozmiar m
 Po utworzeniu węzeł krawędzi, można połączyć się z węzłem krawędzi przy użyciu protokołu SSH i uruchamianie narzędzi klienta do dostępu do klastra usługi Hadoop w usłudze HDInsight.
 
 > [!WARNING] 
-> Przy użyciu węzła krawędzi pusta w usłudze HDInsight jest obecnie w wersji zapoznawczej. Niestandardowe składniki, które są zainstalowane w węźle krawędzi otrzymywania uzasadnione ekonomicznie pomocy technicznej firmy Microsoft. Może to spowodować w rozwiązywaniu problemów występujących u użytkownika. Lub może być określonej zasoby społeczności, aby uzyskać dalszą pomoc. Poniżej przedstawiono niektóre najbardziej aktywne witryn uzyskiwanie pomocy od społeczności:
+> Niestandardowe składniki, które są zainstalowane w węźle krawędzi otrzymywania uzasadnione ekonomicznie pomocy technicznej firmy Microsoft. Może to spowodować w rozwiązywaniu problemów występujących u użytkownika. Lub może być określonej zasoby społeczności, aby uzyskać dalszą pomoc. Poniżej przedstawiono niektóre najbardziej aktywne witryn uzyskiwanie pomocy od społeczności:
 >
 > * [Forum MSDN dla usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://StackOverflow.com](http://stackoverflow.com).

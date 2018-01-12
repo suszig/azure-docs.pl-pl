@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Dodaj lub Usuń punkt końcowy serwera synchronizacji plików Azure (wersja zapoznawcza)
 Usługa Azure File Sync (wersja zapoznawcza) umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -32,7 +32,7 @@ Aby utworzyć punktu końcowego serwera, należy najpierw upewnić, że są spe�
 - Serwer z zainstalowanym agentem synchronizacji plików Azure i został zarejestrowany. Instrukcje dotyczące instalowania agenta synchronizacji plików Azure można znaleźć w [zarejestrować/wyrejestrować na serwerze z funkcją synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-server-registration.md) artykułu. 
 - Upewnij się, że wdrożono usługę synchronizacji magazynu. Zobacz [Wdrażanie synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-deployment-guide.md) szczegółowe informacje na temat wdrażania usługi synchronizacji magazynu. 
 - Upewnij się, że grupy synchronizacji został wdrożony. Dowiedz się, jak [Utwórz grupę synchronizacji](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Upewnij się, że serwer ma połączenie z Internetem i czy Azure jest dostępna.
+- Upewnij się, że serwer ma połączenie z Internetem i czy Azure jest dostępna. Firma Microsoft korzysta z portu 443 dla całej komunikacji między serwerem a naszej usługi.
 
 ## <a name="add-a-server-endpoint"></a>Dodawanie punktu końcowego serwera
 Aby dodać punktu końcowego serwera, przejdź do żądanego synchronizacji grupy i wybierz opcję "Dodaj punkt końcowy serwera".
@@ -69,6 +69,6 @@ Aby usunąć punkt końcowy serwera:
 
     ![Usuwanie punktu końcowego serwera z grupy synchronizacji](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Register/unregister serwer synchronizacji plików Azure (wersja zapoznawcza)](storage-sync-files-server-registration.md)
 - [Planowanie wdrożenia synchronizacji plików Azure](storage-sync-files-planning.md)

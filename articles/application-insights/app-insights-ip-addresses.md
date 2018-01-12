@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: afdef7898ef68930ef702ddf67baaadae9360236
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresy IP używane przez usługę Application Insights i analizy dzienników
 [Azure Application Insights](app-insights-overview.md) usługa używa liczba adresów IP. Może być konieczne, jeśli aplikacja, która monitorowanych znajduje się za zaporą informacje tych adresów.
@@ -41,13 +41,13 @@ Stan monitora konfiguracji — potrzebne tylko podczas wprowadzania zmian.
 
 | Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Konfiguracja |`management.core.windows.net` | |`443` |
-| Konfiguracja |`management.azure.com` | |`443` |
-| Konfiguracja |`login.windows.net` | |`443` |
-| Konfiguracja |`login.microsoftonline.com` | |`443` |
-| Konfiguracja |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Konfiguracja |`auth.gfx.ms` | |`443` |
-| Konfiguracja |`login.live.com` | |`443` |
+| Konfigurowanie |`management.core.windows.net` | |`443` |
+| Konfigurowanie |`management.azure.com` | |`443` |
+| Konfigurowanie |`login.windows.net` | |`443` |
+| Konfigurowanie |`login.microsoftonline.com` | |`443` |
+| Konfigurowanie |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| Konfigurowanie |`auth.gfx.ms` | |`443` |
+| Konfigurowanie |`login.live.com` | |`443` |
 | Instalacja |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
@@ -135,6 +135,7 @@ SE : Stockholm
 94.245.78.41
 94.245.78.42
 94.245.78.45
+GB : United Kingdom
 51.141.25.219
 51.141.32.101
 51.141.35.167
@@ -262,7 +263,7 @@ Uwaga: *. loganalytics.io domeny należy do zespołu analizy dzienników.
 
 | Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | dynamiczne | 443
+| Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
 | Portal | Gateway.azureserviceprofiler.NET | dynamiczne | 443
 | Magazyn | *. core.windows.net | dynamiczne | 443
 
@@ -270,6 +271,6 @@ Uwaga: *. loganalytics.io domeny należy do zespołu analizy dzienników.
 
 | Przeznaczenie | Identyfikator URI | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Agent | PPE.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | dynamiczne | 443
+| Agent | PPE.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
 | Portal | PPE.Gateway.azureserviceprofiler.NET | dynamiczne | 443
 | Magazyn | *. core.windows.net | dynamiczne | 443

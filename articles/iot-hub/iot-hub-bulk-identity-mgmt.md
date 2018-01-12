@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Zarządzanie tożsamościami urządzenia IoT Hub zbiorcze
 
@@ -27,6 +27,8 @@ Każdy Centrum IoT ma rejestru tożsamości używanej do tworzenia zasobów na u
 Importowanie i eksportowanie działania mają miejsce w kontekście *zadania* umożliwiające wykonanie operacji usługi zbiorczego z Centrum IoT.
 
 **RegistryManager** klasa zawiera **ExportDevicesAsync** i **ImportDevicesAsync** metody, które używają **zadania** framework. Te metody umożliwiają eksportowanie, importowania i synchronizacji całości rejestru tożsamości Centrum IoT.
+
+W tym temacie omówiono przy użyciu **RegistryManager** klasy i **zadania** systemu, aby wykonać zbiorczego importu i eksportu urządzeń do i z rejestru tożsamości Centrum IoT. Usługa udostępniania urządzeń Centrum IoT Azure umożliwia również włączyć bezobsługową, just-in-time alokacji dla co najmniej jeden centra IoT bez udziału człowieka. Aby dowiedzieć się więcej, zobacz [inicjowania obsługi usługi dokumentacji][lnk-dps].
 
 ## <a name="what-are-jobs"></a>Co to są zadania?
 
@@ -395,7 +397,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule przedstawiono sposób wykonania operacji zbiorczej przed w rejestrze tożsamości w Centrum IoT. Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu Centrum IoT Azure:
 
@@ -405,10 +407,16 @@ W tym artykule przedstawiono sposób wykonania operacji zbiorczej przed w rejest
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
+
+Aby zapoznać się z usługi IoT Centrum urządzeń inicjowania obsługi administracyjnej Włącz bezobsługową, w czasie inicjowania obsługi, zobacz: 
+
+* [Usługi inicjowania obsługi administracyjnej urządzeniu Centrum IoT Azure][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiowanie danych do lub z bazy danych rozwiązania Cosmos Azure przy użyciu fabryki danych Azure
 
@@ -42,7 +42,8 @@ W szczególności ten łącznik Azure DB rozwiązania Cosmos obsługuje:
 Aby skopiować dokumenty jako — jest do/z pliki w formacie JSON lub innej kolekcji rozwiązania Cosmos bazy danych, zobacz [dokumentów JSON importu/eksportu](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do bazy danych Azure rozwiązania Cosmos.
 
@@ -52,8 +53,8 @@ Obsługiwane są następujące właściwości dla usługi Azure DB rozwiązania 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **CosmosDb**. | Tak |
-| Parametry połączenia |Określ informacje potrzebne do łączenia z bazą danych Azure DB rozwiązania Cosmos. Należy zauważyć, że trzeba określić informacje o bazie danych w parametrach połączenia jako poniżej próbki. Zaznacz to pole jako SecureString. |Tak |
+| type | Właściwość type musi mieć ustawioną: **CosmosDb**. | Yes |
+| Parametry połączenia |Określ informacje potrzebne do łączenia z bazą danych Azure DB rozwiązania Cosmos. Należy zauważyć, że trzeba określić informacje o bazie danych w parametrach połączenia jako poniżej próbki. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 **Przykład:**
@@ -85,8 +86,8 @@ Aby skopiować dane z/do bazy danych Azure rozwiązania Cosmos, ustaw właściwo
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **DocumentDbCollection** |Tak |
-| CollectionName |Nazwa kolekcji dokumentów DB rozwiązania Cosmos. |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **DocumentDbCollection** |Yes |
+| CollectionName |Nazwa kolekcji dokumentów DB rozwiązania Cosmos. |Yes |
 
 **Przykład:**
 
@@ -123,7 +124,7 @@ Aby skopiować dane z bazy danych rozwiązania Cosmos platformy Azure, należy u
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **DocumentDbCollectionSource** |Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **DocumentDbCollectionSource** |Yes |
 | query |Określ zapytanie DB rozwiązania Cosmos można odczytać danych.<br/><br/>Przykład:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Nie <br/><br/>Jeśli nie zostanie określony, która zostanie wykonana instrukcja SQL:`select <columns defined in structure> from mycollection` |
 | nestingSeparator |Znaki specjalne w celu wskazania, że dokument jest zagnieżdżony i jak do flattern zestaw wyników.<br/><br/>Na przykład, jeśli zapytanie DB rozwiązania Cosmos zwraca wynik zagnieżdżonych `"Name": {"First": "John"}`, działanie kopiowania określi nazwy kolumny jako "Name.First" o wartości "Jan" po nestedSeparator kropki. |Nie (domyślnie jest kropka `.`) |
 
@@ -165,7 +166,7 @@ Aby skopiować dane z bazy danych usługi Azure rozwiązania Cosmos, Ustaw typ u
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **DocumentDbCollectionSink** |Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **DocumentDbCollectionSink** |Yes |
 | nestingSeparator |Wymagany jest znak specjalny w nazwa kolumny źródłowej, aby wskazać zagnieżdżonych dokumentu. <br/><br/>Na przykład `Name.First` w zestawie danych wyjściowych struktury generuje następującą strukturę JSON w dokumencie DB rozwiązania Cosmos:`"Name": {"First": "[value maps to this column from source]"}` gdy nestedSeparator jest kropka. |Nie (domyślnie jest kropka `.`) |
 | writeBatchTimeout |Poczekaj na ukończenie upłynie limit czasu operacji.<br/><br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
 
@@ -213,5 +214,5 @@ Do osiągnięcia tych kopii niezależny od schematu:
 - W bazie danych rozwiązania Cosmos zestawów danych, nie zostanie określony w sekcji "structure"; a w przypadku działania kopiowania DB rozwiązania Cosmos źródło/ujście, nie określono właściwości "nestingSeparator".
 - Podczas importowania z / eksportowanie do pliki JSON w odpowiedniego pliku magazynu zestawu danych, określ typ formatu jako "JsonFormat" i konfiguracji "filePattern" prawidłowo (zobacz [formatu JSON](supported-file-formats-and-compression-codecs.md#json-format) sekcji, aby uzyskać szczegółowe informacje), następnie należy określać struktury" "sekcji i Pomiń pozostałe ustawienia formatu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: "Pasujące do aparatu reguł Content Delivery Network | Dokumentacja firmy Microsoft"
-description: "Dokumentacja referencyjna dla usługi Azure Content Delivery Network zasady warunków dopasowania aparatu i funkcje."
+title: "Pasujące do aparatu reguł Azure CDN | Dokumentacja firmy Microsoft"
+description: "Dokumentacja referencyjna dla usługi Azure Content Delivery Network zasady warunków dopasowania aparatu."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Warunki dopasowania dla aparatu reguł Content Delivery Network
-W tym artykule przedstawiono szczegółowe opisy dostępnych dopasowania warunków Azure Content Delivery Network [aparatu reguł](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Warunki dopasowania dla aparatu reguł Azure CDN
+W tym artykule przedstawiono szczegółowe opisy warunki dopasowania dostępne dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
 
 Druga część reguły jest warunkiem dopasowania. Warunek dopasowania identyfikuje określone typy żądań, dla których będą wykonywane zestawem funkcji.
 
@@ -106,7 +106,7 @@ Adres URL zapytania z symboli wieloznacznych | Porównuje określonej wartości 
 
 Warunek dopasowania zawsze stosuje domyślny zestaw funkcji do wszystkich żądań.
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,7 +141,7 @@ Informacje o kluczu:
  - Punkt dostępu do zawartości identyfikuje usługę, która powinna obsługiwać żądanej zawartości.
  - Nie używaj instrukcji IF i połączyć określone warunki dopasowania. Na przykład łączenie pochodzenia CDN warunek dopasowania z warunkiem dopasowania pochodzenia klienta utworzyć wzorca dopasowania, który nigdy nie być zgodne. Z tego powodu dwa warunki dopasowania źródła usługi CDN nie można łączyć za pomocą instrukcji IF i.
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -164,7 +164,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Informacje o kluczu:
   - Konfiguracja CNAME krawędzi
 - Nie używaj instrukcji IF i połączyć określone warunki dopasowania. Na przykład łączenie warunek dopasowania pochodzenia klienta z warunkiem dopasowania pochodzenia CDN utworzyć wzorca dopasowania, który nigdy nie być zgodne. Z tego powodu dwa warunki zgodne ze źródła — wersja klienta nie można łączyć za pomocą instrukcji IF i.
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Data wydania | % {wurfl_cap_release_date} | Ciąg, który wskazuje rok i miesią
 Wysokość rozwiązania | % {wurfl_cap_resolution_height} | Liczba całkowita, która wskazuje urządzenia wysokość w pikselach. | 768
 Szerokość rozwiązania | % {wurfl_cap_resolution_width} | Liczba całkowita, która wskazuje szerokość urządzenia w pikselach. | 1024
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna 
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Informacje o kluczu:
   - Ignoruj pochodzenia No-Cache
   - Wewnętrzny odświeżona maksymalna
 
-[Powrót do początku](#azure-cdn-rules-engine-match-conditions)
+[Powrót do początku](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

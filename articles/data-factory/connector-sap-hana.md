@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z programu SAP HANA przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Aby użyć tego łącznika SAP HANA, musisz:
 - Na komputerze środowiska uruchomieniowego integracji, należy zainstalować sterownik SAP HANA ODBC. Możesz pobrać sterownik SAP HANA ODBC z [Centrum pobierania oprogramowania SAP](https://support.sap.com/swdc). Wyszukiwanie ze słowem kluczowym **SAP HANA klienta dla systemu Windows**.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika SAP HANA.
 
@@ -60,12 +61,12 @@ Obsługiwane są następujące właściwości dla SAP HANA połączone usługi:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SapHana** | Tak |
-| serwer | Nazwa serwera, na którym znajduje się z wystąpieniem SAP HANA. Jeśli serwer używa portu dostosowane, określ `server:port`. | Tak |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych SAP HANA.<br/>Dozwolone wartości to: **podstawowe**, i **systemu Windows** | Tak |
-| Nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP. | Tak |
-| hasło | Hasło dla użytkownika. Zaznacz to pole jako SecureString. | Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Tak |
+| type | Właściwość type musi mieć ustawioną: **SapHana** | Yes |
+| serwer | Nazwa serwera, na którym znajduje się z wystąpieniem SAP HANA. Jeśli serwer używa portu dostosowane, określ `server:port`. | Yes |
+| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych SAP HANA.<br/>Dozwolone wartości to: **podstawowe**, i **systemu Windows** | Yes |
+| Nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP. | Yes |
+| hasło | Hasło dla użytkownika. Zaznacz to pole jako SecureString. | Yes |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład:**
 
@@ -123,8 +124,8 @@ Aby skopiować dane z programu SAP HANA, należy ustawić typ źródła w przypa
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
-| query | Określa zapytanie SQL do odczytywania danych z wystąpieniem SAP HANA. | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
+| query | Określa zapytanie SQL do odczytywania danych z wystąpieniem SAP HANA. | Yes |
 
 **Przykład:**
 
@@ -169,16 +170,16 @@ Podczas kopiowania danych z programu SAP HANA, następujące mapowania są używ
 | OBIEKT BLOB | Byte] |
 | WARTOŚĆ LOGICZNA | Bajtów |
 | CLOB | Byte] |
-| DATA | Data i godzina |
+| DATE | Data/godzina |
 | DECIMAL | Decimal |
-| O PODWÓJNEJ PRECYZJI | Pojedynczy |
+| O PODWÓJNEJ PRECYZJI | Kawaler/panna |
 | INT | Int32 |
 | NVARCHAR | Ciąg |
-| RZECZYWISTE | Pojedynczy |
-| SECONDDATE | Data i godzina |
+| RZECZYWISTE | Kawaler/panna |
+| SECONDDATE | Data/godzina |
 | SMALLINT | Int16 |
-| CZAS | Zakres czasu |
-| ZNACZNIK CZASU | Data i godzina |
+| GODZINA | Zakres czasu |
+| ZNACZNIK CZASU | Data/godzina |
 | TINYINT | Bajtów |
 | VARCHAR | Ciąg |
 
@@ -192,5 +193,5 @@ Podczas kopiowania danych z programu SAP HANA istnieje kilka znane ograniczenia:
 - Prawidłowe daty należą do zakresu od 30-1899/12, a 9999-12/31
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

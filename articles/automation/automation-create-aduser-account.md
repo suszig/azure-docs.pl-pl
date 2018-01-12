@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie konta użytkownika usługi Azure AD | Microsoft Docs"
-description: "W tym artykule opisano sposób tworzenia poświadczeń konta użytkownika usługi Azure AD dla elementów Runbook w usłudze Azure Automation do uwierzytelniania na platformie Azure i klasycznej platformie Azure."
+description: "W tym artykule opisano sposób tworzenia poświadczeń dla konta użytkownika programu Azure AD dla elementów runbook w automatyzacji Azure do uwierzytelniania na platformie Azure."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -10,61 +10,35 @@ keywords: "konto użytkownika usługi Azure Active Directory, azure service mana
 ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: f0a9664898cd27529daf73d130dd25fd296a9b48
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Uwierzytelnianie elementów Runbook za pomocą klasycznego wdrożenia platformy Azure i usługi Resource Manager
-W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do klasycznego modelu wdrażania platformy Azure lub zasobów usługi Azure Resource Manager.  To konto nadal jest obsługiwaną tożsamością uwierzytelniania dla elementów Runbook w ramach usługi Azure Resource Manager, jednak zalecane jest używanie konta Uruchom jako platformy Azure.       
+W tym artykule opisano kroki, które należy wykonać, aby skonfigurować konto użytkownika usługi Azure AD dla elementów Runbook usługi Azure Automation działających w odniesieniu do klasycznego modelu wdrażania platformy Azure lub zasobów usługi Azure Resource Manager.  Gdy to nadal być tożsamością obsługiwanych uwierzytelniania dla usługi Azure Resource Manager, na podstawie elementy runbook, zalecaną metodą jest użycie konta Uruchom jako platformy Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Tworzenie nowego użytkownika usługi Azure Active Directory
-1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
-2. Wybierz usługę **Active Directory**, a następnie wybierz nazwę katalogu organizacji.
-3. Wybierz kartę **Użytkownicy**, a następnie w obszarze poleceń wybierz polecenie **Dodaj użytkownika**.
-4. Na stronie **Poinformuj nas o tym użytkowniku** w obszarze **Typ użytkownika** wybierz opcję **Nowy użytkownik w organizacji**.
-5. Wprowadź nazwę użytkownika.  
-6. Wybierz nazwę katalogu, który jest skojarzony z subskrypcją platformy Azure na stronie usługi Active Directory.
-7. Na stronie **profilu użytkownika** podaj imię i nazwisko, nazwę przyjazną dla użytkownika i rolę Użytkownik z listy **Role**.  Nie wybieraj opcji **Włącz uwierzytelnianie wieloskładnikowe**.
-8. Zapamiętaj pełną nazwę użytkownika i hasło tymczasowe.
-9. Wybierz opcje **Ustawienia > Administratorzy > Dodaj**.
-10. Wpisz pełną nazwę utworzonego przed chwilą użytkownika.
-11. Wybierz subskrypcję, którą ma zarządzać ten użytkownik.
-12. Wyloguj się z platformy Azure, a następnie zaloguj się ponownie przy użyciu właśnie utworzonego konta. Zostanie wyświetlony monit informujący o konieczności zmiany hasła użytkownika.
-
-## <a name="create-an-automation-account-in-azure-classic-portal"></a>Tworzenie konta usługi Automation w klasycznej witrynie Azure Portal
-W tej części należy wykonać poniższe kroki, aby utworzyć nowe konto usługi Azure Automation w witrynie Azure Portal. Będzie ono używane z elementami Runbook zarządzającymi zasobami w klasycznym wdrożeniu platformy Azure.  
-
-> [!NOTE]
-> Kontami usługi Automation utworzonymi za pomocą klasycznej witryny Azure Portal można zarządzać zarówno za pomocą klasycznej witryny Azure Portal, jak i witryny Azure Portal oraz zestawu poleceń cmdlet. Po utworzeniu konta nie ma znaczenia, jak są tworzone zasoby w ramach konta ani jak się nimi zarządza. Jeśli planujesz dalsze używanie klasycznego portalu Azure, użyj go zamiast portalu Azure do utworzenia kont usługi Automation.
-> 
-> 
-
-1. Zaloguj się do klasycznego portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
-2. Wybierz opcję **Automatyzacja**.
-3. Na stronie **Automatyzacja** wybierz opcję **Utwórz konto automatyzacji**.
-4. W polu **Utwórz konto automatyzacji** wpisz nazwę nowego konta w usłudze Automation i wybierz opcję **Region** z listy rozwijanej.  
-5. Kliknij przycisk **OK**, aby zaakceptować ustawienia i utworzyć konto.
-6. Po utworzeniu zostanie ono wyświetlone na stronie **Automatyzacja**.
-7. Kliknięcie konta spowoduje wyświetlenie strony Pulpit nawigacyjny.  
-8. Na stronie pulpitu nawigacyjnego usługi Automation wybierz opcję **Zasoby**.
-9. Na stronie **Zasoby** wybierz opcję **Dodaj ustawienia** znajdującą się na dole strony.
-10. Na stronie **Dodawanie ustawień** wybierz opcję **Dodaj poświadczenie**.
-11. Na stronie **Definiowanie poświadczenia** wybierz opcję **Poświadczenie programu Windows PowerShell** z listy rozwijanej **Typ poświadczenia** i podaj nazwę dla poświadczenia.
-12. Na następnej stronie **Definiowanie poświadczenia** wpisz nazwę użytkownika utworzonego wcześniej konta użytkownika usługi AD w polu **Nazwa użytkownika** oraz hasło w polach **Hasło** i **Potwierdź hasło**. Kliknij przycisk **OK**, aby zapisać zmiany.
+1. Zaloguj się do portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
+2. Wybierz **usługi Azure Active Directory** > **użytkowników i grup** > **wszyscy użytkownicy** > **nowego użytkownika**.
+3. Wprowadź szczegóły użytkownika, takie jak **nazwa** i **nazwy użytkownika**.  
+4. Zapamiętaj pełną nazwę użytkownika i hasło tymczasowe.
+5. Wybierz **roli katalogu**.
+6. Przypisz rolę globalny lub Administrator ograniczone.
+7. Wyloguj się z platformy Azure, a następnie zaloguj się ponownie przy użyciu właśnie utworzonego konta. Zostanie wyświetlony monit informujący o konieczności zmiany hasła użytkownika.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Tworzenie konta usługi Automation w witrynie Azure Portal
 W tej części należy wykonać poniższe kroki, aby utworzyć konto usługi Azure Automation w witrynie Azure Portal. Będzie ono używane z elementami Runbook zarządzającymi zasobami w trybie usługi Azure Resource Manager.  
 
 1. Zaloguj się do portalu Azure jako administrator usługi dla subskrypcji platformy Azure, którą chcesz zarządzać.
 2. Wybierz opcję **Konta automatyzacji**.
-3. W bloku Konta automatyzacji kliknij przycisk **Dodaj**.<br><br>![Dodawanie konta usługi Automation](media/automation-create-aduser-account/add-automation-acct-properties.png)
+3. Wybierz pozycję **Dodaj**.<br><br>![Dodawanie konta usługi Automation](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. W bloku **Dodaj konto automatyzacji** w polu **Nazwa** wpisz nazwę nowego konta usługi Automation.
 5. Jeśli masz więcej niż jedną subskrypcję, jedną z nich określ dla nowego konta, podaj także nową lub istniejącą **grupę zasobów** i **lokalizację** centrum danych Azure.
 6. Wybierz wartość **Tak** dla opcji **Utwórz konto Uruchom jako platformy Azure**, a następnie kliknij przycisk **Utwórz**.  

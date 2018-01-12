@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopiowanie danych z i do systemu plików HDFS przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ W szczególności ten łącznik systemu plików HDFS obsługuje:
 Aby skopiować dane z/do systemu plików HDFS, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](concepts-integration-runtime.md) artykuł, aby poznać szczegóły.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do systemu plików HDFS.
 
@@ -55,9 +56,9 @@ System plików HDFS połączone usługi obsługiwane są następujące właściw
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Hdfs**. | Tak |
-| adres url |Adres URL do systemu plików HDFS |Tak |
-| Typ authenticationType | Dozwolone wartości to: **anonimowe**, lub **Windows**. <br><br> Umożliwia **uwierzytelnianie Kerberos** łącznika systemu plików HDFS, można znaleźć w temacie [w tej sekcji](#use-kerberos-authentication-for-hdfs-connector) do odpowiednio skonfigurowane w lokalnym środowisku. |Tak |
+| type | Właściwość type musi mieć ustawioną: **Hdfs**. | Yes |
+| adres url |Adres URL do systemu plików HDFS |Yes |
+| Typ authenticationType | Dozwolone wartości to: **anonimowe**, lub **Windows**. <br><br> Umożliwia **uwierzytelnianie Kerberos** łącznika systemu plików HDFS, można znaleźć w temacie [w tej sekcji](#use-kerberos-authentication-for-hdfs-connector) do odpowiednio skonfigurowane w lokalnym środowisku. |Yes |
 | Nazwa użytkownika |Uwierzytelnianie nazwy użytkownika dla systemu Windows. Aby uwierzytelnianie Kerberos, określ `<username>@<domain>.com`. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | hasło |Hasło dla uwierzytelniania systemu Windows. Zaznacz to pole jako SecureString. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -114,8 +115,8 @@ Aby skopiować dane z systemu plików HDFS, ustaw właściwość Typ zestawu dan
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Tak |
-| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **udziału plików** |Yes |
+| folderPath | Ścieżka do folderu. Na przykład: folder/podfolder / |Yes |
 | fileName | Określ nazwę pliku w **folderPath** Aby kopiować z określonego pliku. Jeśli nie określono żadnej wartości dla tej właściwości, punktów zestawu danych do wszystkich plików w folderze źródłowym. |Nie |
 | Format | Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz przeanalizować pliki w określonym formacie, obsługiwane są następujące typy plików w formacie: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](supported-file-formats-and-compression-codecs.md#text-format), [formatu Json](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), i [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sekcje. |Nie (tylko w przypadku scenariusza kopiowania binarny) |
 | Kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekodery kompresji](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Obsługiwane typy to: **GZip**, **Deflate**, **BZip2**, i **ZipDeflate**.<br/>Obsługiwane poziomy: **optymalna** i **najszybciej**. |Nie |
@@ -158,7 +159,7 @@ Aby skopiować dane z systemu plików HDFS, Ustaw typ źródła w przypadku dzia
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HdfsSource** |Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **HdfsSource** |Yes |
 | Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 | distcpSettings | Grupy właściwości, korzystając z narzędzia DistCp systemu plików HDFS. | Nie |
 | resourceManagerEndpoint | Punkt końcowy Yarn ResourceManager | Tak, jeśli za pomocą narzędzia DistCp |
@@ -383,5 +384,5 @@ Dostępne są dwie opcje do skonfigurowania środowiska lokalnego tak, aby korzy
 * Skonfigurować za pomocą łącznika systemu plików HDFS **uwierzytelniania systemu Windows** wraz z Twojego konta domeny albo podmiot zabezpieczeń protokołu Kerberos do nawiązania połączenia ze źródłem danych systemu plików HDFS. Sprawdź [właściwości powiązanych z systemu plików HDFS](#linked-service-properties) sekcji Szczegóły konfiguracji.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

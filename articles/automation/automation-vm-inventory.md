@@ -6,13 +6,13 @@ keywords: "spis, automatyzacja, zmiana, śledzenie"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Zarządzanie maszyną wirtualną platformy Azure z wykorzystaniem zbierania spisu
 
@@ -63,7 +63,7 @@ Aby usunąć maszynę wirtualną z zarządzania spisem:
 5. W oknie potwierdzenia wybierz pozycję **Tak**.  
     Ta akcja odłączy maszynę od zarządzania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej o zarządzaniu zmianami w plikach i ustawieniach rejestru na maszynach wirtualnych, zobacz [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Śledzenie zmian oprogramowania w środowisku za pomocą rozwiązania do śledzenia zmian).
 * Aby dowiedzieć się więcej o zarządzaniu aktualizacjami systemu Windows i aktualizacjami pakietów na maszynach wirtualnych, zobacz [Rozwiązanie do zarządzania aktualizacjami w usłudze OMS](../operations-management-suite/oms-solution-update-management.md).

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Rozwiązywanie problemów z błędami Zła brama bramy aplikacji
 
 Dowiedz się, jak rozwiązywać problemy z błędów zły bramy (502) podczas używania bramy aplikacji.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Po skonfigurowaniu bramy aplikacji, jest jeden z błędów, które użytkownicy mogą wystąpić "Błąd serwera: 502 — Serwer sieci Web odebrał nieprawidłową odpowiedź działając jako brama lub serwer proxy". Ten błąd może się zdarzyć z powodu następujących powodów:
 
@@ -80,7 +80,7 @@ błędy 502 można także częste wskaźniki domyślnej funkcji badania kondycji
 
 | Właściwość sondy | Wartość | Opis |
 | --- | --- | --- |
-| Sonda adresu URL |http://127.0.0.1/ |Ścieżka adresu URL |
+| Adres URL sondy |http://127.0.0.1/ |Ścieżka adresu URL |
 | Interwał |30 |Interwał sondowania w sekundach |
 | Limit czasu |30 |Sonda limitu czasu w sekundach |
 | Próg złej kondycji |3 |Badania liczby ponownych prób. Po kolejnych sondowania liczby awarii osiągnie próg złej kondycji serwera zaplecza jest oznaczony jako w dół. |
@@ -102,7 +102,7 @@ Sondy kondycji niestandardowe umożliwiają dodatkowa elastyczność sondowanie 
 
 | Właściwość sondy | Opis |
 | --- | --- |
-| Nazwa |Nazwa sondy. Ta nazwa jest używana do odwoływania się do sondowania w ustawieniach protokołu HTTP zaplecza. |
+| Name (Nazwa) |Nazwa sondy. Ta nazwa jest używana do odwoływania się do sondowania w ustawieniach protokołu HTTP zaplecza. |
 | Protokół |Protokół używany do wysyłania sondy. Sonda korzysta z protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
 | Host |Nazwa hosta, aby wysłać sondy. Dotyczy tylko wtedy, gdy obejmujący wiele lokacji jest skonfigurowany dla bramy aplikacji. To jest inna niż nazwa hosta maszyny Wirtualnej. |
 | Ścieżka |Ścieżka względna sondy. Nieprawidłowa ścieżka rozpoczyna się od '/'. Sonda są wysyłane do \<protokołu\>://\<hosta\>:\<portu\>\<ścieżki\> |
@@ -118,8 +118,7 @@ Zweryfikuj, że sondy kondycji niestandardowy jest skonfigurowana jako powyższe
 * Jeśli skonfigurowano brama aplikacji w jednej lokacji, domyślnie hosta należy określać nazwy jako "127.0.0.1", chyba że w przeciwnym razie skonfigurowane w niestandardowych sondowania.
 * Upewnij się, że wywołanie http://\<hosta\>:\<portu\>\<ścieżki\> zwraca kod wyniku protokołu HTTP 200.
 * Upewnij się, że interwału limitu czasu i UnhealtyThreshold są dopuszczalne zakresy.
-* Jeśli przy użyciu sondy protokołu HTTPS, upewnij się, że serwer wewnętrznej bazy danych nie wymaga SNI przez skonfigurowanie rezerwowy certyfikatu na serwerze wewnętrznej bazy danych. 
-* Upewnij się, czy interwał limitu czasu i UnhealtyThreshold znajduje się w dopuszczalnych zakresach.
+* Jeśli przy użyciu sondy protokołu HTTPS, upewnij się, że serwer wewnętrznej bazy danych nie wymaga SNI przez skonfigurowanie rezerwowy certyfikatu na serwerze wewnętrznej bazy danych.
 
 ## <a name="request-time-out"></a>Limit czasu żądania
 
@@ -187,7 +186,7 @@ Jeśli wszystkie wystąpienia BackendAddressPool jest zła, następnie bramy apl
 
 Upewnij się, że wystąpienia są w dobrej kondycji i aplikacja jest poprawnie skonfigurowana. Sprawdź, czy wystąpienia zaplecza są odpowiada na polecenia ping z innej maszyny Wirtualnej w tej samej sieci wirtualnej. Jeśli skonfigurowano publiczny punkt końcowy, upewnij się, że żądanie przeglądarki do aplikacji sieci web jest obsługiwanych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli powyższe czynności nie rozwiązać ten problem, otwórz [obsługuje biletu](https://azure.microsoft.com/support/options/).
 

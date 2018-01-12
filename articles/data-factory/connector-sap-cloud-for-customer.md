@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ad3bc7ba38f5ea20586031bdcc3ae44f03f9da0b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Kopiowanie danych z chmury SAP dla klienta (C4C) przy użyciu fabryki danych Azure
 
@@ -34,7 +34,7 @@ W szczególności ten łącznik umożliwia fabryki danych Azure skopiować dane 
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonego w chmurze SAP dla łącznika klienta.
 
@@ -44,10 +44,10 @@ Chmury SAP obsługi klientów połączonych obsługiwane są następujące wła�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomer**. | Tak |
-| adres url | Adres URL usługi SAP C4C OData. | Tak |
-| nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie SAP C4C. | Tak |
-| hasło | Podaj hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Tak |
+| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomer**. | Yes |
+| adres url | Adres URL usługi SAP C4C OData. | Yes |
+| nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie SAP C4C. | Yes |
+| hasło | Podaj hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
 
 >[!IMPORTANT]
@@ -84,8 +84,8 @@ Aby skopiować dane z programu SAP chmury dla klienta, ustaw właściwość Typ 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **SapCloudForCustomerResource** |Tak |
-| ścieżka | Określ ścieżkę SAP C4C OData jednostki. |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **SapCloudForCustomerResource** |Yes |
+| ścieżka | Określ ścieżkę SAP C4C OData jednostki. |Yes |
 
 **Przykład:**
 
@@ -115,7 +115,7 @@ Aby skopiować dane z programu SAP chmury dla klienta, należy ustawić typ źr�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSource**  | Tak |
+| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSource**  | Yes |
 | query | Określ niestandardowe zapytania OData do odczytu danych. | Nie |
 
 Przykładowe zapytanie można pobrać danych dla określonego dnia:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -158,7 +158,7 @@ Kopiowania danych do chmury SAP dla klienta, należy ustawić typ ujścia w dzia
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSink**  | Tak |
+| type | Właściwość type musi mieć ustawioną: **SapCloudForCustomerSink**  | Yes |
 | WriteBehavior | Zachowanie zapisu operacji. Może to być "Insert", "Update". | Nie. Domyślna "Insert". |
 | writeBatchSize | Rozmiar partii operacji zapisu. Rozmiar partii, aby uzyskać najlepszą wydajność może się różnić dla innej tabeli lub tego serwera. | Nie. Domyślnie 10. |
 
@@ -224,5 +224,5 @@ Podczas kopiowania danych z chmury SAP dla odbiorcy, następujące mapowania są
 | Edm.DateTimeOffset | DateTimeOffset |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

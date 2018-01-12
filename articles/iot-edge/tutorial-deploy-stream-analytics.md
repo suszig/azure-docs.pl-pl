@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Wdrażanie usługi Azure Stream Analytics jako moduł krawędzi IoT — w wersji preview
 
@@ -77,7 +77,7 @@ Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użyc
     
     b. W obszarze **środowisko macierzyste**, wybierz pozycję **krawędzi**.
     
-    c. W pozostałych polach należy użyć wartości domyślnych.
+    d. W pozostałych polach należy użyć wartości domyślnych.
 
     > [!NOTE]
     > Obecnie zadania usługi analiza strumienia Azure IoT krawędzi nie są obsługiwane w regionu zachodnie stany USA 2. 
@@ -92,7 +92,7 @@ Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użyc
     
     b. W **typ źródła** wybierz opcję **strumienia danych**.
     
-    c. W pozostałych polach należy użyć wartości domyślnych.
+    d. W pozostałych polach należy użyć wartości domyślnych.
 
    ![Azure Stream Analytics danych wejściowych.](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
@@ -106,7 +106,7 @@ Konto usługi Azure Storage są wymagane do świadczenia punkt końcowy do użyc
     
     b. W pozostałych polach należy użyć wartości domyślnych. 
     
-    c. Wybierz pozycję **Utwórz**.
+    d. Wybierz pozycję **Utwórz**.
 
    ![Azure Stream Analytics danych wyjściowych.](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
@@ -139,7 +139,7 @@ Teraz można przystąpić do wdrażania zadania usługi analiza strumienia Azure
 
    b. Na stronie Nazwa wpisz **tempSensor**.
     
-   c. Dla identyfikatora URI obrazu, wprowadź **microsoft/azureiotedge symulowane temperatury-czujnik: 1.0-preview**. 
+   d. Dla identyfikatora URI obrazu, wprowadź **microsoft/azureiotedge symulowane temperatury-czujnik: 1.0-preview**. 
 
    d. Pozostaw innych ustawień bez zmian.
    
@@ -153,7 +153,7 @@ Teraz można przystąpić do wdrażania zadania usługi analiza strumienia Azure
 
     ![Moduł zestawu][6]
 
-6. Skopiuj nazwę, która została wygenerowana automatycznie dla modułu Azure Stream Analytics. 
+6. Skopiuj nazwę modułu Azure Stream Analytics. 
 
     ![Moduł temperatury][11]
 
@@ -204,7 +204,7 @@ Należy się patrzeć na komputerze temperatury stopniowo rosną, dopóki nie os
    ![Dziennik docker][9]
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku należy skonfigurować kontener magazynu Azure i zadanie analizy przesyłania strumieniowego do analizowania danych z urządzenia IoT krawędzi. Następnie ładowany niestandardowego modułu Azure Stream Analytics do przeniesienia danych z urządzenia, za pomocą strumienia do obiektu blob do pobrania. Aby zobaczyć, jak utworzyć więcej rozwiązania dla biznesu Azure IoT krawędzi, przejść do innych samouczków.
 

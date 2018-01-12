@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="performance-recommendations"></a>Zalecenia dotyczące wydajności
+# <a name="performance-recommendations"></a>Zalecenie dotyczące wydajności
 
 Baza danych SQL Azure uzyskuje informacje o dostosowuje się z aplikacją i zawiera dostosowany zalecenia co pozwala zmaksymalizować wydajność bazy danych SQL. Wydajność jest ciągle oceniane analizując Twojej historii użycia bazy danych SQL. Zalecenia, które są dostarczane są oparte na wzorzec obciążenia unikatowy bazy danych i zwiększyć jej wydajność.
 
@@ -36,7 +36,7 @@ Utworzone za pomocą zalecenia dotyczące indeksów są zawsze oznaczonej jako a
 
 Po zastosowaniu zalecenie dotyczące indeksu tworzenie bazy danych SQL Azure zostanie porównany wydajność kwerend linię bazową wydajności. Jeśli nowy indeks, sprowadzonych ulepszenia wydajności, zalecenie zostanie oznaczone jako pomyślnie i wpływ raport będzie dostępny. W przypadku, gdy indeks nie Przełącz korzyści, zostanie automatycznie przywrócony. Dzięki temu bazy danych SQL Azure zapewnia, że za pomocą zalecenia tylko zwiększy wydajność bazy danych.
 
-Wszelkie **Utwórz indeks** zalecenie ma wycofywania zasad, które nie pozwalają na stosowanie zalecenie, jeśli użycie jednostek dtu w warstwie bazy danych lub puli nie przekracza 80% w ostatnich 20 minut lub jeśli magazyn jest ponad 90% użycia. W takim przypadku zostanie przełożone zalecenia.
+Wszelkie **Utwórz indeks** zalecenie ma wycofywania zasad, które nie pozwalają na stosowanie zalecenie, jeśli jest wysokie obciążenie zasobów bazy danych lub puli. Wycofywania zasady te uwzględniają konta procesora CPU, dane we/wy dziennika we/wy i dostępnej pamięci. Jeśli procesor CPU, we/wy danych lub dziennika we/wy była większa niż 80% w ciągu ostatnich 30 minut utworzyć indeks zostanie przełożone. Jeżeli dostępny magazyn jest poniżej 10% po utworzeniu indeksu, zalecenie przejdzie w stan błędu. Jeśli po paru dniach automatycznego dostrajania nadal uznaje się, że ten indeks jest korzystne proces zostanie uruchomiony ponownie. Ten proces jest powtarzany, dopóki jest za mało dostępnego magazynu, aby utworzyć indeks lub indeks nie jest widoczny jako odsetek już.
 
 ## <a name="drop-index-recommendations"></a>Zalecenia dotyczące usuwania indeksów
 Oprócz wykrywania brakuje indeksu, bazy danych SQL Azure stale analizuje wydajność istniejące indeksy. Jeśli indeks nie jest używany, baza danych SQL Azure zaleci usunięcie go. W obu przypadkach zaleca się porzucenie indeksu:
@@ -78,7 +78,7 @@ Gdy zastosujesz zalecenie spowoduje włączenie parametryzacja wymuszone w ciąg
 | 2812 |Nie można odnaleźć procedury składowanej "*". |
 | 8144 |Procedura lub funkcja * ma określono zbyt wiele argumentów. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Monitorowanie zalecenia i zastosować je do ograniczania wydajności w dalszym ciągu. Obciążeń bazy danych są dynamiczne i zmienianie w sposób ciągły. Doradca bazy danych SQL kontynuuje monitorowanie i podano zalecenia, które może potencjalnie podnieść wydajność bazy danych. 
 
 * Zobacz [automatycznego dostrajania bazy danych SQL Azure](sql-database-automatic-tuning.md) automatycznego dostrajania indeksy bazy danych i planów wykonywania zapytania.

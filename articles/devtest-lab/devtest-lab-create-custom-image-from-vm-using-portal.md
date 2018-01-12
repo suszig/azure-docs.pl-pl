@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Tworzenie niestandardowego obrazu z maszyny Wirtualnej
 
@@ -30,25 +30,30 @@ Można utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a późn
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+1. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 
 1. Z listy labs wybierz żądany laboratorium.  
 
-1. W bloku laboratorium, wybierz **Moje maszyny wirtualne**.
+1. W okienku głównym laboratorium, wybierz **Moje maszyny wirtualne**.
  
-1. Na **Moje maszyny wirtualne** bloku, wybierz maszynę Wirtualną, z którego chcesz utworzyć niestandardowy obraz.
+1. Na **Moje maszyny wirtualne** okienku, wybierz maszynę Wirtualną, z którego chcesz utworzyć niestandardowy obraz.
 
-1. W bloku maszyny Wirtualnej, wybierz **Tworzenie niestandardowego obrazu (VHD)**.
+1. W okienku Zarządzanie maszyny Wirtualnej, wybierz **Tworzenie niestandardowego obrazu (VHD)**.
 
     ![Tworzenie niestandardowego obrazu elementu menu](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Na **Utwórz obraz** bloku, wprowadź nazwę i opis dla niestandardowego obrazu. Te informacje są wyświetlane na liście klas podstawowych, podczas tworzenia maszyny Wirtualnej.
+1. Na **obraz niestandardowy** okienku, wprowadź nazwę i opis dla niestandardowego obrazu. Te informacje są wyświetlane na liście klas podstawowych, podczas tworzenia maszyny Wirtualnej.
 
-    ![Tworzenie niestandardowego obrazu bloku](./media/devtest-lab-create-template/create-custom-image-blade.png)
+    ![Utwórz okienko niestandardowego obrazu](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Określ, czy uruchomiono program sysprep na maszynie Wirtualnej. Jeśli nie uruchomiono programu sysprep na maszynie Wirtualnej, określ, czy uruchamiany po utworzeniu maszyny Wirtualnej z tego obrazu niestandardowego narzędzia sysprep.
 
 1. Wybierz **OK** po zakończeniu można utworzyć niestandardowego obrazu.
+
+Po kilku minutach obraz niestandardowy jest tworzony i jest przechowywany w laboratorium należy utworzyć konta magazynu. Jeśli laboratorium użytkownik chce, aby utworzyć nową maszynę Wirtualną, są dostępne na liście obrazów podstawowej.
+
+![Obraz niestandardowy dostępne na liście podstawowej obrazów](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ Można utworzyć niestandardowy obraz z elastycznie maszyny Wirtualnej, a późn
 - [Niestandardowe obrazy lub formuł?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dodaj Maszynę wirtualną do laboratorium](devtest-lab-add-vm.md)

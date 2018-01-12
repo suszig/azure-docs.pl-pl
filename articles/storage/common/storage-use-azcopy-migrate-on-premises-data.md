@@ -1,5 +1,5 @@
 ---
-title: "Migracja danych lokalnych do magazynu Azure z narzędzia AzCopy | Dokumentacja firmy Microsoft"
+title: "Migracji danych lokalnych do usługi Azure Storage za pomocą narzędzia AzCopy | Dokumentacja firmy Microsoft"
 description: "Użyj narzędzia AzCopy migracji danych ani skopiować dane do lub z obiektu blob, tabel i zawartości pliku. Łatwo przeprowadzić migrację danych z lokalnego magazynu do magazynu Azure."
 services: storage
 author: ruthogunnnaike
@@ -10,36 +10,32 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: v-ruogun
-ms.openlocfilehash: f2c0b80248ef706394b3f84df4c3da26fb79026a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Migrowanie danych lokalnych do magazynu w chmurze z narzędzia AzCopy
+#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrowanie danych lokalnych do magazynu w chmurze przy użyciu narzędzia AzCopy
 
-Narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob Microsoft Azure, plików i tabeli, przy użyciu prostego polecenia przeznaczone do uzyskania optymalnej wydajności. Możesz skopiować dane między systemem plików i konto magazynu lub kont magazynu.  
+Narzędzie AzCopy to narzędzie wiersza polecenia kopiowania danych do lub z magazynu obiektów Blob platformy Azure, Azure, plików i magazynu tabel Azure przy użyciu prostego polecenia. Polecenia zostały zaprojektowane dla uzyskania optymalnej wydajności. Możesz skopiować dane między systemem plików i konto magazynu lub kont magazynu.  
 
-Istnieją dwie wersje programu AzCopy, który można pobrać:
+Możesz pobrać dwie wersje programu AzCopy:
 
-* [Narzędzie AzCopy w systemie Linux](storage-use-azcopy.md) wbudowana w .NET Framework Core, który jest przeznaczony dla platformy Linux oferty styl POSIX opcje wiersza polecenia. 
-* [Narzędzie AzCopy w systemie Windows](../storage-use-azcopy.md) jest oparty na platformie .NET Framework i oferuje opcje wiersza polecenia Styl systemu Windows. 
+* [Narzędzie AzCopy w systemie Linux](storage-use-azcopy.md) jest oparty na platformie .NET Core Framework. Platformy Linux jest przeznaczony oferując POSIX stylu opcji wiersza polecenia. 
+* [Narzędzie AzCopy w systemie Windows](../storage-use-azcopy.md) jest oparty na platformie .NET Framework. Oferuje opcje wiersza polecenia Styl systemu Windows. 
  
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie konta magazynu 
-> * Użyj narzędzia AzCopy, aby przekazać wszystkich danych
-> * Modyfikowanie danych do celów testowych
-> * Utwórz zaplanowane zadanie zadania lub usługi cron do identyfikowania nowych plików do przekazania
+> * Utwórz konto magazynu. 
+> * Użyj narzędzia AzCopy, aby przekazać wszystkich danych.
+> * Modyfikowanie danych do celów testowych.
+> * Utwórz zaplanowane zadanie zadania lub usługi cron do identyfikowania nowych plików do przekazania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka: 
-
-* Pobierz najnowszą wersję programu AzCopy na [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) lub [Windows](http://aka.ms/downloadazcopy). 
-
-## <a name="log-in-to-the-azure-portalhttpsportalazurecom"></a>Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+Do ukończenia tego samouczka, Pobierz najnowszą wersję programu AzCopy na [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) lub [Windows](http://aka.ms/downloadazcopy). 
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -50,16 +46,16 @@ W celu ukończenia tego samouczka:
 
 ## <a name="create-a-container"></a>Tworzenie kontenera
 
-Obiekty blob są zawsze przesyłane do kontenera. Kontenery umożliwia organizowanie grup obiektów blob, takie jak organizowanie plików na komputerze w folderach. 
+Obiekty blob są zawsze przesyłane do kontenera. Kontenery służy do organizowania grup obiektów blob, takie jak organizowanie plików na komputerze w folderach. 
 
 Wykonaj następujące kroki, aby utworzyć kontener:
 
-1. Wybierz **kont magazynu** button na stronie głównej, a następnie wybierz utworzone konto magazynu.
-2. Wybierz **obiekty BLOB** w obszarze **usług**, a następnie wybierz pozycję **kontenera**. 
+1. Wybierz **kont magazynu** przycisk ze strony głównej i wybierz konto magazynu, który został utworzony.
+2. Wybierz **obiekty BLOB** w obszarze **usług**, a następnie wybierz **kontenera**. 
 
-![Tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Tworzenie kontenera](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-Nazwa kontenera musi zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak łącznika (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+Nazwa kontenera musi zaczynać się literą lub cyfrą. Mogą one zawierać tylko litery, cyfry i znaki łącznika (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz temat [Naming and Referencing Containers, Blobs, and Metadata (Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## <a name="upload-all-files-in-a-folder-to-blob-storage"></a>Przekaż wszystkie pliki w folderze do magazynu obiektów Blob
 
@@ -76,14 +72,14 @@ Można użyć narzędzia AzCopy można przekazać wszystkie pliki w folderze do 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
 ---
 
-Zastąp  **\<klucza\>**  kluczem konta. W portalu Azure, możesz pobrać klucz konta, wybierając **klucze dostępu** w obszarze Ustawienia na koncie magazynu. Wybierz klucz, a następnie wklej go do polecenia AzCopy. Jeśli docelowy określony kontener nie istnieje, AzCopy tworzy go i przekazuje plik do niego. Zaktualizuj ścieżkę źródłową do katalogu danych i Zastąp **myaccount** w docelowy adres URL do nazwy konta magazynu.
+Zastąp `<key>` i `key` kluczem konta. W portalu Azure, możesz pobrać klucz konta, wybierając **klucze dostępu** w obszarze **ustawienia** na koncie magazynu. Wybierz klucz, a następnie wklej go do polecenia AzCopy. Jeśli docelowy określony kontener nie istnieje, AzCopy tworzy go i przekazuje plik do niego. Zaktualizuj ścieżkę źródłową do katalogu danych i Zastąp **myaccount** w adresie URL docelowego nazwą konta magazynu.
 
-Określ `--recursive` i `/S` opcje, w systemie Linux i Windows, aby przekazać zawartość określonego katalogu do lokalizacji magazynu obiektów Blob. Po uruchomieniu narzędzia AzCopy z jednej z tych opcji, wszystkie podfoldery i pliki są także wysyłane.
+Aby przekazać zawartość określonego katalogu rekursywnie magazynu obiektów Blob, należy określić `--recursive` (Linux) lub `/S` opcji (system Windows). Po uruchomieniu narzędzia AzCopy z jednej z tych opcji, wszystkie podfoldery i pliki są także wysyłane.
 
 ## <a name="upload-modified-files-to-blob-storage"></a>Przekaż zmodyfikowane pliki do magazynu obiektów Blob
-Można użyć narzędzia AzCopy do [przekazać pliki](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) na podstawie ich czasu ostatniej modyfikacji. Skorzystaj z tej, zmodyfikować lub utworzyć nowe pliki w katalogu źródłowym dla celów testowania. Aby przekazać pliki tylko zaktualizowane lub nowsze, należy dodać `--exclude-older`lub `/XO` parametru do systemu Windows i AzCopy Linux odpowiednio poleceń.
+Można użyć narzędzia AzCopy do [przekazać pliki](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) na podstawie ich czasu ostatniej modyfikacji. Skorzystaj z tej, zmodyfikować lub utworzyć nowe pliki w katalogu źródłowym do celów testowych. Aby przekazać pliki tylko zaktualizowane lub nowsze, należy dodać `--exclude-older` (Linux) lub `/XO` do polecenia AzCopy parametr (system Windows).
 
-Jeśli chcesz skopiować źródła zasobów, które nie istnieją w miejscu docelowym, należy określić zarówno `--exclude-older` i `--exclude-newer` lub `/XO` i `/XN` parametrów w AzCopy systemu Linux i Windows odpowiednio poleceń. Narzędzie AzCopy przekazuje tylko zaktualizowanych danych oparte na ich sygnatury czasowej.
+Jeśli chcesz skopiować źródła zasobów, które nie istnieją w miejscu docelowym, należy określić zarówno `--exclude-older` i `--exclude-newer` (Linux) lub `/XO` i `/XN` parametrów (system Windows) w poleceniu AzCopy. Narzędzie AzCopy przekazuje tylko zaktualizowanych danych na podstawie sygnatury czasowej.
  
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
     azcopy \
@@ -98,9 +94,9 @@ Jeśli chcesz skopiować źródła zasobów, które nie istnieją w miejscu doce
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Utwórz zadanie zaplanowane zadania lub usługi cron 
-Możesz utworzyć zaplanowane zadanie/cron zadanie, które uruchamia skrypt polecenia AzCopy, który identyfikuje i przekazuje nowych danych lokalnych do magazynu w chmurze w określonym interwale. 
+Można utworzyć zaplanowane zadanie lub cron zadanie, które uruchamia skrypt polecenia AzCopy. Skrypt identyfikuje i przekazuje nowych danych lokalnych do magazynu w chmurze w określonym interwale. 
 
-Skopiuj polecenia AzCopy do edytora tekstu. Zaktualizuj wartości parametrów polecenia programu AzCopy odpowiednie wartości. Zapisz plik jako `script.sh` lub `script.bat` dla narzędzia AzCopy w systemie Linux i Windows odpowiednio. 
+Skopiuj polecenia AzCopy do edytora tekstu. Zaktualizuj wartości parametrów polecenia AzCopy odpowiednie wartości. Zapisz plik jako `script.sh` (Linux) lub `script.bat` (system Windows) dla narzędzia AzCopy. 
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
@@ -110,41 +106,46 @@ Skopiuj polecenia AzCopy do edytora tekstu. Zaktualizuj wartości parametrów po
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
-Narzędzie AzCopy jest uruchamiana z pełne `--verbose` (Linux) i `/V` opcji (system Windows), a dane wyjściowe zostanie przekierowany do pliku dziennika. 
+Narzędzie AzCopy jest uruchamiana z pełne `--verbose` (Linux) lub `/V` opcji (system Windows). Dane wyjściowe zostanie przekierowany do pliku dziennika. 
 
-W tym samouczku [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) służy do tworzenia zaplanowanych zadań w systemie Windows, a [Crontab](http://crontab.org/) polecenie służy do tworzenia zadania cron w systemie Linux. 
- **Schtasks** umożliwia administratorowi utworzyć, usunąć zapytania, zmienić, uruchamianie i zatrzymywanie zaplanowanych zadań na komputerze lokalnym lub zdalnym. **Cron** umożliwia użytkownikom systemów Linux i Unix do uruchamiania poleceń lub skryptów na określony dzień i godzinę, przy użyciu [cron wyrażenia](https://en.wikipedia.org/wiki/Cron#CRON_expression)
+W tym samouczku [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) służy do tworzenia zaplanowanych zadań w systemie Windows. [Crontab](http://crontab.org/) polecenie służy do tworzenia zadania cron w systemie Linux. 
+ **Schtasks** umożliwia administratorowi utworzyć, usunąć zapytania, zmienić, uruchamianie i zatrzymywanie zaplanowanych zadań na komputerze lokalnym lub zdalnym. **Cron** umożliwia użytkownikom systemów Linux i Unix do uruchamiania poleceń lub skryptów w określonym dniu i godzinie za pomocą [wyrażenia cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-**Aby utworzyć zadanie cron w systemie Linux**, wprowadź następujące polecenie na terminalu. 
+Aby utworzyć zadanie cron w systemie Linux, wprowadź następujące polecenie na terminalu: 
 
 ```bash
 crontab -e 
 */5 * * * * sh /path/to/script.sh 
 ```
 
-Określanie wyrażenie cron `*/5 * * * * ` w poleceniu wskazuje skrypt powłoki `script.sh` powinien zostać wykonany co pięć minut. Skrypt może zostać zaplanowane do uruchomienia w określonym czasie codziennie, miesięcznego lub rocznego. Zobacz [wyrażenia cron](https://en.wikipedia.org/wiki/Cron#CRON_expression) Aby dowiedzieć się więcej na temat ustawiania datę i godzinę wykonywania zadania. 
+Określanie wyrażenie cron `*/5 * * * * ` w poleceniu wskazuje, że skrypt powłoki `script.sh` powinno być ono uruchomione co pięć minut. Można zaplanować uruchomienie skryptu w określonym czasie codziennie, co miesiąc lub co rok. Aby dowiedzieć się więcej na temat ustawiania datę i godzinę do wykonywania zadań, zobacz [wyrażenia cron](https://en.wikipedia.org/wiki/Cron#CRON_expression). 
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-**Aby utworzyć zaplanowane zadanie w systemie Windows**, wprowadź następujące polecenie w wierszu polecenia lub środowiska PowerShell.
+Aby utworzyć zaplanowane zadanie w systemie Windows, wpisz następujące polecenie w wierszu polecenia lub w programie PowerShell:
 
 ```cmd 
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
 ```
 
-Używa polecenia `/SC` parametr, aby określić harmonogram minute i `/MO` parametr, aby określić interwał pięć minut. `/TN` Parametr jest używany do określenia nazwy zadania i `/TR` parametr, aby określić ścieżkę do `script.bat` pliku. Odwiedź stronę [schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes) Aby dowiedzieć się więcej o tworzeniu zaplanowanego zadania w systemie Windows.
+Używa polecenia:
+- `/SC` Parametr, aby określić harmonogram minuty.
+- `/MO` Parametr, aby określić interwał pięć minut.
+- `/TN` Parametr, aby określić nazwę zadania.
+- `/TR` Parametr, aby określić ścieżkę do `script.bat` pliku. 
+
+Aby dowiedzieć się więcej o tworzeniu zaplanowanego zadania w systemie Windows, zobacz [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
 
 ---
  
-Można sprawdzić poprawności zaplanowane zadanie/cron zadania wykonuje się poprawnie, tworzyć nowe pliki w katalogu `myfolder`. Poczekaj przez pięć minut, aby potwierdzić, że nowe pliki zostały przekazane do konta magazynu. Przejdź do katalogu dziennika, aby wyświetlić dzienniki danych wyjściowych z zadania zaplanowanego zadania/cron. 
+Aby sprawdzić, czy zadanie zaplanowane zadanie/cron działa poprawnie, należy utworzyć nowe pliki w Twojej `myfolder` katalogu. Poczekaj pięć minut, aby upewnić się, że nowe pliki zostały przekazane do konta magazynu. Przejdź do katalogu dziennika, aby wyświetlić dane wyjściowe dzienników zaplanowanego zadania lub zadania cron. 
 
-Odwiedź stronę [przeniesienia na lokalne dane](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) Dowiedz się więcej o sposobach przenoszenia danych lokalnych do magazynu Azure i na odwrót.  
+Aby dowiedzieć się więcej o sposobach przenoszenia danych lokalnych do magazynu Azure i na odwrót, zobacz [przenoszenie danych do i z usługi Magazyn Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat usługi Azure Storage i AzCopy zobacz następujące zasoby:
 
-### <a name="azure-storage-documentation"></a>Dokumentacja magazynu Azure:
 * [Wprowadzenie do usługi Azure Storage](../storage-introduction.md)
 * [Transfer danych za pomocą narzędzia AzCopy w systemie Windows](storage-use-azcopy.md) 
 * [Transfer danych za pomocą narzędzia AzCopy w systemie Linux](storage-use-azcopy-linux.md) 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c65a49d977f94fc83a6bceec76cdb0d414a78cce
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2c1e86b0ef3dabdea8220747e3ada98d888a8593
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Utwórz maszynę wirtualną przy użyciu programu PowerShell
 
@@ -32,7 +32,7 @@ Ten skrypt tworzy maszynę wirtualną platformy Azure z systemem Windows Server 
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-quick.ps1 "Create VM")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
@@ -52,7 +52,7 @@ Ten skrypt używa następujących poleceń w celu utworzenia wdrożenia. Każdy 
 | [Nowe AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Tworzy maszynę wirtualną i podłączony do karty sieciowej, sieci wirtualnej, podsieci i grupy zabezpieczeń sieci. To polecenie również otwiera port 80 i ustawia poświadczenia administracyjne. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Usuwa grupę zasobów i wszystkie zasoby zawarte w ciągu. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji dotyczących modułu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](/powershell/azure/overview).
 

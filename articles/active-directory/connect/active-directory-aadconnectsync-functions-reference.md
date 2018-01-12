@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizacja programu Azure AD Connect: odwołanie do funkcji
 W programie Azure AD Connect funkcje są używane do modyfikowania wartości atrybutu podczas synchronizacji.  
@@ -155,12 +155,6 @@ Zwraca wartość typu DateTime na jego podstawie godzina rozpoczęcia
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Zwraca daty/godziny reprezentująca "2013-01-11: 00:00:00"
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ Funkcja DNComponent zwraca wartość określonego składnika DN z lewej strony.
 * ComponentNumber: Składnik DN do zwrócenia
 
 **Przykład:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 Jeśli nazwa wyróżniająca "cn = Jan, ou =..." zwraca Jan
 
 - - -
@@ -564,8 +558,8 @@ Funkcja DNComponentRev zwraca wartość określonego składnika DN z prawej stro
 
 **Przykład:**  
 Jeśli nazwa wyróżniająca "cn Jan, ou = (Atlanta), ou = GA, ou = = US, dc = contoso, dc = com" następnie  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Obie zwracają NAS.
 
 - - -
@@ -879,7 +873,7 @@ Funkcja LCase konwertuje wszystkie znaki w ciągu na małe litery.
 Zwraca "test".
 
 - - -
-### <a name="left"></a>Po lewej
+### <a name="left"></a>Do lewej
 **Opis:**  
 Po lewej stronie funkcja zwraca określoną liczbę znaków z lewej strony ciągu.
 
@@ -1130,7 +1124,7 @@ Zwraca Raksmorgas
 Zwraca "ONeil", jeden znacznik zdefiniowano do usunięcia.
 
 - - -
-### <a name="right"></a>Prawo
+### <a name="right"></a>Do prawej
 **Opis:**  
 Funkcja PRAWY zwraca określoną liczbę znaków z prawej strony (Zakończ), ciągu.
 
@@ -1248,7 +1242,7 @@ Wartość może być również funkcja błąd, co powoduje zwrócenie niestandar
 Zwraca język używany w niektórych miastach głównych, w przeciwnym razie zwraca błąd.
 
 - - -
-### <a name="trim"></a>Przytnij
+### <a name="trim"></a>TRIM
 **Opis:**  
 Funkcja przycinania usuwa spacji wiodących i końcowych białych z ciągu.
 

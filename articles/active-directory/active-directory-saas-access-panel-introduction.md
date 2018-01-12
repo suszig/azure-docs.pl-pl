@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co to jest panel dostępu?
 
@@ -85,9 +85,11 @@ Rozszerzenie jest wymagane dla użytkowników zalogować się do opartego na has
 - Użytkownicy mogą zalogować się do aplikacji bezpośrednio, przechodząc na stronę aplikacji **adres URL logowania**. Gdy użytkownik przechodzi do aplikacji adres URL logowania rozszerzenia wykryje to i podaj opcję dla użytkownika do logowania się do jej z rozszerzenia.
 - Użytkownicy również można uruchamiać aplikacje z panelu dostępu przy użyciu **szybkiego wyszukiwania** funkcji rozszerzenia. 
 - Rozszerzenie zostanie również Pokaż użytkowników ostatnie trzy aplikacje podjęte w ramach **ostatnio używane** sekcji.
-> [!NOTE]
-> Dodatkowe funkcje są dostępne tylko na krawędzi, Chrome, Firefox.
 
+> [!NOTE]
+> Dodatkowe funkcje są dostępne tylko w przypadku krawędzi, Chrome i Firefox.
+>
+>
 
 Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
 1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.

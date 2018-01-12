@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Aby użyć tego łącznika programu Teradata, musisz:
 - Zainstaluj [dostawcy danych .NET dla programu Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) wersji 14 lub nowszej na komputerze środowiska uruchomieniowego integracji.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika programu Teradata.
 
@@ -56,12 +57,12 @@ Obsługiwane są następujące właściwości dla programu Teradata połączone 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Teradata** | Tak |
-| serwer | Nazwa serwera programu Teradata. | Tak |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata.<br/>Dozwolone wartości to: **podstawowe**, i **Windows**. | Tak |
-| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych programu Teradata. | Tak |
-| hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Tak |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Tak |
+| type | Właściwość type musi mieć ustawioną: **Teradata** | Yes |
+| serwer | Nazwa serwera programu Teradata. | Yes |
+| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata.<br/>Dozwolone wartości to: **podstawowe**, i **Windows**. | Yes |
+| nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych programu Teradata. | Yes |
+| hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Yes |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład:**
 
@@ -95,7 +96,7 @@ Aby skopiować dane z programu Teradata, ustaw właściwość Typ zestawu danych
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w bazie danych programu Teradata. | Nie (Jeśli określono parametr "zapytania" w źródle działania) |
 
 **Przykład:**
@@ -124,7 +125,7 @@ Aby skopiować dane z programu Teradata, należy ustawić typ źródła w przypa
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
 | query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 **Przykład:**
@@ -171,7 +172,7 @@ Podczas kopiowania danych z programu Teradata, następujące mapowania są używ
 | ByteInt |Int16 |
 | char |Ciąg |
 | CLOB |Ciąg |
-| Date |Data i godzina |
+| Date |Data/godzina |
 | Decimal |Decimal |
 | O podwójnej precyzji |O podwójnej precyzji |
 | Grafika |Ciąg |
@@ -198,7 +199,7 @@ Podczas kopiowania danych z programu Teradata, następujące mapowania są używ
 | SmallInt |Int16 |
 | Time |Zakres czasu |
 | Czas ze strefą czasową |Ciąg |
-| Znacznik czasu |Data i godzina |
+| Sygnatura czasowa |Data/godzina |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
 | VarByte |Byte] |
 | VarChar |Ciąg |
@@ -206,5 +207,5 @@ Podczas kopiowania danych z programu Teradata, następujące mapowania są używ
 | XML |Ciąg |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

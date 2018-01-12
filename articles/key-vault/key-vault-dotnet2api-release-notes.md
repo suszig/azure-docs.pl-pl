@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Usługi Azure Key Vault .NET 2.0 — przewodnik migracji i informacje o wersji
 Poniższe informacje i wskazówki są dla deweloperów korzystających z platformy .NET magazynu kluczy Azure / biblioteki C#. W ramach tego przejścia z wersji 1.0 w wersji 2.0, liczba aktualizacji wprowadzono ten będzie wymagać pracy migracji w kodzie, aby korzystać z ulepszeń funkcjonalności i funkcji dodatków, takich jak **certyfikaty usługi Key Vault** obsługuje.
@@ -36,8 +36,9 @@ Obsługa certyfikatów usługi Key Vault umożliwia zarządzanie x509 Twojego ce
 
 ## <a name="net-support"></a>Obsługa .NET
 
-* **.NET 4.0** nie jest obsługiwana w wersji 2.0 programu .NET usługi Azure Key Vault / biblioteki C#
-* **Oprogramowanie .NET core** jest obsługiwana w wersji 2.0 programu .NET usługi Azure Key Vault / biblioteki C#
+* **.NET 4.0** nie jest obsługiwana przez wersję biblioteki Azure Key Vault .NET 2.0
+* **.NET framework 4.5.2** jest obsługiwana przez wersję biblioteki Azure Key Vault .NET 2.0
+* **1.4 standardowe .NET** jest obsługiwana przez wersję biblioteki Azure Key Vault .NET 2.0
 
 ## <a name="namespaces"></a>Przestrzenie nazw
 

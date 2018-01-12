@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Wdrażanie i usunąć aplikacje przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 Raz [typu aplikacji zostały opakowane][10], jest ono gotowe do wdrożenia do klastra usługi sieć szkieletowa usług Azure. Wdrożenie obejmuje następujące trzy kroki:
 
-1. Przekaż pakiet aplikacji do magazynu obrazów
-2. Rejestracja typu aplikacji
-3. Tworzenie wystąpienia aplikacji
+1. Przekaż pakiet aplikacji do magazynu obrazów.
+2. Rejestracja typu aplikacji z obrazu Zapisz ścieżkę względną.
+3. Utwórz wystąpienie aplikacji.
 
-Po wdrożeniu aplikacji i wystąpienie jest uruchomione w klastrze, można usunąć wystąpienia aplikacji i jej typu aplikacji. Aby całkowicie usunąć aplikację z klastra obejmuje następujące kroki:
+Po wdrożonej aplikacji nie jest już potrzebne, można usunąć wystąpienia aplikacji i jej typu aplikacji. Aby całkowicie usunąć aplikację z klastra obejmuje następujące kroki:
 
-1. Usuń (lub usunąć) uruchomione wystąpienie aplikacji
-2. Wyrejestrowywanie typu aplikacji, jeśli nie są już potrzebne
-3. Usuwanie pakietu aplikacji w magazynie obrazów
+1. Usuń (lub usunąć) uruchomione wystąpienie aplikacji.
+2. Wyrejestrowywanie typu aplikacji, jeśli nie są już potrzebne.
+3. Usuwanie pakietu aplikacji w sklepie obrazu.
 
 Jeśli używasz programu Visual Studio umożliwiające wdrażanie i debugowanie aplikacji w klastrze lokalnym programowanie powyższych kroków obsługi automatycznie za pomocą skryptu programu PowerShell.  Skrypt ten znajduje się w *skryptów* folderu projektu aplikacji. Ten artykuł zawiera tła na tego skryptu czynności, aby można wykonać operacji poza Visual Studio. 
+
+Innym sposobem wdrożenia aplikacji jest użycie zewnętrznego. Pakiet aplikacji może być [spakowanych jako `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) i przekazać do magazynu zewnętrznego. W takim przypadku przekazania do magazynu w obrazie nie jest wymagana. Wdrożenia wymaga następujących czynności:
+
+1. Przekaż `sfpkg` do magazynu zewnętrznego. Zewnętrznym sklepie mogą być dowolnego magazynu, który ujawnia końcowy REST protokołu http lub https.
+2. Rejestracja typu aplikacji, przy użyciu identyfikatora URI pobierania zewnętrznych i informacje o typie aplikacji.
+2. Utwórz wystąpienie aplikacji.
+
+Oczyszczania usuń wystąpienia aplikacji i wyrejestrowywanie typu aplikacji. Ponieważ pakiet nie został skopiowany do magazynu obrazów, brak tymczasowej lokalizacji do oczyszczania. Inicjowanie obsługi administracyjnej z magazynu zewnętrznego jest dostępnych w programie Service Fabric w wersji 6.1.
+
+>[!NOTE]
+> Program Visual Studio nie obsługuje obecnie zewnętrznego.
+
  
 ## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
 Przed uruchomieniem żadnych poleceń programu PowerShell w tym artykule należy uruchamiać przy użyciu [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) do nawiązania połączenia klastra sieci szkieletowej usług. Aby połączyć się z lokalnego klastra projektowego, uruchom następujące polecenie:
@@ -123,7 +135,7 @@ Na przykład w tym miejscu jest statystyki kompresji niektórych pakietów, któ
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Gdy pakiet jest skompresowana, mogą być przekazywane do jednego lub wielu klastrów sieci szkieletowej usług zgodnie z potrzebami. Mechanizm wdrażania jest takie samo skompresowanym i nieskompresowanym pakietów. Jeśli pakiet jest skompresowany, są przechowywane w związku z magazynu obrazu klastra i jest dekompresowane w węźle przed uruchomieniem aplikacji.
+Gdy pakiet jest skompresowana, mogą być przekazywane do jednego lub wielu klastrów sieci szkieletowej usług zgodnie z potrzebami. Mechanizm wdrażania jest takie samo skompresowanym i nieskompresowanym pakietów. Skompresowane pakiety są przechowywane w związku z magazynu obrazu klastra. Pakiety są jako nieskompresowane w węźle przed uruchomieniem aplikacji.
 
 
 Poniższy przykład przekazuje pakiet do magazynu obrazów do folderu o nazwie "MyApplicationV1":
@@ -162,17 +174,27 @@ Typ aplikacji i wersji zadeklarowane w manifeście aplikacji staną się dostęp
 
 Uruchom [ServiceFabricApplicationType rejestru](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) polecenia cmdlet, aby zarejestrować typ aplikacji w klastrze i udostępnienie jej do wdrożenia:
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Zarejestruj pakiet aplikacji, skopiować do magazynu obrazu
+Jeśli pakiet został wcześniej skopiowany do magazynu obrazów, operacji rejestru określa ścieżkę względną w magazynie obrazu.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 "MyApplicationV1" to folder, w magazynie obrazu, w którym znajduje się pakiet aplikacji. Typ aplikacji o nazwie "MyApplicationType" i wersji "1.0.0", (zarówno znajdują się w manifeście aplikacji) jest zarejestrowany w klastrze.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Zarejestruj pakiet aplikacji, skopiować do magazynu zewnętrznego
+Począwszy od platformy Service Fabric w wersji 6.1, udostępnić obsługuje pobieranie pakietu z magazynu zewnętrznego. Pobierz identyfikator URI reprezentuje ścieżkę do [ `sfpkg` pakiet aplikacji](service-fabric-package-apps.md#create-an-sfpkg) skąd można pobrać pakiet aplikacji za pomocą protokołów HTTP lub HTTPS. Pakiet musi mieć wcześniej przekazany do tej lokalizacji zewnętrznych. Identyfikator URI muszą zezwalać na dostęp do odczytu, więc usługi sieć szkieletowa można pobrać pliku. `sfpkg` Pliku musi mieć rozszerzenie ".sfpkg". Operacja inicjowania obsługi administracyjnej powinna zawierać informacje typu aplikacji, tak jak w manifeście aplikacji.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 [ServiceFabricApplicationType rejestru](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) polecenie zwraca tylko wtedy, gdy system został pomyślnie zarejestrowany pakiet aplikacji. Jak długo trwa rejestracja zależy od rozmiaru i zawartości pakietu aplikacji. W razie potrzeby **- TimeoutSec** parametru można podać dłuższego limitu czasu (domyślny limit czasu wynosi 60 sekund).
 
-Jeśli masz aplikację duży pakiet lub jeśli występują przekroczenia limitu czasu, użyj **- Async** parametru. Polecenie zwraca, jeśli polecenie rejestrowania akceptuje klastra, a przetwarzanie będzie kontynuowane zgodnie z potrzebami.
-[Get ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) polecenie wyświetla listę wszystkich wersji typu pomyślnie zarejestrowano aplikacji i ich stan rejestracji. To polecenie służy do określania, kiedy odbywa się rejestracji.
+Jeśli masz aplikację duży pakiet lub jeśli występują przekroczenia limitu czasu, użyj **- Async** parametru. Polecenie zwraca, jeśli klaster akceptuje polecenie rejestracji. Operacja rejestracji będzie nadal występować, zgodnie z potrzebami.
+[Get ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) polecenie wyświetla wersje typu aplikacji i ich stan rejestracji. To polecenie służy do określania, kiedy odbywa się rejestracji.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Usuwanie pakietu aplikacji w magazynie obrazów
-Zalecane jest, usuń pakiet aplikacji, po pomyślnym zarejestrowaniu aplikacji.  Usunięcie pakietów aplikacji w sklepie obrazu zwolni zasoby systemowe.  Utrzymywanie pakietów aplikacji nieużywane korzysta z magazynu danych na dysku i prowadzi do problemów z wydajnością aplikacji.
+Jeśli pakiet został skopiowany do magazynu obrazu, usuń ją z lokalizacji tymczasowej po pomyślnym zarejestrowaniu aplikacji. Usunięcie pakietów aplikacji w sklepie obrazu zwolni zasoby systemowe. Utrzymywanie pakietów aplikacji nieużywane korzysta z magazynu danych na dysku i prowadzi do problemów z wydajnością aplikacji.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Wyrejestrowywanie typu aplikacji
-W przypadku konkretnej wersji typu aplikacji nie jest potrzebna, należy wyrejestrować typu aplikacji przy użyciu [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) polecenia cmdlet. Wyrejestrowywanie aplikacji nieużywane typy wersjach miejsca do magazynowania używany przez składnik image store przez usunięcie plików binarnych aplikacji. Wyrejestrowywanie typu aplikacji nie powoduje usunięcia pakietu aplikacji. Typ aplikacji można wyrejestrować tak długo, jak wystąpienia są tworzone na nim żadnych aplikacji, a nie do czasu aplikacji uaktualnień odwołuje się do niego.
+W przypadku konkretnej wersji typu aplikacji nie jest potrzebna, należy wyrejestrować typu aplikacji przy użyciu [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) polecenia cmdlet. Wyrejestrowywanie typy aplikacji nieużywane wersje miejsca używanego przez składnik image store przez usunięcie plików typu aplikacji. Wyrejestrowywanie typu aplikacji nie spowoduje usunięcia pakietu aplikacji, skopiować do lokalizacji tymczasowej magazynu obrazu użyto kopiowania do magazynu obrazów. Typ aplikacji można wyrejestrować tak długo, jak wystąpienia są tworzone na nim żadnych aplikacji, a nie do czasu aplikacji uaktualnień odwołuje się do niego.
 
 Uruchom [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) do sprawdzenia typów aplikacji w danym momencie zarejestrowany w klastrze:
 
@@ -334,6 +356,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki
+[Tworzenie pakietu aplikacji](service-fabric-package-apps.md)
+
 [Uaktualnianie aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md)
 
 [Wprowadzenie kondycji sieci szkieletowej usług](service-fabric-health-introduction.md)

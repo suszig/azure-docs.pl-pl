@@ -1,5 +1,5 @@
 ---
-title: "Grupy komputerów w analizy dzienników dziennika wyszukiwania | Dokumentacja firmy Microsoft"
+title: "Grupy komputerów w Azure Log Analytics dziennika wyszukiwania | Dokumentacja firmy Microsoft"
 description: "Grupy komputerów w analizy dzienników umożliwiają zakres wyszukiwania dziennika do określonego zestawu komputerów.  W tym artykule opisano różne metody używanej do tworzenia grup komputerów i sposobu ich używania w wyszukiwaniu dziennika."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Zaloguj się wyszukiwanie grup komputerów w analizy dzienników
 
@@ -83,7 +83,7 @@ Konfigurowanie analizy dzienników do zaimportowania grup zabezpieczeń usługi 
 Grupy zostały zaimportowane, menu znajdują się liczba komputerów z członkostwem grupy wykryte i liczby grup zaimportowane.  Możesz kliknąć jeden z poniższych linków, aby zwrócić **Grupa_komputerów** rekordy z tymi informacjami.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Podczas konfigurowania analizy dzienników do zaimportowania członkostwa w grupach usług WSUS, analizuje docelowych członkostwo w grupie komputerów z agentem pakietu OMS.  Jeśli używasz klienta przeznaczonych dla dowolnego komputera, który jest połączony z usługą OMS i jest częścią żadnych WSUS przypisywania grup ma jego przynależność zaimportowany do analizy dzienników. Jeśli używasz po stronie serwera celem OMS powinien być zainstalowany agent na serwerze programu WSUS w taki sposób, aby informacje o członkostwie grupy do zaimportowania z usługą OMS.  To członkostwo jest stale aktualizowany co 4 godziny. 
+Podczas konfigurowania analizy dzienników do zaimportowania członkostwa w grupach usług WSUS, analizuje docelowych członkostwo w grupie komputerów z agentem pakietu OMS.  Jeśli używasz klienta przeznaczonych dla dowolnego komputera, który jest podłączony do analizy dzienników i jest częścią żadnych WSUS przypisywania grup ma jego przynależność zaimportowany do analizy dzienników. Jeśli używasz po stronie serwera celem OMS agenta należy zainstalować na serwerze programu WSUS w taki sposób, aby informacje o członkostwie grupy do zaimportowania do analizy dzienników.  To członkostwo jest stale aktualizowany co 4 godziny. 
 
 Konfigurowanie analizy dzienników do zaimportowania grup usług WSUS z analizy dzienników **Zaawansowane ustawienia** w portalu Azure.  Wybierz **grup komputerów**, **WSUS**, a następnie **importu programu WSUS członkostw**.  Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
@@ -145,7 +145,7 @@ Następujące zapytanie zwróci UpdateSummary rekordów tylko komputery w domeni
 
 
 ## <a name="computer-group-records"></a>Rekordów grupy komputerów
-Zostaje utworzony rekord w repozytorium OMS dla każdego członkostwa grup komputerów utworzone na podstawie usługi Active Directory lub usług WSUS.  Te rekordy mieć typu **Grupa_komputerów** i mieć właściwości w poniższej tabeli.  Rekordy nie są tworzone dla grup komputerów opartych na dziennik wyszukiwania.
+Zostaje utworzony rekord w obszarze roboczym analizy dzienników dla każdego członkostwa grup komputerów utworzone na podstawie usługi Active Directory lub usług WSUS.  Te rekordy mieć typu **Grupa_komputerów** i mieć właściwości w poniższej tabeli.  Rekordy nie są tworzone dla grup komputerów opartych na dziennik wyszukiwania.
 
 | Właściwość | Opis |
 |:--- |:--- |
@@ -159,6 +159,6 @@ Zostaje utworzony rekord w repozytorium OMS dla każdego członkostwa grup kompu
 | ManagementGroupName |Nazwa grupy zarządzania agentów SCOM.  W przypadku innych agentów jest AOI -\<identyfikator obszaru roboczego\> |
 | TimeGenerated |Data i godzina utworzenia lub aktualizacji grupy komputerów. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.  
 

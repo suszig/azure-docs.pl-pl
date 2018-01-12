@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2e609b205c32d2ea5ca58586e9f8ba9623ef7580
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Dostosowywanie ustawień klastra sieci szkieletowej usług i zasady uaktualniania sieci szkieletowej
-Ten dokument zawiera opis sposobu dostosowywania różne ustawienia sieci szkieletowej i uaktualnić zasad dla klastra usługi sieć szkieletowa. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
+Ten dokument zawiera informacje dotyczące dostosować różne ustawienia sieci szkieletowej i sieci szkieletowej uaktualniania zasad dla klastra usługi sieć szkieletowa usług. Możesz dostosować je za pomocą [portalu Azure](https://portal.azure.com) lub przy użyciu szablonu usługi Azure Resource Manager.
 
 > [!NOTE]
 > Nie wszystkie ustawienia są dostępne w portalu. W przypadku, gdy ustawienie wymienionych poniżej nie jest dostępny za pośrednictwem portalu dostosować go za pomocą szablonu usługi Azure Resource Manager.
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |GetCodePackageActivationContextTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny|Określ zakres czasu w sekundach. Wartość limitu czasu dla wywołań CodePackageActivationContext. To nie ma zastosowania do usług ad hoc. |
 |IPProviderEnabled|wartość logiczna, domyślna to FALSE|Statyczny|Umożliwia zarządzanie adresami IP. |
 |NTLMAuthenticationEnabled|wartość logiczna, domyślna to FALSE|Statyczny| Umożliwia obsługę przez pakiety kodu, które są uruchomione innych użytkowników, dzięki czemu procesów na komputerach można bezpiecznego komunikowania się przy użyciu protokołu NTLM. |
-|NTLMAuthenticationPasswordSecret|SecureString, domyślnie jest Common::SecureString(L"")|Statyczny|Jest zaszyfrowany skrót służący do generowania haseł dla użytkowników NTLM. Musi być ustawiona, jeśli NTLMAuthenticationEnabled ma wartość true. Zweryfikowane przez narzędzia wdrażania. |
+|NTLMAuthenticationPasswordSecret|SecureString, domyślnie jest Common::SecureString(L"")|Statyczny|Jest zaszyfrowany ma służący do generowania haseł dla użytkowników NTLM. Musi być ustawiona, jeśli NTLMAuthenticationEnabled ma wartość true. Zweryfikowane przez narzędzia wdrażania. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromMinutes(3)|Dynamiczny|Określ zakres czasu w sekundach. Ustawienia charakterystyczne dla środowiska okresowe interwał, w którym hostingu skanowania pod kątem nowych certyfikatów, które ma być użyty do konfiguracji FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromMinutes(4)|Dynamiczny| Określ zakres czasu w sekundach. Limit czasu dotyczące konfigurowania uwierzytelniania NTLM użytkowników przy użyciu wspólnej nazwy certyfikatów. Użytkownicy NTLM są wymagane dla FileStoreService udziałów. |
 |RegisterCodePackageHostTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny| Określ zakres czasu w sekundach. Wartość limitu czasu dla wywołania synchronizacji FabricRegisterCodePackageHost. Dotyczy tylko multi kod pakietu aplikacji hosty jak FWP |
@@ -686,6 +686,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |RunAsPolicyEnabled| wartość logiczna, domyślna to FALSE|Statyczny| Umożliwia uruchamianie pakiety kodu jako lokalnego konta użytkownika niż użytkownika, w którym sieci szkieletowej proces jest uruchomiony. Aby włączyć te zasady sieci szkieletowej musi działać jako SYSTEM lub użytkownik, który ma SeAssignPrimaryTokenPrivilege. |
 |ServiceFactoryRegistrationTimeout| Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(120)|Dynamiczny|Określ zakres czasu w sekundach. Wartość limitu czasu dla synchronizacji rejestru (Stateless/Stateful) ServiceFactory wywołania |
 |ServiceTypeDisableGraceInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(30)|Dynamiczny|Określ zakres czasu w sekundach. Interwał czasu, po którym można wyłączyć typ usługi |
+|EnableDockerHealthCheckIntegration|wartość logiczna, domyślna ma wartość TRUE|Statyczny|Umożliwia integrację docker test kondycji zdarzeń o raport o kondycji systemu sieci szkieletowej usług |
 
 ### <a name="section-name-federation"></a>Nazwa sekcji: federacyjnego
 | **Parametr** | **Dozwolone wartości** | **Zasady uaktualniania** | **Wskazówki lub krótki opis** |
@@ -772,8 +773,8 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |MaxPrimaryReplicationQueueMemorySize|Uint — wartość domyślna to 0|Statyczny|Jest to maksymalna wartość kolejki podstawowej replikacji w bajtach.|
 |MaxSecondaryReplicationQueueSize|uint, domyślna wartość to 2048|Statyczny|Jest to maksymalna liczba operacji, które może znajdować się w kolejce replikacji dodatkowej. Należy pamiętać, że musi być potęgą liczby 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint — wartość domyślna to 0|Statyczny|Jest to maksymalna wartość kolejki dodatkowej replikacji w bajtach.|
-|QueueHealthMonitoringInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(30)|Statyczny|Określ zakres czasu w sekundach. Ta wartość określa okres czasu, używany przez Replikator do monitorowania kondycji ostrzeżenie/błąd zdarzeń kolejki operacji replikacji. Wartość "0" powoduje wyłączenie monitorowania kondycji. |
-|QueueHealthWarningAtUsagePercent|uint, domyślny to 80|Statyczny|Ta wartość Określa użycie kolejki replikacji (w procentach) po upływie którego możemy zgłaszanie ostrzeżenie kolejki wysokiego użycia. Firma Microsoft zrobić po okresie prolongaty, o QueueHealthMonitoringInterval. Jeśli użycie kolejki spada poniżej tej wartości procentowej w okresie prolongaty ostrzeżenia nie został zgłoszony.|
+|QueueHealthMonitoringInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(30)|Statyczny|Określ zakres czasu w sekundach. Ta wartość określa okres czasu, używany przez Replikator do monitorowania kondycji ostrzeżenie/błąd zdarzeń kolejki operacji replikacji. Wartość "0" powoduje wyłączenie monitorowania kondycji |
+|QueueHealthWarningAtUsagePercent|uint, domyślny to 80|Statyczny|Ta wartość Określa użycie kolejki replikacji (w procentach) po upływie którego możemy zgłaszanie ostrzeżenie kolejki wysokiego użycia. Firma Microsoft zrobić po okresie prolongaty, o QueueHealthMonitoringInterval. Jeśli użycie kolejki spada poniżej tej wartości procentowej w okresie prolongaty|
 |retryInterval|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(5)|Statyczny|Określ zakres czasu w sekundach. Podczas operacji zostało utracone lub odrzucone ten czasomierz Określa, jak często replikatora ponowi operację wysyłania.|
 
 ### <a name="section-name-transport"></a>Nazwa sekcji: transportu
@@ -782,7 +783,7 @@ PropertyGroup|X509NameMap, domyślna wartość to Brak|Dynamiczny| |
 |ResolveOption|ciąg, jest domyślną L "nieokreślony"|Statyczny|Określa, jak nazwa FQDN został rozwiązany.  Prawidłowe wartości to "nieokreślonych/ipv4 i ipv6". |
 |ConnectionOpenTimeout|Zakres czasu, domyślnie jest Common::TimeSpan::FromSeconds(60)|Statyczny|Określ zakres czasu w sekundach. Upłynął limit czasu połączenia instalacji po stronie przychodzących i odbierać (w tym negocjacji zabezpieczeń w trybie zabezpieczonym) |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj następujące artykuły, aby uzyskać więcej informacji na temat zarządzania klastrem:
 
 [Dodawanie, przerzucane, Usuń certyfikaty z klastrem Azure](service-fabric-cluster-security-update-certs-azure.md) 

@@ -4,7 +4,7 @@ description: "Dowiedz się, jak używać programu Windows PowerShell dla StorSim
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Administrowanie urządzenia za pomocą programu Windows PowerShell dla urządzenia StorSimple
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Program Windows PowerShell dla StorSimple udostępnia interfejs wiersza polecenia, który służy do zarządzania urządzeniem Microsoft Azure StorSimple. Jak wynika z nazwy, jest oparty na programie Windows PowerShell, interfejsu wiersza polecenia, który korzysta z wbudowanej w ograniczonego obszaru działania. Z perspektywy użytkownika w wierszu polecenia ograniczonego obszaru działania jest wyświetlany jako ograniczona wersja programu Windows PowerShell. Przy zachowaniu niektóre podstawowe funkcje programu Windows PowerShell, ten interfejs ma dodatkowe dedykowanych poleceń cmdlet, które są przeznaczone dla zarządzania urządzenia Microsoft Azure StorSimple.
 
@@ -60,7 +60,7 @@ Upewnij się, użyj następujących ustawień programu PuTTY do nawiązania poł
    | Element klawiatury | Wybierz pozycję |
    | --- | --- |
    | Klawisza |Formant-? (127) |
-   | Strona główna i na końcu kluczy |Standardowa |
+   | Strona główna i na końcu kluczy |Standardowa (Standard) |
    | Klawisze funkcyjne i klawiatury numerycznej |ESC [n ~ |
    | Stan początkowy kluczy kursora |Normalny |
    | Początkowy stan numerycznej |Normalny |
@@ -126,8 +126,8 @@ Język wyświetlania jest niezależny od języka, który należy określić przy
 
 Połączenia za pomocą komunikacji zdalnej programu Windows PowerShell można użyć protokołu HTTP lub HTTPS. Postępuj zgodnie z instrukcjami w następujące samouczki:
 
-* [Połącz zdalnie przy użyciu protokołu HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Połącz przy użyciu protokołu HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Połącz zdalnie przy użyciu protokołu HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Połącz przy użyciu protokołu HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Zagadnienia dotyczące zabezpieczeń połączenia
 
@@ -182,7 +182,7 @@ Można łatwo aktualizować pomocy w interfejsie programu Windows PowerShell. Wy
 > Aby uzyskać listę wszystkich poleceń cmdlet dostępnych w obszarze działania, zaloguj się do odpowiedniej opcji menu i uruchom `Get-Command` polecenia cmdlet.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Jeśli wystąpią problemy z urządzeniem StorSimple podczas wykonywania jednej z powyższych przepływy pracy, zapoznaj się [narzędzia do rozwiązywania problemów z wdrożeniami StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Jeśli wystąpią problemy z urządzeniem StorSimple podczas wykonywania jednej z powyższych przepływy pracy, zapoznaj się [narzędzia do rozwiązywania problemów z wdrożeniami StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Rozpoczynanie pracy z usługą Azure Automation
 
@@ -87,10 +87,6 @@ Wszystkie zadania automatyzacji, które wykonujesz w odniesieniu do zasobów prz
 * **Elementy Runbook** — to zestaw zadań opartych na programie PowerShell wykonujących niektóre zautomatyzowane procesy w usłudze Azure Automation.    
 
 Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczym regionem świadczenia usługi Azure, ale za pomocą kont usługi Automation można zarządzać wszystkimi zasobami w ramach subskrypcji. Utwórz konta usługi Automation w różnych regionach, jeśli masz zasady, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
-
-> [!NOTE]
-> Utworzone w witrynie Azure Portal konta usługi Automation i zawarte w nich zasoby nie są dostępne w klasycznym portalu Azure. Aby zarządzać tymi kontami lub ich zasobami za pomocą programu Windows PowerShell, należy skorzystać z modułów usługi Azure Resource Manager.
-> 
 
 Podczas tworzenia konta usługi Automation w witrynie Azure Portal automatycznie utworzysz dwie jednostki uwierzytelniania:
 
@@ -187,7 +183,7 @@ Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty auto
 
 Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów runbook, pracować z włączonymi przez Ciebie rozwiązaniami do zarządzania, wdrożyć rolę [procesu roboczego hybrydowego elementu runbook](automation-hybrid-runbook-worker.md) lub rozpocząć pracę z usługą [Log Analytics](https://docs.microsoft.com/azure/log-analytics), aby zebrać dane wygenerowane przez zasoby w środowiskach w chmurze lub lokalnych.   
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).
 * Przed rozpoczęciem tworzenia elementów runbook należy najpierw poznać obsługiwane [typy elementów runbook usługi Automation](automation-runbook-types.md) oraz powiązane zagadnienia.
 

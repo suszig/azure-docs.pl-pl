@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Tworzenie obrazów kontener dla sieci szkieletowej usług
 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Katalog "kontener — samouczek" zawiera folder o nazwie "azure głosowanie". Ten folder "azure głosowanie" zawiera kod źródłowy frontonu i plik Dockerfile tworzenie frontonu. Katalog "kontener — samouczek" zawiera również katalog "redis", który zawiera plik Dockerfile, aby utworzyć obraz redis. Tych katalogach znajdują się zasoby niezbędne dla tego samouczka zestawu. 
+Rozwiązanie zawiera dwa foldery i "docker-compse.yml" pliku. Folder "azure głosowanie" zawiera usługę frontonu Python oraz plik Dockerfile używany do tworzenia obrazu. Katalog "Głosowania" zawiera pakiet aplikacji sieci szkieletowej usług, które zostało wdrożone w klastrze. Te katalogi zawiera zasoby niezbędne do celów tego samouczka.  
 
 ## <a name="create-container-images"></a>Tworzenie kontenera obrazów
 
-W katalogu "azure głosowanie" Uruchom następujące polecenie, aby utworzyć obraz dla składników frontonu sieci web. To polecenie używa plik Dockerfile w tym katalogu do utworzenia obrazu. 
+Wewnątrz **głos azure** katalogu, uruchom następujące polecenie, aby utworzyć obraz dla składników frontonu sieci web. To polecenie używa plik Dockerfile w tym katalogu do utworzenia obrazu. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Wewnątrz katalogu "redis", uruchom następujące polecenie, aby utworzyć obraz wewnętrznej bazy danych redis. To polecenie używa plik Dockerfile w katalogu, aby utworzyć obraz. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-Po zakończeniu użyj [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenie, aby wyświetlić utworzony obrazów.
+To polecenie może zająć trochę czasu, ponieważ wszystkie wymagane zależności wymagane do pobrania z Centrum Docker. Po zakończeniu użyj [obrazy usługi docker](https://docs.docker.com/engine/reference/commandline/images/) polecenie, aby wyświetlić utworzony obrazów.
 
 ```bash
 docker images
 ```
 
-Zwróć uwagę, że cztery obrazy zostały pobrane lub utworzony. *Azure głos początku* obraz zawiera aplikację. Został uzyskany z *python* obrazu z Centrum Docker. Obraz Redis pobranego z Centrum Docker.
+Zwróć uwagę, że dwa obrazy zostały pobrane lub utworzony. *Azure głos początku* obraz zawiera aplikację. Został uzyskany z *python* obrazu z Centrum Docker.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Wdrażanie rejestru kontenera platformy Azure
 
-Najpierw uruchom [logowania az](/cli/azure/login) polecenie, aby zalogować się do konta platformy Azure. 
+Najpierw uruchom **logowania az** polecenie, aby zalogować się do konta platformy Azure. 
 
-Następnie użyj [konta az](/cli/azure/account#set) polecenie, aby wybrać subskrypcję do utworzenia kontenera Azure rejestru. 
+```bash
+az login
+```
+
+Następnie użyj **konta az** polecenie, aby wybrać subskrypcję do utworzenia kontenera Azure rejestru. Należy wprowadzić identyfikator subskrypcji z subskrypcją platformy Azure zamiast < IDENTYFIKATOR_SUBSKRYPCJI >. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 W przypadku wdrażania rejestru kontenera platformy Azure, musisz najpierw grupę zasobów. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). W tym przykładzie grupy zasobów o nazwie *myResourceGroup* jest tworzony w *westus* regionu. Wybierz grupy zasobów w regionie, w pobliżu. 
+Utwórz grupę zasobów za pomocą polecenia **az group create**. W tym przykładzie grupy zasobów o nazwie *myResourceGroup* jest tworzony w *westus* regionu.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Tworzenie kontenera Azure rejestru [az acr utworzyć](/cli/azure/acr#create) polecenia. Nazwa rejestru kontenera **muszą być unikatowe**.
+Tworzenie kontenera Azure rejestru **az acr utworzyć** polecenia. Zastąp \<acrName > o nazwie rejestru kontenera ma zostać utworzona w ramach Twojej subskrypcji. Ta nazwa musi być alfanumeryczny i unikatowe. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-W dalszej części tego samouczka używamy "acrname" jako symbolu zastępczego dla wybranej nazwy rejestru kontenera.
+W dalszej części tego samouczka używamy "acrName" jako symbolu zastępczego dla wybranej nazwy rejestru kontenera. Zanotuj tę wartość. 
 
 ## <a name="log-in-to-your-container-registry"></a>Zaloguj się do rejestru kontenera
 
-Zaloguj się do swojego wystąpienia ACR przed wypchnięciem obrazów do niego. Użyj [logowania acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_login) polecenia do wykonania operacji. Podaj unikatową nazwę podane w rejestrze kontenera podczas jej tworzenia.
+Zaloguj się do swojego wystąpienia ACR przed wypchnięciem obrazów do niego. Użyj **logowania acr az** polecenia do wykonania operacji. Podaj unikatową nazwę podane w rejestrze kontenera podczas jej tworzenia.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ Dane wyjściowe:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ Aby uzyskać nazwę loginServer, uruchom następujące polecenie:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Teraz, tag *azure głos początku* obrazu o loginServer rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa wersję obrazu.
+To generuje tabelę z poniższymi wynikami. Ten wynik będzie służyć do tagu z **azure głos początku** obrazów przed wypchnięciem go w rejestrze kontenera w następnym kroku.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-Następnie tagu *azure głos zwrotnego* obrazu o loginServer rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa wersję obrazu.
+Teraz, tag *azure głos początku* obrazu o loginServer Twojego rejestru kontenera. Ponadto Dodaj `:v1` na końcu nazwy obrazu. Znacznik określa wersję obrazu.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Po oznakowany, uruchom "obrazy usługi docker" Aby zweryfikować działanie.
@@ -172,11 +168,8 @@ Dane wyjściowe:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Wypychanie *azure głos początku* obrazu w rejestrze.
 Korzystając z następującego przykładu, Zamień nazwa ACR loginServer loginServer ze środowiska.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Wypychanie *azure głos zwrotnego* obrazu w rejestrze. 
-
-Korzystając z następującego przykładu, Zamień nazwa ACR loginServer loginServer ze środowiska.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Polecenia wypychania docker potrwać kilka minut.
@@ -214,13 +199,12 @@ Dane wyjściowe:
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 
 Po ukończeniu samouczka obrazu kontenera przechowywanych w prywatnej wystąpienia rejestru kontenera platformy Azure. Ten obraz jest wdrażana w kolejnych samouczkach z ACR do klastra usługi sieć szkieletowa usług.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku aplikacji ściągnięcia z usługi Github i kontener obrazów utworzonych i przypisany do rejestru. Wykonano następujące czynności:
 

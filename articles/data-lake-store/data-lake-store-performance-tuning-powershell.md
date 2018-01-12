@@ -3,7 +3,7 @@ title: "Wskazówki dotyczące korzystania z usługi Data Lake Store przy użyciu
 description: "Porady na temat sposobu zwiększenia wydajności w przypadku korzystania z programu Azure PowerShell z usługą Data Lake Store"
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Wskazówki dotyczące korzystania z usługi Azure Data Lake Store przy użyciu programu PowerShell dostrajania wydajności
 
@@ -93,7 +93,7 @@ Te ustawienia można jeszcze bardziej dostosować, zwiększając lub zmniejszaj�
 
 * **Błędy ograniczania przepływności**: błędy ograniczania przepływności mogą wystąpić wówczas, gdy współbieżność jest zbyt wysoka. W przypadku błędów ograniczania przepływności należy albo zmniejszyć współbieżność, albo skontaktować się z nami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Używanie usługi Azure Data Lake Store w zastosowaniach wymagających danych big data](data-lake-store-data-scenarios.md) 
 * [Zabezpieczanie danych w usłudze Data Lake Store](data-lake-store-secure-data.md)
 * [Korzystanie z usługi Azure Data Lake Analytics z usługą Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

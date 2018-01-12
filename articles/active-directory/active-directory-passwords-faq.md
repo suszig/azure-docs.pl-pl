@@ -1,5 +1,5 @@
 ---
-title: "Często zadawane pytania: Azure AD SSPR | Dokumentacja firmy Microsoft"
+title: "Samoobsługowego resetowania hasła często zadawane pytania — Azure Active Directory"
 description: "Często zadawane pytania dotyczące usługi Azure AD samoobsługi hasła resetowania"
 services: active-directory
 keywords: "Zarządzanie hasłami w usłudze Active directory, zarządzanie hasłami, usługi Azure AD samodzielnego resetowania hasła usługi"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 697b82c8197a9a7ff4c60ce6fa60e098396c2bca
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
@@ -283,7 +283,7 @@ Często zadawane pytania jest podzielony na następujące sekcje:
   >
   >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)

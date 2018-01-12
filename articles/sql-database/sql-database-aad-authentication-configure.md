@@ -1,26 +1,23 @@
 ---
 title: "Konfigurowanie uwierzytelniania usługi Azure Active Directory - SQL | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak łączyć się z bazą danych SQL i usługi SQL Data Warehouse przy użyciu uwierzytelniania usługi Azure Active Directory."
+description: "Dowiedz się, jak łączyć się z bazą danych SQL i SQL Data Warehouse przy użyciu usługi Azure uwierzytelnianie usługi Active Directory — po skonfigurowaniu usługi Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Konfigurowanie i zarządzanie nimi uwierzytelniania usługi Azure Active Directory z bazą danych SQL lub SQL Data Warehouse
 
@@ -32,33 +29,14 @@ W tym artykule przedstawiono sposób tworzenia i wypełniania usługi Azure AD, 
 ## <a name="create-and-populate-an-azure-ad"></a>Utworzyć i wypełnić usługi Azure AD
 Tworzenie usługi Azure AD i wypełnić ją użytkowników i grup. Usługi Azure AD może być początkowej usługi Azure AD domeny zarządzanej. Usługi Azure AD można także lokalnych usług domenowych Active Directory, który jest Sfederowane z usługą Azure AD.
 
-Aby uzyskać więcej informacji, zobacz tematy [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md) (Integrowanie tożsamości lokalnych z usługą Azure Active Directory), [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Platforma Microsoft Azure obsługuje teraz federację z usługą Windows Servder Active Directory), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx) (Administrowanie katalogiem usługi Azure AD), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell) i [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md) (Wymagane porty i protokoły tożsamości hybrydowych).
+Aby uzyskać więcej informacji, zobacz tematy [Integrating your on-premises identities with Azure Active Directory](../active-directory/active-directory-aadconnect.md) (Integrowanie tożsamości lokalnych z usługą Azure Active Directory), [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Platforma Microsoft Azure obsługuje teraz federację z usługą Windows Servder Active Directory), [Administering your Azure AD directory](../active-directory/active-directory-administer.md) (Administrowanie katalogiem usługi Azure AD), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Zarządzanie usługą Azure AD przy użyciu programu Windows PowerShell) i [Hybrid Identity Required Ports and Protocols](..//active-directory/connect/active-directory-aadconnect-ports.md) (Wymagane porty i protokoły tożsamości hybrydowych).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Opcjonalnie: Skojarz lub zmienić usługi active directory, który jest aktualnie powiązany z subskrypcją platformy Azure
-Aby skojarzyć bazy danych z katalogu usługi Azure AD dla Twojej organizacji, należy katalogu zaufanego katalogu subskrypcji platformy Azure obsługującym bazę danych. Aby uzyskać więcej informacji, zobacz [Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Skojarz lub Dodaj subskrypcję platformy Azure do usługi Azure Active Directory
 
-**Informacje dodatkowe:** subskrypcji Azure co ma relację zaufania z wystąpieniem usługi Azure AD. Oznacza to, że subskrypcja ufa katalogowi na potrzeby uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale dana subskrypcja może ufać tylko jednemu katalogowi. Widać, katalog jest uważany za zaufany przez subskrypcję w obszarze **ustawienia** tab na [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Relacja zaufania między subskrypcją a katalogiem różni się od relacji subskrypcji z wszystkimi innymi zasobami na platformie Azure (witrynami sieci Web, bazami danych itd.), które przypominają bardziej podrzędne zasoby subskrypcji. Jeśli subskrypcja wygaśnie, dostęp do innych zasobów skojarzonych z subskrypcją również nie będzie możliwy. Lecz katalog pozostanie na platformie Azure i będzie można skojarzyć z nim inną subskrypcję oraz kontynuować zarządzanie użytkownikami w katalogu. Aby uzyskać więcej informacji o zasobach, zobacz [opis dostęp do zasobów na platformie Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Kojarzenie subskrypcji platformy Azure do usługi Azure Active Directory poprzez katalogu zaufanego katalogu subskrypcji platformy Azure obsługującym bazę danych. Aby uzyskać więcej informacji, zobacz [jak subskrypcje platformy Azure skojarzonych z usługą Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Użyj przełącznik katalogu w portalu Azure, aby przełączyć się do subskrypcji skojarzonych z domeną.
 
-Poniższe procedury pokazują, jak zmiany skojarzone katalogu dla danej subskrypcji.
-1. Nawiązać połączenie z [klasycznego portalu Azure](https://manage.windowsazure.com/) za pomocą administratora subskrypcji platformy Azure.
-2. Na banerze po lewej stronie wybierz **ustawienia**.
-3. Subskrypcji są wyświetlane na ekranie ustawień. Jeśli nie ma żądanego subskrypcji, kliknij przycisk **subskrypcje** na początku listy rozwijanej **filtru przez katalog** i wybierz katalog, który zawiera subskrypcji, a następnie kliknij przycisk **Zastosuj**.
-   
-    ![Wybierz subskrypcję][4]
-4. W **ustawienia** obszaru, kliknij subskrypcję, a następnie kliknij **Edytuj katalog** w dolnej części strony.
-   
-    ![AD ustawień portalu][5]
-5. W **Edytuj katalog** , wybierz Azure Active Directory, który jest skojarzony z programu SQL Server lub SQL Data Warehouse, a następnie kliknij strzałkę dalej.
-   
-    ![Edytuj katalog wyboru][6]
-6. W **POTWIERDŹ** katalogu okno dialogowe Mapping, upewnij się, że "**zostaną usunięte wszystkie współadministratorów.**"
-   
-    ![Potwierdź katalogu edycji][7]
-7. Kliknij przycisk wyboru, aby ponownie załadować portalu.
-
-   > [!NOTE]
-   > Podczas zmiany katalogu, dostęp do wszystkich współadministratorów, grup i użytkowników usługi Azure AD i katalog kopii zasobu użytkownicy zostaną usunięci i mają już dostęp do tej subskrypcji lub jej zasobów. Tylko, administrator usługi, można skonfigurować dostęp dla podmiotów zabezpieczeń oparte na nowy katalog. Ta zmiana może trwać dość czasu obejmie wszystkie zasoby. Zmienianie katalogu, również zmiany administratora usługi Azure AD dla bazy danych SQL i magazyn danych SQL i nie zezwalaj na dostęp do bazy danych dla wszystkich istniejących użytkowników usługi Azure AD. Administrator usługi Azure AD musi być resetowania (zgodnie z poniższym opisem) i nowej usługi Azure AD, użytkownicy muszą zostać utworzone.
-   >  
+   **Informacje dodatkowe:** subskrypcji Azure co ma relację zaufania z wystąpieniem usługi Azure AD. Oznacza to, że subskrypcja ufa katalogowi na potrzeby uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale dana subskrypcja może ufać tylko jednemu katalogowi. Relacja zaufania między subskrypcją a katalogiem różni się od relacji subskrypcji z wszystkimi innymi zasobami na platformie Azure (witrynami sieci Web, bazami danych itd.), które przypominają bardziej podrzędne zasoby subskrypcji. Jeśli subskrypcja wygaśnie, dostęp do innych zasobów skojarzonych z subskrypcją również nie będzie możliwy. Lecz katalog pozostanie na platformie Azure i będzie można skojarzyć z nim inną subskrypcję oraz kontynuować zarządzanie użytkownikami w katalogu. Aby uzyskać więcej informacji o zasobach, zobacz [opis dostęp do zasobów na platformie Azure](../active-directory/active-directory-b2b-admin-add-users.md). Aby dowiedzieć się więcej o tym zaufane Zobacz relacji [jak skojarzyć lub dodać subskrypcję platformy Azure do usługi Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Utwórz administrator usługi Azure AD dla serwera Azure SQL
 Każdy serwer Azure SQL, (który jest hostem bazy danych SQL lub SQL Data Warehouse) rozpoczyna się przy użyciu konta administratora pojedynczego serwera, który jest administratorem całego serwera Azure SQL. Drugi administratora programu SQL Server musi zostać utworzony, który jest konto usługi Azure AD. Tego podmiotu zabezpieczeń jest tworzony jako użytkownik zawartej bazy danych w bazie danych master. Jako administratorów, kont administratora serwera są elementami członkowskimi **db_owner** roli w każdej użytkownika bazy danych, a następnie wprowadź każdej bazy danych użytkownika w postaci **dbo** użytkownika. Aby uzyskać więcej informacji na temat kont administratora serwera, zobacz [Zarządzanie bazami danych i Logowaniami w bazie danych SQL Azure](sql-database-manage-logins.md).
@@ -251,7 +229,7 @@ Użyj tej metody, jeśli użytkownik jest zalogowany do systemu Windows przy uż
 
     ![Wybierz nazwę bazy danych][13]
 
-## <a name="active-directory-password-authentication"></a>Uwierzytelnianie hasłem usługi Active Directory
+## <a name="active-directory-password-authentication"></a>Uwierzytelnianie za pomocą hasła w usłudze Active Directory
 
 Użyj tej metody, podczas nawiązywania połączenia z głównej nazwy usługi Azure AD przy użyciu usługi Azure AD zarządzanych domeny. Można również użyć do kontem federacyjnym bez dostępu do domeny, na przykład podczas pracy zdalnej.
 
@@ -283,7 +261,7 @@ conn.Open();
 
 Słowo kluczowe parametrów połączenia ``Integrated Security=True`` nie jest obsługiwana dla łączenia z bazą danych SQL Azure. Podczas tworzenia połączenia ODBC, należy usunąć spacje i ustawić uwierzytelniania "ActiveDirectoryIntegrated".
 
-### <a name="active-directory-password-authentication"></a>Uwierzytelnianie hasłem usługi Active Directory
+### <a name="active-directory-password-authentication"></a>Uwierzytelnianie za pomocą hasła w usłudze Active Directory
 
 Aby połączyć się z bazą danych przy użyciu zintegrowanego uwierzytelnianie i tożsamość usługi Azure AD, słowo kluczowe uwierzytelniania musi mieć ustawioną hasła usługi Active Directory. Ciąg połączenia musi zawierać identyfikator/UID użytkownika i hasło/PWD słowa kluczowe i wartości. Poniższy przykład kodu C# używa ADO .NET.
 
@@ -324,7 +302,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dostęp i kontrola w usłudze SQL Database zostały omówione w temacie [Kontrola dostępu w usłudze SQL Database](sql-database-control-access.md).
 - Dane logowania, użytkownicy i role bazy danych w usłudze SQL Database zostały omówione w temacie [Logins, users, and database roles](sql-database-manage-logins.md) (Dane logowania, użytkownicy i role bazy danych).
 - Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](https://msdn.microsoft.com/library/ms181127.aspx) (Podmioty zabezpieczeń).

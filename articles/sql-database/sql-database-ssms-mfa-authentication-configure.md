@@ -3,8 +3,8 @@ title: "Skonfiguruj usługę Multi-Factor authentication — Azure SQL | Dokumen
 description: "Dowiedz się, jak korzystać z narzędzia SSMS Multi-Factored uwierzytelniania dla bazy danych SQL i magazyn danych SQL."
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
-ms.author: rickbyh
-ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: mireks
+ms.openlocfilehash: fe056288fbc04db0a6892c9a501c58ed85967734
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Skonfiguruj usługę Multi-Factor authentication dla programu SQL Server Management Studio i Azure AD
 
@@ -62,7 +62,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie SQL Database lub SQL Data
 
 Po zakończeniu weryfikacji SSMS łączy zwykle przy założeniu dostępu zapory i prawidłowe poświadczenia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Omówienie uwierzytelniania wieloskładnikowego bazy danych SQL Azure, zobacz uniwersalnych uwierzytelniania za pomocą [bazy danych SQL i magazyn danych SQL (Obsługa SSMS MFA)](sql-database-ssms-mfa-authentication.md).  
 - Udostępnić innym bazy danych: [SQL bazy danych uwierzytelnianie i autoryzacja: udzielanie dostępu](sql-database-manage-logins.md)  

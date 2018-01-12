@@ -3,7 +3,7 @@ title: "Rozpoznawanie T-SQL różnice migracji Azure SQL Database | Dokumentacja
 description: "Instrukcje języka Transact-SQL, które nie są w pełni obsługiwane w usłudze Azure SQL Database"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,17 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 5d9cfce0453bb32bf3512b5b8e3ed25c9c2fdbdf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Rozstrzyganie różnic języka Transact-SQL podczas migracji z bazą danych SQL   
 Gdy [Migrowanie bazy danych](sql-database-cloud-migrate.md) z programu SQL Server do serwera SQL Azure, użytkownik może stwierdzić, że baza danych wymaga niektórych reorganizacji zanim można dokonać migracji programu SQL Server. Ten artykuł zawiera wskazówki, które ułatwiają wykonywanie ponownego projektowania, a także opis podstawowych powodów, dlaczego ponownego projektowania jest konieczna. Aby wykryć niezgodności, użyj [Asystenta migracji danych (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Większość funkcji języka Transact-SQL, które używają aplikacji są w pełni obsługiwane zarówno w przypadku programu Microsoft SQL Server, jak i bazy danych SQL Azure. Na przykład podstawowe składniki SQL typów danych, operatory, ciąg, operacje arytmetyczne, logiczna, i funkcje kursora działają tak samo w programie SQL Server i bazy danych SQL. Istnieją, jednak niewielkie różnice T-SQL w pliku DDL (języka definicji danych) i elementy DML (język edycji danych), co zapewnia instrukcje T-SQL i zapytań, które są obsługiwane tylko częściowo (co omówiono w dalszej części tego artykułu).
 
 Ponadto istnieją pewne funkcje i składnię, która nie jest obsługiwana w ogóle, ponieważ baza danych SQL Azure jest przeznaczona do izolowania funkcji z zależności w bazie danych master i systemu operacyjnego. W efekcie większości działań na poziomie serwera nie mają zastosowania do bazy danych SQL. Instrukcje T-SQL i opcje nie są dostępne, jeśli skonfiguruj opcje na poziomie serwera, składników systemu operacyjnego, lub określ plik konfiguracji systemu. Jeśli takie możliwości są wymagane, właściwym rozwiązaniem często jest dostępny w inny sposób funkcji z bazy danych SQL lub innej platformy Azure lub usługi. 
@@ -84,7 +84,7 @@ Dokumentacja języka Transact-SQL zawiera artykuły dotyczące wersji programu S
 
 W niektórych przypadkach można temat artykułu w produkcie, ale występują niewielkie różnice między produktów. Wskazano różnice w punkty środkowe w artykule zależnie od potrzeb. W niektórych przypadkach można temat artykułu w produkcie, ale występują niewielkie różnice między produktów. Wskazano różnice w punkty środkowe w artykule zależnie od potrzeb. Na przykład artykuł CREATE TRIGGER jest dostępny w bazie danych SQL. Ale **wszystkie SERVER** opcji wyzwalaczy na poziomie serwera, wskazuje, że wyzwalaczy poziomu serwera nie może być używane w bazie danych SQL. Zamiast tego Użyj wyzwalaczy na poziomie bazy danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać listę funkcji, które są obsługiwane i nieobsługiwane przez bazę danych SQL, zobacz [porównanie funkcji bazy danych SQL Azure](sql-database-features.md). Na liście na tej stronie stanowi uzupełnienie tego artykułu wskazówki i funkcje, a koncentruje się na instrukcji języka Transact-SQL.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Rozmiary dla usług w chmurze
 W tym temacie opisano dostępne rozmiary i opcje dla wystąpień roli usługi w chmurze (role sieci web i proces roboczy). Umożliwia także zagadnienia dotyczące wdrażania pod uwagę podczas planowania użycia tych zasobów. Rozmiar każdego ma identyfikator umieszczony w sieci [pliku definicji usługi](cloud-services-model-and-package.md#csdef). Ceny dla każdego rozmiaru są dostępne na [cennik usługi w chmurze](https://azure.microsoft.com/pricing/details/cloud-services/) strony.
@@ -32,7 +32,7 @@ W tym temacie opisano dostępne rozmiary i opcje dla wystąpień roli usługi w 
 Na platformie Azure do wyboru jest wiele standardowych rozmiarów maszyn wirtualnych. Uwagi dotyczące niektórych z tych rozmiarów:
 
 * Maszyny wirtualne serii D są zaprojektowane do uruchamiania aplikacji wymagających większej mocy obliczeniowej i wydajności dysków tymczasowych. Maszyny wirtualne serii D zapewniają szybsze procesory, większą ilość pamięci na rdzeń i dyski półprzewodnikowe (SSD) dla dysków tymczasowych. Szczegółowe informacje zawiera ogłoszenie [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nowe rozmiary maszyn wirtualnych serii D) w blogu platformy Azure.
-* Seria Dv2, kontynuacja oryginalnej serii D, jest wyposażona w procesor CPU o większych możliwościach. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Seria Dv2 jest oparta na procesorze najnowszej generacji Intel Xeon® E5-2673 v3 (Haswell) z zegarem 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć częstotliwość 3,1 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
+* Dv3-series, Dv2 serii kontynuacja do oryginalnego D-series, funkcje większe możliwości procesora CPU. Procesor CPU serii Dv2 jest o około 35% szybszy niż procesor CPU serii D. Seria Dv2 jest oparta na procesorze najnowszej generacji Intel Xeon® E5-2673 v3 (Haswell) z zegarem 2,4 GHz, który dzięki technologii Intel Turbo Boost 2.0 może osiągnąć częstotliwość 3,1 GHz. Konfiguracje pamięci i dysków serii Dv2 są takie same jak w przypadku serii D.
 * Maszyny wirtualne z serii G oferują największą ilość pamięci i są uruchamiane na hostach z procesorami z rodziny Intel Xeon E5 V3.
 * A-series maszyn wirtualnych może zostać wdrożony w różne typy sprzętu i procesorów. Rozmiar jest ograniczony, na podstawie sprzętu w celu zaoferowania wydajność procesora spójne uruchomione wystąpienie, niezależnie od sprzętu, który jest wdrożony na. Aby określić sprzęt fizyczny, na którym jest wdrażany dany rozmiar, utwórz zapytanie o sprzęt wirtualny z poziomu maszyny wirtualnej.
 * Rozmiar A0 jest nadmiernie subskrybowany na sprzęcie fizycznym. Tylko w przypadku tego konkretnego rozmiaru inne wdrożenia klienta mogą mieć wpływ na wydajność uruchomionego obciążenia. Wydajność względna jest przedstawiona poniżej jako oczekiwana linia bazowa, podlegająca przybliżonej zmienności w granicach 15 procent.
@@ -42,7 +42,7 @@ Rozmiar maszyny wirtualnej ma wpływ na ceny. Rozmiar wpływa również na wydaj
 W podjęciu decyzji o rozmiarze mogą pomóc następujące informacje:
 
 * Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie korzystającymi z mocy obliczeniowej*. Sprzęt, na którym działają te rozmiary maszyn wirtualnych, został zaprojektowany i zoptymalizowany pod kątem aplikacji intensywnie korzystających z mocy obliczeniowej i sieci, w tym aplikacji klastrów obliczeń o wysokiej wydajności, modelowania i symulacji. Maszyny wirtualne serii A8–A11 korzystają z procesorów Intel Xeon E5-2670 o częstotliwości 2,6 GHz, a seria H korzysta z procesorów Intel Xeon E5-2667 v3 o częstotliwości 3,2 GHz. Aby uzyskać szczegółowe informacje i zagadnienia dotyczące korzystania z tych wielkości, zobacz [wysokiej wydajności obliczeniowe rozmiarów maszyn wirtualnych](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv2-series, D-series, G serii idealnie nadają się do aplikacji, które wymagają szybszych procesorów CPU, lokalnego lepszą wydajność dysku lub mają wyższe wymagania pamięci. Oferują one kombinację opcji o dużych możliwościach dla wielu aplikacji klasy korporacyjnej.
+* Dv3-series, Dv2-series, D-series, G serii idealnie nadają się do aplikacji, które wymaganie szybszych procesorów CPU, Lepsza wydajność dysku lokalnym lub mieć wyższe wymagania pamięci. Oferują one kombinację opcji o dużych możliwościach dla wielu aplikacji klasy korporacyjnej.
 * Niektóre hosty fizyczne w centrach danych platformy Azure mogą nie obsługiwać większych rozmiarów maszyn wirtualnych, takich jak A5–A11. W związku z tym może zostać wyświetlony komunikat błędu **nie można skonfigurować maszyny wirtualnej {nazwa komputera}** lub **nie można utworzyć maszyny wirtualnej {nazwa komputera}** po zmianie rozmiaru istniejącej maszyny wirtualnej do nowego rozmiaru; Tworzenie nowej maszyny wirtualnej w sieci wirtualnej utworzonej przed 16 kwietnia 2013; lub Dodawanie nowej maszyny wirtualnej do istniejącej usługi w chmurze. Zobacz [błąd: "Nie można skonfigurować maszyny wirtualnej"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) na forum pomocy technicznej dla rozwiązania dla każdego scenariusza wdrażania.
 * Subskrypcja może również ograniczać liczbę rdzeni, które można wdrożyć w rodzinach o określonym rozmiarze. Aby zwiększyć limit przydziału, skontaktuj się z pomocą techniczną platformy Azure.
 
@@ -61,12 +61,13 @@ Utworzyliśmy pojęcie jednostki obliczeniowe Azure (ACU) do umożliwiają poró
 | [ExtraSmall](#a-series) |50 |
 | [Mała liczba godzin ExtraLarge](#a-series) |100 |
 | [A5 7](#a-series) |100 |
-| [Standardowa_A1–8v2](#av2-series) |100 |
-| [Standardowa_A2m–8mv2](#av2-series) |100 |
 | [A8–A11](#a-series) |225* |
-| [D1–14](#d-series) |160 |
-| [D1–15v2](#dv2-series) |210 - 250* |
-| [G1–5](#g-series) |180 - 240* |
+| [W wersji 2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E v3](#ev3-series) |160 - 190* |
+| [K](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 Jednostki ACU oznaczone gwiazdką (*) wykorzystują technologię Intel® Turbo w celu zwiększenia częstotliwości zegara procesora CPU i zapewniania większej wydajności. Skala zwiększenia wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
@@ -142,6 +143,29 @@ Aby informacjami i zagadnieniami dotyczącymi przy użyciu tych rozmiarów, zoba
 | Standardowa_D14_v2 | 16        | 112          | 800                  | 8 / ekstremalnie wysoka |
 | Standard_D15_v2 | 20        | 140          | 1000                | 8 / ekstremalnie wysoka |
 
+## <a name="dv3-series"></a>Seria Dv3
+
+| Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB   | Lokalne dyski SSD: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standardowa_D2_v3  | 2         | 8             | 16                   | 2 / średnia |
+| Standardowa_D4_v3  | 4         | 16            | 32                   | 2 / wysoka |
+| Standardowa_D8_v3  | 8         | 32            | 64                   | 4 / wysoka |
+| Standardowa_D16_v3 | 16        | 64            | 128                  | 8 / ekstremalnie wysoka |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / ekstremalnie wysoka |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / ekstremalnie wysoka |
+
+## <a name="ev3-series"></a>Seria Ev3
+
+| Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB   | Lokalne dyski SSD: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standardowa_E2_v3  | 2         | 16            | 32                   | 2 / średnia |
+| Standardowa_E4_v3  | 4         | 32            | 64                   | 2 / wysoka |
+| Standardowa_E8_v3  | 8         | 64            | 128                  | 4 / wysoka |
+| Standardowa_E16_v3 | 16        | 128           | 256                  | 8 / ekstremalnie wysoka |
+| Standardowa_E32_v3 | 32        | 256           | 512                  | 8 / ekstremalnie wysoka |
+| Standardowa_E64_v3 | 64        | 432           | 864                  | 8 / ekstremalnie wysoka |
+
+
 ## <a name="g-series"></a>Seria G
 | Rozmiar            | Rdzenie procesora CPU | Pamięć: GiB  | Lokalne dyski SSD: GiB       | Maksymalna liczba kart sieciowych / przepustowość sieci |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Jako charakteru zmiany obciążenia lub nowe rozmiary maszyn wirtualnych, które
 >
 
 ## <a name="get-a-list-of-sizes"></a>Pobierz listę rozmiary
-Aby uzyskać listę rozmiarów można użyć programu PowerShell lub interfejsu API REST. Interfejs API REST jest udokumentowany [tutaj](https://msdn.microsoft.com/library/azure/dn469422.aspx). Następujący kod jest polecenia programu PowerShell, która będzie zawierała listę wszystkich rozmiarów dla danej lokalizacji. 
+Aby uzyskać listę rozmiarów można użyć programu PowerShell lub interfejsu API REST. Interfejs API REST jest udokumentowany [tutaj](https://msdn.microsoft.com/library/azure/dn469422.aspx). Następujący kod jest polecenia programu PowerShell, która będzie zawierała listę wszystkich rozmiarów tym dostępną dla usług w chmurze. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki

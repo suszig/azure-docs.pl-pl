@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Tworzenie niestandardowego obrazu z pliku VHD
 
@@ -34,15 +34,15 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+1. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 
 1. Z listy labs wybierz żądany laboratorium.  
 
-1. W bloku laboratorium, wybierz **konfiguracji**. 
+1. W okienku głównym laboratorium, wybierz **konfiguracji i zasadach**. 
 
-1. W środowisku laboratoryjnym **konfiguracji** bloku, wybierz opcję **niestandardowych obrazów (VHD)**.
+1. Na **konfiguracji i zasadach** okienku wybierz **niestandardowych obrazów**.
 
-1. Na **niestandardowych obrazów** bloku, wybierz opcję **+ Dodaj**.
+1. Na **niestandardowych obrazów** okienku wybierz **+ Dodaj**.
 
     ![Dodaj niestandardowy obraz](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -50,21 +50,21 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 
 1. Wprowadź opis niestandardowego obrazu. Ten opis jest wyświetlany na liście obrazów podstawowej podczas tworzenia maszyny Wirtualnej.
 
-1. Wybierz **wirtualnego dysku twardego**.
+1. Dla **typ systemu operacyjnego**, wybierz opcję **Windows** lub **Linux**.
 
-1. Z **wirtualnego dysku twardego** bloku, wybierz żądany plik wirtualnego dysku twardego.
+    - W przypadku wybrania **Windows**, określ za pomocą pola wyboru czy *sysprep* zostało uruchomione na tym komputerze. 
+    - W przypadku wybrania **Linux**, określ za pomocą pola wyboru czy *deprovision* zostało uruchomione na tym komputerze. 
 
-1. Wybierz **OK** zamknąć **wirtualnego dysku twardego** bloku.
+1. Wybierz **wirtualnego dysku twardego** z menu rozwijanego. Jest to wirtualny dysk twardy, który będzie używany do utworzenia nowego obrazu niestandardowego. Jeśli to konieczne, umożliwia **przekazania dysku VHD za pomocą programu PowerShell**.
 
-1. Wybierz **Konfiguracja systemu operacyjnego**.
-
-1. Na **Konfiguracja systemu operacyjnego** , a następnie wybierz opcję **Windows** lub **Linux**.
-
-1. Jeśli **Windows** jest zaznaczone, określ za pomocą pola wyboru czy *Sysprep* zostało uruchomione na tym komputerze. 
-
-1. Wybierz **OK** zamknąć **Konfiguracja systemu operacyjnego** bloku.
+1. Jeśli obraz używany do tworzenia niestandardowego obrazu nie jest opublikowana przez firmę Microsoft, można wprowadzić nazwę planu, oferty planu i plan wydawcy.
 
 1. Wybierz **OK** można utworzyć niestandardowego obrazu.
+
+Po kilku minutach obraz niestandardowy jest tworzony i jest przechowywany w laboratorium należy utworzyć konta magazynu. Jeśli laboratorium użytkownik chce, aby utworzyć nową maszynę Wirtualną, są dostępne na liście obrazów podstawowej.
+
+![Obraz niestandardowy dostępne na liście podstawowej obrazów](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -73,6 +73,6 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 - [Niestandardowe obrazy lub formuł?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiowanie obrazów niestandardowych między Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dodaj Maszynę wirtualną do laboratorium](./devtest-lab-add-vm.md)

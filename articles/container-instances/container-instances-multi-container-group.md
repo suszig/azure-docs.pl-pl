@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/10/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-a-container-group"></a>Wdrożenie grupy kontenera
 
@@ -28,89 +28,95 @@ Ten dokument przeprowadzi Cię przez systemem konfiguracji proste boczną wielu 
 
 Utwórz plik o nazwie `azuredeploy.json` i skopiuj następujący ciąg JSON do niego.
 
-W tym przykładzie zdefiniowano grupę kontenera o dwa kontenery i publiczny adres IP. Aplikacja internetowy jest uruchamiana pierwszy kontenera w grupie. Drugi kontenera boczną, zgłasza żądanie HTTP do aplikacji głównej sieci web za pośrednictwem sieci lokalnej grupy.
+W tym przykładzie grupa kontenera o dwa kontenery publicznego adresu IP i dwa porty narażonych jest zdefiniowany. Aplikacja internetowy jest uruchamiana pierwszy kontenera w grupie. Drugi kontenera boczną, zgłasza żądanie HTTP do aplikacji głównej sieci web za pośrednictwem sieci lokalnej grupy.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-  },
+  "parameters": {},
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
     "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
-    "resources": [
-      {
-        "name": "myContainerGroup",
-        "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2017-08-01-preview",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "containers": [
-            {
-              "name": "[variables('container1name')]",
-              "properties": {
-                "image": "[variables('container1image')]",
-                "resources": {
-                  "requests": {
-                    "cpu": 1,
-                    "memoryInGb": 1.5
-                    }
+  "resources": [
+    {
+      "name": "myContainerGroup",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2017-10-01-preview",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
                 },
-                "ports": [
-                  {
-                    "port": 80
-                  }
-                ]
-              }
-            },
-            {
-              "name": "[variables('container2name')]",
-              "properties": {
-                "image": "[variables('container2image')]",
-                "resources": {
-                  "requests": {
-                    "cpu": 1,
-                    "memoryInGb": 1.5
-                    }
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
                 }
               }
             }
-          ],
-          "osType": "Linux",
-          "ipAddress": {
-            "type": "Public",
-            "ports": [
-              {
-                "protocol": "tcp",
-                "port": "80"
-              }
-            ]
           }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
         }
       }
-    ],
-    "outputs": {
-      "containerIPv4Address": {
-        "type": "string",
-        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
-      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', 'myContainerGroup')).ipAddress.ip]"
     }
   }
+}
 ```
 
 Aby użyć rejestru obrazu Kontener prywatny, należy dodać obiektu do dokumentu JSON o następującym formacie.
 
 ```json
 "imageRegistryCredentials": [
-    {
+  {
     "server": "[parameters('imageRegistryLoginServer')]",
     "username": "[parameters('imageRegistryUsername')]",
     "password": "[parameters('imageRegistryPassword')]"
-    }
+  }
 ]
 ```
 
@@ -141,9 +147,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 Dane wyjściowe:
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
+----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="view-logs"></a>Wyświetl dzienniki
@@ -158,9 +164,9 @@ Dane wyjściowe:
 
 ```bash
 listening on port 80
-::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Aby wyświetlić dzienniki dla kontenera po stronie samochodu, uruchom tego samego polecenie, określając nazwę drugiego kontenera.
@@ -172,7 +178,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 Dane wyjściowe:
 
 ```bash
-Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
+Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -185,7 +191,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Mon, 18 Dec 2017 23:19:34 GMT
+Date: Tue, 09 Jan 2018 23:25:11 GMT
 Connection: keep-alive
 ```
 

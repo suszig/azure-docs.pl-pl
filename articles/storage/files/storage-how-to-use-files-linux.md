@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 32e33d5fe99d884801e451b8f7e7989f979074e3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a87f8572af2620420faa0e3c2e575aa8add42ab
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-azure-files-with-linux"></a>Użyj plików platformy Azure z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można zainstalować w dystrybucje systemu Linux przy użyciu [CIFS jądra klienta](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwie metody, aby zainstalować udział plików Azure: na żądanie z `mount` polecenia i na rozruchu, tworząc wpis w `/etc/fstab`.
@@ -97,8 +97,11 @@ ms.lasthandoff: 12/20/2017
 3. **Użyj następującego polecenia, aby dołączyć następujący wiersz do `/etc/fstab`** : Pamiętaj, aby zastąpić `<storage-account-name>`, `<share-name>`, i `<storage-account-key>` przy użyciu odpowiednich informacji.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> Upewnij się, że możesz dodać `nofail` opcji `/etc/fstab` wpisu, w przeciwnym razie maszyna wirtualna może się zawiesić podczas rozruchu w przypadku błędnej konfiguracji lub inny błąd podczas instalowania udziału plików platformy Azure.
 
 > [!Note]  
 > Można użyć `sudo mount -a` Aby zainstalować udział plików Azure po zakończeniu edycji `/etc/fstab` zamiast ponownego uruchamiania.

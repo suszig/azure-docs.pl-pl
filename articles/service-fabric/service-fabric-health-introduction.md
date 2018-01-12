@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Sieć szkieletowa usług Azure wprowadza modelu kondycji, który zawiera oceny kondycji sformatowanego, elastyczny i rozszerzalny i raportowania. Model pozwala niemal czasie rzeczywistym monitorowania stanu klastra i usługi działające w nim. Można łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy przed kaskadowo i spowodować duże awarii. W typowej modelu usług wysyłania raportów opartych na ich lokalnych widoków, a następnie agregowane zapewnienie ogólną informacji klastra poziomie widoku.
@@ -306,7 +306,7 @@ Inne systemy ma jeden, scentralizowane usługi na poziomie klastra, która anali
 
 Model kondycji ciężko monitorowania i diagnostyki dla oceny kondycji klastra i aplikacji i monitorowanych uaktualnienia. Inne usługi użyj dane kondycji do wykonywania automatycznej naprawy, kompilacji Historia kondycji klastra i wystawić alerty przy użyciu określonych warunków.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wyświetl raporty dotyczące kondycji sieci szkieletowej usług](service-fabric-view-entities-aggregated-health.md)
 
 [Użyj systemowych raportów kondycji do rozwiązywania problemów](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

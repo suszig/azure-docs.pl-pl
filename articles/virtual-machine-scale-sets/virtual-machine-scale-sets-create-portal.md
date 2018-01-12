@@ -1,5 +1,5 @@
 ---
-title: "Utwórz skali maszyny wirtualnej systemu Linux w portalu Azure | Dokumentacja firmy Microsoft"
+title: Tworzenie zestawu skalowania maszyny wirtualnej w portalu Azure | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak szybko utworzyć skalowania maszyny wirtualnej w portalu Azure"
 keywords: zestawy skalowania maszyny wirtualnej
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Tworzenie zestawu skalowania maszyny wirtualnej w portalu Azure
-Zestaw skali maszyny wirtualnej umożliwia wdrażanie i zarządzanie nimi zestaw identyczne, automatyczne skalowanie maszyn wirtualnych. Można ręcznie skalować liczbę maszyn wirtualnych w zestawie skalowania lub definiowania reguł do skalowania automatycznego na podstawie użycia zasobów, takie jak procesor CPU, pamięci żądanie lub ruchu sieciowego. W tym artykule Rozpoczęto pobieranie tworzenia skali maszyny wirtualnej w portalu Azure. Można również utworzyć zestaw o skali [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) lub [programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania można skalować ręcznie lub można zdefiniować reguły skalowania automatycznego na podstawie użycia zasobów, takich jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. W tym artykule Rozpoczęto pobieranie tworzenia skali maszyny wirtualnej w portalu Azure. Można również utworzyć zestaw o skali [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) lub [programu Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -76,8 +76,8 @@ Gdy już potrzebny, Usuń grupę zasobów, zestawu skalowania maszyny wirtualnej
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-W tym artykule Rozpoczęto pobieranie utworzono podstawowe skali w portalu Azure. W przypadku większej skalowalności i automatyzacji rozwiń na skalę zestaw o następujące artykuły:
+W tym artykule Rozpoczęto pobieranie utworzono podstawowe skali w portalu Azure. W celu osiągnięcia większej skalowalności i automatyzacji rozszerz swój zestaw skalowania, korzystając z następujących artykułów z instrukcjami:
 
-- [Wdrażanie aplikacji na zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-deploy-app.md)
-- Automatycznie skalowany przy [programu Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [interfejsu wiersza polecenia Azure](virtual-machine-scale-sets-autoscale-cli.md), lub [portalu Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Użycie automatycznych uaktualnień systemu operacyjnego dla wystąpień zestawu skalowania maszyn wirtualnych](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Wdrażanie aplikacji na zestawach skalowania maszyn wirtualnych](virtual-machine-scale-sets-deploy-app.md)
+- Skalowanie automatyczne za pomocą [programu Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [interfejsu wiersza polecenia platformy Azure](virtual-machine-scale-sets-autoscale-cli.md) lub [witryny Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Używanie automatycznych uaktualnień systemu operacyjnego dla wystąpień maszyn wirtualnych zestawu skalowania](virtual-machine-scale-sets-automatic-upgrade.md)

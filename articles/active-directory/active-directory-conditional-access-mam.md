@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory na podstawie aplikacji dostępu warunkowego  
 
@@ -28,7 +28,7 @@ Pracownicy używają urządzeń przenośnych służbowych i prywatnych. Upewnić
 
 W tym temacie opisano sposób konfigurowania dostępu warunkowego na podstawie aplikacji usługi Azure AD.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Z [dostępu warunkowego dla usługi Azure AD](active-directory-conditional-access-azure-portal.md), można dostosować sposób autoryzowani użytkownicy mają dostęp do zasobów. Na przykład można ograniczyć dostęp do aplikacji w chmurze na zaufanych urządzeniach.
 
@@ -96,7 +96,7 @@ W tym scenariuszu założono, że użytkownik:
 
 Wszystkie zasady ochrony aplikacji usługi Intune są aktywowane w tym czasie dostępu do danych firmowych i może Monituj użytkownika o ponowne uruchomienie aplikacji, należy użyć dodatkowych itp numeru PIN (jeśli jest skonfigurowane dla aplikacji i platform).
 
-### <a name="configuration"></a>Konfiguracja 
+### <a name="configuration"></a>Konfigurowanie 
 
 **Krok 1 — Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla usługi Exchange Online**
 
@@ -176,7 +176,7 @@ W tym scenariuszu założono, że użytkownik:
 - Nie trzeba ponownie zarejestrować i aby uzyskać dostęp do zasobów
 
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 **Krok 1 — Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla usługi Exchange Online i SharePoint Online**
 
@@ -261,7 +261,7 @@ W tym scenariuszu założono, że:
 - Nie trzeba ponownie zarejestrować urządzenie zarejestrowanych użytkowników przy użyciu aplikacji app chronione
 
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 **Krok 1 — Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla usługi Exchange Online i SharePoint Online**
 
@@ -357,7 +357,7 @@ W tym scenariuszu założono, że użytkownik:
 Wszystkie zasady ochrony aplikacji usługi Intune zostaną aktywowane w tym czasie dostępu do firmowych danych i może Monituj użytkownika o ponowne uruchomienie aplikacji, należy użyć dodatkowych itp. numer PIN (jeśli jest skonfigurowane dla aplikacji i platformy)
 
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 **Krok 1 — Konfigurowanie zasad dostępu warunkowego usługi Azure AD dla usługi Exchange Online i SharePoint Online**
 
@@ -389,9 +389,9 @@ Zasad dostępu warunkowego, w tym kroku należy skonfigurować następujące sk�
 
     - **Wymaga aplikacji klienta zatwierdzonych (wersja zapoznawcza)**
 
-    - **Wymagaj wybranych formantów**   
+    - **Wymagaj zaznaczonych formantów**   
  
-    ![Dostęp warunkowy](./media/active-directory-conditional-access-mam/11.png)
+    ![Dostęp warunkowy](./media/active-directory-conditional-access-mam/13.png)
 
 
 
@@ -440,7 +440,7 @@ Zobacz [ochrona aplikacji i danych w usłudze Microsoft Intune](https://docs.mic
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz wiedzieć, jak skonfigurować zasady dostępu warunkowego, zobacz [wprowadzenie dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

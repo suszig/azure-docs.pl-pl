@@ -4,7 +4,7 @@ description: "Opisuje sposób Rozpakowywanie, montowanie i Podłączanie kabli d
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Rozpakowywanie, w stojaku, a Podłączanie kabli do urządzenia StorSimple 8600
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Do urządzenia 8600 Microsoft Azure StorSimple urządzenia podwójną obudowa i składa się z podstawowym i obudowy EBOD. W tym samouczku wyjaśniono, jak rozpakować, zamontować w stojaku i kabel StorSimple 8600 urządzeń sprzętowych przed należy skonfigurować oprogramowanie StorSimple.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Rozpakuj do urządzenia StorSimple 8600
@@ -38,7 +38,7 @@ Aby rozpakować urządzenia, przejrzyj następujące informacje.
 Następnie wykonaj poniższe kroki, aby rozpakować urządzenia.
 
 #### <a name="to-unpack-your-device"></a>Aby rozpakować urządzenia
-1. Sprawdź, czy pole i piana pakowania crushes, części, szkody limitu górnego lub widocznego uszkodzenia. Jeśli pole lub pakowania poważnie jest uszkodzony, nie otwieraj okno. Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) ułatwiające oceny, czy urządzenie jest w dobrym stanie.
+1. Sprawdź, czy pole i piana pakowania crushes, części, szkody limitu górnego lub widocznego uszkodzenia. Jeśli pole lub pakowania poważnie jest uszkodzony, nie otwieraj okno. Sprawdź [skontaktuj się z Microsoft Support](storsimple-8000-contact-microsoft-support.md) ułatwiające oceny, czy urządzenie jest w dobrym stanie.
 2. Otwórz zewnętrznego pola, a następnie wyjmij dwa pola odpowiadające podstawowym i obudowy EBOD. Można teraz Rozpakuj serwer podstawowy i obudowy EBOD. Na poniższej ilustracji przedstawiono rozpakowanego widoku jednego z obudów.
    
     ![Rozpakuj urządzenia magazynu](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Następnie wykonaj poniższe kroki, aby rozpakować urządzenia.
    * 2 stojak zestawów (4 szyny po stronie z instalowania sprzętu, 2 dla podstawowego obudowy i obudowy EBOD), 1 w każdym polu
    * Pobieranie rozpoczęte dokumentacji
      
-     Jeśli nie masz żadnego z elementów wymienionych powyżej, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Jeśli nie masz żadnego z elementów wymienionych powyżej, [skontaktuj się z Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 Następnym krokiem jest w stojaku urządzenia.
 
@@ -234,7 +234,7 @@ W przypadku okablowania urządzenia, wymaga minimalnej konfiguracji:
 Należy pamiętać o wysokiej dostępności i wydajność:
 
 * Jeśli to możliwe, należy skonfigurować parę interfejsu sieciowego, aby uzyskać dostęp do chmury (1 GbE) i inną parę dla interfejsu iSCSI (10 GbE zalecana) na każdym kontrolerze.
-* Jeśli to możliwe, interfejsów sieciowych przez każdy z kontrolerów połączyć się z dwóch różnych przełączników, aby zapewnić dostępność awariami przełącznika. Na rysunku przedstawiono dwie 10 GbE interfejsy sieciowe, dane 2 i dane 3 przez każdy z kontrolerów podłączone do dwóch różnych przełączników. Aby uzyskać więcej informacji, zapoznaj się **interfejsy sieciowe** w obszarze [wymagania dotyczące wysokiej dostępności dla urządzenia StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Jeśli to możliwe, interfejsów sieciowych przez każdy z kontrolerów połączyć się z dwóch różnych przełączników, aby zapewnić dostępność awariami przełącznika. Na rysunku przedstawiono dwie 10 GbE interfejsy sieciowe, dane 2 i dane 3 przez każdy z kontrolerów podłączone do dwóch różnych przełączników. Aby uzyskać więcej informacji, zapoznaj się **interfejsy sieciowe** w obszarze [wymagania dotyczące wysokiej dostępności dla urządzenia StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Jeśli używasz nadawczo-odbiorczych SFP + z interfejsów sieciowych 10 GbE, użyj QSFP podana-SFP + kart. Aby uzyskać więcej informacji, przejdź do [obsługiwanym sprzęcie dla interfejsów sieciowych 10 GbE w urządzeniu StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -265,6 +265,6 @@ Wykonaj poniższe kroki, aby Podłączanie kabli portu szeregowego.
 
 Okablowanie do zasilania, dostępu do sieci i połączenie szeregowe urządzenia została ukończona. Następnym krokiem jest skonfigurowanie oprogramowania na urządzeniu.
 
-## <a name="next-steps"></a>Następne kroki
-Teraz można przystąpić do [wdrażania i konfigurowania lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz można przystąpić do [wdrażania i konfigurowania lokalnego urządzenia StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

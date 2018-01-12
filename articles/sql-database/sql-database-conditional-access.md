@@ -2,19 +2,19 @@
 title: "Dostęp warunkowy — baza danych Azure SQL i magazynem danych | Doc firmy Microsoft"
 description: "Informacje o sposobie konfigurowania warunkowego dostępu do bazy danych SQL Azure i magazynem danych."
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Dostęp warunkowy (MFA) i baza danych Azure SQL i magazynem danych  
 
@@ -46,6 +46,6 @@ Zarówno bazy danych SQL i magazyn danych SQL obsługuje dostęp warunkowy firmy
 Wybrana aplikacja (Azure SQL Database) umożliwiający połączenie do usługi Azure SQL bazy danych/magazynu danych przy użyciu usługi Azure AD Premium, teraz wymusza wybrane zasady dostępu warunkowego **wymagane uwierzytelnianie wieloskładnikowe.**  
 Pytania dotyczące bazy danych SQL Azure i magazynem danych dotyczących uwierzytelniania wieloskładnikowego, skontaktuj się z MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
 
 Samouczek, zobacz [zabezpieczenia bazy danych SQL Azure](sql-database-security-tutorial.md).

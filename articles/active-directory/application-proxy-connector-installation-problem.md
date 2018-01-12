@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem podczas instalowania agenta łącznika serwera Proxy aplikacji
 
@@ -37,9 +37,9 @@ Podczas instalacji łącznika nie powiedzie się, przyczynę zwykle jest jednym 
 
 **Cel:** upewnij się, że maszyna łącznika można łączyć do punktu końcowego rejestracji serwera Proxy aplikacji usługi AAD, jak również strony logowania firmy Microsoft.
 
-1.  Otwórz przeglądarkę i przejdź do następnej strony sieci web: <https://aadap-portcheck.connectorporttest.msappproxy.net> i sprawdź, czy łączność środkowe stany USA i wschodnie stany USA centrów danych z portami 9090 i 9091 działa.
+1.  Otwórz przeglądarkę i przejdź do następnej strony sieci web: <https://aadap-portcheck.connectorporttest.msappproxy.net> i sprawdź, czy działa łączność środkowe stany USA i wschodnie stany USA centrów danych z portów 80 i 443.
 
-2.  Jeśli żadnego z tych portów zakończy się niepowodzeniem (nie ma zielonym znacznikiem wyboru), sprawdź, czy zapora lub zaplecza serwer proxy ma \*. msappproxy.net z portami 9090 i 9091 poprawnie zdefiniowany.
+2.  Jeśli żadnego z tych portów zakończy się niepowodzeniem (nie ma zielonym znacznikiem wyboru), sprawdź, czy zapora lub zaplecza serwer proxy ma \*. msappproxy.net z portów 80 i 443 poprawnie zdefiniowany.
 
 3.  Otwórz w przeglądarce (osobnej karcie) i przejdź do następnej strony sieci web: <https://login.microsoftonline.com>, upewnij się, że możesz zalogować się do tej strony.
 
@@ -68,5 +68,5 @@ Połączyć się z <https://login.microsoftonline.com> i użyć tych samych poś
 
 Wybierz konto użytkownika, następnie "Directory Role" w menu wynikowy. Sprawdź, czy wybraną rolę "Administrator globalny". Jeśli nie można uzyskać dostępu do żadnych stron wzdłuż następujące kroki, nie jesteś administratorem globalnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Zrozumienie łączniki serwera Proxy aplikacji usługi Azure AD](application-proxy-understand-connectors.md)

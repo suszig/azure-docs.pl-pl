@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurowanie zapór magazynu Azure i sieciami wirtualnymi (wersja zapoznawcza)
 Magazyn Azure oferuje model zabezpieczeń warstwowych, co umożliwia Zabezpieczanie kont magazynu do określonego zestawu dozwolonych sieci.  Gdy zasady sieci są skonfigurowane, tylko aplikacje z dozwolonych sieci można uzyskać dostęp do konta magazynu.  Podczas wywoływania metody z dozwolonych sieci, aplikacje będą nadal będą musieli właściwą autoryzację (prawidłowy dostęp do klucza lub tokenu sygnatury dostępu Współdzielonego) do uzyskania dostępu do konta magazynu.
@@ -39,6 +39,10 @@ Zasady sieciowe można zastosować do istniejących kont magazynu lub można zas
 Gdy są stosowane zasady sieci, są one stosowane dla wszystkich żądań.  Tokeny sygnatury dostępu Współdzielonego, określającymi udzielenie dostępu do określonego adresu IP usługi służą do **limit** dostępu posiadacza tokenu, ale czy Udziel nowe dostępu poza reguły skonfigurowanej sieci. 
 
 Ruch dysku maszyny wirtualnej (w tym instalacji i Odinstaluj operacji i we/wy dysku) jest **nie** wpływ zasad sieci.  REST dostęp do stronicowe obiekty BLOB są chronione przez zasady sieci.
+
+> [!NOTE]
+> Kopia zapasowa i przywracanie z maszyn wirtualnych za pomocą niezarządzanych dysków na kontach magazynu przy użyciu reguł sieciowej stosowane nie jest obecnie obsługiwane.  Aby uzyskać więcej informacji, zobacz [ograniczenia w przypadku tworzenia kopii zapasowej i przywracanie maszyny Wirtualnej](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Klasycznych kont magazynu **nie** obsługuje zapory i sieci wirtualnych.
 

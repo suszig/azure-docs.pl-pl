@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7de85aa76dd449b97a5572f665d98378872eee88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="virtual-machine-network-throughput"></a>Przepustowość sieci maszyny wirtualnej
+# <a name="virtual-machine-network-bandwidth"></a>Przepustowość sieci maszyny wirtualnej
 
 Azure oferuje różne rozmiary maszyn wirtualnych i typy, każda z różnych kombinacji możliwości wydajności. Możliwość co jest sieci przepływności (lub przepustowości), wyrażona w megabitach na sekundę (MB/s). Ponieważ maszyny wirtualne są hostowane w udostępnionych sprzętu, pojemność sieci muszą zostać udostępnione dość między maszynami wirtualnymi współdzieli ten sam sprzęt. Większe maszyny wirtualne są przydzielane stosunkowo większej przepustowości niż mniejsze maszyny wirtualnej.
  

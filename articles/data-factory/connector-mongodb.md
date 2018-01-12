@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z bazy danych MongoDB przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ W szczególności ten łącznik bazy danych MongoDB obsługuje:
 Aby skopiować dane z bazy danych MongoDB, który nie jest dostępny publicznie, należy skonfigurować środowisko uruchomieniowe Self-hosted integracji. Zobacz [środowiska uruchomieniowego integracji Self-hosted](create-self-hosted-integration-runtime.md) artykuł, aby poznać szczegóły. Środowiska uruchomieniowego integracji zawiera wbudowane sterownik bazy danych MongoDB, dlatego nie trzeba ręcznie zainstalowania sterownika podczas kopiowania danych z/do bazy danych MongoDB.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika bazy danych MongoDB.
 
@@ -54,11 +55,11 @@ Obsługiwane są następujące właściwości dla bazy danych MongoDB połączon
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość type musi mieć ustawioną: **bazy danych MongoDb** |Tak |
-| serwer |Adres IP lub hosta nazwę serwera bazy danych MongoDB. |Tak |
+| type |Właściwość type musi mieć ustawioną: **bazy danych MongoDb** |Yes |
+| serwer |Adres IP lub hosta nazwę serwera bazy danych MongoDB. |Yes |
 | port |Port TCP używany przez serwer bazy danych MongoDB do nasłuchiwania dla połączeń klienta. |Nie (wartość domyślna to 27017) |
-| DatabaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Tak |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych MongoDB.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Tak |
+| DatabaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Yes |
+| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych MongoDB.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
 | nazwa użytkownika |Konto użytkownika do bazy danych MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło dla użytkownika. Zaznacz to pole jako SecureString. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, który ma być używany w celu sprawdzenia poświadczeń dla uwierzytelniania. |Nie. Dla uwierzytelniania podstawowego domyślnie używany jest konto administratora i baza danych określona za pomocą właściwości databaseName. |
@@ -97,8 +98,8 @@ Aby skopiować dane z bazy danych MongoDB, ustaw właściwość Typ zestawu dany
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **MongoDbCollection** | Tak |
-| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **MongoDbCollection** | Yes |
+| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Yes |
 
 **Przykład:**
 
@@ -128,7 +129,7 @@ Aby skopiować dane z bazy danych MongoDB, należy ustawić typ źródła w przy
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **MongoDbSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **MongoDbSource** | Yes |
 | query |Użyj niestandardowych zapytania SQL 92 można odczytać danych. Na przykład: Wybierz * z MyTable. |Nie (Jeśli określono parametr "collectionName" w zestawie danych) |
 
 **Przykład:**
@@ -176,13 +177,13 @@ Podczas kopiowania danych z bazy danych MongoDB, następujące mapowania są uż
 
 | Typ danych MongoDB | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| Binarne |Byte] |
+| Binarny |Byte] |
 | Wartość logiczna |Wartość logiczna |
-| Date |Data i godzina |
+| Date |Data/godzina |
 | NumberDouble |O podwójnej precyzji |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Identyfikator obiektu |Ciąg |
+| ObjectID |Ciąg |
 | Ciąg |Ciąg |
 | IDENTYFIKATOR UUID |Identyfikator GUID |
 | Obiekt |Renormalized do spłaszczenia kolumn z "_" jako separatora zagnieżdżonych |
@@ -208,14 +209,14 @@ Na przykład w tym miejscu ExampleTable jest tabeli bazy danych MongoDB, która 
 | _id | Nazwa klienta | Faktury | Poziom usług | Klasyfikacje |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: elementu "123",: "tostera", cena: Rabat "456",: "0,2"}, {invoice_id: "124", element: "piec", cena: Zniżka "1235": "0,2"}] |Srebrny |[5,6] |
-| 2222 |XYZ |[{invoice_id: element "135": "lodówko", cena: Rabat "12543": "0,0"}] |Gold |[1,2] |
+| 2222 |XYZ |[{invoice_id: element "135": "lodówko", cena: Rabat "12543": "0,0"}] |Złoty |[1,2] |
 
 Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Pierwszy tabeli wirtualnej jest tabela podstawowa o nazwie "ExampleTable" pokazano w przykładzie. Podstawowa tabela zawiera wszystkie dane z oryginalnej tabeli, ale dane z macierzami została pominięta i jest rozwinięta w tabelach wirtualnych.
 
 | _id | Nazwa klienta | Poziom usług |
 | --- | --- | --- |
 | 1111 |ABC |Srebrny |
-| 2222 |XYZ |Gold |
+| 2222 |XYZ |Złoty |
 
 W poniższych tabelach przedstawiono wirtualnego tabel, które reprezentują oryginalnego tablic w przykładzie. Te tabele zawierać następujące informacje:
 
@@ -241,5 +242,5 @@ W poniższych tabelach przedstawiono wirtualnego tabel, które reprezentują ory
 | 2222 |1 |2 |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Jak utworzyć niezarządzane obrazu maszyny Wirtualnej z maszyny Wirtualnej platformy Azure
 
@@ -57,7 +58,7 @@ Można również generalize maszyny Wirtualnej systemu Linux przy użyciu `sudo 
 > 
 > 
 
-## <a name="log-in-to-azure-powershell"></a>Zaloguj się do programu Azure PowerShell
+## <a name="log-in-to-azure-powershell"></a>Logowanie do programu Azure PowerShell
 1. Otwórz program Azure PowerShell i zaloguj się do konta platformy Azure.
    
     ```powershell
@@ -251,7 +252,7 @@ Po zakończeniu powinien zostać wyświetlony nowo utworzony maszyny Wirtualnej 
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby zarządzać nową maszynę wirtualną w taki sposób, z programu Azure PowerShell, zobacz [zarządzania maszynami wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

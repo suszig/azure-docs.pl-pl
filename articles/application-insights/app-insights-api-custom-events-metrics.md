@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Aplikacji interfejsu API Insights dla niestandardowych zdarzeń i metryk
 
@@ -414,32 +414,34 @@ Należy także wywołać ją samodzielnie aby symulować żądania w kontekście
 Jednak zalecanym sposobem wysłać dane telemetryczne żądania jest, gdy żądanie działa jako <a href="#operation-context">kontekstu operacji</a>.
 
 ## <a name="operation-context"></a>Operacja kontekstu
-Elementy danych telemetrycznych można skojarzyć razem przez dołączenie do nich identyfikatora typowych operacji Standardowy moduł żądania śledzenia robi to wyjątków i inne zdarzenia, które są wysyłane podczas przetwarzania żądania HTTP. W [wyszukiwania](app-insights-diagnostic-search.md) i [Analytics](app-insights-analytics.md), identyfikator umożliwia w prosty sposób wyszukiwać wszelkie zdarzenia skojarzone z żądaniem.
+Elementy danych telemetrycznych można skorelować razem można skojarzyć je z kontekstem operacji. Standardowy moduł żądania śledzenia robi to wyjątków i inne zdarzenia, które są wysyłane podczas przetwarzania żądania HTTP. W [wyszukiwania](app-insights-diagnostic-search.md) i [Analytics](app-insights-analytics.md), łatwo można znaleźć żadnych zdarzeń skojarzony z żądaniem za pomocą jej identyfikatora operacji
 
-Najprostszym sposobem, aby określić identyfikator jest można ustawić kontekstu operacji za pomocą tego wzorca:
+Zobacz [korelacji Telemetrii w usłudze Application Insights](application-insights-correlation.md) uzyskać dodatkowe szczegóły dotyczące korelacji.
+
+Podczas śledzenia telemetrii ręcznie, najprostszym sposobem zapewnienia korelacji telemetrii przy użyciu tego wzorca:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Wraz z ustawienie kontekstu operacji `StartOperation` tworzy element telemetrii typu, który określisz. Podczas usuwania operacji lub jawnie wywołać wysyła dane telemetryczne elementu `StopOperation`. Jeśli używasz `RequestTelemetry` jako typ danych telemetrycznych jego czas trwania ustawiono interwał czasu między rozpoczęcie i zakończenie.
 
-Nie można zagnieżdżać kontekstów operacji. Jeśli istnieje już kontekstu operacji, a następnie jego identyfikator jest skojarzony z wszystkich zawartych w niej elementów, w tym elemencie utworzone za pomocą `StartOperation`.
+Elementy dane telemetryczne zgłoszone w zakresie operacji stają się "dzieci" takich operacji. Konteksty operacji może być zagnieżdżone. 
 
 W polu Wyszukaj kontekstu operacji służy do tworzenia **elementy pokrewne** listy:
 
@@ -900,7 +902,7 @@ Można napisać kod, aby przetworzyć telemetrii przed wysłaniem z zestawu SDK.
 
 [Dodaj właściwości](app-insights-api-filtering-sampling.md#add-properties) do telemetrii zaimplementowanie `ITelemetryInitializer`. Na przykład można dodać numery wersji lub wartości, które mają być obliczane od innych właściwości.
 
-[Filtrowanie](app-insights-api-filtering-sampling.md#filtering) można zmodyfikować lub odrzucić telemetrii przed wysłaniem z zestawu SDK zaimplementowanie `ITelemetryProcessor`. Możesz kontrolować, co jest wysyłana lub odrzucone, ale należy uwzględnić wpływu na Twoje metryki. W zależności od tego, jak można odrzucić elementów może spowodować utratę możliwość przechodzić między elementy powiązane.
+[Filtrowanie](app-insights-api-filtering-sampling.md#filtering) można zmodyfikować lub odrzucić telemetrii przed wysłaniem z zestawu SDK zaimplementowanie `ITelemetryProcesor`. Możesz kontrolować, co jest wysyłana lub odrzucone, ale należy uwzględnić wpływu na Twoje metryki. W zależności od tego, jak można odrzucić elementów może spowodować utratę możliwość przechodzić między elementy powiązane.
 
 [Próbkowanie](app-insights-api-filtering-sampling.md) spakowanych rozwiązanie, aby zmniejszyć ilość danych wysyłanych z aplikacji do portalu. Robi to bez wpływu na wyświetlonej metryki. I kopiuje je bez wpływu na możliwość diagnozowania problemów przechodzenie między powiązane elementy, takie jak wyjątki, żądania i wyświetleń strony.
 

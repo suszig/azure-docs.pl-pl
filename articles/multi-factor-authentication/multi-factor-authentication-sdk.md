@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Tworzenie usługi Multi-Factor Authentication w aplikacje niestandardowe (SDK)
 
@@ -38,7 +38,7 @@ Ponieważ interfejsy API nie mają dostępu do użytkowników zarejestrowanych w
 
 
 ## <a name="download-the-sdk"></a>Pobierz zestaw SDK
-Pobieranie zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite. Metody publiczne pobierania zestawu SDK zostały wycofany z eksploatacji, ponieważ zestaw SDK jest przestarzała. Aby pobrać zestaw SDK, należy otworzyć sprawę pomocy technicznej z firmą Microsoft.
+Pobieranie zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite. Metody publiczne pobierania zestawu SDK ma została zlikwidowana, ponieważ zestawu SDK jest przestarzała. Aby pobrać zestaw SDK, należy otworzyć sprawę pomocy technicznej z firmą Microsoft. Zestaw SDK jest dostępne tylko dla klientów, które już używają zestawu SDK. Nowi klienci nie będą został załadowany.
 
 ## <a name="whats-in-the-sdk"></a>Co to jest w zestawie SDK
 Zestaw SDK zawiera następujące elementy:

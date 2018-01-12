@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiowanie danych do indeksu usługi Azure Search przy użyciu fabryki danych Azure
 
@@ -35,7 +35,8 @@ W tym artykule omówiono sposób użycia działanie kopiowania w fabryce danych 
 Możesz skopiować dane z dowolnego źródła obsługiwanych magazynu danych do indeksu usługi Azure Search. Lista magazynów danych, które są obsługiwane jako źródła/wychwytywanie przez działanie kopiowania, zobacz [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) tabeli.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi Azure Search.
 
@@ -45,9 +46,9 @@ Obsługiwane są następujące właściwości dla usługi Azure Search połączo
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **AzureSearch** | Tak |
-| adres URL | Adres URL dla usługi Azure Search. | Tak |
-| key | Klucz administratora dla usługi Azure Search. Zaznacz to pole jako SecureString. | Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureSearch** | Yes |
+| adres URL | Adres URL dla usługi Azure Search. | Yes |
+| key | Klucz administratora dla usługi Azure Search. Zaznacz to pole jako SecureString. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 > [!IMPORTANT]
@@ -83,8 +84,8 @@ Aby skopiować dane do usługi Azure Search, ustaw właściwość Typ zestawu da
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSearchIndex** | Tak |
-| indexName | Nazwa indeksu usługi Azure Search. Fabryki danych nie powoduje utworzenia indeksu. Indeks musi istnieć w usłudze Azure Search. | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **AzureSearchIndex** | Yes |
+| indexName | Nazwa indeksu usługi Azure Search. Fabryki danych nie powoduje utworzenia indeksu. Indeks musi istnieć w usłudze Azure Search. | Yes |
 
 **Przykład:**
 
@@ -114,7 +115,7 @@ Aby skopiować dane do usługi Azure Search, należy ustawić typ źródła w pr
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzureSearchIndexSink** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzureSearchIndexSink** | Yes |
 | WriteBehavior | Określa, czy należy scalić lub Zastąp, jeśli istnieje już dokument w indeksie. Zobacz [WriteBehavior właściwości](#writebehavior-property).<br/><br/>Dozwolone wartości to: **scalania** (ustawienie domyślne) i **przekazać**. | Nie |
 | writeBatchSize | Przekazywanie danych do indeksu usługi Azure Search, gdy writeBatchSize osiągnie rozmiar buforu. Zobacz [właściwości WriteBatchSize](#writebatchsize-property) szczegółowe informacje.<br/><br/>Dozwolone wartości to: 1 do 1000; liczba całkowita domyślna to 1000. | Nie |
 
@@ -180,5 +181,5 @@ Poniższa tabela określa, czy lub nie obsługuje typu danych usługi Azure Sear
 | Tablica ciągów | N |
 | GeographyPoint | N |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

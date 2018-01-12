@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie lub usuwanie adresów IP dla interfejsu sieci platformy Azure
 
@@ -138,9 +138,9 @@ Domyślnie serwery Azure DHCP przypisać prywatny adres IPv4 dla [podstawową ko
 > [!WARNING]
 > Jeśli adres IPv4 jest ustawiony jako podstawowy adres IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej kiedykolwiek różni się od prywatny adres IPv4, przypisane do podstawowej konfiguracji IP podstawowy interfejs sieciowy dołączonego do maszyny wirtualnej w obrębie platformy Azure możesz utracić łączność z maszyną wirtualną.
 
-Istnieją scenariusze, w których konieczne jest ręczne ustawienie adresu IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. Na przykład należy ręcznie ustawić głównych i dodatkowych adresów IP w systemie operacyjnym Windows podczas dodawania wielu adresów IP do maszyny wirtualnej platformy Azure. Dla maszyny wirtualnej systemu Linux może tylko należy ręcznie ustawić dodatkowych adresów IP. Zobacz [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](virtual-network-multiple-ip-addresses-portal.md#os-config) szczegółowe informacje. W przypadku ręcznie ustawienia adresu IP w ramach systemu operacyjnego, zalecane jest zawsze przypisz adresy z konfiguracją protokołu IP dla karty sieciowej, za pomocą metody przydziału statyczne (zamiast dynamicznych). Przypisanie adresu za pomocą metody statycznej zapewnia adres nie ulega zmianie w obrębie platformy Azure. Jeśli trzeba zmienić adres przypisany do konfiguracji adresu IP, jest zalecane możesz:
+Istnieją scenariusze, w których konieczne jest ręczne ustawienie adresu IP interfejsu sieciowego w systemie operacyjnym maszyny wirtualnej. Na przykład należy ręcznie ustawić głównych i dodatkowych adresów IP w systemie operacyjnym Windows podczas dodawania wielu adresów IP do maszyny wirtualnej platformy Azure. Dla maszyny wirtualnej systemu Linux może tylko należy ręcznie ustawić dodatkowych adresów IP. Zobacz [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](virtual-network-multiple-ip-addresses-portal.md#os-config) szczegółowe informacje. Jeśli trzeba zmienić adres przypisany do konfiguracji adresu IP, jest zalecane możesz:
 
-1. Aby zapewnić, że maszyna wirtualna jest uzyskiwania adresu z serwerów Azure DHCP, Zmień przypisanie adresów IP protokołu DHCP w systemie operacyjnym i uruchom ponownie maszynę wirtualną.
+1. Upewnij się, że maszyna wirtualna jest uzyskiwania adresu z serwerów Azure DHCP. Po utworzeniu, Zmień przypisanie adresów IP protokołu DHCP w ramach systemu operacyjnego i uruchomić ponownie maszynę wirtualną.
 2. Zatrzymaj (deallocate) maszyny wirtualnej.
 3. Zmienianie adresu IP dla konfiguracji IP w obrębie platformy Azure.
 4. Uruchamia maszynę wirtualną.

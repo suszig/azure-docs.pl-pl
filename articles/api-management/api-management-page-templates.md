@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Szablony stron w usłudze Azure API Management
 Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartość strony portalu dewelopera przy użyciu zestawu szablonów, które skonfigurować ich zawartości. Przy użyciu [DotLiquid](http://dotliquidmarkup.org/) składni i Edytor wybranych przez użytkownika, takie jak [DotLiquid dla projektantów](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), i zestaw udostępnionego zlokalizowane [zasoby ciągu](api-management-template-resources.md#strings), [symboli zasobów](api-management-template-resources.md#glyphs), i [strony kontrolki](api-management-page-controls.md), ma dużą elastyczność konfigurowania zawartości stron, zgodnie z własnymi potrzebami, za pomocą tych szablonów.  
@@ -108,16 +108,16 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a>Zarejestruj się  
@@ -225,11 +225,11 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
   
 |Właściwość|Typ|Opis|  
 |--------------|----------|-----------------|  
-|referenceCode|Ciąg|Kod generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|Kod błędu|Ciąg|Kod generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|emailBody|Ciąg|Wyślij wiadomość e-mail treści generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
-|requestedUrl|Ciąg|Adres URL żądanych nie odnaleziono strony.|  
-|referrerUrl|Ciąg|Adres URL odwołania do żądanego adresu URL.|  
+|referenceCode|ciąg|Kod generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
+|Kod błędu|ciąg|Kod generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
+|emailBody|ciąg|Wyślij wiadomość e-mail treści generowany, gdy ta strona została wyświetlona w wyniku błędu wewnętrznego.|  
+|requestedUrl|ciąg|Adres URL żądanych nie odnaleziono strony.|  
+|referrerUrl|ciąg|Adres URL odwołania do żądanego adresu URL.|  
   
 ### <a name="sample-template-data"></a>Przykładowe dane szablonu  
   
@@ -243,5 +243,5 @@ Zarządzanie interfejsami API Azure zapewnia możliwość dostosować zawartoś�
 }  
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat pracy z szablonami, zobacz [dostosowywaniu portalu dla deweloperów interfejsu API zarządzania za pomocą szablonów](api-management-developer-portal-templates.md).

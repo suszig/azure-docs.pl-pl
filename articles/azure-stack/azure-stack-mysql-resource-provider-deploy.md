@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Dostawca zasobów MySQL na stosie Azure można wdrożyć. Po wdrożeniu dostawcy zasobów można tworzyć MySQL serwerów i baz danych za pośrednictwem usługi Azure Resource Manager deployment szablonów i podaj baz danych MySQL jako usługa. Bazy danych MySQL, które są wspólne w witrynach sieci web, obsługuje wiele platform witryny sieci Web. Na przykład po wdrożeniu dostawcy zasobów, można utworzyć witryny sieci Web WordPress z platformy Azure Web Apps jako dodatek usługa (PaaS) Azure stosu.
 
-Aby wdrożyć dostawcy MySQL na komputerze, który nie ma dostępu do Internetu, należy skopiować plik [mysql — łącznik net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) do udziału lokalnego. Następnie podaj nazwę tego udziału, po wyświetleniu monitu. Należy również zainstalować moduły Azure oraz Azure PowerShell stosu.
+Aby wdrożyć dostawcy MySQL na komputerze, który nie ma dostępu do Internetu, należy skopiować plik [mysql — łącznik net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) do udziału lokalnego. Następnie podaj nazwę tego udziału, po wyświetleniu monitu. Należy również zainstalować moduły Azure oraz Azure PowerShell stosu.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Architektura karty dostawcy zasobów serwera MySQL
@@ -71,10 +71,9 @@ Konto system musi mieć następujące uprawnienia:
 
     | Azure stosu kompilacji | Instalator MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Proszę czekać, aby uzyskać więcej informacji, bieżącej kompilacji nie zostaną zainstalowane, ale będzie nadal działać na wielowęzłowego po uaktualnieniu stosu Azure.** |
-    | 1.0.171122.1 | [MySQL RP wersji 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 lub 1.0.180106.1 (wielowęzłowego) | [MySQL RP wersji 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP wersji 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP wersji 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP wersji 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Certyfikat główny stos Azure są pobierane z punktu końcowego uprzywilejowanych. ASDK, aby uzyskać certyfikat z podpisem własnym jest tworzony w ramach tego procesu. Wieloma węzłami trzeba podać odpowiedni certyfikat.
 
@@ -165,7 +164,7 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszyst
 | **AzCredential** | Podaj poświadczenia dla konta administratora usługi Azure stosu. Użyj tych samych poświadczeń używane do wdrażania stosu Azure). | _Wymagane_ |
 | **VMLocalCredential** | Zdefiniuj poświadczenia dla konta administratora lokalnego dostawcy zasobów MySQL maszyny Wirtualnej. | _Wymagane_ |
 | **PrivilegedEndpoint** | Podaj adres IP lub nazwę DNS uprzywilejowanych punktu końcowego. |  _Wymagane_ |
-| **DependencyFilesLocalPath** | Ścieżka do udziału lokalnego nadrzędnym [mysql — łącznik net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Jeśli podasz, plik certyfikatu muszą znajdować się w tym również katalogu. | _opcjonalne_ (_obowiązkowe_ dla wielowęzłowego) |
+| **DependencyFilesLocalPath** | Ścieżka do udziału lokalnego nadrzędnym [mysql — łącznik net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Jeśli podasz, plik certyfikatu muszą znajdować się w tym również katalogu. | _opcjonalne_ (_obowiązkowe_ dla wielowęzłowego) |
 | **DefaultSSLCertificatePassword** | Hasło dla certyfikatu pfx | _Wymagane_ |
 | **Wartość MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
 | **RetryDuration** | Zdefiniuj limit czasu między kolejnymi próbami w sekundach. | 120 |

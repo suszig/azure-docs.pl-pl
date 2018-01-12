@@ -1,6 +1,6 @@
 ---
 title: "Włączenia kopii zapasowej Azure stosu z portalu administracyjnego | Dokumentacja firmy Microsoft"
-description: "Infrastruktura wstecz usługi za pośrednictwem portalu administracyjnego należy włączyć, dzięki czemu stosu Azure można przywrócić po awarii."
+description: "Infrastruktura usługi kopii zapasowej za pośrednictwem portalu administracyjnego należy włączyć, dzięki czemu stosu Azure można przywrócić po awarii."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -8,23 +8,26 @@ manager: femila
 editor: 
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
-ms.workload: na
+ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: a5a9757d871c343ba663862de7b6d75b9dd21c31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Włączenia kopii zapasowej Azure stosu z portalu administracyjnego
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Infrastruktura wstecz usługi za pośrednictwem portalu administracyjnego należy włączyć, dzięki czemu stosu Azure mogą generować kopii zapasowych. Te kopie ups przywrócić środowiska w przypadku awarii.
+Infrastruktura usługi kopii zapasowej za pośrednictwem portalu administracyjnego należy włączyć, dzięki czemu stosu Azure mogą generować kopii zapasowych. Te kopie zapasowe można użyć do przywrócenia środowiska w przypadku awarii.
+
+> [!Note]  
+> Przed włączeniem kopii zapasowej za pomocą konsoli, należy skonfigurować usługi tworzenia kopii zapasowej. Można skonfigurować usługi tworzenia kopii zapasowej przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz [włączenia kopii zapasowej Azure stosu przy użyciu programu PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Włączenia kopii zapasowej
 
@@ -33,9 +36,9 @@ Infrastruktura wstecz usługi za pośrednictwem portalu administracyjnego należ
 
     ![Azure stosu — ustawienia kontrolera kopii zapasowej](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Wpisz ścieżkę do **lokalizacja magazynu kopii zapasowej**. Ścieżka udziału plików hostowane na osobnych urządzenia, musisz użyć ciągu Universal Naming Convention (UNC). Ciąg UNC Określa lokalizację zasobów, takich jak udostępnione pliki lub urządzeń. Dla usługi używając adresu IP. Aby zapewnić dostępność kopii zapasowych danych w przypadku awarii, urządzenie powinna być w innej lokalizacji.
+3. Wpisz ścieżkę do **lokalizacja magazynu kopii zapasowej**. Użyj ciągu konwencji UNC (Universal Naming) dla ścieżki do udziału plików hostowane na osobnych urządzenia. Ciąg UNC Określa lokalizację zasobów, takich jak udostępnione pliki lub urządzeń. Dla usługi używając adresu IP. Aby zapewnić dostępność kopii zapasowej danych po awarii, urządzenie powinno być w innej lokalizacji.
     > [!Note]  
-    > Jeśli środowisko obsługuje rozpoznawania nazw z siecią infrastruktury Azure stosu w środowisku przedsiębiorstwa można użyć nazwy FQDN, a nie adres IP.
+    > Jeśli środowisko obsługuje rozpoznawania nazw z siecią infrastruktury Azure stosu w środowisku przedsiębiorstwa, można użyć nazwy FQDN, a nie adres IP.
 4. Typ **Username** przy użyciu domena i nazwa użytkownika. Na przykład `Contoso\administrator`.
 5. Typ **hasło** dla użytkownika.
 5. Wpisz hasło ponownie **Potwierdź hasło**.
@@ -46,5 +49,5 @@ Do wykonania kopii zapasowej, należy pobrać narzędzia stosu Azure, a następn
 
 ## <a name="next-steps"></a>Kolejne kroki
 
- - Dowiedz się, jak uruchomić tworzenia kopii zapasowych, zobacz [kopia zapasowa Azure stosu](azure-stack-backup-back-up-azure-stack.md ).
-- Dowiedz się zweryfikować kopii zapasowej, zobacz [Potwierdź kopii zapasowej zostało ukończone w portalu administracyjnym](azure-stack-backup-back-up-azure-stack.md ).
+ - Dowiedz się wykonać kopię zapasową. Zobacz [kopia zapasowa Azure stosu](azure-stack-backup-back-up-azure-stack.md ).
+- Dowiedz się zweryfikować kopii zapasowej. Zobacz [Potwierdź kopii zapasowej zostało ukończone w portalu administracyjnym](azure-stack-backup-back-up-azure-stack.md ).

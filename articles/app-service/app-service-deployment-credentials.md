@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla usługi Azure App Service
 [Usługa aplikacji Azure](http://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa rodzaje poświadczenia [lokalnego wdrożenia Git](app-service-deploy-local-git.md) i [wdrożenia FTP/S](app-service-deploy-ftp.md). Nie są takie same, jak poświadczenia usługi Azure Active Directory.
@@ -55,7 +55,7 @@ Po ustawieniu poświadczenia wdrażania, można znaleźć *Git* username wdroże
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-i i *FTP* username wdrożenia w aplikacji **właściwości**.
+i *FTP* username wdrożenia w aplikacji **właściwości**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
@@ -90,6 +90,6 @@ Aby zresetować poświadczeń na poziomie aplikacji:
 
     Akcja reset unieważnia żadnego pobrane wcześniej. Pliki ustawień publikacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak używać tych poświadczeń do wdrożenia aplikacji z [lokalnego Git](app-service-deploy-local-git.md) lub przy użyciu [FTP/S](app-service-deploy-ftp.md).

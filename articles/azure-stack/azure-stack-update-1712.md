@@ -3,7 +3,7 @@ title: Aktualizacja Azure stosu 1712 | Dokumentacja firmy Microsoft
 description: "Więcej informacji na temat nowości w aktualizacji 1712 stosu Azure zintegrowanych systemów, znane problemy i pobierania aktualizacji."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure aktualizacji 1712 stosu
 
@@ -58,7 +58,7 @@ Ta aktualizacja obejmuje następujące ulepszenia i poprawki dla stosu Azure.
 - Polecenia cmdlet test AzureStack do sprawdzania poprawności dostępne za pośrednictwem punktu końcowego uprzywilejowanych chmury Azure stosu
 - Możliwość zarejestrowania odłączonego wdrożenia stosu Azure
 - Monitorowanie alertów dotyczących certyfikatów i użytkownika okres ważności konta
-- Dodano BMCCredential aktualizacji dotyczących polecenia cmdlet w program ten obrotu hasła BMC
+- Dodano zestaw BmcPassword dotyczących polecenia cmdlet w program ten obrotu hasła BMC
 - Aktualizacje rejestrowania sieci do obsługi rejestrowania na żądanie
 - Operacja odtworzenia z obrazu pomocy technicznej dla zestawów skali maszyny wirtualnej (VMSS)
 - Włącz tryb kiosku na maszynie Wirtualnej ERCS CloudAdmin logowania

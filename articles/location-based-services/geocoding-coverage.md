@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Lokalizacja platformy Azure na podstawie usług - Geokodowanie pokrycia
-Azure lokalizacji na podstawie usług (kg) zawiera informacje szczegółowe geokodowanie do wyszukiwania adresów, miejsca i inne jednostki geograficznej na świecie. Jest to ważne w przypadku klientów, którzy chcieli wiedzieć, gdzie można i nie może poszukiwać różnych poziomach wierności podczas wyszukiwania dla adresów w usłudze wyszukiwania. Podczas wyszukiwania regionów z pokryciem niskiej rozdzielczości, nie można spodziewać się niższe wyniki wyszukiwania zaufania. Poniższa tabela zawiera informacje o pokryciu w celu wykonania Geokodowania wyszukiwania kg Azure.
+Azure lokalizacji na podstawie usług (kg) zawiera informacje szczegółowe geokodowanie do wyszukiwania adresów, miejsca i inne jednostki geograficznej na świecie. Jest to ważne w przypadku klientów, którzy chcieli wiedzieć, gdzie można i nie może poszukiwać różnych poziomach wierności podczas wyszukiwania dla adresów w usłudze wyszukiwania. Podczas wyszukiwania regionów z pokryciem niskiej rozdzielczości, może spodziewać się niższym wyniki wyszukiwania zaufania. Poniższa tabela zawiera informacje o pokryciu w celu wykonania Geokodowania wyszukiwania kg Azure.
 
 
 |Region  |Punkty adresu  |Numery DOM |Ulica poziom|
@@ -220,7 +220,7 @@ KG Azure zapewnia dokładność poziom Miasto podczas wyszukiwania w następują
 |     |Montserrat         |
 |     |Paragwaj         |
 |     |Saint Lucia         |
-|     |Saint-Pierre i Miquelon         |
+|     |Saint Pierre i Miquelon         |
 |     |Saint Vincent i Grenadyny         |
 |     |Georgia Południowa i Sandwich Południowy         |
 |     |Surinam         |
@@ -236,7 +236,7 @@ KG Azure zapewnia dokładność poziom Miasto podczas wyszukiwania w następują
 |     |Wyspy Kokosowe (Keelinga)         |
 |     |Komory         |
 |     |Wyspy Cooka         |
-|     |Timor-Leste         |
+|     |Timor Wschodni         |
 |     |Fidżi         |
 |     |Polinezja Francuska         |
 |     |Wyspy Heard i McDonalda         |

@@ -3,8 +3,8 @@ title: "Uwierzytelnianie wieloskładnikowe - Azure SQL | Dokumentacja firmy Micr
 description: "Azure SQL Database i Azure SQL Data Warehouse obsługiwać połączenia z programu SQL Server Management Studio (SSMS), za pomocą uwierzytelniania uniwersalnego usługi Active Directory."
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/29/2017
-ms.author: rickbyh
-ms.openlocfilehash: cdf78a3c64933f5f01642d5ef8fe1fca64cb1fbb
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.author: mireks
+ms.openlocfilehash: 3fd6532fb3dc6af9b3ccdac37201552ad0475e7b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Uwierzytelnianiem uniwersalnym z bazy danych SQL i magazyn danych SQL (Obsługa SSMS MFA)
 Azure SQL Database i Azure SQL Data Warehouse obsługi połączeń z programu SQL Server Management Studio (SSMS) przy użyciu *uniwersalnych uwierzytelnianie usługi Active Directory*. 
@@ -52,7 +52,7 @@ Obsługiwane w przypadku scenariusze B2B usługi Azure AD jako goście Azure uż
 - Wersja Active Directory Authentication Library (ADAL) dla uniwersalnych uwierzytelniania został zaktualizowany do najnowszej dostępnej wersji wydanej ADAL.dll 3.13.9. Zobacz [biblioteki uwierzytelniania usługi Active Directory 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Kroki konfiguracji, zobacz [uwierzytelnianie wieloskładnikowe skonfigurować bazy danych SQL Azure dla programu SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Udostępnić innym bazy danych: [SQL bazy danych uwierzytelnianie i autoryzacja: udzielanie dostępu](sql-database-manage-logins.md)  

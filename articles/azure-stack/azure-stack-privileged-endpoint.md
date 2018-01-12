@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Jako operator stosu Azure należy użyć portalu administratora programu PowerShell lub interfejsów API usługi Azure Resource Manager dla najbardziej codziennych zadań zarządzania. Jednak w przypadku niektórych mniej typowych operacji, należy użyć *uprzywilejowanych punktu końcowego*. Ten punkt końcowy jest wstępnie skonfigurowane zdalnej konsoli programu PowerShell, która dostarcza wystarczającego możliwości, które ułatwiają wykonywanie wymaganych zadań. Punkt końcowy korzysta z programu PowerShell JEA (tylko tyle administracyjnej) do udostępnienia tylko ograniczony zestaw poleceń cmdlet. Dostępu do uprzywilejowanych punktu końcowego i wywołać ograniczony zestaw poleceń cmdlet, konta z niskimi uprawnieniami jest używana. Żadnych kont administratora są wymagane. Aby dodatkowo zwiększyć bezpieczeństwo skryptów jest niedozwolone.
+Jako operator stosu Azure należy użyć portalu administratora programu PowerShell lub interfejsów API usługi Azure Resource Manager dla najbardziej codziennych zadań zarządzania. Jednak w przypadku niektórych mniej typowych operacji, należy użyć *uprzywilejowanych punktu końcowego* (program ten). Ten punkt końcowy jest wstępnie skonfigurowane zdalnej konsoli programu PowerShell, która dostarcza wystarczającego możliwości, które ułatwiają wykonywanie wymaganych zadań. Punkt końcowy korzysta z programu PowerShell JEA (tylko tyle administracyjnej) do udostępnienia tylko ograniczony zestaw poleceń cmdlet. Dostępu do uprzywilejowanych punktu końcowego i wywołać ograniczony zestaw poleceń cmdlet, konta z niskimi uprawnieniami jest używana. Żadnych kont administratora są wymagane. Aby dodatkowo zwiększyć bezpieczeństwo skryptów jest niedozwolone.
 
 Uprzywilejowane punktu końcowego służy do wykonywania następujących zadań:
 
@@ -98,6 +98,7 @@ Zaleca się, że należy połączyć uprzywilejowanych punktu końcowego tylko o
     - Usuń CloudAdminUser
     - Select-Object
     - Zestaw CloudAdminUserPassword
+    - AzureStack testu
     - Stop-AzureStack
     - Get-Clusterlog, zmienna środowiskowa
 
@@ -122,7 +123,7 @@ Aby zamknąć sesji punktu końcowego:
 
 Po pomyślnie przesyłania plików dziennika zapis do udziału plików, są one automatycznie usuwane z uprzywilejowanego punktu końcowego. Jeśli zamknięciu sesji uprzywilejowanych punktu końcowego za pomocą polecenia cmdlet `Exit-PSSession` lub `Exit`, lub zamknij konsolę programu PowerShell, dzienniki wykaz nie transferu do udziału plików. Pozostają one w uprzywilejowanych punktu końcowego. Przy następnym uruchomieniu `Close-PrivilegedEndpoint` i obejmują udziału plików, dzienniki zapis z poprzedniej sesji również zostaną przeniesione.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Azure stosu narzędzia diagnostyczne](azure-stack-diagnostics.md)
 
 

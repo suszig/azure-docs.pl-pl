@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Skopiuj dane z i do magazynów danych ODBC przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,8 @@ Aby użyć tego łącznika ODBC, musisz:
 - Instalowanie sterownika ODBC dla magazynu danych na komputerze środowiska uruchomieniowego integracji.
 
 ## <a name="getting-started"></a>Wprowadzenie
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika ODBC.
 
@@ -53,13 +54,13 @@ Obsługiwane są następujące właściwości dla ODBC połączone usługi:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość type musi mieć ustawioną: **Odbc** | Tak |
-| Parametry połączenia | Parametry połączenia, z wyjątkiem części poświadczeń. Można określić parametry połączenia ze wzorcem, takich jak `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, lub użyj systemową nazwę DSN (nazwa źródła danych), należy skonfigurować na komputerze środowiska uruchomieniowego integracji z `"DSN=<name of the DSN on IR machine>;"` (trzeba nadal określać części poświadczeń w połączonej usłudze odpowiednio).| Tak |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia się z magazynem danych ODBC.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Tak |
+| type | Właściwość type musi mieć ustawioną: **Odbc** | Yes |
+| Parametry połączenia | Parametry połączenia, z wyjątkiem części poświadczeń. Można określić parametry połączenia ze wzorcem, takich jak `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, lub użyj systemową nazwę DSN (nazwa źródła danych), należy skonfigurować na komputerze środowiska uruchomieniowego integracji z `"DSN=<name of the DSN on IR machine>;"` (trzeba nadal określać części poświadczeń w połączonej usłudze odpowiednio).| Yes |
+| Typ authenticationType | Typ uwierzytelniania używany do łączenia się z magazynem danych ODBC.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Yes |
 | Nazwa użytkownika | Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. | Nie |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Nie |
 | poświadczenia | Dostęp do poświadczeń część ciągu połączenia określonego w formacie wartości właściwości sterownika. Przykład: `"RefreshToken=<secret refresh token>;"`. Zaznacz to pole jako SecureString. | Nie |
-| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Tak |
+| connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
 
 **Przykład 1: użycie uwierzytelniania podstawowego**
 
@@ -122,7 +123,7 @@ Aby skopiować dane z/do magazynu danych zgodne ze standardem ODBC, ustaw właś
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Tak |
+| type | Musi mieć ustawioną właściwość type zestawu danych: **RelationalTable** | Yes |
 | tableName | Nazwa tabeli w magazynie danych ODBC. | Brak źródła (Jeśli określono wartość "query" w źródle działania);<br/>Tak dla obiekt sink |
 
 **Przykład**
@@ -153,7 +154,7 @@ Aby skopiować dane z magazynu danych zgodne ze standardem ODBC, należy ustawi�
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Tak |
+| type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **RelationalSource** | Yes |
 | query | Użyj niestandardowych zapytania SQL można odczytać danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono parametr "Nazwa_tabeli" w zestawie danych) |
 
 **Przykład:**
@@ -194,7 +195,7 @@ Aby skopiować dane do magazynu danych zgodne ze standardem ODBC, należy ustawi
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OdbcSink** | Tak |
+| type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **OdbcSink** | Yes |
 | writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (wartość domyślna to 0 – wykrywane automatycznie) |
 | preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do magazynu danych w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |
@@ -396,5 +397,5 @@ Aby rozwiązać problemy z połączeniem, użyj **diagnostyki** karcie **integra
 4. Określ **ciąg połączenia** używany do nawiązania połączenia z magazynem danych, wybierz **uwierzytelniania** , a następnie wprowadź **nazwy użytkownika**, **hasło**, i/lub **poświadczenia**.
 5. Kliknij przycisk **połączenie testowe** do testowania połączenia z magazynem danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

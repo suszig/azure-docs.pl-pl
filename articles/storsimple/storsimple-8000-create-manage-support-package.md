@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Tworzenie i zarządzanie nimi pakiet obsługi serii StorSimple 8000
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Pakiet obsługi StorSimple jest mechanizm łatwy w użyciu, która gromadzi wszystkie dzienniki odpowiednich pomagające Microsoft Support żadnych problemów urządzenia StorSimple. Dzienniki zbierane są zaszyfrowane i skompresowane.
 
@@ -144,9 +144,9 @@ Poniższy przykład pokazuje, jak można odszyfrować, edytować i ponownie zasz
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się więcej o [informacje zebrane w pakietu obsługi](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Dowiedz się, jak [użycie pakietów pomocy technicznej i dzienniki urządzenia do rozwiązywania problemów z wdrożeniem urządzenia](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Dowiedz się, jak [użycie pakietów pomocy technicznej i dzienniki urządzenia do rozwiązywania problemów z wdrożeniem urządzenia](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Dowiedz się, jak [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple urządzenia](storsimple-8000-manager-service-administration.md).
 

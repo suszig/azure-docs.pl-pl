@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure rozwiązania Cosmos bazy danych: Za pomocą usługi Azure Functions obliczeniowych bez serwera bazy danych
 
@@ -153,7 +153,7 @@ Teraz załóżmy połączenia bazy danych rozwiązania Cosmos Azure i usługi Az
 * [Utwórz wyzwalacz bazy danych Azure rozwiązania Cosmos w portalu Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Utwórz wyzwalacz Azure funkcje HTTP z powiązaniem wejściowych bazy danych Azure rozwiązania Cosmos](https://aka.ms/cosmosdbinputbind)
 * [Przechowywania danych niestrukturalnych przy użyciu usługi Azure Functions i DB rozwiązania Cosmos](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Azure DB rozwiązania Cosmos powiązania i wyzwalaczy](../azure-functions/functions-bindings-documentdb.md)
+* [Azure DB rozwiązania Cosmos powiązania i wyzwalaczy](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  
