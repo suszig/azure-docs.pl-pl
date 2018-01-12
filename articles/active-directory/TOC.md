@@ -217,7 +217,7 @@
 #### [Zarządzanie aprowizacją konta użytkownika](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Zarządzanie logowaniem jednokrotnym dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-sso.md)
 #### [Zaawansowane podpisywanie certyfikatów dla aplikacji SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Ukrywanie aplikacji innych firm w środowisku użytkownika](active-directory-coreapps-hide-third-party-app.md)
+#### [Ukrywanie aplikacji w środowisku użytkownika](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurowanie automatycznego przyspieszenia logowania za pomocą zasad HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Zabezpieczanie tożsamości
 ### [Dostęp warunkowy](active-directory-conditional-access-azure-portal.md)
 #### [Kontrolki](active-directory-conditional-access-controls.md)
+#### [Warunek lokalizacji](active-directory-conditional-access-locations.md)
 #### [Wprowadzenie](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)

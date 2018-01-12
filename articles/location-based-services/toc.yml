@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Azure Location Based Services
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Informacje o usługach Azure Location Based Services
       href: about-location-based-services.md
@@ -31,11 +31,11 @@
       href: how-to-use-map-control.md
     - name: Jak wyszukiwać adres
       href: how-to-search-for-address.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
-    - name: Funkcjonalny interfejs API — REST
+    - name: Funkcjonalny interfejs API
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: Interfejs API zarządzania — REST
+    - name: Interfejs API zarządzania
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: Interfejs API kontrolek mapy — Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
