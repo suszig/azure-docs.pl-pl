@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Usługa Kafka w usłudze HDInsight
   items:
-    - name: Omówienie
+    - name: Przegląd
       href: apache-kafka-introduction.md
     - name: Obsługa wersji składników
       href: ../hdinsight-component-versioning.md
@@ -115,9 +115,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optymalizowanie klastrów za pomocą internetowego interfejsu użytkownika systemu Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Używanie interfejsu API REST systemu Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Zarządzanie dziennikami klastra usługi HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Dodawanie kont magazynu
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -143,6 +149,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Rozwiązywanie problemów dotyczących powolnego działania lub awarii klastra usługi HDInsight
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Rozwiązywanie problemów z systemem plików HDFS
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true
@@ -190,7 +199,7 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
