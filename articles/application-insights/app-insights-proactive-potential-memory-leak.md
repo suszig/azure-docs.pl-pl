@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 452d0a9d0231e54df2a7f1df76c3c2c0fcd94d87
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="memory-leak-detection-preview"></a>Wykrywanie przecieków pamięci (wersja zapoznawcza)
 
 Usługi Application Insights automatycznie analizuje zmniejszenie zużycia pamięci każdego procesu w aplikacji i może zostać wyświetlone ostrzeżenie o potencjalnych przecieki pamięci lub zużycie pamięci.
 
-Ta funkcja wymaga specjalnych ustawień, inne niż [Konfigurowanie liczników wydajności](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) dla aplikacji. Jest aktywna, kiedy aplikacja generuje telemetrii liczniki wydajności za mało pamięci (na przykład Bajty prywatne).
+Ta funkcja wymaga specjalnych ustawień, inne niż [Konfigurowanie liczników wydajności](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) dla aplikacji. Jest aktywna, kiedy aplikacja generuje telemetrii liczniki wydajności za mało pamięci (na przykład Bajty prywatne).
 
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Gdy otrzyma ten typ powiadomienia inteligentne wykrywanie?

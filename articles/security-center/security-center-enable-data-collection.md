@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w Centrum zabezpieczeń Azure
 Centrum zabezpieczeń zbiera dane z maszyn wirtualnych platformy Azure (maszyny wirtualne) i komputerów z systemem innym niż Azure monitorowanie luk w zabezpieczeniach i zagrożeń. Dane są zbierane za pomocą programu Microsoft Monitoring Agent, która odczytuje różnych konfiguracji związanych z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do swojego obszaru roboczego do analizy. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Microsoft Monitoring Agent kopiuje pliki zrzutu awaryjnego do swojego obszaru roboczego.
@@ -79,7 +79,7 @@ Aby wybrać istniejący obszar roboczy analizy dzienników:
 Centrum zabezpieczeń może zmniejszyć ilość danych zdarzeń przy zachowaniu za mało zdarzeń do badania, inspekcji i wykrywanie zagrożeń. Można wybrać prawa filtrowania zasady dla subskrypcji i obszarów roboczych z czterech zestawów zdarzeń mają zostać zebrane przez agenta.
 
 - **Wszystkie zdarzenia** — dla klientów, którzy chcą, aby upewnić się, że wszystkie zdarzenia są zbierane. Jest to wartość domyślna.
-- **Typowe** — jest to zestaw zdarzeń spełniający większość klientów i umożliwia ich z wersji próbnej w pełną inspekcji.
+- **Typowe** — jest to zestaw zdarzeń spełniający większość klientów i umożliwia im dziennik inspekcji pełna.
 - **Minimalny** — mniejszy zestaw zdarzeń dla klientów, którzy minimalizowania woluminu zdarzeń.
 - **Brak** — Wyłącz zbieranie zdarzeń zabezpieczeń z dzienniki funkcji AppLocker i zabezpieczeń. Dla klientów, którzy wybierz tę opcję pulpity nawigacyjne ich zabezpieczeń ma tylko dzienniki zapory systemu Windows i oceny aktywnego, takich jak ochrony przed złośliwym kodem, linii bazowej i aktualizacji.
 
@@ -90,7 +90,7 @@ Centrum zabezpieczeń może zmniejszyć ilość danych zdarzeń przy zachowaniu 
 
 Aby określić zdarzenia, które będą należeć do **typowe** i **minimalnego** zestawów zdarzeń, możemy doświadczenie z klientów i standardy branżowe, aby dowiedzieć się więcej o częstotliwości niefiltrowane każdego zdarzenia i ich użycia. Poniższe wskazówki zostały użyte podczas tego procesu:
 
-- **Minimalny** — upewnij się, że ten zestaw obejmuje tylko zdarzenia, które mogą wskazywać pomyślne naruszenia i ważnych wydarzeń, które mają bardzo niskim poziomie. Na przykład ten zestaw zawiera udane i nieudane logowania użytkownika (zdarzenie 4624 identyfikatorów 4625), ale nie zawiera on wylogowania, co jest ważne w przypadku inspekcji, ale nie ma istotnego znaczenia do wykrywania i ma stosunkowo dużej liczby. Większość ilość danych tego zestawu jest zdarzenia logowania i procesem tworzenia zdarzeń (event ID 4688, zobacz Centrum zabezpieczeń [— często zadawane pytania](security-center-faq.md#what-happens-when-data-collection-is-enabled) Aby uzyskać więcej informacji na temat procesu tworzenia zdarzeń 4688).
+- **Minimalny** — upewnij się, że ten zestaw obejmuje tylko zdarzenia, które mogą wskazywać pomyślne naruszenia i ważnych wydarzeń, które mają bardzo niskim poziomie. Na przykład ten zestaw zawiera udane i nieudane logowania użytkownika (zdarzenie 4624 identyfikatorów 4625), ale nie zawiera on wylogowania, co jest ważne w przypadku inspekcji, ale nie ma istotnego znaczenia do wykrywania i ma stosunkowo dużej liczby. Większość ilość danych tego zestawu jest zdarzenia logowania i procesu tworzenia zdarzeń (event ID 4688).
 - **Typowe** — Podaj dziennik inspekcji logowania, w tym zestawie. Na przykład ten zestaw zawiera identyfikatory logowania użytkownika i wylogowywania użytkowników (zdarzenie ID 4634). Firma Microsoft obejmują akcje, takie jak zmiany grupy zabezpieczeń, operacje Kerberos kontrolera domeny klucza i inne zdarzenia, które są zalecane przez organizacje z branży inspekcji.
 
 Zdarzenia, które mają bardzo niskim poziomie zostały uwzględnione we wspólnym Ustaw jako głównym celem wybranie wszystkich zdarzeń jest zmniejszyć wolumin, a nie odfiltrowywania określonych zdarzeń.
@@ -108,6 +108,11 @@ Poniżej przedstawiono pełną podział zabezpieczeń i funkcji AppLocker identy
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Jeśli używasz obiektu zasad grupy (GPO), zaleca się włączenie zasady inspekcji procesu tworzenia zdarzeń 4688 i *CommandLine* pole wewnątrz zdarzenia 4688. Aby uzyskać więcej informacji na temat procesu tworzenia zdarzeń 4688 zobacz Centrum zabezpieczeń [— często zadawane pytania](security-center-faq.md#what-happens-when-data-collection-is-enabled). Aby uzyskać więcej informacji o tych zasady inspekcji, zobacz [zaleceń dotyczących zasad inspekcji](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Aby wybrać zasady filtrowania:
 1. Na **ustawienia i zasady zabezpieczeń** bloku, wybierz filtrowania zasad w obszarze **zdarzenia zabezpieczeń**.

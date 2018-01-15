@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentacja usługi Azure Database dla PostgreSQL
+title: "Dokumentacja usługi Azure Database dla PostgreSQL"
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: Dokumentacja usługi Azure PostgreSQL — samouczki i dokumentacja interfejsu API
-  description: Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych w chmurze firmy Microsoft utworzoną dla deweloperów i opartą na aparacie bazy danych PostgreSQL typu open source.
+  title: "Dokumentacja usługi Azure PostgreSQL — samouczki i dokumentacja interfejsu API"
+  description: "Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych w chmurze firmy Microsoft utworzoną dla deweloperów i opartą na aparacie bazy danych PostgreSQL typu open source."
   services: postgresql
   author: czeumault
   manager: carolz
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych opartą na aparacie bazy danych Postgres typu open source.  Jest to w pełni zarządzana baza danych oferowana jako usługa, za pomocą której można obsługiwać obciążenia o krytycznym znaczeniu — z przewidywalną wydajnością, zabezpieczeniami, wysoką dostępnością i dynamiczną skalowalnością.  Twórz aplikacje za pomocą usługi Azure Database dla PostgreSQL, korzystając z narzędzi open source i wybranej platformy.  Dowiedz się, jak używać usługi Azure Database dla PostgreSQL, korzystając z przewodników Szybki Start, samouczków i przykładów.'
+  description: "Usługa Azure Database dla PostgreSQL jest usługą relacyjnej bazy danych opartą na aparacie bazy danych Postgres typu open source.  Jest to w pełni zarządzana baza danych oferowana jako usługa, za pomocą której można obsługiwać obciążenia o krytycznym znaczeniu — z przewidywalną wydajnością, zabezpieczeniami, wysoką dostępnością i dynamiczną skalowalnością.  Twórz aplikacje za pomocą usługi Azure Database dla PostgreSQL, korzystając z narzędzi open source i wybranej platformy.  Dowiedz się, jak używać usługi Azure Database dla PostgreSQL, korzystając z przewodników Szybki Start, samouczków i przykładów."
 sections:
-  - title: 5-minutowe przewodniki Szybki start
+- title: 5-minutowe przewodniki Szybki start
+  items:
+  - type: paragraph
+    text: "Dowiedz się, jak utworzyć bazę danych PostgreSQL za pomocą następujących elementów:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Dowiedz się, jak utworzyć bazę danych PostgreSQL za pomocą następujących elementów:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Interfejs wiersza polecenia platformy Azure
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-  - title: Samouczki krok po kroku
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+      text: Interfejs wiersza polecenia platformy Azure
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: Samouczki krok po kroku
+  items:
+  - type: paragraph
+    text: 'Instrukcje:'
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Instrukcje:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Projektowanie bazy danych&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Interfejs wiersza polecenia platformy Azure</a>'
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Tworzenie aplikacji internetowej za pomocą języka Python i interfejsu wiersza polecenia</a>
-  - title: Przykłady
+    - html: Projektowanie bazy danych&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Interfejs wiersza polecenia platformy Azure</a>
+    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json\">Tworzenie aplikacji internetowej za pomocą języka Python i interfejsu wiersza polecenia</a>"
+- title: "Przykłady"
+  items:
+  - type: paragraph
+    text: "Znajdowanie skryptów umożliwiających zarządzanie typowymi zadaniami."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Znajdowanie skryptów umożliwiających zarządzanie typowymi zadaniami.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Interfejs wiersza polecenia platformy Azure</a>
-  - title: Dokumentacja
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Interfejs wiersza polecenia platformy Azure</a>
+- title: "Odwołanie"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Wiersz polecenia
-            html: <p><a href="/cli/azure">Interfejs wiersza polecenia platformy Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">Interfejs API REST</a></p>
+    - title: Wiersz polecenia
+      html: <p><a href="/cli/azure">Interfejs wiersza polecenia platformy Azure</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/postgresql">Interfejs API REST</a></p>

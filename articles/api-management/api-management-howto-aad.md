@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Integracja z usługą Azure Active Directory jest dostępny w [deweloperów i Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tylko warstwy.
+> Integracja z usługą Azure Active Directory jest dostępny w [Developer, Standard i Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tylko warstwy.
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory w usłudze Azure API Management
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Ten przewodnik zawiera instrukcje umożliwić dostęp do portalu dla deweloperów dla użytkowników z usługi Azure Active Directory. W tym przewodniku przedstawiono również sposób zarządzać grupami użytkowników usługi Azure Active Directory przez dodanie zewnętrznej grupy, które zawierają użytkowników usługi Azure Active Directory.
 
 > Aby wykonać kroki opisane w tym przewodniku najpierw musi mieć usługi Azure Active Directory, umożliwiający tworzenie aplikacji.
@@ -32,7 +32,7 @@ Ten przewodnik zawiera instrukcje umożliwić dostęp do portalu dla deweloperó
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory
 Aby rozpocząć, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
-![Portal wydawcy][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 > Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 > 
@@ -106,11 +106,11 @@ Kliknij przycisk **zapisać** do zapisania konfiguracji, a następnie wyświetli
 
 Przełączyć się do portalu wydawcy i Wklej klucz do **klucz tajny klienta** pola tekstowego.
 
-![Wpis tajny klienta][api-management-client-secret]
+![Klucz tajny klienta][api-management-client-secret]
 
 **Dozwolone dzierżaw** Określa, które katalogi mają dostęp do interfejsów API wystąpienia usługi Zarządzanie interfejsami API. Określ domeny wystąpień usługi Azure Active Directory, do których chcesz udzielić dostępu. Wiele domen można oddzielić newlines, spacjami lub przecinkami.
 
-![Dozwolone dzierżawcy][api-management-client-allowed-tenants]
+![Dozwolone dzierżawy][api-management-client-allowed-tenants]
 
 
 Po wymaganą konfiguracją jest określony, kliknij przycisk **zapisać**.

@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Korzystanie z szablonów połączonych w przypadku wdrażania zasobów platformy Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Za pomocą połączonego i zagnieżdżone szablony, w przypadku wdrażania zasobów platformy Azure
 
-Do wdrożenia rozwiązania, używając jednego szablonu lub szablonie głównym z wielu szablonów połączonych. Dla małych i średnich rozwiązania jednego szablonu jest łatwiejsze do zrozumienia i obsługa. Jesteś w stanie zobaczyć wszystkie zasoby i wartości w jednym pliku. Dla zaawansowanych scenariuszy połączonego Szablony umożliwiają podział rozwiązania do elementów docelowych i ponowne użycie szablonów.
+Aby wdrożyć rozwiązanie, służy jednego szablonu lub szablonu głównego z wielu szablonów pokrewne. Powiązane szablon może być oddzielny plik, który jest powiązany z szablonu głównego lub szablonu, który jest zagnieżdżony w szablonie głównym.
+
+Dla małych i średnich rozwiązania jednego szablonu jest łatwiejsze do zrozumienia i obsługa. Jesteś w stanie zobaczyć wszystkie zasoby i wartości w jednym pliku. Dla zaawansowanych scenariuszy połączonego Szablony umożliwiają podział rozwiązania do elementów docelowych i ponowne użycie szablonów.
 
 Podczas korzystania z połączonego szablonu, tworzenia szablonu głównego, który odbiera wartości parametrów podczas wdrażania. Główny szablon zawiera wszystkie połączone szablony i przekazuje wartości do tych szablonów, zgodnie z potrzebami.
 
 ![Szablony połączonego](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Łącza do szablonu
+## <a name="link-or-nest-a-template"></a>Połącz lub zagnieździć szablonu
 
 Aby utworzyć link do innego szablonu, Dodaj **wdrożeń** zasobów w szablonie głównym.
 
@@ -40,17 +42,17 @@ Aby utworzyć link do innego szablonu, Dodaj **wdrożeń** zasobów w szablonie 
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Właściwości, które zapewniają zasobu wdrożenia różnić w zależności od czy łączenie z szablonem zewnętrznych lub osadzania szablonu wbudowany w szablonie głównym.
+Właściwości, które zapewniają zasobu wdrożenia różnić w zależności od czy łączenie z szablonem zewnętrznych lub zagnieżdżania szablonu wbudowany w szablonie głównym.
 
-### <a name="inline-template"></a>Wbudowany szablonu
+### <a name="nested-template"></a>Szablon zagnieżdżony
 
-Aby osadzić połączonego szablon, użyj **szablonu** właściwości i zawiera szablonu.
+Aby zagnieździć szablonu w szablonie głównym, należy użyć **szablonu** właściwości i określ składni szablonu.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Aby osadzić połączonego szablon, użyj **szablonu** właściwości i zawiera 
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Aby osadzić połączonego szablon, użyj **szablonu** właściwości i zawiera 
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Zagnieżdżone szablony nie można używać parametrów lub zmiennych, które są zdefiniowane w szablonie zagnieżdżonym. Można użyć parametrów i zmiennych z głównym szablonu. W powyższym przykładzie `[variables('storageName')]` pobiera wartość z głównym szablonu szablon zagnieżdżony. To ograniczenie nie ma zastosowania do szablonów zewnętrznych.
 
 ### <a name="external-template-and-external-parameters"></a>Szablon zewnętrznych i parametry zewnętrznych
 
@@ -176,7 +177,7 @@ W poniższych przykładach pokazano sposób odwoływania się do połączonego s
 }
 ```
 
-Szablon nadrzędnego wdraża połączonego szablonu i pobiera zwracanej wartości. Zwróć uwagę, odwołuje się do zasobu wdrożenia według nazwy, czy używać nazwy właściwości zwrócony przez szablon połączony.
+Główne szablon wdraża połączonego szablonu i pobiera zwracanej wartości. Zwróć uwagę, odwołuje się do zasobu wdrożenia według nazwy, czy używać nazwy właściwości zwrócony przez szablon połączony.
 
 ```json
 {
@@ -309,9 +310,9 @@ Aby użyć publiczny adres IP z powyższej szablonu podczas wdrażania usługi r
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Szablonów połączonych w historii wdrożenia
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Połączone i zagnieżdżone szablony w historii wdrożenia
 
-Menedżer zasobów przetwarza każdego połączonego szablonu jako osobne wdrożenia w historii wdrożenia. W związku z tym szablonu nadrzędnego z trzech szablonów połączonych pojawia się w historii wdrożenia jako:
+Menedżer zasobów przetwarza każdego szablonu jako osobne wdrożenia w historii wdrożenia. W związku z tym głównym szablonu z trzech szablonów połączonych lub zagnieżdżony pojawia się w historii wdrożenia jako:
 
 ![Historia wdrożenia](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -486,7 +487,7 @@ Poniższe przykłady przedstawiają typowe zastosowania szablonów połączonych
 |[Moduł równoważenia obciążenia z publicznym adresem IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Zwraca publiczny adres IP z szablonów połączonych i ustawia tę wartość w usłudze równoważenia obciążenia. |
 |[Wiele adresów IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [połączone szablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Tworzy wiele publicznych adresów IP w szablonie połączony.  |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat definiowania kolejność wdrażania zasobów, zobacz [Definiowanie zależności w szablonach usługi Azure Resource Manager](resource-group-define-dependencies.md).
 * Aby dowiedzieć się, jak zdefiniować jeden zasób, ale utworzenia wielu wystąpień, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).

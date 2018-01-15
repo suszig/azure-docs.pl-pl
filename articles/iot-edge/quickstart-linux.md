@@ -6,16 +6,16 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Szybki Start: Wdrażanie modułu pierwszy krawędzi IoT z portalu Azure na urządzeniu z systemem Linux — w wersji preview
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Szybki Start: Wdrażanie modułu IoT krawędź pierwszego na urządzeniu z systemem Linux lub Mac — wersja zapoznawcza
 
 Usługa Azure IoT krawędzi przenosi mocy chmury urządzeń Internetu rzeczy. W tym temacie Dowiedz się, jak użyć interfejsu chmury do zdalnego wdrożenia wbudowane kodu do urządzenia IoT.
 
@@ -23,10 +23,14 @@ Jeśli nie masz aktywnych subskrypcji platformy Azure, Utwórz [bezpłatne konto
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania tego zadania, należy użyć komputer lub maszynę wirtualną do symulacji urządzenia Internetu rzeczy. Następujące usługi są wymagane do pomyślnego wdrożenia urządzenia IoT:
+Ta opcja szybkiego startu korzysta z komputera lub maszyny wirtualnej, takie jak urządzenie Internetu rzeczy. Aby wyłączyć komputer do urządzenia IoT, wymagane są następujące usługi:
 
-- [Zainstaluj Docker w systemie Linux] [ lnk-docker-ubuntu] i upewnij się, że jest uruchomiona. 
-- Większość dystrybucje systemu Linux, łącznie z Ubuntu, już Python 2.7 zainstalowane. Użyj następującego polecenia, aby upewnić się, że zainstalowano narzędzia pip: `sudo apt-get install python-pip`.
+* Python pip, aby zainstalować środowisko uruchomieniowe IoT krawędzi.
+   * Linux: `sudo apt-get install python-pip`.
+   * System MacOS: `sudo easy_install pip`.
+* Docker do uruchamiania krawędzi IoT modułów
+   * [Zainstaluj dla systemu Linux Docker] [ lnk-docker-ubuntu] i upewnij się, że jest uruchomiona. 
+   * [Zainstaluj Docker dla komputerów Mac] [ lnk-docker-mac] i upewnij się, że jest uruchomiona. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Tworzenie Centrum IoT z wiersza polecenia platformy Azure
 
@@ -121,7 +125,7 @@ Podczas tworzenia Centrum IoT nie są już potrzebne, można użyć [usuwania Ce
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Wiesz, jak wdrożyć moduł krawędzi IoT urządzenia IoT. Teraz spróbuj wdrażanie różnych typów usług Azure modułów, dzięki czemu można analizować dane na krawędzi. 
 
@@ -135,6 +139,7 @@ Wiesz, jak wdrożyć moduł krawędzi IoT urządzenia IoT. Teraz spróbuj wdraż
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

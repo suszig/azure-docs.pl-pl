@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
@@ -28,7 +28,7 @@ Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowa
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Ściągawka: różnice maszyny wirtualnej
 
-| Funkcja | Azure (globalna) | Azure Stack |
+| Cecha | Azure (globalna) | Azure Stack |
 | --- | --- | --- |
 | Obrazy maszyny wirtualnej | W portalu Azure Marketplace zawiera obrazy, których można użyć do utworzenia maszyny wirtualnej. Zobacz [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) strony w celu wyświetlenia listy obrazów, które są dostępne w portalu Azure Marketplace. | Domyślnie nie ma żadnych obrazów dostępne w witrynie marketplace stosu Azure. Administrator chmury Azure stosu należy opublikować lub pobrać obrazów do stosu Azure marketplace, zanim użytkownicy mogą korzystać z nich. |
 | Rozmiary maszyn wirtualnych | Azure obsługuje różnych rozmiarów maszyn wirtualnych. Aby dowiedzieć się więcej na temat dostępne rozmiary i opcji, zapoznaj się [rozmiary maszyn wirtualnych systemu Windows](../../virtual-machines/virtual-machines-windows-sizes.md) i [rozmiarów maszyn wirtualnych systemu Linux](../../virtual-machines/linux/sizes.md) tematów. | Stos Azure obsługuje podzbiór rozmiarów maszyn wirtualnych, które są dostępne w systemie Azure. Aby wyświetlić listę obsługiwanych rozmiarów, zobacz [rozmiarów maszyn wirtualnych](#virtual-machine-sizes) sekcji tego artykułu. |
@@ -40,9 +40,9 @@ Maszyny wirtualne są na żądanie, skalowalnych zasobów obliczeniowych oferowa
 |Zestawy dostępności maszyny wirtualnej|Wiele domen błędów (2 lub 3 dla regionu)<br>Wiele domen aktualizacji<br>Obsługa dysku zarządzanego|Domena awarii jednego<br>Jedna aktualizacja domeny<br>Brak obsługi dysków zarządzanych|
 |Zestawy skalowania maszyn wirtualnych|Obsługiwane automatycznego skalowania|Automatycznego skalowania nie jest obsługiwane.<br>Dodaj więcej wystąpień do skali ustawić za pomocą portalu, szablony usługi Resource Manager lub programu PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych 
+## <a name="virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych
 
-Zestaw deweloperski stosu Azure obsługuje następujące wymiary: 
+Stos Azure obsługuje następujące wymiary:
 
 | Typ | Rozmiar | Zakres obsługiwanych rozmiarów. |
 | --- | --- | --- |
@@ -55,9 +55,9 @@ Zestaw deweloperski stosu Azure obsługuje następujące wymiary:
 |Optymalizacja pod kątem pamięci|Seria DS|DS11 - DS14|
 |Optymalizacja pod kątem pamięci |Seria DSv2|DS11_v2 - DS14_v2|
 
-Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na platformie Azure. Na przykład w tym ilość pamięci, liczby rdzeni i numer/rozmiaru dysków z danymi, które mogą zostać utworzone. Jednak wydajność ten sam rozmiar maszyny Wirtualnej Azure stosu zależy od podstawowej właściwości określonym środowisku Azure stosu.
+Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na platformie Azure. Na przykład ten spójności zawiera ilość pamięci, liczby rdzeni i numer/rozmiaru dysków z danymi, które mogą zostać utworzone. Jednak wydajność ten sam rozmiar maszyny Wirtualnej Azure stosu zależy od podstawowej właściwości określonym środowisku Azure stosu.
 
-## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyny wirtualnej 
+## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyny wirtualnej
 
  Zestaw deweloperski stosu Azure obsługuje następujące wersje rozszerzenia maszyny wirtualnej:
 
@@ -65,15 +65,15 @@ Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na 
 
 Użyj następującego skryptu programu PowerShell można pobrać listy rozszerzeń maszyny wirtualnej, które są dostępne w środowisku Azure stosu:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Wersje interfejsu API 
+## <a name="api-versions"></a>Wersje interfejsu API
 
 Funkcje maszyny wirtualnej Azure stosu Development Kit obsługuje następujące wersje interfejsu API:
 
@@ -81,7 +81,7 @@ Funkcje maszyny wirtualnej Azure stosu Development Kit obsługuje następujące 
 
 Poniższy skrypt programu PowerShell umożliwia pobieranie wersji interfejsu API dla funkcji maszyny wirtualnej, które są dostępne w środowisku Azure stosu:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
@@ -90,6 +90,6 @@ Get-AzureRmResourceProvider | `
 ```
 Lista obsługiwane typy zasobów i wersje interfejsu API może się różnić, jeśli operatorowi chmury aktualizacji środowiska Azure stosu do nowszej wersji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Utwórz maszynę wirtualną z systemem Windows przy użyciu programu PowerShell w stosie Azure](azure-stack-quick-create-vm-windows-powershell.md)

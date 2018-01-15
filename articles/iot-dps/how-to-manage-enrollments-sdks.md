@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 82da49924e71a38ca557f244f2830e1da45826b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Sposób rejestracji urządzeń z zestawów SDK programu Azure urządzenia inicjowania obsługi usługi zarządzania
 A *rejestracji urządzeń* tworzy rekord jednego urządzenia lub grupy urządzeń, które mogą w pewnym momencie zarejestrować w usłudze udostępniania urządzeń. Rekord rejestracji zawiera początkowej żądanej konfiguracji dla urządzeń w ramach rejestracji, łącznie z żądaną Centrum IoT. W tym artykule przedstawiono sposób zarządzania rejestracji urządzeń dla inicjowania obsługi usługi programowo przy użyciu usługi Azure IoT inicjowania obsługi usługi SDK.  Zestawy SDK są dostępne w witrynie GitHub, w tym samym repozytorium jako zestawy SDK IoT Azure.
@@ -29,18 +29,18 @@ W tym artykule opisano wysokiego poziomu pojęć związanych z zarządzaniem rej
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Parametry połączenia z wystąpieniem usługi inicjowania obsługi urządzeń
 * Artefakty zabezpieczeń urządzenia:
-    * [**MODUŁ TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
+    * [**MODUŁ TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Poszczególne rejestracji: identyfikator rejestracji i klucza poręczenia modułu TPM z fizyczne urządzenie lub symulator modułu TPM.
         * Grupa rejestracji nie ma zastosowania do zaświadczenia modułu TPM.
-    * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Poszczególne rejestracji: [certyfikatu liścia](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) z fizycznego urządzenia lub emulatora GRUPOWANE.
-        * Grupa rejestracji: [certyfikat główny](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), użytego do utworzenia certyfikatu urządzenia na urządzeniu fizycznym.  Może być również generowany z emulatora GRUPOWANE.
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Poszczególne rejestracji: [certyfikatu liścia](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) z fizycznego urządzenia lub emulatora GRUPOWANE.
+        * Grupa rejestracji: [certyfikat główny](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), użytego do utworzenia certyfikatu urządzenia na urządzeniu fizycznym.  Może być również generowany z emulatora GRUPOWANE.
 
 ## <a name="create-a-device-enrollment"></a>Tworzenie rejestracji urządzeń
 
 Istnieją dwa sposoby mogą rejestrować urządzenia w usłudze inicjowania obsługi administracyjnej:
 
-* **Grupy rejestracji** wpis dla grupy urządzeń, które współużytkują wspólnego mechanizmu zaświadczania certyfikatów X.509, podpisane przez [certyfikat główny](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego ](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). Firma Microsoft zaleca używanie grupy rejestracji dużej liczby urządzeń, których udostępnianie wymaganą konfiguracją początkową lub urządzeń wszystkich przejść do tej samej dzierżawy. Należy pamiętać, że tylko mogą rejestrować urządzenia, które korzystają z mechanizmu zaświadczania X.509 jako *grup rejestracji*. 
+* **Grupy rejestracji** wpis dla grupy urządzeń, które współużytkują wspólnego mechanizmu zaświadczania certyfikatów X.509, podpisane przez [certyfikat główny](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Firma Microsoft zaleca używanie grupy rejestracji dużej liczby urządzeń, których udostępnianie wymaganą konfiguracją początkową lub urządzeń wszystkich przejść do tej samej dzierżawy. Należy pamiętać, że tylko mogą rejestrować urządzenia, które korzystają z mechanizmu zaświadczania X.509 jako *grup rejestracji*. 
 
     Można utworzyć grupę rejestracji z zestawów SDK, po tego przepływu pracy:
 
@@ -67,7 +67,7 @@ Ten przepływ pracy jest przedstawiona w [przykłady](#samples).
 Po utworzeniu wpisu rejestracji, możesz zaktualizować rejestrację.  Potencjalne scenariusze obejmują aktualizowanie żądanej właściwości, aktualizowania metody zaświadczania lub odwoływanie dostępu do urządzenia.  Istnieją różne interfejsów API dla poszczególnych rejestracji i rejestracji grupy, ale ma różnicy mechanizmu zaświadczania.
 
 Można zaktualizować wpisu rejestracji po tego przepływu pracy:
-* **Poszczególne rejestracji**:
+* **Rejestracja indywidualna**:
     1. Pobrać najnowsze rejestracji z usługi inicjowania obsługi administracyjnej pierwszego z interfejsu API zestawu SDK usługi ```getIndividualEnrollment```.
     2. Zmodyfikuj parametr najnowsze rejestracji w razie potrzeby. 
     3. Przy użyciu najnowszych rejestracji, wywołania interfejsu API zestawu SDK usługi ```createOrUpdateIndividualEnrollment``` można zaktualizować wpisu rejestracji.

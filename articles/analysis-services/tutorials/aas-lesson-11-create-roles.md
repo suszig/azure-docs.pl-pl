@@ -13,32 +13,30 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>Lekcja 11. Tworzenie ról
+# <a name="create-roles"></a>Tworzenie ról
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-W tej lekcji utworzysz role. Role zapewniają modelowy obiekt bazy danych i zabezpieczają dane, ograniczając dostęp tylko do tych użytkowników, którzy są elementami członkowskimi roli. Każda rola jest zdefiniowana z jednym uprawnieniem: Brak, Odczyt, Odczyt i przetwarzanie, Przetwarzanie lub Administrator. Role można zdefiniować podczas tworzenia modelu przy użyciu menedżera ról. Po wdrożeniu modelu rolami można zarządzać przy użyciu programu SQL Server Management Studio (SSMS). Aby dowiedzieć się więcej, zobacz temat [Role](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+W tej lekcji utworzysz role. Role zapewniają modelowy obiekt bazy danych i zabezpieczają dane, ograniczając dostęp tylko do tych użytkowników, którzy są członkami roli. Każda rola jest zdefiniowana z jednym uprawnieniem: Brak, Odczyt, Odczyt i przetwarzanie, Przetwarzanie lub Administrator. Role można zdefiniować podczas tworzenia modelu przy użyciu menedżera ról. Po wdrożeniu modelu rolami można zarządzać przy użyciu programu SQL Server Management Studio (SSMS). Aby dowiedzieć się więcej, zobacz temat [Role](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
-> Utworzenie ról nie jest konieczne do ukończenia tego samouczka. Konto aktualnie użyte do logowania ma domyślnie przypisane uprawnienia administratora dotyczące modelu. Jednak aby inni użytkownicy z Twojej organizacji mogli przeglądać dane przy użyciu klienta raportowania, musisz utworzyć co najmniej jedną rolę z uprawnieniami do odczytu i dodać tych użytkowników jako elementy członkowskie.  
+> Utworzenie ról nie jest konieczne do ukończenia tego samouczka. Konto aktualnie użyte do logowania ma domyślnie przypisane uprawnienia administratora dotyczące modelu. Jednak aby inni użytkownicy z Twojej organizacji mogli przeglądać dane przy użyciu klienta raportowania, musisz utworzyć co najmniej jedną rolę z uprawnieniami do odczytu i dodać tych użytkowników jako członków.  
   
 Utworzysz trzy role:  
   
 -   **Sales Manager** (Menedżer sprzedaży) — ta rola może obejmować użytkowników w organizacji, którym chcesz nadać uprawnienia do odczytu wszystkich obiektów i danych modelu.  
   
--   **Sales Analyst US** (Analityk sprzedaży w Stanach Zjednoczonych) — ta rola może obejmować użytkowników w organizacji, którzy mają tylko przeglądać dane związane ze sprzedażą w Stanach Zjednoczonych. W przypadku tej roli należy użyć formuły języka DAX, aby zdefiniować *Filtr wierszy*, który ogranicza elementy członkowskie do przeglądania tylko danych dotyczących Stanów Zjednoczonych.  
+-   **Sales Analyst US** (Analityk sprzedaży w Stanach Zjednoczonych) — ta rola może obejmować użytkowników w organizacji, którzy mają tylko przeglądać dane związane ze sprzedażą w Stanach Zjednoczonych. W przypadku tej roli należy użyć formuły języka DAX, aby zdefiniować *Filtr wierszy*, który ogranicza członków do przeglądania tylko danych dotyczących Stanów Zjednoczonych.  
   
 -   **Administrator** — ta rola może obejmować użytkowników, którym chcesz nadać uprawnienia administratora zapewniające nieograniczony dostęp do bazy danych modelu i uprawnienia do wykonywania na niej zadań administracyjnych.  
   
-Konta użytkowników i grup systemu Windows w organizacji są unikatowe, dlatego możesz dodać konta ze swojej organizacji do elementów członkowskich. Jednak w tym samouczku możesz również pozostawić elementy członkowskie puste. Wpływ każdej roli sprawdzisz później w lekcji 12 „Analiza w programie Excel”.  
+Konta użytkowników i grup systemu Windows w organizacji są unikatowe, dlatego możesz dodać konta ze swojej organizacji do członków. Jednak w tym samouczku możesz również pozostawić członków pustych. Wpływ każdej roli sprawdzisz później w lekcji 12 „Analiza w programie Excel”.  
   
 Szacowany czas trwania lekcji: **15 minut**  
   
@@ -59,7 +57,7 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  Opcjonalnie: kliknij kartę **Elementy członkowskie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli.  
+5.  Opcjonalnie: kliknij kartę **Członkowie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Tworzenie roli użytkownika Sales Analyst US  
   
@@ -78,7 +76,7 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
     Formuła filtra wierszy musi zostać rozpoznana jako wartość logiczna (PRAWDA/FAŁSZ). Za pomocą tej formuły określasz, że dla użytkownika mają być widoczne tylko wiersze, w których kod kraju/regionu ma wartość „US”.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  Opcjonalnie: kliknij kartę **Elementy członkowskie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli.  
+6.  Opcjonalnie: kliknij kartę **Członkowie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Tworzenie roli użytkownika Administrator  
   
@@ -88,7 +86,7 @@ Ten temat stanowi część samouczka modelowania tabelarycznego, który należy 
   
 3.  Nadaj tej roli uprawnienie **Administrator**.  
   
-4.  Opcjonalnie: kliknij kartę **Elementy członkowskie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli. 
+4.  Opcjonalnie: kliknij kartę **Członkowie**, a następnie kliknij pozycję **Dodaj**. W oknie dialogowym **Wybieranie użytkowników lub grup** wprowadź grupy lub użytkowników systemu Windows ze swojej organizacji, których chcesz uwzględnić w tej roli. 
   
   
 ## <a name="whats-next"></a>Co dalej?

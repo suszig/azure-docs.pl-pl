@@ -34,11 +34,11 @@
 - name: Odwołanie
   items:
     - name: Funkcjonalny interfejs API
-      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+      href: 'https://docs.microsoft.com/rest/api/location-based-services/'
     - name: Interfejs API zarządzania
-      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+      href: 'https://docs.microsoft.com/rest/api/location-based-services-management/'
     - name: Interfejs API kontrolek mapy — Javascript
-      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+      href: 'https://docs.microsoft.com/javascript/api/location-based-services-javascript/'
 - name: Zasoby
   items:
     - name: Centrum deweloperów Azure IoT

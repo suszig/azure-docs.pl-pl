@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: d3a547418d9b5c412584aaa2f27a40024130335b
-  ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+  ms.openlocfilehash: 0b9146284f12cdb39edb870779d911053d1f233a
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/19/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Usługi Azure Location Based Services (wersja zapoznawcza) udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Ta usługa to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest łatwe i elastyczne, a rezultaty można przenosić na różne platformy."
 sections:
@@ -43,13 +43,13 @@ sections:
     - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">Wyszukiwanie punktów orientacyjnych</a>"
     - html: <a href="/azure/location-based-services/tutorial-route-location">Wyznaczanie trasy do punktu orientacyjnego</a>
     - html: "<a href=\"/azure/location-based-services/tutorial-prioritized-routes\">Trasy zależne od środka transportu</a>"
-- title: Dokumentacja
+- title: "Odwołanie"
   items:
   - type: list
     style: cards
     className: cardsW
     items:
     - title: "Języki"
-      html: "<p><a href=\"https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/\">Interfejs API kontrolek mapy — Javascript</a></p>"
+      html: "<p><a href=\"https://docs.microsoft.com/javascript/api/location-based-services-javascript/\">Interfejs API kontrolek mapy — Javascript</a></p>"
     - title: REST
-      html: "<p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services/\">Funkcjonalny interfejs API — REST</a></p><p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services-management/\">Interfejs API zarządzania — REST</a></p>"
+      html: "<p><a href=\"https://docs.microsoft.com/rest/api/location-based-services/\">Funkcjonalny interfejs API — REST</a></p><p><a href=\"https://docs.microsoft.com/rest/api/location-based-services-management/\">Interfejs API zarządzania — REST</a></p>"

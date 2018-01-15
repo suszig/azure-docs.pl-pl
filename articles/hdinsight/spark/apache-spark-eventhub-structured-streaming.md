@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/12/2018
@@ -84,7 +84,7 @@ W tym punkcie zapewne zechcesz z klastrem usługi HDInsight. Jeśli nie musisz c
 
 5. Tworzenia aplikacja wymaga pakietu centra zdarzeń przesyłania strumieniowego Spark. Uruchomienie powłoki Spark, tak aby automatycznie pobiera tę zależność od [Maven centralnej](https://search.maven.org), upewnij się, podaj pakiety przełącznik z współrzędne Maven w następujący sposób:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Po zakończeniu powłoki Spark ładowania, powinny pojawić się:
 
@@ -92,10 +92,10 @@ W tym punkcie zapewne zechcesz z klastrem usługi HDInsight. Jeśli nie musisz c
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ W tym punkcie zapewne zechcesz z klastrem usługi HDInsight. Jeśli nie musisz c
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Jeśli przyjrzymy się punkt końcowy zgodnego EventHub w następującym formacie, część które odczytuje `iothub-xxxxxxxxxx` oznacza nazwę Namespace EventHub zgodny i może służyć do `eventhubs.namespace`. Pole `SharedAccessKeyName` może służyć do `eventhubs.policyname`, i `SharedAccessKey` dla `eventhubs.policykey`: 
 
-8. Wkleić fragment zmodyfikowane scala oczekiwania > wierszu polecenia i naciśnij klawisz return. Powinny zostać wyświetlone dane wyjściowe podobne do poniższych:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Wkleić fragment zmodyfikowane scala oczekiwania > wierszu polecenia i naciśnij klawisz return. Powinny zostać wyświetlone dane wyjściowe podobne do poniższych:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ W tym punkcie zapewne zechcesz z klastrem usługi HDInsight. Jeśli nie musisz c
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. Następnie zacząć tworzyć Spark strukturalnych przesyłania strumieniowego zapytania można określania źródła. Wklej następujący kod do powłoki Spark, a następnie naciśnij klawisz return.
+10. Następnie zacząć tworzyć Spark strukturalnych przesyłania strumieniowego zapytania można określania źródła. Wklej następujący kod do powłoki Spark, a następnie naciśnij klawisz return.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. Powinny zostać wyświetlone dane wyjściowe podobne do poniższych:
+11. Powinny zostać wyświetlone dane wyjściowe podobne do poniższych:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. Następnie możesz tworzyć zapytania tak, aby go zapisuje dane wyjściowe do konsoli. W tym wklejając następujący kod do powłoki Spark i naciskając klawisz return.
+12. Następnie możesz tworzyć zapytania tak, aby go zapisuje dane wyjściowe do konsoli. W tym wklejając następujący kod do powłoki Spark i naciskając klawisz return.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Niektóre partie zaczynać się dane wyjściowe podobne do następujących powinny być widoczne
+13. Niektóre partie zaczynać się dane wyjściowe podobne do następujących powinny być widoczne
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. Następuje to wyniki danych wyjściowych przetwarzania każdego microbatch zdarzenia. 
+14. Następuje to wyniki danych wyjściowych przetwarzania każdego microbatch zdarzenia. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ W tym punkcie zapewne zechcesz z klastrem usługi HDInsight. Jeśli nie musisz c
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. Nadejścia nowych zdarzeń od producenta zdarzeń są przetwarzane przez to zapytanie strukturalnych przesyłania strumieniowego.
-15. Pamiętaj usunąć z klastrem usługi HDInsight, po zakończeniu uruchomione w tym przykładzie.
+15. Nadejścia nowych zdarzeń od producenta zdarzeń są przetwarzane przez to zapytanie strukturalnych przesyłania strumieniowego.
+16. Pamiętaj usunąć z klastrem usługi HDInsight, po zakończeniu uruchomione w tym przykładzie.
 
 
 

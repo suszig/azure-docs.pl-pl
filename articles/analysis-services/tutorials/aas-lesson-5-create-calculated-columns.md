@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b491af1e5c9da03f48335f5793ed71ddaf644fb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-5-create-calculated-columns"></a>Lekcja 5. Tworzenie kolumn obliczeniowych
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-calculated-columns"></a>Tworzenie kolumn obliczeniowych
 
 W tej lekcji utworzysz dane w modelu przez dodanie kolumn obliczeniowych. Możesz tworzyć kolumny obliczeniowe (jako kolumny niestandardowe) podczas korzystania z funkcji pobierania danych i edytora zapytań, lub też później, przy użyciu projektanta modeli zgodnie z opisem poniżej. Aby dowiedzieć się więcej, zobacz temat [Kolumny obliczeniowe](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   

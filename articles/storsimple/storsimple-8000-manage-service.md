@@ -14,19 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Wdrażanie usługi Menedżer StorSimple urządzenia dla urządzeń z serii StorSimple 8000
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Usługa Menedżera urządzeń StorSimple działa na platformie Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Po utworzeniu usługi musisz służy do zarządzania wszystkie urządzenia, które są połączone z usługą Menedżera urządzeń StorSimple z jednej centralnej lokalizacji, minimalizując w ten sposób nakładu prac administracyjnych.
 
 W tym samouczku opisano kroki wymagane do tworzenia, usuwania, migracji usługi i zarządzanie klucz rejestracji usługi. Informacje zawarte w tym artykule ma zastosowanie tylko do urządzeń z serii StorSimple 8000. Aby uzyskać więcej informacji dotyczących tablic wirtualnego StorSimple, przejdź do [wdrożyć usługę Menedżer StorSimple urządzenia dla macierzy wirtualnego StorSimple](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Wszyscy menedżerowie klasycznego urządzenia StorSimple zostały automatycznie przeniesione do nowego portalu Azure. Jeśli masz pytania, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md). Polecenia cmdlet programu PowerShell usługi Azure Service Management (ASM) nie są obsługiwane po przeniesieniu do nowego portalu Azure. Zaktualizuj skrypty w celu zarządzania urządzeniami, a następnie przejdź do [skryptów użycia usługi Azure Resource Manager SDK do zarządzania urządzeniami StorSimple](storsimple-8000-automation-azurerm-scripts.md) Aby uzyskać więcej informacji. Nowy portal Azure obsługuje urządzenia z systemem aktualizacji w wersji 5.0 lub nowszej. Jeśli urządzenie nie jest aktualny, natychmiast zainstalować aktualizacji 5. Aby uzyskać więcej informacji, przejdź do [zainstalować aktualizacji 5](storsimple-8000-install-update-5.md). Jeśli używasz urządzenia StorSimple w chmurze (8010/8020), nie można zaktualizować urządzenia chmury. Najnowszą wersję oprogramowania umożliwia utworzenie nowego urządzenia chmury z aktualizacji w wersji 5.0, a następnie przełączyć nowy urządzenia chmury utworzony. Wszystkie urządzenia z uruchomioną aktualizacją 4.0 lub wcześniejszym może wystąpić [funkcjonalność zarządzania ograniczona](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Tworzenie usługi
 Aby utworzyć usługę Menedżer urządzeń StorSimple, wymagane są:
@@ -57,86 +60,6 @@ Dla każdej usługi Menedżera urządzeń StorSimple istnieją następujące atr
 * **Stan** — stan usługi, która może być **Active**, **tworzenie**, lub **Online**.
 * **Lokalizacja** — lokalizacji geograficznej, w którym zostanie wdrożone urządzenie StorSimple.
 * **Subskrypcja** — rozliczeń subskrypcji, która jest skojarzona z usługą.
-
-## <a name="move-a-service-to-azure-portal"></a>Przenieś usługi do portalu Azure
-Z serii StorSimple 8000 można teraz zarządzać w portalu Azure. Jeśli masz istniejącą usługę do zarządzania urządzeniami StorSimple, zaleca się przenieść usługi do portalu Azure. Klasyczny portal Azure usługi Menedżer StorSimple nie jest obsługiwana po 30 września 2017 r. Jeśli chcesz przenieść do nowego portalu Azure, zobacz [zagadnienia dotyczące przejścia](#considerations-for-transition). 
-
-> [!NOTE]
-> Od 5 października 2017 klasycznego menedżerowie urządzenia StorSimple automatycznie zostanie przeniesione do nowego portalu Azure. To jest etapowego wdrażania i firma Microsoft będzie można aktualizować o przeniesienie za pośrednictwem poczty e-mail i powiadomień portalu. Jeśli masz pytania, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Zagadnienia dotyczące przejścia
-
-Przejrzyj wpływ migracji do nowego portalu Azure, przed przeniesieniem usługi.
-
-> [!NOTE]
-> Istniejących poleceń cmdlet programu PowerShell usługi Azure Service Management (ASM) nie są obsługiwane, po przeniesieniu do nowego portalu Azure. Zaktualizuj skryptów do zarządzania urządzeniami za pomocą zestawu SDK usługi Azure Resource Manager. Aby uzyskać więcej informacji, przejdź do [skryptów użycia usługi Azure Resource Manager SDK do zarządzania urządzeniami StorSimple](storsimple-8000-automation-azurerm-scripts.md).
-> Nowy portal Azure obsługuje urządzenia z systemem aktualizacji w wersji 3.0 lub nowszej. Jeśli urządzenie nie jest aktualny, zdecydowanie zaleca się zainstalowanie aktualizacji 5 tak szybko, jak to możliwe.
-
-#### <a name="before-you-transition"></a>Przed przejście
-
-* Urządzeniu jest uruchomiona aktualizacji w wersji 3.0 lub nowszej. Jeśli urządzenie działa starsza wersja, zdecydowanie zaleca się zainstalowanie aktualizacji 5 za pomocą metody poprawki. Aby uzyskać więcej informacji, przejdź do [zainstalować aktualizacji 5](storsimple-8000-install-update-5.md). Jeśli używasz urządzenia StorSimple w chmurze (8010/8020), nie można zaktualizować urządzenia chmury. Użyj najnowszej wersji oprogramowania do tworzenia nowego urządzenia chmury z aktualizacji w wersji 5.0 i następnie przełączyć nowy urządzenia chmury utworzony.
-
-* Gdy są są przenoszone do nowego portalu Azure, nie można użyć klasycznego portalu Azure do zarządzania urządzeniem StorSimple.
-
-* Przejście jest brak i nie ma żadnych przestojów w przypadku urządzenia.
-
-* Są optymalizowane wszystkich menedżerów urządzenia StorSimple w ramach określonej subskrypcji.
-
-#### <a name="during-the-transition"></a>Podczas przejścia
-
-* Nie można zarządzać urządzenia z portalu.
-* Operacje takie jak warstw i zaplanowanych kopii zapasowych nadal występują.
-* Nie usuwaj stare menedżerów urządzenia StorSimple, gdy trwa przejście.
-
-#### <a name="after-the-transition"></a>Po przejściu
-
-* Urządzenia nie będzie można zarządzać z klasycznego portalu.
-
-* Istniejących poleceń cmdlet programu PowerShell usługi Azure Service Management (ASM) nie są obsługiwane. Zaktualizuj skryptów do zarządzania urządzeniami za pomocą Menedżera zasobów Azure. Przykładowe skrypty przy użyciu zestawu SDK usługi Resource Manager, można znaleźć w temacie [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Konfiguracji usługi i urządzenia są zachowywane. Wszystkie woluminy i kopii zapasowych są również przeszła do portalu Azure.
-
-### <a name="begin-transition"></a>Rozpocznij przejścia
-
-Wykonaj poniższe kroki, aby przejść do portalu Azure usługi.
-
-1. Przejdź do istniejącej usługi Menedżer StorSimple w portalu Azure.
-    ![Więcej usług](./media/storsimple-8000-manage-service/service-browse01.png) ![Menedżera urządzeń wybierz](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. Zostanie wyświetlone powiadomienie informujące o tym, że usługi Menedżer StorSimple urządzenia są teraz dostępne w portalu Azure. W portalu Azure usługa nazywa się usługi Menedżera urządzeń StorSimple.
-    ![Migracja powiadomień](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Upewnij się, że użytkownik przejrzał pełnego wpływu migracji.
-    2. Zapoznaj się z listą menedżerów urządzenia StorSimple, który ma zostać przeniesiona z klasycznego portalu.
-
-3. Kliknij przycisk **migracji**. Przejście rozpoczyna się i może zająć kilka minut.
-
-Po zakończeniu przejścia można zarządzać urządzeniami za pomocą usługi Menedżer StorSimple urządzenia w portalu Azure. Jeśli nie widzisz opcję przeprowadzenia migracji do portalu Azure, ale chcesz przenieść, możesz [Prześlij żądanie](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Obsługiwane operacje na urządzeniach z systemem wersji wcześniejszych niż aktualizacja 3.0
-W portalu Azure obsługiwane są tylko urządzenia StorSimple uruchomioną aktualizacją 3.0 lub nowszej. Obsługują ograniczoną liczbę urządzeń, które są uruchomione wcześniejsze wersje. Po przeprowadzeniu migracji do portalu Azure, skorzystaj z poniższej tabeli, aby zrozumieć, jakie operacje są obsługiwane na urządzeniach z systemem wersji wcześniejszych niż aktualizacja 3.0.
-
-| Operacja                                                                                                                       | Obsługiwane      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Zarejestruj urządzenie                                                                                                               | Tak            |
-| Konfigurowanie ustawień urządzenia, takie jak ogólne, sieci i zabezpieczeń                                                                | Tak            |
-| Skanowanie, Pobierz i zainstaluj aktualizacje                                                                                             | Tak            |
-| Dezaktywować urządzenie                                                                                                               | Tak            |
-| Usuń urządzenie                                                                                                                   | Tak            |
-| Tworzenie, modyfikowanie i usuwanie kontenera woluminów                                                                                   | Nie             |
-| Tworzenie, modyfikowanie i usuwanie woluminu                                                                                             | Nie             |
-| Tworzenie, modyfikowanie i usuwanie zasad tworzenia kopii zapasowej                                                                                      | Nie             |
-| Wykonaj kopię zapasową ręczne                                                                                                            | Nie             |
-| Wykonać zaplanowaną kopię zapasową                                                                                                         | Nie dotyczy |
-| Przywrócenie z zestawu kopii zapasowych                                                                                                        | Nie             |
-| Klonowanie na urządzeniu z systemem aktualizacji w wersji 3.0 lub nowszy <br> Urządzenia źródłowego jest uruchomiona wersja przed 3.0 aktualizacji.                                | Tak            |
-| Klonowanie na urządzeniu z systemem wersji wcześniejszych niż aktualizacja 3.0                                                                          | Nie             |
-| Trybu failover jako urządzenia źródłowego <br> (z urządzenia z uruchomioną wersją, przed 3.0 aktualizacji na urządzeniu z systemem Update 3.0 i nowsze)                                                               | Tak            |
-| Trybu failover jako urządzenia docelowego <br> (na urządzenie z oprogramowaniem w wersji przed Update 3.0)                                                                                   | Nie             |
-| Wyczyść alert                                                                                                                  | Tak            |
-| Wyświetl zasady tworzenia kopii zapasowej, katalogu kopii zapasowej woluminów, kontenery woluminów, wykresy monitorowania, zadania i alerty tworzone w klasycznym portalu | Tak            |
-| Włączanie i wyłączanie kontrolery urządzeń                                                                                              | Tak            |
-
 
 ## <a name="delete-a-service"></a>Usuwanie usługi
 
@@ -263,7 +186,32 @@ Wykonaj poniższe kroki, aby zaktualizować usługę szyfrowania danych na urzą
 
 Ten skrypt zostanie upewnij się, że ten klucz szyfrowania danych usługi jest ustawiony na wszystkie urządzenia 8010/8020 chmury w Menedżerze urządzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Obsługiwane operacje na urządzenia z wersjami przed aktualizacji w wersji 5.0
+W portalu Azure obsługiwane są tylko urządzenia StorSimple uruchomioną aktualizacją 5.0 lub nowszej. Obsługują ograniczoną liczbę urządzeń, które są uruchomione wcześniejsze wersje. Po przeprowadzeniu migracji do portalu Azure, skorzystaj z poniższej tabeli, aby zrozumieć, jakie operacje są obsługiwane na urządzeniach z systemem wersje starsze niż 5.0 aktualizacji.
+
+| Operacja                                                                                                                       | Obsługiwane      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Zarejestruj urządzenie                                                                                                               | Yes            |
+| Konfigurowanie ustawień urządzenia, takie jak ogólne, sieci i zabezpieczeń                                                                | Yes            |
+| Skanowanie, Pobierz i zainstaluj aktualizacje                                                                                             | Yes            |
+| Dezaktywować urządzenie                                                                                                               | Yes            |
+| Usuń urządzenie                                                                                                                   | Yes            |
+| Tworzenie, modyfikowanie i usuwanie kontenera woluminów                                                                                   | Nie             |
+| Tworzenie, modyfikowanie i usuwanie woluminu                                                                                             | Nie             |
+| Tworzenie, modyfikowanie i usuwanie zasad tworzenia kopii zapasowej                                                                                      | Nie             |
+| Wykonaj kopię zapasową ręczne                                                                                                            | Nie             |
+| Wykonać zaplanowaną kopię zapasową                                                                                                         | Nie dotyczy |
+| Przywrócenie z zestawu kopii zapasowych                                                                                                        | Nie             |
+| Klonowanie na urządzeniu z systemem aktualizacji w wersji 3.0 lub nowszy <br> Urządzenia źródłowego jest uruchomiona wersja przed 3.0 aktualizacji.                                | Yes            |
+| Klonowanie na urządzeniu z systemem wersji wcześniejszych niż aktualizacja 3.0                                                                          | Nie             |
+| Trybu failover jako urządzenia źródłowego <br> (z urządzenia z uruchomioną wersją, przed 3.0 aktualizacji na urządzeniu z systemem Update 3.0 i nowsze)                                                               | Yes            |
+| Trybu failover jako urządzenia docelowego <br> (na urządzenie z oprogramowaniem w wersji przed Update 3.0)                                                                                   | Nie             |
+| Wyczyść alert                                                                                                                  | Yes            |
+| Wyświetl zasady tworzenia kopii zapasowej, katalogu kopii zapasowej woluminów, kontenery woluminów, wykresy monitorowania, zadania i alerty tworzone w klasycznym portalu | Yes            |
+| Włączanie i wyłączanie kontrolery urządzeń                                                                                              | Yes            |
+
+
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [procesu wdrażania StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Dowiedz się więcej o [Zarządzanie kontem magazynu StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Dowiedz się więcej o sposobie [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple urządzenia](storsimple-8000-manager-service-administration.md).

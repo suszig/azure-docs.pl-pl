@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Jak zarządzać aplikacji funkcji w portalu Azure 
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat pracy z ustawieniami usługi aplikacji,
 
 | | |
 |-|-|
-| ![Funkcja aplikacji ustawienia aplikacji.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Usługi aplikacji **ustawienia aplikacji** bloku jest gdzie Konfigurowanie i zarządzanie nimi framework w wersji, debugowania zdalnego, ustawienia aplikacji i parametry połączenia. Po zintegrowaniu aplikacji funkcji z innymi usługami innych firm i Azure można modyfikować tych ustawień w tym miejscu. |
+| ![Funkcja aplikacji ustawienia aplikacji.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Usługi aplikacji **ustawienia aplikacji** bloku jest gdzie Konfigurowanie i zarządzanie nimi framework w wersji, debugowania zdalnego, ustawienia aplikacji i parametry połączenia. Po zintegrowaniu aplikacji funkcji z innymi usługami innych firm i Azure można modyfikować tych ustawień w tym miejscu. Aby usunąć ustawienie, przewiń w prawo i wybierz **X** ikonę na prawym końcu wiersza (tego nie pokazano na poniższej ilustracji).
 
 ![Konfigurowanie ustawień aplikacji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ Aby uzyskać więcej informacji na temat pracy z ustawieniami usługi aplikacji,
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 + [Konfigurowanie ustawień usługi aplikacji Azure](../app-service/web-sites-configure.md)
 + [Ciągłe wdrażanie dla usługi Azure Functions](functions-continuous-deployment.md)

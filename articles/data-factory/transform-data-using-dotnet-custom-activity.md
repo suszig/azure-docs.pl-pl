@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,11 +107,11 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 | Właściwość              | Opis                              | Wymagane |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nazwa działania w potoku     | Tak      |
+| name                  | Nazwa działania w potoku     | Yes      |
 | description           | Tekst opisujący działanie robi.  | Nie       |
-| type                  | Dla działania niestandardowego typu działania jest **niestandardowy**. | Tak      |
-| linkedServiceName     | Połączonej usługi partia zadań Azure. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu.  | Tak      |
-| polecenie               | Polecenia niestandardowych aplikacji do wykonania. Jeśli aplikacja jest już dostępne w węźle puli usługi partia zadań Azure, resourceLinkedService i folderPath można pominięte. Na przykład można określić polecenie, aby być `cmd /c dir`, które jest obsługiwane przez węzeł puli partii systemu Windows. | Tak      |
+| type                  | Dla działania niestandardowego typu działania jest **niestandardowy**. | Yes      |
+| linkedServiceName     | Połączonej usługi partia zadań Azure. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu.  | Yes      |
+| polecenie               | Polecenia niestandardowych aplikacji do wykonania. Jeśli aplikacja jest już dostępne w węźle puli usługi partia zadań Azure, resourceLinkedService i folderPath można pominięte. Na przykład można określić polecenie, aby być `cmd /c dir`, które jest obsługiwane przez węzeł puli partii systemu Windows. | Yes      |
 | resourceLinkedService | Azure połączonej usługi magazynu do konta magazynu, w którym przechowywana jest aplikacja niestandardowych | Nie       |
 | folderPath            | Ścieżka do folderu niestandardowych aplikacji i wszystkich jego zależności | Nie       |
 | referenceObjects      | Tablica istniejących połączonych usług i zestawów danych. Przywoływany połączonych usług i zestawy danych są przekazywane do niestandardowych aplikacji w formacie JSON, więc niestandardowy kod może odwoływać się zasobów z fabryką danych | Nie       |
@@ -331,7 +331,7 @@ Jeśli chcesz korzystać z zawartości stdout.txt działania podrzędne, można 
    - Pakiet Microsoft.Azure.Management.DataFactories NuGet nie jest już wymagane. 
    - Kompilowanie kodu, Przekaż plik wykonywalny i zależności do magazynu Azure i określenia ścieżki we właściwości folderPath. 
 
-Dla kompletnego przykładu sposób pełnego biblioteki DLL i potoku próbka opisanych w dokumencie V1 fabryki danych [skorzystać z działań niestandardowych w potoku fabryki danych Azure](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) można zmodyfikować w stylu działania niestandardowego V2 fabryki danych. Zapoznaj się [działania niestandardowe V2 fabryki danych przykładowych](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Dla kompletnego przykładu sposób pełnego biblioteki DLL i potoku próbka opisanych w dokumencie V1 fabryki danych [skorzystać z działań niestandardowych w potoku fabryki danych Azure](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) można zmodyfikować w stylu działania niestandardowego V2 fabryki danych. Zapoznaj się [działania niestandardowe V2 fabryki danych przykładowych](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatyczne skalowanie partii zadań Azure
 Można również utworzyć puli partii zadań Azure z **skalowania automatycznego** funkcji. Na przykład można utworzyć puli partii zadań azure 0 dedykowanych maszyn wirtualnych i formuły skalowania automatycznego na podstawie liczby oczekujących zadań. 
@@ -353,7 +353,7 @@ Zobacz [automatycznie skali obliczeniowe węzłów w puli partii zadań Azure](.
 Jeśli w puli jest przy użyciu domyślnego [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), usługa partia zadań może zająć 15 do 30 minut, aby przygotować maszyny Wirtualnej przed uruchomieniem działania niestandardowego.  Jeśli pula używa innego autoScaleEvaluationInterval, usługa partia zadań może zająć autoScaleEvaluationInterval + 10 minut.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

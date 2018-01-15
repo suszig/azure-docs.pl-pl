@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralne zarządzanie Zarządzanie usługami IT — elementów roboczych za pomocą łącznika zarządzania usługi IT (wersja zapoznawcza)
 
@@ -104,7 +104,7 @@ ServiceDeskWorkItemType_s = "Zdarzenie"
 - Element źródłowy
 - Przypisano do
 - Kategoria
-- Tytuł
+- Stanowisko
 - Opis
 - Data utworzenia
 - Data zamknięcia
@@ -124,7 +124,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 - Zamknięte przez
 - Element źródłowy
 - Przypisano do
-- Tytuł
+- Stanowisko
 - Typ
 - Kategoria
 - Stan
@@ -156,7 +156,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | Impact_s |Wpływ|
 | Priority_s | Priorytet |
 | CreatedBy_s | Otwarty przez |
-| ResolvedBy_s | Rozwiązany przez|
+| ResolvedBy_s | Rozwiązane przez|
 | ClosedBy_s  | Zamknięte przez |
 | Source_s| Skontaktuj się z typu |
 | AssignedTo_s | Przypisano do  |
@@ -165,7 +165,7 @@ ServiceDeskWorkItemType_s = "Żądanie zmiany"
 | Description_s|  Uwagi |
 | CreatedDate_t|  Otwierano |
 | ClosedDate_t| zamknięte|
-| ResolvedDate_t|Rozwiązane|
+| ResolvedDate_t|Rozwiązany|
 | Computer (Komputer)  | element konfiguracji |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dane wyjściowe dla usługi ServiceNow żądania zmiany
@@ -292,11 +292,11 @@ Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, k
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Rozwiązywanie problemów z połączeniami Zarządzanie usługami IT — w OMS
 1.  Jeśli połączenie nie powiedzie się z poziomu interfejsu użytkownika połączenia źródła z **błąd podczas zapisywania połączenia** wiadomości, wykonaj następujące czynności:
- - W przypadku połączeń usługi ServiceNow, Cherwell i Provance  
-        -Upewnij się, poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
-        -Sprawdź, czy masz wystarczające uprawnienia w produktu Zarządzanie usługami IT — do nawiązania połączenia.  
- - W przypadku połączeń programu Service Manager  
-        -Sprawdź, czy aplikacja sieci Web zostanie pomyślnie wdrożona i utworzeniu połączenia hybrydowego. Aby sprawdzić pomyślnym nawiązaniu połączenia z komputera lokalnego programu Service Manager, odwiedź adres URL aplikacji sieci Web zgodnie z opisem w dokumentacji dotyczącej wprowadzania [połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- W przypadku połączeń usługi ServiceNow, Cherwell i Provance  
+       -Upewnij się, poprawnie wprowadzono nazwę użytkownika, hasło, identyfikator klienta i klucz tajny klienta dla każdego połączenia.  
+       -Sprawdź, czy masz wystarczające uprawnienia w produktu Zarządzanie usługami IT — do nawiązania połączenia.  
+- W przypadku połączeń programu Service Manager  
+       -Sprawdź, czy aplikacja sieci Web zostanie pomyślnie wdrożona i utworzeniu połączenia hybrydowego. Aby sprawdzić pomyślnym nawiązaniu połączenia z komputera lokalnego programu Service Manager, odwiedź adres URL aplikacji sieci Web zgodnie z opisem w dokumentacji dotyczącej wprowadzania [połączenia hybrydowego](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Jeśli dane z usługi ServiceNow jest wprowadzenie nie zostały zsynchronizowane z analizy dzienników, upewnij się, że usługi ServiceNow, wystąpienie nie jest uśpiony. Wystąpień deweloperów usługi ServiceNow czasami Przejdź w stan uśpienia podczas bezczynności przez dłuższy okres. W przeciwnym wypadku zgłosić problem.
 3.  Jeśli alerty OMS wyzwalać, ale działa elementy nie są tworzone w produkcie Zarządzanie usługami IT — lub elementy konfiguracji nie są utworzone/połączone elementy robocze lub inne informacje ogólne, można znaleźć w następujących miejscach:
@@ -313,5 +313,5 @@ Podczas tworzenia/edytowania Azure reguły alertu, należy użyć grupy akcji, k
 
 Dla zapytania lub opinii na temat łącznika zarządzania usługi IT, skontaktuj się z nami pod adresem [ omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dodaj do łącznika zarządzania usługi IT zarządzanie usługami IT — produktów/usług](log-analytics-itsmc-connections.md).

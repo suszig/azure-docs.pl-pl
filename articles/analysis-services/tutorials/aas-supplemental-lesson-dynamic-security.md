@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 919094c5e8c528810ce6545d6b0cf8d9f95cca2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7512af39041090db22d4ef45ec46925c14c4adb9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lekcja uzupełniająca — zabezpieczenia dynamiczne
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 W tej lekcji uzupełniającej utworzysz dodatkową rolę w celu zaimplementowania zabezpieczeń dynamicznych. Zabezpieczenia dynamiczne zapewniają zabezpieczenia na poziomie wierszy w oparciu o nazwę użytkownika lub identyfikator logowania aktualnie zalogowanego użytkownika. 
   
@@ -112,10 +110,10 @@ W tym zadaniu ukryjesz tabelę EmployeeSecurity, aby uniemożliwić jej wyświet
 -   W projektancie modeli, w widoku diagramu kliknij prawym przyciskiem myszy nagłówek tabeli **Employee**, a następnie kliknij pozycję **Ukryj przed narzędziami klienta**.  
   
 ## <a name="create-a-sales-employees-by-territory-user-role"></a>Tworzenie roli użytkownika Sales Employees by Territory  
-W tym zadaniu utworzysz rolę użytkownika. Ta rola zawiera filtr wierszy, który definiuje wiersze w tabeli DimSalesTerritory widoczne dla użytkowników. Ten filtr jest następnie stosowany w kierunku relacji jeden-do-wielu w odniesieniu do wszystkich pozostałych tabel powiązanych z tabelą DimSalesTerritory. Zastosowany zostanie także filtr, który zabezpiecza całą tabelę EmployeeSecurity przed obsługą zapytań wykonywanych przez dowolnego użytkownika będącego elementem członkowskim roli.  
+W tym zadaniu utworzysz rolę użytkownika. Ta rola zawiera filtr wierszy, który definiuje wiersze w tabeli DimSalesTerritory widoczne dla użytkowników. Ten filtr jest następnie stosowany w kierunku relacji jeden-do-wielu w odniesieniu do wszystkich pozostałych tabel powiązanych z tabelą DimSalesTerritory. Zastosowany zostanie także filtr, który zabezpiecza całą tabelę EmployeeSecurity przed obsługą zapytań wykonywanych przez dowolnego użytkownika będącego członkiem roli.  
   
 > [!NOTE]  
-> Utworzona w tej lekcji rola Sales Employees by Territory (Pracownicy sprzedaży według regionu) ogranicza przeglądanie i wykonywanie zapytań przez elementy członkowskie wyłącznie do danych sprzedaży dotyczących regionu, do którego należą. Jeśli jako element członkowski roli Sales Employees by Territory zostanie dodany użytkownik, który jest także elementem członkowskim roli utworzonej w [lekcji 11 „Tworzenie ról”](../tutorials/aas-lesson-11-create-roles.md), uzyskujemy kombinację uprawnień. W przypadku użytkownika będącego elementem członkowskim wielu ról następuje kumulacja uprawnień i filtrów wierszy zdefiniowanych dla każdej roli. Oznacza to, że użytkownik ma większe uprawnienia określone przez kombinację ról.  
+> Utworzona w tej lekcji rola Sales Employees by Territory (Pracownicy sprzedaży według regionu) ogranicza przeglądanie i wykonywanie zapytań przez członków wyłącznie do danych sprzedaży dotyczących regionu, do którego należą. Jeśli jako członek roli Sales Employees by Territory zostanie dodany użytkownik, który jest także członkiem roli utworzonej w [lekcji 11 „Tworzenie ról”](../tutorials/aas-lesson-11-create-roles.md), uzyskujemy kombinację uprawnień. W przypadku użytkownika będącego członkiem wielu ról następuje kumulacja uprawnień i filtrów wierszy zdefiniowanych dla każdej roli. Oznacza to, że użytkownik ma większe uprawnienia określone przez kombinację ról.  
   
 #### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Tworzenie roli użytkownika Sales Employees by Territory  
   
@@ -129,7 +127,7 @@ W tym zadaniu utworzysz rolę użytkownika. Ta rola zawiera filtr wierszy, któr
   
 4.  W kolumnie **Uprawnienia** kliknij listę rozwijaną i wybierz uprawnienie **Odczyt**.  
   
-5.  Kliknij kartę **Elementy członkowskie**, a następnie kliknij pozycję **Dodaj**.  
+5.  Kliknij kartę **Członkowie**, a następnie kliknij pozycję **Dodaj**.  
   
 6.  W oknie dialogowym **Wybieranie użytkownika lub grupy**, w obszarze **Wprowadź nazwę obiektu do wybrania** wpisz pierwszą przykładową nazwę użytkownika użytą podczas tworzenia tabeli EmployeeSecurity. Kliknij przycisk **Sprawdź nazwy**, aby sprawdzić poprawność nazwy użytkownika, a następnie kliknij przycisk **OK**.  
   
@@ -143,7 +141,7 @@ W tym zadaniu utworzysz rolę użytkownika. Ta rola zawiera filtr wierszy, któr
       =FALSE()  
     ```
   
-    Ta formuła określa, że żadna kolumna nie spełnia warunku logicznego. Żadna kolumna tabeli EmployeeSecurity nie może być przeszukiwana przez element członkowski roli użytkownika Sales Employees by Territory.  
+    Ta formuła określa, że żadna kolumna nie spełnia warunku logicznego. Żadna kolumna tabeli EmployeeSecurity nie może być przeszukiwana przez członka roli użytkownika Sales Employees by Territory.  
   
 9. W odniesieniu do tabeli **DimSalesTerritory** wpisz następującą formułę:  
 
@@ -161,7 +159,7 @@ W tym zadaniu utworzysz rolę użytkownika. Ta rola zawiera filtr wierszy, któr
 10. W obszarze Menedżer ról kliknij przycisk **OK**.  
   
 ## <a name="test-the-sales-employees-by-territory-user-role"></a>Testowanie roli użytkownika Sales Employees by Territory  
-W tym zadaniu przetestujesz skuteczność roli użytkownika Sales Employees by Territory, korzystając z funkcji Analiza w programie Excel dostępnej w programie SSDT. Należy podać jedną z nazw użytkowników, która została dodana do tabeli EmployeeSecurity i jako element członkowski roli. Ta nazwa użytkownika jest następnie używana jako obowiązująca nazwa użytkownika w połączeniu utworzonym między programem Excel a modelem.  
+W tym zadaniu przetestujesz skuteczność roli użytkownika Sales Employees by Territory, korzystając z funkcji Analiza w programie Excel dostępnej w programie SSDT. Należy podać jedną z nazw użytkowników, która została dodana do tabeli EmployeeSecurity i jako członek roli. Ta nazwa użytkownika jest następnie używana jako obowiązująca nazwa użytkownika w połączeniu utworzonym między programem Excel a modelem.  
   
 #### <a name="to-test-the-sales-employees-by-territory-user-role"></a>Testowanie roli użytkownika Sales Employees by Territory  
   

@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Co to jest Azure czas serii Insights?
 
 Czas serii Insights zaprojektowano pod kątem przechowywania, wizualizowanie i badania dużych ilości danych serii czasu, takich jak generowany przez urządzenia IoT.  Jeśli chcesz przechowywać, zarządzanie, zapytania lub wizualizacji danych w serii. czas w chmurze, czas serii Insights prawdopodobnie dla odpowiedni.  
 
-Jeśli tworzysz aplikację na użytek wewnętrzny lub zewnętrzny klientów do użycia, czas serii Insights może służyć jako wewnętrznej bazy danych do indeksowania, przechowywania i agregowanie danych serii czasu.  Można tworzyć niestandardowe wizualizacji i środowisko użytkownika w górnej części.  Czas serii Insights udostępnia interfejsy API zapytania REST do realizacji tego scenariusza.  
+Czas serii Insights ma cztery zadania klucza:
+
+- Najpierw należy go jest w pełni zintegrowana z bramy chmury, takich jak Centrum IoT Azure i usługi Azure Event Hubs. Możesz łatwo łączy do tych źródeł zdarzeń i analizuje JSON z wiadomości i struktury danych w czystej wierszy i kolumn. Sprzężenia metadanych z telemetrii, a dane w magazynie kolumnowy indeksy.
+- Po drugie czas serii Insights zarządza magazynu danych. Aby upewnić się, że zawsze są łatwo dostępne dane, przechowuje dane w pamięci i SSD na maksymalnie 400 dni. Miliardów zdarzeń może interakcyjnie zapytania w sekundach — na żądanie.
+- Trzecie czas serii Insights udostępnia poza okno wizualizacji za pomocą Eksploratora TSI.  
+- Czwarty czas serii Insights udostępnia usługę zapytania, zarówno w Eksploratorze TSI, jak i za pomocą interfejsów API, które są łatwo ją zintegrować dla osadzanie danych serii czasu w aplikacje niestandardowe.  
+
+Jeśli tworzysz aplikację na użytek wewnętrzny lub zewnętrzny klientów do użycia, czas serii Insights może służyć jako zaplecza do indeksowania, przechowywania i agregowanie danych serii czasu. Można tworzyć niestandardowe wizualizacji i środowisko użytkownika w górnej części.  Czas serii Insights udostępnia interfejsy API zapytania do realizacji tego scenariusza.  
 
 Jeśli nie wiesz, jeśli dane są szeregów czasowych, Oto co należy wiedzieć.  Czas serii danych reprezentuje jak zasobów lub proces zmienia się wraz z upływem czasu.  Jest on unikatowy, w tym ma sygnaturę czasową, a czas jest największe znaczenie jako oś.  Czas serii danych zwykle dociera w kolejności czasu i zwykle jest traktowana jako instrukcji insert, a nie aktualizacji do bazy danych.  Ponieważ Insights serii czasu powoduje przechwycenie i przechowywanie każdej nowe zdarzenie jako wiersz, zmiany jest mierzony w czasie, umożliwiając do wyszukiwania do tyłu i do przewidywania przyszłych zmian.  W dużych woluminów przechowywania, indeksowania, zapytań, analizy i Środek wywołujący danych serii czasu może być trudne.  
 

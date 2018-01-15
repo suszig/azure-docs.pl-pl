@@ -11,7 +11,7 @@
 
 | Dystrybucja | Sterownik |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Oparty na systemie CentOS 7.3 | Sterownik gałęzi R384 NVIDIA siatki 5.0|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Oparty na systemie CentOS 7.3 | 5.2 siatki NVIDIA, sterownika gałęzi R384|
 
 > [!NOTE]
 > Microsoft ponownie dystrybuuje instalatorów sterownika NVIDIA siatki dla maszyn wirtualnych z wirtualizacją sieci. Zainstaluj tylko te sterowniki siatki na maszynach wirtualnych z wirtualizacją sieci platformy Azure. Te sterowniki obejmują licencjonowania siatki wirtualnej oprogramowania procesora GPU na platformie Azure.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: ca16a7fe424e9c50ce87b150442dd18ff0d6ce91
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -80,7 +80,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
    <a id="max-connection"></a>
 3. **Zwiększ MaxPoolSize na host w trybie bramy**
 
-    Azure DB rozwiązania Cosmos żądania są wykonywane za pośrednictwem protokołu HTTPS/REST w trybie bramy i są poddawane domyślny limit połączeń na nazwę hosta lub adres IP. Konieczne może być równa MaxPoolSize nowszej (200-1000) tak, aby biblioteka klienta może korzystać z wielu równoczesnych połączeń do bazy danych Azure rozwiązania Cosmos. W zestawie SDK Java, wartością domyślną dla [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) to 100. Użyj [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) Aby zmienić wartość.
+    Azure DB rozwiązania Cosmos żądania są wykonywane za pośrednictwem protokołu HTTPS/REST w trybie bramy i są poddawane domyślny limit połączeń na nazwę hosta lub adres IP. Konieczne może być równa MaxPoolSize nowszej (200-1000) tak, aby biblioteka klienta może korzystać z wielu równoczesnych połączeń do bazy danych Azure rozwiązania Cosmos. W zestawie SDK Java, wartością domyślną dla [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) to 100. Użyj [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) Aby zmienić wartość.
 
 4. **Dostrajanie równoległe zapytania dla kolekcji partycjonowanych**
 
@@ -96,7 +96,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
 5. **Implementowanie wycofywania odstępach getRetryAfterInMilliseconds**
 
-    Podczas testowania wydajności, należy zwiększyć obciążenie dopóki mała liczba żądań pobrania ograniczany. Jeśli ograniczany, aplikacja kliencka powinna wycofywania na ograniczania dla interwału ponawiania określić serwer. Przestrzeganie wycofywania zapewnia spędzają na skraca czas oczekiwania między kolejnymi próbami. Obsługa zasad ponawiania znajduje się w wersji 1.8.0 lub nowszym z [zestawu Java SDK](documentdb-sdk-java.md). Aby uzyskać więcej informacji, zobacz [Exceeding zastrzeżone ograniczenia przepływności](request-units.md#RequestRateTooLarge) i [getRetryAfterInMilliseconds](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Podczas testowania wydajności, należy zwiększyć obciążenie dopóki mała liczba żądań pobrania ograniczany. Jeśli ograniczany, aplikacja kliencka powinna wycofywania na ograniczania dla interwału ponawiania określić serwer. Przestrzeganie wycofywania zapewnia spędzają na skraca czas oczekiwania między kolejnymi próbami. Obsługa zasad ponawiania znajduje się w wersji 1.8.0 lub nowszym z [zestawu Java SDK](documentdb-sdk-java.md). Aby uzyskać więcej informacji, zobacz [Exceeding zastrzeżone ograniczenia przepływności](request-units.md#RequestRateTooLarge) i [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
 6. **Skalowanie w poziomie obciążenia klientami**
 
     Jeśli testujesz na poziomach wysokiej przepływności (> 50 000 RU/s), może stać się aplikacja kliencka "wąskie gardło" z powodu maszyny nakładanie się na użycie procesora CPU lub sieci. Jeśli osiągnąć tego punktu, można nadal push dodatkowe konto bazy danych Azure rozwiązania Cosmos przez skalowania aplikacji klienta na wielu serwerach.
@@ -112,7 +112,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Aby zmniejszyć liczbę sieci przekazywanych wymagany do pobrania wszystkich odpowiednich wyników, można zwiększyć za pomocą rozmiar strony [x-ms-max elementu count](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) nagłówek żądania do maksymalnie 1000. W przypadkach, gdy konieczne jest wyświetlenie tylko kilka wyniki, na przykład jeśli użytkownik interfejsu lub aplikacji interfejsu API zwraca tylko 10 powoduje przez czas, można także zmniejszyć rozmiar strony do 10 do zmniejszenia przepustowości używane dla operacji odczytu i zapytań.
 
-    Można również ustawić przy użyciu rozmiaru strony [metody setPageSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Można również ustawić przy użyciu rozmiaru strony [metody setPageSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Zasady indeksowania
  
@@ -143,7 +143,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Złożoność kwerendy wpływa na liczbę jednostek żądania są używane dla operacji. Liczba predykatów, rodzaj predykaty, liczba funkcji UDF i rozmiaru zestawu danych źródła wszystkich wpływ kosztów operacji zapytania.
 
-    Do mierzenia obciążenie wszelkie operacje (Tworzenie, aktualizowanie lub usuwanie), sprawdzić [x-ms żądania — opłata](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) nagłówka (lub równoważne właściwości RequestCharge w [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) lub [FeedResponse<T> ](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_response) do mierzenia liczby jednostek żądania używanych przez te operacje.
+    Do mierzenia obciążenie wszelkie operacje (Tworzenie, aktualizowanie lub usuwanie), sprawdzić [x-ms żądania — opłata](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) nagłówka (lub równoważne właściwości RequestCharge w [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) lub [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) do mierzenia liczby jednostek żądania używanych przez te operacje.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -163,7 +163,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Zestawy SDK wszystkie niejawnie catch tej odpowiedzi, Szanujemy określony serwer ponownych prób po nagłówka i ponów żądanie. Następna ponowna próba powiedzie się, chyba że Twoje konto jest uzyskiwany jednocześnie przez wielu klientów.
 
-    Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego stale powyżej liczby żądań domyślnej liczby ponownych prób obecnie ustawioną 9 wewnętrznie przez klienta mogą być niewystarczające; w takim przypadku klient zgłasza [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) ze stanem kodu 429 do aplikacji. Liczby ponownych prób domyślne można zmienić za pomocą [setRetryOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) na [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) wystąpienia. Domyślnie DocumentClientException z kodem stanu 429 po skumulowany czas oczekiwania 30 sekund jest zwracany, jeśli żądanie będzie kontynuował pracę nad liczby żądań. Dzieje się tak nawet jeśli bieżąca liczba ponownych prób jest mniejsza od liczby ponownych prób max, jest to wartość domyślną 9 lub wartości zdefiniowanej przez użytkownika.
+    Jeśli masz więcej niż jednego klienta zbiorczo operacyjnego stale powyżej liczby żądań domyślnej liczby ponownych prób obecnie ustawioną 9 wewnętrznie przez klienta mogą być niewystarczające; w takim przypadku klient zgłasza [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) ze stanem kodu 429 do aplikacji. Liczby ponownych prób domyślne można zmienić za pomocą [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) na [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) wystąpienia. Domyślnie DocumentClientException z kodem stanu 429 po skumulowany czas oczekiwania 30 sekund jest zwracany, jeśli żądanie będzie kontynuował pracę nad liczby żądań. Dzieje się tak nawet jeśli bieżąca liczba ponownych prób jest mniejsza od liczby ponownych prób max, jest to wartość domyślną 9 lub wartości zdefiniowanej przez użytkownika.
 
     Podczas zachowanie zautomatyzowanych ponownych prób pomaga zwiększyć odporność oraz poziom użyteczności dla większości aplikacji, może ona w odds podczas wykonywania testów porównawczych wydajności, szczególnie w przypadku pomiaru opóźnienia.  Opóźnienie obserwowanych klienta zostanie chwilowo wzrastają Jeśli eksperyment trafienia ograniczania serwera i powoduje, że klient zestaw SDK, aby dyskretnie spróbuj ponownie. Aby uniknąć opóźnienia rzędu podczas eksperymenty wydajności, mierzyć opłata zwrócony przez każdej operacji i upewnij się, działania żądań poniżej liczby żądań zastrzeżone. Aby uzyskać więcej informacji, zobacz [jednostek żądania](request-units.md).
 3. **Projekt dla mniejszych dokumentów dotyczących wyższej przepustowości**

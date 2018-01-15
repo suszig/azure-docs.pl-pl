@@ -1,6 +1,6 @@
 ---
 title: "Uruchom usługi Azure Functions z zadania usługi analiza strumienia Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak konfigurowanie funkcji Azure ujściem danych wyjściowych do strumienia analityczne zadań."
+description: "Dowiedz się, jak skonfigurować usługi Azure Functions ujściem danych wyjściowych do zadania usługi analiza strumienia."
 keywords: "dane wyjściowe, strumieniowego przesyłania danych i funkcji platformy Azure"
 documentationcenter: 
 services: stream-analytics
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: adc147fc9f47e78cc0a2fcaf53f064bcfa5eee2c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Uruchom usługi Azure Functions z zadania usługi analiza strumienia Azure 
  
 > [!IMPORTANT]
 > Ta funkcja jest dostępna w wersji zapoznawczej.
 
-Azure Functions można uruchomić z usługą Azure Stream Analytics przez skonfigurowanie usługi Azure Functions wśród sink danych wyjściowych do zadania usługi analiza strumienia. Funkcja Azure jest zdarzeniami, środowisko obliczeń na żądanie, które umożliwia implementowania kodu wyzwalane przez zdarzenia występujące w Azure lub usług innych firm. Możliwość odpowiadanie na wyzwalaczy funkcji Azure ułatwia fizycznych danych wyjściowych do zadania usługi analiza strumienia Azure.
+Usługi Azure Functions można uruchomić z usługą Azure Stream Analytics, konfigurując funkcje wśród sink danych wyjściowych do zadania usługi analiza strumienia. Funkcje to środowisko sterowane zdarzeniami, obliczeń na żądanie, które umożliwia implementowania kodu wyzwalane przez zdarzenia występujące w Azure lub usług innych firm. Możliwość odpowiadanie na wyzwalaczy funkcji ułatwia fizycznych danych wyjściowych do zadania usługi analiza strumienia.
 
-Usługa Azure Stream Analytics wywołuje funkcję Azure za pomocą wyzwalaczy HTTP. Adapter wyjścia funkcji platformy Azure umożliwia użytkownikom nawiązywanie funkcji Azure Stream Analytics tak, aby zdarzenia mogą być wyzwalane opartych na kwerendach Stream Analytics. 
+Analiza strumienia wywołuje funkcje za pomocą wyzwalaczy HTTP. Adapter wyjścia funkcji umożliwia użytkownikom łączenie się Stream Analytics z z funkcji tak, aby zdarzenia mogą być wyzwalane opartych na kwerendach Stream Analytics. 
 
-W tym samouczku przedstawiono sposób połączenia usługi analiza strumienia Azure do [pamięć podręczna Redis Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) przy użyciu [usługi Azure Functions](../azure-functions/functions-overview.md). 
+Ten samouczek pokazuje, jak połączyć usługi Stream Analytics do [pamięć podręczna Redis Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md), za pomocą [usługi Azure Functions](../azure-functions/functions-overview.md). 
 
-## <a name="configure-stream-analytics-job-to-run-an-azure-function"></a>Skonfiguruj zadania usługi analiza strumienia do uruchomienia funkcji platformy Azure 
+## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Skonfiguruj uruchomienie funkcji zadania usługi analiza strumienia 
 
-W tej sekcji przedstawiono sposób konfigurowania funkcji platformy Azure, który zapisuje dane w pamięci podręcznej Redis Azure uruchomienie zadania usługi analiza strumienia. Zadanie Stream Analytics odczytuje zdarzenia z Centrum zdarzeń, wykonuje zapytania, który wywołuje funkcję platformy Azure. Ta funkcja Azure odczytuje dane z zadania usługi analiza strumienia i zapisuje go w pamięci podręcznej Redis Azure.
+W tej sekcji przedstawiono sposób konfigurowania zadania Stream Analytics, aby uruchomić funkcję, która zapisuje dane w pamięci podręcznej Redis Azure. Zadanie Stream Analytics odczytuje zdarzenia z usługi Azure Event Hubs i przeprowadza kwerendę, która wywołuje funkcję. Ta funkcja odczytuje dane z zadania usługi analiza strumienia i zapisuje go w pamięci podręcznej Redis Azure.
 
-![W samouczku ilustrowanie grafiki](./media/stream-analytics-with-azure-functions/image1.png)
+![Diagram przedstawiający relacje usług Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
 Poniższe kroki są wymagane do wykonania tego zadania:
-* [Utwórz zadanie usługi Stream Analytics z Centrum zdarzeń jako dane wejściowe.](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Tworzenie pamięci podręcznej Azure Redis.](#create-an-azure-redis-cache)  
-* [Tworzenie funkcji platformy Azure, który może zapisać danych w pamięci podręcznej Redis.](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Zaktualizuj analityczne strumienia zadania z funkcji platformy Azure jako dane wyjściowe.](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Sprawdź, czy pamięć podręczna Redis wyników.](#check-redis-cache-for-results)  
+* [Utwórz zadanie usługi Stream Analytics z usługą Event Hubs jako dane wejściowe](#create-stream-analytics-job-with-event-hub-as-input)  
+* [Utwórz wystąpienie pamięci podręcznej Redis Azure](#create-an-azure-redis-cache)  
+* [Utwórz funkcję za pomocą usługi Azure Functions, który może zapisać danych w pamięci podręcznej Redis Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Aktualizacja zadania Stream Analytics za pomocą funkcji jako dane wyjściowe](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Sprawdź, czy pamięć podręczna Redis Azure wyników](#check-redis-cache-for-results)  
 
-## <a name="create-stream-analytics-job-with-event-hub-as-input"></a>Utwórz zadanie usługi Stream Analytics z Centrum zdarzeń jako dane wejściowe
+## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Utwórz zadanie usługi Stream Analytics z usługą Event Hubs jako dane wejściowe
 
-Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md) samouczek tworzenia Centrum zdarzeń, uruchom aplikację generator zdarzenia i utworzyć Azure Stream Analytics (przejść przez kolejne kroki tworzenia zapytania i dane wyjściowe, należy zamiast tego można skonfigurować Środowisko Azure Functions dane wyjściowe w następnej sekcji.)
+Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-real-time-fraud-detection.md) samouczek tworzenia Centrum zdarzeń, uruchom aplikację generator zdarzenia i utworzyć zadania usługi analiza strumienia. (Pomiń kroki umożliwiające utworzenie zapytania i dane wyjściowe. Zamiast tego zobacz następujące sekcje umożliwiające konfigurowanie dane wyjściowe funkcji).
 
-## <a name="create-an-azure-redis-cache"></a>Tworzenie usługi Azure Redis Cache
+## <a name="create-an-azure-redis-cache-instance"></a>Utwórz wystąpienie pamięci podręcznej Redis Azure
 
-1. Tworzenie pamięci podręcznej Redis Azure za pomocą procedury opisanej w [tworzenia pamięci podręcznej](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) sekcji tego artykułu pamięci podręcznej Redis.  
+1. Tworzenie pamięci podręcznej w pamięci podręcznej Redis Azure za pomocą procedury opisanej w [tworzenia pamięci podręcznej](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Po utworzeniu pamięci podręcznej Redis, przejdź do utworzonego pamięci podręcznej > **klucze dostępu** > i zanotuj **parametry połączenia podstawowej**.
+2. Po utworzeniu pamięci podręcznej, w obszarze **ustawienia**, wybierz pozycję **klucze dostępu**. Zanotuj **parametry połączenia podstawowej**.
 
-   ![Parametry połączenia w pamięci podręcznej redis](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Parametry połączenia zrzut ekranu z pamięci podręcznej Redis Azure](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-an-azure-function-that-can-write-data-to-the-redis-cache"></a>Tworzenie funkcji platformy Azure, który może zapisać danych w pamięci podręcznej Redis
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Utwórz funkcję za pomocą usługi Azure Functions, który może zapisać danych w pamięci podręcznej Redis Azure
 
-1. Użyj [tworzenia aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) części dokumentacji usługi Azure Functions do tworzenia aplikacji funkcji platformy Azure i [funkcji wyzwalanej przez HTTP Azure](../azure-functions/functions-create-first-azure-function.md#create-function) (alias elementu Webhook) przy użyciu **CSharp** języka.  
+1. Zobacz [tworzenia aplikacji funkcji](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) części dokumentacji funkcji. To przeprowadzi Cię przez proces tworzenia aplikacji funkcji i [funkcji wyzwalanych przez protokół HTTP w usługi Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), przy użyciu języka CSharp.  
 
-2. Przejdź do **run.csx** funkcji i zaktualizować go następującym kodem (Upewnij się zastąpić "\<ciąg połączenia pamięci podręcznej redis tu\>" tekstu w pamięci podręcznej Redis parametry połączenia podstawowej Czy można pobrać w poprzedniej sekcji):  
+2. Przejdź do **run.csx** funkcji. Zaktualizuj go następującym kodem. (Pamiętaj zastąpić "\<ciąg połączenia pamięci podręcznej redis tu\>" z parametrami połączenia głównej pamięci podręcznej Redis Azure pobrany w poprzedniej sekcji.)  
 
    ```c#
    using System;
@@ -107,11 +107,11 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
       }
 
       return req.CreateResponse(HttpStatusCode.OK, "Got");
-}    
+    }    
 
    ```
 
-   Gdy analiza strumienia Azure odbiera 413 wyjątek (Http żądania jednostki zbyt duża liczba godzin) z funkcji platformy Azure, zmniejsza rozmiar partii, który wysyła do usługi Azure Functions. W funkcji platformy Azure należy użyć poniższego kodu, aby sprawdzić, czy usługi Azure Stream Analytics nie wysyła partie zbyt duży. Upewnij się, że maksymalna liczba i rozmiar wartości partii używany w funkcji są zgodne z wartości wprowadzone w portalu usługi analiza strumienia.
+   Gdy Stream Analytics odbiera "HTTP żądania jednostki zbyt duże" wyjątków od funkcji, zmniejsza rozmiar partii wysyłanych do funkcji. W funkcji należy użyć poniższego kodu, aby sprawdzić, czy usługi Stream Analytics nie wysyła partie zbyt duży. Upewnij się, że maksymalna liczba i rozmiar wartości partii używany w funkcji są zgodne z wartości wprowadzone w portalu usługi analiza strumienia.
 
    ```c#
    if (dataArray.ToString().Length > 262144)
@@ -120,7 +120,7 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
       }
    ```
 
-3. W edytorze tekstów wybranych przez użytkownika, należy utworzyć plik JSON o nazwie **project.json** następującym kodem, a następnie zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję c#.  
+3. W edytorze tekstów wybranych przez użytkownika, należy utworzyć plik JSON o nazwie **project.json**. Użyć poniższego kodu i zapisz go na komputerze lokalnym. Ten plik zawiera zależności pakietów NuGet, które są wymagane przez funkcję C#.  
    
    ```json
        {
@@ -136,35 +136,35 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
 
    ```
  
-4. Wróć do portalu Azure > Przejdź do funkcji Azure > z **funkcji platformy** kartę > kliknij **Edytor usług aplikacji** znajdującej się w obszarze **narzędzi programistycznych**. 
+4. Wróć do portalu Azure. Z **funkcji platformy** karcie, przejdź do funkcji. W obszarze **narzędzi programistycznych**, wybierz pozycję **Edytor usług aplikacji**. 
  
-   ![Ekran edytora usługi aplikacji](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Zrzut ekranu Edytor usługi aplikacji](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. W edytorze usługi aplikacji, kliknij prawym przyciskiem myszy w katalogu głównym i przekazać **project.json** pliku. Po pomyślnym przekazywania Odśwież stronę, powinien zostać wyświetlony plik wygenerowany automatycznie o nazwie **plikiem project.lock.json**.  Automatycznie wygenerowany plik zawiera odwołania do bibliotek DLL, które są określone w pliku Project.json.  
+5. W edytorze usługi aplikacji, kliknij prawym przyciskiem myszy katalogu głównego i przekazać **project.json** pliku. Po pomyślnym przekazywania Odśwież stronę. Powinien zostać wyświetlony plik wygenerowany automatycznie o nazwie **plikiem project.lock.json**. Automatycznie wygenerowany plik zawiera odwołania do plików .dll, które są określone w pliku project.json.  
 
-   ![Przekaż plik project.json](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Zrzut ekranu Edytor usługi aplikacji](./media/stream-analytics-with-azure-functions/image4.png)
 
  
 
-## <a name="update-the-stream-analytic-job-with-azure-function-as-output"></a>Aktualizacja zadania strumienia danych analitycznych z funkcji platformy Azure jako dane wyjściowe
+## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aktualizacja zadania Stream Analytics za pomocą funkcji jako dane wyjściowe
 
-1. Otwórz zadania usługi analiza strumienia Azure w portalu Azure.  
+1. Otwórz zadania Stream Analytics w portalu Azure.  
 
-2. Przejdź do funkcji Azure > **omówienie** > **dane wyjściowe** > **Dodaj** nowe dane wyjściowe > Wybierz **Azure—funkcja** opcji ujścia. Nowa karta danych wyjściowych funkcji platformy Azure są dostępne z następującymi właściwościami:  
+2. Przejdź do funkcji, a następnie wybierz **omówienie** > **dane wyjściowe** > **Dodaj**. Aby dodać nowe dane wyjściowe, zaznacz **funkcji platformy Azure** opcji ujścia. Nowa karta danych wyjściowych funkcji jest dostępna, z następującymi właściwościami:  
 
    |**Nazwa właściwości**|**Opis**|
    |---|---|
    |Alias wyjściowy| Przyjazna dla użytkownika nazwa używana w zapytaniu zadanie odwołania do danych wyjściowych. |
-   |Opcja importowania| Można użyć funkcji platformy azure z bieżącej subskrypcji lub skonfiguruj ustawienia ręcznie, jeśli funkcja znajduje się w innej subskrypcji. |
-   |Aplikacja funkcji| Nazwa aplikacji funkcji platformy Azure. |
+   |Opcja importowania| Można użyć funkcji z bieżącej subskrypcji lub skonfiguruj ustawienia ręcznie, jeśli funkcja znajduje się w innej subskrypcji. |
+   |Aplikacja funkcji| Nazwa funkcji aplikacji. |
    |Funkcja| Nazwa funkcji w funkcji aplikacji (nazwa funkcji run.csx).|
-   |Rozmiar partii maksymalna|Ta właściwość jest używana do ustawienia dla każdej partii danych wyjściowych, które są przesyłane do funkcji Azure maksymalny rozmiar. Domyślnie ta wartość jest równa 256 KB.|
-   |Maksymalna liczba wsadów|Tej właściwości można określić maksymalną liczbę zdarzeń w każdej z partii, wysyłany do funkcji platformy Azure. Wartość domyślna partii maksymalna liczba to 100. Ta właściwość jest opcjonalna.|
-   |Klucz|Ta właściwość umożliwia przy użyciu funkcji platformy Azure z innej subskrypcji. Podaj wartość klucza dostęp do funkcji. Ta właściwość jest opcjonalna.|
+   |Rozmiar partii maksymalna|Ustawia maksymalny rozmiar poszczególnych partii danych wyjściowych, które są przesyłane do funkcji. Domyślnie ta wartość jest równa 256 KB.|
+   |Maksymalna liczba wsadów|Określa maksymalną liczbę zdarzeń w każdej z partii, wysyłany do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
+   |Klucz|Pozwala na użycie funkcji z innej subskrypcji. Podaj wartość klucza dostęp do funkcji. Ta właściwość jest opcjonalna.|
 
-3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku będziemy nazwa **saop1** (możesz użyć innej nazwy wybór) i Wypełnij inne szczegóły.  
+3. Podaj nazwę aliasu danych wyjściowych. W tym samouczku będziemy nazwa **saop1** (możesz użyć dowolnej nazwy wybranych przez użytkownika). Wprowadź inne szczegóły.  
 
-4. Otwórz zadania usługi analiza strumienia i zaktualizuj zapytanie dla następujących (Upewnij się, że Zamień tekst "saop1", jeśli inne nazwy ujście danych wyjściowych):  
+4. Otwórz zadania usługi analiza strumienia i zaktualizuj zapytanie do następującego. (Upewnij się, że Zamień tekst "saop1", jeśli inne nazwy ujście danych wyjściowych).  
 
    ```sql
     SELECT 
@@ -177,26 +177,25 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Uruchom aplikację telcodatagen.exe, uruchamiając następujące polecenie w wierszu polecenia (polecenie przyjmuje format - `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`)  
+5. Uruchom aplikację telcodatagen.exe, uruchamiając następujące polecenie w wierszu polecenia (Użyj formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
    **telcodatagen.exe 1000.2 2**
     
-6.  Uruchom zadania usługi analiza strumienia.
+6.  Uruchom zadanie usługi Stream Analytics.
 
-## <a name="check-redis-cache-for-results"></a>Sprawdź, czy pamięć podręczna Redis wyników
+## <a name="check-azure-redis-cache-for-results"></a>Sprawdź, czy pamięć podręczna Redis Azure wyników
 
-1. Przejdź do portalu Azure i Znajdź pamięć podręczną Redis > Wybierz **konsoli**.  
+1. Przejdź do portalu Azure i Znajdź pamięć podręczna Redis Azure. Wybierz **konsoli**.  
 
-2. Użyj [poleceń pamięci podręcznej Redis](https://redis.io/commands) Aby sprawdzić, czy dane w pamięci podręcznej Redis. (Polecenie przyjmuje Get format {klucz}). Na przykład:
+2. Użyj [poleceń pamięci podręcznej Redis](https://redis.io/commands) Aby sprawdzić, czy dane w pamięci podręcznej Redis. (Polecenia przybiera format {klucza} Get.) Na przykład:
 
    **Pobierz "12/19/2017 21:32:24-123414732"**
 
    To polecenie należy wydrukować wartości dla określonego klucza:
 
-   ![Dane wyjściowe pamięci podręcznej redis](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Dane wyjściowe zrzut ekranu z pamięci podręcznej Redis Azure](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## <a name="known-issues"></a>Znane problemy
 
-* W portalu Azure, podczas próby Resetuj rozmiar partii Max-wartość maksymalna, liczba partii do empty(default), zmienia się do wcześniej wprowadzona wartość podczas zapisywania. Celowo w takim przypadku wprowadź wartości domyślne dla tych pól.
+W portalu Azure, podczas próby Resetuj rozmiar partii Max-wartość maksymalna, liczba partii opróżnić (ustawienie domyślne), wartość zostanie zmieniona wartość wcześniej wprowadzonych na Zapisz. Ręcznie w tym przypadku wprowadź wartości domyślne dla tych pól.
 
-## <a name="next-steps"></a>Kolejne kroki

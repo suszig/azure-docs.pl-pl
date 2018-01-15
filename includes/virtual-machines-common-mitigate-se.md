@@ -1,5 +1,7 @@
 
-**Dokument ostatniej aktualizacji**: 6 stycznia 6:30 strefy PST.
+
+
+**Dokument ostatniej aktualizacji**: 12 stycznia 3:00 PM PST.
 
 Ostatnie ujawnienie [nowa klasa luk w zabezpieczeniach Procesora](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) znany jako rozważana wykonywania ataków kanału po stronie spowodowało pytania, korzystając z wyszukiwania jasności więcej klientów.  
 
@@ -43,9 +45,7 @@ Jeśli korzysta z systemu Linux i hosting kodzie niezaufanym, należy również 
 
 
 
-
-
-
+Firma Microsoft będzie zaktualizować następujące najlepsze rozwiązania jako aktualizacje mikrokodu otrzymane od dostawcy sprzętu. Sprawdź, czy ponownie zaktualizowane wskazówki.
 
 
 ## <a name="next-steps"></a>Kolejne kroki

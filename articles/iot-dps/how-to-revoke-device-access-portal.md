@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Jak odwołać dostęp urządzenia do inicjowania obsługi usługi w portalu Azure
 
 Właściwego zarządzania poświadczenia urządzeń ma podstawowe znaczenie dla systemów wysokiej jakości, takie jak rozwiązania IoT. Najlepszym rozwiązaniem dla takich systemów ma Wyczyść plan jak odwołanie dostępu dla urządzeń w przypadkach, w którym swoje poświadczenia, czy SAS token lub certyfikatu X.509, mogą zostać przejęte. W tym artykule opisano sposób odwołać dostęp do urządzeń w kroku inicjowania obsługi administracyjnej.
 
-Aby dowiedzieć się więcej o odwołaniu dostępu urządzenia do Centrum IoT po urządzenia zainicjowano. zobacz [wyłączyć urządzenia](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Aby dowiedzieć się więcej o odwołaniu dostępu urządzenia do Centrum IoT po urządzenia zainicjowano. zobacz [wyłączyć urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Należy pamiętać o zasady ponawiania urządzeń, które odwołać dostęp. Na przykład urządzenie z zasady ponawiania nieskończone stale spróbuj zarejestrować w usłudze udostępniania zużywające zasoby usługi i prawdopodobnie wpływające na wydajność.

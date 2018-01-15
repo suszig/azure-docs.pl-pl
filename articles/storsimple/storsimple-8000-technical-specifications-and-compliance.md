@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Dane techniczne i zgodności dla urządzenia StorSimple
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Składniki sprzętowe urządzenia Microsoft Azure StorSimple stosować się do specyfikacji technicznych i norm opisane w tym artykule. Specyfikacja techniczna opisano zasilania i chłodzenia modułów (PCMs), stacji dysków, pojemności magazynu i obudowy. Informacje o zgodności omówiono czynności, takich jak międzynarodowe standardy, bezpieczeństwa i emisji i okablowanie.
 
@@ -35,7 +35,7 @@ Obudowa EBOD używa 580 W PCM i obudowy głównej używa 764 W PCM. W poniższyc
 | Specyfikacja | 580 W PCM (EBOD) | 764 W PCM (podstawowy) |
 | --- | --- | --- |
 | Maksymalna moc zasilania |580 W |764 |
-| częstotliwość |50/60 Hz |50/60 Hz |
+| Częstotliwość |50/60 Hz |50/60 Hz |
 | Wybranego zakresu napięcia |Automatycznie zakresu: V AC 90 — 264, 47/63 Hz |Automatycznie zakresu: 90-264 V AC, 47/63 Hz |
 | Bieżąca maksymalna zasypania |20 A |20 A |
 | Korekcja współczynnik zasilania |> 95% nominalnego napięcie wejściowe |> 95% nominalnego napięcie wejściowe |
@@ -43,7 +43,7 @@ Obudowa EBOD używa 580 W PCM i obudowy głównej używa 764 W PCM. W poniższyc
 | Dane wyjściowe |Napięcia wstrzymania 5V @ 2.0 A |Napięcia wstrzymania 5V @ 2.7 A |
 | + 5V @ 42 A |+ 5V @ 40 A | |
 | + 12V 38 A |+ 12V 38 A | |
-| Hot plug |Tak |Tak |
+| Hot plug |Yes |Yes |
 | Przełączniki i LED |Ak lub wyłącz przełącznika i wskaźnik stanu cztery LED |Ak lub wyłącz przełącznika i wskaźnik stanu sześciu LED |
 | Obudowa chłodzące |Osiowa chłodzenia wentylatory za pomocą zmiennej wentylator szybkości formantu |Osiowa chłodzenia wentylatory za pomocą zmiennej wentylator szybkości formantu |
 
@@ -80,7 +80,7 @@ Urządzenia StorSimple mieć kombinację dysków twardych i SSD 8100 i 8600. Ł�
 | Całkowita liczba można używać pojemności * |~ 15 TB |~ 38 TB |
 | Pojemność rozwiązania maksymalna (w tym chmury) |200 TB |500 TB. |
 
-<sup>* </sup>- *Całkowita pojemność można używać obejmuje pojemności dla danych, metadane i bufory.*
+<sup>* </sup>- *Całkowita pojemność można używać obejmuje pojemności dla danych, metadane i bufory. Można alokować woluminy przypięte lokalnie do 8,5 TB na urządzeniu 8100 lub do 22,5 TB na większym urządzeniu 8600. Aby uzyskać więcej informacji, przejdź do [woluminów przypiętych lokalnie StorSimple](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Obudowa wymiarów i specyfikacje wagi
 
@@ -116,7 +116,7 @@ W tej sekcji wymieniono wymagania związane ze środowiskiem obudowy. Temperatur
 
 | Obudowa | Zakres temperatury otoczenia | Wilgotność względna otoczenia | Maksymalna pomysłów wet |
 | --- | --- | --- | --- |
-| Operacyjne |5-35° C (41° F - 95° F) |20-80% z systemem innym niż-skondensowanie trzech- |28 C (82° F) |
+| Działa |5-35° C (41° F - 95° F) |20-80% z systemem innym niż-skondensowanie trzech- |28 C (82° F) |
 | Nie działa |-C 40-70° 40° F - 158° F |5-100% bez kondensacji |29 C (84° F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Powietrza, wysokość uderzenia, wibrację, orientacji, bezpieczeństwa i EMC
@@ -193,7 +193,7 @@ Wtyczka i pełny zestaw przewód muszą spełniać normy odpowiednie dla kraju, 
 
 10 GbE interfejsy sieciowe dane 2 i dane 3, można znaleźć w [listę obsługiwanych kable i moduły](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz można przystąpić do wdrażania urządzenia StorSimple w centrum danych. Aby uzyskać więcej informacji, zobacz [wdrażanie lokalnego urządzenia](storsimple-8000-deployment-walkthrough-u2.md).
 

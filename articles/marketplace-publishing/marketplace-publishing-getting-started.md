@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> Ta dokumentacja nie jest już aktualny i nie jest dokładne. Zamiast tego, przejdź do portalu Azure Marketplace [przewodnik sprzedawcy](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) wskazówki dotyczące publikowanie oferty w portalu Azure Marketplace.
+> Ta dokumentacja nie jest już aktualny i nie jest dokładne. Zamiast tego, przejdź do portalu Azure Marketplace [przewodnik sprzedawcy](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) wskazówki dotyczące publikowanie oferty w portalu Azure Marketplace.
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publikowanie i zarządzanie nimi oferty w portalu Azure Marketplace
 Aby pomóc deweloperom tworzenie, wdrażanie i zarządzanie ich rozwiązania wyświetlane w portalu Azure Marketplace dla innych klientów platformy Azure i partnerów, zakupu i użycie znajduje się w tym artykule.
@@ -63,7 +63,7 @@ Aby opublikować rozwiązaniem na rynku, wykonaj następujące kroki:
 
     b. Spełnienia [techniczne wymagania wstępne maszyny Wirtualnej](marketplace-publishing-vm-image-creation-prerequisites.md).
 
-    c. Spełnienia [wymagania wstępne dotyczące technicznej rozwiązanie szablonu](marketplace-publishing-solution-template-creation-prerequisites.md).
+    d. Spełnienia [wymagania wstępne dotyczące technicznej rozwiązanie szablonu](marketplace-publishing-solution-template-creation-prerequisites.md).
 
 2. Utwórz ofertę.
 
@@ -103,5 +103,5 @@ Zarządzanie za pomocą rozwiązania z następujących zasobów:
 * [Przywrócenie modelu rozliczeń do produkcji](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Przywróć ustawienie widoczności wymienionych SKU wartość produkcji](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 [Konfigurowanie programu Azure PowerShell](marketplace-publishing-powershell-setup.md)

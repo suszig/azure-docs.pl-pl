@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ad9a66e02318ad4a84d65062114c916721047888
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Uwierzytelnianie użytkownika końcowego przy użyciu zestawu .NET SDK usługi Data Lake Store
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ W tym artykule opisano sposób użycia zestawu .NET SDK w celu uwierzytelniania 
         ![Dodawanie źródła pakietów NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Tworzenie nowego konta usługi Azure Data Lake")
    4. Zamknij **Menedżera pakietów NuGet**.
 
-6. Otwórz plik **Program.cs**, usuń istniejący kod, a następnie dołącz poniższe instrukcje, aby dodać odwołania do przestrzeni nazw.
+6. Otwórz **Program.cs**
+7. Replease przy użyciu instrukcji następujące wiersze:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Uwierzytelnianie użytkowników końcowych
 Dodaj następujący fragment kodu w aplikacji klienta .NET. Zastąp symbole zastępcze wartości pobierane z usługi Azure AD aplikacji natywnych (wymienionym wymagań wstępnych). Ta Wstawka kodu umożliwia uwierzytelnianie aplikacji **interaktywnie** z usługi Data Lake Store, co oznacza, że zostanie wyświetlony monit o wprowadzenie poświadczeń platformy Azure.
 
 Łatwość użycia, aby uzyskać następujący fragment kodu używa domyślnych wartości dla Identyfikatora klienta oraz identyfikatora URI, które są prawidłowe dla dowolnej subskrypcji platformy Azure przekierowania. W poniższy fragment kodu wystarczy podać wartość dla identyfikatora dzierżawcy Można pobrać Identyfikatora dzierżawcy przy użyciu instrukcji podanych w [uzyskanie Identyfikatora dzierżawy](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Funkcja Main() Zastąp następujący kod:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Dodaj następujący fragment kodu w aplikacji klienta .NET. Zastąp symbole zast
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Kilka rzeczy, informacje o poprzednim fragment kodu:
 

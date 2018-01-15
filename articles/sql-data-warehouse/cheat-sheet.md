@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 12/14/2017
 ms.author: acomet
-ms.openlocfilehash: dc55f4333bef1c609978887f293539bbee8b1c29
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 2d17385ff255ddf7b85baa81600a2af60d015540
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Ściągawka dla usługi Azure SQL Data Warehouse
 Ta strona powinna ułatwić projektowanie dla głównego Użyj przypadków rozwiązania magazynu danych. Ten arkusz ze wskazówkami dotyczącymi powinien być doskonałą pomoc techniczną w podróży do utworzenia magazynu danych światowej klasy, ale zdecydowanie zaleca się dodatkowe informacje o każdym etapem szczegóły. Po pierwsze zaleca się odczytu w tym artykule dużą o jakie SQL Data Warehouse  **[i nie jest]**.
@@ -45,7 +45,7 @@ Zaleca się pierwszym załadowaniu danych  **[do ADLS]**  lub magazynu obiektów
 |:--- |:--- |
 | Dystrybucja | Działanie okrężne |
 | Indeksowanie | Sterty |
-| Partycjonowanie | None |
+| Partycjonowanie | Brak |
 | Klasa zasobów | largerc lub xlargerc |
 
 Dowiedz się więcej o  **[migracji danych], [ładowanie danych]**  z  **[głębiej wskazówki] na ładowanie**. 
@@ -157,8 +157,8 @@ Wdrażanie w kliknięcie z wymienionymi w bazach danych bazy danych SQL z magazy
 [typowe architektury wykorzystaniu magazynu danych SQL]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [i nie jest]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [migracji danych]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[zreplikowane tabele]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[rozproszonych tabel]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[do ADLS]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+[zreplikowane tabele]:https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables
+[rozproszonych tabel]:https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
+[do ADLS]: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store
+[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
