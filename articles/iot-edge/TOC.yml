@@ -1,18 +1,18 @@
 - name: Dokumentacja usługi Azure IoT Edge
   href: index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Azure IoT Edge — informacje
       href: how-iot-edge-works.md
 - name: Przewodniki Szybki start
   items:
-    - name: Wdrażanie na brzegu — system Linux
+    - name: Wdrażanie na brzegu — system Linux lub Mac
       href: quickstart-linux.md
     - name: Wdrażanie na brzegu — system Windows
       href: quickstart.md
 - name: Samouczki
   items:
-    - name: Symulowanie urządzenia usługi Edge — system Linux
+    - name: Symulowanie urządzenia usługi Edge — system Linux lub Mac
       href: tutorial-simulate-device-linux.md
     - name: Symulowanie urządzenia usługi Edge — system Windows
       href: tutorial-simulate-device-windows.md

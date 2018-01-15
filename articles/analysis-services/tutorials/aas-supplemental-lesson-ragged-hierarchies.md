@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lekcja uzupełniająca — niewyrównane hierarchie
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-W tej lekcji uzupełniającej przedstawione zostanie rozwiązanie często występującego problemu polegającego na tworzeniu tabeli przestawnej dla hierarchii zawierających puste wartości (elementy członkowskie) na różnych poziomach. Przykładem może być organizacja, w której menedżer wysokiego szczebla jako bezpośrednich podwładnych ma menedżerów działów oraz osoby niebędące menedżerami. Innym przykładem mogą być hierarchie geograficzne składające się z kraju, regionu i miasta, gdzie niektóre miasta nie mają nadrzędnego kraju lub regionu, jak Waszyngton czy Watykan. Hierarchie o pustych elementach członkowskich często osiągają różne, niewyrównane poziomy.
+W tej lekcji uzupełniającej przedstawione zostanie rozwiązanie często występującego problemu polegającego na tworzeniu tabeli przestawnej dla hierarchii zawierających puste wartości (członków) na różnych poziomach. Przykładem może być organizacja, w której menedżer wysokiego szczebla jako bezpośrednich podwładnych ma menedżerów działów oraz osoby niebędące menedżerami. Innym przykładem mogą być hierarchie geograficzne składające się z kraju, regionu i miasta, gdzie niektóre miasta nie mają nadrzędnego kraju lub regionu, jak Waszyngton czy Watykan. Hierarchie z pustymi członkami często osiągają różne, niewyrównane poziomy.
 
 ![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
 
-Modele tabelaryczne o poziomie zgodności 1400 zapewniają dodatkową właściwość hierarchii o nazwie **Ukryj elementy członkowskie**. Ustawienie **Domyślne** zakłada, że na żadnym poziomie nie występują puste elementy członkowskie. Ustawienie **Ukryj puste elementy członkowskie** wyklucza puste elementy członkowskie z hierarchii w przypadku ich dodania do tabeli przestawnej lub raportu.  
+Modele tabelaryczne o poziomie zgodności 1400 zapewniają dodatkową właściwość hierarchii o nazwie **Ukryj członków**. Ustawienie **Domyślne** zakłada, że na żadnym poziomie nie występują puści członkowskie. Ustawienie **Ukryj pustych członków** wyklucza pustych członków z hierarchii w przypadku ich dodania do tabeli przestawnej lub raportu.  
   
 Szacowany czas trwania lekcji: **20 minut**  
   
@@ -52,11 +50,11 @@ Jeśli projekt AW Internet Sales został utworzony w ramach tego samouczka, mode
 
     | Tabela 1           | Kolumna       | Kierunek filtru   | Tabela 2     | Kolumna      | Aktywne |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Domyślne            | DimDate     | Date        | Tak    |
+    | FactResellerSales | OrderDateKey | Domyślne            | DimDate     | Date        | Yes    |
     | FactResellerSales | DueDate      | Domyślne            | DimDate     | Date        | Nie     |
     | FactResellerSales | ShipDateKey  | Domyślne            | DimDate     | Date        | Nie     |
-    | FactResellerSales | ProductKey   | Domyślne            | DimProduct  | ProductKey  | Tak    |
-    | FactResellerSales | EmployeeKey  | Do obu tabel | DimEmployee | EmployeeKey | Tak    |
+    | FactResellerSales | ProductKey   | Domyślne            | DimProduct  | ProductKey  | Yes    |
+    | FactResellerSales | EmployeeKey  | Do obu tabel | DimEmployee | EmployeeKey | Yes    |
 
 5. W tabeli **DimEmployee** utwórz następujące [kolumny obliczeniowe](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 
@@ -109,13 +107,13 @@ Jeśli projekt AW Internet Sales został utworzony w ramach tego samouczka, mode
 
     ![aas-lesson-detail-ragged-hierarchies-pivottable](../tutorials/media/aas-lesson-detail-ragged-hierarchies-pivottable.png)
 
-    Jak widać w tabeli przestawnej, w hierarchii wyświetlane są wiersze niewyrównane. Istnieje wiele wierszy, w których są widoczne puste elementy członkowskie.
+    Jak widać w tabeli przestawnej, w hierarchii wyświetlane są wiersze niewyrównane. Istnieje wiele wierszy, w których są widoczni puści członkowie.
 
-## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Rozwiązywanie niewyrównanej hierarchii przez ustawienie właściwości Ukryj elementy członkowskie
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Rozwiązywanie niewyrównanej hierarchii przez ustawienie właściwości Ukryj członków
 
 1.  W **Eksploratorze modeli tabelarycznych** rozwiń węzeł **Tabele** > **DimEmployee** > **Hierarchie** > **Organization**.
 
-2.  W obszarze **Właściwości** > **Ukryj elementy członkowskie** wybierz pozycję **Ukryj puste elementy członkowskie**. 
+2.  W obszarze **Właściwości** > **Ukryj członków** wybierz pozycję **Ukryj członków**. 
 
     ![aas-lesson-detail-ragged-hierarchies-hidemembers](../tutorials/media/aas-lesson-detail-ragged-hierarchies-hidemembers.png)
 

@@ -1,6 +1,6 @@
 - name: Usługa Azure Container Service (AKS)
   href: ./index.yml
-- name: Omówienie
+- name: Przegląd
   items:
     - name: Informacje o usłudze AKS
       href: intro-kubernetes.md
@@ -35,6 +35,8 @@
       href: scale-cluster.md
     - name: Uaktualnianie klastra AKS
       href: upgrade-cluster.md
+    - name: Uwierzytelnianie przy użyciu rekordu ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
     - name: Uruchamianie aplikacji za pomocą narzędzia Helm
       href: kubernetes-helm.md
     - name: Tworzenie aplikacji za pomocą narzędzia Draft
@@ -51,7 +53,7 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files — wolumin
           href: azure-files.md
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/aks

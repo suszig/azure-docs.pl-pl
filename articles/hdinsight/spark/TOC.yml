@@ -2,12 +2,12 @@
   href: /azure/hdinsight
 - name: Usługa Spark w usłudze HDInsight
   items:
-    - name: Omówienie
+    - name: Przegląd
       href: apache-spark-overview.md
     - name: Składniki usługi Hadoop na usłudze HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Rozpoczynanie pracy
+- name: Rozpoczęcie pracy
   items:
     - name: Tworzenie klastra Spark
       href: apache-spark-jupyter-spark-sql.md
@@ -86,7 +86,7 @@
           href: apache-spark-use-with-data-lake-store.md
     - name: Przesyłanie strumieniowe w usłudze Spark
       items:
-        - name: Omówienie
+        - name: Przegląd
           href: apache-spark-streaming-overview.md
         - name: Zdarzenia przesyłania strumieniowego procesu
           href: apache-spark-eventhub-streaming.md
@@ -220,9 +220,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optymalizowanie klastrów za pomocą internetowego interfejsu użytkownika systemu Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Używanie interfejsu API REST systemu Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Zarządzanie dziennikami klastra usługi HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Dodawanie kont magazynu
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -271,6 +277,9 @@
           maintainContext: true
     - name: Rozwiązywanie problemów
       items:
+        - name: Rozwiązywanie problemów dotyczących powolnego działania lub awarii klastra usługi HDInsight
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Rozwiązywanie problemów z usługą Spark
           href: apache-troubleshoot-spark.md
         - name: Rozwiązywanie problemów z systemem plików HDFS
@@ -311,7 +320,7 @@
   items:
     - name: Zabezpieczenia przedsiębiorstwa
       items:
-        - name: Omówienie
+        - name: Przegląd
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planowanie zabezpieczeń przedsiębiorstwa
@@ -354,7 +363,7 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Dokumentacja
+- name: Odwołanie
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

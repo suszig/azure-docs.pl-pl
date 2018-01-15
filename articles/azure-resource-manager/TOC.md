@@ -1,4 +1,4 @@
-# Omówienie
+# Przegląd
 ## [Co to jest usługa Resource Manager?](resource-group-overview.md)
 ## [Dostawcy zasobów i ich typy](resource-manager-supported-services.md)
 ## [Wdrażanie za pomocą usługi Resource Manager i klasyczne](resource-manager-deployment-model.md)
@@ -16,7 +16,7 @@
 #### [Zmienne](resource-manager-templates-variables.md)
 #### [Zasoby](resource-manager-templates-resources.md)
 #### [Dane wyjściowe](resource-manager-templates-outputs.md)
-### [Łączenie z innymi szablonami](resource-group-linked-templates.md)
+### [Linked and nested templates (Połączone i zagnieżdżone szablony)](resource-group-linked-templates.md)
 ### [Definiowanie zależności między zasobami](resource-group-define-dependencies.md)
 ### [Tworzenie wielu wystąpień](resource-group-create-multiple.md)
 ### [Aktualizowanie zasobu](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -43,7 +43,7 @@
 ## Zarządzanie
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfejs wiersza polecenia platformy Azure](xplat-cli-azure-resource-manager.md)
-### [Witryna Azure Portal](resource-group-portal.md)
+### [Azure portal](resource-group-portal.md)
 ### [Interfejs API REST](resource-manager-rest-api.md)
 ### [Organizowanie zasobów przy użyciu tagów](resource-group-using-tags.md)
 ### [Przenoszenie zasobów do nowej grupy lub subskrypcji](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Tworzenie jednostki usługi
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Interfejs wiersza polecenia platformy Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Witryna Azure Portal](resource-group-create-service-principal-portal.md)
+#### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Interfejs API uwierzytelniania na potrzeby dostępu do subskrypcji](resource-manager-api-authentication.md)
 ### [Blokowanie zasobów](resource-group-lock-resources.md)
 
@@ -80,7 +80,7 @@
 #### [Problemy z wdrażaniem w systemie Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Understand deployment errors (Informacje o błędach wdrażania)](resource-manager-troubleshoot-tips.md)
 
-# Dokumentacja
+# Odwołanie
 ## [Format szablonu](/azure/templates/)
 ## [Funkcje szablonów](resource-group-template-functions.md)
 ### [Funkcje tablicy i obiektów](resource-group-template-functions-array.md)
@@ -90,7 +90,7 @@
 ### [Funkcje liczbowe](resource-group-template-functions-numeric.md)
 ### [Funkcje zasobów](resource-group-template-functions-resource.md)
 ### [Funkcje ciągów](resource-group-template-functions-string.md)
-## [PowerShell](/powershell/module/azurerm.resources)
+## [Program PowerShell](/powershell/module/azurerm.resources)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
@@ -104,4 +104,4 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Ograniczanie żądań](resource-manager-request-limits.md)
 ## [Śledzenie operacji asynchronicznych](resource-manager-async-operations.md)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
