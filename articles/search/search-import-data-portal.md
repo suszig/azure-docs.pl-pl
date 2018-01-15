@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importowanie danych do usługi Azure Search przy użyciu portalu
 W witrynie Azure Portal na pulpicie nawigacyjnym usługi Azure Search znajduje się kreator **Importuj dane**, który umożliwia ładowanie danych do indeksu. 
@@ -40,7 +40,7 @@ Ten przepływ pracy można wypróbować przy użyciu przykładowych danych w us�
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Źródła danych obsługiwane przez Kreatora importu danych
 Kreator importu danych obsługuje następujące źródła danych: 
 
-* Usługa Azure SQL Database
+* Azure SQL Database
 * Dane relacyjne programu SQL Server na maszynie wirtualnej platformy Azure
 * Azure Cosmos DB
 * Azure Blob Storage
@@ -113,7 +113,7 @@ Do zmian, które nie wymagają odbudowania indeksu, należą: dodanie nowego pol
 Przejrzyj następujące linki, aby dowiedzieć się więcej o indeksatorach:
 
 * [Indeksowanie w usłudze Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexing Azure Cosmos DB](search-howto-index-documentdb.md) (Indeksowanie w usłudze Azure Cosmos DB)
+* [Indexing Azure Cosmos DB](search-howto-index-cosmosdb.md) (Indeksowanie w usłudze Azure Cosmos DB)
 * [Indeksowanie w usłudze Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indeksowanie w usłudze Table Storage](search-howto-indexing-azure-tables.md)
 

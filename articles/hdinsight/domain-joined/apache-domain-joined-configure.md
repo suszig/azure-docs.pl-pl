@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Skonfiguruj środowisko piaskownicy domeny w usłudze HDInsight
 
@@ -27,11 +27,18 @@ Dowiedz się, jak skonfigurować klaster Azure HDInsight z autonomicznej usługi
 
 Bez klastra usługi HDInsight przyłączonych do domeny, każdy klaster może zawierać tylko konta użytkowników usługi Hadoop HTTP, a konto użytkownika SSH.  Uwierzytelnianie wielu użytkowników można osiągnąć za pomocą:
 
--   Autonomiczny usługi Active Directory systemem Azure IaaS
--   Usługa Azure Active Directory
+-   Autonomiczny usługi Active Directory systemem Azure IaaS.
+-   Usługa Azure Active Directory.
 -   Uruchomienie w środowisku lokalnym klienta Active Directory.
 
-Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało opisane w tym artykule. Jest najprostsza architektury, które klient może wykonać, aby uzyskać pomoc techniczną przez wielu użytkowników w usłudze HDInsight. 
+Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało opisane w tym artykule. Jest najprostsza architektury, które klient może wykonać, aby uzyskać pomoc techniczną przez wielu użytkowników w usłudze HDInsight. W tym artykule opisano dwa podejścia do tej konfiguracji:
+
+- Opcja 1: Użycie jednego szablonu administracyjnego zasobów platformy Azure do utworzenia zarówno usługi active directory autonomicznych i klastra usługi HDInsight.
+- Opcja 2: Cały proces jest dzielony na następujące czynności:
+    - Tworzenie usługi Active Directory przy użyciu szablonu.
+    - Instalator LDAPS.
+    - Tworzenie użytkowników usługi AD i grup
+    - Tworzenie klastra usługi HDInsight
 
 > [!IMPORTANT]
 > Oozie nie jest włączona w usłudze HDInsight z przyłączonych do domeny.
@@ -39,7 +46,50 @@ Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało
 ## <a name="prerequisite"></a>Wymagania wstępne
 * Subskrypcja platformy Azure
 
-## <a name="create-an-active-directory"></a>Tworzenie usługi Active Directory
+## <a name="option-1-one-step-approach"></a>Opcja 1: podejście jednoetapowy
+W tej sekcji możesz otworzyć szablon administracyjny zasobów platformy Azure w portalu Azure. Szablon służy do tworzenia usługi Active Directory, autonomicznej i klastra usługi HDInsight. Obecnie można utworzyć klastra usługi Hadoop przyłączonych do domeny, klastra Spark i interaktywne zapytania klastra.
+
+1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w [szablonów Szybki Start Azure](https://azure.microsoft.com/resources/templates/).
+   
+    Aby utworzyć klaster Spark:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Aby utworzyć klaster interakcyjne zapytania:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Aby utworzyć klaster usługi Hadoop:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Wpisz wartości, wybierz **akceptuję warunki i postanowienia, o których wspomniano**, wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, a następnie kliknij przycisk **zakupu**. Umieść kursor myszy nad znak wyjaśnienie obok pola, aby wyświetlić opisy. Większość wartości zostały wypełnione. Można użyć wartości domyślnych lub własne wartości.
+
+    - **Grupa zasobów**: Wprowadź nazwę grupy zasobów platformy Azure.
+    - **Lokalizacja**: Wybierz lokalizację, która jest blisko Ciebie.
+    - **Nazwa nowego konta magazynu**: Wprowadź nazwę konta usługi Azure Storage. To nowe konto magazynu jest używany przez kontrolera PDC, BDC i klaster usługi HDInsight jako domyślne konto magazynu.
+    - **Nazwa użytkownika administratora**: Wprowadź nazwę użytkownika administratora domeny.
+    - **Hasło administratora**: Wprowadź hasło administratora domeny.
+    - **Nazwa domeny**: nazwa domyślna to *contoso.com*.  Jeśli zmienisz nazwę domeny, należy również zaktualizować **certyfikatu bezpiecznego LDAP** pola i **DN jednostki organizacyjnej** pola.
+    - **Nazwa klastra**: Wprowadź nazwę klastra usługi HDInsight.
+    - **Typ klastra**: nie należy zmieniać tej wartości. Jeśli chcesz zmienić typ klastra, należy użyć określonego szablonu w ostatnim kroku.
+
+    Niektóre wartości są zakodowane na stałe w szablonie, na przykład jest dwa wystąpienia liczba węzłów procesu roboczego.  Aby zmienić wartości stałe, kliknij przycisk **Edytuj szablon**.
+
+    ![Szablon edycji przyłączonych do domeny klastra usługi HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+Po pomyślnym ukończeniu szablonu są 23 zasoby utworzone w grupie zasobów.
+
+## <a name="option-2-multi-step-approach"></a>Opcja 2: metoda wieloetapowych
+
+W tej sekcji znajdują się cztery kroki:
+
+1. Tworzenie usługi Active Directory przy użyciu szablonu.
+2. Instalator LDAPS.
+3. Tworzenie użytkowników usługi AD i grup
+4. Tworzenie klastra usługi HDInsight
+
+### <a name="create-an-active-directory"></a>Tworzenie usługi Active Directory
 
 Szablonu usługi Azure Resource Manager ułatwia tworzenie zasobów Azure. W tej sekcji użyjesz [szablonów Szybki Start Azure](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) do tworzenia nowego lasu i domeny z dwóch maszyn wirtualnych. Dwie maszyny wirtualne służyć jako podstawowy kontroler domeny a kontrolerem domeny.
 
@@ -69,7 +119,7 @@ Szablonu usługi Azure Resource Manager ułatwia tworzenie zasobów Azure. W tej
 
 Utworzenie zasobów trwa około 20 minut.
 
-## <a name="setup-ldaps"></a>Instalator LDAPS
+### <a name="setup-ldaps"></a>Instalator LDAPS
 
 LDAP Lightweight Directory Access Protocol () jest używany do odczytu i zapisu AD.
 
@@ -102,11 +152,11 @@ LDAP Lightweight Directory Access Protocol () jest używany do odczytu i zapisu 
 
     ![Przyłączony do domeny HDInsight Konfigurowanie certyfikatu usługi AD](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Kliknij przycisk ** Wybierz usługi ról po lewej stronie, **urzędu certyfikacji**, a następnie kliknij przycisk **dalej**.
+2. Kliknij przycisk **usług ról** po lewej stronie, wybierz **urzędu certyfikacji**, a następnie kliknij przycisk **dalej**.
 3. Wykonaj instrukcje kreatora, należy użyć wartości domyślnych w pozostałej części procedura (kliknij **Konfiguruj** w ostatnim kroku).
 4. Kliknij przycisk **Zamknij**, aby zamknąć kreatora.
 
-## <a name="optional-create-ad-users-and-groups"></a>(Opcjonalnie) Tworzenie użytkowników usługi AD i grup
+### <a name="optional-create-ad-users-and-groups"></a>(Opcjonalnie) Tworzenie użytkowników usługi AD i grup
 
 **Aby utworzyć użytkowników i grup w usłudze AD**
 1. Połączenie z podstawowym kontrolerem domeny przy użyciu pulpitu zdalnego
@@ -122,7 +172,7 @@ LDAP Lightweight Directory Access Protocol () jest używany do odczytu i zapisu 
 > [!IMPORTANT]
 > Przed utworzeniem klastra usługi HDInsight przyłączonych do domeny, musisz ponownie uruchomić maszynę wirtualną podstawowego kontrolera domeny.
 
-## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Tworzenie klastra usługi HDInsight w sieci wirtualnej
+### <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Tworzenie klastra usługi HDInsight w sieci wirtualnej
 
 Aby dodać klaster usługi HDInsight w sieci wirtualnej, utworzonych wcześniej w samouczku za pomocą szablonu usługi Resource Manager, w tej sekcji, użyj portalu Azure. W tym artykule opisano tylko określonych informacji dotyczących konfiguracji klastra przyłączonych do domeny.  Aby uzyskać ogólne informacje, zobacz [opartych na systemie Linux z tworzenia klastrów w usłudze HDInsight przy użyciu portalu Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

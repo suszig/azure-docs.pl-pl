@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Jak używać Microsoft Machine Learning biblioteki platformy Apache Spark
 
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 Można także zainstalować MMLSpark bezpośrednio na użyciu klastra Spark w usłudze HDInsight [akcji skryptu](https://github.com/Azure/mmlspark#hdinsight).
@@ -83,7 +83,7 @@ Wróć do pulpitu nawigacyjnego projektu przykładu "MMLSpark na dla dorosłych 
 
 Azure Machine Learning Workbench przesyła zadanie spark dla klastra. Możesz monitorować postęp i wyświetlić wyniki w widoku historii wykonywania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje na temat MMLSpark biblioteki i przykłady, zobacz [repozytorium MMLSpark GitHub](https://github.com/Azure/mmlspark)
 
 *Apache®, Apache Spark i Spark® są zastrzeżonymi znakami towarowymi lub znakami towarowymi Foundation oprogramowania Apache w Stanach Zjednoczonych i/lub innych krajach.*

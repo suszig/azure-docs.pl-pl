@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
-  ms.openlocfilehash: 3c181142dcdb4132964ba5da9582b9f2b1ad817e
-  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+  ms.openlocfilehash: 8ccc0fe8ca23fabb6d2cb697836e8f402dbaf672
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/14/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Dowiedz się, jak skonfigurować środowisko usługi Time Series Insights oraz eksplorować i analizować dane w postaci szeregów czasowych z rozwiązań IoT lub połączonych urządzeń. Dokumentacja zawiera wymagania wstępne, instrukcje, dokumentację interfejsów API i inne artykuły, aby ułatwić rozpoczęcie pracy w kilka minut."
 sections:
@@ -29,10 +29,10 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg
+        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
       text: "Poznawanie usługi Azure Time Series Insights"
       href: /azure/time-series-insights/time-series-quickstart
-- title: Dokumentacja
+- title: "Odwołanie"
   items:
   - type: list
     style: cards

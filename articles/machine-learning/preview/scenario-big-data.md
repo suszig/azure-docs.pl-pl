@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognozowanie obciążenia serwera pod kątem terabajtów danych
 
@@ -51,7 +51,7 @@ Wymagania wstępne dotyczące uruchamiania w tym przykładzie są następujące:
 * Windows 10 (instrukcje w tym przykładzie są generalnie takie same dla systemów macOS).
 * Dane nauki maszyny wirtualnej (DSVM) dla systemu Linux (Ubuntu), najlepiej w regionie wschodnie stany USA, gdzie znajduje się dane. Ubuntu DSVM można udostępnić, wykonując [tych instrukcji](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Możesz również sprawdzić [tego przewodnika Szybki Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Zaleca się używania maszyny wirtualnej z co najmniej 8 rdzeni i 32 GB pamięci. 
 
-Postępuj zgodnie z [instrukcji](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) Aby włączyć dostęp bez hasła sudoer na maszynie Wirtualnej do AML Workbench.  Możesz użyć [uwierzytelniania opartego na kluczach SSH dotyczące tworzenia i używania maszyny Wirtualnej w AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). W tym przykładzie używamy hasła do maszyny Wirtualnej.  Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
+Postępuj zgodnie z [instrukcji](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) Aby włączyć dostęp bez hasła sudoer na maszynie Wirtualnej do AML Workbench.  Możesz użyć [uwierzytelniania opartego na kluczach SSH dotyczące tworzenia i używania maszyny Wirtualnej w AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). W tym przykładzie używamy hasła do maszyny Wirtualnej.  Zapisz Poniższa tabela z informacjami o DSVM do wykonania kolejnych kroków:
 
  Nazwa pola| Wartość |  
  |------------|------|

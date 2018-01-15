@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Zarządzanie kontami administracyjnymi awaryjnego dostępu w usłudze Azure AD 
 
@@ -48,11 +48,11 @@ Jedną z opcji jest stałe członkami umożliwiający użytkownikowi *administra
 
 Aby zmniejszyć ryzyko ataku wynikające z naruszonymi zabezpieczeniami hasła, usługi Azure AD zaleca wymusić uwierzytelnianie wieloskładnikowe dla wszystkich poszczególnych użytkowników. Administratorzy i wszystkich innych (na przykład finansowe funkcjonariusze) którego zagrożone konto będzie mieć znaczący wpływ, należy uwzględnić tej grupy. 
 
-Jednak jeśli organizacja nie ma udostępnionych urządzeń, uwierzytelnianie wieloskładnikowe może nie można dla tych kont awaryjnych dostępu. Jeśli konfigurujesz zasady dostępu warunkowego, aby wymagać [rejestracji usługi Multi-Factor Authentication dla każdego administratora](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) dla usługi Azure AD, a drugą podłączoną oprogramowania jako aplikacje usługi (SaaS), może być konieczne skonfigurowanie zasad wykluczenia, aby wykluczyć kont awaryjnych dostępu z tego wymagania.
+Jednak jeśli organizacja nie ma udostępnionych urządzeń, uwierzytelnianie wieloskładnikowe może nie można dla tych kont awaryjnych dostępu. Jeśli konfigurujesz zasady dostępu warunkowego, aby wymagać [rejestracji usługi Multi-Factor Authentication dla każdego administratora](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) dla usługi Azure AD, a drugą podłączoną oprogramowania jako aplikacje usługi (SaaS), może być konieczne skonfigurowanie zasad wykluczenia, aby wykluczyć kont awaryjnych dostępu z tego wymagania.
 
 ### <a name="initial-configuration-with-approvals"></a>Wstępna konfiguracja z zatwierdzeniami
 
-Innym rozwiązaniem jest konfigurowanie użytkowników jako uprawniających i osoby zatwierdzające aktywować *administratora globalnego* roli. Ta opcja będzie wymagać Twojej organizacji, aby mieć subskrypcji Azure AD Premium P2. Będzie to wymagać również opcję uwierzytelnianie wieloskładnikowe, która jest odpowiednia do udostępnienia między wiele osób i środowisko sieciowe. Te wymagania są ponieważ aktywacji *administratora globalnego* roli wymaga od użytkowników wcześniej wykonano uwierzytelnianie wieloskładnikowe. Aby uzyskać więcej informacji, zobacz [sposobu wymagać usługi Multi-Factor Authentication w usłudze Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Innym rozwiązaniem jest konfigurowanie użytkowników jako uprawniających i osoby zatwierdzające aktywować *administratora globalnego* roli. Ta opcja będzie wymagać Twojej organizacji, aby mieć subskrypcji Azure AD Premium P2. Będzie to wymagać również opcję uwierzytelnianie wieloskładnikowe, która jest odpowiednia do udostępnienia między wiele osób i środowisko sieciowe. Te wymagania są ponieważ aktywacji *administratora globalnego* roli wymaga od użytkowników wcześniej wykonano uwierzytelnianie wieloskładnikowe. Aby uzyskać więcej informacji, zobacz [sposobu wymagać usługi Multi-Factor Authentication w usłudze Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 Nie zaleca się przy użyciu usługi Multi-Factor Authentication, skojarzoną z urządzeń osobistych do awaryjnego dostępu do konta. W nagłych rzeczywiste osoba, która potrzebuje dostępu do urządzenia zarejestrowane przez usługę Multi-Factor Authentication może nie być osobą, która ma urządzeń osobistych. 
 
@@ -60,7 +60,7 @@ Należy również rozważyć zagrożeń. Na przykład nieprzewidzianych okoliczn
 
 ## <a name="ongoing-monitoring"></a>Ciągłe monitorowanie
 
-Monitor [rejestruje się w usłudze Azure AD i inspekcji](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) żadnych logowania i inspekcji działania z kont dostępu do awaryjnego. Zwykle tych kont nie powinny być logowanie i powinien nie być wprowadzania zmian, więc korzystanie z nich jest prawdopodobnie nietypowych i wymagają dochodzenia zabezpieczeń.
+Monitor [rejestruje się w usłudze Azure AD i inspekcji](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) żadnych logowania i inspekcji działania z kont dostępu do awaryjnego. Zwykle tych kont nie powinny być logowanie i powinien nie być wprowadzania zmian, więc korzystanie z nich jest prawdopodobnie nietypowych i wymagają dochodzenia zabezpieczeń.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Sprawdzanie poprawności konta wyboru musi przypadać w regularnych odstępach czasu
 

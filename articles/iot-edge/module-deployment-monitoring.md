@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Zrozumienie wdrożeń IoT Edge dla urządzeń z jednego lub na dużą skalę - preview
 
@@ -59,7 +59,7 @@ Metadane konfiguracji dla każdego modułu obejmują:
 
 Warunek docelowy jest stale obliczenia obejmują nowe urządzenia, które spełniają wymagania lub usuń urządzenia, które nie może wykonywać za pomocą czasu życia wdrożenia. Wdrożenie zostanie ponownie uaktywnić, jeśli usługa wykrywa zmiany stanu docelowego. Na przykład masz wdrożenie A mającej tags.environment warunek docelowy = "produkcyjnego". Gdy należy rozpocząć poza wdrożenia istnieją 10 urządzeń produkcyjną. Moduły pomyślnie zostały zainstalowane w tych 10 urządzeń. Stan agenta krawędzi IoT jest wyświetlany jako 10 łączna liczba urządzeń, 10 pomyślnie odpowiedzi, 0 odpowiedzi i 0 oczekujące odpowiedzi. Teraz Dodaj 5 więcej urządzeń z tags.environment = "produkcyjnego". Usługa wykryje zmianę i stan agenta krawędzi IoT pomyślnie staje się 15 łączna liczba urządzeń, 10 odpowiedzi, 0 odpowiedzi i 5 oczekujące odpowiedzi przy próbie wdrożyć pięć nowych urządzeń.
 
-Wszelkie warunek typu Boolean na urządzeniu twins znaczników lub deviceId można użyć do wybrania urządzeń docelowych. Jeśli chcesz użyć warunku tagów, należy dodać "tagi" :{} sekcji dwie urządzenia, w tym samym poziomie jako właściwości. [Dowiedz się więcej na temat tagów w dwie urządzenia](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+Wszelkie warunek typu Boolean na urządzeniu twins znaczników lub deviceId można użyć do wybrania urządzeń docelowych. Jeśli chcesz użyć warunku tagów, należy dodać "tagi" :{} sekcji dwie urządzenia, w tym samym poziomie jako właściwości. [Dowiedz się więcej na temat tagów w dwie urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Przykłady warunków docelowych:
 * deviceId = "linuxprod1"
@@ -116,7 +116,7 @@ Wycofywanie zmian należy wykonać w następującej kolejności:
    * Drugie wdrożenie obejmuje teraz stan wdrożenia dla urządzeń, które zostały wycofane.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Szczegółowe kroki umożliwiające tworzenie, aktualizowanie lub usuwanie wdrożenia w [wdrażanie i monitorowanie krawędzi IoT modułów na dużą skalę][lnk-howto].
 * Dowiedz się więcej o innych pojęcia krawędzi IoT, takich jak [środowiska uruchomieniowego krawędzi IoT] [ lnk-runtime] i [modułów krawędzi IoT][lnk-modules].

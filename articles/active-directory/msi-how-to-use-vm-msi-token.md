@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Sposób użycia tokenu nabycia Azure VM zarządzane usługi tożsamości (MSI) 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Ten artykuł zawiera różne przykłady kodu i skrypt nabycia token, a także wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Ten artykuł zawiera różne przykłady kodu i skrypt nabycia token, a także wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +34,7 @@ Jeśli planujesz używać programu Azure PowerShell przykłady w tym artykule, n
 > [!IMPORTANT]
 > - Wszystkie próbki kodu skryptu w tym artykule przyjęto założenie, klient jest uruchomiony na maszynie wirtualnej włączone MSI. Funkcja maszyny Wirtualnej "Połącz" w portalu Azure, aby zdalnie nawiązać połączenia z maszyną Wirtualną. Aby uzyskać więcej informacji na temat włączania MSI w maszynie Wirtualnej, zobacz [skonfigurować maszyny Wirtualnej zarządzane usługi tożsamości (MSI) przy użyciu portalu Azure](msi-qs-configure-portal-windows-vm.md), lub jednego z artykułów variant (przy użyciu programu PowerShell, interfejsu wiersza polecenia, szablonu lub zestawu SDK platformy Azure). 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Aplikacja kliencka mogą żądać MSI [token dostępu tylko do aplikacji](develop/active-directory-dev-glossary.md#access-token) do uzyskiwania dostępu do zasobu. Token jest [oparte na nazwy głównej usługi MSI](msi-overview.md#how-does-it-work). Tak jest niepotrzebna dla klienta w celu zarejestrowania się w celu uzyskania tokenu dostępu w ramach własnej nazwy głównej usługi. Token jest odpowiednie do użycia jako tokenu elementu nośnego w [service-to-service wymaga poświadczeń klienta wymagające](active-directory-protocols-oauth-service-to-service.md).
 

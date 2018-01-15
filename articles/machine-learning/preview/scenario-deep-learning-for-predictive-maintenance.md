@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Głębokie learning konserwacji predykcyjnej rzeczywistych scenariuszy
 
@@ -28,7 +28,7 @@ W scenariuszach konserwacji predykcyjnej dane są zbierane wraz z upływem czasu
 
 W tym samouczku budujemy sieć LSTM zestawu danych i scenariusz, w którym są opisane w [konserwacji predykcyjnej](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Używamy sieci na potrzeby prognozowania pozostałych użytkowania aparatów powietrznego. Szablon używa wartości czujnik symulowane powietrznego do prognozowania, gdy aparat powietrznego zakończy się niepowodzeniem w przyszłości. Za pomocą tego prognozowania, konserwacji mogą zostać zaplanowane z wyprzedzeniem, aby uniknąć awarii.
 
-W tym samouczku używana [Keras](https://keras.io/) głębokie szkoleniowe dotyczące biblioteki i kognitywnych zestaw narzędzi firmy Microsoft [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) jako wewnętrznej.
+W tym samouczku używana [Keras](https://keras.io/) głębokie szkoleniowe dotyczące biblioteki i kognitywnych zestaw narzędzi firmy Microsoft [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) jako wewnętrznej.
 
 Publicznego repozytorium GitHub, zawierający przykłady w tym samouczku jest na [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Zalecamy Sprawdź format danych, a następnie wykonać wszystkie trzy kroki szab
 
 - [Konta Azure](https://azure.microsoft.com/free/) (bezpłatnych wersji próbnych są dostępne).
 - Azure Machine Learning Workbench z utworzono obszar roboczy.
-- Dla modelu operationalization: Azure Operationalization Learning maszyny, ze środowiska lokalnego wdrożenia, konfigurowanie i [konta Azure Machine Learning Model zarządzania](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- Dla modelu operationalization: Azure Operationalization Learning maszyny, ze środowiska lokalnego wdrożenia, konfigurowanie i [konta Azure Machine Learning Model zarządzania](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Utwórz nowy projekt Workbench
 
@@ -128,7 +128,7 @@ Możesz edytować odpowiednich części w tym scenariuszu i spróbuj problem ró
 
 ## <a name="references"></a>Dokumentacja
 
-- [Szablon rozwiązania konserwacji predykcyjnej](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Szablon rozwiązania konserwacji predykcyjnej](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Podręcznik modelowania konserwacji predykcyjnej](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Konserwacji predykcyjnej notesu Python Podręcznik modelowania](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Konserwacji predykcyjnej przy użyciu PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

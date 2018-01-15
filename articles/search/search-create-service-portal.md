@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Tworzenie usługi Azure Search w portalu
 
-Informacje o sposobie tworzenia i inicjowania obsługi administracyjnej usługi Azure Search w portalu. Aby uzyskać instrukcje programu PowerShell, zobacz [zarządzania usługi Azure Search przy użyciu programu PowerShell](search-manage-powershell.md).
+Informacje o sposobie tworzenia i inicjowania obsługi administracyjnej usługi Azure Search w portalu. 
+
+Preferowane PowerShell? Użyj usługi Azure Resource Manager [szablonu usługi](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Aby uzyskać pomoc, wprowadzenie, [zarządzania usługi Azure Search przy użyciu programu PowerShell](search-manage-powershell.md) w tle.
 
 ## <a name="subscribe-free-or-paid"></a>Subskrypcja (wolne lub płatną)
 
@@ -107,7 +109,7 @@ Mimo że większość klientów używają tylko jedną usługę, nadmiarowość 
 
 Drugi usługi nie jest wymagane w celu zapewnienia wysokiej dostępności. Wysoka dostępność dla zapytania odbywa się przy użyciu co najmniej 2 replik w tej samej usługi. Repliki są aktualizacje sekwencyjnych, co oznacza, że co najmniej jeden działa podczas aktualizacji usługi jest wdrażana. Aby uzyskać więcej informacji o dostępności, zobacz [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po zainicjowaniu obsługi administracyjnej usługi Azure Search, możesz przystąpić do [zdefiniuj indeks](search-what-is-an-index.md) , można przekazać i wyszukiwać dane. 
 
 > [!div class="nextstepaction"]

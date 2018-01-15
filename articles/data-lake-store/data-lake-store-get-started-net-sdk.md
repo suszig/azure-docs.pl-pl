@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/13/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operacje zarządzania kontem w usłudze Azure Data Lake Store przy użyciu zestawu SDK platformy .NET
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Aby uzyskać instrukcje na temat sposobu wykonywania operacji zarządzania danym
    | --- | --- |
    | Kategoria |Szablony/Visual C#/Windows |
    | Szablon |Aplikacja konsolowa |
-   | Nazwa |CreateADLApplication |
+   | Name (Nazwa) |CreateADLApplication |
 4. Kliknij przycisk **OK**, aby utworzyć projekt.
 5. Dodaj pakiety NuGet do swojego projektu.
 

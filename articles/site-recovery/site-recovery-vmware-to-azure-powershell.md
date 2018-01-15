@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Replicate i pracy awaryjnej maszyn wirtualnych VMware do platformy Azure przy użyciu programu PowerShell odzyskiwania lokacji Azure
 
@@ -109,7 +109,7 @@ Użyj klucza rejestracji pobranego magazynu i wykonaj kroki opisane w artykułac
 ## <a name="set-the-vault-context"></a>Ustaw kontekst magazynu
 
 > [!TIP]
-> Moduł Azure PowerShell odzyskiwania lokacji (moduł AzureRm.RecoveryServices.SiteRecovery) zawiera łatwy w użyciu aliasów dla większości poleceń cmdlet. Polecenia cmdlet w module formę  *\<operacji >-**AzureRmRecoveryServicesAsr**\<obiektu >* i mieć równoważne aliasy, które będzie mieć postać  *\<operacji >-**ASR**\<obiektu >*. W tym artykule wykorzystano aliasy polecenia cmdlet w celu ułatwienia odczytu.
+> Moduł Azure PowerShell odzyskiwania lokacji (moduł AzureRm.RecoveryServices.SiteRecovery) zawiera łatwy w użyciu aliasów dla większości poleceń cmdlet. Polecenia cmdlet w module formę  *\<operacji >-**AzureRmRecoveryServicesAsr**\<obiektu >* i mieć równoważne aliasy, które będzie mieć postać  *\<Operacji >-**ASR**\<obiektu >*. W tym artykule wykorzystano aliasy polecenia cmdlet w celu ułatwienia odczytu.
 
 Ustaw kontekst magazynu przy użyciu polecenia cmdlet Set-ASRVaultContext. Po ustawieniu kolejnych operacji usługi Azure Site Recovery w sesji programu PowerShell są wykonywane w kontekście wybranego magazynu. W poniższym przykładzie szczegółów magazynu z $vault zmienna służy do określania kontekst magazynu dla sesji programu PowerShell.
  ```azurepowershell
@@ -329,7 +329,7 @@ Trwa około 15-20 minut dla maszyn wirtualnych, które mają zostać wykryte z s
 Potrzebne są następujące szczegóły, aby chronić odnalezionych maszyny wirtualnej:
 * Element chronione powinny być replikowane.
 * Konta magazynu, aby replikować maszyny wirtualnej. Ponadto magazynu dziennika jest potrzebne do ochrony maszyn wirtualnych na konto magazynu premium.
-* Proces serwera, który ma być używany do replikacji. Na liście serwerów dostępnych procesu zostało pobrane i zapisywane w ***$ProcessServers [0]****(skalowania ProcessServer)* i ***$ProcessServers [1]*** *(ConfigurationServer)* zmiennych.  
+* Proces serwera, który ma być używany do replikacji. Na liście serwerów dostępnych procesu zostało pobrane i zapisywane w ***$ProcessServers [0]****(skalowania ProcessServer)* i ***$ProcessServers [1]*** *(ConfigurationServer)* zmiennych.
 * Konto używane do instalacji wypychanej usługi mobilności oprogramowania na komputerach. Lista dostępnych kont zostało pobrane i przechowywane w ***$AccountHandles*** zmiennej.
 * Mapowanie kontenera ochrony dla grupy replikacji do zastosowania w przypadku replikacji.
 * Grupy zasobów, w którym należy utworzyć maszyny wirtualnej w tryb failover.

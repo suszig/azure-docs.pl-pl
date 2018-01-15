@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Sieć szkieletowa usług i kontenerów
 > [!NOTE]
-> Wdrażanie kontenerów do klastra usługi sieć szkieletowa usług w systemie Windows 10 nie jest jeszcze obsługiwane. 
+> Wdrażanie kontenerów do klastra usługi sieć szkieletowa usług w systemie Windows 10 lub Docker CE nie jest obsługiwane. 
 >   
+
+> [!NOTE]
+> Usługi Service Fabric w wersji 6.1 obsługuje podglądu dla systemu Windows Server w wersji 1709. Otwórz sieci i usługa sieci szkieletowej usług DNS nie działają w systemie Windows Server w wersji 1709. 
+> 
 
 ## <a name="introduction"></a>Wprowadzenie
 Sieć szkieletowa usług Azure to [orchestrator](service-fabric-cluster-resource-manager-introduction.md) usługi w klastrze maszyn z wielu lat użycia i optymalizację na ogromną skalę usług firmy Microsoft. Usługi mogą być opracowane na wiele sposobów korzystania z [usługi sieć szkieletowa modele programowania](service-fabric-choose-framework.md) wdrażanie [pliki wykonywalne gościa](service-fabric-deploy-existing-app.md). Domyślnie usługi sieć szkieletowa wdraża i aktywuje tych usług jako procesów. Procesy Podaj najszybszym aktywacji i najwyższy gęstość użycia zasobów w klastrze. Sieć szkieletowa usług można także wdrożyć usługi kontenera obrazów. Ważne można mieszać usług w procesach i usług w kontenerach w tej samej aplikacji.   
@@ -83,7 +87,7 @@ Sieć szkieletowa usług ma kilka możliwości kontenera, które pomagają tworz
 * Zdolność ustawiania poświadczeń zabezpieczeń w kontenerze.
 * Do wyboru różnych trybach sieci dla kontenerów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono o kontenerów, sieć szkieletowa usług to kontener programu orchestrator, czy tej usługi Service Fabric zawiera funkcje, które obsługuje kontenery. Jako kolejny krok możemy będą przekazywane przykłady każdą z funkcji pokazanie sposobu ich używania.
 
 [Tworzenie pierwszej aplikacji kontenera sieci szkieletowej usług w systemie Windows](service-fabric-get-started-containers.md)

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>Niskiego poziomu wykorzystania zasobów chmury (wersja zapoznawcza)
 
 Usługi Application Insights analizuje użycie Procesora przez każde wystąpienie roli w aplikacji i automatycznie wykrywa wystąpienia przy niskim obciążeniu procesorów. Wykrywanie umożliwia zmniejszenie zasobów platformy Azure i zmniejszenie kosztów, zmniejszając liczbę wystąpień roli, który korzysta z poszczególnymi rolami lub zmniejszenie liczby ról.
 
-Ta funkcja wymaga specjalnych ustawień, inne niż [Konfigurowanie liczników wydajności](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) dla aplikacji. Jest aktywna, kiedy aplikacja generuje za mało telemetrii licznika wydajności procesora CPU (% czasu procesora).
+Ta funkcja wymaga specjalnych ustawień, inne niż [Konfigurowanie liczników wydajności](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) dla aplikacji. Jest aktywna, kiedy aplikacja generuje za mało telemetrii licznika wydajności procesora CPU (% czasu procesora).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Gdy otrzyma ten typ powiadomienia inteligentne wykrywanie?
 Powiadomienie o typowych występuje, gdy wiele wystąpienia roli sieć Web/proces roboczy mogą zachowywać niskiego poziomu wykorzystania Procesora.

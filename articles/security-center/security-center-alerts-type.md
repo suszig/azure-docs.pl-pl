@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informacje o alertach zabezpieczeń w usłudze Azure Security Center
 Ten artykuł ułatwia zapoznanie się z różnymi typami alertów zabezpieczeń i powiązanych szczegółowych informacji dostępnych w usłudze Azure Security Center. Więcej informacji na temat zarządzania alertami i zdarzeniami znajduje się w artykule [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Usługa Security Center używa zaawansowanej analizy w celu identyfikacji zasob�
 * **Podejrzane poświadczenia dokumentu**: ten alert wskazuje na podejrzany, wstępnie obliczony skrót hasła używany przez złośliwe oprogramowanie stosowane do wykonywania pliku.
 * **Dynamiczna konstrukcja skryptu programu PS**: ten alert wskazuje na to, że skrypt programu PowerShell jest tworzony dynamicznie. Osoby atakujące używają tej techniki, aby stopniowo kompilować skrypt w celu omijania systemów IDS.
 * **Wskaźniki platformy Metaploit**: ten alert wskazuje na działanie skojarzone z platformą Metasploit, która udostępnia szereg możliwości i narzędzi dla osób atakujących.
-* **Manipulowanie usługą SENSE**: ten alert wskazuje na próbę wyłączenia usługi SENSE przeznaczonej do monitorowania bezpieczeństwa ATP w usłudze Windows Defender.
 * **Podejrzane działanie na koncie**: ten alert wskazuje na próbę połączenia z maszyną za pomocą konta, którego bezpieczeństwo zostało niedawno naruszone.
 * **Możliwy podejrzany dostęp do planowania zadań**: ten alert wskazuje na wykonanie zadania cron, które może służyć osobom atakującym do wykonywania złośliwych programów zgodnie z harmonogramem.
 * **Możliwy podejrzany dostęp do pliku historii poleceń**: ten alert wskazuje na nietypowy dostęp do pliku historii poleceń.

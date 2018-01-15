@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Wprowadzenie do usługi Notification Hubs dla aplikacji platformy Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypychane do aplikacji platformy Xamarin.Android przy użyciu usługi Azure Notification Hubs. Utworzysz pustą aplikację dla platformy Xamarin.Android służącą do odbierania powiadomień wypychanych przy użyciu usługi Firebase Cloud Messaging (FCM). Po zakończeniu będzie można za pomocą centrum powiadomień wysyłać powiadomienia wypychane do wszystkich urządzeń z tą aplikacją. Gotowy kod jest dostępny w przykładowej aplikacji [NotificationHubs][GitHub].
 
 W tym samouczku został omówiony prosty scenariusz wysyłania przy użyciu usługi Notification Hubs.
@@ -42,7 +42,7 @@ Dla tego samouczka wymagane są następujące elementy:
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Notification Hubs dotyczących aplikacji platformy Xamarin.Android.
 
 > [!IMPORTANT]
-> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli jej nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 > 
 > 
 
@@ -264,7 +264,7 @@ Powiadomienia wypychane są zwykle wysyłane w usłudze zaplecza, takiej jak Mob
 Poniższa lista zawiera kilka innych samouczków, z którymi warto się zapoznać, planując wysyłanie powiadomień:
 
 * ASP.NET: zobacz [Wysyłanie powiadomień wypychanych do użytkowników przy użyciu usługi Notification Hubs].
-* Zestaw SDK Java usługi Azure Notification Hubs: zobacz [Jak używać usługi Notification Hubs za pomocą języka Java](notification-hubs-java-push-notification-tutorial.md), aby zapoznać się ze sposobem wysyłania powiadomień za pomocą języka Java. To rozwiązanie przetestowano w programie Eclipse pod kątem tworzenia aplikacji dla systemu Android.
+* Zestaw SDK Java usługi Azure Notification Hubs: zobacz [Jak używać usługi Notification Hubs za pomocą języka Java](notification-hubs-java-push-notification-tutorial.md), aby zapoznać się ze sposobem wysyłania powiadomień za pomocą języka Java. To rozwiązanie przetestowano w programie Eclipse do tworzenia aplikacji dla systemu Android.
 * PHP: zobacz [Jak używać usługi Notification Hubs za pomocą języka PHP](notification-hubs-php-push-notification-tutorial.md).
 
 ## <a name="next-steps"></a>Następne kroki
@@ -304,7 +304,7 @@ W tym prostym przykładzie wysłano powiadomienia do wszystkich urządzeń z sys
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Program Visual Studio z platformą Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Program Visual Studio z platformą Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [program Visual Studio dla komputerów Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [witrynie Azure Portal]: https://portal.azure.com/

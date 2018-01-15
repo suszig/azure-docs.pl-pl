@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Magazyn dołączony na pulę (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maksymalna liczba opcji magazynu dla każdej puli (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
+| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | ND | ND | ND | ND | ND | ND | ND | ND |
 | Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maksymalna liczba współbieżnych logowań na pulę | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -26,7 +26,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Magazyn dołączony na pulę (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Maksymalna liczba opcji magazynu dla każdej puli (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
+| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | ND | ND | ND | ND | ND | ND | 
 | Maksymalna liczba baz danych na pulę | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maksymalna liczba współbieżnych logowań na pulę | 100 | 200 | 400 | 600 | 800 | 1600 |
@@ -42,7 +42,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Magazyn dołączony na pulę (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Maksymalna liczba opcji magazynu dla każdej puli (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy | 
+| Maksymalna liczba OLTP w pamięci magazynu dla każdej puli (GB) | ND | ND | ND | ND | ND | 
 | Maksymalna liczba baz danych na pulę | 500 | 500 | 500 | 500 | 500 | 
 | Maksymalna liczba współbieżnych procesów roboczych (żądań) na pulę | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maksymalna liczba współbieżnych logowań na pulę | 2400 | 3200 | 4000 | 5000 | 6000 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/). Wielkość magazynu jest większa niż ilość miejsca w magazynie uwzględnione są w wersji zapoznawczej i zastosowania dodatkowych kosztów. Aby uzyskać więcej informacji, zobacz [bazy danych SQL cennikiem](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* W warstwie Premium magazyn o rozmiarze ponad 1 TB jest obecnie dostępny w następujących regionach: Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. 
+> \*W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. 
 >
 >\*\*Min/max Edtu na bazę danych w systemie w 200 jednostek Edtu i wyższych **standardowe** pule są w wersji zapoznawczej.
 >

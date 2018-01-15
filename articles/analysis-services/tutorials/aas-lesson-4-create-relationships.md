@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>Lekcja 4. Tworzenie relacji
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>Utwórz relacje
 
 W tej lekcji sprawdzisz relacje, które zostały automatycznie utworzone po zaimportowaniu danych, i dodasz nowe relacje między różnymi tabelami. Relacja to połączenie między dwiema tabelami, które określa sposób korelowania danych w tych tabelach. Na przykład: między tabelą DimProduct a tabelą DimProductSubcategory istnieje relacja opierająca się na fakcie, że każdy z produktów należy do podkategorii. Aby dowiedzieć się więcej, zobacz [Relacje](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
@@ -62,11 +60,11 @@ Przed przystąpieniem do tworzenia modelu należy sprawdzić, czy relacje międz
   
     |Aktywne|Tabela|Pokrewna tabela odnośników|  
     |----------|---------|------------------------|  
-    |Tak|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |Tak|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |Tak|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |Tak|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |Tak|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |Yes|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |Yes|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |Yes|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |Yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |Yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     Jeśli brakuje dowolnej z tych relacji, sprawdź, czy model zawiera następujące tabele: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory i FactInternetSales. W przypadku tabel pochodzących z tego samego połączenia źródła danych, które zostały zaimportowane w różnym czasie, relacje między takimi tabelami nie są tworzone i należy utworzyć je ręcznie. Jeśli relacje nie są wyświetlane, oznacza to, że nie ma żadnych relacji w źródle danych. Możesz je utworzyć ręcznie w modelu danych.
 

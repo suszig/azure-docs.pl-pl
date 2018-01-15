@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Użyj Docker woluminu dodatków plug-in i sterowniki rejestrowania w sieci kontenera
 Sieć szkieletowa usług Azure obsługuje określanie [Docker woluminu dodatków plug-in](https://docs.docker.com/engine/extend/plugins_volume/) i [sterowniki rejestrowania Docker](https://docs.docker.com/engine/admin/logging/overview/) dla usługi kontenera. Można ją utrwalić danych w [plików Azure](https://azure.microsoft.com/services/storage/files/) podczas przeniesienia z kontenera lub uruchomiona ponownie na innym hoście.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> Windows Server 2016 w centrum danych nie obsługuje instalacji SMB na hoście ([obsługiwane tylko w systemie Windows Server w wersji 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Zapobiega to używanie niektórych sterowników woluminu, takie jak sterowniki woluminu pliki Azure. Zamiast tego jedną mogą zainstalować udziały bezpośrednio z poziomu przy użyciu kontenera **net użyj**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Określ wtyczka lub sterownik w manifeście
 Dodatki plug-in są określone w manifeście aplikacji:
@@ -87,5 +92,5 @@ Podczas określania woluminu wtyczki, usługi Service Fabric automatycznie tworz
 ```
 Sterownik dziennika Docker jest określony, masz wdrażania agentów (lub kontenery) do obsługi dzienników w klastrze. **DriverOption** tag może służyć do określ opcje dla sterownika dziennika.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby wdrożyć kontenerów do klastra usługi sieć szkieletowa usług, zobacz [wdrażanie kontenera w sieci szkieletowej usług](service-fabric-deploy-container.md).

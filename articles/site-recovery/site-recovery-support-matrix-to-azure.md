@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -68,34 +68,34 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego replikowanych w
 
  **Serwer VMware/fizyczne** | **Funkcja Hyper-V (lub bez VMM)** |
 --- | --- |
-64-bitowego systemu Windows Server 2016 (instalacja Server Core, serwer z środowisko pulpitu)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 i 7.3 <br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 i 7.3 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP3 <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.) | Wszelkie system operacyjny gościa [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bitowego systemu Windows Server 2016 (instalacja Server Core, serwer z środowisko pulpitu)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 do 7,4<br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 do 7,4 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP3 <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.) | Wszelkie system operacyjny gościa [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server nie jest obsługiwane.
-
->[!IMPORTANT]
->(Dotyczy VMware/serwery fizyczne replikację do platformy Azure)
 >
-> Red Hat Enterprise Linux Server 7 + i CentOS 7 + serwery 3.10.0-514 wersji jądra jest obsługiwana, począwszy od wersji 9,8 usługi mobilności odzyskiwania lokacji Azure.<br/><br/>
-> Klienci na jądra 3.10.0-514 przy użyciu wersji usługi mobilności niższa niż wersja 9,8 są wymagane do Wyłącz replikację, zaktualizuj wersję usługi mobilności do wersji 9,8 i włączeniu replikacji ponownie.
+> Na dystrybucje systemu Linux obsługiwane są tylko podstawowe jądra będących częścią wersja pomocnicza wersji/aktualizacji dystrybucji.
+>
+> Uaktualnienia w wersjach głównych dystrybucji systemu Linux na platformie Azure Site Recovery chronione maszyny wirtualnej VMware lub serwera fizycznego nie jest obsługiwane. Podczas uaktualniania systemu operacyjnego w wersji głównych (na przykład CentOS 6.* do CentOS 7.*), wyłącz replikację dla maszyny, Uaktualnij system operacyjny na maszynie, a następnie włącz ponownie replikacji.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu wersji jądra programu VMware/serwery fizyczne
 
 **Zlecenia** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic do 3.13.0-117-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-128-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic do 3.13.0-132-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic do 3.13.0-137-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic do 4.4.0-81-generic,<br/>4.8.0-34-Generic do 4.8.0-56-generic,<br/>4.10.0-14-Generic do 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic do 4.4.0-91-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic do 4.4.0-96-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic do 4.4.0-104-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Systemy plików obsługiwanych i konfiguracje magazynu gościa w systemie Linux (VMware/serwery fizyczne)
 
-Następujący plik systemów i magazynu konfiguracji oprogramowania jest obsługiwana na serwerach Linux działających na serwerach programu VMware lub fizycznych:
+Poniższe systemy plików i magazynu konfiguracji oprogramowania są obsługiwane na serwerach Linux działających na serwerach programu VMware lub fizycznych:
 * Systemy plików: ext3 ext4, ReiserFS (Suse Linux Enterprise Server tylko), XFS
 * Menedżer woluminów: LVM2
 * Oprogramowanie wielościeżkowego: mapowania urządzenia
@@ -105,8 +105,7 @@ Urządzenia We/Wy bloku wielu kolejki nie są obsługiwane.<br/>
 Serwery fizyczne z HP CCISS kontrolera magazynu nie są obsługiwane.<br/>
 
 >[!Note]
-> Na serwerach Linux następujące katalogi (jeśli skonfigurowany jako osobne partycje /-systemów plików) musi składać się na tym samym dysku (dysk systemu operacyjnego) na serwerze źródłowym: / (root), / Boot usr, /usr/local, /var, etc<br/><br/>
-> Funkcje XFSv5 na XFS systemy plików, takich jak metadanych sumy kontrolnej są obsługiwane począwszy od wersji 9.10 usługi mobilności. Jeśli używasz funkcji XFSv5, upewnij się, że używasz wersji usługi mobilności 9.10 lub nowszej. Narzędzie xfs_info Sprawdź superblock XFS dla partycji. Jeśli ftype jest ustawiona na 1, następnie XFSv5 funkcje są używane.
+> Na serwerach Linux następujące katalogi (jeśli skonfigurowany jako osobne partycje /-systemów plików) musi składać się na tym samym dysku (dysk systemu operacyjnego) na serwerze źródłowym: / (root), / Boot usr, /usr/local, /var, etc; i/Boot powinien znajdować się na partycji dysku i nie jest woluminem LVM<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ Tworzenie zespołu kart sieciowych | Nie | Nie
 Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
 Statyczny adres IP (z systemem Windows) | Yes | Yes
-Statyczny adres IP (Linux) | Yes <br/><br/>Maszyny wirtualnej jest skonfigurowana do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
+Statyczny adres IP (Linux) | Yes <br/><br/>Maszyny wirtualne są skonfigurowane do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
 Obsługa wielu kart Sieciowych | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej Azure przełączona w tryb failover

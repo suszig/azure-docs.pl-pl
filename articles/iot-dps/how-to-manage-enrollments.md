@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Jak zarządzać rejestracji urządzenia z portalu Azure
 
@@ -27,7 +27,7 @@ A *rejestracji urządzeń* tworzy rekord jednego urządzenia lub grupy urządze�
 
 Istnieją dwa sposoby mogą rejestrować urządzenia w usłudze inicjowania obsługi administracyjnej:
 
-* **Grupy rejestracji** wpis dla grupy urządzeń, które współużytkują wspólnego mechanizmu zaświadczania certyfikatów X.509, podpisane przez tego samego certyfikatu podpisywania, który może być [certyfikat główny](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), użytego do utworzenia certyfikatu urządzenia na urządzeniu fizycznym. Firma Microsoft zaleca używanie grupy rejestracji dużej liczby urządzeń, których udostępnianie wymaganą konfiguracją początkową lub urządzeń wszystkich przejść do tej samej dzierżawy. Należy pamiętać, że tylko mogą rejestrować urządzenia, które korzystają z mechanizmu zaświadczania X.509 jako *grup rejestracji*. 
+* **Grupy rejestracji** wpis dla grupy urządzeń, które współużytkują wspólnego mechanizmu zaświadczania certyfikatów X.509, podpisane przez tego samego certyfikatu podpisywania, który może być [certyfikat główny](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) lub [certyfikatu pośredniego](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), użytego do utworzenia certyfikatu urządzenia na urządzeniu fizycznym. Firma Microsoft zaleca używanie grupy rejestracji dużej liczby urządzeń, których udostępnianie wymaganą konfiguracją początkową lub urządzeń wszystkich przejść do tej samej dzierżawy. Należy pamiętać, że tylko mogą rejestrować urządzenia, które korzystają z mechanizmu zaświadczania X.509 jako *grup rejestracji*. 
 
     Można utworzyć grupę rejestracji w portalu dla grupy urządzeń, wykonując następujące czynności:
 

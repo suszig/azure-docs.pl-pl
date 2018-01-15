@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrowanie Azure DevTest Labs programu VSTS ciągłej integracji i dostarczania potoku
 Można użyć *Azure DevTest Labs zadania* rozszerzenia zainstalowanego w Visual Studio Team Services (VSTS) można łatwo zintegrować planowaną kompilacji i wersji elementu konfiguracji/CD z Azure DevTest Labs. Rozszerzenie instaluje trzech zadań: 
@@ -111,7 +111,7 @@ Następny etap wdrażania jest aby utworzyć maszynę Wirtualną do użycia jako
    > [!NOTE]
    > Aby utworzyć maszynę Wirtualną do użycia we wdrożeniach kolejne, zobacz [zadań Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Aby uzyskać **subskrypcji Menedżera zasobów Azure**, wybierz połączenie w **dostępne połączenia usługi Azure** listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Aby uzyskać **subskrypcji Menedżera zasobów Azure**, wybierz połączenie w **dostępne połączenia usługi Azure** listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Aby uzyskać **Nazwa laboratorium**, wybierz nazwę wystąpienia, który został utworzony wcześniej.
 
@@ -141,7 +141,7 @@ Następny etap wdrażania jest aby utworzyć maszynę Wirtualną do użycia jako
 
    a. Aby uzyskać **typu połączenia usługi Azure**, wybierz pozycję **usługi Azure Resource Manager**.
 
-   b. Dla **subskrypcji Menedżera zasobów Azure**, wybierz połączenie z listy w obszarze **dostępne połączenia usługi Azure**, lub utworzyć połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Dla **subskrypcji Menedżera zasobów Azure**, wybierz połączenie z listy w obszarze **dostępne połączenia usługi Azure**, lub utworzyć połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    d. Aby uzyskać **typ skryptu**, wybierz pozycję **pliku skryptu**.
  
@@ -168,7 +168,7 @@ Następny etap jest można utworzyć obrazu maszyny wirtualnej w nowo wdrożonym
    > [!NOTE]
    > Aby utworzyć obraz, zobacz [zadań Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Dla **subskrypcji Menedżera zasobów Azure**w **dostępne połączenia usługi Azure** listy, wybierz połączenie z listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Dla **subskrypcji Menedżera zasobów Azure**w **dostępne połączenia usługi Azure** listy, wybierz połączenie z listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Aby uzyskać **Nazwa laboratorium**, wybierz nazwę wystąpienia utworzone wcześniej.
 
@@ -189,7 +189,7 @@ Ostatnim krokiem jest, aby usunąć maszynę Wirtualną, która została wdrożo
       > [!NOTE]
       > Aby usunąć maszynę Wirtualną, zobacz [Azure DevTest Labs zadania](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Aby uzyskać **subskrypcji Menedżera zasobów Azure**, wybierz połączenie w **dostępne połączenia usługi Azure** listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Aby uzyskać **subskrypcji Menedżera zasobów Azure**, wybierz połączenie w **dostępne połączenia usługi Azure** listy lub Utwórz połączenie bardziej ograniczone uprawnienia do subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [punktu końcowego usługi Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. Dla **identyfikator maszyny Wirtualnej laboratorium**, jeśli zmienić domyślną nazwę zmiennej środowiskowej, która została automatycznie wypełniona o identyfikatorze laboratorium maszyny Wirtualnej przez wcześniejszych zadań go edytować w tym miejscu. Wartość domyślna to **$(labVMId)**.
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 61d59f3d02a3fd12f251486e76228e67b28e6275
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Użyj przypisany użytkownik zarządzane usługi tożsamości (MSI) na maszynie Wirtualnej systemu Linux dostęp do magazynu Azure
 
@@ -134,10 +134,10 @@ Ponieważ pliki wymagają magazynu obiektów blob, należy utworzyć kontener ob
 
 Za pomocą Instalatora MSI, kodu mogą uzyskiwać tokeny dostępu do uwierzytelniania do zasobów, które obsługują uwierzytelnianie usługi Azure AD. W tym samouczku jest używany Magazyn Azure.
 
-Najpierw należy udzielić dostępu tożsamości MSI do kontenera magazynu Azure. W takim przypadku można użyć kontenera utworzony wcześniej. Zaktualizuj wartości dla `<MSI CLIENTID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, i `<CONTAINER NAME>` jako odpowiednie dla danego środowiska. Zastąp `<CLIENT ID>` z `clientId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi):
+Najpierw należy udzielić dostępu tożsamości MSI do kontenera magazynu Azure. W takim przypadku można użyć kontenera utworzony wcześniej. Zaktualizuj wartości dla `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, i `<CONTAINER NAME>` jako odpowiednie dla danego środowiska. Zastąp `<CLIENT ID>` z `clientId` właściwości zwróconej przez `az identity create` w [utworzyć instalatora MSI przypisany użytkownik](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI CLIENTID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Odpowiedź zawiera szczegóły dotyczące przypisania roli, utworzyć:
@@ -189,7 +189,7 @@ Aby wykonać te kroki, należy klient SSH. Jeśli korzystasz z systemu Windows, 
 4. Teraz używać tokenu dostępu, dostęp do magazynu Azure, na przykład w celu odczytu zawartości przykładowy plik, który został wcześniej przekazany do kontenera. Zastąp wartości `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, i `<FILE NAME>` z wartościami określone wcześniej, i `<ACCESS TOKEN>` z tokenem zwracanej w poprzednim kroku.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Odpowiedź zawiera zawartość pliku:

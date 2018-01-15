@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Wyszukiwanie częściowo ustrukturyzowanych danych w magazynie w chmurze
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Część 2: Wyszukiwanie częściowo ustrukturyzowanych danych w magazynie w chmurze
 
-W tej serii samouczek dwuczęściową Dowiedz się jak wyszukiwanie częściową strukturą i bez struktury danych za pomocą usługi Azure search. W tym samouczku przedstawiono sposób wyszukiwania częściowo ustrukturyzowanych danych, takich jak JSON przechowywane w obiektach blob Azure. Częściowo ustrukturyzowanych danych zawiera tagi lub oznaczenia, które dzielą zawartości w danych. Różni się od danych strukturalnych w tym nie jest oficjalnie struktury zgodnie z modelem danych, takie jak schemat relacyjnej bazy danych.
+W dwóch części samouczka serii Dowiedz się jak wyszukiwanie częściową strukturą i bez struktury danych za pomocą usługi Azure search. [Część 1](../storage/blobs/storage-unstructured-search.md) udał można za pomocą funkcji wyszukiwania danych bez struktury, ale również uwzględnione ważne wymagania wstępne dotyczące tego samouczka, takich jak tworzenie konta magazynu. 
 
-W tej części opisano możemy jak:
+W części 2 otrzymuje fokus częściowo ustrukturyzowanych danych, takich jak JSON przechowywane w obiektach blob Azure. Częściowo ustrukturyzowanych danych zawiera tagi lub oznaczenia, które dzielą zawartości w danych. Dzieli różnicę między danych bez struktury, która musi zostać pomyślnie zindeksowane wholistically i danych strukturalnych formalnie, zgodną z modelem danych, takie jak schemat relacyjnej bazy danych, które mogą być przeszukiwane na podstawie na pola.
+
+W części 2, Dowiedz się, jak:
 
 > [!div class="checklist"]
-> * Utworzyć i wypełnić indeks wewnątrz usługi Azure Search
-> * Umożliwia przeszukiwania indeksu usługi wyszukiwanie Azure
+> * Konfigurowanie źródła danych usługi Azure Search dla kontenera obiektów blob platformy Azure
+> * Tworzenia i wypełniania indeksu usługi Azure Search i indeksator przeszukiwania kontenera i Wyodrębnij zawartość wyszukiwanie
+> * W indeksie utworzony
 
 > [!NOTE]
-> "Obsługa tablicy JSON jest funkcja w wersji zapoznawczej w usłudze Azure Search. Nie jest obecnie dostępne w portalu. Z tego powodu firma Microsoft korzysta z interfejsu API REST, który zapewnia tę funkcję, a pozostałe narzędzia klienta do wywołania interfejsu API w wersji zapoznawczej."
+> W tym samouczku korzysta z obsługi tablicy JSON, który jest obecnie w wersji zapoznawczej w usłudze Azure Search. Nie jest dostępne w portalu. Z tego powodu firma Microsoft korzysta z interfejsu API REST, który zapewnia tę funkcję, a pozostałe narzędzia klienta do wywołania interfejsu API w wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W celu ukończenia tego samouczka:
-* Zakończenie [poprzedniego samouczka](../storage/blobs/storage-unstructured-search.md)
-    * W tym samouczku korzysta z magazynu konto i wyszukiwania usługi utworzonej w poprzednim samouczku
-* Zainstaluj klienta REST i zrozumienie sposobu konstruowania żądania HTTP
+* Zakończenie [poprzedniego samouczek](../storage/blobs/storage-unstructured-search.md) świadczenie usług magazynu konto i wyszukiwania utworzonej w poprzednim samouczku.
 
+* Instalacja klienta REST i zrozumienia sposobu tworzenia żądania HTTP. Do celów tego samouczka, użyto [Postman](https://www.getpostman.com/). Możesz także użyć różnych klienta REST, jeśli już znasz jedna z nich.
 
-## <a name="set-up-the-rest-client"></a>Konfigurowanie klienta REST
+## <a name="set-up-postman"></a>Konfigurowanie Postman
 
-Do ukończenia tego samouczka należy klienta REST. Do celów tego samouczka, użyto [Postman](https://www.getpostman.com/). Możesz także użyć różnych klienta REST, jeśli już znasz jedna z nich.
+Uruchom Postman i skonfigurować żądania HTTP. Jeśli nie znasz z tego narzędzia, zobacz [Eksplorowanie usługi Azure Search interfejsów API REST przy użyciu narzędzia Fiddler lub Postman](search-fiddler.md) Aby uzyskać więcej informacji.
 
-Po zainstalowaniu Postman, uruchom ją.
-
-Jeśli jest to pierwsza wywołania REST na platformie Azure, Oto krótkie wprowadzenie ważne składniki w tym samouczku: metoda żądania dla każdego wywołania w tym samouczku jest "POST". Są klucze nagłówek "Content-type" i "api-key". Wartości nagłówka kluczy są "application/json" i klucz"Administrator" (klucz administratora to symbol zastępczy wyszukiwania primary key) odpowiednio. Treść jest, gdzie umieścić rzeczywistej zawartości wywołania. W zależności od klienta, którego używasz może być różne ich warianty na sposób tworzenia kwerendy, ale są podstawy.
+Metoda żądania dla każdego wywołania w tym samouczku jest "POST". Są klucze nagłówek "Content-type" i "api-key". Wartości nagłówka kluczy są "application/json" i klucz"Administrator" (klucz administratora to symbol zastępczy wyszukiwania primary key) odpowiednio. Treść jest, gdzie umieścić rzeczywistej zawartości wywołania. W zależności od klienta, którego używasz może być różne ich warianty na sposób tworzenia kwerendy, ale są podstawy.
 
   ![Częściowo ustrukturyzowanych wyszukiwania](media/search-semi-structured-data/postmanoverview.png)
 
@@ -277,7 +276,7 @@ Jeśli chcesz wypróbować, a następnie spróbuj kilka zapytań więcej samodzi
 
 `$filter` Parametr działa tylko z metadanych, które zostały oznaczone jako filtrowanie podczas tworzenia indeksu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku poznanie wyszukiwanie częściowo ustrukturyzowanych danych przy użyciu wyszukiwanie Azure, np.:
 

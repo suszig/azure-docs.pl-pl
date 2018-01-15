@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa82f5d8a909121c42742bb5261d6c9b8570de
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Poziom zgodności dla zadania usługi analiza strumienia Azure
  
@@ -29,7 +29,7 @@ Poziom zgodności upewnia się, że istniejące zadania są uruchamiane bez jaki
  
 ## <a name="set-a-compatibility-level"></a>Ustaw poziom zgodności 
 
-Poziom zgodności steruje zachowaniem czasu wykonywania zadania usługi analiza strumienia. Można ustawić poziomu zgodności dla zadania Stream Analytics, za pomocą portalu lub przy użyciu [wywołanie interfejsu API REST zadania tworzenia](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-job). Usługa Azure Stream Analytics obecnie obsługuje dwa zgodności poziomy — "1.0" i "1.1". Domyślnie poziom zgodności jest ustawiony na "1.0", którą wprowadzono w ogólnej dostępności usługi Azure Stream Analytics. Aby zaktualizować wartości domyślne, przejdź do istniejącego zadania usługi analiza strumienia > Wybierz **poziom zgodności** opcji **Konfiguruj** sekcji i zmień wartość. 
+Poziom zgodności steruje zachowaniem czasu wykonywania zadania usługi analiza strumienia. Można ustawić poziomu zgodności dla zadania Stream Analytics, za pomocą portalu lub przy użyciu [wywołanie interfejsu API REST zadania tworzenia](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Usługa Azure Stream Analytics obecnie obsługuje dwa zgodności poziomy — "1.0" i "1.1". Domyślnie poziom zgodności jest ustawiony na "1.0", którą wprowadzono w ogólnej dostępności usługi Azure Stream Analytics. Aby zaktualizować wartości domyślne, przejdź do istniejącego zadania usługi analiza strumienia > Wybierz **poziom zgodności** opcji **Konfiguruj** sekcji i zmień wartość. 
 
 Upewnij się, możesz zatrzymać zadanie przed zaktualizowaniem poziomu zgodności. Nie można zaktualizować poziomu zgodności, jeśli zadanie jest w stanie uruchomienia. 
 

@@ -1,14 +1,13 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
-Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Kliknij przycisk **Cloud Shell** w menu w prawym górnym rogu witryny [Azure Portal](https://portal.azure.com).
+Powłoka chmury Azure jest bezpłatna powłoka interaktywnego, która umożliwia wykonanie kroków w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po prostu kliknij **kopiowania** Aby skopiować kod, wklej go do powłoki chmury, a następnie naciśnij klawisz enter, aby go uruchomić.  Istnieją dwa sposoby uruchamiania powłoki chmury:
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
-
-Ten przycisk uruchamia interaktywną powłokę, której można używać do wykonywania kroków opisanych w tym temacie:
-
-[![Zrzut ekranu przedstawiający okno usługi Cloud Shell w portalu](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
-
+|  |   |
+|-----------------------------------------------|---|
+| Kliknij przycisk **spróbuj on** w prawym górnym rogu bloku kodu. | ![Chmura powłoki w tym artykule](./media/cloud-shell-try-it/cli-try-it.png) |
+| Kliknij przycisk **powłoki chmury** przycisk menu w prawym górnym rogu [portalu Azure](https://portal.azure.com). |    ![Powłoka chmury w portalu](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+|  |  |
 
 
 

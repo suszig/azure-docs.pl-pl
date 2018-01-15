@@ -15,15 +15,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitoruj usługę Azure Functions
 
-## <a name="overview"></a>Omówienie 
+## <a name="overview"></a>Przegląd 
 
 [Środowisko Azure Functions](functions-overview.md) oferuje wbudowane funkcje integracji z [Azure Application Insights](../application-insights/app-insights-overview.md) dla funkcji monitorowania. W tym artykule przedstawiono sposób konfigurowania funkcji do wysyłania danych telemetrycznych do usługi Application Insights.
 
@@ -37,7 +37,7 @@ Dla aplikacji funkcja do wysyłania danych do usługi Application Insights nale�
 
 * [Utwórz połączony wystąpienie usługi Application Insights, podczas tworzenia aplikacji funkcji](#new-function-app).
 * [Połącz wystąpienie usługi Application Insights do istniejącej aplikacji funkcji](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nowa aplikacja funkcji
 
 Włącz usługę Application Insights w aplikacji funkcji **Utwórz** strony:
@@ -66,6 +66,14 @@ Pobierz klucz Instrumentacji i zapisz go w aplikacji funkcji:
 
 1. Kliknij pozycję **Zapisz**.
 
+## <a name="disable-built-in-logging"></a>Wyłącz rejestrowanie wbudowane
+
+Po włączeniu usługi Application Insights, zaleca się wyłączenie [rejestrowania wbudowanych, korzystającym z magazynu Azure](#logging-to-storage). Wbudowane rejestrowania jest przydatna przy testowaniu z kategorii lekkich obciążeń, ale nie jest przeznaczony do użycia w środowisku produkcyjnym duże obciążenie. Do produkcji monitorowania, zaleca się usługi Application Insights. Jeśli wbudowane rejestrowania jest używany w środowisku produkcyjnym, rekord rejestrowania mogą być niekompletne z powodu dławienia w magazynie Azure.
+
+Aby wyłączyć rejestrowanie wbudowanych, należy usunąć `AzureWebJobsDashboard` ustawienia aplikacji. Aby dowiedzieć się, jak usunąć ustawienia aplikacji w portalu Azure, zobacz **ustawienia aplikacji** sekcji [jak zarządzać aplikacji funkcji](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Po włączeniu usługi Application Insights i Wyłącz rejestrowanie wbudowanych, **Monitor** karta funkcji w portalu Azure umożliwia przejście do usługi Application Insights.
+
 ## <a name="view-telemetry-data"></a>Wyświetlanie danych telemetrii
 
 Aby przejść do połączonych wystąpienia usługi Application Insights z funkcji aplikacji w portalu, wybierz **usługi Application Insights** łącze w aplikacji funkcji **omówienie** strony.
@@ -78,7 +86,7 @@ W [Eksploratora metryk](../application-insights/app-insights-metrics-explorer.md
 
 Na [błędów](../application-insights/app-insights-asp-net-exceptions.md) kartę, można utworzyć wykresów i alerty na podstawie błędy funkcji i serwera wyjątki. **Nazwy operacji** jest nazwą funkcji. Błędy w zależności nie są wyświetlane, chyba że zaimplementowaniem [telemetria niestandardowa](#custom-telemetry-in-c-functions) zależności.
 
-![Błędy](media/functions-monitoring/failures.png)
+![Niepowodzenia](media/functions-monitoring/failures.png)
 
 Na [wydajności](../application-insights/app-insights-performance-counters.md) kartę, można analizować problemy z wydajnością.
 
@@ -152,7 +160,7 @@ Zawiera również usługę Azure functions rejestratora *poziom dziennika* przy 
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
 |Błąd       | 4 |
-|Krytyczne    | 5 |
+|Krytyczny    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` znajduje się w następnej sekcji. 
@@ -464,58 +472,41 @@ Aby zgłosić problem w integracji usługi Application Insights w funkcjach lub 
 
 ## <a name="monitoring-without-application-insights"></a>Monitorowanie bez usługi Application Insights
 
-Zalecamy usługi Application Insights dla funkcji monitorowania, ponieważ oferuje więcej danych i lepsze metody do analizowania danych. Jednak możesz także znaleźć dane telemetryczne i rejestrowanie danych na stronach portalu platformy Azure dla aplikacji funkcja. 
+Zalecamy usługi Application Insights dla funkcji monitorowania, ponieważ oferuje więcej danych i lepsze metody do analizowania danych. Ale można również znaleźć dzienników i danych telemetrycznych na stronach portalu Azure dla aplikacji funkcja.
 
-Wybierz **Monitor** kartę dla funkcji i można uzyskać listę wykonaniami funkcji. Wybierz wykonywania funkcji, aby sprawdzić czas trwania, danych wejściowych, błędy i skojarzone pliki dziennika.
+### <a name="logging-to-storage"></a>Rejestrowanie w magazynie
 
-> [!IMPORTANT]
-> Korzystając z [zużycie plan hostingu](functions-overview.md#pricing) dla usługi Azure Functions **monitorowanie** kafelka w aplikacji funkcji nie są wyświetlane wszystkie dane. Jest to spowodowane platformę dynamicznie skaluje i zarządza wystąpienia obliczeniowe. Te metryki nie jest zrozumiały dla planu zużycia.
+Rejestrowanie wbudowanych używa konta magazynu określony w ciągu połączenia w `AzureWebJobsDashboard` ustawienia aplikacji. Jeśli danego ustawienia aplikacji jest skonfigurowana, zostaną wyświetlone dane rejestrowania w portalu Azure. Na stronie aplikacji funkcji wybierz funkcję, a następnie wybierz **Monitor** kartę i uzyskać listę wykonaniami funkcji. Wybierz wykonywania funkcji, aby sprawdzić czas trwania, danych wejściowych, błędy i skojarzone pliki dziennika.
+
+Jeśli używasz usługi Application Insights i mieć [wbudowanych rejestrowanie wyłączone](#disable-built-in-logging), **Monitor** kartę przejście do usługi Application Insights.
 
 ### <a name="real-time-monitoring"></a>Monitorowanie w czasie rzeczywistym
 
-Monitorowanie w czasie rzeczywistym będą dostępne po kliknięciu **na żywo strumienia zdarzeń** w funkcji **Monitor** kartę. Strumień na żywo zdarzeń jest wyświetlane na wykresie na nowej karcie przeglądarki.
+Można przesłać strumieniowo pliki dziennika do sesji wiersza polecenia na lokalnej stacji roboczej za pomocą [Azure interfejsu wiersza polecenia (CLI) 2.0](/cli/azure/install-azure-cli) lub [programu Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Jest to znany problem, który może powodować danych nie można wypełnić. Konieczne może być zamknięcie karty przeglądarki zawierające strumień na żywo zdarzeń, a następnie kliknij przycisk **na żywo strumienia zdarzeń** ponownie, aby zezwalała na poprawnie wypełnić danych strumienia zdarzeń. 
-
-Te statystyki są w czasie rzeczywistym, ale rzeczywisty Tworzenie wykresów danych wykonawczych mogą mieć około 10 sekund opóźnienia.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Monitor plików dziennika z wiersza polecenia
-
-Można przesłać strumieniowo pliki dziennika do sesji wiersza polecenia na lokalnej stacji roboczej za pomocą interfejsu wiersza polecenia platformy Azure (CLI) 1.0 lub programu PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorowanie plików dziennika aplikacji funkcji z interfejsu wiersza polecenia platformy Azure w wersji 1.0
-
-Aby rozpocząć, [zainstalować 1.0 interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i [logowanie do platformy Azure](/cli/azure/authenticate-azure-cli).
-
-Aby włączyć klasycznym trybie zarządzania usługami, wybierz subskrypcję i przesyłanie strumieniowe plików dziennika, użyj następujących poleceń:
+2.0 interfejsu wiersza polecenia Azure Użyj następujących poleceń logowania, wybierz subskrypcję, a strumień plików dziennika:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Monitorowanie plików dziennika aplikacji funkcji przy użyciu programu PowerShell
-
-Aby rozpocząć, [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
-
-Aby dodać konta platformy Azure, wybierz subskrypcję i przesyłanie strumieniowe plików dziennika, użyj następujących poleceń:
+Dla programu Azure PowerShell Użyj następujących poleceń, aby dodać konta platformy Azure, wybierz subskrypcję, a strumień plików dziennika:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Aby uzyskać więcej informacji, zobacz [porady: strumienia dzienników aplikacji sieci web](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Aby uzyskać więcej informacji, zobacz [sposobu przesyłania strumieniowego dzienników](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-> [!div class="nextstepaction"]
-> [Dowiedz się więcej na temat usługi Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Więcej informacji zawierają następujące zasoby:
 
-> [!div class="nextstepaction"]
-> [Dowiedz się więcej na temat struktury rejestrowania, który używa funkcji](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Usługa Application Insights](/azure/application-insights/)
+* [Platformy ASP.NET Core rejestrowania](/aspnet/core/fundamentals/logging/)

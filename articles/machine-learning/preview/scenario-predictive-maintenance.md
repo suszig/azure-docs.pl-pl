@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Konserwacji predykcyjnej rzeczywistych scenariuszy.
 
@@ -32,7 +32,7 @@ Poniżej znajduje się łącze do publicznego repozytorium GitHub: [https://gith
 
 Poważny problem, napotykają firmy w branży ciężki zasobów jest znacznych kosztów, skojarzonych z opóźnienia mechaniczne problemów. Większość firm są zainteresowani przewidywania, gdy te problemy, aby aktywnie zapobiec, przed ich wystąpieniem. Celem jest zmniejszenie kosztów, zmniejszając czas przestoju i możliwego zwiększania bezpieczeństwa. 
 
-W tym scenariuszu przyjmuje pomysłów [podręcznikowym konserwacji predykcyjnej](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) aby zademonstrować konstruowania modelu predykcyjnego symulowane zestawu danych. Przykładowe dane pochodzi z typowymi elementami w wielu przypadkach użycia konserwacji predykcyjnej.
+W tym scenariuszu przyjmuje pomysłów [podręcznikowym konserwacji predykcyjnej](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) aby zademonstrować konstruowania modelu predykcyjnego symulowane zestawu danych. Przykładowe dane pochodzi z typowymi elementami w wielu przypadkach użycia konserwacji predykcyjnej.
 
 Problem biznesowy symulowane danych jest do prognozowania problemy spowodowane przez błędy składnika. W związku z tym jest pytania biznesowe "*jakie jest prawdopodobieństwo, że maszyna przestanie działać z powodu błędu składnika*?" Ten problem jest sformatowany jako problem wieloklasowej klasyfikacji (wiele składników dla poszczególnych komputerów) i algorytmu uczenia maszynowego służy do tworzenia modeli predykcyjnych. Model jest uczony w danych historycznych zbierane z maszyn. W tym scenariuszu użytkownik przechodzi przez różne kroki wdrażania modelu w środowisku Azure Machine Learning Workbench.
 
@@ -133,6 +133,6 @@ Ten przypadek użycia zostały wcześniej przygotowane na wielu platformach:
 * [Konserwacji predykcyjnej notesu Python Podręcznik modelowania](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Konserwacji predykcyjnej przy użyciu PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Brak dostępnych wiele innych przykładowe scenariusze środowiska roboczego uczenia maszynowego Azure, która zademonstrować dodatkowe funkcje produktu. 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Przenieść usługi Menedżer StorSimple urządzenia z klasycznego portalu Azure: często zadawane pytania (FAQ)
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Poniżej przedstawiono pytania i odpowiedzi, które mogą być po przeniesieniu usługi Menedżer StorSimple urządzenie działa w klasycznym portalu Azure w portalu Azure.
 
@@ -38,7 +38,7 @@ Pytania i odpowiedzi są rozmieszczone w ramach następujących kategorii:
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>Raz I zostały przeniesione do portalu Azure, można nadal utworzyć usługi Menedżer StorSimple w klasycznym portalu?
 
-Nie. Po migracji usługi Menedżer StorSimple do portalu Azure w klasycznym portalu nie można utworzyć nowej usługi. Ponadto nie może zarządzać urządzenia w portalu klasycznym. Aby uzyskać więcej informacji, przejdź do [Przenieś usługi do portalu Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Nie. Po migracji usługi Menedżer StorSimple do portalu Azure w klasycznym portalu nie można utworzyć nowej usługi. Ponadto [klasycznym portalu nie będzie dostępny z 8 stycznia 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Mam wiele menedżerów StorSimple działa w klasycznym portalu. Można wybrać te, które można przenieść do portalu Azure?
 
@@ -67,14 +67,14 @@ Tak. Skojarzone z istniejące urządzenia 8010/8020 chmury maszyn wirtualnych mo
 
 Jeśli utworzono urządzenia StorSimple chmury modelu 8010/8020 systemem 3.0 aktualizacji i powyżej, możesz nie dotyczy usługi przenoszenia do nowego portalu Azure. Można będzie w pełni zarządzać chmury urządzeń bez żadnych problemów. 
 
-Jeśli masz urządzenia z wersjami przed 3.0 aktualizacji w klasycznym portalu, następnie należy tylko mają ograniczoną funkcjonalność dostępna chmury. Aby uzyskać więcej informacji, przejdź do [listy nieobsługiwanej operacji dla urządzenia z wersjami przed Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Jeśli masz urządzenia z wersjami przed 3.0 aktualizacji w klasycznym portalu, następnie należy tylko mają ograniczoną funkcjonalność dostępna chmury. Aby uzyskać więcej informacji, przejdź do [listy nieobsługiwanej operacji dla urządzenia z wersjami przed Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Urządzenia w chmurze nie można aktualizować. Użyj najnowszej wersji oprogramowania do tworzenia nowego urządzenia chmury i następnie przełączyć istniejącą kontenery woluminów do nowego urządzenia chmury utworzony. Aby uzyskać więcej informacji, przejdź do [funkcjonować w trybie awaryjnym urządzenia chmury](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Moje urządzenia z serii StorSimple 8000 działa 2.0 aktualizacji. Moje usługi I migracji do nowego portalu Azure. Moje urządzenie podłączone pomyślnie, ale wydaje się, że nie mam w pełni zarządzać urządzeniem. Jak rozwiązać ten problem?
 
-Nowy portal Azure jest obsługiwana jedynie w przypadku urządzeń StorSimple z aktualizacji 3.0 lub nowszej. Jeśli urządzenie zostało uruchomione 2.0 aktualizacji, należy tylko mają ograniczoną funkcjonalność dostępna dla tego urządzenia. Aby uzyskać więcej informacji, przejdź do [listy nieobsługiwanej operacji dla urządzenia z wersjami przed Update 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Nowy portal Azure jest obsługiwana jedynie w przypadku urządzeń StorSimple z aktualizacji 3.0 lub nowszej. Jeśli urządzenie zostało uruchomione 2.0 aktualizacji, należy tylko mają ograniczoną funkcjonalność dostępna dla tego urządzenia. Aby uzyskać więcej informacji, przejdź do [listy nieobsługiwanej operacji dla urządzenia z wersjami przed Update 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Aby w pełni zarządzać urządzenie, zainstaluj najnowszą aktualizację na urządzeniu. Aby uzyskać więcej informacji, przejdź do [zainstalować aktualizacji 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Nie. Z usługą przenoszenia do nowego portalu Azure powinien istnieć bez wpły
 
 ## <a name="moving-storsimple-data-manager-service"></a>Przenoszenie usługi Menedżer StorSimple danych
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>Korzystam z usługi Menedżer StorSimple danych. Jak należy kontynuować to przeniesienie?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Używam usługi Menedżer StorSimple danych w klasycznym portalu Azure. Jak należy kontynuować to przeniesienie?
 
-Jeśli używasz usługi Menedżer StorSimple dane należy przenieść menedżerowie urządzenia StorSimple najpierw do portalu Azure. Po zakończeniu przenoszenia, Utwórz nowe menedżerów danych StorSimple w portalu Azure. Menedżerowie danych StorSimple utworzone przed przeniesienie nie działają.
-
-Aby uzyskać więcej informacji o migracji usługi Menedżer StorSimple urządzeń, przejdź do [Przenieś usługi do portalu Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Aby uzyskać więcej informacji na temat tworzenia StorSimple Data Manager, przejdź do [Utwórz usługę Menedżer StorSimple danych](storsimple-data-manager-ui.md).
+Jeśli używasz usługi Menedżer StorSimple danych możesz zostały automatycznie przeniesione do portalu Azure.
 
 ## <a name="miscellaneous"></a>Różne postanowienia
 
@@ -146,9 +144,9 @@ Nie. Nie ma to wpływu na StorSimple Snapshot Manager po przeniesieniu usługi d
 
 Nie. Nie można zmienić nazwy urządzenia, woluminy, kontenery woluminów lub zasad tworzenia kopii zapasowych w portalu Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się, jak krok po kroku [Przenieś usługi Menedżer StorSimple urządzenia do portalu Azure](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Dowiedz się więcej o [obsługiwane operacje na urządzenia z wersjami przed 5.0 aktualizacji](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

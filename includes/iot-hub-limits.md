@@ -27,7 +27,7 @@ W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
 | Maksymalna liczba dostarczonych komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |100 |
 | Maksymalny czas wygaśnięcia komunikatów zwrotnych <br/> w odpowiedzi na komunikaty przesłane z chmury do urządzenia |2 dni |
 | Maksymalny rozmiar bliźniaczej reprezentacji urządzenia <br/> (tagi, zgłoszone właściwości i żądane właściwości) | 8 KB |
-| Maksymalny rozmiar wartości ciągu bliźniaczej reprezentacji urządzenia | 512 bajtów |
+| Maksymalny rozmiar wartości ciągu bliźniaczej reprezentacji urządzenia | 4 KB |
 | Maksymalna głębokość obiektu w bliźniaczej reprezentacji urządzenia | 5 |
 | Maksymalny rozmiar ładunku metody bezpośredniej | 8 KB |
 | Maksymalny okres przechowywania historii zadań | 30 dni |

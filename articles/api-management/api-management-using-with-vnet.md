@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Jak używać usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualnych platformy Azure (sieci wirtualne) umożliwiają umieszczać zasobów platformy Azure w kontroli dostępu do sieci routeable z systemem innym niż internet. Te sieci następnie mogą być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej o sieciach wirtualnych platformy Azure Uruchom z informacjami w tym miejscu: [omówienie sieci wirtualnych Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,11 +108,9 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 | Źródłowego / docelowego porty | Kierunek | Protokół transportu | Źródłowego / docelowego | Cel (*) | Typ sieci wirtualnej |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Zarządzanie interfejsami API komunikacji klienta|Zewnętrzne |
-| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzne |
+| * / 3443 |Przychodzący |TCP |INTERNET / VIRTUAL_NETWORK|Punkt końcowy zarządzania dla portalu Azure i programu Powershell |Wewnętrzny |
 | * / 80, 443 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależność od usługi Azure Storage, usługi Azure Service Bus i usługi Azure Active Directory (jeśli dotyczy).|Zewnętrzne i wewnętrzne | 
 | * / 1433 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do punktów końcowych Azure SQL** |Zewnętrzne i wewnętrzne |
-| * / 11000 - 11999 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do usługi Azure SQL w wersji 12** |Zewnętrzne i wewnętrzne |
-| * / 14000 - 14999 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|**Dostęp do usługi Azure SQL w wersji 12** |Zewnętrzne i wewnętrzne |
 | * / 5671, 5672 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależność od dziennika zasad Centrum zdarzeń i agenta monitorowania |Zewnętrzne i wewnętrzne |
 | * / 445 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Zależności w udziale plików platformy Azure dla GIT |Zewnętrzne i wewnętrzne |
 | * / 25028 |Wychodzący |TCP |VIRTUAL_NETWORK / INTERNET|Połącz z przekazywaniem SMTP do wysyłania wiadomości E-mail |Zewnętrzne i wewnętrzne |
@@ -143,7 +141,7 @@ Gdy wystąpienie usługi API Management znajduje się w sieci Wirtualnej, są u�
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 * **Wstępne instalacji**: po początkowym wdrożeniu usługi API Management do podsieci nie powiedzie się, zaleca się najpierw wdrożyć maszynę wirtualną do tej samej podsieci. Następny pulpitu zdalnego do maszyny wirtualnej i sprawdź, czy jest łączność każdego zasobu poniżej w Twojej subskrypcji platformy azure 
     * Obiekt blob magazynu Azure
-    * Usługa Azure SQL Database
+    * Azure SQL Database
 
  > [!IMPORTANT]
  > Po zweryfikowaniu połączenia, upewnij się usunąć wszystkie zasoby, które są wdrożone w podsieci, przed wdrożeniem usługi API Management do podsieci.

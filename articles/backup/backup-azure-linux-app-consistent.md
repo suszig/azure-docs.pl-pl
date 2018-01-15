@@ -1,6 +1,6 @@
 ---
 title: "Kopia zapasowa Azure: spójnych z aplikacją kopii zapasowych maszyn wirtualnych systemu Linux | Dokumentacja firmy Microsoft"
-description: "Aby zagwarantować kopii zapasowych spójnych z aplikacją na platformie Azure, dla maszyn wirtualnych systemu Linux za pomocą skryptów. Skrypty mają zastosowanie tylko do maszyn wirtualnych systemu Linux w ramach wdrożenia usługi Resource Manager; skrypty nie dotyczą maszyn wirtualnych systemu Windows lub wdrożenia Menedżera usług. Ten artykuł przedstawia kroki konfigurowania skryptów, w tym Rozwiązywanie problemów."
+description: "Tworzenie spójnych z aplikacją kopii zapasowych maszyn wirtualnych systemu Linux na platformie Azure. W tym artykule opisano konfigurowanie framework skryptu, aby utworzyć kopię zapasową maszyn wirtualnych systemu Linux wdrożonych Azure. Ten artykuł zawiera także informacje dotyczące rozwiązywania problemów."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,35 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Spójnych z aplikacją kopii zapasowej maszyn wirtualnych systemu Linux platformy Azure (wersja zapoznawcza)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Spójnych z aplikacją kopii zapasowej maszyn wirtualnych systemu Linux platformy Azure
 
-Tym artykule omówiono systemu Linux skryptów przed i po wykonaniu script framework i jak może służyć do podjęcia spójnych z aplikacją kopii zapasowych maszyn wirtualnych systemu Linux platformy Azure.
-
-> [!Note]
-> Framework skryptów przed i po skryptu jest obsługiwana tylko dla maszyn wirtualnych wdrożonych przez Menedżera zasobów Azure systemu Linux. Skrypty w celu zachowania spójności aplikacji nie są obsługiwane dla maszyn wirtualnych wdrożonych programu Service Manager lub maszyn wirtualnych systemu Windows.
->
+Gdy tworzenie kopii zapasowych migawek maszyn wirtualnych, spójności aplikacji oznacza, że aplikacje uruchamiania podczas rozruchu maszyn wirtualnych po przywracana. Jak można wyobrazić sobie spójności aplikacji jest bardzo ważne. Aby upewnić się, maszyn wirtualnych systemu Linux są zgodne, można użyć framework skryptów przed i po skryptu Linux Twórz kopie zapasowe spójnych z aplikacją aplikacji. Struktura skryptu przed i po skryptu obsługuje maszyn wirtualnych wdrożonych przez Menedżera zasobów Azure systemu Linux. Skrypty w celu zachowania spójności aplikacji nie obsługują wdrożeniu programu Service Manager maszyn wirtualnych lub maszyn wirtualnych systemu Windows.
 
 ## <a name="how-the-framework-works"></a>Jak działa w ramach
 
-Platformę udostępnia opcję umożliwiają uruchamianie niestandardowych skryptów przed i po skrypty podczas tworzenia migawki maszyny Wirtualnej. Wstępne skrypty są uruchamiane tuż przed migawki maszyny Wirtualnej, a po skrypty są uruchamiane natychmiast po wykonaniu migawki maszyny Wirtualnej. Zapewnia to elastyczność kontroli aplikacji i środowiska podczas tworzenia migawki maszyny Wirtualnej.
+Platformę udostępnia opcję umożliwiają uruchamianie niestandardowych skryptów przed i po skrypty podczas tworzenia migawki maszyny Wirtualnej. Wstępne skrypty uruchamiane tak, aby wykonać migawki maszyny Wirtualnej, a po skrypty uruchamiane natychmiast po migawki maszyny Wirtualnej. Przed i po skryptów zapewniają elastyczność kontroli aplikacji i środowiska, podczas tworzenia migawki maszyny Wirtualnej.
 
-W tym scenariuszu jest istotne dla zapewnienia spójnych z aplikacją kopii zapasowej maszyny Wirtualnej. Wstępne skryptu można wywoływać interfejsy API natywnych aplikacji do systemu IOs w stan spoczynku i opróżnić zawartość w pamięci na dysk. Dzięki temu migawki są spójne z aplikacjami (to znaczy dostarczonego przez aplikację się po uruchomieniu maszyny Wirtualnej wykonywane po przywróceniu). Skrypt po może służyć do odblokowania systemu IOs. Robi to przy użyciu aplikacji natywnych interfejsów API, tak aby aplikację można wznowić wykonywania normalnych operacji post-VM migawki.
+Wstępne skrypty wywołania interfejsów API, które w stan spoczynku aplikacji natywnej systemu IOs i opróżnić zawartość w pamięci na dysk. Te akcje upewnij się, że migawka jest zgodny. Skrypty po korzystać z aplikacji natywnych interfejsów API można odblokować systemu IOs, które umożliwia aplikacji przywrócić normalne działanie po wykonaniu migawki maszyny Wirtualnej.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Kroki konfigurowania skryptów przed i po skryptu
 
 1. Zaloguj się jako użytkownik główny do maszyny Wirtualnej systemu Linux, który chcesz utworzyć kopię zapasową.
 
-2. Pobierz **VMSnapshotScriptPluginConfig.json** z [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), a następnie skopiować go do **/etc/azure** folderu na wszystkich maszynach wirtualnych, które użytkownik chce utworzyć kopię zapasową. Utwórz **/etc/azure** katalogu, jeśli nie istnieje już.
+2. Z [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), Pobierz **VMSnapshotScriptPluginConfig.json** i skopiuj go do **/etc/azure** folderu dla wszystkich maszyn wirtualnych, które chcesz utworzyć kopię zapasową. Jeśli **/etc/azure** folder nie istnieje, utwórz go.
 
-3. Skopiuj skrypt przed i po skryptu aplikacji na wszystkich maszynach wirtualnych, które zamierzasz wykonać kopię zapasową. Skrypty można skopiować do dowolnej lokalizacji na maszynie Wirtualnej. Należy upewnić się, że pełna ścieżka plików skryptów w **VMSnapshotScriptPluginConfig.json** pliku.
+3. Skopiuj skrypt przed i po skryptu aplikacji na wszystkich maszynach wirtualnych, należy zaplanować tworzenie kopii zapasowych. Skrypty można skopiować do dowolnej lokalizacji na maszynie Wirtualnej. Należy upewnić się, że pełna ścieżka plików skryptów w **VMSnapshotScriptPluginConfig.json** pliku.
 
 4. Upewnij się, następujących uprawnień do tych plików:
 
@@ -51,8 +47,8 @@ W tym scenariuszu jest istotne dla zapewnienia spójnych z aplikacją kopii zapa
    - **Skrypt po** uprawnienia "700." Na przykład tylko "root" użytkownik powinien mieć "do odczytu", "write" i "execute" uprawnień do tego pliku.
 
    > [!Important]
-   > Platformę umożliwia użytkownikom dużo energii. Jest to bezpieczne i że tylko użytkownika "root" ma dostęp do krytycznych plików JSON i skrypt.
-   > Jeśli nie są spełnione wymagania poprzedniej, skrypt nie działa. Powoduje to kopia zapasowa spójna awaria/systemu plików.
+   > Platformę umożliwia użytkownikom dużo energii. Zabezpieczenie platformę i upewnij się, że tylko "root" użytkownik ma dostęp do krytycznych JSON i pliki skryptów.
+   > Jeśli nie są spełnione wymagania, skrypt nie będzie uruchamiany, które powoduje awarii systemu plików oraz niespójne kopii zapasowej.
    >
 
 5. Skonfiguruj **VMSnapshotScriptPluginConfig.json** zgodnie z opisem w tym miejscu:
@@ -62,9 +58,9 @@ W tym scenariuszu jest istotne dla zapewnienia spójnych z aplikacją kopii zapa
 
     - **postScriptLocation**: Podaj pełną ścieżkę skryptu po na maszynie Wirtualnej, która ma wejść do wykonania kopii zapasowej.
 
-    - **preScriptParams**: Podaj parametry opcjonalne, które muszą zostać przekazane do skryptu wstępne. Wszystkie parametry powinna być w cudzysłowie, a powinien być oddzielonych przecinkami, jeśli istnieje wiele parametrów.
+    - **preScriptParams**: Podaj parametry opcjonalne, które muszą zostać przekazane do skryptu wstępne. Wszystkie parametry powinny mieć w cudzysłowy. Jeśli używasz wielu parametrów, oddziel przecinkami parametrów.
 
-    - **postScriptParams**: Podaj parametry opcjonalne, które muszą być przekazywane do skryptu po. Wszystkie parametry powinna być w cudzysłowie, a powinien być oddzielonych przecinkami, jeśli istnieje wiele parametrów.
+    - **postScriptParams**: Podaj parametry opcjonalne, które muszą być przekazywane do skryptu po. Wszystkie parametry powinny mieć w cudzysłowy. Jeśli używasz wielu parametrów, oddziel przecinkami parametrów.
 
     - **preScriptNoOfRetries**: Ustaw liczbę godzin przed skryptu należy wykonać ponownie razie błędu przed zakończeniem. Zero oznacza, że tylko jedna próba i nie ponownych prób w przypadku awarii.
 
@@ -82,7 +78,7 @@ W tym scenariuszu jest istotne dla zapewnienia spójnych z aplikacją kopii zapa
 
 Upewnij się, należy dodać odpowiednią rejestrowania podczas zapisywania w skrypcie przed i po skryptu i dziennikach skryptu Rozwiąż wszelkie problemy skryptu. Jeśli nadal występują problemy z uruchamianiem skryptów, zapoznaj się z poniższą tabelą, aby uzyskać więcej informacji.
 
-| Błąd | Komunikat o błędzie | Zalecane działanie |
+| Błąd | Komunikat o błędzie | Zalecana akcja |
 | ------------------------ | -------------- | ------------------ |
 | Wstępnie ScriptExecutionFailed |Wstępne skryptu zwrócił błąd, aby kopia zapasowa może nie być spójnych z aplikacją.   | Sprawdź w dziennikach błędu skrypt, aby rozwiązać ten problem.|  
 |   Post ScriptExecutionFailed |    Skrypt po zwrócił błąd, który może mieć wpływ na stan aplikacji. |    Sprawdź w dziennikach błędu skrypt, aby rozwiązać ten problem i sprawdź stan aplikacji. |
@@ -95,5 +91,5 @@ Upewnij się, należy dodać odpowiednią rejestrowania podczas zapisywania w sk
 | Wstępnie ScriptTimeout | Spójnych z aplikacją kopii zapasowej skryptu przed upłynął limit czasu wykonywania. | Sprawdź skrypt i zwiększyć limit czasu w **VMSnapshotScriptPluginConfig.json** pliku znajdującego się na **/etc/azure**. |
 | Post ScriptTimeout | Upłynął limit czasu wykonywania skryptu po kopii zapasowej zapewniających spójność aplikacji. | Sprawdź skrypt i zwiększyć limit czasu w **VMSnapshotScriptPluginConfig.json** pliku znajdującego się na **/etc/azure**. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Konfigurowanie kopii zapasowej maszyny Wirtualnej w magazynie usług odzyskiwania](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench — znane problemy i przewodnik rozwiązywania problemów 
 Ten artykuł ułatwia znajdowanie i poprawić błędy lub błędów napotkanych jako część przy użyciu aplikacji Azure Machine Learning Workbench. 
@@ -118,7 +118,7 @@ Po zalogowaniu aplikacji Workbench może zatrzymywane w pusty ekran z komunikate
 3. Uruchom ponownie aplikację.
 
 ## <a name="cant-delete-experimentation-account"></a>Nie można usunąć konta eksperymenty
-Można użyć interfejsu wiersza polecenia, aby usunąć konto eksperymenty, ale musisz usunąć obszary robocze podrzędnych i projekty podrzędne w tych obszarach roboczych podrzędnych najpierw. W przeciwnym razie zostanie wyświetlony błąd.
+Można użyć interfejsu wiersza polecenia, aby usunąć konto eksperymenty, ale musisz usunąć obszary robocze podrzędnych i projekty podrzędne w tych obszarach roboczych podrzędnych najpierw. W przeciwnym razie zostanie wyświetlony błąd "nie można usunąć zasobów przed usunięciem zagnieżdżonych zasobów."
 
 ```azure-cli
 # delete a project
@@ -145,6 +145,8 @@ Jeśli należy rozpocząć poza eksperymenty uruchomić przy użyciu `az ml expe
 - Na macOS użyj klawiszy Ctrl-C.
 
 Należy pamiętać, to tylko przerwań strumienia wyjściowego w oknie interfejsu wiersza polecenia. Nie faktycznie Zatrzymuje zadanie, które jest wykonywana. Aby anulować bieżące zadanie, należy użyć `az ml experiment cancel -r <run_id> -t <target name>` polecenia.
+
+Na komputerach z systemem Windows z klawiatury, które nie mają klucz podziału możliwe alternatywne metody obejmują Fn-B, Ctrl-Fn-B lub Fn + Esc. W dokumentacji producenta sprzętu dla określonej kombinacji klawiszy.
 
 ## <a name="docker-error-read-connection-refused"></a>Błąd docker "do odczytu: połączenie zostało odrzucone"
 Podczas wykonywania przed lokalnego kontenera Docker, czasami może pojawić następujący błąd: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 Można także dodać dysk danych i skonfigurować aparatem platformy Docker pod kątem używania dysku danych do przechowywania obrazów. Oto [sposób dodawania dysku danych](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Następnie możesz [zmiany, w którym Docker są przechowywane obrazy](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Lub, można rozszerzyć dysk systemu operacyjnego, a nie masz dostępu do konfiguracji aparatu Docker. Oto [jak rozszerzyć dysk systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

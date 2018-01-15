@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Użyj Menedżera urządzeń StorSimple do zarządzania alertami dla tablicy wirtualnego StorSimple
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Funkcja alertów w usłudze Menedżer StorSimple urządzenia umożliwia Przejrzyj i wyczyść alerty powiązane z macierzami wirtualnego StorSimple na podstawie w czasie rzeczywistym. Alerty mogą być używane na **Podsumowanie usługi** bloku, aby centralnie monitorować problemy dotyczące kondycji z macierzami wirtualnego StorSimple oraz ogólnego rozwiązania Microsoft Azure StorSimple.
 
@@ -125,7 +125,6 @@ W poniższych tabelach przedstawiono niektóre alerty StorSimple, które można 
 * [Alerty błędów zadania](#job-failure-alerts)
 * [Alerty wydajności](#performance-alerts)
 * [Alerty zabezpieczeń](#security-alerts)
-* [Aktualizowanie alertów](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alerty łączności chmury
 
@@ -165,14 +164,7 @@ W poniższych tabelach przedstawiono niektóre alerty StorSimple, które można 
 |:--- |:--- |:--- |
 | Hasło dla <*nazwa urządzenia*> wygaśnie za <*numer*> dni. |Ostrzeżenie o hasło. |Twoje hasło wygaśnie w < numer < dni. Rozważ zmianę hasła. Aby uzyskać więcej informacji, przejdź do [Zmień hasło administratora urządzenia StorSimple wirtualnego tablicy](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Aktualizowanie alertów
-
-| Tekst alertu | Wydarzenie | Więcej informacji / zalecane akcje |
-|:--- |:--- |:--- |
-| Nowe aktualizacje są dostępne dla danego urządzenia. |Dostępne są aktualizacje do tablicy wirtualne StorSimple. |Można zainstalować nowe aktualizacje z **konserwacji** strony. |
-| Nie można skanować pod kątem nowych aktualizacji na <*nazwa urządzenia*>. |Zaktualizuj awarii. |Wystąpił błąd podczas instalowania nowych aktualizacji. Można ręcznie zainstalować aktualizacje. Jeśli problem będzie się powtarzać, skontaktuj się z [Microsoft Support](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się więcej o tablicy wirtualnego StorSimple](storsimple-ova-overview.md).
 

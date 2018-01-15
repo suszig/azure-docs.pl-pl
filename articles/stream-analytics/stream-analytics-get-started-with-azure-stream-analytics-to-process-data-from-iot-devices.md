@@ -4,7 +4,7 @@ description: "Używanie tagów czujników IoT i strumieni danych z analizą stru
 keywords: "rozwiązanie iot, wprowadzenie do iot"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Wprowadzenie do usługi Azure Stream Analytics służącej do przetwarzania danych z urządzeń IoT
 Korzystając z tego samouczka, nauczysz się tworzyć logikę przetwarzania strumieni w celu zbierania danych z urządzeń Internetu rzeczy (IoT). Użyjemy w nim rzeczywistych przypadków użycia Internetu rzeczy (IoT) w celu zademonstrowania szybkiego i ekonomicznego kompilowania rozwiązań.
@@ -31,11 +31,7 @@ Korzystając z tego samouczka, nauczysz się tworzyć logikę przetwarzania stru
 ## <a name="scenario"></a>Scenariusz
 Contoso to firma z branży automatyki przemysłowej, która w pełni zautomatyzowała swój proces produkcji. Maszyny w tym zakładzie mają czujniki mogące emitować strumienie danych w czasie rzeczywistym. W tym scenariuszu menedżer warsztatu produkcyjnego chce mieć wgląd w czasie rzeczywistym w dane czujników w celu szukania wzorców i podejmowania na ich podstawie odpowiednich działań. Dla danych czujników będzie używany język zapytań usługi Stream Analytics (SAQL) w celu znalezienia interesujących wzorców w przychodzącym strumieniu danych.
 
-W tym przykładzie dane są generowane z urządzenia Texas Instruments Sensor Tag.
-
-![Urządzenie Texas Instruments Sensor Tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-Ładunek danych jest w formacie JSON i może wyglądać następująco:
+W tym przykładzie dane są generowane z urządzenia Texas Instruments Sensor Tag. Ładunek danych jest w formacie JSON i może wyglądać następująco:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -68,7 +64,7 @@ W celu ułatwienia pracy w tym przewodniku z wprowadzeniem udostępniono przykł
    
     ![trwa tworzenie zadania](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Tworzenie zapytania usługi Azure Stream Analytics
+## <a name="create-an-azure-stream-analytics-query"></a>Tworzenie zapytania usługi Azure Stream Analytics
 Po utworzeniu zadania należy je otworzyć i utworzyć zapytanie. Dostęp do zadania można łatwo uzyskać, klikając w tym celu kafelek.
 
 ![Kafelek zadania](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Pojęcia dotyczące zabezpieczeń inicjowania obsługi usługi IoT Hub urządzeń 
 
@@ -56,13 +56,13 @@ Klucza głównego magazynowania jest przechowywany w module TPM i jest używany 
 
 ## <a name="x509-certificates"></a>Certyfikaty X.509
 
-Za pomocą certyfikatów X.509 jako mechanizmu zaświadczania jest doskonałym sposobem skalowania produkcyjnych i uprościć Inicjowanie obsługi administracyjnej urządzeń. Certyfikaty X.509 zwykle są rozmieszczone w łańcuch certyfikatów zaufania, w którym każdy z certyfikatów w łańcuchu jest podpisany przy użyciu klucza prywatnego następnym wyższym certyfikatu i itd., przerywanie certyfikatu głównego z podpisem własnym. W ten sposób ustanawiany delegowanego łańcucha zaufania od certyfikatu głównego, generowane przez zaufany główny urząd certyfikacji (CA) w dół za pośrednictwem każdej pośredniego urzędu certyfikacji z certyfikatem jednostki końcowej zainstalowana na urządzeniu. Aby dowiedzieć się więcej, zobacz [uwierzytelnianie urządzenia za pomocą certyfikatów X.509 urzędu certyfikacji](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). 
+Za pomocą certyfikatów X.509 jako mechanizmu zaświadczania jest doskonałym sposobem skalowania produkcyjnych i uprościć Inicjowanie obsługi administracyjnej urządzeń. Certyfikaty X.509 zwykle są rozmieszczone w łańcuch certyfikatów zaufania, w którym każdy z certyfikatów w łańcuchu jest podpisany przy użyciu klucza prywatnego następnym wyższym certyfikatu i itd., przerywanie certyfikatu głównego z podpisem własnym. W ten sposób ustanawiany delegowanego łańcucha zaufania od certyfikatu głównego, generowane przez zaufany główny urząd certyfikacji (CA) w dół za pośrednictwem każdej pośredniego urzędu certyfikacji z certyfikatem jednostki końcowej zainstalowana na urządzeniu. Aby dowiedzieć się więcej, zobacz [uwierzytelnianie urządzenia za pomocą certyfikatów X.509 urzędu certyfikacji](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Często łańcucha certyfikatów reprezentuje niektórych hierarchii logiczną lub fizyczną skojarzone z urządzeń. Na przykład producent może wystawiania certyfikatu z podpisem głównego urzędu certyfikacji, użyć tego certyfikatu, aby wygenerować unikatowy certyfikat pośredniego urzędu certyfikacji dla każdego fabryki, Użyj certyfikatu z każdej fabryki wygenerować unikatowy certyfikat pośredniego urzędu certyfikacji dla każdego produkcyjnego wiersz w zakładzie, a na koniec Użyj certyfikatu wiersza produkcyjnym do wygenerowania certyfikatu unikatowych urządzeń (jednostek końcowych) dla każdego urządzenia wyprodukowany w wierszu. Aby dowiedzieć się więcej, zobacz [pojęć związanych z certyfikatami X.509 urzędu certyfikacji w branży IoT](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
+Często łańcucha certyfikatów reprezentuje niektórych hierarchii logiczną lub fizyczną skojarzone z urządzeń. Na przykład producent może wystawiania certyfikatu z podpisem głównego urzędu certyfikacji, użyć tego certyfikatu, aby wygenerować unikatowy certyfikat pośredniego urzędu certyfikacji dla każdego fabryki, Użyj certyfikatu z każdej fabryki wygenerować unikatowy certyfikat pośredniego urzędu certyfikacji dla każdego produkcyjnego wiersz w zakładzie, a na koniec Użyj certyfikatu wiersza produkcyjnym do wygenerowania certyfikatu unikatowych urządzeń (jednostek końcowych) dla każdego urządzenia wyprodukowany w wierszu. Aby dowiedzieć się więcej, zobacz [pojęć związanych z certyfikatami X.509 urzędu certyfikacji w branży IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Certyfikat główny
 
-Certyfikat główny jest samopodpisany certyfikat X.509 reprezentujący urząd certyfikacji (CA). Jest to końca ani kotwicy zaufania łańcucha certyfikatów. Certyfikaty główne można samodzielnie wystawiony przez organizację lub zakupione od głównego urzędu certyfikacji. Aby dowiedzieć się więcej, zobacz [certyfikatów Pobierz urzędu certyfikacji X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Certyfikat główny może także określane jako certyfikat głównego urzędu certyfikacji.
+Certyfikat główny jest samopodpisany certyfikat X.509 reprezentujący urząd certyfikacji (CA). Jest to końca ani kotwicy zaufania łańcucha certyfikatów. Certyfikaty główne można samodzielnie wystawiony przez organizację lub zakupione od głównego urzędu certyfikacji. Aby dowiedzieć się więcej, zobacz [certyfikatów Pobierz urzędu certyfikacji X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Certyfikat główny może także określane jako certyfikat głównego urzędu certyfikacji.
 
 ### <a name="intermediate-certificate"></a>Certyfikat pośredniego
 
@@ -70,7 +70,7 @@ Certyfikat pośredniego to certyfikat X.509, który został podpisany certyfikat
 
 ### <a name="leaf-certificate"></a>Certyfikat liścia
 
-Certyfikat liścia lub certyfikatów jednostek końcowych identyfikuje właściciela certyfikatu. Ma on certyfikat główny w łańcuchu certyfikatów, a także certyfikaty pośrednie zero lub więcej. Certyfikat liścia nie jest używany do podpisywania innych certyfikatów. Unikatowo identyfikuje urządzenia do inicjowania obsługi usługi i czasami jest nazywany certyfikatu tego urządzenia. Podczas uwierzytelniania urządzenia przy użyciu klucza prywatnego skojarzonego z tym certyfikatem odpowiedzieć na potwierdzenie posiadania żądania z usługi. Aby dowiedzieć się więcej, zobacz [uwierzytelniania urządzenia podpisane za pomocą certyfikatów X.509 urzędu certyfikacji](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Certyfikat liścia lub certyfikatów jednostek końcowych identyfikuje właściciela certyfikatu. Ma on certyfikat główny w łańcuchu certyfikatów, a także certyfikaty pośrednie zero lub więcej. Certyfikat liścia nie jest używany do podpisywania innych certyfikatów. Unikatowo identyfikuje urządzenia do inicjowania obsługi usługi i czasami jest nazywany certyfikatu tego urządzenia. Podczas uwierzytelniania urządzenia przy użyciu klucza prywatnego skojarzonego z tym certyfikatem odpowiedzieć na potwierdzenie posiadania żądania z usługi. Aby dowiedzieć się więcej, zobacz [uwierzytelniania urządzenia podpisane za pomocą certyfikatów X.509 urzędu certyfikacji](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrolowanie dostępu do urządzenia do inicjowania obsługi usługi za pomocą certyfikatów X.509
 

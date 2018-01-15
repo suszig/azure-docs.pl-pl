@@ -10,7 +10,7 @@ sql-database-single-database-resources.md
 | Maksymalna liczba jednostek DTU | 5 |
 | Dołączony magazyn (GB) | 2 |
 | Maksymalna liczba opcji magazynu (GB) | 2 |
-| Maksymalna pojemność magazynu OLTP w pamięci (GB) |Nie dotyczy |
+| Maksymalna pojemność magazynu OLTP w pamięci (GB) |ND |
 | Maksymalna liczba równoczesnych procesów roboczych (liczba żądań) | 30 |
 | Maksymalna liczba współbieżnych logowań | 30 |
 | Maksymalna liczba współbieżnych sesji | 300 |
@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Maksymalna liczba jednostek Dtu ** | 10 | 20 | 50 | 100 |
 | Dołączony magazyn (GB) | 250 | 250 | 250 | 250 |
 | Maksymalna liczba opcji magazynu (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maksymalna pojemność magazynu OLTP w pamięci (GB) | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
+| Maksymalna pojemność magazynu OLTP w pamięci (GB) | ND | ND | ND | ND |
 | Maksymalna liczba równoczesnych procesów roboczych (liczba żądań)| 60 | 90 | 120 | 200 |
 | Maksymalna liczba współbieżnych logowań | 60 | 90 | 120 | 200 |
 | Maksymalna liczba współbieżnych sesji |600 | 900 | 1200 | 2400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Maksymalna liczba jednostek Dtu ** | 200 | 400 | 800 | 1600 | 3000 |
 | Dołączony magazyn (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maksymalna liczba opcji magazynu (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maksymalna pojemność magazynu OLTP w pamięci (GB) | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |Nie dotyczy |
+| Maksymalna pojemność magazynu OLTP w pamięci (GB) | ND | ND | ND | ND |ND |
 | Maksymalna liczba równoczesnych procesów roboczych (liczba żądań)| 400 | 800 | 1600 | 3200 |6000 |
 | Maksymalna liczba współbieżnych logowań | 400 | 800 | 1600 | 3200 |6000 |
 | Maksymalna liczba współbieżnych sesji |4800 | 9600 | 19200 | 30000 |30000 |
@@ -67,7 +67,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* W warstwie Premium magazyn o rozmiarze ponad 1 TB jest obecnie dostępny w następujących regionach: Wschodnie stany USA 2, Zachodnie stany USA, Administracja USA — Wirginia, Europa Zachodnia, Niemcy Środkowe, Azja Południowo-Wschodnia, Japonia Wschodnia, Australia Wschodnia, Kanada Środkowa i Kanada Wschodnia. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\*W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\*Maksymalna liczba Dtu na bazę danych, uruchamianie w 200 Dtu i wyższych w standardzie są w wersji zapoznawczej.
 >

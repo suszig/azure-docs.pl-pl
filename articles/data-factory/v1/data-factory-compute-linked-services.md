@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Obliczenia bazy danych środowiskach obsługiwanych przez usługi fabryka danych Azure
 > [!NOTE]
@@ -49,7 +49,7 @@ Usługa Azure HDInsight obsługuje wielu wersjach klastra Hadoop, które można 
 Po 15 grudnia 2017 r.:
 
 - Nie można utworzyć wersji 3.3 HDInsight opartych na systemie Linux (i starszych) klastrów za pomocą połączoną usługą usługi HDInsight na żądanie w wersji 1 usługi fabryka danych Azure. 
-- Jeśli [osType i/lub właściwość Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie zostały jawnie określone w istniejących definicji JSON usługi połączonej usługi HDInsight na żądanie v1 fabryki danych Azure, wartością domyślną będzie można zmienić z **w wersji 3.1, osType = = Windows** do **wersji =[najnowszej wersji domyślnej HDI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
+- Jeśli [osType i/lub właściwość Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie zostały jawnie określone w istniejących definicji JSON usługi połączonej usługi HDInsight na żądanie v1 fabryki danych Azure, wartością domyślną będzie można zmienić z **w wersji 3.1, osType = = Windows** do **wersji =[najnowszej wersji domyślnej HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Po 31 lipca 2018:
 
@@ -122,7 +122,7 @@ Następujące JSON definiuje opartych na systemie Linux usługi HDInsight połą
 | type                         | Powinien mieć ustawioną właściwość type **HDInsightOnDemand**. | Yes      |
 | Wartość ClusterSize                  | Liczba węzłów procesu roboczego/danych w klastrze. Klaster usługi HDInsight jest tworzony z głównymi węzłami 2 wraz z liczbą węzłów procesu roboczego, które określisz dla tej właściwości. Węzły mają rozmiar Standard_D3, który ma 4 rdzenie, więc klastra z węzłem procesu roboczego 4 przyjmuje 24 rdzenie (4\*4 = 16 rdzenie dla węzłów procesu roboczego, a także 2\*rdzenie 4 = 8 dla węzłów głównych). Zobacz [utworzyć Linux opartych klastrów Hadoop w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) szczegółowe informacje na temat warstwy Standard_D3. | Yes      |
 | wartość TimeToLive                   | Limit czasu bezczynności klastra usługi HDInsight na żądanie. Określa, jak długo klastra usługi HDInsight na żądanie pozostaje aktywne po zakończeniu działania uruchamiania, jeśli w klastrze nie ma żadnych aktywnych działań.<br/><br/>Na przykład jeśli uruchomienia działania trwa 6 minut i timetolive jest ustawiony na 5 minut, klaster pozostanie aktywności 5 minut po uruchomieniu 6 minut przetwarzania działania. Jeśli inny uruchamiania działania jest wykonywane z okna 6 minut, jednak jest przetwarzany przez tego samego klastra.<br/><br/>Tworzenie klastra usługi HDInsight na żądanie jest kosztowna operacja (może to potrwać pewien czas), użyj tak, to ustawienie jako potrzebne do zwiększenia wydajności fabryki danych przez ponowne użycie klastra usługi HDInsight na żądanie.<br/><br/>Jeśli wartość timetolive jest ustawiona na 0, klastra jest usuwany natychmiast po zakończeniu wykonywania działania. Natomiast jeśli ustawisz wysokiej wartości, klaster może pozostać bezczynny, co niepotrzebnie wysokich kosztów. Dlatego jest ważne, aby ustawić odpowiednią wartość, na podstawie Twoich potrzeb.<br/><br/>Jeśli skonfigurowana wartość timetolive właściwości wielu potoki można udostępniać wystąpienia klastra usługi HDInsight na żądanie. | Yes      |
-| wersja                      | Wersja klastra usługi HDInsight, zobacz [obsługiwane wersje HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) dla dozwolone wersji usługi HDInsight. Jeśli nie zostanie określony, używa [najnowszej wersji domyślnej HDI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nie       |
+| wersja                      | Wersja klastra usługi HDInsight, zobacz [obsługiwane wersje HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) dla dozwolone wersji usługi HDInsight. Jeśli nie zostanie określony, używa [najnowszej wersji domyślnej HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nie       |
 | linkedServiceName            | Azure połączonej usługi magazynu do użycia przez klaster na żądanie do przechowywania i przetwarzania danych. W tym samym regionie co konto usługi Azure Storage jest tworzenie klastra usługi HDInsight.<p>Obecnie nie można utworzyć klastra usługi HDInsight na żądanie, która używa usługi Azure Data Lake Store jako magazynu. Jeśli chcesz przechowywać dane wynikowe z HDInsight przetwarzania w usłudze Azure Data Lake Store, umożliwia działanie kopiowania skopiować dane z magazynu obiektów Blob Azure do usługi Azure Data Lake Store. </p> | Yes      |
 | additionalLinkedServiceNames | Określa, że dodatkowe konta magazynu dla usługi HDInsight połączonej usługi, dzięki czemu usługi fabryka danych można zarejestrować je w Twoim imieniu. Te konta magazynu musi być w tym samym regionie co klaster usługi HDInsight, który jest tworzony w tym samym regionie co konto magazynu, określony przez linkedServiceName. | Nie       |
 | osType                       | Typ systemu operacyjnego. Dozwolone wartości to: Linux i Windows. Jeśli nie zostanie określony, Linux jest używany domyślnie.  <br/>Zdecydowanie recommand się przy użyciu systemu Linux na podstawie klastrów usługi HDInsight jako dacie wycofania dla usługi HDInsight w systemie Windows jest 31 lipca 2018. | Nie       |
