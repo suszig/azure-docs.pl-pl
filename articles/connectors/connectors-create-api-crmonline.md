@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Nawiązywanie połączenia z przepływów pracy aplikacji logiki do Dynamics 365
 
@@ -113,7 +113,7 @@ Na przykład można użyć zapytania filtra można uzyskać tylko aktywne konta 
 
 Po dodaniu wartości do pola musi odpowiadać typowi pola, wpisz wartość lub wybierz wartość z listy zawartości dynamicznej.
 
-Typ pola  |Jak stosować  |Gdzie można znaleźć  |Nazwa  |Typ danych  
+Typ pola  |Jak stosować  |Gdzie można znaleźć  |Name (Nazwa)  |Typ danych  
 ---------|---------|---------|---------|---------
 Pola tekstowe|Pola tekstowe wymagają pojedynczy wiersz tekstu lub zawartość dynamiczną, która jest polem typu tekst. Przykładami pola kategorii i podkategorii.|Ustawienia > dostosowania > dostosowywania systemu > jednostki > zadań > pól |category |Pojedynczy wiersz tekstu        
 Pola Liczba całkowita | Niektóre pola wymagają liczbą całkowitą lub zawartość dynamiczną, która jest typu Integer. Przykładami procent wykonania i czasu trwania. |Ustawienia > dostosowania > dostosowywania systemu > jednostki > zadań > pól |ProcentWykonania |Liczby całkowitej         
@@ -170,5 +170,5 @@ Aby uzyskać więcej informacji na temat rozwiązywania problemów z aplikacji l
 
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/crm/). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
