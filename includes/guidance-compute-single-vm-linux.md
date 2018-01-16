@@ -161,7 +161,7 @@ Wdrożenie tej architektury referencyjnej jest dostępne w usłudze [GitHub][git
 3. Zaczekaj na zakończenie wdrożenia.
 4. Pliki parametrów zawierają ustaloną nazwę i hasło administratora. Zaleca się natychmiastową zmianę tych poświadczeń. Kliknij maszynę wirtualną o nazwie `ra-single-vm0 ` w witrynie Azure Portal. Następnie kliknij polecenie **Resetuj hasło** w sekcji **Pomoc techniczna i rozwiązywanie problemów**. Wybierz polecenie **Resetuj hasło** w polu listy rozwijanej **Tryb**, a następnie wybierz nowe wartości w polach **Nazwa użytkownika** i **Hasło**. Kliknij przycisk **Aktualizuj**, aby zachować nową nazwę użytkownika i hasło.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać wyższą dostępność, należy wdrożyć co najmniej dwie maszyny wirtualne za modułem równoważenia obciążenia. Aby uzyskać więcej informacji, zobacz [Running multiple VMs on Azure][multi-vm] (Uruchamianie wielu maszyn wirtualnych na platformie Azure).
 
 <!-- links -->

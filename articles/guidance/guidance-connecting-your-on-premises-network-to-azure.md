@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Łączenie sieci lokalnej na platformie Azure
 Firma Microsoft udostępnia kilka typów usług w chmurze. Podczas wszystkich usług można nawiązać za pośrednictwem publicznej sieci Internet, można również nawiązać niektórych usług przy użyciu tunelu wirtualnej sieci prywatnej (VPN) przez Internet lub za pośrednictwem bezpośredniego połączenia z firmą Microsoft. Ten artykuł pomaga określić opcji łączności będzie najlepiej odpowiadać potrzebom użytkownika na podstawie typów usług chmurowych firmy Microsoft, które zostaną zużyte. Większość organizacji korzystanie z wielu typów połączeń opisane poniżej.
@@ -103,7 +103,7 @@ Dowiedz się więcej o [ExpressRoute](../expressroute/expressroute-introduction.
 * Niektóre z powyższych opcji mają różne ogranicza maksymalną można obsługę połączeń, połączenia bramy sieci wirtualnej i innych kryteriów. Zalecane jest przejrzenie Azure [sieci limity](../azure-subscription-service-limits.md#networking-limits) zrozumienie, jeśli ich wpływ na typy łączności chcesz użyć.
 * Jeśli planujesz nawiązywania połączenia bramy z połączenia sieci VPN typu lokacja lokacja z tej samej sieci wirtualnej jako bramę usługi ExpressRoute, należy się zapoznać z ważne ograniczenia najpierw. Zobacz [połączeń ExpressRoute skonfigurować i lokacja-lokacja ważnych](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations) artykułu, aby uzyskać więcej informacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zasoby przedstawione poniżej wyjaśnić sposób zaimplementowania typy połączeń omówione w tym artykule.
 
 * [Implementuje połączenie punkt lokacja](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)

@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Tytuł (maksymalna 120 znaków, docelowy podstawowego — słowo kluczowe)
 *Użyj 2 – 3 dodatkowej słowa kluczowe w opisie.*
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 *Ogólnie rzecz biorąc tak długo, jak błąd nie wskazuje "żądany rozmiar maszyny Wirtualnej nie jest obsługiwane", możesz zawsze ponowić w późniejszym czasie, ponieważ jest za mało zasobów, mógł zostać zwolniony się w klastrze, aby obsłużyć żądanie. Jeśli problem nie żądany rozmiar maszyny Wirtualnej nie jest obsługiwany, spróbuj inny rozmiar maszyny Wirtualnej. w przeciwnym razie jedyną opcją jest usunięcie przypinania ograniczenia.*
 
-## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+## <a name="troubleshooting-steps"></a>Rozwiązywanie problemów
 *Listy rozwiązań kolejności użyteczność i prostota, co oznacza najprostszy, najbardziej efektywny i przydatne rozwiązanie powinien pojawiać się pierwszy.*
 
 *Wybierz jedną z wersji, które są stosowane do danej sytuacji.*
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 |:--- |:--- |:--- |
 | <p><h3>[Problem 1] \ |[Błąd 1]</h3><h4>Przyczyna</h4>[Szczegóły Przyczyna]</p><p><h4>Rozwiązanie 1</h4><em>(najprostszy i najbardziej efektywny)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h4>Rozwiązanie 2</h4><em>(mniej prostego lub skuteczne)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h3>[Problem 2] \ |[Błąd 2]</h3><h4>Przyczyna</h4>[Szczegóły Przyczyna]</p><p><h4>Rozwiązanie 1</h4><em>(najprostszy i najbardziej efektywny)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><p><h4>Rozwiązanie 2</h4><em>(najprostszy i najbardziej efektywny)</em></p><ol><li>[Krok 1]</li><li>[Krok 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 *Obejmują tej sekcji, jeśli ma konkretnych 1 -3, bardzo istotna kolejne kroki, które użytkownik powinien wykonać. Usunąć, jeśli nie ma żadnych następnych krokach. To nie jest miejsce na liście łączy. Jeśli dołączysz linki do następnych kroków upewnij się, że zawierają tekst wyjaśniający, dlaczego następne kroki są istotne / ważne.*
 
 *Jeśli artykuł na temat rozliczeń, obejmują następujące uwagi (nieco inne niż na początku tego artykułu jest Uwaga poniżej):*

@@ -80,7 +80,7 @@ W przeciwieństwie do kolejek i tematów aplikacje nie tworzą jawnie przekaźni
 
 Przekaźniki są odpowiednim rozwiązaniem, gdy potrzebna jest bezpośrednia komunikacja między aplikacjami. Rozważmy na przykład system rezerwacji linii lotniczych uruchomiony w lokalnym centrum danych, który musi być dostępny z kiosków odprawy, urządzeń przenośnych i innych komputerów. Aplikacje działające we wszystkich tych systemach mogą polegać na przekaźnikach usługi Service Bus w chmurze na potrzeby komunikacji wszędzie tam, gdzie mogą być uruchamiane.
 
-## <a name="event-hubs"></a>Usługa Event Hubs
+## <a name="event-hubs"></a>Event Hubs
 Usługa Event Hubs to wysoce skalowalny system przyjmowania danych, który może przetwarzać miliony zdarzeń na sekundę, umożliwiając aplikacji przetwarzanie i analizowanie olbrzymich ilości danych generowanych przez połączone urządzenia i aplikacje. Za pomocą takiego centrum zdarzeń można na przykład zbierać na żywo dane wydajności silników z floty samochodów. Po zebraniu danych do usługi Event Hubs można przekształcać dane za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub przechowywać je przy użyciu klastra magazynu. Aby uzyskać więcej informacji na temat usługi Event Hubs, zobacz [Przegląd usługi Event Hubs][Event Hubs overview].
 
 ## <a name="summary"></a>Podsumowanie

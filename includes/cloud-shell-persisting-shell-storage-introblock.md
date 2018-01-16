@@ -10,7 +10,7 @@ Na początkowej start powłoki chmury monituje o skojarzyć udział plików nowe
 ### <a name="create-new-storage"></a>Tworzenie nowego magazynu
 
 Po za pomocą podstawowych ustawień i wybierz tylko subskrypcję, powłoki chmury tworzy trzy zasoby w Twoim imieniu w obsługiwanym regionie, najbliższą możesz:
-* Grupa zasobów:`cloud-shell-storage-<region>`
+* Grupa zasobów: `cloud-shell-storage-<region>`
 * Konto magazynu:`cs<uniqueGuid>`
 * Udziału plików:`cs-<user>-<domain>-com-<uniqueGuid>`
 
