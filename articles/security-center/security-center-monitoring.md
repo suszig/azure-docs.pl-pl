@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure
 Informacje zawarte w tym artykule ułatwiają korzystanie z funkcji monitorowania w usłudze Azure Security Center w celu monitorowania zgodności z zasadami.
@@ -48,11 +48,11 @@ Po kliknięciu kafelka **Obliczenia** będą widoczne trzy karty:
 Na każdej karcie znajduje się kilka sekcji, a w każdej sekcji można wybrać poszczególne opcje, aby wyświetlić więcej szczegółowych informacji dotyczących zalecanych kroków rozwiązania konkretnego problemu.
 
 #### <a name="monitoring-recommendations"></a>Zalecenia dotyczące monitorowania
-W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych i komputerów, dla których zainicjowano automatyczną aprowizację, oraz ich bieżący stan. Po kliknięciu tego wpisu zostanie otwarte okno **Monitorowanie problemów dotyczących kondycji agenta**.
+W tej sekcji przedstawiono całkowitą liczbę maszyn wirtualnych i komputerów, dla których zainicjowano automatyczną aprowizację, oraz ich bieżący stan. W tym przykładzie jest jedno zalecenie, **Monitorowanie problemów dotyczących kondycji agenta**.  Wybierz to zalecenie.
 
 ![Monitorowanie problemów dotyczących kondycji agenta](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Zawiera ono listę maszyn wirtualnych i komputerów, których usługa Security Center nie mogła pomyślnie monitorować. Wybierz maszynę wirtualną lub komputer, aby uzyskać szczegółowe informacje. Pole **STAN MONITOROWANIA** definiuje problem.
+Zostanie otwarte okno **Monitorowanie problemów dotyczących kondycji agenta**. Zawiera ono listę maszyn wirtualnych i komputerów, których usługa Security Center nie mogła pomyślnie monitorować. Wybierz maszynę wirtualną lub komputer, aby uzyskać szczegółowe informacje. **STAN MONITOROWANIA** zapewnia powód, dla którego usługa Security Center nie mogła realizować monitorowania. Zobacz [Przewodnik rozwiązywania problemów w usłudze Security Center](security-center-troubleshooting-guide.md#monitoring-agent-health-issues), aby uzyskać listę wartości, opisów i rozwiązań dla opcji **STAN MONITOROWANIA**.
 
 #### <a name="recommendations"></a>Zalecenia
 Ta sekcja zawiera zestaw [zaleceń dla każdej maszyny wirtualnej i komputera](security-center-virtual-machine-recommendations.md) monitorowanych przez usługę Azure Security Center. W pierwszej kolumnie wyświetlane są zalecenia. Druga kolumna zawiera całkowitą liczbę maszyn wirtualnych i komputerów, na które dane zalecenie ma wpływ. Trzecia kolumna pokazuje wagę problemu, co przedstawiono na następującym zrzucie ekranu:

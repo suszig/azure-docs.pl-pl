@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
 
@@ -37,32 +37,32 @@ Wewnętrzna infrastruktura adresy VIP nie są wyświetlane, ponieważ nie są on
 
 |Punkt końcowy (VIP)|Rekord hosta DNS|Protokół|Porty|
 |---------|---------|---------|---------|
-|USŁUGI AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portal (administrator)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Usługa Azure Resource Manager (administrator)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portal (użytkownika)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Usługa Azure Resource Manager (użytkownika)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Listy odwołania certyfikatów|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP I UDP|53|
-|Magazyn kluczy (użytkownika)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Magazyn kluczy (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Kolejki magazynu|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Tabela magazynu|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Obiektu Blob magazynu|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|ADFS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (administrator)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Usługa Azure Resource Manager (administrator)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Portal (użytkownika)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Usługa Azure Resource Manager (użytkownika)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Listy odwołania certyfikatów|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP I UDP|53|
+|Magazyn kluczy (użytkownika)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Magazyn kluczy (administrator)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Kolejka magazynu|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Tabela magazynu|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Obiektu Blob magazynu|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>Porty i adresy URL (wychodzące)
 
 Stos Azure obsługuje tylko serwery przezroczystego obiektu pośredniczącego. W przypadku wdrożenia w przypadku, gdy pasm przezroczystego obiektu pośredniczącego, aby serwer proxy tradycyjnych musisz zezwolić następujące porty i adresy URL, dla komunikacji wychodzącej:
 
 
-|Przeznaczenie|ADRES URL|Protokół|Porty|
+|Przeznaczenie|Adres URL|Protokół|Porty|
 |---------|---------|---------|---------|
-|Tożsamość|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Syndykacja Marketplace|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Poprawek i aktualizacji|`https://*.azureedge.net`|HTTPS|443|
-|Rejestracja|`https://management.azure.com`|HTTPS|443|
-|Sposób użycia|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Tożsamość|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Syndykacja Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Poprawek i aktualizacji|https://&#42;.azureedge.net|HTTPS|443|
+|Rejestracja|https://management.azure.com|HTTPS|443|
+|Sposób użycia|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>Publikowanie zapory
 
@@ -107,6 +107,6 @@ Użycie niepublicznych rutowalne adresy IP dla puli adresów VIP publicznego sto
 - W scenariuszach chmur hybrydowych przy użyciu platformy Azure należy wziąć pod uwagę Azure nie obsługuje konfigurowania tunel sieci VPN do punktu końcowego przy użyciu translatora adresów sieciowych.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Integracja Azure datacenter stosu - zabezpieczeń](azure-stack-integrate-security.md)

@@ -1,5 +1,5 @@
 ---
-title: Co to jest Azure Analysis Services? | Microsoft Docs
+title: "Omówienie usługi Azure Analysis Services | Microsoft Docs"
 description: "Dowiedz się więcej o usługach Analysis Services na platformie Azure."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Omówienie usługi Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Usługi Azure Analysis Services udostępniają funkcje modelowania danych klasy korporacyjnej w chmurze. Jest to w pełni zarządzane rozwiązanie „platforma jako usługa” (PaaS), zintegrowane z usługami platformy danych Azure. 
@@ -95,7 +95,7 @@ Zadania zarządzania zasobami serwerowymi, takie jak tworzenie serwerów, zawies
 ## <a name="your-data-is-secure"></a>Twoje dane są bezpieczne
 ![Wizualizacja danych](./media/analysis-services-overview/aas-overview-secure.png)
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 Uwierzytelnianie użytkownika dla usług Azure Analysis Services jest obsługiwane przez [usługi Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Podczas próby logowania do bazy danych usług Azure Analysis Services użytkownicy używają tożsamości konta organizacji z dostępem do bazy danych, z którą chcą uzyskać połączenie. Te tożsamości użytkowników muszą być członkami domyślnej usługi Azure Active Directory dla subskrypcji, w których znajduje się serwer usług Azure Analysis Services. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Bezpieczeństwo danych

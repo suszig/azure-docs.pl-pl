@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7953e218614ba259db3cd45220de6b6c880608ad
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
 Zduplikowany atrybut odporności to funkcja usługi Azure Active Directory, która wyeliminuje tarcie spowodowane **UserPrincipalName** i **ProxyAddress** powoduje konflikt podczas uruchamiania narzędzi synchronizacji firmy Microsoft.
@@ -88,7 +88,7 @@ Po nawiązaniu połączenia, aby wyświetlić ogólną listę atrybutów inicjow
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
 Daje to wyniki podobne do poniższych:  
- ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get MsolDirSyncProvisioningError")  
+ ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Według typu właściwości
 Aby sprawdzić błędy według typu właściwości, Dodaj **- PropertyName** flaga z **UserPrincipalName** lub **ProxyAddresses** argumentu:
@@ -145,7 +145,7 @@ Artykule przedstawiono różne strategie rozwiązywania problemów i rozwiązani
    
     b. Właściwości tego obiektu powodują konflikt z istniejącą grupę, gdzie jest ProxyAddress  **SMTP:Joe@contoso.com** .
    
-    c. Podczas eksportu **konflikt ProxyAddress** zamiast konflikt atrybuty poddane kwarantannie, zostanie zgłoszony błąd. Jak miałoby to miejsce przed włączeniem funkcji ochrony na każdym cyklu kolejnej synchronizacji jest ponowić próbę operacji.
+    d. Podczas eksportu **konflikt ProxyAddress** zamiast konflikt atrybuty poddane kwarantannie, zostanie zgłoszony błąd. Jak miałoby to miejsce przed włączeniem funkcji ochrony na każdym cyklu kolejnej synchronizacji jest ponowić próbę operacji.
 2. Jeśli dwie grupy są tworzone lokalne z tego samego adresu SMTP, zawiedzie świadczeniem przy pierwszej próbie ze standardowych duplikatem **ProxyAddress** błędu. Jednak zduplikowaną wartość prawidłowo zostanie poddane kwarantannie przy następnym cyklu synchronizacji.
 
 **Raport portalu Office**:
@@ -157,7 +157,7 @@ Artykule przedstawiono różne strategie rozwiązywania problemów i rozwiązani
    
     b. **Użytkownik B** próbował można zsynchronizować się dalej z **UPN = User@contoso.com** .
    
-    c. **Użytkownik B** głównej nazwy użytkownika jest zmieniana na  **User1234@contoso.onmicrosoft.com**  i  **User@contoso.com**  jest dodawany do **DirSyncProvisioningErrors**.
+    d. **Użytkownik B** głównej nazwy użytkownika jest zmieniana na  **User1234@contoso.onmicrosoft.com**  i  **User@contoso.com**  jest dodawany do **DirSyncProvisioningErrors**.
    
     d. Komunikat o błędzie dla **użytkownika B** powinny wskazywać, że **użytkownika A** ma już  **User@contoso.com**  jako nazwy UPN, ale zawiera **użytkownika B** własnych Nazwa wyświetlana.
 
@@ -168,7 +168,7 @@ Artykule przedstawiono różne strategie rozwiązywania problemów i rozwiązani
 
 Powinny wskazywać [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
 * [Zidentyfikuj błędy synchronizacji katalogu w usłudze Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

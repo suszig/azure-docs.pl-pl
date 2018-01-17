@@ -4,8 +4,8 @@ description: "Samouczka wprowadzającego dla scenariusza budki rozwiązania IoT 
 keywords: "rozwiązania iot, funkcje okna"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Tworzenie rozwiązania IoT przy użyciu usługi analiza strumienia
+
 ## <a name="introduction"></a>Wprowadzenie
 Z tego samouczka dowiesz się, jak używać usługi Azure Stream Analytics Aby uzyskać wgląd w czasie rzeczywistym danych. Deweloperzy mogą łatwo łączyć strumienie danych, takich jak kliknij strumieni, dzienników i zdarzenia generowane przez urządzenie, rekordy historyczne lub dane referencyjne do uzyskania biznesowych. Jako usługa obliczeń strumienia w pełni zarządzana, w czasie rzeczywistym, która jest hostowana na platformie Microsoft Azure Azure Stream Analytics zapewnia odporność wbudowanych, małe opóźnienia i skalowalności na uruchomienie czasu w minutach.
 
@@ -58,10 +59,10 @@ Strumień danych wpis zawiera informacje o samochodów, wejście przez stacje.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |IERZ |Ford |Taurus |1 |0 |5 |456789123 |
-| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |IERZ |Toyota |Corolla |1 |0 |4 | |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
+| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CRP 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Poniżej przedstawiono krótki opis kolumn:
 
@@ -88,7 +89,7 @@ Strumień danych zakończenia zawiera informacje o samochodów, pozostawiając p
 | 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
 | 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
 | 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
-| 2 |2014-09-10T12:07:00.0000000Z |CRP 1007 |
+| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
 
 Poniżej przedstawiono krótki opis kolumn:
 
@@ -101,11 +102,11 @@ Poniżej przedstawiono krótki opis kolumn:
 ### <a name="commercial-vehicle-registration-data"></a>Dane rejestracji pojazdów użytkowych
 W samouczku statyczna migawka bazy danych rejestracji pojazdów użytkowych.
 
-| LicensePlate | RegistrationId | Ważność |
+| LicensePlate | RegistrationId | Wygasłe |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| WYKONAJ KOPIĘ 1005 |876133137 |1 |
+| BAC 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -116,7 +117,7 @@ Poniżej przedstawiono krótki opis kolumn:
 | --- | --- |
 | LicensePlate |Liczba licencji płytkę mechanizm |
 | RegistrationId |Identyfikator rejestracji vehicle |
-| Ważność |Stan rejestracji mechanizm: 0, jeśli rejestracji pojazdów jest aktywny, 1, jeśli wygaśnięcia rejestracji |
+| Wygasłe |Stan rejestracji mechanizm: 0, jeśli rejestracji pojazdów jest aktywny, 1, jeśli wygaśnięcia rejestracji |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Konfigurowanie środowiska dla usługi Azure Stream Analytics
 Do ukończenia tego samouczka, konieczna jest subskrypcja Microsoft Azure. Firma Microsoft oferuje bezpłatna wersja próbna usług Microsoft Azure.
@@ -175,26 +176,13 @@ Widoczne będzie także inne okno, który jest podobny do następującego zrzutu
 Można teraz wyświetlić zasoby w portalu Azure. Przejdź do <https://portal.azure.com>i zaloguj się przy użyciu poświadczeń konta. Należy pamiętać, obecnie niektórych funkcji używa klasycznego portalu. Te kroki będzie widoczna.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-W portalu Azure kliknij **więcej usług** w dolnej części okienka po lewej stronie zarządzania. Typ **usługi Event hubs** w polu i kliknij przycisk **usługi Event hubs**. Spowoduje to uruchomienie nowe okno przeglądarki, aby wyświetlić **usługi SERVICE BUS** obszar **klasyczny portal**. Tutaj można zobaczyć utworzony przez skrypt Setup.ps1 Centrum zdarzeń.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Kliknij ten, który rozpoczyna się od *tolldata*. Kliknij przycisk **usługi EVENT HUBS** kartę. Zobaczysz dwa elementy Hub zdarzenia o nazwie *wpis* i *zakończyć* utworzone w tej przestrzeni nazw.
-
-![Karta centra zdarzeń w klasycznym portalu](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+W portalu Azure kliknij **więcej usług** w dolnej części okienka po lewej stronie zarządzania. Typ **usługi Event hubs** w wyświetlonym polu widać nowej przestrzeni nazw Centrum zdarzeń, która rozpoczyna się od **tolldata**. Ta namesapce jest utworzony przez skrypt Setup.ps1. Zobaczysz dwa elementy Hub zdarzenia o nazwie **wpis** i **zakończyć** utworzone w tej przestrzeni nazw.
 
 ### <a name="azure-storage-container"></a>Kontener magazynu Azure
-1. Wróć do karty w Twojej przeglądarce otwórz w portalu Azure. Kliknij przycisk **MAGAZYNU** po lewej stronie portalu Azure, aby zobaczyć kontenera magazynu Azure, który jest używany w tym samouczku.
-   
-    ![Element menu magazynu](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Kliknij go uruchomić z *tolldata*. Kliknij przycisk **kontenery** kartę, aby wyświetlić utworzony kontenera.
-   
-    ![Karta kontenery w portalu Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Kliknij przycisk **tolldata** kontenera, aby zobaczyć przekazanego pliku JSON, który zawiera dane rejestracji pojazdów.
-   
-    ![Zrzut ekranu przedstawiający plik registration.json w kontenerze](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+W portalu Azure, przejdź do konta magazynu, powinny być widoczne konta magazynu, który rozpoczyna się od **tolldata**. Kliknij przycisk **tolldata** kontenera, aby zobaczyć przekazanego pliku JSON, który zawiera dane rejestracji pojazdów.
 
-### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 1. Wróć do portalu Azure na pierwszej karcie, która została otwarta w przeglądarce. Kliknij przycisk **baz danych SQL** po lewej stronie portalu Azure, aby zobaczyć bazy danych SQL, która będzie używana w tym samouczku, a następnie kliknij przycisk **tolldatadb**.
    
     ![Zrzut ekranu przedstawiający utworzono bazę danych SQL](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
@@ -285,7 +273,7 @@ Teraz wszystkie dane wejściowe są zdefiniowane.
 1. W okienku omówienie zadania usługi analiza strumienia wybierz **dane wyjściowe**.
    
     ![Karta danych wyjściowych i opcję "Dodaj wyjścia"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.png)
-2. Kliknij pozycję **Dodaj**.
+2. Kliknij pozycję **Add** (Dodaj).
 3. Ustaw **alias wyjściowy** na "Wyjście", a następnie **Sink** do **bazy danych SQL**.
 3. Wybierz nazwę serwera używanego w sekcji "Połączenia do bazy danych z programu Visual Studio" tego artykułu. Nazwa bazy danych jest **TollDataDB**.
 4. Wprowadź **tolladmin** w **USERNAME** pola **123toll!** w **hasło** pola i **TollDataRefJoin** w **tabeli** pola.
@@ -319,13 +307,13 @@ Aby uzyskać więcej informacji, przeczytaj o [zarządzanie czasem](https://msdn
 ## <a name="testing-azure-stream-analytics-queries"></a>Testowanie zapytań usługi Azure Stream Analytics
 Teraz, musieli napisać pierwszego zapytania usługi Azure Stream Analytics, nadszedł czas na przetestować go przy użyciu przykładowych plików danych znajdujących się w folderze TollApp w następującej ścieżce:
 
-**..\\TollApp\\TollApp\\danych**
+**.. \\TollApp\\TollApp\\danych**
 
 Ten folder zawiera następujące pliki:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Pytanie 1: Liczba pojazdów stoisku przez
 1. Otwórz Azure portal i przejdź do utworzonego zadania usługi analiza strumienia Azure. Kliknij przycisk **zapytania** karcie i Wklej zapytanie z poprzedniej sekcji.

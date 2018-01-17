@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 01/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 2fa63515d290e6700fbe4a90ae509f4635b19f29
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 3af59e1b38e70494dd9dc17e2682d31cf7b7d361
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customizing-os-security-configurations-in-azure-security-center-preview"></a>Dostosowywanie systemu operacyjnego konfiguracjach zabezpieczeń w Centrum zabezpieczeń Azure [Podgląd]
 
@@ -97,13 +97,13 @@ Każda kategoria ma swój własny zestaw atrybutów. W przypadku istniejących r
 
 - expectedValue: typ danych pola tego atrybutu musi odpowiadać obsługiwane wartości dla poszczególnych typów reguł, na przykład:
 
-  - baselineRegistryRules: wartość powinna być zgodna [regValueType] (https://msdn.microsoft.com/library/windows/desktop/ms724884 (v=vs.85) zdefiniowana w tej regule.
+  - baselineRegistryRules: wartość powinna być zgodna [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) zdefiniowane w tej regule.
 
   - baselineAuditPolicyRules: wartość powinna być wartości ciągu, jedną z następujących czynności:
 
     - Sukcesy i niepowodzenia
 
-    - Sukces
+    - Powodzenie
 
   - baselineSecurityPolicyRules: wartość powinna być wartości ciągu, jedną z następujących czynności:
 
@@ -119,7 +119,7 @@ Są to jedyne pola, które można skonfigurować. Jeśli użytkownik narusza for
 
 Zobacz [kody błędów](#error-codes) listę potencjalnych błędów.
 
-Poniżej dostępne są przykłady te reguły i atrybutów (pogrubione), które można zmienić:
+Poniżej masz kilka przykładów tych zasad. Można zmienić atrybutów "expectedValue" i "stanu":
 
 **Sekcja reguł:** baselineRegistryRules
 ```
@@ -136,11 +136,11 @@ Poniżej dostępne są przykłady te reguły i atrybutów (pogrubione), które m
     "ruleName": "Network access: Restrict anonymous access to Named Pipes and
     Shares",
     "ruleType": "Registry",
-    "**expectedValue**": "1",
+    "expectedValue": "1",
     "severity": "Warning",
     "analyzeOperation": "Equals",
     "source": "Microsoft",
-    "**state**": "Disabled"
+    "state": "Disabled"
 
 }
 ```
@@ -154,11 +154,11 @@ Poniżej dostępne są przykłady te reguły i atrybutów (pogrubione), które m
 "cceId": "CCE-11001-5",
 "ruleName": "Audit Policy: Account Management: Other Account Management Events",
 "ruleType": "AuditPolicy",
-"**expectedValue**": "Success and Failure",
+"expectedValue": "Success and Failure",
 "severity": "Critical",
 "analyzeOperation": "Equals",
 "source": "Microsoft",
-"**state**": "Enabled"
+"state": "Enabled"
 },
 ```
 
@@ -172,10 +172,11 @@ Poniżej dostępne są przykłady te reguły i atrybutów (pogrubione), które m
 "cceId": "CCE-10548-6",
 "ruleName": "Increase a process working set",
 "ruleType": "SecurityPolicy",
-"**expectedValue**": "Administrators, Local Service",
+"expectedValue": "Administrators, Local Service",
 "severity": "Warning",
 "analyzeOperation": "Equals",
-"source": "Microsoft", "**state**": "Enabled"
+"source": "Microsoft",
+"state": "Enabled"
 },
 ```
 

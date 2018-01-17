@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/03/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ca0817b37b6baaa4ef63dfb76790fb3b3735b55f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Tworzenie pierwszej aplikacji kontenera usługi Service Fabric w systemie Windows
 > [!div class="op_single_selector"]
@@ -36,6 +36,14 @@ Komputer dewelopera z następującym oprogramowaniem:
 Klaster systemu Windows z co najmniej trzema węzłami działającymi w systemie Windows Server 2016 z kontenerami — [utwórz klaster](service-fabric-cluster-creation-via-portal.md) lub [wypróbuj bezpłatnie usługę Service Fabric](https://aka.ms/tryservicefabric).
 
 Rejestr w usłudze Azure Container Registry — [utwórz rejestr kontenera](../container-registry/container-registry-get-started-portal.md) w subskrypcji platformy Azure.
+
+> [!NOTE]
+> Wdrażanie kontenerów do klastra usługi Service Fabric w systemie Windows 10 lub w klastrze z programem Docker CE nie jest obsługiwane. Ten przewodnik przy użyciu aparatu platformy Docker w systemie Windows 10 lokalnie testuje i na koniec wdraża usługi kontenerów do klastra systemu Windows Server na platformie Azure z programem Docker EE. 
+>   
+
+> [!NOTE]
+> Usługa Service Fabric w wersji 6.1 obejmuje obsługę wersji zapoznawczej systemu Windows Server w wersji 1709. Otwarta sieć i usługa DNS w usłudze Service Fabric nie działają w systemie Windows Server w wersji 1709. 
+> 
 
 ## <a name="define-the-docker-container"></a>Definiowanie kontenera platformy Docker
 Zbuduj obraz na podstawie [obrazu Python](https://hub.docker.com/_/python/) znajdującego się w usłudze Docker Hub.
@@ -294,7 +302,8 @@ System Windows obsługuje dwa tryby izolacji dla kontenerów: tryb procesu oraz 
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Tryb izolacji funkcji Hyper-V jest dostępny na jednostkach magazynowych Azure serii Ev3 i Dv3, które obsługują wirtualizację zagnieżdżoną. Upewnij się, że na hostach zainstalowano rolę HyperV. Sprawdź to, nawiązując połączenie z hostami.
+   > Tryb izolacji funkcji Hyper-V jest dostępny na jednostkach magazynowych Azure serii Ev3 i Dv3, które obsługują wirtualizację zagnieżdżoną. 
+   >
    >
 
 ## <a name="configure-resource-governance"></a>Konfigurowanie zarządzania zasobami
@@ -309,6 +318,31 @@ System Windows obsługuje dwa tryby izolacji dla kontenerów: tryb procesu oraz 
   </Policies>
 </ServiceManifestImport>
 ```
+## <a name="configure-docker-healthcheck"></a>Konfigurowanie funkcji HEALTHCHECK platformy Docker 
+
+Począwszy od wersji 6.1, usługa Service Fabric automatycznie integruje zdarzenia [funkcji HEALTHCHECK platformy Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) ze swoim raportem o kondycji systemu. Oznacza to, że jeśli w kontenerze włączono **funkcję HEALTHCHECK**, usługa Service Fabric będzie raportować kondycję przy każdej zmianie stanu kondycji kontenera zgłoszonej przez platformę Docker. Raport kondycji **OK** pojawi się w narzędziu [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), gdy wartość *health_status* będzie równa *healthy*, a raport **OSTRZEŻENIE** pojawi się, gdy wartość *health_status* będzie równa *unhealthy*. Instrukcja **HEALTHCHECK** wskazująca rzeczywisty test wykonywany w celu monitorowania kondycji kontenera musi występować w pliku **dockerfile** używanym podczas generowania obrazu kontenera. 
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
+
+Możesz skonfigurować zachowanie funkcji **HEALTHCHECK** dla każdego kontenera, określając opcje **HealthConfig** jako część sekcji **ContainerHostPolicies** w pliku ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+Domyślnie wartość *IncludeDockerHealthStatusInSystemHealthReport* jest ustawiona na **true**, a wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **false**. Jeśli wartość *RestartContainerOnUnhealthyDockerHealthStatus* jest ustawiona na **true**, kontener wielokrotnie raportujący złą kondycję jest uruchamiany ponownie (potencjalnie w innych węzłach).
+
+Aby wyłączyć integrację funkcji **HEALTHCHECK** dla całego klastra usługi Service Fabric, należy ustawić wartość [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) na **false**.
 
 ## <a name="deploy-the-container-application"></a>Wdrażanie aplikacji kontenera
 Zapisz wszystkie zmiany i skompiluj aplikację. Aby opublikować aplikację, w Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł **MyFirstContainer** i wybierz pozycję **Publikuj**.
@@ -324,7 +358,7 @@ Aplikacja jest gotowa, gdy ma stan ```Ready```: ![Gotowa][2]
 Otwórz przeglądarkę i przejdź do adresu http://containercluster.westus2.cloudapp.azure.com:8081. W przeglądarce powinien zostać wyświetlony nagłówek „Hello World!”.
 
 ## <a name="clean-up"></a>Czyszczenie
-Jeśli podczas działania klastra nadal są naliczane opłaty, rozważ [usunięcie klastra](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Klastry innych firm](https://try.servicefabric.azure.com/) są automatycznie usuwane po kilku godzinach.
+Jeśli podczas działania klastra nadal są naliczane opłaty, rozważ [usunięcie klastra](service-fabric-cluster-delete.md).  [Klastry innych firm](https://try.servicefabric.azure.com/) są automatycznie usuwane po kilku godzinach.
 
 Po wypchnięciu obrazu do rejestru kontenerów można usunąć lokalny obraz z komputera dewelopera:
 
@@ -332,6 +366,34 @@ Po wypchnięciu obrazu do rejestru kontenerów można usunąć lokalny obraz z k
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
+
+## <a name="specify-os-build-version-specific-container-images"></a>Określanie obrazów kontenera dla wersji kompilacji systemu operacyjnego 
+
+Kontenery systemu Windows Server (w trybie izolacji procesu) mogą nie być zgodne z nowszymi wersjami systemu operacyjnego. Na przykład kontenery utworzone przy użyciu systemu Windows Server 2016 nie działają w systemie Windows Server w wersji 1709. W związku z tym, jeśli węzły klastra są aktualizowane do najnowszej wersji, usługi kontenerów utworzone za pomocą wcześniejszych wersji systemu operacyjnego mogą zakończyć się niepowodzeniem. Aby obejść to ograniczenie w wersji 6.1 (i nowszej) środowiska uruchomieniowego, usługa Service Fabric obsługuje określanie wielu obrazów systemu operacyjnego na kontener i oznacza je za pomocą wersji kompilacji systemu operacyjnego (uzyskanych przez uruchomienie elementu `winver` w wierszu polecenia systemu Windows).  Zalecane jest, aby przed zaktualizowaniem systemu operacyjnego na węzłach najpierw zaktualizować manifest aplikacji i określić elementy przesłaniające obrazy dla poszczególnych wersji systemu operacyjnego. Poniższy fragment kodu przedstawia, w jaki sposób określić wiele obrazów kontenera w manifeście aplikacji **ApplicationManifest.xml**:
+
+
+```xml
+<ContainerHostPolicies> 
+         <ImageOverrides> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
+         </ImageOverrides> 
+     </ContainerHostPolicies> 
+```
+Wersja kompilacji dla systemu Windows Server 2016 to 14393, a dla systemu Windows Server w wersji 1709 — 16299. Manifest usługi wciąż określa tylko jeden obraz na usługę kontenera, jak przedstawiono poniżej:
+
+```xml
+<ContainerHost>
+    <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName> 
+</ContainerHost>
+```
+
+   > [!NOTE]
+   > Funkcja oznaczania wersji kompilacji systemu operacyjnego jest dostępna tylko dla usługi Service Fabric w systemie Windows
+   >
+
+Jeśli wersja kompilacji podstawowego systemu operacyjnego na maszynie wirtualnej to 16299 (wersja 1709), usługa Service Fabric wybiera obraz kontenera odpowiadający tej wersji systemu Windows Server.  Jeśli w manifeście aplikacji wraz z oznakowanymi obrazami kontenera dostarczany jest nieoznakowany obraz kontenera, usługa Service Fabric traktuje nieoznakowany obraz jako ten, która działa w różnych wersjach. Zalecane jest jawne tagowanie obrazu kontenera.
+
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Kompletny przykład aplikacji i manifestów usługi Service Fabric
 W tym miejscu przedstawiono kompletne manifesty usługi i aplikacji używane w tym artykule.
@@ -451,7 +513,7 @@ Domyślny interwał to 10 sekund. Ta konfiguracja jest dynamiczna, dlatego uaktu
 Możesz skonfigurować klaster usługi Service Fabric w celu usuwania nieużywanych obrazów kontenerów z węzła. Ta konfiguracja pozwala na ponowne przechwycenie miejsca na dysku w przypadku zbyt wielu obrazów kontenerów w węźle.  Aby włączyć tę funkcję, zaktualizuj sekcję `Hosting` w manifeście klastra, jak pokazano w poniższym fragmencie kodu: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
@@ -467,6 +529,33 @@ Możesz skonfigurować klaster usługi Service Fabric w celu usuwania nieużywan
 Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `ContainerImagesToSkip`. 
 
 
+## <a name="configure-container-image-download-time"></a>Konfigurowanie czasu pobierania obrazów kontenerów
+
+Domyślnie środowisko uruchomieniowe usługi Service Fabric przydziela 20 minut na pobieranie i wyodrębnianie obrazów kontenerów, co sprawdza się w przypadku większości obrazów kontenerów. W przypadku dużych obrazów lub wolnego połączenia sieciowego może być konieczne wydłużenie czasu oczekiwania przed przerwaniem pobierania i wyodrębniania obrazu. Można to skonfigurować przy użyciu atrybutu **ContainerImageDownloadTimeout** w sekcji **Hosting** manifestu klastra, jak pokazano w poniższym fragmencie kodu:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Ustawianie zasad przechowywania kontenerów
+
+Aby ułatwić diagnozowanie błędów uruchamiania kontenerów, usługa Service Fabric (w wersji 6.1 lub nowszej) obsługuje przechowywanie kontenerów, w przypadku których działanie zostało przerwane lub uruchamianie nie powiodło się. Te zasady można ustawić w pliku **ApplicationManifest.xml**, jak pokazano w poniższym fragmencie kodu:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+Ustawienie **ContainersRetentionCount** określa liczbę kontenerów do przechowywania w przypadku wystąpienia w nich błędu. Jeśli zostanie określona wartość ujemna, będą przechowywane wszystkie kontenery z błędami. Jeśli atrybut **ContainersRetentionCount** nie zostanie określony, nie będą przechowywane żadne kontenery. Atrybut **ContainersRetentionCount** obsługuje też parametry aplikacji, dzięki czemu użytkownicy mogą określać różne wartości dla klastrów testowych i produkcyjnych. W przypadku używania tej funkcji zalecane jest stosowanie ograniczeń rozmieszczania, tak aby obiektem docelowym usługi kontenerów był określony węzeł, co zapobiega przenoszeniu usługi kontenerów do innych węzłów. Wszelkie kontenery przechowywane przy użyciu tej funkcji należy usunąć ręcznie.
+
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o uruchamianiu [kontenerów w usłudze Service Fabric](service-fabric-containers-overview.md).
@@ -476,3 +565,6 @@ Jeśli nie chcesz usuwać pewnych obrazów, określ je przy użyciu parametru `C
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

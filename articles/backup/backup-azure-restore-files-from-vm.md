@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -64,13 +64,16 @@ Aby przywrócić pliki lub foldery z punktu przywracania, przejdź do maszyny wi
 
     Jeśli skrypt zostanie uruchomiony na komputerze z ograniczonym dostępem, upewnij się, Brak dostępu do:
 
-    - witrynie Download.microsoft.com
-    - Punkty końcowe systemu Azure, używany do tworzenia kopii zapasowych maszyny Wirtualnej Azure
+    - download.microsoft.com
+    - [Punkty końcowe systemu Azure, używany do tworzenia kopii zapasowych maszyny Wirtualnej Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - wychodzące port 3260
 
-   Dla systemu Linux skrypt wymaga składników "open-iscsi" i "lshw" połączyć się z punktem odzyskiwania. Jeśli składniki nie istnieją na komputerze, na którym skrypt jest uruchamiany, skrypt z pytaniem o zgodę na instalację składników. Podaj zgody Aby zainstalować wymagane składniki.  
-         
-   Skrypt można uruchomić na dowolnym komputerze, systemu operacyjnego tego samego (lub zgodne) jako kopii zapasowej maszyny Wirtualnej. Zobacz [tabeli zgodny system operacyjny](backup-azure-restore-files-from-vm.md#system-requirements) dla zgodnych systemów operacyjnych. Jeśli chronionej maszyny wirtualnej Azure korzysta z miejsca do magazynowania systemu Windows (w przypadku maszyn wirtualnych systemu Windows Azure) lub tablic LVM/RAID (dla maszyn wirtualnych systemu Linux), nie można uruchomić plik wykonywalny lub skrypt na tej samej maszyny wirtualnej. Zamiast tego należy uruchomić plik wykonywalny lub skrypt na innym komputerze z zgodny system operacyjny.
+    Dla systemu Linux skrypt wymaga składników "open-iscsi" i "lshw" połączyć się z punktem odzyskiwania. Jeśli składniki nie istnieją na komputerze, na którym skrypt jest uruchamiany, skrypt z pytaniem o zgodę na instalację składników. Podaj zgody Aby zainstalować wymagane składniki.
+    
+    Dostęp do witrynie download.microsoft.com jest wymagany do pobrania składniki używane do tworzenia bezpiecznego kanału między komputerem, w którym skrypt jest uruchamiany i danych w punkcie odzyskiwania.         
+
+    Skrypt można uruchomić na dowolnym komputerze, systemu operacyjnego tego samego (lub zgodne) jako kopii zapasowej maszyny Wirtualnej. Zobacz [tabeli zgodny system operacyjny](backup-azure-restore-files-from-vm.md#system-requirements) dla zgodnych systemów operacyjnych. Jeśli chronionej maszyny wirtualnej Azure korzysta z miejsca do magazynowania systemu Windows (w przypadku maszyn wirtualnych systemu Windows Azure) lub tablic LVM/RAID (dla maszyn wirtualnych systemu Linux), nie można uruchomić plik wykonywalny lub skrypt na tej samej maszyny wirtualnej. Zamiast tego należy uruchomić plik wykonywalny lub skrypt na innym komputerze z zgodny system operacyjny.
+ 
 
 ### <a name="identifying-volumes"></a>Identyfikowanie woluminów
 
@@ -80,7 +83,7 @@ Podczas uruchamiania pliku wykonywalnego systemu operacyjnego instaluje nowe wol
        
    ![Menu Plik odzyskiwania](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
            
-#### <a name="for-linux"></a>Dla systemu Linux
+#### <a name="for-linux"></a>For Linux
 
 W systemie Linux woluminy punktu odzyskiwania są instalowane w folderze, w którym skrypt jest uruchamiany. W związku z tym są wyświetlane dołączonych dysków, woluminów i odpowiadające im ścieżki instalacji. Zainstaluj tych ścieżek są widoczne dla użytkowników mających dostęp na poziomie głównym. Przeglądaj woluminów wymienionych w danych wyjściowych skryptu.
 
@@ -173,7 +176,7 @@ W poniższej tabeli przedstawiono zgodność między systemami operacyjnymi serw
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Dla systemu Linux
+### <a name="for-linux"></a>For Linux
 
 W systemie Linux system operacyjny komputera służące do przywrócenia plików musi obsługiwać system plików chronionej maszyny wirtualnej. Po wybraniu komputera, aby uruchomić skrypt, upewnij się, komputer ma zgodny system operacyjny i korzysta z jednego z wersji określonej w poniższej tabeli:
 

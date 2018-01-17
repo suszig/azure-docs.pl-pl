@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Słownik ochrony tożsamości usługi Azure Active Directory
 ### <a name="at-risk-user"></a>Zagrożone (użytkownika)
@@ -82,7 +82,7 @@ Działania w celu zapobieżenia szkody w organizacji za pomocą nadużycia tożs
 ### <a name="privileged-user"></a>Uprzywilejowane (użytkownika)
 Użytkownik, który w czasie zdarzenia ryzyka, ma uprawnienia administratora stałych lub tymczasowych do co najmniej jednego zasobu w usłudze Active Directory, takie jak Administrator globalny, Administrator rozliczeń, Administrator usługi, administrator użytkownika i hasło administratora. 
 
-### <a name="real-time"></a>W czasie rzeczywistym
+### <a name="real-time"></a>Czas rzeczywisty
 Zobacz wykrywanie w czasie rzeczywistym.
 
 ### <a name="real-time-detection"></a>Wykrywanie w czasie rzeczywistym
@@ -100,7 +100,7 @@ Stan zdarzenia ryzyka ustawionych ręcznie przez użytkownika ochronę tożsamo�
 ### <a name="risk-event-status"></a>Stan zdarzenia ryzyka
 Właściwości zdarzenia ryzyka, wskazującą, czy zdarzenie jest aktywne, a jeśli zamknięte, przyczynę zamknięcia go.
 
-### <a name="risk-event-type"></a>Typ zdarzenia ryzyka
+### <a name="risk-event-type"></a>Typ zdarzenia o podwyższonym ryzyku
 Kategoria zdarzenia ryzyka, wskazujący typ anomalii, który spowodował zdarzenie uważane za ryzykowne.
 
 ### <a name="risk-level-risk-event"></a>Poziom ryzyka (ryzyka zdarzenie)
@@ -139,7 +139,7 @@ Zdarzenie ryzyka wyzwalane po pomyślnym logowanie z adresu IP adresów z dużej
 ### <a name="sign-in-from-unfamiliar-location"></a>Logowania z nieznanych lokalizacji
 Zdarzenie ryzyka, wyzwalane, gdy użytkownik pomyślnie loguje się z nowej lokalizacji (adresu IP, szerokości geograficznej/długości i ASN).
 
-### <a name="sign-in-risk"></a>Ryzyko logowania
+### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 Zobacz ryzyka poziom (logowanie)
 
 ### <a name="sign-in-risk-policy"></a>Zasady dotyczące ryzyka związanego z logowaniem
@@ -148,7 +148,7 @@ Zasady dostępu warunkowego, która ocenia ryzyko dla określonych logowanie i s
 ### <a name="user-compromise-risk"></a>Ryzyko naruszenia zabezpieczeń użytkownika
 Zobacz ryzyka poziom (naruszenia zabezpieczeń użytkownika)
 
-### <a name="user-risk"></a>Ryzyko użytkownika
+### <a name="user-risk"></a>Ryzyko związane z użytkownikiem
 Zobacz ryzyka poziom (naruszenia zabezpieczeń użytkownika).
 
 ### <a name="user-risk-policy"></a>Zasady dotyczące ryzyka związanego z użytkownikiem
@@ -160,6 +160,6 @@ Użytkownicy, którzy mają zdarzenia ryzyka, które są aktywne lub skorygowany
 ### <a name="vulnerability"></a>Luka w zabezpieczeniach
 Konfiguracja lub warunku w usłudze Azure Active Directory, co sprawia, że katalog jest podatna na luki w zabezpieczeniach i zagrożeń.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)
 

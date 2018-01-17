@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Jak skojarzyć lub dodać subskrypcję platformy Azure do usługi Azure Active Directory
 
@@ -46,7 +46,7 @@ Wszyscy użytkownicy mają jeden katalog macierzysty, który ich uwierzytelnia, 
 
     ![Zrzut ekranu przedstawiający interfejs użytkownika podczas zmiany katalogu](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Kliknij przycisk **Zmień**.
-6. To wszystko! Użyj przełącznika katalogów, aby przejść do nowego katalogu.
+6. To wszystko! Użyj przełącznika katalogów, aby przejść do nowego katalogu. Może upłynąć do 10 minut, zanim wszystko zostanie poprawnie wyświetlone.
 
     ![Zrzut ekranu przedstawiający powiadomienie o pomyślnej zmianie katalogu](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

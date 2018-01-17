@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
@@ -35,9 +35,7 @@ W tym artykule omówiono następujące zagadnienia:
 * Transferowanie danych z lub do magazynu
 * Liczne dostępne biblioteki klienta magazynu
 
-Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
+Aby rozpocząć pracę z usługą Azure Storage, zobacz [Tworzenie konta magazynu](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Wprowadzenie do usług Azure Storage
 
@@ -219,9 +217,7 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Dowiedz się więcej o usłudze File Storage](../storage-files-introduction.md)
 * [Dowiedz się więcej o usłudze Queue Storage](../queues/storage-queues-introduction.md)
 
-Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
+Aby rozpocząć pracę z usługą Azure Storage, zobacz [Tworzenie konta magazynu](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Raport planisty wdrożenia usługi Azure Site Recovery
 Wygenerowany raport programu Microsoft Excel zawiera następujące arkusze:
@@ -214,9 +214,9 @@ Na przykład jeśli charakterystyki obciążenia dysku powodują umieszczenie go
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI.  Obecnie usługa Azure Site Recovery obsługuje maszyny wirtualne EFI systemu Windows Server (Windows Server 2012, 2012 R2 i 2016) pod warunkiem, że liczba partycji na dysku rozruchowym jest mniejsza niż 4, a rozmiar sektora rozruchowego wynosi 512 bajtów. Aby można było chronić maszyny wirtualne EFI, wersja usługi mobilności Azure Site Recovery musi być równa 9.13 lub wyższa. Dla maszyn wirtualnych EFI jest obsługiwane tylko przejście w tryb failover. Powrót po awarii nie jest obsługiwany.  
 
-**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
+**Typ systemu operacyjnego**: jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej.  
 
 ## <a name="incompatible-vms"></a>Niezgodne maszyny wirtualne
 
@@ -228,20 +228,31 @@ Na przykład jeśli charakterystyki obciążenia dysku powodują umieszczenie go
 **Zgodność maszyny wirtualnej**: wskazuje, dlaczego dana maszyna wirtualna nie jest zgodna na potrzeby użycia z usługą Site Recovery. Niezgodność każdego dysku na podstawie opublikowanych [limitów magazynów](https://aka.ms/azure-storage-scalbility-performance) może wynikać z dowolnej spośród następujących przyczyn:
 
 * Rozmiar dysku jest większy niż 4095 GB. Usługa Azure Storage obecnie nie obsługuje dysków danych większych niż 4095 GB.
+
 * Rozmiar dysku systemu operacyjnego jest większy niż 2048 GB. Usługa Azure Storage obecnie nie obsługuje dysków systemów operacyjnych większych niż 2048 GB.
-* Typ rozruchu to EFI. Obecnie usługa Azure Site Recovery obsługuje tylko maszyny wirtualne o typie rozruchu BIOS.
 
 * Łączny rozmiar maszyny wirtualnej (suma replikacji i testu pracy w trybie failover) przekracza obsługiwany limit rozmiaru konta magazynu (35 TB). Ta niezgodność występuje przeważnie, jeśli wartość charakterystyki wydajności pojedynczego dysku maszyny wirtualnej przekracza maksymalny obsługiwany limit standardowego magazynu platformy Azure lub usługi Site Recovery. Takie wystąpienie powoduje przeniesienie do strefy magazynów Premium Storage. Jednak maksymalny obsługiwany rozmiar konta magazynu Premium Storage jest równy 35 TB i jedna chroniona maszyna wirtualna nie może być chroniona na wielu kontach magazynu. Zauważ również, że przeprowadzenie testu pracy w trybie failover na chronionej maszynie wirtualnej powoduje również uruchomienie go na koncie magazynu z trwającą replikacją. W takiej sytuacji skonfiguruj podwojony rozmiar dysku na potrzeby równoległej kontynuacji replikacji i pomyślnie przeprowadzonego testu pracy w trybie failover.
-* Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 5000 operacji na dysk.
+
+* Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę magazynu wynoszący 7500 operacji na dysk.
+
 * Źródłowe operacje we/wy na sekundę przekraczają obsługiwany limit operacji we/wy na sekundę maszyny wirtualnej wynoszący 80 000 operacji na dysk.
+
 * Średni współczynnik zmian danych przekracza obsługiwany limit współczynnika zmian danych usługi Site Recovery wynoszący 10 MB/s dla średniego rozmiaru operacji we/wy na dysku.
-* Łączny współczynnik zmian danych dla wszystkich dysków na maszynie wirtualnej przekracza maksymalny obsługiwany limit współczynnika zmian danych usługi Site Recovery wynoszący 54 MB/s na maszynę wirtualną.
+
+* Średni współczynnik zmian danych przekracza obsługiwany limit współczynnika zmian danych usługi Site Recovery wynoszący 25 MB/s dla średniego rozmiaru operacji we/wy dla maszyny wirtualnej (suma współczynników zmian na wszystkich dyskach).
+
+* Szczytowy współczynnik zmian danych dla wszystkich dysków na maszynie wirtualnej przekracza maksymalny obsługiwany limit szczytowego współczynnika zmian danych usługi Site Recovery wynoszący 54 MB/s na maszynę wirtualną.
+
 * Średnia liczba operacji we/wy zapisu na sekundę przekracza obsługiwany limit operacji we/wy na sekundę usługi Site Recovery wynoszący 840 operacji na dysk.
+
 * Obliczony magazyn migawek przekracza obsługiwany limit magazynu migawek wynoszący 10 TB.
 
-**Operacje we/wy odczytu i zapisu na sekundę (ze współczynnikiem wzrostu)**: liczba operacji we/wy na sekundę dla szczytowego obciążenia na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączna liczba operacji we/wy odczytu i zapisu maszyny wirtualnej nie zawsze jest sumą operacji we/wy odczytu i zapisu z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowa liczba operacji we/wy odczytu i zapisu maszyny wirtualnej to wartość szczytowa sumy operacji we/wy odczytu i zapisu poszczególnych dysków z każdej minuty okresu profilowania.
+* Łączny współczynnik zmian danych dziennie przekracza obsługiwany limit współczynnika zmian dziennie wynoszący 2 TB dla serwera przetwarzania.
 
-**Współczynnik zmian danych w Mb/s (ze współczynnikiem wzrostu)**: szczytowy współczynnik zmian danych na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączny współczynnik zmian danych maszyny wirtualnej nie zawsze jest sumą współczynników zmian danych z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowy współczynnik zmian danych maszyny wirtualnej to wartość szczytowa sumy współczynników zmian poszczególnych dysków z każdej minuty okresu profilowania.
+
+**Szczytowa liczba operacji we/wy odczytu i zapisu na sekundę (ze współczynnikiem wzrostu)**: liczba operacji we/wy na sekundę dla szczytowego obciążenia na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączna liczba operacji we/wy odczytu i zapisu maszyny wirtualnej nie zawsze jest sumą operacji we/wy odczytu i zapisu z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowa liczba operacji we/wy odczytu i zapisu maszyny wirtualnej to wartość szczytowa sumy operacji we/wy odczytu i zapisu poszczególnych dysków z każdej minuty okresu profilowania.
+
+**Szczytowy współczynnik zmian danych w Mb/s (ze współczynnikiem wzrostu)**: szczytowy współczynnik zmian danych na dysku (domyślnie jest używany 95. percentyl) wraz z przyszłym współczynnikiem wzrostu (wartość domyślna to 30 procent). Pamiętaj, że łączny współczynnik zmian danych maszyny wirtualnej nie zawsze jest sumą współczynników zmian danych z poszczególnych dysków maszyny wirtualnej, ponieważ szczytowy współczynnik zmian danych maszyny wirtualnej to wartość szczytowa sumy współczynników zmian poszczególnych dysków z każdej minuty okresu profilowania.
 
 **Liczba dysków**: łączna liczba dysków VMDK maszyny wirtualnej.
 
@@ -253,14 +264,13 @@ Na przykład jeśli charakterystyki obciążenia dysku powodują umieszczenie go
 
 **Karty sieciowe**: liczba kart sieciowych maszyny wirtualnej.
 
-**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI. Obecnie usługa Azure Site Recovery obsługuje tylko typ rozruchu BIOS. Wszystkie maszyny wirtualne o typie rozruchu EFI są wymienione w arkuszu niezgodnych maszyn wirtualnych.
+**Typ rozruchu**: typ rozruchu maszyny wirtualnej. Dozwolone wartości to BIOS i EFI.  Obecnie usługa Azure Site Recovery obsługuje maszyny wirtualne EFI systemu Windows Server (Windows Server 2012, 2012 R2 i 2016) pod warunkiem, że liczba partycji na dysku rozruchowym jest mniejsza niż 4, a rozmiar sektora rozruchowego wynosi 512 bajtów. Aby można było chronić maszyny wirtualne EFI, wersja usługi mobilności Azure Site Recovery musi być równa 9.13 lub wyższa. Dla maszyn wirtualnych EFI jest obsługiwane tylko przejście w tryb failover. Powrót po awarii nie jest obsługiwany.
 
-**Typ systemu operacyjnego**: typ systemu operacyjnego maszyny wirtualnej. Dozwolone wartości to Windows, Linux i inny.
-
+**Typ systemu operacyjnego**: jest to typ systemu operacyjnego maszyny wirtualnej. Może to być system Windows, Linux lub inny, zależnie od szablonu wybranego z oprogramowania VMware vSphere podczas tworzenia maszyny wirtualnej. 
 
 ## <a name="azure-site-recovery-limits"></a>Limity usługi Azure Site Recovery
 W poniższej tabeli przedstawiono limity usługi Azure Site Recovery. Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji we/wy aplikacji. Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji. Aby uzyskać najlepsze wyniki nawet po zakończeniu planowania wdrożenia, zawsze zalecamy dokładne przetestowanie aplikacji przy użyciu testu pracy w trybie failover w celu uzyskania prawdziwych informacji o wydajności aplikacji.
- 
+
 **Cel magazynu replikacji** | **Średni rozmiar źródłowych operacji we/wy na dysku** |**Średni źródłowy współczynnik zmian danych na dysku** | **Łączny współczynnik zmian danych na dysku dziennie**
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s | 168 GB na dysk
@@ -270,7 +280,14 @@ Dysk w warstwie Premium P10 lub P15 | 32 KB lub większy | 8 MB/s | 672 GB na dy
 Dysk w warstwie Premium P20, P30, P40 lub P50 | 8 KB    | 5 MB/s | 421 GB na dysk
 Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |10 MB/s | 842 GB na dysk
 
+**Źródłowy współczynnik zmian danych** | **Limit maksymalny**
+---|---
+Średni współczynnik zmian danych na maszynę wirtualną| 25 MB/s 
+Szczytowy współczynnik zmian danych na wszystkich dyskach na maszynie wirtualnej | 54 MB/s
+Maksymalny współczynnik zmian danych dziennie obsługiwany przez serwer przetwarzania | 2 TB 
+
 Są to średnie wartości przy założeniu 30-procentowego nakładania się operacji we/wy. Usługa Site Recovery może obsługiwać większą przepływność na podstawie zakresu nakładania się na siebie, większego rozmiaru operacji zapisu i rzeczywistego zachowania związanego z obciążeniem operacji we/wy. Poprzednie liczby zakładają typowe zaległości wynoszące około pięć minut. Oznacza to, że przekazane dane są przetwarzane i punkt odzyskiwania jest tworzony w ciągu pięciu minut.
+
 
 ## <a name="cost-estimation"></a>Szacowanie kosztów
 Dowiedz się więcej na temat [szacowania kosztów](site-recovery-vmware-deployment-planner-cost-estimation.md). 

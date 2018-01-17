@@ -11,28 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 88ae5dfbf6246ecf92d6528ad3d9a8e5fb57e4b0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory 
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Wersja 1 — ogólnie dostępna](v1/data-factory-scheduling-and-execution.md)
 > * [Wersja 2 — wersja zapoznawcza](concepts-pipeline-execution-triggers.md)
 
-**Uruchomienie potoku** to termin w usłudze Azure Data Factory Version 2, który definiuje wystąpienie wykonania potoku. Załóżmy na przykład istnienie potoku, który jest wykonywany o 8:00, 9:00 i 10:00. W takim przypadku występują trzy osobne uruchomienia potoku. Każde uruchomienie potoku ma unikatowy identyfikator, czyli identyfikator GUID stanowiący unikatową definicję tego konkretnego uruchomienia potoku. Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów zdefiniowanych w potokach. Dostępne są dwie metody wykonywania potoku: **ręcznie** i przez **wyzwalacz**. Ten artykuł zawiera szczegółowe informacje o obu metodach wykonywania potoku. 
+**Uruchomienie potoku** to termin w usłudze Azure Data Factory Version 2, który definiuje wystąpienie wykonania potoku. Załóżmy na przykład istnienie potoku, który jest wykonywany o 8:00, 9:00 i 10:00. W takim przypadku występują trzy osobne uruchomienia potoku. Każde uruchomienie potoku ma unikatowy identyfikator, czyli identyfikator GUID stanowiący unikatową definicję tego konkretnego uruchomienia potoku. Uruchomienia potoku są tworzone zazwyczaj przez przekazanie argumentów do parametrów zdefiniowanych w potokach. Dostępne są dwie metody wykonywania potoku: **ręcznie** i przez **wyzwalacz**. Ten artykuł zawiera szczegółowe informacje o obu metodach wykonywania potoku.
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [Scheduling and execution in Data Factory V1 (Planowanie i wykonywanie w usłudze Data Factory V1)](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="run-pipeline-on-demand"></a>Uruchamianie potoku na żądanie
-W tej metodzie potok jest uruchamiany ręcznie. Jest ona również uważana za wykonywanie potoku na żądanie. 
+W tej metodzie potok jest uruchamiany ręcznie. Jest ona również uważana za wykonywanie potoku na żądanie.
 
-Na przykład, załóżmy, że występuje potok o nazwie **copyPipeline**, który chcesz wykonać. Potok ten jest prostym potokiem z jednym działaniem, który kopiuje elementy z folderu źródłowego w magazynie Azure Blob Storage do folderu docelowego w tym samym magazynie. Oto definicja przykładowego potoku: 
+Na przykład, załóżmy, że występuje potok o nazwie **copyPipeline**, który chcesz wykonać. Potok ten jest prostym potokiem z jednym działaniem, który kopiuje elementy z folderu źródłowego w magazynie Azure Blob Storage do folderu docelowego w tym samym magazynie. Oto definicja przykładowego potoku:
 
 ```json
 {
@@ -76,9 +76,9 @@ Na przykład, załóżmy, że występuje potok o nazwie **copyPipeline**, który
 }
 
 ```
-Potok przyjmuje dwa parametry: sourceBlobContainer i sinkBlobContainer, jak pokazano w definicji JSON. Wartości tych parametrów są przekazywane w czasie uruchomienia. 
+Potok przyjmuje dwa parametry: sourceBlobContainer i sinkBlobContainer, jak pokazano w definicji JSON. Wartości tych parametrów są przekazywane w czasie uruchomienia.
 
-Aby ręcznie uruchomić potok, może użyć jednej z następujących metod: .NET, PowerShell, REST i Python. 
+Aby ręcznie uruchomić potok, może użyć jednej z następujących metod: .NET, PowerShell, REST i Python.
 
 ### <a name="rest-api"></a>Interfejs API REST
 Oto przykład polecenia REST:  
@@ -90,7 +90,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Pełny przykład można znaleźć w artykule [Quickstart: create a data factory using REST API (Szybki start: tworzenie fabryki danych przy użyciu interfejsu API REST)](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="powershell"></a>PowerShell
-Oto przykład polecenia programu PowerShell: 
+Oto przykład polecenia programu PowerShell:
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -116,8 +116,8 @@ Parametry są przekazywane w treści ładunku żądania. W metodach wykorzystuj�
 
 Pełny przykład można znaleźć w artykule [Quickstart: create a data factory using PowerShell (Szybki start: tworzenie fabryki danych przy użyciu programu PowerShell)](quickstart-create-data-factory-powershell.md).
 
-### <a name="net"></a>.NET 
-Oto przykładowe wywołanie .NET: 
+### <a name="net"></a>.NET
+Oto przykładowe wywołanie .NET:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -129,11 +129,11 @@ Pełny przykład można znaleźć w artykule [Quickstart: create a data factory 
 > Interfejs API .NET umożliwia wywoływanie potoków usługi Data Factory z usługi Azure Functions, własnych usług internetowych itp.
 
 ## <a name="triggers"></a>Wyzwalacze
-Wyzwalacze to druga metoda wykonywania potoków. Wyzwalacze reprezentują jednostki przetwarzania, które określają, kiedy należy rozpocząć wykonanie potoku. Obecnie usługa Data Factory obsługuje wyzwalacz, który wywołuje potok zgodnie z harmonogramem zegarowym. Nosi on nazwę **wyzwalacza harmonogramu**. Obecnie usługa Data Factory nie obsługuje wyzwalaczy opartych na zdarzeniach, takich jak uruchomienie potoku w przypadku otrzymania pliku.
+Wyzwalacze to druga metoda wykonywania potoków. Wyzwalacze reprezentują jednostki przetwarzania, które określają, kiedy należy rozpocząć wykonanie potoku. Obecnie usługa Data Factory obsługuje dwa rodzaje wyzwalaczy: 1)**Wyzwalacz harmonogramu** — wyzwalacz, który wywołuje potok zgodnie z harmonogramem zegarowym; 2)**Wyzwalacz okna wirowania** — dla wyzwalaczy działających w okresowych interwałach przy zachowaniu stanu. Obecnie usługa Data Factory nie obsługuje wyzwalaczy opartych na zdarzeniach, takich jak uruchomienie potoku w przypadku otrzymania pliku.
 
 Między potokami i wyzwalaczami występuje relacja wiele-do-wielu. Wiele wyzwalaczy może uruchamiać jeden potok, a jeden wyzwalacz może uruchamiać wiele potoków. W poniższej definicji JSON wyzwalacza właściwość **pipelines** odnosi się do listy potoków wyzwalanych przez określony wyzwalacz oraz wartości parametrów potoku.
 
-### <a name="basic-trigger-definition"></a>Podstawowa definicja wyzwalacza: 
+### <a name="basic-trigger-definition"></a>Podstawowa definicja wyzwalacza:
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -159,8 +159,14 @@ Między potokami i wyzwalaczami występuje relacja wiele-do-wielu. Wiele wyzwala
     }
 ```
 
-## <a name="scheduler-trigger"></a>Wyzwalacz harmonogramu
+## <a name="schedule-trigger"></a>Wyzwalacz harmonogramu
 Wyzwalacz harmonogramu uruchamia potoki zgodnie z harmonogramem zegarowym. Wyzwalacz obsługuje opcje okresowe i zaawansowane kalendarza (co tydzień, w poniedziałek o godzinie 17:00 i czwartek o godzinie 21: 00). Wyzwalacz jest elastyczny dzięki brakowi wrażliwości na wzorzec zestawu danych i brakowi rozróżnienia między danymi serii czasowych i innych.
+
+Aby uzyskać bardziej szczegółowe informacje o wyzwalaczach harmonogramu i przykładach, zobacz [Poradnik: tworzenie wyzwalacza harmonogramu](how-to-create-schedule-trigger.md)
+
+## <a name="tumbling-window-trigger"></a>Wyzwalacz okna wirowania
+Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach.
+Aby uzyskać więcej informacji o wyzwalaczach okna wirowania i przykładach, zobacz [Poradnik: tworzenie wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md)
 
 ### <a name="scheduler-trigger-json-definition"></a>Definicja JSON wyzwalacza harmonogramu
 W przypadku utworzenia wyzwalacza harmonogramu można określić planowanie i powtarzanie przy użyciu definicji JSON, jak pokazano na przykładzie w tej sekcji. 
@@ -174,7 +180,7 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -229,6 +235,16 @@ interval | Obiekt interval jest dodatnią liczbą całkowitą. Oznacza on interw
 schedule | Wyzwalacz z określoną częstotliwością zmienia swój cykl na podstawie harmonogramu cyklu. Harmonogram zawiera modyfikacje oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia.
 
 
+## <a name="tumbling-window-trigger-vs-schedule-trigger"></a>Wyzwalacz okna wirowania oraz wyzwalacz harmonogramu
+Jako że zarówno wyzwalacz okna wirowania, jak i wyzwalacz harmonogramu pracują w oparciu o pulsy czasu, w jaki sposób się różnią?
+W przypadku wyzwalacza okna wirowania:
+* **Scenariusze wypełniania**: wyzwalacze okna wirowania obsługują scenariusze wypełniania, dzięki czemu mogą planować uruchomienia okien w przeszłości. Wyzwalacz harmonogramu może obsługiwać wyłącznie okresy od teraźniejszości.
+* **Niezawodność:** wyzwalacze okna wirowania będą planować uruchomienia potoków dla wszystkich okien od daty początkowej bez przerw z pełną niezawodnością.
+* **Ponawianie próby**: wyzwalacze okna wirowania mają możliwość ponawiania próby. Uruchomienia potoków zakończone niepowodzeniem mają domyślne zasady ponawiania próby ustawione na 0 lub zasady określone przez użytkownika w ramach definicji wyzwalacza. Ponadto wyzwalacz będzie automatycznie ponawiać próby w wystąpieniach, gdy uruchomienia zakończą się niepowodzeniem ze względu na limity współbieżności/serwera/ograniczenia przepustowości, tj. przypadki obejmujące kod stanu 400 (błąd użytkownika), 429 (zbyt wiele żądań), 500 (wewnętrzny błąd serwera).
+* **Współbieżność**: wyzwalacze okna wirowania umożliwiają użytkownikom jawne ustawienie limitów współbieżności dla wyzwalacza (maksymalnie 1–50 współbieżnych, wyzwolonych uruchomień potoków)
+* **Zmienne początku i końca okna**: w przypadku wyzwalaczy okna wirowania użytkownicy mogą uzyskać dostęp do zmiennych triggerOutputs().windowStartTime i triggerOutputs().windowEndTime jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Zmienne opisują odpowiednio czas rozpoczęcia okna i czas zakończenia okna. Przykładowo jeśli masz wyzwalacz okna wirowania uruchamiany co godzinę w przypadku okna od 1:00 do 2:00, triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z oraz triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
+* **Relacja potoku i wyzwalacza**: wyzwalacze harmonogramu mają relację n:m z potokami. Wyzwalacz harmonogramu może wyzwolić wiele potoków. Wyzwalacze okna wirowania mają relację 1:1 z potokami. Wyzwalacz okna wirowania może wyzwalać tylko jeden potok.
+
 ### <a name="schedule-trigger-example"></a>Przykładowy wyzwalacz harmonogramu
 
 ```json
@@ -267,10 +283,10 @@ schedule | Wyzwalacz z określoną częstotliwością zmienia swój cykl na pods
 
 Nazwa JSON | Typ wartości | Wymagana? | Wartość domyślna | Prawidłowe wartości | Przykład
 --------- | ---------- | --------- | ------------- | ------------ | -------
-startTime | Ciąg | Tak | Brak | Daty i godziny ISO-8601 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
-recurrence | Obiekt | Tak | Brak | Obiekt cyklu | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-interval | Liczba | Nie | 1 | 1 do 1000. | ```"interval":10```
-endTime | Ciąg | Tak | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości | `"endTime" : "2013-02-09T09:30:00-08:00"`
+startTime | Ciąg | Yes | None | Daty i godziny ISO-8601 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
+recurrence | Obiekt | Yes | Brak | Obiekt cyklu | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
+interval | Liczba | Yes | None | 1 do 1000. | ```"interval":10```
+endTime | Ciąg | Yes | None | Wartość daty i godziny reprezentująca godzinę w przyszłości | `"endTime" : "2013-02-09T09:30:00-08:00"`
 schedule | Obiekt | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
 ### <a name="deep-dive-starttime"></a>Szczegółowe informacje: startTime
@@ -301,11 +317,11 @@ W poniższej tabeli opisano szczegółowo elementy harmonogramu:
 
 Nazwa JSON | Opis | Prawidłowe wartości
 --------- | ----------- | ------------
-minutes | Minuty godziny, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
-hours | Godziny dnia, o których uruchamiany jest wyzwalacz. | <ul><li>Liczba całkowita</li><li>Tablica liczb całkowitych</li></ul>
-weekDays | Dni tygodnia, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością tygodniową. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday lub Sunday</li><li>Tablica dowolnych wartości (maksymalny rozmiar tablicy: 7)</li></p>Bez uwzględniania wielkości liter</p>
+minutes | Minuty godziny, o których uruchamiany jest wyzwalacz. | <ul><li>Tablica liczb całkowitych</li></ul>
+hours | Godziny dnia, o których uruchamiany jest wyzwalacz. | <ul><li>Tablica liczb całkowitych</li></ul>
+weekDays | Dni tygodnia, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością tygodniową. | <ul><li>Tablica dowolnych wartości z poniższych (maksymalny rozmiar tablicy: 7)<ul><li>Poniedziałek</li><li>Wtorek</li><li>Środa</li><li>Czwartek</li><li>Piątek</li><li>Sobota</li><li>Niedziela</li></ul></li></p>Bez uwzględniania wielkości liter</p>
 monthlyOccurrences | Określa dni miesiąca, w które uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | Tablica obiektów monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> Dzień to dzień tygodnia, w którym uruchamiany jest wyzwalacz, na przykład `{Sunday}` to każda niedziela miesiąca. Wymagany.<p>Wystąpienie to wystąpienie dnia w miesiącu, na przykład `{Sunday, -1}` to ostatnia niedziela miesiąca. Opcjonalny.
-monthDays | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | <ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li><li>Tablica wartości</li>
+monthDays | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Można określić tylko z częstotliwością miesięczną. | <ul><li>Tablica poniższych wartości</li><ul><li>Dowolna wartość <= -1 i >= -31</li><li>Dowolna wartość >= 1 i <= 31</li></ul></ul> |
 
 
 ## <a name="examples-recurrence-schedules"></a>Przykłady: harmonogramy cyklu
@@ -346,6 +362,8 @@ Przykład | Opis
 
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące samouczki: 
+Zobacz następujące samouczki:
 
 - [Quickstart: create a data factory using .NET (Szybki start: tworzenie fabryki danych przy użyciu platformy .NET)](quickstart-create-data-factory-dot-net.md)
+- [Poradnik: tworzenie wyzwalacza harmonogramu](how-to-create-schedule-trigger.md)
+- [Poradnik: tworzenie wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md)

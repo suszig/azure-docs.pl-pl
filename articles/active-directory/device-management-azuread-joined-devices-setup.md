@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Urządzeniach przyłączonych do konfigurowania usługi Azure Active Directory
 
@@ -52,7 +52,7 @@ Aby przyłączyć urządzenie z systemem Windows 10, usługi rejestracji urządz
 
 Ta sekcja zawiera czynności, aby dołączyć urządzenie z systemem Windows 10 do usługi Azure AD. Jeśli pomyślnie dołączono urządzenia do usługi Azure AD Twojego **dostępu do służbowych** okna dialogowego wskazuje to z **połączony \<usługi Azure AD\>**  wpis.
 
-![Połączone](./media/device-management-azuread-joined-devices-setup/13.png)
+![Połączony](./media/device-management-azuread-joined-devices-setup/13.png)
 
 
 **Aby dołączyć urządzenie z systemem Windows 10:**
@@ -103,21 +103,21 @@ Ta sekcja zawiera czynności, aby dołączyć urządzenie z systemem Windows 10 
 
 Aby sprawdzić, czy urządzenie jest dołączane do usługi Azure AD, możesz przejrzeć **dostępu służbowego** okna dialogowego na urządzeniu.
 
-![Połączone](./media/device-management-azuread-joined-devices-setup/13.png)
+![Połączony](./media/device-management-azuread-joined-devices-setup/13.png)
 
 Możesz też uruchomić następujące polecenie:`dsregcmd /status`  
 Na urządzeniu pomyślnie dołączono **AzureAdJoined** jest **tak**.
 
-![Połączone](./media/device-management-azuread-joined-devices-setup/14.png)
+![Połączony](./media/device-management-azuread-joined-devices-setup/14.png)
 
 Można również przejrzeć ustawienia urządzenia w portalu usługi Azure AD.
 
-![Połączone](./media/device-management-azuread-joined-devices-setup/15.png)
+![Połączony](./media/device-management-azuread-joined-devices-setup/15.png)
 
 Aby uzyskać więcej informacji, zobacz [znaleźć urządzenia](device-management-azure-portal.md#locate-devices).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, zobacz: 
 

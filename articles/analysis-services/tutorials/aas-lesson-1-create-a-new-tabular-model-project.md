@@ -13,19 +13,17 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>Lekcja 1. Tworzenie projektu modelu tabelarycznego
+# <a name="create-a-tabular-model-project"></a>Tworzenie projektu modelu tabelarycznego
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-W tej lekcji utworzysz nowy projekt modelu tabelarycznego przy użyciu programu SQL Server Data Tools (SSDT) na poziomie zgodności 1400. Po utworzeniu nowego projektu będzie można rozpocząć dodawanie danych i tworzenie modelu. W tej lekcji zostanie również pokrótce omówione środowisko tworzenia modelu tabelarycznego w programie SSDT.  
+W tej lekcji utworzysz nowy projekt modelu tabelarycznego przy użyciu programu Visual Studio z narzędziami SQL Server Data Tools (SSDT) na poziomie zgodności 1400. Po utworzeniu nowego projektu będzie można rozpocząć dodawanie danych i tworzenie modelu. W tej lekcji zostanie również pokrótce omówione środowisko tworzenia modelu tabelarycznego w programie Visual Studio.  
   
 Szacowany czas trwania lekcji: **10 minut**  
   
@@ -36,7 +34,7 @@ Ten temat jest pierwszą lekcją samouczka poświęconego tworzeniu modelu tabel
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Tworzenie nowego projektu modelu tabelarycznego  
   
-1.  W programie SSDT, w menu **Plik** kliknij pozycję **Nowy** > **Projekt**.  
+1.  W programie Visual Studio, w menu **Plik** kliknij pozycję **Nowy** > **Projekt**.  
   
 2.  W oknie dialogowym **Nowy projekt** rozwiń pozycje **Zainstalowano** > **Analiza biznesowa** > **Analysis Services**, a następnie kliknij pozycję **Projekt tabelaryczny usług Analysis Services**.  
   
@@ -48,7 +46,7 @@ Ten temat jest pierwszą lekcją samouczka poświęconego tworzeniu modelu tabel
   
 5.  W oknie dialogowym **Projektant modeli tabelarycznych** wybierz opcję **Zintegrowany obszar roboczy**.  
   
-    Podczas tworzenia modelu obszar roboczy hostuje bazę danych modelu tabelarycznego o takiej samej nazwie, co projekt. Zintegrowany obszar roboczy oznacza, że program SSDT używa wbudowanego wystąpienia, eliminując konieczność instalowania osobnego wystąpienia serwera usług Analysis Services tylko na potrzeby tworzenia modelu.
+    Podczas tworzenia modelu obszar roboczy hostuje bazę danych modelu tabelarycznego o takiej samej nazwie, co projekt. Zintegrowany obszar roboczy oznacza, że program Visual Studio używa wbudowanego wystąpienia, eliminując konieczność instalowania osobnego wystąpienia serwera usług Analysis Services tylko na potrzeby tworzenia modelu.
       
 6.  W polu **Poziom zgodności** wybierz pozycję **SQL Server 2017/Azure Analysis Services (1400)**.   
  
@@ -58,9 +56,9 @@ Ten temat jest pierwszą lekcją samouczka poświęconego tworzeniu modelu tabel
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Opis środowiska tworzenia modelu tabelarycznego programu SSDT  
-Po utworzeniu nowego projektu modelu tabelarycznego możemy się przyjrzeć środowisku tworzenia modelu tabelarycznego w programie SSDT.  
+Po utworzeniu nowego projektu modelu tabelarycznego możemy się przyjrzeć środowisku tworzenia modelu tabelarycznego w programie Visual Studio.  
   
-Utworzony projekt zostanie otwarty w programie SSDT. W **Eksploratorze modeli tabelarycznych** po prawej stronie jest wyświetlany widok drzewa obiektów modelu. Ponieważ dane nie zostały jeszcze zaimportowane, foldery są puste. Możesz kliknąć prawym przyciskiem myszy folder obiektu, aby wykonać akcje, podobnie jak pasek menu. W kolejnych krokach tego samouczka będziesz używać Eksploratora modeli tabelarycznych do nawigowania po różnych obiektach w projekcie modelu.
+Utworzony projekt zostanie otwarty w programie Visual Studio. W **Eksploratorze modeli tabelarycznych** po prawej stronie jest wyświetlany widok drzewa obiektów modelu. Ponieważ dane nie zostały jeszcze zaimportowane, foldery są puste. Możesz kliknąć prawym przyciskiem myszy folder obiektu, aby wykonać akcje, podobnie jak pasek menu. W kolejnych krokach tego samouczka będziesz używać Eksploratora modeli tabelarycznych do nawigowania po różnych obiektach w projekcie modelu.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

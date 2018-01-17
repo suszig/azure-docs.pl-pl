@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Rozpoczynanie pracy z dostępu warunkowego w usłudze Azure Active Directory
 
@@ -82,7 +82,7 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. Kliknij pozycję **Wybierz**.
 
-    c. Na **wybierz** bloku, wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
+    d. Na **wybierz** bloku, wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
 
     d. Na **użytkowników i grup** bloku, kliknij przycisk **gotowe**.
 
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. Kliknij pozycję **Wybierz**.
 
-    c. Na **wybierz** bloku, wybierz aplikacji w chmurze, a następnie kliknij przycisk **wybierz**.
+    d. Na **wybierz** bloku, wybierz aplikacji w chmurze, a następnie kliknij przycisk **wybierz**.
 
     d. Na **aplikacji w chmurze** bloku, kliknij przycisk **gotowe**.
 
@@ -118,7 +118,7 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. W obszarze **Include**, kliknij przycisk **wszystkie lokalizacje**.
 
-    c. Kliknij przycisk **wykluczyć**, a następnie kliknij przycisk **wszystkich zaufanych adresów IP**.
+    d. Kliknij przycisk **wykluczyć**, a następnie kliknij przycisk **wszystkich zaufanych adresów IP**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/12.png)
 
@@ -156,7 +156,7 @@ Do testowania zasad, powinien dostęp aplikacji z urządzenia, które:
 Uwierzytelnianie wieloskładnikowe powinny być wymagana tylko podczas próby połączenia zostało utworzone z urządzenia, które nie znajduje się w sieci skonfigurowanych zaufanych adresów IP. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz dowiedzieć się więcej na temat dostępu warunkowego, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

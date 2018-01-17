@@ -2,23 +2,17 @@
 title: "Samouczek: Szyfrowanie i odszyfrowywanie obiektów blob w usłudze Azure Storage za pomocą usługi Azure Key Vault | Dokumentacja firmy Microsoft"
 description: "Jak szyfrowanie i odszyfrowywanie obiektów blob za pomocą szyfrowania po stronie klienta dla usługi Magazyn Microsoft Azure z usługą Azure Key Vault."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Samouczek: Szyfrowanie i odszyfrowywanie obiektów blob w magazynie platformy Microsoft Azure przy użyciu usługi Azure Key Vault
 ## <a name="introduction"></a>Wprowadzenie
@@ -168,10 +162,6 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-Poniżej przedstawiono zrzut ekranu [klasycznego portalu Azure](https://manage.windowsazure.com) dla obiekt blob, który został zaszyfrowany za pomocą szyfrowania po stronie klienta przy użyciu klucza przechowywane w magazynie kluczy. **KeyId** właściwości jest identyfikatorem URI dla klucza w magazynie kluczy, który działa jako klucza KEK. **EncryptedKey** zaszyfrowana wersja CEK zawiera właściwości.
-
-![Zrzut ekranu przedstawiający metadane obiektu Blob, zawierający metadane szyfrowania](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
-
 > [!NOTE]
 > Jeśli przyjrzymy się konstruktora BlobEncryptionPolicy, pojawi się że można zaakceptować klucza i/lub program rozpoznawania nazw. Należy pamiętać, że w tej chwili nie można użyć program rozpoznawania nazw dla celów szyfrowania, ponieważ tak nie jest obecnie obsługuje domyślny klucz.
 > 
@@ -231,7 +221,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 To już wszystko. Owocnej pracy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji o korzystaniu z usługi Magazyn Microsoft Azure w języku C#, zobacz [Biblioteka klienta usługi Microsoft Azure Storage dla platformy .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Aby uzyskać więcej informacji na temat interfejsu API REST obiektów Blob, zobacz [interfejsu API REST usługi Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).

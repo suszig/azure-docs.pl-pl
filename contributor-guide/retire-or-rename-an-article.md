@@ -2,4 +2,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-[https://aka.MS/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Włącz program Microsoft Windows Hello dla firm w Twojej organizacji
 Po [łączenie urządzeń przyłączonych do domeny systemu Windows 10 w usłudze Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), wykonaj następujące czynności, aby włączyć program Microsoft Windows Hello dla firm w Twojej organizacji:
@@ -88,7 +88,7 @@ Za pomocą programu System Center Configuration Manager jest preferowaną metod�
    
     b. Jako **używaj (Trusted Platform Module)**, wybierz pozycję **wymagane**. 
    
-    c. Jako **metodę uwierzytelniania**, wybierz pozycję **opartego na certyfikatach**.
+    d. Jako **metodę uwierzytelniania**, wybierz pozycję **opartego na certyfikatach**.
    
     d. Kliknij przycisk **Dalej**.
 6. Na **Podsumowanie** okna dialogowego, kliknij przycisk **dalej**.
@@ -105,7 +105,7 @@ Jeśli używasz uwierzytelniania opartego na certyfikatach dla uwierzytelniania 
 
 Na **rejestracja SCEP** strony profilu certyfikatu, musisz wybrać **Zainstaluj w usłudze Passport for Work w przeciwnym razie Zgłoś błąd** jako **dostawcy magazynu kluczy**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [System Windows 10 dla przedsiębiorstw: sposoby używania urządzenia do pracy](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Rozszerzanie możliwości chmury dla urządzeń z systemem Windows 10 za pomocą usługi Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Uwierzytelnianie bez hasła](active-directory-azureadjoin-passport.md)

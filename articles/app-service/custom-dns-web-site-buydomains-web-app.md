@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Kup niestandardowej nazwy domeny dla aplikacji sieci Web Azure
 
@@ -171,9 +171,9 @@ Wybierz **dodać nazwę hosta**.
 ### <a name="configure-hostname"></a>Konfigurowanie nazwy hosta
 W **dodać nazwę hosta** okna dialogowego, wpisz nazwę FQDN domeny usługi aplikacji lub dowolnej domeny podrzędnej. Na przykład:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 Po zakończeniu wybierz **weryfikacji**. Typ rekordu nazwa hosta jest automatycznie zaznacza za użytkownika.
 

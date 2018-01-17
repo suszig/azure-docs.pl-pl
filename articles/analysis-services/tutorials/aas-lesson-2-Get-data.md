@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Lekcja 2. Pobieranie danych
+# <a name="get-data"></a>Pobieranie danych
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-W tej lekcji skorzystasz z funkcji pobierania danych programu SSDT w celu połączenia się z przykładową bazą danych AdventureWorksDW2014, wybrania danych, wyświetlenia ich podglądu i odfiltrowania, a następnie zaimportowania danych do obszaru roboczego modelu.  
+W tej lekcji skorzystasz z funkcji pobierania danych programu SSDT w celu połączenia się z przykładową bazą danych Adventure Works, wybrania danych, wyświetlenia ich podglądu i odfiltrowania, a następnie zaimportowania danych do obszaru roboczego modelu.  
   
 Funkcja pobierania danych umożliwia importowanie danych z wielu różnych źródeł, takich jak: baza danych SQL Azure, Oracle, Sybase, kanał informacyjny OData, Teradata, pliki itp. Można również wykonywać kwerendy danych przy użyciu wyrażeń formuły Power Query M.
 
 > [!NOTE]
-> Zadania i obrazy w tym samouczku pokazują łączenie z bazą danych AdventureWorksDW2014 na serwerze lokalnym. W niektórych przypadkach baza danych AdventureWorksDW2014 na platformie Azure może być inna.
+> Zadania i obrazy w tym samouczku pokazują łączenie z bazą danych AdventureWorksDW2014 na serwerze lokalnym. W niektórych przypadkach baza danych Adventure Works na platformie Azure może być inna.
   
 Szacowany czas trwania lekcji: **10 minut**  
   

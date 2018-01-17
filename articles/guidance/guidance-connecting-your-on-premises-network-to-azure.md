@@ -19,7 +19,7 @@ ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Łączenie sieci lokalnej na platformie Azure
 Firma Microsoft udostępnia kilka typów usług w chmurze. Podczas wszystkich usług można nawiązać za pośrednictwem publicznej sieci Internet, można również nawiązać niektórych usług przy użyciu tunelu wirtualnej sieci prywatnej (VPN) przez Internet lub za pośrednictwem bezpośredniego połączenia z firmą Microsoft. Ten artykuł pomaga określić opcji łączności będzie najlepiej odpowiadać potrzebom użytkownika na podstawie typów usług chmurowych firmy Microsoft, które zostaną zużyte. Większość organizacji korzystanie z wielu typów połączeń opisane poniżej.

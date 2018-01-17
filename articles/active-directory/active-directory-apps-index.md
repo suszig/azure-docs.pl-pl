@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory
 Ta strona zawiera pełną listę wszystkich dokumentów zapisywane o różnych funkcjach związanych z aplikacji w usłudze Azure Active Directory (Azure AD).
@@ -184,9 +184,9 @@ Panel dostępu usługi Azure AD jest, gdzie użytkownicy końcowi mogą uruchom 
 | Przewodnik artykułu |  |
 |:---:| --- |
 | Porównanie różne opcje dostępne podczas wdrażania aplikacji rejestracji jednokrotnej dla użytkowników |[Wdrażanie usługi Azure AD zintegrowanych aplikacji dla użytkowników](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
-| Omówienie panelu dostępu i jego przenośnych MyApps równoważne |[Wprowadzenie do panelu dostępu i MyApps](active-directory-saas-access-panel-introduction.md)<br />— [systemu iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Systemu android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| Omówienie panelu dostępu i jego przenośnych MyApps równoważne |[Wprowadzenie do panelu dostępu i MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Systemu android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Jak uzyskać dostęp do aplikacji Azure AD z witryny sieci Web usługi Office 365 |[Za pomocą usługi Office 365 uruchamiania aplikacji](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Jak uzyskać dostęp do aplikacji Azure AD z aplikacjami mobilnymi usługi Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [systemu iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Systemu android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Jak uzyskać dostęp do aplikacji Azure AD z aplikacjami mobilnymi usługi Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Systemu android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Jak uzyskać dostęp do aplikacji usługi Azure AD za pomocą linków bezpośrednich do zainicjowania rejestracji jednokrotnej |[Pobieranie linki bezpośrednie logowania jednokrotnego do aplikacji](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Panel dostępu jest dostępna dla [wszystkie wersje usługi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -203,11 +203,11 @@ Azure Active Directory oferuje kilka raporty i alerty ułatwiają monitorowanie 
 
 Aby zobaczyć, które raporty są dołączone do różnych wersjach usługi Azure Active Directory, [kliknij tutaj](active-directory-view-access-usage-reports.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 
-[Usługi domenowe Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
+[Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
-[Uwierzytelnianie wieloskładnikowe platformy Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
+[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)

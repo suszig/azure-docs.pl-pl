@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8941e631976eb11966c1f9ddd207af816df5dadf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 511df58befe9aed4aa65fc6944cae3a8e2c74c2d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-for-vpn-connectivity-preview"></a>Azure Active Directory dostępu warunkowego dla połączenia sieci VPN (wersja zapoznawcza)
 
@@ -90,7 +90,7 @@ Aby utworzyć certyfikat sieci VPN:
 
     b. Aby uzyskać **głównej**, wybierz pozycję **tak**.
 
-    c. Kliknij przycisk **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 7. Na stronie połączenie sieci VPN kliknij **pobierania certyfikatu**.
 
@@ -124,7 +124,7 @@ Ta sekcja zawiera instrukcje dotyczące konfigurowania zasady dostępu warunkowe
 
 5. W **przypisania** kliknij **użytkowników i grup**.
 
-    ![Wybierz użytkowników i grup](./media/active-directory-conditional-access-vpn-connectivity-windows10/09.png)
+    ![Wybieranie użytkowników i grup](./media/active-directory-conditional-access-vpn-connectivity-windows10/09.png)
 
 6. Na **użytkowników i grup** wykonaj następujące czynności:
 
@@ -134,7 +134,7 @@ Ta sekcja zawiera instrukcje dotyczące konfigurowania zasady dostępu warunkowe
 
     b. Kliknij pozycję **Wybierz**.
 
-    c. Na **wybierz** , wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
+    d. Na **wybierz** , wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
 
     d. Na **użytkowników i grup** kliknij przycisk **gotowe**.
 
@@ -146,7 +146,7 @@ Ta sekcja zawiera instrukcje dotyczące konfigurowania zasady dostępu warunkowe
 
     b. Na **aplikacji w chmurze** kliknij przycisk **Wybierz aplikacje**, a następnie kliknij przycisk **wybierz**.
 
-    c. Na **wybierz** strony w **aplikacji** wpisz **vpn**.
+    d. Na **wybierz** strony w **aplikacji** wpisz **vpn**.
 
     d. Wybierz **serwer sieci VPN**.
 
@@ -173,7 +173,7 @@ Ta sekcja zawiera instrukcje dotyczące konfigurowania zasady dostępu warunkowe
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać wgląd w sposób Microsoft implementuje tej funkcji, zobacz [udoskonalanie dostępu zdalnego w systemie Windows 10 z automatycznego profil sieci VPN](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile).    
 

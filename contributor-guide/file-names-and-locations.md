@@ -2,4 +2,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-[https://aka.MS/Azure-File-Names](https://aka.ms/azure-file-names)
+[https://aka.ms/azure-file-names](https://aka.ms/azure-file-names)

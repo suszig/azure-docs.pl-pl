@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: 0c3fc2d73a0caf0e0331cb9073bfcc0574240dac
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Wykonywanie operacji w usłudze Blob Storage przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -165,7 +165,7 @@ az storage blob delete \
 
 ## <a name="set-the-content-type"></a>Ustawianie typu zawartości
 
-Typ zawartości, znany także jako typ MIME, określa format danych w obiekcie blob. Przeglądarki i inne oprogramowanie umożliwia określenie sposobu przetwarzania danych na podstawie typu zawartości. Poniższy przykład ustawia typ zawartości `image/png`.
+Typ zawartości, określany też jako typ MIME, identyfikuje format danych w obiekcie blob. Przeglądarki i inne oprogramowanie umożliwia określenie sposobu przetwarzania danych na podstawie typu zawartości. Poniższy przykład ustawia typ zawartości `image/png`.
 
 ```azurecli-interactive
 # Set the content type

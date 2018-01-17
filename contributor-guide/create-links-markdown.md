@@ -2,4 +2,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-[https://aka.MS/markdown-Links](https://aka.ms/markdown-links)
+[https://aka.ms/markdown-links](https://aka.ms/markdown-links)

@@ -15,28 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53a241f12373acdb5d40575915d8d6c2f3c86b9a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Przy użyciu rozszerzenia Azure niestandardowego skryptu z maszyn wirtualnych systemu Linux
-Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalowania oprogramowania lub każdego innego zadania związanego z konfiguracją lub zarządzaniem. Skrypty można pobrać z magazynu Azure lub inne dostępne miejsce w Internecie lub dostarczony do rozszerzenia, czas wykonywania. Rozszerzenie skryptu niestandardowego integruje się z szablonów usługi Azure Resource Manager i mogą być także uruchamiane przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyny wirtualnej Azure.
+# <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Niestandardowe rozszerzenie skryptu Azure za pomocą maszyn wirtualnych systemu Linux
+Niestandardowe rozszerzenie skryptu pobiera i uruchamia skrypty na maszynach wirtualnych Azure. To rozszerzenie jest przydatne w przypadku konfiguracji po wdrożeniu, instalacja oprogramowania lub innych zadań konfiguracji i zarządzania nimi. Skrypty można pobrać z magazynu Azure lub innej dostępnej lokalizacji internet lub zapewniają je do środowiska wykonawczego rozszerzenia. 
 
-Ten dokument zawiera szczegóły dotyczące używania niestandardowe rozszerzenie skryptu z wiersza polecenia platformy Azure i szablonu usługi Azure Resource Manager, a także szczegółowe kroki rozwiązywania problemów w systemach Linux.
+Niestandardowe rozszerzenie skryptu jest zintegrowany z szablonów usługi Azure Resource Manager. Można również uruchomić przy użyciu wiersza polecenia platformy Azure, programu PowerShell, portalu Azure lub interfejsu API REST dla maszyn wirtualnych Azure.
+
+Ten artykuł zawiera szczegóły dotyczące używania niestandardowe rozszerzenie skryptu z wiersza polecenia platformy Azure i sposobu uruchamiania rozszerzenia za pomocą szablonu usługi Azure Resource Manager. Ten artykuł zawiera również kroki rozwiązywania problemów dla systemu Linux.
 
 ## <a name="extension-configuration"></a>Konfiguracja rozszerzenia
-Niestandardowe rozszerzenie skryptu konfiguracji określa lokalizację i polecenia do uruchomienia. Tej konfiguracji mogą być przechowywane w plikach konfiguracji określone w wierszu polecenia lub w szablonie usługi Azure Resource Manager. Poufne dane mogą być przechowywane w chronionej konfigurację, która zostaje zaszyfrowany i odszyfrowane tylko na maszynie wirtualnej. Chronione konfiguracja jest użyteczna, jeśli wykonanie polecenia obejmuje tajemnice, takie jak hasła.
+Niestandardowe rozszerzenie skryptu konfiguracji określa lokalizację i polecenia do uruchomienia. Możesz zapisać tę konfigurację w plikach konfiguracji, określ go w wierszu polecenia lub określ go w szablonie usługi Azure Resource Manager. 
+
+Poufne dane można przechowywać w chronionym konfigurację, która zostaje zaszyfrowany i odszyfrowane tylko na maszynie wirtualnej. Chronione konfiguracja jest użyteczna, jeśli wykonanie polecenia obejmuje tajemnice, takie jak hasła.
 
 ### <a name="public-configuration"></a>Publiczna Konfiguracja
-Schemat:
+Schemat publicznej konfiguracji ma następującą składnię.
 
-**Uwaga** — te nazwy właściwości jest uwzględniana wielkość liter. Użyj nazwy, jak pokazano poniżej, aby uniknąć problemów dotyczących wdrożenia.
+>[!NOTE]
+>Te nazwy właściwości jest rozróżniana wielkość liter. Aby uniknąć problemów z wdrażaniem, użyj nazwy, jak pokazano poniżej.
 
-* **commandToExecute**: (wymagane, string) wykonywania skryptu punktu wejścia
-* **fileUris**: (opcjonalne, tablicy ciągów) w adresach URL dla plików do pobrania.
-* **Sygnatura czasowa** (opcjonalne, liczba całkowita) to pole służy tylko do wyzwolenia Uruchom ponownie skryptu, zmieniając wartość tego pola.
+* **commandToExecute** (wymagane, string): działanie skryptu punktu wejścia.
+* **fileUris** (opcjonalne, tablicy ciągów): adresy URL plików do pobrania.
+* **Sygnatura czasowa** (opcjonalne, liczba całkowita): sygnatura czasowa skryptu. Tylko, jeśli chcesz wyzwolić Uruchom ponownie skryptu, należy zmienić wartość tego pola.
 
 ```json
 {
@@ -46,13 +51,14 @@ Schemat:
 ```
 
 ### <a name="protected-configuration"></a>Konfiguracja chronionych
-Schemat:
+Schemat konfiguracji chronionego ma następującą składnię.
 
-**Uwaga** — te nazwy właściwości jest uwzględniana wielkość liter. Użyj nazwy, jak pokazano poniżej, aby uniknąć problemów dotyczących wdrożenia.
+>[!NOTE]
+>Te nazwy właściwości jest rozróżniana wielkość liter. Aby uniknąć problemów z wdrażaniem, użyj nazwy, jak pokazano poniżej.
 
-* **commandToExecute**: (opcjonalne, ciąg) wykonywania skryptu punktu wejścia. Zamiast tego użyj tego pola, jeśli polecenie zawiera klucze tajne, takie jak hasła.
-* **storageAccountName**: (opcjonalne, ciąg) nazwa konta magazynu. Jeśli określisz poświadczeń magazynu fileUris wszystkie muszą być adresami URL dla obiektów blob Azure.
-* **storageAccountKey**: (opcjonalne, ciąg) klucz dostępu konta magazynu.
+* **commandToExecute** (opcjonalne, ciąg): działanie skryptu punktu wejścia. Użyj tego pola, jeśli polecenie zawiera klucze tajne, takie jak hasła.
+* **storageAccountName** (opcjonalne, ciąg): Nazwa konta magazynu. Jeśli określisz poświadczeń magazynu plik wszystkie identyfikatory URI musi być adresy URL dla obiektów blob Azure.
+* **storageAccountKey** (opcjonalne, ciąg): klucz dostępu konta magazynu.
 
 ```json
 {
@@ -63,13 +69,13 @@ Schemat:
 ```
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Uruchom niestandardowe rozszerzenie skryptu za pomocą interfejsu wiersza polecenia Azure, należy utworzyć plik konfiguracji lub pliki zawierające co najmniej uri pliku i wykonywania polecenia skryptu.
+Podczas korzystania z wiersza polecenia platformy Azure do uruchomienia niestandardowe rozszerzenie skryptu, Utwórz plik konfiguracji lub plików. Co najmniej pliki konfiguracji zawierają identyfikator URI pliku i wykonywania polecenia skryptu.
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Ustawienia można opcjonalnie określić w poleceniu jako ciąg w formacie JSON. Dzięki temu konfiguracji należy określić podczas wykonywania i bez pliku osobną konfiguracją.
+Opcjonalnie można określić ustawienia w poleceniu jako ciąg w formacie JSON. Dzięki temu konfiguracji należy określić podczas wykonywania i bez pliku osobną konfiguracją.
 
 ```azurecli
 az vm extension set '
@@ -80,9 +86,9 @@ az vm extension set '
   --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
-### <a name="azure-cli-examples"></a>Przykłady Azure CLI
+### <a name="azure-cli-examples"></a>Przykłady interfejsu wiersza polecenia platformy Azure
 
-**Przykład 1** -publicznej konfiguracji z pliku skryptu.
+#### <a name="public-configuration-with-script-file"></a>Publiczna Konfiguracja z pliku skryptu
 
 ```json
 {
@@ -97,7 +103,7 @@ Polecenia interfejsu wiersza polecenia platformy Azure:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Przykład 2** -publicznej konfiguracji z żadnego pliku skryptu.
+#### <a name="public-configuration-with-no-script-file"></a>Publiczna Konfiguracja z żadnego pliku skryptu
 
 ```json
 {
@@ -111,7 +117,9 @@ Polecenia interfejsu wiersza polecenia platformy Azure:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Przykład 3** — plik konfiguracji publicznego służy do określania pliku skryptu identyfikatora URI, a plik konfiguracji chronionych służy do określania polecenie do wykonania.
+#### <a name="public-and-protected-configuration-files"></a>Pliki konfiguracji publiczne i chronione
+
+Aby określić plik skryptu identyfikatora URI jest używany plik publicznej konfiguracji. Aby określić polecenie do uruchomienia jest używany plik konfiguracji chronionych.
 
 Plik konfiguracji publicznego:
 
@@ -136,10 +144,11 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 ```
 
 ## <a name="resource-manager-template"></a>Szablon usługi Resource Manager
-Niestandardowe rozszerzenie skryptu Azure może działać w czasie wdrażania maszyny wirtualnej przy użyciu szablonu usługi Resource Manager. Aby to zrobić, należy dodać prawidłowo sformatowane JSON do szablonu wdrożenia.
+Niestandardowe rozszerzenie skryptu Azure można uruchomić w czasie wdrażania maszyny wirtualnej za pomocą szablonu usługi Resource Manager. Aby to zrobić, należy dodać prawidłowo sformatowane JSON do szablonu wdrożenia.
 
 ### <a name="resource-manager-examples"></a>Przykłady usługi Resource Manager
-**Przykład 1** -publicznej konfiguracji.
+
+#### <a name="public-configuration"></a>Publiczna Konfiguracja
 
 ```json
 {
@@ -168,7 +177,7 @@ Niestandardowe rozszerzenie skryptu Azure może działać w czasie wdrażania ma
 }
 ```
 
-**Przykład 2** — wykonanie polecenia w chronionym konfiguracji.
+#### <a name="execution-command-in-protected-configuration"></a>Wykonanie polecenia w chronionym konfiguracji
 
 ```json
 {
@@ -199,22 +208,22 @@ Niestandardowe rozszerzenie skryptu Azure może działać w czasie wdrażania ma
 }
 ```
 
-Zobacz .net Core utworów muzycznych magazynu pokaz pełny przykład - [pokaz magazynu utworów muzycznych](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Pełny przykład, zobacz [pokaz magazynu utworów muzycznych .NET](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
-Po uruchomieniu niestandardowe rozszerzenie skryptu skrypt jest tworzony lub pobrany do katalogu podobny do poniższego przykładu. Dane wyjściowe polecenia jest także zapisane w tym katalogu w `stdout` i `stderr` pliku.
+Po uruchomieniu niestandardowe rozszerzenie skryptu skrypt jest tworzony lub pobrany do katalogu, który jest podobny do poniższego przykładu. Dane wyjściowe polecenia jest także zapisane w tym katalogu w `stdout` i `stderr` plików.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Rozszerzenie skryptu Azure tworzy dziennika, który można znaleźć tutaj.
+Rozszerzenie skryptu Azure tworzy dziennika, który można znaleźć tutaj:
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-Stan wykonywania niestandardowe rozszerzenie skryptu można również pobrać z wiersza polecenia platformy Azure.
+Można również pobrać stanu wykonywania niestandardowe rozszerzenie skryptu przy użyciu wiersza polecenia platformy Azure:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -232,6 +241,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Następne kroki
-Aby uzyskać informacje na inne rozszerzenia skryptu maszyny Wirtualnej, zobacz [omówienie rozszerzenie skryptu Azure dla systemu Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="next-steps"></a>Kolejne kroki
+Aby uzyskać informacje na inne rozszerzenia skryptu maszyny Wirtualnej, zobacz [Przegląd rozszerzenie skryptu Azure dla systemu Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

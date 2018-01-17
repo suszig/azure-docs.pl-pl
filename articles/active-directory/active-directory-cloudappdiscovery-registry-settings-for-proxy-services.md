@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Ustawienia funkcji cloud Discovery aplikacji rejestru dla usługi serwera Proxy
 W tym temacie ma na celu informacje, jak wykonać, aby ustawić wymaganego portu na komputerach z systemem agenta Cloud App Discovery. Domyślnie agenta Cloud App Discovery jest skonfigurowany do użycia tylko porty 80 i 443. Jeśli planujesz zainstalowanie Cloud App Discovery w środowisku z serwera proxy, który jest używany niestandardowy port (80 ani 443), należy skonfigurować agentów do użycia tego portu. Konfiguracja jest oparta na kluczu rejestru.
@@ -29,7 +29,7 @@ W tym temacie ma na celu informacje, jak wykonać, aby ustawić wymaganego portu
 ## <a name="modify-the-port-used-by-the-computer-running-the-cloud-app-discovery-agent"></a>Zmodyfikuj port używany przez komputer z uruchomionym agentem Cloud App Discovery
 
 1. Uruchom Edytor rejestru.
-  ![Uruchom](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
+  ![Run](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 2. Przejdź do lub utwórz następujący klucz rejestru: **HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud Discovery\Endpoint aplikacji**
 3. Utwórz nową **ciągu wielokrotnego** wartość o nazwie **porty**. 
   ![Nowy](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
@@ -50,7 +50,7 @@ W tym temacie ma na celu informacje, jak wykonać, aby ustawić wymaganego portu
    ![Edytowanie ciągu wielokrotnego](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy03.png)
 6. Kliknij przycisk **OK** zamknąć **Edytowanie ciągu wielokrotnego** okna dialogowego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak odnajdywać niezatwierdzone aplikacje w chmurze używanych mojej organizacji](active-directory-cloudappdiscovery-whatis.md) 
 

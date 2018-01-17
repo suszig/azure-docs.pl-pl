@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Zabezpieczanie zasobów w chmurze przy użyciu usługi Azure Multi-Factor Authentication i usług AD FS
 Jeśli Twoja organizacja jest sfederowana z użyciem usługi Azure Active Directory, możesz użyć usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services (AD FS) do zabezpieczenia zasobów używanych przez usługę Azure AD. Aby zabezpieczyć zasoby usługi Azure Active Directory za pomocą usługi Azure Multi-Factor Authentication lub usług Active Directory Federation Services, postępuj zgodnie z poniższymi procedurami.
@@ -66,7 +66,7 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 6. W polu Nazwa reguły oświadczenia wpisz nazwę reguły, np. WewnSiećFirm.
 7. Dla pola Typ oświadczenia przychodzącego wybierz z listy rozwijanej pozycję **Wewnątrz sieci firmowej**.
    ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-8. Kliknij przycisk **Finish** (Zakończ).
+8. Kliknij przycisk **Zakończ**.
 9. Na karcie Reguły przekształcania wystawiania kliknij pozycję **Dodaj regułę**.
 10. W Kreatorze dodawania reguły przekształcania oświadczeń wybierz z listy rozwijanej pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej**, a następnie kliknij przycisk **Dalej**.
 11. W polu Nazwa reguły oświadczenia wprowadź tekst *Nie wylogowuj użytkowników*.
@@ -83,16 +83,13 @@ W pierwszej kolejności należy skonfigurować oświadczenia usług AD FS. Utwó
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurowanie zaufanych adresów IP usługi Azure Multi-Factor Authentication dla użytkowników federacyjnych
 Po skonfigurowaniu oświadczeń można przystąpić do konfigurowania zaufanych adresów IP.
 
-1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. W obszarze po lewej stronie kliknij pozycję **Active Directory**.
-3. W sekcji Katalog wybierz katalog, w którym chcesz skonfigurować zaufane adresy IP.
-4. W wybranym katalogu kliknij pozycję **Konfiguruj**.
-5. W sekcji uwierzytelniania wieloskładnikowego kliknij pozycję **Zarządzaj ustawieniami usługi**.
-6. Na stronie Ustawienia usługi w obszarze zaufanych adresów IP wybierz pozycję **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**.  
+1. Zaloguj się w [Portalu Azure](https://portal.com).
+2. Wybierz pozycję **Azure Active Directory** > **Dostęp warunkowy** > **Lokalizacje z nazwą**.
+3. W bloku **Dostęp warunkowy — lokalizacje z nazwą** wybierz opcję **Konfiguruj zaufane adresy IP usługi MFA**
 
-   ![Chmura](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Kliknij pozycję **Zapisz**.
-8. Po zastosowaniu aktualizacji kliknij pozycję **Zamknij**.
+   ![Dostęp warunkowy — lokalizacje z nazwą usługi Azure AD: opcja Konfiguruj zaufane adresy IP usługi MFA](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Na stronie Ustawienia usługi w obszarze **zaufanych adresów IP** wybierz pozycję **Pomiń uwierzytelnianie wieloskładnikowe w przypadku żądań od użytkowników federacyjnych w moim intranecie**.  
+5. Kliknij pozycję **Zapisz**.
 
 Gotowe. Od tej pory federacyjni użytkownicy usługi Office 365 muszą używać usługi MFA, tylko jeśli ich oświadczenia pochodzą spoza firmowego intranetu.

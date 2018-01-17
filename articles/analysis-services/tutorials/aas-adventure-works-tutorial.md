@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – samouczek Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Ten samouczek zawiera lekcje na temat sposobu tworzenia i wdrażania modelu tabelarycznego na poziomie zgodności 1400 przy użyciu programu Visual Studio z narzędziami [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Ten samouczek zawiera lekcje na temat sposobu tworzenia i wdrażania modelu tabelarycznego na poziomie zgodności 1400 przy użyciu programu [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Jeśli usługi Analysis Services i modelowanie tabelaryczne to dla Ciebie nowość, ukończenie tego samouczka jest najszybszym sposobem nauczenia się, jak tworzyć i wdrażać podstawowy model tabelaryczny. Po spełnieniu wymagań wstępnych ukończenie samouczka powinno zająć od dwóch do trzech godzin.  
+Jeśli usługi Analysis Services i modelowanie tabelaryczne to dla Ciebie nowość, ukończenie tego samouczka jest najszybszym sposobem nauczenia się, jak tworzyć i wdrażać podstawowy model tabelaryczny przy użyciu programu Visual Studio. Po spełnieniu wymagań wstępnych ukończenie samouczka powinno zająć od dwóch do trzech godzin.  
   
 ## <a name="what-you-learn"></a>Omawiane zagadnienia   
   
--   Tworzenie nowego projektu modelu tabelarycznego na **poziomie zgodności 1400** w programie SSDT.
+-   Tworzenie nowego projektu modelu tabelarycznego na **poziomie zgodności 1400** w programie Visual Studio z narzędziami SSDT.
   
--   Importowanie danych z relacyjnej bazy danych do projektu modelu tabelarycznego.  
+-   Importowanie danych z relacyjnej bazy danych do bazy danych obszaru roboczego w projekcie modelu tabelarycznego.  
   
 -   Tworzenie relacji między tabelami w modelu oraz zarządzanie nimi.  
   
@@ -43,20 +41,20 @@ Jeśli usługi Analysis Services i modelowanie tabelaryczne to dla Ciebie nowoś
   
 -   Tworzenie partycji dzielących dane tabelaryczne na mniejsze części logiczne, które mogą być przetwarzane niezależnie od innych partycji.  
   
--   Zabezpieczanie obiektów i danych modelu przez tworzenie ról z użytkownikami jako elementami członkowskimi.  
+-   Zabezpieczanie obiektów i danych modelu przez tworzenie ról z użytkownikami jako członkami.  
   
 -   Wdrażanie modelu tabelarycznego na serwerze usług **Azure Analysis Services** lub lokalnym serwerze SQL Server 2017 Analysis Services.  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
 Do ukończenia tego samouczka niezbędne są następujące elementy:  
   
--   Wystąpienie usług Azure Analysis Services lub serwera SQL Server 2017 Analysis Services umożliwiające wdrożenie modelu. Zarejestruj się, aby uzyskać dostęp do [wersji próbnej usług Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) i [utworzyć serwer](../analysis-services-create-server.md). Możesz też zarejestrować się i pobrać serwer [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Serwer usług Azure Analysis Services. Zarejestruj się, aby uzyskać dostęp do [wersji próbnej usług Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) i [utworzyć serwer](../analysis-services-create-server.md). 
 
--   Program SQL Server Data Warehouse lub usługa Azure SQL Data Warehouse z [przykładową bazą danych AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Ta przykładowa baza danych zawiera dane niezbędne do wykonania tego samouczka. Pobierz [bezpłatne wersje serwera SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Możesz też zarejestrować się i uzyskać bezpłatną [wersję próbną bazy danych Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 
+-   Usługa [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) z **przykładową bazą danych AdventureWorksDW** lub usługa SQL Server Data Warehouse z [przykładową bazą danych Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Ważne:** jeśli przykładowa baza danych została zainstalowana na lokalnym serwerze SQL Server i model jest wdrażany na serwerze usług Azure Analysis Services, wymagana jest [lokalna brama danych](../analysis-services-gateway.md).
+    **Ważne:** jeśli przykładowa baza danych została zainstalowana w lokalnej usłudze SQL Server Data Warehouse i model jest wdrażany na serwerze usług Azure Analysis Services, wymagana jest [lokalna brama danych](../analysis-services-gateway.md).
 
--   Najnowsza wersja programu [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   Najnowsza wersja narzędzi [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) dla programu Visual Studio.
 
 -   Najnowsza wersja programu [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 

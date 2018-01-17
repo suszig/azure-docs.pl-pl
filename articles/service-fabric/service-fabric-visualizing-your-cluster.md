@@ -1,10 +1,10 @@
 ---
-title: "Wizualizacja klastra przy użyciu Eksploratora usługi sieć szkieletowa | Dokumentacja firmy Microsoft"
-description: "Eksploratora usługi sieć szkieletowa jest oparte na sieci web narzędzie do sprawdzania i zarządzanie aplikacjami w chmurze i węzłów w klastrze usługi sieć szkieletowa usług Microsoft Azure."
+title: "Wizualizacja klastra przy użyciu usługi Azure Service Fabric Explorer | Dokumentacja firmy Microsoft"
+description: "Service Fabric Explorer to aplikacja do inspekcji i zarządzania aplikacji w chmurze oraz węzłów w klastrze usługi sieć szkieletowa usług Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer
-Eksploratora usługi sieć szkieletowa jest oparte na sieci web narzędzie do sprawdzania i zarządzanie aplikacjami i węzły w klastrze usługi sieć szkieletowa usług Azure. Service Fabric Explorer znajduje się bezpośrednio w klastrze, dzięki czemu jest zawsze dostępne, niezależnie od tego, w którym jest uruchomiona klastra.
+
+Service Fabric Explorer (SFX) jest narzędziem open source za kontrolę i zarządzania klastrami sieć szkieletowa usług Azure. Eksploratora usługi sieć szkieletowa jest aplikacją dla systemu Windows i Linux. Obsługa MacOS będzie dostępna wkrótce.
+
+## <a name="service-fabric-explorer-download"></a>Pobieranie Service Fabric Explorer
+
+Aby pobrać Service Fabric Explorer jako aplikacja na komputerze, użyj następujących łączy:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> Tej wersji programu Service Fabric Explorer może mieć więcej lub mniej funkcji niż obsługi klastra. Użytkownik może wrócić do wersji Service Fabric Explorer wdrożone do klastra w celu zapewnienia zgodności wszystkich funkcji.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Uruchomiona Service Fabric Explorer z klastra
+
+Eksploratora usługi sieć szkieletowa jest również obsługiwane w punkt końcowy zarządzania HTTP klastra sieci szkieletowej usług. Aby uruchomić SFX w przeglądarce sieci web, przejdź do punktu końcowego zarządzania HTTP klastra z dowolnej przeglądarki — na przykład https://clusterFQDN:19080.
+
+Dla deweloperów konfiguracji stacji roboczej można uruchomić Eksploratora usługi sieć szkieletowa w klastrze lokalnym, przechodząc do http://localhost: 19080/Explorer. Obejrzyj ten artykuł, aby [przygotowywanie środowiska projektowego](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Łączenie z klastrem sieci szkieletowej usług
+Aby ustanowić połączenie z klastrem usługi sieć szkieletowa, należy punkt końcowy zarządzania klastrami (IP/nazwa FQDN) i port punktu końcowego zarządzania HTTP (19080 domyślnie). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Użyj pola wyboru "Połącz z hostem lokalnym" nawiązywania połączenia z lokalnym klastrem na stacji roboczej.
+
+### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
+Można kontrolować dostęp klienta do klastra usługi sieć szkieletowa z certyfikatów lub przy użyciu usługi Azure Active Directory (AAD).
+
+Próba nawiązania bezpiecznego klastrem, następnie w zależności od konfiguracji klastra trzeba będzie przedstawić certyfikat, klienta lub zaloguj się za pomocą usługi AAD.
 
 ## <a name="video-tutorial"></a>Samouczek wideo
 
 Aby dowiedzieć się, jak używać Eksploratora usługi sieć szkieletowa, obejrzyj następujące wideo Microsoft Virtual Academy:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> To wideo pokazuje, że Service Fabric Explorer hostowanych w klastrze usługi sieć szkieletowa nie wersji do pulpitu.
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Połącz do Eksploratora usługi sieć szkieletowa
-Po wykonaniu instrukcji do [przygotowywanie środowiska projektowego](service-fabric-get-started.md), Service Fabric Explorer można uruchomić w klastrze lokalnym, przechodząc do http://localhost: 19080/Explorer.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Zrozumienie układu Service Fabric Explorer
 Za pomocą Eksploratora usługi sieć szkieletowa można nawigować przy użyciu drzewa po lewej stronie. W katalogu głównym drzewa pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie aplikacji i kondycji węzła.
@@ -68,25 +101,6 @@ Na przykład, aby usunąć aplikację, wybierz aplikację z drzewa po lewej stro
 > [!TIP]
 > Te same akcje można wykonać przez kliknięcie przycisku wielokropka obok każdego elementu.
 >
->
-
-W poniższej tabeli wymieniono akcje dostępne dla każdego obiektu:
-
-| **Jednostki** | **Akcja** | **Opis** |
-| --- | --- | --- |
-| Typ aplikacji |Cofnij aprowizację typu |Usuwa pakiet aplikacji z magazynu obrazu klastra. Wymaga wszystkie aplikacje tego typu, aby najpierw należy usunąć. |
-| Aplikacja |Usuń aplikację |Usuwanie aplikacji, w tym jej usług i ich stan (jeśli istnieje). |
-| Usługa |Usuwanie usługi |(Jeśli istnieje), należy usunąć usługę i jego stan. |
-| Węzeł |Activate |Aktywuj węzła. |
-| Węzeł | Dezaktywuj (Wstrzymaj) | Wstrzymanie węzła w jego bieżącym stanie. Usługi nadal działać, ale usługi sieć szkieletowa nie aktywnego przenosi niczego na lub wyłącz go, chyba że jest wymagany w celu zapobiegania niespójność danych lub awarii. Ta akcja zwykle jest używana do włączenia usług debugowania w określonym węźle, aby upewnić się, że nie są przenoszone podczas kontroli. | |
-| Węzeł | Dezaktywuj (ponowne uruchomienie) | Bezpieczne przenoszenie wszystkich usług w pamięci wyłącz węzeł i zamknij usług trwałych. Zazwyczaj używany, gdy procesy hosta lub komputera, konieczne jest ponowne uruchomienie. | |
-| Węzeł | Dezaktywuj (Usuń dane) | Bezpiecznie zamknąć wszystkie usługi uruchomione w węźle po utworzeniu wystarczające zapasowe replik. Zazwyczaj używane do węzła (lub co najmniej jej magazynem) jest przełączana trwale poza Komisji. | |
-| Węzeł | Usuń stan węzła | Usuń wiedzy replik węzła z klastra. Zazwyczaj używany podczas uznaje nieodwracalny węzeł już nie powiodło się. | |
-| Węzeł | Ponowne uruchamianie | Symulację awarii węzła poprzez ponowne uruchomienie węzła. Więcej informacji [tutaj](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
-
-Od momentu rzeczywistości działają destrukcyjnie wiele działań, użytkownik może się monit o potwierdzenie Twoich zamiarów, przed zakończeniem działania.
-
-> [!TIP]
 > Wszystkie akcje, które mogą być wykonywane za pomocą Eksploratora usługi sieć szkieletowa można również przeprowadzić za pomocą programu PowerShell lub interfejsu API REST, aby włączyć automatyzacji.
 >
 >
@@ -96,27 +110,11 @@ Umożliwia także Eksploratora usługi sieć szkieletowa można utworzyć wystą
 ![Tworzenie wystąpienia aplikacji w narzędziu Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Obecnie nie mogą być parametryczne wystąpień aplikacji utworzonych za pomocą Eksploratora usługi sieć szkieletowa. Są one tworzone przy użyciu wartości parametrów domyślnych.
+> Service Fabric Explorer nie obsługuje parametrów podczas tworzenia wystąpień aplikacji. Wystąpień aplikacji użyj domyślne wartości parametrów.
 >
 >
 
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Połącz do zdalnego klastra usługi sieć szkieletowa
-Jeśli znasz punktu końcowego klastra i masz wystarczające uprawnienia do Eksploratora usługi sieć szkieletowa dostęp z dowolnej przeglądarki. Jest to spowodowane Eksploratora usługi sieć szkieletowa jest po prostu innej usługi, która działa w klastrze.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Odnajdywanie punktu końcowego Service Fabric Explorer zdalnego klastra
-Aby uzyskać dostęp do Eksploratora usługi sieć szkieletowa dla danego klastra, punkt przeglądarkę, aby:
-
-http://&lt;your klastra endpoint&gt;: 19080/Explorer
-
-W przypadku klastrów platformy Azure pełny adres URL jest również dostępna w okienku essentials klastra w portalu Azure.
-
-### <a name="connect-to-a-secure-cluster"></a>Nawiązywanie połączenia z zabezpieczonym klastrem
-Można kontrolować dostęp klienta do klastra usługi sieć szkieletowa z certyfikatów lub przy użyciu usługi Azure Active Directory (AAD).
-
-Jeśli próby połączenia do Eksploratora usługi sieć szkieletowa w klastrze bezpieczny, następnie w zależności od konfiguracji klastra będzie trzeba przedstawić certyfikat, klienta lub zaloguj się za pomocą usługi AAD.
-
-## <a name="next-steps"></a>Następne kroki
-* [Omówienie testowania](service-fabric-testability-overview.md)
+## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie aplikacji usługi Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Wdrażanie aplikacji sieci szkieletowej usług za pomocą programu PowerShell](service-fabric-deploy-remove-applications.md)
 
