@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Tworzenie elementu runbook usługi Azure Automation
 
@@ -71,7 +72,7 @@ Po utworzeniu elementu runbook należy go przetestować, aby upewnić się, że 
 
 1. Na stronie **Edytuj element runbook programu PowerShell** kliknij pozycję **Publikuj**, aby opublikować element runbook jako oficjalną wersję elementu runboook na koncie.
 
-   ![Przegląd elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Uruchamianie elementu runbook
 
@@ -83,11 +84,11 @@ Po opublikowaniu elementu runbook zostanie wyświetlona strona przeglądu.
 
 1. Zostaw pole **Nazwa** puste, aby została użyta wartość domyślna, i kliknij przycisk **OK**. Element runbook zostanie przesłany i zostanie wyświetlona strona zadania.
 
-   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Gdy **Stan zadania** będzie miał wartość **Uruchomione** lub **Ukończone**, kliknij pozycję **Dane wyjściowe**, aby otworzyć okienko **Dane wyjściowe** i wyświetlić dane wyjściowe elementu runbook.
 
-    ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

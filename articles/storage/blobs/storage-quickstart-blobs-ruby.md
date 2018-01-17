@@ -10,20 +10,20 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferowanie obiektów do i z usługi Azure Blob Storage za pomocą języka Ruby
 Dzięki tej skróconej instrukcji dowiesz się, w jaki sposób za pomocą języka Ruby przekazywać, pobierać i wyświetlać listę blokowych obiektów blob w kontenerze usługi Azure Blob Storage. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start: 
+Aby ukończyć ten przewodnik Szybki start: 
 * Instalowanie języka [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Zainstaluj [bibliotekę usługi Azure Storage dla języka Ruby](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) za pomocą pakietu rubygem. 
+* Zainstaluj [bibliotekę usługi Azure Storage dla języka Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) za pomocą pakietu rubygem. 
 
 ```
 gem install azure-storage
@@ -178,4 +178,4 @@ W tym przewodniku Szybki start przedstawiono metodę transferowania plików mię
 > [Instrukcje: Operacje wykonywane w usłudze Blob Storage](./storage-ruby-how-to-use-blob-storage.md)
 
 
-Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Storage).
+Aby uzyskać więcej informacji na temat Eksploratora usługi Storage i obiektów blob, zapoznaj się artykułem [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Zarządzanie zasobami usługi Azure Blob Storage za pomocą Eksploratora usługi Microsoft Azure Storage).

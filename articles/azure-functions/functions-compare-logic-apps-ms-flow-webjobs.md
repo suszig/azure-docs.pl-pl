@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Wybieranie między przepływem, aplikacjami logiki, funkcjami a zadaniami WebJob
 W tym artykule porównano i zestawiono ze sobą następujące usługi w chmurze firmy Microsoft, które mogą rozwiązać problemy z integracją i zautomatyzować procesy biznesowe:
@@ -81,7 +81,7 @@ W poniższej tabeli zestawiono różnice między usługami Functions i WebJobs:
 | Skalowanie |Skalowanie bez konfiguracji |Skalowanie z planem usługi App Service |
 | Cennik |Płatność za użycie lub w ramach planu usługi App Service |W ramach planu usługi App Service |
 | Sposób uruchamiania |Wyzwalane, zaplanowane (za pomocą wyzwalacza w postaci czasomierza) |Wyzwalane, ciągłe, zaplanowane |
-| Zdarzenia wyzwalacza |[Czasomierz](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [kolejki i obiekty blob usługi Azure Storage](functions-bindings-storage-blob.md), [kolejki i tematy usługi Azure Service Bus](functions-bindings-service-bus.md) |[Kolejki i obiekty blob usługi Azure Storage](functions-bindings-storage-blob.md), [kolejki i tematy usługi Azure Service Bus](functions-bindings-service-bus.md) |
+| Zdarzenia wyzwalacza |[Czasomierz](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [kolejki i obiekty blob usługi Azure Storage](functions-bindings-storage-blob.md), [kolejki i tematy usługi Azure Service Bus](functions-bindings-service-bus.md) |[Kolejki i obiekty blob usługi Azure Storage](functions-bindings-storage-blob.md), [kolejki i tematy usługi Azure Service Bus](functions-bindings-service-bus.md) |
 | Opracowywanie w przeglądarce |Obsługiwane |Nieobsługiwane |
 | C# |Obsługiwane |Obsługiwane |
 | F# |Obsługiwane |Nieobsługiwane |
