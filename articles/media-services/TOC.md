@@ -135,8 +135,9 @@
 ### [Szyfrowanie AES-128](media-services-protect-with-aes128.md)
 ### [Technologia PlayReady/Widevine do przesyłania strumieniowego](media-services-protect-with-playready-widevine.md)
 ### [Technologia FairPlay do przesyłania strumieniowego](media-services-protect-hls-with-fairplay.md)
-### [Technologia PlayReady w trybie offline](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [Technologia FairPlay w trybie offline](media-services-protect-hls-with-offline-fairplay.md)
+### [Technologia PlayReady w trybie offline dla systemu Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Technologia FairPlay w trybie offline dla systemu iOS](media-services-protect-hls-with-offline-fairplay.md)
+### [Technologia Widevine w trybie offline dla systemu Android](offline-widevine-for-android.md)
 ### [Konfigurowanie w witrynie Azure Portal](media-services-portal-protect-content.md)
 ### [Dostarczanie licencji DRM](media-services-deliver-keys-and-licenses.md)
 ### Tworzenie kluczy zawartości
