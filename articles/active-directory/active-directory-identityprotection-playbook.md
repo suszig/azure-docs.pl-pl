@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure podręcznikowym ochronę tożsamości w usłudze Active Directory
 Tego podręcznika dotyczącego ułatwia:
@@ -109,10 +109,10 @@ Luki w zabezpieczeniach występują słabych w środowisku usługi Azure AD, kt�
 11. Kliknij pozycję **Zapisz**.
 12. Teraz możesz przetestować dostępu warunkowego opartego na ryzyko, logując się przy użyciu użytkownik z poziomem ryzyka z podwyższonym poziomem uprawnień. Ryzyko użytkownika w przypadku średniej, w zależności od konfiguracji zasad, logowanie jest albo zablokowania lub zostało wymuszone, aby zmienić hasło. 
     <br><br>
-    ![Podręcznikowym](./media/active-directory-identityprotection-playbook/201.png "Podręcznikowym")
+    ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-## <a name="sign-in-risk"></a>Ryzyko logowania
+## <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 **Aby przetestować znak ryzyko, należy wykonać następujące czynności:**
 
 1. Zaloguj się do [https://portal.azure.com ](https://portal.azure.com) przy użyciu poświadczeń administratora globalnego dla dzierżawy.
@@ -131,9 +131,9 @@ Luki w zabezpieczeniach występują słabych w środowisku usługi Azure AD, kt�
 10. Teraz możesz przetestować dostępu warunkowego opartego na ryzyko symulując nieznanych lokalizacji lub anonimowe IP ryzyka zdarzeń, ponieważ są one zarówno **średni** ryzyka zdarzenia.
 
 
-![Podręcznikowym](./media/active-directory-identityprotection-playbook/200.png "Podręcznikowym")
+![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Ochronę tożsamości usługi Azure Active Directory](active-directory-identityprotection.md)
 

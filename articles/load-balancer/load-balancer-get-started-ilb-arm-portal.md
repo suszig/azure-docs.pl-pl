@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia w witrynie Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Program PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
@@ -43,7 +43,7 @@ Wykonaj poniższe czynności, aby utworzyć wewnętrzny moduł równoważenia ob
 1. Otwórz przeglądarkę, przejdź do witryny [Azure Portal](http://portal.azure.com) i zaloguj się przy użyciu konta platformy Azure.
 2. W lewym górnym rogu ekranu kliknij kolejno pozycje **Nowy** > **Sieci** > **Moduł równoważenia obciążenia**.
 3. W bloku **Tworzenie modułu równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla modułu równoważenia obciążenia.
-4. W obszarze **Schemat** kliknij pozycję **Wewnętrzny**.
+4. W obszarze **Typ** kliknij pozycję **Wewnętrzny**.
 5. Kliknij pozycję **Sieć wirtualna**, a następnie wybierz sieć wirtualną, w której chcesz utworzyć moduł równoważenia obciążenia.
 
    > [!NOTE]
@@ -66,16 +66,16 @@ Przed skonfigurowaniem reguły równoważenia obciążenia skonfiguruj pulę adr
 ### <a name="step-1-configure-a-backend-pool"></a>Krok 1. Konfigurowanie puli zaplecza
 
 1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
-2. W bloku **Ustawienia** kliknij pozycję **Pule zaplecza**.
-3. W bloku **Pule adresów zaplecza** kliknij pozycję **Dodaj**.
-4. W bloku **Dodawanie puli zaplecza** wprowadź wartość pola **Nazwa** dla puli zaplecza, a następnie kliknij przycisk **OK**.
+2. Na stronie **Ustawienia** kliknij pozycję **Pule zaplecza**.
+3. Na stronie **Pule adresów zaplecza** kliknij pozycję **Dodaj**.
+4. Na stronie **Dodawanie puli zaplecza** wprowadź wartość pola **Nazwa** dla puli zaplecza, a następnie kliknij pozycję **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Krok 2. Konfigurowanie sondy
 
 1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
-2. W bloku **Ustawienia** kliknij pozycję **Sondy**.
-3. W bloku **Sondy** kliknij pozycję **Dodaj**.
-4. W bloku **Dodawanie sondy** wprowadź wartość pola **Nazwa** dla sondy.
+2. Na stronie **Wstawienia** kliknij pozycję **Sondy kondycji**.
+3. Na stronie **Sondy kondycji** kliknij pozycję **Dodaj**.
+4. Na stronie **Dodaj sondę kondycji** wprowadź wartość pola **Nazwa** dla sondy.
 5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn internetowych) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
 6. W obszarze **Port** określ port używany podczas uzyskiwania dostępu do sondy.
 7. W obszarze **Ścieżka** (tylko w przypadku sond protokołu HTTP) określ ścieżkę do użycia jako sonda.
@@ -86,10 +86,10 @@ Przed skonfigurowaniem reguły równoważenia obciążenia skonfiguruj pulę adr
 ### <a name="step-3-configure-load-balancing-rules"></a>Krok 3. Konfigurowanie reguł równoważenia obciążenia
 
 1. W witrynie Azure Portal kliknij kolejno pozycje **Przeglądaj**  >  **Moduły równoważenia obciążenia**, a następnie kliknij utworzony wcześniej moduł równoważenia obciążenia.
-2. W bloku **Ustawienia** kliknij pozycję **Reguły równoważenia obciążenia**.
-3. W bloku **Reguły równoważenia obciążenia** kliknij pozycję **Dodaj**.
-4. W bloku **Dodaj regułę równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla reguły.
-5. W obszarze **Protokół** wybierz pozycję **HTTP** (w przypadku witryn internetowych) lub **TCP** (w przypadku innych aplikacji działających w oparciu o protokół TCP).
+2. Na stronie **Ustawienia** kliknij pozycję **Reguły równoważenia obciążenia**.
+3. Na stronie **Reguły równoważenia obciążenia** kliknij pozycję **Dodaj**.
+4. Na stronie **Dodaj regułę równoważenia obciążenia** wprowadź wartość pola **Nazwa** dla reguły.
+5. W obszarze **Protokół** wybierz pozycję **TCP** lub **UDP**.
 6. W obszarze **Port** określ port, z którym klienci łączą się w module równoważenia obciążenia.
 7. W obszarze **Port zaplecza** określ port do użycia w puli zaplecza (przeważnie port modułu równoważenia obciążenia jest taki sam jak port zaplecza).
 8. W obszarze **Pula zaplecza** wybierz utworzoną wcześniej pulę zaplecza.

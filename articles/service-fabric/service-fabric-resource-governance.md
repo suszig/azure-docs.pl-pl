@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Zarządzanie zasobów 
 
@@ -115,8 +115,7 @@ Limity ładu zasobów są określone w manifeście aplikacji (sekcja ServiceMani
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ W tym przykładzie pakiet usługi o nazwie **ServicePackageA** pobiera jeden rdz
 W związku z tym w tym przykładzie CodeA1 pobiera dwóch podstawowa i CodeA2 pobiera jedna trzecia podstawowa (i zastrzeżenie gwarancji soft tego samego). Jeśli nie określono CpuShares pakietów kodu, usługi sieć szkieletowa dzieli rdzeni równomiernie między nimi.
 
 Limity pamięci są bezwzględne, oba pakiety kodu są ograniczone do 1024 MB pamięci (i zastrzeżenie gwarancji soft tego samego). Pakiety kodu (kontenery lub procesów) nie można przydzielić więcej pamięci niż ten limit i próby tak powoduje wyjątek braku pamięci. Aby wymuszanie limitu zasobów działało, wszystkie pakiety kodu w ramach pakietu usług powinny mieć określone limity pamięci.
+
+### <a name="using-application-parameters"></a>Przy użyciu parametrów aplikacji
+
+Podczas określania ładu zasobów jest możliwość użycia [parametry aplikacji](service-fabric-manage-multiple-environment-app-configuration.md) do zarządzania wielu konfiguracji aplikacji. W poniższym przykładzie przedstawiono sposób użycia parametrów aplikacji:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+W tym przykładzie domyślne wartości parametrów są ustawiane w środowisku produkcyjnym, gdzie każdy pakiet usługi jak 4 rdzenie i 2 GB pamięci. Istnieje możliwość zmiany domyślnych wartości z pliki parametrów aplikacji. W tym przykładzie jednego pliku parametrów może służyć do testowania aplikacji lokalnie, gdzie ona otrzyma mniej zasobów niż w środowisku produkcyjnym: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Określanie ładu zasobów z parametrami aplikacji jest dostępnych w programie Service Fabric w wersji 6.1.<br> 
+>
+> Parametry aplikacji używanego do określania ładu zasobów sieci szkieletowej usług nie można obniżyć wersji przed wersji 6.1. 
+
 
 ## <a name="other-resources-for-containers"></a>Inne zasoby dla kontenerów
 Oprócz Procesora i pamięci jest można określić limity innych zasobów dla kontenerów. Ograniczenia te są określone na poziomie pakietu kodu i są stosowane po uruchomieniu kontenera. W przeciwieństwie do Procesora i pamięci, Menedżer zasobów klastra nie jest pamiętać o tych zasobów i nie czy kontroli zdolności lub równoważenia obciążenia dla nich. 
@@ -160,6 +207,6 @@ Te zasoby można łączyć z Procesora i pamięci. Poniżej przedstawiono przyk�
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat Menedżera zasobów klastra, przeczytaj [wprowadzenie Menedżera zasobów klastra usługi sieć szkieletowa](service-fabric-cluster-resource-manager-introduction.md).
 * Dowiedz się więcej o modelu aplikacji, usługi pakiety i pakiety kodu — i jak replik mapy do nich — odczytu [modelu aplikacji w sieci szkieletowej usług](service-fabric-application-model.md).

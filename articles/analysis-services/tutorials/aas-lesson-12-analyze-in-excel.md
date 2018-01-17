@@ -13,21 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>Lekcja 12. Analiza w programie Excel
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Analizuj w programie Excel
 
 W tej lekcji użyjesz funkcji analizy w programie Excel, aby otworzyć program Microsoft Excel, automatycznie utworzyć połączenie z obszarem roboczym modelu oraz automatycznie dodać tabelę przestawną do arkusza. Funkcja analizy w programie Excel to szybki i łatwy sposób na sprawdzenie wydajności projektu modelu przed jego wdrożeniem. Podczas tej lekcji nie wykonasz żadnej analizy danych. Ta lekcja ma umożliwić Tobie jako autorowi modelu zapoznanie się z narzędziami, których możesz użyć do testowania projektu modelu.   
   
-Aby ukończyć tę lekcję, musisz dysponować programem Excel zainstalowanym na tym samym komputerze, co program SSDT.
+Aby ukończyć tę lekcję, musisz dysponować programem Excel zainstalowanym na tym samym komputerze, co program Visual Studio.
   
 Szacowany czas trwania lekcji: **5 minut**  
   
@@ -64,7 +62,7 @@ W pierwszych zadaniach przejrzysz swój model przy użyciu zarówno perspektywy 
 4.  Zamknij program Excel bez zapisywania skoroszytu.  
   
 ## <a name="browse-by-using-roles"></a>Przeglądanie przy użyciu ról  
-Role są ważnym elementem każdego modelu tabelarycznego. Bez co najmniej jednej roli, do której użytkownicy są dodawani jako elementy członkowskie, nie mogą oni uzyskać dostępu do danych ani analizować ich przy użyciu modelu. Funkcja analizy w programie Excel umożliwia testowanie zdefiniowanych ról.  
+Role są ważnym elementem każdego modelu tabelarycznego. Bez co najmniej jednej roli, do której użytkownicy są dodawani jako członkowie, nie mogą oni uzyskać dostępu do danych ani analizować ich przy użyciu modelu. Funkcja analizy w programie Excel umożliwia testowanie zdefiniowanych ról.  
   
 #### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Przeglądanie przy użyciu roli użytkownika Sales Manager  
   

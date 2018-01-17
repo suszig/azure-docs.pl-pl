@@ -4,4 +4,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-Zobacz [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+See [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

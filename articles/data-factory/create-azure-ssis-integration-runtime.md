@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: c73bb23d844977b0bc74f49820be1a01c5c6635c
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska uruchomieniowego integracji usług SSIS Azure w fabryce danych Azure
 Ten artykuł zawiera kroki do inicjowania obsługi środowiska uruchomieniowego integracji usług SSIS Azure w fabryce danych Azure. Następnie możesz użyć programu SQL Server Data Tools (SSDT) lub SQL Server Management Studio (SSMS) do wdrożenia pakietów usług SQL Server Integration Services (SSIS) w tym środowisku uruchomieniowym na platformie Azure.
@@ -44,8 +44,107 @@ Aby uzyskać informacje koncepcyjne na dołączenie IR Azure SSIS do sieci wirtu
 > [!NOTE]
 > Aby uzyskać listę regionów obsługiwanych przez usługę Azure Data Factory w wersji 2 i środowisko Azure SSIS Integration Runtime, zobacz [Dostępność produktów według regionów](https://azure.microsoft.com/regions/services/). Rozwiń pozycję **Dane + analiza**, aby wyświetlić usługi **Data Factory V2** i **SSIS Integration Runtime**.
 
+## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-## <a name="create-variables"></a>Tworzenie zmiennych
+### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
+
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).    
+2. Kliknij przycisk **Nowy** w lewym menu, kliknij pozycję **Dane + analiza**, a następnie kliknij pozycję **Data Factory**. 
+   
+   ![Nowy-> Fabryka danych](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
+3. W **nowa fabryka danych** wprowadź **MyAzureSsisDataFactory** dla **nazwa**. 
+      
+     ![Nowa strona fabryki danych](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+ 
+   Nazwa fabryki danych platformy Azure musi być **globalnie unikatowa**. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład yournameMyAzureSsisDataFactory), a następnie spróbuj ponownie utworzyć. Zobacz [fabryki danych - reguły nazewnictwa](naming-rules.md) artykułu dla reguł nazewnictwa artefakty fabryki danych.
+  
+       `Data factory name “MyAzureSsisDataFactory” is not available`
+3. Wybierz **subskrypcję** Azure, w której chcesz utworzyć fabrykę danych. 
+4. Dla opcji **Grupa zasobów** wykonaj jedną z następujących czynności:
+     
+      - Wybierz pozycję **Użyj istniejącej**, a następnie wybierz istniejącą grupę zasobów z listy rozwijanej. 
+      - Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę grupy zasobów.   
+         
+      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
+4. Wybierz wartość **V2 (wersja zapoznawcza)** dla **wersji**.
+5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście są wyświetlane tylko te lokalizacje, które są obsługiwane w celu utworzenia fabryki danych.
+6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
+7. Kliknij przycisk **Utwórz**.
+8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **Wdrażanie fabryki danych**. 
+
+    ![kafelek Wdrażanie fabryki danych](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+9. Po zakończeniu tworzenia zobacz **fabryki danych** strony, jak pokazano w obrazie.
+   
+   ![Strona główna fabryki danych](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+10. Kliknij przycisk **autora & Monitor** można uruchomić danych fabryki użytkownika Interfejsu w osobnej karcie. 
+
+### <a name="provision-an-azure-ssis-integration-runtime"></a>Zapewnij środowiska uruchomieniowego integracji Azure SSIS
+
+1. W strony wprowadzenie, kliknij przycisk **Konfigurowanie obsługi integracji usług SSIS** kafelka. 
+
+   ![Konfigurowanie środowiska uruchomieniowego integracji usług SSIS kafelka](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+2. W **ustawienia ogólne** strony **ustawień środowiska uruchomieniowego integracji**, wykonaj następujące czynności: 
+
+   ![Ustawienia ogólne](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+
+    1. Określ **nazwa** integrację środowiska uruchomieniowego.
+    2. Wybierz **lokalizacji** integrację środowiska uruchomieniowego. Wyświetlane są tylko obsługiwane lokalizacje.
+    3. Wybierz **rozmiar węzła** który ma zostać skonfigurowana ze środowiskiem uruchomieniowym SSIS.
+    4. Określ **liczba węzłów** w klastrze.
+    5. Kliknij przycisk **Dalej**. 
+1. W **ustawienia SQL**, wykonaj następujące czynności: 
+
+    ![Ustawienia SQL](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
+
+    1. Określ platformy Azure **subskrypcji** mający serwer Azure SQL. 
+    2. Wybierz serwer Azure SQL w celu **punkt końcowy serwera bazy danych katalogu**.
+    3. Wprowadź **administratora** nazwy użytkownika.
+    4. Wprowadź **hasło** dla administratora.  
+    5. Wybierz **warstwy usług** dla bazy danych usług SSIS. Wartość domyślna to Basic.
+    6. Kliknij przycisk **Dalej**. 
+1.  W **Zaawansowane ustawienia** wybierz wartość dla **maksymalna równoległych wykonaniami każdego węzła**.   
+
+    ![Ustawienia zaawansowane](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)    
+5. Ten krok jest **opcjonalne**. Jeśli masz klasycznego sieć wirtualną (VNet), który chcesz dołączyć, wybierz środowiska uruchomieniowego integracji **wybierz sieć wirtualną dla Twojego środowiska uruchomieniowego integracji usług SSIS Azure do przyłączania a Zezwalaj usługom platformy Azure skonfigurować ustawienia uprawnień sieci wirtualnej** Opcja i wykonaj następujące czynności: 
+
+    ![Zaawansowane ustawienia z sieci wirtualnej](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)    
+
+    1. Określ **subskrypcji** mający klasycznej sieci wirtualnej. 
+    2. Wybierz **sieci wirtualnej**. <br/>
+    4. Wybierz **podsieci**.<br/> 
+1. Kliknij przycisk **Zakończ** zacząć od utworzenia środowiska uruchomieniowego integracji usług SSIS Azure. 
+
+    > [!IMPORTANT]
+    > - Ten proces trwa około 20 minut
+    > - Usługi fabryka danych łączy się z bazą danych SQL Azure do przygotowania bazy danych usług SSIS katalogu (SSISDB). Skrypt konfiguruje również uprawnienia i ustawienia Twojej sieci wirtualnej, jeśli zostanie określona, i dołącza nowe wystąpienie środowiska Azure SSIS Integration Runtime do sieci wirtualnej.
+7. W **połączeń** okna, Przełącz do **środowisk uruchomieniowych integracji** w razie potrzeby. Kliknij przycisk **Odśwież** Aby odświeżyć stan. 
+
+    ![Stan tworzenia](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
+8. Użyj łączy w obszarze **akcje** kolumny do monitorowania, zatrzymywać i zacząć, edytować lub usunąć środowiska uruchomieniowego integracji. Umożliwia wyświetlenie kodu JSON dla środowiska uruchomieniowego integracji ostatnie łącze. Edytowanie i usuwanie przycisków są włączone tylko wtedy, gdy IR jest zatrzymana. 
+
+    ![Azure IR SSIS - akcje](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)        
+9. Kliknij przycisk **Monitor** łącze w obszarze **akcje**.  
+
+    ![Azure IR SSIS — szczegóły](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-details.png)
+10. Jeśli było **błąd** skojarzony z Azure SSIS IR, zobacz liczbę błędów na tej stronie, a łącze, aby wyświetlić szczegółowe informacje o błędzie. Na przykład jeśli katalog SSIS już istnieje na serwerze bazy danych, zostanie wyświetlony błąd wskazuje na istnienie bazę danych usług SSIS.  
+11. Kliknij przycisk **środowisk uruchomieniowych integracji** u góry, aby przejść do poprzedniej strony, aby wyświetlić wszystkie integracji środowisk uruchomieniowych skojarzona z fabryką danych kopii.  
+
+### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>Azure środowisk uruchomieniowych integracji usług SSIS w portalu
+
+1. W Interfejsie użytkownika fabryki danych Azure, przełącz się do **Edytuj** , kliknij pozycję **połączeń**, a następnie przejdź do **środowisk uruchomieniowych integracji** kartę, aby wyświetlić istniejące integracji środowisk uruchomieniowych w sieci Fabryka danych. 
+    ![Amerykańskim istniejącego widoku](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+1. Kliknij przycisk **nowy** do utworzenia nowego IR. Azure SSIS 
+
+    ![Środowisko uruchomieniowe integracji za pomocą menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+2. Aby utworzyć środowiska uruchomieniowego integracji usług SSIS Azure, kliknij przycisk **nowy** jak pokazano w obrazie. 
+3. W oknie Ustawienia środowiska uruchomieniowego integracji wybierz **przyrostu shift istniejących pakietów SSIS do wykonania na platformie Azure**, a następnie kliknij przycisk **dalej**.
+
+    ![Określ typ środowiska uruchomieniowego integracji](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+4. Zobacz [udostępnienia środowiska uruchomieniowego integracji Azure SSIS](#provision-an-azure-ssis-integration-runtime) sekcji pozostałe kroki, aby skonfigurować podczerwieni Azure SSIS.
+
+## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+
+### <a name="create-variables"></a>Tworzenie zmiennych
 Zdefiniuj zmienne do wykorzystania w skrypcie w tym samouczku:
 
 ```powershell
@@ -86,7 +185,7 @@ $VnetId = "[your VNet resource ID or leave it empty]"
 $SubnetName = "[your subnet name or leave it empty]" 
 
 ```
-## <a name="log-in-and-select-subscription"></a>Logowanie i wybieranie subskrypcji
+### <a name="log-in-and-select-subscription"></a>Logowanie i wybieranie subskrypcji
 Dodaj następujący kod, skrypt logowania i wybierz subskrypcję platformy Azure: 
 
 ```powershell
@@ -94,7 +193,7 @@ Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
-## <a name="validate-the-connection-to-database"></a>Weryfikowanie połączenia z bazą danych
+### <a name="validate-the-connection-to-database"></a>Weryfikowanie połączenia z bazą danych
 Dodaj następujący skrypt w celu zweryfikowania Twojej server.database.windows.net serwera bazy danych SQL Azure lub punkt końcowy serwera (podglądzie prywatnym) wystąpienia zarządzane SQL Azure. 
 
 ```powershell
@@ -116,7 +215,7 @@ Catch [System.Data.SqlClient.SqlException]
 }
 ```
 
-## <a name="configure-virtual-network"></a>Konfigurowanie sieci wirtualnej
+### <a name="configure-virtual-network"></a>Konfigurowanie sieci wirtualnej
 Dodaj następujący skrypt, aby automatycznie skonfigurować uprawnienia/ustawienia sieci wirtualnej do przyłączenia do Twojego środowiska Azure SSIS Integration Runtime.
 
 ```powershell
@@ -134,14 +233,14 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 }
 ```
 
-## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz [grupę zasobów platformy Azure](../azure-resource-manager/resource-group-overview.md) za pomocą polecenia [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi w formie grupy. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie `myResourceGroup` w lokalizacji `westeurope`.
 
 ```powershell
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
+### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 Uruchom następujące polecenie, aby utworzyć fabrykę danych:
 
 ```powershell
@@ -150,10 +249,10 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Name $DataFactoryName
 ```
 
-## <a name="create-an-integration-runtime"></a>Tworzenie środowiska Integration Runtime
+### <a name="create-an-integration-runtime"></a>Tworzenie środowiska Integration Runtime
 Uruchom następujące polecenie, aby utworzyć środowisko uruchomieniowe integracji usług SSIS Azure, które pakiety usług SSIS działa na platformie Azure: Użyj skryptu z sekcji, na podstawie typu bazy danych (vs bazy danych SQL Azure. Azure SQL wystąpienia zarządzane (podglądzie prywatnym)) jest używany. 
 
-### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>Azure SQL Database do hostowania bazy danych usług SSIS (SSIS katalogu) 
+#### <a name="azure-sql-database-to-host-the-ssisdb-database-ssis-catalog"></a>Azure SQL Database do hostowania bazy danych usług SSIS (SSIS katalogu) 
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -174,7 +273,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 Nie trzeba przekazać wartości VNetId i podsieć, jeśli nie potrzebujesz dostępu do danych lokalnych, oznacza to, że masz lokalnych źródeł/miejsca docelowe danych w pakietów SSIS. Należy podać wartość parametru CatalogPricingTier. Aby uzyskać listę obsługiwanych warstw cenowych bazy danych SQL Azure, zobacz [limity zasobów bazy danych SQL](../sql-database/sql-database-resource-limits.md).
 
-### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>Azure zarządzane wystąpienia SQL (podglądzie prywatnym) do obsługi bazy danych usług SSIS
+#### <a name="azure-sql-managed-instance-private-preview-to-host-the-ssisdb-database"></a>Azure zarządzane wystąpienia SQL (podglądzie prywatnym) do obsługi bazy danych usług SSIS
 
 ```powershell
 $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -196,7 +295,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupNam
 
 Należy przekazać wartości parametrów VnetId i podsieci z Azure zarządzane wystąpienia SQL (podglądzie prywatnym), które łączy sieć wirtualną. Parametr CatalogPricingTier nie ma zastosowania dla wystąpienia zarządzane SQL Azure. 
 
-## <a name="start-integration-runtime"></a>Uruchamianie środowiska Integration Runtime
+### <a name="start-integration-runtime"></a>Uruchamianie środowiska Integration Runtime
 Uruchom następujące polecenie, aby uruchomić środowisko Azure-SSIS Integration Runtime: 
 
 ```powershell
@@ -212,7 +311,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 Wykonanie tego polecenia trwa od **20 do 30 minut**. 
 
 
-## <a name="full-script"></a>Pełny skrypt
+### <a name="full-script"></a>Pełny skrypt
 W tym miejscu jest pełna skrypt, który tworzy IR Azure SSIS i dołącza go do sieci wirtualnej. Ten skrypt odnosi się wystąpienia zarządzane SQL Azure (MI) są używane do obsługi katalogu usług SSIS. 
 
 ```powershell
@@ -312,10 +411,12 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+
+
 ## <a name="deploy-ssis-packages"></a>Wdrażanie pakietów usług SSIS
 Teraz użyj programu SQL Server Data Tools (SSDT) lub SQL Server Management Studio (SSMS), aby wdrożyć pakiety usług SSIS na platformie Azure. Połącz się ze swoim serwerem Azure SQL, który hostuje katalog usług SSIS (SSISDB). Nazwa serwera Azure SQL jest w formacie: &lt;nazwa_serwera&gt;.database.windows.net (dla usługi Azure SQL Database). Zobacz artykuł [Deploy packages (Wdrażanie pakietów)](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server), aby uzyskać instrukcje. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Inne IR Azure SSIS w tematach w tej dokumentacji:
 
 - [Środowisko uruchomieniowe integracji usług SSIS Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera informacje o pojęciach dotyczących środowisk uruchomieniowych integracji ogólnie tym podczerwieni Azure SSIS. 

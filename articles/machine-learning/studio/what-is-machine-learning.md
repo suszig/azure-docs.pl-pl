@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Wprowadzenie do usługi Machine Learning w chmurze Azure
 
@@ -33,7 +33,7 @@ Krótki przegląd zawiera seria klipów wideo [Przetwarzanie danych dla początk
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Co to jest usługa Machine Learning w chmurze Microsoft Azure?
 Usługa Azure Machine Learning to oparta na chmurze usługa analizy predykcyjnej, która pozwala na szybkie tworzenie i wdrażanie modeli predykcyjnych jako rozwiązań analitycznych.
 
-Możesz pracować z poziomu biblioteki gotowych do użycia algorytmów, używać ich do tworzenia modeli na komputerze połączonym z Internetem i szybko wdrażać swoje rozwiązanie predykcyjne. Zacznij od gotowych do użycia przykładów i rozwiązań znajdujących się w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
+Możesz pracować z poziomu biblioteki gotowych do użycia algorytmów, używać ich do tworzenia modeli na komputerze połączonym z Internetem i szybko wdrażać swoje rozwiązanie predykcyjne. Zacznij od gotowych do użycia przykładów i rozwiązań znajdujących się w witrynie [Galeria sztucznej inteligencji platformy Azure](https://gallery.cortanaintelligence.com/).
 
 ![Co to jest uczenie maszynowe? Podstawowy przepływ pracy, który umożliwia operacjonalizację analiz predykcyjnych w usłudze Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Usługa Azure Machine Learning obejmuje wszystko, czego potrzebujesz do tworzeni
 ### <a name="machine-learning-studio-create-predictive-models"></a>Usługa Machine Learning Studio: tworzenie modeli predykcyjnych
 W usłudze [Machine Learning Studio](what-is-ml-studio.md) możesz szybko tworzyć modele predykcyjne, przeciągając, upuszczając i łącząc moduły. Możesz eksperymentować z różnymi kombinacjami, a [próby nic nie kosztują](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* W witrynie [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md) możesz wypróbować rozwiązania analityczne stworzone przez innych użytkowników lub dodać swoje własne. Publikuj pytania lub komentarze dotyczące eksperymentów w ramach społeczności albo udostępniaj linki do eksperymentów w sieciach społecznościowych, takich jak LinkedIn i Twitter.
+* W witrynie [Galeria sztucznej inteligencji platformy Azure](gallery-how-to-use-contribute-publish.md) możesz wypróbować rozwiązania analityczne utworzone przez innych użytkowników lub dodać swoje własne. Publikuj pytania lub komentarze dotyczące eksperymentów w ramach społeczności albo udostępniaj linki do eksperymentów w sieciach społecznościowych, takich jak LinkedIn i Twitter.
 
-  ![Wypróbuj eksperymenty predykcyjne lub publikuj swoje w witrynie Azure Cortana Intelligence Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Wypróbuj eksperymenty predykcyjne lub publikuj swoje w witrynie Galeria sztucznej inteligencji platformy Azure](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Skorzystaj z obszernej biblioteki [algorytmów i modułów uczenia maszynowego](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) w usłudze Machine Learning Studio, aby szybko rozpocząć tworzenie modeli predykcyjnych. Wybieraj rozwiązania spośród przykładowych eksperymentów, pakietów dla języków R i Python oraz najlepszych w swojej klasie algorytmów z produktów Microsoft, takich jak Xbox i Bing. Rozszerzaj moduły Studia o własne skrypty w językach [R](extend-your-experiment-with-r.md) i [Python](execute-python-scripts.md).
 
   ![Co to jest analiza predykcyjna: przykład eksperymentu analizy predykcyjnej w usłudze Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

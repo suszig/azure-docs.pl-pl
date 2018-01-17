@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transfer danych do usługi Azure Storage za pomocą usługi Import/Eksport Microsoft Azure
 W tym artykule udostępniamy instrukcje krok po kroku na temat używania usługi Import/Eksport Azure do bezpiecznego przesyłania dużych ilości danych do magazynu obiektów Blob platformy Azure i usługi pliki Azure przez wysyłanie dysków do centrum danych platformy Azure. Ta usługa może również przesyłanie danych z magazynu Azure do dysków twardych i wysłać do lokalnych witryn. Dane z pojedynczej stacji dysków SATA wewnętrzny można zaimportować do magazynu obiektów Blob platformy Azure lub usługi pliki Azure. 
@@ -35,13 +35,13 @@ Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania d
 2.  W zależności od całkowity rozmiar danych Uzyskaj wymaganej liczby 2,5 SSD 2,5-calowe lub 3,5" stacje dysków twardych SATA II lub III.
 3.  Dołącz dyski twarde bezpośrednio przy użyciu SATA lub z zewnętrznej karty USB do komputera z systemem windows.
 4.  Utwórz pojedynczy wolumin NTFS na każdy dysk twardy i przypisać literę dysku do woluminu. Nie punkty instalacji.
-5.  Włącz szyfrowanie bitowe skrytki na woluminie NTFS. Postępuj zgodnie z instrukcjami na https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine.
+5.  Aby włączyć szyfrowanie na komputerze z systemem windows, należy włączyć szyfrowanie skrytki bitowych na woluminie NTFS. Postępuj zgodnie z instrukcjami na https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 6.  Całkowicie skopiować dane do pojedynczego woluminów NTFS te zaszyfrowane na dyskach przy użyciu kopii & Wklej lub przeciągnij & upuszczania lub Robocopy lub takie narzędzie.
 7.  Pobierz WAImportExport V1 z https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Rozpakuj do waimportexportv1 folder domyślny. Na przykład C:\WaImportExportV1  
 9.  Uruchom jako Administrator i otworzyć programu PowerShell lub wiersza polecenia i zmień katalog na folder rozpakowane. Na przykład dysk cd C:\WaImportExportV1
-10. Kopiuj poniżej wiersza polecenia do Notatnika i edytowanie go w celu utworzenia wiersza polecenia.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session #1 /sk:***== /t:D /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
+10. Skopiuj następujący wiersz polecenia do Notatnika i edytowanie go w celu utworzenia wiersza polecenia.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
     /j: nazwę pliku o nazwie pliku dziennika z rozszerzeniem .jrn. Plik dziennika jest generowany na dysk i dlatego zaleca się Użyj numeru seryjnego dysku jako nazwa pliku dziennika.
     /SK: klucz konta magazynu azure. / t: Litera dysku do wysłania. Na przykład D /bk: jest to klucz skrytki bit /srcdir dysku: następuje litera dysku do wysłania: \. Na przykład D:\
@@ -57,10 +57,10 @@ Wykonaj następujące czynności w przypadku danych na dysku do zaimportowania d
 
 2. W sekcji podstawy wybierz "Import do platformy Azure", wprowadź ciąg nazwy zadania, wybierz subskrypcję, wprowadź lub wybierz grupę zasobów. Wprowadź nazwę opisową dla zadania importu. Należy pamiętać, że wprowadzona nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia, musi zaczynać się literą i nie może zawierać spacji. Możesz użyć nazwy wybrane do śledzenia zadań, gdy są one w toku, a po zakończeniu.
 
-3. W sekcji szczegółów zadania przekazywanie plików dziennika dysków, które uzyskane w kroku przygotowania dysku. Jeśli użyto waimportexport.exe version1, należy przekazać jeden plik dla każdego dysku, które zostały przygotowane. Wybierz konto magazynu, które dane zostaną zaimportowane do w sekcji konta magazynu "Docelowe Import". Lokalizacja przyjmowania zostanie wypełniona automatycznie na podstawie regionu wybrane konta magazynu.
+3. W sekcji szczegółów zadania przekazywanie plików dziennika dysków, które uzyskane w kroku przygotowania dysku. Jeśli użyto waimportexport.exe version1, należy przekazać jeden plik dla każdego dysku, które zostały przygotowane. Wybierz konto magazynu, które dane zostaną zaimportowane do w sekcji konta magazynu "Docelowe Import". Lokalizacja przyjmowania jest wypełniane automatycznie na podstawie regionu wybrane konta magazynu.
    
    ![Utwórz zadania importu — krok 3](./media/storage-import-export-service/import-job-03.png)
-4. W zamian wysyłania informacji o sekcji, wybierz nośnik z listy rozwijanej i wprowadź liczbę konta nieprawidłowy operator utworzoną z tego nośnika. Firma Microsoft będzie używać tego konta na potrzeby wysłania dysków powrotem po zakończeniu zadania importu. Podaj nazwisko osoby kontaktowej w pełne i prawidłowe, telefonu, poczty e-mail, adres, Miasto, zip, stan/proviince i kraj/region.
+4. W zamian wysyłania informacji o sekcji, wybierz nośnik z listy rozwijanej i wprowadź liczbę konta nieprawidłowy operator utworzoną z tego nośnika. Firma Microsoft używa tego konta na potrzeby wysłania dysków powrotem po zakończeniu zadania importu. Podaj nazwisko osoby kontaktowej w pełne i prawidłowe, telefonu, poczty e-mail, adres, Miasto, zip, stan/proviince i kraj/region.
    
 5. W sekcji podsumowania Centrum danych Azure adres wysyłkowy podano służący do wysyłania dysków do kontrolera domeny z platformy Azure. Upewnij się, są wymienione nazwy zadania i pełny adres na etykiecie wysyłki. 
 
@@ -84,7 +84,7 @@ Tej usługi można użyć w scenariuszach takich jak:
 * Odzyskiwanie danych: odzyskać dużej ilości danych przechowywanych w magazynie i jest dostarczany do Twojej lokalizacji lokalnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tej sekcji na listę wymagań wstępnych dotyczących tej usługi. Przejrzyj je uważnie przed dostarczeniem dysków.
+W tej sekcji na listę wymagań wstępnych dotyczących tej usługi. Dokładne zapoznanie się je przed dostarczeniem dysków.
 
 ### <a name="storage-account"></a>Konto magazynu
 Musi mieć istniejącej subskrypcji platformy Azure i co najmniej jedno konto magazynu ma być używana usługa importu i eksportu. Każde zadanie może służyć do transferu danych do lub z tylko jedno konto magazynu. Innymi słowy zadanie pojedynczego importu/eksportu nie może obejmować wielu wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-create-storage-account.md#create-a-storage-account).
@@ -96,13 +96,16 @@ Usługa Import/Eksport Azure umożliwia kopiowanie danych do **bloku** obiektów
 Aby rozpocząć proces importowania i eksportowania z magazynu, należy najpierw utworzyć zadania. Zadania mogą być zadania importu lub eksportu:
 
 * Utwórz zadania importu umożliwia transfer danych ma lokalnej z kontem magazynu platformy Azure.
-* Utwórz zadanie eksportu, jeśli chcesz przenieść dane przechowywane na koncie magazynu do dysków twardych, które są wysyłane do nas. Podczas tworzenia zadania można powiadomić usługi Import/Eksport czy użytkownik będzie wysyłania jeden lub więcej dysków twardych do centrum danych platformy Azure.
+* Utwórz zadanie eksportu, jeśli chcesz przenieść dane przechowywane na koncie magazynu do dysków twardych, które są wysyłane do firmy Microsoft. Podczas tworzenia zadania można powiadomić usługi Import/Eksport czy użytkownik będzie wysyłania jeden lub więcej dysków twardych do centrum danych platformy Azure.
 
 * Dla zadania importu będzie wysyłania dyski twarde zawierające dane.
 * Dla zadania eksportu zostanie wysyłania pustych dysków twardych.
 * Można wysłać do 10 dysków twardych na zadanie.
 
 Możesz utworzyć importu lub eksportu zadania przy użyciu portalu Azure lub [interfejsu API REST usługi Azure Storage importu/eksportu](/rest/api/storageimportexport).
+
+> [!Note]
+> Interfejsy API frontonu REDDOG nie będą obsługiwane 28 lutego 2018 i jego nowszych wersjach. Aby kontynuować korzystanie z usługi, przeprowadzić migrację do [interfejsów API REST importu/eksportu ARM](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). 
 
 ### <a name="waimportexport-tool"></a>Narzędzie WAImportExport
 Pierwszym krokiem tworzenia **zaimportować** zadania jest przygotowanie dysków, które zostaną dostarczone do importu. Aby przygotować dyski, musi on połączyć się z lokalnym serwerem i uruchom narzędzie WAImportExport na lokalnym serwerze. To narzędzie WAImportExport umożliwia kopiowanie danych na dysku, szyfrowanie danych na dysku za pomocą funkcji BitLocker i generowanie plików dziennika dysku.
@@ -114,14 +117,14 @@ Narzędzie WAImportExport jest zgodna tylko z 64-bitowym systemie operacyjnym Wi
 Pobierz najnowszą wersję [narzędzie WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Aby uzyskać więcej informacji na temat używania narzędzia WAImportExport, zobacz [za pomocą narzędzia WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Poprzednia wersja:** można [Pobierz WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) wersję narzędzia i zapoznaj się z [Podręcznik użycia WAImportExpot V1](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 wersję narzędzia zapewniają obsługę **przygotowywania dysków, gdy już wstępnie zapisywania danych do dysku**. Należy również użyć narzędzia WAImportExpot V1, w przypadku klucza tylko dostępne klucza sygnatury dostępu Współdzielonego.
+>**Poprzednia wersja:** można [Pobierz WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) wersję narzędzia i zapoznaj się z [Podręcznik użycia WAImportExpot V1](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 wersję narzędzia zapewniają obsługę **przygotowywania dysków, gdy już wstępnie zapisywania danych do dysku**. Klucz tylko dostępne w przypadku klucza sygnatury dostępu Współdzielonego, należy użyć narzędzia WAImportExpot V1.
 
 >
 
 ### <a name="hard-disk-drives"></a>Dyski twarde
 Tylko 2,5 SSD lub 2,5-calowe lub 3,5" SATA II lub III wewnętrzny dysk twardy są obsługiwane do użycia z usługą importu i eksportu. Zadania importu/eksportu pojedynczego może mieć maksymalnie 10 HDD/SSD, a każdy dysk twardy poszczególnych/SSD może być o dowolnym rozmiarze. Duża liczba dysków można było ich rozmieszczenie wielu zadań i nie ma żadnych limitów liczby zadań, które mogą zostać utworzone. 
 
-Dla zadania importu będą przetwarzane tylko pierwszy ilość danych na dysku. Ilość danych musi być sformatowany jako NTFS.
+Dla zadania importu są przetwarzane tylko pierwszy ilość danych na dysku. Ilość danych musi być sformatowany jako NTFS.
 
 > [!IMPORTANT]
 > Zewnętrzne stacje dysków twardych dołączonych do wbudowanych adaptera USB nie są obsługiwane przez tę usługę. Nie można również używać dysk wewnątrz wielkość liter w wyrazie zewnętrzny dysk twardy; Nie wysyłaj zewnętrznych dysków twardych.
@@ -131,19 +134,19 @@ Dla zadania importu będą przetwarzane tylko pierwszy ilość danych na dysku. 
 Poniżej znajduje się lista zewnętrznej karty USB umożliwia kopiowanie danych do wewnętrznego dysków twardych. Anker 68UPSATAA - 02BU Anker 68UPSHHDS BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (seria 6628) Thermaltake BlacX gorąca wymiany SATA zewnętrznych twardych dysków stacji dokującej (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Szyfrowanie
-Danych na dysku musi być zaszyfrowany za pomocą szyfrowania dysków funkcją BitLocker. Chroni dane, gdy są przesyłane.
+Danych na dysku musi być zaszyfrowany za pomocą szyfrowania dysków funkcją BitLocker. Szyfrowanie chroni Twoje dane podczas przesyłania.
 
 Dla zadania importu istnieją dwa sposoby wykonania szyfrowania. Pierwszym sposobem jest Określ opcje, korzystając z pliku CSV zestawu danych podczas uruchamiania narzędzia WAImportExport podczas przygotowywania dysków. Drugim sposobem jest Włącz szyfrowanie funkcją BitLocker ręcznie na dysku i określ klucz szyfrowania w driveset CSV podczas uruchamiania wiersza polecenia narzędzia WAImportExport podczas przygotowywania dysków.
 
-Dla zadań eksportu po skopiowaniu danych na dyskach, usługa zostanie szyfrowania dysku za pomocą funkcji BitLocker przed dostarczeniem go z powrotem do. Klucz szyfrowania zostaną przekazane użytkownikowi za pośrednictwem portalu Azure.  
+Dla zadań eksportu po skopiowaniu danych na dyskach, usługa zostanie szyfrowania dysku za pomocą funkcji BitLocker przed dostarczeniem go z powrotem do. Klucz szyfrowania są dostępne za pośrednictwem portalu Azure.  
 
 ### <a name="operating-system"></a>System operacyjny
 Jedną z następujących 64-bitowe systemy operacyjne umożliwia przygotowanie dysk twardy za pomocą narzędzia WAImportExport przed dostarczeniem dysk do platformy Azure:
 
-Windows 7 Enterprise i Ultimate systemu Windows 7, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Wszystkie systemy operacyjne obsługują szyfrowanie dysków funkcją BitLocker.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Wszystkie systemy operacyjne obsługują szyfrowanie dysków funkcją BitLocker.
 
 ### <a name="locations"></a>Lokalizacje
-Usługa Import/Eksport Azure obsługuje kopiowanie danych do i z wszystkich kont magazynu Azure publicznego. Mogą być dyski twarde do jednej z następujących lokalizacji. Jeśli Twoje konto magazynu znajduje się w lokalizacji publicznej platformy Azure, która nie jest określana w tym miejscu lokalizacji alternatywnej wysyłki zapewnia się podczas tworzenia zadania przy użyciu portalu Azure lub interfejsu API REST importu i eksportu.
+Usługa Import/Eksport Azure obsługuje kopiowanie danych do i z wszystkich kont magazynu Azure publicznego. Mogą być dyski twarde do jednego z podanych lokalizacji. Jeśli Twoje konto magazynu znajduje się w lokalizacji publicznej platformy Azure, która nie jest określana w tym miejscu lokalizacji alternatywnej wysyłki zapewnia się podczas tworzenia zadania przy użyciu portalu Azure lub interfejsu API REST importu i eksportu.
 
 Obsługiwane lokalizacje wysyłki:
 
@@ -180,10 +183,10 @@ Obsługiwane lokalizacje wysyłki:
 * Niemcy Środkowe
 * Niemcy Północno-Wschodnie
 
-### <a name="shipping"></a>Wysyłania
+### <a name="shipping"></a>Wysyłka
 **Dyski wysyłki do centrum danych:**
 
-Podczas tworzenia zadania importu lub eksportu, należy podać adres wysyłkowy jednego z obsługiwanych lokalizacji na potrzeby wysłania dysków. Podany adres wysyłki zależy od lokalizacji konta magazynu, ale nie może być taka sama jak lokalizacja konta magazynu.
+Podczas tworzenia zadania importu lub eksportu, należy podać adres wysyłkowy jednego z obsługiwanych lokalizacji na potrzeby wysłania dysków. Podany adres wysyłkowy zależy od lokalizacji konta magazynu, ale nie może być taka sama jak lokalizacja konta magazynu.
 
 FedEx, UPS lub przez firmę DHL może służyć do wysłania dysków na adres wysyłkowy.
 
@@ -191,24 +194,24 @@ FedEx, UPS lub przez firmę DHL może służyć do wysłania dysków na adres wy
 
 Podczas tworzenia zadania importu lub eksportu, musisz podać adres zwrotny dla firmy Microsoft do użycia podczas wysyłania dysków, po zakończeniu zadania. Upewnij się, że Podaj prawidłowy zwrotny adres Aby uniknąć opóźnienia w przetwarzaniu.
 
-Operatora powinny mieć odpowiedni śledzenia w celu utrzymania łańcucha nadzoru. Należy podać prawidłowy operator FedEx, UPS lub przez firmę DHL konto do użycia przez firmę Microsoft do wysyłania ponownie dyski. FedEx, UPS lub przez firmę DHL numer konta jest wymagany dla wysyłania dysków z lokalizacji USA i Europie. Numer konta przez firmę DHL jest wymagany dla wysyłania dysków z lokalizacji Azja i klientów w Australii. Można utworzyć [FedEx](http://www.fedex.com/us/oadr/) (dla Stanów Zjednoczonych i Europie) lub [przez firmę DHL](http://www.dhl.com/) konta operatora (Azja i klientów w Australii) Jeśli nie mają. Jeśli masz już operator numer konta, sprawdź, czy jest prawidłowa.
+Operatora powinny mieć odpowiedni śledzenia w celu utrzymania łańcucha nadzoru. Należy podać prawidłowy FedEx, UPS, lub przez firmę DHL numer konta operator do użycia przez firmę Microsoft do wysyłki na dyskach kopii. FedEx, UPS lub przez firmę DHL numer konta jest wymagany dla wysyłania dysków z lokalizacji USA i Europie. Numer konta przez firmę DHL jest wymagany dla wysyłania dysków z lokalizacji Azja i klientów w Australii. Jeśli nie masz, możesz utworzyć [FedEx](http://www.fedex.com/us/oadr/) (dla Stanów Zjednoczonych i Europie) lub [przez firmę DHL](http://www.dhl.com/) konta operatora (Azja i klientów w Australii). Jeśli masz już operator numer konta, sprawdź, czy jest prawidłowa.
 
 W wysyłania pakietów, należy wykonać warunki na [warunki usługi Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Należy pamiętać, że nośnik fizyczny, który jest dostarczany może być konieczne między granicami. Ponosisz odpowiedzialność za zapewnienie, że nośnik fizyczny i danych użytkownika są importowane i/lub wyeksportować zgodnie z prawem. Przed wysyłką nośnik fizyczny, sprawdź z Twojej doradcy do sprawdzenia, czy multimediów i danych legalnie mogą być wysyłane do centrum danych zidentyfikowane. Pomoże to w celu zapewnienia osiągnie firmy Microsoft, w odpowiednim czasie. Na przykład dowolnego pakietu, który będzie między granicami musi faktury do wraz z pakietem (z wyjątkiem Jeśli przekraczaniu granic w Unii Europejskiej). Można wydrukować kopię wypełniony faktury handlowej z operatora witryny sieci Web. Przykład faktur handlowych są [faktury DHL w sprawie](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) i [faktury FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Upewnij się, że Microsoft nie zostały wskazane jako eksportera.
+> Należy pamiętać, że nośnik fizyczny, który jest dostarczany może być konieczne między granicami. Ponosisz odpowiedzialność za zapewnienie, że nośnik fizyczny i danych użytkownika są importowane i/lub wyeksportować zgodnie z prawem. Przed wysyłką nośnik fizyczny, sprawdź z Twojej doradcy do sprawdzenia, czy multimediów i danych legalnie mogą być wysyłane do centrum danych zidentyfikowane. Pomaga to zapewnić osiągnie firmy Microsoft, w odpowiednim czasie. Na przykład dowolny pakiet przecina granicami musi faktury do wraz z pakietem (z wyjątkiem Jeśli przekraczaniu granic w Unii Europejskiej). Można wydrukować kopię wypełniony faktury handlowej z operatora witryny sieci Web. Przykład faktur handlowych są [faktury DHL w sprawie](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) i [faktury FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Upewnij się, że Microsoft nie zostały wskazane jako eksportera.
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Jak działa usługa Import/Eksport Azure?
 Za przesyłanie danych między lokacją lokalną i usługi Azure storage za pomocą usługi Import/Eksport Azure zadań tworzenia i wysyłania dysków twardych do centrum danych platformy Azure. Każdy dysk twardy, który jest skojarzony z jednym zadaniu. Każde zadanie jest skojarzone z kontem magazynu jednego. Przegląd [sekcji wymagania wstępne](#pre-requisites) dokładnie poznać szczegółowe informacje na temat tej usługi, np. obsługiwane typy danych, dysk typów, lokalizacji i wysyłania.
 
-W tej sekcji opisano na wysokim poziomie etapy importowanie i eksportowanie zadań. W dalszej [Szybki Start sekcji](#quick-start), udostępniamy instrukcje tworzenia importowania i eksportowania zadania.
+W tej sekcji opisano wysokiego poziomu etapy importowanie i eksportowanie zadań. W dalszej [Szybki Start sekcji](#quick-start), podano instrukcje dotyczące tworzenia importowania i eksportowania zadania.
 
 ### <a name="inside-an-import-job"></a>Wewnątrz zadania importu
 Na wysokim poziomie zadania importu obejmuje następujące kroki:
 
-* Określ dane do zaimportowania, a liczba dysków, które mają być.
+* Określ dane do zaimportowania, a liczba dysków, które są potrzebne.
 * Określ lokalizację obiektów blob lub pliku docelowego dla danych w magazynie Azure.
 * Użyj narzędzia WAImportExport, aby skopiować dane do jednego lub więcej dysków twardych i ich szyfrowania za pomocą funkcji BitLocker.
 * Utwórz zadania importu na koncie magazynu docelowego przy użyciu portalu Azure lub interfejsu API REST importu i eksportu. Jeśli używasz portalu Azure, przekazywanie plików dziennika dysku.
@@ -228,7 +231,7 @@ Na wysokim poziomie zadania importu obejmuje następujące kroki:
 
 Na wysokim poziomie zadania eksportu obejmuje następujące kroki:
 
-* Określ danych do wyeksportowania, a liczba dysków, które mają być.
+* Określ danych do wyeksportowania, a liczba dysków, które są potrzebne.
 * Określ źródło obiektów blob lub ścieżki kontenera danych w magazynie obiektów Blob.
 * Utwórz zadanie eksportu na koncie magazynu źródłowego przy użyciu portalu Azure lub interfejsu API REST importu i eksportu.
 * Określ obiekty BLOB źródła lub ścieżki kontenera danych przez zadanie eksportu.
@@ -246,16 +249,16 @@ Można śledzić stan import lub wyeksportować zadań z portalu Azure. Kliknij 
 
 ![Widok stanu zadania](./media/storage-import-export-service/jobstate.png)
 
-Zobaczysz jednego z następujących stanów zadania, w zależności od tego, w którym dysk jest w procesie.
+Zostanie wyświetlony jeden z następujących stanów zadania w zależności od tego, w którym dysk jest w procesie.
 
 | Stan zadania | Opis |
 |:--- |:--- |
 | Tworzenie | Po utworzeniu zadania, jego stan jest ustawiony do tworzenia. Gdy zadanie jest w stanie tworzenie, usługa Import/Eksport przyjęto założenie, że dyski nie zostały wysłane do centrum danych. Zadania mogą pozostawać w stanie tworzenie do dwóch tygodni, po których zostanie on automatycznie usunięty przez usługę. |
-| Wysyłania | Po wysyłasz do pakietu, należy zaktualizować informacje o śledzeniu w portalu Azure.  To spowoduje wyłączenie zadania na "Wysyłki". Zadanie pozostanie w stanie wysyłania przez maksymalnie dwa tygodnie. 
+| Wysyłka | Po wysyłasz do pakietu, należy zaktualizować informacje o śledzeniu w portalu Azure.  To spowoduje wyłączenie zadania na "Wysyłki". Zadanie pozostanie w stanie wysyłania przez maksymalnie dwa tygodnie. 
 | Odebrane | Po otrzymaniu wszystkich dysków w centrum danych, stan zadania można ustawić odebrane. |
 | Transferowanie | Po rozpoczęciu przetwarzania co najmniej jeden dysk transferowanie będzie można ustawić stan zadania. Zobacz poniższą sekcję stany stacji, aby uzyskać szczegółowe informacje. |
-| Tworzenie pakietów | Po zakończeniu wszystkich dysków przetwarzania, zadania zostaną umieszczone w stanie pakowania dopóki dyski są wysyłane z powrotem do. |
-| Ukończony | Po wszystkie dyski zostały wysłane do klienta, jeśli zadanie zostało ukończone bez błędów, zadanie zostanie ustawiona do stanu ukończone. Zadania zostaną automatycznie usunięte po 90 dniach w stanie ukończone. |
+| Pakowanie | Po zakończeniu wszystkich dysków przetwarzania, zadania zostaną umieszczone w stanie pakowania dopóki dyski są wysyłane z powrotem do. |
+| Ukończone | Po wszystkie dyski zostały wysłane do klienta, jeśli zadanie zostało ukończone bez błędów, zadanie zostanie ustawiona do stanu ukończone. Zadania zostaną automatycznie usunięte po 90 dniach w stanie ukończone. |
 | Zamknięte | Po wszystkie dyski zostały wysłane do klienta, jeśli pojawiły się błędy podczas przetwarzania zadania, zadanie zostanie ustawiona do stanie zamkniętym. Zadania zostaną automatycznie usunięte po 90 dniach w stanie zamkniętym. |
 
 W poniższej tabeli opisano cyklu życia poszczególnych dyskach, ponieważ przechodzi ona za pomocą zadania importu lub eksportu. Bieżący stan każdego dysku w ramach zadania jest teraz widoczne w portalu Azure.
@@ -267,7 +270,7 @@ W poniższej tabeli opisano każdy stan każdego dysku w ramach zadania mogą pr
 | Odebrane | Dysk przejścia do stanu odebrane, gdy operator usługi Import/eksport został przetworzony dysków, które zostały odebrane od firmy wysyłania dla zadania importu. Dla zadania eksportu stan początkowy dysku jest w stanie Received. |
 | NeverReceived | Dysk zostanie przeniesione do stanu NeverReceived po odebraniu pakietu dla zadania, ale pakiet nie zawiera dysku. Dysku można również przenosić w tym stanie, jeśli został dwa tygodnie od momentu usługa odebrała informacji dotyczących wysyłki, ale pakiet nie ma jeszcze dotarły centrum danych. |
 | Transferowanie | Dysk zostanie przeniesione do stanu transferowanie, gdy usługa zaczyna się na przesyłanie danych z dysku do systemu Windows Azure Storage. |
-| Ukończony | Dysku zostanie przejście do stanu ukończone, gdy usługa pomyślnie przeniósł wszystkich danych bez błędów.
+| Ukończone | Dysku zostanie przejście do stanu ukończone, gdy usługa pomyślnie przeniósł wszystkich danych bez błędów.
 | CompletedMoreInfo | Dysk będzie przejście do stanu CompletedMoreInfo, gdy usługa napotkał problemy podczas kopiowania danych z lub na dysku. Informacje mogą obejmować błędy, ostrzeżenia lub komunikaty informacyjne o zastępowaniu obiektów blob.
 | ShippedBack | Dysk spowoduje przejście do stanu ShippedBack, gdy zostały wydane z tyłu centrum danych na adres zwrotny. |
 
@@ -280,7 +283,7 @@ W poniższej tabeli opisano stanów awarii dysku i akcje wykonywane dla każdego
 | Stan stacji | Wydarzenie | Rozdzielczość / następny krok |
 |:--- |:--- |:--- |
 | NeverReceived | Dysk, który jest oznaczony jako NeverReceived (ponieważ nie została odebrana jako część zadania wydania) dociera do innego wydania. | Zespół operacyjny przeniesie dysku stanie Received. |
-| Nie dotyczy | Dysk, który nie jest częścią wszystkie zadania dociera do centrum danych w ramach innego zadania. | Dysk zostanie oznaczona jako dodatkowy dysk i zostanie zwrócony do klienta po zakończeniu zadania skojarzone z oryginalnego pakietu. |
+| ND | Dysk, który nie jest częścią wszystkie zadania dociera do centrum danych w ramach innego zadania. | Dysk zostanie oznaczona jako dodatkowy dysk i zostanie zwrócony do klienta po zakończeniu zadania skojarzone z oryginalnego pakietu. |
 
 ### <a name="time-to-process-job"></a>Czas procesu zadania
 Czas potrzebny do procesu zadania importu/eksportu może być różna w zależności od różnych czynników, takich jak czas dostawy zadania typ, typ i rozmiar danych, w której są kopiowane i rozmiaru dysków podane. Usługa Import/Eksport nie ma umowy dotyczącej poziomu usług, ale po otrzymaniu dyski usługi dokłada starań, aby wykonać kopię w ciągu 7 do 10 dni. Można użyć interfejsu API REST dokładniejsze śledzenie postępu zadania. Brak procentu ukończenia parametr w operacji listę zadań, która wskazuje postęp kopiowania. Dostępu do nas Aby uzyskać szacunkową można zakończyć zadania importu/eksportu krytyczne czasu.
@@ -404,7 +407,7 @@ Następujące testy wstępne są zalecane w przypadku przygotowywania dysków dl
 1. Aby utworzyć zadanie eksportu, przejdź do większej liczby usług -> MAGAZYNU -> "zadania importu/eksportu" w portalu Azure. Kliknij przycisk **zadania importu/eksportu Utwórz**.
 2. W kroku 1 podstawy wybierz pozycję "Eksportuj z Azure", wprowadź ciąg nazwy zadania, wybierz subskrypcję, wprowadź lub wybierz grupę zasobów. Wprowadź nazwę opisową dla zadania importu. Należy pamiętać, że wprowadzona nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia, musi zaczynać się literą i nie może zawierać spacji. Możesz użyć nazwy wybrane do śledzenia zadań, gdy są one w toku, a po zakończeniu. Podaj informacje kontaktowe osoby odpowiedzialne za to zadanie eksportu. 
 
-3. W kroku 2 zadania szczegóły wybierz konto magazynu, które zostaną wyeksportowane dane z w sekcji konta magazynu. Lokalizacja przyjmowania będzie można automatycznie wypełnione na podstawie region wybrano konta magazynu. Określ dane obiektów blob, do których chcesz eksportować z konta magazynu do pustego dysku lub dysków. Możesz wyeksportować wszystkie dane obiektów blob na koncie magazynu, lub możesz określić, które obiekty BLOB lub ustawia obiektów blob, aby wyeksportować.
+3. W kroku 2 zadania szczegóły wybierz konto magazynu, które zostaną wyeksportowane dane z w sekcji konta magazynu. Lokalizacja przyjmowania zostanie wypełniona automatycznie na podstawie regionu wybrane konta magazynu. Określ dane obiektów blob, do których chcesz eksportować z konta magazynu do pustego dysku lub dysków. Możesz wyeksportować wszystkie dane obiektów blob na koncie magazynu, lub możesz określić, które obiekty BLOB lub ustawia obiektów blob, aby wyeksportować.
    
    Aby określić obiekt blob do wyeksportowania, użyj **równe** selektora i określ ścieżkę względną do obiektu blob, począwszy od nazwy kontenera. Użyj *$root* Aby określić kontener główny.
    
@@ -454,7 +457,7 @@ Przeczytaj poniższą sekcję Często zadawane pytania dotyczące jako obejmuje 
 
 **Można skopiować magazyn plików Azure za pomocą usługi Import/Eksport Azure?**
 
-Tak, usługa Import/Eksport Azure obsługuje importowanie Storge plików Azure. Nie obsługuje eksportowanie plików Azure w tej chwili.
+Tak, usługa Import/Eksport Azure obsługuje importowanie do magazynu plików Azure. Nie obsługuje eksportowanie plików Azure w tej chwili.
 
 **To jest usługa Import/Eksport Azure dostępne dla dostawcy usług Kryptograficznych subskrypcji?**
 
@@ -495,7 +498,7 @@ Nie. Należy wysłać dysków dla importu i eksportu zadania.
 
 ** Jak mają dostęp do danych zaimportowanych przez usługę **
 
-Dane na koncie magazynu Azure są dostępne za pośrednictwem portalu Azure lub za pomocą narzędzia Autonomiczny wywołana Eksploratora usługi Storage. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Dane na koncie magazynu Azure są dostępne za pośrednictwem portalu Azure lub za pomocą narzędzia Autonomiczny wywołana Eksploratora usługi Storage. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Po zakończeniu zadania importu będzie moich danych jak wygląda na koncie magazynu? Zostaną zachowane Moje hierarchii katalogów?**
 
@@ -536,7 +539,7 @@ Zapoznaj się z [PST importowanie plików lub danych programu SharePoint do usł
 
 Zapoznaj się z [przepływu pracy w trybie Offline z kopii zapasowej w programie Kopia zapasowa Azure](../../backup/backup-azure-backup-import-export.md).
 
-**Co to jest maksymalne liczby dysk twardy dla jednego wydania?**
+**Co to jest maksymalna liczba dysków Twardych dla w jednym wydaniu?**
 
 Dowolna liczba dysków twardych może być w jednym wydaniu i jeśli dyski należą do wielu zadań zalecane jest) ma dysk etykietą nazwy zadania. (b) zaktualizować zadania o numerze śledzenia, sufiks na -1,-2 itd.
   
@@ -558,7 +561,7 @@ Jeśli przy użyciu [narzędzie WAImportExport](http://download.microsoft.com/do
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Trwa konfigurowanie narzędzia WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)

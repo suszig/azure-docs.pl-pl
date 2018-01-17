@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8e8eee4155e490beef86d0dd59d272c638e42bf0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c527d4511ab2dd3bb349c10c1defb24723fef59a
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Konfigurowanie programu SharePoint Online i Exchange Online dla usługi Azure Active Directory dostępu warunkowego 
 
@@ -39,7 +39,7 @@ Dostęp warunkowy do usługi Azure AD umożliwia chronić aplikacje w chmurze, j
 
 - Aplikacji klienta, który używa [nowoczesnego uwierzytelniania](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a)
 
-- Program Exchange ActiveSync 
+- Exchange ActiveSync 
 
 Niektóre aplikacje w chmurze również obsługiwać protokoły uwierzytelniania starszej wersji. Dotyczy to na przykład do usługi SharePoint Online i Exchange Online. Gdy aplikacja kliencka umożliwia dostęp do aplikacji w chmurze protokołem uwierzytelniania starszej wersji, usługi Azure AD nie można wymusić zasady dostępu warunkowego na ta próba dostępu. Aby zapobiec pomijanie wymuszania zasad aplikacji klienta, należy sprawdzić, czy jest możliwe tylko włączenie nowoczesnego uwierzytelniania w aplikacjach w chmurze dotyczy. 
 
@@ -64,13 +64,13 @@ Protokoły uwierzytelniania starszych dostępu programu SharePoint można wyłą
 
 Po skonfigurowaniu zasad dostępu warunkowego dla usługi Exchange Online, należy zapoznać się z następującymi:
 
-- Program Exchange ActiveSync
+- Exchange ActiveSync
 
 - Protokoły uwierzytelniania starszej wersji
 
 
 
-### <a name="exchange-activesync"></a>Program Exchange ActiveSync
+### <a name="exchange-activesync"></a>Exchange ActiveSync
 
 Natomiast programu Exchange Active Sync obsługuje nowoczesnego uwierzytelniania, istnieją pewne ograniczenia dotyczące pomocy technicznej dla scenariuszy dostępu warunkowego:
 
@@ -178,7 +178,7 @@ Stosując trzy następujące reguły:
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 

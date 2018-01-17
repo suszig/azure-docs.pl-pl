@@ -2,4 +2,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-[https://aka.MS/pr-Review-Criteria](https://aka.ms/pr-review-criteria)
+[https://aka.ms/pr-review-criteria](https://aka.ms/pr-review-criteria)

@@ -2,4 +2,4 @@
 
 W tych wskazówkach została przeniesiona do witryny docs.microsoft.com wewnętrzny przewodnika dla współautorów.
 
-[https://aka.MS/pr-Comments](https://aka.ms/pr-comments)
+[https://aka.ms/pr-comments](https://aka.ms/pr-comments)

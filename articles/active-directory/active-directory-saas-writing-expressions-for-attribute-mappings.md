@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Tworzenie wyrażeń na potrzeby mapowań atrybutów w usłudze Azure Active Directory
 Po skonfigurowaniu udostępniania do aplikacji SaaS, jest jeden z typów mapowań atrybutów, które można określić mapowanie wyrażenia. W tym przypadku należy napisać wyrażenie przypominającej skryptu, które pozwala na przekształcanie danych użytkowników do formatów, które są bardziej dozwolone dla aplikacji SaaS.
@@ -27,7 +27,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 
 * Całe wyrażenie musi być zdefiniowana w zakresie funkcji, które składają się z nazwy, a następnie argumenty w nawiasach: <br>
   *FunctionName (<< argumentu 1 >> <<argument N>>)*
-* Może być zagnieżdżony funkcje w sobie. Na przykład: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+* Może być zagnieżdżony funkcje w sobie. Na przykład: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
 * Trzy różne typy argumentów można przekazać do funkcji:
   
   1. Atrybuty, które muszą być ujęte w nawiasy kwadratowe kwadratowych. Na przykład: [attributeName]
@@ -48,8 +48,8 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego |
-| **sufiks** |Wymagane |Ciąg |Ciąg, który ma być dołączany na końcu wartość źródła. |
+| **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektu źródłowego |
+| **suffix** |Wymagane |Ciąg |Ciąg, który ma być dołączany na końcu wartość źródła. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,7 +61,7 @@ Składnia wyrażeń dla mapowań atrybutów jest przypominający Visual Basic dl
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
+| **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
 | **inputFormat** |Wymagane |Ciąg |Oczekiwany format wartości źródłowej. Dla obsługiwanych formatów, zobacz [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Wymagane |Ciąg |Format wyjściowej daty. |
 
@@ -77,7 +77,7 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **Separator** |Wymagane |Ciąg |Ciąg używany do rozdzielania wartości źródła, gdy są one połączone w jeden ciąg. Może być "" Jeśli separator nie jest wymagane. |
+| **separator** |Wymagane |Ciąg |Ciąg używany do rozdzielania wartości źródła, gdy są one połączone w jeden ciąg. Może być "" Jeśli separator nie jest wymagane. |
 | ** źródło1... źródłoN ** |Wymagana zmienna — liczba |Ciąg |Ciąg wartości, które mają zostać połączone ze sobą. |
 
 - - -
@@ -90,9 +90,9 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu. |
+| **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu. |
 | **start** |Wymagane |liczba całkowita |Indeks w **źródła** ciąg, gdzie powinna zaczynać się podciąg. Pierwszy znak w ciągu ma indeks równy 1, drugi ma indeks 2 i tak dalej. |
-| **długość** |Wymagane |liczba całkowita |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
+| **length** |Wymagane |liczba całkowita |Długość podciąg. Jeśli długość kończy się poza **źródła** ciągu, funkcja zwraca podciąg z **start** indeksu do końca **źródła** ciągu. |
 
 - - -
 ### <a name="not"></a>nie
@@ -104,7 +104,7 @@ Jeśli jedna z wartości źródła jest atrybutu wielowartościowego, każda war
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Wartości logicznych |Oczekiwano **źródła** wartości to "True" lub "False". |
+| **source** |Wymagane |Wartości logicznych |Oczekiwano **źródła** wartości to "True" lub "False". |
 
 - - -
 ### <a name="replace"></a>Replace
@@ -131,7 +131,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
+| **source** |Wymagane |Ciąg |Zazwyczaj nazwa atrybutu z obiektem źródłowym. |
 | **oldValue** |Optional (Opcjonalność) |Ciąg |Wartość, które mają zostać zastąpione w **źródła** lub **szablonu**. |
 | **regexPattern** |Optional (Opcjonalność) |Ciąg |Wzorzec wyrażenia regularnego dla wartości, które mają zostać zastąpione w **źródła**. Lub, w przypadku replacementPropertyName wzorzec do wyodrębniania wartości z właściwości zastąpienia. |
 | **regexGroupName** |Optional (Opcjonalność) |Ciąg |Nazwa grupy wewnątrz **regexPattern**. Tylko wtedy, gdy jest używana replacementPropertyName, firma Microsoft będzie Wyodrębnij wartości tej grupy jako replacementValue z właściwości zastąpienia. |
@@ -161,7 +161,7 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |**źródło** wartość do aktualizacji. |
+| **source** |Wymagane |Ciąg |**źródło** wartość do aktualizacji. |
 
 - - -
 ### <a name="switch"></a>Przełącznik
@@ -173,8 +173,8 @@ Zamienia wartości ciągu. Działa inaczej w zależności od parametry podane:
 
 | Name (Nazwa) | Wymagane / powtarzanej | Typ | Uwagi |
 | --- | --- | --- | --- |
-| **źródło** |Wymagane |Ciąg |**Źródło** wartość do aktualizacji. |
-| **Wartość domyślna** |Optional (Opcjonalność) |Ciąg |Wartość domyślna ma być używany podczas źródłowym nie odpowiada żadnych kluczy. Może być pustym ciągiem (""). |
+| **source** |Wymagane |Ciąg |**Źródło** wartość do aktualizacji. |
+| **defaultValue** |Optional (Opcjonalność) |Ciąg |Wartość domyślna ma być używany podczas źródłowym nie odpowiada żadnych kluczy. Może być pustym ciągiem (""). |
 | **klucz** |Wymagane |Ciąg |**Klucz** do porównania **źródła** wartości z. |
 | **wartość** |Wymagane |Ciąg |Wartość zastąpienia **źródła** pasujących do klucza. |
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 67fc333a47333fff0cd95aebd0616892cd6c6a42
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab11f27ceed716ba90e9027eee1775c190d2d93f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection — sposób odblokowania użytkowników
 Z usługi Azure Active Directory Identity Protection można skonfigurować zasady blokowania użytkowników skonfigurowanych warunków. Zazwyczaj zablokowany użytkownik kontaktów pomocy technicznej, aby stać się odblokowany. Tematy to omówiono kroki można wykonać, aby odblokować zablokowanego użytkownika.
@@ -32,8 +32,8 @@ Możesz uzyskać typ zasad, który zablokował użytkownika z nagłówkiem w okn
 
 | Zasady | Okno dialogowe użytkownika |
 | --- | --- |
-| Ryzyko logowania |![Zablokowane logowania](./media/active-directory-identityprotection-unblock-howto/02.png) |
-| Ryzyko użytkownika |![Konto zablokowane](./media/active-directory-identityprotection-unblock-howto/104.png) |
+| Ryzyko związane z logowaniem |![Zablokowane logowania](./media/active-directory-identityprotection-unblock-howto/02.png) |
+| Ryzyko związane z użytkownikiem |![Konto zablokowane](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
 Użytkownik, który jest zablokowany przez:
 
@@ -55,5 +55,5 @@ Aby odblokować konto zagrożone, masz następujące opcje:
 3. **Wyklucz z zasad** — Jeśli uważasz, że bieżąca konfiguracja zasad logowania powoduje problemy dotyczące konkretnych użytkowników, można wykluczyć użytkowników z niego. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
 4. **Wyłącz zasady** — Jeśli uważasz, że konfigurację zasad powoduje problemy dotyczące wszystkich użytkowników, możesz wyłączyć zasady. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
  Czy chcesz dowiedzieć się więcej o usłudze Azure AD Identity Protection? Zapoznaj się z [Azure Active Directory Identity Protection](active-directory-identityprotection.md).

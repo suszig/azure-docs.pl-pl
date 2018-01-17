@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy w sieci szkieletowej usług Azure
 Zwrotny serwer proxy wbudowanych w sieci szkieletowej usług Azure pomaga mikrousług działającego w klastrze usługi sieć szkieletowa odnajdywania i komunikować się z innymi usługami, których punkty końcowe http.
@@ -39,11 +39,13 @@ Zwrotny serwer proxy przedstawia jedną lub więcej punktów końcowych na lokal
 
 ![Wewnętrznej komunikacji][1]
 
+> [!NOTE]
 > **Obsługiwane platformy**
 >
 > Zwrotny serwer proxy w sieci szkieletowej usług obecnie obsługuje następujące platformy
 > * *Klaster systemu Windows*: system Windows 8 lub nowszym lub Windows Server 2012 i nowsze
 > * *Klaster systemu Linux*: wstecznego serwera Proxy nie jest obecnie dostępna w przypadku klastrów systemu Linux
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Osiągnięcia mikrousług z spoza klastra
 Domyślny model komunikacji zewnętrznej dla mikrousług to model opcjonalnych, gdzie każdego nie można uzyskać dostępu do usługi bezpośrednio z klientami zewnętrznymi. [Moduł równoważenia obciążenia Azure](../load-balancer/load-balancer-overview.md), czyli granicę sieci między mikrousług i klientami zewnętrznymi, wykonuje translatora adresów sieciowych i przekazuje zewnętrznych żądań do wewnętrznego IP:port punktów końcowych. Aby punkt końcowy mikrousługi bezpośrednio dostępny dla klientów zewnętrznych, najpierw należy skonfigurować usługi równoważenia obciążenia, aby przesyłał dalej ruch na każdy port używany przez usługę w klastrze. Ponadto większość mikrousług, szczególnie stanowe mikrousług, nie na żywo na wszystkich węzłach klastra. Mikrousług można przenosić między węzłami w tryb failover. W takich przypadkach usługi równoważenia obciążenia skutecznie nie można określić lokalizacji węzeł docelowy dla replik, do których należy przekazywać ruch.
@@ -119,7 +121,7 @@ Zwrotny serwer proxy usługi sieci szkieletowej próbuje rozpoznać adres usług
 Jednak repliki lub wystąpień usługi można udostępniać procesu hosta i może również udostępniać port obsługiwanych przez serwer sieci web opartych na pliku http.sys w tym:
 
 * [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener%28v=vs.110%29.aspx)
-* [WebListener platformy ASP.NET Core](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
+* [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
 W takiej sytuacji jest serwer sieci web jest dostępna w proces hosta i odpowiada na żądania, że wystąpienie usługi rozwiązane lub replika nie jest już dostępny na hoście. W takim przypadku brama zostanie wyświetlony komunikat odpowiedzi HTTP 404 z serwera sieci web. W związku z tym odpowiedzi HTTP 404 może mieć dwie różne znaczenie:
@@ -309,7 +311,7 @@ Najpierw Pobierz szablon dla klastra, który chcesz wdrożyć. Można korzystać
 > [!NOTE]
 > Korzystając z certyfikatów, które różnią się od certyfikatu klastra umożliwia zwrotny serwer proxy istniejącego klastra, należy zainstalować certyfikat zwrotnego serwera proxy i zaktualizować listy ACL w klastrze, przed włączeniem zwrotnego serwera proxy. Zakończenie [szablonu usługi Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) wdrożenia przy użyciu ustawień wymienione wcześniej przed rozpoczęciem wdrażania, aby włączyć zwrotnego serwera proxy w kroki 1 – 4.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zobacz przykład protokołu HTTP do komunikacji między usługami w [przykładowy projekt w witrynie GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Przekazywanie danych do bezpiecznej usługi HTTP przy użyciu zwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Zdalne wywołania procedur z usług zdalnych niezawodne usługi](service-fabric-reliable-services-communication-remoting.md)

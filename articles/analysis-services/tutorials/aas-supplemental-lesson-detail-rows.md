@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lekcja uzupełniająca — wiersze szczegółów
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 W tej lekcji uzupełniającej zdefiniujesz niestandardowe wyrażenie wierszy szczegółów przy użyciu edytora języka DAX. Wyrażenie wierszy szczegółów jest właściwością miary, która dostarcza użytkownikom końcowym więcej informacji na temat zagregowanych wyników miary. 
   
@@ -32,7 +30,7 @@ Szacowany czas trwania lekcji: **10 minut**
 ## <a name="prerequisites"></a>Wymagania wstępne  
 Ta lekcja uzupełniająca stanowi część samouczka modelowania tabelarycznego. Przed wykonaniem zadań w tej lekcji uzupełniającej należy ukończyć wszystkie poprzednie lekcje lub wykonać przykładowy projekt modelu Adventure Works Internet Sales.  
   
-## <a name="what-do-we-need-to-solve"></a>Jaki problem chcemy rozwiązać?
+## <a name="whats-the-issue"></a>Na czym polega problem?
 Przed dodaniem wyrażenia wierszy szczegółów przyjrzyjmy się szczegółowym informacjom na temat miary InternetTotalSales.
 
 1.  W programie SSDT kliknij menu **Model** > **Analiza w programie Excel**, aby otworzyć program Excel i utworzyć pustą tabelę przestawną.
@@ -51,7 +49,7 @@ Chcielibyśmy uzyskać tabelę zawierającą kolumny i wiersze danych składają
 
 #### <a name="to-create-a-detail-rows-expression"></a>Dodanie wyrażenia wierszy szczegółów 
   
-1. W programie SSDT, w siatce miar tabeli FactInternetSales kliknij miarę **InternetTotalSales**. 
+1. W siatce miar tabeli FactInternetSales kliknij miarę **InternetTotalSales**. 
 
 2. W obszarze **Właściwości** > **Wyrażenie wierszy szczegółów** kliknij przycisk edytora, aby otworzyć edytor języka DAX.
 
@@ -82,6 +80,6 @@ Chcielibyśmy uzyskać tabelę zawierającą kolumny i wiersze danych składają
 
   
 ## <a name="see-also"></a>Zobacz też  
-[Funkcja SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+[Funkcja SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [Lekcja uzupełniająca — zabezpieczenia dynamiczne](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lekcja uzupełniająca — niewyrównane hierarchie](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

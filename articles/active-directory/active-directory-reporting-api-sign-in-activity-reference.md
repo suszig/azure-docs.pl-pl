@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Raport aktywności logowania w usłudze Azure usługi Active Directory dokumentacja interfejsu API
 Ten temat jest częścią zbiór tematów dotyczących usługi Azure Active Directory raportowania interfejsu API.  
@@ -146,7 +146,7 @@ Wartość Nazwa użytkownika jest wartość ciągu
 Wartość userPrincipalName jest wartość ciągu
 
 - - -
-### <a name="appid"></a>Identyfikator aplikacji
+### <a name="appid"></a>appId
 **Operatory obsługiwane**: eq
 
 **Przykład**:
@@ -173,7 +173,7 @@ Wartość Identyfikator appId jest wartość ciągu
 Wartość ciągu jest wartością appDisplayName
 
 - - -
-### <a name="loginstatus"></a>stanu logowania
+### <a name="loginstatus"></a>loginStatus
 **Operatory obsługiwane**: eq
 
 **Przykład**:
@@ -186,7 +186,7 @@ Wartość ciągu jest wartością appDisplayName
 Dostępne są dwie opcje dla stanu logowania: 0 - Sukces, 1 — błąd
 
 - - -
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Czy chcesz wyświetlić przykłady filtrowane działań logowania? Zapoznaj się z [przykłady raportu interfejsu API działania usługi Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Czy chcesz dowiedzieć się więcej na temat raportowania interfejsu API usługi Azure AD? Zobacz [wprowadzenie do usługi Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
 

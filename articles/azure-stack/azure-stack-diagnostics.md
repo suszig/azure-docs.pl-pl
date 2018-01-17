@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Narzędzia diagnostyki stosu Azure
 
@@ -121,21 +121,21 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | URZĄD CERTYFIKACJI                     | CPI                |
+   | BRP                     | Urząd certyfikacji                     | CPI                |
    | CRP                     | DeploymentMachine      | DHCP               |
-   | Domena                  | NZ                    | ECESeedRing        | 
+   | Domena                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Brama                 | HealthMonitoring       | HRP                |   
    | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | DOSTAWCA NRP                    | SeedRing           |
-   | SeedRingServices        | PROGRAMOWEGO                    | SQL                |   
-   | ZASADY OGRANICZEŃ OPROGRAMOWANIA                     | Magazyn                | StorageController  |
-   | URP                     | UsageBridge            | maszyn wirtualnych    |  
-   | ZOSTAŁ                     | WASPUBLIC              | USŁUGI WDRAŻANIA SYSTEMU WINDOWS                |
+   | SeedRingServices        | SLB                    | SQL                |   
+   | SRP                     | Magazyn                | StorageController  |
+   | URP                     | UsageBridge            | VirtualMachines    |  
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Zbieranie dzienników przy użyciu graficznego interfejsu użytkownika
+### <a name="bkmk_gui"></a>Zbieranie dzienników przy użyciu graficznego interfejsu użytkownika
 Zamiast dostarczanie wymaganych parametrów polecenia cmdlet Get-AzureStackLog pobrać dzienników stosu Azure, można też skorzystać narzędzia Azure stosu dostępne typu open source, znajduje się w głównym stosu Azure narzędzia narzędzia repozytorium GitHub na http://aka.ms/AzureStackTools.
 
 **ERCS_AzureStackLogs.ps1** skrypt programu PowerShell znajduje się w repozytorium GitHub narzędzia i są aktualizowane na bieżąco. Aby upewnić się, że masz najnowszej dostępnej wersji, należy pobrać go bezpośrednio z http://aka.ms/ERCS. Uruchomiony administracyjne sesji programu PowerShell, skrypt nawiązuje połączenie z punktem końcowym uprzywilejowanych i uruchamia Get AzureStackLog z podanych parametrów. Jeśli są podane żadne parametry, skrypt domyślnie monitowania parametrów za pomocą graficznego interfejsu użytkownika.
@@ -157,5 +157,6 @@ Aby dowiedzieć się więcej na temat skryptów środowiska PowerShell ERCS_Azur
 > [!NOTE]
 > Limity rozmiaru i wiek są wymuszane na dzienniki zebrane, ponieważ jest, aby zapewnić jego efektywne wykorzystanie przestrzeni dyskowej, aby upewnić się, że nie pobierają rozpływową z dziennikami. Podczas diagnozowania problemu czasami potrzebny, dzienniki, które już nie istnieje z powodu tych ograniczeń. W związku z tym jest **zdecydowanie zalecane** czy odciążania dzienników do obszaru magazynu zewnętrznego (konto magazynu na platformie Azure, urządzenie magazynu lokalnego dodatkowe itp.) co 8 do 12 godzin i przechowywać je tam 1 – 3 miesiące, w zależności od sieci wymagania. Ponadto upewnij się, że ta lokalizacja magazynu jest zaszyfrowany.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Rozwiązywanie problemów z Microsoft Azure stosu](azure-stack-troubleshooting.md)
+

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Przekazywanie plików na konto usługi Media Services przy użyciu usługi Aspera Server On Demand na platformie Azure
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 **Aspera** to oprogramowanie do szybkiego transferowania plików. Usługa **Aspera Server On Demand** dla platformy Azure umożliwia szybkie przekazywanie i pobieranie dużych plików bezpośrednio do i z magazynu obiektów blob platformy Azure. Aby uzyskać informacje na temat usługi **Aspera On Demand**, zobacz witrynę [Aspera Cloud](http://cloud.asperasoft.com/). 
   
@@ -33,7 +33,7 @@ Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto magaz
 [W tym miejscu](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest) można znaleźć przykład sposobu używania funkcji platformy Azure z usługami Aspera i Media Services.
 
 >[!NOTE]
->Istnieje limit maksymalnego rozmiaru pliku przetwarzanego przez procesory multimediów usługi Azure Media Services. Zobacz [ten](media-services-quotas-and-limitations.md) temat, aby uzyskać szczegółowe informacje na temat ograniczeń rozmiarów plików.
+>Istnieje limit maksymalnego rozmiaru pliku przetwarzanego przez procesory multimediów usługi Azure Media Services. Zobacz [ten](media-services-quotas-and-limitations.md) artykuł, aby uzyskać szczegółowe informacje na temat ograniczeń rozmiarów plików.
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne 

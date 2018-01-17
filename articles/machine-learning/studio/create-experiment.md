@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Samouczek dotyczący uczenia maszynowego: tworzenie pierwszego eksperymentu związanego z przetwarzaniem danych w usłudze Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ W tym samouczku dotyczącym uczenia maszynowego wykonamy pięć podstawowych kro
 [Krok 5. Przewidywanie nowych cen samochodów]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Funkcjonalną kopię poniższego eksperymentu można znaleźć w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Otwórz stronę **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Pierwszy eksperyment z przetwarzaniem danych — prognozowanie cen samochodów) i kliknij przycisk **Open in Studio** (Otwórz w usłudze Studio), aby pobrać kopię eksperymentu do obszaru roboczego usługi Machine Learning Studio.
+> Funkcjonalną kopię poniższego eksperymentu można znaleźć w [galerii sztucznej inteligencji platformy Azure](https://gallery.cortanaintelligence.com). Otwórz stronę **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Pierwszy eksperyment z przetwarzaniem danych — prognozowanie cen samochodów) i kliknij przycisk **Open in Studio** (Otwórz w usłudze Studio), aby pobrać kopię eksperymentu do obszaru roboczego usługi Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Krok 1. Pobieranie danych
@@ -327,7 +327,7 @@ Końcowy eksperyment powinien wyglądać następująco:
 Po ukończeniu pierwszego samouczka dotyczącego uczenia maszynowego i skonfigurowaniu eksperymentu można kontynuować ulepszanie modelu, a następnie wdrożyć go jako predykcyjną usługę sieci Web.
 
 - **Powtarzanie eksperymentu w celu ulepszenia modelu** — można na przykład zmienić cechy używane na potrzeby prognozowania. Można też zmodyfikować właściwości algorytmu [regresji liniowej][linear-regression] lub użyć całkowicie innego algorytmu. Można również dodać do eksperymentu wiele algorytmów uczenia maszynowego i porównać dwa z nich przy użyciu modułu [Evaluate Model][evaluate-model] (Ocena modelu).
-Przykładowe porównanie różnych modeli można znaleźć w eksperymencie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Porównywanie regresorów) w witrynie [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
+Przykładowe porównanie różnych modeli można znaleźć w eksperymencie [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Porównywanie regresorów) w [galerii sztucznej inteligencji platformy Azure](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Aby skopiować dowolną iterację eksperymentu, użyj przycisku **SAVE AS** (ZAPISZ JAKO) wyświetlanego u dołu strony. Aby wyświetlić wszystkie iteracje eksperymentu, kliknij pozycję **VIEW RUN HISTORY** (WYŚWIETL HISTORIĘ PRZEBIEGÓW) u dołu strony. Aby uzyskać bardziej szczegółowe informacje, zobacz [Manage experiment iterations in Azure Machine Learning Studio][runhistory] (Zarządzanie iteracjami eksperymentów w usłudze Azure Machine Learning Studio).

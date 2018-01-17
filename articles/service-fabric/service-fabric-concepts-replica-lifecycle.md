@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: b4a01752cf2658bcc8dea663462336ca5c610d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4037fc869d3e26d52f33baa62c626f4621cd11f5
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="replicas-and-instances"></a>Repliki i wystąpień 
 Ten artykuł zawiera omówienie życia repliki usługi stanowej i wystąpień usług bezstanowych.
@@ -140,7 +140,7 @@ Na poniższym diagramie przedstawiono przejścia do roli repliki i niektóre prz
 > Modele programowania wyższego poziomu, takich jak [Reliable Actors](service-fabric-reliable-actors-introduction.md) i [niezawodne usługi](service-fabric-reliable-services-introduction.md), Ukryj koncepcji ról repliki od dewelopera. W uczestników pojęcie roli jest niepotrzebna. W usługach jest on przede wszystkim uproszczone dla większości scenariuszy.
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji dotyczących pojęć sieci szkieletowej usług zobacz następujący artykuł:
 
 [Cykl życia usług Reliable Services — C#](service-fabric-reliable-services-lifecycle.md)

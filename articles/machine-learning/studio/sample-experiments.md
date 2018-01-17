@@ -1,7 +1,7 @@
 ---
-title: "Kopiowanie przykładowych eksperymentów uczenia maszynowego — Azure | Microsoft Docs"
-description: "Dowiedz się, jak wykorzystać przykładowe eksperymenty uczenia maszynowego do tworzenia nowych eksperymentów za pomocą witryny Cortana Intelligence Gallery i usługi Microsoft Azure Machine Learning."
-keywords: machine learning examples, sample experiment, machine learning sample
+title: "Tworzenie eksperymentów na podstawie przykładów uczenia maszynowego — Azure | Microsoft Docs"
+description: "Dowiedz się, jak wykorzystać przykładowe eksperymenty uczenia maszynowego do tworzenia nowych eksperymentów za pomocą witryny Galeria sztucznej inteligencji platformy Azure i usługi Azure Machine Learning."
+keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Kopiowanie przykładowych eksperymentów w celu tworzenia nowych eksperymentów uczenia maszynowego
-Naucz się, jak zacząć od przykładowych eksperymentów z witryny [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), zamiast tworzyć eksperymenty uczenia maszynowego od zera. Używając przykładów, możesz zbudować własne rozwiązanie uczenia maszynowego.
+# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Tworzenie eksperymentów uczenia maszynowego na podstawie działających przykładów w galerii sztucznej inteligencji platformy Azure
+
+Naucz się, jak zacząć od przykładowych eksperymentów z witryny [Galeria sztucznej inteligencji platformy Azure](https://gallery.cortanaintelligence.com/), zamiast tworzyć eksperymenty uczenia maszynowego od zera. Używając przykładów, możesz zbudować własne rozwiązanie uczenia maszynowego.
 
 W galerii znajdują się przykładowe eksperymenty zespołu Microsoft Azure Machine Learning, a także przykłady udostępnione przez społeczność usługi Machine Learning. Można również zadawać pytania i publikować komentarze dotyczące eksperymentów.
 
@@ -30,7 +31,7 @@ Aby poznać sposób korzystania z galerii, obejrzyj 3-minutowy klip wideo [Kopio
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Znajdowanie eksperymentu do skopiowania w witrynie Cortana Intelligence Gallery
+## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Znajdź eksperyment do skopiowania do galerii sztucznej inteligencji platformy Azure
 Aby zobaczyć, jakie eksperymenty są dostępne, przejdź do [galerii](https://gallery.cortanaintelligence.com/) i kliknij pozycję **Experiments** (Eksperymenty) w górnej części strony.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Znajdowanie najnowszych lub najpopularniejszych eksperymentów
@@ -42,10 +43,10 @@ Aby przeglądać wszystkie eksperymenty:
 1. Kliknij pozycję **Browse all** (Przeglądaj wszystkie) w górnej części strony.
 2. Po lewej stronie w obszarze **Refine by** (Uściślij według) w sekcji **Categories** (Kategorie) wybierz pozycję **Experiment** (Eksperyment), aby zobaczyć wszystkie eksperymenty w galerii.
 3. Eksperymenty spełniające wymagania możesz znaleźć na kilka różnych sposobów:
-   * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA: przy wybranej pozycji **Experiment** (Eksperyment) w obszarze **Categories** (Kategorie) kliknij przycisk **Show all** (Pokaż wszystko). Następnie w obszarze **Algorithms Used** (Używane algorytmy) wybierz opcję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na PCA). <br></br>
-     ![Wybierz filtry](./media/sample-experiments/refine-the-view.png)
+   * **Zaznacz filtry po lewej stronie.** Na przykład aby przeglądać eksperymenty, w których jest używany algorytm wykrywania anomalii oparty na analizie PCA: w obszarze **Categories** (Kategorie) kliknij pozycję **Experiment** (Eksperyment). Następnie w pozycji **Algorithms Used** (Używane algorytmy) kliknij opcję **Show all** (Pokaż wszystko), a w oknie dialogowym wybierz opcję **PCA-Based Anomaly Detection** (Wykrywanie anomalii oparte na analizie PCA). Wyświetlenie opcji może wymagać przewinięcia.<br></br>
+     ![Wybieranie filtrów](./media/sample-experiments/choose-an-algorithm.png)
    * **Użyj pola wyszukiwania.** Na przykład aby znaleźć eksperymenty zamieszczone przez firmę Microsoft, które są związane z rozpoznawaniem cyfr z użyciem algorytmu SVM dla problemu dwuklasowego, w polu wyszukiwania wprowadź ciąg „digit recognition” (rozpoznawanie cyfr). Następnie zaznacz filtry **Experiment** (Eksperyment), **Microsoft content only** (Tylko zawartość firmy Microsoft) i **Two-Class Support Vector Machine** (SVM dla problemu dwuklasowego):<br></br>
-     ![Użyj pola wyszukiwania](./media/sample-experiments/search-for-experiments.png)
+     ![Użycie pola wyszukiwania](./media/sample-experiments/search-for-experiments.png)
 4. Kliknij eksperyment, aby uzyskać więcej informacji.
 5. Aby uruchomić i/lub zmodyfikować eksperyment, kliknij pozycję **Open in Studio** (Otwórz w Studio) na stronie eksperymentu. <br></br>
 

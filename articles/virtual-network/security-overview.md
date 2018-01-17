@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -48,12 +48,12 @@ Grupa zabezpieczeń sieci nie zawiera żadnych reguł lub dowolną liczbę regu�
 
 |Właściwość  |Wyjaśnienie  |
 |---------|---------|
-|Nazwa|Unikatowa nazwa w obrębie grupy zabezpieczeń sieci.|
+|Name (Nazwa)|Unikatowa nazwa w obrębie grupy zabezpieczeń sieci.|
 |Priorytet | Liczba z zakresu od 100 do 4096. Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.|
 |Obiekt źródłowy lub docelowy| Dowolny lub indywidualny adres IP, blok CIDR (na przykład 10.0.0.0/24), tag usługi lub grupa zabezpieczeń aplikacji. Dowiedz się więcej o [tagach usługi](#service-tags) i [grupach zabezpieczeń aplikacji](#application-security-groups). Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu poszczególnych adresów IP i zakresów (nie można określić wielu tagów usługi ani grup aplikacji) w regule nosi nazwę rozszerzonych reguł zabezpieczeń. Dowiedz się więcej o [rozszerzonych regułach zabezpieczeń](#augmented-security-rules). Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu adresów IP i zakresów adresów IP w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.|
 |Protokół     | TCP, UDP lub Dowolny (obejmuje protokoły TCP, UDP i ICMP). Nie można określić samego protokołu ICMP, a więc jeśli potrzebujesz protokołu ICMP, użyj opcji Dowolny. |
 |Kierunek| Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego.|
-|Zakres portów     |Można określić pojedynczy port lub zakres portów. Na przykład można określić port 80 lub 10000–10005. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu pojedynczych portów i zakresów portów w regule jest w wersji zapoznawczej i nosi nazwę rozszerzonych reguł zabezpieczeń. Przed rozpoczęciem korzystania z rozszerzonych reguł zabezpieczeń przeczytaj artykuł [Funkcje w wersji zapoznawczej](#preview-features), aby uzyskać ważne informacje. Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu portów lub zakresów portów w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.   |
+|Zakres portów     |Można określić pojedynczy port lub zakres portów. Na przykład można określić port 80 lub 10000–10005. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu portów lub zakresów portów w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.   |
 |Akcja     | Zezwolenie lub zablokowanie        |
 
 Reguły zabezpieczeń są stanowe. Jeśli zostanie określona reguła zabezpieczeń dla ruchu wychodzącego do dowolnego adresu za pośrednictwem (na przykład) portu 80, nie trzeba określać żadnej reguły zabezpieczeń ruchu przychodzącego dla odpowiedzi na ruch wychodzący. Należy tylko określić regułę zabezpieczeń dla ruchu przychodzącego w przypadku, jeśli komunikacja jest inicjowana zewnętrznie. Jest to również prawdziwe w odwrotnym przypadku. Jeśli ruch przychodzący jest dozwolony przez port, nie trzeba określać reguły zabezpieczeń dla ruchu wychodzącego, aby odpowiadać na ruch przychodzący przez port. Aby dowiedzieć się więcej o limitach podczas tworzenia reguł zabezpieczeń, zobacz [limity platformy Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -74,19 +74,19 @@ Jeśli z podsiecią lub interfejsem sieciowym nie skojarzono grupy zabezpieczeń
 
 |Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Dostęp|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Wszystkie|Zezwalaj|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Wszyscy|Zezwalaj|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Dostęp|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Wszystkie|Zezwalaj|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Wszyscy|Zezwalaj|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
 |Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Dostęp|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Wszystkie|Zablokuj|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Wszyscy|Zablokuj|
 
 ### <a name="outbound"></a>Wychodzący
 
@@ -94,19 +94,19 @@ Jeśli z podsiecią lub interfejsem sieciowym nie skojarzono grupy zabezpieczeń
 
 |Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Dostęp |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Wszystkie | Zezwalaj |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Wszyscy | Zezwalaj |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Dostęp |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Wszystkie | Zezwalaj |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Wszyscy | Zezwalaj |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
 |Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Dostęp |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Wszystkie | Zablokuj |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Wszyscy | Zablokuj |
 
 W kolumnach **Źródło** i **Obiekt docelowy** elementy *VirtualNetwork*, *AzureLoadBalancer* i *Internet* są [tagami usługi](#tags), a nie adresami IP. W kolumnie protokołu pozycja **Wszystkie** obejmuje protokoły TCP, UDP i ICMP. Podczas tworzenia reguły można określić protokół TCP, UDP lub Wszystkie, ale nie można określić wyłącznie protokołu ICMP. W związku z tym jeśli reguła wymaga protokołu ICMP, musisz wybrać wartość *Wszystkie* w kolumnie protokołu. Wartość *0.0.0.0/0* w kolumnach **Źródło** i **Obiekt docelowy** reprezentuje wszystkie adresy.
  
@@ -135,17 +135,16 @@ Grupę zabezpieczeń aplikacji można określić jako źródło i obiekt docelow
 1. Utwórz grupę zabezpieczeń aplikacji o nazwie *WebServers*.
 2. Utwórz grupę zabezpieczeń sieci o nazwie *MyNSG*.
 3. Utwórz regułę zabezpieczeń dla ruchu przychodzącego w grupie zabezpieczeń sieci, określając tag usługi *Internet* dla adresu źródłowego i grupę zabezpieczeń aplikacji *WebServers* jako adres docelowy, i zezwalając na porty 80 i 443.
-4. Wdróż maszynę wirtualną, na której działa aplikacja serwera sieci web. Określ interfejs sieciowy w maszynie wirtualnej jako element członkowski grupy zabezpieczeń aplikacji *WebServers*. Porty 80 i 443 będą wówczas dozwolone na maszynie wirtualnej. Porty będą również dozwolone dla dowolnych kolejnych serwerów sieci web utworzonych jako elementy członkowskie grupy zabezpieczeń aplikacji *WebServers*. 
+4. Wdróż maszynę wirtualną, na której działa aplikacja serwera sieci web. Określ interfejs sieciowy w maszynie wirtualnej jako członka grupy zabezpieczeń aplikacji *WebServers*. Porty 80 i 443 będą wówczas dozwolone na maszynie wirtualnej. Porty będą również dozwolone dla dowolnych kolejnych serwerów internetowych utworzonych jako członkowie grupy zabezpieczeń aplikacji *WebServers*. 
 
-W przypadku utworzenia innych reguł aplikacji, określających inne grupy zabezpieczeń aplikacji jako obiekty docelowe, reguły te nie będą stosowane do serwerów sieci web z poprzedniego przykładu. Reguły określające grupy zabezpieczeń aplikacji są stosowane tylko do interfejsów sieciowych, które są elementami członkowskimi grupy zabezpieczeń aplikacji. Grupy zabezpieczeń aplikacji, w połączeniu z rozszerzonymi regułami zabezpieczeń i tagami usługi, umożliwiają utworzenie minimalnej liczby grup zabezpieczeń sieci do zarządzania zabezpieczeniami sieci w ramach subskrypcji.
+W przypadku utworzenia innych reguł aplikacji, określających inne grupy zabezpieczeń aplikacji jako obiekty docelowe, reguły te nie będą stosowane do serwerów sieci web z poprzedniego przykładu. Reguły określające grupy zabezpieczeń aplikacji są stosowane tylko do interfejsów sieciowych, które są członkami grupy zabezpieczeń aplikacji. Grupy zabezpieczeń aplikacji, w połączeniu z rozszerzonymi regułami zabezpieczeń i tagami usługi, umożliwiają utworzenie minimalnej liczby grup zabezpieczeń sieci do zarządzania zabezpieczeniami sieci w ramach subskrypcji.
  
 Aby dowiedzieć się więcej o limitach podczas tworzenia grup zabezpieczeń aplikacji i określania ich w regułach zabezpieczeń, zobacz [limity platformy Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 Grupy zabezpieczeń aplikacji są dostępne w wersji zapoznawczej. Funkcje w wersji zapoznawczej nie mają takiego samego poziomu dostępności i niezawodności jak funkcje w głównym wydaniu. Przed rozpoczęciem korzystania z grup zabezpieczeń aplikacji musisz się najpierw zarejestrować, aby ich używać, wykonując kroki od 1 do 5 w sekcji [Tworzenie grupy zabezpieczeń sieci z użyciem grup zabezpieczeń aplikacji](create-network-security-group-preview.md) dla platformy Azure lub programu PowerShell. Grupy zabezpieczeń aplikacji mają następujące ograniczenia:
 
 -   Wszystkie interfejsy sieciowe w ramach grupy zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Interfejsy sieciowe z różnych sieci wirtualnych nie mogą być dodawane do tej samej grupy zabezpieczeń aplikacji. Sieć wirtualna, która zawiera pierwszy interfejs sieciowy przypisany do grupy zabezpieczeń aplikacji, definiuje sieć wirtualną, w której muszą istnieć wszystkie później przypisywane interfejsy sieciowe.
-- Jeśli określisz grupy zabezpieczeń aplikacji jako źródło i miejsce docelowe w regule zabezpieczeń, interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Na przykład jeśli grupa ASG1 zawiera interfejsy sieciowe z sieci VNet1, a grupa ASG2 zawiera interfejsy sieciowe z sieci VNet2, nie można przypisać grupy ASG1 jako źródła i grupy ASG2 jako miejsca docelowego w regule — wszystkie interfejsy sieciowe muszą istnieć w sieci VNet1. 
-- Dostępne do użycia tylko w regionie Zachodnio-środkowe stany USA.
+- Jeśli określisz grupy zabezpieczeń aplikacji jako źródło i miejsce docelowe w regule zabezpieczeń, interfejsy sieciowe w obu grupach zabezpieczeń aplikacji muszą istnieć w tej samej sieci wirtualnej. Na przykład jeśli grupa ASG1 zawiera interfejsy sieciowe z sieci VNet1, a grupa ASG2 zawiera interfejsy sieciowe z sieci VNet2, nie można przypisać grupy ASG1 jako źródła i grupy ASG2 jako miejsca docelowego w regule — wszystkie interfejsy sieciowe muszą istnieć w sieci VNet1.
 
 ## <a name="azure-platform-considerations"></a>Zagadnienia dotyczące platformy Azure
 
@@ -158,8 +157,8 @@ Grupy zabezpieczeń aplikacji są dostępne w wersji zapoznawczej. Funkcje w wer
   Jeśli subskrypcja platformy Azure została utworzona przed 15 listopada 2017 r., oprócz używania usług przekazywania SMTP można wysłać wiadomości e-mail bezpośrednio za pośrednictwem portu 25 protokołu TCP. Jeśli subskrypcja została utworzona po 15 listopada 2017 r., wysyłanie wiadomości e-mail bezpośrednio przez port 25 może okazać się niemożliwe. Zachowanie komunikacji wychodzącej za pośrednictwem portu 25 zależy od typu Twojej subskrypcji w następujący sposób:
 
      - **Umowa Enterprise Agreement**: komunikacja wychodząca przez port 25 jest dozwolona. Wychodzące wiadomości e-mail można wysyłać bezpośrednio z maszyn wirtualnych do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń powiązanych z platformą Azure. 
-     - **Płatność zgodnie z rzeczywistym użyciem:** komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Jeśli musisz wysłać wiadomość e-mail z maszyny wirtualnej bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz zgłosić wniosek o usunięcie ograniczenia. Wnioski są przeglądane i zatwierdzane według uznania firmy Microsoft, a odpowiednie prawa są przyznawane dopiero po pomyślnym zakończeniu kontroli mającej na celu zapobieganie oszustwom. Aby przesłać wniosek, otwórz zgłoszenie do pomocy technicznej z typem problemu *Techniczny*, *Łączność sieciowa*, *Nie można wysłać wiadomości e-mail (SMTP/port 25)*. W tym zgłoszeniu do pomocy technicznej szczegółowo opisz, dlaczego w ramach subskrypcji musisz wysyłać wiadomości e-mail bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekazywania protokołu SMTP. Jeśli subskrypcja zostanie uznana za wyjątek, tylko maszyny wirtualne utworzone po dacie uznania będą mogły obsługiwać komunikację wychodzącą przez port 25.
-     - **MSDN, Azure — dostęp próbny, Azure w ramach programu licencjonowania Open, Education, BizSpark i bezpłatna wersja próbna**: komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Nie można wysyłać żadnych wniosków o usunięcie ograniczenia, ponieważ takie prawa nie są przyznawane. Aby wysłać wiadomość e-mail z maszyny wirtualnej, musisz skorzystać z usługi przekazywania SMTP.
+     - **Płatność zgodnie z rzeczywistym użyciem:** komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Jeśli musisz wysyłać wiadomości e-mail z maszyny wirtualnej bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz zgłosić wniosek o usunięcie ograniczenia. Wnioski są przeglądane i zatwierdzane według uznania firmy Microsoft, a odpowiednie prawa są przyznawane dopiero po pomyślnym zakończeniu kontroli mającej na celu zapobieganie oszustwom. Aby przesłać wniosek, otwórz zgłoszenie do pomocy technicznej z typem problemu *Techniczny*, *Łączność sieciowa*, *Nie można wysłać wiadomości e-mail (SMTP/port 25)*. W tym zgłoszeniu do pomocy technicznej szczegółowo opisz, dlaczego w ramach subskrypcji musisz wysyłać wiadomości e-mail bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekazywania protokołu SMTP. Jeśli subskrypcja zostanie uznana za wyjątek, tylko maszyny wirtualne utworzone po dacie uznania będą mogły obsługiwać komunikację wychodzącą przez port 25.
+     - **Dostawca usług w chmurze, MSDN, Azure — dostęp próbny, Azure w ramach programu licencjonowania Open, Education, BizSpark i bezpłatna wersja próbna**: komunikacja wychodząca przez port 25 jest zablokowana dla wszystkich zasobów. Nie można wysyłać żadnych wniosków o usunięcie ograniczenia, ponieważ takie prawa nie są przyznawane. Aby wysyłać wiadomości e-mail z maszyny wirtualnej, musisz skorzystać z usługi przekazywania SMTP.
 
   Jeśli platforma Azure zezwoli Ci na wysyłanie wiadomości e-mail za pośrednictwem portu 25, firma Microsoft nie gwarantuje, że dostawcy poczty e-mail będą akceptować przychodzące wiadomości e-mail z maszyny wirtualnej. Jeśli określony dostawca odrzuci pocztę z maszyny wirtualnej, musisz w bezpośredniej współpracy z dostawcą rozwiązać wszelkie problemy z dostarczaniem wiadomości lub filtrowaniem spamu albo użyć usługi uwierzytelnionego przekazywania SMTP. 
 

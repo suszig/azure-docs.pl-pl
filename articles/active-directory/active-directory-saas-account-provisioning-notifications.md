@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: d056ed0b7030079f3ea47a56c65e08a9ecfe4583
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16ec2b320f733d8828b0046c20f7f7b0e341daf9
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="account-provisioning-notifications"></a>Powiadomienia związane z aprowizacją kont
 Obsługa administracyjna użytkownika, można zautomatyzować proces zarządzania użytkowników w innej aplikacji SaaS. <br>
@@ -38,7 +38,7 @@ Możesz wprowadzić listę dystrybucyjną jako recipient; jest jednak należy pa
 
 Jeśli masz konto inicjowania obsługi powiadomień włączone, będziesz otrzymywać wiadomości e-mail o krytyczne problemy, które są powiązane z Inicjowanie obsługi użytkowników. Jednak aby uniknąć przeciążenia poczty e-mail, otrzymasz tylko jednego powiadomienia e-mail dziennie dla każdej aplikacji SaaS powiadomienia e-mail jest włączone dla.
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Automatyzowanie użytkownika udostępniania/anulowania obsługi do aplikacji SaaS](active-directory-saas-app-provisioning.md)
 * [Dostosowywanie mapowań atrybutów do inicjowania obsługi użytkowników](active-directory-saas-customizing-attribute-mappings.md)

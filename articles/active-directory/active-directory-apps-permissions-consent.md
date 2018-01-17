@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplikacje, uprawnienia i zgody w usłudze Azure Active Directory
-W ramach usługi Azure Active Directory można dodać aplikacje do katalogu.  Aplikacje mogą się różnić w zależności od typu.  Aby wyświetlić aplikacje w portalu klasycznym, wybierz katalog, a następnie wybierz aplikacje.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+W ramach usługi Azure Active Directory można dodać aplikacje do katalogu.  Aplikacje mogą się różnić w zależności od typu.  Aby wyświetlić aplikacje w portalu, wybierz katalog, a następnie wybierz aplikacje.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule.
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z witryny Azure Portal przywołanej w niniejszym artykule.
 
 ## <a name="types-of-apps"></a>Typy aplikacji
 
@@ -73,9 +71,7 @@ Podsumowując:
 
 ## <a name="controls"></a>Kontrolki
 
-Poniżej przedstawiono listę różnych kontrolek, za pomocą których administrator steruje wszystkimi tymi działaniami. Kontrolki administratora są dostępne w portalu klasycznym, przy użyciu pozycji Konfiguruj w katalogu.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Poniżej przedstawiono listę różnych kontrolek, za pomocą których administrator steruje wszystkimi tymi działaniami.
 
 W witrynie Azure Portal są dostępne w obszarze **Zarządzanie**, **Ustawienia użytkownika**.
 
@@ -85,18 +81,14 @@ W witrynie Azure Portal są dostępne w obszarze **Zarządzanie**, **Ustawienia 
 
 - Można zdecydować, czy użytkownicy mogą wyrazić zgodę na aplikacje:
 
-W portalu klasycznym wybierz pozycję **Użytkownicy mogą dawać aplikacjom uprawnienia dostępu do swoich danych.**
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 W witrynie Azure Portal wybierz pozycję **Użytkownicy mogą zezwalać aplikacjom na dostęp do swoich danych**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Można zdecydować, czy użytkownicy mogą rejestrować własne aplikacje biznesowe z jedną dzierżawą: w portalu klasycznym wybierz pozycję **Użytkownicy mogą dodawać aplikacje zintegrowane.**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Możesz kontrolować, czy użytkownicy mogą rejestrować własne aplikacje LOB pojedynczej dzierżawy:
 
-W witrynie Azure Portal wybierz pozycję **Użytkownicy mogą zezwalać aplikacjom na dostęp do swoich danych**.
+W portalu Azure wybierz opcję **Użytkownicy mogą rejestrować aplikacje**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ W witrynie Azure Portal wybierz pozycję **Użytkownicy mogą zezwalać aplikacj
 >- Podczas rejestrowania aplikacji biznesowych z jedną dzierżawą użytkownicy nie mogą zażądać uprawnień delegowanych względem innych aplikacji, jeśli uprawnienia te wymagają zgody administratora.
 >- Użytkownicy mogą wprowadzać zmiany tylko w tych aplikacjach, których są właścicielami.
 
-
-
-- Można zdecydować, czy użytkownicy mogą samodzielnie dodawać wstępnie zintegrowane aplikacje korzystające z logowania jednokrotnego z użyciem hasła („magazynowania haseł”). ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Można zdecydować, w jakich warunkach jest możliwe uzyskanie dostępu do aplikacji (dostęp warunkowy). Dotyczy to zarówno aplikacji klienta, jak i aplikacji zasobu. Załóżmy, że ustawiasz zasady dostępu warunkowego umożliwiające uzyskanie dostępu do aplikacji „Office 365 Exchange Online” tylko z poziomu komputerów, które są zgodne.  Ta zasada ma również zastosowanie, jeśli użytkownik próbuje użyć aplikacji klienta żądającej uprawnień do aplikacji Exchange Online.
-
-
-
-- Masz wgląd w wykaz aplikacji, na które wyrażono zgodę, i aplikacji, które są używane.
-
-1.  Jeśli użytkownik wyraża zgodę na aplikację, w dzierżawie jest tworzony obiekt ServicePrincipal. Utworzenie obiektu ServicePrincipal jest uwzględnione w raporcie inspekcji.
-2.  W raportach aktywności dotyczących logowania użytkownika można znaleźć informacje o tym, w jakiej aplikacji użytkownik się loguje. 
 
 ## <a name="example"></a>Przykład
 
