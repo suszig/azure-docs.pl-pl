@@ -19,7 +19,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Wdrażanie usługi Azure Stack
+    - name: Ocena Azure stosu
       href: azure-stack-deploy-overview.md
 - name: Samouczki
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Pojęcia
   items:
-    - name: Zagadnienia dotyczące planowania
-      href: azure-stack-planning-considerations.md
     - name: Obsługa zasad
       href: azure-stack-servicing-policy.md
     - name: Kluczowe funkcje i pojęcia
@@ -43,7 +41,7 @@
       href: azure-stack-manage-basics.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Wdrażanie
+    - name: Wdrażanie ASDK
       items:
         - name: Wymagania wstępne
           href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Tworzenie testowej maszyny wirtualnej
           href: azure-stack-provision-vm.md
+    - name: Wdrażanie systemów stosu Azure zintegrowanych
+      items:
+        - name: Zagadnienia dotyczące planowania wdrożenia
+          href: azure-stack-deployment-planning.md
+        - name: Decyzje związane z planowaniem wdrożenia
+          href: azure-stack-deployment-decisions.md
+        - name: Wdrażanie podłączone do platformy Azure
+          href: azure-stack-connected-deployment.md
+        - name: Wdrażanie odłączony od usługi Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Wymagania dotyczące usługi Azure stosu wdrażania infrastruktury kluczy publicznych
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Uzyskiwanie certyfikatów PKI dla wdrożenia stosu Azure
+              href: azure-stack-get-pki-certs.md
+        - name: Zarejestruj Azure stosu
+          href: azure-stack-registration.md
     - name: Integracja z centrum danych
       items:
         - name: DNS

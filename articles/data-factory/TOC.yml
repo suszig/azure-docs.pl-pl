@@ -11,6 +11,10 @@
   items:
     - name: Tworzenie fabryki danych
       items:
+        - name: Interfejs użytkownika
+          href: quickstart-create-data-factory-portal.md
+        - name: Narzędzie do kopiowania danych
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portal
-          href: quickstart-create-data-factory-portal.md
         - name: Szablon usługi Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Samouczki
   items:
     - name: 1 — Wdrażanie pakietów usług SSIS na platformie Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Interfejs użytkownika
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 — Kopiowanie danych w chmurze
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Narzędzie do kopiowania danych
+          href: tutorial-copy-data-tool.md
+        - name: Interfejs użytkownika
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 — Kopiowanie danych lokalnych do chmury
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Narzędzie do kopiowania danych
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Interfejs użytkownika
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 — Zbiorcze kopiowanie danych
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Interfejs użytkownika
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 — Przyrostowe kopiowanie danych
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 — Kopiowanie z jednej tabeli
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Interfejs użytkownika
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 — Kopiowanie z wielu tabel
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 — Korzystanie z funkcji śledzenia zmian
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Interfejs użytkownika
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 — Przekształcanie danych w chmurze
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Interfejs użytkownika
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 — Przekształcanie danych w sieci wirtualnej
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Interfejs użytkownika
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 — Przepływ sterowania
-      href: tutorial-control-flow.md
+      items:
+        - name: Interfejs użytkownika
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Przykłady
   items:
     - name: Przykłady kodu
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Wizualne tworzenie fabryk danych
+      href: author-visually.md
     - name: Kopiowanie danych
       items:
-        - name: Kopiowanie danych z obsługiwanych źródeł do miejsc docelowych
+        - name: Kopiowanie danych za pomocą działania kopiowania
           href: copy-activity-overview.md
+        - name: Narzędzie do kopiowania danych
+          href: copy-data-tool.md
         - name: Odczyt lub zapis danych partycjonowanych
           href: how-to-read-write-partitioned-data.md
         - name: Łączniki
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Ładowanie — usługa Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Azure Database for MySQL
               href: connector-azure-database-for-mysql.md
             - name: Azure Database for PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Ładowanie — usługa SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Uruchamianie pakietów SSIS na platformie Azure
       items:
-        - name: Tworzenie środowiska Azure SSIS Integration Runtime
-          href: create-azure-ssis-integration-runtime.md
         - name: Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Zarządzanie środowiskiem Azure SSIS Integration Runtime

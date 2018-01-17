@@ -96,6 +96,7 @@
 ##### [Parametry uaktualniania aplikacji](service-fabric-application-upgrade-parameters.md)
 ##### [Serializacja danych podczas uaktualniania aplikacji](service-fabric-application-upgrade-data-serialization.md)
 ##### [Uaktualnianie aplikacji: tematy zaawansowane](service-fabric-application-upgrade-advanced.md)
+#### [Zarządzanie aplikacjami dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testowanie aplikacji z analizą błędów](service-fabric-testability-overview.md)
 #### [The ImageStoreConnectionString setting (Ustawienie ImageStoreConnectionString)](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Praca w środowisku deweloperskim Windows/VS
 ### [Zarządzanie aplikacjami w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Konfigurowanie bezpiecznych połączeń w programie Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Konfigurowanie aplikacji dla wielu środowisk](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Debug a .NET service in VS (Debugowanie usługi .NET w programie VS)](service-fabric-debugging-your-application.md)
 ### [Typowe błędy i wyjątki](service-fabric-errors-and-exceptions.md)
 ### [Lokalne monitorowanie i diagnozowanie](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Zarządzanie cyklem życia aplikacji
 ### [Tworzenie pakietu aplikacji](service-fabric-package-apps.md)
+### [Korzystanie z parametrów za pomocą plików konfiguracji](service-fabric-how-to-parameterize-configuration-files.md)
+### [Określanie numerów portów przy użyciu parametrów](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Określanie zmiennych środowiskowych](service-fabric-how-to-specify-environment-variables.md)
 
 ### Wdrażanie lub usuwanie aplikacji
 #### [Wdrażanie aplikacji w klastrze lokalnym](service-fabric-get-started-with-a-local-cluster.md)
@@ -273,7 +276,7 @@
 ## Tworzenie klastrów i zarządzanie nimi
 ### Klastry na platformie Azure
 #### Przycisk Utwórz
-##### [Witryna Azure Portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Skalowanie
 ##### [Ręczne](service-fabric-cluster-scale-up-down.md)
@@ -310,7 +313,7 @@
 
 # Dokumentacja
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
+## [Program PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Interfejs wiersza polecenia platformy Azure (az sf)](/cli/azure/sf)
 ## [Interfejs wiersza polecenia usługi Service Fabric (sfctl)](service-fabric-sfctl.md)
 ### [sfctl application](service-fabric-sfctl-application.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schemat XML modelu usług](service-fabric-service-model-schema.md)
+## [Zmienne środowiskowe](service-fabric-environment-variables-reference.md)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
@@ -339,4 +343,4 @@
 ## [Przykładowy kod](http://aka.ms/servicefabricsamples)
 ## [Opcje pomocy technicznej](service-fabric-support.md)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=service-fabric)
-## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
+## [Wideo](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
