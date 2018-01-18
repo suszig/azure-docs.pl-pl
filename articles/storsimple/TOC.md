@@ -202,7 +202,7 @@
 ### [Polecenia cmdlet programu Windows PowerShell dla usługi StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# Usługa StorSimple Data Manager (prywatna wersja zapoznawcza)
+# StorSimple Data Manager
 
 ## Omówienie
 ### [Jakie jest rozwiązanie?](storsimple-data-manager-overview.md)

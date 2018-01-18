@@ -8,7 +8,7 @@
 ## [Jak działa synchronizacja](active-directory-ds-synchronization.md)
 ## [Zgodne oprogramowanie innych firm](active-directory-ds-compatible-software.md)
 
-# Rozpoczynanie pracy
+# Rozpoczęcie pracy
 ## [Task 1: configure basic settings (Zadanie 1. Konfigurowanie ustawień podstawowych)](active-directory-ds-getting-started.md)
 ## [Task 2: configure network settings (Zadanie 2. Konfigurowanie ustawień sieciowych)](active-directory-ds-getting-started-network.md)
 ## [Task 3: configure administrator group and enable Azure AD Domain Services (Zadanie 3. Konfigurowanie grupy administratorów i włączanie usługi Azure AD Domain Services)](active-directory-ds-getting-started-admingroup.md)
@@ -44,7 +44,12 @@
 ## Rozwiązywanie problemów
 ### [Często zadawane pytania](active-directory-ds-faqs.md)
 ### [Przewodnik rozwiązywania problemów](active-directory-ds-troubleshooting.md)
+### [Rozwiązywanie problemów z alertami](active-directory-ds-troubleshoot-alerts.md)
+#### [Naprawianie uszkodzonej konfiguracji sieciowej grupy zabezpieczeń](active-directory-ds-troubleshoot-nsg.md)
+#### [Przywracanie brakujących jednostek usługi](active-directory-ds-troubleshoot-service-principals.md)
+#### [Błędy protokołu Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolve mismatched tenant errors (Rozwiązywanie błędów dotyczących niezgodnych dzierżaw)](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

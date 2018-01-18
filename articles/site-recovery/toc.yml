@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Site Recovery
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Co to jest usługa Site Recovery?
       href: site-recovery-overview.md
@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Tabela obsługi replikacji Azure–Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Zestawienie obsługi replikacji środowisko lokalne–Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Tabela obsługi replikacji VMware–Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Zestawienie obsługi replikacji Hyper-V–Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Zestawienie obsługi replikacji środowisko lokalne–Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Zestawienie obsługi replikacji środowisko lokalne–lokacja dodatkowa
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Odzyskiwanie po awarii dla obciążeń
@@ -181,6 +183,8 @@
           items:
             - name: Środowisko źródłowe dla replikacji VMware–Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Wdrażanie serwera konfiguracji dla programu VMware i serwerów fizycznych
+              href: how-to-deploy-configuration-server.md
             - name: Środowisko źródłowe dla replikacji maszyna fizyczna–Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Konfigurowanie środowiska docelowego
@@ -273,7 +277,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Zbieranie dzienników i rozwiązywanie problemów lokalnych
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

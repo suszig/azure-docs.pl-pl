@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6c18debd022f0f233b52d81899e8edd7cf1e0456
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Udostępnić obraz niestandardowy maszyny wirtualnej Azure stosu
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-W stosie Azure operatory można udostępnić obrazy niestandardowe maszyny wirtualnej dla użytkowników. Obrazy te można odwoływać się za pomocą szablonów usługi Azure Resource Manager lub dodać je do interfejsu użytkownika portalu Marketplace Azure jako element Marketplace. 
+W stosie Azure operatory można udostępnić obrazy niestandardowe maszyny wirtualnej dla użytkowników. Obrazy te można odwoływać się za pomocą szablonów usługi Azure Resource Manager lub dodać je do interfejsu użytkownika portalu Marketplace Azure jako element Marketplace.
 
 ## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Dodaj obraz maszyny Wirtualnej w portalu Marketplace przy użyciu programu PowerShell
 
@@ -35,21 +35,27 @@ Uruchom następujące wymagania wstępne, albo z [zestaw deweloperski](azure-sta
 2. Pobierz [narzędzia niezbędne do pracy z stosu Azure](azure-stack-powershell-download.md).  
 
 3. Przygotuj obraz wirtualnego dysku twardego systemu operacyjnego Windows lub Linux w formacie VHD (nie używaj w formacie VHDX).
-   
+
    * Dla obrazów systemu Windows, aby uzyskać instrukcje dotyczące przygotowanie obrazu, zobacz [przekazać obraz maszyny Wirtualnej systemu Windows Azure dla wdrożenia usługi Resource Manager](../virtual-machines/windows/upload-generalized-managed.md).
-   * W przypadku obrazów systemu Linux, zobacz [wdrażanie maszyn wirtualnych systemu Linux na stosie Azure](azure-stack-linux.md). Wykonaj kroki, aby przygotować obraz lub użyć istniejącego obrazu systemu Linux stosu Azure, zgodnie z opisem w artykule.  
+
+   * W przypadku obrazów systemu Linux, zobacz [wdrażanie maszyn wirtualnych systemu Linux na stosie Azure](azure-stack-linux.md). Wykonaj kroki, aby przygotować obraz lub użyć istniejącego obrazu systemu Linux stosu Azure, zgodnie z opisem w artykule.    
+
+   Stos Azure obsługuje format wirtualnego dysku twardego dysku o stałym rozmiarze. Stały format konstrukcje dysku logicznego liniowo w pliku, więc ten dysk Przesunięcie X jest przechowywany przy przesunięciu obiektu blob X. Mała stopkę na końcu obiektu blob zawiera opis właściwości wirtualnego dysku twardego. Aby sprawdzić, czy dysk został rozwiązany, należy użyć [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) polecenia programu PowerShell.  
+
+   > [!IMPORTANT]
+   >  Stos Azure nie obsługuje dysków dynamicznych wirtualnych dysków twardych. Zmiana rozmiaru dysku dynamicznego, który jest dołączony do maszyny Wirtualnej spowoduje zamknięcie maszyny Wirtualnej w stanie niepowodzenia. Aby zminimalizować ten problem, należy usunąć maszynę Wirtualną bez usuwania dysku maszyny Wirtualnej, obiektu blob dysku VHD na koncie magazynu. Konwertuj dysku VHD na dysku dynamicznym na dysku o stałym rozmiarze i ponownie utwórz maszynę wirtualną.
 
 Aby dodać obraz do portalu Azure Marketplace stosu, wykonaj następujące czynności:
 
 1. Zaimportuj moduły Connect i ComputeAdmin:
-   
+
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
    # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ``` 
+   ```
 
 2. Zaloguj się do środowiska Azure stosu. Uruchom jedno z poniższych skryptów, w zależności od tego, czy wdrożyć środowiska Azure stosu przy użyciu usługi Azure Active Directory (Azure AD) lub usługi Active Directory Federation Services (AD FS). (Zastąp usługi Azure AD `tenantName`, `GraphAudience` punktu końcowego, a `ArmEndpoint` wartości w celu uwzględnienia konfiguracji środowiska.)
 
@@ -61,7 +67,7 @@ Aby dodać obraz do portalu Azure Marketplace stosu, wykonaj następujące czynn
 
       # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
       $GraphAudience = "<GraphAuidence endpoint for your environment>"
-      
+
       # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
       Add-AzureRMEnvironment `
         -Name "AzureStackAdmin" `
@@ -77,11 +83,11 @@ Aby dodać obraz do portalu Azure Marketplace stosu, wykonaj następujące czynn
 
       Login-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
+        -TenantId $TenantID
       ```
 
    * **Usługi federacyjne Active Directory**. Użyj następującego polecenia cmdlet:
-    
+
         ```PowerShell
         # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
         $ArmEndpoint = "<Resource Manager endpoint for your environment>"
@@ -101,15 +107,15 @@ Aby dodać obraz do portalu Azure Marketplace stosu, wykonaj następujące czynn
 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin 
+          -EnvironmentName AzureStackAdmin
 
         Login-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID 
+          -TenantId $TenantID
         ```
-    
+
 3. Dodawanie obrazu maszyny Wirtualnej za pomocą `Add-AzsVMImage` polecenia cmdlet. W `Add-AzsVMImage` polecenia cmdlet, określ `osType` jako systemu Windows lub Linux. Obejmują wydawcy, oferty, jednostki SKU i wersji dla obrazu maszyny Wirtualnej. Informacje o parametrach dozwolonych, zobacz [parametry](#parameters). Parametry są używane przez szablonów usługi Azure Resource Manager, aby odwołać obrazu maszyny Wirtualnej. Poniższy przykład przedstawia Wywoływanie skryptu:
-     
+
   ```powershell
   Add-AzsVMImage `
     -publisher "Canonical" `
@@ -129,7 +135,7 @@ Polecenie wykonuje następujące czynności:
 
 Aby zweryfikować, że polecenie zostało wykonane pomyślnie, w portalu przejdź do witryny Marketplace. Sprawdź, czy obraz maszyny Wirtualnej jest dostępna w **maszyn wirtualnych** kategorii.
 
-![Pomyślnie dodano obrazu maszyny Wirtualnej](./media/azure-stack-add-vm-image/image5.PNG) 
+![Pomyślnie dodano obrazu maszyny Wirtualnej](./media/azure-stack-add-vm-image/image5.PNG)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Usuń obraz maszyny Wirtualnej za pomocą programu PowerShell
 
@@ -147,15 +153,15 @@ Remove-AzsVMImage `
 
 | Parametr | Opis |
 | --- | --- |
-| **wydawcy** |Segment nazwy wydawcy obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu. Na przykład **Microsoft**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
-| **Oferta** |Oferta segment nazwę obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu maszyny Wirtualnej. Na przykład **Windows Server**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
-| **Jednostka SKU** |Segment nazwa jednostki SKU obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu maszyny Wirtualnej. Na przykład **Datacenter2016**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
+| **publisher** |Segment nazwy wydawcy obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu. Na przykład **Microsoft**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
+| **offer** |Oferta segment nazwę obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu maszyny Wirtualnej. Na przykład **Windows Server**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
+| **sku** |Segment nazwa jednostki SKU obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu maszyny Wirtualnej. Na przykład **Datacenter2016**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
 | **Wersja** |Wersja obrazu maszyny Wirtualnej, wykorzystywanym przez użytkowników po wdrożeniu przez nich obrazu maszyny Wirtualnej. Ta wersja jest w formacie *\#.\#.\#*. Na przykład **1.0.0**. Nie dołączaj spację lub inne znaki specjalne w tym polu. |
 | **osType** |OsType obrazu musi być równa albo **Windows** lub **Linux**. |
 | **osDiskLocalPath** |Ścieżka lokalna do wirtualnego dysku twardego, czy przekazywany jako obraz maszyny Wirtualnej Azure stos dysk systemu operacyjnego. |
 | **dataDiskLocalPaths** |Opcjonalną tablicę ścieżki lokalne dla dysków z danymi, które mogą być przekazywane jako część obrazu maszyny Wirtualnej. |
 | **CreateGalleryItem** |Flaga wartości logicznej, która określa, czy utworzyć nowy element w witrynie Marketplace. Domyślnie jest ustawiona **true**. |
-| **Tytuł** |Nazwa wyświetlana elementu portalu Marketplace. Domyślnie jest ustawiona `Publisher-Offer-Sku` wartość obrazu maszyny Wirtualnej. |
+| **title** |Nazwa wyświetlana elementu portalu Marketplace. Domyślnie jest ustawiona `Publisher-Offer-Sku` wartość obrazu maszyny Wirtualnej. |
 | **Opis elementu** |Opis elementu portalu Marketplace. |
 | **location** |Lokalizacja, w którym powinien zostać opublikowany obrazu maszyny Wirtualnej. Domyślnie ta wartość jest równa **lokalnego**.|
 | **osDiskBlobURI** |(Opcjonalnie) Ten skrypt akceptuje również magazynu obiektów Blob identyfikatora URI dla `osDisk`. |
@@ -170,8 +176,13 @@ Obrazy można musi odwoływać się do magazynu obiektów Blob identyfikatora UR
 
 1. [Przekaż obraz maszyny Wirtualnej systemu Windows Azure dla wdrożenia usługi Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) lub obrazu systemu Linux, wykonaj instrukcje opisane w [wdrażanie maszyn wirtualnych systemu Linux na stosie Azure](azure-stack-linux.md). Przed przekazaniem obrazu, należy wziąć pod uwagę następujące czynniki:
 
-   * Jest bardziej wydajne, można przekazać obrazu do magazynu obiektów Blob platformy Azure stosu niż do magazynu obiektów Blob platformy Azure, ponieważ zajmuje mniej czasu na push obrazu do repozytorium obrazów Azure stosu. 
-   
+   * Stos Azure obsługuje format wirtualnego dysku twardego dysku o stałym rozmiarze. Stały format konstrukcje dysku logicznego liniowo w pliku, więc ten dysk Przesunięcie X jest przechowywany przy przesunięciu obiektu blob X. Mała stopkę na końcu obiektu blob zawiera opis właściwości wirtualnego dysku twardego. Aby sprawdzić, czy dysk został rozwiązany, należy użyć [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) polecenia programu PowerShell.  
+
+    > [!IMPORTANT]
+   >  Stos Azure nie obsługuje dysków dynamicznych wirtualnych dysków twardych. Zmiana rozmiaru dysku dynamicznego, który jest dołączony do maszyny Wirtualnej spowoduje zamknięcie maszyny Wirtualnej w stanie niepowodzenia. Aby zminimalizować ten problem, należy usunąć maszynę Wirtualną bez usuwania dysku maszyny Wirtualnej, obiektu blob dysku VHD na koncie magazynu. Konwertuj dysku VHD na dysku dynamicznym na dysku o stałym rozmiarze i ponownie utwórz maszynę wirtualną.
+
+   * Jest bardziej wydajne, można przekazać obrazu do magazynu obiektów Blob platformy Azure stosu niż do magazynu obiektów Blob platformy Azure, ponieważ zajmuje mniej czasu na push obrazu do repozytorium obrazów Azure stosu.
+
    * Po przekazaniu [obrazu maszyny Wirtualnej systemu Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), upewnij się zastąpić **logowania do platformy Azure** krok z [konfigurowania środowiska PowerShell operator stosu Azure](azure-stack-powershell-configure-admin.md) kroku.  
 
    * Zanotuj magazynu obiektów Blob identyfikatora URI, których przekazaniem obrazu. Magazyn obiektów Blob identyfikatora URI ma następujący format:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
@@ -185,13 +196,13 @@ Obrazy można musi odwoływać się do magazynu obiektów Blob identyfikatora UR
 2. Zaloguj się do stosu Azure jako operatora. Wybierz z menu **więcej usług** > **dostawców zasobów**. Następnie wybierz opcję **obliczeniowe** > **obrazów maszyn wirtualnych** > **Dodaj**.
 
 3. W obszarze **Dodaj obraz maszyny Wirtualnej**, wprowadź wydawcy, oferty, jednostki SKU i wersji obrazu maszyny wirtualnej. Te segmenty nazwy odnoszą się do obrazu maszyny Wirtualnej w szablonach usługi Resource Manager. Upewnij się wybrać **osType** wartość poprawnie. Aby uzyskać **identyfikator URI obiektu Blob dysku systemu operacyjnego**, wprowadź identyfikator URI obiektu Blob, których obraz został załadowany. Następnie wybierz opcję **Utwórz** aby rozpocząć tworzenie obrazu maszyny Wirtualnej.
-   
+
    ![Początkowy do tworzenia obrazu](./media/azure-stack-add-vm-image/image4.png)
 
    Po pomyślnym utworzeniu obrazu, stan obrazu maszyny Wirtualnej zmienia się na **zakończyło się pomyślnie**.
 
 4. Aby obraz maszyny wirtualnej łatwiej dostępne do użycia przez użytkowników w interfejsie użytkownika, jest dobrym pomysłem jest [utworzyć element Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Inicjowanie obsługi administracyjnej maszyny wirtualnej](azure-stack-provision-vm.md)
