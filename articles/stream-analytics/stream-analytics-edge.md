@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Usługa Azure Stream Analytics na krawędzi IoT (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Uruchamianie zadań krawędzi ASA modułów w [środowiska uruchomieniowego Azur
 
 ASA używa Centrum IoT, aby przeprowadzić wdrożenie zadania krawędzi urządzenia. Więcej informacji na temat [krawędzi IoT wdrożenia są widoczne w tym miejscu](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
-![Zadanie krawędzi](media/stream-analytics-edge/ASAedge_job.png)
+![Zadanie Edge](media/stream-analytics-edge/ASAedge_job.png)
 
 
 ### <a name="installation-instructions"></a>Instrukcje dotyczące instalacji
@@ -57,7 +57,12 @@ Ogólne kroki opisane w poniższej tabeli. W poniższych sekcjach podano więcej
 | 2   | **Tworzenie kontenera magazynu**   | Azure Portal       | Kontenery magazynu są używane do zapisać definicję zadania, w którym są one dostępne przez urządzenia IoT. <br>  Można ponownie użyć dowolnego istniejącego kontenera magazynu.     |
 | 3   | **Konfigurowanie środowiska krawędzi IoT na Twoje urządzenia**   | Urządzenia      | Instrukcje dotyczące [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) lub [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Wdrażanie ASA na Twoje urządzenia IoT krawędzi**   | Azure Portal      |  ASA definicji zadania są eksportowane do kontenera magazynu utworzony wcześniej.       |
-Możesz wykonać [tego samouczka krok po kroku](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) do wdrożenia Twoja pierwsza Praca ASA na krawędzi IoT.
+Możesz wykonać [tego samouczka krok po kroku](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) do wdrożenia Twoja pierwsza Praca ASA na krawędzi IoT. Poniższe wideo należy pomaga w zrozumieniu procesu Uruchom zadanie usługi Stream Analytics urządzenia IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Utwórz zadanie krawędzi ASA
 1. W portalu Azure należy utworzyć nowe "Zadanie usługi analiza strumienia". [Bezpośredniego łącza do tworzenia nowego zadania ASA tutaj](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).

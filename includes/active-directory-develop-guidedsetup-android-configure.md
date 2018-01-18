@@ -1,49 +1,52 @@
 
-## <a name="create-an-application-express"></a>Tworzenie aplikacji (Express)
-Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:
-1. Zarejestrować aplikację za pośrednictwem [portalu rejestracji aplikacji firmy Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
-2.  Wprowadź nazwę aplikacji i poczty e-mail
-3.  Upewnij się, że zaznaczono opcję instrukcje konfiguracji
-4.  Postępuj zgodnie z instrukcjami, aby uzyskać identyfikator aplikacji i wklej go w kodzie
+## <a name="register-your-application"></a>Rejestrowanie aplikacji
+Aplikację można zarejestrować na dwa sposoby, zgodnie z opisem w dwóch następnych sekcjach.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Dodaj swoje informacje rejestracyjne aplikacji do rozwiązania (zaawansowane)
-Teraz musisz zarejestrować aplikację w *portalu rejestracji aplikacji Microsoft*:
-1. Przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/portal/register-app) do rejestrowania aplikacji
-2. Wprowadź nazwę aplikacji i poczty e-mail 
-3. Upewnij się, że jest zaznaczona opcja instrukcje konfiguracji
-4. Kliknij przycisk `Add Platform`, a następnie wybierz pozycję `Native Application` i kliknij przycisk Zapisz
-5.  Otwórz `MainActivity` (w obszarze `app`  >  `java`  >   *`{host}.{namespace}`* )
-6.  Zastąp *[aplikacji identyfikatora w tym miejscu wprowadź]* w wiersz rozpoczynający się `final static String CLIENT_ID` wraz z Identyfikatorem aplikacji został zarejestrowany:
+### <a name="option-1-express-mode"></a>Opcja 1: Tryb ekspresowy
+Można szybko zarejestrować aplikację w następujący sposób:
+1. Przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+2.  W **Nazwa aplikacji** wprowadź nazwę aplikacji.
 
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+3. Upewnij się, że **instrukcje konfiguracji** pole wyboru jest wybrany, a następnie wybierz **Utwórz**.
+
+4. Postępuj zgodnie z instrukcjami w celu uzyskania Identyfikatora aplikacji i wklej go w kodzie.
+
+### <a name="option-2-advanced-mode"></a>Opcja 2: Tryb zaawansowany
+Aby zarejestrować aplikację i dodać swoje informacje rejestracyjne aplikacji do rozwiązania, wykonaj następujące czynności:
+1. Jeśli nie zostało już zarejestrowane aplikacji, przejdź do [portalu rejestracji aplikacji Microsoft](https://apps.dev.microsoft.com/portal/register-app).
+2. W **Nazwa aplikacji** wprowadź nazwę aplikacji. 
+
+3. Upewnij się, że **instrukcje konfiguracji** pole wyboru jest wyczyszczone, a następnie wybierz **Utwórz**.
+
+4. Wybierz **dodać platformy**, wybierz pozycję **aplikacji natywnej**, a następnie wybierz **zapisać**.
+
+5. W obszarze **aplikacji** > **java** > **{hosta}. { przestrzeń nazw}**, otwórz `MainActivity`. 
+
+6.  Zastąp *[aplikacji identyfikatora w tym miejscu wprowadź]* w następującym wierszu z Identyfikatorem aplikacji, który został zarejestrowany:
+
+    ```java
+    final static String CLIENT_ID = "[Enter the application Id here]";
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="7">
-<li>
-Otwórz `AndroidManifest.xml` (w obszarze `app`  >  `manifests`) dodaj następujące działanie `manifest\application` węzła. Rejestruje to `BrowserTabActivity` umożliwia systemu operacyjnego można wznowić aplikacji po zakończeniu uwierzytelniania:
-</li>
-</ol>
+7. W obszarze **aplikacji** > **manifesty**, otwórz *AndroidManifest.xml* pliku.
 
-```xml
-<!--Intent filter to capture System Browser calling back to our app after Sign In-->
-<activity
-    android:name="com.microsoft.identity.client.BrowserTabActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        
-        <!--Add in your scheme/host from registered redirect URI-->
-        <!--By default, the scheme should be similar to 'msal[appId]' -->
-        <data android:scheme="msal[Enter the application Id here]"
-            android:host="auth" />
-    </intent-filter>
-</activity>
-```
+8. W `manifest\application` węzła, Dodaj następujące działania. Sposób tak rejestrów `BrowserTabActivity` działanie, które umożliwia systemu operacyjnego można wznowić aplikacji po jej ukończeniu uwierzytelniania:
+
+    ```xml
+    <!--Intent filter to capture System Browser calling back to our app after sign-in-->
+    <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            
+            <!--Add in your scheme/host from registered redirect URI-->
+            <!--By default, the scheme should be similar to 'msal[appId]' -->
+            <data android:scheme="msal[Enter the application Id here]"
+                android:host="auth" />
+        </intent-filter>
+    </activity>
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="8">
-<li>
-W `BrowserTabActivity`, Zastąp `[Enter the application Id here]` z identyfikatorem aplikacji.
-</li>
-</ol>
+9. W `BrowserTabActivity` węzła, Zastąp `[Enter the application Id here]` z identyfikatorem aplikacji.

@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Inspekcja w magazynie danych Azure SQL
-> [!div class="op_single_selector"]
-> * [Inspekcja](sql-data-warehouse-auditing-overview.md)
-> * [Wykrywanie zagrożeń](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-Inspekcja SQL Data Warehouse pozwala do rekordu dziennika zdarzeń w bazie danych inspekcji na koncie magazynu Azure. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać problemy biznesowe lub podejrzane naruszenia zabezpieczeń. Inspekcja SQL Data Warehouse integruje się również z usługi Microsoft Power BI do przechodzenia raportowania i analiz.
+Inspekcja SQL Data Warehouse pozwala do rekordu dziennika zdarzeń w bazie danych inspekcji na koncie magazynu Azure. Inspekcja pomaga zachować zgodność z przepisami, analizować aktywność bazy danych oraz uzyskać wgląd w odchylenia i anomalie, które mogą oznaczać problemy biznesowe lub podejrzane naruszenia zabezpieczeń. Inspekcja SQL Data Warehouse integruje się również z usługi Microsoft Power BI dla raportów i analiz.
 
 Narzędzia inspekcji włączyć i ułatwienia przestrzeganie standardów zgodności, ale nie gwarantuje się zgodności. Aby uzyskać więcej informacji na temat usługi Azure programy tego zgodność ze standardami pomocy technicznej, zobacz <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centrum zaufania Azure</a>.
 
-* [Podstawowe informacje dotyczące bazy danych inspekcji]
-* [Inspekcja bazy danych]
-* [Analizowanie dzienników inspekcji i raportów]
-
-## <a id="subheading-1"></a>Podstawy inspekcja bazy danych magazynu danych SQL Azure
+## <a id="subheading-1"></a>Podstawowe informacje o inspekcji
 Inspekcja bazy danych SQL Data Warehouse umożliwia:
 
 * **Zachowaj** dziennik inspekcji wybranych zdarzeń. Można zdefiniować kategorie działań przeprowadzać inspekcję bazy danych.
@@ -59,19 +50,19 @@ Aby uzyskać więcej informacji dotyczących działań i zdarzeń inspekcji, zob
 
 Dzienniki inspekcji są przechowywane na koncie magazynu Azure. Można zdefiniować okres przechowywania dziennika inspekcji.
 
-Zasady inspekcji mogą być definiowane dla określonej bazy danych lub jako domyślne zasady serwera. Domyślne zasady inspekcji serwera ma zastosowanie do wszystkich baz danych na serwerze, które nie mają określonej bazy danych inspekcji zasad zdefiniowane.
+Można zdefiniować zasady inspekcji dla określonej bazy danych lub jako domyślne zasady serwera. Domyślne zasady inspekcji serwera ma zastosowanie do wszystkich baz danych na serwerze, które nie mają określonej bazy danych inspekcji zasad zdefiniowane.
 
 Przed przystąpieniem do ustawiania inspekcji inspekcji wyboru, jeśli używasz ["Klientów niższych poziomów."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Inspekcja bazy danych
 1. Uruchom <a href="https://portal.azure.com" target="_blank">portalu Azure</a>.
-2. Przejdź do **ustawienia** bloku inspekcji ma usługi SQL Data Warehouse. W **ustawienia** bloku, wybierz opcję **Inspekcja i wykrywanie zagrożeń**.
+2. Przejdź do **ustawienia** dla inspekcji ma usługi SQL Data Warehouse. Wybierz **Inspekcja i wykrywanie zagrożeń**.
    
     ![][1]
 3. Należy również włączyć inspekcję, klikając **ON** przycisku.
    
     ![][3]
-4. W bloku inspekcji konfiguracji, wybierz **szczegóły MAGAZYNU** aby otworzyć blok magazyn dzienników inspekcji. Wybierz konto magazynu Azure, w którym zostanie zapisany dzienniki i okres przechowywania. 
+4. W panelu inspekcji konfiguracji wybierz **szczegóły MAGAZYNU** aby otworzyć panel magazynu dzienników inspekcji. Wybierz konto magazynu Azure dla dzienników i okresu przechowywania. 
 >[!TIP]
 >Użyj tego samego konta magazynu dla wszystkich baz danych inspekcji na maksymalne wykorzystanie szablonów wstępnie skonfigurowane raporty.
    
@@ -91,11 +82,12 @@ Szablon ma fikcyjnej przykładowe dane w nim, a dodatku Power Query można skonf
 ## <a id="subheading-4"></a>Ponowne generowanie klucza magazynu
 W środowisku produkcyjnym najprawdopodobniej będzie okresowo Odśwież kluczy magazynu. Podczas odświeżania kluczy, należy zapisać zasady. Proces przebiega w następujący sposób:
 
-1. W bloku konfiguracji inspekcji (opisany wyżej w ustawieniach inspekcji sekcji) Przełącz **klucz dostępu do magazynu** z *głównej* do *dodatkowej* i **ZAPISAĆ**.
+1. W przypadku inspekcji panelu konfiguracji, które opisano w poprzedniej instalacji inspekcji sekcji, zmień **klucz dostępu do magazynu** z *głównej* do *dodatkowej* i  **ZAPISZ**.
 
    ![][4]
-2. Przejdź do bloku konfiguracji magazynu i **ponownie wygenerować** *podstawowy klucz dostępu*.
-3. Wróć do bloku konfiguracji inspekcji, Przełącz **klucz dostępu do magazynu** z *dodatkowej* do *głównej* i naciśnij klawisz **ZAPISAĆ**.
+2. Przejdź do panelu konfiguracji magazynu i **ponownie wygenerować** *podstawowy klucz dostępu*.
+3. Wróć do panelu Konfiguracja inspekcji 
+4. Przełącz **klucz dostępu do magazynu** z *dodatkowej* do *głównej* i naciśnij klawisz **ZAPISAĆ**.
 4. Wróć do magazynu interfejsu użytkownika i **ponownie wygenerować** *pomocniczy klucz dostępu* (jako przygotowania do następnej klucze odświeżania w tle.
 
 ## <a id="subheading-5"></a>Automatyzacja (programu PowerShell/REST API)
@@ -103,18 +95,41 @@ Można również skonfigurować inspekcji w usłudze Azure SQL Data Warehouse pr
 
 * **Polecenia cmdlet programu PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Usuń AzureRMSqlDatabaseAuditing][103]
-   * [Usuń AzureRMSqlServerAuditing][104]
-   * [Zestaw AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Zestaw AzureRMSqlServerAuditingPolicy][106]
-   * [Użyj AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Obsługa klientów niższego poziomu inspekcji i dynamicznego maskowania danych
+Inspekcja współpracuje z klientami SQL, które obsługują przekierowanie TDS.
+
+Każdy klient, który implementuje TDS 7.4 również powinien obsługiwać przekierowania. Wyjątki od tej reguły obejmują JDBC 4.0, w którym funkcji przekierowania nie jest w pełni obsługiwane i Tedious dla środowiska Node.JS, w których przekierowania nie została zaimplementowana.
+
+Dla "Klientów niższych poziomów" obsługujących TDS wersji 7.3 oraz poniżej, zmodyfikuj nazwa FQDN serwera w ciągu połączenia w następujący sposób:
+
+- Oryginalna nazwa FQDN serwera w ciągu połączenia: <*nazwy serwera*>. database.windows.net
+- Nazwa FQDN serwera zmodyfikowane w ciągu połączenia: <*nazwy serwera*> .database. **bezpieczne**. windows.net
+
+Zawiera listę częściowej "Klienci z obniżonym poziomem":
+
+* .NET 4.0 i poniżej,
+* ODBC 10.0 i poniżej.
+* JDBC (podczas JDBC obsługuje TDS 7.4, funkcji przekierowania TDS nie jest całkowicie obsługiwana)
+* Niewygodny (dla środowiska Node.JS)
+
+**Uwaga:** poprzedni serwer modyfikacji FDQN może być przydatne także stosowania zasad inspekcji programu SQL Server poziom bez potrzebę konfiguracji kroku w każdej bazie danych (ograniczenie tymczasowe).     
+
+
+
 
 <!--Anchors-->
-[Podstawowe informacje dotyczące bazy danych inspekcji]: #subheading-1
-[Inspekcja bazy danych]: #subheading-2
-[Analizowanie dzienników inspekcji i raportów]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ Można również skonfigurować inspekcji w usłudze Azure SQL Data Warehouse pr
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

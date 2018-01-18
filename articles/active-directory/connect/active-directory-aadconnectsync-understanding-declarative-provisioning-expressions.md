@@ -3,7 +3,7 @@ title: "Azure AD Connect: Deklaratywne inicjowania obsługi administracyjnej wyr
 description: "W tym artykule wyjaśniono deklaratywne wyrażenia inicjowania obsługi administracyjnej."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronizacja programu Azure AD Connect: opis deklaratywne wyrażenia inicjowania obsługi administracyjnej
 Synchronizacja programu Azure AD Connect tworzy na aprowizacją deklaratywną po raz pierwszy wprowadzone w programie Forefront Identity Manager 2010. Umożliwia wdrożenie logiki biznesowej tożsamości pełnej integracji bez konieczności pisania kodu skompilowanego.
@@ -84,7 +84,7 @@ Na przykład:
 `Word([proxyAddresses],1,"@") & "@contoso.com"`Dla każdej wartości z @-sign, Zastąp domeny za pomocą @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Znajdź adres SIP i usunąć go z wartości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o model konfiguracji w [Aprowizacją deklaratywną opis](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Zobacz, jak deklaratywne inicjowania obsługi administracyjnej jest używane out-of-box w [opis konfiguracji domyślnej](active-directory-aadconnectsync-understanding-default-configuration.md).
 * W temacie jak zrobić praktyczne przy użyciu aprowizacją deklaratywną w [jak wprowadzić zmianę do domyślnej konfiguracji](active-directory-aadconnectsync-change-the-configuration.md).

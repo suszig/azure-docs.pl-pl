@@ -29,7 +29,7 @@ W poniższej tabeli przedstawiono limity dotyczące zasobów usługi IoT Hub:
 | Maksymalny rozmiar bliźniaczej reprezentacji urządzenia <br/> (tagi, zgłoszone właściwości i żądane właściwości) | 8 KB |
 | Maksymalny rozmiar wartości ciągu bliźniaczej reprezentacji urządzenia | 4 KB |
 | Maksymalna głębokość obiektu w bliźniaczej reprezentacji urządzenia | 5 |
-| Maksymalny rozmiar ładunku metody bezpośredniej | 8 KB |
+| Maksymalny rozmiar ładunku metody bezpośredniej | 128 KB |
 | Maksymalny okres przechowywania historii zadań | 30 dni |
 | Maksymalna liczba równoczesnych zadań | 10 (warstwa S3), 5 (warstwa S2), 1 (warstwa S1) |
 | Maksymalna liczba dodatkowych punktów końcowych | 10 (warstwy S1, S2 i S3) |
@@ -53,7 +53,7 @@ Usługa IoT Hub ogranicza żądania po przekroczeniu następujących limitów pr
 | Liczba elementów wysłanych z chmury do urządzenia | 83.33/sec/Unit (5000/min/jednostka) (S3) 1.67/sec/unit (jednostka/100/min) (dla S1 i S2). |
 | Liczba odebranych elementów wysłanych z chmury do urządzenia |16.67/sec/unit (50000/min/jednostka) (S3) 833.33/sec/Unit (1000/min/jednostka) (S1 i S2). |
 | Operacje przekazywania plików |Plik 83.33 przekazywania s powiadomienia jednostki 1.67 (5000/min/jednostka) (S3), plik przekazywania powiadomień/s/jednostka (jednostka/100/min) (S1 i S2). <br/> Jednocześnie może istnieć 10 000 identyfikatorów URI sygnatury dostępu współdzielonego dla konta usługi Azure Storage.<br/> Jednocześnie może istnieć 10 identyfikatorów URI sygnatury dostępu współdzielonego. |
-| Metody bezpośrednie | 3000/s/jednostka (S3) 60/s/jednostki (S2), 20/s/jednostka (S1) |
+| Metody bezpośrednie | 24MB/s/jednostki (w przypadku S3), 480KB/s/jednostka (S2) 160KB/s/jednostki (S1)<br/> Oparte na 8KB ograniczania rozmiaru miernika. |
 | Liczba odczytów bliźniaczej reprezentacji urządzenia | 50/sek/jednostkę (warstwa S3), maksymalnie 10/sek lub 1/sek/jednostkę (warstwa S2), 10/sek (warstwa S1) |
 | Liczba aktualizacji bliźniaczej reprezentacji urządzenia | 50/sek/jednostkę (warstwa S3), maksymalnie 10/sek lub 1/sek/jednostkę (warstwa S2), 10/sek (warstwa S1) |
 | Operacje zadań <br/> (tworzenie, aktualizowanie, wyświetlanie, usuwanie) | 83.33/sec/Unit (5000/min/jednostka) (S3) 1.67/sec/unit (jednostka/100/min) (dla S2), 1.67/sec/unit (jednostka/100/min) (dla S1) |

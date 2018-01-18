@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Tworzenie akcji skryptu za pomocą usługi HDInsight
 
@@ -118,7 +118,7 @@ Najlepszym rozwiązaniem jest, aby pobrać i zarchiwizowanie wszystkich na konci
 > [!IMPORTANT]
 > Konto magazynu używane musi być domyślne konto magazynu dla klastra lub kontener publiczne, tylko do odczytu na inne konto magazynu.
 
-Na przykład przykłady obsługiwane przez firmę Microsoft są przechowywane w [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) konta magazynu. To jest kontenerem publiczne, tylko do odczytu obsługiwanego przez zespół usługi HDInsight.
+Na przykład przykłady obsługiwane przez firmę Microsoft są przechowywane w [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) konta magazynu. Ta lokalizacja jest publiczny, tylko do odczytu kontenera obsługiwanego przez zespół usługi HDInsight.
 
 ### <a name="bPS4"></a>Użyj wstępnie skompilowanym zasobów
 
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Lista kontrolna wdrażania akcji skryptu
 
-Poniżej przedstawiono kroki, które Wybraliśmy podczas przygotowania do wdrożenia tych skryptów:
+Oto wykonaj kroki podczas przygotowywania wdrożenia skryptu:
 
 * Umieścić pliki, które zawierają niestandardowe skrypty w miejscu, który jest dostępny dla węzłów klastra podczas wdrażania. Na przykład domyślny magazyn dla klastra. Pliki mogą być również przechowywane w publicznie do odczytu usług hostingu.
 * Sprawdź, czy skrypt impotent. Dzięki temu skryptu do wykonania wiele razy w tym samym węźle.

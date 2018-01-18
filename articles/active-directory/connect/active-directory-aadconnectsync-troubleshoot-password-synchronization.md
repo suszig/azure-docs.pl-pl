@@ -3,7 +3,7 @@ title: "Rozwiązywanie problemów z synchronizacją hasła z synchronizacji Azur
 description: "Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z synchronizacją hasła."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Rozwiązywanie problemów z synchronizacją hasła z synchronizacji Azure AD Connect
 Ten temat zawiera procedurę rozwiązywania problemów z synchronizacją haseł. Jeśli nie można zsynchronizować hasła, zgodnie z oczekiwaniami, można dla podzbioru użytkowników lub dla wszystkich użytkowników.
@@ -287,7 +287,7 @@ Umożliwia łatwe rozwiązywanie problemów z synchronizacją hasła, przegląda
 
     b. Kliknij przycisk **łączniki**.
 
-    c. Wybierz **łącznika usługi Active Directory** gdzie znajduje się użytkownik.
+    d. Wybierz **łącznika usługi Active Directory** gdzie znajduje się użytkownik.
 
     d. Wybierz **wyszukiwania przestrzeni łącznika**.
 
@@ -333,7 +333,7 @@ W kolumnie Stan może mieć następujące wartości:
 | TargetNotExportedToDirectory |Obiekt do przestrzeni łącznika usługi Azure AD nie zostały wyeksportowane. |
 | MigratedCheckDetailsForMoreInfo |Wpis dziennika został utworzony przed kompilacji 1.0.9125.0 i jest wyświetlany w stanie starszej wersji. |
 | Błąd |Usługa zwróciła nieznany błąd. |
-| Nieznane |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
+| Brak informacji |Wystąpił błąd podczas próby przetworzenia partii skrótów haseł.  |
 | MissingAttribute |Określone atrybuty (na przykład protokołu Kerberos wyznaczania wartości skrótu) wymagane przez usługi domenowe Azure AD nie są dostępne. |
 | RetryRequestedByTarget |Określone atrybuty (na przykład protokołu Kerberos wyznaczania wartości skrótu) wymagane przez usługi domenowe Azure AD nie były wcześniej dostępne. Podejmowana jest próba, aby ponownie zsynchronizować skrót hasła użytkownika. |
 
@@ -413,7 +413,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Implementowanie synchronizacji haseł z synchronizacji Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Azure AD Connect Sync: Dostosowywanie opcji synchronizacji](active-directory-aadconnectsync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)

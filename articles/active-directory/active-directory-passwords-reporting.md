@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ae9475218141f4fdf08ef6b39fb85f3b18711e61
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opcje raportowania dla usługi Azure AD zarządzania hasłami
 
@@ -194,7 +194,7 @@ Poniżej wyjaśniono tego działania szczegółowo:
      >Błąd nie oznaczają, że użytkownik nie może zresetować swoje hasła. Oznacza to, że nie zostało zakończone się procesu rejestracji. Jeśli konto jest prawidłowe, takich jak numer telefonu, który nie jest weryfikowany, nawet jeśli nie zweryfikowano ten numer telefonu jest niezweryfikowane dane, ich go użyć do zresetowania swojego hasła. Aby uzyskać więcej informacji, zobacz [co się dzieje, gdy użytkownik rejestruje?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md).

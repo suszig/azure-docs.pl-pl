@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Odzyskiwanie bazy danych Azure SQL przy użyciu kopii zapasowych bazy danych automatycznych
 Baza danych SQL oferuje następujące opcje bazy danych odzyskiwania przy użyciu [automatyczne kopie zapasowe bazy danych](sql-database-automated-backups.md) i [kopie zapasowe w przechowywania długoterminowego](sql-database-long-term-retention.md). Można przywrócić z kopii zapasowej bazy danych, aby:
@@ -90,7 +90,7 @@ Aby odzyskać do punktu w czasie przy użyciu portalu Azure, otwórz stronę baz
 ![punkt w czasie przywracania](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Przywracanie usuniętej bazy danych
-Do czasu usunięcia dla usuniętej bazy danych na tym samym serwerze logicznym przy użyciu portalu Azure, można przywrócić usuniętą bazę [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), lub [REST (createMode = przywracanie)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Do czasu usunięcia dla usuniętej bazy danych na tym samym serwerze logicznym przy użyciu portalu Azure, można przywrócić usuniętą bazę [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), lub [REST (createMode = przywracanie)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Można przywrócić usuniętej bazy danych do wcześniejszego punktu w czasie w trakcie przechowywania, przy użyciu [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
 > [!TIP]
 > Aby uzyskać przykładowy skrypt programu PowerShell przedstawiająca sposób Przywracanie usuniętej bazy danych, zobacz [Przywróć bazę danych SQL przy użyciu programu PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -139,7 +139,7 @@ Jak już wspomniano, oprócz portalu Azure programowo przy użyciu programu Azur
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Pobiera jeden lub więcej baz danych. |
 | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Pobiera usuniętej bazy danych, które można przywrócić. |
 | [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Pobiera geograficznie nadmiarowego kopii zapasowej bazy danych. |
-| [Przywracanie AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Przywraca bazę danych SQL. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Przywraca bazę danych SQL. |
 |  | |
 
 ### <a name="rest-api"></a>Interfejs API REST
@@ -152,7 +152,7 @@ Jak już wspomniano, oprócz portalu Azure programowo przy użyciu programu Azur
 ## <a name="summary"></a>Podsumowanie
 Automatyczne kopie zapasowe chronić baz danych użytkownika i błędy aplikacji, usuwać przypadkowemu bazy danych i długimi przestojami. Ta funkcja wbudowana jest dostępna dla wszystkich warstw usług i poziomy wydajności. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
 * Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md).
 * Aby uzyskać informacje dotyczące długoterminowego przechowywania kopii zapasowych, zobacz [długoterminowego przechowywania kopii zapasowych](sql-database-long-term-retention.md).

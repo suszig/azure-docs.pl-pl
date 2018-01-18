@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Wybierz typ instalacji | Dokumentacja firmy Microsoft'
 description: "W tym temacie przedstawiono sposób Wybieranie typu instalacji do użycia programu Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Wybierz typ instalacji, które można użyć programu Azure AD Connect
 Azure AD Connect ma dwa typy instalacji nowej instalacji: Express i niestandardowych. Ten temat ułatwia podjęcie decyzji, którą opcję do użycia podczas instalacji.
@@ -41,7 +41,7 @@ Pobierz:
 
 Opcje, których można nadal używać Express:
 
-- Jeśli nie chcesz synchronizować wszystkich jednostkach organizacyjnych, można nadal używać Express i na ostatniej stronie, usuń zaznaczenie **Uruchom proces synchronizacji...** *. A następnie ponownie uruchom Kreatora instalacji i zmienić jednostki organizacyjne w [opcje konfiguracji](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) i Włącz synchronizację według harmonogramu.
+- Jeśli nie chcesz synchronizować wszystkich jednostkach organizacyjnych, można nadal używać Express i na ostatniej stronie, usuń zaznaczenie ** Uruchom proces synchronizacji... ***. A następnie ponownie uruchom Kreatora instalacji i zmienić jednostki organizacyjne w [opcje konfiguracji](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) i Włącz synchronizację według harmonogramu.
 - Chcesz włączyć funkcji w usłudze Azure AD Premium, takie jak zapisywanie zwrotne haseł. Najpierw należy przeprowadzić express można pobrać ukończeniem instalacji początkowej. A następnie ponownie uruchom Kreatora instalacji i zmienić [opcje konfiguracji](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Niestandardowy
@@ -71,5 +71,5 @@ Jeśli aktualnie używasz usługi Azure AD Sync, a następnie można wykonać [t
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrowanie z usługi FIM2010 lub MIM2016
 Jeśli używasz obecnie programu Forefront Identity Manager 2010 lub Microsoft Identity Manager 2016 z łącznika usługi Azure AD, jedyną opcją jest migracji. Wykonaj kroki opisane w [migracji zasięg](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). W krokach Zastąp FIM2010/MIM2016 wszelkie uwagi Azure AD Sync.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W zależności od opcji wybranych do użycia umożliwia odnalezienie artykułu z szczegółowy opis kroków spis treści z lewej strony.

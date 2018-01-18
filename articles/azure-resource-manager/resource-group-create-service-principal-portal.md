@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Aby utworzyć aplikację usługi Azure Active Directory i nazwy głównej usługi, który ma dostęp do zasobów za pomocą portalu
 
@@ -186,7 +186,7 @@ Na poziomie subskrypcji, grupy zasobów lub zasobów można ustawić zakresu. Up
 
 Aplikacja jest teraz skonfigurowane w usłudze Azure Active Directory. Masz identyfikator i klucz do użycia podczas podpisywania co aplikacja. Aplikacja jest przypisany do roli, która zapewnia jej pewne akcje, które może wykonywać. Aby uzyskać informacje o zalogowanie się jako aplikacji za pomocą różnych platform zobacz:
 
-* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [Program PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
 * [Interfejs wiersza polecenia platformy Azure](resource-group-authenticate-service-principal-cli.md)
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)

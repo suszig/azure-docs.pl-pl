@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących zdarzenia rResponse | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym - wymagań dotyczących odpowiedzi na zdarzenia Azure | Dokumentacja firmy Microsoft"
 description: "Określić możliwości monitorowania i raportowania dla rozwiązania z tożsamością hybrydową, które mogą zostać wykorzystane przez IT, aby podjąć działania w celu identyfikacji i ograniczyć potencjalne zagrożenia"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Określenie wymagań dotyczących odpowiedzi na zdarzenia dla rozwiązania z tożsamością hybrydową
 Duża lub średnich firmach najprawdopodobniej będzie mieć [odpowiedzi na zdarzenia zabezpieczeń](https://technet.microsoft.com/library/cc700825.aspx) mające na celu pomoc IT podjąć odpowiednie działania na poziom zdarzenia. System zarządzania tożsamościami jest składnikiem ważne w procesie odpowiedzi na zdarzenia, ponieważ mogą zostać użyte ułatwiające identyfikowanie, kto wykonał określonej akcji w odniesieniu do obiektu docelowego. Rozwiązania z tożsamością hybrydową musi mieć możliwość zapewnienia możliwości monitorowania i raportowania, które mogą zostać wykorzystane przez IT, aby podjąć działania w celu identyfikacji i ograniczyć potencjalne zagrożenia. W planie odpowiedzi na typowe zdarzenia mają następujące fazy jako część planu:

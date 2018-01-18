@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN do uwierzytelniania P2S RADIUS (wersja zapoznawcza)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Utwórz i zainstaluj pliki konfiguracji klienta sieci VPN do uwierzytelniania P2S RADIUS
 
 Pliki konfiguracji klienta sieci VPN znajdują się w pliku zip. Pliki konfiguracji Podaj ustawienia wymagane dla natywnego klienta systemu Windows lub Mac IKEv2 sieci VPN do nawiązania połączenia przez punkt-lokacja sieci wirtualnej. Serwer usługi RADIUS udostępnia wiele opcji uwierzytelniania i, konfiguracja klienta sieci VPN może być różna dla każdej opcji.
 
@@ -161,11 +161,11 @@ Konfigurowanie natywny klient VPN w systemie Mac uwierzytelniania certyfikatów,
 1. Importuj **VpnServerRoot** i **RadiusServerRoot** główny certyfikatów na komputerze Macintosh. Można to zrobić przez kopiowanie pliku przez do komputera Mac i kliknij go dwukrotnie.  
 Kliknij przycisk **Dodaj** do zaimportowania.
 
-  **Dodaj VpnServerRoot**
+  **Add VpnServerRoot**
 
   ![Dodawanie certyfikatu](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  **Dodaj RadiusServerRoot**
+  **Add RadiusServerRoot**
 
   ![Dodawanie certyfikatu](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Otwórz **sieci** , okno dialogowe **preferencji sieci** i kliknij przycisk **"+"** Aby utworzyć nowy profil połączenia klienta sieci VPN dla połączenia P2S do sieci wirtualnej platformy Azure.
@@ -187,7 +187,7 @@ Kliknij przycisk **Dodaj** do zaimportowania.
   ![identity](./media/point-to-site-vpn-client-configuration-radius/identity.png)
 7. W **identyfikator lokalny** Określ nazwę certyfikatu (z kroku 5). W tym przykładzie jest "ikev2Client.com". Następnie kliknij przycisk **Zastosuj** przycisk, aby zapisać zmiany.
 
-  ![Zastosuj](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
+  ![zastosuj](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. Na **sieci** okna dialogowego, kliknij przycisk **Zastosuj** można zapisać wszystkich zmian. Następnie kliknij przycisk **Connect** nawiązaniu połączenia P2S do sieci wirtualnej platformy Azure.
 
 ## <a name="otherauth"></a>Praca z innych typów uwierzytelniania lub protokołów
@@ -205,6 +205,6 @@ Aby użyć typu uwierzytelniania inny (na przykład OTP), a nie nazwy użytkowni
   * Trasy - tras, na których należy skonfigurować w profilu, aby ruch powiązany tylko sieć wirtualna Azure jest przesyłane przez tunel P2S.
   * GenenericDevice folder zawiera także plik .cer o nazwie "VpnServerRoot". Ten plik zawiera certyfikat główny, wymaganego do sprawdzenia poprawności bramy sieci VPN platformy Azure, podczas konfigurowania połączenia P2S. Zainstaluj certyfikat na wszystkich urządzeniach, które będą łączyć się z sieci wirtualnej platformy Azure. 
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Wróć do tego artykułu, aby [ukończyć konfigurację P2S](point-to-site-how-to-radius-ps.md).

@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Zainstaluj usługę mobilności (VMware lub fizycznych do platformy Azure)
 Usługa mobilności Azure Site Recovery przechwytywania zapisów danych na komputerze, a następnie przekazuje je do serwera przetwarzania. Wdrażanie usługi mobilności na każdym komputerze (maszyny Wirtualnej VMware lub serwerów fizycznych), który chcesz replikować do platformy Azure. Usługa mobilności można wdrożyć na serwerach, które mają być chronione przy użyciu następujących metod:
@@ -50,16 +45,16 @@ Wykonaj następujące kroki wymagań wstępnych, aby ręcznie zainstalować usł
 
 | Nazwa szablonu pliku Instalatora| System operacyjny |
 |---|--|
-|Usługa ASR Microsoft\_UA\*Windows\*release.exe | Windows Server 2008 R2 z dodatkiem SP1 (64-bitowe) </br> Windows Server 2012 (64-bitowe) </br> Windows Server 2012 R2 (64-bitowe) </br> Windows Server 2016 (64-bitowe) |
-|Usługa ASR Microsoft\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (tylko wersja 64-bitowa) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (tylko wersja 64-bitowa) |
-|Usługa ASR Microsoft\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (tylko wersja 64-bitowa) </br> CentOS 7.0, 7.1, 7.2, 7.3 (tylko wersja 64-bitowa) |
-|Usługa ASR Microsoft\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 z dodatkiem SP3 (tylko wersja 64-bitowa)|
-|Usługa ASR Microsoft\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 z dodatkiem SP4 (tylko wersja 64-bitowa)|
-|Usługa ASR Microsoft\_UA\*OL6 64\*release.tar.gz | Oracle Linux przedsiębiorstwa 6.4, 6.5 (tylko wersja 64-bitowa)|
-|Usługa ASR Microsoft\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (tylko wersja 64-bitowa)|
-|Usługa ASR Microsoft\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS serwera (tylko wersja 64-bitowa)|
-|Microsoft ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (tylko wersja 64-bitowa)|
-|Microsoft ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8 (tylko wersja 64-bitowa)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 z dodatkiem SP1 (64-bitowe) </br> Windows Server 2012 (64-bitowe) </br> Windows Server 2012 R2 (64-bitowe) </br> Windows Server 2016 (64-bitowe) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (tylko wersja 64-bitowa) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (tylko wersja 64-bitowa) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (tylko wersja 64-bitowa) </br> CentOS 7.0, 7.1, 7.2, 7.3 (tylko wersja 64-bitowa) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 z dodatkiem SP3 (tylko wersja 64-bitowa)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 z dodatkiem SP4 (tylko wersja 64-bitowa)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Linux przedsiębiorstwa 6.4, 6.5 (tylko wersja 64-bitowa)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (tylko wersja 64-bitowa)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS serwera (tylko wersja 64-bitowa)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (tylko wersja 64-bitowa)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (tylko wersja 64-bitowa)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Ręcznie zainstalować usługi mobilności przy użyciu graficznego interfejsu użytkownika
@@ -92,7 +87,7 @@ Po zainstalowaniu usługi mobilności w portalu Azure wybierz **+ Replikuj** prz
 ## <a name="update-mobility-service"></a>Aktualizacja usługi mobilności
 
 > [!WARNING]
-> Sprawdź, czy serwer konfiguracji, skalowalnych w poziomie serwerów przetwarzania i główny cel serwery są częścią wdrożenia aktualizacji przed rozpoczęciem aktualizacji usługi Mobility na chronionych serwerach. Dowiedz się więcej na [sposoby aktualizacji serwera konfiguracji](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) i [aktualizacji serwerów proces skalowania w poziomie](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Sprawdź, czy serwer konfiguracji, skalowalnych w poziomie serwerów przetwarzania i główny cel serwery są częścią wdrożenia aktualizacji przed rozpoczęciem aktualizacji usługi Mobility na chronionych serwerach.
 
 1. W portalu Azure przejdź na <Your Vault> -> Wyświetl elementy replikowane.
 2. Jeśli **serwera konfiguracji** został już zaktualizowany do najnowszej wersji, a następnie powinny pojawić się powiadomienie, które odczytuje *jest dostępna aktualizacja agenta replikacji odzyskiwania nowej lokacji. Kliknij, aby zainstalować*

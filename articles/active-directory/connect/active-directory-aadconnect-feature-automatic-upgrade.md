@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Automatyczne uaktualnianie | Dokumentacja firmy Micros
 description: W tym temacie opisano wbudowanych funkcji automatycznego uaktualniania synchronizacji Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
 Ta funkcja została wprowadzona z kompilacją 1.1.105.0 (wydane luty 2016).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Zapewnienie instalacji programu Azure AD Connect jest zawsze aktualny jest wyjątkowo proste z **automatyczne uaktualnianie** funkcji. Ta funkcja jest włączona domyślnie w przypadku instalacji ekspresowej, a uaktualnienie narzędzia DirSync. Po wydaniu nowej wersji instalacji zostaje automatycznie uaktualnione.
 Automatyczne uaktualnianie jest domyślnie włączona dla następujących czynności:
 
@@ -100,5 +100,5 @@ W tym miejscu znajduje się lista typowych wiadomości, które można znaleźć.
 | UpgradeNotSupportedStagingModeEnabled |Serwer jest ustawiona w [Tryb przejściowy](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Włączono [zapisu zwrotnego użytkowników](active-directory-aadconnect-feature-preview.md#user-writeback) funkcji. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

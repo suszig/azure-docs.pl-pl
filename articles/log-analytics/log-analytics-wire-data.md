@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Podczas transmisji danych 2.0 (wersja zapoznawcza) rozwiązania analizy dzienników
 
@@ -58,9 +58,9 @@ Podczas transmisji danych dane są pobierane z Microsoft Dependency Agent. Agent
 
 | **Źródło połączenia** | **Obsługiwane** | **Opis** |
 | --- | --- | --- |
-| Agenci dla systemu Windows | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> Oprócz [Agent pakietu OMS](log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Agenci dla systemu Linux | Tak | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Linux agenta.<br><br> Oprócz [Agent pakietu OMS](log-analytics-quick-collect-linux-computer.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
-| Grupa zarządzania programu System Center Operations Manager | Tak | Podczas transmisji danych analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Połączenie bezpośrednie z komputera agenta programu System Center Operations Manager do analizy dzienników jest wymagana. Dane są przesyłane dalej z grupy zarządzania do analizy dzienników. |
+| Agenci dla systemu Windows | Yes | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Windows agenta. <br><br> Oprócz [Agent pakietu OMS](log-analytics-windows-agent.md), agentów systemu Windows wymagają Microsoft Dependency Agent. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Agenci dla systemu Linux | Yes | Podczas transmisji danych analizuje i zbiera dane z komputerów z systemem Linux agenta.<br><br> Oprócz [Agent pakietu OMS](log-analytics-quick-collect-linux-computer.md), Microsoft Dependency Agent wymagają agentów systemu Linux. Zobacz [obsługiwanych systemów operacyjnych](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) pełną listę wersji systemu operacyjnego. |
+| Grupa zarządzania programu System Center Operations Manager | Yes | Podczas transmisji danych analizuje i zbiera dane z agentów systemu Windows i Linux w połączonych [grupy zarządzania programu System Center Operations Manager](log-analytics-om-agents.md). <br><br> Połączenie bezpośrednie z komputera agenta programu System Center Operations Manager do analizy dzienników jest wymagana. Dane są przesyłane dalej z grupy zarządzania do analizy dzienników. |
 | Konto magazynu Azure | Nie | Podczas transmisji danych zbiera dane z komputery agenta, więc nie ma żadnych danych z niego do zbierania z usługi Azure Storage. |
 
 W systemie Windows Microsoft Monitoring Agent (MMA) jest używany zarówno przez System Center Operations Manager i analizy dzienników do zbierania i wysyłania danych. W zależności od kontekstu agent jest nazywany agenta programu System Center Operations Manager, Agent pakietu OMS, Agent analizy dziennika, MMA lub bezpośredniego agenta. System Center Operations Manager i Log Analytics zapewnia nieco inne wersje MMA. Te wersje strony każdy raport do programu System Center Operations Manager do analizy dzienników lub obie.
@@ -173,27 +173,27 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 | **Wersja systemu operacyjnego** | **Wersja jądra** |
 | --- | --- |
 | 11 | 2.6.27 |
-| 11 Z DODATKIEM SP1 | 2.6.32 |
-| 11 Z DODATKIEM SP2 | 3.0.13 |
-| 11 Z DODATKIEM SP3 | 3.0.76 |
-| 11 Z DODATKIEM SP4 | 3.0.101 |
+| 11 SP1 | 2.6.32 |
+| 11 SP2 | 3.0.13 |
+| 11 SP3 | 3.0.76 |
+| 11 SP4 | 3.0.101 |
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
 | **Wersja systemu operacyjnego** | **Wersja jądra** |
 | --- | --- |
-| Z DODATKIEM SP4 10 | 2.6.16.60 |
+| 10 SP4 | 2.6.16.60 |
 
 #### <a name="dependency-agent-downloads"></a>Zależności agenta pliki do pobrania
 
-| **Plik** | **SYSTEM OPERACYJNY** | **Wersja** | **ALGORYTM SHA-256** |
+| **Plik** | **OS** | **Wersja** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj poniższe kroki, aby skonfigurować rozwiązanie udostępniający dane dla obszarów roboczych.
 
@@ -217,9 +217,9 @@ Aby zainstalować agenta zależności na każdy komputer z systemem Windows, wyk
 
 Opcje z poniższej tabeli służą do instalacji z wiersza polecenia. Aby wyświetlić listę flagi instalacji, należy uruchomić Instalatora przy użyciu /? Flaga w następujący sposób.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
-| **Flaga** | **Opis** |
+| **Flag** | **Opis** |
 | --- | --- |
 | <code>/?</code> | Pobierz listę opcji wiersza polecenia. |
 | <code>/S</code> | Wykonaj instalację dyskretną bez monitowania użytkownika. |
@@ -244,7 +244,7 @@ Aby wyświetlić listę flagi instalacji, uruchom program instalacyjny z `-help`
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flaga** | **Opis** |
+| **Flag** | **Opis** |
 | --- | --- |
 | <code>-help</code> | Pobierz listę opcji wiersza polecenia. |
 | <code>-s</code> | Wykonaj instalację dyskretną bez monitowania użytkownika. |
@@ -254,11 +254,11 @@ Pliki programu Agent zależności są umieszczane w następujących katalogów:
 
 | **Pliki** | **Lokalizacja** |
 | --- | --- |
-| Podstawowe pliki | /OPT/Microsoft/Dependency-Agent |
+| Podstawowe pliki | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/OPT/Microsoft/Dependency-Agent/log |
-| Pliki konfiguracji | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Pliki wykonywalne usługi | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br><br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Pliki binarne magazynu | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Pliki konfiguracji | /etc/opt/microsoft/dependency-agent/config |
+| Pliki wykonywalne usługi | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Pliki binarne magazynu | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="installation-script-examples"></a>Przykłady skryptów instalacji
 
@@ -375,16 +375,13 @@ Skorzystaj z poniższych informacji, aby zainstalować i skonfigurować rozwiąz
 
 Po zostać zainstalowani agenci i zainstalować rozwiązania, w obszarze roboczym pojawi się Kafelek podczas transmisji danych 2.0.
 
-> [!NOTE]
-> Obecnie do wyświetlenia podczas transmisji danych trzeba użyć portalu OMS. Nie można użyć portalu Azure do wyświetlania danych danych przesyłanych w sieci.
-
 ![Podczas transmisji danych kafelków](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Za pomocą rozwiązania podczas transmisji danych 2.0
 
 W portalu OMS kliknij **podczas transmisji danych 2.0** Kafelek, aby otworzyć pulpit nawigacyjny udostępniający dane. Pulpit nawigacyjny zawiera bloki w poniższej tabeli. Każdy blok zawiera maksymalnie 10 elementów spełniających kryteria tego bloku dla określonego zakresu i zakres czasu. Można uruchomić wyszukiwania dziennika, który zwraca wszystkie rekordy, klikając **zobaczyć wszystkie** w dolnej części bloku lub przez kliknięcie nagłówka bloku.
 
-| **Blok** | **Opis** |
+| **Blade** | **Opis** |
 | --- | --- |
 | Agenci przechwytujący ruch sieciowy | Zawiera liczbę agentów, które są Przechwytywanie ruchu sieciowego i listę top 10 komputerów, które są Przechwytywanie ruchu. Kliknij liczbę do uruchamiania dziennika wyszukiwanie <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Kliknij komputer, na liście do uruchomienia zwracanie całkowita liczba bajtów przechwytywane wyszukiwanie dziennika. |
 | Lokalne podsieci | Pokazuje liczbę podsieci lokalne, które zostały odnalezione agentów.  Kliknij liczbę do uruchamiania dziennika wyszukiwanie <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> które wyświetla listę wszystkich podsieci z liczbę bajtów przesyłanych w ramach każdej z nich. Kliknij przycisk podsieci na liście, aby uruchomić wyszukiwanie dziennika zwracanie całkowita liczba bajtów wysłanych w tej podsieci. |
@@ -446,11 +443,11 @@ Rekord o typie _WireData_ jest tworzony dla każdego typu danych wejściowych. R
 | TotalBytes | Całkowita liczba bajtów wysłanych podczas sesji |
 | ApplicationProtocol | Typ protokołu sieciowego używane   |
 | Identyfikator procesu | Identyfikator procesu systemu Windows |
-| Parametr | Ścieżka i nazwa pliku procesu |
+| ProcessName | Ścieżka i nazwa pliku procesu |
 | RemoteIPLongitude | Wartości długości geograficznej IP |
 | RemoteIPLatitude | Wartość szerokości geograficznej IP |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Wyszukaj dzienniki](log-analytics-log-searches.md) Aby wyświetlić szczegółowe podczas transmisji danych wyszukiwanie rekordów.

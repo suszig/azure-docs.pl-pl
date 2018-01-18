@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiowanie danych z serwera SFTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,7 +55,7 @@ Usługa SFTP połączone obsługuje następujące właściwości:
 | port | Port, na którym nasłuchuje serwer SFTP.<br/>Dozwolone wartości to: liczba całkowita, wartość domyślna to **22**. |Nie |
 | skipHostKeyValidation | Określ, czy pominąć sprawdzanie poprawności klucza hosta.<br/>Dozwolone wartości to: **true**, **false** (ustawienie domyślne).  | Nie |
 | hostKeyFingerprint | Podaj odcisk palca klucza hosta. | Tak, jeśli "skipHostKeyValidation" jest ustawiona na wartość false.  |
-| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **parametry SshPublicKey**. Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Yes |
+| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **parametry SshPublicKey**. Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 ### <a name="using-basic-authentication"></a>Przy użyciu uwierzytelniania podstawowego
@@ -64,7 +64,7 @@ Aby uwierzytelnianie podstawowe, ustaw właściwość "authenticationType" **pod
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
+| userName | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
 | hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
 
 **Przykład:**
@@ -100,10 +100,10 @@ Aby używać uwierzytelniania klucza publicznego SSH, ustaw właściwość "auth
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP |Yes |
+| userName | Użytkownik, który ma dostęp do serwera SFTP |Yes |
 | privateKeyPath | Określ ścieżkę bezwzględną do pliku klucza prywatnego środowiska uruchomieniowego integracji może uzyskać dostęp. Ma zastosowanie tylko wtedy, gdy określono siebie typu środowiska uruchomieniowego integracji w "connectVia". | Określ `privateKeyPath` lub `privateKeyContent`.  |
 | privateKeyContent | Treści klucza prywatnego SSH w formacie Base64. Klucz prywatny SSH powinna być w formacie OpenSSH. Zaznacz to pole jako SecureString. | Określ `privateKeyPath` lub `privateKeyContent`. |
-| Hasło | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. Zaznacz to pole jako SecureString. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
+| passPhrase | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. Zaznacz to pole jako SecureString. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
 
 > [!NOTE]
 > Łącznik SFTP obsługuje tylko klucz OpenSSH. Upewnij się, że plik klucza jest w nieprawidłowym formacie. Narzędzie Putty umożliwia konwertowanie ppk na OpenSSH format.
@@ -219,7 +219,7 @@ Aby skopiować dane z użyciem protokołu SFTP, należy ustawić typ źródła w
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Yes |
-| Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
+| Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu. Uwaga: po cykliczne ma ustawioną wartość PRAWDA, a obiekt sink jest magazynu opartych na plikach, pusty folder/podrzędne-folder nie będą kopiowane utworzone w ujścia.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 
 **Przykład:**
 
@@ -254,5 +254,5 @@ Aby skopiować dane z użyciem protokołu SFTP, należy ustawić typ źródła w
 ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

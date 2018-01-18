@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>Usługa sfctl
 Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usług.
@@ -28,24 +28,24 @@ Tworzenie, usuwanie i zarządzanie usługi, typów usług i pakietów usług.
 |Polecenie|Opis|
 | --- | --- |
 |    Nazwa aplikacji       | Pobiera nazwę aplikacji sieci szkieletowej usług dla usługi.|
-|    Lista w przypadku pakietu kodu | Pobiera listę pakietów kodu wdrożone w węźle sieci szkieletowej usług.|
+|    code-package-list | Pobiera listę pakietów kodu wdrożone w węźle sieci szkieletowej usług.|
 |    create         | Tworzy określony usługi sieć szkieletowa usług z opisu.|
-|    Usuń         | Usuwa istniejącą usługę sieć szkieletowa usług.|
+|    usuwanie         | Usuwa istniejącą usługę sieć szkieletowa usług.|
 |    wdrożone typu  | Pobiera informacje o typie określonej usługi, aplikacji wdrożonych w węźle klastra sieci szkieletowej usług.|
 |    wdrożony typ — listy| Pobiera listę zawierającą informacje o typach usługi z aplikacje wdrożone w węźle klastra sieci szkieletowej usług.|
 |    description    | Pobiera opis istniejącej usługi sieć szkieletowa usług.|
-|    Kondycji         | Pobiera kondycji określonej usługi sieć szkieletowa usług.|
+|    kondycja         | Pobiera kondycji określonej usługi sieć szkieletowa usług.|
 |    Informacje o           | Pobiera informacje o określonej usługi należące do aplikacji sieci szkieletowej usług.|
-|    Lista           | Pobiera informacje o wszystkich usług należących do aplikacji określonej przez identyfikator aplikacji.|
+|    lista           | Pobiera informacje o wszystkich usług należących do aplikacji określonej przez identyfikator aplikacji.|
 |    Manifest       | Pobiera manifest opisujące typ usługi.|
-|    Wdrażanie pakietu | Pobiera pakiety skojarzone z określoną usługą manifestu do pamięci podręcznej obrazu na określony węzeł.|
-|    Pakiet kondycji | Pobiera informacje o kondycji pakiet usługi dla określonej aplikacji wdrożone dla węzła sieci szkieletowej usług i aplikacji.|
-|    informacje o pakiecie   | Pobiera listę pakietów usług wdrożone w węźle sieci szkieletowej usług dopasowania określonej nazwy.|
-|    Lista pakietów   | Pobiera listę pakietów usług wdrożone w węźle sieci szkieletowej usług.|
+|    package-deploy | Pobiera pakiety skojarzone z określoną usługą manifestu do pamięci podręcznej obrazu na określony węzeł.|
+|    package-health | Pobiera informacje o kondycji pakiet usługi dla określonej aplikacji wdrożone dla węzła sieci szkieletowej usług i aplikacji.|
+|    package-info   | Pobiera listę pakietów usług wdrożone w węźle sieci szkieletowej usług dopasowania określonej nazwy.|
+|    package-list   | Pobiera listę pakietów usług wdrożone w węźle sieci szkieletowej usług.|
 |    Odzyskiwanie        | Wskazuje, aby klaster sieci szkieletowej usług mają podejmować próbę odzyskać określonej usługi, która jest obecnie zablokowane w wyniku utraty kworum.|
-|    Raport kondycji  | Wysyła raport o kondycji usługi sieć szkieletowa usług.|
-|    Rozwiązania        | Rozwiąż partycji usługi sieć szkieletowa usług.|
-|    Lista typów      | Pobiera listę zawierającą informacje o typach usługi, które są obsługiwane przez typ elastycznie aplikacji w klastrze usługi sieć szkieletowa usług.|
+|    report-health  | Wysyła raport o kondycji usługi sieć szkieletowa usług.|
+|    rozwiąż        | Rozwiąż partycji usługi sieć szkieletowa usług.|
+|    type-list      | Pobiera listę zawierającą informacje o typach usługi, które są obsługiwane przez typ elastycznie aplikacji w klastrze usługi sieć szkieletowa usług.|
 |    Aktualizacja         | Aktualizuje określonej usługi przy użyciu opisu danego aktualizacji.|
 
 
@@ -61,28 +61,28 @@ Tworzy określony usługi sieć szkieletowa usług z opisu.
 | — Typ usługi [wymagane]| Nazwa typu usługi.|
 | --trybie aktywacji     | Tryb aktywacji dla pakietu usług.|
 | — ograniczenia         | Ograniczenia dotyczące umieszczania jako ciąg. Ograniczenia dotyczące umieszczania są wyrażeń logicznych na właściwości węzła i umożliwiają ograniczenie usługi dla określonych węzłów na podstawie wymagań usługi. Na przykład, aby umieścić usługi na węzłach, gdzie jest niebieska NodeType określ następujące: "NodeColor == niebieski".|
-| --skorelowane usługi  | Nazwa usługi docelowej, aby mieć związek z.|
+| --correlated-service  | Nazwa usługi docelowej, aby mieć związek z.|
 | --Korelacja         | Korelowanie usługę za pomocą istniejącej usługi za pomocą koligacji wyrównania.|
-| Nazwa--dns            | Nazwa DNS usługa ma zostać utworzony. To ustawienie, można włączyć usługę systemu DNS sieci szkieletowej usług.|
-| — Liczba wystąpień      | Liczba wystąpień. Dotyczy to tylko w przypadku usług bezstanowych.|
-| int — schematu          | Wskazuje, że usługa powinna być jednolicie podzielonym na partycje w zakres liczb całkowitych bez znaku.|
-| int — schemat liczby    | Liczba partycji wewnątrz liczb całkowitych klucza zakres (schemat partycji uniform liczba całkowita) można utworzyć.|
-| int — schemat wysoki     | Koniec zakresu klucza liczba całkowita, jeśli przy użyciu schematu partycji uniform liczby całkowitej.|
-| int — schemat niski      | Początek zakresu klucza liczba całkowita, jeśli przy użyciu schematu partycji uniform liczby całkowitej.|
+| --dns-name            | Nazwa DNS usługa ma zostać utworzony. To ustawienie, można włączyć usługę systemu DNS sieci szkieletowej usług.|
+| --instance-count      | Liczba wystąpień. Dotyczy to tylko w przypadku usług bezstanowych.|
+| --int-scheme          | Wskazuje, że usługa powinna być jednolicie podzielonym na partycje w zakres liczb całkowitych bez znaku.|
+| --int-scheme-count    | Liczba partycji wewnątrz liczb całkowitych klucza zakres (schemat partycji uniform liczba całkowita) można utworzyć.|
+| --int-scheme-high     | Koniec zakresu klucza liczba całkowita, jeśli przy użyciu schematu partycji uniform liczby całkowitej.|
+| --int-scheme-low      | Początek zakresu klucza liczba całkowita, jeśli przy użyciu schematu partycji uniform liczby całkowitej.|
 | --metryki obciążenia        | Lista kodowany w formacie JSON metryki używane, gdy usług równoważenia obciążenia w węzłach.|
-| min —-— rozmiar zestawu replik-| Minimalna repliki Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
-| — Koszt przeniesienia           | Określa koszt przeniesienia dla usługi. Możliwe wartości to: "0", "Od", "Średni", "High".|
+| --min-replica-set-size| Minimalna repliki Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
+| --move-cost           | Określa koszt przeniesienia dla usługi. Możliwe wartości to: "0", "Od", "Średni", "High".|
 | --schematu o nazwie        | Wskazuje, że usługa ma wiele partycji o nazwie.|
-| --o nazwie schematu — listy   | Kodowany w formacie JSON listę nazw do partycjonowania usługi, jeśli przy użyciu schematu partycji o nazwie.|
+| --named-scheme-list   | Kodowany w formacie JSON listę nazw do partycjonowania usługi, jeśli przy użyciu schematu partycji o nazwie.|
 | --nie utrwalony — stan  | Jeśli ma wartość true, wskazuje usługi nie ma trwałego stanu przechowywane na dysku lokalnym lub tylko zapisuje stan w pamięci.|
-| --listę umieszczania zasad  | Listę umieszczania zasad dla usługi kodowany w formacie JSON, wraz ze wszystkimi skojarzonymi nazw domen. Zasady mogą być co najmniej jeden z: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
+| --placement-policy-list  | Listę umieszczania zasad dla usługi kodowany w formacie JSON, wraz ze wszystkimi skojarzonymi nazw domen. Zasady mogą być co najmniej jeden z: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
 | --kworum utraty — oczekiwania    | Maksymalny czas w sekundach, dla których partycji może być w stanie utraciła kworum. Dotyczy to tylko usług stanowych.|
-| --repliki — ponowne uruchomienie — oczekiwania| Czas w sekundach między gdy spadnie repliki i utworzenia nowej repliki. Dotyczy to tylko usług stanowych.|
+| --replica-restart-wait| Czas w sekundach między gdy spadnie repliki i utworzenia nowej repliki. Dotyczy to tylko usług stanowych.|
 | --singleton schematu    | Wskazuje usługi powinny mieć jednej partycji lub być partycjonowane usługi z systemem innym niż.|
 | --wstrzymania przez repliki zachować  | Maksymalny czas trwania w sekundach, w których stan wstrzymania repliki są obsługiwane przed usuwana. Dotyczy to tylko usług stanowych.|
 | --stateful            | Wskazuje, że usługa jest usługą stanowych.|
 | --bezstanowych           | Wskazuje, że usługa jest usługą bezstanowe.|
-| --docelowy —-rozmiar zestawu replik| Repliki docelowej Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
+| --target-replica-set-size| Repliki docelowej Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
 | limit czasu — -t          | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -105,7 +105,7 @@ Usuwa istniejącą usługę sieć szkieletowa usług. Usługa musi zostać utwor
 |Argument|Opis|
 | --- | --- |
 | — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi jest fabric://myapp/app1/svc1 ", jest tożsamość usługi" moja_aplikacja ~ app1 ~ svc1 "w wersji 6.0 + i" myapp/app1/svc1"w poprzednich wersjach.|
-| -force-remove      | Usuń sieć szkieletowa usług aplikacji lub usługi wymuszone bez pośrednictwa bezpiecznego zamknięcia sekwencji. Ten parametr może służyć do wymuszone usunięcie aplikacji lub usługi, dla których delete jest przekroczeniem limitu czasu z powodu problemów z kodem usługi, który uniemożliwia łagodne zamykanie replik.|
+| --force-remove      | Usuń sieć szkieletowa usług aplikacji lub usługi wymuszone bez pośrednictwa bezpiecznego zamknięcia sekwencji. Ten parametr może służyć do wymuszone usunięcie aplikacji lub usługi, dla których delete jest przekroczeniem limitu czasu z powodu problemów z kodem usługi, który uniemożliwia łagodne zamykanie replik.|
 | limit czasu — -t        | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -150,9 +150,9 @@ Pobiera informacje o kondycji określonej usługi. Filtr EventsHealthStateFilter
 |Argument|Opis|
 | --- | --- |
 | — Identyfikator usługi [wymagane]| Tożsamość usługi. Zazwyczaj jest to pełna nazwa tej usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
-| --zdarzenia kondycji — stan filtru | Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
-|— Wyklucz kondycji statystyk     | Wskazuje, czy statystyki kondycji powinny być zwracane w ramach wyniku zapytania. Wartość false, domyślnie. Statystyki zawierają liczbę elementów podrzędnych obiektów w kondycja Ok, ostrzeżeń i błędów.|
-| --partycje kondycji — stan filtru| Umożliwia filtrowanie obiekty stanu kondycji partycje zwrócone w wyniku zapytania kondycji usługi na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko partycje, które są zgodne z filtrem. Wszystkie partycje służą do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest "6" następnie kondycja partycji o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState.                  Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+| --events-health-state-filter | Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+|--exclude-health-statistics     | Wskazuje, czy statystyki kondycji powinny być zwracane w ramach wyniku zapytania. Wartość false, domyślnie. Statystyki zawierają liczbę elementów podrzędnych obiektów w kondycja Ok, ostrzeżeń i błędów.|
+| --partitions-health-state-filter| Umożliwia filtrowanie obiekty stanu kondycji partycje zwrócone w wyniku zapytania kondycji usługi na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko partycje, które są zgodne z filtrem. Wszystkie partycje służą do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest "6" następnie kondycja partycji o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState.                  Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
 | limit czasu — -t                 | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -199,7 +199,7 @@ Zwraca informacje dotyczące wszystkich usług należących do aplikacji określ
 | --- | --- |
 | — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
 | --token kontynuacji    | Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników. Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi. Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
-| --nazwy typu usługi     | Nazwa typu usługi używane do filtrowania usług na kwerendę.|
+| --service-type-name     | Nazwa typu usługi używane do filtrowania usług na kwerendę.|
 | limit czasu — -t            | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -223,7 +223,7 @@ Pobiera manifest opisujące typ usługi. Odpowiedź zawiera manifest usługi XML
 | --- | --- |
 | --aplikacji typu nazwa-[wymagane]| Nazwa typu aplikacji.|
 | --— Typ — wersja aplikacji [wymagane]| Wersja typu aplikacji.|
-| --usługi manifest — wymagana jest nazwa []| Nazwa manifestu usługi, w zarejestrowany jako część typu aplikacji w klastrze usługi sieć szkieletowa usług.|
+| --service-manifest-name    [Required]| Nazwa manifestu usługi, w zarejestrowany jako część typu aplikacji w klastrze usługi sieć szkieletowa usług.|
 | limit czasu — -t                      | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -292,19 +292,19 @@ Aktualizuje określonej usługi przy użyciu opisu danego aktualizacji.
 | --- | --- |
 | — Identyfikator usługi [wymagane]| Usługa docelowa do aktualizacji. Zazwyczaj jest to pełny identyfikator usługi bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa usługi to "fabric://myapp/app1/svc1", tożsamość usługi będzie "moja_aplikacja ~ app1 ~ svc1" w wersji 6.0 + i "myapp/app1/svc1" w poprzednich wersjach.|
 | — ograniczenia         | Ograniczenia dotyczące umieszczania jako ciąg. Ograniczenia dotyczące umieszczania są wyrażeń logicznych na właściwości węzła i umożliwiają ograniczenie usługi dla określonych węzłów na podstawie wymagań usługi. Na przykład, aby umieścić usługi na węzłach, gdzie jest niebieska NodeType określ następujące: "NodeColor == niebieski".|
-| --skorelowane usługi  | Nazwa usługi docelowej, aby mieć związek z.|
+| --correlated-service  | Nazwa usługi docelowej, aby mieć związek z.|
 | --Korelacja         | Korelowanie usługę za pomocą istniejącej usługi za pomocą koligacji wyrównania.|
-| — Liczba wystąpień      | Liczba wystąpień. Dotyczy to tylko w przypadku usług bezstanowych.|
+| --instance-count      | Liczba wystąpień. Dotyczy to tylko w przypadku usług bezstanowych.|
 | --metryki obciążenia        | Kodowany w formacie JSON listy metryki używane podczas ładowania równoważenia między węzłami.|
-| min —-— rozmiar zestawu replik-| Minimalna repliki Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
-| — Koszt przeniesienia           | Określa koszt przeniesienia dla usługi. Możliwe wartości to: "0", "Od", "Średni", "High".|
-| --listę umieszczania zasad  | Listę umieszczania zasad dla usługi kodowany w formacie JSON, wraz ze wszystkimi skojarzonymi nazw domen. Zasady mogą być co najmniej jeden z: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
+| --min-replica-set-size| Minimalna repliki Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
+| --move-cost           | Określa koszt przeniesienia dla usługi. Możliwe wartości to: "0", "Od", "Średni", "High".|
+| --placement-policy-list  | Listę umieszczania zasad dla usługi kodowany w formacie JSON, wraz ze wszystkimi skojarzonymi nazw domen. Zasady mogą być co najmniej jeden z: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`.|
 | --kworum utraty — oczekiwania    | Maksymalny czas w sekundach, dla których partycji może być w stanie utraciła kworum. Dotyczy to tylko usług stanowych.|
-| --repliki — ponowne uruchomienie — oczekiwania| Czas w sekundach między gdy spadnie repliki i utworzenia nowej repliki. Dotyczy to tylko usług stanowych.|
+| --replica-restart-wait| Czas w sekundach między gdy spadnie repliki i utworzenia nowej repliki. Dotyczy to tylko usług stanowych.|
 | --wstrzymania przez repliki zachować  | Maksymalny czas trwania w sekundach, w których stan wstrzymania repliki są obsługiwane przed usuwana. Dotyczy to tylko usług stanowych.|
 | --stateful            | Wskazuje, że Usługa docelowa jest usługi stanowej.|
 | --bezstanowych           | Wskazuje, że Usługa docelowa jest usługę bezstanową.|
-| --docelowy —-rozmiar zestawu replik| Repliki docelowej Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
+| --target-replica-set-size| Repliki docelowej Ustaw rozmiar jako liczba. Dotyczy to tylko usług stanowych.|
 | limit czasu — -t          | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -317,6 +317,6 @@ Aktualizuje określonej usługi przy użyciu opisu danego aktualizacji.
 | — zapytania               | Ciąg zapytania JMESPath. Aby uzyskać dodatkowe informacje i przykłady zobacz http://jmespath.org/.|
 | -verbose             | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia usługi sieci szkieletowej.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).

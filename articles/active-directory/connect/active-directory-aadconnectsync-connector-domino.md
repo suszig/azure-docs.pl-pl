@@ -3,7 +3,7 @@ title: "Łącznika programu Lotus Domino | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano sposób konfigurowania firmy Microsoft programu Lotus Domino łącznika."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Dokumentacja techniczna programu Lotus Domino łącznika
 W tym artykule opisano łącznika programu Lotus Domino. Artykuł dotyczy następujących produktów:
@@ -34,7 +34,7 @@ MIM2016 i FIM2010R2 łącznika jest dostępna do pobrania z [Microsoft Download 
 
 Z punktu widzenia wysokiego poziomu następujące funkcje są obsługiwane w bieżącej wersji łącznika:
 
-| Funkcja | Pomoc techniczna |
+| Cecha | Pomoc techniczna |
 | --- | --- |
 | Połączonego źródła danych |Serwer: <li>Programu Lotus Domino 8.5.x</li><li>Programu Lotus Domino 9.x</li>Klient:<li>Programu Lotus Domino 8.5.x</li><li>Program Lotus Notes 9.x</li> |
 | Scenariusze |<li>Zarządzanie cyklem życia obiektów</li><li>Zarządzanie grupami</li><li>Zarządzanie hasłami</li> |
@@ -80,10 +80,10 @@ Operacje albo przejść bezpośrednio do katalogu Domino lub proces AdminP. W po
 
 | Obiekt | Przycisk Utwórz | Aktualizacja | Usuwanie |
 | --- | --- | --- | --- |
-| Osoby |Nie dotyczy |Bezpośrednie |Bezpośrednie |
+| Osoby |ND |Bezpośrednie |Bezpośrednie |
 | Grupa |Bezpośrednie |Bezpośrednie |Bezpośrednie |
 | MailInDB |Bezpośrednie |Bezpośrednie |Bezpośrednie |
-| Zasób |Nie dotyczy |Nie dotyczy |Nie dotyczy |
+| Zasób |ND |ND |ND |
 
 Po utworzeniu zasobu, tworzony jest dokument uwagi. Analogicznie gdy zasób zostanie usunięty, dwukierunkowe jest usuwane.
 
@@ -119,7 +119,7 @@ Na stronie Łączność należy określić nazwę serwera programu Lotus Domino,
 
 Właściwość serwera Domino obsługuje dwa formaty dla nazwy serwera:
 
-* serverName
+* ServerName
 * ServerName/DirectoryName
 
 **ServerName/DirectoryName** format jest preferowanym formatem dla tego atrybutu, ponieważ zapewnia szybszej odpowiedzi łącznika kontaktuje się z serwerem Domino.
@@ -135,7 +135,7 @@ Aby uzyskać **Import zmian** dostępne są następujące opcje:
 W **opcje schematu** są następujące opcje:
 
 * **Domyślny schemat**. Łącznik wykrywa schematu z serwera Domino. Ta opcja jest opcją domyślną.
-* **Schemat DSML**. Używane, jeśli serwer Domino nie ujawnia schematu. Następnie można utworzyć plik DSML ze schematem i zaimportuj go w zamian. Aby uzyskać więcej informacji o DSML, zobacz [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **DSML-Schema**. Używane, jeśli serwer Domino nie ujawnia schematu. Następnie można utworzyć plik DSML ze schematem i zaimportuj go w zamian. Aby uzyskać więcej informacji o DSML, zobacz [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 Po kliknięciu przycisku Dalej parametry konfiguracji identyfikator użytkownika i hasło są weryfikowane.
 
@@ -412,11 +412,11 @@ Ta sekcja zawiera listę atrybutów, które są wymagane dla każdego obsługiwa
 
 | Typ obiektu | Atrybutów obowiązkowych |
 | --- | --- |
-| Grupa |<li>Zdefiniowana</li> |
+| Grupa |<li>ListName</li> |
 | Główny w bazie danych |<li>Imię i nazwisko</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Osoby |<li>Nazwisko</li><li>MailFile</li><li>Nazwa_skrócona</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
+| Osoby |<li>LastName</li><li>MailFile</li><li>Nazwa_skrócona</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Skontaktuj się z pomocą (osoba mająca nie certifier) |<li>\_MMS_IDRegType</li> |
-| Zasób |<li>Imię i nazwisko</li><li>ResourceType</li><li>ConfDB</li><li>Dyspozycyjność zasobu</li><li>Witryna</li><li>Nazwa wyświetlana</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Zasób |<li>Imię i nazwisko</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Witryna</li><li>Nazwa wyświetlana</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Najczęściej występujących problemów i pytania
 ### <a name="schema-detection-does-not-work"></a>Wykrywanie schematu nie działa.

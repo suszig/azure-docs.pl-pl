@@ -3,7 +3,7 @@ title: "Ogólny łącznik LDAP | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano sposób konfigurowania ogólny łącznik LDAP firmy Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Ogólny łącznik LDAP informacje techniczne
 W tym artykule opisano ogólny łącznik LDAP. Artykuł dotyczy następujących produktów:
@@ -39,9 +39,9 @@ Nie podano niektóre działania i elementy schematu, takich jak niezbędnych do 
 
 Z punktu widzenia wysokiego poziomu następujące funkcje są obsługiwane w bieżącej wersji łącznika:
 
-| Funkcja | Pomoc techniczna |
+| Cecha | Pomoc techniczna |
 | --- | --- |
-| Połączonego źródła danych |Łącznik jest obsługiwana przez wszystkie serwery v3 LDAP (maksymalnie ze specyfikacją RFC 4510). Był testowany z następujących czynności: <li>Usługi Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Wykaz globalny usługi Microsoft Active Directory (AD GC)</li><li>Serwer katalogowy 389</li><li>Serwer katalogowy Apache</li><li>IBM Tivoli DS</li><li>Isode katalogu</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Otwórz DJ</li><li>Otwórz DS</li><li>Otwórz LDAP (openldap.org)</li><li>Oracle (wcześniej Sun) Directory Server Enterprise Edition</li><li>RadiantOne serwera katalogu wirtualnego (VDS)</li><li>Jeden serwer katalogowy Sun</li>**Godne katalogi nie są obsługiwane:** <li>Microsoft usług domenowych Active Directory (AD DS) [zamiast tego użyć wbudowanego łącznika usługi Active Directory]</li><li>Oracle Internet katalogu (OID)</li> |
+| Połączonego źródła danych |Łącznik jest obsługiwana przez wszystkie serwery v3 LDAP (maksymalnie ze specyfikacją RFC 4510). Był testowany z następujących czynności: <li>Usługi Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Wykaz globalny usługi Microsoft Active Directory (AD GC)</li><li>Serwer katalogowy 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode katalogu</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Otwórz DJ</li><li>Otwórz DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (wcześniej Sun) Directory Server Enterprise Edition</li><li>RadiantOne serwera katalogu wirtualnego (VDS)</li><li>Jeden serwer katalogowy Sun</li>**Godne katalogi nie są obsługiwane:** <li>Microsoft usług domenowych Active Directory (AD DS) [zamiast tego użyć wbudowanego łącznika usługi Active Directory]</li><li>Oracle Internet katalogu (OID)</li> |
 | Scenariusze |<li>Zarządzanie cyklem życia obiektów</li><li>Zarządzanie grupami</li><li>Zarządzanie hasłami</li> |
 | Operacje |We wszystkich katalogach LDAP obsługiwane są następujące operacje: <li>Pełny Import</li><li>Eksportowanie</li>Następujące operacje są obsługiwane tylko w określonych katalogach:<li>Import zmian</li><li>Ustawianie hasła, Zmień hasło</li> |
 | Schemat |<li>Wykryto schemat ze schematu LDAP (RFC3673 i RFC4512/4.2)</li><li>Obsługuje klasy strukturalne, aux klas i klasy obiektów extensibleObject (RFC4512/4.3)</li> |
@@ -58,7 +58,7 @@ Import zmian i zarządzanie hasłami obsługiwane katalogów:
 * Serwer katalogowy 389
   * Obsługuje wszystkie operacje w import zmian
   * Obsługuje ustawianie hasła i Zmień hasło
-* Serwer katalogowy Apache
+* Apache Directory Server
   * Nie obsługuje import zmian, ponieważ ten katalog nie ma dziennik trwałych zmian
   * Obsługuje ustawione hasło
 * IBM Tivoli DS
@@ -77,7 +77,7 @@ Import zmian i zarządzanie hasłami obsługiwane katalogów:
 * Otwórz DS
   * Obsługuje wszystkie operacje w import zmian
   * Obsługuje ustawianie hasła i Zmień hasło
-* Otwórz LDAP (openldap.org)
+* Open LDAP (openldap.org)
   * Obsługuje wszystkie operacje w import zmian
   * Obsługuje ustawione hasło
   * Nie obsługuje zmiany hasła
@@ -124,11 +124,11 @@ Jeśli katalog ma więcej obiektów niż co mieści się w jednym wywołaniu do 
 
 **Opcja 2:**  
 `2.16.840.1.113730.3.4.9`VLVControl  
-`1.2.840.113556.1.4.473`SortControl
+`1.2.840.113556.1.4.473` SortControl
 
 Jeśli obie te opcje są włączone w konfiguracji łącznika, pagedResultsControl jest używany.
 
-`1.2.840.113556.1.4.417`ShowDeletedControl
+`1.2.840.113556.1.4.417` ShowDeletedControl
 
 ShowDeletedControl jest używana tylko z Metoda importu delta USNChanged, aby można było wyświetlić usuniętych obiektów.
 
@@ -137,9 +137,9 @@ ShowDeletedControl jest używana tylko z Metoda importu delta USNChanged, aby mo
 ### <a name="delta-import"></a>Import zmian
 Import zmian jest dostępna tylko w przypadku, gdy wykryto katalogu pomocy technicznej. Obecnie są używane następujące metody:
 
-* LDAP Accesslog. Zobacz [http://www.openldap.org/doc/admin24/overlays.html#Access rejestrowania](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
-* Wykaz zmian LDAP. Zobacz [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-* Sygnatura czasowa. Dla Novell/NetIQ eDirectory, łącznik używa ostatniego daty/godziny w celu uzyskania utworzony i zaktualizowane obiekty. Novell/NetIQ eDirectory nie zawiera odpowiednika oznacza pobrać usuniętych obiektów. Tę opcję można również czy żadnej innej metody importu zmian jest aktywna na serwerze LDAP. Ta opcja nie jest w stanie usunięty Importowanie obiektów.
+* LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* Wykaz zmian LDAP. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* TimeStamp. Dla Novell/NetIQ eDirectory, łącznik używa ostatniego daty/godziny w celu uzyskania utworzony i zaktualizowane obiekty. Novell/NetIQ eDirectory nie zawiera odpowiednika oznacza pobrać usuniętych obiektów. Tę opcję można również czy żadnej innej metody importu zmian jest aktywna na serwerze LDAP. Ta opcja nie jest w stanie usunięty Importowanie obiektów.
 * USNChanged. Zobacz: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>Nieobsługiwane
@@ -196,11 +196,11 @@ Poniżej przedstawiono listę dziennik zmian domyślnego DNs:
 | Katalog | Dziennik zmian różnicowych |
 | --- | --- |
 | Microsoft AD LDS i AD GC |Wykrywane automatycznie. USNChanged. |
-| Serwer katalogowy Apache |Nie jest dostępna. |
+| Apache Directory Server |Nie jest dostępna. |
 | Katalog 389 |Dziennik zmian. Domyślna wartość do użycia: **cn = wykaz zmian** |
 | IBM Tivoli DS |Dziennik zmian. Domyślna wartość do użycia: **cn = wykaz zmian** |
 | Isode katalogu |Dziennik zmian. Domyślna wartość do użycia: **cn = wykaz zmian** |
-| Novell/NetIQ eDirectory |Nie jest dostępna. Sygnatura czasowa. Łącznik używa ostatniej aktualizacji daty/godziny, aby uzyskać dodane lub zaktualizowane rekordy. |
+| Novell/NetIQ eDirectory |Nie jest dostępna. TimeStamp. Łącznik używa ostatniej aktualizacji daty/godziny, aby uzyskać dodane lub zaktualizowane rekordy. |
 | Otwórz DJ/DS. |Dziennik zmian.  Domyślna wartość do użycia: **cn = wykaz zmian** |
 | Otwórz LDAP |Dziennik dostępu. Domyślna wartość do użycia: **cn = accesslog** |
 | Oracle DSEE |Dziennik zmian. Domyślna wartość do użycia: **cn = wykaz zmian** |
@@ -246,16 +246,16 @@ Oto lista serwerów LDAP i zakotwiczenia używany:
 | Katalog | Atrybut zakotwiczenia |
 | --- | --- |
 | Microsoft AD LDS i AD GC |Atrybut objectGUID |
-| Serwer katalogowy 389 |Nazwa wyróżniająca |
-| Apache katalogu |Nazwa wyróżniająca |
-| IBM Tivoli DS |Nazwa wyróżniająca |
-| Isode katalogu |Nazwa wyróżniająca |
-| Novell/NetIQ eDirectory |IDENTYFIKATOR GUID |
-| Otwórz DJ/DS. |Nazwa wyróżniająca |
-| Otwórz LDAP |Nazwa wyróżniająca |
-| Oracle ODSEE |Nazwa wyróżniająca |
-| RadiantOne VDS |Nazwa wyróżniająca |
-| Jeden serwer katalogowy Sun |Nazwa wyróżniająca |
+| Serwer katalogowy 389 |dn |
+| Apache katalogu |dn |
+| IBM Tivoli DS |dn |
+| Isode katalogu |dn |
+| Novell/NetIQ eDirectory |GUID |
+| Otwórz DJ/DS. |dn |
+| Otwórz LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Jeden serwer katalogowy Sun |dn |
 
 ## <a name="other-notes"></a>Inne uwagi
 Ta sekcja zawiera informacje o aspektach, które są specyficzne dla tego łącznika lub z innych powodów musisz znać.

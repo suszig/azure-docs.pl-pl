@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie aplikacji dla usługi Azure AD | Dokumentacja firmy Microsoft"
+title: "Rejestrowanie aplikacji do użycia usługi Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Zapisane dla specjalistów IT, w tym artykule przedstawiono wskazówki dotyczące integracji aplikacji Azure z usługą Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2017
+ms.date: 01/14/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30e070b6c7e7ace929e79ea579767cefa0c22321
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Tworzenie aplikacji biznesowych z usługi Azure Active Directory
 Ten przewodnik zawiera omówienie tworzenia — biznesowych (LoB) aplikacji dla usługi Azure Active Directory (AD). Docelowa grupa odbiorców jest Administratorzy globalni usługi Active Directory/Office 365.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Tworzenie aplikacji zintegrowanych z usługą Azure AD pozwala użytkownikom w Twojej organizacji logowanie jednokrotne z usługą Office 365. W usłudze Azure AD umożliwia kontrolę nad zasady uwierzytelniania dla aplikacji, których aplikacja. Aby dowiedzieć się więcej na temat dostępu warunkowego i jak chronić aplikacje z uwierzytelnianiem wieloskładnikowym (MFA), zobacz [Konfigurowanie reguł dostępu](active-directory-conditional-access-azure-portal-get-started.md).
 
 Rejestrowanie aplikacji do użycia usługi Azure Active Directory. Trwa rejestrowanie aplikacji oznacza, że deweloperów można używać usługi Azure AD do uwierzytelniania użytkowników i uzyskać dostęp do zasobów użytkownika, takie jak wiadomości e-mail, kalendarza i dokumentów.
@@ -76,7 +76,7 @@ Dla aplikacji, którym ufasz można uprościć czynności użytkowników przez z
 
 Aby uzyskać więcej informacji o zgodę użytkownika i zgody występują na platformie Azure, zobacz [integracji aplikacji z usługą Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Włącz bezpieczny dostęp zdalny do aplikacji lokalnych przy użyciu serwera Proxy aplikacji usługi Azure AD](active-directory-application-proxy-get-started.md)
 * [Podgląd warunkowego dostępu na platformie Azure dla aplikacji SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Zarządzanie dostępem do aplikacji z usługą Azure AD](active-directory-managing-access-to-apps.md)

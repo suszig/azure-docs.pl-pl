@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Informacje o funkcji i wywołanie metody bezpośrednio z Centrum IoT
 Centrum IoT daje możliwość wywołania metod bezpośrednio na urządzeniach z chmury. Bezpośrednie metody reprezentują żądanie odpowiedź interakcji z urządzeniem podobna do wywołania HTTP w tym ich powodzenie lub niepowodzenie natychmiast (po limitu określonego przez użytkownika). Ta metoda jest przydatne w scenariuszach, w którym kursu natychmiastowego działania różni się w zależności od tego, czy urządzenie mógł odpowiedzieć, takie jak wysyłanie SMS wake-up na urządzeniu, jeśli urządzenie jest w trybie offline (SMS są droższe niż wywołania metody).
-
 Każda metoda urządzenia jest przeznaczony dla jednego urządzenia. [Zadania] [ lnk-devguide-jobs] umożliwiają wywołania metod bezpośrednio na wielu urządzeniach i Zaplanuj wywołania metody odłączone urządzenia.
 
 Każda osoba mająca **usługa połączyć** uprawnień w Centrum IoT mogą wywołać metodę na urządzeniu.
@@ -44,7 +43,7 @@ Bezpośrednie metody są synchroniczne i albo pomyślnie lub zakończyć się ni
 
 Bezpośrednie metody są HTTPS tylko po stronie chmury i MQTT lub AMQP po stronie urządzenia.
 
-Ładunek dla metod żądań i odpowiedzi jest maksymalnie 8 KB dokument JSON.
+Ładunek dla metod żądań i odpowiedzi jest maksymalnie 128 KB dokument JSON.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Wywoływanie metody bezpośrednio z aplikacji zaplecza
 ### <a name="method-invocation"></a>Wywołanie metody
@@ -133,7 +132,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Język zapytań Centrum IoT urządzenia twins, zadań i rozsyłania wiadomości] [ lnk-query] opisuje język zapytań Centrum IoT można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Po zapoznaniu bezpośredniego metod, mogą być zainteresowane w następującym artykule przewodnik dewelopera Centrum IoT:
 
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]

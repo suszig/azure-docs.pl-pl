@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Słownik terminów Centrum IoT
 W tym artykule wymieniono niektóre typowe terminy używane w artykułach Centrum IoT.
@@ -178,8 +178,8 @@ Można użyć [interfejsu API REST dostawcy zasobów Centrum IoT](https://docs.m
 ## <a name="iot-suite"></a>Pakiet IoT
 Pakiet Azure IoT pakiety ze sobą wiele usług platformy Azure z wstępnie skonfigurowanych rozwiązań. Te wstępnie skonfigurowanych rozwiązań umożliwiają szybkie rozpoczęcie pracy z implementacjami na trasie o typowych scenariuszach IoT. Aby uzyskać więcej informacji, zobacz [co to jest pakiet IoT Azure?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>Eksplorator Centrum iothub
-[Explorer Centrum iothub](https://github.com/azure/iothub-explorer) to narzędzie i platform, wiersza polecenia. Narzędzie pozwala na zarządzanie urządzeniami w [rejestru tożsamości](#identity-registry), wysyłania i odbierania wiadomości oraz pliki z urządzeń i monitorować działania Centrum IoT.
+## <a name="the-iot-extension-for-azure-cli-20"></a>Rozszerzenie IoT Azure CLI 2.0
+[Rozszerzenie IoT Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) to narzędzie i platform, wiersza polecenia. Narzędzie pozwala na zarządzanie urządzeniami w [rejestru tożsamości](#identity-registry), wysyłania i odbierania wiadomości oraz pliki z urządzeń i monitorować działania Centrum IoT.
 
 ## <a name="job"></a>Zadanie
 Można użyć z zaplecza rozwiązania [zadania](iot-hub-devguide-jobs.md) na planowanie i śledzenie działań na zbiór urządzeń zarejestrowanych w usłudze Centrum IoT. Działania obejmują aktualizowanie urządzenia dwie [żądanego właściwości](#desired-properties), aktualizowania dwie urządzenia [tagi](#tags)i wywoływanie [bezpośrednie metody](#direct-method). [Centrum IoT](#iot-hub) używa również zadania, aby [importowanie do i eksportowanie](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) z [rejestru tożsamości](#identity-registry).
@@ -223,7 +223,7 @@ Możesz skonfigurować [reguły routingu](iot-hub-devguide-messages-read-custom.
 ## <a name="sasl-plain"></a>ZWYKŁY SASL
 ZWYKŁY SASL jest protokołem który [AMQP](#advanced-message-queue-protocol) używa protokołu transferu tokenów zabezpieczających.
 
-## <a name="shared-access-signature"></a>Sygnatury dostępu współdzielonego
+## <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
 Udostępniony sygnatur dostępu (SAS) są mechanizmu uwierzytelniania na podstawie bezpiecznego wartości skrótu SHA-256 lub identyfikatorów URI. Uwierzytelniania sygnatury dostępu Współdzielonego ma dwa składniki: _zasad dostępu współużytkowanego_ i _sygnatura dostępu współdzielonego_ (często nazywane token). Urządzenie korzysta SAS do uwierzytelniania za pomocą Centrum IoT. [Aplikacje zaplecza](#back-end-app) również użyć do uwierzytelniania za pomocą usługi połączonej punkty końcowe Centrum IoT sygnatury dostępu Współdzielonego. Zwykle obejmują tokenu sygnatury dostępu Współdzielonego w [ciąg połączenia](#connection-string) że aplikacja używa do ustanowienia połączenia z Centrum IoT.
 
 ## <a name="shared-access-policy"></a>Zasady dostępu współużytkowanego

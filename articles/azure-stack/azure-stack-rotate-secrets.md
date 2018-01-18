@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: e2e9d93af3889714ade1d0364a6f747c184e6d75
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Obróć kluczy tajnych w stosie Azure
 
@@ -32,15 +32,36 @@ Kontrolery zarządzania płytą główną (BMC) monitorować stan fizycznych ser
 
 1. Zaktualizuj BMC na serwerach fizycznych stosu Azure zgodnie z instrukcjami producenta OEM. Hasło dla każdego kontrolera BMC w danym środowisku muszą być takie same.
 2. Otwórz uprzywilejowanych punktu końcowego w sesjach stosu Azure. Aby uzyskać instrukcje, zobacz [przy użyciu punktu końcowego uprzywilejowanych w stosie Azure](azure-stack-privileged-endpoint.md).
-3. Po programu PowerShell wiersz został zmieniony na **[adres IP lub wirtualna ERCS name]: PS >** lub **[azs ercs01]: PS >**w zależności od środowiska uruchamiania `Set-BmcPassword` uruchamiając `invoke-command`. Przekaż zmiennej sesji użytkownika uprzywilejowanego punktu końcowego jako parametr.  
-Na przykład:
+3. Po programu PowerShell wiersz został zmieniony na **[adres IP lub wirtualna ERCS name]: PS >** lub **[azs ercs01]: PS >**w zależności od środowiska uruchamiania `Set-BmcPassword` uruchamiając `invoke-command`. Przekaż zmiennej sesji użytkownika uprzywilejowanego punktu końcowego jako parametr. Na przykład:
+
     ```powershell
-    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
-    
+    # Interactive Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        param($password)
-        set-bmcpassword -bmcpassword $password
-    } -ArgumentList (<LatestPassword as a SecureString>) 
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
+    ```
+    
+    Za pomocą statycznego wersja programu PowerShell i hasła jako wierszy kodu:
+    
+    ```powershell
+    # Static Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
     ```
 
 ## <a name="next-steps"></a>Kolejne kroki

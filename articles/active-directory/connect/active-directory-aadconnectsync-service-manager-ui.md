@@ -3,7 +3,7 @@ title: "Synchronizacja programu Azure AD Connect: interfejsu użytkownika Mened�
 description: Zrozumienie Synchronization Service Manager dla programu Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0127cffde0ea21e03f612eb336b4b66476e19215
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d71679fbcb28c90660f4943d637a89ee485cb86a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Wprowadzenie do usługi Azure AD Connect interfejsu użytkownika Menedżera usługi synchronizacji
 
@@ -32,7 +32,7 @@ Możesz uruchomić **Menedżera usługi synchronizacji** interfejsu użytkownika
 
 Po kliknięciu łączy w górnej części tego tematu, aby dowiedzieć się więcej o różnych kartach w Interfejsie użytkownika.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

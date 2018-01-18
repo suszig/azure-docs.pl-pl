@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 01d321dce439e153b494dfd0de52c100dab78f39
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ab67cd8aaf59cde3157fcb877ce13f10cb432bb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-debug-c-module-with-azure-iot-edge"></a>Za pomocą programu Visual Studio Code do debugowania C# modułu krawędzi IoT Azure
 Ten artykuł zawiera szczegółowe instrukcje dotyczące używania [Visual Studio Code](https://code.visualstudio.com/) jako Narzędzia główne programowanie debugowania moduły IoT krawędzi.
@@ -32,6 +32,9 @@ Po Zakończ poprzedni Samouczek, powinien mieć następujące elementy gotowy,
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Tworzenie modułu krawędzi IoT cel debugowania
 1. Aby rozpocząć debugowanie, należy użyć **dockerfile.debug** Aby ponownie skompilować obraz docker i wykonaj ponowne wdrożenie rozwiązania krawędzi. W kodzie VS explorer kliknij folder Docker, aby go otworzyć. Następnie kliknij przycisk `linux-x64` folderu, kliknij prawym przyciskiem myszy **Dockerfile.debug**i kliknij przycisk **krawędzi IoT Tworzenie modułu Docker obrazu**.
+
+    ![Utwórz obraz do debugowania](./media/how-to-debug-csharp-module/build-debug-image.png)
+
 3. W **wybierz Folder** okna, przejdź do albo wprowadź `./bin/Debug/netcoreapp2.0/publish`. Kliknij przycisk **wybierz Folder jako EXE_DIR**.
 4. W polu tekstowym wyskakujących w górnej części okna kodu programu VS wprowadź nazwę obrazu. Na przykład: `<your container registry address>/filtermodule:latest`. Jeśli są wdrażane w lokalnym rejestrze, powinien być `localhost:5000/filtermodule:latest`.
 5. Wypchnij obrazu do repozytorium Docker. Użyj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia i wprowadź adres URL obrazu, w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj używany w ponad krok ten sam adres URL obrazu.
@@ -39,9 +42,18 @@ Po Zakończ poprzedni Samouczek, powinien mieć następujące elementy gotowy,
 
 ## <a name="start-debugging-in-vs-code"></a>Rozpocznij debugowanie w kodzie VS
 1. Przejdź do okna debugowania kodu programu VS. Naciśnij klawisz **F5** i wybierz **IoT Edge(.Net Core)**
+
+    ![Naciśnij klawisz F5](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 2. W `launch.json`, przejdź do **debugowania IoT krawędzi niestandardowego modułu (.NET Core)** sekcji, a następnie wypełnij `<container_name>`w obszarze `pipeArgs`. Powinien być `filtermodule` w tym samouczku.
+
+    ![Modyfikowanie pipeArgs](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 3. Przejdź do pliku Program.cs. Dodaj punkt przerwania w `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Naciśnij klawisz **F5** ponownie. I wybierz można dołączyć do procesu. W tym samouczku powinna być nazwa procesu`FilterModule.dll`
+
+    ![Dołączanie procesu](./media/how-to-debug-csharp-module/attach-process.png)
+
 5. W oknie debugowania kodu VS widać zmiennych w lewym panelu. 
 
 > [!NOTE]

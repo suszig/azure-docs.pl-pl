@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Widoki w rozwiązaniach do zarządzania Operations Management Suite (OMS) (wersja zapoznawcza)
 > [!NOTE]
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="prerequisites"></a>Wymagania wstępne
 W tym artykule przyjęto założenie, że znasz już jak [tworzenie rozwiązania do zarządzania](operations-management-suite-solutions-creating.md) i struktura pliku rozwiązania.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Aby uwzględnić widoku w rozwiązaniu do zarządzania, należy utworzyć **zasobów** dla niego w [plik rozwiązania](operations-management-suite-solutions-creating.md).  Dane JSON, które opisano konfigurację szczegółowy widok jest zwykle złożone jednak i nie coś autora rozwiązania typowych będzie można ręcznie utworzyć.  Najczęściej spotykaną metodą jest utworzenie przy użyciu widoku [Widok projektanta](../log-analytics/log-analytics-view-designer.md), go wyeksportować, a następnie dodaj konfigurację szczegółowe do rozwiązania.
 
 Poniżej znajdują się podstawowe kroki, aby dodać widok do rozwiązania.  Każdy krok jest opisany bardziej szczegółowo w poniższych sekcjach.
@@ -75,11 +75,10 @@ Dodaj następujący zasób widoku do **zasobów** element pliku rozwiązania.  U
 
 Dodaj następujące zmienne do elementu zmienne pliku rozwiązania i Zastąp wartości jak w przypadku rozwiązania.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Należy pamiętać, że można skopiować cały widok zasobów z pliku wyeksportowanego widoku, ale musisz wprowadzić następujące zmiany, aby działał w rozwiązaniu.  
 
@@ -89,6 +88,18 @@ Należy pamiętać, że można skopiować cały widok zasobów z pliku wyeksport
 * **Nazwa wyświetlana** właściwość musi zostać dodany do widoku.  **Identyfikator**, **nazwa**, i **DisplayName** musi wszystkie zgodne.
 * Nazwy parametrów, musisz zmienić odpowiadające wymagany zestaw parametrów.
 * Zmienne należy określić w rozwiązaniu i używane w odpowiednie właściwości.
+
+### <a name="log-analytics-api-version"></a>Wersja interfejsu API analizy dzienników
+Wszystkie zasoby analizy dzienników zdefiniowane w szablonie usługi Resource Manager ma właściwości **apiVersion** określający wersję interfejsu API zasobu należy użyć.  Ta wersja jest różne dla widoków w zapytaniach używających [starsza wersja i język zapytań uaktualnionego](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ Poniższa tabela zawiera wersje interfejsu API analizy dzienników dla widoków w starszej wersji, jak i uaktualnionych obszarów roboczych: 
+
+| Wersją z obszaru roboczego | Wersja interfejsu API | Zapytanie |
+|:---|:---|:---|
+| V1 (starsze)   | 2015-11-01-preview | Format starszej wersji.<br> Przykład: Wpisz = EventLevelName zdarzenie błędu =  |
+| v2 (uaktualnienia) | 2015-11-01-preview | Format starszej wersji.  Konwertowana na format uaktualniony podczas instalacji.<br> Przykład: Wpisz = EventLevelName zdarzenie błędu =<br>Przekonwertować: Zdarzenie &#124; gdzie EventLevelName == "Error"  |
+| v2 (uaktualnienia) | 2017-03-03-preview | Uaktualnij format. <br>Przykład: Zdarzenie &#124; gdzie EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>Dodawanie widoku szczegółów
 Przeglądanie zasobu w widoku wyeksportowanego pliku będzie zawierać dwa elementy w **właściwości** elementu o nazwie **pulpitu nawigacyjnego** i **OverviewTile** zawierających szczegółowe konfiguracji widoku.  Skopiuj następujące dwa elementy i ich zawartość do **właściwości** elementu zasobu widoku w pliku rozwiązania.
@@ -176,6 +187,6 @@ Na przykład następujący przykład przedstawia plik prostym rozwiązaniem z wi
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się, szczegółowe informacje dotyczące tworzenia [rozwiązań do zarządzania](operations-management-suite-solutions-creating.md).
 * Obejmują [elementu runbook usługi Automatyzacja w ramach rozwiązania do zarządzania](operations-management-suite-solutions-resources-automation.md).

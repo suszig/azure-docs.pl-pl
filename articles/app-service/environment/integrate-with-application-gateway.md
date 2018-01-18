@@ -1,6 +1,6 @@
 ---
-title: Integrowanie z ASE ILB z bramy aplikacji Azure
-description: "Przewodnik dotyczący sposobu integracji aplikacji w Twojej ASE ILB z bramy aplikacji Azure"
+title: "Integracja środowiska usługi aplikacji ILB z bramy aplikacji"
+description: "Przewodnik dotyczący sposobu integracji aplikacji w środowisku usługi aplikacji ILB z bramy aplikacji"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,90 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: eedad8824add7fe425d34975dab640fbee82c2bc
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="integrating-your-ilb-ase-with-an-application-gateway"></a>Integrowanie z ASE ILB z bramy aplikacji #
+# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Integracja środowiska usługi aplikacji ILB z bramy aplikacji #
 
-[Środowiska usługi aplikacji Azure (ASE)](./intro.md) wdrożenie usługi Azure App Service w podsieci sieci wirtualnej Azure klienta. Może on zostać wdrożony z punktu końcowego publicznej lub prywatnej w celu uzyskania dostępu do aplikacji. Wdrożenie ASE z prywatnej punktu końcowego jest nazywany ASE ILB.  
-Brama aplikacji w usłudze Azure to urządzenie wirtualne, które oferuje usługa równoważenia obciążenia warstwy 7, odciążanie protokołu SSL i ochrony zapory aplikacji sieci Web. Można go nasłuchiwać na publiczny adres i trasy ruch pakietów IP punktu końcowego aplikacji. Poniższe informacje zawierają opis sposobu integracji zapory aplikacji sieci Web skonfigurowano aplikację na elemencie ASE ILB Application Gateway.  
+[Środowiska usługi aplikacji dla rozwiązania PowerApps](./intro.md) wdrożenie usługi Azure App Service w podsieci sieci wirtualnej platformy Azure klienta. Może on zostać wdrożony z punktu końcowego publicznej lub prywatnej w celu uzyskania dostępu do aplikacji. Wdrożenie środowiska usługi aplikacji z punktem końcowym prywatne (to znaczy wewnętrznego modułu równoważenia obciążenia) jest nazywany ILB środowiska usługi aplikacji.  
 
-Integracja bramy aplikacji z ILB ASE znajduje się na poziomie aplikacji.  Po skonfigurowaniu bramy aplikacji z Twojej ASE ILB są to zrobić dla określonych aplikacji w Twojej ASE ILB. Dzięki temu hosting bezpieczne aplikacje wielodostępne w jednym ASE ILB.  
+Brama aplikacji Azure jest urządzenie wirtualne, które oferuje usługa równoważenia obciążenia warstwy 7, odciążanie protokołu SSL i ochrony (WAF) zapory aplikacji sieci web. Można go nasłuchiwać na publiczny adres i trasy ruch pakietów IP punktu końcowego aplikacji. 
 
-![Wskazuje aplikacji na elemencie ASE ILB bramy aplikacji][1]
+Poniższe informacje zawierają opis sposobu integracji bramy aplikacji skonfigurowanej zapory aplikacji sieci Web z aplikacji w środowisku usługi aplikacji ILB.  
+
+Integracja bramy aplikacji z ILB środowiska usługi aplikacji znajduje się na poziomie aplikacji. Podczas konfigurowania bramy aplikacji ze środowiska usługi aplikacji ILB, jest to zrobić dla określonych aplikacji w środowisku usługi aplikacji ILB. Ta metoda umożliwia hosting bezpiecznych wielodostępnych aplikacji w jednym środowisku usługi aplikacji ILB.  
+
+![Wskazuje do aplikacji w środowisku usługi aplikacji ILB bramy aplikacji][1]
 
 Korzystając z tego przewodnika, wykonasz następujące czynności:
 
-* Tworzenie bramy aplikacji
-* Brama aplikacji, aby wskazywała aplikację na Twojej ILB ASE
-* Skonfiguruj aplikację, aby uwzględnić nazwy domeny niestandardowej
-* Edytuj publicznej nazwy hosta DNS, który wskazuje bramy aplikacji
+* Tworzenie bramy aplikacji.
+* Konfigurowanie bramy aplikacji, aby wskazywała aplikację w środowisku usługi aplikacji ILB.
+* Skonfiguruj aplikację, aby uwzględnić nazwy domeny niestandardowej.
+* Edytuj publicznej nazwy hosta DNS wskazujący bramy aplikacji.
 
-Aby zintegrować bramy aplikacji z Twojej ASE ILB, potrzebne są:
+## <a name="prerequisites"></a>Wymagania wstępne
 
-* ILB ASE
-* Aplikacja uruchomiona w ILB ASE
-* Nazwa domeny routingu internetowego ma być używany z aplikacji w ILB ASE
-* adres ILB, używany przez Twoje ASE ILB (jest to w portalu ASE w obszarze **Ustawienia -> adresy IP**)
+Aby zintegrować bramy aplikacji z środowiska usługi aplikacji ILB, potrzebne są:
 
-    ![Adresy IP używane przez użytkownika ILB ASE][9]
+* Środowisko usługi aplikacji ILB.
+* Aplikacja uruchomiona w środowisku usługi aplikacji ILB.
+* Nazwy domeny routingu internetowej, która ma być używany z aplikacji w środowisku usługi aplikacji ILB.
+* Adres ILB, który używa środowiska usługi aplikacji ILB. Te informacje są w portalu środowiska usługi aplikacji w obszarze **ustawienia** > **adresów IP**:
+
+    ![Przykład listę adresów IP używanych przez ILB środowiska usługi aplikacji][9]
     
-* publicznej nazwy DNS, która jest później używany wskaż bramy aplikacji 
+* Publiczna nazwa DNS używanej później do punktu z bramą aplikacji. 
 
-Dla szczegółowe informacje na temat tworzenia ASE ILB odczytu dokumentu [tworzenie i używanie ILB ASE][ilbase]
+Aby uzyskać więcej informacji na temat tworzenia środowiska usługi aplikacji ILB, zobacz [tworzenie i używanie środowiska usługi aplikacji ILB][ilbase].
 
-W tym przewodniku przyjęto założenie, że ma bramę aplikacji w tej samej sieci wirtualnej Azure, wdrożonej ASE na. Przed rozpoczęciem tworzenia bramy aplikacji, wybierz lub Utwórz podsieć, która będzie używany do hostowania bramy aplikacji. Należy użyć podsieci, która jest nie jedną o nazwie GatewaySubnet lub w podsieci używanej przez ILB ASE.
-Jeśli brama aplikacji w GatewaySubnet będzie on mógł późniejszego utworzenia bramy sieci wirtualnej. Możesz również nie można wstawić go do podsieci, używany przez Twoje ASE ILB jako ASE jest jedynym elementem, który może znajdować się w jego podsieci.
+W tym artykule założono, że brama aplikacji w tej samej sieci wirtualnej platformy Azure wdrożonym środowiska usługi aplikacji. Przed przystąpieniem do tworzenia bramy aplikacji, wybierz lub Utwórz podsieć, która będzie używany do obsługi bramy. 
 
-## <a name="steps-to-configure"></a>Kroki, aby skonfigurować ##
+Należy używać podsieci, która jest nie jeden GatewaySubnet nazwanego. Jeśli brama aplikacji w GatewaySubnet, będziesz opcję późniejszego utworzenia bramy sieci wirtualnej. 
 
-1. W portalu Azure, przejdź do **nowy > Sieć > bramy aplikacji** 
-    1. Podaj:
-        1. Nazwa bramy aplikacji
-        1. Wybierz zapory aplikacji sieci Web
-        1. Wybierz tej samej subskrypcji, które są używane dla sieci wirtualnej ASE
-        1. Utwórz lub wybierz grupę zasobów
-        1. Wybierz lokalizację, w której znajduje się w sieci wirtualnej ASE
+Ponadto nie można umieścić bramy w podsieci, która używa środowiska usługi aplikacji ILB. Środowiska usługi aplikacji jest jedynym elementem, który może być w tej podsieci.
 
-    ![Nowej podstawy tworzenia bramy aplikacji][2]   
-    1. W zestawie obszaru ustawienia:
-        1. Sieć wirtualna ASE
-        1. Podsieć bramy aplikacji musi być wdrożony do. Czy używana wartość GatewaySubnet uniemożliwi tworzenie bramy sieci VPN
-        1. Wybierz publiczny
-        1. Wybierz publiczny adres IP. Jeśli nie masz jednej następnie utworzyć w tej chwili
-        1. Skonfiguruj HTTP lub HTTPS. Jeśli konfigurowany dla protokołu HTTPS, należy podać certyfikat PFX
-        1. Wybierz ustawienia fireway aplikacji sieci Web. W tym miejscu można włączyć zapory, a także ustawić albo wykrywania lub zapobiegania jak widać dopasowanie.
+## <a name="configuration-steps"></a>Kroki konfiguracji ##
 
-    ![Nowe ustawienia tworzenia bramy aplikacji][3]
+1. W portalu Azure, przejdź do **nowy** > **sieci** > **brama aplikacji w**.
+
+2. W **podstawy** obszar:
+
+   a. Aby uzyskać **nazwa**, wprowadź nazwę bramy aplikacji.
+
+   b. Aby uzyskać **warstwy**, wybierz pozycję **WAF**.
+
+   d. Aby uzyskać **subskrypcji**, wybrać tej samej subskrypcji, która używa sieci wirtualnej środowiska usługi aplikacji.
+
+   d. Aby uzyskać **grupy zasobów**, Utwórz lub wybierz grupę zasobów.
+
+   e. Aby uzyskać **lokalizacji**, wybierz lokalizację, w sieci wirtualnej środowiska usługi aplikacji.
+
+   ![Nowej podstawy tworzenia bramy aplikacji][2]
+
+3. W **ustawienia** obszar:
+
+   a. Aby uzyskać **sieci wirtualnej**, wybierz sieć wirtualną środowiska usługi aplikacji.
+
+   b. Aby uzyskać **podsieci**, wybierz podsieć, w którym musi zostać wdrożony bramy aplikacji. Nie używaj GatewaySubnet, ponieważ uniemożliwi tworzenie bramy sieci VPN.
+
+   d. Aby uzyskać **typ adresu IP**, wybierz pozycję **publicznego**.
+
+   d. Aby uzyskać **publicznego adresu IP**, wybierz publiczny adres IP. Jeśli nie istnieje, utwórz je.
+
+   e. Aby uzyskać **protokołu**, wybierz pozycję **HTTP** lub **HTTPS**. W przypadku konfigurowania protokołu HTTPS, należy podać certyfikat PFX.
+
+   f. Aby uzyskać **zapory aplikacji sieci Web**, można włączyć zapory, a także ustawić dla dowolnego **wykrywania** lub **zapobiegania** zgodnie z własnymi potrzebami.
+
+   ![Nowe ustawienia tworzenia bramy aplikacji][3]
     
-    1. Przejrzyj podsumowanie sekcji wybierz **Ok**. Może upłynąć trochę ponad 30 minut dla bramy sieci aplikacji w taki sposób, aby zakończyć instalację.  
+4. W **Podsumowanie** sekcji, przejrzyj ustawienia i wybierz **OK**. Bramy aplikacji może zająć nieco więcej niż 30 minut do ukończenia instalacji.  
 
-2. Po zakończeniu instalacji bramy aplikacji przejdź do portalu usługi Application Gateway. Wybierz **puli zaplecza**.  Dodaj adres ILB dla Twojego ASE ILB.
+5. Po zakończeniu instalacji bramy aplikacji przejdź do swojego portalu dla bramy aplikacji. Wybierz **puli zaplecza**. Dodaj adres ILB dla środowiska usługi aplikacji ILB.
 
-    ![Konfigurowanie puli wewnętrznej bazy danych][4]
+   ![Konfigurowanie puli wewnętrznej bazy danych][4]
 
-3. Po zakończeniu przetwarzania konfigurowania puli wewnętrznej bazy danych użytkownika, wybierz **sondy kondycji**. Utwórz badanie kondycji dla nazwy domeny, który ma być używany dla aplikacji. 
+6. Po zakończeniu procesu konfigurowania pulę zaplecza, wybierz **sondy kondycji**. Utwórz badanie kondycji dla nazwy domeny, który ma być używany dla aplikacji. 
 
-    ![Konfigurowanie sond kondycji][5]
+   ![Konfigurowanie sond kondycji][5]
     
-4. Po zakończeniu przetwarzania konfigurowania sieci sondy kondycji wybierz **ustawienia HTTP**.  Edytuj istniejące ustawienie istnieje, wybierz **sondowania niestandardowych użyj**i wybierz sondowania został skonfigurowany.
+7. Po zakończeniu procesu konfigurowania sieci sondy kondycji wybierz **ustawienia HTTP**. Edytuj istniejące ustawienia, wybierz **sondowania niestandardowych użyj**i wybierz sondowania, który został skonfigurowany.
 
-    ![Skonfiguruj ustawienia protokołu HTTP][6]
+   ![Skonfiguruj ustawienia protokołu HTTP][6]
     
-5. Przejdź na bramie aplikacji **omówienie**i skopiuj publiczny adres IP używany dla bramy aplikacji.  Ustaw ten adres IP jako rekord A dla nazwy domeny aplikacji lub użyj nazwy DNS dla tego adresu w rekord CNAME.  Możliwe jest łatwiejsze wybierz publiczny adres IP i skopiuj go z adresu publicznego adresu IP interfejsu użytkownika, a nie skopiuj go z łącza w sekcji Przegląd bramy aplikacji. 
+8. Przejdź na bramie aplikacji **omówienie** sekcji, a następnie skopiuj publiczny adres IP, który używa bramy aplikacji. Ustaw ten adres IP jako rekord A dla nazwy domeny aplikacji lub użyj nazwy DNS dla tego adresu w rekord CNAME. Możliwe jest łatwiejsze wybierz publiczny adres IP i skopiuj go z publicznego adresu IP interfejsu użytkownika, a nie skopiowania link w bramie aplikacji **omówienie** sekcji. 
 
-    ![Portal bramy aplikacji][7]
+   ![Portal bramy aplikacji][7]
 
-6. Ustaw nazwę domeny niestandardowej dla aplikacji w Twojej ASE ILB.  Przejdź do aplikacji w portalu, a w obszarze Ustawienia zaznacz **domen niestandardowych**
+9. Ustaw nazwę domeny niestandardowej dla aplikacji w środowisku usługi aplikacji ILB. Przejdź do aplikacji w portalu, a w obszarze **ustawienia**, wybierz pozycję **domen niestandardowych**.
 
-![Ustaw niestandardową nazwę domeny w aplikacji][8]
+   ![Ustaw niestandardową nazwę domeny w aplikacji][8]
 
-Brak informacji na temat ustawiania niestandardowych nazw domen dla aplikacji sieci web w tym miejscu [ustawienie niestandardowych nazw domen dla aplikacji sieci web][custom-domain]. Różnica w stosunku do aplikacji, w tym dokumencie i ASE ILB jest, że nie ma żadnych Weryfikacja nazwy domeny.  Ponieważ jesteś właścicielem DNS, który zarządza punkty końcowe aplikacji, możesz umieścić dowolne w nim. Niestandardowa nazwa domeny dodane w tym przypadku musi być w systemie DNS, ale można skonfigurować za pomocą aplikacji nadal jest konieczne. 
+Brak informacji na temat ustawiania niestandardowych nazw domen dla aplikacji sieci web w artykule [ustawienie niestandardowych nazw domen dla aplikacji sieci web][custom-domain]. Ale dla aplikacji w środowisku usługi aplikacji ILB, nie ma żadnych Weryfikacja nazwy domeny. Ponieważ jesteś właścicielem DNS, który zarządza punkty końcowe aplikacji, możesz umieścić dowolne w nim. W takim przypadku dodawanej nazwy domeny niestandardowej musi być w systemie DNS, ale można skonfigurować za pomocą aplikacji nadal jest konieczne. 
 
-Po zakończeniu instalacji i może krótkim czasie DNS zmiany są propagowane, a następnie uzyskać dostęp do aplikacji, nazwy domeny niestandardowej, który został utworzony. 
+Po zakończeniu instalacji i pozwala uzyskać krótkim czasie Propaguj zmiany DNS, można uzyskać dostępu do aplikacji, przy użyciu nazwy domeny niestandardowej, która zostanie utworzona. 
 
 
 <!--IMAGES-->

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Ograniczenia powłoki w chmurze Azure
 
@@ -56,7 +56,9 @@ Powłoka chmury jest przeznaczony dla przypadków użycia interaktywnego. W zwi�
 ### <a name="user-permissions"></a>Uprawnienia użytkowników
 
 Uprawnienia zostały ustawione jako normalnych użytkowników bez dostępu do operacji sudo. Każda instalacja poza Twojej `$Home` katalogu nie jest trwały.
-Mimo że niektóre polecenia w `clouddrive` katalogu, takie jak `git clone`, nie ma odpowiednich uprawnień, Twoje `$Home` katalogu uprawnień.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB ograniczone uprawnienia
+Niektórych poleceń w `clouddrive` katalogu, takie jak `git clone`, nie ma odpowiednich uprawnień do odczytu/zapisu niektórych plików. Jeśli zostanie osiągnięty ten problem, spróbuj uruchomić go z Twojego `$Home` katalogu, który nie ma ograniczenia SMB.
 
 ### <a name="editing-bashrc"></a>Edytowanie .bashrc
 
@@ -84,7 +86,7 @@ Za pomocą poleceń cmdlet programu PowerShell, użytkownicy nie można utworzy�
 
 Jeśli użytkownik uruchamia polecenia, które mogą utworzyć okno dialogowe systemu Windows, takich jak `Connect-AzureAD` lub `Login-AzureRMAccount`, takich jak jedną zobaczy komunikat o błędzie: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Rozwiązywanie problemów z powłoki chmury](troubleshooting.md) <br>
 [Przewodnik Szybki start po powłoce Bash](quickstart.md) <br>

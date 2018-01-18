@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2017
 ms.author: dekapur
-ms.openlocfilehash: 32c09f06cea97024437e7e339407d344194a14ae
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 61182668b2677f19edbb736505d4892150890fed
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-oms-log-analytics-for-a-cluster"></a>Konfigurowanie OMS analizy dzienników dla klastra
 
@@ -65,14 +65,14 @@ Główne zmiany są następujące:
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
-    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]",
+    "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
 3. Dodaj rozwiązanie usługi sieć szkieletowa OMS do zmiennych do szablonu:
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
-    "solutionName": "ServiceFabric",
+    "solutionName": "ServiceFabric"
     ```
 
 4. Dodanie poniższego na końcu sekcji zasobów, po którym jest zadeklarowany jako zasób klastra usługi sieć szkieletowa usług.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Rozszerzenie Azure HDInsight przy użyciu sieci wirtualnej platformy Azure
 
@@ -129,8 +129,8 @@ Platforma Azure udostępnia rozpoznawanie nazw dla usług Azure, które są zain
 
 * Dowolnego zasobu, który znajduje się w tej samej sieci wirtualnej Azure, używając __wewnętrzna nazwa DNS__ zasobu. Na przykład podczas rozpoznawania nazwy domyślnej, poniżej przedstawiono przykład wewnętrznej nazwy DNS przypisane do węzłów procesu roboczego usługi HDInsight:
 
-    * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Oba te węzły mogą komunikować się bezpośrednio ze sobą oraz inne węzły w usłudze HDInsight, za pomocą wewnętrznej nazwy DNS.
 

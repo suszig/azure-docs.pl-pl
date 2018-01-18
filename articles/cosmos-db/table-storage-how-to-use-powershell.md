@@ -1,24 +1,24 @@
 ---
 title: "Wykonywanie operacji magazynu tabel Azure przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
 description: "Wykonywanie operacji magazynu tabel Azure przy użyciu programu PowerShell"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Wykonywanie operacji magazynu tabel Azure przy użyciu programu Azure PowerShell 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Pobieranie listy lokalizacji
 
-Jeśli nie znasz lokalizacji, która ma być używany, można wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znaleźć ten, który ma być używany. Użyj tych przykładów **eastus**. Przechowywanie tej wartości w zmiennej **lokalizacji** do użytku w przyszłości.
+Jeśli nie wiesz, której lokalizacji użyć, możesz wyświetlić listę dostępnych lokalizacji. Po wyświetleniu listy znajdź lokalizację, której chcesz użyć. Użyj tych przykładów **eastus**. Przechowywanie tej wartości w zmiennej **lokalizacji** do użytku w przyszłości.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -137,7 +137,7 @@ Jeśli utworzono nowe konto grupy i przechowywanie zasobów na początku tego ja
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule przedstawiono o typowych operacji magazynu tabel Azure przy użyciu programu PowerShell, w tym jak: 
 
@@ -151,7 +151,7 @@ W tym artykule przedstawiono o typowych operacji magazynu tabel Azure przy użyc
 
 Aby uzyskać więcej informacji zobacz następujące artykuły
 
-* [Polecenia cmdlet programu PowerShell magazynu](/powershell/module/azurerm.storage#storage)
+* [Polecenia cmdlet programu PowerShell usługi Storage](/powershell/module/azurerm.storage#storage)
 
 * [Praca z tabelami magazynu platformy Azure z programu PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

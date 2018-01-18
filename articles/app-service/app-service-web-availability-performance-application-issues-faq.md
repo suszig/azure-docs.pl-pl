@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 926005eace0acde27e26619a2787368ba0954351
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Wydajność aplikacji — często zadawane pytania dotyczące aplikacji sieci Web na platformie Azure
 
@@ -96,7 +96,7 @@ Domyślnie aplikacje sieci web są usuwane, jeśli są one bezczynności na wybr
 2. Wybierz **ustawienia aplikacji**.
 3. Aby uzyskać **zawsze na**, wybierz pozycję **na**.
 
-## <a name="how-do-i-turned-on-failed-request-tracing"></a>Jak włączone śledzenie nieudanych żądań?
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>Jak włączyć śledzenie niepomyślnych żądań
 
 Aby włączyć śledzenie niepomyślnych żądań:
 

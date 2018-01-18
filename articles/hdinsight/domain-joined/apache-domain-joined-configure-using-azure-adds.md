@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurowanie klastrów HDInsight przyłączonych do domeny za pomocą usług domenowych Azure Active Directory
 
@@ -37,7 +37,7 @@ W tym artykule Dowiedz się jak skonfigurować klaster HDInsight przyłączonych
 Musisz utworzyć Azure usług AD DS przed rozpoczęciem tworzenia klastra usługi HDInsight. Aby utworzyć DODAJE Azure, zobacz [włączyć usługi Azure Active Directory Domain Services przy użyciu portalu Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Tylko Administratorzy dzierżawy mają uprawnienia do tworzenia usług domenowych w usłudze. W przypadku usługi Azure Data Lake Storage - AAD dzierżawy where >> włączyć AADDS musi być domyślna dzierżawa subskrypcji, której utworzono konto magazynu Azure Data Lake i klastra.
+> Tylko Administratorzy dzierżawy mają uprawnienia do tworzenia usług domenowych w usłudze. Jeśli używasz usługi Azure Data Lake magazyn (ADLS) jako domyślny magazyn dla usługi HDInsight, upewnij się, że domyślna dzierżawa usługi Azure AD dla ADLS jest taka sama jak domena klastra usługi HDInsight. 
 
 Po zainicjowano usługę domeny, musisz utworzyć konto usługi w **Administratorzy kontrolera domeny w usłudze Azure AD** grupy w celu tworzenia klastra usługi HDInsight. Konto usługi musi być administratorem globalnym w usłudze Azure AD.
 

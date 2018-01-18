@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Dokumentacja firmy Microsoft
+title: "Uwierzytelnianie konta, Edytuj profil platformy .NET usługi Azure Active Directory B2C | Dokumentacja firmy Microsoft"
 description: "Jak utworzyć aplikację pulpitu systemu Windows, która obejmuje logowania, rejestracji, i zarządzania profilami za pomocą usługi Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.custom: seohack1
+ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Usługa Azure AD B2C: Tworzenie aplikacji klasycznej systemu Windows
 Za pomocą usługi Azure Active Directory (Azure AD) B2C, można dodać tożsamości samoobsługi zaawansowanych funkcji zarządzania do aplikacji pulpitu w kilku krótkich krokach. W tym artykule opisano sposób tworzenia aplikacji "Lista zadań do wykonania".NET systemu Windows Presentation Foundation (WPF), która zawiera użytkowników rejestrację, logowanie i zarządzanie profilami. Aplikacja będzie zawierać obsługę rejestracji i logowania przy użyciu nazwy użytkownika lub adres e-mail. Zawiera również obsługę rejestracji i logowania przy użyciu kont społecznościowych, takich jak Facebook i Google.

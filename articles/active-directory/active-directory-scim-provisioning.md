@@ -1,5 +1,5 @@
 ---
-title: "Przy użyciu systemu dla zarządzania tożsamościami między domenami automatycznej aprowizacji użytkowników i grup z usługi Azure Active Directory do aplikacji | Dokumentacja firmy Microsoft"
+title: "Automatyzowanie Inicjowanie obsługi aplikacji w usłudze Azure Active Directory przy użyciu SCIM | Dokumentacja firmy Microsoft"
 description: "Usługa Azure Active Directory mogą automatycznie obsługiwać użytkowników i grup do aplikacji lub tożsamości magazynu, który jest fronted przez usługę sieci web przy użyciu interfejsu zdefiniowane w specyfikacji protokołu SCIM"
 services: active-directory
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Przy użyciu systemu do innej domeny zarządzania tożsamościami do automatycznej aprowizacji użytkowników i grup z usługi Azure Active Directory do aplikacji
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Azure Active Directory (Azure AD), mogą automatycznie obsługiwać użytkowników i grup do aplikacji lub tożsamości magazynu, który jest fronted przez usługę sieci web przy użyciu interfejsu zdefiniowanych w [systemu dla protokołu zarządzania tożsamości między domenami (SCIM) 2.0 Specyfikacja](https://tools.ietf.org/html/draft-ietf-scim-api-19). Usługa Azure Active Directory mogą wysyłać żądania do tworzenia, modyfikowania lub usuwania przypisane użytkowników i grup z usługą sieci web. Usługa sieci web może dokonywać translacji te żądania do operacji w magazynie docelowym tożsamości. 
 
 ![][0]
@@ -352,25 +352,25 @@ Zasoby użytkownika są identyfikowane za pomocą identyfikatora schematu, urn: 
 Grupy zasobów są identyfikowane za pomocą identyfikatora schematu http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, poniżej przedstawiono domyślne mapowanie atrybutów grup w usłudze Azure Active Directory w atrybutach http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group zasobów.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Domyślne mapowanie atrybutu użytkownika
-| Azure użytkownika usługi Active Directory | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure użytkownika usługi Active Directory | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |aktywne |
 | Nazwa wyświetlana |Nazwa wyświetlana |
-| TelephoneNumber faksu |.value phoneNumbers [eq typu "faks"] |
-| Imię |name.givenName |
-| Stanowisko |Tytuł |
+| Facsimile-TelephoneNumber |.value phoneNumbers [eq typu "faks"] |
+| givenName |name.givenName |
+| jobTitle |tytuł |
 | Poczty |.value wiadomości e-mail [eq typu "Praca"] |
 | mailNickname |externalId |
-| Menedżer |Menedżer |
+| manager |manager |
 | Telefon komórkowy |.value phoneNumbers [eq typu "mobile"] |
 | Identyfikator obiektu |id |
-| KodPocztowy |.postalCode adresów [eq typu "Praca"] |
-| Adresy serwerów proxy |wiadomości e-mail [Wpisz eq "other"]. Wartość |
-| Physical dostarczania-OfficeName |adresy [Wpisz eq "other"]. Sformatowany |
-| Adres |.streetAddress adresów [eq typu "Praca"] |
-| nazwisko |name.familyName |
+| postalCode |.postalCode adresów [eq typu "Praca"] |
+| proxy-Addresses |wiadomości e-mail [Wpisz eq "other"]. Wartość |
+| physical-Delivery-OfficeName |adresy [Wpisz eq "other"]. Sformatowany |
+| streetAddress |.streetAddress adresów [eq typu "Praca"] |
+| surname |name.familyName |
 | Numer telefonu |.value phoneNumbers [eq typu "Praca"] |
-| PrincipalName użytkownika |Nazwa użytkownika |
+| user-PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Domyślne grupy atrybutów mapowanie
 | Grupa usługi Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
@@ -442,11 +442,11 @@ Na poniższej ilustracji pokazano komunikatów wysyła usługi Azure Active Dire
     }
   ````
   W poniższym przykładzie zapytanie dla użytkownika z danej wartości dla atrybutu externalId wartości Argumenty przekazane do metody zapytania są: 
-  * Parametry. AlternateFilters.Count: 1
-  * Parametry. AlternateFilters.ElementAt(0). AttributePath: "externalId"
-  * Parametry. AlternateFilters.ElementAt(0). OperatorPorównania: ComparisonOperator.Equals
+  * parameters.AlternateFilters.Count: 1
+  * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
   * Parametry. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. Identyfikator żądania"] 
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Jeśli odpowiedź na zapytanie do usługi sieci web dla użytkownika z wartością atrybutu externalId, która jest zgodna z wartością atrybutu mailNickname użytkownika nie zwraca żadnych użytkowników, następnie usługi Azure Active Directory żąda czy usługa udostępnić odpowiednie do tego użytkownika w usłudze Azure Active Directory.  Oto przykład takiego żądania: 
   ````
@@ -538,13 +538,13 @@ Na poniższej ilustracji pokazano komunikatów wysyła usługi Azure Active Dire
 
   Jeśli usługa został zbudowany przy użyciu bibliotek wspólną infrastrukturę języka obsługiwane przez firmę Microsoft dla implementacji usługi SCIM, żądanie jest przetłumaczony na wywołanie do metody zapytania dostawcy usług. Wartość właściwości obiektu dostarczonych jako wartość argumentu parametry są następujące: 
   
-  * Parametry. AlternateFilters.Count: 2
-  * Parametry. AlternateFilters.ElementAt(x). AttributePath: "id"
-  * Parametry. AlternateFilters.ElementAt(x). OperatorPorównania: ComparisonOperator.Equals
+  * parameters.AlternateFilters.Count: 2
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
+  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
   * Parametry. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * Parametry. AlternateFilters.ElementAt(y). AttributePath: "manager"
-  * Parametry. AlternateFilters.ElementAt(y). OperatorPorównania: ComparisonOperator.Equals
-  * Parametry. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
   * Parametry. RequestedAttributePaths.ElementAt(0): "id"
   * Parametry. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Za pomocą połączonego i zagnieżdżone szablony, w przypadku wdrażania zasobów platformy Azure
 
@@ -82,7 +82,8 @@ Aby zagnieździć szablonu w szablonie głównym, należy użyć **szablonu** w�
 ]
 ```
 
-Zagnieżdżone szablony nie można używać parametrów lub zmiennych, które są zdefiniowane w szablonie zagnieżdżonym. Można użyć parametrów i zmiennych z głównym szablonu. W powyższym przykładzie `[variables('storageName')]` pobiera wartość z głównym szablonu szablon zagnieżdżony. To ograniczenie nie ma zastosowania do szablonów zewnętrznych.
+> [!NOTE]
+> Zagnieżdżone szablony nie można używać parametrów lub zmiennych, które są zdefiniowane w szablonie zagnieżdżonym. Można użyć parametrów i zmiennych z głównym szablonu. W powyższym przykładzie `[variables('storageName')]` pobiera wartość z głównym szablonu szablon zagnieżdżony. To ograniczenie nie ma zastosowania do szablonów zewnętrznych.
 
 ### <a name="external-template-and-external-parameters"></a>Szablon zewnętrznych i parametry zewnętrznych
 

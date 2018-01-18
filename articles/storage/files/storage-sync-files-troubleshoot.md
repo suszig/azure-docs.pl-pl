@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Rozwiązywanie problemów z synchronizacji plików Azure (wersja zapoznawcza)
 Umożliwia synchronizacji plików Azure (wersja zapoznawcza) scentralizowanie udziałów plików w organizacji w plikach Azure, przy zachowaniu elastyczności, wydajności i zgodności serwera plików lokalnych. Synchronizacja programu Azure pliku przy użyciu systemu Windows Server do szybkiego pamięci podręcznej udziału plików na platformę Azure. Można użyć każdego protokołu, który jest dostępny w systemie Windows Server dostępu do danych lokalnie, w tym protokołu SMB, systemu plików NFS i FTPS. Może mieć dowolną liczbę pamięci podręcznych zgodnie z potrzebami na całym świecie.
@@ -135,6 +135,8 @@ Jeśli pojedynczych plików nie można zsynchronizować:
 
     > [!NOTE]
     > Synchronizacja programu Azure plik ma okresowo migawki VSS, aby zsynchronizować pliki, które mają otwarte dojścia.
+
+Obecnie nie obsługujemy przenoszenie zasobów do innej subskrypcji lub, przeniesienie do innej usługi Azure AD dzierżawy.  Jeśli subskrypcja zostanie przeniesiony do innej dzierżawy, udział plików na platformę Azure będą niedostępne do naszej usługi, w oparciu o zmianę własności. Jeśli dzierżawca zostanie zmienione, musisz usunąć punkty końcowe serwera i punktu końcowego w chmurze (zobacz synchronizacji grupy zarządzania sekcji instrukcje jak oczyścić udział plików na platformę Azure, można ponownie użyć) i Utwórz ponownie grupę synchronizacji.
 
 ## <a name="cloud-tiering"></a>Obsługa warstw w chmurze 
 Istnieją dwie ścieżki do błędów w chmurze warstwy:

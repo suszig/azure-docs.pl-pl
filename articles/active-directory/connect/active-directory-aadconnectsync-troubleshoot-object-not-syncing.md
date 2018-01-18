@@ -3,7 +3,7 @@ title: "Rozwiązywanie problemów z obiektu, której nie można zsynchronizować
 description: "Rozwiązywanie problemów z powodu obiektu nie można zsynchronizować z usługą Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Rozwiązywanie problemów z obiektu, której nie można zsynchronizować z usługą Azure AD
 
@@ -43,7 +43,7 @@ Górnej połowie zawiera wszystkie elementy stały. Domyślnie operacje logowani
 | Stan | Komentarz |
 | --- | --- |
 | Zatrzymano-* |Nie można wykonać przebiegu. Na przykład, jeśli nie działa i nie można skontaktować się z systemu zdalnego. |
-| Zatrzymano-— limit błędów |Wystąpiły błędy więcej niż 5000. Uruchom automatycznie zostało zatrzymane z powodu dużej liczby błędów. |
+| stopped-error-limit |Wystąpiły błędy więcej niż 5000. Uruchom automatycznie zostało zatrzymane z powodu dużej liczby błędów. |
 | Ukończono -\*— błędy |Przy uruchomieniu ukończone, ale wystąpiły błędy (mniej niż 5000), które należy zbadać. |
 | Ukończono -\*— ostrzeżenia |Przy uruchomieniu ukończone, ale niektóre dane nie jest w oczekiwanym stanem. Jeśli masz błędy, następnie ten komunikat jest zwykle tylko objawem. Dopóki usunąć błędy, nie powinien być sprawdzony ostrzeżenia. |
 | powodzenie |Brak problemów. |
@@ -140,7 +140,7 @@ Jeśli brakuje łącznika do usługi Azure AD, następnie odczytywane [atrybuty 
 
 Na tej karcie można również przejść do [obiekt miejsca łącznika](#connector-space-object-properties). Wybierz wiersz i kliknij przycisk **właściwości**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

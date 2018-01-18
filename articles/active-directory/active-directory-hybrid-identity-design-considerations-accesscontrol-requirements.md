@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących kontroli dostępu | Dokumentacja firmy Microsoft"
+title: "Wymaganiom kontroli dostępu projektowania tożsamości hybrydowej usługi Azure | Dokumentacja firmy Microsoft"
 description: "Obejmuje tożsamości i ustalenie wymagań dotyczących dostępu do zasobów dla użytkowników w środowisku hybrydowym."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Określić wymagania dotyczące rozwiązania z tożsamością hybrydową kontroli dostępu
 Gdy organizacji projektuje ich rozwiązania z tożsamością hybrydową mogą również wykorzystać korzystając z okazji, aby przejrzeć wymagania dotyczące dostępu do zasobów, które są planowane był dostępny dla użytkowników. Dostęp do danych granic wszystkich czterech filarach tożsamości, które są:

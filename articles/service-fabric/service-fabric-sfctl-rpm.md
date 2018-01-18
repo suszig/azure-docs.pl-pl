@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/26/2017
+ms.date: 12/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: f032af4714ad458fa6ad6fb0741f689d44f4098b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a9a565cf2c20490475d1b73b0f99fbe63e57dd3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl obr. / min
 Zapytania i wysyłać polecenia do naprawy service manager.
@@ -26,9 +26,9 @@ Zapytania i wysyłać polecenia do naprawy service manager.
 ## <a name="commands"></a>Polecenia
 |Polecenie|Opis|
 | --- | --- |
-|    Wymuś zatwierdzenia| Wymusza zatwierdzenie naprawy danego zadania.|
-|    Usuń       | Usuwa zadanie naprawy ukończone.|
-|    Lista         | Pobiera listę spełniających kryteria filtrów danego zadania naprawy.|
+|    approve-force| Wymusza zatwierdzenie naprawy danego zadania.|
+|    usuwanie       | Usuwa zadanie naprawy ukończone.|
+|    lista         | Pobiera listę spełniających kryteria filtrów danego zadania naprawy.|
 
 ## <a name="sfctl-rpm-delete"></a>Usuń sfctl obr. / min
 Usuwa zadanie naprawy ukończone.
@@ -59,19 +59,19 @@ Ten interfejs API obsługuje platformy Service Fabric; nie jest przeznaczona do 
 ### <a name="arguments"></a>Argumenty
 |Argument|Opis|
 | --- | --- |
-|    --Moduł wykonujący filtru| Nazwa modułu wykonującego naprawy, którego oświadczeniem zadania powinny być uwzględnione w liście.|
-|    --filtru stanu   | Alternatywy następujące wartości, określając stany zadania powinny uwzględnione na liście wyników. -1 - utworzony - 2 - oświadczeniem — 4. przygotowywanie - 8 - zatwierdzone - 16 - wykonywania - 64 32 - przywracania - — ukończone.|
-|    --zadań identyfikator filtru | Prefiks Identyfikatora zadania naprawy do dopasowania.|
+|    --executor-filter| Nazwa modułu wykonującego naprawy, którego oświadczeniem zadania powinny być uwzględnione w liście.|
+|    --state-filter   | Alternatywy następujące wartości, określając stany zadania powinny uwzględnione na liście wyników. -1 - utworzony - 2 - oświadczeniem — 4. przygotowywanie - 8 - zatwierdzone - 16 - wykonywania - 64 32 - przywracania - — ukończone.|
+|    --task-id-filter | Prefiks Identyfikatora zadania naprawy do dopasowania.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
 |Argument|Opis|
 | --- | --- |
 |    --debug          | Zwiększenie szczegółowości rejestrowania, aby pokazać wszystkie debugowania dzienniki.|
 |    — Pomoc -h        | Pokaż ten komunikat pomocy i Zakończ.|
-|    --output -o      | Format danych wyjściowych.  Dozwolone wartości: json, jsonc, tabeli, tsv.  Domyślne| JSON.|
+|    --output -o      | Format danych wyjściowych.  Dozwolone wartości: json, jsonc, tabeli, tsv.  Domyślne| json.|
 |    — zapytania          | Ciąg zapytania JMESPath. Zobacz http://jmespath.org/ dodatkowe informacje i przykłady.|
 |    -verbose        | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia usługi sieci szkieletowej.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).

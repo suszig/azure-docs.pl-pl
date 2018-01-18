@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurowanie odzyskiwania po awarii do platformy Azure dla maszyn wirtualnych VMware lokalnej
 
@@ -46,115 +43,75 @@ Przed rozpoczęciem warto [Przejrzyj architektura](concepts-vmware-to-azure-arch
 
 ## <a name="set-up-the-source-environment"></a>Konfigurowanie środowiska źródłowego
 
-Aby skonfigurować środowisko źródłowe, możesz pobrać plik Instalatora Unified odzyskiwania lokacji. Możesz uruchomić Instalatora, aby zainstalować składniki usługi Site Recovery lokalnymi, rejestrowanie serwerów VMware w magazynie i odnajdywanie maszyn wirtualnych lokalnie.
-
-### <a name="verify-on-premises-site-recovery-requirements"></a>Sprawdź wymagania dotyczące odzyskiwania lokacji lokalnej
-
-Należy składnikami usługi Site Recovery lokalnego hosta VMware jednej, wysokiej dostępności, lokalnej maszyny Wirtualnej. Składniki zawierają konfiguracji serwera, serwer przetwarzania i główny serwer docelowy.
+Aby skonfigurować środowisko źródłowe, należy jeden wysokiej dostępności, na lokalnej maszynie składników usługi Site Recovery lokalnego hosta. Składniki zawierają konfiguracji serwera, serwer przetwarzania i główny serwer docelowy.
 
 - Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
 - Serwer przetwarzania działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage. Serwer przetwarzania instaluje usługi mobilności na maszynach wirtualnych, którą chcesz replikować, i przeprowadza automatyczne odnajdywanie maszyn wirtualnych VMware lokalnymi.
 - Główny serwer docelowy obsługuje replikację danych podczas powrotu po awarii z platformy Azure.
 
-Maszyna wirtualna powinna spełniać następujące wymagania.
+Aby skonfigurować serwer konfiguracji jako wysokiej dostępności maszyny Wirtualnej VMware, Pobierz przygotować szablon pakietu OVF i zaimportuj szablon do VMware można utworzyć maszyny Wirtualnej. Po skonfigurowaniu serwera konfiguracji, Zarejestruj w magazynie. Po rejestracji usługi Site Recovery odnajduje lokalne maszyny wirtualne VMware.
 
-| **Wymaganie** | **Szczegóły** |
-|-----------------|-------------|
-| Liczba rdzeni procesora CPU| 8 |
-| Pamięć RAM | 12 GB |
-| Liczba dysków | 3 - dysk systemu operacyjnego, dysku pamięci podręcznej serwera przetwarzania, dysk przechowywania (w przypadku powrotu po awarii) |
-| Wolne miejsce na dysku (pamięć podręczna serwera przetwarzania) | 600 GB |
-| Wolne miejsce na dysku (dysk przechowywania) | 600 GB |
-| Wersja systemu operacyjnego | Windows Server 2012 R2 |
-| Ustawienia regionalne systemu operacyjnego | Angielski (en-us) |
-| Wersja programu VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
-| Role systemu Windows Server | Nie włączaj tych ról: Active Directory Domain Services, Internetowe usługi informacyjne funkcji Hyper-V |
-| Typ karty Sieciowej | VMXNET3 |
-| Typ adresu IP | Statyczny |
-| Porty | 443 (organizowanie kanału sterowania)<br/>9443 (transport danych)|
+### <a name="download-the-vm-template"></a>Pobierz szablon maszyny Wirtualnej
 
-Ponadto: 
-- Upewnij się, że zegara systemowego na maszynie Wirtualnej jest zsynchronizowany z czasem serwera. Czas musi być synchronizowane w ciągu 15 minut. Jeśli jest ona większa instalacja zakończy się niepowodzeniem.
-Instalacja nie powiedzie się.
-- Upewnij się, że serwer konfiguracji maszyny Wirtualnej można uzyskać dostępu do tych adresów URL:
+1. W magazynie, przejdź do **przygotowanie infrastruktury** > **źródła**.
+2. W **Przygotuj źródło**, kliknij przycisk **+ serwer konfiguracji**.
+3. W **Dodaj serwer**, sprawdź, czy **serwera konfiguracji na potrzeby VMware** pojawia się w **typ serwera**.
+4. Pobierz szablon Open Virtualization Format (OVF) dla serwera konfiguracji.
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-- Upewnij się, że reguły zapory oparte na adresie IP umożliwia komunikację z platformą Azure.
-    - Zezwalaj na [zakresy IP centrum danych Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)portu 443 (HTTPS) i portu 9443 (replikacja danych).
-    - Zezwalaj na zakresy adresów IP dla regionu Azure Twojej subskrypcji i zachodnie stany USA (używanych do zarządzania tożsamości i kontroli dostępu).
+  > [!TIP]
+  Można pobrać najnowszej wersji szablonu serwera konfiguracji bezpośrednio z [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+
+## <a name="import-the-template-in-vmware"></a>Importowanie szablonu w środowisku programu VMware
+
+1. Logowania się do programu VMware vCenter server lub vSphere ESXi hosta, za pomocą VMWare vSphere Client.
+2. Na **pliku** menu, wybierz opcję **wdrażanie szablonu OVF**, aby uruchomić Kreatora wdrażania pakietu OVF szablonu.  
+
+     ![Szablon OVF](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+
+3. W **wybierz źródło**, określ lokalizację pobranego pakietu OVF.
+4. W **Przejrzyj szczegóły**, kliknij przycisk **dalej**.
+5. W **wybierz nazwę i folder**, i **konfiguracji wybierz**, zaakceptuj ustawienia domyślne.
+6. W **Wybieranie magazynu**, wybrać najlepszą wydajność **grubości udostępniania wczesny mają być wyzerowane** w **formatu dysku wirtualnego wybierz**.
+4. W pozostałej części stron kreatora Zaakceptuj ustawienia domyślne.
+5. W **gotowa do wykonania**:
+  - Aby skonfigurować maszynę Wirtualną przy użyciu ustawień domyślnych, wybierz **włączają po wdrożeniu** > **Zakończ**.
+  - Jeśli chcesz dodać dodatkowy interfejs sieciowy, wyczyść **włączają po wdrożeniu**, a następnie wybierz **Zakończ**. Domyślnie szablon serwera konfiguracji jest wdrażany z jednej karty Sieciowej, ale można dodać dodatkowe karty sieciowe, po wdrożeniu.
+
+  
+## <a name="add-an-additional-adapter"></a>Dodaj dodatkowe karty
+
+Jeśli chcesz dodać dodatkowe karty Sieciowej na serwerze konfiguracji, należy to zrobić, aby zarejestrować serwer w magazynie. Dodawanie dodatkowych kart sieciowych nie jest obsługiwana po rejestracji.
+
+1. W vSphere spisu klienta, kliknij prawym przyciskiem myszy maszynę Wirtualną, a następnie wybierz **Edytuj ustawienia**.
+2. W **sprzętu**, kliknij przycisk **Dodaj** > **karty Ethernet**. Następnie kliknij przycisk **Next** (Dalej).
+3. Wybierz i typ karty i sieci. 
+4. Aby Podłącz wirtualną kartę Sieciową, gdy maszyna wirtualna jest włączona, wybierz **na połączenie na mocy**. Kliknij przycisk **dalej** > **Zakończ**, a następnie kliknij przycisk **OK**.
 
 
-### <a name="download-the-site-recovery-unified-setup-file"></a>Pobierz plik Instalatora Unified usługi Site Recovery
+## <a name="register-the-configuration-server"></a>Zarejestruj serwer konfiguracji 
 
-1. W magazynie > **przygotowanie infrastruktury**, kliknij przycisk **źródła**.
-1. W **Przygotuj źródło**, kliknij przycisk **+ serwer konfiguracji**.
-2. W **Dodaj serwer**, sprawdź, czy **serwera konfiguracji** pojawia się w **typ serwera**.
-3. Pobierz plik instalacyjny instalacja Unified usługi Site Recovery.
-4. Pobierz klucz rejestracji magazynu. Należy to po uruchomieniu Instalatora Unified. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
+1. Z konsoli klienta VMWare vSphere włączyć na maszynie Wirtualnej.
+2. Maszyna wirtualna wykona rozruch do środowiska instalacji systemu Windows Server 2016. Zaakceptuj Umowę licencyjną i określ hasło administratora.
+3. Po zakończeniu instalacji, zaloguj się do maszyny Wirtualnej jako administrator.
+4. Podczas pierwszego logowania, uruchamia narzędzie konfiguracji Azure lokacji odzyskiwania.
+5. Określ nazwę, która służy do rejestrowania serwera konfiguracji z usługą Site Recovery. Następnie kliknij przycisk **Next** (Dalej).
+6. Narzędzie sprawdza, czy połączenie maszyny Wirtualnej Azure. Po nawiązaniu połączenia, kliknij przycisk **Zaloguj**, aby zalogować się do subskrypcji platformy Azure. Poświadczenia muszą mieć dostęp do magazynu, w którym chcesz zarejestrować serwer konfiguracji.
+7. Narzędzie wykonuje pewne zadania konfiguracji, a następnie wykonuje ponowny rozruch.
+8. Ponownie zaloguj się na tym komputerze. Automatycznie uruchomi Kreatora konfiguracji serwera zarządzania.
 
-   ![Konfiguracja źródła](./media/tutorial-vmware-to-azure/source-settings.png)
+### <a name="configure-settings-and-connect-to-vmware"></a>Skonfiguruj ustawienia i połącz się VMware
 
-### <a name="set-up-the-configuration-server"></a>Konfigurowanie serwera konfiguracji
+1. W Kreatorze konfiguracji serwera zarządzania > **ustawienia łączności**, wybierz kartę Sieciową, która będzie odbierać ruch związany z replikacją. Następnie kliknij przycisk **Save** (Zapisz). Nie można zmienić to ustawienie jest skonfigurowane.
+2. W **magazyn usług odzyskiwania wybierz**, wybierz subskrypcję platformy Azure i odpowiedniej grupy zasobów i magazynu.
+3. W **zainstalować oprogramowanie innych firm**, Zaakceptuj agreeemtn licencji i kliknij przycisk **Pobierz i zainstaluj**, aby zainstalować serwer MySQL.
+4. Kliknij przycisk **zainstalować VMware PowerLCI**. Upewnij się, że przed tym zamknięciu wszystkich okien przeglądarki. Następnie kliknij przycisk **Kontynuuj**
+5. W **sprawdzania poprawności konfiguracji urządzenia**, będzie można zweryfikować wymagania wstępne, przed kontynuowaniem.
+6. W **Konfiguruj vCenter Server/vSphere ESXi serwer**, określ nazwę FQDN lub adres IP serwera vCenter lub hostem vSphere, na maszynach wirtualnych, które chcesz replikować znajdują się. Określ port, na którym nasłuchuje serwer i przyjazną nazwę używanego do serwera VMware w magazynie.
+7. Określ poświadczenia, które będą używane przez serwer konfiguracji do łączenia się z serwerem VMware. Usługa Site Recovery używa tych poświadczeń do automatycznego wykrywania maszyn wirtualnych VMware, które są dostępne dla replikacji. Kliknij przycisk **Dodaj**, a następnie kliknij przycisk **Kontynuuj**.
+8. W **skonfigurować poświadczenia maszyny wirtualnej**, określ nazwę użytkownika i hasło, które będzie używane automatycznie zainstalować usługi mobilności na maszynach, po włączeniu replikacji. W przypadku komputerów z systemem Windows konto musi uprawnienia administratora lokalnego na maszynach, które mają być replikowane. Dla systemu Linux należy podać szczegóły dla konta głównego.
+9. Kliknij przycisk **konfiguracji Finalize** do ukończenia rejestracji. 
+10. Po zakończeniu rejestracji w portalu Azure, sprawdź, czy serwer konfiguracji i serwera VMware są wyświetlane **źródła** strony w magazynie. Następnie kliknij przycisk **OK** do konfigurowania ustawień obiektu docelowego.
 
-1. Uruchom plik instalacyjny ujednoliconego instalatora.
-2. W **przed rozpoczęciem**, wybierz pozycję **zainstalować serwer konfiguracji i serwera przetwarzania** kliknięcie **dalej**.
-
-3. W **licencji na oprogramowanie innych firm**, kliknij przycisk **akceptuję** Aby pobrać i zainstalować MySQL, a następnie przycisk **dalej**.
-
-4. W obszarze **Rejestracja** wybierz klucz rejestracji pobrany z magazynu.
-
-5. W obszarze **Ustawienia internetowe** określ, jak dostawca działający na serwerze konfiguracji ma się łączyć z usługą Azure Site Recovery przez Internet.
-
-   - Jeśli chcesz się połączyć z serwerem proxy aktualnie skonfigurowany na komputerze, wybierz opcję **nawiązywanie połączenia z usługi Azure Site Recovery przy użyciu serwera proxy**.
-   - Jeśli chcesz, aby dostawca łączył się bezpośrednio, wybierz opcję **Połącz bezpośrednio z usługi Azure Site Recovery bez serwera proxy**.
-   - Jeśli istniejący serwer proxy wymaga uwierzytelnienia, lub jeśli chcesz użyć niestandardowego serwera proxy dla połączenia dostawcy, wybierz opcję **Połącz przy użyciu niestandardowych ustawień serwera proxy**i określ adres, port oraz poświadczenia.
-
-   ![Zapora](./media/tutorial-vmware-to-azure/combined-wiz4.png)
-
-6. W kroku **Sprawdzanie wymagań wstępnych** Instalator przeprowadza kontrolę w celu upewnienia się, że można uruchomić instalację. Jeśli zostanie wyświetlone ostrzeżenie dotyczące **kontroli synchronizacji czasu globalnego**, sprawdź, czy czas zegara systemowego (ustawienia **Data i godzina**) jest taki sam jak dla strefy czasowej.
-
-   ![Wymagania wstępne](./media/tutorial-vmware-to-azure/combined-wiz5.png)
-
-7. W obszarze **Konfiguracja programu MySQL** utwórz poświadczenia do logowania się do zainstalowanego wystąpienia serwera programu MySQL.
-
-8. W **szczegóły środowiska**, wybierz pozycję **tak** można chronić maszyny wirtualne VMware. Instalator sprawdza, czy zainstalowano PowerCLI 6.0.
-
-9. W obszarze **Lokalizacja instalacji** wybierz, gdzie mają zostać zainstalowane pliki binarne i gdzie ma być przechowywana pamięć podręczną. Na wybranym dysku musi być co najmniej 5 GB dostępnego miejsca, ale zalecamy dysk pamięci podręcznej z co najmniej 600 GB wolnego miejsca.
-
-10. W obszarze **Wybór sieci** określ odbiornik (kartę sieciową i port SSL), za pomocą którego serwer konfiguracji będzie wysyłać i odbierać dane replikacji. Port 9443 jest domyślnym portem używanym do wysyłania i odbierania ruchu związanego z replikacją, ale możesz zmienić ten numer portu tak, aby odpowiadał wymaganiom Twojego środowiska. Możemy również otworzyć port 443, który jest używany do organizowania operacji replikacji. Nie należy używać portu 443 do wysyłania i odbierania ruchu związanego z replikacją.
-
-11. W obszarze **Podsumowanie** przejrzyj informacje i kliknij przycisk **Zainstaluj**. Instalator instaluje serwer konfiguracji i rejestruje go usługi Azure Site Recovery.
-
-    ![Podsumowanie](./media/tutorial-vmware-to-azure/combined-wiz10.png)
-
-    Po zakończeniu instalacji generowane jest hasło. Będzie ono potrzebne po włączeniu replikacji, dlatego skopiuj je i przechowuj w bezpiecznym miejscu. Serwer jest wyświetlany na **ustawienia** > **serwerów** okienko w magazynie.
-
-### <a name="configure-automatic-discovery"></a>Konfigurowanie automatycznego odnajdowania
-
-Aby odnaleźć maszyn wirtualnych, serwer konfiguracji musi łączyć się z lokalnymi serwerami VMware. Do celów tego samouczka należy dodać serwer vCenter lub hostach vSphere, przy użyciu konta z uprawnieniami administratora na serwerze. Utworzono tego konta w [samouczek poprzedniej](tutorial-prepare-on-premises-vmware.md). 
-
-Aby dodać konto:
-
-1. Na serwerze konfiguracji maszyny Wirtualnej, należy uruchomić **CSPSConfigtool.exe**. Jest on dostępny jako skrót na pulpicie i znajduje się w folderze *lokalizacja instalacji*\home\svsystems\bin.
-
-2. Kliknij pozycje **Zarządzaj kontami** > **Dodaj konto**.
-
-   ![Dodawanie konta](./media/tutorial-vmware-to-azure/credentials1.png)
-
-3. W obszarze **Szczegóły konta** dodaj konto, które będzie używane do automatycznego wykrywania.
-
-   ![Szczegóły](./media/tutorial-vmware-to-azure/credentials2.png)
-
-Aby dodać serwer VMware:
-
-1. Otwórz [portalu Azure](https://portal.azure.com) i wybierz polecenie **wszystkie zasoby**.
-2. Kliknięcie w magazynie usług odzyskiwania o nazwie **ContosoVMVault**.
-3. Kliknij przycisk **lokacji odzyskiwania** > **przygotowanie infrastruktury** > **źródła**
-4. Wybierz **+ vCenter**, aby połączyć się z hostem ESXi vCenter, jak serwer lub vSphere.
-5. W **dodać vCenter**, określ przyjazną nazwę dla serwera. Następnie określ adres IP lub nazwę FQDN.
-6. Pozostaw portu 443, ustawić, chyba że serwerów VMware nasłuchiwać żądań na innym porcie.
-7. Wybierz konto do użycia podczas połączenia z serwerem. Kliknij przycisk **OK**.
 
 Odzyskiwanie lokacji łączy się przy użyciu określonych ustawień serwerów VMware i odnajduje maszyn wirtualnych.
 

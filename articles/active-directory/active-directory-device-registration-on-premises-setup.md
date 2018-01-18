@@ -1,5 +1,5 @@
 ---
-title: "Konfigurowanie lokalnego dostępu warunkowego przy użyciu rejestracji urządzeń usługi Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Konfigurowanie lokalnego dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Przewodnik krok po kroku do włączania dostępu warunkowego do aplikacji lokalnych przy użyciu usługi Active Directory Federation Services (AD FS) w systemie Windows Server 2012 R2."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurowanie lokalnego dostępu warunkowego przy użyciu rejestracji urządzeń usługi Azure Active Directory
 Jeśli wymagane jest użytkownikom Dołącz do miejsca pracy swoje urządzenia osobiste do usługi rejestracji urządzeń usługi Azure Active Directory (Azure AD), urządzeń może być oznaczony znane w organizacji. Poniżej przedstawiono krok po kroku dotyczące włączania dostępu warunkowego do aplikacji lokalnych przy użyciu usługi Active Directory Federation Services (AD FS) w systemie Windows Server 2012 R2.
@@ -69,7 +70,7 @@ Wdrożenie usługi rejestracji urządzeń usługi Azure Active Directory z dzier
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>Część 1: Rejestracja urządzeń Włączanie usługi Azure Active Directory
 Wykonaj kroki opisane na liście kontrolnej, aby włączyć i skonfigurować usługę rejestracji urządzeń usługi Azure Active Directory.
 
-| Zadanie | Dokumentacja | 
+| Zadanie | Informacje ogólne | 
 | --- | --- |
 | Włączanie rejestracji urządzeń w Twojej dzierżawie usługi Azure Active Directory, aby zezwolić urządzeniom na dołączenia w miejscu pracy. Domyślnie usługa Azure Multi-Factor Authentication nie jest włączone dla usługi. Jednak zaleca się korzystanie z uwierzytelniania wieloskładnikowego podczas rejestrowania urządzenia. Przed włączeniem uwierzytelniania wieloskładnikowego w usłudze rejestracji w usłudze Active Directory, upewnij się, że usługi AD FS jest skonfigurowany dla dostawcy uwierzytelniania wieloskładnikowego. |[Włączanie rejestracji urządzeń usługi Azure Active Directory](active-directory-device-registration-get-started.md)| 
 |Wykrywa urządzenia z usługi rejestracji urządzeń usługi Azure Active Directory przez wyszukiwanie dobrze znanych rekordów systemu DNS. System DNS firmy należy skonfigurować tak, aby urządzenia odnajdywania usługi rejestracji urządzeń usługi Azure Active Directory. |[Konfigurowanie odnajdywania rejestracji urządzeń usługi Azure Active Directory](active-directory-device-registration-get-started.md)| 
@@ -77,13 +78,13 @@ Wykonaj kroki opisane na liście kontrolnej, aby włączyć i skonfigurować us�
 
 ## <a name="part-2-deploy-and-configure-windows-server-2012-r2-active-directory-federation-services-and-set-up-a-federation-relationship-with-azure-ad"></a>Część 2: Wdróż i skonfiguruj Active Directory Federation Services do systemu Windows Server 2012 R2 i skonfiguruj relację federacji z usługą Azure AD
 
-| Zadanie | Dokumentacja |
+| Zadanie | Informacje ogólne |
 | --- | --- |
 | Wdrażanie usług domenowych w usłudze Active Directory z rozszerzeniami schematu systemu Windows Server 2012 R2. Jest konieczne uaktualnienie wszystkich kontrolerów domeny do systemu Windows Server 2012 R2. Jedynym wymaganiem jest uaktualnienie schematu. |[Uaktualnienia schematu do usług domenowych w usłudze Active Directory](#upgrade-your-active-directory-domain-services-schema) |
 | Wykrywa urządzenia z usługi rejestracji urządzeń usługi Azure Active Directory przez wyszukiwanie dobrze znanych rekordów systemu DNS. System DNS firmy należy skonfigurować tak, aby urządzenia odnajdywania usługi rejestracji urządzeń usługi Azure Active Directory. |[Przygotowywanie urządzenia pomocy technicznej usługi Active Directory](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Część 3: Zapisywanie zwrotne urządzeń Włącz w usłudze Azure AD
-| Zadanie | Dokumentacja |
+| Zadanie | Informacje ogólne |
 | --- | --- |
 | Zakończenie części "Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect." Po zakończeniu pracy, wróć do tego przewodnika. |[Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
@@ -93,7 +94,7 @@ Zdecydowanie zalecane jest skonfigurowanie jednego z kilku opcji uwierzytelniani
 ## <a name="part-5-verification"></a>Część 5: Weryfikacja
 Wdrażanie zostało ukończone i można wypróbować niektóre scenariusze. Użyj następujących łączy do eksperymentu w usłudze i zapoznać się z jego funkcji.
 
-| Zadanie | Dokumentacja |
+| Zadanie | Informacje ogólne |
 | --- | --- |
 | Dołączanie niektóre urządzenia do miejsca pracy przy użyciu usługi rejestracji urządzeń usługi Azure Active Directory. Możesz także dołączyć do systemu iOS, Windows i urządzeń z systemem Android. |[Dołączenie urządzenia do miejsca pracy przy użyciu usługi rejestracji urządzeń usługi Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | Wyświetl i włączyć lub wyłączyć zarejestrowanych urządzeń za pomocą portalu administratora. To zadanie możesz wyświetlić niektórych urządzeń zarejestrowanych za pomocą portalu administratora. |[Omówienie usługi rejestracji urządzeń usługi Azure Active Directory](active-directory-device-registration-get-started.md) |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Ograniczenia w usłudze Azure Active Directory i zasad haseł
 
@@ -46,10 +46,10 @@ Za pomocą zasad dwa bramy administratorzy nie mają możliwość używania pyta
   * Zapisywanie katalogów
   * Administrator globalny lub administrator firmy
   * Administrator usługi programu SharePoint
-  * Administrator do spraw zgodności
+  * Administrator zgodności
   * Administrator aplikacji
   * Administrator zabezpieczeń
-  * Administrator roli uprzywilejowanej
+  * Administrator ról uprzywilejowanych
   * Administratora usługi Microsoft Intune
   * Administrator usługi serwera proxy aplikacji
   * Administrator programu CRM usługi
@@ -146,7 +146,7 @@ Aby rozpocząć pracę, musisz [Pobierz i zainstaluj moduł programu PowerShell 
    > [!WARNING]
    > Ustaw hasła `-PasswordNeverExpires $true` nadal wieku na podstawie `pwdLastSet` atrybutu. Ustaw hasła użytkowników nigdy nie wygasa, przejdź 90 dni wygaśnięcia hasła. Na podstawie `pwdLastSet` atrybutów, w przypadku zmiany ważności do `-PasswordNeverExpires $false`, wszystkie hasła, które mają `pwdLastSet` starsze niż 90 dni wymagają od użytkownika je zmienić przy następnym zalogowaniu. Ta zmiana może mieć wpływ na wielu użytkowników. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Poniższe artykuły zawierają dodatkowe informacje na temat resetowania za pośrednictwem usługi Azure AD:
 

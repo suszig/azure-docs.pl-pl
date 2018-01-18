@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Wdrażanie brama brzegowa dla rozwiązania połączonych fabryki wstępnie skonfigurowane w systemie Windows lub Linux
 
@@ -32,8 +32,8 @@ Oba te składniki są open source i są dostępne jako źródło w serwisie GitH
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [Wydawca OPC](https://github.com/Azure/iot-edge-opc-publisher) | [Wydawca OPC](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
-| [Serwer Proxy OPC](https://github.com/Azure/iot-edge-opc-proxy)         | [Serwer Proxy OPC](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
+| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
 Nie trzeba publicznych adresów IP lub otwartych przychodzących portów w zaporze bramy albo składnika. Składniki serwera Proxy OPC i wydawcy OPC należy używać tylko port wychodzący 443.
 
@@ -57,7 +57,7 @@ Podczas instalacji Docker dla systemu Windows należy wybrać dysk na komputerze
 ![Zainstaluj Docker dla systemu Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Ten krok można również wykonać po zainstalowaniu docker z **ustawienia** okna dialogowego. Kliknij prawym przyciskiem myszy **Docker** ikonę na pasku zadań systemu Windows i wybierz polecenie **ustawienia**.
+> Ten krok można również wykonać po zainstalowaniu docker z **ustawienia** okna dialogowego. Kliknij prawym przyciskiem myszy **Docker** ikonę na pasku zadań systemu Windows i wybierz polecenie **ustawienia**. Jeśli wprowadzono znaczące aktualizacje systemu Windows zostały wdrożone w systemie, takie jak Windows twórców spadku zaktualizować, wyłącz udostępnianie dysków i udostępnij je ponownie, aby odświeżyć prawa dostępu.
 
 Jeśli używasz systemu Linux, aby umożliwić dostęp do systemu plików jest wymagana żadna konfiguracja dodatkowych.
 
@@ -65,7 +65,7 @@ W systemie Windows utwórz folder na dysku, który został udostępniony Docker,
 
 Odwołań do `<SharedFolder>` w poleceniu Docker, należy użyć prawidłowa składnia dla systemu operacyjnego. Poniżej przedstawiono dwa przykłady, jeden dla systemu Windows i jedno dla systemu Linux:
 
-- Jeśli jesteś za pomocą folderu `D:\shared` w systemie Windows jako sieci `<SharedFolder>`, przedstawiono składnię polecenia Docker `//d/shared`.
+- Jeśli jesteś za pomocą folderu `D:\shared` w systemie Windows jako sieci `<SharedFolder>`, przedstawiono składnię polecenia Docker `d:/shared`.
 
 - Jeśli jesteś za pomocą folderu `/shared` w systemie Linux jako sieci `<SharedFolder>`, przedstawiono składnię polecenia Docker `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>` Jest **iothubowner** udostępnione parametry połączenia zasady dostępu w portalu Azure. Ten ciąg połączenia został skopiowany w poprzednim kroku. Wystarczy tylko te parametry połączenia dla przy pierwszym uruchomieniu wydawcy OPC. W kolejnych uruchomieniach należy ją pominąć ponieważ stanowi zagrożenie bezpieczeństwa.
 
-- `<SharedFolder>` Używasz i jego składni jest opisany w sekcji [zainstalować i skonfigurować Docker](#install-and-configure-docker). OPC Wydawca używa `<SharedFolder>` odczytać pliku konfiguracyjnego wydawcy OPC zapisu w pliku dziennika i wprowadzić obu tych plików dostępne spoza kontenera.
+- `<SharedFolder>` Używasz i jego składni jest opisany w sekcji [zainstalować i skonfigurować Docker](#install-and-configure-docker). OPC Wydawca używa `<SharedFolder>` do odczytu i zapisu do pliku konfiguracji OPC wydawcy, zapisywania do pliku dziennika i Udostępnij oba te pliki poza kontenera.
 
-- Wydawca OPC odczytuje konfigurację z **publishednodes.json** pliku, który należy umieścić w `<SharedFolder>/docker` folderu. Ten plik konfiguracyjny definiuje OPC UA dane węzła na danym serwerze OPC UA, który subskrybować OPC wydawcy.
-
-- Zawsze, gdy serwer OPC UA powiadamia wydawcy OPC zmian danych, nowa wartość jest wysyłane do Centrum IoT. W zależności od ustawienia przetwarzanie wsadowe najpierw wydawcy OPC gromadzone dane przed wysłaniem danych do Centrum IoT w partii.
-
-- Pełna składnia **publishednodes.json** pliku jest opisany w [wydawcy OPC](https://github.com/Azure/iot-edge-opc-publisher) strony w witrynie GitHub.
-
-    Poniższy fragment kodu przedstawiono prosty przykład **publishednodes.json** pliku. W tym przykładzie pokazano, jak opublikować **bieżącagodzina** wartości z serwera OPC UA z nazwą hosta **win10pc**:
+- Wydawca OPC odczytuje konfigurację z **publishednodes.json** pliku, który jest odczytywane i zapisywane w `<SharedFolder>/docker` folderu. Ten plik konfiguracyjny definiuje OPC UA dane węzła na danym serwerze OPC UA, który subskrybować OPC wydawcy. Pełna składnia **publishednodes.json** pliku jest opisany w [wydawcy OPC](https://github.com/Azure/iot-edge-opc-publisher) strony w witrynie GitHub. Po dodaniu bramy, umieść pustą **publishednodes.json** w folderze:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    W **publishednodes.json** pliku UA OPC serwer jest określony przez adres URL punktu końcowego. Jeśli określono nazwę hosta, za pomocą etykieta nazwy hosta (takich jak **win10pc**) co w poprzednim przykładzie zamiast adresu IP rozpoznawania adresów sieciowych w kontenerze musi mieć możliwość rozpoznania etykieta nazwy hosta na adres IP.
+- Zawsze, gdy serwer OPC UA powiadamia wydawcy OPC zmian danych, nowa wartość jest wysyłane do Centrum IoT. W zależności od ustawienia przetwarzanie wsadowe najpierw wydawcy OPC gromadzone dane przed wysłaniem danych do Centrum IoT w partii.
 
 - Docker nie obsługuje rozpoznawania nazw systemu NetBIOS, rozpoznawania nazw DNS tylko. Jeśli nie masz serwera DNS w sieci, można użyć obejście pokazano w poprzednim przykładzie wiersza polecenia. W poprzednim przykładzie wierszu polecenia użyto `--add-host` parametr, aby dodać wpis do pliku hosts kontenerów. Ten wpis umożliwia wyszukiwanie nazwy hosta dla danej `<OpcServerHostname>`, rozpoznawanie do danego adresu IP `<IpAddressOfOpcServerHostname>`.
 
@@ -169,11 +155,16 @@ Teraz można podłączyć do bramy z chmury, a wszystko będzie gotowe dodać se
 
 Aby dodać serwery OPC UA do połączonych fabryki wstępnie skonfigurowane rozwiązanie:
 
-1. Przejdź do **połączyć z serwerem OPC UA** w portalu rozwiązania fabryka połączenia. Wykonaj te same czynności, jak w poprzedniej sekcji, aby ustanowić relację zaufania między portalem fabryki połączonych i OPC UA serwera.
+1. Przejdź do **połączyć z serwerem OPC UA** w portalu rozwiązania fabryka połączenia.
 
-    ![Portal rozwiązania](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Uruchom serwer OPC UA, z którym chcesz nawiązać połączenie. Upewnij się, że serwer OPC UA jest osiągalna z OPC wydawcy i Proxy OPC uruchomione w kontenerze (patrz poprzednie komentarze dotyczące rozpoznawania nazw).
+    1. Wprowadź adres URL punktu końcowego serwera OPC UA (`opc.tcp://<host>:<port>`) i kliknij przycisk **Connect**.
+    1. Podczas konfigurowania połączenia relacji zaufania między portalem połączonych fabryki (OPC Agent użytkownika klienta) i serwer OPC UA, z którym próbujesz nawiązać połączenie zostanie nawiązane. Na pulpicie nawigacyjnym połączonych fabryki otrzymasz **nie można zweryfikować certyfikatu serwera, o którym chcesz się połączyć** ostrzeżenie. Gdy pojawi się ostrzeżenie o certyfikacie, kliknij przycisk **Kontynuuj**.
+    1. Konfiguracja certyfikatu serwera OPC UA, z którym próbujesz nawiązać połączenie jest trudniejsze do instalacji. Dla komputera opartych na serwerach OPC UA, okno dialogowe ostrzeżenia mogą wystąpić tylko na pulpicie nawigacyjnym, który można potwierdzić. For embedded systems OPC UA serwera w dokumentacji serwera OPC UA do odszukania jak odbywa się to zadanie. Aby wykonać to zadanie, może być konieczne certyfikat klienta OPC UA portalu połączonych fabryki. Administrator może pobrać tego certyfikatu na **połączyć z serwerem OPC UA** strony:
 
-1. Przeglądanie drzewa OPC UA węzłów serwera OPC UA, kliknij prawym przyciskiem myszy węzły OPC chcesz wysyłać do połączonych fabryki, a następnie wybierz **publikowania**.
+        ![Portal rozwiązania](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Przeglądanie drzewa OPC UA węzłów serwera OPC UA, kliknij prawym przyciskiem myszy węzły OPC chcesz wysłać do połączonych fabryki wartości, a następnie wybierz **publikowania**.
 
 1. Dane telemetryczne teraz wypływających z urządzeniem bramy. Można wyświetlić dane telemetryczne w **lokalizacje fabryki** widok portalu fabryki połączonych w obszarze **nowa fabryka**.
 

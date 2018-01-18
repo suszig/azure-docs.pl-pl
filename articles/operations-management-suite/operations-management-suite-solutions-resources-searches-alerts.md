@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Dodawanie analizy dzienników zapisane wyszukiwania i alerty OMS rozwiązania do zarządzania (wersja zapoznawcza)
 
@@ -45,17 +45,14 @@ Nazwa obszaru roboczego jest nazwy każdego zasobu analizy dzienników.  Ma to r
 ## <a name="log-analytics-api-version"></a>Wersja interfejsu API analizy dzienników
 Wszystkie zasoby analizy dzienników zdefiniowane w szablonie usługi Resource Manager ma właściwości **apiVersion** określający wersję interfejsu API zasobu należy użyć.  Ta wersja jest różnych zasobów, które używają [starsza wersja i język zapytań uaktualnionego](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- Poniższa tabela zawiera wersje interfejsu API analizy dzienników dla starszej wersji, jak i uaktualnionych obszarów roboczych i przykładowe zapytanie, aby określić inną składnię dla każdego. 
+ Poniższa tabela zawiera wersje interfejsu API analizy dziennika zapisane wyszukiwania w starszej wersji, jak i uaktualnionych obszarów roboczych: 
 
-| Wersją z obszaru roboczego | Wersja interfejsu API | Przykładowe zapytanie |
+| Wersją z obszaru roboczego | Wersja interfejsu API | Zapytanie |
 |:---|:---|:---|
-| V1 (starsze)   | 2015-11-01-preview | Typ = EventLevelName zdarzenie błędu =             |
-| v2 (uaktualnienia) | 2017-03-15-preview | Zdarzenie &#124; gdzie EventLevelName == "Error"  |
+| V1 (starsze)   | 2015-11-01-preview | Format starszej wersji.<br> Przykład: Wpisz = EventLevelName zdarzenie błędu =  |
+| v2 (uaktualnienia) | 2015-11-01-preview | Format starszej wersji.  Konwertowana na format uaktualniony podczas instalacji.<br> Przykład: Wpisz = EventLevelName zdarzenie błędu =<br>Przekonwertować: Zdarzenie &#124; gdzie EventLevelName == "Error"  |
+| v2 (uaktualnienia) | 2017-03-03-preview | Uaktualnij format. <br>Przykład: Zdarzenie &#124; gdzie EventLevelName == "Error"  |
 
-Należy pamiętać, że, dla którego obszarów roboczych są obsługiwane przez różne wersje.
-
-- Szablony używające języka kwerend starszej wersji można zainstalować w starszej wersji lub uaktualnionych obszaru roboczego.  Jeśli zainstalowany w uaktualnionym obszaru roboczego, zapytania są konwertowane na bieżąco na nowy język uruchamianych przez użytkownika.
-- Szablony używające języka kwerend uaktualnionego można zainstalować tylko w obszarze roboczym uaktualniony.
 
 
 ## <a name="saved-searches"></a>Zapisane wyszukiwania
@@ -130,9 +127,9 @@ W poniższej tabeli opisano właściwości planowania zasobów.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| włączone       | Tak | Określa, czy alert jest włączony podczas jego tworzenia. |
-| interval      | Tak | Częstotliwość wykonywania kwerendy w minutach. |
-| QueryTimeSpan | Tak | Długość czasu w minutach, przez który ocena wyników. |
+| enabled       | Yes | Określa, czy alert jest włączony podczas jego tworzenia. |
+| interval      | Yes | Częstotliwość wykonywania kwerendy w minutach. |
+| queryTimeSpan | Yes | Długość czasu w minutach, przez który ocena wyników. |
 
 Zasób harmonogramu powinien są zależne od zapisanego wyszukiwania, aby przed harmonogram jest tworzona.
 
@@ -189,10 +186,10 @@ W poniższych tabelach opisano właściwości zasobów akcji alertu.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Typ | Tak | Typ akcji.  Jest to **Alert** dla akcje alertu. |
-| Nazwa | Tak | Nazwa wyświetlana alertu.  Jest to nazwa, która jest wyświetlana w konsoli dla reguł alertów. |
+| Typ | Yes | Typ akcji.  Jest to **Alert** dla akcje alertu. |
+| Name (Nazwa) | Yes | Nazwa wyświetlana alertu.  Jest to nazwa, która jest wyświetlana w konsoli dla reguł alertów. |
 | Opis | Nie | Opcjonalny opis alertu. |
-| Ważność | Tak | Ważność alertu rekordu z następujących wartości:<br><br> **Krytyczne**<br>**Ostrzeżenie**<br>**Informacyjny** |
+| Ważność | Yes | Ważność alertu rekordu z następujących wartości:<br><br> **Krytyczne**<br>**Ostrzeżenie**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Próg
@@ -200,8 +197,8 @@ Ta sekcja jest wymagana.  Definiuje właściwości dla wartości progowej alertu
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Operator | Tak | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
-| Wartość | Tak | Wartość do porównywania wyników. |
+| Operator | Yes | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
+| Wartość | Yes | Wartość do porównywania wyników. |
 
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
@@ -212,9 +209,9 @@ Ta sekcja jest opcjonalna.  Uwzględnij czynnik dla alertu metryki pomiaru.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| TriggerCondition | Tak | Określa, czy próg całkowitą liczbę naruszeń lub kolejnych naruszenia z następujących wartości:<br><br>**Całkowita liczba<br>kolejnych** |
-| Operator | Tak | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
-| Wartość | Tak | Liczba przypadków, które muszą zostać spełnione kryteria wyzwolenia alertu. |
+| TriggerCondition | Yes | Określa, czy próg całkowitą liczbę naruszeń lub kolejnych naruszenia z następujących wartości:<br><br>**Całkowita liczba<br>kolejnych** |
+| Operator | Yes | Operator porównania z następujących wartości:<br><br>**gt = większe<br>lt = mniej niż** |
+| Wartość | Yes | Liczba przypadków, które muszą zostać spełnione kryteria wyzwolenia alertu. |
 
 ##### <a name="throttling"></a>Ograniczanie przepływności
 Ta sekcja jest opcjonalna.  W tej sekcji należy uwzględnić, jeśli chcesz pominąć alertów z tej samej reguły dla niektórych ilość czasu, po utworzeniu alertu.
@@ -228,19 +225,19 @@ Ta sekcja jest opcjonalna.  W tej sekcji należy uwzględnić, jeśli chcesz pom
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| Adresaci | Tak | Rozdzielana przecinkami lista adresów e-mail, aby wysłać powiadomienie, gdy jest tworzony alert, takich jak w poniższym przykładzie.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Temat | Tak | Wiersz tematu wiadomości e-mail. |
-| Załącznika | Nie | Załączniki nie są obecnie obsługiwane.  Jeśli ten element jest włączone, należy go **Brak**. |
+| Adresaci | Yes | Rozdzielana przecinkami lista adresów e-mail, aby wysłać powiadomienie, gdy jest tworzony alert, takich jak w poniższym przykładzie.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Temat | Yes | Wiersz tematu wiadomości e-mail. |
+| Załącznik | Nie | Załączniki nie są obecnie obsługiwane.  Jeśli ten element jest włączone, należy go **Brak**. |
 
 
-##### <a name="remediation"></a>Korygowania
+##### <a name="remediation"></a>Korygowanie
 Ta sekcja jest opcjonalna Dołącz ją, jeśli chcesz, aby element runbook można uruchomić w odpowiedzi na alert. |
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| RunbookName | Tak | Nazwa elementu runbook, aby rozpocząć. |
-| WebhookUri | Tak | Identyfikator URI elementu webhook dla elementu runbook. |
-| Wygaśnięcia | Nie | Data i godzina wygaśnięcia korygowania. |
+| RunbookName | Yes | Nazwa elementu runbook, aby rozpocząć. |
+| WebhookUri | Yes | Identyfikator URI elementu webhook dla elementu runbook. |
+| Data wygaśnięcia | Nie | Data i godzina wygaśnięcia korygowania. |
 
 #### <a name="webhook-actions"></a>Akcje elementu Webhook
 
@@ -268,15 +265,15 @@ Właściwości elementu Webhook akcji zasoby są opisane w poniższych tabelach.
 
 | Nazwa elementu | Wymagane | Opis |
 |:--|:--|:--|
-| type | Tak | Typ akcji.  Jest to **Webhook** dla Akcje elementu webhook. |
-| name | Tak | Nazwa wyświetlana dla akcji.  Nie jest on wyświetlany w konsoli. |
-| wehookUri | Tak | Identyfikator URI dla elementu webhook. |
+| type | Yes | Typ akcji.  Jest to **Webhook** dla Akcje elementu webhook. |
+| name | Yes | Nazwa wyświetlana dla akcji.  Nie jest on wyświetlany w konsoli. |
+| wehookUri | Yes | Identyfikator URI dla elementu webhook. |
 | CustomPayload | Nie | Niestandardowy ładunek do wysłania do elementu webhook. Format zależy od tego, czego oczekuje elementu webhook. |
 
 
 
 
-## <a name="sample"></a>Przykład
+## <a name="sample"></a>Sample
 
 Poniżej przedstawiono przykładowe rozwiązanie zawierającą obejmuje następujące zasoby:
 
@@ -520,7 +517,7 @@ Następujący plik parametrów zawiera przykłady wartości dla tego rozwiązani
     }
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dodawanie widoków](operations-management-suite-solutions-resources-views.md) do rozwiązania do zarządzania.
 * [Dodaj element runbook usługi Automatyzacja i innych zasobów](operations-management-suite-solutions-resources-automation.md) do rozwiązania do zarządzania.
 

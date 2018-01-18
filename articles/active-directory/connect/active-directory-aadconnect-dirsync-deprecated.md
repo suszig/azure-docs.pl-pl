@@ -3,7 +3,7 @@ title: "Uaktualnianie z narzędzia DirSync i Azure AD Sync | Dokumentacja firmy 
 description: "W tym artykule opisano sposób uaktualniania z narzędzia DirSync i Azure AD Sync do programu Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 36a009b2a185b9ccdc0690014509e5596b4f8b8c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uaktualnienia usługi synchronizacji usługi Windows Azure Active Directory i Azure synchronizacji usługi Active Directory
 Użycie programu Azure AD Connect to najlepszy sposób na połączenie katalogu lokalnego z usługami Azure AD i Office 365. Jest to doskonały moment na uaktualnienie do programu Azure AD Connect Windows synchronizacji Azure Active Directory (DirSync) lub Azure AD Sync te narzędzia są teraz przestarzałe i nie są już obsługiwane począwszy od 13 kwietnia 2017 r.

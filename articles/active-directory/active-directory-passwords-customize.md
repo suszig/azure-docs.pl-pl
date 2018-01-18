@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Dostosowywanie funkcji usługi Azure AD dla samoobsługowego resetowania hasła
 
@@ -107,7 +107,7 @@ Można zmienić atrybutu nazwy katalogu, w obszarze **usługi Azure Active Direc
 * Przyjazna nazwa w wiadomości e-mail, na przykład "Microsoft imieniu pokaz firmy CONTOSO"
 * Wiersz tematu wiadomości e-mail, na przykład "CONTOSO demonstracyjna konta e-mail kod weryfikacyjny"
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architektura połączenia bazy danych Azure SQL 
 
@@ -71,7 +71,7 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 | Środkowe stany USA | 23.99.160.139 | 13.67.215.62 |
 | Azja Wschodnia | 191.234.2.139 | 52.175.33.150 |
 | Wschodnie stany USA 1 | 191.238.6.43 | 40.121.158.30 |
-| Wschodnie stany USA 2 | 191.239.224.107 | 40.79.84.180 |
+| Wschodnie stany USA 2 | 191.239.224.107 | 40.79.84.180 * |
 | Indie Środkowe | 104.211.96.159  | |
 | Indie Południowe | 104.211.224.146  | |
 | Indie Zachodnie | 104.211.160.80 | |
@@ -84,7 +84,7 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 | Środkowo-południowe stany USA | 23.98.162.75 | 13.66.62.124 |
 | Azja Południowo-Wschodnia | 23.100.117.95 | 104.43.15.0 |
 | Północne Zjednoczone Królestwo | 13.87.97.210 | |
-| Wielka Brytania Południowa 1 | 51.140.184.11 | |
+| UK South 1 | 51.140.184.11 | |
 | Południowe Zjednoczone Królestwo 2 | 13.87.34.7 | |
 | Zachodnie Zjednoczone Królestwo | 51.141.8.11  | |
 | Środkowo-zachodnie stany USA | 13.78.145.25 | |
@@ -92,6 +92,8 @@ W poniższej tabeli wymieniono głównych i dodatkowych adresów IP bramy bazy d
 | Zachodnie stany USA 1 | 23.99.34.75 | 104.42.238.205 |
 | Zachodnie stany USA 2 | 13.66.226.202  | |
 ||||
+
+\***Uwaga:** *wschodnie stany USA 2* również ma adres IP trzeciorzędny `2.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Zmień zasady połączenia bazy danych SQL Azure
 
@@ -183,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać informacje dotyczące zmieniania bazy danych SQL Azure zasady połączenia dla serwera bazy danych SQL Azure, zobacz [tworzenia lub aktualizacji zasady połączenia dla serwera za pomocą interfejsu API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Uzyskać informacji dotyczących zachowania połączenia bazy danych SQL Azure dla klientów używających ADO.NET 4.5 lub nowszej wersji, zobacz [porty inne niż 1433 dla ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurowanie aplikacji sieci Web w usłudze Azure App Service
 
@@ -62,7 +62,7 @@ Ze względów technicznych włączenie Java aplikacji powoduje wyłączenie opcj
 **Debugowanie zdalne**. Umożliwia zdalne debugowanie. Po włączeniu można użyć zdalnego debugera w programie Visual Studio, aby połączyć się bezpośrednio z aplikacji sieci web. Debugowanie zdalne pozostanie włączony 48 godzin. 
 
 ### <a name="app-settings"></a>Ustawienia aplikacji
-Ta sekcja zawiera pary nazwa/wartość, które sieci web aplikacji zostanie załadowany po uruchomieniu. 
+Ta sekcja zawiera pary nazwa/wartość, które Twoja aplikacja sieci web zostanie załadowany po uruchomieniu się. 
 
 * W przypadku aplikacji .NET, te ustawienia są wstrzykiwane do konfiguracji .NET `AppSettings` w czasie wykonywania, zastępowanie istniejących ustawień. 
 * Aplikacje PHP, Python, Java i węzła mają dostęp do tych ustawień jako zmienne środowiskowe w czasie wykonywania. Dla każdego ustawienia aplikacji są tworzone dwie zmienne środowiskowe; jeden z nazwą określoną przez ustawienie wpis aplikacji, a druga z prefiksem APPSETTING_. Zawierają tę samą wartość.
@@ -75,7 +75,7 @@ W przypadku aplikacji .NET, te parametry połączenia są wstrzykiwane do konfig
 W przypadku aplikacji PHP, Python, Java i węzła te ustawienia będą dostępne jako zmienne środowiskowe w czasie wykonywania, prefiksem typu połączenia. Prefiksy zmiennej środowiskowej są następujące: 
 
 * Program SQL Server:`SQLCONNSTR_`
-* MySQL:`MYSQLCONNSTR_`
+* MySQL: `MYSQLCONNSTR_`
 * Baza danych SQL:`SQLAZURECONNSTR_`
 * Niestandardowe:`CUSTOMCONNSTR_`
 

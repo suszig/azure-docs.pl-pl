@@ -3,7 +3,7 @@ title: 'Synchronizacja programu Azure AD Connect: opis architektury | Dokumentac
 description: "W tym temacie opisano architekturę synchronizacja programu Azure AD Connect i opisano terminy używane."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja programu Azure AD Connect: omówienie architektury
 W tym temacie opisano podstawową architekturę do synchronizacji Azure AD Connect. W wielu aspektach jest podobny do poprzedników MIIS 2003, ILM 2007 i FIM 2010. Synchronizacja programu Azure AD Connect powstał na tych technologii. Jeśli znasz za pomocą dowolnego z tych starszych technologii, zawartość tego tematu będzie znane, również. Jeśli jesteś nowym użytkownikiem synchronizacji, w tym temacie jest dla Ciebie. Jednak nie jest wymagane, aby poznać szczegóły tego tematu, aby skutecznie w podejmowaniu dostosowań do synchronizacji Azure AD Connect (nazywane aparatem synchronizacji w tym temacie).
@@ -253,7 +253,7 @@ Magazyny aparatu synchronizacji eksportować i importować informacje dotyczące
 
 Na przykład jeśli aparat synchronizacji eksportuje atrybut C, który ma wartość 5, do połączonego źródła danych, przechowuje C = 5, w jego pamięci stan eksportu. Każdy dodatkowego eksportu na wyniki tego obiektu w celu ponownie wyeksportuj C = 5 połączonego źródła danych, ponieważ aparat synchronizacji przyjęto założenie, że ta wartość nie została trwale zastosowana do obiektu (to znaczy, chyba że inną wartość została zaimportowana ostatnio z połączonego źródła danych). Pamięć eksportu zostanie wyczyszczona po odebraniu podczas operacji importowania dla obiekt C = 5.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

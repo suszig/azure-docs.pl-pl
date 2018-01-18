@@ -1,5 +1,5 @@
 ---
-title: "Jak przeprowadzić migrację poszczególnych licencjonowanych użytkowników do grupy w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Migracja użytkowników licencji użytkownika do grupy na podstawie Licencjonowanie w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Jak przejść z licencji użytkownika do grupy na podstawie licencji za pomocą usługi Azure Active Directory"
 services: active-directory
 keywords: "Licencjonowanie usługi Azure AD"
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 01/14/2018
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08bcde92ecc3c834d4c6a36e73a720c170b8fcf2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 47d7bf5a41c140c6d6769b549163a3dadfa5ef1c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Jak dodać licencjonowanych użytkowników do grupy licencji w usłudze Azure Active Directory
 
@@ -81,7 +81,7 @@ Oto, jak może wyglądać procesu migracji:
   ![bezpośrednie licencje usunięte](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat innych scenariuszy zarządzania licencji za pomocą grup, do odczytu
 

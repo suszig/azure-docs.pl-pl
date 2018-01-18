@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Rozwiązywanie problemów z powłoki w chmurze Azure
 
 Następujące znane rozwiązania problemów w powłoce chmury Azure:
 
 ## <a name="general-resolutions"></a>Ogólne rozwiązania
+
+### <a name="early-timeouts-in-firefox"></a>Wczesne limitów czasu w programie FireFox
+- **Szczegóły**: powłoki chmury wykorzystuje Otwórz websocket do przekazania wejścia/wyjścia do przeglądarki. FireFox ma wstępnie zdefiniowane zasady, które można zamknąć protokół websocket przedwcześnie powoduje wczesne limitów czasu w chmurze powłoki.
+- **Rozdzielczość**: Otwórz przeglądarkę FireFox i przejdź do "o: config" w polu adresu URL. Wyszukaj "network.websocket.timeout.ping.request" i zmień wartość z zakresu od 0 do 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Okno dialogowe magazynu — błąd: 403 RequestDisallowedByPolicy
 - **Szczegóły**: podczas tworzenia konta magazynu za pośrednictwem chmury powłoki, to nie powiodło się z powodu zasad Azure wprowadzane przez administratora. Zawiera komunikat o błędzie:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

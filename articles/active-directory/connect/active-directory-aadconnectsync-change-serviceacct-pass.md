@@ -4,7 +4,7 @@ description: "Dokument ten temat opisuje oraz klucz szyfrowania został on porzu
 services: active-directory
 keywords: "Konto usługi synchronizacji programu Azure AD, hasło"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Zmiana hasła konta usługi synchronizacji Azure AD Connect
 Jeśli zmienisz hasło konta usługi synchronizacji Azure AD Connect, usługi synchronizacji nie będzie możliwe start poprawnie dopiero po klucz szyfrowania porzucone i ponownie zainicjować hasło konta usługi synchronizacji Azure AD Connect. 
@@ -43,7 +43,7 @@ Drugie określonych warunkach, jeśli hasło zostanie zaktualizowane, usługa sy
 Zostaną wyświetlone błędy takie jak:
 
 - W obszarze Menedżer sterowania usługami systemu Windows, jeśli użytkownik próbuje uruchomić usługę synchronizacji i nie może pobrać klucza szyfrowania go zakończy się niepowodzeniem z powodu błędu "** systemu Windows nie można uruchomić programu Microsoft Azure AD Sync na komputerze lokalnym. Aby uzyskać więcej informacji przejrzyj dziennik zdarzeń systemu. Jeśli jest to usługa firmy Microsoft, skontaktuj się z dostawcą usługi i zapoznaj się kod błędu usługi **-21451857952 ***. "
-- W Podglądzie zdarzeń systemu Windows, w dzienniku zdarzeń aplikacji zawiera błąd **6028 identyfikator zdarzenia** i komunikat o błędzie *"**nie można uzyskać dostępu do klucza szyfrowania serwera.* *"*
+- W Podglądzie zdarzeń systemu Windows, w dzienniku zdarzeń aplikacji zawiera błąd **6028 identyfikator zdarzenia** i komunikat o błędzie *"**nie można uzyskać dostępu do klucza szyfrowania serwera.**"*
 
 Aby upewnić się, że nie będą odbierać te błędy, wykonaj procedury przedstawione w [porzucanie klucz szyfrowania synchronizacji Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) po zmianie hasła.
  
@@ -107,7 +107,7 @@ Usługa synchronizacji uzyskuje dostęp do klucza szyfrowania i hasła, które s
 1. Przejdź do systemu Windows Menedżera sterowania usługami (usługi → START).
 2. Wybierz **Microsoft Azure AD Sync** i kliknij przycisk Uruchom ponownie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 **Tematy poglądowe**
 
 * [Synchronizacja programu Azure AD Connect: zrozumienie i dostosowywanie synchronizacji](active-directory-aadconnectsync-whatis.md)

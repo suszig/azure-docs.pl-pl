@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 36466ffe31a728e3267ef5002e4e69f52889577c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiowanie danych z serwera FTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,8 +55,8 @@ Obsługiwane są następujące właściwości dla usługi FTP połączone:
 | port | Określ port, na którym nasłuchuje serwer FTP.<br/>Dozwolone wartości to: liczba całkowita, wartość domyślna to **21**. | Nie |
 | enableSsl | Określ, czy używać FTP za pośrednictwem kanału SSL/TLS.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false**. | Nie |
 | enableServerCertificateValidation | Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false**. | Nie |
-| Typ authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **anonimowe** | Yes |
-| Nazwa użytkownika | Określ użytkownika, który ma dostęp do serwera FTP. | Nie |
+| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to: **podstawowe**, **anonimowe** | Yes |
+| userName | Określ użytkownika, który ma dostęp do serwera FTP. | Nie |
 | hasło | Określ hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
@@ -164,7 +164,7 @@ Aby skopiować dane z FTP, należy ustawić typ źródła w przypadku działania
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **FileSystemSource** |Yes |
-| Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
+| Cykliczne | Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu. Uwaga: po cykliczne ma ustawioną wartość PRAWDA, a obiekt sink jest magazynu opartych na plikach, pusty folder/podrzędne-folder nie będą kopiowane utworzone w ujścia.<br/>Dozwolone wartości to: **true** (ustawienie domyślne), **false** | Nie |
 
 **Przykład:**
 
@@ -199,5 +199,5 @@ Aby skopiować dane z FTP, należy ustawić typ źródła w przypadku działania
 ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

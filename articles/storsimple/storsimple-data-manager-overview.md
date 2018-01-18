@@ -1,6 +1,6 @@
 ---
 title: "Omówienie programu Microsoft Azure StorSimple Data | Dokumentacja firmy Microsoft"
-description: "Zawiera omówienie usługi Menedżer StorSimple danych (w podglądzie prywatnym)"
+description: "Zawiera omówienie usługi Menedżer StorSimple danych"
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -12,63 +12,75 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/22/2016
+ms.date: 01/16/2018
 ms.author: vidarmsft
-ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="storsimple-data-manager-overview-private-preview"></a>Omówienie Menedżera danych StorSimple (podglądzie prywatnym)
+# <a name="storsimple-data-manager-solution-overview"></a>Omówienie rozwiązania StorSimple Data Manager
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-Microsoft Azure StorSimple jest rozwiązania magazynu hybrydowego chmury, którego dotyczy złożoności danych niestrukturalnych zwykle powiązanych ze udziałów plików. StorSimple używa magazynu w chmurze jako rozszerzenia rozwiązania lokalnego, i automatycznie warstwy danych w lokalnej pamięci masowej i magazynu w chmurze. Zintegrowana ochrony danych z lokalnego i w chmurze migawek, eliminuje potrzebę stosowania sprawling infrastruktury magazynu. Archiwalne i odzyskiwanie po awarii jest również bezproblemowe z chmurą, działając jako lokalizacji poza siedzibą firmy.
+Microsoft Azure StorSimple używa magazynu w chmurze jako rozszerzenia rozwiązania lokalnego, i automatycznie danych warstw na magazynu lokalnego i w chmurze. Dane są przechowywane w chmurze w formacie deduplikowanych i skompresowane z maksymalną wydajnością i do obniżenia kosztów. Ponieważ dane są przechowywane w formacie StorSimple, nie jest łatwo dostępne inne aplikacje w chmurze, które chcesz użyć.
 
-Usługa przekształcania danych, które udostępniono w tym dokumencie umożliwia uzyskiwanie dostępu do danych StorSimple w chmurze. Ta usługa zawiera interfejsy API do wyodrębniania danych z StorSimple i prezentować innymi usługami platformy Azure w formatach które mogą być łatwo używane. W tej wersji zapoznawczej obsługiwane formaty są obiekty BLOB platformy Azure i zasoby usługi Azure Media Services. Ta transformacja umożliwia łatwe połączenie usług, takich jak usługi Azure Media Services, Azure HDInsight uczenie maszynowe Azure i usługi Azure Search do działania na urządzeniu lokalnym serii StorSimple 8000.
+Menedżer StorSimple danych umożliwia bezproblemowe dostępu i użycia danych formatu StorSimple w chmurze. Robi to poprzez przekształcanie StorSimple format w obiektach blob natywnej i pliki, których można używać z innych usług, takich jak usługi Azure Media Services, Azure HDInsights i uczenie maszynowe Azure.
 
-Poniżej przedstawiono diagram blokowy wysokiego poziomu pokazujący to.
+Ten artykuł zawiera omówienie rozwiązania StorSimple Data Manager. Wyjaśniono również, jak można użyć tej usługi do pisania aplikacji, które używają danych StorSimple i innych usług Azure w chmurze.
 
-![Diagram ogólny](./media//storsimple-data-manager-overview/high-level-diagram.png)
+## <a name="how-it-works"></a>Jak to działa?
 
-W tym dokumencie opisano, jak można założyć prywatnej wersji zapoznawczej tej usługi. Wyjaśniono również, jak można użyć tej usługi do pisania aplikacji, które używają danych StorSimple i innych usług Azure w chmurze.
+Usługę Menedżer StorSimple danych identyfikuje dane StorSimple w chmurze z serii StorSimple 8000 lokalnego urządzenia. Danych StorSimple w chmurze jest deduplikacją, skompresowany StorSimple format. Usługa Data Manager udostępnia interfejsy API, aby wyodrębnić dane formatu StorSimple i przekształcenie go w innych formatach, takich jak obiekty BLOB Azure i usługi pliki Azure. To przekształcone dane łatwo jest następnie używane przez usługi Azure HDInsight i multimediów Azure. Przekształcenia danych w związku z tym umożliwia tych usług, które ma być przeprowadzana operacja przekształcone dane StorSimple z urządzeniami lokalnymi serii StorSimple 8000. Na poniższym diagramie przedstawiono tego przepływu.
 
-## <a name="sign-up-for-data-manager-preview"></a>Załóż Data Manager w wersji zapoznawczej
-Przed zarejestrowaniem się usługi Menedżera danych, sprawdź następujące wymagania wstępne.
-
-### <a name="prerequisites"></a>Wymagania wstępne
-
-Tym ćwiczeniu przyjęto założenie, że masz
-* Aktywną subskrypcją platformy Azure.
-* dostęp do zarejestrowanych StorSimple 8000 serii urządzenia
-* wszystkie klucze skojarzone z danym urządzeniem z serii StorSimple 8000.
-
-### <a name="sign-up"></a>Rejestrowanie
-
-Menedżer StorSimple danych jest w prywatnej wersji zapoznawczej. Wykonaj poniższe kroki, aby utworzyć konto w prywatnej wersji zapoznawczej tej usługi:
-
-1.  Zaloguj się do portalu Azure z rozszerzeniem StorSimple Data Manager w: [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager). Twoje poświadczenia platformy Azure można używać do logowania.
-
-2.  Kliknij przycisk  **+**  ikonę, aby utworzyć usługę. Kliknij przycisk **magazynu** , a następnie kliknij przycisk **Zobacz wszystkie** w otwartym bloku.
-
-    ![Ikona danych Menedżera StorSimple wyszukiwania](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
-
-3. Pojawi się ikona Menedżer StorSimple danych.
-
-    ![Wybierz ikonę Menedżera StorSimple danych](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
-
-4. Kliknij ikonę Menedżer StorSimple danych, a następnie kliknij przycisk **Utwórz**. Wybierz subskrypcję, którą chcesz włączyć w prywatnej wersji zapoznawczej, a następnie kliknij przycisk **Zapisz się!**
-
-    ![Zapisz się](./media/storsimple-data-manager-overview/sign-me-up.png)
-
-5. Spowoduje to wysłanie żądania można dołączyć użytkownik. Firma Microsoft będzie dołączyć należy jak najszybciej. Po włączeniu subskrypcji można utworzyć usługi Menedżer StorSimple danych.
-
-6. Aby łatwo uzyskiwać dostęp do usługi Menedżer StorSimple danych, kliknij ikonę gwiazdki, aby przypiąć go do ulubionych.
-
-    ![Dostęp do danych StorSimple menedżerów](./media/storsimple-data-manager-overview/access-data-managers.png)
+![Diagram ogólny](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="data-manager-use-cases"></a>Przypadki użycia Menedżera danych
+
+Menedżer danych z usługi Azure Functions, usługi Automatyzacja Azure i fabryki danych Azure umożliwia ma przepływów pracy uruchomionych na podstawie danych, ponieważ pochodzi do StorSimple. Można przetworzyć zawartości przechowywać na StorSimple w usłudze Azure Media Services, lub uruchom Algorytm uczenia maszynowego danych lub uzupełnić klastra usługi Hadoop do analizowania danych, które są przechowywane na StorSimple multimediów. Z szeroką gamę usług dostępnych na platformie Azure w połączeniu z danymi na StorSimple można odblokować zasilania danych.
+
+
+## <a name="region-availability"></a>Dostępność w danym regionie
+
+Menedżer StorSimple danych jest dostępna w następujących regionach 7:
+
+ - Azja Południowo-Wschodnia
+ - Wschodnie stany USA
+ - Zachodnie stany USA
+ - Zachodnie stany USA 2
+ - Środkowo-zachodnie stany USA
+ - Europa Północna
+ - Europa Zachodnia
+
+Jednak Menedżer StorSimple danych może służyć do przekształcania danych w następujących regionach. 
+
+![Regiony dostępne dla danych](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+
+Ten zestaw jest większy, ponieważ wdrażania zasobów w żadnej z powyższych regionów jest w stanie proces przekształcenia w poniżej obszarach. Tak jak długo dane znajdują się w jednym 26 regionów, można przekształcać dane przy użyciu tej usługi.
+
+
+## <a name="choosing-a-region"></a>Wybieranie regionu
+
+Zalecamy, aby:
+ - Konta magazynu źródłowego (jeden skojarzonych z Twoim urządzeniem StorSimple) i docelowe konto magazynu (gdzie mają dane w formacie native) można w tym samym regionie Azure.
+ - Przełącz definicję Menedżera danych i zadań w regionie, który zawiera konta magazynu StorSimple. Jeśli nie jest to możliwe, przełącz się Data Manager w najbliższej region platformy Azure, a następnie utwórz definicji zadania w tym samym regionie co konto magazynu StorSimple. 
+
+    Konta magazynu StorSimple nie jest w regionach 26, które obsługują tworzenie definicji zadania, zaleca się czy nie zostanie uruchomiony Menedżer StorSimple danych Zobacz długie opóźnienia i opłaty za wyjście wysokiego.
+
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+
+Menedżer StorSimple danych wymaga klucza szyfrowania danych usługi do przekształcenia z formatu StorSimple do formatu macierzystego. Klucz szyfrowania danych usługi jest generowany podczas pierwszego urządzenia zarejestrowanie w usłudze StorSimple. Aby uzyskać więcej informacji na ten klucz, przejdź do [zabezpieczenia usługi StorSimple](storsimple-8000-security.md).
+
+Klucz szyfrowania danych usługi podana jako dane wejściowe są przechowywane w magazynie kluczy, który jest tworzony podczas tworzenia Data Manager. Magazyn znajduje się w tym samym regionie Azure jako menedżera StorSimple danych. Ten klucz jest usuwany podczas usuwania usługi Data Manager.
+
+Ten klucz jest używany przez zasoby obliczeniowe na przekształcenie. Tych obliczeń zasobów znajdują się w tym samym regionie Azure jako definicja zadania. Ten region może lub nie może być taki sam jak region, w którym przełączeniem Konfigurowanie Menedżera danych.
+
+Jeśli Twoim regionie Menedżera danych różni się od regionu definicji zadania, ważne jest zrozumienie danych/metadanych znajduje się w każdym z tych obszarów. Poniższy diagram ilustruje efekt o różnych regionach dla definicji Menedżera danych i zadania.
+
+![Definicja usługi i zadania w różnych regionach](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="next-steps"></a>Kolejne kroki
 
 [Użyj Menedżera danych StorSimple interfejsu użytkownika Służącego do przekształcenia danych](storsimple-data-manager-ui.md).

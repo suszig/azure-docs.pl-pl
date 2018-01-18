@@ -3,7 +3,7 @@ title: "Usługa Azure IoT najlepszych rozwiązań dotyczących zabezpieczeń | D
 description: "IoT najlepsze rozwiązania dotyczące zabezpieczania infrastruktury IoT. Zawiera zalecenia dla deweloperów, procedur wdrażających rozwiązania i operatory rozwiązania."
 services: iot-hub
 documentationcenter: 
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 84f9ce2b-e8b5-4239-b262-13d0637efc2b
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
-ms.author: yurid
-ms.openlocfilehash: 50ab087c9d150d08465648f140e045c88353abab
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.date: 01/17/2018
+ms.author: dobett
+ms.openlocfilehash: c7b131d35a520a9520790a331d40a4af07d4808e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania IoT, zobacz:
 
 * [Architektura zabezpieczeń IoT][lnk-security-architecture]
@@ -30,7 +30,7 @@ Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania IoT, zobacz:
 
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md

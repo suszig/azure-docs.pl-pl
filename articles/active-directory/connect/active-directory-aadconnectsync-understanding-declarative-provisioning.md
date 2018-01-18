@@ -3,7 +3,7 @@ title: "Azure AD Connect: Opis Aprowizacją deklaratywną | Dokumentacja firmy M
 description: "W tym artykule wyjaśniono deklaratywne inicjowania obsługi administracyjnej model konfiguracji w programie Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronizacja programu Azure AD Connect: opis Aprowizacją deklaratywną
 W tym temacie opisano model konfiguracji w programie Azure AD Connect. Model jest nazywany Aprowizacją deklaratywną i pozwala na zapewnienie zmiany z łatwością konfiguracji. Wiele czynności opisanych w tym temacie są zaawansowane i nie jest wymagane dla większości scenariuszy.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Aprowizacja deklaratywna jest przetwarzanie obiektów odbierane z połączonego katalogu źródłowego i określa, jak obiekt i atrybuty transformacji ze źródła do miejsca docelowego. Obiekt jest przetwarzane w potoku synchronizacji i potoku jest taki sam dla reguł ruchu przychodzącego i wychodzącego. Reguła ruchu przychodzącego jest z przestrzeni łącznika do środowiska metaverse, a Reguła ruchu wychodzącego jest metaverse do przestrzeni łącznika.
 
 ![Potok synchronizacji](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
@@ -148,7 +148,7 @@ Priorytet musi być ustawiona, jeśli masz wiele obiektów w tej samej przestrze
 W tym scenariuszu należy zmienić zakres reguły synchronizacji, więc obiekty źródła synchronizacji różnych zasad w zakresie. Który można zdefiniować inny priorytet.  
 ![Wiele obiektów dołączonych do tego samego obiektu mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o języku wyrażenia w [opis deklaratywne inicjowania obsługi administracyjnej wyrażenia](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Zobacz, jak deklaratywne inicjowania obsługi administracyjnej jest używane out-of-box w [opis konfiguracji domyślnej](active-directory-aadconnectsync-understanding-default-configuration.md).
 * W temacie jak zrobić praktyczne przy użyciu aprowizacją deklaratywną w [jak wprowadzić zmianę do domyślnej konfiguracji](active-directory-aadconnectsync-change-the-configuration.md).
