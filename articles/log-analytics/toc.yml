@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Azure Log Analytics
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Co to jest usługa Log Analytics?
       href: log-analytics-overview.md
@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Łącznik usługi Flow
           href: log-analytics-flow-tutorial.md
+        - name: Interfejs API wyszukiwania w dzienniku
+          href: 'https://dev.loganalytics.io/'
     - name: Przeszukiwanie starszych dzienników
       items:
         - name: Wyszukiwanie w dzienniku — omówienie
@@ -122,13 +124,18 @@
           items:
             - name: Wyrażenia regularne
               href: log-analytics-log-searches-regex.md
+        - name: Interfejs API wyszukiwania w dzienniku
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Analizowanie danych
       items:
         - name: Pulpity nawigacyjne
           href: log-analytics-dashboards.md
         - name: Projektant widoków
           items:
-            - name: Przegląd
+            - name: Omówienie
               href: log-analytics-view-designer.md
             - name: Dokumentacja dotycząca kafelków
               href: log-analytics-view-designer-tiles.md
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Szablony usługi Resource Manager
           href: log-analytics-template-workspace-configuration.md
-        - name: Interfejs API wyszukiwania w dzienniku
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: Interfejs API alertów
           href: log-analytics-api-alerts.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Dokumentacja języka
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

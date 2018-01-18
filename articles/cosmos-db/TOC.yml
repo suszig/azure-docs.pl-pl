@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Cosmos DB
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o usłudze Azure Cosmos DB
       href: introduction.md
@@ -235,8 +235,6 @@
               items:
                 - name: Gramatyka języka SQL — ściągawka
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stack Overflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Filmy wideo
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aktualizacje usług
@@ -382,7 +380,7 @@
           href: odbc-driver.md
         - name: Używanie programu Spring Boot Starter z interfejsami API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Często zadawane pytania
       href: faq.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Wyjaśnienie pojęcia spójności danych na podstawie baseballu
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
