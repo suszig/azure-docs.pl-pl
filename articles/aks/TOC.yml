@@ -1,6 +1,6 @@
 - name: Usługa Azure Container Service (AKS)
   href: ./index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o usłudze AKS
       href: intro-kubernetes.md
@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 — Uaktualnianie klastra
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Pojęcia
+  items:
+    - name: Limity przydziału i limity regionalne
+      href: container-service-quotas.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Skalowanie klastra AKS
@@ -49,11 +53,13 @@
       href: kubernetes-service-principal.md
     - name: Konfigurowanie woluminów danych
       items:
+        - name: Azure Disks — trwały wolumin
+          href: azure-disks-dynamic-pv.md
         - name: Azure Files — trwały wolumin
           href: azure-files-dynamic-pv.md
         - name: Azure Files — wolumin
           href: azure-files.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/aks

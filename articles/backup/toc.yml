@@ -83,7 +83,7 @@
       items:
         - name: Przygotowywanie maszyny wirtualnej
           items:
-            - name: Przygotowywanie maszyn wirtualnych wdrożonych przez usługę Resource Manager
+            - name: Przygotowywanie maszyn wirtualnych wdrożonych za pomocą usługi Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Kopie zapasowe maszyn wirtualnych z systemem Linux spójne z aplikacjami
               href: backup-azure-linux-app-consistent.md
@@ -95,19 +95,19 @@
           items:
             - name: Tworzenie kopii zapasowych maszyn wirtualnych w magazynie usługi Recovery Services
               href: backup-azure-arm-vms.md
-            - name: Tworzenie kopii zapasowych zaszyfrowanych maszyn wirtualnych
+            - name: Tworzenie kopii zapasowej zaszyfrowanych maszyn wirtualnych
               href: backup-azure-vms-encryption.md
         - name: Monitorowanie maszyn wirtualnych i zarządzanie nimi
           items:
             - name: Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal
               href: backup-azure-manage-vms.md
-            - name: Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal
+            - name: Monitorowanie alertów związanych z kopiami zapasowymi maszyny wirtualnej platformy Azure
               href: backup-azure-monitor-vms.md
         - name: Przywracanie danych z maszyn wirtualnych
           items:
             - name: Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Przywracanie maszyn wirtualnych wdrożonych przez usługę Resource Manager w witrynie Azure Portal
+            - name: Przywracanie maszyn wirtualnych w witrynie Azure Portal
               href: backup-azure-arm-restore-vms.md
             - name: Przywracanie zaszyfrowanych maszyn wirtualnych
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Przygotowywanie obciążeń programu DPM w witrynie Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: Tworzenie kopii zapasowych serwera programu Exchange przy użyciu programu System Center DPM
+        - name: Tworzenie kopii zapasowej serwera programu Exchange przy użyciu programu DPM
           href: backup-azure-backup-exchange-server.md
         - name: Odzyskiwanie danych na inny serwer programu DPM
           href: backup-azure-alternate-dpm-server.md
@@ -141,7 +141,7 @@
           href: backup-dpm-automation.md
         - name: System Windows Server w witrynie Azure Portal
           href: backup-client-automation.md
-    - name: Usługa Azure SQL Database
+    - name: Azure SQL Database
       items:
         - name: Konfigurowanie długoterminowego przechowywania kopii zapasowych
           href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json

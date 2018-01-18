@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Application Insights
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Co to jest usługa Application Insights?
       href: app-insights-overview.md
@@ -182,7 +182,7 @@
               href: app-insights-visual-studio-codelens.md
         - name: Sposób użycia
           items:
-            - name: Przegląd
+            - name: Omówienie
               href: app-insights-usage-overview.md
             - name: Wysyłanie kontekstu użytkownika
               href: app-insights-usage-send-user-context.md
@@ -198,7 +198,7 @@
               href: app-insights-usage-workbooks.md
         - name: Analiza
           items:
-            - name: Przegląd
+            - name: Omówienie
               href: app-insights-analytics.md
             - name: Importowanie dzienników niestandardowych
               href: app-insights-analytics-import.md
@@ -265,11 +265,13 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+        - name: Analiza użycia
+          href: app-insights-usage-troubleshoot.md
 - name: Przykłady
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Język zapytań usługi Analytics
       href: 'https://docs.loganalytics.io/'

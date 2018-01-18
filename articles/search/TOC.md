@@ -1,4 +1,4 @@
-# Przegląd
+# Omówienie
 ## [About Azure Search (Informacje o usłudze Azure Search)](search-what-is-azure-search.md)
 
 # Przewodniki Szybki start
@@ -54,7 +54,10 @@
 ### [Tworzenie na platformie .NET](search-howto-dotnet-sdk.md)
 ### [Tworzenie na platformie Node.js](search-get-started-nodejs.md)
 ### [Tworzenie w języku Java](search-get-started-java.md)
-### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
+### Uaktualnianie zestawu SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Management SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
@@ -94,7 +97,7 @@
 ### [Monitor usage & statistics (Monitorowanie użycia i statystyk)](search-monitor-usage.md)
 ### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
 
-# Odwołanie
+# Dokumentacja
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (zarządzanie)](/dotnet/api/?term=microsoft.azure.management.search)

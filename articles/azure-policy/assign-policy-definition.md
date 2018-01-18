@@ -5,26 +5,26 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów w środowisku platformy Azure
-Pierwszym krokiem na drodze do zrozumienia pojęcia zgodności na platformie Azure jest uświadomienie sobie obecnej sytuacji dotyczącej Twoich zasobów. Ten przewodnik Szybki start przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
+Pierwszym krokiem do zrozumienia pojęcia zgodności na platformie Azure jest określenie obecnej sytuacji dotyczącej Twoich zasobów. Ten przewodnik Szybki start przeprowadzi Cię przez proces tworzenia przypisania zasad w celu zidentyfikowania maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
 
-Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny wirtualne, które nie korzystają z dysków zarządzanych, w związku z czym są *niezgodne*.
+Po zakończeniu tego procesu pomyślnie zidentyfikujesz maszyny wirtualne, które nie korzystają z dysków zarządzanych. Są one *niezgodne* z przypisaniem zasad.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
-W tym przewodniku Szybki start utworzymy przypisanie zasad i przypiszemy definicję zasad *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
+W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definicję zasad *Audit Virtual Machines without Managed Disks* (Przeprowadź inspekcję maszyn wirtualnych bez dysków zarządzanych).
 
 1. Wybierz pozycję **Przypisania** w lewym okienku na stronie Azure Policy.
 2. Wybierz pozycję **Przypisz zasady** w górnej części okienka **Przypisania**.
@@ -41,21 +41,23 @@ W tym przewodniku Szybki start utworzymy przypisanie zasad i przypiszemy definic
    - Apply tag and its value (Zastosuj tag i jego wartość)
    - Require SQL Server Version 12.0 (Wymagaj programu SQL Server w wersji 12.0)
 
-4. Przeszukaj definicje zasad, aby znaleźć definicję *Audit VMs that do not use managed disks* (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Kliknij te zasady, a następnie kliknij przycisk **Przypisz**.
+    Aby uzyskać pełną listę wszystkich dostępnych zasad wbudowanych, zobacz [Szablony zasad](json-samples.md).
+
+4. Przeszukaj definicje zasad, aby znaleźć definicję *Audit VMs that do not use managed disks* (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Kliknij te zasady, a następnie kliknij pozycję **Wybierz**.
 
    ![Wyszukiwanie prawidłowej definicji zasad](media/assign-policy-definition/select-available-definition.png)
 
-5. Określ właściwość **Nazwa** przypisania zasad. W tym przypadku można użyć nazwy *Audit VMs that do not use managed disks* (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu identyfikowania przez to przypisanie zasad wszystkich maszyn wirtualnych utworzonych w tym środowisku, które nie korzystają z dysków zarządzanych.
+5. Określ właściwość **Nazwa** przypisania zasad. W tym przypadku można użyć nazwy *Audit VMs that do not use managed disks* (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu identyfikowania przez przypisanie zasad wszystkich maszyn wirtualnych, które nie korzystają z dysków zarządzanych.
 6. Zmień warstwę cenową na **Standardowa**, aby upewnić się, że zasady zostaną zastosowane do istniejących zasobów.
 
-   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Usługa jest nadal dostępna w ograniczonej wersji zapoznawczej, dlatego nie wprowadziliśmy jeszcze modelu cenowego, w związku z czym nie otrzymasz rachunku za wybranie warstwy *Standardowa*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
+   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Aby dowiedzieć się więcej o cenach, zobacz [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Wybierz **Zakres**, do którego chcesz zastosować zasady.  Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów.
-8. Wybierz wcześniej zarejestrowaną subskrypcję (lub grupę zasobów). W tym przykładzie zastosowano subskrypcję **Azure Analytics Capacity Dev**, ale mogą być dostępne różne opcje.
+8. Wybierz wcześniej zarejestrowaną subskrypcję (lub grupę zasobów). W tym przykładzie zastosowano subskrypcję **Azure Analytics Capacity Dev**, ale mogą być dostępne różne opcje. Kliknij pozycję **Wybierz**.
 
    ![Wyszukiwanie prawidłowej definicji zasad](media/assign-policy-definition/assign-policy.png)
 
-9. Wybierz opcję **Przypisz**.
+9. Pozostaw teraz pole **Wykluczenia** puste, a następnie kliknij pozycję **Przypisz**.
 
 Teraz możesz zidentyfikować niezgodne zasoby, aby poznać stan zgodności Twojego środowiska.
 
@@ -65,9 +67,9 @@ Wybierz pozycję **Zgodność** w okienku po lewej stronie i wyszukaj utworzone 
 
 ![Zgodność zasad](media/assign-policy-definition/policy-compliance.png)
 
-Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone na karcie **Niezgodne zasoby**.
+Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone w obszarze **Niezgodne zasoby**.
 
-Jeśli warunek zostanie oceniony dla istniejących zasobów i okaże się prawdziwy dla niektórych z nich, zasoby te zostaną oznaczone jako niezgodne z zasadami. Oto tabela pokazująca, jak różne dostępne obecne działania współpracują z wynikiem oceny warunku oraz stanem zgodności zasobów.
+Jeśli warunek zostanie oceniony dla istniejących zasobów i okaże się prawdziwy, zasoby te zostaną oznaczone jako niezgodne z zasadami. Poprzedni przykładowy obraz zawierał niezgodne zasoby. W poniższej tabeli przedstawiono sposób, w jaki różne akcje dotyczące zasad działają w przypadku oceny warunku na potrzeby wynikowego stanu zgodności. Mimo że logika oceny nie jest widoczna w witrynie Azure Portal, wyniki stanu zgodności są wyświetlane. Wynik stanu zgodności może być zgodny lub niezgodny.
 
 |Zasób  |Jeśli ocena warunku w zasadach to  |Akcja w zasadach   |Stan zgodności  |
 |-----------|---------|---------|---------|
@@ -82,7 +84,7 @@ Jeśli warunek zostanie oceniony dla istniejących zasobów i okaże się prawdz
 
 Inne przewodniki w tej kolekcji bazują na tym przewodniku Szybki start. Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie usuwaj zasobów utworzonych w tym przewodniku Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące czynności, aby usunąć wszystkie zasoby utworzone w witrynie Azure Portal w ramach tego przewodnika Szybki start.
 1. Wybierz pozycję **Przypisania** w lewym okienku.
-2. Wyszukaj właśnie utworzone przypisanie.
+2. Wyszukaj utworzone przypisanie, a następnie kliknij je prawym przyciskiem myszy.
 
    ![Usuwanie przypisania](media/assign-policy-definition/delete-assignment.png)
 
@@ -90,7 +92,7 @@ Inne przewodniki w tej kolekcji bazują na tym przewodniku Szybki start. Jeśli 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start przypisano definicję zasad do zakresu, co zapewnia, że wszystkie zasoby w tym zakresie są zgodne, oraz umożliwia identyfikację niezgodnych zasobów.
+W tym przewodniku Szybki przypisano definicję zasad do zakresu. Definicja zasad zapewnia, że wszystkie zasoby w ramach zakresu są zgodne, a także określa niezgodne zasoby.
 
 Aby dowiedzieć się więcej na temat przypisywania zasad w celu zapewnienia zgodności zasobów tworzonych w **przyszłości**, przejdź do samouczka:
 
