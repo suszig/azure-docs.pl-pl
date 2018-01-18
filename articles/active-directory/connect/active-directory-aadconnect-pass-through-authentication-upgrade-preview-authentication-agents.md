@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Przekazywanego uwierzytelniania - preview uaktualniania agentów uwierzytelniania | Dokumentacja firmy Microsoft"
+title: "Agentów programu Azure AD Connect - uwierzytelniania przekazywanego - auth uaktualnienia | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano sposób uaktualniania konfiguracji uwierzytelniania przekazywanego usługi Azure Active Directory (Azure AD)."
 services: active-directory
 keywords: "Azure AD Connect przekazywanego uwierzytelniania, instalacji usługi Active Directory, wymaganych składników dla usługi Azure AD, SSO, Single Sign-on"
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 01/14/2018
 ms.author: billmath
-ms.openlocfilehash: 96d4e8e240d845be5f04bf0e724d91d740ad9cdf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Usługi Azure Active Directory przekazywanego uwierzytelniania: Agenci uwierzytelniania uaktualnienia wersji zapoznawczej
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym artykule jest przeznaczona dla klientów przy użyciu usługi Azure AD przekazywanego uwierzytelniania za pomocą podglądu. Firma Microsoft niedawno uaktualniony (i rebranded) oprogramowanie pośredniczące uwierzytelniania. Musisz _ręcznie_ uaktualnienia wersji zapoznawczej uwierzytelniania agentów zainstalowanych na serwerach lokalnych. Ręczne uaktualnienie jest tylko Akcja jednorazowa. Wszystkie przyszłe aktualizacje agentów uwierzytelniania są automatyczne. Dostępne są następujące przyczyny do uaktualnienia:
 
@@ -84,5 +85,5 @@ Wykonaj następujące kroki, aby uaktualnić agentów uwierzytelniania na innych
 >[!NOTE]
 >Jeśli wybierzesz bloku uwierzytelniania przekazywanego na [Centrum administracyjnego usługi Azure Active Directory](https://aad.portal.azure.com) po ukończeniu poprzedniego kroków, zobaczysz dwa wpisy uwierzytelniania agenta na serwer - jeden wpis przedstawiający Agent uwierzytelniania jako **Active** i inne, **nieaktywne**. Jest to _Oczekiwano_. **Nieaktywne** wpis jest automatycznie usunięte po upływie kilku dni.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [**Rozwiązywanie problemów z** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) — Dowiedz się, jak rozwiązać typowe problemy z funkcją.

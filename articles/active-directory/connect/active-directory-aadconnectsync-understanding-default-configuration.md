@@ -3,7 +3,7 @@ title: "Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej |
 description: "W tym artykule opisano domyślnej konfiguracji synchronizacji Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule opisano reguły konfiguracji out-of-box. Dokumenty go zasady i wpływ tych reguł konfiguracji. On również przeprowadzi Cię przez domyślną konfigurację synchronizacji usługi Azure AD Connect. Celem jest czytnik rozumie, jak model konfiguracji o nazwie aprowizacją deklaratywną działa w przykładzie rzeczywistych. W tym artykule założono, że zainstalowano i skonfiguruj synchronizację programu Azure AD Connect przy użyciu Kreatora instalacji.
@@ -217,7 +217,7 @@ Pierwszeństwo dla reguły synchronizacji jest ustawiona w grupach przez Kreator
 ### <a name="putting-it-all-together"></a>Składanie wszystkiego razem
 Teraz wiemy wystarczająco o reguły synchronizacji, aby można było zrozumieć sposób działania konfiguracji przy użyciu różnych reguł synchronizacji. Jeśli przyjrzymy się użytkownika i atrybuty, które są przyczyniły się do środowiska metaverse, zasady są stosowane w następującej kolejności:
 
-| Nazwa | Komentarz |
+| Name (Nazwa) | Komentarz |
 |:--- |:--- |
 | W z usługi Active Directory — sprzężenia użytkownika |Reguła łączenia obiektów miejsca metaverse łącznika. |
 | W z usługi Active Directory — UserAccount włączone |Atrybuty wymagane do logowania do usługi Azure AD i Office 365. Chcemy tych atrybutów z włączonym kontem. |
@@ -226,7 +226,7 @@ Teraz wiemy wystarczająco o reguły synchronizacji, aby można było zrozumieć
 | W z usługi Active Directory — Exchange użytkownika |Istnieje tylko jeśli wykryto programu Exchange. Przepływ wszystkie atrybuty Exchange infrastruktury. |
 | W z usługi Active Directory — Lync użytkownika |Istnieje tylko jeśli wykryto Lync. Przepływ wszystkie atrybuty Lync infrastruktury. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o model konfiguracji w [Aprowizacją deklaratywną opis](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Dowiedz się więcej o języku wyrażenia w [opis deklaratywne inicjowania obsługi administracyjnej wyrażenia](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Kontynuuj czytanie działanie konfiguracji out-of-box w [opis użytkowników i kontaktów](active-directory-aadconnectsync-understanding-users-and-contacts.md)

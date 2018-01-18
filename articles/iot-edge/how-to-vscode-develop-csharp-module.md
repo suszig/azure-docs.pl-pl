@@ -6,14 +6,14 @@ keywords:
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 269f77e5015175e45e0078926ef06699811889a4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>Użyj programu Visual Studio Code do opracowywania C# modułu krawędzi IoT Azure
 Ten artykuł zawiera szczegółowe instrukcje dotyczące używania [Visual Studio Code](https://code.visualstudio.com/) jako narzędzie programowanie głównego do opracowywania i wdrażania własnych modułów IoT krawędzi. 
@@ -48,21 +48,37 @@ Istnieją dwa sposoby, aby wyświetlić listę urządzeń Centrum IoT w kodzie V
 1. Polecenie palety (F1 lub Ctrl + Shift + P), wpisz i wybierz **Azure: Zaloguj**. Następnie kliknij przycisk  **kopiowania* & Otwórz** w oknie podręcznym. Wklej (Ctrl + V) kod w przeglądarce, a następnie kliknij przycisk Kontynuuj. Następnie zaloguj się za pomocą konta platformy Azure. Informacje o swoim koncie w kodzie VS pasek stanu jest widoczny.
 2. Polecenie palety (F1 lub Ctrl + Shift + P), wpisz i wybierz **IoT: Wybierz Centrum IoT**. Najpierw wybierz subskrypcję, której utworzono Centrum IoT w poprzednich instrukcji. Następnie wybierz pozycję Centrum IoT, które zawiera urządzenia IoT krawędzi.
 
+    ![Lista urządzeń](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### <a name="set-iot-hub-connection-string"></a>Ustawianie parametrów połączenia Centrum IoT
-1. Polecenie palety (F1 lub Ctrl + Shift + P), wpisz i wybierz **IoT: Ustaw parametry połączenia Centrum IoT**. Upewnij się, że możesz wkleić łączącego ciągu w obszarze zasady **iothubowner** (znajduje się on w zasady dostępu współużytkowanego Centrum IoT w portalu Azure).
+Polecenie palety (F1 lub Ctrl + Shift + P), wpisz i wybierz **IoT: Ustaw parametry połączenia Centrum IoT**. Upewnij się, że możesz wkleić łączącego ciągu w obszarze zasady **iothubowner** (znajduje się on w zasady dostępu współużytkowanego Centrum IoT w portalu Azure).
  
-
 Lista urządzeń w Eksploratorze urządzeń Centrum IoT w lewym pasku bocznym.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>Rozpoczynanie pracy programu runtime krawędzi IoT i wdrażanie modułu
 Zainstaluj i uruchom środowiska uruchomieniowego Azure IoT Edge na urządzeniu. I wdrożenie symulowane czujnik moduł, który będzie wysyłać dane telemetryczne z Centrum IoT.
 1. Polecenie palety, wybierz **krawędzi: Instalator krawędzi** i wybierz z krawędzi IoT identyfikator urządzenia. Lub kliknij prawym przyciskiem myszy identyfikator krawędzi urządzenia na liście urządzeń i wybierz polecenie **krawędzi Instalatora**.
+
+    ![Instalator krawędzi w czasie wykonywania](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. Polecenie palety, wybierz **krawędzi: Start krawędzi** można uruchomić programu runtime krawędzi. Widać odpowiednie dane wyjściowe w terminalu zintegrowanego.
+
+    ![Uruchom środowisko uruchomieniowe krawędzi](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Sprawdź stan środowiska uruchomieniowego krawędzi w Eksploratorze rozwiązania Docker. Zielony oznacza, że jest uruchomiona. Twoje środowisko uruchomieniowe krawędzi IoT została uruchomiona pomyślnie.
-4. Teraz programu runtime krawędzi jest uruchomiona, co oznacza, że komputer teraz symuluje urządzenia. Następnym krokiem jest symulować sensorthing, który wysyła wiadomości do Twojego urządzenia krawędzi. W palecie polecenia, wpisz i wybierz **krawędzi: plik konfiguracji Generowanie krawędzi**. I wybierz folder do utworzenia tego pliku. W pliku wygenerowanego deployment.json, Zastąp linię "<registry>/<image>:<tag>" z `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Środowisko uruchomieniowe krawędzi jest uruchomiona.](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Teraz programu runtime krawędzi jest uruchomiona, co oznacza, że komputer teraz symuluje urządzenia. Następnym krokiem jest symulować sensorthing, który wysyła wiadomości do Twojego urządzenia krawędzi. W palecie polecenia, wpisz i wybierz **krawędzi: plik konfiguracji Generowanie krawędzi**. I wybierz folder do utworzenia tego pliku. W pliku wygenerowanego deployment.json, zastąpi zawartość `<registry>/<image>:<tag>` z `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` i Zapisz plik.
+
+    ![Czujnik modułu](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Wybierz **krawędzi: tworzenie wdrożenia dla urządzenie brzegowe** i wybierz identyfikator urządzenie brzegowe można utworzyć nowego wdrożenia. Lub kliknij prawym przyciskiem myszy identyfikator krawędzi urządzenia na liście urządzeń i wybierz **tworzenie wdrożenia dla urządzenie brzegowe**. 
-6. Powinna zostać wyświetlona z krawędzi IoT uruchomione w Eksploratorze rozwiązania Docker z czujnika symulowane. Kliknij prawym przyciskiem myszy kontener, w Eksploratorze rozwiązania Docker. Możesz obserwować docker dzienniki dla każdego modułu.
+
+6. Powinna zostać wyświetlona z krawędzi IoT uruchomione w Eksploratorze rozwiązania Docker z czujnika symulowane. Kliknij prawym przyciskiem myszy kontener, w Eksploratorze rozwiązania Docker. Możesz obserwować docker dzienniki dla każdego modułu. Ponadto można wyświetlić listy modułów na liście urządzeń.
+
+    ![Lista modułów](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Kliknij prawym przyciskiem myszy identyfikator urządzenia brzegowe i monitorować D2C wiadomości w kodzie VS.
 8. Aby zatrzymać programu runtime krawędzi IoT i moduł czujnika, wpisz i wybierz **krawędzi: Zatrzymaj krawędzi** w palecie polecenia.
 
@@ -97,12 +113,18 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
  
 3. Wybierz **pliku** > **Otwórz Folder**.
 4. Przejdź do **FilterModule** folder i kliknij przycisk **wybierz Folder** otworzyć projektu w kodzie VS.
-5. W kodzie VS explorer, kliknij przycisk **Program.cs** go otworzyć.
+5. W kodzie VS explorer, kliknij przycisk **Program.cs** go otworzyć. W górnej części **program.cs**, obejmują poniżej przestrzeni nazw.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Dodaj `temperatureThreshold` zmienną **Program** klasy. Ta zmienna Określa wartość, której może przekraczać zmierzone temperatury dane do wysłania do Centrum IoT. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Dodaj `MessageBody`, `Machine`, i `Ambient` klasy do **Program** klasy. Te klasy definiują oczekiwano elementu schema dla treści wiadomości przychodzących.
 
@@ -225,16 +247,22 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
     }
     ```
 
-11. Aby skompilować projekt, kliknij prawym przyciskiem myszy **FilterModule.csproj** plików w Eksploratorze i kliknij przycisk **krawędzi IoT Tworzenie modułu**. Ten proces kompiluje modułu i eksportuje dane binarne i jego zależności w folderze, który jest używany do tworzenia obrazu Docker.
+11. Aby skompilować projekt, kliknij prawym przyciskiem myszy **FilterModule.csproj** plików w Eksploratorze i kliknij przycisk **krawędzi IoT Tworzenie modułu**. Ten proces kompiluje modułu i eksportuje dane binarne i jego zależności w folderze, który jest używany do tworzenia obrazu Docker. 
 
+    ![Utworzenie modułu](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Tworzenie obrazu Docker i publikowanie go do rejestru
 
 1. W Eksploratorze kodzie VS rozwiń **Docker** folderu. Następnie rozwiń folder dla danej platformy kontenera albo **linux x64** lub **windows nano**.
 2. Kliknij prawym przyciskiem myszy **plik Dockerfile** plik i kliknij przycisk **krawędzi IoT Tworzenie modułu Docker obrazu**. 
+
+    ![Utwórz obraz docker](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. W **wybierz Folder** okna, przejdź do albo wprowadź `./bin/Debug/netcoreapp2.0/publish`. Kliknij przycisk **wybierz Folder jako EXE_DIR**.
 4. W polu tekstowym wyskakujących w górnej części okna kodu programu VS wprowadź nazwę obrazu. Na przykład: `<your container registry address>/filtermodule:latest`. Jeśli są wdrażane w lokalnym rejestrze, powinien być `localhost:5000/filtermodule:latest`.
-5. Wypchnij obrazu do repozytorium Docker. Użyj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia i wprowadź adres URL obrazu, w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj używany w ponad krok ten sam adres URL obrazu.
+5. Wypchnij obrazu do repozytorium Docker. Użyj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia i wprowadź adres URL obrazu, w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj używany w ponad krok ten sam adres URL obrazu. Sprawdź dziennik konsoli i upewnij się, że obraz został pomyślnie przypisany.
+
+    ![Wypychanie obrazu docker](./media/how-to-vscode-develop-csharp-module/push-image.png) ![docker wciśnięcia obrazu](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>Wdrażanie własnych modułów krawędzi IoT
 
@@ -264,21 +292,26 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
 
 2. Zastąp **tras** sekcji z poniżej zawartości:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Deklaracyjne reguły w środowisku uruchomieniowym definiują, do których przepływu wiadomości. W tym samouczku należy na dwa sposoby. Pierwszy trasy transportu wiadomości z czujnika temperatury w module filtru za pośrednictwem punktu końcowego "input1", który jest punkt końcowy, który został skonfigurowany z obsługą FilterMessages. Drugi trasy transportu wiadomości z modułem filtru do Centrum IoT. W tej trasy nadrzędnego jest specjalne lokalizacji docelowej, która informuje krawędzi koncentratora do wysyłania komunikatów do Centrum IoT.
 
 3. Zapisz ten plik.
 4. Polecenie palety, wybierz **krawędzi: tworzenie wdrożenia dla urządzenie brzegowe**. Następnie wybierz identyfikator urządzenia IoT krawędzi Aby utworzyć wdrożenie. Lub kliknij prawym przyciskiem myszy identyfikator urządzenia na liście urządzeń i wybierz polecenie **tworzenie wdrożenia dla urządzenie brzegowe**.
+
+    ![Tworzenie wdrożenia](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Wybierz `deployment.json` aktualne. W oknie danych wyjściowych widać odpowiednie dane wyjściowe dla danego wdrożenia.
+
+    ![Wdrażanie zakończyło się pomyślnie](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Uruchomienie programu runtime krawędzi w palety polecenia. **Krawędź: Krawędzi początkowej**
 7. Twoje krawędzi IoT środowiska uruchomieniowego uruchomione w Eksploratorze rozwiązania Docker symulowane czujnik i moduł filtru jest widoczny.
+
+    ![Rozwiązania IoT krawędzi jest uruchomiona.](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Kliknij prawym przyciskiem myszy identyfikator urządzenia brzegowe i monitorować D2C wiadomości w kodzie VS.
 
 

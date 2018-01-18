@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie do bazy danych rozwiązania Cosmos Azure przy użyciu narzędzia do analizy BI ze sterownikiem ODBC
 
@@ -38,9 +38,11 @@ Teraz umożliwia wprowadzenie sterownik ODBC.
 
 1. Pobieranie sterowników w danym środowisku:
 
-    * [Microsoft Azure rozwiązania Cosmos bazy danych ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) dla 64-bitowego systemu Windows
-    * [Microsoft Azure rozwiązania Cosmos bazy danych ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) dla 32-bitowych na 64-bitowego systemu Windows
-    * [Microsoft Azure rozwiązania Cosmos bazy danych ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) dla 32-bitowego systemu Windows
+    | Instalator | Obsługiwane systemy operacyjne| 
+    |---|---| 
+    |[Microsoft Azure rozwiązania Cosmos bazy danych ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) dla 64-bitowego systemu Windows| 64-bitowe wersje systemu Windows 8.1 lub nowszego, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 i Windows Server 2008 R2.| 
+    |[Microsoft Azure rozwiązania Cosmos bazy danych ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) dla 32-bitowych na 64-bitowego systemu Windows| 64-bitowe wersje systemu Windows 8.1 lub nowszego, systemu Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 i systemu Windows Server 2003.| 
+    |[Microsoft Azure rozwiązania Cosmos bazy danych ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) dla 32-bitowego systemu Windows|32-bitowe wersje systemu Windows 8.1 lub nowszym, Windows 8, Windows 7, Windows XP i Windows Vista.|
 
     Uruchom plik msi lokalnie, która uruchamia **Kreatora instalacji sterownika ODBC bazy danych Microsoft Azure rozwiązania Cosmos**. 
 2. Ukończ pracę Kreatora instalacji przy użyciu domyślnego danych wejściowych do zainstalowania sterownika ODBC.
@@ -58,16 +60,16 @@ Teraz umożliwia wprowadzenie sterownik ODBC.
     ![Azure okno Ustawienia DSN sterownika ODBC DB rozwiązania Cosmos](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nazwa źródła danych**: przyjazną nazwę dla pliku DSN ODBC. Ta nazwa jest unikatowa dla konta bazy danych Azure rozwiązania Cosmos, więc nadaj jej nazwę odpowiednio Jeśli masz wiele kont.
     - **Opis elementu**: Krótki opis źródła danych.
-    - **Host**: identyfikator URI dla Twojego konta bazy danych Azure rozwiązania Cosmos. Możesz pobrać ten z bloku klucze DB rozwiązania Cosmos Azure w portalu Azure, jak pokazano na poniższym zrzucie ekranu. 
-    - **Klawisz dostępu**: klucz podstawowy lub pomocniczy, Odczyt i zapis lub tylko do odczytu z bloku klucze DB rozwiązania Cosmos Azure w portalu Azure, jak pokazano na poniższym zrzucie ekranu. Firma Microsoft zaleca się, że używasz klucza tylko do odczytu, jeśli nazwa DSN jest używana do przetwarzania danych tylko do odczytu i raportowania.
-    ![Azure bloku klucze DB rozwiązania Cosmos](./media/odbc-driver/odbc-driver-keys.png)
+    - **Host**: identyfikator URI dla Twojego konta bazy danych Azure rozwiązania Cosmos. Możesz pobrać to ze strony Azure rozwiązania Cosmos DB klucze w portalu Azure, jak pokazano na poniższym zrzucie ekranu. 
+    - **Klawisz dostępu**: klucz podstawowy lub pomocniczy, Odczyt i zapis lub tylko do odczytu z kluczy Azure DB rozwiązania Cosmos strony w portalu Azure, jak pokazano na poniższym zrzucie ekranu. Firma Microsoft zaleca się, że używasz klucza tylko do odczytu, jeśli nazwa DSN jest używana do przetwarzania danych tylko do odczytu i raportowania.
+    ![Strona rozwiązania Cosmos DB kluczy Azure](./media/odbc-driver/odbc-driver-keys.png)
     - **Szyfrowanie klucza dostępu dla**: Wybierz najlepszym wyborem na podstawie użytkowników tego komputera. 
 4. Kliknij przycisk **testu** przycisk, aby się upewnić, że możesz nawiązać połączenie konta bazy danych Azure rozwiązania Cosmos. 
 5. Kliknij przycisk **zaawansowane opcje** i ustaw następujące wartości:
     - **Zapytanie spójności**: Wybierz [poziomu spójności](consistency-levels.md) dla operacji. Wartość domyślna to sesji.
     - **Liczba ponownych prób**: Wprowadź liczbę ponownych prób operacji, jeśli żądania początkowego nie została zakończona z powodu dławienia usługi.
     - **Plik schematu**: w tym miejscu masz kilka opcji.
-        - Domyślnie ten wpis jest (pusty), pozostawiając sterownika skanuje pierwsze dane strony dla wszystkich kolekcji w celu określenia schematu każdej kolekcji. Jest to nazywane mapowania kolekcji. Bez pliku schematu zdefiniowane sterownik musi wykonać skanowania dla każdej sesji sterowników i może skutkować wyższej startowy czasu aplikacji przy użyciu nazwy DSN. Firma Microsoft zaleca zawsze skojarzenia pliku schematu dla nazwy DSN.
+        - Domyślnie ten wpis jest (pusty), pozostawiając sterownika skanuje pierwsze dane strony dla wszystkich kolekcji w celu określenia schematu każdej kolekcji. Jest to nazywane mapowania kolekcji. Bez pliku schematu zdefiniowane sterownik musi wykonać skanowania dla każdej sesji sterowników i może skutkować wyższej czas uruchamiania aplikacji przy użyciu nazwy DSN. Firma Microsoft zaleca zawsze skojarzenia pliku schematu dla nazwy DSN.
         - Jeśli masz już plik schematu (prawdopodobnie jedną, które zostały utworzone za pomocą [Edytor schematów](#schema-editor)), możesz kliknąć **Przeglądaj**, przejdź do pliku, kliknij przycisk **zapisać**, a następnie kliknij przycisk **OK**.
         - Jeśli chcesz utworzyć nowy schemat, kliknij przycisk **OK**, a następnie kliknij przycisk **Edytor schematów** w oknie głównym. Następnie przejdź do [Edytor schematów](#schema-editor) informacji. Podczas tworzenia nowego pliku schematu, pamiętaj powrócić do **zaawansowane opcje** okno, aby uwzględnić schematu nowo utworzony plik.
 
@@ -148,4 +150,4 @@ Jeśli zostanie wyświetlony następujący błąd, upewnij się, **hosta** i **k
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat bazy danych rozwiązania Cosmos Azure, zobacz [co to jest Azure DB rozwiązania Cosmos?](introduction.md).
+Aby dowiedzieć się więcej na temat bazy danych rozwiązania Cosmos Azure, zobacz [Zapraszamy do bazy danych Azure rozwiązania Cosmos](introduction.md).

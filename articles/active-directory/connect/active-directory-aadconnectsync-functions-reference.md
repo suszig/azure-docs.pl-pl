@@ -3,7 +3,7 @@ title: "Synchronizacja programu Azure AD Connect: odwołanie do funkcji | Dokume
 description: "Odwołanie deklaratywne wyrażenia inicjowania obsługi administracyjnej w synchronizacja programu Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronizacja programu Azure AD Connect: odwołanie do funkcji
 W programie Azure AD Connect funkcje są używane do modyfikowania wartości atrybutu podczas synchronizacji.  
@@ -1242,7 +1242,7 @@ Wartość może być również funkcja błąd, co powoduje zwrócenie niestandar
 Zwraca język używany w niektórych miastach głównych, w przeciwnym razie zwraca błąd.
 
 - - -
-### <a name="trim"></a>TRIM
+### <a name="trim"></a>Przytnij
 **Opis:**  
 Funkcja przycinania usuwa spacji wiodących i końcowych białych z ciągu.
 
@@ -1269,7 +1269,7 @@ Funkcja UCase konwertuje wszystkie znaki w ciągu na wielkie litery.
 Zwraca "TEST".
 
 - - -
-### <a name="where"></a>gdzie
+### <a name="where"></a>Gdzie
 
 **Opis:**  
 Zwraca podzbiór wartości z atrybutu wielowartościowego (lub dane wyjściowe wyrażenia) na podstawie określonego warunku.

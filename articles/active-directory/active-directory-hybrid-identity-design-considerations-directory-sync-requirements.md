@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości - określenie wymagań synchronizacji katalogu | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym - wymagań synchronizacji katalogu Azure | Dokumentacja firmy Microsoft"
 description: "Określenie, jakie wymagania niezbędne do synchronizowania wszystkich użytkowników między on = lokalnych i w chmurze dla przedsiębiorstw."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Określenie wymagań synchronizacji katalogu
 Synchronizacja jest udostępnianie tożsamości w chmurze na podstawie ich tożsamości lokalnych użytkowników. Czy zsynchronizowane konta będzie używany do uwierzytelniania lub uwierzytelnianie federacyjne, użytkownicy będą nadal musi być tożsamości w chmurze.  Ta tożsamość należy utrzymanie i okresowo aktualizowane.  Aktualizacje mogą mieć wiele form, od zmian tytuł do zmiany hasła.  
@@ -68,9 +69,9 @@ Należy również określić synchronizacji katalogów wymagań i ograniczeń za
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Określić wymagania dotyczące uwierzytelniania wieloskładnikowego](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](active-directory-hybrid-identity-design-considerations-overview.md)
 

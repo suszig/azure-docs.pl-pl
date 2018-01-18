@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Włącz licencjonowanego obrazu w laboratorium w usłudze Azure DevTest Labs
 
@@ -53,7 +53,9 @@ Aby upewnić się, że licencjonowane obraz jest dostępny dla użytkowników w 
 
 Można włączyć wdrożenia programowe licencjonowanego obrazu wykonaj następujące czynności:
 
-1. W [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) na liście **obrazów Marketplace**, określenie licencjonowanego obrazu, dla którego mają użytkownicy mają dostęp, ale których warunki nie zostały zatwierdzone. Na przykład można napotkać pokazujący stan maszyny wirtualnej nauki danych **zaakceptowane postanowienia** lub **warunki przeglądu potrzebne**.
+1. W [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), przejdź do listy **obrazów Marketplace**.
+
+1. Zidentyfikuj licencjonowanego obrazu, do którego użytkownicy mają mieć dostęp, ale nie zaakceptowano warunki, których. Na przykład można napotkać pokazujący stan maszyny wirtualnej nauki danych **zaakceptowane postanowienia** lub **warunki przeglądu potrzebne**.
 
     ![Konfigurowanie okna wdrożenia programowe](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 

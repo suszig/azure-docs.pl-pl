@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure urządzenia IoT zestawu SDK dla języka C
 
@@ -68,9 +68,9 @@ Teraz, gdy masz przykładowy kod źródłowy następnym etapem jest można pobra
 Istnieje kilka narzędzi typu open source służących do zarządzania Centrum IoT.
 
 * Aplikacji systemu Windows o nazwie [explorer urządzenia](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Wywołuje narzędzie interfejsu wiersza polecenia i platform node.js [explorer Centrum iothub](https://github.com/azure/iothub-explorer).
+* Wywołuje narzędzie interfejsu wiersza polecenia języka Python i platform [rozszerzenie IoT Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-W tym samouczku używana graficznym *explorer urządzenia* narzędzia. Można również użyć *explorer Centrum iothub* narzędzia, jeśli wolisz za pomocą narzędzia interfejsu wiersza polecenia.
+W tym samouczku używana graficznym *explorer urządzenia* narzędzia. Można również użyć *rozszerzenie IoT Azure CLI 2.0* narzędzia, jeśli wolisz za pomocą narzędzia interfejsu wiersza polecenia.
 
 Narzędzie explorer urządzenie korzysta z bibliotek usługi Azure IoT do wykonywania różnych funkcji w Centrum IoT, łącznie z dodawaniem urządzeń. Jeśli za pomocą narzędzia Eksplorator urządzenia można dodać urządzenie, możesz uzyskać ciąg połączenia dla danego urządzenia. Należy te parametry połączenia do uruchamiania aplikacji przykładowej.
 
@@ -570,7 +570,7 @@ Aby dowiedzieć się więcej o tworzeniu aplikacji Centrum IoT, zobacz [Azure Io
 
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

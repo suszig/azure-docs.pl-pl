@@ -1,4 +1,13 @@
 <!--
     Separate the generic "Getting started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-Można utworzyć potoku o aktywności kopiowania przy użyciu zestawu .NET SDK, zestaw SDK Python, programu Azure PowerShell, interfejsu API REST lub szablonu usługi Azure Resource Manager. Zobacz [samouczek działania kopiowania](../articles/data-factory/quickstart-create-data-factory-dot-net.md) instrukcje krok po kroku utworzyć potok z działaniem kopiowania.
+Można utworzyć potoku o aktywności kopiowania za pomocą jednej z następujących narzędzi/zestawów SDK: kliknij łącze, aby przejść do samouczek z instrukcjami krok po kroku można utworzyć potoku o działanie kopiowania. 
+
+- [Skopiuj narzędzie danych](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Zestaw SDK platformy .NET](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
+- [Zestaw SDK dla języka Python](../articles/data-factory/quickstart-create-data-factory-python.md)
+- [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
+- [Interfejs API REST](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
+- [Szablonu usługi Azure Resource Manager](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+

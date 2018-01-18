@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Często zadawane pytania dotyczące usługi Azure rozwiązania Cosmos bazy danych
 ## <a name="azure-cosmos-db-fundamentals"></a>Podstawowe informacje na temat usługi Azure DB rozwiązania Cosmos
@@ -28,7 +28,7 @@ Azure DB rozwiązania Cosmos jest usługą bazy danych replikowany globalnie, wi
 
 Azure DB rozwiązania Cosmos jest odpowiednie rozwiązanie dla aplikacji sieci web, mobilnych, gier, i aplikacji IoT przewidywalnej przepływności, wysoką dostępność, małych opóźnień i model danych bez schematu są wymagania dotyczące klucza. Zapewnia elastyczność schematu i rozbudowane indeksowanie i zawiera obsługę transakcyjną wielu dokumentów dzięki zintegrowanemu środowisku JavaScript. 
 
-Dla więcej pytania bazy danych, odpowiedzi i instrukcje dotyczące instalowania i korzystania z tej usługi, zobacz [stronę dokumentacji bazy danych Azure rozwiązania Cosmos] ((https://docs.microsoft.com/azure/cosmos-db/).
+Aby uzyskać więcej pytania bazy danych, odpowiedzi i instrukcje dotyczące instalowania i korzystania z tej usługi, zobacz [stronę dokumentacji bazy danych Azure rozwiązania Cosmos](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Co się stało z interfejsem API usługi DocumentDB?
 
@@ -74,7 +74,16 @@ Jeśli jesteś nowym użytkownikiem usługi Azure, możesz zarejestrować się w
 Można również użyć [Azure rozwiązania Cosmos DB emulatora](local-emulator.md) umożliwiające opracowanie i przetestowanie aplikacji lokalnie przez bezpłatne, bez tworzenia subskrypcji platformy Azure. Po zakończeniu jak aplikacja działa w emulatorze DB rozwiązania Cosmos Azure, możesz przełączyć się do korzystania z konta bazy danych Azure rozwiązania Cosmos w chmurze.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Jak można uzyskać dodatkową pomoc dotyczącą bazy danych rozwiązania Cosmos Azure?
-Jeśli potrzebujesz pomocy dotrzeć do nas na [przepełnienie stosu](http://stackoverflow.com/questions/tagged/azure-cosmosdb) lub [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), lub zgodnie z harmonogramem Wykorzystaj rozmów z bazy danych Azure rozwiązania Cosmos zespołu inżynieryjnego przez wysyłanie poczty do [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Aby zadać pytania techniczne, możesz post do jednej z tych dwóch pytania i odpowiedzi na forach:
+* [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Przepełnienie stosu](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Przepełnienie stosu jest najlepsze dla programowania pytania. Upewnij się, że jest to pytanie [na temat](https://stackoverflow.com/help/on-topic) i [zawierają tyle szczegółowe informacje, jak to możliwe, co na pytanie, wyczyść i którą można odpowiedzieć](https://stackoverflow.com/help/how-to-ask). 
+
+Aby poprosić o nowe funkcje, Utwórz nowe żądanie na [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Aby rozwiązać problem z Twoim kontem, pliku [żądania obsługi](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) w portalu Azure.
+
+Inne pytania można przesłać do zespołu w [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); jednak nie jest to alias pomocy technicznej. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Spróbuj subskrypcji bazy danych Azure rozwiązania Cosmos
@@ -206,10 +215,10 @@ Istnieją pewne różnice zachowanie, które użytkownicy pochodzące z magazyne
 Pod względem interfejsu API REST istnieje wiele opcji punkty końcowe/zapytania, które nie są obsługiwane przez interfejs API Azure rozwiązania Cosmos DB tabeli:
 | Metody REST | Opcja punktu końcowego/zapytania REST | Adresy URL dokumentu | Wyjaśnienie |
 | ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /? restype =service@comp= właściwości| [Ustaw właściwości usługi tabeli](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) i [pobrać właściwości usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy jest używana do ustawiania zasad CORS, konfiguracji magazynu analizy i ustawień rejestrowania. CORS nie jest obecnie obsługiwany i rejestrowanie i analiza będą obsługiwane inaczej w usłudze Azure DB rozwiązania Cosmos niż tabele magazynu Azure |
-| OPCJE | / < Nazwa tabeli zasobów > | [Transmitowane wstępnego CORS tabeli żądania](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Jest to część CORS, które bazy danych Azure rozwiązania Cosmos nie obsługuje obecnie. |
-| GET | /? restype =service@comp= statystyki | [Pobierz Statystyka usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Zawiera informacje, jak szybko replikuje dane między podstawowe i pomocnicze bazy danych. To nie jest potrzebne do rozwiązania Cosmos bazy danych replikacji jest częścią operacji zapisu. |
-| GET, PUT | /mytable? kompozycji = listy kontroli dostępu | [Pobierz tabelę ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) i [ustawić tabeli listy kontroli dostępu](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | To pobiera i ustawia zasady dostępu przechowywane, używany do zarządzania dostępu sygnatur dostępu Współdzielonego. Sygnatury dostępu Współdzielonego jest obsługiwana, ale są one ustawić i zarządzane w inny sposób. |
+| GET, PUT | /?restype=service@comp=properties| [Ustaw właściwości usługi tabeli](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) i [pobrać właściwości usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy jest używana do ustawiania zasad CORS, konfiguracji magazynu analizy i ustawień rejestrowania. CORS nie jest obecnie obsługiwany i rejestrowanie i analiza będą obsługiwane inaczej w usłudze Azure DB rozwiązania Cosmos niż tabele magazynu Azure |
+| OPCJE | /<table-resource-name> | [Transmitowane wstępnego CORS tabeli żądania](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Jest to część CORS, które bazy danych Azure rozwiązania Cosmos nie obsługuje obecnie. |
+| GET | /?restype=service@comp=stats | [Pobierz Statystyka usługi tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Zawiera informacje, jak szybko replikuje dane między podstawowe i pomocnicze bazy danych. To nie jest potrzebne do rozwiązania Cosmos bazy danych replikacji jest częścią operacji zapisu. |
+| GET, PUT | /mytable?comp=acl | [Pobierz tabelę ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) i [ustawić tabeli listy kontroli dostępu](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | To pobiera i ustawia zasady dostępu przechowywane, używany do zarządzania dostępu sygnatur dostępu Współdzielonego. Sygnatury dostępu Współdzielonego jest obsługiwana, ale są one ustawić i zarządzane w inny sposób. |
 
 Ponadto interfejsu API Azure rozwiązania Cosmos DB tabeli obsługuje tylko format JSON nie ATOM.
 
@@ -220,7 +229,7 @@ Dla zestawu .NET SDK w szczególności, istnieją pewne klasy i metody, które b
 | Klasa | Nieobsługiwany — metoda |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
+|                  | \*ServiceStats* |
 | CloudTable | Ustawiania * |
 |            | GetPermissions * |
 | TableServiceContext | * (Ta klasa faktycznie jest przestarzała) |
@@ -235,7 +244,7 @@ Twoja opinia można udostępniać w jednym z następujących sposobów:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Witryna Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Przepełnienie stosu](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Przepełnienie stosu jest najlepsze dla programowania pytania. Upewnij się, że jest to pytanie [na temat](https://stackoverflow.com/help/on-topic) i [zawierają tyle szczegółowe informacje, jak to możliwe, co na pytanie, wyczyść i którą można odpowiedzieć](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Co to jest parametry połączenia, które należy użyć do nawiązania połączenia interfejsu API tabeli?
 Parametry połączenia są:

@@ -1,4 +1,4 @@
-# Przegląd
+# Omówienie
 ## [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)
 ## [Informacje o zarządzaniu tożsamościami na platformie Azure](identity-fundamentals.md)
 ## [Omówienie rozwiązań do obsługi tożsamości na platformie Azure](understand-azure-identity-solutions.md)
@@ -109,7 +109,7 @@
 #### [Konfigurowanie nazwanych lokalizacji](active-directory-named-locations.md)
 #### [Znajdowanie raportów aktywności](active-directory-reporting-migration.md)
 #### [Używanie pakietu zawartości usługi Power BI dla usługi Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Odwołanie
+### Dokumentacja
 #### [Przechowywanie](active-directory-reporting-retention.md)
 #### [Czasy oczekiwania](active-directory-reporting-latencies-azure-portal.md)
 #### [Powiadomienia](active-directory-reporting-notifications.md)
@@ -288,6 +288,7 @@
 #### [Najlepsze praktyki](active-directory-conditional-access-best-practices.md)
 #### [Zrozumienie zasad dotyczących urządzeń dla usług Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrowanie zasad klasycznych](active-directory-conditional-access-migration.md)
+#### [Narzędzie analizy warunkowej](active-directory-conditional-access-whatif.md)
 #### Zadania
 ##### [Migrowanie klasycznych zasad MFA](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurowanie dostępu warunkowego opartego na urządzeniach](active-directory-conditional-access-policy-connected-applications.md)
@@ -344,7 +345,7 @@
 ### [Podręcznik prototypu: bloki konstrukcyjne](active-directory-playbook-building-blocks.md)
 
 
-# Odwołanie
+# Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Polecenia cmdlet programu Azure PowerShell](/powershell/azure/overview)
 ## [Dokumentacja interfejsu API języka Java](/java/api)

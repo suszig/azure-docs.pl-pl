@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości - określenia strategii wdrażania cyklu życia tożsamości hybrydowej | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym - strategii wdrażania cyklu życia Azure | Dokumentacja firmy Microsoft"
 description: "Umożliwia definiowanie zadań zarządzania tożsamości hybrydowej zgodnie z opcji dostępnych dla każdej fazy cyklu życia."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Określić strategii wdrażania cyklu życia tożsamości hybrydowej
 W tym zadaniu będziesz definiować strategii zarządzania tożsamościami dla hybrydowych tożsamości rozwiązanie, aby spełniać wymagania biznesowe zdefiniowaną w [określić zadań zarządzania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

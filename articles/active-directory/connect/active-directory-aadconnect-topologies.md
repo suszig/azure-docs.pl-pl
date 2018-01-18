@@ -3,7 +3,7 @@ title: "Usługi Azure AD Connect: Topologie obsługiwane przez | Dokumentacja fi
 description: "W tym temacie szczegółowo obsługiwane i nieobsługiwane topologie programu Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne lokalnymi i topologii usługi Azure Active Directory (Azure AD), używające synchronizacja programu Azure AD Connect jako rozwiązanie integracji klucza. W tym artykule opisano zarówno obsługiwane i nieobsługiwane konfiguracje.
@@ -178,7 +178,7 @@ Dzierżaw usługi Azure AD są izolowane zgodnie z projektem. Te zadania nie są
 
 FIM 2010 lub MIM 2016 lokalnymi umożliwia synchronizowanie użytkowników (przy użyciu usługi GALSync) między dwiema organizacjami Exchange. Użytkownicy w jednej z organizacji są wyświetlane jako obcego użytkowników/contacts w innej organizacji. Te różne lokalnej usługi Active Directory wystąpień mogą następnie zostać zsynchronizowany z własnych dzierżaw usługi Azure AD.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się, jak zainstalować program Azure AD Connect dotyczących następujących scenariuszy, zobacz [Instalacja niestandardowa programu Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.

@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Analiza dzienników dziennika wyszukiwania interfejsu API REST
+
+> [!IMPORTANT]
+> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie należy zapoznać się [dokumentacji nowej wersji wyszukiwania dziennika interfejsu API](https://dev.loganalytics.io/).  Ta starszej wersji interfejsu API może pracować z obszarem roboczym uaktualniony, ale depracated wkrótce będzie.  Należy zmodyfikować istniejących rozwiązaniach za pomocą nowego interfejsu API.
+
 Ten przewodnik zawiera podstawowe — samouczek, wraz z przykładami stosowania interfejsu API REST Search analizy dziennika. Analiza dzienników wchodzi w skład narzędzia Operations Management Suite (OMS).
 
-> [!NOTE]
-> Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie należy zapoznać się [dokumentacji nowej wersji wyszukiwania dziennika interfejsu API](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Analiza dzienników wcześniej wywołano usługi Operational Insights, dlatego jest to nazwa używana w dostawcy zasobów.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Omówienie wyszukiwania dziennika interfejsu API REST
 Interfejsu API REST Search analizy dziennika jest RESTful i jest możliwy za pomocą interfejsu API Menedżera zasobów Azure. W tym artykule przedstawiono przykłady uzyskiwania dostępu do interfejsu API za pomocą [ARMClient](https://github.com/projectkudu/ARMClient), narzędzie wiersza polecenia typu open source, które upraszcza wywoływanie interfejsu API Azure Resource Manager. Korzystanie z ARMClient jest jedną z wielu opcji, aby uzyskać dostęp do interfejsu API Search analizy dziennika. Innym rozwiązaniem jest moduł Azure PowerShell na potrzeby OperationalInsights, który oferuje polecenia cmdlet do uzyskiwania dostępu do wyszukiwania. Te narzędzia mogą korzystać z interfejsu API Menedżera zasobów Azure do wykonywania wywołań do obszarów roboczych OMS i wykonywania poleceń wyszukiwania w nich. Interfejs API generuje wyniki wyszukiwania w formacie JSON, co umożliwia używanie wyniki wyszukiwania na wiele różnych sposobów programowo.
@@ -137,13 +134,13 @@ W poniższej tabeli opisano właściwości, które są dostępne.
 
 | **Właściwość** | **Opis** |
 | --- | --- |
-| Do góry |Maksymalna liczba wyników do zwrócenia. |
-| Wyróżnij |Zawiera parametry przed i po używane zwykle do wyróżnianie pasujących pól |
+| top |Maksymalna liczba wyników do zwrócenia. |
+| wyróżnienie |Zawiera parametry przed i po używane zwykle do wyróżnianie pasujących pól |
 | wstępnie |Prefiksy dany ciąg znaków polom dopasowany. |
 | POST |Dołącza podany ciąg polom dopasowany. |
 | query |Używany do gromadzenia i zwracają wyniki zapytania wyszukiwania. |
 | rozpoczynanie |Początek przedział czasu mają być można znaleźć w wynikach. |
-| Koniec |Koniec przedział czasu mają być można znaleźć w wynikach. |
+| end |Koniec przedział czasu mają być można znaleźć w wynikach. |
 
 **Odpowiedź:**
 
@@ -225,9 +222,9 @@ W poniższej tabeli opisano właściwości, które są dostępne.
 | --- | --- |
 | Identyfikator |Unikatowy identyfikator. |
 | Element etag |**Wymagane poprawki**. Zaktualizowany przez serwer podczas każdego zapisu. Wartość musi być równa wartości przechowywanej bieżącego lub "*" do aktualizacji. 409 zwracane wartości stary lub jest ono nieprawidłowe. |
-| Properties.Query |**Wymagane**. Zapytania wyszukiwania. |
+| properties.query |**Wymagane**. Zapytania wyszukiwania. |
 | properties.displayName |**Wymagane**. Nazwa wyświetlana użytkownika zapytania. |
-| Properties.category |**Wymagane**. Zdefiniowane przez użytkownika kategorii zapytania. |
+| properties.category |**Wymagane**. Zdefiniowane przez użytkownika kategorii zapytania. |
 
 > [!NOTE]
 > Interfejs API wyszukiwania usługi Analiza dzienników zwraca aktualnie utworzonych przez użytkownika zapisane wyszukiwania podczas sondowania zapisane wyszukiwania w obszarze roboczym. Interfejs API nie zwraca zapisanych wyszukiwań pochodzącymi z rozwiązania.
@@ -416,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) do kompilowania zapytań przy użyciu pól niestandardowych kryteriów.

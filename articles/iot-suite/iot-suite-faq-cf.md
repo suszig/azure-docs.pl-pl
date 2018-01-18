@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Często zadawane pytania dla fabryki połączonych pakiet IoT wstępnie skonfigurowane rozwiązanie
 
@@ -104,20 +104,20 @@ Można również znaleźć parametrów połączenia przy użyciu portalu Azure. 
 
 Symulacja samodzielnie rejestruje następujące urządzenia:
 
-* proxy.Beijing.corp.contoso
+* proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
-* proxy.Mumbai.corp.contoso
+* proxy.mumbai.corp.contoso
 * proxy.munich0.corp.contoso
-* proxy.Rio.corp.contoso
-* proxy.Seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* proxy.rio.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Przy użyciu [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) lub [explorer Centrum iothub](https://github.com/azure/iothub-explorer) narzędzia, można sprawdzić, które urządzenia są zarejestrowane w usłudze Centrum IoT używa rozwiązania. Aby korzystać z tych narzędzi, należy parametry połączenia dla Centrum IoT w danym wdrożeniu.
+Przy użyciu [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) lub [rozszerzenie IoT Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) narzędzia, można sprawdzić, które urządzenia są zarejestrowane w usłudze Centrum IoT używa rozwiązania. Za pomocą Eksploratora urządzenia, należy parametry połączenia dla Centrum IoT w danym wdrożeniu. Aby użyć rozszerzenia IoT Azure CLI 2.0, należy nazwę Centrum IoT.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Jak uzyskać dane dzienników ze składników symulacji
 
@@ -135,20 +135,26 @@ Z [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/too
 
 Sprawdź dane wysyłane przez jednego z urządzeń wydawcy:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 Jeśli zostanie wyświetlone żadne dane wysyłane do Centrum IoT, oznacza to, że wystąpił problem z symulacji. Pierwszym krokiem analizy powinien analizowanie plików dziennika składników symulacji. Zobacz [jak można uzyskać danych dziennika z składniki symulacji?](#how-can-i-get-log-data-from-the-simulation-components) Spróbuj dalej zatrzymać i uruchomić symulacji i jeśli nie ma jeszcze żadnych danych wysyłane, zaktualizuj symulacji całkowicie. Zobacz [jak zaktualizować symulacji w maszynie Wirtualnej?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Jak włączyć mapy interakcyjnej w Moje rozwiązanie fabryka połączenia?
 
-Aby włączyć mapy interakcyjnej w rozwiązaniu połączonych fabryki, musi mieć istniejącego interfejsu API map Bing planu przedsiębiorstwa. Jeśli masz interfejsu API map Bing planu Enterprise podczas wdrażania rozwiązania fabryki połączonych z www.azureiotsuite.com, mapy interakcyjnej jest automatycznie włączone automatycznie.
+Aby włączyć mapy interakcyjnej w rozwiązaniu połączonych fabryki, musi mieć istniejącego interfejsu API map Bing planu przedsiębiorstwa.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Jak utworzyć interfejsu API map Bing dla konta organizacji?
+W przypadku wdrażania z [www.azureiotsuite.com](http://www.azureiotsuite.com), proces wdrażania sprawdza ma włączone interfejsu API map Bing Enterprise planu subskrypcji i automatycznie wdraża mapy interakcyjnej do połączonych fabryki. Jeśli nie jest to możliwe, można włączyć mapy interakcyjnej we wdrożeniu w następujący sposób:
+
+Podczas wdrażania przy użyciu `build.ps1` skryptu w połączonych fabryki repozytorium GitHub i mieć interfejsu API map Bing planu Enterprise, ustaw zmienną środowiskową `$env:MapApiQueryKey` w oknie kompilacji, aby klucz zapytania planu. Mapy interakcyjnej jest włączana automatycznie.
+
+Jeśli nie masz interfejsu API map Bing Enterprise planu wdrażania rozwiązania fabryki połączonych z [www.azureiotsuite.com](http://www.azureiotsuite.com) lub przy użyciu `build.ps1` skryptu. Następnie dodaj interfejsu API map Bing Enterprise planu subskrypcji, zgodnie z objaśnieniem w [sposób utworzenia interfejsu API map Bing dla konta organizacji?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Wyszukiwanie klucza zapytania tego konta, zgodnie z objaśnieniem w [Uzyskiwanie interfejsu API map Bing dla przedsiębiorstwa QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) i Zapisz ten klucz. Przejdź do portalu Azure i uzyskać dostęp do zasobu usługi aplikacji w danym wdrożeniu połączonych fabryki. Przejdź do **ustawienia aplikacji**, gdzie można znaleźć sekcji **ustawień aplikacji**. Ustaw **MapApiQueryKey** klucza zapytania został uzyskany. Zapisz ustawienia, a następnie przejdź do **omówienie** i uruchom ponownie usługę aplikacji.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Jak utworzyć interfejsu API map Bing dla konta organizacji
 
 Możesz uzyskać bezpłatne *wewnętrzne transakcje poziom 1 mapy Bing dla przedsiębiorstwa* planu. Jednak można tylko dodać dwa te plany z subskrypcją platformy Azure. Jeśli nie masz interfejsu API map Bing dla konta organizacji, utworzyć w portalu Azure, klikając **+ Utwórz zasób**. Następnie wyszukaj **interfejsu API map Bing dla przedsiębiorstwa** i postępuj zgodnie z monitami, aby go utworzyć.
 
@@ -202,7 +208,7 @@ Do wysyłania danych telemetrycznych z innych niż UA OPC urządzeń podłączon
 
 1. Uruchom ponownie fabryki podłączonej usługi aplikacji.
 
-### <a name="next-steps"></a>Następne kroki
+### <a name="next-steps"></a>Kolejne kroki
 
 Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skonfigurowanych rozwiązań Pakietu IoT:
 

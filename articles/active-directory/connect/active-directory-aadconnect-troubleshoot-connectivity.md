@@ -3,7 +3,7 @@ title: "Azure AD Connect: Rozwiązywanie problemów z łącznością | Dokumenta
 description: "Wyjaśniono, jak rozwiązywać problemy z łącznością z programem Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Rozwiązywanie problemów z łącznością z programem Azure AD Connect
 W tym artykule opisano, jak działa połączenie między Azure AD Connect i Azure AD i jak rozwiązywać problemy z połączeniem. Te problemy najprawdopodobniej będzie można przejrzeć w środowisku z serwerem proxy.
@@ -43,11 +43,11 @@ Tych adresów URL Poniższa tabela jest absolutne minimum systemu od zera, aby m
 | Adres URL | Port | Opis |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Używany do pobierania listy CRL. |
-| \*. verisign.com |HTTP/80 |Używany do pobierania listy CRL. |
-| \*. entrust.com |HTTP/80 |Używany do pobierania listy CRL dla usługi MFA. |
-| \*.windows.net |PROTOKOŁU HTTPS I 443 |Używane do logowania do usługi Azure AD. |
-| Secure.aadcdn.microsoftonline p.com |PROTOKOŁU HTTPS I 443 |Używany do uwierzytelniania Wieloskładnikowego. |
-| \*.microsoftonline.com |PROTOKOŁU HTTPS I 443 |Umożliwia skonfigurowanie katalogu usługi Azure AD i importowania/eksportowania danych. |
+| \*.verisign.com |HTTP/80 |Używany do pobierania listy CRL. |
+| \*.entrust.com |HTTP/80 |Używany do pobierania listy CRL dla usługi MFA. |
+| \*.windows.net |HTTPS/443 |Używane do logowania do usługi Azure AD. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Używany do uwierzytelniania Wieloskładnikowego. |
+| \*.microsoftonline.com |HTTPS/443 |Umożliwia skonfigurowanie katalogu usługi Azure AD i importowania/eksportowania danych. |
 
 ## <a name="errors-in-the-wizard"></a>Błędy w Kreatorze
 Kreator instalacji używa dwóch różnych kontekstach zabezpieczeń. Na stronie **nawiązywanie połączenia z usługą Azure AD**, używane są aktualnie zalogowanego użytkownika. Na stronie **Konfiguruj**, jest zmiana [konta usługi dla aparatu synchronizacji](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Jeśli wystąpi problem, zostanie wyświetlone prawdopodobnie już w **nawiązywanie połączenia z usługą Azure AD** w Kreatorze konfiguracji serwera proxy jest globalny.
@@ -112,37 +112,37 @@ Oto zrzutu z dziennika rzeczywiste serwera proxy i strony Kreatora instalacji, z
 
 | Time | Adres URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Połącz: / /*bwsc02 przekazywania*. microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Konfigurowanie**
 
 | Time | Adres URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Połącz: / /*bba900 zakotwiczenia*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Połącz: / /*bwsc02 przekazywania*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Początkowej synchronizacji**
 
 | Time | Adres URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
-| 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |Połącz: / /*bba900 zakotwiczenia*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |Połącz: / /*bba800 zakotwiczenia*. microsoftonline.com:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Błędy uwierzytelniania
 W tej sekcji omówiono błędów, które mogą zostać zwrócone z biblioteki ADAL (Biblioteka uwierzytelniania używany przez program Azure AD Connect) i programu PowerShell. Błąd wyjaśniono powinny pomóc w zrozumieć innej.
@@ -197,5 +197,5 @@ Ten błąd jest wyświetlany, gdy Asystenta logowania w witrynie nie można osi�
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Jeśli wygląda prawidłowe, postępuj zgodnie z instrukcjami [weryfikacji łączności serwera proxy](#verify-proxy-connectivity) aby zobaczyć, czy problem znajduje się poza również kreatora.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

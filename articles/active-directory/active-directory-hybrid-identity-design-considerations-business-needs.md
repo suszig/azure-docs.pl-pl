@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących tożsamości | Dokumentacja firmy Microsoft"
+title: "Wymagania dotyczące tożsamości dla hybrydowych chmury projektowania tożsamości Azure | Dokumentacja firmy Microsoft"
 description: "Ustalenie potrzeb firmy firmy, które prowadzą do definiowania wymagań dotyczących projektowania tożsamości hybrydowej."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Określenie wymagań dotyczących tożsamości dla rozwiązania z tożsamością hybrydową
 Pierwszy krok w projektowaniu rozwiązania z tożsamością hybrydową jest ustalenie wymagań dotyczących organizacji biznesowych, która będzie wykorzystanie tego rozwiązania.  Tożsamość hybrydowa uruchamia rolę pomocniczych (obsługuje on innych rozwiązań w chmurze, zapewniając uwierzytelniania) i przechodzi do mają nowe, ciekawe funkcje, które odblokować nowych obciążeń dla użytkowników.  Te obciążenia lub usługi, które chcesz przyjąć dla użytkowników będzie określać wymagania dotyczące projektowania tożsamości hybrydowej.  Te usługi i obciążeń należy wykorzystać tożsamość hybrydowa lokalnie i w chmurze.  
@@ -66,7 +67,7 @@ Następnie należy do oceny wymagań dotyczących integracji tożsamości. Ocena
 * Jest to wymagane federacyjnej?  Z następującej przyczyny:
   * Usługa rejestracji Jednokrotnej opartego na protokole Kerberos
   * Twoja firma ma aplikacji lokalnych (albo utworzona strona wewnętrznych lub 3), które używa SAML lub podobne możliwości federacji.
-  * Usługi MFA za pomocą kart inteligentnych. RSA SecurID itp.
+  * Usługi MFA za pomocą kart inteligentnych. RSA SecurID, etc.
   * Reguły dostępu klienta, które rozwiązują pytań poniżej:
     1. Czy można zablokować zewnętrzny dostęp do usługi Office 365 na podstawie adresu IP klienta
     2. Czy można zablokować zewnętrzny dostęp do usługi Office 365, z wyjątkiem programu Exchange ActiveSync?
@@ -106,6 +107,6 @@ Należy również ocenić wymagań użytkownika. Ocena ważne jest, aby zdefinio
 ## <a name="next-steps"></a>Następne kroki
 [Określenie wymagań synchronizacji katalogu](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](active-directory-hybrid-identity-design-considerations-overview.md)
 

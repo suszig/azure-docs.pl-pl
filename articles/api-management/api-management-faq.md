@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Często zadawane pytania usługi Azure API Management
 Odpowiedzi na często zadawane pytania, wzorców i najlepsze rozwiązania dotyczące usługi Azure API Management.
@@ -33,7 +33,6 @@ Odpowiedzi na często zadawane pytania, wzorców i najlepsze rozwiązania dotycz
 * [Może zarządzać Mój wystąpienie interfejsu API zarządzania programowo?](#can-i-manage-my-api-management-instance-programmatically)
 * [Jak dodać użytkownika do grupy administratorów?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Dlaczego jest zasadę, którą chcę dodać niedostępne w edytorze zasad?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Jak używać wersji interfejsu API w usłudze API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [Jak skonfigurować wiele środowisk w jednego interfejsu API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Czy można używać protokołu SOAP z interfejsu API zarządzania?](#can-i-use-soap-with-api-management)
 * [To jest stała adres IP bramy usługi API Management? Można jej używać w regułach zapory?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Istnieje kilka opcji do bezpiecznego połączenia między bramą usługi API Man
 
 * Użyj uwierzytelniania podstawowego HTTP. Aby uzyskać więcej informacji, zobacz [Import i opublikować swój pierwszy interfejs API](import-and-publish.md).
 * Używa wzajemnego uwierzytelniania SSL, zgodnie z opisem w [zabezpieczania usług zaplecza za pomocą klienta uwierzytelniania certyfikatów w usłudze Azure API Management](api-management-howto-mutual-certificates.md).
-* Użyj listę dozwolonych podobnej IP w usłudze zaplecza. Jeśli standardowa lub Premium, wystąpienie usługi API Management warstwy, adres IP bramy pozostaje stała. Można ustawić z listy dozwolonych, aby umożliwić ten adres IP. Adres IP wystąpienia interfejsu API zarządzania można uzyskać na pulpicie nawigacyjnym w portalu Azure.
+* Użyj listę dozwolonych podobnej IP w usłudze zaplecza. W wszystkie warstwy interfejsu API zarządzania, adres IP bramy pozostaje stała, od kilku [ostrzeżenia](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Można ustawić z listy dozwolonych, aby umożliwić ten adres IP. Adres IP wystąpienia interfejsu API zarządzania można uzyskać na pulpicie nawigacyjnym w portalu Azure.
 * Wystąpienie interfejsu API zarządzania nawiązać połączenie sieci wirtualnej platformy Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Jak skopiować Moje wystąpienie usługi API Management do nowego wystąpienia?
@@ -97,13 +96,6 @@ Teraz używać programu Azure PowerShell nowo dodanego współautora [poleceń c
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Dlaczego jest zasadę, którą chcę dodać niedostępne w edytorze zasad?
 Jeśli zasady, które chcesz dodać pojawia się nieaktywne lub cieniowania w edytorze zasad, upewnij się, że jesteś w niewłaściwym zakresie zasad. Każda instrukcja zasad jest przeznaczony do użycia w określonych zakresach i sekcje zasad. Aby przejrzeć sekcje zasad i zakresy dla zasad, zobacz sekcję użycia zasad w [zasad interfejsu API zarządzania](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Jak używać wersji interfejsu API w usłudze API Management?
-Masz kilka opcji, aby użyć wersji interfejsu API w usłudze API Management:
-
-* W usłudze API Management można skonfigurować interfejsów API do reprezentowania różne wersje. Na przykład może mieć dwóch różnych interfejsów API, MyAPIv1 i MyAPIv2. Deweloper może wybrać wersję, która Deweloper chce używać.
-* Możesz również skonfigurować interfejsu API z adresu URL usługi, który nie zawiera wersji segmentu, na przykład https://my.api. Następnie należy skonfigurować segment wersji na każdej operacji [ponowne zapisywanie adresów URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) szablonu. 
-* Jeśli chcesz zachować segment wersji "domyślne" w interfejsie API adresem URL usługi wybranej operacji, należy ustawić zasady, które używa [Ustaw usługę zaplecza](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) zasad, aby zmienić ścieżkę żądania zaplecza.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Jak skonfigurować wiele środowisk w jednego interfejsu API?
 Aby skonfigurować wielu środowiskach, na przykład środowiska testowego i środowiska produkcyjnego, w jednym interfejsie API, masz dwie opcje. Możesz:
 
@@ -114,7 +106,7 @@ Aby skonfigurować wielu środowiskach, na przykład środowiska testowego i śr
 [Przekazywanie protokołu SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) obsługi jest teraz dostępna. Administratorzy mogą importować WSDL usługi SOAP, a zarządzanie interfejsami API Azure utworzy frontonu protokołu SOAP. Dokumentację portalu dla deweloperów, konsoli testu, zasad i analiza będą dostępne dla usług SOAP.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>To jest stała adres IP bramy usługi API Management? Można jej używać w regułach zapory?
-W warstwy standardowa i Premium przez czas ich istnienia dzierżawy, z pewnymi wyjątkami jest statyczny publiczny adres IP (VIP) dla dzierżawcy interfejsu API zarządzania. Zmiany adresu IP w takiej sytuacji:
+Publiczny adres IP (VIP) dla dzierżawcy interfejsu API zarządzania w wszystkie warstwy interfejsu API zarządzania jest statyczny przez czas ich istnienia dzierżawy, z pewnymi wyjątkami. Zmiany adresu IP w takiej sytuacji:
 
 * Usługa jest usunięty i ponownie utworzona.
 * Subskrypcja usługi jest [zawieszone](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) lub [ostrzeżona](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (na przykład w przypadku nonpayment), a następnie przywrócone.

@@ -3,7 +3,7 @@ title: 'Synchronizacja programu Azure AD Connect: Zapobieganie przypadkowemu usu
 description: "W tym temacie opisano funkcję zapobiegania przypadkowemu usuwaniu (zapobieganie przypadkowym usunięciu) w programie Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu
 W tym temacie opisano funkcję zapobiegania przypadkowemu usuwaniu (zapobieganie przypadkowym usunięciu) w programie Azure AD Connect.
@@ -63,7 +63,7 @@ Jeśli wszystkie usuwa są potrzebne, wykonaj następujące czynności:
 3. Z Azure łącznika usługi Active Directory nadal wybrana, wybierz akcję **Uruchom** i wybierz **wyeksportować**.
 4. Aby ponownie włączyć ochronę, uruchom polecenie cmdlet programu PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Zastąp wartość, którą można zauważyć podczas pobierania bieżący próg usuwania 500. Podaj nazwę i hasło konta administratora globalnego usługi Azure AD.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 **Tematy poglądowe**
 
 * [Synchronizacja programu Azure AD Connect: zrozumienie i dostosowywanie synchronizacji](active-directory-aadconnectsync-whatis.md)

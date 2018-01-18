@@ -4,7 +4,7 @@ description: "Dokument ten temat opisuje sposób aktualizacji Azure AD Connect, 
 services: active-directory
 keywords: "Usługi AD DS konta, konto usługi Active Directory, hasło"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bd2970a723aa6b9073e25fd19493232af50e7985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Zmiana hasła do konta usług AD DS
 Konta usług AD DS odnosi się do konta użytkownika, używany przez program Azure AD Connect do komunikowania się z lokalną usługą Active Directory. Jeśli zmienisz hasło do konta usług AD DS, należy zaktualizować Azure AD Connect usługi synchronizacji przy użyciu nowego hasła. W przeciwnym razie synchronizacja nie będzie można poprawnie synchronizowane z lokalnej usługi Active Directory i można napotkać następujące błędy:
@@ -49,7 +49,7 @@ Aby zaktualizować usługę synchronizacji przy użyciu nowego hasła:
 
 8. Ponowne uruchomienie programu Azure AD Connect usługi synchronizacji w obszarze Menedżer sterowania usługami systemu Windows. To, aby upewnić się, że wszystkie odwołania do stare hasło zostanie usunięty z pamięci podręcznej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 **Tematy poglądowe**
 
 * [Synchronizacja programu Azure AD Connect: zrozumienie i dostosowywanie synchronizacji](active-directory-aadconnectsync-whatis.md)

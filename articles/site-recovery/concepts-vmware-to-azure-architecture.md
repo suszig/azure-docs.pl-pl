@@ -4,13 +4,13 @@ description: "Ten artykuł zawiera omówienie składników i architektury używa
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware do platformy Azure replikacji architektury
 
@@ -24,11 +24,9 @@ Następujące tabeli i grafika Podaj ogólny widok składniki używane do replik
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
 **Azure** | Subskrypcja platformy Azure, konto magazynu Azure i sieć platformy Azure. | Replikowane dane z lokalnych maszyn wirtualnych są przechowywane na koncie magazynu. Maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych podczas uruchamiania błędu za pośrednictwem z lokalnej na platformie Azure. Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
-**Serwer konfiguracji** | Pojedynczy lokalnej maszyny Wirtualnej VMware jest wdrożone do wszystkich lokalną składnikami usługi Site Recovery. Maszyna wirtualna działa serwer konfiguracji, serwer przetwarzania i główny serwer docelowy. | Serwer konfiguracji służy do koordynowania komunikacji między środowiskiem lokalnym i platformą Azure oraz do zarządzania replikacją danych.
- **Serwer przetwarzania**:  | Instalowany domyślnie z serwerem konfiguracji. | Działa jako brama replikacji. Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do usługi Azure Storage.<br/><br/> Serwer przetwarzania instaluje usługi mobilności na maszynach wirtualnych, którą chcesz replikować, i przeprowadza automatyczne odnajdywanie maszyn wirtualnych na lokalnych serwerach VMware.<br/><br/> Wraz z rozwojem wdrożenia, możesz dodać dodatkowe, oddzielne procesu serwerów do obsługi większych ilości ruchu replikacji.
- **Główny serwer docelowy** | Instalowany domyślnie z serwerem konfiguracji. | Służy do obsługi replikacji danych podczas powrotu po awarii z platformy Azure.<br/><br/> W przypadku dużych wdrożeń można dodać dodatkowe, oddzielne główny serwer docelowy do powrotu po awarii.
+**Komputer serwera konfiguracji** | Pojedynczy lokalnego komputera. Firma Microsoft zaleca się, że uruchamiasz go jako maszyny Wirtualnej VMware, które można wdrożyć z pobranego szablonu OVF.<br/><br/> Komputer uruchamia wszystkie składniki usługi Site Recovery lokalnie, w tym konfiguracji serwera, serwer przetwarzania i główny serwer docelowy. | **Serwer konfiguracji**: współrzędne komunikacji między lokalną i platformą Azure i zarządza replikacji danych.<br/><br/> **Serwer przetwarzania**: instalowana domyślnie na serwerze konfiguracji. Go odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania i wysyła go do magazynu Azure. Serwer przetwarzania instaluje usługi mobilności na maszynach wirtualnych, którą chcesz replikować, i przeprowadza automatyczne odnajdywanie komputerów lokalnych. Wraz z rozwojem wdrożenia, możesz dodać dodatkowe, oddzielne procesu serwerów do obsługi większych ilości ruchu replikacji.<br/><br/>  **Główny serwer docelowy**: instalowana domyślnie na serwerze konfiguracji. Obsługuje on replikację danych podczas powrotu po awarii z platformy Azure. W przypadku dużych wdrożeń można dodać dodatkowe, oddzielne główny serwer docelowy do powrotu po awarii.
 **Serwery VMware** | Maszyny wirtualne VMware znajdują się na serwerach ESXi vSphere lokalnymi. Firma Microsoft zaleca serwer vCenter do zarządzania hostami. | Podczas wdrażania usługi Site Recovery należy dodać serwery VMware do magazynu usług odzyskiwania.
-**Zreplikowane maszyny** | Usługa mobilności jest zainstalowana na każdej maszynie Wirtualnej VMware, które są replikowane. | Zaleca się Zezwalaj automatycznej instalacji z serwera przetwarzania. Możesz też ręcznie zainstalować usługę lub użyć metody wdrażania automatycznego, takie jak System Center Configuration Manager. 
+**Zreplikowane maszyny** | Usługa mobilności jest zainstalowana na każdej maszynie Wirtualnej VMware, które są replikowane. | Zaleca się Zezwalaj automatycznej instalacji z serwera przetwarzania. Możesz też ręcznie zainstalować usługę lub użyć metody wdrażania automatycznego, takie jak System Center Configuration Manager.
 
 **Architektura VMware–Azure**
 
@@ -36,15 +34,17 @@ Następujące tabeli i grafika Podaj ogólny widok składniki używane do replik
 
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Konfigurowanie wdrożenia, łącznie z lokalnymi i składniki platformy Azure. W magazynie usług odzyskiwania Określ replikacji źródłowych i docelowych, skonfiguruj serwer konfiguracji Utwórz zasady replikacji i włączyć replikację.
-2. Replikacja maszyny, zgodnie z zasadami replikacji i początkowej kopii danych maszyny Wirtualnej są replikowane do magazynu Azure.
-3. Po zakończeniu replikacji początkowej, rozpoczyna replikację zmian różnicowych na platformie Azure. Śledzone zmiany dla maszyny są przechowywane w pliku hrl.
+1.  Należy przygotować zasobów platformy Azure i lokalnymi składniki.
+2.  W magazynie usług odzyskiwania należy określić ustawienia źródła replikacji. W ramach tego procesu można skonfigurować lokalnego serwera konfiguracji. Aby wdrożyć ten serwer jako maszyny Wirtualnej VMware, pobierz go przygotować szablon pakietu OVF, a go zaimportować do programu VMware można utworzyć maszyny Wirtualnej.
+3. Określ ustawienia replikacji obiektu docelowego, Utwórz zasady replikacji i włączyć replikację dla maszyn wirtualnych VMware.
+4.  Replikacja maszyny, zgodnie z zasadami replikacji i początkowej kopii danych maszyny Wirtualnej są replikowane do magazynu Azure.
+5.  Po zakończeniu replikacji początkowej, rozpoczyna replikację zmian różnicowych na platformie Azure. Śledzone zmiany dla maszyny są przechowywane w pliku hrl.
     - Maszyny komunikacji z serwerem konfiguracji na porcie 443 protokołu HTTPS dla ruchu przychodzącego dla zarządzania replikacji.
     - Maszyny wysyłanie danych replikacji na serwer przetwarzania na porcie HTTPS 9443 dla ruchu przychodzącego (może być modyfikowany).
     - Serwer konfiguracji synchronizuje replikację z platformą Azure za pośrednictwem portu HTTPS 443 dla danych wychodzących.
     - Serwer przetwarzania odbiera dane z maszyn źródłowych, optymalizuje je i szyfruje, a następnie wysyła do usługi Azure Storage za pośrednictwem portu 443 dla danych wychodzących.
     - Włączenie spójności wielu maszyn wirtualnych, maszyny w grupie replikacji komunikują się ze sobą za pośrednictwem portu 20004. Funkcja spójności wielu maszyn wirtualnych jest używana, jeśli wiele maszyn zostanie połączonych w grupę replikacji, która współużytkuje punkty odzyskiwania spójne na poziomie awarii i aplikacji. Jest to przydatne, jeśli maszyny obsługują to samo obciążenie i muszą być spójne.
-4. Ruch jest replikowany do publicznych punktów końcowych usługi Azure Storage za pośrednictwem Internetu. Alternatywnie można użyć [publicznej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) usługi Azure ExpressRoute. Replikowanie ruchu za pośrednictwem sieci VPN typu lokacja-lokacja z lokacji lokalnej platformy Azure nie jest obsługiwane.
+6.  Ruch są replikowane do magazynu Azure publiczne punkty końcowe, za pośrednictwem Internetu. Alternatywnie można użyć zure ExpressRoute [publicznej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replikowanie ruchu za pośrednictwem sieci VPN typu lokacja-lokacja z lokacji lokalnej platformy Azure nie jest obsługiwane.
 
 
 **VMware do procesu replikacji Azure**

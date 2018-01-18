@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Usługi domenowe usługi Azure AD — przewodnik rozwiązywania problemów
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów, które można napotkać podczas konfigurowania lub administrowanie usług domenowych w usłudze Azure Active Directory (AD).
@@ -122,6 +122,7 @@ Sprawdź, jeśli wyłączono aplikacji o identyfikatorze 00000002-0000-0000-c000
 
 Aby rozwiązać ten problem, Włącz tę aplikację, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Użytkownicy nie mogą zalogować się do domeny zarządzanej usług Azure AD Domain Services
 Jeśli jeden lub więcej użytkowników w dzierżawie usługi Azure AD nie można zalogować się do domeny zarządzanej nowo utworzony, wykonaj następujące kroki:
 
@@ -145,12 +146,17 @@ Jeśli jeden lub więcej użytkowników w dzierżawie usługi Azure AD nie możn
     2. polecenie net start "Microsoft Azure AD Sync"
 * **Tylko w chmurze kont**: Jeśli konto użytkownika, którego dotyczy to konto użytkownika tylko do chmury, upewnij się, że użytkownik zmienił swoje hasło po włączeniu usług domenowych Azure AD. Ten krok powoduje wygenerowanie skrótów poświadczeń wymaganych przez usługi Azure AD Domain Services.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Brak jednego lub wielu alertów na domeny zarządzanej
+
+Zobacz rozwiązywania alertów dotyczących domeny zarządzanej, odwiedzając [rozwiązywanie alertów](active-directory-ds-troubleshoot-alerts.md) artykułu.
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Użytkowników usuniętych z dzierżawy usługi Azure AD nie są usuwane z domeny zarządzanej
 Usługa Azure AD zapewnia ochronę przed przypadkowym usunięciem obiektów użytkowników. Po usunięciu konta użytkownika z dzierżawy usługi Azure AD odpowiedni obiekt użytkownika jest przenoszony do Kosza. Operacja usuwania jest synchronizowane do domeny zarządzanej, powoduje odpowiadającego mu konta użytkownika był oznaczony jako wyłączony. Ta funkcja pomaga odzyskać lub później cofanie usuwania konta użytkownika.
 
 Konto użytkownika pozostaje w stanie wyłączenia, w domenie zarządzanej, nawet jeśli ponownie utworzyć konto użytkownika z tej samej nazwy UPN w katalogu usługi Azure AD. Aby usunąć konto użytkownika z domeny zarządzanej, należy wymusić usunięcie go z dzierżawy usługi Azure AD.
 
 Aby usunąć konto użytkownika w pełni z domeny zarządzanej, należy trwale usunąć użytkownika z dzierżawy usługi Azure AD. Użyj `Remove-MsolUser` polecenia cmdlet programu PowerShell z `-RemoveFromRecycleBin` opcji, zgodnie z opisem w tym [artykuł w witrynie MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 Skontaktuj się z zespołem produktu usługi Azure Active Directory Domain Services, aby [udostępnić opinię lub pomocy technicznej](active-directory-ds-contact-us.md).

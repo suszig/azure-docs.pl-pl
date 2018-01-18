@@ -3,7 +3,7 @@ title: "Różnice i zagadnienia dotyczące maszyn wirtualnych w stosie Azure | D
 description: "Więcej informacji na temat różnic i zagadnienia dotyczące podczas pracy z maszynami wirtualnymi Azure stosu."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Zagadnienia dotyczące maszyn wirtualnych Azure stosu
 
@@ -59,7 +59,7 @@ Rozmiary maszyn wirtualnych i ich ilości zasobów są spójne stosu Azure i na 
 
 ## <a name="virtual-machine-extensions"></a>Rozszerzenia maszyny wirtualnej
 
- Zestaw deweloperski stosu Azure obsługuje następujące wersje rozszerzenia maszyny wirtualnej:
+ Stos Azure obsługuje następujące wersje rozszerzenia maszyny wirtualnej:
 
 ![Rozszerzenia maszyn wirtualnych](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
-Funkcje maszyny wirtualnej Azure stosu Development Kit obsługuje następujące wersje interfejsu API:
+Funkcje maszyny wirtualnej w stosie Azure obsługuje następujące wersje interfejsu API:
 
 ![Typy zasobów maszyny Wirtualnej](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

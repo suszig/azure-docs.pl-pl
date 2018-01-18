@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementy współpracy B2B zaproszenie — Azure Active Directory
 
@@ -34,7 +34,7 @@ Temat wiadomości e-mail jest zgodny ze wzorcem następujące: Zapraszamy &lt;te
 ### <a name="from-address"></a>Adres nadawcy
 Używamy wzorzec przypominającej LinkedIn dla adres nadawcy.  Powinien być Wyczyść, który jest zapraszającej i adres e-mail od firmy oraz wyjaśnić, że wiadomość e-mail pochodzi od firmy Microsoft. Format: &lt;nazwę wyświetlaną zapraszającej&gt; z &lt;tenantname&gt; (za pośrednictwem firmy Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Odpowiedz
+### <a name="reply-to"></a>Udzielenie odpowiedzi na
 Odpowiedz na wiadomość e-mail ma ustawioną zapraszającej poczty e-mail, jeśli jest dostępna, tak, aby podczas odpowiadania na wiadomości e-mail wysyła wiadomość e-mail z powrotem do zapraszającej.
 
 ### <a name="branding"></a>Znakowania.
@@ -69,7 +69,7 @@ Stopki zawiera marki firmy Microsoft i umożliwia tym adresata, jeśli wiadomoś
   ![Kiedy adresat nie trzeba zrealizować zaproszenia](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 

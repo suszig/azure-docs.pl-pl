@@ -3,7 +3,7 @@ title: 'Synchronizacja programu Azure AD Connect: zagadnienia i zadania operacyj
 description: "W tym temacie opisano zadania operacyjne synchronizacja programu Azure AD Connect i sposoby przygotowania do działania tego składnika."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4252a5ff3dd985185745060073cbe5432dba726a
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Synchronizacja programu Azure AD Connect: brany pod uwagę i zadania operacyjne
 Celem tego tematu jest do opisywania zadań operacyjnych synchronizacji usługi Azure AD Connect.
@@ -124,7 +124,7 @@ Jeśli nie używasz programu SQL Server Express dostarczonego z programem Azure 
 
 Dodano obsługę SQL AOA Azure AD Connect w wersji 1.1.524.0. Przed zainstalowaniem usługi Azure AD Connect, należy włączyć SQL AOA. Podczas instalacji Azure AD Connect wykrywa, czy podane wystąpienie programu SQL jest włączone dla SQL AOA. Po włączeniu SQL AOA Azure dalsze AD Connect danych liczbowych Jeśli SQL AOA jest skonfigurowana do używania synchronicznego lub asynchronicznego replikacji. Podczas ustawiania odbiornika grupy dostępności, zalecane jest, ustaw właściwość RegisterAllProvidersIP na 0. Jest to spowodowane Azure AD Connect aktualnie używa programu SQL Native Client do połączenia z serwerem SQL i programu SQL Native Client nie obsługuje użycie właściwości MultiSubNetFailover.
 
-## <a name="appendix-csanalyzer"></a>Dodatek CSAnalyzer
+## <a name="appendix-csanalyzer"></a>Appendix CSAnalyzer
 Zobacz sekcję [Sprawdź](#verify) dotyczące sposobu używania tego skryptu.
 
 ```

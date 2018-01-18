@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Dostosowywanie zdalnego wstępnie skonfigurowane rozwiązanie monitorowania
 
@@ -24,6 +24,10 @@ Ten artykuł zawiera informacje dotyczące sposobu można uzyskać dostępu do k
 
 * Repozytoriów GitHub zawierające kod źródłowy i zasoby dla mikrousług, które tworzą wstępnie skonfigurowane rozwiązanie.
 * Typowe scenariusze dostosowywania, takie jak dodanie nowego typu urządzenia.
+
+Poniższe wideo przedstawia Omówienie opcji dostosowywania zdalnego wstępnie skonfigurowane rozwiązanie monitorowania:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Przegląd projektu
 
@@ -45,14 +49,14 @@ Ta tabela zawiera podsumowanie bieżącego dostępność każdego mikrousługi d
 | Mikrousługi      | Opis | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | Interfejs użytkownika sieci Web            | Aplikacja sieci Web dla zdalnego rozwiązanie monitorowania. Implementuje interfejs użytkownika za pomocą React.js framework. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| Menedżer Centrum IoT   | Obsługuje komunikację z Centrum IoT.        | [Dostępne](https://github.com/Azure/iothub-manager-java) | [Dostępne](https://github.com/Azure/iothub-manager-dotnet)   |
-| Authentication    |  Zarządza integracji Azure Active Directory.  | Jeszcze niedostępne | [Dostępne](https://github.com/Azure/pcs-auth-dotnet)   |
-| Symulacji urządzenia | Zarządza puli symulowane urządzeń. | Jeszcze niedostępne | [Dostępne](https://github.com/Azure/device-simulation-dotnet)   |
-| Telemetria         | Udostępnia telemetrii urządzenia do interfejsu użytkownika. | [Dostępne](https://github.com/Azure/device-telemetry-java) | [Dostępne](https://github.com/Azure/device-telemetry-dotnet)   |
-| Agent telemetrii   | Analizuje dane telemetryczne strumienia, przechowuje komunikaty z Centrum IoT Azure i generuje alerty, zgodnie ze zdefiniowanymi regułami.  | [Dostępne](https://github.com/Azure/telemetry-agent-java) | [Dostępne](https://github.com/Azure/telemetry-agent-dotnet)   |
-| Konfiguracja interfejsu użytkownika         | Zarządza danymi konfiguracji w interfejsie użytkownika. | [Dostępne](https://github.com/azure/pcs-ui-config-java) | [Dostępne](https://github.com/azure/pcs-ui-config-dotnet)   |
-| Karta magazynu   |  Zarządza interakcji z usługą magazynu.   | [Dostępne](https://github.com/azure/pcs-storage-adapter-java) | [Dostępne](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| Zwrotny serwer proxy     | Udostępnia zasoby prywatny w sposób zarządzane za pośrednictwem unikatowy punktu końcowego. | Jeszcze niedostępne | [Dostępne](https://github.com/Azure/reverse-proxy-dotnet)   |
+| IoT Hub Manager   | Obsługuje komunikację z Centrum IoT.        | [Available](https://github.com/Azure/iothub-manager-java) | [Available](https://github.com/Azure/iothub-manager-dotnet)   |
+| Authentication    |  Zarządza integracji Azure Active Directory.  | Jeszcze niedostępne | [Available](https://github.com/Azure/pcs-auth-dotnet)   |
+| Symulacja urządzenia | Zarządza puli symulowane urządzeń. | Jeszcze niedostępne | [Available](https://github.com/Azure/device-simulation-dotnet)   |
+| Telemetria         | Udostępnia telemetrii urządzenia do interfejsu użytkownika. | [Available](https://github.com/Azure/device-telemetry-java) | [Available](https://github.com/Azure/device-telemetry-dotnet)   |
+| Agent telemetrii   | Analizuje dane telemetryczne strumienia, przechowuje komunikaty z Centrum IoT Azure i generuje alerty, zgodnie ze zdefiniowanymi regułami.  | [Available](https://github.com/Azure/telemetry-agent-java) | [Available](https://github.com/Azure/telemetry-agent-dotnet)   |
+| Konfiguracja interfejsu użytkownika         | Zarządza danymi konfiguracji w interfejsie użytkownika. | [Available](https://github.com/azure/pcs-ui-config-java) | [Available](https://github.com/azure/pcs-ui-config-dotnet)   |
+| Karta magazynu   |  Zarządza interakcji z usługą magazynu.   | [Available](https://github.com/azure/pcs-storage-adapter-java) | [Available](https://github.com/azure/pcs-storage-adapter-dotnet)   |
+| Zwrotny serwer proxy     | Udostępnia zasoby prywatny w sposób zarządzane za pośrednictwem unikatowy punktu końcowego. | Jeszcze niedostępne | [Available](https://github.com/Azure/reverse-proxy-dotnet)   |
 
 Rozwiązanie Java aktualnie używa uwierzytelniania platformy .NET, symulacji i mikrousług zwrotnego serwera proxy. Te mikrousług zostanie zastąpione przez wersje oprogramowania Java, jak tylko staną się dostępne.
 
@@ -244,7 +248,7 @@ The default storage service for logs is Cosmos DB. See the [Customize log storag
 
 Aby zmodyfikować infrastruktury w zdalnym rozwiązanie monitorowania, należy edytować kod. Odpowiednich repozytoriów GitHub są:
 
-* [Menedżer Centrum IoTHub (.NET)](https://github.com/Azure/iothub-manager-dotnet)
+* [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
 * [Menedżer Centrum IoTHub (Java)](https://github.com/Azure/iothub-manager-java)
 * [Karta magazynu (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
 * [Karta magazynu (Java)](https://github.com/Azure/pcs-storage-adapter-java)

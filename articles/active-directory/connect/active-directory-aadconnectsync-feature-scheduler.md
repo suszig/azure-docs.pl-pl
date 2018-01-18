@@ -3,7 +3,7 @@ title: 'Synchronizacja programu Azure AD Connect: harmonogram | Dokumentacja fir
 description: "W tym temacie opisano funkcję wbudowanych harmonogramu synchronizacji Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronizacja programu Azure AD Connect: harmonogramu
 W tym temacie opisano wbudowanych harmonogramu synchronizacji Azure AD Connect () Aparat synchronizacji).
 
 Ta funkcja została wprowadzona z kompilacją 1.1.105.0 (wydane luty 2016).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Synchronizacja programu Azure AD Connect zsynchronizować zmiany zachodzące w katalogu lokalnym za pomocą harmonogramu. Istnieją dwa procesy harmonogramu dla synchronizacji haseł i drugi dla obiekt/atrybutu zadań synchronizacji i konserwacji. W tym temacie omówiono te ostatnie.
 
 We wcześniejszych wersjach harmonogramu dla obiektów i atrybutów zostało zewnętrznych do aparatu synchronizacji. Użyć harmonogramu zadań systemu Windows lub osobnych usługi systemu Windows do synchronizacji. Harmonogram jest dzięki wbudowanej wersji 1.1, aby synchronizacja aparat i umożliwienia pewne dostosowania. Nowe domyślna częstotliwość synchronizacji jest 30 minut.
@@ -131,7 +131,7 @@ Polecenia cmdlet, opisane w tej sekcji są dostępne tylko w kompilacji [1.1.130
 
 Wbudowane harmonogramu nie spełnia wymagań, można zaplanować łączniki przy użyciu programu PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Wywołanie ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Można uruchomić profilu dla łącznika w ten sposób:
 
 ```
@@ -168,7 +168,7 @@ W powyższym rysunku pierwszy wiersz jest ze stanu, gdy aparat synchronizacji je
 ## <a name="scheduler-and-installation-wizard"></a>Kreator harmonogramu i instalacji
 Po uruchomieniu Kreatora instalacji planista tymczasowo jest wstrzymane. To zachowanie jest, ponieważ zakłada się zmian konfiguracji i nie można zastosować te ustawienia, jeśli aparat synchronizacji jest aktywnie wykonywane. Z tego powodu nie może pozostać Kreatora instalacji Otwórz ponieważ przestaje wykonywać wszystkie akcje synchronizacji aparatu synchronizacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

@@ -2,23 +2,18 @@
 title: "Azure Site Recovery Rozwiązywanie problemów z VMware do platformy Azure | Dokumentacja firmy Microsoft"
 description: "Rozwiązywanie błędów podczas replikowania maszyn wirtualnych platformy Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Rozwiązywanie problemów dotyczących instalacji wypychanej usługi mobilności
 
@@ -74,7 +69,7 @@ Ten błąd może zostać wygenerowany przez usługę kilka przyczyn. Wybierz odp
 
 **Kod błędu:** | **Możliwe przyczyny** | **Zalecenia dotyczące błędu**
 --- | --- | ---
-95108 </br>**Komunikat o błędzie:** instalacji wypychanej usługi mobilności na maszynie źródłowej nie powiodła się z kodem błędu **EP0859**. <br>| Poświadczenia podane do zainstalowania usługi mobilności jest niepoprawna albo konto użytkownika ma niewystarczające uprawnienia <br>| Upewnij się, że podane poświadczenia są **głównego** poświadczeń konta. Aby [Dodawanie/edytowanie poświadczeń użytkownika](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), przejdź do konfiguracji serwera i kliknij ikonę "Cspsconfigtool" skrót na pulpicie. Kliknij pozycję "Zarządzanie kontem" Aby Dodawanie/edytowanie poświadczeń.|
+95108 </br>**Komunikat o błędzie:** instalacji wypychanej usługi mobilności na maszynie źródłowej nie powiodła się z kodem błędu **EP0859**. <br>| Poświadczenia podane do zainstalowania usługi mobilności jest niepoprawna albo konto użytkownika ma niewystarczające uprawnienia <br>| Upewnij się, że podane poświadczenia są **głównego** poświadczeń konta. Aby Dodawanie/edytowanie poświadczeń użytkownika, przejdź do konfiguracji serwera i kliknij ikonę "Cspsconfigtool" skrót na pulpicie. Kliknij pozycję "Zarządzanie kontem" Aby Dodawanie/edytowanie poświadczeń.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Błąd 95265 - ochrony nie można włączyć (EP0902)
 
@@ -92,13 +87,14 @@ Ten błąd może zostać wygenerowany przez usługę kilka przyczyn. Wybierz odp
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Zasób, aby rozwiązać problemy z instalacją wypychaną
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Rozwiązywanie problemów udostępnianie plików i drukarek
-*  [Włącz lub wyłącz udostępnianie plików przy użyciu zasad grupy](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Włączanie pliku i udostępniania przez zaporę systemu Windows drukarek](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Włącz lub wyłącz udostępnianie plików przy użyciu zasad grupy](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Włączanie pliku i udostępniania przez zaporę systemu Windows drukarek](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Rozwiązywanie problemów z WMI
 * [Testowanie podstawowe usługi WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [Rozwiązywanie problemów z WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Rozwiązywanie problemów z usługi WMI i skryptów usługi WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [Rozwiązywanie problemów z WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Rozwiązywanie problemów z usługi WMI i skryptów usługi WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>Następne kroki
-- [Włączanie replikacji maszyn wirtualnych VMware](vmware-walkthrough-enable-replication.md)
+
+[Dowiedz się, jak](tutorial-vmware-to-azure.md) na ustawienia odzyskiwania po awarii dla maszyn wirtualnych VMware.

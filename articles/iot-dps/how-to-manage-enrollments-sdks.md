@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Sposób rejestracji urządzeń z zestawów SDK programu Azure urządzenia inicjowania obsługi usługi zarządzania
 A *rejestracji urządzeń* tworzy rekord jednego urządzenia lub grupy urządzeń, które mogą w pewnym momencie zarejestrować w usłudze udostępniania urządzeń. Rekord rejestracji zawiera początkowej żądanej konfiguracji dla urządzeń w ramach rejestracji, łącznie z żądaną Centrum IoT. W tym artykule przedstawiono sposób zarządzania rejestracji urządzeń dla inicjowania obsługi usługi programowo przy użyciu usługi Azure IoT inicjowania obsługi usługi SDK.  Zestawy SDK są dostępne w witrynie GitHub, w tym samym repozytorium jako zestawy SDK IoT Azure.
@@ -25,11 +25,12 @@ A *rejestracji urządzeń* tworzy rekord jednego urządzenia lub grupy urządze�
 W tym artykule opisano wysokiego poziomu pojęć związanych z zarządzaniem rejestracji urządzeń dla inicjowania obsługi usługi programowo przy użyciu usługi Azure IoT inicjowania obsługi usługi SDK.  Dokładne wywołań interfejsu API może się różnić z powodu różnic języka.  Przejrzyj przykłady dostarczamy w serwisie GitHub szczegółowe informacje:
 * [Przykłady Java inicjowania obsługi administracyjnej klienta usługi](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Przykłady obsługi klienta usługi node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Przykłady .NET inicjowania obsługi administracyjnej klienta usługi](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Parametry połączenia z wystąpieniem usługi inicjowania obsługi urządzeń
 * Artefakty zabezpieczeń urządzenia:
-    * [**MODUŁ TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Poszczególne rejestracji: identyfikator rejestracji i klucza poręczenia modułu TPM z fizyczne urządzenie lub symulator modułu TPM.
         * Grupa rejestracji nie ma zastosowania do zaświadczenia modułu TPM.
     * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):

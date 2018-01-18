@@ -3,7 +3,7 @@ title: 'Synchronizacja programu Azure AD Connect: Konfiguracja synchronizacji Az
 description: "Przedstawiono sposób zmiany w konfiguracji synchronizacji Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: jak wprowadzić zmianę do konfiguracji domyślnej
 W tym temacie ma na celu zademonstrować sposób wprowadzania zmian w domyślnej konfiguracji synchronizacji Azure AD Connect. Ona instrukcje dla niektórych typowych scenariuszy. Z tym wiedzy należy wprowadzać pewne zmiany do własnych konfiguracji na podstawie własnych reguł biznesowych.
@@ -178,7 +178,7 @@ Regiony w usłudze Office 365 są:
 
 | Region | Opis |
 | --- | --- |
-| NAZWA | Ameryka Północna |
+| NAM | Ameryka Północna |
 | EUR | Europa |
 | APC | Azja i Pacyfik |
 | JPN | Japonia |
@@ -280,7 +280,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na wartość atrybutu mogą
 5. Zachowaj **filtru Scoping** puste, aby uwzględnić wszystkie obiekty. Może być konieczne dostosowanie zakresu filtru zgodnie z wdrożenia usługi Azure AD Connect.
 6. Przejdź do **tab przekształcenia** i implementuje następującą regułę przekształcania:
 
-    | Typ przepływu | Atrybut TARGET | Element źródłowy | Zastosuj raz | Scal typu |
+    | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Scal typu |
     | --- | --- | --- | --- | --- |
     |Bezpośrednie | PreferredDataLocation | Wybierz atrybut źródłowy | Unchecked | Aktualizacja |
 
@@ -317,7 +317,7 @@ Reguła synchronizacji ruchu wychodzącego zezwala na wartość atrybutu mogą p
 
 6. Przejdź do **przekształcania** karcie i implementuje następującą regułę przekształcania:
 
-    | Typ przepływu | Atrybut TARGET | Element źródłowy | Zastosuj raz | Scal typu |
+    | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Scal typu |
     | --- | --- | --- | --- | --- |
     | Bezpośrednie | PreferredDataLocation | PreferredDataLocation | Unchecked | Aktualizacja |
 
@@ -482,13 +482,13 @@ Reguła synchronizacji ruchu przychodzącego zezwala na wartość atrybutu mogą
 
 6. Przejdź do **tab przekształcenia** i reguły przekształcania żądaną implementację. Na przykład określono nieużywane lokalną atrybutu AD (np. extensionAttribute1) jako atrybut źródłowy dla UserType, można zaimplementować przepływu atrybutu bezpośrednie:
 
-    | Typ przepływu | Atrybut TARGET | Element źródłowy | Zastosuj raz | Scal typu |
+    | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Scal typu |
     | --- | --- | --- | --- | --- |
     | Bezpośrednie | UserType | extensionAttribute1 | Unchecked | Aktualizacja |
 
     Innym przykładem — chcesz pobrać wartość atrybutu UserType od innych właściwości. Na przykład chcesz synchronizować wszystkich użytkowników jako Gość, jeśli ich lokalne atrybutu AD UserPrincipalName kończy się wraz z części domenowej "@partners.fabrikam123.org". Można zaimplementować wyrażenia:
 
-    | Typ przepływu | Atrybut TARGET | Element źródłowy | Zastosuj raz | Scal typu |
+    | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Scal typu |
     | --- | --- | --- | --- | --- |
     | Bezpośrednie | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(InStr(LCase([userPrincipalName])"@partners.fabrikam123.org")=0) "Elementu członkowskiego", "Gość"), błąd ("UserPrincipalName nie jest obecny w celu określenia UserType")) | Unchecked | Aktualizacja |
 
@@ -525,7 +525,7 @@ Reguła synchronizacji ruchu wychodzącego zezwala na wartość atrybutu mogą p
 
 6. Przejdź do **przekształcania** karcie i implementuje następującą regułę przekształcania:
 
-    | Typ przepływu | Atrybut TARGET | Element źródłowy | Zastosuj raz | Scal typu |
+    | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Scal typu |
     | --- | --- | --- | --- | --- |
     | Bezpośrednie | UserType | UserType | Unchecked | Aktualizacja |
 

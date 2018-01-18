@@ -3,7 +3,7 @@ title: "Azure AD Connect: Jeśli już masz usługi Azure AD | Dokumentacja firmy
 description: "W tym temacie opisano sposób użycia Connect, jeśli masz istniejącą dzierżawę usługi Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Jeśli masz dzierżawę istniejących
 Większość tematy dotyczące sposobu korzystania z usługi Azure AD Connect zakłada rozpoczynać nowe usługi Azure AD dzierżawy i czy ma żadnych użytkowników lub istnieją inne obiekty. Ale jeśli została uruchomiona z dzierżawy usługi Azure AD wypełnić go użytkowników i innych obiektów, a teraz chcesz użyć połączenia, a następnie w tym temacie jest dla Ciebie.
@@ -58,5 +58,5 @@ Niektórzy klienci rozpoczynać się tylko na chmurze rozwiązanie z usługą Az
 
 Jeśli tylko przyczyny, dlaczego zamierzasz dodać lokalnej usłudze AD służy do obsługi obiektów LOB (aplikacji biznesowych z), a następnie może warto użyć [usługi domenowe Azure AD](../../active-directory-domain-services/index.md) zamiast tego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

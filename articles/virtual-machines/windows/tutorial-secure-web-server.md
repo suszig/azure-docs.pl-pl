@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Zabezpieczenia serwera sieci web usług IIS z certyfikatów SSL na maszynie wirtualnej systemu Windows na platformie Azure
-Do zabezpieczania serwerów sieci web, certyfikatu później SSL (Secure Sockets) może być używany do szyfrowania ruchu w sieci web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i Zezwalaj wdrożeń zabezpieczonych certyfikatów na maszynach wirtualnych systemu Windows (VM) na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Do zabezpieczania serwerów sieci web, certyfikat Secure Sockets Layer (SSL) może być używany do szyfrowania ruchu w sieci web. Te certyfikaty SSL mogą być przechowywane w usłudze Azure Key Vault i Zezwalaj wdrożeń zabezpieczonych certyfikatów na maszynach wirtualnych systemu Windows (VM) na platformie Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie usługi Azure Key Vault
@@ -34,7 +34,7 @@ Do zabezpieczania serwerów sieci web, certyfikatu później SSL (Secure Sockets
 Dla tego samouczka jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie ` Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Usługa Azure Key Vault zabezpiecza kluczy kryptograficznych i kluczy tajnych takich certyfikatów lub hasła. Key Vault ułatwia uprościć proces zarządzania certyfikatu i pozwala zachować kontrolę nad kluczami, które uzyskują dostęp do tych certyfikatów. Można utworzyć certyfikatu z podpisem własnym wewnątrz usługi Key Vault, lub Przekaż istniejących, zaufanego certyfikatu, który już następującą.
 
 Zamiast przy użyciu niestandardowego obrazu maszyny Wirtualnej, który zawiera certyfikaty rozszerzania w, wstrzyknąć certyfikatów do uruchomionej maszyny Wirtualnej. Ten proces zapewnia, że najbardziej aktualne certyfikaty są zainstalowane na serwerze sieci web podczas wdrażania. Jeśli odnowić lub Zastąp certyfikat, masz nie można utworzyć nowego niestandardowego obrazu maszyny Wirtualnej. Najnowsze certyfikaty są automatycznie dodane podczas tworzenia dodatkowych maszyn wirtualnych. W trakcie całego nigdy nie certyfikatów pozostaw platformy Azure lub są widoczne w skrypcie, Historia wiersza polecenia lub szablonu.
@@ -221,7 +221,7 @@ Wyświetlane są następnie zabezpieczonej witryny sieci Web usług IIS, jak w p
 ![Widok działa bezpiecznej witryny usług IIS](./media/tutorial-secure-web-server/secured-iis.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku serwer sieci web usług IIS jest zabezpieczony za pomocą certyfikatu SSL, przechowywane w usłudze Azure Key Vault. W tym samouczku omówiono:
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — Definiowanie strategii ochrony danych | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym - strategii ochrony danych Azure | Dokumentacja firmy Microsoft"
 description: "Należy zdefiniować strategię ochrony danych dla hybrydowych rozwiązań tożsamości w celu spełnienia wymagań biznesowych, zdefiniowanych."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiowanie strategii ochrony danych dla rozwiązania z tożsamością hybrydową
 W tym zadaniu będziesz definiować hybrydowego tożsamości rozwiązanie, aby spełniać wymagania biznesowe zdefiniowaną w strategii ochrony danych:
@@ -44,7 +45,7 @@ W zależności od odpowiedzi na pytania w [ustalenie wymagań dotyczących ochro
 | Szyfrowanie dysków funkcją BitLocker |X |X | |
 | Program SQL Server do szyfrowania bazy danych |X |X | |
 | Szyfrowanie maszyny Wirtualnej do maszyny Wirtualnej | | |X |
-| PROTOKÓŁ SSL/TLS | | |X |
+| SSL/TLS | | |X |
 | Sieć VPN | | |X |
 
 > [!NOTE]
@@ -164,7 +165,7 @@ Oprócz podstawowych możliwości raportowania usługi Azure AD Premium, któreg
 
 Ponieważ opcje odpowiedzi na zdarzenia używa wielowarstwowych podejście, porównanie tych opcji nie ma zastosowania do tego zadania. Upewnij się, że są wykorzystuje wszystkie opcje dostępne dla każdego scenariusza, która wymaga użycia możliwości raportowania usługi Azure AD jako część procesu odpowiedzi na zdarzenia w firmie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Określić zadań zarządzania tożsamości hybrydowej](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
 ## <a name="see-also"></a>Zobacz też

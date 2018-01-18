@@ -1,9 +1,9 @@
 ---
-title: "Rozwiązywanie problemów z Azure RBAC | Dokumentacja firmy Microsoft"
+title: "Rozwiązywanie problemów z kontroli dostępu opartej na rolach Azure RBAC | Dokumentacja firmy Microsoft"
 description: "Uzyskaj pomoc dotyczącą problemy lub pytania dotyczące zasobów kontroli dostępu opartej na rolach."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Oparta na rolach kontrola dostępu do rozwiązywania problemów
+# <a name="troubleshooting-azure-role-based-access-control"></a>Rozwiązywanie problemów z kontroli dostępu opartej na rolach na platformie Azure 
 
 W tym artykule dokumentu odpowiedzi na często zadawane pytania dotyczące określone prawa dostępu przyznane z rolami, aby wiedzieli, czego można oczekiwać, korzystając z ról w portalu Azure i może rozwiązać problemy z dostępem do. Te trzy role opisano wszystkie typy zasobów:
 
@@ -65,7 +66,7 @@ Te elementy wymagają **zapisu** dostęp do całego **grupy zasobów** zawieraj�
 * Certyfikaty SSL i powiązań (certyfikaty SSL można udostępniać między lokacjami w tej samej grupie zasobów i lokalizacja geograficzna)  
 * Reguły alertów  
 * Ustawienia skalowania automatycznego  
-* Application insights składników  
+* Składniki usługi Application Insights  
 * Testy sieci Web  
 
 ## <a name="virtual-machine-workloads"></a>Obciążenia maszyny wirtualnej

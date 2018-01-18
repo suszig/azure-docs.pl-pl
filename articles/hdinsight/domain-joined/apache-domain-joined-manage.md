@@ -3,7 +3,7 @@ title: "Zarządzanie przyłączonych do domeny w usłudze hdinsight - Azure | Do
 description: "Informacje o sposobie zarządzania klastrami HDInsight przyłączonych do domeny"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Zarządzanie klastrami HDInsight przyłączonych do domeny
 Dowiedz się, użytkownicy i role w HDInsight przyłączonych do domeny oraz sposób zarządzania klastrami HDInsight przyłączonych do domeny.
@@ -33,10 +33,10 @@ Izolacji zabezpieczeń i użytkowników są ważne w przypadku klastra HDInsight
 
 |Obciążenie|Scenariusz|Metody dostępu|
 |--------|--------|-------------|
-|Hadoop|Gałąź — interakcyjnych zadania/zapytań |<ul><li>[Beeline](#beeline)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC — usługi Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Narzędzia Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|platforma Spark|Zadania interakcyjnych/zapytań, PySpark interakcyjne|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin z Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC — usługi Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Narzędzia Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Hadoop|Gałąź — interakcyjnych zadania/zapytań |<ul><li>[Beeline](#beeline)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|platforma Spark|Zadania interakcyjnych/zapytań, PySpark interakcyjne|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin z Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |platforma Spark|Scenariusze partii — przesyłania Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
-|Zapytanie interakcyjne (LLAP)|Interaktywne|<ul><li>[Beeline](#beeline)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC — usługi Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Narzędzia Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Zapytanie interakcyjne (LLAP)|Interaktywne|<ul><li>[Beeline](#beeline)</li><li>[Widok gałęzi](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Dowolne|Instalowanie niestandardowych aplikacji|<ul><li>[Akcje skryptu](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
 
@@ -81,9 +81,8 @@ Aby znaleźć nazwę FQDN headnode, skorzystaj z informacji w usłudze HDInsight
 Klaster usługi HDInsight, który nie jest przyłączony do domeny ma dwa konta użytkownika, które są tworzone podczas tworzenia klastra:
 
 * **Administrator Ambari**: to konto jest także znana jako *użytkownika Hadoop* lub *użytkowników HTTP*. To konto może służyć do logowania się do narzędzia Ambari w https://&lt;clustername >. azurehdinsight.net. Można go również służyć do uruchamiać zapytania dotyczące widoków Ambari, wykonaj zadania za pomocą narzędzi zewnętrznych (na przykład programu PowerShell, Templeton, Visual Studio) i uwierzytelniania za pomocą sterownika ODBC programu Hive i narzędzi do analizy Biznesowej (na przykład Excel usługi Power Bi i Tableau).
-* **Użytkownik SSH**: to konto może być używany z SSH i wykonywać polecenia sudo. Ma ona uprawnienia głównego do maszyn wirtualnych systemu Linux.
 
-Klaster HDInsight przyłączonych do domeny ma trzy nowi użytkownicy oprócz Ambari administratora i użytkownika SSH.
+Klaster HDInsight przyłączonych do domeny ma trzy nowi użytkownicy oprócz Ambari administratora.
 
 * **Zakres admin**: to konto jest Apache zakres konta administratora lokalnego. Nie jest użytkownikiem domeny usługi active directory. To konto można skonfigurować zasady i innych użytkowników Administratorzy lub delegowani administratorzy (tak aby tym użytkownikom można zarządzać zasadami). Domyślnie nazwa użytkownika jest *admin* i hasło jest taka sama jak Ambari hasło administratora. Hasło może zostać zaktualizowana ze strony ustawień w zakres.
 * **Użytkownik domeny administratora klastra**: jest to konto użytkownika domeny usługi active directory, wyznaczony jako administratora klastra usługi Hadoop w tym Ambari i zakres. Musisz podać poświadczenia użytkownika podczas tworzenia klastra. Ten użytkownik ma następujące uprawnienia:
@@ -162,4 +161,3 @@ HDInsight przyłączonych do domeny mają następujące role:
 ## <a name="next-steps"></a>Kolejne kroki
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).
 * Aby znaleźć informacje na temat konfigurowania zasad Hive i uruchamiania kwerend Hive, zobacz [Konfigurowanie zasad usługi Hive dla przyłączonych do domeny klastrów usługi HDInsight](apache-domain-joined-run-hive.md).
-* Do uruchamiania zapytań Hive przy użyciu protokołu SSH w klastrach HDInsight przyłączonych do domeny, zobacz [używanie SSH z usługą HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

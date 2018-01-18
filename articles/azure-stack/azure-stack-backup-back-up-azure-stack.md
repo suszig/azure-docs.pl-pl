@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Tworzenie kopii zapasowej Azure stosu
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/10/2018
 
 Wykonaj kopię zapasową na żądanie w stosie Azure przy użyciu kopii zapasowej w miejscu. Jeśli musisz włączyć usługę kopia zapasowa infrastruktury, zobacz [włączenia kopii zapasowej Azure stosu z portalu administracyjnego](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Zawiera narzędzia stosu Azure **Start AzSBackup** polecenia cmdlet. Aby uzyskać instrukcje na temat instalowania narzędzi, zobacz [rozpocząć pracę przy użyciu programu PowerShell w stosie Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Kopia zapasowa Azure stosu
 
-Otwórz program Windows PowerShell z podniesionego wiersza, a następnie uruchom następujące polecenia:
+Otwórz program Windows PowerShell z podwyższonym poziomem uprawnień monitem w środowisku zarządzania operatora i uruchom następujące polecenia:
 
-   ```powershell
-   Start-AzSBackup -Location $location.Name
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Potwierdź kopii zapasowej zostało ukończone w portalu administracyjnym
 
@@ -43,6 +52,6 @@ Otwórz program Windows PowerShell z podniesionego wiersza, a następnie uruchom
 
 Można również potwierdzić tworzenie kopii zapasowej zakończone z portalu administracyjnego. Przejdź do`\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej na temat przepływu pracy do odzyskiwania od zdarzenia utraty danych. Zobacz [odzyskać przed utratą danych w wyniku katastrofy](azure-stack-backup-recover-data.md).

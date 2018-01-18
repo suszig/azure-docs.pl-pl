@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usługi Azure, przydziały i ograniczenia
 Ten dokument przedstawia niektóre z najczęściej limity Microsoft Azure, nazywane również przydziałów. Ten dokument obecnie nie obejmuje wszystkich usług platformy Azure. Wraz z upływem czasu listy zostanie rozwinięty, a zaktualizowane, aby pokrywał się z platformy.
@@ -49,18 +49,19 @@ W obszarze poniżej ograniczenia dodano nową tabelę odzwierciedlają różnice
 * [Zarządzanie interfejsami API](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [Usługa Application Insights](#application-insights-limits)
+* [Application Insights](#application-insights-limits)
 * [Automatyzacja](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Usługi Azure Event siatki](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Tworzenie kopii zapasowych](#backup-limits)
 * [Batch](#batch-limits)
-* [Usługi BizTalk Services](#biztalk-services-limits)
+* [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Usługi kontenera (AKS)](#container-service-aks-limits)
 * [Fabryka danych](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -72,7 +73,7 @@ W obszarze poniżej ograniczenia dodano nową tabelę odzwierciedlają różnice
 * [Usługa Key Vault](#key-vault-limits)
 * [Zaloguj się Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
-* [Wykorzystanie urządzeń przenośnych](#mobile-engagement-limits)
+* [Mobile Engagement](#mobile-engagement-limits)
 * [Usługi mobilne](#mobile-services-limits)
 * [Monitorowanie](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
@@ -127,6 +128,9 @@ Następujące ograniczenia mają zastosowanie podczas korzystania z usługi Azur
 W poniższej tabeli przedstawiono funkcje i limity podstawowa, standardowa i Premium [warstw usług](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Ogranicza usługi kontenera (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Limity sieci
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -289,7 +293,7 @@ Aby dowiedzieć się więcej na temat limitów na bardziej szczegółowym poziom
 ### <a name="site-recovery-limits"></a>Limity usługi Site Recovery
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-### <a name="application-insights-limits"></a>Application Insights limity
+### <a name="application-insights-limits"></a>Application Insights limits
 [!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>Zarządzanie interfejsami API limity
@@ -313,7 +317,7 @@ Limitów bazy danych SQL, zobacz [limity zasobów bazy danych SQL](sql-database/
 ### <a name="sql-data-warehouse-limits"></a>Limity magazynu danych SQL
 Limitów SQL Data Warehouse, zobacz [limity zasobów magazynu danych SQL](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Opis ograniczeń Azure i zwiększa](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Maszyny wirtualnej i rozmiary usługi chmury dla platformy Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

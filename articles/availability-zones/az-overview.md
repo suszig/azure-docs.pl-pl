@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2404575d7f4224315b2c3272cb21e8b5ee6515e3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Przegląd stref dostępności na platformie Azure (wersja zapoznawcza)
 
@@ -31,6 +31,7 @@ Dostępność strefy ułatwiają ochronę przed błędami centrum danych na pozi
 ## <a name="regions-that-support-availability-zones"></a>Regionach, które obsługują stref dostępności
 
 - Wschodnie stany USA 2
+- Środkowe stany USA
 - Europa Zachodnia
 - Francja Środkowa
 
@@ -40,14 +41,14 @@ Usług Azure, które obsługują dostępność strefy są:
 
 - Maszyny wirtualne z systemem Linux
 - Maszyny wirtualne z systemem Windows
-- Zestawy skalowania maszyny wirtualnej zonal
+- Zestawy skali maszyn wirtualnych
 - Managed Disks
 - Moduł równoważenia obciążenia
 - Publiczny adres IP
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Rozpoczynanie pracy z podglądu dostępności stref
 
-Podgląd stref dostępności jest dostępne wschodnie stany USA 2 Europa Zachodnia, a Francja centralnej regionów dla określonych usług platformy Azure. 
+Podgląd stref dostępności jest dostępne w wschodnie stany USA 2, nam centralnej, Europa Zachodnia i Francja centralnej regionów dla określonych usług platformy Azure. 
 
 1. [Zarejestruj dla stref dostępności Podgląd](http://aka.ms/azenroll). 
 2. Zaloguj się do subskrypcji platformy Azure.

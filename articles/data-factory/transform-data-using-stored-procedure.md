@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Użyj działania przekształcania danych w fabryce danych [potoku](concepts-pipe
 
 Działania dotyczącego procedury składowanej umożliwia wywołanie procedury składowanej w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure (VM): 
 
-- Usługa Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Baza danych programu SQL Server.  Jeśli używasz programu SQL Server, należy zainstalować siebie integrację środowiska uruchomieniowego na tym samym komputerze, który jest hostem bazy danych lub na osobnym komputerze, który ma dostęp do bazy danych. Hostowanie Samoobsługowe integrację środowiska uruchomieniowego jest składnik, który nawiązuje połączenie danych źródeł na lokalnym/na maszynie Wirtualnej platformy Azure z usługami w chmurze w sposób bezpieczny i zarządzanie nimi. Zobacz [środowiska uruchomieniowego integracji hosta samodzielnego](create-self-hosted-integration-runtime.md) artykułu, aby uzyskać szczegółowe informacje.
 
@@ -72,12 +72,12 @@ W poniższej tabeli opisano te właściwości JSON:
 
 | Właściwość                  | Opis                              | Wymagane |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nazwa działania                     | Tak      |
+| name                      | Nazwa działania                     | Yes      |
 | description               | Tekst opisujący działanie służy do | Nie       |
-| type                      | Typ działania dotyczącego procedury składowanej jest SqlServerStoredProcedure | Tak      |
-| linkedServiceName         | Odwołanie do bazy danych SQL Azure lub magazyn danych SQL Azure lub programu SQL Server jest rejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Tak      |
-| storedProcedureName       | Określ nazwę procedury składowanej bazy danych Azure SQL lub w bazie danych magazynu danych SQL Azure lub programu SQL Server, reprezentowanego przez połączonej usługi, która używa tabeli wyników. | Tak      |
-| storedProcedureParameters | Określ wartości dla parametrów procedury składowanej. Użyj `"param1": { "value": "param1Value","type":"param1Type" }` do przekazania parametrów wartości i ich typ macierzysty obsługiwane przez źródło danych. Jeśli trzeba przekazać wartości null dla parametru, użyj *"param1": {"value": null}* (małe litery). | Nie       |
+| type                      | Dla działania dotyczącego procedury składowanej, jest typu działania **SqlServerStoredProcedure** | Yes      |
+| linkedServiceName         | Odwołanie do **bazy danych SQL Azure** lub **magazyn danych SQL Azure** lub **programu SQL Server** zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
+| storedProcedureName       | Określ nazwę procedury składowanej do wywołania. | Yes      |
+| storedProcedureParameters | Określ wartości dla parametrów procedury składowanej. Użyj `"param1": { "value": "param1Value","type":"param1Type" }` do przekazania wartości parametrów i typem obsługiwane przez źródło danych. Jeśli trzeba przekazać wartości null dla parametru, użyj `"param1": { "value": null }` (małe litery). | Nie       |
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 

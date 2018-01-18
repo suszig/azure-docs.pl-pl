@@ -3,7 +3,7 @@ title: "Wyszukiwanie Metaverse Menedżera usługi synchronizacji programu Azure 
 description: "Dowiedz się, karta wyszukiwanie Metaverse Menedżera usługi synchronizacji programu Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 20234dd4-3328-4817-b7ff-268f953d376d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: ea18a0fa6a71d24b78c350bb516b3df2bedb224b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d62542f905a76788852649eec92234a62e3d4853
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Wyszukiwanie Metaverse Menedżera usługi synchronizacji
 
@@ -28,7 +28,7 @@ Karta wyszukiwanie metaverse jest przydatne podczas rozwiązywania problemów zw
 
 W wynikach wyszukiwania wybierz obiekt i **właściwości** wyświetlić [właściwości obiektu metaverse](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

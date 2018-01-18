@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących zarządzania zawartością | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym — wymagania dotyczące zarządzania zawartością Azure | Dokumentacja firmy Microsoft"
 description: "Zapewnia wgląd w sposób określenie wymagań w zakresie zarządzania zawartością firmy. Zazwyczaj gdy użytkownik ma swój własny urządzenia on może być również wiele poświadczeń, które będą naprzemiennych zgodnie z aplikacji, której używa. Należy do odróżnienia zawartość została utworzona przy użyciu poświadczeń osobistego od komputerów utworzone przy użyciu poświadczeń firmowych. Rozwiązania tożsamości powinny mieć możliwość interakcji z chmurą services, aby umożliwić nie zakłóca pracy użytkownika końcowego podczas zapewnienia prywatności i zwiększenia ochrony przed wyciekiem danych."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Określenie wymagań dotyczących zarządzania zawartością dla rozwiązania z tożsamością hybrydową
 Zapoznanie się z wymaganiami zarządzania zawartością w firmie może bezpośrednio wpływa na na decyzję dotyczącą rozwiązania hybrydowe tożsamości do użycia. Rosnąca liczba wiele urządzeń i możliwość przynoszą własne urządzenia użytkowników ([BYOD](http://aka.ms/byodcg)), firmy muszą chronić własnych danych, ale jego również należy zachowane prywatność użytkowników. Zazwyczaj gdy użytkownik ma swój własny urządzenia on może być również wiele poświadczeń, które będą naprzemiennych zgodnie z aplikacji, której używa. Należy do odróżnienia zawartość została utworzona przy użyciu poświadczeń osobistego od komputerów utworzone przy użyciu poświadczeń firmowych. Rozwiązania tożsamości powinny mieć możliwość interakcji z chmurą services, aby umożliwić nie zakłóca pracy użytkownika końcowego podczas zapewnienia prywatności i zwiększenia ochrony przed wyciekiem danych. 

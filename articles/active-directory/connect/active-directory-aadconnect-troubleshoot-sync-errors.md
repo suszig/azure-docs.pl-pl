@@ -3,8 +3,8 @@ title: "Azure AD Connect: Rozwiązywanie problemów z błędami podczas synchron
 description: "Wyjaśniono, jak rozwiązywać problemy podczas synchronizacji z programem Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Rozwiązywanie problemów z błędami podczas synchronizacji
 Podczas synchronizowania danych tożsamości z usługi Windows Server Active Directory (AD DS) do usługi Azure Active Directory (Azure AD), mogą wystąpić błędy. Ten artykuł zawiera omówienie różnych typów błędów synchronizacji, niektóre możliwe scenariusze, które powodują tych błędów i potencjalnych sposobów, aby naprawić błędy. Ten artykuł zawiera typowych błędów i może nie obejmować wszystkich możliwych błędów.
@@ -49,7 +49,7 @@ Innymi słowy, aby nietrwałego dopasowania do pracy, ma być dopasowane soft z 
 Co najmniej dwa obiekty mają taką samą wartość następujące atrybuty są niedozwolone w Azure schemat usługi Active Directory. \(To nie jest kompletną listą.\)
 
 * ProxyAddresses
-* userPrincipalName
+* UserPrincipalName
 * onPremisesSecurityIdentifier
 * Identyfikator obiektu
 
@@ -103,7 +103,7 @@ Należy pamiętać, że raport o błędzie synchronizacji w ramach usługi Azure
 >
 >
 
-#### <a name="related-articles"></a>Pokrewne artykuły
+#### <a name="related-articles"></a>Powiązane artykuły
 * [Zduplikowane lub nieprawidłowe atrybuty zapobieganie synchronizacji katalogów w usłudze Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
@@ -132,7 +132,7 @@ Najczęstszą przyczyną tego błędu ObjectTypeMismatch jest dwa obiekty innego
 Co najmniej dwa obiekty mają taką samą wartość następujące atrybuty są niedozwolone w Azure schemat usługi Active Directory. To, że wymusza każdego obiektu w usłudze Azure AD mają unikatowe wartości tych atrybutów w podanym wystąpieniu.
 
 * ProxyAddresses
-* userPrincipalName
+* UserPrincipalName
 
 Jeśli usługa Azure AD Connect podejmuje próbę dodania nowego obiektu lub zaktualizować istniejący obiekt z wartością powyżej atrybutów, która jest już przypisany do innego obiektu w usłudze Azure Active Directory, wykonanie tej operacji skutkuje "AttributeValueMustBeUnique" Błąd synchronizacji.
 
@@ -161,7 +161,7 @@ Najczęstszą przyczyną tego błędu AttributeValueMustBeUnique jest dwa obiekt
 3. Usuń zduplikowane wartości z obiektu, który nie powinien mieć tę wartość. Należy pamiętać, że należy wprowadzić zmianę w katalogu, w której pochodzi z obiektu. W niektórych przypadkach może być konieczne usunięcie jednego z tych obiektów w konflikcie.
 4. Jeśli wprowadzono zmiany w lokalnymi AD pozwolić, aby zsynchronizować zmiany tego błędu można uzyskać stałej Azure AD Connect.
 
-#### <a name="related-articles"></a>Pokrewne artykuły
+#### <a name="related-articles"></a>Powiązane artykuły
 -[Zduplikowane lub nieprawidłowe atrybuty zapobieganie synchronizacji katalogów w usłudze Office 365](https://support.microsoft.com/en-us/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Błędy sprawdzania poprawności danych
@@ -176,7 +176,7 @@ b. Atrybut UserPrincipalName nie jest zgodna z wymaganym formatem.
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>Jak usunąć błąd IdentityDataValidationFailed
 a. Upewnij się, że atrybut userPrincipalName ma obsługiwane znaki i wymagany format.
 
-#### <a name="related-articles"></a>Pokrewne artykuły
+#### <a name="related-articles"></a>Powiązane artykuły
 * [Przygotowanie do obsługi administracyjnej użytkowników przez proces synchronizacji katalogów w celu usługi Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
@@ -198,7 +198,7 @@ Jeśli sufiks UserPrincipalName użytkownika została zaktualizowana z bob @**co
 1. Zaktualizuj UserPrincipalName użytkownika w usłudze Azure AD z bob@contoso.com do bob@contoso.onmicrosoft.com. Można Użyj następującego polecenia programu PowerShell z modułu Azure AD PowerShell:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Zezwalaj na następny cykl synchronizacji próby synchronizacji. Czas synchronizacji zakończy się pomyślnie i spowoduje zaktualizowanie UserPrincipalName Roberta do bob@fabrikam.com zgodnie z oczekiwaniami.
 
-#### <a name="related-articles"></a>Pokrewne artykuły
+#### <a name="related-articles"></a>Powiązane artykuły
 * [Zmiany nie są synchronizowane przez narzędzie do synchronizacji usługi Azure Active Directory po zmianie nazwy UPN konta użytkownika, aby użyć innej domeny federacyjnej](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject

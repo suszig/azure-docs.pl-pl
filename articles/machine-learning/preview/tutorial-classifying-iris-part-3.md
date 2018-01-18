@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klasyfikowanie irysów, część 3: wdrażanie modelu
 Usługi Azure Machine Learning (wersja zapoznawcza) stanowią zintegrowane, kompleksowe rozwiązanie do nauki o danych i do analiz zaawansowanych przeznaczone dla profesjonalnych analityków. Pozwala ono analitykom przygotowywać dane, opracowywać eksperymenty i wdrażać modele na skalę chmury.
@@ -134,37 +134,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
 
    Wiersz polecenia otworzy się w bieżącej lokalizacji folderu projektu, **c:\temp\myIris>**.
 
-2. Upewnij się, że dostawca zasobów platformy Azure **Microsoft.ContainerRegistry** został zarejestrowany w ramach Twojej subskrypcji. Należy zarejestrować tego dostawcę zasobów, aby można było utworzyć środowisko w kroku 3. Można sprawdzić, czy został on już zarejestrowany, używając następującego polecenia:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Powinny pojawić się następujące dane wyjściowe: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Jeśli dostawca **Microsoft.ContainerRegistry** nie został zarejestrowany, można zarejestrować go za pomocą następującego polecenia:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Rejestracja może potrwać kilka minut. Stan można sprawdzić za pomocą poprzedniego polecenia **az provider list** lub następującego polecenia:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   W trzecim wierszu danych wyjściowych znajduje się następująca informacja: **„registrationState”: „Rejestrowanie”**. Poczekaj chwilę i powtarzaj polecenie **show** do momentu, gdy dane wejściowe będą zawierać następującą informację: **„registrationState”: „Registered”**.
-
-   >[!NOTE] 
-   Jeśli wdrażasz do klastra usługi ACS, należy zarejestrować **Microsoft.ContainerService** również metoda dokładnie tego samego dostawcy zasobów.
-
-3. Utwórz środowisko. Ten krok należy uruchomić raz dla każdego środowiska. Możesz na przykład uruchomić go jeden raz dla środowiska programistycznego i jeden raz dla środowiska produkcyjnego. Dla pierwszego środowiska użyj _trybu lokalnego_. Aby później skonfigurować środowisko w _trybie klastra_, możesz w poniższym poleceniu wypróbować przełącznik `-c` lub `--cluster`.
+2. Utwórz środowisko. Ten krok należy uruchomić raz dla każdego środowiska. Możesz na przykład uruchomić go jeden raz dla środowiska programistycznego i jeden raz dla środowiska produkcyjnego. Dla pierwszego środowiska użyj _trybu lokalnego_. Aby później skonfigurować środowisko w _trybie klastra_, możesz w poniższym poleceniu wypróbować przełącznik `-c` lub `--cluster`.
 
    Pamiętaj, że poniższe polecenie instalatora wymaga prawa dostępu współautora do subskrypcji. Jeśli go nie masz, potrzebujesz przynajmniej prawa dostępu współautora do grupy zasobów, w której przeprowadzasz wdrożenie. W drugim przypadku musisz określić nazwę grupy zasobów jako część polecenia instalatora przy użyciu flagi `-g`. 
 
@@ -176,17 +146,17 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
    
    Nazwa klastra służy do identyfikowania środowiska. Lokalizacja powinna być taka sama jak lokalizacja konta Zarządzanie modelami utworzonego w witrynie Azure Portal.
 
-4. Utwórz konto zarządzania modelami. (Jest to jednorazowa konfiguracja).  
+3. Utwórz konto zarządzania modelami. (Jest to jednorazowa konfiguracja).  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Ustaw konto zarządzania modelami.  
+4. Ustaw konto zarządzania modelami.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Ustaw środowisko.
+5. Ustaw środowisko.
 
    Po zakończeniu konfiguracji użyj następującego polecenia, aby ustawić zmienne środowiskowe wymagane do obsługi operacji środowiska. Użyj nazwy środowiska zastosowanej wcześniej w kroku 4. Użyj tej samej nazwy grupy zasobów, która została wyświetlona w danych wyjściowych w oknie wiersza polecenia po ukończeniu procesu instalacji.
 
@@ -194,7 +164,7 @@ _Trybu lokalnego_ można użyć do tworzenia i testowania. Aparat platformy Dock
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Aby sprawdzić, czy środowisko obsługi operacji zostało poprawnie skonfigurowane na potrzeby lokalnego wdrożenia usługi internetowej, wprowadź poniższe polecenie:
+6. Aby sprawdzić, czy środowisko obsługi operacji zostało poprawnie skonfigurowane na potrzeby lokalnego wdrożenia usługi internetowej, wprowadź poniższe polecenie:
 
    ```azurecli
    az ml env show

@@ -3,7 +3,7 @@ title: "Historia wersji łącznika | Dokumentacja firmy Microsoft"
 description: "Ten temat zawiera listę wszystkich wersji łączników dla programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM)"
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Historia wersji łącznika
 Łączników programu Forefront Identity Manager (FIM) i Microsoft Identity Manager (MIM) są często aktualizowane.
@@ -84,12 +84,12 @@ Linki pokrewne:
 * Program Lotus Notes:
   * Gdy opcja **Zezwalaj na niestandardowe wydających świadectwa dla jednostki organizacyjnej/organizacji** jest wyłączony łącznik zakończy się niepowodzeniem podczas eksportu (aktualizacja) po przepływu eksportu wszystkie atrybuty zostaną wyeksportowane do Domino, ale w czasie eksportu KeyNotFoundException jest zwracana do synchronizacji. 
     * Dzieje się tak, ponieważ operacja zmiany nazwy nie powiodło się, gdy próbuje zmienić nazwy domeny (atrybut nazwy użytkownika), zmieniając jeden z atrybutów poniżej:  
-      - Nazwisko
+      - LastName
       - Imię
       - MiddleInitial
       - AltFullName
       - AltFullNameLanguage
-      - jednostki organizacyjnej
+      - ou
       - altcommonname
 
   * Gdy **Zezwalaj na niestandardowe wydających świadectwa dla jednostki organizacyjnej/organizacji** opcja jest włączona, ale wydających świadectwa wymagane są nadal puste, a następnie KeyNotFoundException występuje.
@@ -209,13 +209,13 @@ Przed marca 2016 łączników zostały wydane jako tematy pomocy technicznej.
 * [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, marca 2015 roku
 * [KB3031009](https://support.microsoft.com/kb/3031009) -1.0.0534, stycznia 2015
 * [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, września 2014 r.
-* [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, marca 2014 r.
+* [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, 2014 March
 
-**Usługi sieci Web**
+**WebServices**
 
 * [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, września 2014 r.
 
-**PowerShell**
+**Program PowerShell**
 
 * [KB3008179](https://support.microsoft.com/kb/3008179) -1.0.0419, września 2014 r.
 
@@ -244,7 +244,7 @@ Aby odświeżyć definicji:
 * Po zostały uzyskać dostęp do wszystkich kart właściwości, kliknij przycisk OK, aby zapisać zmiany.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md) konfiguracji.
 
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

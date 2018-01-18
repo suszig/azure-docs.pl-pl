@@ -3,7 +3,7 @@ title: "Łącznik programu PowerShell | Dokumentacja firmy Microsoft"
 description: "W tym artykule opisano, jak skonfigurować łącznik usługi firmy Microsoft Windows PowerShell."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Informacje techniczne dotyczące łącznika usługi Windows PowerShell
 W tym artykule opisano łącznik usługi Windows PowerShell. Artykuł dotyczy następujących produktów:
@@ -67,7 +67,7 @@ Można skonfigurować następujące parametry połączenia:
 | Hasło |<Blank> |Hasła poświadczenia, aby zapisać do użycia, gdy jest uruchamiany łącznik. |
 | Personifikuj konto łącznika |False |W przypadku wartości PRAWDA Usługa synchronizacji działa skryptów programu Windows PowerShell w kontekście dostarczone poświadczenia. Jeśli to możliwe, zalecane jest **$Credentials** parametr jest przekazywany do każdej skryptu jest używany zamiast personifikacji. Aby uzyskać więcej informacji o dodatkowe uprawnienia, które są wymagane, aby użyć tej opcji, zobacz [dodatkowej konfiguracji personifikacji](#additional-configuration-for-impersonation). |
 | Załaduj profil użytkownika, gdy personifikacji |False |Instruuje system Windows do załadowania profilu użytkownika łącznika poświadczeń podczas personifikacji. Jeśli nazwa personifikowanego użytkownika ma profil mobilny, łącznik nie ładuje profilu mobilnego. Aby uzyskać więcej informacji o dodatkowe uprawnienia, które są wymagane do tego parametru należy użyć, zobacz [dodatkowej konfiguracji personifikacji](#additional-configuration-for-impersonation). |
-| Typ logowania, gdy personifikacji |Brak |Typ logowania podczas personifikacji. Aby uzyskać więcej informacji, zobacz [dwLogonType] [ dw] dokumentacji. |
+| Typ logowania, gdy personifikacji |None |Typ logowania podczas personifikacji. Aby uzyskać więcej informacji, zobacz [dwLogonType] [ dw] dokumentacji. |
 | Tylko skrypty podpisane |False |Jeśli PRAWDA, łącznik programu Windows PowerShell sprawdza, czy każdy skrypt ma nieprawidłowy podpis cyfrowy. W przypadku wartości FAŁSZ, upewnij się, że zasady wykonywania środowiska Windows PowerShell dla serwera usługi synchronizacji jest RemoteSigned lub bez ograniczeń. |
 
 **Typowe modułu**  
@@ -88,7 +88,7 @@ Skrypt do weryfikowania jest opcjonalny skrypt programu Windows PowerShell, któ
 
 Skrypt do weryfikowania otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |Na karcie Konfiguracja lub okna dialogowego, która wyzwoliła żądania weryfikacji. |
 | ConfigParameters |[KeyedCollection] [ keyk] [ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
@@ -101,7 +101,7 @@ Skrypt wykrywania schematu jest obowiązkowe. Ten skrypt zwraca typów obiektów
 
 Skrypt wykrywania schematu otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection] [ keyk] [ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -129,7 +129,7 @@ Karta możliwości projektanta agenta zarządzania definiuje zachowanie i funkcj
 | Użyj nazwy domeny jako swojej kotwicy |Jeśli styl nazwę wyróżniającą LDAP atrybutu zakotwiczenia przestrzeni łącznika jest również nazwę wyróżniającą. |
 | Równoczesne wykonywanie operacji kilka łączników |Po zaznaczeniu tej opcji, jednocześnie uruchomić wiele łączników programu Windows PowerShell. |
 | Partycje |Po zaznaczeniu tej opcji, łącznik obsługuje wiele partycji i odnajdywania partycji. |
-| Hierarchii |Po zaznaczeniu tej opcji, łącznik obsługuje strukturę hierarchiczną styl LDAP. |
+| Hierarchia |Po zaznaczeniu tej opcji, łącznik obsługuje strukturę hierarchiczną styl LDAP. |
 | Włącz importu |Po zaznaczeniu tej opcji, łącznik importuje dane za pomocą skryptów importu. |
 | Włącz Import zmian |Po zaznaczeniu tej opcji, łącznik może wysłać żądanie delty ze skryptów importu. |
 | Włącz eksportu |Po zaznaczeniu tej opcji, łącznik eksportuje danych za pomocą skryptów eksportu. |
@@ -148,7 +148,7 @@ Partycja to oddzielne przestrzeni nazw w obrębie jednego udostępnionego schema
 
 Skrypt odnajdywania partycji otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -160,7 +160,7 @@ Skrypt odnajdowania hierarchii jest używana tylko w przypadku możliwości styl
 
 Skrypt odnajdowania hierarchii otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -176,12 +176,12 @@ Skrypt importu begin jest uruchamiany na początku krok Uruchom importu. W tym k
 
 Skrypt importu begin otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informuje o skryptu o typie partycji importu Uruchom (delta lub pełne), hierarchii, znak wodny i oczekiwany rozmiar. |
-| Typy |[Schemat][schema] |Schemat dla przestrzeni łącznika, który jest importowany. |
+| Typy |[Schema][schema] |Schemat dla przestrzeni łącznika, który jest importowany. |
 
 Skrypt musi zwracać jedną [OpenImportConnectionResults] [ oicres] obiekt do potoku, na przykład:`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
@@ -190,13 +190,13 @@ Skryptu importu danych jest wywoływana przez łącznik, dopóki skrypt wskazuje
 
 Importuj dane skrypt otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
 | GetImportEntriesRunStep |[ImportRunStep][irs] |Zawiera znak wodny (CustomData) używanego podczas stronicowanej importów i importuje delta. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informuje o skryptu o typie partycji importu Uruchom (delta lub pełne), hierarchii, znak wodny i oczekiwany rozmiar. |
-| Typy |[Schemat][schema] |Schemat dla przestrzeni łącznika, który jest importowany. |
+| Typy |[Schema][schema] |Schemat dla przestrzeni łącznika, który jest importowany. |
 
 Skrypt importu danych musi być zapisana listy [[CSEntryChange][csec]] obiektu do potoku. Ta kolekcja składa się z CSEntryChange atrybuty, które reprezentują każdy obiekt importowany. Podczas wykonywania pełnego importu tej kolekcji ma pełny zestaw CSEntryChange obiektów, które mają wszystkie atrybuty dla każdego obiektu. Podczas Delta zaimportować obiektu CSEntryChange albo powinna zawierać atrybut poziomu wystąpiły dla każdego obiektu do zaimportowania lub pełną reprezentacji obiektów, które zostały zmienione (tryb Zastąp).
 
@@ -205,7 +205,7 @@ Po zakończeniu importowania, uruchom skrypt zakończenia importowania jest uruc
 
 Końcu skryptu importu otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -222,12 +222,12 @@ Skrypt eksportu begin jest uruchamiane na początku etap uruchamiania eksportu. 
 
 Skrypt eksportu begin otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informuje o skryptu o typie partycji uruchamiania eksportu (delta lub pełne), hierarchii i oczekiwany rozmiar. |
-| Typy |[Schemat][schema] |Schemat dla przestrzeni łącznika, który został wyeksportowany. |
+| Typy |[Schema][schema] |Schemat dla przestrzeni łącznika, który został wyeksportowany. |
 
 Skrypt nie może zwracać żadnych danych wyjściowych do potoku.
 
@@ -236,13 +236,13 @@ Usługa synchronizacji wywołuje skrypt eksportowanie danych tyle razy, ile jest
 
 Skrypt eksportu danych otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
 | CSEntries |IList[CSEntryChange][csec] |Lista przestrzeni łącznika obiekty z Oczekujące operacje eksportu do przetworzenia w trakcie tego przebiegu. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informuje o skryptu o typie partycji uruchamiania eksportu (delta lub pełne), hierarchii i oczekiwany rozmiar. |
-| Typy |[Schemat][schema] |Schemat dla przestrzeni łącznika, który został wyeksportowany. |
+| Typy |[Schema][schema] |Schemat dla przestrzeni łącznika, który został wyeksportowany. |
 
 Skrypt eksportu danych musi zwracać [PutExportEntriesResults] [ peeres] obiektu do potoku. Ten obiekt nie musi obejmować informacje wyników dla każdego wyeksportowanego łącznika, o ile nie wystąpił błąd lub zmianę atrybutu zakotwiczenia. Na przykład, aby zwrócić obiekt PutExportEntriesResults do potoku:`Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
@@ -251,7 +251,7 @@ Po zakończeniu eksportu uruchomić, działanie skryptu zakończenia eksportowan
 
 Skrypt eksportu końcowy otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -265,7 +265,7 @@ Skrypt nie może zwracać żadnych danych wyjściowych do potoku.
 
 Skrypt hasła otrzymuje następujące parametry z łącznika:
 
-| Nazwa | Typ danych | Opis |
+| Name (Nazwa) | Typ danych | Opis |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][ciągu [ConfigParameter][cp]] |Tabela parametry konfiguracji łącznika. |
 | Poświadczenie |[PSCredential][pscred] |Zawiera wszystkie poświadczenia wprowadzane przez administratora, na karcie połączenie. |
@@ -291,8 +291,8 @@ Przyznaj się, że użytkownik, który jest spersonifikować następujące upraw
 
 Dostęp do odczytu do następujących kluczy rejestru:
 
-* HKEY_USERS\\\Software\Microsoft\PowerShell [SynchronizationServiceServiceAccountSID]
-* HKEY_USERS\\\Environment [SynchronizationServiceServiceAccountSID]
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 Aby ustalić identyfikatora zabezpieczeń (SID) konta usługi synchronizacji usługi, uruchom następujące polecenia programu PowerShell:
 
@@ -303,9 +303,9 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 Dostęp do odczytu do następujących folderów systemu plików:
 
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\Extensions
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\\{łącznik}
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
 Zastąp symbol zastępczy {łącznik} nazwę łącznika programu Windows PowerShell.
 

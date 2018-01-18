@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Tworzenie środowiska uruchomieniowego integracji usług SSIS Azure w fabryce danych Azure
 Ten artykuł zawiera kroki do inicjowania obsługi środowiska uruchomieniowego integracji usług SSIS Azure w fabryce danych Azure. Następnie możesz użyć programu SQL Server Data Tools (SSDT) lub SQL Server Management Studio (SSMS) do wdrożenia pakietów usług SQL Server Integration Services (SSIS) w tym środowisku uruchomieniowym na platformie Azure.
@@ -44,7 +44,7 @@ Aby uzyskać informacje koncepcyjne na dołączenie IR Azure SSIS do sieci wirtu
 > [!NOTE]
 > Aby uzyskać listę regionów obsługiwanych przez usługę Azure Data Factory w wersji 2 i środowisko Azure SSIS Integration Runtime, zobacz [Dostępność produktów według regionów](https://azure.microsoft.com/regions/services/). Rozwiń pozycję **Dane + analiza**, aby wyświetlić usługi **Data Factory V2** i **SSIS Integration Runtime**.
 
-## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
@@ -142,7 +142,7 @@ Aby uzyskać informacje koncepcyjne na dołączenie IR Azure SSIS do sieci wirtu
     ![Określ typ środowiska uruchomieniowego integracji](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Zobacz [udostępnienia środowiska uruchomieniowego integracji Azure SSIS](#provision-an-azure-ssis-integration-runtime) sekcji pozostałe kroki, aby skonfigurować podczerwieni Azure SSIS.
 
-## <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="create-variables"></a>Tworzenie zmiennych
 Zdefiniuj zmienne do wykorzystania w skrypcie w tym samouczku:
@@ -411,12 +411,74 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
+Szablon usługi Azure Resource Manager umożliwia utworzenie środowiska uruchomieniowego integracji usług SSIS Azure. Poniżej przedstawiono wskazówki próbki: 
 
+1. Utwórz plik JSON zawierający następujący szablon Menedżera zasobów. Zastąp wartości w nawiasach (symbole zastępcze) własne wartości. 
+
+    ```json
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }
+    ```
+2. Aby wdrożyć szablon usługi Resource Manager, uruchom polecenie New-AzureRmResourceGroupDeployment, jak pokazano w następujących exmaple. W tym przykładzie ADFTutorialResourceGroup jest nazwą grupy zasobów. ADFTutorialARM.json jest plikiem, który zawiera definicję JSON dla fabryki danych i podczerwieni Azure SSIS. 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    To polecenie tworzy fabryki danych i tworzy IR Azure SSIS, ale nie uruchamia IR. 
+3. Aby uruchomić IR Azure SSIS, uruchom polecenie Start-AzureRmDataFactoryV2IntegrationRuntime: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## <a name="deploy-ssis-packages"></a>Wdrażanie pakietów usług SSIS
 Teraz użyj programu SQL Server Data Tools (SSDT) lub SQL Server Management Studio (SSMS), aby wdrożyć pakiety usług SSIS na platformie Azure. Połącz się ze swoim serwerem Azure SQL, który hostuje katalog usług SSIS (SSISDB). Nazwa serwera Azure SQL jest w formacie: &lt;nazwa_serwera&gt;.database.windows.net (dla usługi Azure SQL Database). Zobacz artykuł [Deploy packages (Wdrażanie pakietów)](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server), aby uzyskać instrukcje. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Inne IR Azure SSIS w tematach w tej dokumentacji:
 
 - [Środowisko uruchomieniowe integracji usług SSIS Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera informacje o pojęciach dotyczących środowisk uruchomieniowych integracji ogólnie tym podczerwieni Azure SSIS. 

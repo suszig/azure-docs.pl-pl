@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -135,7 +135,7 @@ Poniżej przedstawiono oczekiwanych wartości:
 | {sygnatury} |Podpis HMAC SHA256 ciąg w formie: `{URL-encoded-resourceURI} + "\n" + expiry`. **Ważne**: klucz jest zdekodować z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC SHA256. |
 | {resourceURI} |Prefiks identyfikatora URI (według segmentu) punktów końcowych, które mogą być udostępniane z tym tokenem, począwszy od nazwy hosta Centrum IoT (nie protocol). Na przykład: `myHub.azure-devices.net/devices/device1` |
 | {wygaśnięcia} |Ciągi UTF8 liczbę sekund od czasu UTC epoki 00:00:00 w dniu 1 stycznia rokiem 1970. |
-| {URL-zakodowane resourceURI} |Małe przypadek kodowania adresów URL identyfikator URI zasobu małe litery |
+| {URL-encoded-resourceURI} |Małe przypadek kodowania adresów URL identyfikator URI zasobu małe litery |
 | {policyName} |Nazwa zasady dostępu współdzielonego, do którego odwołuje się ten token. Brak Jeśli token odwołuje się do poświadczeń w rejestrze urządzeń. |
 
 **Uwaga na prefiksie**: Prefiks URI jest obliczana przez segment, a nie przez znak. Na przykład `/a/b` był prefiksem dla `/a/b/c` , ale nie dla `/a/bc`.
@@ -268,7 +268,7 @@ Wynik, która udziela dostępu do wszystkich funkcji dla device1, będzie:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Istnieje możliwość wygenerowania tokenu sygnatury dostępu Współdzielonego, za pomocą programu .NET [explorer urządzenia] [ lnk-device-explorer] narzędzia lub i platform, na podstawie węzła [explorer Centrum iothub] [ lnk-iothub-explorer]narzędzia wiersza polecenia.
+> Istnieje możliwość wygenerowania tokenu sygnatury dostępu Współdzielonego, za pomocą programu .NET [explorer urządzenia] [ lnk-device-explorer] narzędzia lub i platform, na podstawie języka Python [rozszerzenia IoT Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] narzędzia wiersza polecenia.
 
 ### <a name="use-a-shared-access-policy"></a>Użyj zasad dostępu współdzielonego
 
@@ -441,7 +441,7 @@ Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 * [Język zapytań Centrum IoT] [ lnk-query] opisuje język kwerendy można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
 * [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz sterowanie dostępem Centrum IoT, mogą być zainteresowane w następujących tematach przewodnik dewelopera Centrum IoT:
 
@@ -487,7 +487,7 @@ Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, zobacz nas
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

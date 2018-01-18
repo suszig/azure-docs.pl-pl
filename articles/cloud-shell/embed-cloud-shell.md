@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="embed-azure-cloud-shell"></a>Osadź powłoki w chmurze Azure
 
 Osadzanie powłoki chmury umożliwia deweloperom i zapisywania zawartości bezpośrednio Otwórz powłokę chmury z dedykowany adres URL, [shell.azure.com](https://shell.azure.com). Dzięki temu natychmiast udostępniają pełnych możliwości uwierzytelniania chmury powłoki, narzędzi, i aktualne Azure PowerShell interfejsu wiersza polecenia/Azure tools dla użytkowników.
 
+Regularne przycisk o określonym rozmiarze
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Uruchom powłokę chmury Azure")](https://shell.azure.com)
+
+Duży przycisk o określonym rozmiarze
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Uruchom powłokę chmury Azure")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Porady
 
@@ -44,9 +50,9 @@ HTML do osadzenia wyskakujących powłoki chmura znajduje się poniżej:
 Aby ustawić środowisko konkretna powłoka, rozbudować adres URL.
 |Środowisko   |Adres URL   |
 |---|---|
-|Ostatnio używane powłoki   |Shell.Azure.com           |
-|Bash                       |Shell.Azure.com/bash       |
-|PowerShell                 |Shell.Azure.com/PowerShell |
+|Ostatnio używane powłoki   |shell.azure.com           |
+|Bash                       |shell.azure.com/bash       |
+|PowerShell                 |shell.azure.com/powershell |
 
 ## <a name="next-steps"></a>Następne kroki
 [Bash w chmurze powłoki Szybki Start](quickstart.md)<br>

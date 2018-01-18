@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Co to jest Pakiet IoT Azure?
 
@@ -62,7 +62,7 @@ W poniższej tabeli przedstawiono odwzorowanie rozwiązań na określone funkcje
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Zdalne monitorowanie](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
 | [Konserwacja predykcyjna](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
-| [Połączona fabryka](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
+| [Połączona fabryka](iot-suite-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Wprowadzanie danych*: transfer danych do chmury na dużą skalę.
 * *Tożsamość urządzenia*: zarządzanie unikatowymi tożsamościami urządzeń i sterowanie dostępem urządzeń do rozwiązania.
@@ -83,11 +83,11 @@ Podczas wdrażania wstępnie skonfigurowanego rozwiązania proces inicjowania ob
 | Usługa IoT Hub              | Yes                |                        | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
-| Usługi kontenerów   | Yes                |                        | Yes               |
+| Usługi kontenerów   | Yes                |                        |                   |
 | Stream Analytics     |                    | Yes                    |                   |
 | Web Apps             | Yes                | Yes                    | Yes               |
-| Cosmos DB            | Yes                | Yes                    | Yes               |
-| Tabele platformy Azure         |                    | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    |                    |
+| Azure Storage         |                    | Yes                    | Yes               |
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat zasobów wdrożonych we wstępnie skonfigurowanym rozwiązaniu monitorowania zdalnego, zobacz ten [artykuł](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) w witrynie GitHub.

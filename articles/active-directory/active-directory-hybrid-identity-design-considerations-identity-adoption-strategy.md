@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — Definiowanie strategii wdrażania tożsamości hybrydowej | Dokumentacja firmy Microsoft"
+title: "Projektowania tożsamości hybrydowej — strategii wdrażania usługi Azure | Dokumentacja firmy Microsoft"
 description: "Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza określonych warunków, można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji. Gdy te warunki są spełnione, użytkownik jest uwierzytelniony i zezwolenie na dostęp do aplikacji."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie strategii wdrażania tożsamości hybrydowej
 W tym zadaniu będziesz definiować strategii wdrażania tożsamości hybrydowej dla hybrydowych rozwiązań tożsamości do spełnienia wymagań biznesowych, które zostały omówione w:
@@ -64,8 +65,8 @@ Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Po
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |pojedynczy znak na, a czasami trzeba podać identyfikator organizacji |
 | Outlook |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
 | Skype dla firm (Lync) |Monit o podanie poświadczeń |logowania jednokrotnego dla Lync, monitowanie o poświadczenia dla programu Exchange |
-| SkyDrive Pro |Monit o podanie poświadczeń |Logowanie jednokrotne |
-| Office Pro Plus subskrypcji |Monit o podanie poświadczeń |Logowanie jednokrotne |
+| SkyDrive Pro |Monit o podanie poświadczeń |logowanie jednokrotne |
+| Office Pro Plus subskrypcji |Monit o podanie poświadczeń |logowanie jednokrotne |
 
 **Zewnętrznych lub niezaufanych źródeł**:
 
@@ -73,7 +74,7 @@ Strategia, którego używasz wyznaczają środowisko logowania użytkownika.  Po
 | --- | --- | --- |
 | Przeglądarki sieci Web |Uwierzytelnianie oparte na formularzach |Uwierzytelnianie oparte na formularzach |
 | Outlook i Skype dla firm (Lync), Skydrive Pro subskrypcji pakietu Office |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
-| Program Exchange ActiveSync |Monit o podanie poświadczeń |logowania jednokrotnego dla Lync, monitowanie o poświadczenia dla programu Exchange |
+| Exchange ActiveSync |Monit o podanie poświadczeń |logowania jednokrotnego dla Lync, monitowanie o poświadczenia dla programu Exchange |
 | Aplikacje mobilne |Monit o podanie poświadczeń |Monit o podanie poświadczeń |
 
 Jeśli już wiesz zadanie 1, czy masz 3rd strony IdP lub czy będzie używany jeden zapewniające federacji z usługą Azure AD, należy należy pamiętać o następujących obsługiwane możliwości:
@@ -207,9 +208,9 @@ Usługa Multi-Factor authentication jest dostępna domyślnie dla administrator�
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Określenie wymagań dotyczących ochrony danych](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Użyj Eksploratora Centrum iothub do zarządzania urządzeniami Centrum IoT Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [Centrum iothub explorer](https://github.com/azure/iothub-explorer) to narzędzie interfejsu wiersza polecenia, które jest uruchamiane na hoście komputera do zarządzania tożsamościami urządzenia w rejestrze Centrum IoT. Pochodzi on z opcjami zarządzania, które służy do wykonywania różnych zadań.
 
 | Opcja zarządzania          | Zadanie                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Metody bezpośrednie             | Należy skonfigurować urządzenie działania, takie jak uruchamianie lub zatrzymywanie wysyłania wiadomości i ponownego uruchamiania urządzenia.                                        |
 | Żądany dwie właściwości    | Umieść urządzenia do określonych stanach, takie jak ustawienie LED zielony lub ustawienie interwału wysyłania danych telemetrycznych do 30 minut.         |
 | Dwie zgłoszone właściwości   | Pobierz stan zgłoszonego urządzenia. Na przykład urządzenie zgłasza, że LED jest teraz migający.                                    |
@@ -54,9 +54,9 @@ Uruchom Eksploratora Centrum iothub z różnymi opcjami zarządzania.
 ## <a name="what-you-need"></a>Co jest potrzebne
 
 - Samouczek [skonfigurować Twoje urządzenie](iot-hub-raspberry-pi-kit-node-get-started.md) ukończone, która obejmuje następujące wymagania:
-  - Aktywna subskrypcja platformy Azure.
-  - Centrum Azure IoT w ramach Twojej subskrypcji.
-  - Aplikacja klienta, która wysyła komunikaty do Centrum Azure IoT.
+- Aktywna subskrypcja platformy Azure.
+- Centrum Azure IoT w ramach Twojej subskrypcji.
+- Aplikacja klienta, która wysyła komunikaty do Centrum Azure IoT.
 - Upewnij się, że urządzenie korzysta z aplikacji klienckiej, w tym samouczku.
 - Centrum iothub Eksploratorze [zainstalować explorer Centrum iothub](https://github.com/azure/iothub-explorer) na komputerze deweloperskim.
 
@@ -114,7 +114,6 @@ Dodaj rolę pola = temperatury i wilgotności na urządzeniu, uruchamiając nast
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Użyj Centrum iothub explorer z komunikatami z chmury do urządzenia
@@ -141,7 +140,7 @@ Wszystkie urządzenia z wyjątkiem tych z tagiem roli zapytania = "temperatury i
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Znasz sposobu korzystania z Centrum iothub explorer z różnymi opcjami zarządzania.
 

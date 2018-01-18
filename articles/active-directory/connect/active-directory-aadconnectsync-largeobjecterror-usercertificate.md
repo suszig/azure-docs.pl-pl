@@ -1,9 +1,9 @@
 ---
-title: "Synchronizacja programu Azure AD Connect: LargeObject obsługi błędów spowodowanych przez atrybut certyfikatu użytkownika | Dokumentacja firmy Microsoft"
+title: "Azure AD Connect - LargeObject błędów spowodowanych przez atrybut certyfikatu użytkownika | Dokumentacja firmy Microsoft"
 description: "Ten temat zawiera kroki korygujące LargeObject błędy spowodowane przez atrybut certyfikatu użytkownika."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronizacja programu Azure AD Connect: LargeObject obsługi błędów spowodowanych przez atrybut certyfikatu użytkownika
 
@@ -113,7 +114,7 @@ Nowa reguła synchronizacji muszą mieć ten sam **zakresu filtru** i **wyższy 
 
     | Atrybut | Wartość | Szczegóły |
     | --- | --- | --- |
-    | Nazwa | *Podaj nazwę* | Np. *"Się do usługi AAD — niestandardowy zastąpienie dla certyfikatu użytkownika"* |
+    | Name (Nazwa) | *Podaj nazwę* | Np. *"Się do usługi AAD — niestandardowy zastąpienie dla certyfikatu użytkownika"* |
     | Opis | *Podaj opis* | Np. *"Jeśli certyfikatu użytkownika atrybut ma więcej niż 15 wartości, wyeksportuj NULL".* |
     | System połączony | *Wybierz łącznik usługi Azure AD* |
     | Połączony System typu obiektu | **użytkownika** | |
@@ -127,8 +128,8 @@ Nowa reguła synchronizacji muszą mieć ten sam **zakresu filtru** i **wyższy 
 
     | Atrybut | Wartość |
     | --- | --- |
-    | Typ przepływu |**Wyrażenie** |
-    | Atrybut TARGET |**certyfikatu użytkownika** |
+    | Typ przepływu |**Expression** |
+    | Atrybut docelowy |**certyfikatu użytkownika** |
     | Atrybut źródłowy |*Należy użyć następującego wyrażenia*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Kliknij przycisk **Dodaj** przycisk, aby utworzyć regułę synchronizacji.
@@ -177,6 +178,6 @@ Teraz, gdy problem zostanie rozwiązany, należy ponownie włączyć harmonogram
 > [!Note]
 > Te czynności mają zastosowanie tylko wtedy do nowszej wersji (1.1.xxx.x) programu Azure AD Connect z wbudowanych harmonogramu. Jeśli używasz starszej wersji (1.0.xxx.x) programu Azure AD Connect, która używa harmonogramu zadań systemu Windows lub są przy użyciu własnego harmonogramu niestandardowego (nie wspólnej) do wyzwolenia okresową synchronizację, należy odpowiednio je wyłączyć.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 

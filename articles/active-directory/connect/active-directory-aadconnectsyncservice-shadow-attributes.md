@@ -3,7 +3,7 @@ title: "Atrybuty cienia Usługa synchronizacji Azure AD Connect | Dokumentacja f
 description: "W tym artykule opisano, jak działa atrybuty cienia w usługi synchronizacji programu Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atrybuty cienia Usługa synchronizacji Azure AD Connect
 Większość atrybutów są reprezentowane tak samo w usłudze Azure AD, są one w lokalnej usługi Active Directory. Niektóre atrybuty mają niektóre specjalnej obsługi, a wartość atrybutu w usłudze Azure AD może być inna niż Azure AD Connect synchronizuje.
@@ -53,7 +53,7 @@ W przypadku skrzynek pocztowych użytkownika lokalnie lub w usłudze Exchange On
 | Atrybut | Wartość |
 | --- | --- |
 | proxyAddresses lokalnymi | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
-| ProxyAddresses usługi Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
+| Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
 W takim przypadku  **smtp:abbie.spencer@fabrikam.com**  został usunięty, ponieważ nie został zweryfikowany tej domeny. Exchange również został dodany, ale  **SIP:abbie.spencer@fabrikamonline.com** . Firma Fabrikam nie został użyty Lync/Skype lokalnej, ale usługi Azure AD i usługi Exchange Online przygotować.
 
@@ -71,6 +71,6 @@ ProxyCalc może potrwać pewien czas przetwarzania zmian na koncie użytkownika 
 ### <a name="quarantined-attribute-values"></a>Atrybuty poddane kwarantannie
 Atrybuty cienia są również używane w przypadku zduplikowanymi wartościami atrybutów. Aby uzyskać więcej informacji, zobacz [odporności zduplikowany atrybut](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Synchronizacja programu Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).

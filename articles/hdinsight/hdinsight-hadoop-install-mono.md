@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: e9e55f05c97fe335a315683294805b1027b53784
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Zainstaluj lub zaktualizuj Mono w usłudze HDInsight
 
@@ -37,11 +37,11 @@ Skrypt instaluje Mono następujących pakietów:
 
 * __Zakończenie mono__
 
-* __Urząd certyfikacji — certyfikaty — mono__
+* __ca-certificates-mono__
 
 ## <a name="the-script"></a>Skrypt
 
-__Lokalizacja skryptu__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
+__Script location__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
 
 __Wymagania dotyczące__:
 
@@ -60,7 +60,7 @@ Aby określić Mono wersji, który jest zainstalowany, użyj numeru wersji w __p
 > [!NOTE]
 > Podczas konfigurowania usługi HDInsight za pomocą tego skryptu należy oznaczyć skrypt jako __Persisted__. To ustawienie umożliwia HDInsight zastosować skrypt do węzłów procesu roboczego dodanych do skalowania operacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaniu uaktualnić lub zainstalować określoną wersję Mono w usłudze HDInsight. Aby uzyskać więcej informacji na temat używania aplikacji .NET z Mono w usłudze HDInsight można znaleźć w następujących dokumentach:
 

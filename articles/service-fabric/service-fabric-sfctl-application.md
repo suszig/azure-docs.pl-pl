@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>sfctl aplikacji
 Tworzenie, usuwanie i zarządzanie aplikacjami i typami aplikacji.
@@ -28,24 +28,24 @@ Tworzenie, usuwanie i zarządzanie aplikacjami i typami aplikacji.
 |Polecenie|Opis|
 | --- | --- |
 | create       | Tworzy aplikację usługi Service Fabric przy użyciu określonego opisu.|
-| Usuń       | Usuwa istniejącą aplikację sieci szkieletowej usług.|
+| usuwanie       | Usuwa istniejącą aplikację sieci szkieletowej usług.|
 | Wdrożony     | Pobiera informacje o aplikacji wdrożone w węźle sieci szkieletowej usług.|
 | wdrożone kondycji | Pobiera informacje o kondycji aplikacji wdrożonych w węźle sieci szkieletowej usług.|
 | wdrożone listy| Pobiera listę aplikacje wdrożone w węźle sieci szkieletowej usług.|
-| Kondycji       | Pobiera kondycji aplikacji sieci szkieletowej usług.|
+| kondycja       | Pobiera kondycji aplikacji sieci szkieletowej usług.|
 | Informacje o         | Pobiera informacje o aplikacji sieci szkieletowej usług.|
-| Lista         | Pobiera listę aplikacji utworzony w klastrze usługi sieć szkieletowa spełniające filtrów określony jako parametr.|
+| lista         | Pobiera listę aplikacji utworzony w klastrze usługi sieć szkieletowa spełniające filtrów określony jako parametr.|
 | ładowanie | Pobiera załadować informacji o aplikacji sieci szkieletowej usług. |
 | Manifest     | Pobiera manifest opisu typu aplikacji.|
 | Zainicjuj obsługę    | Przepisy lub rejestrów aplikacji usługi Service Fabric typu z klastrem.|
-| Raport kondycji| Wysyła raport o kondycji aplikacji sieci szkieletowej usług.|
+| report-health| Wysyła raport o kondycji aplikacji sieci szkieletowej usług.|
 | type         | Pobiera listę typów aplikacji w klastrze usługi sieć szkieletowa dopasowania określonej nazwy.|
-| Lista typów    | Pobiera listę typów aplikacji w klastrze usługi sieć szkieletowa usług.|
+| type-list    | Pobiera listę typów aplikacji w klastrze usługi sieć szkieletowa usług.|
 | Wstrzymanie obsługi administracyjnej  | Usuwa lub wyrejestrowuje typu sieci szkieletowej usług aplikacji z klastra.|
 | Uaktualnienie      | Uruchamia uaktualniania aplikacji w klastrze usługi sieć szkieletowa usług.|
 | Wznów uaktualnienia  | Wznawia uaktualniania aplikacji w klastrze usługi sieć szkieletowa usług.|
 | Wycofywanie uaktualnienia| Uruchamia wycofywanie uaktualnienia obecnie w toku aplikacji w klastrze usługi sieć szkieletowa usług.|
-| Stan uaktualnienia  | Pobiera szczegóły dla najnowszą aktualizację w tej aplikacji.|
+| upgrade-status  | Pobiera szczegóły dla najnowszą aktualizację w tej aplikacji.|
 | Przekaż       | Skopiuj pakiet sieci szkieletowej usług aplikacji do magazynu obrazów.|
 
 ## <a name="sfctl-application-create"></a>Tworzenie aplikacji sfctl
@@ -58,9 +58,9 @@ Tworzy aplikację usługi Service Fabric przy użyciu określonego opisu.
 | [wymagane] - app-name| Nazwa aplikacji, w tym "fabric:" schemat identyfikatora URI.|
 | [wymagane] na typ--aplikacji| Nazwa typu aplikacji w manifeście aplikacji.|
 | [wymagane] wersji — aplikacji| Wersja typu aplikacji, zgodnie z definicją w manifeście aplikacji.|
-| -max-node-count     | Maksymalna liczba węzłów, czy usługa sieci szkieletowej rezerwuje pojemności dla tej aplikacji. Oznacza to, czy usług tej aplikacji są umieszczane we wszystkich tych węzłów.|
+| --max-node-count     | Maksymalna liczba węzłów, czy usługa sieci szkieletowej rezerwuje pojemności dla tej aplikacji. Oznacza to, czy usług tej aplikacji są umieszczane we wszystkich tych węzłów.|
 | --metryk            | Lista opisy metryki pojemności aplikacji zakodowane JSON. Metryka jest zdefiniowany jako nazwę skojarzonej z zestawem pojemności dla każdego węzła, że aplikacja nie istnieje na.|
-| min —-node-count     | Minimalna liczba węzłów, czy usługa sieci szkieletowej rezerwuje pojemności dla tej aplikacji. Oznacza to, czy usług tej aplikacji są umieszczane we wszystkich tych węzłów.|
+| --min-node-count     | Minimalna liczba węzłów, czy usługa sieci szkieletowej rezerwuje pojemności dla tej aplikacji. Oznacza to, czy usług tej aplikacji są umieszczane we wszystkich tych węzłów.|
 | — Parametry         | Zastępuje kodowany w formacie JSON lista parametrów aplikacji ma być stosowany podczas tworzenia aplikacji.|
 | limit czasu — -t         | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
@@ -84,7 +84,7 @@ Usuwa istniejącą aplikację sieci szkieletowej usług. Aplikacja musi zostać 
 |Argument|Opis|
 | --- | --- |
 | — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
-| -force-remove          | Usuń sieć szkieletowa usług aplikacji lub usługi wymuszone bez pośrednictwa bezpiecznego zamknięcia sekwencji. Ten parametr może służyć do wymuszone usunięcie aplikacji lub usługi, dla których delete jest przekroczeniem limitu czasu z powodu problemów z kodem usługi, który uniemożliwia łagodne zamykanie replik.|
+| --force-remove          | Usuń sieć szkieletowa usług aplikacji lub usługi wymuszone bez pośrednictwa bezpiecznego zamknięcia sekwencji. Ten parametr może służyć do wymuszone usunięcie aplikacji lub usługi, dla których delete jest przekroczeniem limitu czasu z powodu problemów z kodem usługi, który uniemożliwia łagodne zamykanie replik.|
 | limit czasu — -t            | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -128,10 +128,10 @@ Zwraca stan kondycji aplikacji sieci szkieletowej usług. Odpowiedź raporty kon
 |Argument|Opis|
 | --- | --- |
 | — Identyfikator aplikacji [wymagane]| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
-| --wdrożone aplikacje kondycji — stan filtru| Umożliwia filtrowanie obiekty stanu kondycji wdrożonych aplikacji zwrócone w wyniku zapytania kondycji aplikacji na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Tylko wdrożone aplikacje zgodne z filtrem zostaną zwrócone. Wszystkie wdrożone aplikacje są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie kondycja wdrożonych aplikacji o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
-| --zdarzenia kondycji — stan filtru            | Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
-| — Wyklucz kondycji statystyk | Wskazuje, czy statystyki kondycji powinny być zwracane w ramach wyniku zapytania. Wartość false, domyślnie. Statystyki zawierają liczbę elementów podrzędnych obiektów w kondycja Ok, ostrzeżeń i błędów.|
-| --usługi kondycji — stan filtru          | Umożliwia filtrowanie obiektów stanu kondycji usług zwrócone w wyniku zapytania kondycji usług na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko usługi zgodne z filtrem. Wszystkie usługi są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 wtedy kondycja usługi z wartością atrybutu HealthState OK (2) i ostrzeżenia (4) zostanie zwrócony. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+| --deployed-applications-health-state-filter| Umożliwia filtrowanie obiekty stanu kondycji wdrożonych aplikacji zwrócone w wyniku zapytania kondycji aplikacji na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Tylko wdrożone aplikacje zgodne z filtrem zostaną zwrócone. Wszystkie wdrożone aplikacje są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie kondycja wdrożonych aplikacji o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+| --events-health-state-filter            | Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+| --exclude-health-statistics | Wskazuje, czy statystyki kondycji powinny być zwracane w ramach wyniku zapytania. Wartość false, domyślnie. Statystyki zawierają liczbę elementów podrzędnych obiektów w kondycja Ok, ostrzeżeń i błędów.|
+| --services-health-state-filter          | Umożliwia filtrowanie obiektów stanu kondycji usług zwrócone w wyniku zapytania kondycji usług na podstawie ich stanu kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko usługi zgodne z filtrem. Wszystkie usługi są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 wtedy kondycja usługi z wartością atrybutu HealthState OK (2) i ostrzeżenia (4) zostanie zwrócony. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
 | limit czasu — -t                            | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -176,7 +176,7 @@ Pobiera informacje o aplikacji, które zostały utworzone lub właśnie tworzona
 
 |Argument|Opis|
 | --- | --- |
-|--aplikacji definicji rodzaj filtru| Używane do filtrowania na ApplicationDefinitionKind dla operacji zapytania aplikacji. -Domyślnie — wartość domyślna. Filtr, który pasuje do danych wejściowych z dowolną wartością ApplicationDefinitionKind. Wartość wynosi 0. -All - filtru pasującego do danych wejściowych z dowolną wartością ApplicationDefinitionKind. Wartość jest 65535. -ServiceFabricApplicationDescription - filtru pasującego do danych wejściowych o wartości ApplicationDefinitionKind ServiceFabricApplicationDescription. Wartość to 1. -Redaguj — filtr, który pasuje do danych wejściowych o wartości ApplicationDefinitionKind tworzenia. Wartość jest równa 2. Domyślna: 65535.|
+|--application-definition-kind-filter| Używane do filtrowania na ApplicationDefinitionKind dla operacji zapytania aplikacji. -Domyślnie — wartość domyślna. Filtr, który pasuje do danych wejściowych z dowolną wartością ApplicationDefinitionKind. Wartość wynosi 0. -All - filtru pasującego do danych wejściowych z dowolną wartością ApplicationDefinitionKind. Wartość jest 65535. -ServiceFabricApplicationDescription - filtru pasującego do danych wejściowych o wartości ApplicationDefinitionKind ServiceFabricApplicationDescription. Wartość to 1. -Redaguj — filtr, który pasuje do danych wejściowych o wartości ApplicationDefinitionKind tworzenia. Wartość jest równa 2. Domyślna: 65535.|
 | — Nazwa typu aplikacji      | Nazwa typu aplikacji, używane do filtrowania aplikacji dla kwerendy. Ta wartość nie powinna zawierać wersja typu aplikacji.|
 | --token kontynuacji         | Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników. Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi. Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
 | — Wyklucz aplikacji parametrów| Flaga określająca, czy parametry aplikacji, są wykluczane z wyników.|
@@ -318,20 +318,20 @@ Sprawdza, parametry uaktualniania aplikacji dostarczony i rozpoczyna się uaktua
 | [wymagane] - app-id| Tożsamość aplikacji. Zazwyczaj jest to pełna nazwa aplikacji bez "fabric:" schemat identyfikatora URI. Począwszy od wersji 6.0, hierarchicznych nazwy są rozdzielane "~" znaków. Na przykład, jeśli nazwa aplikacji jest "fabric://myapp/app1", tożsamość aplikacji będzie "moja_aplikacja ~ app1" w wersji 6.0 + i "myapp/app1" w poprzednich wersjach.|
 | [wymagane] wersji — aplikacji| Wersja aplikacji docelowej.|
 | --parametrów [wymagane]| Zastępuje kodowany w formacie JSON lista parametrów aplikacji ma być stosowany podczas uaktualniania aplikacji.|
-| --domyślne usług kondycji policy| Specyfikacja zasad dotyczących kondycji używany domyślnie do oceny kondycji usługi typu zakodowane JSON.|
+| --default-service-health-policy| Specyfikacja zasad dotyczących kondycji używany domyślnie do oceny kondycji usługi typu zakodowane JSON.|
 | --Niepowodzenie akcji            | Akcja do wykonania podczas uaktualniania monitorowanej napotka monitorowania kondycji lub zasad naruszenia zasad.|
-| -force-ponownego uruchomienia             | Wymuszone ponownie procesy podczas uaktualniania, nawet gdy wersja kodu nie została zmieniona.|
-| --kondycji wyboru ponawiania-limitu czasu| Ilość czasu, aby ponowić próbę wykonania oceny kondycji aplikacji lub w klastrze jest zła przed Akcja błędu jest wykonywana. Mierzony w milisekundach.  Domyślne: PT0H10M0S.|
-| --kondycji wyboru stabilny — czas trwania | Ilość czasu, że aplikacji lub w klastrze muszą pozostać dobrej kondycji przed uaktualnienia przechodzi do następnej domeny uaktualnienia.            Mierzony w milisekundach.  Domyślne: PT0H2M0S.|
-| --kondycji wyboru — oczekiwania — czas trwania| Ilość czasu oczekiwania po zakończeniu uaktualnienia domeny przed zastosowaniem zasad dotyczących kondycji. Mierzony w milisekundach.            Domyślna: 0.|
-| -max zła — aplikacje        | Maksymalna dozwolona liczba procent zła wdrożone aplikacje. Reprezentowany jako liczbę z zakresu od 0 do 100.|
+| --force-restart             | Wymuszone ponownie procesy podczas uaktualniania, nawet gdy wersja kodu nie została zmieniona.|
+| --health-check-retry-timeout| Ilość czasu, aby ponowić próbę wykonania oceny kondycji aplikacji lub w klastrze jest zła przed Akcja błędu jest wykonywana. Mierzony w milisekundach.  Default: PT0H10M0S.|
+| --health-check-stable-duration | Ilość czasu, że aplikacji lub w klastrze muszą pozostać dobrej kondycji przed uaktualnienia przechodzi do następnej domeny uaktualnienia.            Mierzony w milisekundach.  Default: PT0H2M0S.|
+| --health-check-wait-duration| Ilość czasu oczekiwania po zakończeniu uaktualnienia domeny przed zastosowaniem zasad dotyczących kondycji. Mierzony w milisekundach.            Domyślna: 0.|
+| --max-unhealthy-apps        | Maksymalna dozwolona liczba procent zła wdrożone aplikacje. Reprezentowany jako liczbę z zakresu od 0 do 100.|
 | --Tryb                      | Tryb służy do monitorowania kondycji w procesie uaktualnienia stopniowego.            Domyślne: UnmonitoredAuto.|
-| --repliki set wyboru timeout | Maksymalną ilość czasu, aby zablokować przetwarzania domeny uaktualnienia i zapobiegania utracie dostępność, jeśli znajdują się nieoczekiwane problemy. Mierzony w sekundach.|
-| — Usługa kondycji zasady     | Mapa z zasad dotyczących kondycji typu usługi na nazwy typu usługi zakodowane JSON. Mapy jest pusty jest domyślnie.|
+| --replica-set-check-timeout | Maksymalną ilość czasu, aby zablokować przetwarzania domeny uaktualnienia i zapobiegania utracie dostępność, jeśli znajdują się nieoczekiwane problemy. Mierzony w sekundach.|
+| --service-health-policy     | Mapa z zasad dotyczących kondycji typu usługi na nazwy typu usługi zakodowane JSON. Mapy jest pusty jest domyślnie.|
 | limit czasu — -t                | W sekundach limit czasu serwera.  Domyślnie: 60.|
-| — limit czasu domeny uaktualnienia    | Ilość czasu każdej z domen musi zakończyć się przed wykonaniem FailureAction. Mierzony w milisekundach.  Domyślne: P10675199DT02H48M05.4775807S.|
-| — limit czasu uaktualniania           | Ilość czasu ogólną uaktualnienia musi zakończyć się przed wykonaniem FailureAction. Mierzony w milisekundach.  Domyślne: P10675199DT02H48M05.4775807S.|
-| — Ostrzeżenie jako błąd          | Traktuj ostrzeżenia oceny kondycji z tego samego ważność jako błędy.|
+| — limit czasu domeny uaktualnienia    | Ilość czasu każdej z domen musi zakończyć się przed wykonaniem FailureAction. Mierzony w milisekundach.  Default:            P10675199DT02H48M05.4775807S.|
+| — limit czasu uaktualniania           | Ilość czasu ogólną uaktualnienia musi zakończyć się przed wykonaniem FailureAction. Mierzony w milisekundach.  Default:            P10675199DT02H48M05.4775807S.|
+| --warning-as-error          | Traktuj ostrzeżenia oceny kondycji z tego samego ważność jako błędy.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -353,7 +353,7 @@ Opcjonalnie można wyświetlić postępu przekazywania dla poszczególnych plik�
 |Argument|Opis|
 | --- | --- |
 | — Ścieżka [wymagane]| Ścieżka do pakietu aplikacji lokalnych.|
-|Parametry magazynu imagestore--| Obraz docelowy magazynu do przekazania pakietu aplikacji do.  Wartość domyślna: w sieci szkieletowej: magazynu ImageStore.|
+|--imagestore-string| Obraz docelowy magazynu do przekazania pakietu aplikacji do.  Wartość domyślna: w sieci szkieletowej: magazynu ImageStore.|
 | — Pokaż postęp  | Pokaż postęp przekazywania plików dla dużych pakietów.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -366,6 +366,6 @@ Opcjonalnie można wyświetlić postępu przekazywania dla poszczególnych plik�
 | — zapytania       | Ciąg zapytania JMESPath. Zobacz http://jmespath.org/ dodatkowe informacje i przykłady.|
 | -verbose     | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Instalator](service-fabric-cli.md) sieci szkieletowej usług interfejsu wiersza polecenia.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).

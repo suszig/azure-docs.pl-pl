@@ -1,5 +1,5 @@
 ---
-title: "Dostosowywanie z programem Azure AD Connect i zarządzania w usłudze Active Directory Federation Services | Dokumentacja firmy Microsoft"
+title: "Azure AD Connect - zarządzania usług AD FS i dostosowywania | Dokumentacja firmy Microsoft"
 description: "Zarządzanie usługami AD FS z usługi Azure AD Connect i dostosowywania AD FS logowania użytkowników z usługi Azure AD Connect i programu PowerShell."
 keywords: "Usługi AD FS, usługi AD FS, usługi AD FS zarządzania AAD Connect, Connect, logowania, usługi AD FS dostosowanie, napraw federacyjnej relacji zaufania, usługi O365, jednostki uzależnionej"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Zarządzanie i dostosowania usług federacyjnych Active Directory przy użyciu usługi Azure AD Connect
 W tym artykule opisano sposób zarządzania i dostosowywania Active Directory Federation Services (AD FS) przy użyciu połączenia usługi Azure Active Directory (Azure AD). Zawiera również innych typowych zadań usług AD FS, które może być konieczne przeprowadzenie pełnej konfiguracji farmy usług AD FS.
@@ -52,7 +53,7 @@ Azure AD Connect umożliwia Sprawdź bieżącą kondycję usług AD FS i usługi
 
 3. Na **poświadczeń dostępu zdalnego** strony, wprowadź poświadczenia administratora domeny.
 
-   ![Poświadczenia zdalnego dostępu](media/active-directory-aadconnect-federation-management/RepairADTrust3.PNG)
+   ![Poświadczenia dostępu zdalnego](media/active-directory-aadconnect-federation-management/RepairADTrust3.PNG)
 
     Po kliknięciu **dalej**, Azure AD Connect sprawdza, czy certyfikat kondycji i zawiera wszystkie problemy.
 
@@ -114,7 +115,7 @@ Konfigurowanie alternatywnego Identyfikatora logowania dla usług AD FS składa 
 
    ![Wszystko gotowe do skonfigurowania](media/active-directory-aadconnect-federation-management/AddNewADFSServer7.PNG)
 
-    ![Ukończono instalację](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
+    ![Zakończenie instalacji](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
 ## <a name="addwapserver"></a>Dodaj serwer AD FS WAP 
 
@@ -148,7 +149,7 @@ Konfigurowanie alternatywnego Identyfikatora logowania dla usług AD FS składa 
 
 7. Kliknij przycisk **zainstalować** aby zakończyć konfigurację. Po zakończeniu konfiguracji kreatora udostępnia opcję, aby sprawdzić łączność z serwerami. Kliknij przycisk **Sprawdź** Aby sprawdzić łączność.
 
-   ![Ukończono instalację](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
+   ![Zakończenie instalacji](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
 ## <a name="addfeddomain"></a>Dodawanie domeny federacyjnej 
 
@@ -164,11 +165,11 @@ To proste dodać domenę federacyjną z usługą Azure AD za pomocą usługi Azu
 
 3. Na **poświadczeń dostępu zdalnego** Podaj poświadczenia administratora domeny.
 
-   ![Poświadczenia zdalnego dostępu](media/active-directory-aadconnect-federation-management/additionaldomain3.PNG)
+   ![Poświadczenia dostępu zdalnego](media/active-directory-aadconnect-federation-management/additionaldomain3.PNG)
 
 4. Na następnej stronie kreatora zawiera listę domen usługi Azure AD, które można było wykonać Federację z katalogu lokalnego. Wybierz domenę z listy.
 
-   ![Domenowych Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     Po wybraniu domeny Kreator udostępnia odpowiednie informacje o dalsze akcje, które podejmie kreatora i ich wpływ na konfigurację. W niektórych przypadkach w przypadku wybrania domeny, która nie jest jeszcze zweryfikowana w usłudze Azure AD, Kreator dostarcza informacje ułatwiające zweryfikować domenę. Zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-domains-add-azure-portal.md) więcej szczegółów.
 
@@ -269,5 +270,5 @@ Aby w wartości oświadczenia wystawcy tylko domeny głównej, zmień reguły o�
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [opcje logowania użytkowników](active-directory-aadconnect-user-signin.md).

@@ -8,22 +8,22 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Magazyn tabel Azure: aplikacja sieci Web Node.js
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym samouczku aplikacji utworzony w [aplikacji sieci Web Node.js za pomocą ekspresowego] samouczka został rozszerzony za pomocą biblioteki klienta Microsoft Azure dla środowiska Node.js do pracy z usługami zarządzania danych. Aplikację można rozszerzyć przez tworzenie aplikacji opartych na sieci web listy zadań, które można wdrożyć na platformie Azure. Lista zadań pozwala użytkownikowi na pobieranie zadań, Dodaj nowe zadania i oznaczanie zadań jako ukończone.
 
 Elementy zadania są przechowywane w usłudze Azure Storage. Usługa Azure Storage udostępnia magazyn danych bez struktury, która jest odporna na uszkodzenia i wysokiej dostępności. Magazyn Azure obejmuje kilka struktury danych, gdzie można przechowywać i uzyskać dostęp do danych. Korzystając z interfejsów API, dołączony do zestawu Azure SDK dla środowiska Node.js lub za pośrednictwem interfejsów API REST usług magazynu. Aby uzyskać więcej informacji, zobacz [przechowywanie i uzyskiwanie dostępu do danych na platformie Azure].

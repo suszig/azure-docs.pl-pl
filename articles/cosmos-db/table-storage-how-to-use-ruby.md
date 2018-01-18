@@ -8,23 +8,23 @@ manager: jhubbard
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b1ad9fc7b609209ca867e64226c3a0e393081408
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: decc6ffb38a4358d3593642f9cedb59d08f6bfef
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>Jak używać magazynu tabel Azure z Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy użyciu usługi tabel Azure. Przykłady są napisane przy użyciu interfejsu API Ruby. Omówione scenariusze obejmują **tworzenie i usuwanie tabeli, wstawianie i badania jednostek w tabeli**.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -32,7 +32,7 @@ W tym przewodniku przedstawiono sposób wykonywania typowych scenariuszy przy u�
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
-Aby uzyskać instrukcje tworzenia aplikacji dopisków fonetycznych, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Aby uzyskać instrukcje tworzenia aplikacji dopisków fonetycznych, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](../virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji dostęp do magazynu
 Aby korzystać z usługi Azure Storage, konieczne pobranie i użycie dopisków fonetycznych azure pakiet, który zawiera zestaw wygody bibliotek, które komunikują się z usługami REST magazynu.
@@ -160,7 +160,7 @@ Aby usunąć tabelę, użyj **usunąć\_table()** — metoda i przekazać nazwy 
 azure_table_service.delete_table("testtable")
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 * [Zestaw Azure SDK dla środowiska Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repozytorium w witrynie GitHub

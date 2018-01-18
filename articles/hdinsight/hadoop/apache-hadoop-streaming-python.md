@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 76cf2556f911948689c96deb1cbab350f2559817
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2563927684720a0be1144fa51aea7b9dae4abe7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Opracowywanie Python przesyłania strumieniowego programy MapReduce dla usługi HDInsight
 
@@ -201,7 +201,7 @@ Poniższy skrypt programu PowerShell umożliwia przekazanie plików, uruchom zad
 
     To polecenie wyświetla listę słów i ile razy wyraz wystąpił.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz sposobu używania zadań przesyłania strumieniowego MapRedcue z usługą HDInsight, użyj następujących linków, aby poznać inne sposoby pracy z usługą Azure HDInsight.
 

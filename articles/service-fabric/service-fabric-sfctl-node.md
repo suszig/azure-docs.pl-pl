@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>węzeł sfctl
 Zarządzanie węzły, które tworzą klaster.
@@ -27,16 +27,16 @@ Zarządzanie węzły, które tworzą klaster.
 
 |Polecenie|Opis|
 | --- | --- |
-|    Wyłącz       | Dezaktywowanie z docelowa dezaktywacji określonego węzła klastra sieci szkieletowej usług.|
-|    Włącz        | Aktywuj węzłem klastra usługi sieć szkieletowa jest obecnie wyłączona.|
-|    Kondycji        | Pobiera stan węzła sieci szkieletowej usług.|
+|    wyłącz       | Dezaktywowanie z docelowa dezaktywacji określonego węzła klastra sieci szkieletowej usług.|
+|    włącz        | Aktywuj węzłem klastra usługi sieć szkieletowa jest obecnie wyłączona.|
+|    kondycja        | Pobiera stan węzła sieci szkieletowej usług.|
 |    Informacje o          | Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.|
-|    Lista          | Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.|
+|    lista          | Pobiera listę węzłów w klastrze usługi sieć szkieletowa usług.|
 |    ładowanie          | Pobiera informacje o obciążenia węzła sieci szkieletowej usług.|
-|    Usuń stanu  | Powiadamia sieci szkieletowej usług, że stan utrwalony na węźle trwale ani nie usunięto utracone.|
-|    Raport kondycji | Wysyła raport o kondycji w węźle sieci szkieletowej usług.|
+|    remove-state  | Powiadamia sieci szkieletowej usług, że stan utrwalony na węźle trwale ani nie usunięto utracone.|
+|    report-health | Wysyła raport o kondycji w węźle sieci szkieletowej usług.|
 |    Ponowne uruchomienie       | Ponowne uruchomienie węzła klastra sieci szkieletowej usług.|
-|    przejścia    | Uruchomienia lub zatrzymania węzła klastra.|
+|    przejście    | Uruchomienia lub zatrzymania węzła klastra.|
 |    stan przejścia| Pobiera postęp operacji uruchomiony przy użyciu StartNodeTransition.|
 
 
@@ -95,7 +95,7 @@ Pobiera stan węzła sieci szkieletowej usług. Filtr EventsHealthStateFilter um
 |Argument|Opis|
 | --- | --- |
 | --Nazwa węzła [wymagane]| Nazwa węzła.|
-| --zdarzenia kondycji — stan filtru| Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
+| --events-health-state-filter| Umożliwia filtrowanie kolekcji zwracanych obiektów HealthEvent oparte na stanie kondycji. Możliwe wartości tego parametru obejmują liczbę całkowitą jednego z następujących stanów kondycji. Zwracane są tylko zdarzenia, które są zgodne z filtrem. Wszystkie zdarzenia są używane do oceny stanu kondycji zagregowanych. Jeśli nie zostanie określona, zwracane są wszystkie wpisy. Wartości stanu są oparte na flagi wyliczenie, może to być kombinacją te wartości uzyskanych przy użyciu bitowego operatora "Lub". Na przykład jeśli podana wartość jest 6 następnie wszystkie zdarzenia o wartości atrybutu HealthState OK (2) i ostrzeżenia (4) są zwracane. -Domyślnie — wartość domyślna. Dopasowuje wszystkie właściwości HealthState. Wartość wynosi zero. -None - filtr, który nie odpowiada żadnej wartości właściwości HealthState. Używany, aby nie zwracała żadnych wyników w danej kolekcji stanów. Wartość to 1. -Ok - filtru, że dopasowań danych wejściowych o wartości atrybutu HealthState Ok. Wartość jest równa 2. — Ostrzeżenie - filtru, że dane wejściowe zgodna z atrybutem HealthState wartość ostrzeżenie. Wartość to 4. -Błąd filtru pasującego do danych wejściowych o wartości atrybutu HealthState błędu. Wartość jest 8. -All - filtru pasującego do danych wejściowych z dowolną wartością właściwości HealthState. Wartość jest 65535.|
 | limit czasu — -t             | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -140,7 +140,7 @@ Punkt końcowy węzłów zwraca informacje o węzły w klastrze usługi sieć sz
 |Argument|Opis|
 | --- | --- |
 | --token kontynuacji| Parametr token kontynuacji służy do uzyskiwania następnej zestaw wyników. Token kontynuacji z wartość pusta jest uwzględniana w odpowiedzi interfejsu API wyników z systemu nie mieszczą się w jednej odpowiedzi.      Jeśli ta wartość jest przekazywany do następnego wywołania interfejsu API interfejsu API zwraca następny zestaw wyników. Jeśli nie są dalsze wyniki, token kontynuacji nie zawiera wartości. Wartość tego parametru nie powinny być zakodowane w adresie URL.|
-| --węzła Stan filtru| Umożliwia filtrowanie oparte na NodeStatus węzłów. Zwracane są tylko węzły, które są zgodne z wartością określony filtr. Wartość filtru może być jedną z następujących czynności. — Domyślnie — ta wartość filtru dopasowuje wszystkie węzły z wyjątkiem tych ze stanem jako nieznane lub usunięte. -all - tę wartość filtru pasuje do wszystkich węzłów. Ten filtr - górę — wartość odpowiada węzłów, które są uruchomione. Ten filtr - dół — wartość odpowiada węzły, które nie działają. -Włączanie — ten filtr wartość dopasowań węzłów, które są w trakcie włączania ze stanem jako Włączanie. -Wyłączenie — ten filtr wartość dopasowań węzłów, które są właśnie trwa wyłączanie ze stanem jako wyłączenie. — wyłączone — ten filtr wartość dopasowań węzłów, które są wyłączone. -Nieznany — ta wartość filtru zgodny węzły, których stan jest nieznany. Węzeł będzie w nieznanym stanie, jeśli usługa sieć szkieletowa nie ma autorytatywne informacje o tym węźle. Może to nastąpić, jeśli system uzyskuje informacje o węźle w czasie wykonywania. -usunięte - tego dopasowania węzły wartość filtru którego stan jest usuwany. Są to węzły, które zostały usunięte z klastra przy użyciu interfejsu API RemoveNodeState. .      Domyślne: domyślny.|
+| --node-status-filter| Umożliwia filtrowanie oparte na NodeStatus węzłów. Zwracane są tylko węzły, które są zgodne z wartością określony filtr. Wartość filtru może być jedną z następujących czynności. — Domyślnie — ta wartość filtru dopasowuje wszystkie węzły z wyjątkiem tych ze stanem jako nieznane lub usunięte. -all - tę wartość filtru pasuje do wszystkich węzłów. Ten filtr - górę — wartość odpowiada węzłów, które są uruchomione. Ten filtr - dół — wartość odpowiada węzły, które nie działają. -Włączanie — ten filtr wartość dopasowań węzłów, które są w trakcie włączania ze stanem jako Włączanie. -Wyłączenie — ten filtr wartość dopasowań węzłów, które są właśnie trwa wyłączanie ze stanem jako wyłączenie. — wyłączone — ten filtr wartość dopasowań węzłów, które są wyłączone. -Nieznany — ta wartość filtru zgodny węzły, których stan jest nieznany. Węzeł będzie w nieznanym stanie, jeśli usługa sieć szkieletowa nie ma autorytatywne informacje o tym węźle. Może to nastąpić, jeśli system uzyskuje informacje o węźle w czasie wykonywania. -usunięte - tego dopasowania węzły wartość filtru którego stan jest usuwany. Są to węzły, które zostały usunięte z klastra przy użyciu interfejsu API RemoveNodeState. .      Domyślne: domyślny.|
 | limit czasu — -t     | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -186,7 +186,7 @@ Uruchamia ponownie usługi sieć szkieletowa węzła klastra, który jest już u
 | --- | --- |
 | --Nazwa węzła [wymagane]| Nazwa węzła.|
 | — Utwórz — sieci szkieletowej — zrzutu  | Określ wartość True, aby utworzyć zrzutu procesu węzła sieci szkieletowej. To jest rozróżniana wielkość liter.  Domyślnie: False.|
-| — Identyfikator w przypadku wystąpienia węzła | Identyfikator wystąpienia węzła docelowego. Jeśli identyfikator wystąpienia jest określony węzeł jest uruchomiony ponownie tylko wtedy, gdy jest on zgodny z bieżącym wystąpieniem węzła. Wartość domyślna "0" spowoduje dopasowanie dowolnej identyfikatora wystąpienia. Identyfikator wystąpienia można uzyskać za pomocą get węzła zapytania.  Domyślna: 0.|
+| --node-instance-id | Identyfikator wystąpienia węzła docelowego. Jeśli identyfikator wystąpienia jest określony węzeł jest uruchomiony ponownie tylko wtedy, gdy jest on zgodny z bieżącym wystąpieniem węzła. Wartość domyślna "0" spowoduje dopasowanie dowolnej identyfikatora wystąpienia. Identyfikator wystąpienia można uzyskać za pomocą get węzła zapytania.  Domyślna: 0.|
 | limit czasu — -t       | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -226,6 +226,6 @@ Do uruchomienia węzła, podaj "Start" dla parametru NodeTransitionType. Aby zat
 | — zapytania                           | Ciąg zapytania JMESPath. Zobacz http://jmespath.org/ dodatkowe informacje i przykłady.|
 | -verbose                         | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Instalator](service-fabric-cli.md) sieci szkieletowej usług interfejsu wiersza polecenia.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).

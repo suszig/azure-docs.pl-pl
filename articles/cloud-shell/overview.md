@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Omówienie powłoki w chmurze Azure
 Powłoki chmury Azure jest interaktywny, dostępny w przeglądarce powłoki zarządzania zasobami platformy Azure.
-Udostępnia było wybrać środowisko powłoki, który najlepiej odpowiada sposobu pracy.
+Zapewnia elastyczność wyboru środowisko powłoki, który najlepiej odpowiada sposobu pracy.
 Użytkownicy systemu Linux mogą wybrać korzystanie z powłoki Bash, zaś użytkownicy systemu Windows mogą wybrać środowisko PowerShell.
 
 Spróbuj z shell.azure.com za pomocą tego przycisku.
@@ -52,8 +52,8 @@ Wyświetl listę narzędzi Pełny dla [Bash środowisko](features.md#tools) i [�
 
 ### <a name="multiple-access-points"></a>Wiele punktów dostępu
 Powłoka chmury jest elastyczny narzędzie, które mogą być używane z:
-* [Portal.Azure.com](https://portal.azure.com)
-* [Shell.Azure.com](https://shell.azure.com)
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Dokumentację platformy Azure "Wypróbuj" 2.0 interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Aplikacji mobilnej Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS konto platformy Azure kod rozszerzenia](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -101,6 +101,6 @@ Dowiedz się więcej o funkcjach [Bash w chmurze powłoki](features.md) i [progr
 ## <a name="pricing"></a>Cennik
 Komputer, na którym powłoki chmury jest wolne, wymaga wstępnie posiadania zainstalowany udział plików Azure. Koszty przechowywania regularne mają zastosowanie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Bash w chmurze powłoki Szybki Start](quickstart.md) <br>
 [PowerShell w chmurze powłoki (wersja zapoznawcza) — Szybki Start](quickstart-powershell.md)

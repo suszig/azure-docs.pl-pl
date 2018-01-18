@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-compose"></a>Redagowanie sfctl
 Tworzenie, usuwanie i zarządzanie wdrożeniami rozwiązania Docker Compose.
@@ -28,11 +28,11 @@ Tworzenie, usuwanie i zarządzanie wdrożeniami rozwiązania Docker Compose.
 |Polecenie|Opis|
 | --- | --- |
 |    create| Wdrażanie aplikacji sieci szkieletowej usług z tworzenia pliku.|
-|    Lista  | Pobiera listę tworzą wdrożeń utworzonych w klastrze usługi sieć szkieletowa usług.|
-|   Usuń| Usuwa istniejące sieci szkieletowej usług utworzyć wdrożenia z klastra.|
+|    lista  | Pobiera listę tworzą wdrożeń utworzonych w klastrze usługi sieć szkieletowa usług.|
+|   usuń| Usuwa istniejące sieci szkieletowej usług utworzyć wdrożenia z klastra.|
 |   status| Pobiera informacje o sieci szkieletowej usług utworzyć wdrożenia.|
 |Uaktualnienie       | Uruchamia uaktualniania wdrożenia tworzenia klastra usługi sieć szkieletowa usług.|
-|    Stan uaktualnienia| Pobiera szczegóły dla najnowszą aktualizację w tej sieci szkieletowej usług utworzyć wdrożenia.|
+|    upgrade-status| Pobiera szczegóły dla najnowszą aktualizację w tej sieci szkieletowej usług utworzyć wdrożenia.|
 
 
 ## <a name="sfctl-compose-create"></a>Redagowanie sfctl tworzenie
@@ -139,21 +139,21 @@ Weryfikuje podane parametry uaktualniania i uruchamia uaktualniania wdrożenia.
 |    --Domyślna svc--kondycji mapy typu| Słownik, który opisuje zasad dotyczących kondycji używane do oceny kondycji usług zakodowane JSON.|
 |    --szyfrowane przebiegu             | Zamiast monitowania o podanie hasła rejestru kontener, użyj już zaszyfrowane hasło.|
  |   --Niepowodzenie akcji             | Możliwe wartości: "Nieprawidłowe", "Wycofania", "Ręczny".|
-|    -force-ponownego uruchomienia              | Wymusić ponowne uruchomienie.|
+|    --force-restart              | Wymusić ponowne uruchomienie.|
  |   --ma przebiegu                   | Wyświetla monit o podanie hasła w rejestrze kontenera.|
 |    --ponownej próby sprawdzenia kondycji         | Limit ponownych prób sprawdzania kondycji mierzony w milisekundach.|
-|    --kondycji wyboru Stały        | Sprawdzanie kondycji stabilna czas w milisekundach.|
-|    –--oczekiwania na sprawdzenie kondycji          | Czas trwania oczekiwania sprawdzania kondycji mierzony w milisekundach.|
+|    --health-check-stable        | Sprawdzanie kondycji stabilna czas w milisekundach.|
+|    --health-check-wait          | Czas trwania oczekiwania sprawdzania kondycji mierzony w milisekundach.|
 |    --repliki zestaw sprawdzania          | Sprawdzenie limitu czasu mierzony w sekundach zestawu replik uaktualnienia.|
-|    -svc--kondycji mapy typu        | Lista obiektów, które opisano zasady dotyczące kondycji używane do oceny kondycji usługi różnych typów zakodowane JSON.|
+|    --svc-type-health-map        | Lista obiektów, które opisano zasady dotyczące kondycji używane do oceny kondycji usługi różnych typów zakodowane JSON.|
 |    limit czasu — -t                 | Limit czasu serwera w sekundach.  Domyślnie: 60.|
-|    --złej kondycji aplikacji              | Maksymalna dozwolona wartość procentowa w złej kondycji aplikacji przed zgłoszeniem błędu.        Na przykład aby umożliwić 10% aplikacji jest zła, ta wartość wynosi 10. Wartość procentowa reprezentuje maksymalny procent tolerowaną aplikacje, które mogą być zła, zanim klaster zostanie uznane za błąd. Jeśli wartość procentowa jest przestrzegana, ale istnieje co najmniej jednej aplikacji w złej kondycji, kondycji jest szacowana jako ostrzeżenia. Ta wartość jest obliczana przez podzielenie liczby złej kondycji aplikacji za pośrednictwem całkowita liczba wystąpień aplikacji w klastrze.|
+|    --unhealthy-app              | Maksymalna dozwolona wartość procentowa w złej kondycji aplikacji przed zgłoszeniem błędu.        Na przykład aby umożliwić 10% aplikacji jest zła, ta wartość wynosi 10. Wartość procentowa reprezentuje maksymalny procent tolerowaną aplikacje, które mogą być zła, zanim klaster zostanie uznane za błąd. Jeśli wartość procentowa jest przestrzegana, ale istnieje co najmniej jednej aplikacji w złej kondycji, kondycji jest szacowana jako ostrzeżenia. Ta wartość jest obliczana przez podzielenie liczby złej kondycji aplikacji za pośrednictwem całkowita liczba wystąpień aplikacji w klastrze.|
 |    — limit czasu domeny uaktualnienia     | Limit czasu domeny uaktualnień mierzony w milisekundach.|
 |    --rodzaj uaktualnienia               | Domyślne: wycofanie.|
 |    --Tryb uaktualniania               | Możliwe wartości: "Nieprawidłowe", "UnmonitoredAuto", "UnmonitoredManual", "Monitorowanej".  Domyślne: UnmonitoredAuto.|
 |    — limit czasu uaktualniania            | Uaktualnienia limitu czasu mierzony w milisekundach.|
 |    --user                       | Nazwa użytkownika do połączenia się z rejestrem kontenera.|
-|    — Ostrzeżenie jako błąd           | Ostrzeżenia są traktowane z tym samym ważność jako błędy.|
+|    --warning-as-error           | Ostrzeżenia są traktowane z tym samym ważność jako błędy.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
  |Argument|Opis|
@@ -165,6 +165,6 @@ Weryfikuje podane parametry uaktualniania i uruchamia uaktualniania wdrożenia.
  |   — zapytania                      | Ciąg zapytania JMESPath. Zobacz http://jmespath.org/ dodatkowe informacje i przykłady.|
  |   -verbose                    | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia usługi sieci szkieletowej.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -3,7 +3,7 @@ title: "Ogólny Łącznik usług SQL krok po kroku | Dokumentacja firmy Microsof
 description: "W tym artykule jest Instruktaż prosty system HR krok po kroku przy użyciu ogólny łącznik SQL."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Instrukcja krok po kroku dotycząca ogólnego łącznika SQL
 Ten temat jest przewodnik krok po kroku. Tworzy HR proste przykładową bazę danych i używać go do importowania niektórym użytkownikom i ich członkostwa w grupie.
@@ -101,7 +101,7 @@ Wprowadź dane testowe w przykładowej bazie danych. Gdy wszystko będzie gotowe
 
 Oto użytkownika z dwóch numery telefonów i grupy z niektóre elementy członkowskie.  
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
-![CS2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
+![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Dodatek A
 **Skrypt SQL w celu utworzenia przykładowej bazy danych**

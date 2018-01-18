@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrydowego zagadnienia dotyczące projektowania tożsamości — określanie wymagań dotyczących ochrony danych | Dokumentacja firmy Microsoft"
+title: "Tożsamość hybrydowym — wymagania dotyczące ochrony danych Azure | Dokumentacja firmy Microsoft"
 description: "Podczas planowania rozwiązania z tożsamością hybrydową, określenie wymagań dotyczących ochrony danych firmy i które opcje są dostępne do najlepiej spełnia te wymagania."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planowanie wzmocnienia bezpieczeństwa danych za pośrednictwem rozwiązania silnej tożsamości
 Pierwszy krok w celu ochrony danych jest określenie, kto ma dostęp do danych i w ramach tego procesu, musisz mieć tożsamości rozwiązania, które można integruje się z systemu w celu zapewnienia funkcji uwierzytelniania i autoryzacji. Uwierzytelnianie i autoryzacja są często pomylić ze sobą i ich role błędnie interpretowane. W rzeczywistości różnią się one dość, jak pokazano na poniższej ilustracji:
@@ -79,7 +80,7 @@ Wymagania dotyczące zgodności z przepisami, ustawowe i wykonawcze różny w za
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
  [Określenie wymagań dotyczących zarządzania zawartością](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Zobacz też

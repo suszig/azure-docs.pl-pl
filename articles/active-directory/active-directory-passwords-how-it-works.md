@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Samoobsługowe Resetowanie w usłudze Azure AD nowości haseł
 
@@ -153,7 +153,7 @@ Wszystkie wstępnie zdefiniowanych pytania, na które należy wykonać są zloka
 * Kim chciałeś/chciałaś zostać w dzieciństwie, gdy dorośniesz?
 * Jak się nazywa najpopularniejsza poznana przez Ciebie osoba?
 
-### <a name="custom-security-questions"></a>Niestandardowe pytania zabezpieczające
+### <a name="custom-security-questions"></a>Pytania zabezpieczające niestandardowych
 
 Pytania zabezpieczające niestandardowe nie są zlokalizowane dla różnych ustawień regionalnych. Wszystkie pytania niestandardowe są wyświetlane w tym samym języku wprowadzoną w interfejsie użytkownika administracyjnego, nawet jeśli ustawienia regionalne przeglądarki użytkownika jest inna. Jeśli potrzebujesz zlokalizowanych pytania należy używać wstępnie zdefiniowanych pytań.
 
@@ -205,7 +205,7 @@ Jeśli ta opcja jest ustawiona na **tak**, następnie *wszystkich administrator�
 
 Przykład: Istnieją cztery Administratorzy w środowisku. Administrator A Resetuje hasła przy użyciu funkcji SSPR. Administratorzy B, C i D otrzymywać wiadomości e-mail, które alerty ich resetowania hasła.
 
-## <a name="on-premises-integration"></a>Integracja lokalna
+## <a name="on-premises-integration"></a>Integracja z lokalnymi
 
 Jeśli musisz zainstalować, skonfigurować i włączyć Azure AD Connect, masz następujące dodatkowe opcje integracji z lokalnymi. Jeśli te opcje są wygaszone, następnie zapisywania zwrotnego nie został poprawnie skonfigurowany. Aby uzyskać więcej informacji, zobacz [Konfigurowanie funkcji zapisywania zwrotnego haseł](active-directory-passwords-writeback.md#configure-password-writeback).
 
@@ -246,7 +246,7 @@ Do przetestowania tego scenariusza, przejdź do http://passwordreset.microsofton
 > [!NOTE]
 > Konta Microsoft, którym udzielono dostępu dla gości do dzierżawy usługi Azure AD, takich jak Hotmail.com, Outlook.com lub innych osobistych adresów e-mail, nie będą mogli używać usługi Azure AD SSPR. Potrzebuje do zresetowania swojego hasła, korzystając z informacji zamieszczonych w [po nie logowania się do konta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artykułu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Poniższe artykuły zawierają dodatkowe informacje dotyczące resetowania haseł za pomocą usługi Azure AD:
 

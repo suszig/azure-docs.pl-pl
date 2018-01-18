@@ -6,19 +6,18 @@ documentationcenter:
 author: brjohnstmsft
 manager: pablocas
 editor: 
-ms.assetid: 0458053a-164e-4682-a802-00097ecde981
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Wersje interfejsu API w usłudze Azure Search
 Usługa Azure Search regularnie zbiera i wydaje aktualizacje funkcji. Czasami, ale nie zawsze te aktualizacje wymagają firmie Microsoft w celu publikowania nowej wersji interfejsach API w celu zachowania zgodności z poprzednimi wersjami. Opublikowanie nowych wersji umożliwia określenie, kiedy i jak integrować aktualizacje usługi wyszukiwania w kodzie.
@@ -39,7 +38,7 @@ Poniżej jest migawkę bieżącej wersji wszystkich interfejsów programowania d
 | [Wersja zapoznawcza zestawu SDK .NET](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Podgląd wydane 2017 maja |
 | [Interfejs API REST usługi](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Ogólnie dostępna |
 | [Podgląd interfejsu API REST usługi](search-api-2016-09-01-preview.md) |2016-09-01-preview |Wersja zapoznawcza |
-| [Zarządzanie .NET SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Ogólnie dostępna |
+| [Zarządzanie .NET SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Ogólnie dostępna |
 | [Interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Ogólnie dostępna |
 
 Dla interfejsów API REST, w tym `api-version` na każde wywołanie jest wymagane. Dzięki temu można łatwo pod kątem określonej wersji, np. interfejsu API w wersji zapoznawczej. Poniższy przykład przedstawia sposób `api-version` określony parametr:

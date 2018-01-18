@@ -1,5 +1,5 @@
 ---
-title: "Tożsamość hybrydowa w usłudze Azure Active Directory zagadnienia dotyczące projektowania - Określ zadań zarządzania tożsamościami hybrydowe | Dokumentacja firmy Microsoft"
+title: "Zadania zarządzania projektowania tożsamości hybrydowej - Azure | Dokumentacja firmy Microsoft"
 description: "Z kontroli dostępu warunkowego usługi Azure Active Directory sprawdza określonych warunków, można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji. Gdy te warunki są spełnione, użytkownik jest uwierzytelniony i zezwolenie na dostęp do aplikacji."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan cyklu życia tożsamości hybrydowej
 Tożsamość jest jednym z kluczowych enterprise mobility i stosowania strategii dostępu. Czy są zalogować się do Twojego urządzenia przenośnego lub aplikacji SaaS, tożsamości jest klucz do uzyskania dostępu do wszystkich składników. Na najwyższym poziomie rozwiązania do zarządzania tożsamościami obejmuje połączenie i synchronizacja między repozytoriami tożsamości, co obejmuje automatyzacji i scentralizowany proces inicjowania obsługi administracyjnej zasobów. Rozwiązanie tożsamości powinny być scentralizowane tożsamości w ramach lokalnej i w chmurze i również formularz niektórych federacji tożsamości Obsługa scentralizowane uwierzytelnianie i bezpiecznie udostępnić i współpracę z użytkowników zewnętrznych i firm. Zasoby należeć do zakresu od systemów operacyjnych i aplikacji do osób w lub powiązane z organizacji. Struktura organizacyjna może się zmienić do inicjowania obsługi zasad i procedur.

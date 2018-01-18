@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-is"></a>jest sfctl
 Zapytania i wysyłać polecenia do usługi infrastruktury.
@@ -41,7 +41,7 @@ W przypadku klastrów ma co najmniej jedno wystąpienie usługi infrastruktury s
 |Argument|Opis|
 | --- | --- |
 | — polecenie [wymagane]| Tekst polecenia do wywołania. Zawartość polecenia jest specyficzne dla infrastruktury.  Wartość domyślna: to polecenie.|
-| — Identyfikator usługi     | Tożsamość usługi infrastruktury. Jest to pełna nazwa usługi infrastruktury bez "fabric:" schemat identyfikatora URI. Ten parametr jest wymagany tylko w przypadku klastrów, które mają więcej niż jedno wystąpienie usługi infrastruktury uruchomiona.|
+| --service-id     | Tożsamość usługi infrastruktury. Jest to pełna nazwa usługi infrastruktury bez "fabric:" schemat identyfikatora URI. Ten parametr jest wymagany tylko w przypadku klastrów, które mają więcej niż jedno wystąpienie usługi infrastruktury uruchomiona.|
 | limit czasu — -t     | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -64,7 +64,7 @@ W przypadku klastrów ma co najmniej jedno wystąpienie usługi infrastruktury s
 |Argument|Opis|
 | --- | --- |
 | — polecenie [wymagane]| Tekst polecenia do wywołania. Zawartość polecenia jest specyficzne dla infrastruktury.  Wartość domyślna: jest kwerenda.|
-| — Identyfikator usługi     | Tożsamość usługi infrastruktury. Jest to pełna nazwa usługi infrastruktury bez "fabric:" schemat identyfikatora URI. Ten parametr jest wymagany tylko w przypadku klastrów, które mają więcej niż jedno wystąpienie usługi infrastruktury uruchomiona.|
+| --service-id     | Tożsamość usługi infrastruktury. Jest to pełna nazwa usługi infrastruktury bez "fabric:" schemat identyfikatora URI. Ten parametr jest wymagany tylko w przypadku klastrów, które mają więcej niż jedno wystąpienie usługi infrastruktury uruchomiona.|
 | limit czasu — -t     | W sekundach limit czasu serwera.  Domyślnie: 60.|
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -77,6 +77,6 @@ W przypadku klastrów ma co najmniej jedno wystąpienie usługi infrastruktury s
 | — zapytania          | Ciąg zapytania JMESPath. Aby uzyskać więcej informacji zobacz http://jmespath.org/.|
 | -verbose        | Zwiększ poziom szczegółowości rejestrowania. Użycie--debugowania dla dzienników debugowania pełna.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Konfigurowanie](service-fabric-cli.md) interfejsu wiersza polecenia usługi sieci szkieletowej.
 - Dowiedz się, jak używać przy użyciu interfejsu wiersza polecenia usługi sieć szkieletowa [przykładowe skrypty](/azure/service-fabric/scripts/sfctl-upgrade-application).
