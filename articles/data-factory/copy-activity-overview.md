@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w fabryce danych Azure
 
@@ -138,7 +138,7 @@ Następujący szablon działania kopiowania zawiera stanowi wyczerpującej listy
 | typeProperties | Grupa właściwości, aby skonfigurować działanie Kopiuj. | Yes |
 | źródło | Określ typ źródła kopiowania i odpowiednie właściwości na temat pobierania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Yes |
 | obiekt sink | Określ typ ujścia kopiowania i odpowiednie właściwości na temat zapisywania danych.<br/><br/>Dowiedz się więcej szczegółów w sekcji "Kopiuj właściwości działania" w artykule łącznika na liście [obsługiwane formaty i magazyny danych](#supported-data-stores-and-formats). | Yes |
-| Translator | Określ mapowania kolumn jawne ze źródła do zbiornika. Ma zastosowanie, gdy domyślne zachowanie kopiowania nie może spełnić potrzeby.<br/><br/>Dowiedz się więcej szczegółów z [schemat i dane mapowania typu](copy-activity-schema-and-type-mapping.md). | Nie |
+| translator | Określ mapowania kolumn jawne ze źródła do zbiornika. Ma zastosowanie, gdy domyślne zachowanie kopiowania nie może spełnić potrzeby.<br/><br/>Dowiedz się więcej szczegółów z [schemat i dane mapowania typu](copy-activity-schema-and-type-mapping.md). | Nie |
 | cloudDataMovementUnits | Określ powerfulness z [środowiska uruchomieniowego integracji Azure](concepts-integration-runtime.md) upoważnienie kopię danych.<br/><br/>Dowiedz się więcej szczegółów z [jednostki przepływu danych w chmurze](copy-activity-performance.md). | Nie |
 | parallelCopies | Określanie równoległości interesujące Kopiuj działania do użycia podczas odczytu danych z źródła i zapisywania danych do zbiornika.<br/><br/>Dowiedz się więcej szczegółów z [równoległych kopii](copy-activity-performance.md#parallel-copy). | Nie |
 | enableStaging<br/>stagingSettings | Wybierz etap przejściowy danych w magazynie obiektów blob aa zamiast bezpośrednio kopii danych ze źródła do zbiornika.<br/><br/>Poznaj przydatne w scenariuszach i szczegóły konfiguracji z [przemieszczane kopiowania](copy-activity-performance.md#staged-copy). | Nie |
@@ -146,38 +146,80 @@ Następujący szablon działania kopiowania zawiera stanowi wyczerpującej listy
 
 ## <a name="monitoring"></a>Monitorowanie
 
-Szczegóły wykonywania działania kopiowania i charakterystyki wydajności są zwracane w przypadku działania kopiowania wynik uruchomienia -> sekcji danych wyjściowych. Poniżej znajduje się lista wyczerpana. Dowiedz się, jak monitorować działania Uruchom z [szybkiego startu w sekcji monitorowanie](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Możesz porównać wydajności i konfiguracji scenariusz działania kopiowania [dotyczące wydajności](copy-activity-performance.md#performance-reference) z testów wewnętrznych.
+Można monitorować działanie kopiowania Uruchom fabryki danych Azure "Autor & Monitor" w interfejsie użytkownika lub programowo. Możesz następnie porównać wydajności i konfiguracji scenariusz działania kopiowania [dotyczące wydajności](copy-activity-performance.md#performance-reference) z testów wewnętrznych.
+
+### <a name="monitor-visually"></a>Monitorowanie wizualne
+
+Aby wizualnie monitorować uruchamiania działania kopiowania, przejdź do fabrykę danych -> **autora & Monitor** -> **kartę Monitor**, zobaczysz listę potoku jest uruchamiany w łącze"Uruchamiadziałaniewidoku" **Akcje** kolumny. 
+
+![Uruchamia Monitor potoku](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Kliknij, aby wyświetlić listę działań w tym przebiegu potoku. W **akcje** kolumny, masz łącza do danych wejściowych działania kopiowania, dane wyjściowe, błędy (w przypadku uruchamiania działania kopiowania nie powiedzie się) i szczegóły.
+
+![Monitor uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Kliknij przycisk "**szczegóły**" łącze w obszarze **akcje** aby zobaczyć szczegóły wykonywania działania kopiowania i charakterystyki wydajności. Przedstawia informacje o tym: ilość danych skopiowana ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i używany dla danego scenariusza kopii konfiguracji.
+
+**Przykład: kopiowanie z Amazon S3 do usługi Azure Data Lake Store**
+![szczegóły uruchomienia działania monitorowania](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Przykład: kopiowanie z bazy danych SQL Azure przy użyciu usługi Azure SQL Data Warehouse przemieszczane kopiowania**
+![szczegóły uruchomienia działania monitorowania](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Monitorowanie programowo
+
+Szczegóły wykonywania działania kopiowania i charakterystyki wydajności także zwracany w przypadku działania kopiowania wynik uruchomienia -> sekcji danych wyjściowych. Poniżej znajduje się kompletnej; zostaną wyświetlone tylko te odpowiednie do realizowanego scenariusza kopiowania. Dowiedz się, jak monitorować działania Uruchom z [szybkiego startu w sekcji monitorowanie](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nazwa właściwości  | Opis | Jednostka |
 |:--- |:--- |:--- |
-| DataRead | Rozmiar danych ze źródła do odczytu | Wartość Int64 w bajtach |
-| DataWritten | Rozmiar danych zapisywane do zbiornika | Wartość Int64 w bajtach |
+| DataRead | Rozmiar danych ze źródła do odczytu | Wartość Int64 w **bajtów** |
+| DataWritten | Rozmiar danych zapisywane do zbiornika | Wartość Int64 w **bajtów** |
+| filesRead | Liczba plików kopiowanych podczas kopiowania danych z magazynu plików. | Wartości Int64 (Brak jednostki) |
+| filesWritten | Liczba plików kopiowanych podczas kopiowania danych do magazynu plików. | Wartości Int64 (Brak jednostki) |
 | rowsCopied | Liczba wierszy kopiowane (nie dotyczy binarne kopii). | Wartości Int64 (Brak jednostki) |
 | rowsSkipped | Liczba wierszy niezgodne pomijany. Można włączyć funkcję przez zestaw "enableSkipIncompatibleRow" na wartość true. | Wartości Int64 (Brak jednostki) |
-| Przepływność | Współczynnik szybkości transferu danych | Liczba zmiennoprzecinkowa w KB/s |
+| Przepływność | Współczynnik szybkości transferu danych | Liczba w zmiennoprzecinkowa **KB/s** |
 | copyDuration | Czas trwania kopii | Wartość Int32 w sekundach |
 | sqlDwPolyBase | Jeśli program PolyBase jest używany podczas kopiowania danych do usługi SQL Data Warehouse. | Wartość logiczna |
 | redshiftUnload | Jeśli zwolnienie jest używany podczas kopiowania danych z Redshift. | Wartość logiczna |
 | hdfsDistcp | Jeśli narzędzia DistCp jest używany podczas kopiowania danych z systemu plików HDFS. | Wartość logiczna |
 | effectiveIntegrationRuntime | Pokaż Runtime(s) integracji używanego do uruchamiania w formacie działania pozwalają `<IR name> (<region if it's Azure IR>)`. | Tekst (ciąg) |
 | usedCloudDataMovementUnits | Skuteczne chmury jednostki przepływu danych podczas kopiowania. | Wartość Int32 |
+| usedParallelCopies | Skuteczne parallelCopies podczas kopiowania. | Wartość Int32|
 | redirectRowPath | Ścieżka do dziennika pominiętych wierszy niezgodne w magazynie obiektów blob, należy skonfigurować w obszarze "redirectIncompatibleRowSettings". Zobacz w poniższym przykładzie. | Tekst (ciąg) |
-| billedDuration | Czas trwania opłaty są naliczane za przenoszenia danych. | Wartość Int32 w sekundach |
+| executionDetails | Więcej informacji na temat etapów działania kopiowania przechodzi przez, i odpowiadające jej kroki, czas trwania, konfiguracje używane,... itd. Nie zaleca się przeanalizować w tej sekcji, ponieważ mogą ulec zmianie. | Tablica |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 

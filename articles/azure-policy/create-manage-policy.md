@@ -5,19 +5,19 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Tworzenie i zarządzanie zasadami, by wymuszał zgodność
 
-Opis sposobu tworzenia i zarządzania zasadami w usłudze Azure jest ważne dla pozostaje zgodne ze standardami firmy, a umów dotyczących poziomu usług. W tym samouczku nauczysz za pomocą zasad usługi Azure wykonywać niektórych bardziej popularne zadania związane z tworzenia, przypisywania i zarządzania zasadami w organizacji, takich jak:
+Opis sposobu tworzenia i zarządzania zasadami w usłudze Azure jest ważne dla pozostaje zgodne ze standardami firmy, a umów dotyczących poziomu usług. W tym samouczku informacje za pomocą zasad usługi Azure wykonywać niektórych bardziej popularne zadania związane z tworzenia, przypisywania i zarządzania zasadami w organizacji, takich jak:
 
 > [!div class="checklist"]
 > * Przypisanie zasad, aby wymusić warunek dla zasobów tworzonych w przyszłości
@@ -25,11 +25,11 @@ Opis sposobu tworzenia i zarządzania zasadami w usłudze Azure jest ważne dla 
 > * Rozwiąż niezgodnych lub odmówiono zasobu
 > * Wdrożenie nowych zasad w organizacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Jeśli chcesz przypisać zasady, aby zidentyfikować bieżący stan zgodności z istniejącymi zasobami, artykuły szybkiego startu przekazywane jak to zrobić. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="assign-a-policy"></a>Przypisać zasady
 
-Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać definicji zasad. Definiuje definicję zasad w obszarze jakie warunek, a zasady są wymuszane i jaka akcja ma być. W tym przykładzie mamy przypisać definicję wbudowanych zasad o nazwie *wymagają programu SQL Server wersji 12.0*, aby wymusić warunku, że wszystkie bazy danych programu SQL Server musi być v12.0, aby było zgodne.
+Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać definicji zasad. Definiuje definicję zasad w obszarze jakie warunek, a zasady są wymuszane i jaka akcja ma być. W tym przykładzie należy przypisać definicję wbudowanych zasad o nazwie *wymagają programu SQL Server wersji 12.0*, aby wymusić warunku, że wszystkie bazy danych programu SQL Server musi być v12.0, aby było zgodne.
 
 1. Uruchom usługę Azure zasad w portalu Azure wyszukiwanie i wybierając **zasad** w okienku po lewej stronie.
 
@@ -40,28 +40,29 @@ Pierwszym etapem Wymuszanie zgodności z zasadami Azure jest można przypisać d
 
    ![Przypisywanie definicji zasad](media/create-manage-policy/select-assign-policy.png)
 
-4. Na stronie **Przypisz zasady** kliknij ![przycisk definicji zasad](media/assign-policy-definition/definitions-button.png) obok pola **Zasady**, aby otworzyć listę dostępnych definicji.
+4. Na stronie **Przypisz zasady** kliknij ![przycisk definicji zasad](media/assign-policy-definition/definitions-button.png) obok pola **Zasady**, aby otworzyć listę dostępnych definicji. Można filtrować definicji zasad **typu** do *wbudowane* do wyświetlania wszystkich i ich opisy.
 
    ![Otwieranie dostępnych definicji zasad](media/create-manage-policy/open-policy-definitions.png)
 
-5. Wybierz **wymagają programu SQL Server w wersji 12.0**.
+5. Wybierz **wymagają programu SQL Server w wersji 12.0**. Jeśli nie można znaleźć go od razu, wpisz **wymagają programu SQL Server wersji 12.0** w polu wyszukiwania, a następnie naciśnij klawisz ENTER.
 
    ![Zlokalizuj zasady](media/create-manage-policy/select-available-definition.png)
 
-6. Określ właściwość **Nazwa** przypisania zasad. W takim przypadku można użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
+6. Wyświetlone **nazwa** zostanie wypełnione automatycznie, ale można ją zmienić. Na przykład użyć *wymagają programu SQL Server 12.0*. Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące sposobu przypisania zasad zapewnia wszystkie serwery SQL utworzone w tym środowisku są wersji 12.0.
+
 7. Zmień warstwę cenową na **Standardowa**, aby upewnić się, że zasady zostaną zastosowane do istniejących zasobów.
 
-   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Usługa jest nadal dostępna w ograniczonej wersji zapoznawczej, dlatego nie wprowadziliśmy jeszcze modelu cenowego, w związku z czym nie otrzymasz rachunku za wybranie warstwy *Standardowa*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+   W ramach usługi Azure Policy dostępne są dwie warstwy cenowe — *Bezpłatna* i *Standardowa*. W warstwie Bezpłatna można wprowadzać zasady tylko dla przyszłych zasobów, podczas gdy w warstwie Standardowa można stosować je także do istniejących zasobów, co zapewnia lepsze zrozumienie stanu zgodności z przepisami. Ponieważ zasady Azure jest w wersji zapoznawczej, nie ma jeszcze zwolnione modelu cenowego, więc nie otrzymają rachunek za wybranie *standardowe*. Aby dowiedzieć się więcej o cenach, zobacz: [Cennik usługi Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Wybierz **zakres** -subskrypcji (lub grupy zasobów) został wcześniej zarejestrowany. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Może obejmować zarówno subskrypcje, jak i grupy zasobów.
 
-   W tym przykładzie używamy tej subskrypcji - **Azure Analytics pojemności deweloperów**. Subskrypcji będą się różnić.
+   W tym przykładzie użyto **Azure Analytics pojemności deweloperów** subskrypcji. Subskrypcji będą się różnić.
 
 10. Wybierz opcję **Przypisz**.
 
 ## <a name="implement-a-new-custom-policy"></a>Wdrożenie nowych zasad niestandardowych
 
-Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w celu ograniczenia kosztów przez zapewnienie im, które maszyny wirtualne utworzone w całym środowisku nie może być w serii G. W ten sposób za każdym razem, gdy użytkownik w Twojej organizacji próbuje utworzyć maszynę Wirtualną w serii G, żądanie zostanie uzyskać odrzucone.
+Teraz, przypisane definicję wbudowanych zasad, można nie z zasadami usługi Azure. Następnie utwórz nowe zasady niestandardowe w celu ograniczenia kosztów przez zapewnienie im, które maszyny wirtualne utworzone w danym środowisku nie może być w serii G. Dzięki temu za każdym razem, gdy użytkownik w organizacji próbuje utworzyć maszynę Wirtualną w serii G żądanie zostanie odrzucone.
 
 1. Wybierz **definicji** w obszarze **tworzenie** w okienku po lewej stronie.
 
@@ -72,7 +73,8 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
 
    - Nazwa definicji zasad - *wymagają wirtualna jednostki SKU mniejszy niż serii G*
    - Opis definicji zasad ma na celu — tej definicji zasad wymusza, że wszystkie maszyny wirtualne utworzone w tym zakresie mają jednostki SKU mniejszy niż serii G będzie zmniejszenie kosztów.
-   - Subskrypcji, w którym definicji zasad będzie funkcjonować — w takim przypadku naszej definicji zasad będzie funkcjonować **Advisor Analytics pojemności deweloperów**. Listy subskrypcji będą się różnić.
+   - Subskrypcja, w której znajduje się definicja zasad. W takim przypadku znajduje się w definicji zasad **Advisor Analytics pojemności deweloperów**. Listy subskrypcji będą się różnić.
+   - Wybierz z istniejących opcji lub Utwórz nową kategorię dla tej definicji zasad.
    - Skopiuj poniższy kod json, a następnie zaktualizuj go do potrzeb z:
       - Parametry zasad.
       - Zasady reguły/warunków, w tym przypadku — równa serii G rozmiar jednostki SKU maszyny Wirtualnej
@@ -102,7 +104,9 @@ Teraz, możemy przypisane definicji zasad, zamierzamy utworzyć nowe zasady w ce
 }
     ```
 
-    Aby wyświetlić przykłady kodu json, przeczytaj [szablony zasad Azure](json-samples.md) artykułu.
+    Wartość *właściwości pola* w zasadach reguła musi być jedną z następujących: nazwa, typ, lokalizacji, tagi lub aliasu. Na przykład `"Microsoft.Compute/VirtualMachines/Size"`.
+
+    Aby wyświetlić więcej przykładów kodu json, przeczytaj [szablony zasad Azure](json-samples.md) artykułu.
 
 4. Wybierz pozycję **Zapisz**.
 
@@ -333,11 +337,11 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
 2. Wybierz **definicji inicjatywy** w górnej części strony, wybranie tej opcji powoduje przejście do **definicji inicjatywy** formularza.
 3. Wprowadź nazwę i opis tej inicjatywy.
 
-   W tym przykładzie chcemy zapewnić, że zasoby są z aktualizacjami definicji zasad uzyskiwanie bezpiecznego, nazwą tej inicjatywy będzie **uzyskać bezpieczny**, oraz opis byłoby: **został tej inicjatywy utworzone w celu obsługi wszystkie definicje zasady skojarzone z zabezpieczanie zasobów**.
+   W tym przykładzie upewnij się, że zasoby są zgodne z definicji zasad dotyczących uzyskiwania bezpiecznego. Tak, nazwą tej inicjatywy będzie **uzyskać bezpieczny**, oraz opis byłoby: **tej inicjatywy został utworzony w celu obsługi wszystkie definicje zasady skojarzone z zabezpieczanie zasobów**.
 
    ![Definicja inicjatywy](media/create-manage-policy/initiative-definition.png)
 
-4. Przejrzyj listę **dostępnych definicji** i wybierz definicje zasad, które chcesz dodać do tej inicjatywy. Dla naszych **uzyskać bezpieczny** inicjatywy, Dodaj następujące wbudowane definicje zasad:
+4. Przejrzyj listę **dostępnych definicji** i wybierz definicje zasad, które chcesz dodać do tej inicjatywy. Dla naszych **uzyskać bezpieczny** inicjatywy **Dodaj** następujące wbudowane definicje zasad:
    - Wymaga programu SQL Server w wersji 12.0
    - Monitorowanie aplikacji sieci web niechronione w Centrum zabezpieczeń.
    - Monitor ograniczająca sieci w w Centrum zabezpieczeń.
@@ -346,9 +350,9 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
 
    ![Definicje inicjatywy](media/create-manage-policy/initiative-definition-2.png)
 
-   Po wybraniu definicje zasad z listy zobaczysz go w obszarze **zasad i parametry**, jak pokazano powyżej.
+   Po wybraniu definicje zasad na liście widać w obszarze **zasad i parametry**, jak pokazano na powyższej ilustracji.
 
-5. Wybierz pozycję **Utwórz**.
+5. Użyj **lokalizacji definicji** wybrać subskrypcję do przechowywania definicji. Wybierz pozycję **Zapisz**.
 
 ### <a name="assign-an-initiative-definition"></a>Przypisz inicjatywy definicji
 
@@ -358,27 +362,27 @@ Z inicjatywy definicji można grupować kilka definicje zasad jednego celu nadrz
 
    ![Przypisz definicji](media/create-manage-policy/assign-definition.png)
 
-4. Wypełnianie **przypisania** formularza, wpisując:
+4. Wypełnianie **przypisania** formularz, wprowadzając następujące informacje w przykładzie. Można użyć własnych informacji.
    - Nazwa: Pobierz bezpieczny przypisania
-   - Opis: inicjatywy przypisania jest dostosowane do wymuszania tej grupy definicji zasad w **Azure Advisor pojemności deweloperów** subskrypcji
+   - Opis: Ten przydział inicjatywy dostosowane do wymuszania tej grupy definicji zasad w **Azure Advisor pojemności deweloperów** subskrypcji.
    - Warstwa cenowa: standardowy
-   - zakres, które chcesz zastosować do przypisania: **deweloperów pojemności Advisor Azure**
+   - Zakres, w której chcesz zastosować do przypisania: **Azure Advisor pojemności deweloperów**. Można wybrać własne grupy subskrypcji i zasobu.
 
 5. Wybierz opcję **Przypisz**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Rozwiąż niezgodnych lub odmówiono zasobu
 
-Następujący przykład powyżej, po przypisaniu do wymagają programu SQL server w wersji 12.0 definicji zasad utworzonych za pomocą innej wersji programu SQL server może pobrać odmowa. W tej sekcji możemy Cię Instruktaż rozpoznawania odmowy próba utworzenia programu SQL server w innej wersji przez zażądanie wykluczenie.
+Następujący przykład powyżej, po przypisaniu do wymagają programu SQL server w wersji 12.0 definicji zasad utworzonych za pomocą innej wersji programu SQL server może pobrać odmowa. W tej sekcji opisano za pośrednictwem rozwiązania odmowy próba utworzenia programu SQL server w innej wersji przez zażądanie wykluczenie. Wyłączenie zapobiega zasadniczo wymuszanie zasad. Wykluczenie można zastosować do grupy zasobów, lub można zawęzić wykluczenia dla pojedynczych zasobów.
 
 1. Wybierz pozycję **Przypisania** w lewym okienku.
-2. Przeglądaj wszystkie przypisania zasady, a następnie uruchom *wymagają programu SQL Server 12.0* przypisania.
-3. Żądanie wykluczenie dla grupy zasobów, w których chcesz utworzyć program SQL server. W tym przypadku są bez Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* i *baconandbeer/Chorizo*.
+2. Przeglądaj wszystkie przypisania zasady i Otwórz *wymagają programu SQL Server 12.0* przypisania.
+3. **Wybierz** wykluczenie dla zasobów w grupach zasobów, w którym chcesz utworzyć programu SQL server. W tym przykładzie należy wykluczyć Microsoft.Sql/servers/databases: *programu azuremetrictest/testdb* i *azuremetrictest/testdb2*.
 
    ![Żądanie wykluczeń](media/create-manage-policy/request-exclusion.png)
 
    Inne metody można rozpoznać odmowy zasobu to: osiągnięcia do kontaktu skojarzonych z zasadami, jeśli masz silne uzasadnienie konieczności utworzone w programie SQL server i bezpośredniego edytowania zasad, jeśli użytkownik ma dostęp do.
 
-4. Wybierz pozycję **Zapisz**.
+4. Kliknij przycisk **przypisać**.
 
 W tej sekcji możesz rozwiązać odmowa próby utworzenia programu SQL server w wersji 12.0, żądając wykluczenie do zasobów.
 

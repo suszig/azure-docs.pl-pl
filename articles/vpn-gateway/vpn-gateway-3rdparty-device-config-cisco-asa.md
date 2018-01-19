@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: Cisco ASA urządzenia (BGP IKEv2/nie)
 W tym artykule przedstawiono przykładowe konfiguracje dla urządzenia firmy Cisco adaptacyjną zabezpieczeń urządzenia (ASA) do bram sieci VPN platformy Azure. Przykład dotyczy urządzenia Cisco ASA, które działają IKEv2 bez protokołu BGP (Border Gateway). 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono przykładowe konfiguracje dla urządzenia firmy Cis
 | Dostawca urządzenia          | Cisco                             |
 | Model urządzenia           | ASA                               |
 | Wersja docelowa         | 8.4 i nowsze                     |
-| Przetestowany modelu           | 5505 ASA                          |
+| Przetestowany modelu           | ASA 5505                          |
 | Wersja przetestowany         | 9.2                               |
 | Wersja IKE            | IKEv2                             |
 | BGP                    | Nie                                |
@@ -60,7 +60,7 @@ Aby uzyskać instrukcje krok po kroku do tworzenia konfiguracji platformy Azure,
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Sieć wirtualna i informacji dotyczących bramy sieci VPN
 W tej sekcji opisano parametry przykładowej.
 
-| **Parametr**                | **Wartość**                    |
+| **Parameter**                | **Wartość**                    |
 | ---                          | ---                          |
 | Prefiksy adresów sieci wirtualnej        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Adres IP bramy sieci VPN platformy Azure         | Azure_Gateway_Public_IP      |
@@ -98,10 +98,7 @@ W poniższej tabeli wymieniono Algorytmy IPsec i IKE i parametrów, które są u
 
 * Obsługa grupa DH i Grupa PFS poza grupy 5 wymaga wersji ASA 9.x.
 
-* Obsługa szyfrowania IPsec z usługą GCM AES i integralności IPsec z algorytmu SHA-256, SHA-384 i SHA-512, wymaga wersji ASA 9.x. To wymaganie Obsługa dotyczy nowych urządzeń ASA.
-
-    > [!NOTE]
-    > Modele urządzeń ASA 5505, 5510 5520, 5540, 5550 i 5580 nie są obsługiwane. Zapoznaj się ze specyfikacją urządzenia sieci VPN można zweryfikować algorytmy, które są obsługiwane w przypadku modeli urządzenia sieci VPN i wersji oprogramowania układowego.
+* Obsługa szyfrowania IPsec z usługą GCM AES i integralności IPsec z algorytmu SHA-256, SHA-384 i SHA-512, wymaga wersji ASA 9.x. To wymaganie Obsługa dotyczy nowych urządzeń ASA. W momencie publikacji modeli ASA 5505, 5510 5520, 5540, 5550 i 5580 nie obsługują te algorytmy. Zapoznaj się ze specyfikacją urządzenia sieci VPN można zweryfikować algorytmy, które są obsługiwane w przypadku modeli urządzenia sieci VPN i wersji oprogramowania układowego.
 
 
 ### <a name="sample-device-configuration"></a>Przykładowa konfiguracja urządzenia
@@ -310,5 +307,5 @@ Użyj następujących poleceń ASA na potrzeby debugowania:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby skonfigurować połączenia do wirtualnymi i między różnymi lokalizacjami aktywny aktywny, zobacz [konfigurowania bramy sieci VPN aktywny aktywny](vpn-gateway-activeactive-rm-powershell.md).

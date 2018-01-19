@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Użyj zestawu SDK programu .net do zainicjowania transformacji danych
 
@@ -79,7 +79,7 @@ Wykonaj poniższe kroki, aby użyć .NET w celu uruchomienia zadania przekształ
 
         ![Utwórz projekt 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Teraz Dodaj wszystkie biblioteki dll w [folder biblioteki dll](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) jako **odwołania** w projekcie, który został utworzony. Aby pobrać pliki dll, wykonaj następujące czynności:
+4.  Teraz Dodaj wszystkie biblioteki dll w [folder biblioteki dll](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) jako **odwołania** w projekcie, który został utworzony. Aby dodać pliki dll, wykonaj następujące czynności:
 
     1. W programie Visual Studio, przejdź do **Widok > Eksploratora rozwiązań**.
     2. Kliknij strzałkę w lewo projektu aplikacji przekształcania danych. Kliknij przycisk **odwołania** , a następnie kliknij prawym przyciskiem myszy, aby **Dodaj odwołanie**.
@@ -117,19 +117,14 @@ Wykonaj poniższe kroki, aby użyć .NET w celu uruchomienia zadania przekształ
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Po wklejeniu kodu, Skompiluj rozwiązanie. Poniżej przedstawiono zrzut ekranu fragmentu kodu, aby zainicjować wystąpienia zadania przekształcania danych.
-
-   ![Fragment kodu zainicjować zadania przekształcania danych](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Określ parametry, z których trzeba uruchomić definicji zadania
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -159,7 +154,6 @@ Wykonaj poniższe kroki, aby użyć .NET w celu uruchomienia zadania przekształ
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Po zainicjowaniu Dodaj następujący kod do wyzwalania zadania przekształcania danych w definicji zadania. Podłącz odpowiednie **Nazwa definicji zadania**.
@@ -169,12 +163,17 @@ Wykonaj poniższe kroki, aby użyć .NET w celu uruchomienia zadania przekształ
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Po wklejeniu kodu, Skompiluj rozwiązanie. Poniżej przedstawiono zrzut ekranu fragmentu kodu, aby zainicjować wystąpienia zadania przekształcania danych.
 
-9. To zadanie będzie przekazywać pasujących plików istnieje w katalogu głównym woluminu StorSimple do określonego kontenera. Po przekazaniu pliku wiadomości zostało porzucone z taką samą nazwę jak definicji zadania w kolejce (w tym samym koncie magazynu jako kontener). Ten komunikat może służyć jako wyzwalacz zainicjować dalszego przetwarzania pliku.
+   ![Fragment kodu zainicjować zadania przekształcania danych](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Po wyzwoleniu zadania Dodaj następujący kod, aby śledzić zadania do wykonania.
+9. To zadanie przekształcenia danych, zgodny z katalogiem głównym i pliku filtrów w obrębie woluminu StorSimple i umieszcza udziału określonego kontenera/pliku. Gdy plik jest przekształcana, komunikat zostanie dodane do kolejki magazynu (w ramach tego samego konta magazynu udziału pliku/kontenera) o nazwie identycznej z nazwą definicji zadania. Ten komunikat może służyć jako wyzwalacz zainicjować dalszego przetwarzania pliku.
+
+10. Po wyzwoleniu zadania można użyć następującego kodu można śledzić zadania do wykonania. Nie jest to konieczne, aby dodać ten kod do uruchomienia zadania.
 
     ```
     Job jobDetails = null;
@@ -200,6 +199,6 @@ Wykonaj poniższe kroki, aby użyć .NET w celu uruchomienia zadania przekształ
 
  ![Pełna fragment kodu do wyzwalania zadania .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Użyj Menedżera danych StorSimple interfejsu użytkownika Służącego do przekształcenia danych](storsimple-data-manager-ui.md).

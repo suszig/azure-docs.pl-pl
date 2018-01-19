@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Zarządzanie przechwytywania pakietów za pomocą Monitora sieci Azure przy użyciu portalu
 
@@ -83,7 +83,7 @@ Właściwości, które mogą być definiowane w przechwytywania pakietów są:
 - **Konto magazynu** — Określa, czy przechwytywania pakietów jest zapisywane na koncie magazynu.
 - **Plik** — Określa, czy przechwytywania pakietów jest zapisywane lokalnie na maszynie wirtualnej.
 - **Konta magazynu** — wybrać konto magazynu, aby zapisać pakiet w. Domyślna lokalizacja to identyfikator name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription konta https://{storage} /resourcegroups/ {Nazwa maszyny name}/providers/microsoft.compute/virtualmachines/{virtual grupy zasobów} / {YY} / {MM} / {DD} / {HH} packetcapture__{MM}_CAP _ {XXX} {SS}. (Włączone, tylko jeśli **magazynu** jest zaznaczone)
-- **Ścieżka do pliku lokalnego** — ścieżka lokalna na maszynie wirtualnej, aby zapisać przechwytywania pakietów. (Włączone, tylko jeśli **pliku** jest zaznaczona). Należy podać prawidłową ścieżkę
+- **Ścieżka do pliku lokalnego** — ścieżka lokalna na maszynie wirtualnej, aby zapisać przechwytywania pakietów. (Włączone, tylko jeśli **pliku** jest zaznaczona). Należy podać prawidłową ścieżkę. Dla maszyny wirtualnej systemu Linux, ścieżka musi rozpoczynać się od */var/przechwytuje*.
 - **Maksymalna liczba bajtów na pakiet** — liczba bajtów z każdego pakietu, które są przechwytywane, wszystkie bajty są przechwytywane, jeśli pole pozostanie puste.
 - **Maksymalna liczba bajtów na sesji** — jest to całkowita liczba bajtów, które są przechwytywane, gdy wartość osiągnięciu zatrzymuje przechwytywania pakietów.
 - **Limit czasu (w sekundach)** -ustawia limit czasu dla przechwytywania pakietów zatrzymać. Domyślna to 18000 sekund.
@@ -134,7 +134,7 @@ Jeśli określono konto magazynu, pliki przechwytywania pakietów są zapisywane
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 

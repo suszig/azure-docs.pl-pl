@@ -42,7 +42,7 @@ Aparat bazy danych programu SQL Server nie może korzystać z uwierzytelniania s
 1. Po nawiązaniu połączenia z maszyną wirtualną wpisz na stronie startowej ciąg **SQL Server Management Studio** i kliknij wybraną ikonę.
    
     Podczas pierwszego uruchomienia program Management Studio musi utworzyć środowisko użytkowników programu Management Studio. Może to potrwać kilka chwil.
-2. Program Management Studio wyświetli okno dialogowe **Łączenie z serwerem**. W polu **Nazwa serwera** wpisz nazwę maszyny wirtualnej, którą chcesz połączyć z silnikiem bazy danych przy użyciu Eksploratora obiektów. Zamiast nazwy maszyny wirtualnej możesz także użyć wartości **(lokalny)** lub jednej kropki jako **Nazwa serwera**. Wybierz pozycję **Uwierzytelnianie systemu Windows**, a w polu **Nazwa użytkownika** pozostaw wartości ***nazwa_maszyny_wirtualnej*\lokalny_administrator**. Kliknij przycisk **Połącz**.
+2. Program Management Studio wyświetli okno dialogowe **Łączenie z serwerem**. W polu **Nazwa serwera** wpisz nazwę maszyny wirtualnej, którą chcesz połączyć z silnikiem bazy danych przy użyciu Eksploratora obiektów. Zamiast nazwy maszyny wirtualnej możesz także użyć wartości **(lokalny)** lub jednej kropki jako **Nazwa serwera**. Wybierz **uwierzytelniania systemu Windows**i pozostawić ***nazwa_maszyny_wirtualnej * \your_local_administrator** w **nazwy użytkownika** pole. Kliknij przycisk **Połącz**.
    
     ![Łączenie z serwerem](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. W Eksploratorze obiektów programu SQL Server Management Studio kliknij prawym przyciskiem myszy nazwę wystąpienia programu SQL Server (nazwę maszyny wirtualnej), a następnie kliknij pozycję **Właściwości**.

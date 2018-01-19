@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -31,7 +31,7 @@ W przeszłości kontenery oferowały zarządzanie zasobami i izolację zależno�
 
 ## <a name="custom-sizes"></a>Rozmiary niestandardowe
 
-Kontenery są przeważnie optymalizowane do uruchamiania tylko jednej aplikacji, ale szczegółowe potrzeby poszczególnych aplikacji mogą się bardzo różnić. W usłudze Azure Container Instances możesz zażądać dokładnie tylu rdzeni procesora CPU i pamięci, ile potrzebujesz. Opłaty są naliczane zgodnie z żądaniami i za sekundę, dlatego można skutecznie zoptymalizować wydatki o oparciu o potrzeby.
+Kontenery są przeważnie optymalizowane do uruchamiania tylko jednej aplikacji, ale szczegółowe potrzeby poszczególnych aplikacji mogą się bardzo różnić. W usłudze Azure Container Instances możesz zażądać dokładnie tylu rdzeni i pamięci, ile potrzebujesz. Opłaty są naliczane zgodnie z żądaniami i za sekundę, dlatego można skutecznie zoptymalizować wydatki o oparciu o potrzeby.
 
 ## <a name="public-ip-connectivity"></a>Łączność przy użyciu publicznych adresów IP
 
@@ -43,7 +43,9 @@ Aby umożliwić pobieranie i utrwalanie stanu przy użyciu usługi Azure Contain
 
 ## <a name="linux-and-windows-containers"></a>Kontenery systemów Linux i Windows
 
-Usługa Azure Container Instances umożliwia planowanie kontenerów systemów Windows i Linux przy użyciu tego samego interfejsu API. Wystarczy wskazać typ podstawowego systemu operacyjnego — wszystkie inne elementy są identyczne.
+Usługa Azure Container Instances umożliwia planowanie kontenerów systemów Windows i Linux przy użyciu tego samego interfejsu API. Podczas tworzenia [grup kontenerów](container-instances-container-groups.md) po prostu określ typ systemu operacyjnego.
+
+Niektóre funkcje są obecnie ograniczone do kontenerów systemu Linux. Podczas gdy pracujemy, aby udostępnić wszystkie funkcje na potrzeby kontenerów systemu Windows, bieżące różnice dotyczące platform możesz znaleźć w temacie [Limity przydziałów i dostępność regionów dla usługi Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Grupy planowane wspólnie
 

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Maszyny wirtualne Azure wdrożenia SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -796,7 +796,7 @@ Dla maszyn wirtualnych, które zostały wdrożone z obrazu systemu operacyjnego,
 
 W przypadku wdrożenia maszyny Wirtualnej z poziomu portalu Azure Marketplace, ten krok nie jest wymagane. Obrazy z portalu Azure Marketplace już agenta maszyny Wirtualnej Azure.
 
-#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Systemu Windows
+#### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
 1.  Pobierz agenta maszyny Wirtualnej platformy Azure:
   1.  Pobierz [pakiet Instalatora agenta maszyny Wirtualnej Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
   2.  Lokalnie przechowywane pakiet MSI agenta maszyny Wirtualnej na serwerze lub komputerze osobistym.
@@ -890,7 +890,7 @@ Aby zainstalować i skonfigurować Azure rozszerzone monitorowanie rozszerzenia 
 Aby zainstalować Azure rozszerzone monitorowanie rozszerzenia dla programu SAP przy użyciu programu PowerShell:
 
 1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet programu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [poleceń cmdlet wdrażania programu Azure PowerShell][deployment-guide-4.1].  
-2. Uruchom następujące polecenie cmdlet programu PowerShell.
+2. Uruchom następujące polecenie programu PowerShell.
     Aby uzyskać listę dostępnych środowisk, należy uruchomić `commandlet Get-AzureRmEnvironment`. Jeśli chcesz używać globalnego platformy Azure, środowisko jest **AzureCloud**. Dla platformy Azure w Chinach, wybierz **AzureChinaCloud**.
 
     ```powershell
@@ -1013,7 +1013,7 @@ Jeśli **stan kondycji** wartość nie jest **OK**, postępuj zgodnie z instrukc
 
    **Oczekiwano wyniku**: zwraca jeden wiersz w przypadku błędu **Brak**, na przykład **3; konfiguracji; Błąd; 0; 0; Brak; 0; 1456416792; tst servercs;**
 
-  c. Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+  d. Uruchom polecenie `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
     **Oczekiwany wynik**: zwraca jako pusta lub nie istnieje.
 
@@ -1045,7 +1045,7 @@ Jeśli poprzednie wyboru zakończyła się niepowodzeniem, uruchom następujące
 
   b.  Uruchom polecenie `dump ccm`
 
-  c.  Sprawdź, czy **Virtualization_Configuration\Enhanced monitorowania dostępu** Metryka to **true**.
+  d.  Sprawdź, czy **Virtualization_Configuration\Enhanced monitorowania dostępu** Metryka to **true**.
 
 Jeśli masz już zainstalowany serwer aplikacji SAP NetWeaver ABAP, otwórz transakcji ST06 i sprawdź, czy jest włączone monitorowanie rozszerzonej.
 
@@ -1055,7 +1055,7 @@ Jeśli żadnego z wymienionych testów zakończyć się niepowodzeniem i uzyska�
 Jeśli niektóre monitorowania danych nie jest poprawnie wskazany przez test opisany w dostarczyć [sprawdzanie gotowości do rozszerzonego monitorowania Azure dla programu SAP][deployment-guide-5.1]Uruchom `Test-AzureRmVMAEMExtension` polecenia cmdlet, aby sprawdzić, czy Azure Monitorowanie infrastruktury i monitorowania rozszerzenia dla programu SAP są poprawnie skonfigurowane.
 
 1.  Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet programu Azure PowerShell, zgodnie z opisem w [poleceń cmdlet wdrażania programu Azure PowerShell][deployment-guide-4.1].
-2.  Uruchom następujące polecenie cmdlet programu PowerShell. Aby uzyskać listę dostępnych środowisk, należy uruchomić polecenie cmdlet `Get-AzureRmEnvironment`. Aby korzystać z globalnej Azure, wybierz **AzureCloud** środowiska. Dla platformy Azure w Chinach, wybierz **AzureChinaCloud**.
+2.  Uruchom następujące polecenie programu PowerShell. Aby uzyskać listę dostępnych środowisk, należy uruchomić polecenie cmdlet `Get-AzureRmEnvironment`. Aby korzystać z globalnej Azure, wybierz **AzureCloud** środowiska. Dla platformy Azure w Chinach, wybierz **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

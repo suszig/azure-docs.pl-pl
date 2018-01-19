@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych
 
@@ -40,7 +40,7 @@ Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, kt
 3. Utwórz B2C_1A_TokenSigningKeyContainer, jeśli nie istnieje:<br>
     a. Wybierz pozycję **Dodaj**. <br>
     b. Wybierz **Generowanie**.<br>
-    c. Aby uzyskać **nazwa**, użyj `TokenSigningKeyContainer`. <br> 
+    d. Aby uzyskać **nazwa**, użyj `TokenSigningKeyContainer`. <br> 
     Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
     d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
     e. Aby uzyskać **dat**, użyj wartości domyślnych. <br>
@@ -49,17 +49,17 @@ Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, kt
 4. Utwórz B2C_1A_TokenEncryptionKeyContainer, jeśli nie istnieje:<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Wybierz **Generowanie**.<br>
- c. Aby uzyskać **nazwa**, użyj `TokenEncryptionKeyContainer`. <br>
+ d. Aby uzyskać **nazwa**, użyj `TokenEncryptionKeyContainer`. <br>
    Prefiks `B2C_1A`_ mogą być dodawane automatycznie.<br>
  d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
  e. Aby uzyskać **dat**, użyj wartości domyślnych.<br>
  f. Aby uzyskać **użycie klucza**, użyj **szyfrowania**.<br>
  g. Wybierz pozycję **Utwórz**.<br>
-5. Utwórz B2C_1A_FacebookSecret. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 Jeśli masz już klucz tajny aplikacji Facebook, dodaj go jako klucz zasad dla Twojej dzierżawy. W przeciwnym razie należy utworzyć klucz o wartości symbolu zastępczego, aby zasad przeszedł pomyślnie weryfikacji.<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Aby uzyskać **opcje**, użyj **ręcznego**.<br>
- c. Aby uzyskać **nazwa**, użyj `FacebookSecret`. <br>
+ d. Aby uzyskać **nazwa**, użyj `FacebookSecret`. <br>
  Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
  d. W **klucz tajny** wprowadź FacebookSecret Twojego z developers.facebook.com lub `0` jako symbol zastępczy. *To nie jest identyfikatorem aplikacji usługi Facebook* <br>
  e. Aby uzyskać **użycie klucza**, użyj **podpisu**. <br>
@@ -130,7 +130,7 @@ Każdy pakiet początkowy zawiera:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Otwórz SocialAndLocalAccounts folder.  Plik podstawowy (TrustFrameworkBase.xml) w tym folderze zawartość wymagane dla kont lokalnych i społecznego/firmowej. Zawartości społecznościowej nie koliduje z kroków do pobierania kont lokalnych w i uruchamiania.
-3. Otwórz TrustFrameworkBase.xml. Jeśli potrzebujesz edytora XML [spróbuj Visual Studio Code](https://code.visualstudio.com/download), lekkie edytora i platform.
+3. Open TrustFrameworkBase.xml. Jeśli potrzebujesz edytora XML [spróbuj Visual Studio Code](https://code.visualstudio.com/download), lekkie edytora i platform.
 4. W folderze głównym `TrustFrameworkPolicy` element, aktualizacja `TenantId` i `PublicPolicyUri` atrybuty, zastępując `yourtenant.onmicrosoft.com` o nazwę domeny dzierżawy usługi Azure AD B2C:
    ```xml
     <TrustFrameworkPolicy
@@ -146,8 +146,8 @@ Każdy pakiet początkowy zawiera:
    >`PolicyId`jest widoczny w portalu nazwę zasady i nazwy za pomocą którego ten plik zasad jest używany przez inne pliki zasad.
 
 5. Zapisz plik.
-6. Otwórz TrustFrameworkExtensions.xml. Wprowadzenie identycznych zmian dwóch zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C. Należy tego samego zastąpienia w `<TenantId>` elementu dla wszystkich trzech zmian. Zapisz plik.
-7. Otwórz SignUpOrSignIn.xml. Wprowadzenie identycznych zmian przez zastąpienie `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach. Zapisz plik.
+6. Open TrustFrameworkExtensions.xml. Wprowadzenie identycznych zmian dwóch zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C. Należy tego samego zastąpienia w `<TenantId>` elementu dla wszystkich trzech zmian. Zapisz plik.
+7. Open SignUpOrSignIn.xml. Wprowadzenie identycznych zmian przez zastąpienie `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach. Zapisz plik.
 8. Otwórz resetowania hasła i edytować pliki profilu. Wprowadzenie identycznych zmian przez zastąpienie `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach w każdym pliku. Zapisz plik.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Dodaj identyfikatory aplikacji do zasad niestandardowych
@@ -157,7 +157,7 @@ Dodaj identyfikatory aplikacji do pliku rozszerzenia (`TrustFrameworkExtensions.
 2. Zastąp oba wystąpienia `IdentityExperienceFrameworkAppId` z identyfikator aplikacji Framework obsługi tożsamości, który został utworzony wcześniej. Oto przykład:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Zastąp oba wystąpienia `ProxyIdentityExperienceFrameworkAppId` z identyfikator aplikacji Framework obsługi tożsamości serwera Proxy, który został utworzony wcześniej.
 4. Zapisz plik rozszerzenia.
@@ -171,9 +171,9 @@ Dodaj identyfikatory aplikacji do pliku rozszerzenia (`TrustFrameworkExtensions.
     >[!WARNING]
     >Pliki zasad niestandardowych, należy przekazać w następującej kolejności:
 
-1. Przekaż TrustFrameworkBase.xml.
+1. Upload TrustFrameworkBase.xml.
 2. Przekaż TrustFrameworkExtensions.xml.
-3. Przekaż SignUpOrSignin.xml.
+3. Upload SignUpOrSignin.xml.
 4. Przekazywanie plików zasad.
 
 Po przekazaniu pliku, nazwa pliku zasad jest poprzedzony przez `B2C_1A_`.
@@ -196,7 +196,7 @@ Po przekazaniu pliku, nazwa pliku zasad jest poprzedzony przez `B2C_1A_`.
 >Częstą przyczyną niepowodzenia logowania jest nieprawidłowo skonfigurowana aplikacji IdentityExperienceFramework.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Dodaj funkcję dostawcy tożsamości usługi Facebook
 Aby zdefiniować usługi Facebook

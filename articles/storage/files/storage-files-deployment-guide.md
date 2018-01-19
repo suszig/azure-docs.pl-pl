@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Jak wdrożyć usługę Pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne przy użyciu standardowego protokołu SMB. W tym artykule opisano, jak praktycznie wdrażania plików Azure w ramach danej organizacji.
@@ -35,7 +35,7 @@ W tym artykule przyjęto założenie, że już zostały wykonane następujące k
 Możesz przeprowadzić migrację istniejących udziałów plików, takich jak te przechowywane lokalnie, do nowego udziału plików platformy Azure. W tej sekcji opisano sposób przenoszenia danych do pliku Azure udziału za pośrednictwem kilku popularnych metod szczegółowe z [przewodnik planowania](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Synchronizacja plików na platformę Azure (wersja zapoznawcza)
-Synchronizacja programu Azure pliku (wersja zapoznawcza) umożliwia scentralizowanie udziałów plików w organizacji w plikach Azure bez zwiększanie elastyczność, wydajności i zgodności serwera plików lokalnych. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
+Synchronizacji plików platformy Azure (wersja zapoznawcza) umożliwia scentralizowane udziałów plików w organizacji w plikach Azure bez zwiększanie elastyczność, wydajności i zgodności serwera plików lokalnych. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
 
 Azure synchronizacji plików może służyć do migracji danych do udziału plików platformy Azure, nawet jeśli mechanizmu synchronizacji nie jest potrzebne do długoterminowego użycia. Więcej informacji na temat sposobu synchronizacji plików Azure umożliwia przesyłanie danych do udziału plików platformy Azure można znaleźć w [planowania wdrożenia synchronizacji plików Azure](storage-sync-files-planning.md) i [Wdrażanie synchronizacji plików Azure](storage-sync-files-deployment-guide.md).
 
@@ -93,7 +93,7 @@ Poniższe kroki będą importowane dane z lokalnej lokalizacji do udziału plik�
 
 7. [Utwórz zadanie importu](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
     
-### <a name="robocopy"></a>ROBOCOPY
+### <a name="robocopy"></a>Robocopy
 ROBOCOPY jest narzędziem dobrze znanych kopiowania jest dostarczana z systemem Windows i Windows Server. ROBOCOPY może służyć do przesyłania danych do usługi pliki Azure instalowanie udziału plików lokalnie, a następnie używając lokalizacji zainstalowanego jako miejsce docelowe polecenia Robocopy. Używanie Robocopy jest bardzo proste:
 
 1. [Instalowanie udziału plików Azure](storage-how-to-use-files-windows.md). Aby uzyskać optymalną wydajność firma Microsoft zaleca instalowanie udziału plików platformy Azure lokalnie na serwerze, który zawiera dane. W niektórych przypadkach, np. gdy serwer plików, który pełni dane urządzenie NAS to może nie być możliwe. W takim przypadku jest doskonale dopuszczalne, aby zainstalować udział plików Azure na komputerze. W tym przykładzie `net use` jest używany w wierszu polecenia, aby zainstalować udział plików:
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Skrypt proste bash łączone przy użyciu protokołu SSH umożliwia uzyskanie takiego samego wyniku w poniższym przykładzie. `$computer` Zmiennej podobnie pozostało do wypełnienia przez użytkownika:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Planowanie wdrożenia synchronizacji plików Azure](storage-sync-files-planning.md)
 - [Rozwiązywanie problemów z plików Azure w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Rozwiązywanie problemów z plików Azure w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)

@@ -3,8 +3,8 @@ title: "Jak skonfigurować replikację geograficzną dla pamięci podręcznej Re
 description: "Informacje o replikacji z wystąpienia pamięci podręcznej Redis Azure w regionach geograficznych."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Jak skonfigurować replikację geograficzną dla pamięci podręcznej Redis Azure
 
@@ -83,7 +83,7 @@ Po skonfigurowaniu replikacji geograficznej parę z połączonego pamięci podr�
 
 1. Kliknij, aby usunąć połączenie między dwoma pamięci podręcznych i zatrzymać replikację geograficzną **odłączyć pamięci podręcznych** z **— replikacja geograficzna** bloku.
     
-    ![Rozłącz pamięci podręczne](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
+    ![Odłącz pamięci podręczne](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
     Po zakończeniu procesu rozłączanie dodatkowej pamięci podręcznej jest dostępna dla odczytów i zapisów.
 
@@ -177,7 +177,7 @@ W wersji początkowej replikacji geograficznej pamięć podręczna Redis Azure n
 Aktualnie Aby zainicjować trybu failover, należy Usuń łącze replikacji geograficznej w portalu Azure, a następnie zmień punktu końcowego połączenia klienta pamięci podręcznej Redis z głównej połączonego pamięci podręcznej (dawniej połączonych) dodatkowej pamięci podręcznej. Gdy dwa pamięci podręcznych są usunąć skojarzenia, replika staje się regularne pamięci podręcznej odczytu i zapisu ponownie i akceptuje żądania bezpośrednio od klientów pamięci podręcznej Redis.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o [warstwy pamięci podręcznej Redis Azure Premium](cache-premium-tier-intro.md).
 

@@ -3,8 +3,8 @@ title: "Wprowadzenie do warstwy Premium pamięci podręcznej Redis Azure | Dokum
 description: "Dowiedz się, jak utworzyć i zarządzać trwałość Redis, Redis klastra i obsługa sieci Wirtualnej dla swoich wystąpień pamięci podręcznej Redis Azure warstwy Premium"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Wprowadzenie do warstwy Premium usługi Azure Redis Cache
 Pamięć podręczna Redis Azure jest rozproszonych, zarządzane pamięci podręcznej, które ułatwia tworzenie aplikacji wysoce skalowalne i szybko reagowały zapewniając nadrzędne szybki dostęp do danych. 
@@ -32,7 +32,7 @@ Nowa warstwa Premium jest warstwy gotowy przedsiębiorstwa, który obejmuje wszy
 
 Aby uzyskać więcej informacji o rozmiarze, przepływności i przepustowości z pamięci podręcznych premium, zobacz [często zadawane pytania pamięci podręcznej Redis Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-## <a name="redis-data-persistence"></a>Trwałość danych redis
+## <a name="redis-data-persistence"></a>Stan trwały danych pamięci podręcznej Redis
 Warstwy Premium pozwala zachować dane pamięci podręcznej na koncie magazynu Azure. W pamięci podręcznej Basic/Standard wszystkie dane są przechowywane tylko w pamięci. W przypadku podstawowej infrastruktury istnieje problem może być ryzyko utraty danych. Firma Microsoft zaleca, aby zwiększyć odporność przed utratą danych przy użyciu funkcji trwałości danych pamięci podręcznej Redis w warstwie Premium. Pamięć podręczna Redis Azure oferuje RDB i AOF (wkrótce) opcje w [trwałość Redis](http://redis.io/topics/persistence). 
 
 Instrukcje na temat konfigurowania trwałości można znaleźć w temacie [Konfigurowanie trwałości dla usługi Azure Redis Cache w warstwie Premium](cache-how-to-premium-persistence.md).
@@ -40,7 +40,7 @@ Instrukcje na temat konfigurowania trwałości można znaleźć w temacie [Konfi
 ## <a name="redis-cluster"></a>Klaster redis
 Jeśli chcesz utworzyć pamięci podręcznych większych niż 53 GB lub chcesz współdzielenie danych między wieloma węzłami Redis, można użyć Redis klastrowania, która jest dostępna w warstwie Premium. Każdy węzeł składa się z pary pamięć podręczna podstawowy/replik zarządzanych przez usługę Azure wysokiej dostępności. 
 
-**Klaster redis daje maksymalną skalę i przepustowość.** Przepływność zwiększa liniowo zwiększyć liczbę fragmentów (węzłów) w klastrze. Np. Jeśli tworzenie klastra P4 odłamków 10, a następnie dostępna przepustowość jest 250 KB * 10 = 2,5 mln żądań na sekundę. Zobacz [często zadawane pytania pamięci podręcznej Redis Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) szczegółowe informacje o rozmiarze, przepływności i przepustowości z pamięci podręcznych premium.
+**Klaster redis daje maksymalną skalę i przepustowość.** Przepływność zwiększa liniowo zwiększyć liczbę fragmentów (węzłów) w klastrze. Eg. Jeśli tworzenie klastra P4 odłamków 10, a następnie dostępna przepustowość jest 250 KB * 10 = 2,5 mln żądań na sekundę. Zobacz [często zadawane pytania pamięci podręcznej Redis Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) szczegółowe informacje o rozmiarze, przepływności i przepustowości z pamięci podręcznych premium.
 
 Aby rozpocząć pracę z usługą klastrowania, zobacz [sposobu konfigurowania klastrowania podręczna Redis Azure Premium](cache-how-to-premium-clustering.md).
 
@@ -93,7 +93,7 @@ Aby uzyskać więcej informacji, zobacz [jak skonfigurować replikację geografi
 ## <a name="to-scale-to-the-premium-tier"></a>Aby skalować do warstwy premium
 Aby skalować do warstwy premium, po prostu wybierz jedną z warstwy premium w **Zmiana warstwy cenowej** bloku. Można również skalować pamięć podręczną do warstwy premium za pomocą programu PowerShell i interfejsu wiersza polecenia. Aby uzyskać instrukcje, zobacz [jak pamięć podręczna Redis Azure skali](cache-how-to-scale.md) i [dotyczące automatyzacji operacji skalowania](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Tworzenie pamięci podręcznej i Poznaj nowe funkcje warstwy premium.
 
 * [Konfigurowanie trwałości dla usługi Azure Redis Cache w wersji Premium](cache-how-to-premium-persistence.md)

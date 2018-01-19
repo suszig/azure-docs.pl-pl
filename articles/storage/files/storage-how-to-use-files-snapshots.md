@@ -3,7 +3,7 @@ title: "Praca z migawkami udziału (wersja zapoznawcza) | Dokumentacja firmy Mic
 description: "Migawka udziału jest tylko do odczytu wersji udziału plików platformy Azure, która jest wykonywana w punkcie w czasie, aby utworzyć kopię zapasową udziału."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Praca z migawkami udziału (wersja zapoznawcza)
 Migawka udziału (wersja zapoznawcza) jest tylko do odczytu wersji udziału plików platformy Azure, która jest wykonywana w punkcie w czasie. Po utworzeniu migawki udziału, to można można odczytać, kopiowane, lub usunięte, ale nie został zmodyfikowany. Migawki udziału umożliwia tworzenie kopii zapasowej do udziału, pojawiającą się w chwili. 
@@ -246,7 +246,46 @@ W danych wyjściowych zobaczysz, że zawartość pobranego pliku i jego właści
 }
 ```
 
+<<<<<<< HEAD
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operacje migawki udziału plików w programie Azure PowerShell
+Można użyć programu Azure Powershell do wykonywania tej samej operacji, takich jak lista udziału migawki, przeglądanie zawartości migawki udziału, przywracania lub pobieranie plików z migawki udziału lub usuwanie udziału migawek.
+
+#### <a name="list-share-snapshots"></a>Lista udziału migawki
+
+Możesz podać migawek udział w udziale określonym za pomocą`Get-AzureStorageShare`
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Przeglądaj migawki udziału
+Może również przeglądania do migawki, aby wyświetlić jego zawartości przy użyciu akcji `Get-AzureStorageFile` z wartością `-Share` wskazujący określonego migawki
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Przywracanie z migawki udziału
+
+Można przywrócić plik, kopiując lub pobierania pliku z udziału migawki za pomocą `Get-AzureStorageFileContent` polecenia
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
+```
+
+
+## <a name="delete-azure-files-share-snapshot"></a>Usuń migawki udział plików Azure
+=======
 ## <a name="delete-a-share-snapshot"></a>Usuń migawki udziału
+>>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 Za pomocą portalu Azure, programu PowerShell, interfejsu wiersza polecenia, interfejsu API REST lub dowolnego zestawu SDK usługi Magazyn można usunąć udziału migawki. W poniższych sekcjach opisano sposób usuwania udziału migawki za pomocą portalu Azure, interfejsu wiersza polecenia i programu PowerShell.
 
@@ -294,6 +333,6 @@ Remove-AzureStorageShare -Share $snapshot
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Omówienie migawki](storage-snapshots-files.md)
 * [Migawki — często zadawane pytania](storage-files-faq.md)

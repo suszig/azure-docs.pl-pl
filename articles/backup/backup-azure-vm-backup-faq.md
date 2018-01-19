@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Pytania dotyczące usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure
 W tym artykule znajdują się odpowiedzi na często zadawane pytania pomagające w szybkim poznaniu składników usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -72,3 +72,13 @@ Tak, można użyć kopie zapasowe wykonane przed Migrowanie dysków z niezarząd
 ## <a name="manage-vm-backups"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Co się stanie po zmianie zasad kopii zapasowych na maszynach wirtualnych?
 Podczas stosowania nowej zasady na wirtualne, harmonogram i przechowywania nowych zasad jest zakończony. Jeśli przechowywania zostanie rozszerzony, istniejące punkty odzyskiwania są oznaczone zachować je zgodnie z harmonogramem nowych zasad. W przypadku przechowywania, są oznaczone do oczyszczania w ramach następnego zadania oczyszczania i usuwane. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Jak można przenieść Maszynę wirtualną zarejestrowaniu w kopii zapasowej systemu Azure między grupami zasobów?
+Wykonaj następujące czynności, aby pomyślnie przenieść kopii zapasowej maszyny Wirtualnej do docelowej grupy zasobów 
+1. Tymczasowo Zatrzymaj wykonywanie kopii zapasowej i Zachowaj dane kopii zapasowej
+2. Przenieś maszynę Wirtualną do docelowej grupy zasobów
+3. Włącz ochronę ponownie z tym samym/nowy magazyn
+
+Użytkownicy mogą przywracać z dostępnych punktów przywracania utworzone przed operacji przenoszenia.
+
+

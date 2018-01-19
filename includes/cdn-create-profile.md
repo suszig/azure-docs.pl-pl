@@ -1,16 +1,27 @@
 **Aby utworzyć nowy profil CDN**
 
-1. W witrynie [Azure Portal](https://portal.azure.com) w lewym górnym rogu kliknij opcję **Nowy**.  W bloku **Nowy** wybierz opcję **Sieci Web i aplikacje mobilne**, a następnie opcję **CDN**.
+1. W [portalu Azure](https://portal.azure.com), w lewym górnym rogu wybierz **Utwórz zasób**.
+    
+2. W bloku **Nowy** wybierz opcję **Sieci Web i aplikacje mobilne**, a następnie opcję **CDN**.
    
-    Zostanie wyświetlony nowy blok profilu CDN.
+    **Profilu CDN** zostanie wyświetlony blok.
    
     ![Nowy profil CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
-2. Wprowadź nazwę profilu CDN.
-3. Wybierz **lokalizację**.  To jest lokalizacja platformy Azure, w której będą przechowywane informacje o profilu CDN.  Nie ma ona wpływu na lokalizacje punktów końcowych CDN.
-4. Wybierz lub utwórz **grupę zasobów**.  Więcej informacji na temat grup zasobów znajduje się w temacie [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-5. Wybierz **warstwę cenową**.  Porównanie warstw cenowych znajduje się w temacie [Omówienie CDN](../articles/cdn/cdn-overview.md#azure-cdn-features).
+3. Aby uzyskać **nazwa**, wprowadź unikatową nazwę profilu CDN.
+    
+4. Aby uzyskać **subskrypcji**, wybierz subskrypcję do użycia dla tego profilu CDN.
+   
+5. Aby uzyskać **grupy zasobów**wybierz lub Utwórz grupę zasobów. Aby uzyskać informacje na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+    
+6. Aby uzyskać **lokalizacja grupy zasobów**, wybierz lokalizację Azure do przechowywania informacji o profilu sieci CDN. Ta lokalizacja nie ma wpływu na lokalizacje punktów końcowych CDN.
+    
+7. Aby uzyskać **warstwa cenowa**, wybierz warstwę. Porównanie funkcji dostępnych w każdej warstwy cenowej, zobacz [funkcje usługi Azure CDN](../articles/cdn/cdn-overview.md#azure-cdn-features).
    
     ![Wybór warstwy cenowej CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
-6. Wybierz **subskrypcję** dla tego profilu CDN.
-7. Kliknij przycisk **Utwórz**, aby utworzyć nowy profil. 
+
+8. Opcjonalnie wybierz **teraz utworzyć nowy punkt końcowy CDN** Aby wyświetlić opcje tworzenia punktu końcowego w momencie tworzenia profilu. Aby uzyskać więcej informacji, zobacz [utworzyć nowy punkt końcowy CDN](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+   
+9. Jeśli chcesz zapisać profil do pulpitu nawigacyjnego po jego utworzeniu, aby ułatwić znajdowanie, wybierz **Przypnij do pulpitu nawigacyjnego**.
+    
+10. Wybierz **Utwórz** do tworzenia profilu. 
 

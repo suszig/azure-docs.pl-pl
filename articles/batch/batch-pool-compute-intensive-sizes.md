@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
 ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Użyj wystąpień z funkcją RDMA lub włączone procesora GPU w pulach partii
 
@@ -49,9 +49,9 @@ RDMA i procesora GPU możliwości obliczeniowych rozmiary są obsługiwane tylko
 
 | Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | DOSTĘP RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, lub<br/>Na podstawie centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
-| [NC serii *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA tesla — K80 procesora GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>Oparty na systemie CentOS 7.3<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA Toolkit 9.0 | ND | 
-| [Seria wirtualizacją sieci](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | M60 tesla — NVIDIA GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>Oparty na systemie CentOS 7.3<br/>(Azure Marketplace) | 4.3 siatki NVIDIA sterowniki | ND |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>Na podstawie centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
+| [NC serii *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>Oparty na systemie CentOS 7.3<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA Toolkit 9.0 | ND | 
+| [Seria wirtualizacją sieci](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, lub<br/>Oparty na systemie CentOS 7.3<br/>(Azure Marketplace) | 4.3 siatki NVIDIA sterowniki | ND |
 
 * Łączność RDMA na maszynach wirtualnych NC24r jest obsługiwana w Ubuntu 16.04 LTS i CentOS na podstawie 7.3 HPC (z portalu Azure Marketplace) z Intel MPI.
 
@@ -61,9 +61,9 @@ RDMA i procesora GPU możliwości obliczeniowych rozmiary są obsługiwane tylko
 
 | Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | DOSTĘP RDMA | Windows Server 2012 R2 lub<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 lub nowszym, lub<br/> Intel MPI 5<br/><br/>Rozszerzenia maszyny Wirtualnej Azure HpcVMDrivers | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
-| [NC serii *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA tesla — K80 procesora GPU | Windows Server 2016 lub <br/>Windows Server 2012 R2 (Azure Marketplace) | Tesla — NVIDIA sterowników lub sterowników CUDA Toolkit 9.0| ND | 
-| [Seria wirtualizacją sieci](../virtual-machines/windows/n-series-driver-setup.md) | M60 tesla — NVIDIA GPU | Windows Server 2016 lub<br/>Windows Server 2012 R2 (Azure Marketplace) | 4.3 siatki NVIDIA sterowniki | ND |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 lub<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 lub nowszym, lub<br/> Intel MPI 5<br/><br/>Rozszerzenia maszyny Wirtualnej Azure HpcVMDrivers | Włącz komunikację między węzłami, uniemożliwić wykonywanie zadań jednoczesnych |
+| [NC serii *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 lub <br/>Windows Server 2012 R2 (Azure Marketplace) | Tesla — NVIDIA sterowników lub sterowników CUDA Toolkit 9.0| ND | 
+| [Seria wirtualizacją sieci](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 lub<br/>Windows Server 2012 R2 (Azure Marketplace) | 4.3 siatki NVIDIA sterowniki | ND |
 
 * Łączność RDMA na maszynach wirtualnych NC24r jest obsługiwana w systemie Windows Server 2012 R2 (z portalu Azure Marketplace) z rozszerzeniem HpcVMDrivers i MPI firmy Microsoft lub Intel MPI.
 
@@ -75,7 +75,7 @@ RDMA i procesora GPU możliwości obliczeniowych rozmiary są obsługiwane tylko
 
 | Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | DOSTĘP RDMA | Windows Server 2012 R2<br/>Windows Server 2012, lub<br/>Windows Server 2008 R2 (rodziny systemów operacyjnych gościa) | Microsoft MPI 2012 R2 lub nowszym, lub<br/>Intel MPI 5<br/><br/>Rozszerzenia maszyny Wirtualnej Azure HpcVMDrivers | Włącz komunikację między węzłami<br/> Wyłącz wykonywanie zadań jednoczesnych |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012, lub<br/>Windows Server 2008 R2 (rodziny systemów operacyjnych gościa) | Microsoft MPI 2012 R2 lub nowszym, lub<br/>Intel MPI 5<br/><br/>Rozszerzenia maszyny Wirtualnej Azure HpcVMDrivers | Włącz komunikację między węzłami<br/> Wyłącz wykonywanie zadań jednoczesnych |
 
 
 
@@ -131,12 +131,12 @@ Do uruchamiania aplikacji CUDA w puli węzłów Linux NC, musisz zainstalować C
 | ---- | ---- |
 | **Typ obrazu** | Obraz niestandardowy |
 | **Obraz niestandardowy** | Nazwa obrazu |
-| **Agent węzła jednostki SKU** | Batch.node.ubuntu 16.04 |
+| **Agent węzła jednostki SKU** | batch.node.ubuntu 16.04 |
 | **Rozmiaru węzła** | NC6 Standard |
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Uruchamianie zadań MPI w puli partii zadań Azure, zobacz [Windows](batch-mpi.md) lub [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) przykłady.
 

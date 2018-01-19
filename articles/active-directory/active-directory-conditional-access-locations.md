@@ -17,10 +17,10 @@ ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Lokalizacja warunki dostępu warunkowego w usłudze Azure Active Directory 
 
@@ -94,7 +94,7 @@ Po skonfigurowaniu warunku lokalizacji, masz możliwość rozróżnienia:
 
 - Dowolna lokalizacja 
 - Wszystkie zaufane lokalizacje
-- Wybranej lokalizacji
+- Wybrane lokalizacje
 
 ![Lokalizacje](./media/active-directory-conditional-access-locations/01.png)
 
@@ -110,7 +110,7 @@ Ta opcja ma zastosowanie do:
 - **Adresy IP MFA zaufane** (jeśli jest skonfigurowane)
 
 
-### <a name="selected-locations"></a>Wybranej lokalizacji
+### <a name="selected-locations"></a>Wybrane lokalizacje
 
 Po wybraniu tej opcji można wybrać co najmniej jedna lokalizacja nazwanego. To ustawienie, aby zastosować zasady użytkownik musi połączyć za pomocą dowolnego z wybranej lokalizacji. Gdzie możesz kliknąć pozycję **wybierz** otwiera formant wyboru nazwanej sieci z listą o nazwie sieci. Lista zawiera, jeśli lokalizacja sieciowa została oznaczona jako zaufane. Nazwane lokalizacji o nazwie **adresów IP z usługami MFA zaufane** jest używana do włączenia ustawienia protokołu IP, które można skonfigurować na stronie Ustawienia usługi Multi-Factor authentication.
 

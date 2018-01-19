@@ -3,8 +3,8 @@ title: "Konfigurowanie pamięci podręcznej Redis Azure | Dokumentacja firmy Mic
 description: "Omówienie domyślną konfigurację pamięci podręcznej Redis w pamięci podręcznej Redis Azure i Dowiedz się, jak skonfigurować swoich wystąpień w pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Konfigurowanie pamięci podręcznej Redis Azure
 W tym temacie opisano sposób przejrzeć i zaktualizować konfigurację dla swoich wystąpień w pamięci podręcznej Redis Azure i zawiera domyślną konfigurację serwera Redis wystąpienia pamięci podręcznej Redis Azure.
@@ -69,7 +69,7 @@ Możesz wyświetlić i skonfigurować następujące ustawienia za pomocą **zaso
     * [Nowe żądanie pomocy technicznej](#new-support-request)
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 **Omówienie** zapewnia możesz podstawowych informacji o pamięci podręcznej, takie jak nazwa, porty, warstwa cenowa i metryki wybranego pamięci podręcznej.
 
@@ -123,7 +123,7 @@ Następujące ustawienia są konfigurowane na **Zaawansowane ustawienia** bloku.
 * [Zasady pamięci](#memory-policies)
 * [Powiadomienia przestrzeni kluczy (ustawienia zaawansowane)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>Porty dostępu
+#### <a name="access-ports"></a>Porty dostępowe
 Domyślnie dostęp inny niż za pomocą protokołu SSL jest zablokowany dla nowych pamięci podręcznych. Aby włączyć port bez protokołu SSL, kliknij przycisk **nr** dla **zezwolić na dostęp tylko za pośrednictwem protokołu SSL** na **Zaawansowane ustawienia** bloku, a następnie kliknij przycisk **zapisać**.
 
 ![Porty dostępu pamięci podręcznej redis](./media/cache-configure/redis-cache-access-ports.png)
@@ -170,7 +170,7 @@ Aby uzyskać więcej informacji, zobacz [Redis powiadomienia przestrzeni kluczy]
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>Klasyfikator pamięci podręcznej redis
+## <a name="redis-cache-advisor"></a>Doradca usługi Redis Cache
 **Advisor pamięci podręcznej Redis** blok zawiera zalecenia dotyczące pamięci podręcznej. Podczas wykonywania normalnych operacji zostaną wyświetlone żadnych zaleceń. 
 
 ![Zalecenia](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -222,7 +222,7 @@ Aby zmienić rozmiar klastra, za pomocą suwaka, lub wpisz liczbę z zakresu od 
 > 
 
 
-### <a name="redis-data-persistence"></a>Trwałość danych redis
+### <a name="redis-data-persistence"></a>Stan trwały danych pamięci podręcznej Redis
 Kliknij przycisk **trwałość danych Redis** Aby włączyć, wyłączyć lub skonfiguruj trwałości danych dla pamięci podręcznej premium. Pamięć podręczna Redis Azure oferuje trwałość Redis przy użyciu [trwałości RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) lub [trwałości AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie trwałości dla podręczna Redis Azure Premium](cache-how-to-premium-persistence.md).
@@ -343,7 +343,7 @@ Ponownie uruchomić co najmniej jeden węzeł z pamięci podręcznej, wybierz ż
 * [Reguły alertów](#alert-rules)
 * [Diagnostyka](#diagnostics)
 
-### <a name="redis-metrics"></a>Redis metryk
+### <a name="redis-metrics"></a>Metryki pamięci podręcznej Redis
 Kliknij przycisk **Redis metryki** do [wyświetlić metryki](cache-how-to-monitor.md#view-cache-metrics) dla pamięci podręcznej.
 
 ### <a name="alert-rules"></a>Reguły alertów
@@ -362,7 +362,7 @@ Domyślnie są metryki pamięci podręcznej w monitorze Azure [przechowywane prz
 ## <a name="support--troubleshooting-settings"></a>Rozwiązywanie problemów z ustawieniami i pomoc techniczna
 Ustawienia w **pomocy technicznej i rozwiązywania problemów** sekcja zawiera opcje rozwiązywania problemów związanych z pamięci podręcznej.
 
-![Pomocy technicznej i rozwiązywania problemów](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Pomoc i rozwiązywanie problemów](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Kondycja zasobów](#resource-health)
 * [Nowe żądanie pomocy technicznej](#new-support-request)
@@ -402,7 +402,7 @@ Nowe wystąpienia pamięci podręcznej Redis Azure są skonfigurowane z następu
 | `maxmemory-samples` |3 |Aby zapisać pamięci, LRU i minimalny czas wygaśnięcia algorytmy są przybliżona algorytmy zamiast dokładne algorytmów. Domyślnie Redis kontroli trzy klucze i pobrania ten, który został użyty mniej ostatnio. |
 | `lua-time-limit` |5,000 |Maksymalny czas wykonywania skryptu Lua (w milisekundach). Po osiągnięciu maksymalnego czasu wykonywania Redis rejestruje skryptu nadal trwa wykonywanie po maksymalny dozwolony czas i uruchamia na udzielenie odpowiedzi na zapytania z powodu błędu. |
 | `lua-event-limit` |500 |Maksymalny rozmiar kolejki zdarzeń skryptu. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 mb 032 8mb 60 |Limity buforu wyjściowego klienta można wymusić odłączenie klientów, którzy nie są odczytywanie danych z serwera wystarczająca jakiegoś powodu (typową przyczyną jest, że klient Pub/Sub nie mogą korzystać z wiadomości tak szybko, jak wydawcy można tworzyć je). Aby uzyskać więcej informacji, zobacz [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Limity buforu wyjściowego klienta można wymusić odłączenie klientów, którzy nie są odczytywanie danych z serwera wystarczająca jakiegoś powodu (typową przyczyną jest, że klient Pub/Sub nie mogą korzystać z wiadomości tak szybko, jak wydawcy można tworzyć je). Aby uzyskać więcej informacji, zobacz [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>limit `databases` jest różne dla każdego pamięć podręczna Redis Azure warstwy cenowej i można ustawić na tworzenie pamięci podręcznej. Jeśli nie `databases` ustawienie jest określone podczas tworzenia pamięci podręcznej, wartość domyślna to 16.
@@ -460,7 +460,7 @@ Aby uzyskać więcej informacji na temat baz danych, zobacz [co to są Redis baz
 > * BGREWRITEAOF
 > * BGSAVE
 > * KONFIGURACJI
-> * DEBUGOWANIA
+> * DEBUG
 > * MIGRACJA
 > * ZAPISZ
 > * ZAMKNIĘCIE
@@ -512,6 +512,6 @@ Pamięć podręczną można przenieść do nowej subskrypcji, klikając **Przeni
 
 Aby uzyskać informacje na przenoszenie zasobów między grupami zasobów do innej i z jedną subskrypcję do innego, zobacz [przenoszenia zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać więcej informacji na temat pracy z pamięci podręcznej Redis poleceń, zobacz [jak uruchomić polecenia Redis?](cache-faq.md#how-can-i-run-redis-commands)
 

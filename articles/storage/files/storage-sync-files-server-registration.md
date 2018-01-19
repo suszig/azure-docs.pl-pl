@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Zarządzanie serwerami zarejestrowanych za pomocą synchronizacji plików Azure (wersja zapoznawcza)
 Usługa Azure File Sync (wersja zapoznawcza) umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Jest to realizowane poprzez przekształcanie systemów Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS) i możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -42,6 +42,26 @@ Aby zarejestrować serwer z magazynu usługi synchronizacji, należy najpierw pr
 
     > [!Note]  
     > Zalecamy używanie najnowszej wersji modułu programu AzureRM PowerShell zarejestrować/wyrejestrować serwera. Jeśli pakiet AzureRM został wcześniej zainstalowany na tym serwerze (i 5.* jest wersja programu PowerShell na tym serwerze lub większej), można użyć `Update-Module` polecenia cmdlet tego pakietu aktualizacji. 
+* Jeśli korzysta się z serwerem proxy sieci w środowisku, należy skonfigurować ustawienia serwera proxy na serwerze korzystanie z agenta synchronizacji.
+    1. Określić użytkownika serwera proxy IP adres i numer portu
+    2. Edytuj te dwa pliki:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Dodaj wiersze na rysunku 1 (poniżej tej sekcji) w obszarze /System.ServiceModel w dwóch plikach powyżej zmiana 127.0.0.1:8888 poprawny adres IP (Zastąp 127.0.0.1) i prawidłowego numeru portu (Zastąp 8888):
+    4. Ustaw ustawienia serwera proxy WinHTTP przy użyciu wiersza polecenia:
+        * Pokaż serwera proxy: netsh winhttp Pokaż serwera proxy
+        * Ustaw serwer proxy: netsh winhttp ustawić 127.0.0.1:8888 serwera proxy
+        * Resetuj serwera proxy: netsh winhttp resetowania serwera proxy
+        * Jeśli jest skonfigurowana, po zainstalowaniu agenta, uruchom ponownie naszych agent synchronizacji: polecenie net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Zarejestruj serwer z magazynu usługi synchronizacji
 Zanim serwer może być używany jako *punkt końcowy serwera* synchronizacji plików Azure *grupy synchronizacji*, musi być zarejestrowana w *Usługa synchronizacji magazynu*. Serwer można zarejestrować tylko z jedną usługę synchronizacji magazynu naraz.

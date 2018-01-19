@@ -2,15 +2,15 @@
 ms.assetid: 
 title: "Usługa Azure Key Vault ograniczania wskazówki | Dokumentacja firmy Microsoft"
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 06/21/2017
-ms.openlocfilehash: fe700e22c5323c2a0bdc315e349cd119798bcf40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Usługa Azure Key Vault ograniczania wskazówki
 
@@ -47,7 +47,7 @@ Na kod błędu HTTP 429 Rozpocznij ograniczanie klienta przy użyciu podejścia 
 
 W tym momencie możesz powinien nie uzyskać kody odpowiedzi HTTP 429.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 Uzyskać lepszy orientacji ograniczania przepustowości w Microsoft Cloud, zobacz [ograniczania wzorzec](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

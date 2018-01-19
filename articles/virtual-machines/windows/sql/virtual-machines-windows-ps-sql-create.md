@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Tworzenie maszyn wirtualnych programu SQL Server przy użyciu programu Azure PowerShell
 
@@ -27,17 +27,17 @@ W tym przewodniku opisano opcje do tworzenia maszyn wirtualnych systemu Windows 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Ta opcja szybkiego startu wymaga programu Azure PowerShell w wersji modułu 3,6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell w wersji 3.6 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="configure-your-subscription"></a>Skonfiguruj subskrypcję
 
-1. Otwórz program PowerShell i ustanowić dostępu do konta platformy Azure, uruchamiając **Add-AzureRmAccount** polecenia.
+1. Otwórz program PowerShell i nawiąż połączenie z kontem platformy Azure, uruchamiając polecenie **Add-AzureRmAccount**.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Powinien zostać wyświetlony ekran logowania o podanie poświadczeń. Użyj tego samego adres e-mail i hasło, którego używasz do logowania do portalu Azure.
+1. Powinien zostać wyświetlony ekran logowania z monitem o podanie poświadczeń. Użyj tego samego adresu e-mail i hasła, którego używasz do logowania w witrynie Azure Portal.
 
 ## <a name="define-image-variables"></a>Zdefiniuj zmienne obrazu
 Aby uprościć tworzenie skryptów i ponowne użycie, Rozpocznij od zdefiniowania liczba zmiennych. Zmiany wartości parametrów, ale Uważaj nazewnictwa ograniczenia związane z długości nazwy i znaków specjalnych, modyfikując podanych wartości.
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
    -Skus $Sku -Version $Version
 ```
 
-## <a name="create-the-sql-vm"></a>Tworzenie maszyny Wirtualnej SQL
+## <a name="create-the-sql-vm"></a>Tworzenie maszyny wirtualnej z programem SQL
 Po zakończeniu kroków konfiguracji, można przystąpić do tworzenia maszyny wirtualnej. Użyj [AzureRmVM nowy](/powershell/module/azurerm.compute/new-azurermvm) polecenia cmdlet, aby utworzyć maszynę wirtualną, korzystając ze zmiennych, które możemy zdefiniowane.
 
 Wykonaj następujące polecenie cmdlet, aby utworzyć maszynę wirtualną.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Tworzenie maszyny wirtualnej.
 
 > [!NOTE]
-> Błąd dotyczący diagnostyki bot można zignorować. Utworzeniu konta magazynu w warstwie standardowa dla diagnostyki rozruchu, ponieważ podanego konta magazynu dla dysku maszyny wirtualnej to konto magazynu premium.
+> Możesz zignorować błąd dotyczący diagnostyki rozruchu. Utworzeniu konta magazynu w warstwie standardowa dla diagnostyki rozruchu, ponieważ podanego konta magazynu dla dysku maszyny wirtualnej to konto magazynu premium.
 
-## <a name="install-the-sql-iaas-agent"></a>Zainstaluj agenta programu SQL Iaas
-Maszyny wirtualne programu SQL Server obsługują z funkcji automatycznego zarządzania [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Aby zainstalować agenta na nową maszynę Wirtualną, uruchom następujące polecenie, po jego utworzeniu.
+## <a name="install-the-sql-iaas-agent"></a>Instalacja agenta SQL IaaS
+Maszyny wirtualne programu SQL Server obsługują z funkcji automatycznego zarządzania [rozszerzenia agenta programu SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Aby zainstalować agenta na nowej maszynie wirtualnej, uruchom następujące polecenie po jego utworzeniu.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ Maszyny wirtualne programu SQL Server obsługują z funkcji automatycznego zarz�
 
 ## <a name="remove-a-test-vm"></a>Usunąć testowej maszyny Wirtualnej
 
-Jeśli nie ma potrzeby maszyny Wirtualnej uruchomionej w sposób ciągły, można uniknąć niepotrzebnych opłat przez jej nieużywane zatrzymania. Polecenie zatrzymania maszyny Wirtualnej jednak nie pozostawia jej do użycia w przyszłości.
+Jeśli maszyna wirtualna nie musi działać w sposób ciągły, możesz uniknąć niepotrzebnych opłat, zatrzymując ją, gdy jest nieużywana. Następujące polecenie zatrzyma maszynę wirtualną, ale pozostawi ją dostępną do użycia w przyszłości.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Można również trwale usunąć wszystkie zasoby skojarzone z maszyną wirtualną o **Remove-AzureRmResourceGroup** polecenia. Trwale usuwa z maszyną wirtualną, dlatego to polecenie z rozwagą.
+Możesz również trwale usunąć wszystkie zasoby skojarzone z maszyną wirtualną, korzystając z polecenia **Remove-AzureRmResourceGroup**. Spowoduje to również trwałe usunięcie maszyny wirtualnej, dlatego tego polecenia należy używać z rozwagą.
 
 ## <a name="example-script"></a>Przykładowy skrypt
 Poniższy skrypt zawiera pełną skrypt programu PowerShell na potrzeby tego samouczka. Przyjęto założenie, że masz już ustawienia subskrypcji platformy Azure do użycia z **Add-AzureRmAccount** i **Select-AzureRmSubscription** poleceń.
@@ -394,7 +394,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po utworzeniu maszyny wirtualnej, można:
 
 - Połączenie z maszyną wirtualną przy użyciu pulpitu zdalnego (RDP).

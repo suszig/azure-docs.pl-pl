@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: a684f8bcdefc8e3338fae59e56863dfc37c23f1f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Data Lake Store przy użyciu fabryki danych Azure
 
@@ -125,7 +125,11 @@ W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do 
 
     ![Monitor uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Upewnij się, że dane są kopiowane do usługi Azure Data Lake Store. 
+15. Dodatkowo można monitorować szczegóły wykonywania każde działanie kopiowania, klikając **szczegóły** łącze w obszarze **akcje** w działaniu widok monitorowania. Przedstawia on informacje o tym ilość danych skopiowana ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i użyć konfiguracji.
+
+    ![Monitorowanie aktywności szczegóły uruchomienia](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Upewnij się, że dane są kopiowane do usługi Azure Data Lake Store. 
 
     ![Sprawdź dane wyjściowe usługi Data Lake Store](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu CentOS dla platformy Azure
 * [Przygotowanie maszyny wirtualnej CentOS 6.x dla platformy Azure](#centos-6x)
@@ -195,7 +195,7 @@ W tym artykule przyjęto założenie, zainstalowano CentOS (lub podobny pochodne
 
 
 - - -
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 **Zmiany w CentOS 7 (lub podobny pochodne)**
 
 Przygotowywanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podobny do CentOS 6, jednak istnieje kilka istotnych różnic, warto zauważyć:
@@ -330,6 +330,6 @@ Przygotowywanie maszyny wirtualnej CentOS 7 dla platformy Azure jest bardzo podo
 
 14. Kliknij przycisk **akcji -> zamykania w dół** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania do platformy Azure.
 
-## <a name="next-steps"></a>Następne kroki
-Teraz możesz używać wirtualnego dysku twardego systemu CentOS Linux do tworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz kroki 2 i 3 w [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz możesz używać wirtualnego dysku twardego systemu CentOS Linux do tworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](upload-vhd.md#option-1-upload-a-vhd).
 

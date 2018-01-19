@@ -3,8 +3,8 @@ title: "Jak skonfigurować trwałości danych dla podręczna Redis Azure Premium
 description: "Dowiedz się, jak skonfigurować i zarządzać nią trwałości danych swoich wystąpień pamięci podręcznej Redis Azure warstwy Premium"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2017
-ms.author: sdanie
-ms.openlocfilehash: 638f0154d3a4fd091197a2da86374a053b31c4c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Jak skonfigurować trwałości danych dla podręczna Redis Azure Premium
 Pamięć podręczna Redis Azure ma ofert różnych pamięci podręcznej, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcji, łącznie z funkcji warstwy Premium, takich jak klastrowanie, trwałości i obsługi sieci wirtualnej. W tym artykule opisano sposób konfigurowania trwałości w wystąpienia pamięci podręcznej Redis Azure premium.
@@ -179,7 +179,7 @@ Gdy klaster jest włączona, każdy identyfikator niezależnego fragmentu w pami
 Po ponownego zapisywania dwa zestawy plików AOF istnieje w magazynie. Ponownego wystąpienia w tle i Dołącz do pierwszego zestawu plików, podczas gdy operacje na zestawie, które są wysyłane do pamięci podręcznej podczas poprawione Dołącz do drugiego zestawu. Kopii zapasowej są tymczasowo przechowywane podczas ponownego w razie awarii, ale jest usuwany natychmiast, po zakończeniu ponownego zapisywania.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się, jak korzystać z funkcji premium więcej w pamięci podręcznej.
 
 * [Wprowadzenie do warstwy Premium pamięci podręcznej Redis Azure](cache-premium-tier-intro.md)

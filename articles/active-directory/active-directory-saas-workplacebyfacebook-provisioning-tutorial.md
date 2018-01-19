@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez usługi Facebook na potrzeby Inicjowanie obsługi użytkowników
 
@@ -73,9 +73,9 @@ Usługi Azure AD umożliwia automatyczną synchronizację szczegóły konta uży
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. W obszarze **poświadczeń administratora** wprowadź klucz tajny tokenu i adres URL dzierżawy z miejsca pracy przez administratora usługi Facebook.
+5. W obszarze **poświadczeń administratora** sekcji, wprowadź klucz tajny tokenu z miejsca pracy przez administratora usługi Facebook i ustaw wartość adres URL dzierżawy `https://www.facebook.com/scim/v1/` .
 
 6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z miejsca pracy przez aplikację usługi Facebook. Jeśli połączenie nie powiedzie się, upewnij się, że miejsca pracy przez Facebook konto ma uprawnienia administratora zespołu.
 
@@ -95,9 +95,8 @@ Aby uzyskać więcej informacji na temat konfigurowania automatycznego inicjowan
 
 Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane w miejscu pracy przez usługi Facebook.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Konfigurowanie rejestracji jednokrotnej](active-directory-saas-workplacebyfacebook-tutorial.md)
-

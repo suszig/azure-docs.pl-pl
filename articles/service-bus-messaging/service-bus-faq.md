@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>Service Bus — często zadawane pytania
 W tym artykule omówiono niektóre często zadawane pytania dotyczące usługi Microsoft Azure Service Bus. Możesz również odwiedzić [często zadawane pytania dotyczące obsługi Azure](http://go.microsoft.com/fwlink/?LinkID=185083) ogólne informacje Azure cennik i pomocy technicznej.
@@ -48,7 +48,6 @@ Zobacz [najlepsze rozwiązania dotyczące poprawy wydajności przy użyciu usłu
 ### <a name="what-should-i-know-before-creating-entities"></a>Co należy wiedzieć przed rozpoczęciem tworzenia jednostek?
 Następujące właściwości kolejki i tematu są niezmienne. To ograniczenie podczas obsługi administracyjnej jednostki, wziąć pod uwagę te właściwości nie można zmodyfikować bez tworzenia nowego obiektu zastąpienia.
 
-* Rozmiar
 * Partycjonowanie
 * Sesje
 * Wykrywanie duplikatów
@@ -112,7 +111,7 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej na temat usługi Service Bus, zobacz następujące artykuły:
 
 * [Introducing Azure Service Bus w warstwie Premium (wpis w blogu)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

@@ -3,8 +3,8 @@ title: "Jak skonfigurować Redis klastrowania podręczna Redis Azure Premium | D
 description: "Informacje o sposobie tworzenia i zarządzania nimi Redis klastrowania warstwę Premium wystąpienia pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 86a4a605dbb3b11924c14ff42238009742f72898
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Jak skonfigurować Redis klastrowania podręczna Redis Azure Premium
 Pamięć podręczna Redis Azure ma inną pamięci podręcznej oferty, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcji, łącznie z funkcji warstwy Premium, takich jak klastrowanie, trwałości i obsługi sieci wirtualnej. W tym artykule opisano sposób konfigurowania klastra w wystąpieniu usługi pamięć podręczna Redis Azure premium.
@@ -37,20 +37,20 @@ Aby uzyskać więcej informacji o rozmiarze, przepływności i przepustowości z
 
 Na platformie Azure Redis klastra jest oferowany jako model podstawowy/repliki, gdzie każdy identyfikator niezależnego fragmentu ma parę podstawowy/repliki replikacji, gdy replikacja jest zarządzane przez usługę pamięć podręczna Redis Azure. 
 
-## <a name="clustering"></a>Klaster
+## <a name="clustering"></a>Klastrowanie
 Włączono klaster **nowa pamięć podręczna Redis** bloku podczas tworzenia pamięci podręcznej. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Klaster jest skonfigurowany na **klaster Redis** bloku.
 
-![Klaster][redis-cache-clustering]
+![Klastrowanie][redis-cache-clustering]
 
 Może mieć maksymalnie 10 odłamków w klastrze. Kliknij przycisk **włączone** i przesuń suwak lub wpisz liczbę z zakresu od 1 do 10 dla **liczby niezależnych** i kliknij przycisk **OK**.
 
 Każdy identyfikator niezależnego fragmentu jest zarządzane przez usługę Azure parę pamięć podręczna podstawowy/repliki, a całkowity rozmiar pamięci podręcznej jest obliczany przez pomnożenie liczba odłamków przez wybrany w warstwie cenowej rozmiar pamięci podręcznej. 
 
-![Klaster][redis-cache-clustering-selected]
+![Klastrowanie][redis-cache-clustering-selected]
 
 Po utworzeniu pamięci podręcznej nawiązania połączenia i użyj go tylko pamięci podręcznej niedziałającego w klastrze, takich jak i Redis dystrybuuje dane w pamięci podręcznej fragmentów. W przypadku diagnostyki [włączone](cache-how-to-monitor.md#enable-cache-diagnostics), metryki są przechwytywane osobno dla każdej niezależnych i może być [wyświetlić](cache-how-to-monitor.md) w bloku pamięci podręcznej Redis. 
 
@@ -159,7 +159,7 @@ Klaster jest dostępna tylko dla pamięci podręcznej premium.
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Otrzymuję przenoszenie wyjątków, używając programie StackExchange.Redis i klastrowania, co należy zrobić?
 Jeśli używasz programie StackExchange.Redis i odbierać `MOVE` wyjątków podczas korzystania z klastra, upewnij się, że używasz [programie StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) lub nowszym. Aby uzyskać instrukcje na temat konfigurowania aplikacji platformy .NET do użycia w programie StackExchange.Redis, zobacz [Konfigurowanie klientów pamięci podręcznej](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się, jak korzystać z funkcji premium więcej w pamięci podręcznej.
 
 * [Wprowadzenie do warstwy Premium pamięci podręcznej Redis Azure](cache-premium-tier-intro.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Kwestie do uwzględnienia stosu Azure zintegrowanych systemów
 Jeśli interesuje Cię systemu Azure stosu zintegrowane, należy poznać niektóre z najważniejszych kwestii dotyczących planowania wdrożenia i jak system dopasowuje się do centrum danych. Ten artykuł zawiera omówienie te zagadnienia dotyczące ułatwiającym podejmowanie decyzji ważne infrastruktury systemu Azure stosu wieloma węzłami. Opis tych zagadnień pomaga podczas pracy z dostawcą sprzętu OEM zgodnie z wdrożeniem Azure stosu w centrum danych.  
@@ -31,12 +31,12 @@ Aby wdrożyć stosu Azure istnieje zestaw decyzji, które należy poprawnie inte
 
 Informacje wymagane zakresów w sieci, zabezpieczeń i informacje o tożsamości z wiele istotnych decyzji, które mogą wymagać wiedzy z wielu różnych obszarów i inne osoby podejmujące decyzje. W związku z tym może być konieczne ściągnąć osób z wielu zespoły w organizacji, aby upewnić się, że wszystkie wymagane informacje gotowe, przed rozpoczęciem wdrażania. Ułatwia komunikować się z dostawcą sprzętu podczas zbierania tych informacji, jak mogą pojawić się porady przydatne do tworzenia swoje decyzje dotyczące.
 
-Podczas badania i zbieranie wymaganych informacji, może być konieczne dokonanie pewnych zmian w konfiguracji przed wdrożeniem w środowisku sieciowym. Mogą one obejmować rezerwacji przestrzeni adresów IP dla rozwiązania Azure stosu, konfigurowanie Twojego routery, przełączniki i zapór, aby przygotować się do łączność nowych przełączników rozwiązania Azure stosu. Upewnij się, że ma obszaru podmiotu ekspert wyrównany do pomóc w planowaniu.
+Podczas badania i zbieranie wymaganych informacji, może być konieczne dokonanie pewnych zmian w konfiguracji przed wdrożeniem w środowisku sieciowym. Mogą one obejmować rezerwacji przestrzeni adresów IP dla rozwiązania Azure stosu i konfigurowanie sieci routery, przełączniki i zapór, aby przygotować się do łączność nowych przełączników rozwiązania Azure stosu. Upewnij się, że ma ekspert wyrównana i zaangażowane w projekcie wdrożenia obszaru podmiotu pomóc w planowaniu.
 
 ## <a name="management-considerations"></a>Zagadnienia dotyczące zarządzania
 Azure stos jest zapieczętowany system, gdzie infrastruktury jest zablokowana zarówno od uprawnień i sieciowych perspektywy. Listy kontroli dostępu do sieci (ACL) są stosowane do Zablokuj cały ruch przychodzący nieautoryzowanych i wszystkie zbędne komunikacji między składnikami infrastruktury. Utrudnia nieautoryzowanym użytkownikom dostęp do systemu.
 
-Codzienne zarządzanie i operacje jest nie administratora nieograniczony dostęp do infrastruktury. Operatory stosu Azure muszą zarządzać systemu za pośrednictwem portalu administratora lub za pośrednictwem usługi Azure Resource Manager (za pośrednictwem programu PowerShell lub interfejsu API REST). Brak dostępu do systemu, narzędzia do zarządzania, takie jak Menedżer funkcji Hyper-V lub Menedżera klastra trybu Failover nie istnieje. Aby lepiej chronić systemu, oprogramowania innych firm (na przykład agenci) nie można zainstalować wewnątrz składników infrastruktury Azure stosu. Współdziałanie z zewnętrznego oprogramowania do zarządzania i zabezpieczeń odbywa się za pośrednictwem programu PowerShell lub interfejsu API REST.
+Codzienne zarządzanie i operacje jest nie administratora nieograniczony dostęp do infrastruktury. Operatory stosu Azure muszą zarządzać systemu za pośrednictwem portalu administratora lub za pośrednictwem usługi Azure Resource Manager (za pośrednictwem interfejsu wiersza polecenia Azure, programu PowerShell lub interfejsu API REST). Brak dostępu do systemu, narzędzia do zarządzania, takie jak Menedżer funkcji Hyper-V lub Menedżera klastra trybu Failover nie istnieje. Aby lepiej chronić systemu, oprogramowania innych firm (na przykład agenci) nie można zainstalować wewnątrz składników infrastruktury Azure stosu. Współdziałanie z zewnętrznego zarządzania i zabezpieczeń oprogramowania odbywa się za pośrednictwem interfejsu wiersza polecenia Azure, programu PowerShell lub interfejsu API REST.
 
 Gdy wyższy poziom dostępu jest potrzebna do rozwiązywania problemów, które nie są rozpoznawane za pomocą kroków pośrednictwa alertu, należy skontaktować się z pomocy technicznej. Za pomocą techniczną Brak metody zapewnienie tymczasowego pełne uprawnienia dostępu administratora systemu do bardziej zaawansowanych operacji. 
 
@@ -93,9 +93,9 @@ Aby uzyskać więcej informacji o jakie infrastruktury kluczy publicznych Certyf
 
 
 ## <a name="time-synchronization"></a>Czas synchronizacji
-Musisz wybrać używanych do synchronizacji Azure stosu serwera o określonym czasie.  Symbolization czasu jest kluczowa stosu Azure i jej role infrastruktury, ponieważ jest używany do generowania biletów Kerberos, które są używane do uwierzytelniania wewnętrznego usługi ze sobą.
+Musisz wybrać używanych do synchronizacji Azure stosu serwera o określonym czasie.  Synchronizację czasu jest kluczowa stosu Azure i jej role infrastruktury, ponieważ jest używany do generowania biletów Kerberos, które są używane do uwierzytelniania wewnętrznego usługi ze sobą.
 
-Należy określić adresu IP dla serwera synchronizacji czasu, mimo że większość składników w infrastrukturze może rozpoznać adresu URL, niektóre może obsługiwać tylko adresy IP. Jeśli jesteś są używania opcji wdrażania bez połączenia, należy określić czas server w sieci firmowej, którą można połączyć się, że od infrastruktury sieci w stosie usługi Azure.
+Należy określić adresu IP dla serwera synchronizacji czasu, ponieważ mimo że większość składników w infrastrukturze może rozpoznać adres URL, niektóre obsługują tylko adresy IP. Jeśli jesteś są używania opcji wdrażania bez połączenia, należy określić czas server w sieci firmowej, którą można połączyć się, że od infrastruktury sieci w stosie usługi Azure. Może to wymagać dodatkowych brany pod uwagę podczas planowania części integracji sieci projektu wdrożenia.
 
 
 ## <a name="network-connectivity"></a>Połączenie sieciowe
@@ -120,31 +120,31 @@ Infrastruktura sieci Azure stosu składa się z kilku sieci logiczne, które są
 ![Połączenia diagram i przełącznik sieci logicznej](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### <a name="bmc-network"></a>Sieci BMC
-Ta sieć jest dedykowany do łączenia wszystkich kontrolerów zarządzania płytą główną (znanej także jako service procesory, na przykład iDRAC iLO, iBMC, itp.) do sieci zarządzania. Jeśli jest obecny, host cyklu życia sprzętu (HLH) będą znajdować się w tej sieci i może udostępnić OEM określone oprogramowanie do obsługi sprzętu i/lub monitorowania. 
+Ta sieć jest dedykowany do łączenia wszystkich kontrolerów zarządzania płytą główną (znanej także jako service procesory, na przykład iDRAC iLO, iBMC, itp.) do sieci zarządzania. Jeśli jest obecny, sprzętu hosta cyklu życia (HLH) będą znajdować się w tej sieci i może udostępniać OEM określone oprogramowanie do obsługi sprzętu i/lub monitorowania. 
 
 #### <a name="private-network"></a>Sieć prywatna
-Ta prefiksie/24 254 hosta w sieci IP jest prywatna w regionie Azure stosu (nie zwiększa poza urządzeń przełącznika obramowania regionu Azure stosu) i jest podzielony na dwie podsieci:
+Ta prefiksie/24 (host 254 adresów IP) sieci jest prywatny do regionu Azure stosu (nie zwiększa poza urządzeń przełącznika obramowania regionu Azure stosu) i jest podzielony na dwie podsieci:
 
-- **Sieć magazynowania**. Migracja na żywo /25 126 hosta w sieci IP używane do obsługi ruchu sieciowego magazynu Direct spacje i bloku komunikatów serwera (SMB) i maszyny wirtualnej. 
-- **Wewnętrzna sieć wirtualna IP**. A/25 sieciowych dedykowanych do wewnętrznych adresów VIP usługi równoważenia obciążenia oprogramowania.
+- **Sieć magazynowania**. /25 (host 126 adresów IP) sieci używaną do obsługi bezpośrednie miejsca do magazynowania (S2D) i ruch magazynu bloku komunikatów serwera (SMB) i migracji na żywo maszyny wirtualnej. 
+- **Wewnętrzna sieć wirtualna IP**. A/25 sieciowych dedykowanych do wewnętrznych adresów VIP usługi równoważenia obciążenia oprogramowania (Programowego).
 
 #### <a name="azure-stack-infrastructure-network"></a>Sieć platformy Azure infrastruktury stosu
-To/24 sieć jest przeznaczona do wewnętrznych składników stosu Azure, dzięki czemu mogą komunikować się i wymieniać dane między sobą. Ta podsieć wymaga rutowalne adresy IP, ale polega ochrona poufności do rozwiązania przy użyciu list kontroli dostępu (ACL), nie jest mogą być kierowane poza przełączniki obramowania, z wyjątkiem zakresu bardzo mały rozmiar odpowiednikiem /27 sieci wykorzystana przez niektóre z nich usługi, gdy potrzebują dostępu do zasobów zewnętrznych i/lub Internetu. 
+To/24 sieć jest przeznaczona do wewnętrznych składników stosu Azure, dzięki czemu mogą komunikować się i wymieniać dane między sobą. Ta podsieć wymaga rutowalne adresy IP, ale polega ochrona poufności do rozwiązania przy użyciu list kontroli dostępu (ACL).  Nie jest mogą być kierowane poza przełączniki obramowania, z wyjątkiem zakresu bardzo mały rozmiar odpowiednikiem /27 sieci, który jest wykorzystywany przez niektóre z tych usług, gdy potrzebują dostępu do zasobów zewnętrznych i/lub Internetu. 
 
 #### <a name="public-infrastructure-network"></a>Sieć publicznych infrastruktury
-To/27 sieć jest bardzo małych zakresu podsieci infrastruktury Azure stosu wspomniano wcześniej, nie wymaga publiczne adresy IP, ale wymagają dostępu do Internetu za pośrednictwem NAT lub przezroczystego obiektu pośredniczącego. Ta sieć zostanie przydzielone dla systemu konsoli odzyskiwania awaryjnego (ERCS), ERCS maszyna wirtualna wymaga dostępu do Internetu podczas rejestracji na platformie Azure i powinny obsługiwać routing do sieci zarządzania na potrzeby rozwiązywania problemów.
+To/27 sieć jest bardzo małych zakresu podsieci infrastruktury Azure stosu wspomniano wcześniej, nie wymaga publiczne adresy IP, ale wymagają dostępu do Internetu za pośrednictwem NAT lub przezroczystego obiektu pośredniczącego. Ta sieć zostanie przydzielone dla systemu konsoli odzyskiwania awaryjnego (ERCS). Maszyna wirtualna ERCS wymaga dostępu do Internetu podczas rejestracji na platformie Azure i powinny obsługiwać routing do sieci zarządzania na potrzeby rozwiązywania problemów.
 
 #### <a name="public-vip-network"></a>Sieć publiczna VIP
 Sieć publiczna adresu VIP jest przypisany do kontrolera sieci w stosie Azure. Nie jest sieć logiczna na przełączniku. Programowego używa puli adresów i przypisuje/32 sieci dla obciążeń dzierżawców. W tabeli routingu przełącznika tych 32 adresów IP są rozgłaszane jako dostępny za pośrednictwem protokołu BGP. Ta sieć zawiera zewnętrzne dostępny lub publicznych adresów IP. Infrastruktury Azure stosu używa co najmniej 8 adresów tego publicznej sieci wirtualne adresy IP, podczas gdy pozostała jest używany przez dzierżawione maszyny wirtualne. Rozmiar sieci w tej podsieci może należeć do zakresu od co najmniej /26 (64 hostów) do maksymalnie /22 (1022 hostów), zaleca się zaplanowanie prefiksie/24 sieci.
 
 #### <a name="switch-infrastructure-network"></a>Przełącznik sieci infrastruktury
-To 26 sieć jest podsieci, która zawiera podsieci /30 IP routingu point-to-point (2 IP hosta w) i sprzężenia zwrotne, które są przeznaczone wyłącznie/32 podsieci dla wewnątrzpasmowe przełącznik zarządzania i identyfikator routera BGP Ten zakres adresów IP musi obsługiwać Routing zewnętrznie z rozwiązania Azure stosu centrum danych, mogą być prywatnych lub publicznych adresów IP.
+To 26 sieć jest podsieci, która zawiera podsieci /30 IP routingu point-to-point (2 IP hosta w) i sprzężenia zwrotne, które są przeznaczone wyłącznie/32 podsieci dla wewnątrzpasmowe przełącznik zarządzania i identyfikator routera BGP Ten zakres adresów IP musi obsługiwać Routing zewnętrznie z rozwiązania Azure stosu centrum danych i mogą być prywatnych lub publicznych adresów IP. Na przykład w wielu dzierżawcza scenariusz dostawcy usług publiczne adresy IP mogą być wymagane, a w ściśle kontrolowanych wdrożenia w przedsiębiorstwie, prywatnych adresów IP może być preferowany.
 
 #### <a name="switch-management-network"></a>Sieć zarządzania przełącznika
 Ta /29 (host 6 adresów IP) sieć jest przeznaczona do łączenia porty zarządzania przełączników. Umożliwia dostęp poza pasmem dla wdrażania, zarządzania i rozwiązywania problemów. Jest on obliczany od przełącznika sieci infrastruktury wymienionych powyżej.
 
 ### <a name="transparent-proxy"></a>PRZEZROCZYSTEGO OBIEKTU POŚREDNICZĄCEGO
-Rozwiązania Azure stosu nie obsługuje normalne internetowego serwera proxy. Jeśli centrum danych wymaga cały ruch do korzystania z serwera proxy, należy skonfigurować przezroczystego obiektu pośredniczącego do przetworzenia cały ruch z stojak, aby postępować zgodnie z zasadami oddzielania ruchu między strefami w sieci. Przezroczystego obiektu pośredniczącego (znanej także jako przechwycenia, wbudowanego lub wymuszonego proxy) przechwytuje Normalna komunikacja w warstwie sieci bez konieczności żadnej konfiguracji specjalnych klienta. Klienci nie muszą mieć świadomość istnienia serwera proxy.
+Rozwiązania Azure stosu nie obsługuje normalne internetowego serwera proxy. Jeśli centrum danych wymaga cały ruch do korzystania z serwera proxy, należy skonfigurować przezroczystego obiektu pośredniczącego do przetworzenia cały ruch z stojak, aby postępować zgodnie z zasadami oddzielania ruchu między strefami w sieci. Przezroczystego obiektu pośredniczącego (znanej także jako przechwycenia, wbudowanego lub wymuszonego proxy) przechwytuje Normalna komunikacja w warstwie sieci bez konieczności żadnej konfiguracji specjalnych klienta. Klienci nie muszą być świadome istnienia serwera proxy.
 
 ### <a name="publish-azure-stack-services"></a>Publikowanie usług Azure stosu
 
@@ -203,7 +203,7 @@ Na poniższym diagramie przedstawiono ExpressRoute dla scenariusza wielodostępn
 ## <a name="external-monitoring"></a>Monitorowania zewnętrznych
 Uzyskanie pojedynczego widoku wszystkie alerty z urządzeń i wdrożenia stosu Azure i integrowania alerty istniejących IT usługi przepływu pracy zarządzania dla biletów stosu Azure można zintegrować z zewnętrznego datacenter monitorowanie rozwiązań.
 
-Dołączone do rozwiązania Azure stosu, host cyklu życia sprzętu jest komputera znajdującego się poza stosu Azure, który uruchamia narzędzia do zarządzania dostarczonym przez producenta OEM dla sprzętu. Można użyć tych narzędzi lub innych rozwiązań, które bezpośrednio zintegrować z istniejącymi rozwiązaniami monitorowania w centrum danych.
+Dołączone do rozwiązania Azure stosu, sprzętu hosta cyklu życia (HLH) jest komputerem poza stosu Azure, który uruchamia narzędzia do zarządzania dostarczonym przez producenta OEM dla sprzętu. Można użyć tych narzędzi lub innych rozwiązań, które bezpośrednio zintegrować z istniejącymi rozwiązaniami monitorowania w centrum danych.
 
 W poniższej tabeli przedstawiono listę dostępnych opcji.
 

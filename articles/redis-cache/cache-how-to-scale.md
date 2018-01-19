@@ -3,8 +3,8 @@ title: "Jak skalować pamięć podręczna Azure Redis | Dokumentacja firmy Micro
 description: "Dowiedz się, jak skalować swoich wystąpień w pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Jak skalować pamięć podręczna Azure Redis
 Pamięć podręczna Redis Azure ma inną pamięci podręcznej oferty, które zapewniają elastyczność w wyborze rozmiar pamięci podręcznej i funkcje. Po utworzeniu pamięci podręcznej można skalować rozmiar i warstwę cenową pamięci podręcznej w przypadku zmiany wymagań aplikacji. W tym artykule przedstawiono sposób skalowania pamięci podręcznej w portalu Azure i przy użyciu narzędzi, takich jak Azure PowerShell i interfejsu wiersza polecenia Azure.
@@ -28,7 +28,7 @@ Można użyć [monitorowania](cache-how-to-monitor.md) funkcje pamięci podręcz
 
 Można monitorować następujące metryki w celu określenia, jeśli potrzebujesz do skalowania.
 
-* Obciążenie serwera redis
+* Obciążenie serwera Redis
 * Użycie pamięci
 * Przepustowość sieci
 * Użycie procesora CPU
