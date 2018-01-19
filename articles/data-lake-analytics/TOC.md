@@ -2,7 +2,7 @@
 ## [Co to jest usługa Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Rozpoczęcie pracy
-## [Witryna Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Program Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -11,7 +11,7 @@
 # Instrukcje
 
 ## Zarządzanie usługą Data Lake Analytics
-### [Witryna Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [Interfejs wiersza polecenia platformy Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [Zestaw SDK platformy .NET](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -61,3 +61,4 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Wideo](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

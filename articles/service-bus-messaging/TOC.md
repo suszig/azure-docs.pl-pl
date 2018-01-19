@@ -1,4 +1,4 @@
-# Przegląd
+# Omówienie
 ## [Co to są komunikaty usługi Service Bus?](service-bus-messaging-overview.md)
 ## [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architektura usługi Service Bus](service-bus-architecture.md)
@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Tworzenie wielowarstwowej aplikacji usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -29,6 +28,7 @@
 ### [Kontrola dostępu oparta na rolach (wersja zapoznawcza)](service-bus-role-based-access-control.md)
 ### [Obsługa komunikatów Premium](service-bus-premium-messaging.md)
 ### [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Tworzenie wielowarstwowej aplikacji usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optymalizowanie wydajności](service-bus-performance-improvements.md)
 ### [Geograficzne odzyskiwanie po awarii i replikacja geograficzna](service-bus-geo-dr.md)
 ### [Asynchroniczna obsługa komunikatów i wysoka dostępność](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Aprowizacja jednostek za pomocą programu Azure PowerShell](service-bus-manage-with-ps.md)
 
-# Odwołanie
+# Dokumentacja
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
