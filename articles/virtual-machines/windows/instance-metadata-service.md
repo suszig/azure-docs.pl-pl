@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa Azure wystąpienie metadanych
 
@@ -53,7 +53,7 @@ Wystąpienie usługi metadanych jest kontrolą wersji. Wersje są obowiązkowe i
 > [!NOTE] 
 > Poprzednie wersje Podgląd zdarzeń zaplanowane {najnowszych} obsługiwana jako wersja interfejsu api. Ten format jest już obsługiwane i zostaną wycofane w przyszłości.
 
-Przy wdrażaniu nowsze wersje, starsze wersje nadal będą dostępne dla zgodności czy skrypty są zależne formatów określonych danych. Jednak należy pamiętać, że poprzednie version(2017-03-01) Podgląd mogą nie być dostępne po usługi jest ogólnie dostępna.
+Miarę dodawania nowszych wersji, starsze wersje nadal będą dostępne dla zgodności czy skrypty są zależne formatów określonych danych. Jednak nie mogą być dostępne poprzedniej wersji zapoznawczej (2017-03-01), gdy usługa jest ogólnie dostępna.
 
 ### <a name="using-headers"></a>Korzystanie z nagłówków
 Kwerenda usługi metadanych wystąpienia, należy określić nagłówek `Metadata: true` aby upewnić się, żądanie nie zostało przekierowane przypadkowo.
@@ -62,7 +62,7 @@ Kwerenda usługi metadanych wystąpienia, należy określić nagłówek `Metadat
 
 Wystąpienie metadanych jest dostępna do uruchamiania maszyny wirtualne utworzone/zarządzane przy użyciu [usługi Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Dostęp do wszystkich kategorii danych dla wystąpienia maszyny wirtualnej za pomocą następujących żądania:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ Interfejs API | Domyślny Format danych | W innych formatach
 
 Aby uzyskać dostęp, format odpowiedzi z systemem innym niż domyślny, określ żądany format jako parametr querystring w żądaniu. Na przykład:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Bezpieczeństwo
 Punkt końcowy usługi metadanych wystąpienia jest dostępny tylko w obrębie uruchomione wystąpienie maszyny wirtualnej bez obsługi routingu adresu IP. Ponadto wszelkie żądania z `X-Forwarded-For` nagłówek został odrzucony przez usługę.
-Wymagamy żądania zawiera `Metadata: true` nagłówka, aby upewnić się, że rzeczywistego żądania bezpośrednio był zamierzony i nie jest częścią niezamierzonych przekierowania. 
+Żądania musi zawierać `Metadata: true` nagłówka, aby upewnić się, że rzeczywistego żądania bezpośrednio był zamierzony i nie jest częścią niezamierzonych przekierowania. 
 
 ### <a name="error"></a>Błąd
 Jeśli istnieje element danych nie można odnaleźć lub źle sformułowane żądanie, wystąpienie usługi metadanych zwraca standardowe komunikaty o błędach HTTP. Na przykład:
@@ -109,7 +109,7 @@ Błąd usługi 500     | Spróbuj ponownie za jakiś czas
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Trwa pobieranie publicznego adresu IP
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 W systemie Windows można pobrać metadanych wystąpienia za pomocą programu PowerShell narzędzia `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Lub za pomocą `Invoke-RestMethod` polecenia cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -284,8 +284,8 @@ Dane | Opis | Wprowadzona wersja
 location | Region platformy Azure, maszyna wirtualna jest uruchomiona | 2017-04-02 
 name | Nazwa maszyny Wirtualnej | 2017-04-02
 oferta | Oferują informacji o obrazie maszyny Wirtualnej. Ta wartość ma tylko obrazy wdrożone z galerii Azure obrazu. | 2017-04-02
-Wydawcy | Wydawcy obrazu maszyny Wirtualnej | 2017-04-02
-Jednostka SKU | Określonej jednostki SKU dla obrazu maszyny Wirtualnej | 2017-04-02
+publisher | Wydawcy obrazu maszyny Wirtualnej | 2017-04-02
+sku | Określonej jednostki SKU dla obrazu maszyny Wirtualnej | 2017-04-02
 wersja | Wersja obrazu maszyny Wirtualnej | 2017-04-02
 osType | Linux lub Windows | 2017-04-02
 platformUpdateDomain |  [Domeny aktualizacji](manage-availability.md) wirtualna jest uruchomiona | 2017-04-02
@@ -294,15 +294,15 @@ vmId | [Unikatowy identyfikator](https://azure.microsoft.com/blog/accessing-and-
 vmSize | [Rozmiar maszyny Wirtualnej](sizes.md) | 2017-04-02
 subscriptionId | Subskrypcja platformy Azure dla maszyny wirtualnej | 2017-08-01
 tags | [Tagi](../../azure-resource-manager/resource-group-using-tags.md) dla maszyny wirtualnej  | 2017-08-01
-Grupy zasobów o nazwie | [Grupa zasobów](../../azure-resource-manager/resource-group-overview.md) dla maszyny wirtualnej | 2017-08-01
+resourceGroupName | [Grupa zasobów](../../azure-resource-manager/resource-group-overview.md) dla maszyny wirtualnej | 2017-08-01
 placementGroupId | [Grupy umieszczania](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) Twojego skali maszyny wirtualnej ustawić | 2017-08-01
-IPv4/elementu privateIpAddress | Lokalny adres IPv4 maszyny wirtualnej | 2017-04-02
-IPv4/publicznego adresu IP | Publiczny adres IPv4 maszyny wirtualnej | 2017-04-02
+ipv4/privateIpAddress | Lokalny adres IPv4 maszyny wirtualnej | 2017-04-02
+ipv4/publicIpAddress | Publiczny adres IPv4 maszyny wirtualnej | 2017-04-02
 podsieć lub adres. | Adres podsieci maszyny wirtualnej | 2017-04-02 
-prefiks podsieci / | Prefiks podsieci, przykład 24 | 2017-04-02 
+subnet/prefix | Prefiks podsieci, przykład 24 | 2017-04-02 
 adres IPv6/IP | Lokalny adres IPv6 maszyny wirtualnej | 2017-04-02 
-MacAddress | Adres mac dla maszyny Wirtualnej | 2017-04-02 
-scheduledevents | Obecnie w publicznej wersji zapoznawczej zobacz [scheduledevents](scheduled-events.md) | 2017-03-01
+macAddress | Adres mac dla maszyny Wirtualnej | 2017-04-02 
+scheduledevents | Obecnie w wersji zapoznawczej. Zobacz [zaplanowane zdarzenia](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Przykładowe scenariusze użycia  
 
@@ -312,7 +312,7 @@ Jako dostawcę usług może wymagać śledzić liczbę maszyn wirtualnych z opro
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Umożliwia wysyłanie zapytań tych danych bezpośrednio za pomocą wystąpienia
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Jako dostawcę usług mogą wystąpić pomocy technicznej gdzie chcesz dowiedzie
 
 **Żądanie**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > Odpowiedź jest ciągu JSON. Następujący przykład odpowiedzi jest drukowany pretty dla czytelności.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -376,24 +376,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Język | Przykład 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Przejdź  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
-JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Przejdź  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Często zadawane pytania
 1. Pojawia się błąd `400 Bad Request, Required metadata header not specified`. Co to znaczy?
    * Wystąpienie usługi metadanych wymaga nagłówka `Metadata: true` , należy przesłać żądanie. Przekazywanie tego nagłówka w wywołaniu REST umożliwia dostęp do wystąpienia usługi metadanych. 
 2. Dlaczego nie występują obliczeniowe informacji Moje maszyny wirtualnej?
-   * Obecnie usługa metadanych wystąpienie obsługuje tylko wystąpienia utworzone za pomocą Menedżera zasobów Azure. Firma Microsoft może w przyszłości, Dodaj obsługę maszyn wirtualnych usługi w chmurze.
+   * Obecnie usługa metadanych wystąpienie obsługuje tylko wystąpienia utworzone za pomocą Menedżera zasobów Azure. W przyszłości Obsługa maszyn wirtualnych usługi w chmurze mogą być dodane.
 3. Napisany wcześniej utworzony Moje maszyny wirtualnej za pomocą usługi Azure Resource Manager. Dlaczego mam nie zawiera compute metadane?
    * Wszystkie maszyny wirtualne utworzone po wrz 2016, można dodać [Tag](../../azure-resource-manager/resource-group-using-tags.md) aby zacząć wyświetlać obliczeniowe metadanych. Dla starszych maszyn wirtualnych (utworzone przed 2016 wrz) Dodaj/Usuń rozszerzenia lub danych dysków do maszyny Wirtualnej, aby odświeżyć metadane.
 4. Nie są wyświetlane wszystkie dane wypełnione dla nowej wersji 2017-08-01

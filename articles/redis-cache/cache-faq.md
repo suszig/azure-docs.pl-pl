@@ -3,8 +3,8 @@ title: "Pamięć podręczna Azure Redis — często zadawane pytania | Dokumenta
 description: "Dowiedz się odpowiedzi na często zadawane pytania, wzorców i najlepszych rozwiązań dla pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache — często zadawane pytania
 Dowiedz się odpowiedzi na często zadawane pytania, wzorców i najlepszych rozwiązań dla pamięci podręcznej Redis Azure.
@@ -165,10 +165,10 @@ Tak, pamięć podręczna Redis Azure jest dostępna w chmurze platformy Azure dl
 
 | Chmura   | Sufiks DNS dla pamięci podręcznej Redis            |
 |---------|---------------------------------|
-| Publiczne  | *. redis.cache.windows.net       |
-| Rząd USA  | *. redis.cache.usgovcloudapi.net |
-| Niemcy | *. redis.cache.cloudapi.de       |
-| Chiny   | *. redis.cache.chinacloudapi.cn  |
+| Publiczne  | *.redis.cache.windows.net       |
+| Rząd USA  | *.redis.cache.usgovcloudapi.net |
+| Niemcy | *.redis.cache.cloudapi.de       |
+| Chiny   | *.redis.cache.chinacloudapi.cn  |
 
 Aby uzyskać więcej informacji na uwagi dotyczące korzystania z innych chmur pamięć podręczna Redis Azure zobacz następujące łącza.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty inne niż 1433 dla ADO.NET 4.5
 W tym temacie opisano zachowanie połączenia bazy danych SQL Azure dla klientów używających ADO.NET 4.5 lub nowszej wersji. 
@@ -35,7 +35,7 @@ Dla połączeń z bazą danych SQL Azure, musi najpierw poprosimy czy uruchamia 
 Port 1433 jest tylko port, który musi być otwarty na komputerze stacjonarnym, hostującego aplikację kliencką bazy danych SQL.
 
 #### <a name="inside-client-runs-on-azure"></a>*Wewnątrz:* klienta działa na platformie Azure
-Po uruchomieniu klienta wewnątrz granic chmury Azure używa można zwany *trasy bezpośredniej* do interakcji z serwerem bazy danych SQL. Po nawiązaniu połączenia dalszej interakcji między klientem a bazy danych obejmują żadnego serwera proxy oprogramowania pośredniczącego.
+Po uruchomieniu klienta wewnątrz granic chmury Azure używa można zwany *trasy bezpośredniej* do interakcji z serwerem bazy danych SQL. Po nawiązaniu połączenia dalszej interakcji między klientem a bazy danych obejmują brak bramy bazy danych SQL Azure.
 
 Sekwencja jest następujący:
 

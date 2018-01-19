@@ -3,8 +3,8 @@ title: "Czas rozpoznawania nazw dla maszyn wirtualnych i wystąpień roli"
 description: "Nazwy scenariuszy rozwiązania IaaS platformy Azure, rozwiązania hybrydowe między inną chmurę usługi Active Directory i przy użyciu serwera DNS "
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Rozpoznawanie nazw dla maszyn wirtualnych i wystąpień roli
 W zależności od tego, jak używasz usługi Azure do hostowania IaaS i PaaS, hybrydowych rozwiązań konieczne może być umożliwiają maszyn wirtualnych i wystąpień ról, które zostało utworzone w celu komunikowania się ze sobą. Mimo że ten komunikat może odbywać się przy użyciu adresów IP, jest znacznie prostsza do użyć nazw, które można łatwo zapamiętać i nie należy zmieniać. 
@@ -32,9 +32,10 @@ Rodzaj rozpoznawania nazw, których używasz, zależy od tego, jak maszyn wirtua
 
 **W poniższej tabeli przedstawiono scenariusze i odpowiedniego rozwiązania rozpoznawania nazwy:**
 
-| **Scenariusz** | **Rozwiązania** | **Sufiks** |
+| **Scenariusz** | **Rozwiązania** | **Suffix** |
 | --- | --- | --- |
 | Rozpoznawanie nazw między wystąpień roli lub maszyn wirtualnych znajdujących się w tej samej usługi w chmurze lub sieci wirtualnej |[Rozpoznawanie nazw platformy Azure](#azure-provided-name-resolution) |Nazwa hosta lub nazwa FQDN |
+| Rozpoznawanie nazw w usłudze Azure App Service (aplikacja sieci Web, funkcji, Bot itp.) przy użyciu integracji z sieciami Wirtualnymi wystąpień roli lub maszyn wirtualnych znajdujących się w tej samej sieci wirtualnej |Zarządzany przez klienta DNS serwerów przekazujących zapytań między sieciami wirtualnymi rozpoznanie przez platformę Azure (serwer proxy DNS).  Zobacz [rozpoznawanie nazw przy użyciu serwera DNS](#name-resolution-using-your-own-dns-server) |Tylko nazwa FQDN |
 | Rozpoznawanie nazw między wystąpień roli lub maszyn wirtualnych znajdujących się w różnych sieciach wirtualnych |Zarządzany przez klienta DNS serwerów przekazujących zapytań między sieciami wirtualnymi rozpoznanie przez platformę Azure (serwer proxy DNS).  Zobacz [rozpoznawanie nazw przy użyciu serwera DNS](#name-resolution-using-your-own-dns-server) |Tylko nazwa FQDN |
 | Rozpoznawanie nazwy komputerów i usług lokalnych z wystąpień roli lub maszyn wirtualnych na platformie Azure |Zarządzany przez klienta z serwerów DNS (np. lokalnego kontrolera domeny, kontrolera domeny tylko do odczytu lokalnej lub zsynchronizowany przy użyciu transferów stref DNS dodatkowej).  Zobacz [rozpoznawanie nazw przy użyciu serwera DNS](#name-resolution-using-your-own-dns-server) |Tylko nazwa FQDN |
 | Rozpoznawanie nazwy Azure hostów z komputerów lokalnych |Do przodu zapytań do serwera proxy DNS zarządzany przez klienta w odpowiedniej sieci wirtualnej, serwer proxy przekazuje zapytania na platformie Azure do rozpoznania. Zobacz [rozpoznawanie nazw przy użyciu serwera DNS](#name-resolution-using-your-own-dns-server) |Tylko nazwa FQDN |
@@ -42,7 +43,7 @@ Rodzaj rozpoznawania nazw, których używasz, zależy od tego, jak maszyn wirtua
 | Rozpoznawanie nazw między maszynami wirtualnymi lub wystąpień roli znajduje się w różnych usług w chmurze, nie znajduje się w sieci wirtualnej |Nie dotyczy. Łączność między maszyn wirtualnych i wystąpień roli w innej chmurze usługi nie jest obsługiwana poza siecią wirtualną. |Nie dotyczy |
 
 ## <a name="azure-provided-name-resolution"></a>Rozpoznawanie nazw platformy Azure
-Wraz z rozpoznawanie publicznej nazwy DNS platforma Azure udostępnia rozpoznawania nazw wewnętrznych dla maszyn wirtualnych i wystąpień ról, które znajdują się w tej samej sieci wirtualnej lub usługi w chmurze.  Maszyny wirtualne/wystąpienia w usłudze w chmurze udostępnić tym samym sufiksem DNS (tylko nazwa hosta jest wystarczająca), ale w innej chmurze klasycznych sieci wirtualnych usługi mają inne sufiksy DNS, więc nazwa FQDN nie jest wymagane do rozpoznawania nazw między usługami inną chmurę.  W sieciach wirtualnych w modelu wdrażania usługi Resource Manager, sufiks DNS jest spójna sieci wirtualnych (tak, aby nazwa FQDN nie jest potrzebny) i nazwy DNS można przypisać do karty sieciowe i maszyn wirtualnych. Mimo że rozpoznawanie nazw platformy Azure nie wymaga żadnej konfiguracji, nie jest odpowiednim wyborem w przypadku wszystkich scenariuszy wdrożenia w powyższej tabeli.
+Wraz z rozpoznawanie publicznej nazwy DNS platforma Azure udostępnia rozpoznawania nazw wewnętrznych dla maszyn wirtualnych i wystąpień ról, które znajdują się w tej samej sieci wirtualnej lub usługi w chmurze.  Maszyny wirtualne/wystąpienia w usłudze w chmurze udostępnić tym samym sufiksem DNS (tylko nazwa hosta jest wystarczająca), ale w innej chmurze klasycznych sieci wirtualnych usługi mają inne sufiksy DNS, więc nazwa FQDN nie jest wymagane do rozpoznawania nazw między usługami inną chmurę.  W sieciach wirtualnych w modelu wdrażania usługi Resource Manager, sufiks DNS jest spójna sieci wirtualnych (tak, aby nazwa FQDN nie jest potrzebny) i nazwy DNS można przypisać do karty sieciowe i maszyn wirtualnych. Mimo że rozpoznawanie nazw platformy Azure nie wymaga żadnej konfiguracji, nie jest odpowiednim wyborem w przypadku wszystkich scenariuszy wdrożenia w poprzedniej tabeli.
 
 > [!NOTE]
 > W przypadku ról sieć web i proces roboczy można także przejść wewnętrznych adresów IP na podstawie liczby nazwę i wystąpienie roli przy użyciu interfejsu API REST zarządzania usługi Azure wystąpień roli. Aby uzyskać więcej informacji, zobacz [dokumentacja interfejsu API REST zarządzania usługi](https://msdn.microsoft.com/library/azure/ee460799.aspx).
@@ -69,13 +70,13 @@ Wraz z rozpoznawanie publicznej nazwy DNS platforma Azure udostępnia rozpoznawa
 * W pierwszej usługi w chmurze 180 tylko maszyny wirtualne są zarejestrowane dla każdej sieci wirtualnej w klasycznym modelu wdrażania. To nie ma zastosowania do sieci wirtualnych w modelach wdrażania Menedżera zasobów.
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>Pobieranie w pełni wykorzystać możliwości rozpoznawania nazw platformy Azure
-**Buforowanie po stronie klienta:**
+**Client-side Caching:**
 
 Nie wszystkie zapytania DNS musi być przesyłane przez sieć.  Buforowanie po stronie klienta pomaga zmniejszenia opóźnienia i poprawy odporności na blips sieci rozwiązując cyklicznego zapytania DNS z lokalnej pamięci podręcznej.  Rekordy DNS zawierają Time To Live (TTL) umożliwiający pamięci podręcznej do przechowywania bez wpływania na świeżości rekordów, tak po stronie klienta jest odpowiedni dla większości sytuacji rekordu tak długo, jak to możliwe.
 
 Domyślnie klienta DNS systemu Windows ma wbudowane pamięci podręcznej DNS.  Niektóre buforowanie domyślnie nie zawierają dystrybucjach systemu Linux, zaleca się jeden dodania do każdej maszyny Wirtualnej systemu Linux (po sprawdzeniu, że nie ma lokalnej pamięci podręcznej już).
 
-Istnieje wiele różnych DNS buforowania dostępnych pakietów, np. dnsmasq, poniżej przedstawiono kroki, aby zainstalować dnsmasq na najbardziej typowych dystrybucjach:
+Istnieje szereg różnych DNS buforowania dostępnych pakietów. Na przykład dnsmasq. Poniższe kroki listy instalowanie dnsmasq na najbardziej typowych dystrybucjach:
 
 * **Ubuntu (używa resolvconf)**:
   * po prostu zainstaluj pakiet dnsmasq ("get stanie instalacji dnsmasq sudo").
@@ -104,7 +105,7 @@ Usługa DNS jest głównie protokołu UDP.  Jak protokół UDP nie gwarantuje do
 * Systemów operacyjnych Windows ponów próbę po 1 sekundę, a następnie ponownie po innym 2, 4 i inny 4 sekundy. 
 * Domyślne Linux Instalatora ponownych prób po 5 sekund.  Zaleca się, aby zmienić to, aby ponowić próbę 5 razy w drugim 1 w odstępach czasu.  
 
-Aby sprawdzić bieżące ustawienia na Maszynę wirtualną systemu Linux, "/etc/resolv.conf cat" i znajduje się w wierszu "Opcje", np.:
+Użyj polecenia "kot /etc/resolv.conf", aby sprawdzić bieżące ustawienia na Maszynę wirtualną systemu Linux, a następnie sprawdź w wierszu "Opcje", na przykład:
 
     options timeout:1 attempts:5
 
@@ -121,13 +122,13 @@ Plik resolv.conf jest zazwyczaj generowanych automatycznie i nie można edytowa�
   * Uruchom "sieci po ponownym uruchomieniu usługi" do zaktualizowania
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Rozpoznawanie nazw przy użyciu serwera DNS
-Istnieją różne sytuacje, w przypadku, gdy potrzeb rozpoznawania nazw może go poza funkcje udostępniane przez platformę Azure, na przykład gdy przy użyciu domen usługi Active Directory lub gdy wymagają rozpoznawania nazw DNS między sieciami wirtualnymi (sieci wirtualne).  Tak, aby pokrywał tych scenariuszy, platforma Azure oferuje możliwości do użycia serwery DNS.  
+Istnieją różne sytuacje, w przypadku, gdy potrzeb rozpoznawania nazw może go poza funkcje udostępniane przez platformę Azure, na przykład gdy przy użyciu domen usługi Active Directory lub gdy wymagają rozpoznawania nazw DNS między sieciami wirtualnymi.  Tak, aby pokrywał tych scenariuszy, platforma Azure oferuje możliwości do użycia serwery DNS.  
 
 Serwery DNS w sieci wirtualnej można przekazywać zapytań DNS do rozpoznawania nazw cykliczne platformy Azure do rozpoznania nazwy hostów w tej sieci wirtualnej.  Na przykład domeny kontrolera (DC) działają na platformie Azure można odpowiada na zapytania DNS dla swojej domeny i przesyła inne zapytania na platformie Azure.  Dzięki temu maszyny wirtualne zobaczyć, zarówno lokalnych zasobów (za pośrednictwem kontrolera domeny), jak i nazwy hostów platformy Azure (za pośrednictwem usługi przesyłania dalej).  Dostęp do platformy Azure cykliczne rozwiązujący zostaną przekazane za pośrednictwem wirtualnego adresu IP 168.63.129.16.
 
-Przesyłanie dalej DNS również umożliwia rozpoznawanie nazw DNS między sieciami wirtualnymi oraz pozwala na maszynach lokalnych do rozpoznania nazwy hostów platformy Azure.  Aby można było rozpoznać nazwy hosta maszyny Wirtualnej, serwer DNS maszyny Wirtualnej musi znajdować się w tej samej sieci wirtualnej i można skonfigurować do zapytań do przodu nazwy hosta Azure.  Sufiks DNS jest różna w każdej sieci wirtualnej, można użyć zasady warunkowego przesyłania dalej do wysyłania zapytań DNS na poprawną sieci wirtualnej do rozpoznania.  Na poniższej ilustracji przedstawiono dwie sieci wirtualnych i sieci lokalnej podczas rozpoznawania nazw DNS między sieciami wirtualnymi przy użyciu tej metody.  Usługi przesyłania dalej DNS na przykład jest dostępny w [galerię szablonów Szybki Start Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) i [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+Przesyłanie dalej DNS również umożliwia rozpoznawanie nazw DNS w sieci wirtualnej między oraz pozwala na maszynach lokalnych do rozpoznania nazwy hostów platformy Azure.  Aby można było rozpoznać nazwy hosta maszyny Wirtualnej, serwer DNS maszyny Wirtualnej musi znajdować się w tej samej sieci wirtualnej i można skonfigurować do zapytań do przodu nazwy hosta Azure.  Sufiks DNS jest różna w każdej sieci wirtualnej, można użyć zasady warunkowego przesyłania dalej do wysyłania zapytań DNS na poprawną sieci wirtualnej do rozpoznania.  Na poniższej ilustracji przedstawiono dwie sieci wirtualne i sieć lokalną tej sieci wirtualnej między komputerami za pomocą tej metody rozpoznawania nazw DNS.  Usługi przesyłania dalej DNS na przykład jest dostępny w [galerię szablonów Szybki Start Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) i [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
-![DNS między sieciami wirtualnymi](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![Sieć wirtualna między DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
 Podczas rozpoznawania nazwy platformy Azure, sufiks DNS wewnętrzny (*. internal.cloudapp.net) znajduje się na każdej maszynie Wirtualnej za pomocą protokołu DHCP.  Rejestruje nazwę hosta są w strefie internal.cloudapp.net dzięki temu rozpoznawania nazwy hosta.  Korzystając z własnych rozwiązań rozpoznawania nazwy, ponieważ zakłócać innych architektur DNS (na przykład scenariusze przyłączonych do domeny) sufiks międzynarodowych nazw DOMEN nie podano do maszyn wirtualnych.  Zamiast tego udostępniamy symbol zastępczy niedziałającej (reddog.microsoft.com).  
 
@@ -165,13 +166,13 @@ Korzystając z klasycznym modelu wdrażania, serwery DNS dla sieci wirtualnej mo
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Model wdrażania Menedżera zasobów:
 
 * [Utwórz lub zaktualizuj sieć wirtualną](https://msdn.microsoft.com/library/azure/mt163661.aspx)
 * [Utwórz lub zaktualizuj karty interfejsu sieciowego](https://msdn.microsoft.com/library/azure/mt163668.aspx)
-* [Nowy AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
-* [Nowe AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
+* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
 Klasycznego modelu wdrażania:
 

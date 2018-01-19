@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 
@@ -128,6 +128,10 @@ W tym artykule przedstawiono sposób użycia narzędzia kopii fabryki danych do 
 15. Aby wyświetlić skojarzone z potoku Uruchom uruchomień działania, kliknij przycisk **odbywa się działanie widoku** łącze w **akcje** kolumny. 10 działania kopiowania w potoku, w każdym kopiuje jedna tabela danych. Aby powrócić do potoku uruchamia widok, kliknij przycisk **potoki** łącze u góry. Kliknij przycisk **Odśwież** Aby odświeżyć listę. 
 
     ![Monitor uruchomień działania](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. Dodatkowo można monitorować szczegóły wykonywania każde działanie kopiowania, klikając **szczegóły** łącze w obszarze **akcje** w działaniu widok monitorowania. Przedstawia on informacje o tym ilość danych skopiowana ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i użyć konfiguracji.
+
+    ![Monitorowanie aktywności szczegóły uruchomienia](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
 

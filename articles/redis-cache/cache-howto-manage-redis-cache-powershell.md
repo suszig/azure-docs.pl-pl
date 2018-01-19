@@ -3,8 +3,8 @@ title: "Zarządzanie pamięć podręczna Azure Redis przy użyciu programu Azure
 description: "Dowiedz się, jak wykonywać zadania administracyjne dla pamięci podręcznej Redis Azure za pomocą programu Azure PowerShell."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Zarządzanie przy użyciu programu Azure PowerShell pamięć podręczna Azure Redis
 > [!div class="op_single_selector"]
@@ -126,7 +126,7 @@ Poniższa tabela zawiera właściwości i opisy parametrów często używane pod
 | --- | --- | --- |
 | Name (Nazwa) |Nazwa pamięci podręcznej | |
 | Lokalizacja |Lokalizacja pamięci podręcznej | |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów, w której chcesz utworzyć pamięci podręcznej | |
+| ResourceGroupName |Nazwa grupy zasobów, w której chcesz utworzyć pamięci podręcznej | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Liczba fragmentów, aby utworzyć podczas tworzenia usługi pamięć podręczna premium z włączoną funkcją klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Określa numer pamięci podręcznej. Prawidłowe wartości to: Basic, Standard, Premium |Standardowa (Standard) |
@@ -142,15 +142,15 @@ Poniższa tabela zawiera właściwości i opisy parametrów często używane pod
 | Właściwość | Opis | Warstwy cenowe |
 | --- | --- | --- |
 | włączone kopii zapasowej RDB |Czy [trwałość danych Redis](cache-how-to-premium-persistence.md) jest włączone |Tylko w warstwie Premium |
-| RDB magazynu-— parametry połączenia |Parametry połączenia z kontem magazynu dla [trwałość danych Redis](cache-how-to-premium-persistence.md) |Tylko w warstwie Premium |
-| częstotliwość w przypadku wykonywania kopii zapasowych RDB |Częstotliwość wykonywania kopii zapasowych dla [trwałość danych Redis](cache-how-to-premium-persistence.md) |Tylko w warstwie Premium |
-| zastrzeżone maxmemory |Konfiguruje [pamięci zarezerwowanej](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) -cache procesów |Standardowa i Premium |
-| maxmemory-policy. |Konfiguruje [zasad eksmisji](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla pamięci podręcznej |Wszystkie warstwy cenowe |
+| rdb-storage-connection-string |Parametry połączenia z kontem magazynu dla [trwałość danych Redis](cache-how-to-premium-persistence.md) |Tylko w warstwie Premium |
+| rdb-backup-frequency |Częstotliwość wykonywania kopii zapasowych dla [trwałość danych Redis](cache-how-to-premium-persistence.md) |Tylko w warstwie Premium |
+| maxmemory-reserved |Konfiguruje [pamięci zarezerwowanej](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) -cache procesów |Standardowa i Premium |
+| maxmemory-policy |Konfiguruje [zasad eksmisji](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) dla pamięci podręcznej |Wszystkie warstwy cenowe |
 | powiadomienia przestrzeni kluczy zdarzenia |Konfiguruje [powiadomienia przestrzeni kluczy](cache-configure.md#keyspace-notifications-advanced-settings) |Standardowa i Premium |
-| Skrót max-ziplist — wpisów |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
-| max-ziplist — wartość skrótu |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
+| hash-max-ziplist-entries |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
+| hash-max-ziplist-value |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
 | zestaw max-intset wpisów |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
-| zset-max-ziplist wpisów |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
+| zset-max-ziplist-entries |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
 | zset-max-ziplist-value |Konfiguruje [optymalizacji pamięci](http://redis.io/topics/memory-optimization) dla typów małych agregowanie danych |Standardowa i Premium |
 | bazy danych |Konfiguruje liczbę baz danych. Tej właściwości można skonfigurować tylko na tworzenie pamięci podręcznej. |Standardowa i Premium |
 

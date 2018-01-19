@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Użyj strukturę przesyłania strumieniowego Spark DB Kafka i Azure rozwiązania Cosmos
 
@@ -145,11 +145,11 @@ Wykonaj następujące kroki, aby przekazać notesów z projektu do programu Spar
 
 4. Powtórz kroki od 1 do 3, aby załadować __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ notesu.
 
-## <a name="load-tweets-into-kafka"></a>Ładowanie tweetów do Kafka
+## <a name="load-taxi-data-into-kafka"></a>Ładowanie danych taksówki do Kafka
 
 Gdy pliki zostały przekazane, wybierz __strumienia taksówki danych do kafka.ipynb__ wpis, aby otworzyć notesu. Postępuj zgodnie z instrukcjami, aby załadować dane do Kafka.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Przy użyciu strukturalnych przesyłania strumieniowego Spark tweetów procesu
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Proces taksówki danych przy użyciu strukturalnych przesyłania strumieniowego Spark
 
 Na stronie głównej notesu Jupyter wybierz __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ wpisu. Postępuj zgodnie z instrukcjami notesu do transmisji danych z Kafka i w bazie danych rozwiązania Cosmos Azure przy użyciu strukturalnych przesyłania strumieniowego Spark.
 

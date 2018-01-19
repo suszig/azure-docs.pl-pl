@@ -3,8 +3,8 @@ title: "Zarządzanie pamięcią podręczną Redis Azure za pomocą wiersza polec
 description: "Dowiedz się, jak zainstalować wiersza polecenia platformy Azure na dowolnej platformie, jak z niego korzystać do łączenia się z kontem platformy Azure i sposobu tworzenia i zarządzania nimi pamięci podręcznej Redis z wiersza polecenia platformy Azure."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Jak utworzyć i zarządzać pamięcią podręczną Redis Azure za pomocą interfejsu wiersza polecenia platformy Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Następujące właściwości są używane podczas tworzenia i aktualizowania wys
 | grupa zasobów |-g,--grupy zasobów |Nazwa grupy zasobów. |
 | location |-l, — lokalizacja |Lokalizacja, w celu tworzenia pamięci podręcznej. |
 | rozmiar |-z, — rozmiar |Rozmiar pamięci podręcznej Redis. Prawidłowe wartości: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| Jednostka SKU |-x - sku |W pamięci podręcznej redis jednostki SKU. Powinien być jednym z: [Basic, Standard, Premium] |
+| sku |-x, --sku |W pamięci podręcznej redis jednostki SKU. Powinien być jednym z: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e, - enable bez protokołu ssl portu |Właściwość EnableNonSslPort pamięci podręcznej Redis. Dodaj tę flagę, aby włączyć Port bez protokołu SSL dla pamięci podręcznej |
 | Redis konfiguracji |-c,--konfiguracja pamięci podręcznej redis |W pamięci podręcznej redis konfiguracji. Wprowadź ciąg w formacie JSON konfiguracji kluczy i wartości w tym miejscu. Format: "{" ":""," ":" "}" |
 | Redis konfiguracji |-f, — plik w przypadku konfiguracji pamięci podręcznej redis |W pamięci podręcznej redis konfiguracji. Wprowadź ścieżkę pliku zawierającego konfiguracji kluczy i wartości w tym miejscu. Wpis w pliku formatu: {"": "","": ""} |
@@ -59,7 +59,7 @@ Następujące właściwości są używane podczas tworzenia i aktualizowania wys
 | Virtual Network |-v, — sieci wirtualnej |Odnośnie do hostowania pamięci podręcznej w sieci Wirtualnej, określa dokładne ARM identyfikator zasobu sieci wirtualnej do pamięci podręcznej redis w wdrożenia. Przykładowy format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Typ klucza |-t, — typ klucza |Typ klucza do odnowienia. Prawidłowe wartości: [podstawową, dodatkowej] |
 | StaticIP |-p,--static ip < static ip > |Podczas obsługi pamięci podręcznej w sieci Wirtualnej, określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podana, co zostanie wybrany dla Ciebie podsieci. |
-| Podsieć |t,--podsieci<subnet> |Podczas obsługi pamięci podręcznej w sieci Wirtualnej, określa nazwę podsieci, w której chcesz wdrożyć w pamięci podręcznej. |
+| Podsieć |t, --subnet <subnet> |Podczas obsługi pamięci podręcznej w sieci Wirtualnej, określa nazwę podsieci, w której chcesz wdrożyć w pamięci podręcznej. |
 | VirtualNetwork |-v, — sieci wirtualnej <-sieci wirtualnej > |Odnośnie do hostowania pamięci podręcznej w sieci Wirtualnej, określa dokładne ARM identyfikator zasobu sieci wirtualnej do pamięci podręcznej redis w wdrożenia. Przykładowy format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subskrypcja |-s, - subskrypcji |Identyfikator subskrypcji. |
 

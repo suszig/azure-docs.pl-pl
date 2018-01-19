@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w usłudze Application Insights
 
@@ -99,10 +99,10 @@ Można można wyeksportować przez Ciebie i Twojego zespołu i można go skopiow
 Firma Microsoft wykorzystuje dane tylko w celu świadczenia usług do Ciebie.
 
 ## <a name="where-is-the-data-held"></a>Gdzie jest przechowywanych danych
-* W USA i Europie. Podczas tworzenia nowego zasobu usługi Application Insights, można wybrać lokalizację. 
+* W USA, Europa lub Azja południowo-wschodnia. Podczas tworzenia nowego zasobu usługi Application Insights, można wybrać lokalizację. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Czy oznacza to, że Moja aplikacja musi być obsługiwana w USA i Europy?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Czy oznacza to, że Moja aplikacja musi być obsługiwana w USA, Europa lub Azja południowo-wschodnia?
 * Nie. Aplikację można uruchomić dowolnego miejsca, w hostach lokalnie lub w chmurze.
 
 ## <a name="how-secure-is-my-data"></a>Jak bezpieczne jest danych?
@@ -161,7 +161,7 @@ Zestawy SDK różnią się między platformami i jest wiele składników, które
 | [Dodaj zestaw SDK usługi Application Insights do projektu sieci web .NET][greenbrown] |Kontekstu serwera<br/>Wywnioskowane<br/>Liczniki wydajności<br/>Żądania<br/>**Wyjątki**<br/>Sesja<br/>użytkownicy |
 | [Zainstaluj Monitor stanu na serwerze IIS][redfield] |Zależności<br/>Kontekstu serwera<br/>Wywnioskowane<br/>Liczniki wydajności |
 | [Dodaj zestaw SDK usługi Application Insights do aplikacji sieci web Java][java] |Kontekstu serwera<br/>Wywnioskowane<br/>Żądanie<br/>Sesja<br/>użytkownicy |
-| [Dodaj zestaw SDK JavaScript do strony sieci web][client] |ClientContext <br/>Wywnioskowane<br/>Strona<br/>ClientPerf<br/>AJAX |
+| [Dodaj zestaw SDK JavaScript do strony sieci web][client] |ClientContext <br/>Wywnioskowane<br/>Strona<br/>ClientPerf<br/>Ajax |
 | [Definiowanie właściwości domyślne][apiproperties] |**Właściwości** na wszystkie standardowe i niestandardowe zdarzenia |
 | [Wywołanie TrackMetric][api] |Wartości numeryczne<br/>**Właściwości** |
 | [Wywołanie Śledź *][api] |Nazwa zdarzenia<br/>**Właściwości** |
@@ -183,11 +183,11 @@ Aby uzyskać [zestawy SDK dla innych platform][platforms], zobacz swoje dokument
 | Zdarzenia |Nazwa zdarzenia i wartości |
 | PageViews |Nazwa adresu URL i strony lub ekranu |
 | Wydajności klienta |Nazwa adresu URL/strony, czas ładowania przeglądarki |
-| AJAX |Połączenia HTTP ze strony sieci web do serwera |
+| Ajax |Połączenia HTTP ze strony sieci web do serwera |
 | Żądania |Adres URL, czas trwania, kod odpowiedzi |
 | Zależności |Typ (SQL, HTTP,...), parametry połączenia lub identyfikator URI, synchronizacji/asynchroniczne, czas trwania, Powodzenie, instrukcji SQL (za pomocą Monitora stanu) |
 | **Wyjątki** |Typ, **komunikat**, stosy wywołań, plików i wierszy number, identyfikator wątku źródła |
-| Awarii (Crash) |Identyfikator procesu, identyfikator procesu nadrzędnego, identyfikator wątku awarii; poprawka aplikacji, identyfikator kompilacji;  Typ wyjątku, adres, reason; symbole zaciemnionego i rejestrów, binarne początkowy i końcowy adres, nazwa pliku binarnego i ścieżki, typ procesora |
+| Awarie (crash) |Identyfikator procesu, identyfikator procesu nadrzędnego, identyfikator wątku awarii; poprawka aplikacji, identyfikator kompilacji;  Typ wyjątku, adres, reason; symbole zaciemnionego i rejestrów, binarne początkowy i końcowy adres, nazwa pliku binarnego i ścieżki, typ procesora |
 | Ślad |**Komunikat** i poziom ważności |
 | Liczniki wydajności |Czas procesora, pamięci, liczby żądań, stawki wyjątek, bajtów prywatnych procesu, stawki we/wy, czas trwania żądania, długość kolejki żądań |
 | Dostępność |Kod odpowiedzi testu sieci Web, czas trwania każdego kroku testu, nazwa testu, timestamp, Powodzenie, czas odpowiedzi, lokalizacji testu |

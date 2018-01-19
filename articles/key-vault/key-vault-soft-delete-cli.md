@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "Usługa Azure Key Vault - sposobu usuwania nietrwałego za pomocą interfejsu wiersza polecenia"
 description: "Wielkość przykłady usuwania nietrwałego za pomocą wycinków kodu interfejsu wiersza polecenia"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Jak używać usługi Key Vault soft usunięcie z interfejsu wiersza polecenia
 

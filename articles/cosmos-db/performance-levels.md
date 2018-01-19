@@ -16,10 +16,10 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Wycofanie poziomy wydajności S1, S2 i S3
 
@@ -174,7 +174,7 @@ Odwiedź stronę [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure
 
 Umowa EA klienci będą cen chronione aż do zakończenia ich bieżący kontrakt.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o cenach i zarządzanie danymi z bazy danych Azure rozwiązania Cosmos, zapoznaj się z tymi zasobami:
 
 1.  [Partycjonowanie danych w bazie danych rozwiązania Cosmos](sql-api-partition-data.md). Opis różnicy między kontenera jednej partycji i kontenery podzielonym na partycje, a także wskazówki dotyczące implementowania strategii partycjonowania bezproblemowo skalowania.

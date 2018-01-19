@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Samouczek: Integracji Azure Active Directory z usług sieci Web firmy Amazon (AWS)
 
@@ -116,8 +116,8 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     | Nazwa atrybutu  | Wartość atrybutu | Przestrzeń nazw |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://awS.amazon.com/SAML/Attributes |
-    | Rola            | User.assignedroles |  https://awS.amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Rola            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Należy skonfigurować Inicjowanie obsługi użytkowników w usłudze Azure AD można pobrać za pomocą konsoli usług AWS wszystkich ról. Zobacz poniższe kroki inicjowania obsługi administracyjnej.
@@ -131,6 +131,8 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
     d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+
+    d. W **Namespace** tekstowym, wpisz wartość przestrzeni nazw wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **OK**.
 
@@ -230,19 +232,13 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Tworzenie własnych zasad można pobrać z kont usług AWS wszystkich ról. W **tworzenie własnych zasad** kliknij sekcję **wybierz** przycisku.
-    
+25. Tworzenie własnych zasad można pobrać wszystkich ról z kont usług AWS, wykonując następujące czynności:
+
     ![Tworzenie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Definiowanie nowych zasad, wykonując następujące czynności:
+    a. W **"Utwórz zasady"** kliknij sekcję **"JSON"** kartę.
 
-    ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Podaj **Nazwa zasady** jako **AzureAD_SSOUserRole_Policy**.
-
-    b. Możesz podać **opis** do zasad jako **umożliwi tej zasady można pobrać ról z kont usług AWS**.
-    
-    d. W dokumencie zasady dodawania poniżej JSON.
+    b. W dokumencie zasady dodawania poniżej JSON.
     
     ```
     
@@ -271,13 +267,21 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     }
     
     ```
+
+    d. Polecenie **przycisk przeglądu zasad** do sprawdzania poprawności zasad.
+
+    ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Zdefiniuj **nowe zasady** , wykonując następujące czynności:
+
+    ![Definiowanie nowych zasad](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Podaj **Nazwa zasady** jako **AzureAD_SSOUserRole_Policy**.
+
+    b. Możesz podać **opis** do zasad jako **umożliwi tej zasady można pobrać ról z kont usług AWS**.
     
-    d. Upewnij się, że Sprawdź na **używane automatycznego formatowania podczas edycji zasady**.
-    
-    e. Polecenie **zweryfikować zasad** znajdujący się u dołu.
-    
-    f. Gdy zasady jest został zweryfikowany pomyślnie, a następnie możesz kliknąć **Utwórz zasady** przycisku.
-    
+    d. Polecenie **"Utwórz zasady"** przycisku.
+        
 27. Utwórz nowe konto użytkownika w usłudze IAM usług AWS, wykonując następujące czynności:
 
     a. Polecenie **użytkowników** nawigacji w konsoli usług AWS IAM.

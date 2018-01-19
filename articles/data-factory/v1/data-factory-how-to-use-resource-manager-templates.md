@@ -16,16 +16,16 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Szablony umożliwiają utworzenie jednostek fabryki danych Azure
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Podczas używania fabryki danych Azure potrzeby integracji danych może okazać się ponowne użycie tego samego wzorca w różnych środowiskach lub wykonania tego samego zadania kilkukrotnie w tym samym rozwiązaniu. Szablony ułatwiają wdrożenia i zarządzania tych scenariuszy w łatwy sposób. Szablony w fabryce danych Azure idealnie nadają się do scenariusze, które obejmują możliwość ponownego wykorzystania i powtórzenia.
 
 Rozważmy sytuację, w którym organizacja ma 10 zakładu produkcyjnego całym świecie. Dzienniki z każdego zakładu są przechowywane w bazie danych programu SQL Server oddzielny lokalny. Firma chce utworzyć magazynu danych w chmurze na potrzeby analizy ad hoc. Również chce mieć tej samej logiki, ale różne konfiguracje dla środowiska deweloperskie, badanie i produkcji.

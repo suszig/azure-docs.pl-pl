@@ -3,8 +3,8 @@ title: "Jak rozwiązywać problemy z pamięcią podręczną Redis Azure | Dokume
 description: "Dowiedz się, jak rozwiązać typowe problemy z pamięcią podręczną Redis Azure."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Jak rozwiązywać problemy z pamięcią podręczną Redis Azure
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów z następujących kategorii problemy z pamięcią podręczną Redis Azure.
@@ -183,13 +183,13 @@ Ten komunikat o błędzie zawiera metryki, które pozwalają wskazać przyczynę
 | Metryka komunikat błędu | Szczegóły |
 | --- | --- |
 | inst |W ostatnim przedziału czasu: 0 polecenia zostały wydane |
-| Mgr |Menedżer gniazda wykonuje `socket.select` co oznacza, że jest zapytaniem systemu operacyjnego, aby wskazać gniazda, który ma coś zrobić; zasadniczo: czytnik nie aktywnie odczytuje z sieci, ponieważ nie reakcji, coś zrobić |
+| mgr |Menedżer gniazda wykonuje `socket.select` co oznacza, że jest zapytaniem systemu operacyjnego, aby wskazać gniazda, który ma coś zrobić; zasadniczo: czytnik nie aktywnie odczytuje z sieci, ponieważ nie reakcji, coś zrobić |
 | Kolejki |73 całkowita operacji w toku |
-| Ustawienia kol |6 w trakcie wykonywania operacji w kolejce niewysłane i nie zostały zapisane z siecią ruchu wychodzącego |
-| QS |67 he trwające operacje zostały wysłane do serwera, ale odpowiedź nie jest jeszcze dostępna. Odpowiedzi mogą być `Not yet sent by the server` lub`sent by the server but not yet processed by the client.` |
-| QC |jak już wspomniano odpowiedzi 0 operacji w toku, ale nie została oznaczona jako zakończona z powodu oczekiwania na zakończenie pętli |
+| qu |6 w trakcie wykonywania operacji w kolejce niewysłane i nie zostały zapisane z siecią ruchu wychodzącego |
+| qs |67 he trwające operacje zostały wysłane do serwera, ale odpowiedź nie jest jeszcze dostępna. Odpowiedzi mogą być `Not yet sent by the server` lub`sent by the server but not yet processed by the client.` |
+| qc |jak już wspomniano odpowiedzi 0 operacji w toku, ale nie została oznaczona jako zakończona z powodu oczekiwania na zakończenie pętli |
 | wR |Brak bajty/activewriters active składnika zapisywania (co oznacza, że 6 niewysłane żądania nie są ignorowane) |
-| W |Nie ma żadnych aktywnych czytników i zero bajtów są dostępne do odczytu na NIC bajty/activereaders |
+| w |Nie ma żadnych aktywnych czytników i zero bajtów są dostępne do odczytu na NIC bajty/activereaders |
 
 ### <a name="steps-to-investigate"></a>Kroki w celu zbadania
 1. Jako najlepsze rozwiązanie upewnij się, że używasz następującego wzorca nawiązać podczas korzystania z klienta w programie StackExchange.Redis.

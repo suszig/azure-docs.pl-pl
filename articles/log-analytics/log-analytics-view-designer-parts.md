@@ -1,6 +1,6 @@
 ---
-title: "Część odwołania dla projektanta widoków w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Widok projektanta w analizy dzienników umożliwia tworzenie niestandardowych widoków w konsoli OMS, która zawiera różne wizualizacje danych w repozytorium OMS. Ten artykuł zawiera odwołanie do ustawienia dla każdej części wizualizacji dostępne do użycia w niestandardowych widoków."
+title: "Część odwołanie do widoku projektanta w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Widok projektanta w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdej części wizualizacji dostępne do użycia w niestandardowych widoków."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Odwołanie do części wizualizacji Projektant widoków analizy dziennika
-Projektant widoków w analizy dzienników umożliwia tworzenie niestandardowych widoków w konsoli OMS, która zawiera różne wizualizacje danych z repozytorium OMS. Ten artykuł zawiera odwołanie do ustawienia dla każdej części wizualizacji dostępne do użycia w niestandardowych widoków.
+Projektant widoków w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych z obszaru roboczego analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdej części wizualizacji dostępne do użycia w niestandardowych widoków.
 
 Inne artykuły, które są dostępne dla projektanta widoku są następujące:
 
@@ -53,12 +53,12 @@ Wyświetla listę dziennika zapytania wyszukiwania.  Użytkownik może kliknąć
 | Ustawienie | Opis |
 |:--- |:--- |
 | **Ogólne** | |
-| Tytuł |Tekst wyświetlany u góry widoku. |
+| Stanowisko |Tekst wyświetlany u góry widoku. |
 | Nowa grupa |Wybierz, aby utworzyć nową grupę w widoku, zaczynając od bieżącego widoku. |
 | Wstępnie wybrane filtry |Rozdzielana przecinkami lista właściwości do włączenia w okienku po lewej stronie filtru, gdy użytkownik wybierze zapytania. |
 | Tryb renderowania |Widok początkowy wyświetlane, gdy wybrano zapytania.  Użytkownik może wybrać wszystkie widoki dostępne po otwarciu zapytania. |
 | **Zapytania** | |
-| Zapytania wyszukiwania |Zapytanie do uruchomienia. |
+| Zapytanie wyszukiwania |Zapytanie do uruchomienia. |
 | Przyjazna nazwa |Opisowa nazwa zapytania do użytkownika. |
 
 ## <a name="number--list-part"></a>Listy i numer części
@@ -84,7 +84,7 @@ Nagłówek ma jeden przedstawiający liczbę rekordów z zapytania wyszukiwania 
 | Nazwa i wartość separatora |Ogranicznik pojedynczy znak, jeśli chcesz przeanalizować właściwości text w wielu wartości.  Zobacz [typowe ustawienia](#name-value-separator) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -113,7 +113,7 @@ Nagłówek ma dwie liczby przedstawiający liczba rekordów dziennika oddzielne 
 | Nazwa i wartość separatora |Ogranicznik pojedynczy znak, jeśli chcesz przeanalizować właściwości text w wielu wartości.  Zobacz [typowe ustawienia](#name-value-separator) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -131,11 +131,11 @@ Nagłówek Wyświetla jeden numer podsumowanie z kolumną wartości w zapytaniu 
 | Ikona |Plik obrazu do wyświetlenia obok wynik w nagłówku. |
 | Użyj ikony |Umożliwia wyświetlanie ikon. |
 | **Nagłówek** | |
-| Tytuł |Tekst wyświetlany w górnej części nagłówka. |
+| Stanowisko |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst do wyświetlenia pod tytułem w górnej części nagłówka. |
 | **Pierścień** | |
 | Zapytanie |Wyślij zapytanie do uruchamiania dla pierścień.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową. |
-| **Pierścień** |**> Centrum** |
+| **Pierścień** |**> Center** |
 | Tekst |Tekst wyświetlany w obszarze wartość w pierścień. |
 | Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość.<br><br>-Sumy: Dodaj odpowiednie wartości wszystkich rekordów.<br>— Procent: Procent rekordów zwróconych przez wartości **powoduje wartości używana podczas operacji centrum** całkowita liczba rekordów w zapytaniu. |
 | Wynik wartości używana podczas operacji Centrum |Opcjonalnie kliknij znak plus, aby dodać jedną lub więcej wartości.  Wyniki zapytania będzie ograniczona do rekordów z wartościami właściwości, które określisz.  Jeśli wartości nie zostaną dodane, wszystkie rekordy są uwzględnione w zapytaniu. |
@@ -153,7 +153,7 @@ Nagłówek Wyświetla jeden numer podsumowanie z kolumną wartości w zapytaniu 
 | Nazwa i wartość separatora |Ogranicznik pojedynczy znak, jeśli chcesz przeanalizować właściwości text w wielu wartości.  Zobacz [typowe ustawienia](#name-value-separator) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -183,7 +183,7 @@ Nagłówek wyświetla wyniki dwa zapytania dziennika w czasie, gdy wykresy kolum
 | Operacja |Operacja do wykonania dla przebiegu w czasie.  Zobacz [typowe ustawienia](#sparklines) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -206,7 +206,7 @@ Nagłówek Wyświetla tekst statyczny oraz opcjonalnie łącza.  Lista zawiera j
 | Etykieta |Tekst łącza. |
 | Url |Adres URL dla łącza. |
 | **Elementy informacji** | |
-| Tytuł |Tekst do wyświetlenia tytułu poszczególnych elementów. |
+| Stanowisko |Tekst do wyświetlenia tytułu poszczególnych elementów. |
 | Zawartość |Tekst do wyświetlenia dla każdego elementu. |
 
 ## <a name="line-chart-callout--list-part"></a>Wykres liniowy, objaśnienia & part listy
@@ -222,7 +222,7 @@ Nagłówek Wyświetla wykres liniowy z wielu serii w wyniku zapytania dziennika 
 | Ikona |Plik obrazu do wyświetlenia obok wynik w nagłówku. |
 | Użyj ikony |Umożliwia wyświetlanie ikon. |
 | **Nagłówek** | |
-| Tytuł |Tekst wyświetlany w górnej części nagłówka. |
+| Stanowisko |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst do wyświetlenia pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
@@ -243,7 +243,7 @@ Nagłówek Wyświetla wykres liniowy z wielu serii w wyniku zapytania dziennika 
 | Nazwa i wartość separatora |Ogranicznik pojedynczy znak, jeśli chcesz przeanalizować właściwości text w wielu wartości.  Zobacz [typowe ustawienia](#name-value-separator) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -261,7 +261,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Ikona |Plik obrazu do wyświetlenia obok wynik w nagłówku. |
 | Użyj ikony |Umożliwia wyświetlanie ikon. |
 | **Nagłówek** | |
-| Tytuł |Tekst wyświetlany w górnej części nagłówka. |
+| Stanowisko |Tekst wyświetlany w górnej części nagłówka. |
 | Podtytuł |Tekst do wyświetlenia pod tytułem w górnej części nagłówka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
@@ -278,7 +278,7 @@ Nagłówek przedstawia wykres liniowy z wielu serii w wyniku zapytania dziennika
 | Nazwa i wartość separatora |Ogranicznik pojedynczy znak, jeśli chcesz przeanalizować właściwości text w wielu wartości.  Zobacz [typowe ustawienia](#name-value-separator) szczegółowe informacje. |
 | Zapytanie nawigacji |Wyślij zapytanie do uruchomienia, gdy użytkownik wybierze element na liście.  Zobacz [typowe ustawienia](#navigation-query) szczegółowe informacje. |
 | **Lista** |**> Tytuły kolumn** |
-| Nazwa |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części pierwszej kolumny listy. |
 | Wartość |Tekst do wyświetlenia na początku drugiej kolumny listy. |
 | **Lista** |**> Progi** |
 | Włącz progi |Zaznacz, aby włączyć progów.  Zobacz [typowe ustawienia](#thresholds) szczegółowe informacje. |
@@ -295,7 +295,7 @@ Wyświetla trzech oddzielnych wierszach wykresów z wielu serii w wyniku zapytan
 | Nowa grupa |Wybierz, aby utworzyć nową grupę w widoku, zaczynając od bieżącego widoku. |
 | Ikona |Plik obrazu do wyświetlenia obok wynik w nagłówku. |
 | **Wykres 1<br>wykresu 2<br>wykresu 3** |**> Nagłówek** |
-| Tytuł |Tekst wyświetlany w górnej części wykresu. |
+| Stanowisko |Tekst wyświetlany w górnej części wykresu. |
 | Podtytuł |Tekst do wyświetlenia pod tytułem w górnej części wykresu. |
 | **Wykres 1<br>wykresu 2<br>wykresu 3** |**Wykres liniowy** |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
@@ -332,16 +332,16 @@ Progi pozwalają na wyświetlanie kolorowe ikony obok każdego elementu na liśc
 
 Po włączeniu progi dla części, należy określić co najmniej jeden progów.  Jeśli wartość elementu jest większa niż wartość progowa i niższa niż wartość progowa dalej, że kolor jest używany.  Jeśli element jest większa niż wartość progowa następnie najwyższy, tego koloru zostanie ustawiona.   
 
-Każdy zestaw próg ma jeden próg o wartości **domyślne**.  Jest to kolor ustawiony w przypadku przekroczenia żadnych innych wartości.  Można dodawać i usuwać progów, klikając  **+**  lub **x** przycisku.
+Każdy zestaw próg ma jeden próg o wartości **domyślne**.  Jest to kolor ustawiony w przypadku przekroczenia żadnych innych wartości.  Można dodawać i usuwać progów, klikając ** + ** lub **x** przycisku.
 
 W poniższej tabeli opisano ustawienia progów.
 
 | Ustawienie | Opis |
 |:--- |:--- |
 | Włącz progi |Umożliwia wyświetlanie ikon koloru z lewej strony każdego wskazujące, jego kondycja względem określonego progów. |
-| Nazwa |Nazwę identyfikującą wartość progową. |
+| Name (Nazwa) |Nazwę identyfikującą wartość progową. |
 | Próg |Wartość progu.  Kolor najwyższą wartość progu przekroczenia wartości elementu ustawiony jest kolor kondycji dla każdego elementu listy.  Istnieje jeden domyślny próg będący kolor, jeśli nie wartości progowe. |
 | Kolor |Kolor wartości progowej. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) do obsługi zapytań w częściach wizualizacji.

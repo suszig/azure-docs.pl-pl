@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Samouczek: Azure Active Directory integracji z sieciami Palo Alto - Admin interfejsu użytkownika
 
@@ -37,7 +37,7 @@ Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w 
 Aby skonfigurować integrację usługi Azure AD z sieciami Palo Alto - Admin interfejsu użytkownika, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
-- Sieci Palo Alto — interfejsu użytkownika administratora logowanie jednokrotne włączone subskrypcji
+- Zapora nowej generacji sieci Palo Alto lub Panorama (scentralizowanego zarządzania system dla zapory)
 
 > [!NOTE]
 > Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
@@ -72,7 +72,7 @@ Aby skonfigurować integrację sieci Palo Alto - interfejsu użytkownika adminis
 
 4. W polu wyszukiwania wpisz **Palo Alto Networks - interfejsu użytkownika administratora**, wybierz pozycję **Palo Alto Networks - interfejsu użytkownika administratora** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Sieci Palo Alto - interfejsu użytkownika administracyjnego na liście wyników](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Sieci Palo Alto - interfejsu użytkownika administracyjnego na liście wyników](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
@@ -108,9 +108,9 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
 
     ![Sieci Palo Alto - Admin interfejsu użytkownika domeny i adresy URL pojedynczego logowania jednokrotnego informacji](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall URL>/php/login.php`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall URL>/SAML20/SP`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [Palo Alto Networks - zespołem pomocy technicznej Admin interfejsu użytkownika klienta](https://support.paloaltonetworks.com/support) uzyskać te wartości. 
@@ -123,7 +123,7 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
         
     | Nazwa atrybutu | Wartość atrybutu |
     | --- | --- |    
-    | nazwa użytkownika | User.userPrincipalName |
+    | nazwa użytkownika | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
@@ -134,7 +134,7 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
     
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **Ok**
 
@@ -151,7 +151,7 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Otwórz witrynę Palo Alto jako administrator w innym oknie przeglądarki.
+8. Otwórz interfejs użytkownika administratora Palo Alto sieci zapory jako administrator w innym oknie przeglądarki.
 
 9. Polecenie **urządzenia**.
 
@@ -169,7 +169,7 @@ W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azur
     
     b. W **metadanych dostawcy tożsamości**, kliknij przycisk **Przeglądaj** i wybierz plik metadata.xml, który został pobrany z portalu Azure
     
-    c. Kliknij przycisk **OK**.
+    d. Kliknij przycisk **OK**.
 
 > [!TIP]
 > Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,7 +203,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -248,7 +248,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu Palo Alto Networks - kafelka interfejsu użytkownika administratora w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane z sieciami Palo Alto - interfejsu użytkownika administratora aplikacji.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

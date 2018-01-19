@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB rozwiązania Cosmos rejestrowania diagnostycznego
 
@@ -414,10 +414,10 @@ W poniższej tabeli opisano zawartości każdego wpisu dziennika.
 | operationName | OperationName | Nazwa operacji. Ta wartość może być dowolną z następujących operacji: tworzenia, aktualizacji, odczytu, ReadFeed, Usuń, Zastąp, Execute, SqlQuery, zapytania, JSQuery, Head, HeadFeed lub Upsert.   |
 | properties | Nie dotyczy | Zawartość tego pola są opisane w kolejnych wierszach. |
 | Identyfikator działania | activityId_g | Unikatowy identyfikator GUID dla zarejestrowanych operacji. |
-| Agent użytkownika | userAgent_s | Ciąg określający agent użytkownika klienta wykonywania żądania. Format to {nazwa agenta użytkownika} / {wersja}.|
-| Typ zasobu | ResourceType | Typ dostęp do zasobów. Ta wartość może być dowolny z następujących zasobów: bazy danych, kolekcji, dokument, załącznika, użytkownika, uprawnienia, procedura składowana, wyzwalacz, UserDefinedFunction lub oferty. |
+| userAgent | userAgent_s | Ciąg określający agent użytkownika klienta wykonywania żądania. Format to {nazwa agenta użytkownika} / {wersja}.|
+| resourceType | ResourceType | Typ dostęp do zasobów. Ta wartość może być dowolny z następujących zasobów: bazy danych, kolekcji, dokument, załącznika, użytkownika, uprawnienia, procedura składowana, wyzwalacz, UserDefinedFunction lub oferty. |
 | statusCode |statusCode_s | Stan odpowiedzi operacji. |
-| requestResourceId | Identyfikator zasobu | Element resourceId odnoszące się do żądania, może wskazywać databaseRid, collectionRid lub documentRid w zależności od operacji wykonywane.|
+| requestResourceId | ResourceId | Element resourceId odnoszące się do żądania, może wskazywać databaseRid, collectionRid lub documentRid w zależności od operacji wykonywane.|
 | clientIpAddress | clientIpAddress_s | Adres IP klienta. |
 | requestCharge | requestCharge_s | Liczba RUs używane w operacji |
 | collectionRid | collectionId_s | Unikatowy identyfikator dla kolekcji.|
@@ -426,7 +426,7 @@ W poniższej tabeli opisano zawartości każdego wpisu dziennika.
 | responseLength | responseLength_s | Długość odpowiedzi w bajtach.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Jest to pusty kiedy [tokenów zasobów](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) są używane do uwierzytelniania i wskazuje na identyfikator zasobu użytkownika. |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Uzyskanie zrozumienia nie tylko sposób włączania rejestrowania, ale także kategorie metryki i dziennika, obsługiwane przez różnych Azure usługi odczytu zarówno [omówienie metryk w Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) i [Omówienie usługi Azure Dzienniki diagnostyczne](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułów.
 - Przeczytaj następujące artykuły, aby dowiedzieć się więcej o usłudze event hubs:

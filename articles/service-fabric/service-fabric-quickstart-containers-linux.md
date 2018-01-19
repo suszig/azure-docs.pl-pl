@@ -2,24 +2,24 @@
 title: "Tworzenie aplikacji kontenera usługi Azure Service Fabric w systemie Linux | Dokumentacja firmy Microsoft"
 description: "Utwórz swoją pierwszą aplikację kontenera systemu Linux w usłudze Azure Service Fabric.  Zbuduj obraz Docker za pomocą własnej aplikacji, wypchnij obraz do rejestru kontenerów, skompiluj i wdróż aplikację kontenera usługi Service Fabric."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Wdrażanie aplikacji kontenera systemu Linux w usłudze Azure Service Fabric na platformie Azure
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych oraz niezawodnych mikrousług i kontenerów, a także zarządzanie nimi. 
@@ -66,23 +66,34 @@ Aby uzyskać informacje na temat tworzenia własnego klastra, zobacz [Tworzenie 
 > Usługa frontonu internetowego została skonfigurowana do nasłuchiwania ruchu przychodzącego na porcie 80. Upewnij się, że port w klastrze został otwarty. Jeśli używasz klastra testowego, ten port jest otwarty.
 >
 
-### <a name="deploy-the-application-manifests"></a>Wdrażanie manifestów aplikacji 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Instalowanie interfejsu wiersza polecenia usługi Service Fabric i nawiązywanie połączenia z klastrem
 Zainstaluj [interfejs wiersza polecenia usługi Service Fabric (sfctl)](service-fabric-cli.md) w środowisku interfejsu wiersza polecenia.
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Połącz się z klastrem usługi Service Fabric na platformie Azure przy użyciu interfejsu wiersza polecenia platformy Azure. Punkt końcowy to punkt końcowy zarządzania klastrem — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Wdrażanie aplikacji usługi Service Fabric 
+Aplikacje kontenera usługi Service Fabric można wdrożyć przy użyciu opisanego pakietu aplikacji usługi Service Fabric lub narzędzia Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Wdrażanie przy użyciu pakietu aplikacji usługi Service Fabric
 Użyj udostępnionego skryptu instalacji, aby skopiować definicję aplikacji do głosowania do klastra, zarejestrować typ aplikacji i utworzyć wystąpienie aplikacji.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Wdrażanie aplikacji przy użyciu narzędzia Docker Compose
+Wdróż i zainstaluj aplikację w klastrze usługi Service Fabric przy użyciu narzędzia Docker Compose za pomocą następującego polecenia.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Otwórz przeglądarkę i przejdź do narzędzia Service Fabric Explorer pod adresem http://\<adres_URL_mojego_klastra_usługi_azure_service_fabric>:19080/Explorer — na przykład `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Rozwiń węzeł aplikacji, aby sprawdzić, czy istnieje teraz wpis dla typu aplikacji do głosowania i utworzonego wystąpienia.

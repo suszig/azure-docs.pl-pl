@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Wprowadzenie do usług Azure Location Based Services (wersja zapoznawcza)
 Usługi Azure Location Based Services to portfel usług geoprzestrzennych obejmujący interfejsy API usług dla map, wyszukiwania, wyznaczania tras, ruchu drogowego oraz stref czasowych. Portfel usług zgodnych z interfejsem Azure OneAPI umożliwia używanie znanych narzędzi deweloperskich do szybkiego tworzenia i skalowania rozwiązań, które będą integrować informacje o lokalizacji w rozwiązaniach platformy Azure. Usługi Azure Location Based Services udostępniają deweloperom ze wszystkich branż zaawansowane funkcje geoprzestrzenne wraz z aktualnymi danymi map niezbędnymi do zapewniania kontekstu geograficznego aplikacjom internetowym i mobilnym. Usługi Azure Location Based Services to zestaw interfejsów API REST zgodnych z interfejsem Azure One API wyposażony w internetową kontrolkę JavaScript. Dzięki niej programowanie jest bardzo łatwe i elastyczne, a rezultaty można przenosić na różne platformy. 
@@ -64,6 +64,20 @@ Usługi Azure Location Based Services składają się z pięciu głównych usłu
 Usługi Azure Location Based Services zostały opracowane z myślą o mobilności i mogą wspierać aplikacje międzyplatformowe, ponieważ model programowania jest niezależny i obsługuje dane wyjściowe JSON za pośrednictwem interfejsów API REST. Ponadto usługi Azure LBS oferują wygodną kontrolkę mapy JavaScript z prostym modelem programowania, która umożliwia szybkie opracowywanie aplikacji internetowych i mobilnych. 
 
 Usługi Azure Location Based Services używają schematu uwierzytelniania opartego na kluczach, więc uzyskanie dostępu do usług wymaga jedynie przejścia do witryny [Azure Portal](http://portal.azure.com) i utworzenia konta usług Azure Location Based Services. Konto będzie zawierać dwa wstępnie wygenerowane klucze do użycia. Rozpocznij integrowanie tych możliwości opartych na lokalizacji bezpośrednio w aplikacjach przy użyciu dowolnego z kluczy w żądaniach wysyłanych do usług Azure Location Based Services.
+
+**Relacja z usługą Mapy Bing** — należy pamiętać, że usługi Azure Location Based Services opisane w tym dokumencie różnią się od usług udostępnianych przez usługę Mapy Bing.  Mimo że korzystają z wielu takich samych funkcji, te usługi są różne i nie są ze sobą związane.  Dostępność nowej usługi w obrębie platformy Azure, która będzie zarządzana oddzielnie, nie ma żadnego wpływu na produkt lub harmonogram działania usługi Mapy Bing.
+
+Celem firmy Microsoft jest zapewnienie wyboru dla społeczności deweloperów pod względem ofert usług lokalizacji.  Poniżej przedstawiono pewne proste wskazówki dla deweloperów dotyczące wyboru odpowiedniej usługi w przypadku różnych przypadków użycia i sytuacji klienta.  Należy pamiętać, że te wskazówki dotyczą aktualnie usług Azure LBS na etapie publicznej wersji zapoznawczej i zostaną zaktualizowane po ogłoszeniu ogólnej dostępności tych usług w dalszej części 2018 roku.
+
+| Kryteria klienta | Użyj usług Azure Location Based Services, gdy… | Użyj usługi Mapy Bing, gdy… |
+| ------------- | ------------- | ------------- |
+| Środowisko deweloperskie | Tworzenie w ramach innych usług platformy Azure lub korzystanie z nich | Używanie chmury innej firmy lub innego środowiska deweloperskiego |
+| Etap opracowywania  | Ponieważ usługi Azure LBS znajdują się obecnie w publicznej wersji zapoznawczej, są one optymalizowane pod kątem testowania na wczesnym etapie i opracowywania weryfikacji koncepcji | Na potrzeby środowiska produkcyjnego wymagana jest umowa SLA klasy korporacyjnej |
+| Opcje cennika | Wystarczające są wstępne opcje cenowe na potrzeby dewelopera | Wymagany jest dostosowany cennik klasy korporacyjnej |
+| Środowisko przypadków użycia | Wymagane jest użycie w pojeździe | Użycie w pojeździe nie jest wymagane |
+| Pokrycie geograficznie | Indie, Chiny, Japonia i Korea Południowa — niewymagane | Indie, Chiny, Japonia i Korea Południowa — wymagane |
+| Zawartość związana z mapami | Standardowe mapy powierzchni są wystarczające | Wymagane są obrazy satelitarne, z powietrza i ulic |
+| Bazowe źródło map | Preferowane jest użycie danych mapowych programu TomTom | Preferowane jest użycie danych mapowych programu HERE |
 
 Utwórz [konto usług Azure Location Based Services już dzisiaj!](http://aka.ms/azurelbsportal)
 

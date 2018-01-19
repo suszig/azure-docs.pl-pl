@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
 ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikowanie maszyn wirtualnych Azure w innym regionie po migracji na platformie Azure przy użyciu usługi Azure Site Recovery
 
 >[!NOTE]
 > Azure Site Recovery replikacji maszyn wirtualnych platformy Azure (VM) jest obecnie w przeglądzie.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Ten artykuł pomaga przygotować maszyn wirtualnych platformy Azure dla replikacji między dwóch regionach platformy Azure po tych maszyn zostały poddane migracji ze środowiska lokalnego do platformy Azure przy użyciu usługi Azure Site Recovery.
 
@@ -38,7 +38,7 @@ Aby przygotować zmigrowane maszyny do konfigurowania replikacji do innego regio
 1. Kończenie migracji.
 2. Zainstaluj agenta platformy Azure, w razie potrzeby.
 3. Usuń usługi mobilności.  
-4. Uruchom ponownie maszynę Wirtualną.
+4. Uruchom ponownie maszynę wirtualną.
 
 Te kroki są opisane bardziej szczegółowo w poniższych sekcjach.
 
@@ -61,7 +61,7 @@ Poniższa tabela zawiera dodatkowe informacje na temat instalowania agenta maszy
 | **Operacja** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalowanie agenta maszyny Wirtualnej |Pobierz i zainstaluj [plik MSI agenta](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Potrzebne są uprawnienia administratora, aby zakończyć instalację. |Zainstaluj najnowszą [agenta systemu Linux](../../virtual-machines/linux/agent-user-guide.md). Potrzebne są uprawnienia administratora, aby zakończyć instalację. Zaleca się zainstalowanie agenta z repozytorium dystrybucji. Firma Microsoft *nie jest zalecane* Instalowanie agenta maszyny Wirtualnej systemu Linux bezpośrednio z usługi GitHub.  |
-| Sprawdzanie poprawności instalacji agenta maszyny Wirtualnej |1. Przejdź do folderu C:\WindowsAzure\Packages w maszynie Wirtualnej platformy Azure. Plik WaAppAgent.exe powinna zostać wyświetlona. <br>2. Kliknij plik prawym przyciskiem myszy, przejdź do opcji **Właściwości**, a następnie wybierz kartę **Szczegóły**. **Wersji produktu** pole powinno być 2.6.1198.718 lub nowszej. |Nie dotyczy |
+| Sprawdzanie poprawności instalacji agenta maszyny Wirtualnej |1. Przejdź do folderu C:\WindowsAzure\Packages w maszynie Wirtualnej platformy Azure. Plik WaAppAgent.exe powinna zostać wyświetlona. <br>2. Kliknij plik prawym przyciskiem myszy, przejdź do opcji **Właściwości**, a następnie wybierz kartę **Szczegóły**. **Wersji produktu** pole powinno być 2.6.1198.718 lub nowszej. |ND |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Krok 3: Usuń usługi mobilności z maszyny wirtualnej
@@ -100,6 +100,6 @@ Użyj jednej z następujących metod można odinstalować usługi mobilności na
 Po odinstalowaniu usługi mobilności, uruchom ponownie maszynę Wirtualną przed skonfigurowaniem replikacji do innego regionu Azure.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Włączyć ochronę obciążeń przez [replikowanie maszyn wirtualnych platformy Azure](../azure-to-azure-quickstart.md).
 - Dowiedz się więcej o [wskazówki dotyczące replikowanie maszyn wirtualnych platformy Azure networking](../site-recovery-azure-to-azure-networking-guidance.md).

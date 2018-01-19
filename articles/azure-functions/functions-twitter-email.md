@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzy funkcję, która integruje się z usługą Azure Logic Apps
 
@@ -169,7 +169,7 @@ Najpierw należy utworzyć połączenie do swojego konta w serwisie Twitter. Apl
     | ----------------- | ------------ | ------------- |
     | **Wyszukiwanie tekstu** | #Azure | Użyj hasztagiem, będącą popularnych do generowania nowych tweetów w wybranym interwałem. Przy użyciu warstwę bezpłatna i z hasztagiem jest zbyt popularne, można szybko zużywać przydziału transakcji w kognitywnych interfejsu API usług. |
     | **Częstotliwość** | Minuta | Częstotliwość Jednostka używana do sondowania Twitter.  |
-    | **Interwał** | 15 | Czas między żądania usługi Twitter, w jednostkach częstotliwości. |
+    | **Interval** | 15 | Czas między żądania usługi Twitter, w jednostkach częstotliwości. |
 
 3.  Kliknij przycisk **zapisać** do łączenia się z kontem usługi Twitter. 
 
@@ -271,7 +271,7 @@ Aby wyłączyć aplikację logiki, kliknij przycisk **omówienie** , a następni
 
 ![Dzienniki funkcji](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 

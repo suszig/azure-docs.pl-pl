@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Tworzenie bazy danych grafów przy użyciu języka Java i witryny Azure Portal
 
@@ -129,13 +129,19 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. W witrynie Azure Portal użyj przycisku kopiowania, aby skopiować KLUCZ PODSTAWOWY, i wklej go za pośrednictwem elementu `$masterKey$` w `password: $masterKey$`.
+3. Zmień element `graphs` na `gremlin.cosmosdb` w wartości `endpoint`. Jeśli konto bazy danych programu Graph zostało utworzone przed 20 grudnia 2017, nie wprowadzaj żadnych zmian wartości punktu końcowego i przejdź do następnego kroku.
+
+    Wartość punktu końcowego powinna wyglądać następująco:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. W witrynie Azure Portal użyj przycisku kopiowania, aby skopiować KLUCZ PODSTAWOWY, i wklej go za pośrednictwem elementu `$masterKey$` w `password: $masterKey$`.
 
     Wiersz 4 pliku remote.yaml powinien wyglądać podobnie do 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Zmień wiersz 3 pliku remote.yaml z
+5. Zmień wiersz 3 pliku remote.yaml z
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Zapisz plik remote.yaml.
+6. Zapisz plik remote.yaml.
 
 ## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
 

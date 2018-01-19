@@ -3,8 +3,8 @@ title: "Migrowanie aplikacji usługi zarządzana pamięć podręczna Redis - Azu
 description: "Dowiedz się, jak przeprowadzić migrację usługi zarządzana pamięć podręczna i pamięci podręcznej w roli aplikacji w pamięci podręcznej Redis Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrowanie z usługi zarządzana pamięć podręczna do pamięci podręcznej Azure Redis
 Migrowanie aplikacji korzystających z usługi zarządzana pamięć podręczna Azure z pamięcią podręczną Redis Azure można wykonywać przy minimalnych zmianach w aplikacji, w zależności od funkcji usługi zarządzana pamięć podręczna używana przez aplikację do buforowania. Interfejsy API są dokładnie takie same są podobne, i znacznie istniejący kod korzystającą z usługi zarządzana pamięć podręczna w celu dostępu do pamięci podręcznej mogą być ponownie używane przy minimalnych zmianach. W tym temacie przedstawiono sposób niezbędną konfigurację i zmian w aplikacji do migracji aplikacji usługi zarządzana pamięć podręczna do użycia pamięci podręcznej Redis Azure i pokazuje, jak niektóre funkcje pamięci podręcznej Redis Azure używane do implementowania zarządzane Pamięć podręczna usługi pamięci podręcznej.
@@ -187,6 +187,6 @@ Pamięć podręczna Redis Azure może współpracować z obiektów platformy .NE
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-redis-cache"></a>Migracja stanu sesji ASP.NET i buforowanie danych wyjściowych w pamięci podręcznej Redis Azure
 Pamięć podręczna Redis Azure ma dostawców dla stanu sesji ASP.NET i buforowania danych wyjściowych strony. Aby dokonać migracji aplikacji, która używa wersji usługi zarządzana pamięć podręczna tych dostawców, najpierw usuń istniejące sekcje z pliku web.config, a następnie skonfiguruj wersje pamięć podręczna Redis Azure dostawców. Instrukcje dotyczące używania dostawców ASP.NET pamięci podręcznej Redis Azure, zobacz [dostawcę stanu sesji ASP.NET dla pamięci podręcznej Redis Azure](cache-aspnet-session-state-provider.md) i [dostawcy wyjściowej pamięci podręcznej programu ASP.NET dla pamięci podręcznej Redis Azure](cache-aspnet-output-cache-provider.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Eksploruj [dokumentacji pamięć podręczna Redis Azure](https://azure.microsoft.com/documentation/services/cache/) samouczki, przykłady, klipów wideo i.
 

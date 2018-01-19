@@ -1,6 +1,6 @@
 ---
-title: "Kafelku odwołanie Widok projektanta w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Widok projektanta w analizy dzienników umożliwia tworzenie niestandardowych widoków w konsoli OMS, która zawiera różne wizualizacje danych w repozytorium OMS. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki."
+title: "Kafelku odwołanie Widok projektanta w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Widok projektanta w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Odwołanie kafelka Projektant widoków analizy dziennika
-Projektant widoków w analizy dzienników umożliwia tworzenie niestandardowych widoków w konsoli OMS, która zawiera różne wizualizacje danych w repozytorium OMS. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki.
+Projektant widoków w analizy dzienników umożliwia tworzenie niestandardowych widoków w portalu Azure, która zawiera różne wizualizacje danych w obszarze roboczym analizy dzienników. Ten artykuł zawiera odwołanie do ustawienia dla każdego z dostępnych do użycia w niestandardowych widoków Kafelki.
 
 Inne artykuły, które są dostępne dla projektanta widoku są następujące:
 
@@ -49,7 +49,7 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | **Kafelek** | |
 | Legenda |Tekst wyświetlany w obszarze wartość. |
@@ -67,7 +67,7 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | **Pierwszy Kafelek** | |
 | Legenda |Tekst wyświetlany w obszarze wartość. |
@@ -88,11 +88,11 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | **Pierścień** | |
 | Zapytanie |Wyślij zapytanie do uruchamiania dla pierścień.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników. |
-| **Pierścień** |**> Centrum** |
+| **Pierścień** |**> Center** |
 | Tekst |Tekst wyświetlany w obszarze wartość w pierścień. |
 | Operacja |Operacja do wykonania na wartość właściwości Podsumowując pojedyncza wartość.<br><br>-Sumy: Dodaj wartości wszystkich rekordów z wartością właściwości.<br>— Procent: Procent równy określonemu procentowi wartości w rekordach o wartości właściwości w porównaniu z wartościami równy określonemu procentowi wszystkie rekordy. |
 | Wynik wartości używana podczas operacji Centrum |Opcjonalnie kliknij znak plus, aby dodać jedną lub więcej wartości.  Wyniki zapytania będzie ograniczona do rekordów z wartościami właściwości, które określisz.  Jeśli wartości nie zostaną dodane, nie wszystkie rekordy są uwzględnione w zapytaniu. |
@@ -112,7 +112,7 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
@@ -133,7 +133,7 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | **Wykres liniowy** | |
 | Zapytanie |Zapytania w celu uruchomienia wykresu liniowego.  Pierwszą właściwością powinna być wartość tekstową i drugą właściwością wartość liczbową.  Jest to zazwyczaj kwerendę, która używa **miary** — słowo kluczowe do podsumowania wyników.  Jeśli zapytanie używa **interwał** — słowo kluczowe następnie osi x wykresu użyje tego przedziału czasu.  Jeśli zapytanie nie obejmuje **interwał** interwałów — słowo kluczowe, a następnie co godzinę używanych dla osi x. |
@@ -158,7 +158,7 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 
 | Ustawienie | Opis |
 |:--- |:--- |
-| Nazwa |Tekst wyświetlany w górnej części fragmentu. |
+| Name (Nazwa) |Tekst wyświetlany w górnej części fragmentu. |
 | Opis |Tekst wyświetlany w obszarze Nazwa kafelka. |
 | Pierwszy wykres | |
 | Legenda |Tekst wyświetlany w obszarze objaśnienia pierwszy serii. |
@@ -176,6 +176,6 @@ W poniższej tabeli wymieniono różne typy dostępnych w Projektancie Widok kaf
 | Komunikat |Komunikat wyświetlany, jeśli zapytanie weryfikacji przepływu danych zwraca żadnych danych.  Jeśli podasz żaden komunikat *wykonywania oceny* jest wyświetlany. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) do obsługi zapytań na kafelkach.
 * Dodaj [części wizualizacji](log-analytics-view-designer-parts.md) do widoku niestandardowym.
