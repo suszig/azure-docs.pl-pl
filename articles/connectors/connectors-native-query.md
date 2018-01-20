@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Rozpoczynanie pracy z akcją zapytań
 Za pomocą akcji zapytania, możesz pracować z partii i tablic w celu przepływy pracy, aby:
@@ -27,7 +27,7 @@ Za pomocą akcji zapytania, możesz pracować z partii i tablic w celu przepływ
 * Utwórz zadania dla wszystkich rekordów o wysokim priorytecie z bazy danych.
 * Zapisz wszystkie załączniki plików PDF do wiadomości e-mail do obiektów blob platformy Azure.
 
-Aby rozpocząć, korzystając z akcji zapytania w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby rozpocząć, korzystając z akcji zapytania w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Za pomocą akcji zapytania
 Akcja jest operacja odbywa się przez przepływ pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o akcjach](connectors-overview.md).  
@@ -56,18 +56,18 @@ Poniżej przedstawiono szczegóły akcję, która obsługuje ten łącznik. Łą
 
 | Akcja | Opis |
 | --- | --- |
-| Macierz filtru |Sprawdza warunek dla każdego elementu w tablicy i zwraca wyniki |
+| Filtruj tablicę |Sprawdza warunek dla każdego elementu w tablicy i zwraca wyniki |
 
 ## <a name="action-details"></a>Szczegóły akcji
 Akcja kwerendy jest dostarczany z jedną akcję możliwe. Poniższe tabele zawierają opis wymaganych i opcjonalnych pól wejściowych dla akcji i odpowiednie szczegóły danych wyjściowych, które są skojarzone z przy użyciu akcji.
 
-### <a name="filter-array"></a>Macierz filtru
+### <a name="filter-array"></a>Filtruj tablicę
 Poniżej przedstawiono pól wejściowych dla akcji, dzięki czemu wychodzące żądania HTTP.
 A * oznacza, że jest polem wymaganym.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Z * |Z |Tablica do filtrowania |
+| Z * |z |Tablica do filtrowania |
 | Warunek * |gdzie |Warunek, który ma zostać obliczone dla każdego elementu |
 
 <br>
@@ -77,8 +77,8 @@ Poniżej przedstawiono szczegóły danych wyjściowych dla odpowiedzi HTTP.
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
-| Filtrowane tablicy |Tablica |Tablica, która zawiera obiekt dla każdego wyniku filtrowane |
+| Filtrowane tablicy |tablica |Tablica, która zawiera obiekt dla każdego wyniku filtrowane |
 
-## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
 

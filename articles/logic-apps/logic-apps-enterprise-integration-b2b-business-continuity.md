@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Odzyskiwanie po awarii między region B2B aplikacje logiki
 
@@ -92,7 +92,7 @@ Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz u
 
 ![Wybierz ustawienia sprawdzania duplikatów](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Utwórz [aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) w regionie pomocniczym.    
+1. Utwórz [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
 2. Wyszukaj **X12**i wybierz **X12-modyfikacji numer formantu**.   
 
@@ -115,7 +115,7 @@ Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz u
 
 6. Wyszukaj **X12**i wybierz **X12-dodania lub zaktualizowania numery kontroli**.   
 
-   ![Dodaj lub zaktualizuj numery kontroli](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Dodaj lub zaktualizuj numery kontrolne](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Aby połączyć się z regionu pomocniczego konta integracji z akcji, wybierz **zmienić połączenie** > **Dodaj nowe połączenie** listę kont dostępnych integracji. Wpisz nazwę połączenia, wybierz użytkownika *regionu pomocniczego konta integracji* na liście i wybierz polecenie **Utwórz**. 
 
@@ -147,7 +147,7 @@ Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz u
 
 ![Wybierz ustawienia sprawdzania duplikatów](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Utwórz [aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) w regionie pomocniczym.    
+1. Utwórz [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.    
 
 2. Wyszukaj **EDIFACT**i wybierz **EDIFACT - modyfikacji numer formantu**.
 
@@ -170,7 +170,7 @@ Aby włączyć odzyskiwanie po awarii dla wiadomości przychodzących, wybierz u
 
 7. Wyszukaj **EDIFACT**i wybierz **EDIFACT - dodania lub zaktualizowania numery kontroli**.   
 
-   ![Dodaj lub zaktualizuj numery kontroli](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Dodaj lub zaktualizuj numery kontrolne](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Aby połączyć się z regionu pomocniczego konta integracji z akcji, wybierz **zmienić połączenie** > **Dodaj nowe połączenie** listę kont dostępnych integracji. Wpisz nazwę połączenia, wybierz użytkownika *regionu pomocniczego konta integracji* na liście i wybierz polecenie **Utwórz**.
 
@@ -199,7 +199,7 @@ Ciągłość prowadzenia działalności biznesowej dla dokumentów, które używ
 > [!TIP]
 > Można również użyć [szablonów szybki start AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) do tworzenia aplikacji logiki. Tworzenie konta integracji podstawowe i pomocnicze są wymagania wstępne, aby użyć szablonu. Szablon ułatwia tworzenie aplikacji logiki wyzwalacza i akcji. Aplikację logiki tworzy połączenie z wyzwalacza konta podstawowej integracji i akcji na koncie dodatkowej integracji.
 
-1. Utwórz [aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) w regionie pomocniczym.  
+1. Utwórz [aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) w regionie pomocniczym.  
 
 2. Wyszukaj **AS2**i wybierz **AS2 — wartość Micznych po utworzeniu**.   
 
@@ -243,7 +243,7 @@ Ciągłość prowadzenia działalności biznesowej dla dokumentów, które używ
 
 Oparte na przedział czasu, stanu działania przyrostowe replikuje z regionu podstawowego w regionie pomocniczym. Podczas zdarzenie po awarii, gdy regionu podstawowego nie jest dostępna, bezpośrednie ruch do regionu pomocniczego dla ciągłość prowadzenia działalności biznesowej. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Monitorowanie komunikatów B2B](logic-apps-monitor-b2b-message.md)
 

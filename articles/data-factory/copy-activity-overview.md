@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w fabryce danych Azure
 
@@ -158,7 +158,7 @@ Kliknij, aby wyświetlić listę działań w tym przebiegu potoku. W **akcje** k
 
 ![Monitor uruchomień działania](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Kliknij przycisk "**szczegóły**" łącze w obszarze **akcje** aby zobaczyć szczegóły wykonywania działania kopiowania i charakterystyki wydajności. Przedstawia informacje o tym: ilość danych skopiowana ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i używany dla danego scenariusza kopii konfiguracji.
+Kliknij przycisk "**szczegóły**" łącze w obszarze **akcje** aby zobaczyć szczegóły wykonywania działania kopiowania i charakterystyki wydajności. Przedstawia on informacje o tym wolumin/wiersze/pliki danych skopiowane ze źródła do zbiornika, przepływności, kroki przechodzi przez o odpowiedni czas trwania i używany dla danego scenariusza kopii konfiguracji.
 
 **Przykład: kopiowanie z Amazon S3 do usługi Azure Data Lake Store**
 ![szczegóły uruchomienia działania monitorowania](./media/copy-activity-overview/monitor-activity-run-details-adls.png)

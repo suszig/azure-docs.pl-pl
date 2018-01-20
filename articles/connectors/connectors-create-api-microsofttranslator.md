@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 257f03f8ac71e2c88856864a6b1ff055ab08c347
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Rozpoczynanie pracy z łącznika Microsoft Translator
 Nawiązać translatora firmy Microsoft w celu tłumaczenie tekstu, wykrywa język i inne. Translator firmy Microsoft możesz: 
@@ -28,7 +28,7 @@ Nawiązać translatora firmy Microsoft w celu tłumaczenie tekstu, wykrywa języ
 * Tworzenie sieci przepływu biznesowe na podstawie danych otrzymywanych z Microsoft Translator. 
 * Akcje umożliwia tłumaczenie tekstu, wykrywa język i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład podczas tworzenia nowego pliku skrzynki może dokonywać translacji tekstu w pliku na inny język przy użyciu translatora firmy Microsoft.
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-microsoft-translator"></a>Utwórz połączenie Translator firmy Microsoft
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]

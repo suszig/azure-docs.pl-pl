@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
-ms.openlocfilehash: c829f5d9a90b4260c6f41b2d9e511a0c6cb48f18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e90e928bed41abc00ad4c5b8dcdfad35cb3cbbdc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu SLES lub openSUSE dla platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -81,7 +81,7 @@ Jako alternatywę do tworzenia własnych wirtualnego dysku twardego, SUSE publik
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 11. Jest zalecane, aby edytować plik "/ etc/sysconfig/sieci/dhcp" i zmień `DHCLIENT_SET_HOSTNAME` parametru do następującego:
     
-     DHCLIENT_SET_HOSTNAME = "nie"
+     DHCLIENT_SET_HOSTNAME="no"
 12. Komentarz "/ etc/sudoers", lub usuń następujące linie, jeśli istnieją:
     
      Ustawienia domyślne targetpw # podanie hasła użytkownika docelowego to główny wszystkich ALL=(ALL) wszystkie # ostrzeżenie! Użyj tylko wtedy, wraz z 'Targetpw wartości domyślnych'!
@@ -95,7 +95,7 @@ Jako alternatywę do tworzenia własnych wirtualnego dysku twardego, SUSE publik
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo agenta waagent-force - deprovision
     # <a name="export-histsize0"></a>Eksportuj HISTSIZE = 0
-    # <a name="logout"></a>Wyloguj
+    # <a name="logout"></a>wyloguj
 16. Kliknij przycisk **akcji -> zamykania w dół** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania do platformy Azure.
 
 - - -
@@ -138,7 +138,7 @@ Jako alternatywę do tworzenia własnych wirtualnego dysku twardego, SUSE publik
      Rezerwacja libata.atapi_enabled=0 = 0x1f0, 0x8
 7. Jest zalecane, aby edytować plik "/ etc/sysconfig/sieci/dhcp" i zmień `DHCLIENT_SET_HOSTNAME` parametru do następującego:
    
-     DHCLIENT_SET_HOSTNAME = "nie"
+     DHCLIENT_SET_HOSTNAME="no"
 8. **Ważne:** "/ etc/sudoers", komentarz lub usuń następujące linie, jeśli istnieją:
    
      Ustawienia domyślne targetpw # podanie hasła użytkownika docelowego to główny wszystkich ALL=(ALL) wszystkie # ostrzeżenie! Użyj tylko wtedy, wraz z 'Targetpw wartości domyślnych'!
@@ -152,12 +152,12 @@ Jako alternatywę do tworzenia własnych wirtualnego dysku twardego, SUSE publik
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo agenta waagent-force - deprovision
     # <a name="export-histsize0"></a>Eksportuj HISTSIZE = 0
-    # <a name="logout"></a>Wyloguj
+    # <a name="logout"></a>wyloguj
 12. Upewnij się, że Agent systemu Linux platformy Azure jest uruchamiany podczas uruchamiania:
     
         # sudo systemctl enable waagent.service
 13. Kliknij przycisk **akcji -> zamykania w dół** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania do platformy Azure.
 
-## <a name="next-steps"></a>Następne kroki
-Teraz możesz używać wirtualnego dysku twardego SUSE Linux do tworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz kroki 2 i 3 w [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz możesz używać wirtualnego dysku twardego SUSE Linux do tworzenia nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz kroki 2 i 3 w [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

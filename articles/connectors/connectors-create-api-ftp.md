@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Rozpoczynanie pracy z łącznik FTP
 Użyj konektora serwera FTP do monitorowania, zarządzania i utworzyć pliki na serwerze FTP. 
 
-Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Nawiązać połączenie FTP
 Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.  
@@ -35,7 +35,7 @@ Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy naj
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Użyj wyzwalacz FTP
-Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > Łącznik FTP wymaga, aby serwer FTP jest dostępny z Internetu, który jest skonfigurowany do pracy w trybie PASYWNYM. Ponadto łącznik FTP jest **nie jest zgodne z niejawnych FTPS (FTP za pośrednictwem protokołu SSL)**. Łącznik FTP obsługuje tylko jawne FTPS (FTP za pośrednictwem protokołu SSL).  
@@ -61,7 +61,7 @@ W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które ro
 > 
 
 ## <a name="use-a-ftp-action"></a>Za pomocą akcji FTP
-Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Teraz, wyzwalacz został dodany, wykonaj następujące kroki, aby dodać akcję, która pobierze zawartość pliku nowe lub zmodyfikowane, znalezione przez wyzwalacz.    
 
@@ -73,7 +73,7 @@ Teraz, wyzwalacz został dodany, wykonaj następujące kroki, aby dodać akcję,
    ![Obraz akcji FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    **Pobrać zawartość pliku** sterowania zostanie otwarta. **Uwaga**: pojawi się monit o autoryzowanie aplikację logiki, aby uzyskać dostęp do konta serwera FTP, jeśli nie zostało zrobione to wcześniej.  
    ![Obraz akcji FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Wybierz **pliku** formantu (biały znak znajdujący się poniżej **pliku***). W tym miejscu służy różnych właściwości z pliku nowe lub zmodyfikowane na serwerze FTP.  
+5. Wybierz **pliku** formantu (biały znak znajdujący się poniżej ** pliku ***). W tym miejscu służy różnych właściwości z pliku nowe lub zmodyfikowane na serwerze FTP.  
 6. Wybierz **plików zawartości** opcji.  
    ![Obraz akcji FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Formant jest aktualizowany, co oznacza, że **FTP — pobranie zawartości pliku** akcji uzyskają *plików zawartości* pliku nowe lub zmodyfikowane na serwerze FTP.      
@@ -91,5 +91,5 @@ Można teraz dodawać innej akcji takich jak [SQL Server — Wstaw wiersz](conne
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

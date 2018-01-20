@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Omówienie usługi Azure Niekorzystającą z funkcjami i Logic Apps
 
@@ -41,13 +41,13 @@ Jeśli chcesz od razu rozpocząć korzystanie z usługi Azure Functions, skorzys
 
 Aplikacje logiki platformy Azure pozwala uprościć i wdrażanie skalowalnej integracji i przepływów pracy w chmurze. Zapewnia on wizualnego projektowania modelu i Automatyzowanie procesu jako serię kroków o nazwie przepływu pracy.  Brak [wiele łączników](../connectors/apis-list.md) w usługach w chmurze i lokalnych szybko nawiązać niekorzystającą aplikacji do innych interfejsów API.  Aplikacja logiki rozpoczyna się od wyzwalacza (na przykład „Gdy konto zostanie dodane do oprogramowania Dynamics CRM”), po uruchomieniu którego można użyć wielu akcji łączenia, konwersji i logiki warunkowej.  Logic Apps jest doskonałym wyborem w przypadku organizowanie różnych funkcji Azure w ramach procesu — szczególnie w przypadku, gdy proces wymaga interakcji z systemu zewnętrznego lub interfejsu API.
 
-Aby rozpocząć pracę z usługą Logic Apps, Rozpocznij od [tworzenie pierwszej aplikacji logiki](logic-apps-create-a-logic-app.md).  Jeśli chcesz uzyskać więcej informacji technicznych dotyczących Logic Apps, zobacz [dokumentacja dla deweloperów](logic-apps-workflow-actions-triggers.md).
+Aby rozpocząć pracę z usługą Logic Apps, Rozpocznij od [tworzenie pierwszej aplikacji logiki](quickstart-create-first-logic-app-workflow.md).  Jeśli chcesz uzyskać więcej informacji technicznych dotyczących Logic Apps, zobacz [dokumentacja dla deweloperów](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Jak tworzenie i wdrażanie aplikacji Niekorzystającą na platformie Azure?
 
 Platforma Azure oferuje bogaty zestaw narzędzi na projektowanie, wdrażanie i zarządzanie aplikacjami bez serwera.  Aplikacje mogą być wbudowane bezpośrednio w portalu Azure lub z [narzędzi z programu Visual Studio](logic-apps-serverless-get-started-vs.md).  Gdy aplikacja została utworzona może być [natychmiast wdrożyć](logic-apps-create-deploy-template.md).  Platforma Azure udostępnia również monitorowanie bez serwera aplikacji.  Monitorowania są dostępne w portalu Azure, za pośrednictwem interfejsu API lub zestawów SDK lub z narzędziami zintegrowanego OMS i usługi Application Insights.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Rozpoczynanie pracy z tworzeniem Niekorzystającą aplikacji w programie Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Utwórz pulpit nawigacyjny szczegółowych informacji klienta z Serverless](logic-apps-scenario-social-serverless.md)

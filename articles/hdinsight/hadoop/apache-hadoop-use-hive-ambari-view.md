@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Użyj widoku Hive narzędzia Ambari z platformą Hadoop w usłudze HDInsight
 
@@ -125,7 +125,7 @@ Aby wyświetlić wizualizacji planu zapytania, zaznacz **wyjaśnić Visual** kar
 
 **Wyjaśnić Visual** widoku zapytania mogą być pomocne w opis przepływu złożonych zapytań. Odpowiednika tekstową tego widoku można wyświetlić za pomocą **Wyjaśnij** przycisk w edytorze zapytań.
 
-### <a name="tez-ui"></a>Interfejs użytkownika aplikacji tez
+### <a name="tez-ui"></a>Tez UI
 
 Aby wyświetlić interfejs użytkownika aplikacji Tez dla zapytania, zaznacz **Tez** kartę poniżej arkusza.
 
@@ -146,7 +146,7 @@ Można użyć __tabel__ kartę, aby pracować z tabelami w bazie danych Hive.
 
 ![Obraz na karcie tabel](./media/apache-hadoop-use-hive-ambari-view/tables.png)
 
-## <a name="saved-queries"></a>Zapisane kwerendy
+## <a name="saved-queries"></a>Zapisane zapytania
 
 Z **zapytania** kartę, można opcjonalnie zapisać zapytania. Po zapisaniu kwerendy, można użyć ponownie z __zapisane kwerendy__ kartę.
 
@@ -166,11 +166,11 @@ Na przykład, jeśli zdefiniowano UDF z następującymi właściwościami:
 
 * Nazwa zasobu: myudfs
 
-* Ścieżka zasobu: /myudfs.jar
+* Resource path: /myudfs.jar
 
 * Nazwa funkcji zdefiniowanej przez użytkownika: myawesomeudf
 
-* Nazwa klasy funkcji zdefiniowanej przez użytkownika: com.myudfs.Awesome
+* UDF class name: com.myudfs.Awesome
 
 Przy użyciu **Wstaw funkcje UDF** przycisk zawiera wpis o nazwie **myudfs**, z innej listy rozwijanej dla każdej funkcji zdefiniowanej przez użytkownika zdefiniowane dla tego zasobu. W takim przypadku jest **myawesomeudf**. Wybranie tego wpisu dodaje następujące na początku zapytania:
 

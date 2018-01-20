@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady samouczki i wskazówki dla usługi Azure Logic Apps
 
-[Aplikacje logiki platformy Azure](../logic-apps/logic-apps-what-are-logic-apps.md) pomaga organizować i integrowanie różnych usług zapewniając [łączniki gotowe do użycia 100 +](../connectors/apis-list.md), począwszy od lokalnego programu SQL Server lub SAP do kognitywnych usług firmy Microsoft. Usługa Logic Apps jest "niekorzystającą", tak aby nie trzeba martwić się o skali lub wystąpienia. Wystarczy, że jest zdefiniowanie przepływu pracy z wyzwalacza i akcji wykonywanych przez przepływ pracy. Platforma podstawowa obsługuje skali, dostępności i wydajności. Logic Apps jest szczególnie przydatne w przypadku przypadki użycia i scenariusze, w których należy do zapewnienia koordynacji wielu czynności w wielu systemach.
+[Aplikacje logiki platformy Azure](../logic-apps/logic-apps-overview.md) pomaga organizować i integrowanie różnych usług zapewniając [łączniki gotowe do użycia 100 +](../connectors/apis-list.md), począwszy od lokalnego programu SQL Server lub SAP do kognitywnych usług firmy Microsoft. Usługa Logic Apps jest "niekorzystającą", tak aby nie trzeba martwić się o skali lub wystąpienia. Wystarczy, że jest zdefiniowanie przepływu pracy z wyzwalacza i akcji wykonywanych przez przepływ pracy. Platforma podstawowa obsługuje skali, dostępności i wydajności. Logic Apps jest szczególnie przydatne w przypadku przypadki użycia i scenariusze, w których należy do zapewnienia koordynacji wielu czynności w wielu systemach.
 
-Aby dowiedzieć się więcej o wielu wzorców i możliwości który [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) obsługuje, poniżej przedstawiono typowe przykłady i scenariusze.
+Aby dowiedzieć się więcej o wielu wzorców i możliwości który [Azure Logic Apps](../logic-apps/logic-apps-overview.md) obsługuje, poniżej przedstawiono typowe przykłady i scenariusze.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Popularne punktami startowymi dla przepływów pracy aplikacji logiki
 
-Każda aplikacja logiki rozpoczyna się od [ *wyzwalacza*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)i tylko jeden wyzwalacz, która uruchamia przepływ pracy aplikacji logiki i przekazuje w żadnych danych w ramach tego wyzwalacza. Kilka łączników udostępnia wyzwalacze, które są dostępne w następujących typów:
+Każda aplikacja logiki rozpoczyna się od [ *wyzwalacza*](../logic-apps/logic-apps-overview.md#logic-app-concepts)i tylko jeden wyzwalacz, która uruchamia przepływ pracy aplikacji logiki i przekazuje w żadnych danych w ramach tego wyzwalacza. Kilka łączników udostępnia wyzwalacze, które są dostępne w następujących typów:
 
 * *Wyzwalacze sondowania*: regularnie sprawdza punkt końcowy usługi dla nowych danych. Jeśli istnieje nowych danych, wyzwalacz tworzy i uruchamia nowe wystąpienie przepływu pracy z danymi wejściowymi.
 
@@ -105,7 +105,7 @@ Usługa Logic apps oferuje także integrację z wielu usług, takich jak usługi
 
 * [Oficjalny dokument: Enterprise end-to-end wielkość zarządzanie integracją z usługami Azure, takich jak aplikacje logiki](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie definicji przepływu pracy przy użyciu języka definicji przepływu pracy](../logic-apps/logic-apps-author-definitions.md)
 * [Obsługa błędów i wyjątków w aplikacji logiki](../logic-apps/logic-apps-exception-handling.md)

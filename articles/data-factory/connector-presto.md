@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopiowanie danych z Presto przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -37,7 +37,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do Presto łącznika.
 
@@ -48,11 +48,11 @@ Obsługiwane są następujące właściwości dla Presto połączonej usługi:
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Presto** | Yes |
-| host | Adres IP lub hosta nazwę Presto serwera. (tj. 192.168.222.160)  | Yes |
+| host | Adres IP lub hosta nazwę Presto serwera. (i.e. 192.168.222.160)  | Yes |
 | serverVersion | Wersja Presto serwera. (tj. 0.148-t)  | Yes |
 | wykaz | Kontekst katalogu dla wszystkich żądań na serwerze.  | Yes |
 | port | Port TCP używany przez serwer Presto nasłuchiwanie dla połączeń klienta. Wartość domyślna to 8080.  | Nie |
-| Typ authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Presto. <br/>Dozwolone wartości to: **anonimowe**, **LDAP** | Yes |
+| authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Presto. <br/>Dozwolone wartości to: **anonimowe**, **LDAP** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem Presto.  | Nie |
 | hasło | Hasło odpowiadający nazwie użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
 | enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu SSL. Wartość domyślna to false.  | Nie |
@@ -60,7 +60,7 @@ Obsługiwane są następujące właściwości dla Presto połączonej usługi:
 | useSystemTrustStore | Określa, czy ma być używany certyfikat urzędu certyfikacji z magazynu zaufania systemu lub z określonego pliku PEM. Wartość domyślna to false.  | Nie |
 | allowHostNameCNMismatch | Określa, czy wymagają nazwy certyfikat wystawiony przez urząd certyfikacji SSL do dopasowania nazwy hosta serwera podczas nawiązywania połączenia za pośrednictwem protokołu SSL. Wartość domyślna to false.  | Nie |
 | allowSelfSignedServerCert | Określa, czy certyfikaty z podpisem własnym z serwera. Wartość domyślna to false.  | Nie |
-| Identyfikator strefy czasowej | Lokalnej strefy czasowej używane przez połączenie. Prawidłowe wartości dla tej opcji określono w bazie danych strefy czasowej przez organizację IANA. Wartość domyślna to strefą czasową systemu.  | Nie |
+| timeZoneID | Lokalnej strefy czasowej używane przez połączenie. Prawidłowe wartości dla tej opcji określono w bazie danych strefy czasowej przez organizację IANA. Wartość domyślna to strefą czasową systemu.  | Nie |
 
 **Przykład:**
 

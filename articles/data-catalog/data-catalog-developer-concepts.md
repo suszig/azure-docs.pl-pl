@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Koncepcje dla deweloperów usługi Azure Data Catalog
 Microsoft **Azure Data Catalog** to usługa w chmurze pełni zarządzana, która zapewnia możliwości odnajdywanie źródła danych oraz crowdsourcing metadanych źródła danych. Deweloperzy mogą używać usługi za pomocą ich interfejsów API REST. Zapoznanie się z pojęciami dotyczącymi usługi jest ważne dla deweloperów pomyślnie integracji z **Azure Data Catalog**.
@@ -31,7 +31,7 @@ Microsoft **Azure Data Catalog** to usługa w chmurze pełni zarządzana, która
 
 *Rysunek 1 - Azure Data Catalog uproszczony model koncepcyjny*
 
-### <a name="catalog"></a>Katalogu
+### <a name="catalog"></a>Wykaz
 A **katalogu** jest kontenerem najwyższego poziomu dla wszystkich metadanych, które są przechowywane w organizacji. Istnieje **katalogu** dozwolone na konto platformy Azure. Katalogi są powiązane z subskrypcją platformy Azure, ale tylko jeden **katalogu** mogą być tworzone dla danego konta Azure, nawet jeśli konta może mieć wiele subskrypcji.
 
 Katalog zawiera **użytkowników** i **zasoby**.
@@ -84,7 +84,7 @@ Na przykład w obszarze trwałego główny jest Tablica obiektów opis. Właści
 Wprowadzonego w sekcji kluczowe założenia **Azure Data Catalog** model obiektu zawiera elementy, które mogą być zasoby lub adnotacji. Elementy mają właściwości, które mogą być opcjonalne lub wymagane. Niektóre właściwości są stosowane do wszystkich elementów. Niektóre właściwości są stosowane do wszystkich zasobów. Niektóre właściwości dotyczą tylko typy określonych zasobów.
 
 ### <a name="system-properties"></a>Właściwości systemu
-<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>Data i godzina</td><td>Czas ostatniej modyfikacji elementu. To pole jest generowany przez serwer po wstawieniu elementu i każdej aktualizacji elementu. Wartość tej właściwości jest ignorowany w danych wejściowych dla operacji publikowania.</td></tr><tr><td>id</td><td>Identyfikator URI</td><td>Bezwzględny adres url elementu (tylko do odczytu). Jest unikatowy adresowanego identyfikator URI dla elementu.  Wartość tej właściwości jest ignorowany w danych wejściowych dla operacji publikowania.</td></tr><tr><td>type</td><td>Ciąg</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>Element etag</td><td>Ciąg</td><td>Ciąg odpowiadający wersji elementu, który może być używane do kontroli optymistycznej współbieżności podczas wykonywania operacji, które aktualizują elementów w katalogu. "*" może służyć do dopasowania do dowolnej wartości.</td></tr></table>
+<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>sygnatura czasowa</td><td>Data/godzina</td><td>Czas ostatniej modyfikacji elementu. To pole jest generowany przez serwer po wstawieniu elementu i każdej aktualizacji elementu. Wartość tej właściwości jest ignorowany w danych wejściowych dla operacji publikowania.</td></tr><tr><td>id</td><td>Identyfikator URI</td><td>Bezwzględny adres url elementu (tylko do odczytu). Jest unikatowy adresowanego identyfikator URI dla elementu.  Wartość tej właściwości jest ignorowany w danych wejściowych dla operacji publikowania.</td></tr><tr><td>type</td><td>Ciąg</td><td>Typ zasobu (tylko do odczytu).</td></tr><tr><td>Element etag</td><td>Ciąg</td><td>Ciąg odpowiadający wersji elementu, który może być używane do kontroli optymistycznej współbieżności podczas wykonywania operacji, które aktualizują elementów w katalogu. "*" może służyć do dopasowania do dowolnej wartości.</td></tr></table>
 
 ### <a name="common-properties"></a>Wspólne właściwości
 Te właściwości mają zastosowanie do wszystkich typów zasobów głównego i wszystkie typy adnotacji.
@@ -98,7 +98,7 @@ Te właściwości mają zastosowanie do wszystkich typów zasobów głównego i 
 <p>
 Te właściwości stosowane do wszystkich typów zasobów katalogu głównego.
 
-<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>name</td><td>Ciąg</td><td>Nazwa utworzona na podstawie informacji o lokalizacji źródła danych</td></tr><tr><td>DSL</td><td>DataSourceLocation</td><td>Jednoznacznie zawiera opis źródła danych i jest jednym z identyfikatorami za dany zasób. (Patrz sekcja tożsamości dwóch).  Struktura dsl zależy od typu protokół i źródła.</td></tr><tr><td>źródło danych</td><td>Informacji o źródle</td><td>Więcej szczegółów na typie zasobów.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>W tym artykule opisano użytkownika, który ostatnio zarejestrowany ten zasób.  Zawiera zarówno Unikatowy identyfikator dla użytkownika (upn) i nazwę wyświetlaną (nazwisko i imię).</td></tr><tr><td>identyfikatora kontenera</td><td>Ciąg</td><td>Identyfikator zasobu kontenera dla źródła danych. Ta właściwość nie jest obsługiwana dla typu kontenera.</td></tr></table>
+<table><tr><td><b>Nazwa właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr><tr><td>name</td><td>Ciąg</td><td>Nazwa utworzona na podstawie informacji o lokalizacji źródła danych</td></tr><tr><td>DSL</td><td>DataSourceLocation</td><td>Jednoznacznie zawiera opis źródła danych i jest jednym z identyfikatorami za dany zasób. (Patrz sekcja tożsamości dwóch).  Struktura dsl zależy od typu protokół i źródła.</td></tr><tr><td>źródło danych</td><td>DataSourceInfo</td><td>Więcej szczegółów na typie zasobów.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>W tym artykule opisano użytkownika, który ostatnio zarejestrowany ten zasób.  Zawiera zarówno Unikatowy identyfikator dla użytkownika (upn) i nazwę wyświetlaną (nazwisko i imię).</td></tr><tr><td>containerId</td><td>Ciąg</td><td>Identyfikator zasobu kontenera dla źródła danych. Ta właściwość nie jest obsługiwana dla typu kontenera.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Wspólne właściwości niepojedynczej adnotacji
 Te właściwości mają zastosowanie do wszystkich typów niepojedynczej adnotacji (adnotacje, które może być wiele według zasobu).
@@ -111,7 +111,7 @@ Te właściwości mają zastosowanie do wszystkich typów niepojedynczej adnotac
 ### <a name="root-asset-types"></a>Typy zasobów głównego
 Typy zasobów głównego są te typy, które reprezentują różnych typów zasobów danych, które mogą być rejestrowane w katalogu. Dla każdego typu głównego istnieje widok, w którym opisano zasobów i adnotacje uwzględnione w widoku. Należy użyć nazwy widoku w odpowiadającym segmencie adresu url {view_name} podczas publikowania zasobów przy użyciu interfejsu API REST.
 
-<table><tr><td><b>Typ zasobu (nazwa widoku)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Dozwolone adnotacji</b></td><td><b>Komentarze</b></td></tr><tr><td>W tabeli ("tabele")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Schemat<p>ColumnDescription<p>ColumnTag<p> Ekspert<p>Wersja zapoznawcza<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentacja<p></td><td>Tabela reprezentuje danych tabelarycznych.  Na przykład: tabeli SQL, Widok SQL, tabeli tabelaryczne usług analizy, wielowymiarowych usług Analysis Services wymiaru, Oracle tabeli itp.   </td></tr><tr><td>Miary ("działania")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ przedstawia miar usług Analysis Services.</td></tr><tr><td></td><td>Miary</td><td>Kolumna</td><td></td><td>Metadane opisujące miary</td></tr><tr><td></td><td>isCalculated </td><td>Wartość logiczna</td><td></td><td>Określa, czy miara jest obliczana lub nie.</td></tr><tr><td></td><td>Grupa miar</td><td>Ciąg</td><td></td><td>Fizycznych kontenerów miary</td></tr><td>Kluczowy wskaźnik wydajności "(KPI)</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja</td><td></td></tr><tr><td></td><td>Grupa miar</td><td>Ciąg</td><td></td><td>Fizycznych kontenerów miary</td></tr><tr><td></td><td>goalExpression</td><td>Ciąg</td><td></td><td>Liczbowego wyrażenia MDX lub obliczeń, która zwraca docelowa wartość wskaźnika KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Ciąg</td><td></td><td>Liczbowego wyrażenia MDX zwracające wartość rzeczywistą kluczowego wskaźnika wydajności.</td></tr><tr><td></td><td>statusExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, która reprezentuje stan kluczowego wskaźnika wydajności w określonym punkcie w czasie.</td></tr><tr><td></td><td>trendExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, która daje w wyniku wartość wskaźnika KPI w czasie. Trend może mieć żadnych oparte na czasie kryterium, które są przydatne w kontekście firmy.</td>
+<table><tr><td><b>Typ zasobu (nazwa widoku)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Dozwolone adnotacji</b></td><td><b>Komentarze</b></td></tr><tr><td>W tabeli ("tabele")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Schemat<p>ColumnDescription<p>ColumnTag<p> Ekspert<p>Wersja zapoznawcza<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Dokumentacja<p></td><td>Tabela reprezentuje danych tabelarycznych.  Na przykład: tabeli SQL, Widok SQL, tabeli tabelaryczne usług analizy, wielowymiarowych usług Analysis Services wymiaru, Oracle tabeli itp.   </td></tr><tr><td>Miary ("działania")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ przedstawia miar usług Analysis Services.</td></tr><tr><td></td><td>miara</td><td>Kolumna</td><td></td><td>Metadane opisujące miary</td></tr><tr><td></td><td>isCalculated </td><td>Wartość logiczna</td><td></td><td>Określa, czy miara jest obliczana lub nie.</td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Fizycznych kontenerów miary</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Ciąg</td><td></td><td>Fizycznych kontenerów miary</td></tr><tr><td></td><td>goalExpression</td><td>Ciąg</td><td></td><td>Liczbowego wyrażenia MDX lub obliczeń, która zwraca docelowa wartość wskaźnika KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Ciąg</td><td></td><td>Liczbowego wyrażenia MDX zwracające wartość rzeczywistą kluczowego wskaźnika wydajności.</td></tr><tr><td></td><td>statusExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, która reprezentuje stan kluczowego wskaźnika wydajności w określonym punkcie w czasie.</td></tr><tr><td></td><td>trendExpression</td><td>Ciąg</td><td></td><td>Wyrażenie MDX, która daje w wyniku wartość wskaźnika KPI w czasie. Trend może mieć żadnych oparte na czasie kryterium, które są przydatne w kontekście firmy.</td>
 <tr><td>Raport ("raporty")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ przedstawia raportu usług SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Ciąg</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Ciąg</td><td></td><td></td></tr><tr><td>Kontener ("kontenery")</td><td></td><td></td><td>Opis<p>friendlyName<p>Tag<p>Ekspert<p>AccessInstruction<p>Dokumentacja<p></td><td>Ten typ przedstawia kontener inne zasoby, takie jak bazy danych SQL, kontener obiektów blob Azure lub modelu usług Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Typy adnotacji
@@ -121,51 +121,51 @@ Adnotacja typy reprezentują rodzaje metadanych, które mogą być przypisane do
 <tr><td><b>Typ adnotacji (nazwa widoku zagnieżdżone)</b></td><td><b>Dodatkowe właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
 
 <tr><td>Opis elementu ("opis")</td><td></td><td></td><td>Ta właściwość zawiera opis elementu zawartości. Każdy użytkownik systemu można dodać własne opis.  Tylko ten użytkownik może edytować opis obiektu.  (Właścicieli Administratorzy i zasobów można usunąć obiektu opisu, ale nie można go edytować). System przechowuje opisy użytkowników oddzielnie.  W związku z tym jest tablicą opisów na poszczególnych zasobów (po jednej dla każdego użytkownika, który przyczynił się swoją wiedzą o zasobów, oprócz prawdopodobnie taki, który zawiera informacje pochodzące ze źródła danych).</td></tr>
-<tr><td></td><td>description</td><td>Ciąg</td><td>Krótki opis elementu zawartości (2 – 3 wiersze)</td></tr>
+<tr><td></td><td>description</td><td>ciąg</td><td>Krótki opis elementu zawartości (2 – 3 wiersze)</td></tr>
 
 <tr><td>Znaczników "(tagów)</td><td></td><td></td><td>Ta właściwość określa tag zasobu. Każdy użytkownik systemu można dodać wiele tagów dla zasobu.  Tylko użytkownik, który utworzył obiekty Tag je edytować.  (Właścicieli Administratorzy i zasobów można usunąć Tag obiekt, ale nie można go edytować). System przechowuje tagi użytkowników oddzielnie.  W związku z tym jest Tablica obiektów tagu na poszczególnych zasobów.</td></tr>
-<tr><td></td><td>Tag</td><td>Ciąg</td><td>Tag opisujące element zawartości.</td></tr>
+<tr><td></td><td>tag</td><td>ciąg</td><td>Tag opisujące element zawartości.</td></tr>
 
 <tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Ta właściwość zawiera przyjazną nazwę dla zasobu. FriendlyName jest adnotacji pojedyncze — tylko jeden FriendlyName mogą być dodawane do elementu zawartości.  Tylko użytkownik, który utworzył obiekt FriendlyName, można go edytować. (Właścicieli Administratorzy i zasobów można usunąć obiektu FriendlyName, ale nie można go edytować). System przechowuje oddzielnie przyjaznych nazw użytkowników.</td></tr>
-<tr><td></td><td>friendlyName</td><td>Ciąg</td><td>Przyjazna nazwa zasobu.</td></tr>
+<tr><td></td><td>friendlyName</td><td>ciąg</td><td>Przyjazna nazwa zasobu.</td></tr>
 
 <tr><td>Schemat ("schema")</td><td></td><td></td><td>Schemat opisuje struktury danych.  On Wyświetla nazwy atrybut (kolumna, atrybut, pole itp.), typy również innych metadanych.  Te informacje jest pochodzące ze źródła danych.  Schemat jest adnotacji pojedyncze — można dodać tylko jeden schemat dla zasobu.</td></tr>
 <tr><td></td><td>kolumny</td><td>[Kolumna]</td><td>Tablica obiektów kolumny. Opisano w nich kolumny informacje pochodzące ze źródła danych.</td></tr>
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Ta właściwość zawiera opis kolumny.  Każdy użytkownik systemu można dodać opisami wielu kolumn (co najwyżej jeden na kolumny). Tylko użytkownik, który utworzył obiekty ColumnDescription je edytować.  (Właścicieli Administratorzy i zasobów można usunąć obiektu ColumnDescription, ale nie można go edytować). System przechowuje te użytkowników opisy kolumn oddzielnie.  W związku z tym jest Tablica obiektów ColumnDescription na poszczególnych zasobów (jeden na kolumnę dla każdego użytkownika, który przyczynił się swoją wiedzą o kolumn, oprócz prawdopodobnie taki, który zawiera informacje pochodzące ze źródła danych).  ColumnDescription słabo jest powiązana ze schematem, można uzyskać zsynchronizowane. ColumnDescription opisuje kolumny, która już nie istnieje w schemacie.  Jest składnik zapisywania do synchronizowania opis i schematu.  Źródło danych może również zawierać informacje opis kolumn i są dodatkowe obiekty ColumnDescription, które zostałyby utworzone podczas uruchamiania narzędzia.</td></tr>
-<tr><td></td><td>Element columnName</td><td>Ciąg</td><td>Nazwa kolumny, której dotyczy ten opis.</td></tr>
+<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa kolumny, której dotyczy ten opis.</td></tr>
 <tr><td></td><td>description</td><td>Ciąg</td><td>Krótki opis (2 – 3 wiersze) kolumny.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Ta właściwość zawiera tag dla kolumny. Każdy użytkownik systemu można dodać wiele tagów dla podanej kolumny i dodać tagi do wielu kolumn. Tylko użytkownik, który utworzył obiekty ColumnTag je edytować. (Właścicieli Administratorzy i zasobów można usunąć obiektu ColumnTag, ale nie można go edytować). System przechowuje oddzielnie tagi kolumny tych użytkowników.  W związku z tym jest Tablica obiektów ColumnTag na poszczególnych zasobów.  ColumnTag słabo jest powiązana ze schematem, można uzyskać zsynchronizowane. ColumnTag opisuje kolumny, która już nie istnieje w schemacie.  Jest moduł zapisujący synchronizowania kolumny znacznika i schematu.</td></tr>
-<tr><td></td><td>Element columnName</td><td>Ciąg</td><td>Nazwa kolumny, której dotyczy ten tag.</td></tr>
-<tr><td></td><td>Tag</td><td>Ciąg</td><td>Tag zawierający opis kolumny.</td></tr>
+<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa kolumny, której dotyczy ten tag.</td></tr>
+<tr><td></td><td>tag</td><td>Ciąg</td><td>Tag zawierający opis kolumny.</td></tr>
 
 <tr><td>Ekspert ("ekspertów")</td><td></td><td></td><td>Ta właściwość zawiera użytkownika, który jest uznawany za eksperta w zestawie danych. Ekspertów opinions(descriptions) bąbelków do góry UX podczas wyświetlania opisów. Każdy użytkownik może określić własne ekspertów. Tylko ten użytkownik może edytować obiekt ekspertów. (Właścicieli Administratorzy i zasobów można usunąć obiekty ekspertów, ale nie można go edytować).</td></tr>
-<tr><td></td><td>Ekspert</td><td>SecurityPrincipal</td><td></td></tr>
+<tr><td></td><td>ekspert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Wersja zapoznawcza ("podglądy")</td><td></td><td></td><td>Wersja zapoznawcza zawiera migawkę górne 20 wiersze danych dla elementu zawartości. Podgląd tylko sensu dla niektórych typów zasobów (warto dla tabeli, ale nie do środka).</td></tr>
-<tr><td></td><td>Wersja zapoznawcza</td><td>obiekt]</td><td>Tablica obiektów, które reprezentują kolumny.  Każdy obiekt ma właściwość mapowanie do kolumny zawierającej wartość dla tej kolumny wiersza.</td></tr>
+<tr><td></td><td>wersja zapoznawcza</td><td>obiekt]</td><td>Tablica obiektów, które reprezentują kolumny.  Każdy obiekt ma właściwość mapowanie do kolumny zawierającej wartość dla tej kolumny wiersza.</td></tr>
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>mimeType</td><td>Ciąg</td><td>Typ mime zawartości.</td></tr>
-<tr><td></td><td>Zawartość</td><td>Ciąg</td><td>Instrukcje dotyczące sposobu uzyskiwania dostępu do tego zasobu danych. Zawartość może być adres URL, adres e-mail lub zbiór instrukcji.</td></tr>
+<tr><td></td><td>mimeType</td><td>ciąg</td><td>Typ mime zawartości.</td></tr>
+<tr><td></td><td>Zawartość</td><td>ciąg</td><td>Instrukcje dotyczące sposobu uzyskiwania dostępu do tego zasobu danych. Zawartość może być adres URL, adres e-mail lub zbiór instrukcji.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Liczba wierszy w zestawie danych</td></tr>
-<tr><td></td><td>Rozmiar</td><td>długa</td><td>Rozmiar w bajtach zestawu danych.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>Ciąg</td><td>Czas ostatniej modyfikacji schematu</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>Ciąg</td><td>Czas ostatniej modyfikacji zestawu danych (danych zostało dodane, zmodyfikowane lub usuń)</td></tr>
+<tr><td></td><td>rozmiar</td><td>długa</td><td>Rozmiar w bajtach zestawu danych.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>ciąg</td><td>Czas ostatniej modyfikacji schematu</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>ciąg</td><td>Czas ostatniej modyfikacji zestawu danych (danych zostało dodane, zmodyfikowane lub usuń)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>kolumny</td></td><td>[ColumnDataProfile]</td><td>Tablica kolumn danych profilów.</td></tr>
+<tr><td></td><td>kolumny</td></td><td>ColumnDataProfile[]</td><td>Tablica kolumn danych profilów.</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Element columnName</td><td>Ciąg</td><td>Nazwa ta klasyfikacja odnosi się do kolumny.</td></tr>
+<tr><td></td><td>columnName</td><td>Ciąg</td><td>Nazwa ta klasyfikacja odnosi się do kolumny.</td></tr>
 <tr><td></td><td>Klasyfikacja</td><td>Ciąg</td><td>Klasyfikacja danych w tej kolumnie.</td></tr>
 
 <tr><td>Dokumentacja "(dokumentacja)</td><td></td><td></td><td>Dany zasobów może mieć tylko jeden dokumentacji skojarzonych z nim.</td></tr>
-<tr><td></td><td>mimeType</td><td>Ciąg</td><td>Typ mime zawartości.</td></tr>
-<tr><td></td><td>Zawartość</td><td>Ciąg</td><td>Zawartość dokumentacji.</td></tr>
+<tr><td></td><td>mimeType</td><td>ciąg</td><td>Typ mime zawartości.</td></tr>
+<tr><td></td><td>Zawartość</td><td>ciąg</td><td>Zawartość dokumentacji.</td></tr>
 
 </table>
 
@@ -174,37 +174,37 @@ Popularne typy może służyć jako typy właściwości, ale nie są elementami.
 
 <table>
 <tr><td><b>Wspólny typ</b></td><td><b>Właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
-<tr><td>Informacji o źródle</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Źródłowa</td><td>Ciąg</td><td>Opisuje typ źródła danych.  Na przykład: SQL Server, baza danych Oracle, itp.  </td></tr>
-<tr><td></td><td>Typ obiektu</td><td>Ciąg</td><td>Opisuje typ obiektu źródła danych. Na przykład: tabela, wyświetlanie dla programu SQL Server.</td></tr>
+<tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>sourceType</td><td>ciąg</td><td>Opisuje typ źródła danych.  Na przykład: SQL Server, baza danych Oracle, itp.  </td></tr>
+<tr><td></td><td>Typ obiektu</td><td>ciąg</td><td>Opisuje typ obiektu źródła danych. Na przykład: tabela, wyświetlanie dla programu SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Protokół</td><td>Ciąg</td><td>Wymagany. Opisuje protokół używany do komunikowania się ze źródłem danych. Na przykład: "tds" dla programu SQl Server "oracle" Oracle itp. Zapoznaj się [Specyfikacja odwołanie - DSL struktura źródła danych](data-catalog-dsr.md) listę aktualnie obsługiwanych protokołów.</td></tr>
+<tr><td></td><td>protokół</td><td>ciąg</td><td>Wymagany. Opisuje protokół używany do komunikowania się ze źródłem danych. Na przykład: "tds" dla programu SQl Server "oracle" Oracle itp. Zapoznaj się [Specyfikacja odwołanie - DSL struktura źródła danych](data-catalog-dsr.md) listę aktualnie obsługiwanych protokołów.</td></tr>
 <tr><td></td><td>Adres</td><td>Słownik<string, object></td><td>Wymagany. Adres jest zestawem danych specyficznych dla protokołu, który służy do identyfikowania źródła danych, do którego nastąpiło odwołanie. Dane do konkretnego protokołu zakresu, czyli jest bez znaczenia bez wiedzy o protokół.</td></tr>
-<tr><td></td><td>Uwierzytelnianie</td><td>Ciąg</td><td>Opcjonalny. Schemat uwierzytelniania używany do komunikowania się ze źródłem danych. Na przykład: windows oauth, itp.</td></tr>
+<tr><td></td><td>uwierzytelnianie</td><td>ciąg</td><td>Opcjonalny. Schemat uwierzytelniania używany do komunikowania się ze źródłem danych. Na przykład: windows oauth, itp.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Słownik<string, object></td><td>Opcjonalny. Dodatkowe informacje na temat nawiązywania połączenia ze źródłem danych.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Wewnętrznej bazy danych nie wykonuje żadnych weryfikacji właściwości podana przed AAD podczas publikowania.</td></tr>
-<tr><td></td><td>nazwy UPN</td><td>Ciąg</td><td>Unikatowy adres e-mail użytkownika. Należy podać identyfikator obiektu nie został dostarczony lub w kontekście dla właściwości "lastRegisteredBy", w przeciwnym razie opcjonalny.</td></tr>
+<tr><td></td><td>nazwy UPN</td><td>ciąg</td><td>Unikatowy adres e-mail użytkownika. Należy podać identyfikator obiektu nie został dostarczony lub w kontekście dla właściwości "lastRegisteredBy", w przeciwnym razie opcjonalny.</td></tr>
 <tr><td></td><td>Identyfikator obiektu</td><td>Identyfikator GUID</td><td>Tożsamość usługi AAD grupy użytkowników lub zabezpieczeń. Opcjonalny. Musi być określona, jeśli nazwy upn nie zostanie podany, w przeciwnym razie opcjonalne.</td></tr>
-<tr><td></td><td>Imię</td><td>Ciąg</td><td>Imię użytkownika (na potrzeby wyświetlania). Opcjonalny. Jest to prawidłowy tylko w kontekście dla właściwości "lastRegisteredBy". Nie można określić podczas dostarczania podmiotu zabezpieczeń "role", "uprawnienia" i "ekspertów".</td></tr>
-<tr><td></td><td>Nazwisko</td><td>Ciąg</td><td>Nazwisko użytkownika (na potrzeby wyświetlania). Opcjonalny. Jest to prawidłowy tylko w kontekście dla właściwości "lastRegisteredBy". Nie można określić podczas dostarczania podmiotu zabezpieczeń "role", "uprawnienia" i "ekspertów".</td></tr>
+<tr><td></td><td>Imię</td><td>ciąg</td><td>Imię użytkownika (na potrzeby wyświetlania). Opcjonalny. Jest to prawidłowy tylko w kontekście dla właściwości "lastRegisteredBy". Nie można określić podczas dostarczania podmiotu zabezpieczeń "role", "uprawnienia" i "ekspertów".</td></tr>
+<tr><td></td><td>lastName</td><td>ciąg</td><td>Nazwisko użytkownika (na potrzeby wyświetlania). Opcjonalny. Jest to prawidłowy tylko w kontekście dla właściwości "lastRegisteredBy". Nie można określić podczas dostarczania podmiotu zabezpieczeń "role", "uprawnienia" i "ekspertów".</td></tr>
 
 <tr><td>Kolumna</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>name</td><td>Ciąg</td><td>Nazwa kolumny lub atrybutu.</td></tr>
-<tr><td></td><td>type</td><td>Ciąg</td><td>Typ danych kolumny lub atrybutu. Dopuszczalne typy są zależne od danych źródłowa środka trwałego.  Obsługiwane jest tylko podzestaw typów.</td></tr>
-<tr><td></td><td>Element maxLength</td><td>int</td><td>Maksymalna dozwolona długość kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
-<tr><td></td><td>dokładność</td><td>Bajtów</td><td>Dokładność kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
+<tr><td></td><td>name</td><td>ciąg</td><td>Nazwa kolumny lub atrybutu.</td></tr>
+<tr><td></td><td>type</td><td>ciąg</td><td>Typ danych kolumny lub atrybutu. Dopuszczalne typy są zależne od danych źródłowa środka trwałego.  Obsługiwane jest tylko podzestaw typów.</td></tr>
+<tr><td></td><td>maxLength</td><td>int</td><td>Maksymalna dozwolona długość kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
+<tr><td></td><td>dokładność</td><td>bajt</td><td>Dokładność kolumny lub atrybutu. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
 <tr><td></td><td>isNullable</td><td>Wartość logiczna</td><td>Określa, czy kolumna może mieć wartości null lub nie. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
-<tr><td></td><td>wyrażenie</td><td>Ciąg</td><td>Jeśli wartość jest kolumną obliczaną, to pole zawiera wyrażenie, które określa wartość. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
+<tr><td></td><td>wyrażenie</td><td>ciąg</td><td>Jeśli wartość jest kolumną obliczaną, to pole zawiera wyrażenie, które określa wartość. Pochodzące ze źródła danych. Dotyczy to tylko niektóre typy źródeł.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Element columnName </td><td>Ciąg</td><td>Nazwa kolumny</td></tr>
-<tr><td></td><td>type </td><td>Ciąg</td><td>Typ kolumny</td></tr>
-<tr><td></td><td>min. </td><td>Ciąg</td><td>Minimalna wartość w zestawie danych</td></tr>
-<tr><td></td><td>Maksymalna </td><td>Ciąg</td><td>Maksymalna wartość w zestawie danych</td></tr>
-<tr><td></td><td>Śr. </td><td>O podwójnej precyzji</td><td>Średnia wartość w zestawie danych</td></tr>
-<tr><td></td><td>StDev </td><td>O podwójnej precyzji</td><td>Odchylenie standardowe dla zestawu danych</td></tr>
+<tr><td></td><td>columnName </td><td>ciąg</td><td>Nazwa kolumny</td></tr>
+<tr><td></td><td>type </td><td>ciąg</td><td>Typ kolumny</td></tr>
+<tr><td></td><td>min. </td><td>ciąg</td><td>Minimalna wartość w zestawie danych</td></tr>
+<tr><td></td><td>maks. </td><td>ciąg</td><td>Maksymalna wartość w zestawie danych</td></tr>
+<tr><td></td><td>średnio </td><td>liczba podwójnej precyzji</td><td>Średnia wartość w zestawie danych</td></tr>
+<tr><td></td><td>StDev </td><td>liczba podwójnej precyzji</td><td>Odchylenie standardowe dla zestawu danych</td></tr>
 <tr><td></td><td>nullCount </td><td>int</td><td>Liczba wartości null w zestawie danych</td></tr>
 <tr><td></td><td>distinctCount  </td><td>int</td><td>Liczba unikatowych wartości w zestawie danych</td></tr>
 
@@ -222,19 +222,19 @@ Zestaw obsługiwanych protokołów, które mogą zostać rozszerzone programowo 
 <tr><td><b>Typ</b></td><td><b>Właściwości</b></td><td><b>Typ danych</b></td><td><b>Komentarze</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>przestrzeń nazw</td><td>Ciąg</td><td>Przestrzeń nazw protokołu. Namespace musi mieć od 1 do 255 znaków długości, zawierać jedną lub więcej niepustym części oddzielone kropką (.). Każda część musi mieć długość od 1 do 255 znaków, zaczynać się literą i zawierać tylko litery i cyfry.</td></tr>
-<tr><td></td><td>name</td><td>Ciąg</td><td>Nazwa protokołu. Nazwa musi mieć długość od 1 do 255 znaków, zaczynać się literą i zawierać tylko litery, cyfry i znak kreski (-).</td></tr>
-<tr><td></td><td>identityProperties</td><td>[DataSourceProtocolIdentityProperty]</td><td>Lista właściwości tożsamości, musi zawierać co najmniej jeden, ale nie więcej niż 20 właściwości. Na przykład: "server", "baza danych", "schema", "obiektu" są właściwościami tożsamości protokołu "tds".</td></tr>
-<tr><td></td><td>identitySets</td><td>[DataSourceProtocolIdentitySet]</td><td>Lista zestawów tożsamości. Definiuje ustawia właściwości tożsamości, które reprezentują tożsamość prawidłowy zasobów. Musi zawierać co najmniej jeden, ale nie więcej niż 20 zestawów. Na przykład: {"server", "bazy danych", "schema" i "object"} jest tożsamość zestawu dla protokołu "tds", który określa tożsamość zasobów tabeli programu Sql Server.</td></tr>
+<tr><td></td><td>przestrzeń nazw</td><td>ciąg</td><td>Przestrzeń nazw protokołu. Namespace musi mieć od 1 do 255 znaków długości, zawierać jedną lub więcej niepustym części oddzielone kropką (.). Każda część musi mieć długość od 1 do 255 znaków, zaczynać się literą i zawierać tylko litery i cyfry.</td></tr>
+<tr><td></td><td>name</td><td>ciąg</td><td>Nazwa protokołu. Nazwa musi mieć długość od 1 do 255 znaków, zaczynać się literą i zawierać tylko litery, cyfry i znak kreski (-).</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista właściwości tożsamości, musi zawierać co najmniej jeden, ale nie więcej niż 20 właściwości. Na przykład: "server", "baza danych", "schema", "obiektu" są właściwościami tożsamości protokołu "tds".</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista zestawów tożsamości. Definiuje ustawia właściwości tożsamości, które reprezentują tożsamość prawidłowy zasobów. Musi zawierać co najmniej jeden, ale nie więcej niż 20 zestawów. Na przykład: {"server", "bazy danych", "schema" i "object"} jest tożsamość zestawu dla protokołu "tds", który określa tożsamość zasobów tabeli programu Sql Server.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>name</td><td>Ciąg</td><td>Nazwa właściwości. Nazwa musi mieć od 1 do 100 znaków, rozpoczyna się od litery i może zawierać tylko litery i cyfry.</td></tr>
-<tr><td></td><td>type</td><td>Ciąg</td><td>Typ właściwości. Obsługiwane wartości: "bool", wartość logiczna ","bajtów","guid","int","integer","long","string","url"</td></tr>
-<tr><td></td><td>ignoreCase</td><td>wartość logiczna</td><td>Wskazuje, czy należy ją ignorować case, używając wartość właściwości. Można określić tylko dla właściwości typu "string". Wartość domyślna to false.</td></tr>
-<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>[bool]</td><td>Wskazuje, czy należy ją ignorować przypadku dla każdego segmentu ścieżki adresu url. Można określić tylko dla właściwości typu "url". Wartość domyślna to [false].</td></tr>
+<tr><td></td><td>name</td><td>ciąg</td><td>Nazwa właściwości. Nazwa musi mieć od 1 do 100 znaków, rozpoczyna się od litery i może zawierać tylko litery i cyfry.</td></tr>
+<tr><td></td><td>type</td><td>ciąg</td><td>Typ właściwości. Obsługiwane wartości: "bool", wartość logiczna ","bajtów","guid","int","integer","long","string","url"</td></tr>
+<tr><td></td><td>ignoreCase</td><td>bool</td><td>Wskazuje, czy należy ją ignorować case, używając wartość właściwości. Można określić tylko dla właściwości typu "string". Wartość domyślna to false.</td></tr>
+<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Wskazuje, czy należy ją ignorować przypadku dla każdego segmentu ścieżki adresu url. Można określić tylko dla właściwości typu "url". Wartość domyślna to [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>name</td><td>Ciąg</td><td>Nazwa tożsamości zestawu.</td></tr>
+<tr><td></td><td>name</td><td>ciąg</td><td>Nazwa tożsamości zestawu.</td></tr>
 <tr><td></td><td>properties</td><td>ciąg]</td><td>Lista właściwości tożsamości zawarte w tej tożsamości ustawiona. Nie może zawierać duplikatów. Każda właściwość odwołuje się zestaw tożsamość musi być zdefiniowany na liście "identityProperties" protokołu.</td></tr>
 
 </table>

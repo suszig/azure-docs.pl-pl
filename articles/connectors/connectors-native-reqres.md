@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Rozpoczęcie pracy ze składnikami żądań i odpowiedzi
 Ze składnikami żądań i odpowiedzi w aplikacji logiki możesz odpowiedzieć w czasie rzeczywistym na zdarzenia.
@@ -30,7 +30,7 @@ Można na przykład:
 * Uruchomienie aplikacji logiki z zdarzenie zewnętrznego elementu webhook.
 * Wywołania z akcją żądań i odpowiedzi z poziomu innej aplikacji logiki aplikacji logiki.
 
-Aby rozpocząć korzystanie z akcji żądań i odpowiedzi w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby rozpocząć korzystanie z akcji żądań i odpowiedzi w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Użyj wyzwalacza żądania HTTP
 Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](connectors-overview.md).
@@ -96,8 +96,8 @@ Poniżej przedstawiono szczegóły danych wyjściowych dla żądania.
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
-| Nagłówki |Obiekt |Nagłówki żądania |
-| Treść |Obiekt |Obiekt żądania |
+| Nagłówki |obiekt |Nagłówki żądań |
+| Treść |obiekt |Obiekt żądania |
 
 #### <a name="response-action"></a>Akcja odpowiedzi
 Poniżej przedstawiono pól wejściowych dla akcji odpowiedzi HTTP. A * oznacza, że jest polem wymaganym.
@@ -105,9 +105,9 @@ Poniżej przedstawiono pól wejściowych dla akcji odpowiedzi HTTP. A * oznacza,
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
 | Kod stanu * |statusCode |Kod stanu HTTP |
-| Nagłówki |Nagłówki |Obiekt JSON nagłówków odpowiedzi do uwzględnienia |
-| Treść |Treści |Treść odpowiedzi |
+| Nagłówki |nagłówki |Obiekt JSON nagłówków odpowiedzi do uwzględnienia |
+| Treść |treść |Treść odpowiedzi |
 
-## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Korzystanie z przykładowych arkuszy danych w usłudze Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ Dane dawcy obejmują miesięcy od czasu ostatniego pobrania) i częstotliwość 
 <b>Powiązane Research:</b> Yeh I.C., (2008). UCI Machine Learning repozytorium <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, urząd certyfikacji: University Kalifornijskiej, szkoły informacji i informatyki
 <p></p>
 Yeh,-Cheng, Yang, króla-Jang i notatki, Tao-Ming "odnajdywania wiedzy w tryb RFM modelu przy użyciu sekwencji Bernoulliego" systemów ekspertów z aplikacjami, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Przeglądy książki z Amazon</td>
-  <td>
-Przeglądy książek w Amazon, pobranych z witryny sieci Web amazon.com przez pracowników naukowo-badawczych University Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">wskaźniki nastrojów klientów</a>). Zobacz dokument research "Biographies, Bollywood, wysięgnik pola i mieszalni: dostosowanie domeny klasyfikacji wskaźniki nastrojów klientów" Blitzer Jan, oznacz Dredze i Fernando Pereira; Skojarzenie Linguistics obliczeniową (ACL), 2007.
-<p></p>
-Oryginalnego zestawu danych ma przeglądami 975K o klasyfikacji, 1, 2, 3, 4 i 5. Przeglądy zostały napisane w języku angielskim i są w okresie 1997-2007. Ten zestaw danych został próbkowany w dół do przeglądami 10 tys.
   </td>
 </tr>
 
@@ -212,7 +203,7 @@ Zawiera dane pogodzie, takich jak indeksy temperatury i wilgotności i szybkoś�
 <p></p>
 <b>Powiązane Research:</b> Cortez, P. & Morais, A. (2008). UCI Machine Learning repozytorium <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, urząd certyfikacji: University Kalifornijskiej, szkoły informacji i informatyki
 <p></p>
-[Cortez i Morais, 2007] Str. Cortez i A. Morais. Dane wyszukiwania podejście do prognozowania pożarów lasów przy użyciu danych meteorologicznych. W J. Neves, M. F. Santos i J. Machado Eds., nowe tendencji sztucznego analizy, postępowania 13 2007 EPIA — portugalski konferencji sztucznego analizy, grudnia, Guimarães, Portugalia str. 512-523, 2007. APPIA, ISBN 13 978-989-95618-0-9. Dostępne pod adresem: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez i Morais, 2007] Str. Cortez i A. Morais. Dane wyszukiwania podejście do prognozowania pożarów lasów przy użyciu danych meteorologicznych. W J. Neves, M. F. Santos i J. Machado Eds., nowe tendencji sztucznego analizy, postępowania 13 2007 EPIA — portugalski konferencji sztucznego analizy, grudnia, Guimarães, Portugalia str. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Dostępne pod adresem: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -353,7 +344,7 @@ Dane pogody obejmuje uwagi z lotniska pogody stacje, obejmujący okres czas, kwi
 </tr>
 
 <tr>
-  <td>Wikipedia SP 500 zestawu danych</td>
+  <td>Wikipedia SP 500 Dataset</td>
   <td>
 Danych jest określana na podstawie Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) oparte na artykuły każdej S & P 500 firmy przechowywanych danych XML.
 <p></p>
@@ -401,7 +392,7 @@ Zestaw danych został pobrany i przechowywane w magazynie obiektów Blob platfor
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Temat przypisania dla nowych artykułów w zestawie danych wiadomości Reuters RCV1 V2. Artykuł wiadomości można przypisać do różnych tematów. Format każdy wiersz jest "&lt;nazwa tematu&gt; &lt;identyfikator dokumentu&gt; 1". Zestaw danych zawiera przypisania tematu 2.6M. Zestaw danych została udostępniona przez Dominika. D. Nowak.
   </td>

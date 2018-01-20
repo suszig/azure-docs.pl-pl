@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Wywołanie elementu webhook alerty dziennika aktywności platformy Azure
 Elementów Webhook pozwalają kierować Azure powiadomień o alertach do innych systemów przetwarzania końcowego lub niestandardowych działań. Elementu webhook na alert służy do kierowania go do usługi, które wysyłanie SMS, dziennika błędów, powiadamiania zespołu za pomocą usług wiadomości rozmów/lub czy dowolna liczba innych działań. W tym artykule opisano sposób ustawiania elementu webhook ma być wywoływana po uruchamiany alertu dziennika aktywności platformy Azure. Pokazuje też, jak wygląda ładunek dla HTTP POST do elementu webhook. Informacje dotyczące instalacji i schematu dla alertu metryki Azure [wyświetlona następująca strona](insights-webhooks-alerts.md). Dziennik aktywności alertu można również skonfigurować do wysyłania wiadomości e-mail, gdy aktywowany.
@@ -39,51 +39,66 @@ Element webhook uwierzytelniania z użyciem jednej z tych metod:
 ## <a name="payload-schema"></a>Schemat ładunku
 Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich alertów na podstawie dziennik aktywności. Ten schemat jest podobny do tego używanego przez alerty na podstawie metryki.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
@@ -91,33 +106,32 @@ Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich ale
 | --- | --- |
 | status |Używany w przypadku alertów metryki. Zawsze ustawiony na "aktywowany" alertów dziennik aktywności. |
 | Kontekst |Kontekst zdarzenia. |
-| resourceProviderName |Dostawca zasobów ryzyko zasobów. |
-| conditionType |Zawsze "Event". |
-| name |Nazwa reguły alertów. |
-| id |Identyfikator zasobu alertu. |
-| description |Opis alertu jako zestaw podczas tworzenia alertu. |
-| subscriptionId |Identyfikator subskrypcji platformy Azure. |
-| sygnatura czasowa |Czas, w którym to zdarzenie zostało wygenerowane przez usługę Azure, który przetwarzał żądanie. |
-| resourceId |Identyfikator zasobu ryzyko zasobu. |
-| Grupy zasobów o nazwie |Nazwa grupy zasobów dla wpływ na zasób |
-| properties |Zestaw `<Key, Value>` par (tj. `Dictionary<String, String>`) zawierającą szczegółowe informacje o zdarzeniu. |
-| Zdarzenia |Element zawierający metadane dotyczące zdarzenia. |
+| Dziennik aktywności | Właściwości dziennika zdarzeń.|
 | Autoryzacji |Właściwości RBAC zdarzenia. Obejmują one zazwyczaj "Akcja" i "rola" 'scope'. |
-| category |Kategoria zdarzenia. Obsługiwane wartości to: administracyjne, alertów zabezpieczeń, ServiceHealth, zalecenie. |
-| obiekt wywołujący |Adres e-mail użytkownika, który wykonał operację, oświadczenia UPN lub nazwy SPN oświadczenia na podstawie dostępności. Może mieć wartości null dla niektórych wywołań systemowych. |
+| action | Akcja przechwycone przez alert. |
+| Zakres | Zakres alertu (tj. zasób).|
+| kanały | Operacja |
+| Oświadczenia | Kolekcja informacji znajduje się na odnosi się do oświadczenia. |
+| element wywołujący |Identyfikator GUID lub nazwa użytkownika, który wykonał operację, oświadczenia UPN lub nazwy SPN oświadczenia na podstawie dostępności. Może mieć wartości null dla niektórych wywołań systemowych. |
 | correlationId |Zazwyczaj identyfikator GUID w postaci ciągu. Zdarzenia z correlationId należą do tego samego działania większych i zazwyczaj udziału correlationId. |
-| eventDescription |Opis zdarzenia tekst statyczny. |
+| description |Opis alertu jako zestaw podczas tworzenia alertu. |
+| eventSource |Nazwa usługi Azure lub infrastruktury, który wygenerował zdarzenie. |
+| eventTimestamp |Godzina wystąpienia zdarzenia. |
 | eventDataId |Unikatowy identyfikator zdarzenia. |
-| Źródła zdarzeń |Nazwa usługi Azure lub infrastruktury, który wygenerował zdarzenie. |
-| httpRequest |Obejmuje zazwyczaj "clientRequestId", "clientIpAddress" i "method" (np. umieścić metoda HTTP). |
 | poziom |Jedną z następujących wartości: "Krytyczne", "Błąd", "Ostrzeżenie", "Informacyjny" i "Pełne." |
-| operationId |Zazwyczaj identyfikator GUID współdzielenia zdarzenia odpowiadające jednej operacji. |
 | operationName |Nazwa operacji. |
-| properties |Właściwości zdarzenia. |
+| operationId |Zazwyczaj identyfikator GUID współdzielenia zdarzenia odpowiadające jednej operacji. |
+| resourceId |Identyfikator zasobu ryzyko zasobu. |
+| resourceGroupName |Nazwa grupy zasobów dla wpływ na zasób |
+| resourceProviderName |Dostawca zasobów ryzyko zasobów. |
 | status |Ciąg. Stan operacji. Typowe wartości to: "Uruchomiona", "W toku", "Powiodło się", "Nie powiodło się", "Active", "Rozwiązany". |
-| Podstan |Zwykle zawiera kod stanu HTTP odpowiedniego wywołania REST. Może również zawierać inne parametry opisujące podstanu. Obejmują wartości typowych podstanu: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504) |
+| subStatus |Zwykle zawiera kod stanu HTTP odpowiedniego wywołania REST. Może również zawierać inne parametry opisujące podstanu. Obejmują wartości typowych podstanu: OK (kod stanu HTTP: 200), utworzony (kod stanu HTTP: 201), akceptowane (kod stanu HTTP: 202), nie zawartości (kod stanu HTTP: 204), nieprawidłowe żądanie (kod stanu HTTP: 400), nie znaleziono (kod stanu HTTP: 404), konflikt (kod stanu HTTP: 409), wewnętrzny błąd serwera (kod stanu HTTP: 500), Usługa niedostępna (kod stanu HTTP: 503), limit czasu bramy (kod stanu HTTP: 504) |
+| subscriptionId |Identyfikator subskrypcji platformy Azure. |
+| submissionTimestamp |Czas, w którym to zdarzenie zostało wygenerowane przez usługę Azure, który przetwarzał żądanie. |
+| resourceType | Typ zasobu, który wygenerował zdarzenie.|
+| properties |Zestaw `<Key, Value>` par (tj. `Dictionary<String, String>`) zawierającą szczegółowe informacje o zdarzeniu. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o dziennika aktywności](monitoring-overview-activity-logs.md)
 * [Wykonywanie skryptów automatyzacji Azure (elementów Runbook) Azure alertów](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Wyślij wiadomość SMS za pośrednictwem usługi Twilio z poziomu alertu Azure przy użyciu aplikacji logiki](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). W tym przykładzie jest metryki alertów, ale może zostać zmodyfikowany do pracy z alert dziennik aktywności.

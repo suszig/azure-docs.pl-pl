@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Korzystanie z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 [Usługa Azure Premium Storage](../premium-storage.md) to nowa generacja magazynów, który zapewnia małe opóźnienia i wysokiej wydajności we/wy. Najlepsza dla klucza obciążeń intensywnie wykorzystujących we/wy, takich jak program SQL Server na IaaS [maszyn wirtualnych](https://azure.microsoft.com/services/virtual-machines/).
 
 > [!IMPORTANT]
@@ -119,7 +119,7 @@ Dla każdego dysku wykonaj następujące kroki:
 
 1. Pobranie listy dysków dołączonych do maszyny Wirtualnej z **Get-AzureVM** polecenia:
 
-    Get-AzureVM - ServiceName <servicename> — nazwa <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 2. Zanotuj Diskname i jednostki LUN.
 
     ![DisknameAndLUN][2]
@@ -270,7 +270,7 @@ W tym scenariuszu pokazano, gdzie masz istniejących dostosowanych obrazów, kt�
 
 
 #### <a name="step-3-use-existing-image"></a>Krok 3: Użyj istniejącego obrazu
-Można użyć istniejącego obrazu. Można też [zająć obraz istniejącej maszyny](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Należy zwrócić uwagę maszyny możesz obrazu musi być DS * maszyny. Po utworzeniu obrazu, poniższe kroki pokazują, jak skopiować go do konta Premium Storage z **Start AzureStorageBlobCopy** polecenia programu PowerShell.
+Można użyć istniejącego obrazu. Można też [zająć obraz istniejącej maszyny](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Należy zwrócić uwagę maszyny możesz obrazu musi być DS * maszyny. Po utworzeniu obrazu, poniższe kroki pokazują, jak skopiować go do konta Premium Storage z **Start AzureStorageBlobCopy** polecenia programu PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -549,13 +549,13 @@ W tym scenariuszu założono, że udokumentowanych instalacji i wiedzieć odwzor
 W pozostałej części tego tematu zawiera szczegółowy przykład konwersji obejmujący wiele lokacji zawsze na klaster magazyn w warstwie Premium. Ponadto konwertuje odbiornika z za pomocą zewnętrznej usługi równoważenia obciążenia (ELB) do wewnętrznego modułu równoważenia obciążenia (ILB).
 
 ### <a name="environment"></a>Środowisko
-* Windows 2k 12 / SQL 2k 12
+* Windows 2k12 / SQL 2k12
 * Pliki 1 DB na SP
 * 2 x pule magazynu w każdym węźle
 
 ![Appendix1][11]
 
-### <a name="vm"></a>MASZYNY WIRTUALNEJ:
+### <a name="vm"></a>VM:
 W tym przykładzie zamierzamy pokazują przenoszenie z ELB do ILB. ELB nie była dostępna przed ILB, dlatego oznacza to, jak przejść do tego, podczas migracji.
 
 ![Appendix2][12]
@@ -1095,8 +1095,8 @@ Aby dodać w polu adres IP, zobacz [dodatku](#appendix-migrating-a-multisite-alw
 
     ![Appendix15][25]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Magazyn w warstwie Premium systemu Azure](../premium-storage.md)
+## <a name="additional-resources"></a>Zasoby dodatkowe
+* [Azure Premium Storage](../premium-storage.md)
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server na maszynach wirtualnych Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

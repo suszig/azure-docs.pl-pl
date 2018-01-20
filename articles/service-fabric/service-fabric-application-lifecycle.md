@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/29/2017
+ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>Cykl życia aplikacji w sieci szkieletowej usług
 Ponieważ z innych platform, aplikację na sieć szkieletowa usług Azure zazwyczaj przechodzi przez następujących faz: projekt, programowanie testowania, wdrożenia, uaktualnianie, obsługi i usuwania. Sieć szkieletowa usług zawiera najwyższej jakości pomoc techniczną dla pełnej aplikacji cyklem życia aplikacji w chmurze, od projektowania do wdrożenia, codziennego zarządzania i konserwacji do likwidacji ostatecznego. Model usługi umożliwia kilku różnych ról niezależnie uczestniczyć w cyklu życia aplikacji. Ten artykuł zawiera omówienie interfejsów API i jak są używane przez różne role w etapy cyklu życia aplikacji sieci szkieletowej usług.
@@ -91,11 +91,11 @@ Zobacz [samouczek uaktualniania aplikacji](service-fabric-application-upgrade-tu
 
 Zobacz [wdrażania aplikacji](service-fabric-deploy-remove-applications.md) przykłady.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat tworzenia testowania i zarządzanie aplikacjami platformy Service Fabric i usług, zobacz:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Usługi Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Wdrażanie aplikacji](service-fabric-deploy-remove-applications.md)
-* [Uaktualnianie aplikacji](service-fabric-application-upgrade.md)
+* [Uaktualnienie aplikacji](service-fabric-application-upgrade.md)
 * [Omówienie testowania](service-fabric-testability-overview.md)

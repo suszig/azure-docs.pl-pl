@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ba25bb71857ee91cc078fd87de074f0ea954b558
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiowanie danych z platformy Spark przy użyciu fabryki danych Azure 
 
@@ -35,7 +35,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonego łącznikiem Spark.
 
@@ -50,7 +50,7 @@ Spark połączone usługi, obsługiwane są następujące właściwości:
 | port | Port TCP używany przez serwer Spark nasłuchiwanie dla połączeń klienta.  | Yes |
 | Typ | Typ serwera Spark. <br/>Dozwolone wartości to: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nie |
 | thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, ** HTTP ** | Nie |
-| Typ authenticationType | Metodę uwierzytelniania używaną do uzyskania dostępu do serwera Spark. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
+| authenticationType | Metodę uwierzytelniania używaną do uzyskania dostępu do serwera Spark. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | nazwa użytkownika | Nazwa użytkownika, który umożliwia dostęp do serwera Spark.  | Nie |
 | hasło | Hasło odpowiadający nazwie użytkownika, podane w pole nazwy użytkownika, istnieje możliwość Oznacz to pole jako SecureString do przechowywania bezpiecznie w ADF, lub przechowywania haseł w usłudze Azure Key Vault i umożliwić ściągania działania kopiowania stamtąd podczas wykonywania kopii danych - linie wio jeden z rn [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
 | httpPath | Adres URL częściowe odpowiadający serwera Spark.  | Nie |

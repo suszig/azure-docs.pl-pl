@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="run-custom-mapreduce-programs"></a>Uruchamianie programów MapReduce niestandardowych
+# <a name="run-custom-mapreduce-programs"></a>Uruchamianie niestandardowych programów MapReduce
 
 Systemy oparte na platformie Hadoop danych big data takie jak HDInsight włączyć przetwarzania danych przy użyciu szeroką gamę narzędzi i technologii. W poniższej tabeli opisano główne zalety i zagadnienia dotyczące każdej z nich.
 
@@ -77,7 +77,7 @@ Najczęściej programów MapReduce są napisane w języku Java i kompilowane do 
 
     To polecenie przesyła zadanie MapReduce YARN. Plik wejściowy jest `/example/data/sample.log`, i katalog wyjściowy jest `/example/data/logoutput`. Pliku wejściowego oraz wszelkie pliki wyjściowe są zapisywane do magazynu domyślnego dla klastra.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Za pomocą języka C# MapReduce, przesyłanie strumieniowe na platformie Hadoop w usłudze HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Tworzenie programów Java MapReduce dla platformy Hadoop w usłudze HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

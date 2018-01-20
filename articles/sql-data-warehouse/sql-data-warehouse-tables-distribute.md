@@ -1,112 +1,77 @@
 ---
-title: "Dystrybucja tabel w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do korzystania z dystrybucji tabel w usłudze Azure SQL Data Warehouse."
+title: "Projektowanie wskazówek dla tabel rozproszonej - Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Zalecenia dotyczące projektowanie tabelach rozpowszechniane skrót i okrężnego w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
 editor: 
-ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="distributing-tables-in-sql-data-warehouse"></a>Dystrybucja tabel w usłudze SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Omówienie][Overview]
-> * [Typy danych][Data Types]
-> * [Dystrybuuj][Distribute]
-> * [Indeks][Index]
-> * [Partycji][Partition]
-> * [Statystyki][Statistics]
-> * [Tymczasowe][Temporary]
->
->
+# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Wskazówki dotyczące projektowania rozproszonych tabel w magazynie danych SQL Azure
 
-Usługa SQL Data Warehouse to system rozproszonych baz danych o architekturze masowego przetwarzana równoległego (MPP).  Dzieląc dane i możliwości przetwarzania między wiele węzłów, usługa SQL Data Warehouse może zaoferować bardzo dużą skalowalność — znacznie większą niż w przypadku jakiegokolwiek pojedynczego systemu.  Przy wyborze sposobu dystrybucji danych w magazynie danych programu SQL jest jednym z najważniejszych czynników do osiągnięcia optymalnej wydajności.   Klucz do uzyskania optymalnej wydajności to zminimalizowanie przenoszenia danych i z kolei wybiera strategii dystrybucji prawy klawisz, aby zminimalizować przenoszenia danych.
+Ten artykuł zawiera zalecenia dotyczące projektowania rozproszonych tabel w usłudze Azure SQL Data Warehouse. Tabele rozpowszechniane skrót poprawić wydajność kwerend w tabelach faktów dużych i koncentrują się na części tego artykułu. Działanie okrężne tabele są przydatne dla poprawy szybkości ładowania. Tych decyzji projektowych mieć znaczący wpływ na poprawę zapytania i ładowanie wydajności.
 
-## <a name="understanding-data-movement"></a>Opis przenoszenia danych
-W systemie MPP danych z każdej tabeli jest dzielona między kilka podstawowej bazy danych.  Najbardziej zoptymalizowane zapytania w systemie MPP można po prostu przekazywane do wykonania na pojedyncze rozproszonej bazy danych bez interakcji między bazami danych.  Załóżmy na przykład, że masz bazę danych danymi sprzedaży zawiera dwie tabele, sprzedaży i klientów.  Jeśli zapytanie, które należy dołączyć sprzedaży tabeli do tabeli klientów i dzielenia sprzedaży i tabele klienta się przez numer klienta umieszczanie każdego klienta w oddzielnej bazy danych, można rozwiązać żadnych zapytań, które przyłączyć sprzedaży i klienta, w każdej bazie danych z żadnych informacji na temat innych baz danych.  Z kolei danych sprzedaży rozdzielonych numer zamówienia i danych klienta przez numer klienta, następnie wszystkie danego bazy danych nie będzie zawierał odpowiednie dane dla każdego klienta, dlatego jeśli chcesz dołączyć sprzedaży danych do danych klienta, należy pobrać danych dla każdego klienta z innych baz danych.  W drugim przykładzie przepływu danych musi wystąpić przenoszenia danych klienta z danymi sprzedaży, dzięki czemu można łączyć dwie tabele.  
+## <a name="prerequisites"></a>Wymagania wstępne
+W tym artykule przyjęto założenie, że znasz z danych dystrybucji i koncepcje przepływu danych w usłudze SQL Data Warehouse.  Aby uzyskać więcej informacji, zobacz [architektura](massively-parallel-processing-mpp-architecture.md) artykułu. 
 
-Przenoszenie danych zawsze jest zły element, czasami jest niezbędne dla rozwiązania zapytania.  Jednak podczas tego dodatkowego kroku można uniknąć, naturalny zapytanie będzie szybsze.  Przenoszenie danych powstaje najczęściej, gdy są połączone tabele lub agregacji są wykonywane.  Często należy wykonać, więc może być może zoptymalizować na jednym ze scenariuszy, takich jak sprzężenia, należy nadal przenoszenia danych, aby rozwiązać inne scenariusza, takich jak agregacji.  Lewy jest ustaleniem, czyli mniej pracy.  W większości przypadków dystrybucja tabele faktów dużych często dołączonego do kolumny jest najbardziej efektywną metodę zmniejszenia większości przenoszenia danych.  Dystrybucja danych na kolumn sprzężenia jest bardziej powszechnie używaną metodą Aby zmniejszyć przenoszenia danych niż dystrybucji danych kolumn uczestniczących w agregacji.
+W ramach projektowaniu tabel Dowiedz się, jak to możliwe danych i jak danych jest poddawany kwerendzie.  Na przykład wziąć pod uwagę następujące pytania:
 
-## <a name="select-distribution-method"></a>Wybieranie metody dystrybucji
-Magazyn danych SQL w tle dzieli dane 60 baz danych.  Każdy jedna baza danych jest określany jako **dystrybucji**.  Po załadowaniu danych w każdej tabeli SQL Data Warehouse musi znać sposób podziału danych w tych 60 dystrybucji.  
+- Jak duże jest tabela?   
+- Częstotliwość odświeżania tabeli?   
+- Tabele faktów i wymiarów są dostępne w magazynie danych?   
 
-Metoda dystrybucji jest zdefiniowana na poziomie tabeli, a obecnie dostępne są dwie możliwości:
+## <a name="what-is-a-distributed-table"></a>Co to jest tabela rozproszona?
+Tabela rozproszona jest wyświetlany jako pojedynczej tabeli, ale wiersze są przechowywane przez 60 dystrybucji. Wiersze są dystrybuowane za pomocą skrótu lub okrężnego algorytmu. 
 
-1. **Działanie okrężne** który równomiernie, ale losowo dystrybucji danych.
-2. **Skrótów rozproszone** która dystrybuuje oparte na tworzenie skrótów wartości z jednej kolumny danych
+Inną opcją magazynu tabeli jest replikowanie małej tabeli na wszystkich węzłów obliczeniowych. Aby uzyskać więcej informacji, zobacz [projekt, wskazówki dotyczące zreplikowanych tabel](design-guidance-for-replicated-tables.md). Aby szybko wybrać spośród trzech opcji, zobacz tabele rozproszonych w [Omówienie tabel](sql-data-warehouse-tables-overview.md). 
 
-Domyślnie, gdy metoda dystrybucji danych, nie zostaną zdefiniowane tabeli będą dystrybuowane za pomocą **działanie okrężne** metoda dystrybucji.  Jednak jak staje się bardziej złożone w implementacji, należy rozważyć użycie **rozpowszechniane skrót** tabele, aby zminimalizować przenoszenia danych, który z kolei zoptymalizuje kwerendy wydajności.
 
-### <a name="round-robin-tables"></a>Działanie okrężne tabel
-Przy użyciu metody okrężne dystrybucji danych jest znacznie, jak ich wymowy.  Jak Twoje dane są ładowane, każdy wiersz po prostu są wysyłane do dystrybucji dalej.  Ta metoda dystrybucji danych będzie zawsze losowo równomierne danych bardzo we wszystkich dystrybucje.  Oznacza to, że istnieje sortowania nie wykonywane podczas procesu działanie okrężne, który umieszcza dane.  Działanie okrężne dystrybucji jest niekiedy nazywany losowego wyznaczania wartości skrótu z tego powodu.  Z tabelą rozproszonej okrężnego jest niepotrzebna, aby zrozumieć dane.  Z tego powodu tabel okrężnego należy często dobrym ładowanie obiektów docelowych.
+### <a name="hash-distributed"></a>Skrót rozproszonych
+Tabela rozpowszechniane skrót dystrybuuje wiersze tabeli na węzły obliczeniowe przy użyciu funkcji skrótu deterministyczne można przypisać każdego wiersza do jednego [dystrybucji](massively-parallel-processing-mpp-architecture.md#distributions). 
 
-Domyślnie, jeśli wybrano opcję Brak metody dystrybucji, działanie okrężne dystrybucji zostanie użyta metoda.  Jednak działanie okrężne tabele są łatwe w użyciu, ponieważ danych losowo jest dystrybuowana do systemu, oznacza to, że system nie może zagwarantować, które dystrybucji każdy wiersz jest na.  W związku z tym system musi czasami do wywołania operacji przepływu danych w celu lepszej organizacji danych przed może rozpoznać zapytania.  Ten krok dodatkowe może to spowolnić zapytań.
+![Tabela rozproszone](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "tabeli rozproszonych")  
 
-Rozważ użycie dystrybucji okrężnego dla tej tabeli w następujących scenariuszach:
+Ponieważ identyczne wartości skrótów zawsze do tej samej dystrybucji, w magazynie danych ma wbudowane wiedzy na temat lokalizacji wiersza. SQL Data Warehouse używa wiedzy, aby zminimalizować przenoszenia danych podczas wykonywania kwerend, co zwiększa wydajność zapytań. 
 
-* Gdy wprowadzenie jako punktu wyjścia proste
-* Jeśli oczywiste łącząca klucz nie istnieje
-* Jeśli nie ma kolumny odpowiednimi kandydatami do wyznaczania wartości skrótu dystrybucji tabeli
-* Jeśli tabela nie udostępniane wspólny klucz sprzężenia innych tabel
-* Jeśli sprzężenie jest mniej istotna niż inne sprzężeń w zapytaniu
-* Gdy jest tymczasowe Tabela przemieszczania
+Tabele rozpowszechniane skrót działa również dla tabel faktów dużych w schemat gwiazdy. Mogą być bardzo dużą liczbę wierszy i nadal osiągnięcia wysokiej wydajności. Brak, niektóre kwestie, które ułatwiają wydajność, który pozwala uzyskać rozproszonego systemu. Wybór kolumny dobrej jest pierwsza kwestia, które jest opisane w tym artykule. 
 
-Oba te przykłady spowoduje utworzenie tabeli działanie okrężne:
+Należy rozważyć użycie rozpowszechniane skrót tabeli, gdy:
 
-```SQL
--- Round Robin created by default
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-;
+- Rozmiar tabeli na dysku jest więcej niż 2 GB.
+- Tabela zawiera częste wstawiania, aktualizowania i usuwania działań. 
 
--- Explicitly Created Round Robin Table
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-WITH
-(   CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = ROUND_ROBIN
-)
-;
-```
+### <a name="round-robin-distributed"></a>Działanie okrężne rozproszonych
+Tabela rozproszona okrężnego rozdziela wiersze tabeli równomiernie między wszystkie dystrybucje. Przypisanie wierszy podziału jest losowych. W odróżnieniu od rozpowszechniane skrót tabel wiersze z równe wartości nie ma gwarancji do przypisania do tego samego rozkładu. 
 
-> [!NOTE]
-> Gdy jest działanie okrężne domyślny typ tabeli jest jawne w kod DDL jest traktowany jako najlepszym rozwiązaniem tak, aby były wyczyść innym zamiarach układu tabeli.
->
->
+W związku z tym system musi czasami do wywołania operacji przepływu danych w celu lepszej organizacji danych przed może rozpoznać zapytania.  Ten krok dodatkowe może to spowolnić zapytań. Na przykład przyłączenie tabeli okrężnego zwykle wymaga losowego grupowania wierszy, która jest trafień wydajności.
 
-### <a name="hash-distributed-tables"></a>Rozproszone tabele hash
-Przy użyciu **rozpowszechniane skrót** algorytmu do dystrybucji tabel może poprawić wydajność w różnych scenariuszach ograniczając przenoszenie danych w czasie zapytania.  Tabele hash rozproszone są tabele, które są dzielone między rozproszonej bazy danych przy użyciu algorytmu wyznaczania wartości skrótu w jednej kolumnie, która zostanie wybrana.  Kolumna dystrybucji jest, co określa sposób podziału danych w sieci rozproszonej bazy danych.  Funkcja skrótu używa kolumny dystrybucji można przypisać podziału wierszy.  Algorytm wyznaczania wartości skrótu i wynikowy dystrybucji jest deterministyczna.  To już taką samą wartość, tym samym typie danych będzie zawsze ma do tego samego dystrybucji.    
+Rozważ użycie rozdzielanie dla tej tabeli w następujących scenariuszach:
 
-W tym przykładzie utworzy rozproszone na identyfikator tabeli:
+- Gdy wprowadzenie jako punktu wyjścia proste, ponieważ jest ono domyślnie
+- Jeśli oczywiste łącząca klucz nie istnieje
+- Jeśli nie ma kolumny odpowiednimi kandydatami do wyznaczania wartości skrótu dystrybucji tabeli
+- Jeśli tabela nie udostępniane wspólny klucz sprzężenia innych tabel
+- Jeśli sprzężenie jest mniej istotna niż inne sprzężeń w zapytaniu
+- Gdy jest tymczasowe Tabela przemieszczania
+
+Samouczek [podczas ładowania danych z obiektu blob magazynu Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) przedstawiono przykładowy podczas ładowania danych do tabeli tymczasowej okrężnego.
+
+
+## <a name="choosing-a-distribution-column"></a>Wybieranie kolumn dystrybucji
+Tabela rozpowszechniane skrót ma kolumnę dystrybucji, która jest klucza mieszającego. Na przykład poniższy kod tworzy tabelę rozpowszechniane skrót z ProductKey jako kolumnę dystrybucji.
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -124,64 +89,57 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-```
+``` 
 
-## <a name="select-distribution-column"></a>Wybierz kolumnę dystrybucji
-Jeśli zdecydujesz się **skrótu dystrybucji** tabelę, musisz wybrać kolumnę pojedynczego dystrybucji.  Podczas wybierania kolumn dystrybucji, istnieją trzy główne czynniki, które należy wziąć pod uwagę.  
+Wybieranie kolumn dystrybucji jest decyzji projektowych ważne, ponieważ wartości w tej kolumnie określić, jak wiersze są dystrybuowane. Najlepszym rozwiązaniem zależy od wielu czynników i zwykle obejmuje wady i zalety. Jednak jeśli nie wybierzesz najlepsze kolumny po raz pierwszy, można użyć [Tworzenie tabeli jako wybierz (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ponownie utworzyć tabelę z kolumną różnych dystrybucji. 
 
-Wybrać pojedynczą kolumnę, która będzie:
+### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Wybierz kolumnę dystrybucji, który nie wymaga aktualizacji
+Nie można zaktualizować kolumn dystrybucji, chyba że w przypadku usunięcia wiersza i wstawić nowy wiersz przez zaktualizowane wartości. W związku z tym wybrać kolumnę o wartości statyczne. 
 
-1. Nie można zaktualizować
-2. Równomierne danych, unikając pochylenia danych
-3. Minimalizowanie przepływu danych
+### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Wybierz kolumnę z danymi, który równomiernie rozdziela dystrybucji
 
-### <a name="select-distribution-column-which-will-not-be-updated"></a>Wybierz kolumnę dystrybucji, które nie zostaną zaktualizowane
-Kolumny dystrybucji nie są aktualizowalne, w związku z tym, wybierz kolumnę o wartości statyczne.  Jeśli kolumna zostanie muszą zostać zaktualizowane, zwykle nie jest kandydatem dobrej dystrybucji.  W przypadku przypadek, w którym należy zaktualizować kolumn dystrybucji, można to zrobić przez usunięcie najpierw wiersza, a następnie wstawienia nowego wiersza.
+Aby uzyskać najlepszą wydajność wszystkie dystrybucje ma mniej więcej taką samą liczbę wierszy. Jeśli co najmniej jeden dystrybucje nieproporcjonalnie liczbę wierszy, niektórych dystrybucji kończy się ich część równoległe zapytania przed pozostałymi. Ponieważ zapytanie nie może ukończyć, dopóki wszystkie dystrybucje przetwarzanie zostało ukończone, każdego zapytania jest tylko tak szybko, jak najwolniejsze dystrybucji.
 
-### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Wybierz kolumnę dystrybucji, który będzie równomierne danych
-Ponieważ rozproszony system przeprowadza tylko tak szybko, jak jego najwolniejsze dystrybucji, należy podzielić pracy równomiernie między dystrybucje aby osiągnąć zrównoważonym wykonywania przez system.  Sposób pracy jest podzielona na Rozproszony system jest oparty na którym mieszka danych dla poszczególnych dystrybucji.  Dzięki temu można bardzo ważne, aby wybrać kolumnę dystrybucji prawo do dystrybucji danych, dzięki czemu każdej dystrybucji ma taki sam pracy i potrwa tym samym czasie, aby ukończyć jego część pracy.  Podczas pracy dobrze jest dzielona między systemu, danych jest równoważone między dystrybucje.  Gdy dane nie jest rozmieszczana równomiernie, nazywamy to **zegara danych**.  
+- Pochylenie danych oznacza, że dane nie są równomiernie między dystrybucje
+- Przetwarzanie pochylenia oznacza, że niektórych dystrybucji trwać dłużej niż inne, podczas uruchamiania zapytań równoległych. Może to się zdarzyć, gdy danych jest niesymetryczna.
+  
+Aby równoważenie przetwarzanie równoległe, wybierz kolumnę dystrybucji który:
 
-Do dzielenia danych równomiernie i uniknąć pochylenia danych, należy rozważyć podczas wybierania kolumny dystrybucji:
+- **Ma wiele unikatowych wartości.** Kolumna może zawierać niektórych zduplikowane wartości. Jednak wszystkie wiersze z tej samej wartości są przypisane do tego samego rozkładu. Ponieważ 60 dystrybucje, kolumnie powinien mieć co najmniej 60 unikatowe wartości.  Liczba unikatowych wartości jest zwykle znacznie większe.
+- **Nie ma wartości null lub zawiera tylko kilka wartości null.** Na przykład skrajne Jeśli wszystkie wartości w kolumnie ma wartość NULL, wszystkie wiersze są przypisane do tego samego rozkładu. W związku z tym przetwarzania zapytania jest niesymetryczna do jednego dystrybucji, a nie korzysta z przetwarzania równoległego. 
+- **Nie jest to kolumna data**. Wszystkie dane dla tego samego dnia znajdzie się w tej samej dystrybucji. Jeśli wielu użytkowników są filtrowanie tego samego dnia, tylko 1 60 dystrybucji czy pracy przetwarzania. 
 
-1. Wybierz kolumny, która zawiera znaczące liczbę unikatowych wartości.
-2. Unikaj dystrybucji danych w kolumnach z kilku odrębnych wartości.
-3. Unikaj dystrybucji danych dla kolumn o wysokiej częstotliwości zawiera wartości null.
-4. Unikaj dystrybucji danych na kolumny daty.
+### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Wybierz kolumnę dystrybucji, który minimalizuje przepływu danych
 
-Ponieważ każda wartość jest wartość skrótu, aby 1 60 dystrybucji, do osiągnięcia nawet dystrybucji można zaznaczyć kolumny, która jest unikatowa wysokiej i nie zawiera unikatowych wartości większej niż 60.  Aby zilustrować, należy wziąć pod uwagę przypadków, w których kolumna ma tylko 40 unikatowe wartości.  Jeśli ta kolumna została wybrana jako klucza dystrybucji, dane dla tej tabeli spowoduje grunt na 40 dystrybucje co najwyżej pozostawienie 20 dystrybucji żadnych danych i przetwarzania, nie należy.  Z drugiej strony 40 dystrybucji mają więcej pracy, aby to zrobić, jeśli dane został równomierny dystrybucje ponad 60.  Ten scenariusz jest przykładem danych pochylenia.
+Aby uzyskać odpowiednie zapytanie wyników może przenoszeniu danych z jednego węzła obliczeń. Przenoszenie danych odbywa się często, podczas zapytania ma sprzęgania i agregacji w tabelach rozproszonych. Wybieranie kolumny dystrybucji, który minimalizuje przenoszenia danych jest jednym z najważniejszych strategii dla optymalizacji wydajności magazynu danych SQL.
 
-W systemie MPP każdego kroku zapytania czeka na wszystkie dystrybucje przeprowadzenie udziału w pracy.  Jeśli jeden dystrybucji jest więcej pracy od innych, następnie zasobu innych dystrybucji są zasadniczo niewykorzystana właśnie trwa oczekiwanie na zajęty dystrybucji.  Podczas pracy nie jest równomiernie umieszczonych na wszystkie dystrybucje, nazywamy to **przetwarzania pochylenia**.  Przetwarzanie zegara spowoduje, że zapytania, aby działać wolniej niż jeśli obciążenie może być równomierny dla wszystkich dystrybucje.  Dane pochylenia doprowadzi do przetwarzania pochylenia.
+Aby zminimalizować przenoszenia danych, wybierz kolumnę dystrybucji który:
 
-Unikaj dystrybucja wysokiej wartości Null kolumny jako wartości null spowoduje przejście na tym samym dystrybucji. Dystrybucja na kolumnę dat również może spowodować pochylenie przetwarzania, ponieważ na tym samym dystrybucji system przeniesie wszystkie dane dla określonej daty. W przypadku kilku użytkowników jest wykonywanie zapytań wszystkich filtrowania tego samego dnia, a następnie tylko 1 60 dystrybucji będzie wykonanie wszystkich pracy od podanej daty będą tylko w jednej dystrybucji. W tym scenariuszu zapytania prawdopodobnie zostanie uruchomiony 60 razy mniejsza niż Jeśli dane zostały równomiernie rozłożone wszystkie dystrybucje.
+- Jest używany w `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, i `HAVING` klauzul. Jeśli dwie tabele faktów dużych częste sprzężenia, wydajność zapytań zwiększa dystrybucję obu tabel w jednej z kolumn sprzężenia.  Jeśli tabela nie jest używana w sprzężeniu, należy wziąć pod uwagę dystrybucja tabelę według kolumny, która jest często w `GROUP BY` klauzuli.
+- Jest *nie* używane w `WHERE` klauzul. Może to ograniczyć zapytanie, aby nie uruchamiać na wszystkich dystrybucji. 
+- Jest *nie* kolumny daty. Klauzulach WHERE często filtrować według daty.  W takim przypadku wszystkie przetwarzania można uruchomić na tylko kilka dystrybucji.
+
+### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Co należy zrobić, gdy żaden z kolumn nie jest kolumną dobrej
 
 Gdy brak kolumn odpowiednimi kandydatami istnieje, a następnie należy rozważyć użycie okrężnego jako metoda dystrybucji.
 
-### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Wybierz kolumny dystrybucji, która zostanie zminimalizowane przepływu danych
-Minimalizując przenoszenia danych, wybierając kolumnę w prawo dystrybucji jest jednym z najważniejszych strategii dla optymalizacji wydajności magazynu danych SQL.  Przenoszenie danych powstaje najczęściej, gdy są połączone tabele lub agregacji są wykonywane.  Kolumn używanych w `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` i `HAVING` klauzule wszystkie ułatwiają **dobrej** skrótów kandydatów dystrybucji.
+Po projektowania tabeli rozpowszechniane skrót, następnym krokiem jest ładowanie danych do tabeli.  Ładowania wskazówki, zobacz [omówienie ładowania](sql-data-warehouse-overview-load.md). 
 
-Z drugiej strony, kolumn w `WHERE` klauzuli **nie** wprowadzić kandydatów kolumny dobrej skrótu ponieważ ich ograniczenia, które dystrybucje uczestniczyć w zapytaniu, co powoduje przetwarzania pochylenia.  Dobrym przykładem kolumny, która może być kuszące do dystrybucji na, ale często powodują tego pochylenia przetwarzania jest kolumny daty.
+## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Jak sprawdzić, czy kolumny dystrybucji jest dobrym rozwiązaniem
+Po załadowaniu danych do tabeli rozproszonych wyznaczania wartości skrótu, należy sprawdzić, jak wiersze są równomiernie na 60 dystrybucji. Liczba wierszy przypadających na dystrybucji może się różnić maksymalnie 10% bez zauważalnego wpływu na wydajność. 
 
-Ogólnie rzecz biorąc Jeśli masz dwie tabele faktów dużych często zaangażowane w sprzężeniu, będzie uzyskać większości wydajności przez dystrybucję obu tabel w jednej z kolumn sprzężenia.  Jeśli masz tabelę, która nigdy nie jest przyłączona do innej tabeli faktów dużych, poszukaj kolumn, które są często w `GROUP BY` klauzuli.
-
-Istnieje kilka kluczowych kryteria, które muszą zostać spełnione, aby uniknąć przenoszenia danych podczas sprzężenia:
-
-1. Tabele uwzględnione w sprzężeniu musi być rozproszone na skrót **jeden** kolumn uczestniczących w sprzężeniu.
-2. Typy danych kolumn sprzężenia musi odpowiadać między obu tabel.
-3. Kolumny musi być połączony z operatora równości.
-4. Typ sprzężenia nie może być `CROSS JOIN`.
-
-## <a name="troubleshooting-data-skew"></a>Rozwiązywanie problemów z danych pochylenia
-Gdy dane w tabeli są przesyłane przy użyciu metody dystrybucji skrót istnieje ryzyko, że niektórych dystrybucji będzie niesymetryczna nieproporcjonalnie więcej danych niż inne. Pochylenie nadmiernej ilości danych może wpłynąć na wydajność zapytań, ponieważ wynik końcowy zapytań rozproszonych musi czekać na najdłużej działających dystrybucji zakończyć. W zależności od stopnia pochylenie danych może być konieczne jego rozwiązania.
-
-### <a name="identifying-skew"></a>Identyfikowanie zegara
-Prosty sposób, aby zidentyfikować tabelę jako niesymetryczna jest użycie `DBCC PDW_SHOWSPACEUSED`.  Jest to bardzo szybki i prosty sposób aby wyświetlić liczbę wierszy tabeli, które są przechowywane w każdym z 60 dystrybucje bazy danych.  Należy pamiętać, że dla najbardziej zrównoważoną wydajność, wiersze w tabeli rozproszonej powinny być rozmieszczone równomiernie w obrębie wszystkie dystrybucje.
+### <a name="determine-if-the-table-has-data-skew"></a>Określa, czy tabela ma pochylanie danych
+Szybkim sposobem sprawdzenia zegara danych jest użycie [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Poniższy kod SQL zwraca liczbę wierszy tabeli, które są przechowywane w każdym z 60 dystrybucji. Wydajność ze zrównoważonym wierszy w tabeli rozproszonej należy można rozmieszczone równomiernie w obrębie wszystkie dystrybucje.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Jednak w przypadku zapytań usługi Azure SQL Data Warehouse dynamicznych widoków zarządzania (DMV) można przeprowadzić bardziej szczegółowej analizy.  Aby rozpocząć, Utwórz widok [dbo.vTableSizes] [ dbo.vTableSizes] wyświetlić przy użyciu programu SQL z [omówienie tabeli] [ Overview] artykułu.  Po utworzeniu widoku wykonania tego zapytania, aby zidentyfikować tabel, które mają więcej niż 10% danych zegara.
+Aby zidentyfikować tabel, które mają więcej niż 10% danych zegara:
+
+1. Utwórz dbo.vTableSizes widoku, który jest wyświetlany w obszarze [Omówienie tabel](sql-data-warehouse-tables-overview.md#table-size-queries) artykułu.  
+2. Uruchom następującą kwerendę:
 
 ```sql
 select *
@@ -198,15 +156,28 @@ order by two_part_name, row_count
 ;
 ```
 
-### <a name="resolving-data-skew"></a>Rozpoznawanie pochylenia danych
-Nie wszystkie pochylenia jest wystarczająca do zapewnienia liczbę poprawkę.  W niektórych przypadkach wydajności tabeli niektórych kwerend może przeważają uszkodzenie danych pochylenia.  Podjęcie decyzji, czy należy poprawić danych pochylenia w tabeli, należy zrozumieć jak to możliwe ilości danych i zapytania w obciążenie.   Jest jednym ze sposobów przyjrzeć się wpływ zegara do wykonania czynności w [monitorowania zapytania] [ Query Monitoring] artykuł, aby monitorować wpływ pochylenia wzdłuż wydajność zapytań i w szczególności wpływu jak długo wysyła zapytanie do podjęcia w poszczególnych dystrybucji.
+### <a name="check-query-plans-for-data-movement"></a>Sprawdź planów zapytań dla przepływu danych
+Kolumna dobrej umożliwia sprzęgania i agregacji, aby przenoszenie danych minimalny. Ma to wpływ na sposób sprzężenia powinna być zapisana. Uzyskanie przepływu minimalna ilość danych w celu utworzenia sprzężenia w dwóch tabelach rozpowszechniane skrót jednej z kolumn sprzężenia musi być kolumna dystrybucji.  Nowi dwóch tabel rozproszonych wyznaczania wartości skrótu dla tego samego typu danych kolumny dystrybucji sprzężenia nie wymaga przenoszenia danych. Sprzężenia można użyć dodatkowych kolumn bez ponoszenia przenoszenia danych.
 
-Dystrybucji danych polega na znajdowaniu kompromisu między minimalizując zegara danych i minimalizując przenoszenia danych. Te można przeciwne cele i czasem można przechowywać dane pochylenia w celu ograniczenia przepływu danych. Na przykład gdy kolumna dystrybucji jest często wspólnej kolumny sprzężenia i agregacji, można będzie można minimalizację przenoszenia danych. O konieczności przeniesienia minimalna ilość danych może być większe niż wpływ pochylanie danych.
+Aby uniknąć przenoszenia danych podczas sprzężenia:
 
-Typowy sposób rozwiązania zegara danych jest ponownie utwórz tabelę z kolumną różnych dystrybucji. Ponieważ nie można zmienić kolumny dystrybucji w istniejącej tabeli, sposób dystrybucji tabeli zmień ją utworzyć go ponownie [] [CTAS].  Poniżej przedstawiono dwa przykłady tego, jak rozpoznać pochylenia danych:
+- Tabele uwzględnione w sprzężeniu musi być rozproszone na skrót **jeden** kolumn uczestniczących w sprzężeniu.
+- Typy danych kolumn sprzężenia musi odpowiadać między obu tabel.
+- Kolumny musi być połączony z operatora równości.
+- Typ sprzężenia nie może być `CROSS JOIN`.
 
-### <a name="example-1-re-create-the-table-with-a-new-distribution-column"></a>Przykład 1: Ponownie utwórz tabelę z kolumną nowe dystrybucji
-W tym przykładzie użyto [] [CTAS] ponownie utworzyć tabelę z kolumną dystrybucji różnych wyznaczania wartości skrótu.
+Aby zobaczyć, czy zapytania występują przenoszenia danych, mogą zobaczyć w planie zapytania.  
+
+
+## <a name="resolve-a-distribution-column-problem"></a>Rozwiąż problem kolumny dystrybucji
+Nie jest konieczne rozpoznać pochylanie wszystkich przypadkach danych. Dystrybucji danych polega na znajdowaniu kompromisu między minimalizując pochylenia danych i przenoszenia danych. Nie zawsze jest możliwe zminimalizować zarówno zegara danych i przenoszenia danych. Czasami o konieczności przeniesienia minimalna ilość danych może być większe niż wpływ danych pochylanie.
+
+Podjęcie decyzji, czy należy poprawić danych pochylenia w tabeli, należy zrozumieć jak to możliwe ilości danych i zapytania w obciążenie. Można użyć procedury w [monitorowania zapytania](sql-data-warehouse-manage-monitor.md) artykuł, aby monitorować wpływ pochylenia wzdłuż wydajności zapytania. W szczególności poszukaj jak długo trwa dużych kwerend w poszczególnych dystrybucji.
+
+Ponieważ nie można zmienić kolumny dystrybucji w istniejącej tabeli, typowy sposób rozwiązania zegara danych jest ponownie utwórz tabelę z kolumną różnych dystrybucji.  
+
+### <a name="re-create-the-table-with-a-new-distribution-column"></a>Ponownie utwórz tabelę z kolumną nowe dystrybucji
+W tym przykładzie użyto [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) ponownie utworzyć tabelę z kolumną dystrybucji różnych wyznaczania wartości skrótu.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -244,65 +215,11 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### <a name="example-2-re-create-the-table-using-round-robin-distribution"></a>Przykład 2: Ponownie utwórz tabelę przy użyciu rozkładu okrężnego
-W tym przykładzie użyto [] [CTAS], aby ponownie utworzyć tabelę z okrężnego zamiast dystrybucji wyznaczania wartości skrótu. Ta zmiana spowoduje nawet danych dystrybucji kosztem przepływu danych.
-
-```sql
-CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
-WITH (  CLUSTERED COLUMNSTORE INDEX
-     ,  DISTRIBUTION =  ROUND_ROBIN
-     ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
-                                                                ,   20040101, 20050101, 20060101, 20070101
-                                                                ,   20080101, 20090101, 20100101, 20110101
-                                                                ,   20120101, 20130101, 20140101, 20150101
-                                                                ,   20160101, 20170101, 20180101, 20190101
-                                                                ,   20200101, 20210101, 20220101, 20230101
-                                                                ,   20240101, 20250101, 20260101, 20270101
-                                                                ,   20280101, 20290101
-                                                                )
-                        )
-    )
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
-;
-
---Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] ([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] ([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] ([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] ([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] ([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
-
---Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
-RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
-```
-
 ## <a name="next-steps"></a>Kolejne kroki
-Aby dowiedzieć się więcej o projektowaniu tabel, zobacz [dystrybucji][Distribute], [indeksu][Index], [partycji][Partition], [typy danych][Data Types], [statystyki] [ Statistics] i [tabel tymczasowych] [ Temporary] artykułów.
 
-Omówienie najlepszych rozwiązań, zobacz [najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices].
+Aby utworzyć rozproszoną tabelę, użyj jednej z tych instrukcji:
 
-<!--Image references-->
+- [Utwórz tabelę (magazyn danych Azure SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [Utwórz TABLE AS SELECT (magazyn danych Azure SQL](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
-[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
-<!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
-
-<!--Other Web references-->

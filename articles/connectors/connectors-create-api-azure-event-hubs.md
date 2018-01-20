@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorowanie, odbierania i wysyłania zdarzeń z łącznikiem usługi Event Hubs
 
@@ -30,7 +30,7 @@ Aby skonfigurować monitor zdarzeń, aby aplikację logiki można wykrywać zdar
 
 * Musisz mieć [centra zdarzeń w przestrzeni nazw i Centrum zdarzeń](../event-hubs/event-hubs-create.md) na platformie Azure. Dowiedz się [sposobu tworzenia centra zdarzeń w przestrzeni nazw i Centrum zdarzeń](../event-hubs/event-hubs-create.md). 
 
-* Aby użyć [każdy łącznik](https://docs.microsoft.com/azure/connectors/apis-list) w aplikacji logiki, należy najpierw utworzyć aplikację logiki. Dowiedz się [sposób tworzenia aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+* Aby użyć [każdy łącznik](https://docs.microsoft.com/azure/connectors/apis-list) w aplikacji logiki, należy najpierw utworzyć aplikację logiki. Dowiedz się [sposób tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Sprawdź uprawnienia przestrzeni nazw usługi Event Hubs i Znajdź parametry połączenia
@@ -64,7 +64,7 @@ Sprawdź swoje uprawnienia i pobrać ciągu połączenia, wykonaj następujące 
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Uruchamianie przepływu pracy w Centrum zdarzeń odebrania nowych zdarzeń
 
-A [ *wyzwalacza* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) jest zdarzeniem, która uruchamia przepływ pracy w aplikacji logiki. Aby uruchomić przepływ pracy, gdy nowe zdarzenia są wysyłane do Centrum zdarzeń, wykonaj następujące kroki dodawania wyzwalacz, który wykryje to zdarzenie.
+A [ *wyzwalacza* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) jest zdarzeniem, która uruchamia przepływ pracy w aplikacji logiki. Aby uruchomić przepływ pracy, gdy nowe zdarzenia są wysyłane do Centrum zdarzeń, wykonaj następujące kroki dodawania wyzwalacz, który wykryje to zdarzenie.
 
 1.  W [portalu Azure](https://portal.azure.com "portalu Azure"), przejdź do istniejących aplikacji logiki lub tworzenie aplikacji logiki puste.
 
@@ -94,7 +94,7 @@ A [ *wyzwalacza* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-con
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Wysyłanie zdarzeń do Centrum zdarzeń z aplikacji logiki
 
-[*Akcja*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) to zadanie wykonywane przez przepływ pracy aplikacji logiki. Po dodaniu wyzwalacza do aplikacji logiki możesz dodać akcję, aby wykonywać operacje na danych generowanych przez ten wyzwalacz. Aby wysłać zdarzenia do Centrum zdarzeń z aplikacji logiki, wykonaj następujące kroki.
+[*Akcja*](../logic-apps/logic-apps-overview.md#logic-app-concepts) to zadanie wykonywane przez przepływ pracy aplikacji logiki. Po dodaniu wyzwalacza do aplikacji logiki możesz dodać akcję, aby wykonywać operacje na danych generowanych przez ten wyzwalacz. Aby wysłać zdarzenia do Centrum zdarzeń z aplikacji logiki, wykonaj następujące kroki.
 
 1.  W Projektancie aplikacji logiki, zgodnie z wyzwalaczem aplikacji logiki, wybierz **nowy krok** > **Dodaj akcję**.
 
@@ -131,6 +131,6 @@ Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy
 
 Aby pomóc w ulepszaniu usługi Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 *  [Znajdź inne łączniki dla usługi Azure Logic apps](./apis-list.md)

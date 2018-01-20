@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorowanie stanu, konfigurowanie rejestrowania diagnostyki i Włącz alerty dla usługi Azure Logic Apps
 
-Po [tworzenie i uruchamianie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md), można sprawdzić historię uruchomień, Historia wyzwalacza, stanu i wydajności. Monitorowanie zdarzeń w czasie rzeczywistym i debugowanie bardziej rozbudowane, skonfiguruj [rejestrowania diagnostyki](#azure-diagnostics) aplikacji logiki. W ten sposób można [Znajdowanie i wyświetlać zdarzenia](#find-events), takie jak zdarzenia wyzwalacza, uruchom zdarzeń i zdarzenia akcji. Możesz także użyć tej funkcji [danych diagnostycznych z innymi usługami](#extend-diagnostic-data), takie jak usługi Azure Storage i Azure Event Hubs. 
+Po [tworzenie i uruchamianie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md), można sprawdzić historię uruchomień, Historia wyzwalacza, stanu i wydajności. Monitorowanie zdarzeń w czasie rzeczywistym i debugowanie bardziej rozbudowane, skonfiguruj [rejestrowania diagnostyki](#azure-diagnostics) aplikacji logiki. W ten sposób można [Znajdowanie i wyświetlać zdarzenia](#find-events), takie jak zdarzenia wyzwalacza, uruchom zdarzeń i zdarzenia akcji. Możesz także użyć tej funkcji [danych diagnostycznych z innymi usługami](#extend-diagnostic-data), takie jak usługi Azure Storage i Azure Event Hubs. 
 
 Aby otrzymywać powiadomień o awarii lub innych możliwych problemów, skonfiguruj [alerty](#add-azure-alerts). Na przykład można utworzyć alertu wykrywa "więcej niż pięć uruchamia się niepowodzeniem w ciągu godziny." Można również skonfigurować monitorowanie, śledzenie i rejestrowanie programowo przy użyciu [ustawienia zdarzeń diagnostyki Azure i właściwości](#diagnostic-event-properties).
 
@@ -279,7 +279,7 @@ Na przykład `ActionCompleted` zdarzenie ma `clientTrackingId` i `trackedPropert
   }
   ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie szablonów dla wdrożenia aplikacji logiki i zarządzania zleceniami](../logic-apps/logic-apps-create-deploy-template.md)
 * [Scenariusze B2B z pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md)

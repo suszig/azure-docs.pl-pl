@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
-ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Obsługa wdrażania Redaguj docker w sieci szkieletowej usług Azure (wersja zapoznawcza)
 
@@ -91,13 +91,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 Można uruchomić uaktualnienia wdrożenia Redaguj, użyj następującego polecenia:
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 Po zaakceptowaniu uaktualnienia postęp uaktualnienia można śledzić za pomocą następującego polecenia:
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -110,7 +110,7 @@ Ta wersja zapoznawcza obsługuje podzbiór z formatu Redaguj w wersji 3, w tym n
 * Usługi > Wdrażanie > Zasoby > limity
     * udziały procesorów
     * -pamięci
-    * -pamięci-wymiany
+    * -memory-swap
 * Usługi > poleceń
 * Usługi > środowiska
 * Usługi > portów
@@ -139,7 +139,7 @@ Na przykład klient A może mieć utworzyć wystąpienia typu 1.0 AppTypeA aplik
 
 Chociaż ten model zapewnia elastyczność, będziemy również planowania obsługi modelu wdrażania prostszy, na podstawie wystąpienia, których typy są niejawne z pliku manifestu. W tym modelu każda aplikacja uzyskuje niezależne manifeście. Firma Microsoft przeglądania tym wysiłku przez dodanie obsługi docker-compose.yml, który jest formatem wdrożenia na podstawie wystąpienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przeczytaj na [modelu aplikacji sieci szkieletowej usług](service-fabric-application-model.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md) (Wprowadzenie do interfejsu wiersza polecenia usługi Service Fabric)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8842adcc00a1230f252411d64c22d497faeec5b2
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiowanie danych z gałęzi przy użyciu fabryki danych Azure 
 
@@ -34,7 +34,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do gałęzi łącznika.
 
@@ -49,7 +49,7 @@ Hive połączone usługi, obsługiwane są następujące właściwości:
 | port | Port TCP używany przez serwer gałęzi do nasłuchiwania dla połączeń klienta.  | Nie |
 | Typ | Typ serwera Hive. <br/>Dozwolone wartości to: **HiveServer1**, **serwera HiveServer2**, **HiveThriftServer** | Nie |
 | thriftTransportProtocol | Protokół transportu do użycia w warstwie Thrift. <br/>Dozwolone wartości to: **Binary**, **SASL**, ** HTTP ** | Nie |
-| Typ authenticationType | Metoda uwierzytelniania używany do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
+| authenticationType | Metoda uwierzytelniania używany do uzyskiwania dostępu do serwera Hive. <br/>Dozwolone wartości to: **anonimowe**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | serviceDiscoveryMode | wartość true, aby wskazać, przy użyciu usługi dozorcy false nie.  | Nie |
 | zooKeeperNameSpace | Przestrzeń nazw na dozorcy, w których Hive Server 2 dodawania węzłów.  | Nie |
 | useNativeQuery | Określa, czy sterownik używa natywnego zapytania HiveQL lub konwertuje je na równoważne formularza w HiveQL.  | Nie |

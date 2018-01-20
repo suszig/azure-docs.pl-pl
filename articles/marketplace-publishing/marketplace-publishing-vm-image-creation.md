@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -28,7 +28,7 @@ W tej sekcji dowiesz się zdefiniować oferty i ich skojarzonych jednostki SKU.
 
 Oferta pełni rolę nadrzędną względem wszystkich swoich jednostek SKU. Można określić wiele ofert. Decyzja dotycząca określenia struktury ofert należy do Ciebie. Wypchnięcie oferty do wdrażania przejściowego jest równoznaczne z wypchnięciem wszystkich jej jednostek SKU. Zastanów się uważnie z identyfikatorów jednostki SKU, ponieważ będą one widoczne w adresie URL:
 
-* Witryny Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Portal Azure w wersji zapoznawczej: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
 
 Jednostka SKU jest komercyjnych nazwę obrazu maszyny Wirtualnej. Obraz maszyny Wirtualnej zawiera jeden system operacyjny dysku oraz zero lub więcej dysków z danymi. Zasadniczo stanowi on kompletny profil magazynu dla maszyny wirtualnej. Jeden wirtualny dysk twardy jest wymagany na dysku. Dysków z danymi nawet puste wymagane do utworzenia dysku VHD.
@@ -58,7 +58,7 @@ Po dodaniu oferty, należy zdefiniować i identyfikuje użytkownika jednostki SK
 3. Jeśli używasz jednostek SKU opartych na systemie Windows, użyj podanych linków, aby uzyskać zatwierdzone wersje systemu Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Tworzenie wirtualnego dysku twardego zgodnego Azure (opartych na systemie Linux)
-Ta sekcja dotyczy przede wszystkim najlepsze rozwiązania dotyczące tworzenia obrazu maszyny Wirtualnej opartych na systemie Linux dla portalu Azure Marketplace. Przewodnik krok po kroku, można znaleźć w następującej dokumentacji: [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera System operacyjny Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Ta sekcja dotyczy przede wszystkim najlepsze rozwiązania dotyczące tworzenia obrazu maszyny Wirtualnej opartych na systemie Linux dla portalu Azure Marketplace. Przewodnik krok po kroku, można znaleźć w następującej dokumentacji: [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera System operacyjny Linux](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Tworzenie wirtualnego dysku twardego zgodnego Azure (z systemem Windows)
 W tej części przedstawiono kroki, aby utworzyć SKU, oparte na systemie Windows Server do portalu Azure Marketplace.
@@ -95,7 +95,7 @@ W portalu Microsoft Azure można utworzyć maszyny Wirtualnej na podstawie zatwi
 
     b.    Jeśli zamierzasz utworzyć obraz na platformie Azure, warto wybrać jeden z zalecanych rozmiarów maszyny wirtualnej dla wybranego obrazu.
 
-    c.    Aby uzyskać informacje o cenach, zobacz **zalecana warstwa cenowa** selektora wyświetlane w portalu. Zobaczysz trzy zalecane rozmiary udostępniane przez wydawcę. (W tym przypadku wydawcą jest firma Microsoft).
+    d.    Aby uzyskać informacje o cenach, zobacz **zalecana warstwa cenowa** selektora wyświetlane w portalu. Zobaczysz trzy zalecane rozmiary udostępniane przez wydawcę. (W tym przypadku wydawcą jest firma Microsoft).
 
     ![Rysowanie][img-portal-vm-size]
 5. Ustaw właściwości:
@@ -104,7 +104,7 @@ W portalu Microsoft Azure można utworzyć maszyny Wirtualnej na podstawie zatwi
 
     b.    W obszarze **konta magazynu**, można opcjonalnie wybierz konto magazynu, w którym będą przechowywane wirtualnego dysku twardego systemu operacyjnego.
 
-    c.    W obszarze **grupy zasobów**, można opcjonalnie wybierz grupę logiczną, w którym można umieścić maszyny Wirtualnej.
+    d.    W obszarze **grupy zasobów**, można opcjonalnie wybierz grupę logiczną, w którym można umieścić maszyny Wirtualnej.
 6. Wybierz **lokalizacji** wdrożenia:
 
     a.    Jeśli planujesz tworzenie wirtualnego dysku twardego lokalnej lokalizacji nie ma znaczenia, ponieważ możesz przekazać obraz później na platformie Azure.
@@ -194,14 +194,14 @@ Aby dowiedzieć się więcej na temat obrazów maszyn wirtualnych, należy przej
 Przeczytaj łączy podanych poniżej w celu uzyskania wskazówek dotyczących Przechwytywanie maszyny Wirtualnej przy użyciu interfejsu wiersza polecenia Azure-API/programu PowerShell.
 
 * [Interfejs API](https://msdn.microsoft.com/library/mt163560.aspx)
-* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Program PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="generalize-image"></a>Obraz
 Przeczytaj łączy podanych poniżej w celu uzyskania wskazówek dotyczących Przechwytywanie maszyny Wirtualnej przy użyciu interfejsu wiersza polecenia Azure-API/programu PowerShell.
 
 * [Interfejs API](https://msdn.microsoft.com/library/mt269439.aspx)
-* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Program PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Interfejs wiersza polecenia platformy Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="42-deploy-a-vm-from-a-user-vm-image"></a>4.2 wdrożyć maszynę Wirtualną z obrazu użytkownika maszyny Wirtualnej
@@ -348,7 +348,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
     b. **Dozwolony dostęp do:** wybierz datę, która jest co najmniej 3 tygodni po **zezwala na dostęp** daty.
 
-    c. **Akcje dozwolone:** wybierz **listy** i **odczytu** uprawnienia.
+    d. **Akcje dozwolone:** wybierz **listy** i **odczytu** uprawnienia.
 
     d. Jeśli wybrano plik VHD poprawnie, a następnie plik zostanie wyświetlony w **nazwa obiektu Blob, aby uzyskać dostęp do** z rozszerzenie VHD.
 
@@ -396,7 +396,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL SAS za pomocą Ekspl
 
     b.  **Czas wygaśnięcia:** wybierz datę, która jest co najmniej 3 tygodni po **czas rozpoczęcia** daty.
 
-    c.  **Uprawnienia:** wybierz **listy** i **odczytu** uprawnień
+    d.  **Uprawnienia:** wybierz **listy** i **odczytu** uprawnień
 
 8.  Skopiuj sygnatury dostępu współdzielonego kontenera identyfikatora URI
 
@@ -444,7 +444,7 @@ Poniżej przedstawiono kroki podczas generowania adresu URL sygnatury dostępu W
 
     b. **`<Storage Account Key>`**: Podać klucz konta magazynu
 
-    c. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 10-25-2016T00:00:00Z.
+    d. **`<Permission Start Date>`**: Aby chronić dla czasu UTC, wybierz dzień przed bieżącą datą. Na przykład, jeśli bieżąca data jest 26 października 2016 r. następnie wartość powinna być 2016-10-25. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: Wybierz datę, która jest co najmniej 3 tygodni po **Data rozpoczęcia**. Wartość powinna być **2016-11-02**. Jeśli za pomocą usługi Azure CLI 2.0 (polecenie az), podaj datę i godzinę rozpoczęcia oraz datę zakończenia, na przykład: 11-02-2016T00:00:00Z.
 
@@ -510,19 +510,19 @@ Po utworzeniu oferty i wersji produktu, należy wprowadzić szczegóły obrazu s
 
 ## <a name="common-sas-url-issues--fixes"></a>Typowe problemy adres URL SAS i poprawki
 
-|Problem|Komunikat o błędzie|Poprawka|Łącze dokumentacji|
+|Problem|Komunikat o błędzie|Napraw|Łącze dokumentacji|
 |---|---|---|---|
-|Błąd podczas kopiowania obrazy — "?" nie znajduje się w adresie url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Narzędzia zalecanych aktualizacji przy użyciu adresu Url SAS|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Błąd podczas kopiowania obrazy — parametry "st" i "se", nie w SAS url|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Zaktualizuj adres Url SAS z dat rozpoczęcia i zakończenia na nim|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Błąd podczas kopiowania obrazów — "sp = rl" nie znajduje się w adres url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego|Zaktualizuj adres Url SAS z uprawnienia "Odczyt" & "Lista jako|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Błąd podczas kopiowania obrazów — adres url SAS ma białe znaki w nazwie wirtualnego dysku twardego|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Aktualizacja adresu Url SAS, bez spacji|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Błąd podczas kopiowania obrazów — błąd autoryzacji adresów Url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na błąd autoryzacji|Wygeneruj ponownie adres Url SAS|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Błąd podczas kopiowania obrazów — adres Url SAS "st" i "se" parametrów nie mają specyfikacji pełnej daty i godziny|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na nieprawidłowy adres Url SAS |Parametry Start adres Url SAS i Data zakończenia ("st", "se") muszą mieć specyfikacji pełnej daty i godziny, takich jak 11-02-2017T00:00:00Z, a nie tylko datę lub skróconej wersji po raz. Użytkownik może wystąpić ten scenariusz przy użyciu usługi Azure CLI 2.0 (polecenie az). Należy podać specyfikację daty godziny i ponowne wygenerowanie adres Url SAS.|[https://Azure.microsoft.com/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazy — "?" nie znajduje się w adresie url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Narzędzia zalecanych aktualizacji przy użyciu adresu Url SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazy — parametry "st" i "se", nie w SAS url|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Zaktualizuj adres Url SAS z dat rozpoczęcia i zakończenia na nim|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazów — "sp = rl" nie znajduje się w adres url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego|Zaktualizuj adres Url SAS z uprawnienia "Odczyt" & "Lista jako|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazów — adres url SAS ma białe znaki w nazwie wirtualnego dysku twardego|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob przy użyciu podany identyfikator Uri sygnatury dostępu Współdzielonego.|Aktualizacja adresu Url SAS, bez spacji|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazów — błąd autoryzacji adresów Url SAS|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na błąd autoryzacji|Wygeneruj ponownie adres Url SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Błąd podczas kopiowania obrazów — adres Url SAS "st" i "se" parametrów nie mają specyfikacji pełnej daty i godziny|Błąd: Kopiowanie obrazów. Nie można pobrać obiektu blob ze względu na nieprawidłowy adres Url SAS |Parametry Start adres Url SAS i Data zakończenia ("st", "se") muszą mieć specyfikacji pełnej daty i godziny, takich jak 11-02-2017T00:00:00Z, a nie tylko datę lub skróconej wersji po raz. Użytkownik może wystąpić ten scenariusz przy użyciu usługi Azure CLI 2.0 (polecenie az). Należy podać specyfikację daty godziny i ponowne wygenerowanie adres Url SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Następny krok
 Po wykonaniu szczegóły jednostka SKU, można przenieść do przodu [marketing przewodnik zawartości portalu Azure Marketplace][link-pushstaging]. W tym kroku procesu publikowania można zapewnić zawartość marketing, ceny i inne informacje, które są niezbędne przed **krok 3: testowanie maszyny Wirtualnej oferują tymczasowych**, który testować różne scenariusze przypadek użycia przed wdrożeniem oferty w portalu Azure Marketplace widoczności publicznej i zakupu.  
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

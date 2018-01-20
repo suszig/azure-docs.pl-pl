@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Wykonaj różne akcje w aplikacjach logiki z instrukcji switch
 
@@ -34,7 +34,7 @@ Instrukcja switch służy do wdrożenia tych scenariuszy. Aplikację logiki moż
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Aktywna subskrypcja platformy Azure. Jeśli nie masz aktywnych subskrypcji platformy Azure, [utworzyć bezpłatne konto](https://azure.microsoft.com/free/), lub spróbuj [wolne aplikacje logiki dla](https://tryappservice.azure.com/).
-- [Podstawową wiedzę na temat dotyczące aplikacji logiki](logic-apps-what-are-logic-apps.md)
+- [Podstawową wiedzę na temat dotyczące aplikacji logiki](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Dodawanie instrukcji switch do przepływu pracy
 
@@ -120,7 +120,7 @@ Aby zadawać pytania, odpowiadać na nie i patrzeć, co robią inni użytkownicy
 
 Aby pomóc w ulepszaniu usługi Azure Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się, jak [Dodawanie warunków](logic-apps-use-logic-app-features.md)
 - Dowiedz się więcej o [błąd i obsługa wyjątków](logic-apps-exception-handling.md)

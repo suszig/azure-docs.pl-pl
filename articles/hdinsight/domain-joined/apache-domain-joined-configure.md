@@ -4,7 +4,7 @@ description: "Informacje o sposobie instalowania i konfigurowania klastrów HDIn
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Skonfiguruj środowisko piaskownicy domeny w usłudze HDInsight
 
@@ -28,7 +28,7 @@ Dowiedz się, jak skonfigurować klaster Azure HDInsight z autonomicznej usługi
 Bez klastra usługi HDInsight przyłączonych do domeny, każdy klaster może zawierać tylko konta użytkowników usługi Hadoop HTTP, a konto użytkownika SSH.  Uwierzytelnianie wielu użytkowników można osiągnąć za pomocą:
 
 -   Autonomiczny usługi Active Directory systemem Azure IaaS.
--   Usługa Azure Active Directory.
+-   Azure Active Directory.
 -   Uruchomienie w środowisku lokalnym klienta Active Directory.
 
 Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało opisane w tym artykule. Jest najprostsza architektury, które klient może wykonać, aby uzyskać pomoc techniczną przez wielu użytkowników w usłudze HDInsight. W tym artykule opisano dwa podejścia do tej konfiguracji:
@@ -49,7 +49,7 @@ Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało
 ## <a name="option-1-one-step-approach"></a>Opcja 1: podejście jednoetapowy
 W tej sekcji możesz otworzyć szablon administracyjny zasobów platformy Azure w portalu Azure. Szablon służy do tworzenia usługi Active Directory, autonomicznej i klastra usługi HDInsight. Obecnie można utworzyć klastra usługi Hadoop przyłączonych do domeny, klastra Spark i interaktywne zapytania klastra.
 
-1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w [szablonów Szybki Start Azure](https://azure.microsoft.com/resources/templates/).
+1. Kliknij poniższy obraz, aby otworzyć szablon w usłudze Azure Portal. Szablon znajduje się w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/).
    
     Aby utworzyć klaster Spark:
 

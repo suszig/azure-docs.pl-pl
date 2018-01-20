@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Korzystanie z Pulpitu zdalnego do łączenia się z maszyną wirtualną systemu Linux na platformie Microsoft Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ W tych wskazówkach otrzymasz odpowiedź! Aby ułatwić instalacji i konfiguracj
 Narzędzie xrdp jest serwerem RDP typu open source, który umożliwia łączenie z serwerem systemu Linux przy użyciu pulpitu zdalnego na komputerze z systemem Windows. RDP ma lepszą wydajność niż VNC (wirtualnych sieci przetwarzania danych). VNC renderuje przy użyciu grafiki jakość JPEG i może działać powoli, protokołu RDP jest szybkie i krystalicznie czyste.
 
 > [!NOTE]
-> Musi już mieć maszyny Wirtualnej platformy Microsoft Azure systemem Linux. Aby utworzyć i skonfigurować Maszynę wirtualną systemu Linux, zobacz [samouczek maszyny Wirtualnej systemu Linux Azure](createportal.md).
+> Musi już mieć maszyny Wirtualnej platformy Microsoft Azure systemem Linux. Aby utworzyć i skonfigurować Maszynę wirtualną systemu Linux, zobacz [samouczek maszyny Wirtualnej systemu Linux Azure](createportal-classic.md).
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 799d444632b67788520be8a777ec656076022583
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Kodowanie wiadomości EDIFACT dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw
 
@@ -36,7 +36,7 @@ Oto elementy, które są potrzebne:
 
 ## <a name="encode-edifact-messages"></a>Kodowanie EDIFACT wiadomości
 
-1. [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md).
+1. [Tworzenie aplikacji logiki](quickstart-create-first-logic-app-workflow.md).
 
 2. Kodowanie EDIFACT łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
 
@@ -96,6 +96,6 @@ Jeśli wybierzesz kodowanie wiadomości EDIFACT przez tożsamości, wprowadź id
 ## <a name="view-swagger-file"></a>Plik struktury Swagger widoku
 Aby wyświetlić szczegóły Swagger EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
 

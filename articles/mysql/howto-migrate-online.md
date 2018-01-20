@@ -9,28 +9,30 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429f5c9f939a802184a6513a63fb9115abf4b235
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d7e96623ef4ad9abd55deca8b410e9ce0d73b6c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Minimalizująca przestoje migracji do bazy danych Azure dla programu MySQL
-Można przeprowadzić migrację istniejącej bazy danych MySQL do bazy danych platformy Azure dla programu MySQL przy użyciu replikacji Attunity Migrations firmy Microsoft, wspólnie sponsorowany, wspólnego ofertę z firmy Microsoft, który został dostarczony wraz z usługi migracji bazy danych Azure na nie i Attunity dodatkowych kosztów do klientów firmy Microsoft. Replikacja Attunity Migrations Microsoft umożliwia również minimalna przestój w przypadku migracji bazy danych, a źródłowej bazy danych w dalszym ciągu działać podczas procesu migracji.
+Przy użyciu replikacji Attunity Migrations Microsoft istniejącej bazy danych MySQL można migrować do bazy danych platformy Azure dla programu MySQL. Replikacja Attunity jest wspólnego z Attunity i firmy Microsoft. Wraz z usługi migracji bazy danych Azure jest uwzględniony bez ponoszenia dodatkowych kosztów do klientów firmy Microsoft. 
 
-Replikacja Attunity jest narzędzie replikacji danych synchronizacji danych między z różnych źródeł i obiekty docelowe, propagowanie skrypcie tworzenia schematu i dane skojarzone z każdej tabeli bazy danych. Replikacja Attunity nie propaguje innych artefakty (na przykład SP, wyzwalaczy, funkcji, itp.) lub convert, na przykład kodu PL/SQL hostowanych w takich artefaktów do T-SQL.
+Replikacja Attunity minimalizuje czas przestoju podczas migracji bazy danych, a źródłowa baza danych zachowuje operacyjne całego procesu.
+
+Replikacja Attunity to narzędzie replikacji danych, które umożliwia synchronizacji danych między z różnych źródeł i obiektów docelowych. Propaguje on skrypcie tworzenia schematu i dane skojarzone z każdej tabeli bazy danych. Replikacja Attunity nie są propagowane innych artefakty (na przykład SP, wyzwalacze, funkcje i tak dalej) lub konwersji, na przykład, kod PL/SQL, który znajduje się w takich artefaktów do T-SQL.
 
 > [!NOTE]
-> Podczas replikowania Attunity obsługuje szeroką gamę scenariuszy migracji, replikacja Attunity Migrations Microsoft skupia się na obsługę konkretnego podzestawu par źródłowy i docelowy.
+> Mimo że replikacja Attunity obsługuje szeroką gamę scenariuszy migracji, koncentruje się na obsługę konkretnego podzestawu par źródłowy i docelowy.
 
 Zawiera omówienie procesu migracji minimalnym czasem przestojów:
 
-1. **Migrowanie schematu źródła MySQL** do bazy danych dla bazy danych MySQL przy użyciu usługi Azure [MySQL Workbench](https://www.mysql.com/products/workbench/).
+* **Migrowanie schematu źródła MySQL** bazą danych Azure dla programu MySQL zarządzane usługi bazy danych przy użyciu [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
-2. **Ustawienie ładowania początkowego i przeprowadź synchronizację z ciągłymi danymi ze źródłowej bazy danych do docelowej bazy danych** przy użyciu replikacji Attunity Migrations firmy Microsoft. Dzięki temu minimalizuje czas, który źródłowej bazy danych musi być ustawiona jako tylko do odczytu podczas przygotowywania do przełączania aplikacji docelowej bazy danych MySQL na platformie Azure.
+* **Ustawienie ładowania początkowego i przeprowadź synchronizację z ciągłymi danymi ze źródłowej bazy danych do docelowej bazy danych** przy użyciu replikacji Attunity Migrations firmy Microsoft. Dzięki temu minimalizuje czas, który źródłowej bazy danych musi być ustawiona jako tylko do odczytu podczas przygotowywania do przełączania aplikacji docelowej bazy danych MySQL na platformie Azure.
 
-Aby uzyskać więcej informacji o replikacji Attunity oferty Migrations firmy Microsoft należy wyświetlić następujące zasoby:
- - Replikacja Attunity Migrations Microsoft [strony sieci web](https://aka.ms/attunity-replicate).
- - [Pobierz](http://discover.attunity.com/download-replicate-microsoft-lp6657.html) replikacja Attunity migracji firmy Microsoft.
- - Replikacja Attunity [społeczności](https://microsoft.attunity.com/), przewodnik Szybki Start, samouczki i pomocy technicznej.
- - Aby uzyskać szczegółowe instrukcje na temat używania Attunity migrację z programu MySQL do bazy danych platformy Azure dla programu MySQL, zapoznaj się [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+Aby uzyskać więcej informacji o replikacji Attunity Migrations Microsoft oferty zobacz następujące zasoby:
+ - Przejdź do [replikacja Attunity Migrations Microsoft](https://aka.ms/attunity-replicate) strony sieci Web.
+ - Pobierz [Attunity replikacji dla migracji w programie Microsoft](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Przejdź do [Attunity replikować społeczności](https://microsoft.attunity.com/) Przewodnik Szybki Start, samouczki i pomocy technicznej.
+ - Aby uzyskać instrukcje na temat używania replikowania Attunity migrację bazy danych MySQL do bazy danych platformy Azure dla programu MySQL, zobacz [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

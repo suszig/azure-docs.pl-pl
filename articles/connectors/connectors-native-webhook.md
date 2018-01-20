@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Rozpoczynanie pracy z łącznika elementu webhook
 
@@ -81,27 +81,27 @@ Poniżej przedstawiono więcej informacji o wyzwalacze i akcje obsługuje tego e
 
 | Akcja | Opis |
 | --- | --- |
-| HTTP elementu Webhook |Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby uruchomić aplikację logiki, zgodnie z potrzebami. |
+| Element webhook protokołu HTTP |Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby uruchomić aplikację logiki, zgodnie z potrzebami. |
 
 ### <a name="trigger-details"></a>Szczegóły wyzwalacza
 
-#### <a name="http-webhook"></a>HTTP elementu Webhook
+#### <a name="http-webhook"></a>Element webhook protokołu HTTP
 
 Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby uruchomić aplikację logiki, zgodnie z potrzebami.
 * Oznacza, że wymagane pole.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Subskrypcja — metoda * |— Metoda |Metoda HTTP do użycia podczas subskrybowania żądania |
-| Subskrypcja URI * |Identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania Subskrybuj |
-| Anulowanie subskrypcji metody * |— Metoda |Metoda HTTP do użycia podczas żądania anulowania |
-| Anulowanie subskrypcji URI * |Identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania anulowania |
-| Subskrypcja treści |Treści |Żądania HTTP do subskrybowania |
-| Subskrypcja nagłówki |Nagłówki |Nagłówki żądania HTTP do subskrybowania |
-| Subskrypcja uwierzytelniania |Uwierzytelnianie |Uwierzytelnianie HTTP do użycia podczas subskrybowania. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
-| Anulowanie subskrypcji treści |Treści |Żądania HTTP do anulowania subskrypcji |
-| Anulowanie subskrypcji nagłówki |Nagłówki |Nagłówki żądania HTTP do anulowania subskrypcji |
-| Anulowanie subskrypcji uwierzytelniania |Uwierzytelnianie |Uwierzytelnianie HTTP do użycia na potrzeby anulowania subskrypcji. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
+| Subskrypcja — metoda * |metoda |Metoda HTTP do użycia podczas subskrybowania żądania |
+| Subskrypcja URI * |identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania Subskrybuj |
+| Anulowanie subskrypcji metody * |metoda |Metoda HTTP do użycia podczas żądania anulowania |
+| Anulowanie subskrypcji URI * |identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania anulowania |
+| Subskrypcja treści |treść |Żądania HTTP do subskrybowania |
+| Subskrypcja nagłówki |nagłówki |Nagłówki żądania HTTP do subskrybowania |
+| Subskrypcja uwierzytelniania |uwierzytelnianie |Uwierzytelnianie HTTP do użycia podczas subskrybowania. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
+| Anulowanie subskrypcji treści |treść |Żądania HTTP do anulowania subskrypcji |
+| Anulowanie subskrypcji nagłówki |nagłówki |Nagłówki żądania HTTP do anulowania subskrypcji |
+| Anulowanie subskrypcji uwierzytelniania |uwierzytelnianie |Uwierzytelnianie HTTP do użycia na potrzeby anulowania subskrypcji. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
 
 **Szczegóły danych wyjściowych**
 
@@ -109,35 +109,35 @@ Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, ad
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
-| Nagłówki |Obiekt |Nagłówki żądania elementu Webhook |
-| Treść |Obiekt |Obiekt żądania elementu Webhook |
+| Nagłówki |obiekt |Nagłówki żądania elementu Webhook |
+| Treść |obiekt |Obiekt żądania elementu Webhook |
 | Kod stanu |int |Kod stanu żądania elementu Webhook |
 
 ## <a name="webhook-actions"></a>Akcje elementu Webhook
 
 | Akcja | Opis |
 | --- | --- |
-| HTTP elementu Webhook |Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby wznowić krok przepływu pracy, zgodnie z potrzebami. |
+| Element webhook protokołu HTTP |Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby wznowić krok przepływu pracy, zgodnie z potrzebami. |
 
 ### <a name="action-details"></a>Szczegóły akcji
 
-#### <a name="http-webhook"></a>HTTP elementu Webhook
+#### <a name="http-webhook"></a>Element webhook protokołu HTTP
 
 Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, adres URL, aby wznowić krok przepływu pracy, zgodnie z potrzebami.
 * Oznacza, że wymagane pole.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Subskrypcja — metoda * |— Metoda |Metoda HTTP do użycia podczas subskrybowania żądania |
-| Subskrypcja URI * |Identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania Subskrybuj |
-| Anulowanie subskrypcji metody * |— Metoda |Metoda HTTP do użycia podczas żądania anulowania |
-| Anulowanie subskrypcji URI * |Identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania anulowania |
-| Subskrypcja treści |Treści |Żądania HTTP do subskrybowania |
-| Subskrypcja nagłówki |Nagłówki |Nagłówki żądania HTTP do subskrybowania |
-| Subskrypcja uwierzytelniania |Uwierzytelnianie |Uwierzytelnianie HTTP do użycia podczas subskrybowania. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
-| Anulowanie subskrypcji treści |Treści |Żądania HTTP do anulowania subskrypcji |
-| Anulowanie subskrypcji nagłówki |Nagłówki |Nagłówki żądania HTTP do anulowania subskrypcji |
-| Anulowanie subskrypcji uwierzytelniania |Uwierzytelnianie |Uwierzytelnianie HTTP do użycia na potrzeby anulowania subskrypcji. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
+| Subskrypcja — metoda * |metoda |Metoda HTTP do użycia podczas subskrybowania żądania |
+| Subskrypcja URI * |identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania Subskrybuj |
+| Anulowanie subskrypcji metody * |metoda |Metoda HTTP do użycia podczas żądania anulowania |
+| Anulowanie subskrypcji URI * |identyfikator URI |Identyfikator URI protokołu HTTP do użycia dla żądania anulowania |
+| Subskrypcja treści |treść |Żądania HTTP do subskrybowania |
+| Subskrypcja nagłówki |nagłówki |Nagłówki żądania HTTP do subskrybowania |
+| Subskrypcja uwierzytelniania |uwierzytelnianie |Uwierzytelnianie HTTP do użycia podczas subskrybowania. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
+| Anulowanie subskrypcji treści |treść |Żądania HTTP do anulowania subskrypcji |
+| Anulowanie subskrypcji nagłówki |nagłówki |Nagłówki żądania HTTP do anulowania subskrypcji |
+| Anulowanie subskrypcji uwierzytelniania |uwierzytelnianie |Uwierzytelnianie HTTP do użycia na potrzeby anulowania subskrypcji. [Zobacz łącznika HTTP](connectors-native-http.md#authentication) Aby uzyskać więcej informacji |
 
 **Szczegóły danych wyjściowych**
 
@@ -145,11 +145,11 @@ Subskrypcja wywołania zwrotnego adresu URL usługi, który można wywołać, ad
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
-| Nagłówki |Obiekt |Nagłówki żądania elementu Webhook |
-| Treść |Obiekt |Obiekt żądania elementu Webhook |
+| Nagłówki |obiekt |Nagłówki żądania elementu Webhook |
+| Treść |obiekt |Obiekt żądania elementu Webhook |
 | Kod stanu |int |Kod stanu żądania elementu Webhook |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-* [Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Znajdź inne łączniki](apis-list.md)

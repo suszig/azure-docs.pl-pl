@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Rozpoczynanie pracy z opóźnieniem i opóźnienie — do działania
 Za pomocą opóźnienie i "opóźnienie-dopóki" akcje, ukończeniem scenariuszy przepływu pracy.
@@ -29,7 +29,7 @@ Można na przykład:
 * Poczekaj na dzień do wysyłania aktualizacji stanu za pośrednictwem poczty e-mail.
 * Opóźnienie przepływu pracy do czasu wywołania HTTP czasu, aby zakończyć działanie przed wznawianie i pobierania wynik.
 
-Aby rozpocząć, korzystając z akcji opóźnienia w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby rozpocząć, korzystając z akcji opóźnienia w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Akcje opóźnienia
 Akcja jest operacja odbywa się przez przepływ pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o akcjach](connectors-overview.md).
@@ -54,8 +54,8 @@ A * oznacza, że jest polem wymaganym.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Liczba * |Liczba |Liczba jednostek czasu opóźnienia |
-| Jednostka * |jednostki |Jednostka czasu: `Second`, `Minute`, `Hour`, lub`Day` |
+| Liczba * |liczba |Liczba jednostek czasu opóźnienia |
+| Unit* |jednostki |Jednostka czasu: `Second`, `Minute`, `Hour`, lub`Day` |
 
 <br>
 
@@ -71,6 +71,6 @@ A * oznacza, że jest polem wymaganym.
 
 <br>
 
-## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
 

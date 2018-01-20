@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d0b385c10df61e9719d95b29b60e0f92766b2637
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Scenariusze i wzorce sieci szkieletowej usług
 Jeśli rozważasz usługę kompilowania dużych mikrousług przy użyciu usługi Azure Service Fabric, Dowiedz się od ekspertów, którzy zaprojektowany i zbudowany ta platforma jako usługa (PaaS). Wprowadzenie do architektury właściwe, a następnie Dowiedz się, jak zoptymalizować zasobów dla aplikacji. [Usługi sieć szkieletowa Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) plan odpowiedzi na pytania najczęściej zadawane przez klientów rzeczywistych scenariuszy sieci szkieletowej usług i aplikacji.
@@ -97,5 +97,5 @@ Uzyskaj odpowiedzi na pytanie "Dlaczego kontenery?" Więcej informacji na temat 
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">Kontenery i obsługi systemu Linux</a></td></tr>
 </table>
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, kiedy znasz już o wzorce sieci szkieletowej usług i scenariusze, Dowiedz się więcej o sposobie [tworzenia i zarządzania klastrami](service-fabric-deploy-anywhere.md), [migracji aplikacji usługi w chmurze do sieci szkieletowej usług](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [— Konfiguracja ciągłego dostarczania](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), i [wdrażanie kontenerów](service-fabric-containers-overview.md).

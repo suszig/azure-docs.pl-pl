@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9ad07f1760b69385a2ab9070d212e03381aa22be
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Rozpoczynanie pracy z łącznikiem pole
 Łączenie z pola i tworzenie plików, Usuń pliki i inne. Pole można:
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/16/2018
 * Gdy plik jest tworzony lub aktualizowany za pomocą wyzwalaczy.
 * Użyj akcji, które kopiowania pliku, usuń plik i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład gdy plik zostanie zmieniona na pole, można wykonać tego pliku i poczty e-mail za pomocą usługi Office 365.
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

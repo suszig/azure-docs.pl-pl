@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Nawiązywanie połączenia systemów lokalnych plików z aplikacji logiki w usłudze łącznika systemu plików
 
@@ -30,7 +30,7 @@ Zarządzanie danymi i bezpieczny dostęp do zasobów lokalnych, aplikacje logiki
 
 * Zainstaluj i definiowania najnowszą bramę danych lokalnych, wersja 1.15.6150.1 lub nowszym. Aby uzyskać instrukcje, zobacz [połączenia ze źródłami danych lokalnie](http://aka.ms/logicapps-gateway). Przed kontynuowaniem tych kroków, należy zainstalować bramy na maszynie lokalnej.
 
-* Podstawową wiedzę na temat o [sposób tworzenia aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+* Podstawową wiedzę na temat o [sposób tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Dodaj wyzwalacza oraz do nawiązywania połączenia z systemu plików
 
@@ -85,10 +85,10 @@ Spróbuj eksploracji inne funkcje, które oferuje łącznika, na przykład:
 - Usuń plik
 - Pobierz zawartość pliku
 - Pobierz zawartość pliku przy użyciu ścieżki
-- Pobierz plik metadanych
+- Pobierz metadane pliku
 - Pobierz metadane pliku przy użyciu ścieżki
 - Wyświetl listę plików w folderze głównym
-- Plik aktualizacji
+- Aktualizuj plik
 
 ## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
 
@@ -100,7 +100,7 @@ Zobacz [swagger szczegóły](/connectors/fileconnector/).
 
 * Aby pomóc w udoskonalaniu Azure Logic Apps i łącznikami, Zagłosuj lub Prześlij pomysłów na [witryny Azure Logic Apps User Voice](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Nawiązywanie połączenia z danymi lokalnymi](../logic-apps/logic-apps-gateway-connection.md) 
 * [Monitorowanie aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)

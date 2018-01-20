@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Jak dodawać adnotacje do źródeł danych
 ## <a name="introduction"></a>Wprowadzenie
@@ -47,7 +47,7 @@ Wykaz danych obsługuje następujące typy adnotacji:
 | Znaczników (tagów użytkownika) |Tagi mogą być dostarczane na zasobu danych i atrybutu / poziomy kolumny. Tagi użytkownika są zdefiniowane przez użytkownika etykiet, które mogą służyć do klasyfikowania atrybuty lub zasobów danych. |
 | Tagi (Słownik znaczniki) |Tagi mogą być dostarczane na zasobu danych i atrybutu / poziomy kolumny. Słownik tagi są centralnego definiowania terminów, które może służyć do klasyfikowania zasobów danych lub atrybutów przy użyciu wspólnej taksonomii biznesowej. Aby uzyskać więcej informacji, zobacz [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Konfigurowanie słownika biznesowego na potrzeby znakowania zarządzanego). |
 | Ekspertów |Eksperci mogą być dostarczane na poziomie zasobów danych. Ekspertów zidentyfikować użytkowników lub grup z perspektywy ekspertów danych i może służyć jako punkty kontaktu dla użytkowników, którzy źródeł danych zarejestrowanych i masz pytania, które nie są odbierane przez istniejących adnotacji. |
-| Żądania dostępu |Informacje o żądaniu dostępu mogą być dostarczane na poziomie zasobów danych. Te informacje są dla użytkowników, którzy nie jeszcze mają uprawnienia dostępu do źródła danych odnajdywania. Użytkownicy, można wprowadzić adres e-mail użytkownika lub grupę, która udziela dostępu do adresu URL procesu lub narzędzie, które użytkownicy muszą uzyskać dostęp, lub można wprowadzić sam proces jako tekst. |
+| Żądaj dostępu |Informacje o żądaniu dostępu mogą być dostarczane na poziomie zasobów danych. Te informacje są dla użytkowników, którzy nie jeszcze mają uprawnienia dostępu do źródła danych odnajdywania. Użytkownicy, można wprowadzić adres e-mail użytkownika lub grupę, która udziela dostępu do adresu URL procesu lub narzędzie, które użytkownicy muszą uzyskać dostęp, lub można wprowadzić sam proces jako tekst. |
 | Dokumentacja |Dokumentacja mogą być dostarczane na poziomie zasobów danych. Dokumentacja zasobów jest informacji tekstu sformatowanego zawierające łącza i obrazki, a które zapewniają informacje nie są przekazywane za pośrednictwem opisy i tagów. |
 
 ## <a name="annotating-multiple-assets"></a>Dodawanie adnotacji do wielu zasobów
@@ -66,5 +66,5 @@ Tak samo, jak metadanych wyodrębnione ze źródła danych podczas rejestracji z
 ## <a name="summary"></a>Podsumowanie
 Rejestrowanie źródła danych z wykazu danych sprawia, że wykrywalny danych przez skopiowanie metadanych strukturalnych i opisowy ze źródła danych do usługi wykazu. Po zarejestrowaniu źródła danych, użytkownicy mogą podać adnotacje, aby ułatwić odnajdywanie i zrozumienie z portalu wykazu danych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md) samouczek krok po kroku szczegółowe informacje o tym, jak dodawać adnotacje do źródeł danych.

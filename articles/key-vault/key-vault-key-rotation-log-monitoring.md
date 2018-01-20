@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurowanie kompleksowej wymiany i inspekcji kluczy w usłudze Azure Key Vault
 ## <a name="introduction"></a>Wprowadzenie
@@ -416,7 +416,7 @@ W tym momencie funkcji jest gotowy. Upewnij się powrócić do **opracowanie** k
 ### <a name="azure-logic-app"></a>Aplikacja logiki platformy Azure
 Następnie należy utworzyć aplikację logiki platformy Azure, która przejmuje zdarzenia, że funkcja jest Wypychanie do kolejki usługi Service Bus, analizuje zawartość i wysyła wiadomość e-mail na podstawie warunku filtrowanego.
 
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) , przechodząc do **nowy > aplikacji logiki**.
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) , przechodząc do **nowy > aplikacji logiki**.
 
 Po utworzeniu aplikacji logiki, przejdź do niego i wybierz polecenie **Edytuj**. W edytorze aplikacji logiki, wybierz **kolejką usługi Service Bus** i wprowadź swoje poświadczenia usługi Service Bus, aby połączyć go z kolejki.
 

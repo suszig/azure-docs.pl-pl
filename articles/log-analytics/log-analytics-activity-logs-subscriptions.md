@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Zbieranie dzienników aktywności platformy Azure do analizy dzienników różnych subskrypcji
 
@@ -27,7 +27,7 @@ Jeśli obszar roboczy analizy dzienników jest w tej samej subskrypcji platformy
 
 ## <a name="overview"></a>Przegląd
 
-Strategia używana w tym scenariuszu ma wysyłania zdarzeń do dziennika aktywności platformy Azure [Centrum zdarzeń](../event-hubs/event-hubs-what-is-event-hubs.md) gdzie [aplikacji logiki](../logic-apps/logic-apps-what-are-logic-apps.md) wysyła je do obszaru roboczego analizy dzienników. 
+Strategia używana w tym scenariuszu ma wysyłania zdarzeń do dziennika aktywności platformy Azure [Centrum zdarzeń](../event-hubs/event-hubs-what-is-event-hubs.md) gdzie [aplikacji logiki](../logic-apps/logic-apps-overview.md) wysyła je do obszaru roboczego analizy dzienników. 
 
 ![Obraz przepływu danych z analizy dziennika do dziennika aktywności](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Aby uzyskać ciąg połączenia i nazwę Centrum zdarzeń, postępuj zgodnie z i
 
 Projektant aplikacji logiki teraz przedstawiono dostępne łączniki i ich wyzwalaczy, których używasz do uruchamiania przepływu pracy aplikacji logiki.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Dodaj wyzwalacza Centrum zdarzeń
 
@@ -305,7 +305,7 @@ Dane wyjściowe z Centrum zdarzeń zawiera ładunek JSON z tabeli rekordów. [Pr
    |---------------|---------------------------|--------------|
    |Treść żądania JSON  | **Dane wyjściowe** z **Redaguj** akcji | Pobiera rekordy z treści akcji tworzenia. |
    | Nazwa dziennika niestandardowego | AzureActivity | Nazwa tabeli dziennika niestandardowego można utworzyć w analizy dzienników do przechowywania importowanych danych. |
-   | czas wygenerowany — pola | time | Nie zaznaczaj pola JSON dla **czas** — po prostu wpisz wyrazy czas. Po zaznaczeniu pola JSON projektanta umieszcza **Wyślij dane** akcję *dla każdego* pętli, której nie chcesz. |
+   | Time-generated-field | time | Nie zaznaczaj pola JSON dla **czas** — po prostu wpisz wyrazy czas. Po zaznaczeniu pola JSON projektanta umieszcza **Wyślij dane** akcję *dla każdego* pętli, której nie chcesz. |
 
 
 

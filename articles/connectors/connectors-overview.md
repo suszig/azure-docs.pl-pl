@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Używanie łączników w aplikacji logiki
 Łączniki zapewniają szybki dostęp do zdarzeń, danych i działania usług, protokołów i platform.  Pełną listę łączników, które obsługuje Logic Apps można [można znaleźć tutaj](apis-list.md).  Łączniki mogą być używane jako wyzwalacz lub akcji w aplikacji logiki i może wymagać skonfigurowany *połączenia* do użycia (na przykład: autoryzowanie konta w usłudze Twitter lub post w Twoim imieniu).
@@ -56,7 +56,7 @@ Większość łączników wymagają skonfigurowania *połączenia* zanim będzie
 Połączenia można wyświetlać i zarządzać na platformie Azure, klikając **Przeglądaj** i wybierając **połączenia interfejsu API**.  Z zasobów połączenia interfejsu API można wyświetlać, edytować, zaktualizować lub ponownie autoryzować połączeń, które zostały utworzone.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie pierwszej aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Dowiedz się wspólne używa i przykładowe aplikacje logiki](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Rozpoczynanie pracy z enterprise integracji wyzwalacze i akcje](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

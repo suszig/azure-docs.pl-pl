@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
@@ -67,7 +67,7 @@ Aby utworzyć maszyn wirtualnych przy użyciu programu Windows PowerShell zamias
    |  **Konfiguracja maszyny wirtualnej** |<p>Nazwa maszyny wirtualnej: Wpisz nazwy o pojedynczej etykiecie (na przykład AzureDC1).</p><p>Nowa nazwa użytkownika: Wpisz nazwę użytkownika. Ten użytkownik będzie członkiem lokalnej grupy Administratorzy na maszynie Wirtualnej. Konieczne będzie tę nazwę, aby zalogować się do maszyny Wirtualnej po raz pierwszy. Wbudowane konto o nazwie Administrator nie będzie działać.</p><p>Nowe hasło/Potwierdź: Wpisz hasło</p> |
    |  **Konfiguracja maszyny wirtualnej** |<p>Usługi w chmurze: Wybierz <b>Utwórz nową usługę w chmurze</b> pierwsza maszyna wirtualna i wybierz tej samej nazwy usługi chmury podczas tworzenia więcej maszyn wirtualnych, który będzie obsługiwać rolę kontrolera domeny.</p><p>Nazwa DNS usługi w chmurze: Określ globalnie unikatowa nazwa</p><p>Region/grupy koligacji/sieci wirtualnej: Określ nazwę sieci wirtualnej (np. WestUSVNet).</p><p>Konto magazynu: Wybierz <b>użyć konta magazynu automatycznie generowanych</b> dla pierwszej maszyny Wirtualnej, a następnie wybierz tej samej nazwy konta magazynu podczas tworzenia więcej maszyn wirtualnych, który będzie obsługiwać rolę kontrolera domeny.</p><p>Zestaw dostępności: Wybierz <b>tworzenia zestawu dostępności</b>.</p><p>Nazwa zbioru dostępności: wpisz nazwę zestawu dostępności podczas tworzenie pierwszej maszyny Wirtualnej, a następnie wybierz takie same nazwy podczas tworzenia więcej maszyn wirtualnych.</p> |
    |  **Konfiguracja maszyny wirtualnej** |<p>Wybierz <b>Zainstaluj agenta maszyny Wirtualnej</b> oraz innych rozszerzeń należy.</p> |
-2. Dołączanie dysku do każdej maszyny Wirtualnej, które zostanie uruchomione rolę serwera Kontroler domeny. Dodatkowy dysk jest niezbędne do przechowywania bazy danych, dzienników i folderu SYSVOL usługi AD. Określ rozmiar dysku (np. 10 GB) i pozostawić **hosta pamięci podręcznej preferencji** ustawioną **Brak**. Aby uzyskać instrukcje, zobacz [jak dołączyć dysku danych do maszyny wirtualnej systemu Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Dołączanie dysku do każdej maszyny Wirtualnej, które zostanie uruchomione rolę serwera Kontroler domeny. Dodatkowy dysk jest niezbędne do przechowywania bazy danych, dzienników i folderu SYSVOL usługi AD. Określ rozmiar dysku (np. 10 GB) i pozostawić **hosta pamięci podręcznej preferencji** ustawioną **Brak**. Aby uzyskać instrukcje, zobacz [jak dołączyć dysku danych do maszyny wirtualnej systemu Windows](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Po pierwszy raz logujesz się do maszyny Wirtualnej, otwórz **Menedżera serwera** > **usług plików i magazynowania** Aby utworzyć wolumin na dysku w systemie plików NTFS.
 4. Zarezerwuj statyczny adres IP dla maszyn wirtualnych, które będą uruchamiane roli kontrolera domeny. Aby Zarezerwuj statyczny adres IP, Pobierz Instalator platformy sieci Web firmy Microsoft i [zainstalować program Azure PowerShell](/powershell/azure/overview) i uruchom polecenie cmdlet Set-AzureStaticVNetIP. Na przykład:
 
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji o korzystaniu z programu Windows PowerShell, zob
 * [Instalowanie repliki kontrolera domeny Active Directory w sieci wirtualnej platformy Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS specjalista IT: (01) maszyny wirtualnej podstawy](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS specjalista IT: (05) tworzenie sieci wirtualnych i łączności między lokalizacjami](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Omówienie sieci wirtualnej](../virtual-network/virtual-networks-overview.md)
+* [Omówienie usługi Virtual Network](../virtual-network/virtual-networks-overview.md)
 * [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Dokumentacja poleceń cmdlet platformy Azure](/powershell/azure/get-started-azureps)

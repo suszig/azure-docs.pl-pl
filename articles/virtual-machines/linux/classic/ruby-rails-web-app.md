@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplikacja sieci Web Ruby on Rails na maszynie wirtualnej platformy Azure
 Ten samouczek pokazuje, jak udostępniać Ruby na szyny witryny sieci Web na platformie Azure przy użyciu maszyny wirtualnej systemu Linux.  
@@ -119,7 +119,7 @@ Powinny pojawić się dane wyjściowe podobne do następujących:
 
      Ten punkt końcowy ma publiczny port 80, które będzie kierować ruch do port prywatny 3000, gdzie serwer szyny nasłuchuje. Reguły listy kontroli dostępu zezwala na publiczny ruch na porcie 80.
 
-     ![nowy punkt końcowy](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
 5. Kliknij przycisk OK, aby zapisać punktu końcowego.
 
@@ -142,7 +142,7 @@ Aby korzystać z aplikacji dopisków fonetycznych usług Azure, zobacz:
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+[vm-instructions]:createportal-classic.md
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/

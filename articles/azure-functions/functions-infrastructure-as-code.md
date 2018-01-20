@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatyzacji wdrażania zasobów dla aplikacji funkcja na usługi Azure Functions
 
@@ -76,7 +76,7 @@ Te właściwości są określone w `appSettings` kolekcji w `siteConfig` obiektu
 
 Definicję planu obsługi może być różna w zależności od tego, czy używasz planu zużycia lub usługi aplikacji. Zobacz [wdrażanie aplikacji funkcji w planie zużycie](#consumption) i [wdrażanie aplikacji na plan usługi aplikacji — funkcja](#app-service-plan).
 
-### <a name="function-app"></a>Funkcja aplikacji
+### <a name="function-app"></a>Aplikacja funkcji
 
 Funkcja zasób aplikacji jest definiowana za pomocą zasobu typu **Microsoft.Web/Site** i rodzaj **functionapp**:
 
@@ -197,7 +197,7 @@ Po wybraniu opcji skalowania tworzenia aplikacji funkcji. Aplikacja jest kontene
 Aplikacja funkcji ma wiele zasoby podrzędne używane w danym wdrożeniu, w tym ustawienia aplikacji i opcje kontroli źródła. Możesz również wybrać do usunięcia **sourcecontrols** zasobu podrzędnego i użyj innego [opcji wdrażania](functions-continuous-deployment.md) zamiast tego.
 
 > [!IMPORTANT]
-> Pomyślnie wdrażania aplikacji za pomocą usługi Azure Resource Manager, ważne jest zrozumienie, jak zasoby są wdrażane na platformie Azure. W poniższym przykładzie najwyższego poziomu konfiguracji są stosowane przy użyciu **siteConfig**. Jest ważne, aby ustawić te konfiguracje na najwyższym poziomie, ponieważ ich przekazywania informacji do funkcji aparatu środowiska uruchomieniowego i wdrożenia. Informacje o najwyższego poziomu jest wymagana przed elementem podrzędnym **sourcecontrols/sieci web** zasobów są stosowane. Chociaż można skonfigurować te ustawienia w poziomie podrzędnym **config/appSettings** zasobów, w niektórych przypadkach należy wdrożyć aplikację funkcja *przed* **config/appSettings** została zastosowana. Na przykład w przypadku używania funkcji z [Logic Apps](../logic-apps/index.md), funkcji są zależność innego zasobu.
+> Pomyślnie wdrażania aplikacji za pomocą usługi Azure Resource Manager, ważne jest zrozumienie, jak zasoby są wdrażane na platformie Azure. W poniższym przykładzie najwyższego poziomu konfiguracji są stosowane przy użyciu **siteConfig**. Jest ważne, aby ustawić te konfiguracje na najwyższym poziomie, ponieważ ich przekazywania informacji do funkcji aparatu środowiska uruchomieniowego i wdrożenia. Informacje o najwyższego poziomu jest wymagana przed elementem podrzędnym **sourcecontrols/sieci web** zasobów są stosowane. Chociaż można skonfigurować te ustawienia w poziomie podrzędnym **config/appSettings** zasobów, w niektórych przypadkach należy wdrożyć aplikację funkcja *przed* **config/appSettings** została zastosowana. Na przykład w przypadku używania funkcji z [Logic Apps](../logic-apps/index.yml), funkcji są zależność innego zasobu.
 
 ```json
 {
@@ -258,9 +258,9 @@ Aplikacja funkcji ma wiele zasoby podrzędne używane w danym wdrożeniu, w tym 
 
 Można użyć dowolnej z poniższych metod wdrażania szablonu:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Program PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Interfejs wiersza polecenia platformy Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Witryna Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [Interfejs API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Wdrażanie na przycisku Azure
@@ -279,7 +279,7 @@ Oto przykład, który używa HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o tworzeniu i konfigurowanie usługi Azure Functions.
 

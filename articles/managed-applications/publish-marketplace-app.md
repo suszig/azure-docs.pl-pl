@@ -3,18 +3,18 @@ title: "Azure zarządzanych aplikacji w witrynie Marketplace | Dokumentacja firm
 description: "W tym artykule opisano Azure zarządzane aplikacje, które są dostępne na rynku."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure zarządzanych aplikacji w witrynie Marketplace
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób publikowania aplikacji w portalu Marketplace i by
 
 Aby ukończyć ten artykuł, trzeba już mieć plik zip definicji zarządzanej aplikacji. Aby uzyskać więcej informacji, zobacz [Utwórz aplikację usługi wykazu](publish-service-catalog-app.md).
 
-Istnieją ponadto kilka biznesowe wymagania wstępne. Są to:
+Istnieją ponadto kilka biznesowe wymagania wstępne. Oto one:
 
 * Firmy lub zależnemu musi znajdować się w danym kraju, w którym sprzedaży są obsługiwane przez witryny marketplace.
 * W taki sposób, który jest zgodny z rozliczeń modeli obsługiwanych przez witryny marketplace muszą mieć licencję na produkt.
@@ -36,26 +36,18 @@ Istnieją ponadto kilka biznesowe wymagania wstępne. Są to:
 * Akceptuję postanowienia Umowy o Azure Marketplace udział zasad i wydawcy.
 * Zobowiązuje się do przestrzegania warunków użytkowania, zasady zachowania poufności informacji firmy Microsoft i certyfikowane umowę programu Microsoft Azure.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Skonfiguruj konto dla portalu publikowania
+## <a name="become-a-publisher"></a>Stają się wydawca
 
-Portal publikowania umożliwia publikowanie i zarządzanie nimi Twojej oferty. Aby opublikować aplikację portalu marketplace, trzeba zatwierdzonych Microsoft Developer portalu Azure Marketplace. Jeśli nie została zarejestrowana dla zatwierdzonych konta, zobacz [Utwórz konto Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Aby stać się wydawcy w portalu Azure Marketplace, należy:
 
-Jeśli masz zatwierdzoną **Microsoft Developer Center** konta, ale nie był wcześniej używany [publikowania Portal Azure](https://cloudpartner.azure.com/), należy zarejestrować publikowania portalu.
-
-1. Otwórz nowy Incognito przeglądarki Chrome lub sesja przeglądania Internet Explorer InPrivate Aby upewnić się, że nie zalogowano Cię na koncie osobistym.
-2. Przejdź do [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. W przypadku nowego użytkownika i zalogowanie się do publikowania portalu po raz pierwszy, następnie użytkownik musi zalogować się przy użyciu ten sam identyfikator wiadomości e-mail, co danych konta Centrum deweloperów. Teraz są połączone konta Centrum deweloperów i publikowania portalu konta.
-
-Później można dodać członków firmy jako [współadministrator](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) w portalu publikowania. Jeśli są dodane jako współadministrator w portalu publikowania, można zalogować się przy użyciu konta administratora co.
-
-> [!TIP]
-> Zasady udziału są opisane na [witryny sieci Web Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Tworzenie Identyfikatora Microsoft - Tworzenie konta Microsoft przy użyciu adresu e-mail, który należy do domeny firmy, ale nie do jednej osoby. Ten adres e-mail jest używany zarówno dla Microsoft Developer Center, jak i w chmurze Portal dla partnerów. Aby uzyskać więcej informacji, zobacz [Azure Marketplace wydawca przewodnika](https://aka.ms/sellerguide).
+1. Przedstawia [Azure Marketplace wyznaczenie formularza](https://aka.ms/ampnomination) — **rozwiązania, które mają zostać opublikowane?**, wybierz pozycję **zarządzanej aplikacji**. Po przesłaniu formularza zespół organizujący dołączanie Marketplace monitoruje aplikację i weryfikuje żądanie. Proces zatwierdzania może potrwać jednej do trzech dni. Po zatwierdzeniu Twoje wyznaczenie otrzymasz kod promocyjny odstąpienie opłata rejestracji dla Centrum deweloperów. Jeśli chcesz **nie** Wypełnij formularz wyznaczenie Marketplace, zostanie wyświetlona prośba o opłata rejestracji $99.
+1. Zarejestruj w [Centrum deweloperów](https://developer.microsoft.com) -Microsoft sprawdza, czy Twoja organizacja jest prawidłowy firmy z Identyfikatorem prawidłowe podatku dla kraju, w którym jest on zarejestrowany. Proces zatwierdzania może zająć 5 – 10 dni. W celu uniknięcia opłat rejestracji, użyj kod promocyjny, otrzymany w wiadomości e-mail z nazwy procesu. Aby uzyskać więcej informacji, zobacz [Azure Marketplace wydawca przewodnika](https://aka.ms/sellerguide).
+1. Zaloguj się do [portalu dla partnerów chmury](https://cloudpartner.azure.com) — w profilu wydawcy skojarzyć konto Centrum deweloperów z profilem wydawcy Marketplace. Aby uzyskać więcej informacji, zobacz [Azure Marketplace wydawca przewodnika](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Tworzenie nowej oferty aplikacji Azure
 
-Po spełniają wymagania wstępne, możesz utworzyć ofertę zarządzanej aplikacji.
+Po utworzeniu konta portalu partnerów, możesz utworzyć ofertę zarządzanej aplikacji.
 
 ### <a name="set-up-an-offer"></a>Konfigurowanie oferty
 
@@ -65,11 +57,7 @@ Oferta dla aplikacji zarządzanej odpowiada klasie produktu oferty od wydawcy. J
 
 1. W okienku nawigacji po lewej stronie wybierz **+ nowe oferty** > **aplikacji Azure**.
 
-   ![Nowa oferta](./media/publish-marketplace-app/newOffer.png)
-
 1. W **edytor** widoku, zobacz wymagane formularzy. Każdy formularz jest opisane w dalszej części tego artykułu.
-
-   ![Ustawienia oferty](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Formularz Ustawienia oferty
 
@@ -95,13 +83,9 @@ Jednostka SKU jest wyświetlany w obszarze oferta nadrzędnego w witrynie market
 
 1. Wybierz **jednostki SKU** > **nowe jednostki SKU**.
 
-   ![Wybierz nowe jednostki SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Wprowadź **identyfikator jednostki SKU**. Identyfikator jednostki SKU to unikatowy identyfikator dla jednostki SKU oferta. Ten identyfikator jest widoczny w adresach URL produktu, szablony usługi Resource Manager i raporty rozliczeń. Go mogą się składać tylko małe znaki alfanumeryczne i łączniki (-). Identyfikator nie może kończyć się kreską i ograniczone do maksymalnie 50 znaków. Po ofertę odbywa się na żywo, to pole jest zablokowane. Może mieć wiele jednostek SKU oferta. Należy jednostki SKU dla każdego obrazu, który chcesz opublikować.
 
 1. Wypełnianie **szczegóły jednostki SKU** sekcji w następującej postaci:
-
-   ![Podaj nowe jednostki SKU](./media/publish-marketplace-app/sku-settings.png)
 
    Wypełnij następujące pola:
 
@@ -110,14 +94,9 @@ Jednostka SKU jest wyświetlany w obszarze oferta nadrzędnego w witrynie market
    * **Opis elementu**: Podaj szczegółowy opis jednostki SKU.
    * **Typ jednostki SKU**: dozwolone wartości *zarządzanej aplikacji* i *szablony rozwiązań*. W tym przypadku wybierz *zarządzanej aplikacji*.
    * **Dostępność Kraj/Region**: Wybierz kraje, w którym znajduje się aplikacja zarządzana.
-
-      ![Wybierz krajach](./media/publish-marketplace-app/select-country.png)
-
    * **Cennik**: przewidzieć cenę zarządzania aplikacji. Wybierz dostępny krajów przed ustawieniem cenę.
 
 1. Dodaj nowy pakiet. Wypełnianie **informacje szczegółowe dotyczące pakietu** sekcji w następującej postaci:
-
-   ![Pakiet](./media/publish-marketplace-app/new-package.png)
 
    Wypełnij następujące pola:
 

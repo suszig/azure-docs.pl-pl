@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b57b30688d6ca3b9c1a0fc8e87db80fc051c4f90
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Rozwiązywanie problemów z usługą Data Factory
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna (GA). 
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna (GA). 
 
 Ten artykuł zawiera wskazówki dotyczące rozwiązywania problemów w przypadku problemów przy użyciu fabryki danych Azure. W tym artykule nie są wyświetlane wszystkie możliwe problemy podczas korzystania z usługi, ale obejmuje pewne problemy i ogólne porady dotyczące rozwiązywania problemów.   
 
@@ -117,7 +117,7 @@ Zobacz [debugowania potoku z działań niestandardowych](data-factory-use-custom
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Rozwiązywanie problemów za pomocą portalu Azure
 ### <a name="using-portal-blades"></a>Za pomocą portalu bloków
-Zobacz [potoku Monitor](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) czynności.
+Zobacz [potoku Monitor](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) czynności.
 
 ### <a name="using-monitor-and-manage-app"></a>Korzystanie z aplikacji Monitorowanie i zarządzanie
 Zobacz [monitorowanie i zarządzanie nimi przy użyciu monitora i zarządzanie aplikacjami potoki fabryki danych](data-factory-monitor-manage-app.md) szczegółowe informacje.

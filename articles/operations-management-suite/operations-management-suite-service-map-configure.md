@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurowanie usługi mapy w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -28,8 +28,8 @@ W tym artykule opisano konfigurowanie agentów mapy usługi i przechodzenia do s
 ## <a name="dependency-agent-downloads"></a>Zależności agenta pliki do pobrania
 | Plik | System operacyjny | Wersja | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Połączone źródła
@@ -87,7 +87,7 @@ Opcje z poniższej tabeli służą do instalacji z wiersza polecenia. Aby wyświ
 | Flaga | Opis |
 |:--|:--|
 | /? | Pobierz listę opcji wiersza polecenia. |
-| / S | Wykonaj instalację dyskretną bez monitowania użytkownika. |
+| /S | Wykonaj instalację dyskretną bez monitowania użytkownika. |
 
 Pliki agenta zależności systemu Windows są umieszczane w C:\Program Files\Microsoft Dependency Agent domyślnie.
 
@@ -108,7 +108,7 @@ Aby wyświetlić listę flagi instalacji, uruchom instalację programu pomocy fl
 
 | Flaga | Opis |
 |:--|:--|
-| -Pomoc | Pobierz listę opcji wiersza polecenia. |
+| -help | Pobierz listę opcji wiersza polecenia. |
 | -s | Wykonaj instalację dyskretną bez monitowania użytkownika. |
 | — Sprawdź | Sprawdź uprawnienia i systemu operacyjnego, ale nie należy instalować agenta. |
 
@@ -116,11 +116,11 @@ Pliki programu Agent zależności są umieszczane w następujących katalogów:
 
 | Pliki | Lokalizacja |
 |:--|:--|
-| Podstawowe pliki | /OPT/Microsoft/Dependency-Agent |
+| Podstawowe pliki | /opt/microsoft/dependency-agent |
 | Pliki dziennika | /var/OPT/Microsoft/Dependency-Agent/log |
-| Pliki konfiguracji | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Pliki wykonywalne usługi | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Pliki binarne magazynu | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Pliki konfiguracji | /etc/opt/microsoft/dependency-agent/config |
+| Pliki wykonywalne usługi | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Pliki binarne magazynu | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Przykłady skryptów instalacji
 Aby łatwo wdrożyć agenta zależności na wiele serwerów na raz, pomaga za pomocą skryptu. W poniższych przykładach skrypt umożliwia pobranie i zainstalowanie agenta zależności w systemu Windows lub Linux.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Rozszerzenia maszyny Wirtualnej platformy Azure
-Możesz z łatwością wdrożyć agenta zależności przy użyciu maszyn wirtualnych platformy Azure [rozszerzenia maszyny Wirtualnej Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Rozszerzenie maszyny Wirtualnej Azure można wdrożyć agenta zależności maszyn wirtualnych za pomocą skryptu programu PowerShell lub bezpośrednio w szablonie usługi Azure Resource Manager maszyny Wirtualnej.  Rozszerzenie jest dostępna dla systemów Windows (DependencyAgentWindows), jak i Linux (DependencyAgentLinux).  W przypadku wdrożenia za pośrednictwem rozszerzenia maszyny Wirtualnej Azure, agentów może automatycznie zaktualizowana do najnowszej wersji.
+Możesz z łatwością wdrożyć agenta zależności przy użyciu maszyn wirtualnych platformy Azure [rozszerzenia maszyny Wirtualnej Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Rozszerzenie maszyny Wirtualnej Azure można wdrożyć agenta zależności maszyn wirtualnych za pomocą skryptu programu PowerShell lub bezpośrednio w szablonie usługi Azure Resource Manager maszyny Wirtualnej.  Rozszerzenie jest dostępna dla systemów Windows (DependencyAgentWindows), jak i Linux (DependencyAgentLinux).  W przypadku wdrożenia za pośrednictwem rozszerzenia maszyny Wirtualnej Azure, agentów może automatycznie zaktualizowana do najnowszej wersji.
 
 Aby wdrożyć rozszerzenie maszyny Wirtualnej Azure za pomocą programu PowerShell, można skorzystaj z następującego przykładu:
 ```PowerShell
@@ -375,9 +375,9 @@ Poniższe sekcje zawierają listę obsługiwanych systemów operacyjnych dla age
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Wersja systemu operacyjnego | Wersja jądra
 |:--|:--|
-| 11 Z DODATKIEM SP2 | 3.0.101-0.7 |
-| 11 Z DODATKIEM SP3 | 3.0.101-0.47 |
-| 11 Z DODATKIEM SP4 | 3.0.101-65 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
 
 ## <a name="diagnostic-and-usage-data"></a>dane diagnostyczne i użycia

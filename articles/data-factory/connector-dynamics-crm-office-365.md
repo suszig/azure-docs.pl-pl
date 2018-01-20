@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiowanie danych z/do Dynamics 365 / Dynamics CRM przy użyciu fabryki danych Azure
 
@@ -50,7 +50,7 @@ Dynamics 365 w szczególności następujące typy aplikacji są obsługiwane:
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do Dynamics.
 
@@ -64,8 +64,8 @@ Obsługiwane są następujące właściwości dla połączonej usługi Dynamics:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Dynamics**. | Yes |
 | deploymentType | Typ wdrożenia wystąpienia programu Dynamics. Musi być **"Online"** dla usługi Dynamics Online. | Yes |
-| Nazwa_organizacji | Nazwa organizacji Dynamics wystąpienia. | Nie, należy określić, jeśli istnieje kilka wystąpień Dynamics skojarzonych z użytkownikiem. |
-| Typ authenticationType | Typ uwierzytelniania, aby połączyć się z serwerem programu Dynamics. Określ **"Usługi Office 365"** dla Dynamics w trybie Online. | Yes |
+| organizationName | Nazwa organizacji Dynamics wystąpienia. | Nie, należy określić, jeśli istnieje kilka wystąpień Dynamics skojarzonych z użytkownikiem. |
+| authenticationType | Typ uwierzytelniania, aby połączyć się z serwerem programu Dynamics. Określ **"Usługi Office 365"** dla Dynamics w trybie Online. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie Dynamics. | Yes |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Konieczne umieszczanie hasła w usłudze Azure Key Vault i skonfigurować hasło jako "AzureKeyVaultSecret". Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie dla źródła tak dla obiekt sink Jeśli źródło jest połączona usługa nie ma IR. |
@@ -111,10 +111,10 @@ Obsługiwane są następujące właściwości dla połączonej usługi Dynamics:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Dynamics**. | Yes |
 | deploymentType | Typ wdrożenia wystąpienia programu Dynamics. Musi być **"OnPremisesWithIfd"** dla Dynamics lokalnego z IFD.| Yes |
-| **Nazwa hosta** | Nazwa hosta serwera Dynamics lokalnego. | Yes |
-| **Port** | Port serwera Dynamics lokalnego. | Nie, domyślną jest 443 |
-| Nazwa_organizacji | Nazwa organizacji Dynamics wystąpienia. | Yes |
-| Typ authenticationType | Typ uwierzytelniania, aby połączyć się z serwerem programu Dynamics. Określ **"Ifd"** dla Dynamics lokalnego z IFD. | Yes |
+| **hostName** | Nazwa hosta serwera Dynamics lokalnego. | Yes |
+| **port** | Port serwera Dynamics lokalnego. | Nie, domyślną jest 443 |
+| organizationName | Nazwa organizacji Dynamics wystąpienia. | Yes |
+| authenticationType | Typ uwierzytelniania, aby połączyć się z serwerem programu Dynamics. Określ **"Ifd"** dla Dynamics lokalnego z IFD. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie Dynamics. | Yes |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Należy pamiętać, że konieczne umieszczanie hasła w usłudze Azure Key Vault i skonfigurować hasło jako "AzureKeyVaultSecret". Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Brak źródła tak dla obiekt sink |
@@ -163,7 +163,7 @@ Aby skopiować dane z i do programu Dynamics, ustaw właściwość Typ zestawu d
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type zestawu danych: **DynamicsEntity** |Yes |
-| Nazwa jednostki | Nazwa logiczna obiektu do pobrania. | Brak źródła (Jeśli określono wartość "query" w źródle działania), tak dla obiekt sink |
+| entityName | Nazwa logiczna obiektu do pobrania. | Brak źródła (Jeśli określono wartość "query" w źródle działania), tak dla obiekt sink |
 
 > [!IMPORTANT]
 >- **Podczas kopiowania danych z programu Dynamics, sekcja "structure" jest wymagana** w zestawie danych Dynamics, który definiuje typ danych kolumny Dynamics dane, które chcesz skopiować. Dowiedz się więcej o [struktury zestawu danych](concepts-datasets-linked-services.md#dataset-structure) i [mapowanie typu danych dla programu Dynamics](#data-type-mapping-for-dynamics).
@@ -277,7 +277,7 @@ Aby skopiować dane do programu Dynamics, należy ustawić typ ujścia w działa
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **DynamicsSink**  | Yes |
-| WriteBehavior | Zachowanie zapisu operacji.<br/>Dozwolone wartości to: **"Upsert"**. | Yes |
+| writeBehavior | Zachowanie zapisu operacji.<br/>Dozwolone wartości to: **"Upsert"**. | Yes |
 | writeBatchSize | Liczba wierszy z danymi zapisywanymi w Dynamics w każdej z partii. | Nie (wartość domyślna to 10) |
 | ignoreNullValues | Wskazuje, czy mają zostać zignorowane wartości null w danych wejściowych (z wyjątkiem pól klucza) podczas operacji zapisu.<br/>Dozwolone wartości to: **true**, i **false**.<br>— wartość true: pozostaw danych w miejscu docelowym obiekt bez zmian podczas wykonywania operacji upsert/aktualizowania i wstawiania zdefiniowane wartości domyślnej, podczas wykonywania operacji wstawiania.<br/>— wartość false: aktualizować dane w obiekcie docelowym na wartość NULL, podczas wykonywania operacji upsert/aktualizacji i wstawić wartości NULL, podczas wykonywania operacji wstawiania.  | Nie (wartość domyślna to false) |
 
@@ -331,7 +331,7 @@ Skonfiguruj odpowiedni typ danych fabryki danych w oparciu o Twoje źródło dan
 | AttributeType.Customer | Identyfikator GUID | ✓ |  |
 | AttributeType.DateTime | Data/godzina | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | O podwójnej precyzji | ✓ | ✓ |
+| AttributeType.Double | Podwójnej precyzji | ✓ | ✓ |
 | AttributeType.EntityName | Ciąg | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Identyfikator GUID | ✓ |  |
