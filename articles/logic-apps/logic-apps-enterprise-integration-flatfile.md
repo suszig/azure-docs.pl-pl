@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Omówienie integracji przedsiębiorstwa z plików prostych
 
-Warto kodowania zawartości XML przed wysłaniem do partnerom biznesowym, w przypadku biznesowych między firmami (B2B). W aplikacji logiki można użyć pliku prostego kodowanie łącznika, w tym celu. Tworzonej aplikacji logiki można uzyskać jego XML zawartości z różnych źródeł, takich jak wyzwalacz żądania HTTP, z innej aplikacji lub nawet z jednego z wielu [łączniki](../connectors/apis-list.md). Aby uzyskać więcej informacji na temat aplikacji logiki, zobacz [dokumentacji aplikacje logiki](logic-apps-what-are-logic-apps.md "Dowiedz się więcej o aplikacjach Logic apps").  
+Warto kodowania zawartości XML przed wysłaniem do partnerom biznesowym, w przypadku biznesowych między firmami (B2B). W aplikacji logiki można użyć pliku prostego kodowanie łącznika, w tym celu. Tworzonej aplikacji logiki można uzyskać jego XML zawartości z różnych źródeł, takich jak wyzwalacz żądania HTTP, z innej aplikacji lub nawet z jednego z wielu [łączniki](../connectors/apis-list.md). Aby uzyskać więcej informacji na temat aplikacji logiki, zobacz [dokumentacji aplikacje logiki](logic-apps-overview.md "Dowiedz się więcej o aplikacjach Logic apps").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Tworzenie pliku prostego kodowanie łącznika
 Wykonaj następujące kroki, aby dodać plik prosty kodowanie łącznika do aplikacji logiki.
@@ -36,7 +36,7 @@ Wykonaj następujące kroki, aby dodać plik prosty kodowanie łącznika do apli
    
     b. Wybierz **Dodaj akcję** łącza (pojawia się po wybraniu znak plus).
    
-    c. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
+    d. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
    
     d. Wybierz **płaskiej kodowanie pliku** opcję z listy.   
    ![Opcja Zrzut ekranu z płaskim kodowanie pliku](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -66,7 +66,7 @@ Teraz możesz przetestować Twojego łącznika przesyłania do punktu końcowego
    
     b. Wybierz **Dodaj akcję** łącza (pojawia się po wybraniu znak plus).
    
-    c. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
+    d. W polu wyszukiwania wprowadź *płaskiej* do filtrowania wszystkie akcje do tego, który ma być używany.
    
     d. Wybierz **płaskiej dekodowania pliku** opcję z listy.   
    ![Zrzut ekranu z płaskim pliku dekodowania opcji](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -82,6 +82,6 @@ W tym momencie po zakończeniu konfigurowania pliku płaskiej dekodowania łącz
 
 Teraz możesz przetestować Twojego łącznika żądanie do punktu końcowego HTTP i tym zawartość XML, który ma zostać zdekodowany w treści żądania.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw").  
 

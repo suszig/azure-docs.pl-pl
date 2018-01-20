@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Przenoszenie z usługi BizTalk Services do aplikacji logiki
 
 Trwa wycofywanie Microsoft Azure BizTalk usług (MABS). Aby przenieść rozwiązań integracji MABS do usługi Azure Logic Apps, należy użyć w tym temacie. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Usługi BizTalk Services składa się z dwóch usług podrzędne:
 
@@ -64,9 +64,9 @@ Każdy mostek ma punkt końcowy HTTP domyślnie, który jest skonfigurowany z ad
 Mostek w usługi BizTalk Services jest odpowiednikiem potoku przetwarzania. Mostek może zająć danych otrzymywanych z łącznika, i wykonaj niektóre pracować z danymi, a następnie wyślij je do innego systemu. Logic Apps nie takie same dzięki obsłudze tej samej wzorce interakcji z potoku jako usługi BizTalk Services, a także wiele innych wzorcach integracji. [Mostek żądanie-odpowiedź XML](https://msdn.microsoft.com/library/azure/hh689781.aspx) w usługi BizTalk Services nosi nazwę potoku VETER składające się z etapów, które można:
 
 * V sprawdzania poprawności
-* (E) dodawanie
+* (E) Enrich
 * (T) transform
-* (E) dodawanie
+* (E) Enrich
 * (R) trasy
 
 Jak pokazano na poniższej ilustracji, przetwarzania są dzielone na żądania i odpowiedzi oraz zapewnia kontrolę nad żądania i odpowiedzi ścieżek oddzielnie (na przykład przy użyciu różnych mapy dla każdego):
@@ -126,6 +126,6 @@ Logic Apps oferuje bardziej zaawansowane funkcje monitorowania i funkcji monitor
 Aby zapewniania wysokiej dostępności (HA) w usługach BizTalk, należy użyć więcej niż jedno wystąpienie w danym regionie udostępnianie obciążenie przetwarzania. Dzięki aplikacjom logiki wysokiej dostępności w regionie jest wbudowana i pochodzi bez ponoszenia dodatkowych kosztów. Do odzyskiwania po awarii poza regionem do przetwarzania B2B usługi BizTalk proces tworzenia kopii zapasowej i przywracania jest wymagana. W aplikacjach logiki, cross-region aktywny/pasywny [możliwości DR](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) podano; synchronizacji danych B2B co pozwala na kontach integracji w różnych regionach dla ciągłość prowadzenia działalności biznesowej.
 
 ## <a name="next"></a>Następne kroki
-* [Dowiedzieć się, co to są aplikacje logiki](logic-apps-what-are-logic-apps.md)
-* [Utworzyć swoją pierwszą aplikację logiki](logic-apps-create-a-logic-app.md) lub szybko rozpocząć pracę przy użyciu [wstępnie utworzonego szablonu](logic-apps-create-logic-apps-from-templates.md)  
+* [Dowiedzieć się, co to są aplikacje logiki](logic-apps-overview.md)
+* [Utworzyć swoją pierwszą aplikację logiki](quickstart-create-first-logic-app-workflow.md) lub szybko rozpocząć pracę przy użyciu [wstępnie utworzonego szablonu](logic-apps-create-logic-apps-from-templates.md)  
 * [Wyświetlić wszystkie dostępne łączniki](../connectors/apis-list.md), których można używać w aplikacji logiki

@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Rozpoczynanie pracy z Slack łącznika
 Slack jest narzędziem do komunikacji zespołowej, które łączy całą komunikację zespołową w jednym miejscu. Umożliwia natychmiastowe wyszukiwanie i dostęp do komunikacji z dowolnego miejsca. 
 
-Rozpoczynanie pracy przez tworzenie aplikacji logiki teraz; zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez tworzenie aplikacji logiki teraz; zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Utwórz połączenie zapas czasu
 Do korzystania z łącznika Slack, należy najpierw utworzyć **połączenia** następnie podaj szczegóły tych właściwości: 
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Token |Tak |Podanie Slack poświadczeń |
+| Token |Yes |Podaj poświadczenia usługi Slack |
 
 Wykonaj następujące kroki, aby zalogować się do zapas czasu i zakończyć konfigurację Slack **połączenia** w aplikacji logiki:
 

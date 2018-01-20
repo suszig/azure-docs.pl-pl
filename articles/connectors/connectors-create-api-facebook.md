@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27a9297c5d4cfb52f254ceb12e37423403e7f41b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Facebook
 Nawiązać połączenia z serwisem Facebook i publikować na osi czasu, Pobierz strony źródła danych i inne. Za pomocą usługi Facebook można:
@@ -28,7 +28,7 @@ Nawiązać połączenia z serwisem Facebook i publikować na osi czasu, Pobierz 
 * Po odebraniu nowego wpisu, należy użyć wyzwalacza.
 * Użyj akcji, które post do osi czasu, Pobierz strony źródła danych i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład gdy istnieje nowy wpis na osi czasu, można wykonać tego post i wypchnąć go do Twojego kanału informacyjnego usługi Twitter. 
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Utwórz połączenie z usługi Facebook
 Po dodaniu tego łącznika do aplikacji logiki, należy zezwolić aplikacji logiki do nawiązania połączenia z serwisem Facebook.

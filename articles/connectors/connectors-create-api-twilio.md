@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Twilio
 Nawiązać połączenia z usługi Twilio do wysyłania i odbierania globalne wiadomości SMS i MMS, adresu IP. Za pomocą usługi Twilio można:
@@ -27,15 +27,15 @@ Nawiązać połączenia z usługi Twilio do wysyłania i odbierania globalne wia
 * Tworzenie sieci przepływu biznesowe na podstawie danych otrzymywanych z usługi Twilio. 
 * Użyj akcje, które pobierają wiadomości, lista wiadomości i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład gdy pojawi się nowy komunikat usługi Twilio, można ten komunikat i używać go w przepływie pracy usługi Service Bus. 
 
-Rozpoczynanie pracy przez tworzenie aplikacji logiki; zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez tworzenie aplikacji logiki; zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-twilio"></a>Utwórz połączenie z usługi Twilio
 Po dodaniu tego łącznika do aplikacji logiki, wprowadź następujące wartości usługi Twilio:
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Identyfikator konta |Tak |Wprowadź identyfikator konta usługi Twilio |
-| Token dostępu |Tak |Wprowadź token dostępu usługi Twilio |
+| Identyfikator konta |Yes |Wprowadź identyfikator konta usługi Twilio |
+| Token dostępu |Yes |Wprowadź token dostępu usługi Twilio |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 

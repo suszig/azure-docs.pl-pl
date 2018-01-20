@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Utwórz pulpit nawigacyjny szczegółowych informacji w czasie rzeczywistym klienta z usługi Azure Logic Apps i usługi Azure Functions
 
@@ -37,7 +37,7 @@ Całe rozwiązanie może być [kompilacji w programie Visual Studio](logic-apps-
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Tworzenie aplikacji logiki, aby wyzwolić na dane klienta
 
-Po [tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md) w programie Visual Studio lub w portalu Azure:
+Po [tworzenie aplikacji logiki](quickstart-create-first-logic-app-workflow.md) w programie Visual Studio lub w portalu Azure:
 
 1. Dodaj wyzwalacz **na nowych Tweetów** z serwisem Twitter
 2. Skonfiguruj wyzwalacza słuchać tweetów — słowo kluczowe lub hasztagiem.
@@ -99,7 +99,7 @@ Po rozwiązaniu został opracowany, można przechwycić i wdrażane za pomocą s
 
 Środowisko Azure Functions można również włączona Szablon wdrożenia — tak całego rozwiązania z wszystkie zależności mogą być zarządzane jako jednego szablonu.  Przykład wdrożenia szablonu funkcji można znaleźć w [repozytorium szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zobacz inne przykłady i scenariusze dla usługi Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Obejrzyj wideo wskazówki na temat tworzenia tego rozwiązania end-to-end](http://aka.ms/logicappsdemo)

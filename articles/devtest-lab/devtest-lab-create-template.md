@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Tworzenie niestandardowego obrazu z pliku VHD
 
@@ -57,7 +57,16 @@ W poniższych krokach objaśniono przez proces tworzenia niestandardowego obrazu
 
 1. Wybierz **wirtualnego dysku twardego** z menu rozwijanego. Jest to wirtualny dysk twardy, który będzie używany do utworzenia nowego obrazu niestandardowego. Jeśli to konieczne, umożliwia **przekazania dysku VHD za pomocą programu PowerShell**.
 
-1. Jeśli obraz używany do tworzenia niestandardowego obrazu nie jest opublikowana przez firmę Microsoft, można wprowadzić nazwę planu, oferty planu i plan wydawcy.
+1. Jeśli obraz używany do tworzenia niestandardowego obrazu nie jest obrazem licencjonowane (opublikowane przez firmę Microsoft), można wprowadzić nazwę planu, oferty planu i plan wydawcy.
+
+   - **Nazwa planu:** wprowadź nazwę obrazu z witryny Marketplace (SKU) z jest tworzony ten obraz niestandardowy 
+   - **Planowanie oferta:** wprowadź produktu (Oferta) z obrazu witryny Marketplace, z którego utworzono ten obraz niestandardowy 
+   - **Planowanie wydawcy:** wprowadź wydawcy obrazu witryny Marketplace, z którego utworzono ten obraz niestandardowy
+
+   > [!NOTE]
+   > Jeśli używasz, aby utworzyć obraz niestandardowy obraz jest **nie** licencjonowanego obrazu, a następnie te pola są puste, mogą być wypełniane w przypadku wybrania. Jeśli obraz **jest** licencjonowanego obrazu, a następnie pola są automatycznie wypełniane przy użyciu informacji o planie. Jeśli spróbujesz zmienić ich w takim przypadku zostanie wyświetlony komunikat ostrzegawczy.
+   >
+   >
 
 1. Wybierz **OK** można utworzyć niestandardowego obrazu.
 

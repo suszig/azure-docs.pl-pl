@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Jak nawiązywać połączenie ze źródłami danych
 ## <a name="introduction"></a>Wprowadzenie
@@ -45,9 +45,9 @@ Korzystając z "Otwórz w..." menu dla źródeł danych w portalu Azure Data Cat
 | --- | --- | --- |
 | Excel |odc |Excel 2010 lub nowszej. |
 | Program Excel (pierwszych 1000) |odc |Excel 2010 lub nowszej. |
-| Dodatek Power Query |xlsx |Zainstalowany program Excel 2016 lub Excel 2010 lub Excel 2013 z dodatku Power Query dla dodatek programu Excel |
-| Power BI Desktop |pbix |Power BI Desktop lipca 2016 lub nowszy |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 Update 4 lub nowszym z narzędzi programu SQL Server zainstalowana |
+| Power Query |.xlsx |Zainstalowany program Excel 2016 lub Excel 2010 lub Excel 2013 z dodatku Power Query dla dodatek programu Excel |
+| Power BI Desktop |.pbix |Power BI Desktop lipca 2016 lub nowszy |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 lub nowszym z narzędzi programu SQL Server zainstalowana |
 | Menedżer raportów |http:// |Zobacz [wymagania przeglądarki do programu SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Dane, narzędziami
@@ -67,5 +67,5 @@ W celu ułatwienia dla użytkowników, którzy odnajdywanie źródła danych, al
 ## <a name="summary"></a>Podsumowanie
 Rejestrowanie źródła danych z **Azure Data Catalog** sprawia, że dane wykrywalny przez skopiowanie metadanych strukturalnych i opisowy ze źródła danych do usługi wykazu. Po źródło danych zostało zarejestrowane i odnalezione, użytkownicy mogą łączyć się ze źródłem danych z **Azure Data Catalog** portal "Otwórz w..." " menu lub przy użyciu ich narzędzi danych wyboru.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md) samouczek krok po kroku szczegółowe informacje na temat nawiązywania połączenia ze źródłami danych.

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Skalowanie programu Power BI Embedded pojemności
 
@@ -26,7 +26,8 @@ W tym artykule przedstawiono sposób skalowania Power BI Embedded pojemności w 
 
 Przyjęto założenie, że utworzono Power BI Embedded pojemności. Jeśli nie masz, zobacz [utworzyć Power BI Embedded pojemności w portalu Azure](create-capacity.md) rozpocząć pracę.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+> [!NOTE]
+> Skalowanie operacji może potrwać około minuty. W tym czasie wydajności nie będą dostępne. Osadzonej zawartości może nie można załadować.
 
 ## <a name="scale-a-capacity"></a>Skala pojemności
 
@@ -58,7 +59,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
     ![Potwierdź bieżącej warstwy](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby wstrzymać lub uruchomić możliwości, zobacz [wstrzymać i uruchomić Power BI Embedded wydajność w portalu Azure](pause-start.md).
 

@@ -1,6 +1,6 @@
 ---
 title: "Przypisywanie ról administratorów w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Rolę administratora można utworzyć lub edytować użytkowników, przypisywanie ról administracyjnych do innych użytkowników, resetowania haseł użytkowników, zarządzanie licencjami użytkowników lub Zarządzanie domenami. Użytkownik, któremu przypisano rolę administratora ma te same uprawnienia we wszystkich usługach chmury, do których zostały zasubskrybowane przez organizację."
+description: "Rolę administratora można dodać użytkowników, Przypisz role administracyjne, resetowanie haseł użytkowników, zarządzanie licencjami użytkowników lub zarządzania domenami. Użytkownik, któremu przypisano rolę administratora ma te same uprawnienia we wszystkich usługach chmury, do których zostały zasubskrybowane przez organizację."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Przypisywanie ról administratorów w usłudze Azure Active Directory
 
@@ -65,7 +65,7 @@ Dostępne są następujące role administratora:
 
 * **Warstwy 2 w ramach partnera**: nie używaj. Ta rola jest przestarzała i zostanie usunięte z usługi Azure AD w przyszłości. Ta rola jest przeznaczony dla niewielkiej liczby partnerów odsprzedaż firmy Microsoft i nie jest przeznaczona do użytku ogólnego.
 
-* **Administrator haseł / Administrator pomocy technicznej**: użytkownicy z tą rolą mogą resetowania haseł, zarządzanie żądaniami obsługi i monitoruje kondycję usługi. Administratorzy haseł mogą resetować hasła wyłącznie użytkowników i innych administratorów haseł.
+* **Administrator haseł / Administrator pomocy technicznej**: użytkownicy z tą rolą mogą zmiany haseł, zarządzanie żądaniami obsługi i monitoruje kondycję usługi. Pomoc techniczna administrator może zmienić hasła wyłącznie użytkowników i innych administratorów pomocy technicznej. 
 
   > [!NOTE]
   > W interfejsu API Graph usługi Microsoft Azure AD Graph API i Azure AD PowerShell ta rola jest identyfikowane jako "Administrator pomocy technicznej". "Hasło administratora" znajduje się w [portalu Azure](https://portal.azure.com/).
@@ -91,7 +91,7 @@ Dostępne są następujące role administratora:
   >
   >
 
-* **Administrator konta użytkownika**: użytkownicy z tą rolą mogą tworzyć i zarządzać wszystkimi aspektami użytkowników i grup. Ponadto ta rola obejmuje możliwość Zarządzanie biletami pomocy technicznej i monitoruje usługi kondycji. Niektóre ograniczenia są stosowane. Na przykład ta rola nie zezwala na usuwanie administratora globalnego, a podczas umożliwia zmienianie haseł dla innych niż administratorzy, nie zezwala zmiana hasła dla administratorów globalnych lub innych uprzywilejowanych administratorów.
+* **Administrator konta użytkownika**: użytkownicy z tą rolą mogą tworzyć i zarządzać wszystkimi aspektami użytkowników i grup. Ponadto ta rola obejmuje możliwość Zarządzanie biletami pomocy technicznej i monitoruje usługi kondycji. Niektóre ograniczenia są stosowane. Na przykład ta rola nie zezwala na usuwanie administratora globalnego. Administratorzy konta użytkownika, można zmienić hasła dla użytkowników, administratorów pomocy technicznej i innych administratorów konta użytkownika.
 
 ## <a name="administrator-permissions"></a>Uprawnienia administratora
 
@@ -110,24 +110,24 @@ Dostępne są następujące role administratora:
 ### <a name="global-administrator"></a>Administrator globalny
 | Możliwość | Nie można wykonać |
 | --- | --- |
-|<p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Resetowanie haseł użytkowników</p><p>Resetowanie haseł innych administratorów</p> <p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Włącz lub Wyłącz uwierzytelnianie wieloskładnikowe</p><p>Wyświetlanie dzienników inspekcji</p> |Nie dotyczy |
+|<p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Resetowanie haseł użytkowników</p><p>Resetowanie haseł innych administratorów</p> <p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Włącz lub Wyłącz uwierzytelnianie wieloskładnikowe</p><p>Wyświetlanie dzienników inspekcji</p> |ND |
 
-### <a name="password-administrator"></a>Administrator haseł
+### <a name="password-administrator--helpdesk-administrator"></a>Administrator haseł / administrator pomocy technicznej
 | Możliwość | Nie można wykonać |
 | --- | --- |
-| <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Resetowanie haseł użytkowników</p> <p>Resetowanie haseł innych administratorów</p>|<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie raportów</p>|
+| <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Zmienianie haseł dla użytkowników i innych administratorów pomocy technicznej</p>|<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie raportów</p>|
 
 ### <a name="service-administrator"></a>Administrator usługi
 | Możliwość | Nie można wykonać |
 | --- | --- |
 | <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p> |<p>Resetowanie haseł użytkowników</p><p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Wyświetlanie dzienników inspekcji</p> |
 
-### <a name="user-administrator"></a>Administrator użytkowników
+### <a name="user-account-administrator"></a>Administrator konta użytkownika
 | Możliwość | Nie można wykonać |
 | --- | --- |
-| <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Resetowanie haseł użytkowników z ograniczeniami.</p><p>Resetowanie haseł innych administratorów</p><p>Zresetować hasła innych użytkowników</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników z ograniczeniami. Użytkownik nie można usuwać administratorów globalnych ani tworzyć innych administratorów.</p> |<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Włącz lub Wyłącz uwierzytelnianie wieloskładnikowe</p><p>Wyświetlanie dzienników inspekcji</p> |
+| <p>Wyświetlanie informacji o firmy i użytkownika</p><p>Zarządzanie biletami pomocy technicznej pakietu Office</p><p>Zmienianie haseł dla użytkowników, administratorów pomocy technicznej i innych administratorów konta użytkownika</p><p>Tworzenie i zarządzanie widokami użytkownika</p><p>Tworzenie, edycję, usuwanie użytkowników i grup i zarządzanie licencjami użytkowników z ograniczeniami. Użytkownik nie można usuwać administratorów globalnych ani tworzyć innych administratorów.</p> |<p>Wykonywanie operacji rozliczeń i zakupów dla produktów pakietu Office</p><p>Zarządzanie domenami</p><p>Zarządzanie informacjami o firmy</p><p>Delegowanie ról administracyjnych do innych użytkowników</p><p>Używanie synchronizacji katalogów</p><p>Włącz lub Wyłącz uwierzytelnianie wieloskładnikowe</p><p>Wyświetlanie dzienników inspekcji</p> |
 
-### <a name="security-reader"></a>Czytnik zabezpieczeń
+### <a name="security-reader"></a>Odczytywanie zabezpieczeń
 | W | Możliwość |
 | --- | --- |
 | Centrum usługi Identity Protection |Wszystkie raporty dotyczące zabezpieczeń i informacje o funkcjach zabezpieczeń ustawienia do odczytu<ul><li>Antyspamowy<li>Szyfrowanie<li>Zapobieganie utracie danych<li>Przed złośliwym oprogramowaniem<li>Advanced threat protection<li>Przed wyłudzaniem informacji<li>Reguły Mailflow |
@@ -165,14 +165,14 @@ Aby dowiedzieć się, jak przypisywanie ról administracyjnych do użytkownika w
 
 Nie można używać następujących ról. One zostały przestarzałe i zostanie usunięte z usługi Azure AD w przyszłości.
 
-* Administrator licencji ad hoc.
-* Twórca zweryfikowano użytkownika wiadomości e-mail
+* Administrator licencji ad hoc
+* Tworzenie użytkowników zweryfikowanych za pośrednictwem poczty e-mail
 * Dołącz do urządzenia
-* Menedżerowie urządzeń
+* Menedżerowie urządzenia
 * Użytkownicy urządzeń
-* Dołączanie urządzenia do miejsca pracy
+* Dołączanie urządzeń w miejscu pracy
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej o modyfikowaniu administratorów subskrypcji platformy Azure, zobacz [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Jak dodać lub zmienić role administratora platformy Azure).
 * Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](active-directory-understanding-resource-access.md) (Opis dostępu do zasobów na platformie Azure).

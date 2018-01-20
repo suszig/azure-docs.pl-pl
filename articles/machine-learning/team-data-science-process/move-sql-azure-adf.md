@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Przenoszenie danych z lokalnego programu SQL server SQL Azure z fabryką danych Azure
 W tym temacie pokazano, jak przenieść dane z lokalną bazą danych serwera SQL z bazą danych SQL Azure za pomocą usługi Azure Blob Storage przy użyciu fabryki danych Azure (ADF).
@@ -67,7 +67,7 @@ Używamy [dataset taksówki NYC](http://chriswhong.com/open-data/foil_nyc_taxi/)
 Można dostosować procedury podaną poniżej do zestawu danych użytkownika lub wykonaj kroki opisane przy użyciu taksówki NYC zestawu danych. Aby przekazać taksówki NYC zestawu danych do lokalnej bazy danych programu SQL Server, wykonaj procedurę opisaną w [zbiorczego importowania danych do bazy danych serwera SQL](sql-walkthrough.md#dbload). Te instrukcje dotyczą programu SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do lokalnego serwera SQL jest taka sama.
 
 ## <a name="create-adf"></a>Tworzenie fabryki danych Azure
-Instrukcje dotyczące tworzenia nowych fabryki danych Azure i grupy zasobów w [portalu Azure](https://portal.azure.com/) podano [tworzenie fabryki danych Azure](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Nazwa nowego wystąpienia ADF *adfdsp* i nazwę grupy zasobów utworzonej *adfdsprg*.
+Instrukcje dotyczące tworzenia nowych fabryki danych Azure i grupy zasobów w [portalu Azure](https://portal.azure.com/) podano [tworzenie fabryki danych Azure](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Nazwa nowego wystąpienia ADF *adfdsp* i nazwę grupy zasobów utworzonej *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalowanie i konfigurowanie się brama zarządzania danymi
 Aby włączyć Twojej potoki w fabryce danych Azure do pracy z lokalnym programem SQL Server, należy go dodać jako połączonej usługi z fabryką danych. Aby utworzyć połączonej usługi dla lokalnego programu SQL Server, należy:

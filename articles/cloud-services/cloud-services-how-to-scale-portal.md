@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 264f68b879653f4168637e19cc886524c4af8557
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Jak skonfigurować automatyczne skalowanie usługi w chmurze w portalu
 
 Warunki można ustawić dla roli proces roboczy usługi chmury, wyzwalające skali przychodzący lub wychodzący operacji. Warunki dla roli może być oparta na Procesora, dysku lub obciążenia sieciowego w roli. Można również ustawić warunek na podstawie kolejki komunikatów lub Metryka innego zasobu platformy Azure skojarzonych z Twoją subskrypcją.
 
 > [!NOTE]
-> Ten artykuł dotyczy usługi w chmurze role sieci web i proces roboczy. Po utworzeniu maszyny wirtualnej (klasyczne) bezpośrednio, znajduje się w usłudze w chmurze. Standardowa maszyny wirtualnej można skalować przez skojarzenie jej z [zestawu dostępności](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) i ręcznie włączyć je lub wyłączyć.
+> Ten artykuł dotyczy usługi w chmurze role sieci web i proces roboczy. Po utworzeniu maszyny wirtualnej (klasyczne) bezpośrednio, znajduje się w usłudze w chmurze. Standardowa maszyny wirtualnej można skalować przez skojarzenie jej z [zestawu dostępności](../virtual-machines/windows/classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) i ręcznie włączyć je lub wyłączyć.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 Przed skonfigurowaniem skalowania dla aplikacji, należy rozważyć następujące informacje:

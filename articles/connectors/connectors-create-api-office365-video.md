@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Office 365 wideo
 Podłącz do pakietu Office 365 film, aby uzyskać informacje na temat usługi Office 365 wideo, Pobierz listę filmy wideo i inne. Za pomocą pakietu Office 365 wideo można:
@@ -27,7 +27,7 @@ Podłącz do pakietu Office 365 film, aby uzyskać informacje na temat usługi O
 * Tworzenie sieci przepływu biznesowe na podstawie danych otrzymywanych z pakietu Office 365 wideo. 
 * Użyj akcji, które Sprawdź wideo stan portalu, Pobierz listę wszystkich wideo w kanale i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Można na przykład użyj łącznika wyszukiwania usługi Bing w celu wyszukania wideo usługi Office 365, a następnie korzystania z łącznika wideo usługi Office 365, aby uzyskać informacje o tym wideo. Jeśli wideo spełnia Twoje wymagania, należy po ten film w serwisie Facebook. 
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office365-video-connector"></a>Utwórz połączenie łącznik usługi Office 365 wideo
 Po dodaniu tego łącznika do aplikacji logiki, należy zalogować się do swojego konta Office 365 wideo i Zezwalaj aplikacjom logiki do łączenia się z kontem.

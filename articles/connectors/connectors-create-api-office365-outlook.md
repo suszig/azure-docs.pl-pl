@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Rozpoczynanie pracy z łącznika programu Outlook pakietu Office 365
 Łącznik programu Outlook pakietu Office 365 umożliwia interakcję z programu Outlook w usłudze Office 365. Używaj tego łącznika do tworzenia, edycji i zaktualizuj kontakty i elementy kalendarza i również uzyskać, wysyłania i Odpowiedz na wiadomość e-mail.
@@ -37,7 +37,7 @@ W tym temacie opisano sposób korzystania z łącznika programu Outlook pakietu 
 > 
 > 
 
-Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [co to jest logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [co to jest logic apps](../logic-apps/logic-apps-overview.md) i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Łączenie z usługą Office 365
 Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. Połączenie stanowi połączenie między aplikacji logiki i innej usługi. Na przykład, aby połączyć program Outlook pakietu Office 365, należy najpierw usługi Office 365 *połączenia*. Aby utworzyć połączenie, wprowadź poświadczenia, zwykle używanego do uzyskania dostępu do usługi, który chcesz połączyć się z. Dlatego w programie Outlook pakietu Office 365 wprowadź poświadczenia konta usługi Office 365, aby utworzyć połączenie.
@@ -48,7 +48,7 @@ Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy naj
 > 
 
 ## <a name="use-a-trigger"></a>Użyć wyzwalacza
-Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. Wyzwalacze "sondować" Usługa interwału i częstotliwość. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. Wyzwalacze "sondować" Usługa interwału i częstotliwość. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. W aplikacji logiki wpisz "office 365" Aby uzyskać listę wyzwalaczy:  
    
@@ -69,7 +69,7 @@ Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w
 4. **Zapisz** zmiany (lewym górnym rogu paska narzędzi). Aplikację logiki jest zapisywana i automatycznie włączone.
 
 ## <a name="use-an-action"></a>Za pomocą akcji
-Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Wybierz znak plus. Zobacz kilka opcji: **Dodaj akcję**, **Dodaj warunek**, lub jeden z **więcej** opcje.
    
@@ -95,5 +95,5 @@ Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logik
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
 

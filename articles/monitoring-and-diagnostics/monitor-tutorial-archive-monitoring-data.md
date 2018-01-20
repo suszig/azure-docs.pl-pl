@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure archiwum danych monitorowania
 
@@ -66,7 +66,7 @@ Dane monitorowania z subskrypcji jest teraz otrzymywanych przez konta magazynu.
 
 Teraz możemy skonfigurować poziom zasobów danych (zasobu metryki i dzienników diagnostycznych), który będzie kierowany do konta magazynu, konfigurując **ustawień diagnostycznych zasobu**.
 
-1. Kliknij przycisk **Monitor** znaleziono przycisku na liście nawigacji po lewej stronie, następnie na **ustawień diagnostycznych**. W tym miejscu można wyświetlić listę wszystkich zasobów w ramach subskrypcji, które tworzą dane monitorowania za pośrednictwem Monitora Azure. Jeśli nie masz żadnych zasobów na tej liście, możesz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) przed kontynuowaniem, tak aby było możliwe z zasobem, który można skonfigurować ustawienie diagnostyczne na.
+1. Kliknij przycisk **Monitor** znaleziono przycisku na liście nawigacji po lewej stronie, następnie na **ustawień diagnostycznych**. W tym miejscu można wyświetlić listę wszystkich zasobów w ramach subskrypcji, które tworzą dane monitorowania za pośrednictwem Monitora Azure. Jeśli nie masz żadnych zasobów na tej liście, możesz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przed kontynuowaniem, tak aby było możliwe z zasobem, który można skonfigurować ustawienie diagnostyczne na.
 
 2. Kliknij zasób na liście, a następnie kliknij przycisk **Włącz diagnostykę**.
    
@@ -164,7 +164,7 @@ Możesz teraz pomyślnie skonfigurowano monitorowanie danych do archiwizacji na 
 
 5. Jeśli utworzono maszynę wirtualną lub aplikację logiki dla powyższych kroków, usuń te również.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono sposób monitorowania danych z Twoim środowiskiem platformy Azure (subskrypcji, zasobów i system operacyjny gościa), które mają być archiwizowane na konto magazynu. 
 

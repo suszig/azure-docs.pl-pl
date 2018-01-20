@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Ograniczenia aplikacji logiki i konfiguracji
 
@@ -32,14 +32,14 @@ Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
 
 #### <a name="timeout"></a>Limit czasu
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Limit czasu żądania | 120 sekund | [Wzorca asynchronicznego](../logic-apps/logic-apps-create-api-app.md) lub [do pętli](logic-apps-loops-and-scopes.md) można wyrównania w razie potrzeby |
 |||| 
 
 #### <a name="message-size"></a>Rozmiar komunikatu
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Rozmiar komunikatu | 100 MB | Niektóre łączniki i interfejsów API może nie obsługiwać 100 MB. | 
 | Limit obliczania wyrażeń | 131 072 znaków | `@concat()`, `@base64()`, `string` nie może być dłuższa niż to ograniczenie. | 
@@ -47,7 +47,7 @@ Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
 
 #### <a name="retry-policy"></a>Zasady ponawiania
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Liczba ponownych prób | 90 | Wartość domyślna to 4. Można skonfigurować [ponów parametr zasad](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Spróbuj ponownie Maksymalne opóźnienie | 1 dzień | Można skonfigurować [ponów parametr zasad](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -58,7 +58,7 @@ Ograniczenia te dotyczą pojedyncze żądanie HTTP lub wywołanie łącznika.
 
 Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
-| Nazwa | Limit | 
+| Name (Nazwa) | Limit | 
 | ---- | ----- | 
 | Czas trwania testu | 90 dni | 
 | Magazyn przechowywania | Godzina rozpoczęcia 90 dni od uruchomienia | 
@@ -72,7 +72,7 @@ Przekroczenie limitu czas trwania testu lub przechowywania magazynu z przepływu
 
 Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Elementy ForEach | 100,000 | Można użyć [zapytania akcji](../connectors/connectors-native-query.md) do filtrowania większych tablice zgodnie z potrzebami. | 
 | Do iteracji | 5,000 | | 
@@ -84,7 +84,7 @@ Te limity mają zastosowanie do aplikacji logiki pojedynczego uruchomienia.
 
 Te limity mają zastosowanie do aplikacji logiki pojedynczego wystąpienia.
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Wykonania akcji na 5 minut | 100,000 | Można rozpowszechniać obciążenia pracą wielu aplikacjom zgodnie z potrzebami. | 
 | Akcje równoczesnych połączeń wychodzących | ~2,500 | Można zmniejszyć liczbę jednoczesnych żądań lub skrócić czas trwania, zgodnie z potrzebami. | 
@@ -99,7 +99,7 @@ Przekroczenie tych ograniczeń normalnego przetwarzania lub obciążenia wykonyw
 
 Te limity mają zastosowanie do definicji aplikacji logiki pojedynczego.
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Akcje dla przepływu pracy | 500 | Aby rozszerzyć ten limit, można dodać zagnieżdżone przepływy pracy, zgodnie z potrzebami. |
 | Dozwolona liczba poziomów zagnieżdżenia akcji | 8 | Aby rozszerzyć ten limit, można dodać zagnieżdżone przepływy pracy, zgodnie z potrzebami. | 
@@ -121,17 +121,17 @@ Te limity mają zastosowanie do definicji aplikacji logiki pojedynczego.
 
 Ograniczenia te dotyczą łączników niestandardowych, które można utworzyć na podstawie interfejsów API sieci web.
 
-| Nazwa | Limit | 
+| Name (Nazwa) | Limit | 
 | ---- | ----- | 
-| Liczba łączników niestandardowych, które można utworzyć | 1000 dla subskrypcji platformy Azure | 
-| Liczba żądań na minutę dla każdego połączenia utworzone przez łącznik niestandardowy | 500 żądania dla każdego połączenia utworzone przez łącznik programu |
+| Liczba łączników niestandardowych, które można utworzyć | 1000 na subskrypcję platformy Azure | 
+| Liczba żądań na minutę dla każdego połączenia utworzonego przez łącznik niestandardowy | 500 żądań dla każdego połączenia utworzonego przez łącznik |
 ||| 
 
 ### <a name="integration-account-limits"></a>Limity konta integracji
 
 Te limity mają zastosowanie do artefaktów, które można dodać do konta integracji.
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Schemat | 8 MB | Można użyć [identyfikator URI obiektu blob](../logic-apps/logic-apps-enterprise-integration-schemas.md) przekazywania plików większych niż 2 MB. | 
 | Mapy (plik XSLT) | 2 MB | | 
@@ -145,7 +145,7 @@ Ograniczenia te dotyczą liczbę artefaktów, które można dodać do konta inte
 
 #### <a name="free-pricing-tier"></a>Bezpłatnej warstwy cenowej
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Umowy | 10 | | 
 | Inne typy artefaktów | 25 |Typy artefaktu zawierają partnerów, schematów, certyfikaty i mapy. Każdy typ może zawierać maksymalnie maksymalną liczbę artefaktów. | 
@@ -153,7 +153,7 @@ Ograniczenia te dotyczą liczbę artefaktów, które można dodać do konta inte
 
 #### <a name="standard-pricing-tier"></a>Warstwa cenowa standardowa
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | Dowolnego typu artefaktu | 500 | Typy artefaktu zawierają umowy, partnerów, schematów, certyfikaty i mapy. Każdy typ może zawierać maksymalnie maksymalną liczbę artefaktów. | 
 |||| 
@@ -162,7 +162,7 @@ Ograniczenia te dotyczą liczbę artefaktów, które można dodać do konta inte
 
 Ograniczenia te dotyczą protokoły B2B.
 
-| Nazwa | Limit | Uwagi | 
+| Name (Nazwa) | Limit | Uwagi | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | Ma zastosowanie do zdekodowania i kodowania | 
 | X12 | 50 MB | Ma zastosowanie do zdekodowania i kodowania | 
@@ -235,9 +235,9 @@ Wywołania który [łączniki](../connectors/apis-list.md) upewnij się, pochodz
 |Zachodnie Zjednoczone Królestwo|51.141.47.105|
 | | | 
 
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
 
-* [Tworzenie pierwszej aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Typowe przykłady i scenariusze](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Wideo: Automatyzować procesy biznesowe z usługą Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Wideo: Integrować systemy z usługą Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

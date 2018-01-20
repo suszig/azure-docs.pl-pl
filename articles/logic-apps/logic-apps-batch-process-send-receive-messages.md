@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Wyślij, odbierania i partii przetwarzania komunikatów w aplikacji logiki
 
@@ -39,7 +39,7 @@ Aby użyć tego przykładu, potrzebne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [rozpocząć pracę z bezpłatnym kontem platformy Azure](https://azure.microsoft.com/free/). W przeciwnym razie możesz [skorzystać z subskrypcji z płatnością zgodnie z rzeczywistym użyciem](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Podstawową wiedzę na temat o [sposób tworzenia aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Podstawową wiedzę na temat o [sposób tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Konto e-mail ze wszystkimi [dostawcy poczty e-mail obsługiwane przez usługi Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Aplikacje logiki nadawcy musi wiedzieć, gdzie wysłać elementy, gdy aplikacje 
       Na przykład jeśli masz konto służbowe, wybierz łącznik programu Outlook pakietu Office 365. 
       Jeśli masz konto usługi Gmail, wybierz łącznik usługi Gmail.
 
-   3. Wybierz tę akcję dla Twojego łącznika:  **{*dostawcy e-mail*} — Wyślij e-mail **
+   3. Wybierz tę akcję dla Twojego łącznika: **{*dostawcy e-mail*} — Wyślij wiadomość e-mail**
 
       Na przykład:
 
       ![Wybierz akcję "Wyślij wiadomość e-mail" dla dostawcy usługi poczty e-mail](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Jeśli wcześniej nie utworzono połączenia dla dostawcy usługi poczty e-mail, wprowadź swoje poświadczenia poczty e-mail dla uwierzytelniania po wyświetleniu monitu. Dowiedz się więcej o [uwierzytelniania poświadczeń e-mail](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Jeśli wcześniej nie utworzono połączenia dla dostawcy usługi poczty e-mail, wprowadź swoje poświadczenia poczty e-mail dla uwierzytelniania po wyświetleniu monitu. Dowiedz się więcej o [uwierzytelniania poświadczeń e-mail](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Ustaw właściwości akcji, którą właśnie został dodany.
 
@@ -200,7 +200,7 @@ Aplikację logiki BatchSender działa co minutę, generuje losową liczbę międ
 > [!IMPORTANT]
 > Po zakończeniu testowania, upewnij się, że wyłączenie BatchSender aplikację logiki, aby zatrzymać wysyłanie wiadomości i nie przeciążać skrzynki odbiorczej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie w definicji aplikacji logiki za pomocą formatu JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Tworzenie aplikacji bez serwera w programie Visual Studio z usługi Azure Logic Apps i funkcje](../logic-apps/logic-apps-serverless-get-started-vs.md)

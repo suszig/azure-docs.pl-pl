@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z usługą Azure Automation | Microsoft Docs"
-description: "Ten artykuł zawiera omówienie usługi Azure Automation oparte na przeglądzie szczegółów projektu i implementacji w ramach przygotowania do dołączenia oferty z platformy Azure Marketplace."
+title: "Wprowadzenie do usługi Automatyzacja Azure | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera omówienie usługi Automatyzacja Azure. Zapoznaje się projekt i implementację szczegółów w ramach przygotowania do dołączenia do oferty w witrynie Azure Marketplace."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,108 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="getting-started-with-azure-automation"></a>Rozpoczynanie pracy z usługą Azure Automation
+# <a name="get-started-with-azure-automation"></a>Rozpocznij pracę z usługą Azure Automation
 
-Ten przewodnik Wprowadzenie opisuje podstawowe pojęcia związane z wdrażaniem usługi Azure Automation. Jeśli usługa Automation na platformie Azure nie była wcześniej używana lub masz doświadczenie z oprogramowaniem do automatyzacji przepływu pracy, takim jak System Center Orchestrator, ten przewodnik ułatwi Ci zrozumienie procedur przygotowywania i dołączania usługi Automation.  Po zakończeniu będzie można rozpocząć tworzenie elementów runbook w celu zaspokojenia potrzeb związanych z automatyzacją procesów. 
+W tym artykule przedstawiono podstawowe pojęcia związane z wdrażaniem usługi Automatyzacja Azure. Jeśli dopiero zaczynasz korzystać z automatyzacji platformy Azure lub nie mają doświadczenia w automatyzacji oprogramowanie przepływu pracy, takie jak System Center Orchestrator nauczysz się, jak przygotować i dołączyć automatyzacji. Po przeczytaniu tego artykułu, będzie gotowy do rozpoczęcia tworzenia elementów runbook do różnych potrzeb automatyzacji procesu. 
 
 
 ## <a name="automation-architecture-overview"></a>Omówienie architektury usługi Automation
 
 ![Omówienie usługi Azure Automation](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Usługa Azure Automation to aplikacja oprogramowania jako usługi (SaaS), która zapewnia skalowalne i niezawodne wielodostępne środowisko do automatyzacji procesów za pomocą elementów Runbook i zarządzania zmianami konfiguracji w systemach Windows i Linux przy użyciu konfiguracji żądanego stanu (DSC) na platformie Azure, w innych usługach w chmurze lub lokalnie. Jednostki zawarte na Twoim koncie usługi Automation, takie jak elementy Runbook, zasoby, konta Uruchom jako, są izolowane od innych kont usługi Automation w ramach Twojej subskrypcji i innych subskrypcji.  
+Automatyzacja Azure to oprogramowanie jako usługa (SaaS) aplikacja, która zapewnia skalowalne i niezawodne środowisku wielodostępnym w którym można użyć elementów runbook do automatyzacji procesów. Można użyć konfiguracji żądanego stanu (DSC) na platformie Azure i innych usług w chmurze lub w lokalnej środowiska do zarządzania konfiguracją zmiany w systemach Windows i Linux. Jednostki w Twoje konto usługi Automatyzacja, w tym elementów runbook, zasoby i konta Uruchom jako są izolowane od innych kont automatyzacji w Twojej subskrypcji oraz inne subskrypcje.  
 
-Elementy Runbook, które uruchamiasz na platformie Azure, są wykonywane w piaskownicach usługi Automation hostowanych na platformie Azure w postaci platformy jako usługi (PaaS) dla maszyn wirtualnych.  Piaskownice usługi Automation zapewniają izolację dzierżawy dla wszystkich aspektów wykonywania elementów Runbook — modułów, magazynu, pamięci, komunikacji sieciowej, strumieni zadań itd. Ta rola jest zarządzana przez usługę i nie jest dostępna do sterowania z Twojej platformy Azure ani konta usługi Azure Automation.         
+Elementy Runbook, które są uruchamiane na platformie Azure są wykonywane na piaskownic automatyzacji. Piaskownic są hostowane na platformie Azure jako maszyny wirtualne usługa (PaaS). 
 
-Aby zautomatyzować wdrażanie zasobów i zarządzanie nimi w lokalnym centrum danych lub w innych usługach w chmurze, po utworzeniu konta usługi Automation możesz wyznaczyć jedną lub większą liczbę maszyn do uruchamiania roli [hybrydowego procesu roboczego elementu runbook (HRW, Hybrid Runbook Worker)](automation-hybrid-runbook-worker.md).  Każdy proces HRW wymaga agenta Microsoft Management Agent mającego połączenie z obszarem roboczym usługi Log Analytics i kontem usługi Automation.  Usługa Log Analytics służy do uruchamiania instalacji, obsługi agenta Microsoft Management Agent i monitorowania funkcjonalności procesu HRW.  Dostarczanie elementów Runbook i instrukcji ich uruchamiania jest realizowane przez usługę Azure Automation.
+Automatyzacja piaskownic Podaj izolacji dzierżawców za wszystkie aspekty wykonanie elementu runbook, łącznie z modułami, magazynu, pamięci, komunikacji sieciowej i strumieni zadania. Ta rola jest zarządzane przez usługę. Nie można uzyskać dostępu lub Zarządzanie rolą z Twojego konta Azure lub automatyzacji.         
 
-Możesz wdrożyć wiele procesów HRW, aby zapewnić wysoką dostępność swoich elementów Runbook, zrównoważenie obciążenia zadań elementów Runbook, a w niektórych przypadkach dedykowanie ich dla konkretnych obciążeń lub środowisk.  Agent Microsoft Monitoring Agent w procesie HRW inicjuje komunikację z usługą Automation za pośrednictwem portu TCP 443 i nie ma żadnych wymagań dotyczących zapory dla ruchu przychodzącego.  Gdy element runbook działa w ramach procesu HRW w obrębie Twojego środowiska i chcesz, aby element runbook wykonywał zadania zarządzania względem innych maszyn lub usług w ramach tego środowiska, element runbook może wymagać dostępu również do innych portów.  Jeśli Twoje informatyczne zasady zabezpieczeń nie pozwalają komputerom w Twojej sieci na łączenie się z Internetem, zapoznaj się z artykułem [Brama pakietu OMS](../log-analytics/log-analytics-oms-gateway.md). Taka brama działa jak serwer proxy dla procesu HRW w celu zbierania stanu zadania i odbierania informacji o konfiguracji z Twojego konta usługi Automation.
+Aby zautomatyzować wdrażania i zarządzania zasobami w lokalnym centrum danych lub innych usług w chmurze, po utworzeniu konta automatyzacji, możesz wyznaczyć przynajmniej jednej maszyny wirtualnej, aby uruchomić [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md) roli. Każdy hybrydowy proces roboczy elementu Runbook wymaga instalacji agenta zarządzania Microsoft i konto usługi Automatyzacja. Agent musi mieć połączenie z obszarem roboczym usługi Analiza dzienników Azure. Log Analytics umożliwia bootstrap instalację, obsługa programu Microsoft Management Agent oraz monitorowanie funkcji hybrydowego procesu roboczego elementu Runbook. Automatyzacja Azure wykonuje dostarczania elementów runbook i instrukcji, aby uruchomić je.
 
-Elementy Runbook działające w oparciu o proces HRW działają w kontekście lokalnego konta systemowego na komputerze, który jest zalecanym kontekstem zabezpieczeń podczas wykonywania zadań administracyjnych na komputerze lokalnym z systemem Windows. Jeśli element Runbook ma uruchamiać zadania dotyczące zasobów poza komputerem lokalnym, może być konieczne zdefiniowanie na koncie usługi Automation bezpiecznych zasobów poświadczeń, do których możesz uzyskać dostęp z elementu Runbook i których możesz użyć do uwierzytelniania za pomocą zewnętrznego zasobu. Zasobów [Poświadczenie](automation-credentials.md), [Certyfikat](automation-certificates.md) i [Połączenie](automation-connections.md) w Twoim elemencie Runbook możesz użyć za pomocą poleceń cmdlet, które pozwalają określić poświadczenia, więc możesz je uwierzytelnić.
+Można wdrożyć wiele hybrydowych procesów roboczych elementu Runbook. Użyj hybrydowych procesów roboczych elementu Runbook, aby zapewnić wysoką dostępność dla elementów runbook i równoważenie obciążenia zadania elementu runbook. W niektórych przypadkach można przypisać zadania elementu runbook dla konkretnych obciążeń lub środowisk. Microsoft Monitoring Agent na hybrydowy proces roboczy elementu Runbook inicjuje komunikację z usługą automatyzacji za pośrednictwem portu TCP 443. Hybrydowe procesy robocze elementu Runbook nie mają żadnych wymagań zapory dla ruchu przychodzącego.  
 
-Konfiguracje DSC przechowywane w usłudze Azure Automation mogą być stosowane bezpośrednio do maszyn wirtualnych platformy Azure. Inne maszyny fizyczne i wirtualne mogą żądać dostępu do konfiguracji z serwera ściągania usługi Azure Automation DSC.  Do zarządzania konfiguracjami lokalnych fizycznych lub wirtualnych systemów Windows i Linux nie potrzebujesz wdrażać żadnej infrastruktury do obsługi serwera ściągania usługi Automation DSC, a tylko wychodzącego dostępu do Internetu zarządzanego przez usługę Automation DSC komunikującego się z pakietem OMS przez port 443 protokołu TCP.   
+Może być elementu runbook, który działa na hybrydowy proces roboczy elementu Runbook do wykonywania zadań zarządzania dla innych maszyny lub usługi w danym środowisku. W tym scenariuszu element runbook może być konieczne również inne porty dostępu. Jeśli zasady zabezpieczeń IT nie zezwalaj na komputerach w sieci, aby nawiązać połączenie z Internetem, przejrzyj [bramy OMS](../log-analytics/log-analytics-oms-gateway.md). Brama Operations Management Suite (OMS) działa jako serwer proxy dla hybrydowego procesu roboczego elementu Runbook. Zbiera stan zadania, a otrzymuje informacje o konfiguracji z Twojego konta automatyzacji.
+
+Elementy Runbook, działające na hybrydowy proces roboczy elementu Runbook działają w kontekście konta systemu lokalnego na komputerze. Firma Microsoft zaleca kontekstu zabezpieczeń podczas wykonywania zadań administracyjnych na komputerze z systemem Windows. Jeśli chcesz, aby element runbook, aby uruchamiać zadania na zasoby, które są poza komputera lokalnego, może być konieczne zdefiniowanie trwałych bezpiecznych poświadczeń na koncie automatyzacji. Możesz uzyskiwać dostęp do zasobów bezpiecznych poświadczeń z elementu runbook i ich używać do uwierzytelniania dla zasobu zewnętrznego. Można użyć [poświadczeń](automation-credentials.md), [certyfikatu](automation-certificates.md), i [połączenia](automation-connections.md) zasoby w elemencie runbook. Za pomocą polecenia cmdlet, których można użyć do określenia poświadczenia umożliwiające uwierzytelnianie w nich zasoby.
+
+Można zastosować konfiguracji DSC, które są przechowywane w automatyzacji Azure do maszyn wirtualnych. Konfiguracje mogą żądać innych fizycznych i maszyn wirtualnych z serwera ściągania usługi Konfiguracja DSC automatyzacji. Nie trzeba wdrażać dowolnej infrastruktury do obsługi serwera ściągania usługi Konfiguracja DSC automatyzacji zarządzania konfiguracjami sieci fizycznych lub wirtualnych Windows i Linux systemów lokalnych. Wystarczy tylko ruch wychodzący do Internetu z każdego systemu, które będą zarządzane przy użyciu usługi Konfiguracja DSC automatyzacji. Komunikacja odbywa się za pośrednictwem portu TCP 443 z usługą OMS.   
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="automation-dsc"></a>Usługa Automation DSC
-Usługa Azure Automation DSC może służyć do zarządzania różnymi maszynami:
+Konfiguracja DSC automatyzacji można użyć do zarządzania tymi komputerami:
 
-* Maszynami wirtualnymi platformy Azure (klasycznymi) z systemem Windows lub Linux
-* Maszynami wirtualnymi platformy Azure z systemem Windows lub Linux
-* Maszynami wirtualnymi usługi Amazon Web Services (AWS) z systemem Windows lub Linux
-* Fizycznymi/wirtualnymi lokalnymi komputerami z systemem Windows lub w chmurze innej niż platformy Azure lub usług AWS
-* Fizycznymi/wirtualnymi lokalnymi komputerami z systemem Linux lub w chmurze innej niż platformy Azure lub usług AWS
+* Maszyny wirtualne platformy Azure (klasyczne) systemem Windows lub Linux.
+* Azure maszyn wirtualnych z systemem Windows lub Linux.
+* Maszyn wirtualnych Amazon Web Services (AWS) z systemem Windows lub Linux.
+* Fizycznych i wirtualnych komputerów z systemem Windows lokalnie lub w chmurze innych niż Azure lub usług AWS.
+* Fizyczne i wirtualne komputery z systemem Linux znajdujących się lokalnie lub w chmurze innych niż Azure lub usług AWS.
 
-Aby system Windows mógł się komunikować z usługą Azure Automation, musi być zainstalowana najnowsza wersja WMF 5 dla agenta rozszerzenia DSC programu PowerShell. Aby system Linux mógł komunikować się z usługą Azure Automation, musi być zainstalowana najnowsza wersja [agenta rozszerzenia DSC programu PowerShell dla systemu Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150).
+W przypadku komputerów z systemem Windows można zainstalować najnowszą wersję programu Windows Management Framework (WMF) 5. Dla maszyn z systemem Linux, najnowsza wersja [agenta DSC środowiska PowerShell dla systemu Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) musi być zainstalowany. Agent usługi Konfiguracja DSC środowiska PowerShell używa platformy WMF 5 do komunikowania się z automatyzacji. 
 
 ### <a name="hybrid-runbook-worker"></a>Hybrydowy proces roboczy elementu Runbook  
-Podczas wyznaczania komputera do uruchamiania zadań hybrydowych elementów Runbook należy wziąć pod uwagę istnienie następujących elementów:
+Po wskazaniu komputer w celu uruchomienia zadania elementów runbook hybrydowych, komputer musi spełniać następujące wymagania wstępne:
 
-* Windows Server 2012 lub nowszy
-* Windows PowerShell 4.0 lub nowszy.  Zaleca się zainstalowanie na komputerze programu Windows PowerShell 5.0 w celu zwiększenia niezawodności. Nową wersję możesz pobrać w [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=50395)
-* .NET Framework 4.6.2 lub nowszy
-* Co najmniej dwa rdzenie
-* Co najmniej 4 GB pamięci RAM
+* Windows Server 2012 lub nowszym.
+* Windows PowerShell 4.0 lub nowszy. Zwiększenie niezawodności zalecamy Windows PowerShell 5.0. Możesz [pobrać nową wersję](https://www.microsoft.com/download/details.aspx?id=50395) z Microsoft Download Center.
+* .NET framework 4.6.2 lub nowszym.
+* Co najmniej dwa rdzenie.
+* Co najmniej 4 GB pamięci RAM.
 
-### <a name="permissions-required-to-create-automation-account"></a>Uprawnienia wymagane do utworzenia konta usługi Automation
-Aby utworzyć lub zaktualizować konto usługi Automation, musisz mieć następujące określone uprawnienia i uprawnienia wymagane do wykonania zadań opisanych w tym temacie.   
+### <a name="permissions-required-to-create-an-automation-account"></a>Uprawnienia wymagane do tworzenia konta automatyzacji
+Utwórz lub zaktualizuj konto usługi Automatyzacja i wykonać zadania opisane w tym artykule, musi mieć następujące uprawnienia i uprawnienia:   
  
-* Przed utworzeniem konta usługi Automation konto użytkownika usługi AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli właściciela dla zasobów Microsoft.Automation w sposób opisany w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
-* Jeśli ustawienie Rejestracje aplikacji ma wartość **Tak**, użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje usługi AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Jeśli wartością ustawienia rejestracji aplikacji jest **Nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD. 
+* Aby utworzyć konto usługi Automatyzacja, konto użytkownika usługi Azure Active Directory (Azure AD) musi dodany do roli uprawnienia równorzędne do roli właściciela dla **Microsoft.Automation** zasobów. Aby uzyskać więcej informacji, zobacz [opartej na rolach kontroli dostępu w usłudze Automatyzacja Azure](automation-role-based-access-control.md).  
+* W portalu Azure w obszarze **usługi Azure Active Directory** > **ZARZĄDZAJ** > **rejestracji aplikacji**, jeśli **rejestracji aplikacji**  ustawiono **tak**, użytkownicy inni niż administratorzy w Twojej dzierżawie usługi Azure AD można [rejestrowania aplikacji usługi Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Jeśli **rejestracji aplikacji** ustawiono **nr**, użytkownik, który dokonuje tego działania musi być administratorem globalnym w usłudze Azure AD. 
 
-Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tej usłudze zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**. Użytkownicy dodani do roli administratora globalnego/współadministratora najpierw mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostać pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację, w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
+Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji przed dodaniem do roli administratora globalnego/coadministrator subskrypcji, są dodawane do usługi Active Directory jako Gość. W tym scenariuszu ten komunikat zostanie wyświetlony na **Dodaj konto automatyzacji** strony: "Nie ma uprawnień do utworzenia." 
+
+Jeśli użytkownik zostanie dodany do roli administratora globalnego/coadministrator najpierw należy można je usunąć z wystąpienia usługi Active Directory dla tej subskrypcji, a potem ponownie dodaj je do pełnego roli użytkownika w usłudze Active Directory.
+
+Aby sprawdzić role użytkowników:
+1. W portalu Azure, przejdź do **usługi Azure Active Directory** okienka.
+2. Wybierz **użytkowników i grup**.
+3. Wybierz **wszyscy użytkownicy**. 
+4. Po wybraniu określonego użytkownika, wybierz **profilu**. Wartość **typ użytkownika** atrybutu w profilu użytkownika nie powinna być **gościa**.
 
 ## <a name="authentication-planning"></a>Planowanie uwierzytelniania
-Usługa Azure Automation pozwala na zautomatyzowanie zadań w odniesieniu do zasobów platformy Azure, a także zasobów lokalnych oraz pochodzących od innych dostawców chmury.  Aby element Runbook mógł wykonać żądane działania, musi mieć uprawnienia do bezpiecznego dostępu do zasobów z minimalnymi prawami wymaganymi w ramach subskrypcji.  
+W automatyzacji Azure można automatyzować zadania na zasoby, które są na platformie Azure i lokalnego, a w innych usług w chmurze. Element runbook mógł wykonać żądane działania musi mieć uprawnienia do bezpiecznego dostępu do zasobów. Musi on mieć minimalne uprawnienia wymagane w ramach subskrypcji.  
 
-### <a name="what-is-an-automation-account"></a>Co to jest konto usługi Automation 
-Wszystkie zadania automatyzacji, które wykonujesz w odniesieniu do zasobów przy użyciu poleceń cmdlet platformy Azure w usłudze Azure Automation, są uwierzytelniane na platformie Azure przy użyciu funkcji uwierzytelniania opartego na poświadczeniu tożsamości organizacyjnej w usłudze Azure Active Directory.  Konto usługi Automation jest oddzielone od konta, którego używasz do logowania się do portalu w celu skonfigurowania i używania zasobów platformy Azure.  Zasoby usługi Automation uwzględnione na koncie to:
+### <a name="what-is-an-automation-account"></a>Co to jest konto usługi Automatyzacja 
+Wszystkie zadania automatyzacji wykonujących względem zasobów za pomocą poleceń cmdlet w automatyzacji Azure uwierzytelniać na platformie Azure przy użyciu uwierzytelniania opartego na poświadczenia tożsamości w organizacji usługi Azure AD.  Konto automatyzacji jest oddzielony od konta, którego używasz do logowania do portalu do konfigurowania i używania zasobów platformy Azure. 
 
-* **Certyfikaty** — zawiera certyfikat używany do uwierzytelniania z poziomu elementu runbook lub konfiguracji DSC lub ich dodawania.
-* **Połączenia** — zawiera informacje o uwierzytelnianiu wymagane do połączenia z zewnętrzną usługą lub aplikacją z poziomu elementu runbook lub konfiguracji DSC.
-* **Poświadczenia** — obiekt PSCredential zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło, wymagane do uwierzytelniania z poziomu elementu runbook lub konfiguracji DSC.
-* **Moduły integracji** — moduły programu PowerShell uwzględnione na koncie usługi Azure Automation w celu korzystania z poleceń cmdlet w obrębie elementów runbook i konfiguracji DSC.
-* **Harmonogramy** — zawiera harmonogramy, które uruchamiają lub zatrzymują element runbook o określonej godzinie (w tym z częstotliwością cykliczną).
-* **Zmienne** — zawiera wartości dostępne z poziomu elementu runbook lub konfiguracji DSC.
-* **Konfiguracja DSC** — to skrypty programu PowerShell opisujące sposób konfigurowania funkcji lub ustawienia systemu operacyjnego bądź instalowania aplikacji na komputerze z systemem Windows lub Linux.  
-* **Elementy Runbook** — to zestaw zadań opartych na programie PowerShell wykonujących niektóre zautomatyzowane procesy w usłudze Azure Automation.    
+Konto usługi Automatyzacja dołączono następujące zasoby:
 
-Zasoby usługi Automation na poszczególnych kontach są skojarzone z pojedynczym regionem świadczenia usługi Azure, ale za pomocą kont usługi Automation można zarządzać wszystkimi zasobami w ramach subskrypcji. Utwórz konta usługi Automation w różnych regionach, jeśli masz zasady, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
+* **Certyfikaty**. Znajduje się certyfikat, który jest używany do uwierzytelniania z elementu runbook lub konfiguracji DSC. Można również dodać certyfikaty.
+* **Połączenia**. Zawiera informacje uwierzytelniania i konfiguracji, które są wymagane do połączenia z zewnętrznej usługi lub aplikacji z elementu runbook lub konfiguracji DSC.
+* **Poświadczenia**. Zawiera **PSCredential** obiektu, który ma poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Poświadczenia są wymagane do uwierzytelniania z elementu runbook lub konfiguracji DSC.
+* **Moduły integracji**. Moduły programu PowerShell są uwzględniane przy użyciu konta automatyzacji. Użyj modułów programu PowerShell do uruchamiania poleceń cmdlet w elementy runbook i konfiguracji DSC.
+* **Harmonogramy**. Zawiera harmonogramy, które rozpocząć lub zatrzymać element runbook o określonej godzinie, włączając częstotliwości cyklu.
+* **Zmienne**. Zawiera wartości, które są dostępne z poziomu elementu runbook lub konfiguracji DSC.
+* **Konfiguracji DSC**. Skrypty programu PowerShell, które opisują jak skonfigurować ustawienia lub funkcji systemu operacyjnego lub sposobu instalowania aplikacji na komputerze z systemem Windows lub Linux.  
+* **Elementy Runbook**. Zestaw zadań, wykonujących zautomatyzowanego procesu w automatyzacji oparte na programie Windows PowerShell.    
 
-Podczas tworzenia konta usługi Automation w witrynie Azure Portal automatycznie utworzysz dwie jednostki uwierzytelniania:
+Automatyzacja zasobów dla każdego konta automatyzacji skojarzonych z pojedynczym regionie Azure. Jednak można użyć konta automatyzacji zarządzania wszystkich zasobów w ramach subskrypcji. Utwórz konta usługi Automation w różnych regionach, jeśli masz zasady, które wymagają, aby dane i zasoby były izolowane w określonym regionie.
 
-* Konto Uruchom jako. To konto służy do tworzenia nazwy głównej usługi w usłudze Azure Active Directory (Azure AD) oraz certyfikatu. Umożliwia ono również przypisywanie kontroli dostępu opartej na rolach (RBAC) typu Współautor, która zarządza zasobami usługi Resource Manager przy użyciu elementów runbook.
-* Klasyczne konto Uruchom jako. To konto służy do przekazywania certyfikatu zarządzania, który jest używany do zarządzania klasycznymi zasobami przy użyciu elementów Runbook.
+Podczas tworzenia konta automatyzacji w portalu Azure, dwie jednostki uwierzytelniania są tworzone automatycznie:
 
-Dostępna w usłudze Azure Resource Manager kontrola dostępu oparta na rolach umożliwia przypisywanie praw wykonywania dozwolonych akcji do konta użytkownika usługi Azure AD i konta Uruchom jako oraz pozwala na uwierzytelnianie tego obiektu głównego usługi.  Dalsze informacje pomagające w tworzeniu modelu zarządzania uprawnieniami w usłudze Automation można znaleźć w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
+* **Konto Uruchom jako**. To konto wykonuje następujące zadania:
+  - Tworzy nazwy głównej usługi w usłudze Azure AD.
+  - Tworzy certyfikat.
+  - Przypisuje Contributor Role-Based kontroli dostępu (RBAC), która zarządza zasobów usługi Azure Resource Manager za pomocą elementów runbook.
+* **Klasycznym konta Uruchom jako**. To konto będzie przekazywać certyfikatu zarządzania. Certyfikat służy do zarządzania zasoby klasyczne za pomocą elementów runbook.
+
+RBAC jest dostępny za pomocą Menedżera zasobów udzielenia akcje dozwolone na konto użytkownika usługi Azure AD i konta Uruchom jako. RBAC służy również do uwierzytelniania tej nazwy głównej usługi. Aby uzyskać więcej informacji oraz uzyskać pomoc w tworzeniu model zarządzania uprawnieniami automatyzacji, zobacz [opartej na rolach kontroli dostępu w artykule usługi Automatyzacja Azure](automation-role-based-access-control.md).  
 
 #### <a name="authentication-methods"></a>Metody uwierzytelniania
-Poniższa tabela zawiera zestawienie różnych metod uwierzytelniania dla środowisk obsługiwanych przez usługę Azure Automation.
+Poniższa tabela zawiera podsumowanie metod uwierzytelniania, których można użyć dla każdego środowiska, która obsługuje usługi Automatyzacja Azure.
 
 | Metoda | Środowisko 
 | --- | --- | 
 | Konto Uruchom jako platformy Azure i klasyczne konto Uruchom jako |Wdrożenie usługi Azure Resource Manager i klasycznej platformy Azure |  
 | Konto użytkownika usługi Azure AD |Wdrożenie usługi Azure Resource Manager i klasycznej platformy Azure |  
-| Uwierzytelnianie systemu Windows |Lokalne centrum danych lub inny dostawca usług w chmurze z wykorzystaniem hybrydowego procesu roboczego elementu Runbook |  
-| Poświadczenia AWS |Amazon Web Services |  
+| Uwierzytelnianie systemu Windows |Lokalnego centrum danych lub inny dostawca usług chmury przy użyciu roli hybrydowy proces roboczy elementu Runbook |  
+| Poświadczenia usługi Amazon Web Services |Amazon Web Services |  
 
-W sekcji **Instrukcje\Uwierzytelnianie i zabezpieczenia** znajdują się pomocne artykuły zawierające omówienie i kroki implementacji umożliwiające skonfigurowanie uwierzytelniania dla tych środowisk przy użyciu istniejącego albo nowego konta przeznaczonego dla danego środowiska.  W przypadku konta Uruchom jako platformy Azure i klasycznego konta Uruchom jako temat [Aktualizacja konta Uruchom jako usługi Automation](automation-create-runas-account.md) opisuje sposób aktualizacji istniejącego konta usługi Automation za pomocą kont Uruchom jako w portalu lub przy użyciu programu PowerShell, jeśli nie zostało ono pierwotnie skonfigurowane przy użyciu konta Uruchom jako lub klasycznego konta Uruchom jako. Jeśli chcesz utworzyć konto Uruchom jako i klasyczne konto Uruchom jako, używając certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa, zapoznaj się z tym artykułem, aby dowiedzieć się, jak utworzyć konta przy użyciu tej konfiguracji.     
+Poniższe artykuły zawierają omówienie i wykonanie czynności, aby skonfigurować uwierzytelnianie dla tych środowisk. Artykuły zawierają przy użyciu istniejące i nowe konto, które można przypisać do tego środowiska. 
+* [Utwórz autonomiczny konto usługi Automatyzacja Azure](automation-create-standalone-account.md)
+* [Uwierzytelniania elementów Runbook w usłudze Azure wdrożenie klasyczne i Menedżer zasobów](automation-create-aduser-account.md)
+* [Elementy Runbook za pomocą usług Amazon Web Services uwierzytelniania](automation-config-aws-account.md)
+* [Aktualizacja konta Uruchom jako automatyzacji](automation-create-runas-account.md)
+
+W przypadku kont Uruchom jako platformy Azure i klasycznego Uruchom jako [zaktualizować automatyzacji konta Uruchom jako](automation-create-runas-account.md) opisuje sposób aktualizacji istniejącego konta automatyzacji z kontami Uruchom jako z portalu. On również opis Jeśli konta automatyzacji nie została wcześniej skonfigurowana przy użyciu konta Uruchom jako lub klasycznego Uruchom jako za pomocą programu PowerShell. Konto Uruchom jako, a konto klasycznego Uruchom jako można utworzyć przy użyciu certyfikatu wystawionego przez urzędu certyfikacji (CA) przedsiębiorstwa. Przegląd [aktualizacji automatyzacji Uruchom jako konta](automation-create-runas-account.md) więcej informacji na temat tworzenia kont przy użyciu tej konfiguracji.     
  
 ## <a name="network-planning"></a>Planowanie sieci
-Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i zarejestrować się za pomocą pakietu Microsoft Operations Management Suite (OMS), musi on mieć dostęp do numeru portu i opisanych poniżej adresów URL.  Jest to uzupełnienie [portów i adresów URL wymaganych przez agenta Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) do nawiązania połączenia z pakietem OMS. Jeśli na potrzeby komunikacji między agentem i pakietem OMS używasz serwera proxy, konieczne będzie zapewnienie dostępności odpowiednich zasobów. W przypadku ograniczania dostępu do Internetu za pomocą zapory musisz skonfigurować w zaporze zezwalanie na dostęp.
+Aby hybrydowy proces roboczy do nawiązania połączenia i zarejestruj OMS musi mieć dostęp do numer portu i adres URL, które zostały opisane w tej sekcji. Jest to dodatkowe [porty i adresy URL wymagane dla programu Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) nawiązać połączenia z usługą OMS. 
 
-Poniższe informacje zawierają listę portów i adresów URL, które są wymagane przez hybrydowy proces roboczy elementu Runbook do komunikacji z usługą Automation.
+Jeśli używasz serwera proxy do komunikacji między agentem i usługą OMS, upewnij się, że odpowiednie zasoby są dostępne. Jeśli używasz zapory, aby ograniczyć dostęp do Internetu, należy skonfigurować zaporę tak, aby zezwolić na dostęp.
 
-* Port: Dla wychodzącego dostępu do Internetu wymagany jest tylko port 443 protokołu TCP
-* Globalny adres URL: *.azure-automation.net
+Następujące adresy URL i port są wymagane dla roli hybrydowy proces roboczy elementu Runbook do komunikowania się z automatyzacji:
 
-Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu i chcesz ograniczyć komunikację z tym regionalnym centrum danych, w poniższej tabeli znajdziesz rekord DNS dla każdego regionu.
+* Port: Ruch wychodzący do Internetu wymagany jest tylko TCP 443.
+* Global URL: *.azure-automation.net.
+
+Jeśli masz konto automatyzacji, który jest zdefiniowany dla konkretnego regionu, można ograniczyć komunikacji z tym regionalne centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu.
 
 | **Region** | **Rekord DNS** |
 | --- | --- |
@@ -132,59 +157,61 @@ Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu i chc
 | Południowe Zjednoczone Królestwo | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Administracja USA — Wirginia | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Aby zamiast nazw uzyskać listę adresów IP, pobierz plik xml [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) (Adres IP centrum danych platformy Azure) z Centrum pobierania Microsoft i przejrzyj jego zawartość. 
+Aby uzyskać listę adresów IP regionu zamiast nazwy regionów, Pobierz [adres IP centrum danych Azure](https://www.microsoft.com/download/details.aspx?id=41653) pliku XML z Microsoft Download Center. 
 
 > [!NOTE]
-> Ten plik zawiera zakresy adresów IP (w tym zakresy zasobów obliczeniowych, bazy danych SQL i magazynu) używane w centrach danych platformy Microsoft Azure. Co tydzień jest publikowany zaktualizowany plik odzwierciedlający aktualnie wdrożone zakresy i wszystkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy pojawiające się w pliku nie będą używane w centrach danych przez co najmniej tydzień. Nowy plik xml należy pobierać co tydzień i wykonywać niezbędne zmiany w witrynie, aby prawidłowo identyfikować usługi uruchomione na platformie Azure. Użytkownicy usługi ExpressRoute mogą zwrócić uwagę na to, że wcześniej ten plik aktualizował anonsowania BGP platformy Azure w pierwszym tygodniu każdego miesiąca. 
+> Plik XML adres IP centrum danych Azure zawiera listę zakresów adresów IP, które są używane w centrach danych Microsoft Azure. Zakresy obliczeniowych, SQL i Magazyn znajdują się w pliku. 
+>
+>Zaktualizowany plik jest wysyłany co tydzień. Plik odzwierciedla aktualnie wdrożonych zakresy i nadchodzące zmiany zakresu adresów IP. Nowe zakresy, które pojawiają się w pliku nie są używane w centrach danych, przez co najmniej jeden tydzień. 
+>
+> Należy dobrze do pobrania nowego pliku XML, co tydzień. Następnie należy zaktualizować lokację poprawnie zidentyfikować usługi działające na platformie Azure. Azure ExpressRoute użytkowników należy zauważyć, że ten plik ma być używane do aktualizowania anonsu protokołu BGP (Border Gateway) Azure miejsca w pierwszym tygodniu każdego miesiąca. 
 > 
 
-## <a name="creating-an-automation-account"></a>Tworzenie konta usługi Automation
+## <a name="creating-an-automation-account"></a>Utwórz konto automatyzacji
 
-Istnieją różne sposoby tworzenia konta usługi Automation w witrynie Azure Portal.  Poniższa tabela opisuje każdy typ wdrożenia i różnice między nimi.  
+W poniższej tabeli zamieszczono metody tworzenia konta automatyzacji w portalu Azure. W tabeli opisano każdy typ środowisko wdrażania i różnice między nimi.  
 
 |Metoda | Opis |
 |-------|-------------|
-| Na platformie Marketplace wybierz pozycję Automatyzacja i kontrola | Oferta, która tworzy zarówno konto usługi Automation, jak i obszar roboczy OMS związane ze sobą w tej samej grupie zasobów i regionie.  Integracja z pakietem OMS obejmuje również korzyści związane z używaniem usługi Log Analytics do monitorowania i analizowania strumieni zadań i stanu zadań elementów runbook w czasie oraz do wykorzystywania zaawansowanych funkcji w celu eskalowania lub badania problemów. Oferta wdraża też rozwiązania do śledzenia zmian i zarządzania aktualizacjami, które są domyślnie włączone. |
-| Na platformie Marketplace wybierz pozycję Automatyzacja | Tworzy konto usługi Automation w nowej lub istniejącej grupie zasobów, która nie jest połączona z obszarem roboczym OMS i nie zawiera żadnych dostępnych rozwiązań z oferty automatyzacji i kontroli. To jest podstawowa konfiguracja, która stanowi wprowadzenie do usługi Automation i ułatwia zapoznanie się ze sposobem pisania elementów Runbook, konfiguracji DSC i korzystania z możliwości usługi. |
-| Wybrane rozwiązania do zarządzania | W przypadku wybrania rozwiązania — **[Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)**, **[Uruchamianie i zatrzymywanie maszyn wirtualnych poza godzinami pracy](automation-solution-vm-management.md)** lub **[Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)** — monitują one o wybranie istniejącej usługi Automation i obszaru roboczego OMS lub umożliwiają utworzenie ich obu zgodnie z wymaganiami dla rozwiązania, które ma zostać wdrożone w ramach Twojej subskrypcji. |
+| Wybierz **Automatyzacja i kontrola** w portalu Azure Marketplace | Oferty Azure Marketplace tworzy konto usługi Automatyzacja i obszarem roboczym pakietu OMS, które są powiązane i w tej samej grupie zasobów i region. Integracja z usługą OMS także zaletą używania analizy dzienników do monitorowania i analizy strumienia stanu i zadania zadania elementu runbook wraz z upływem czasu. Umożliwia także funkcje zaawansowane w analizy dzienników Eskaluj lub badania problemów. Oferta wdraża **śledzenia zmian** i **zarządzania aktualizacjami** rozwiązania, które są domyślnie włączone. |
+| Wybierz **automatyzacji** w witrynie Marketplace | Ta metoda tworzy konto usługi Automatyzacja w grupie nowy lub istniejący zasób, który nie jest powiązany z obszarem roboczym pakietu OMS. Nie zawiera żadnych dostępnych rozwiązań z **Automatyzacja i kontrola** oferty. Ta metoda jest podstawową konfigurację, która stanowi wprowadzenie do automatyzacji. Dowiedz się, jak napisać elementów runbook i konfiguracji DSC i Dowiedz się, jak korzystać z funkcji usługi może pomóc. |
+| Wybierz **zarządzania** rozwiązań | W przypadku wybrania **zarządzania** rozwiązania, w tym [zarządzania aktualizacjami](../operations-management-suite/oms-solution-update-management.md), [uruchamiania/zatrzymywania maszyn wirtualnych podczas poza godzinami pracy](automation-solution-vm-management.md), lub [śledzenia zmian](../log-analytics/log-analytics-change-tracking.md), rozwiązanie zostanie wyświetlony monit o wybranie istniejącego konta automatyzacji i obszarem roboczym pakietu OMS. Rozwiązanie oferuje możliwość tworzenia konta automatyzacji i obszarem roboczym pakietu OMS zgodnie z wymaganiami w rozwiązaniu do wdrożenia w ramach subskrypcji. |
 
-Ten temat poprowadzi Cię przez proces tworzenia konta usługi Automation i obszaru roboczego OMS przez dołączenie oferty automatyzacji i kontroli.  Aby uzyskać informacje dotyczące tworzenia autonomicznego konta usługi Automation do testowania lub przeglądania usługi, zapoznaj się z następującym artykułem: [Tworzenie autonomicznego konta usługi Automation](automation-create-standalone-account.md).  
+### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Utwórz konto automatyzacji, który jest zintegrowany z usługą OMS
+Aby dołączyć automatyzacji zaleca się wybranie **Automatyzacja i kontrola** oferty w witrynie Marketplace. Za pomocą tej metody tworzy konto usługi Automatyzacja i integracja z obszarem roboczym pakietu OMS ustanawia. Korzystając z tej metody, masz również możliwość zainstalowania rozwiązań do zarządzania, które są dostępne z ofertą.  
 
-### <a name="create-automation-account-integrated-with-oms"></a>Tworzenie konta usługi Automation zintegrowanego z pakietem OMS
-Zalecana metoda uwzględnienia usługi Automation polega na wybraniu oferty automatyzacji i kontroli z platformy Marketplace.  Spowoduje to zarówno utworzenie konta usługi Automation, jak i ustanowienie integracji z obszarem roboczym OMS, a w tym możliwość instalowania rozwiązań do zarządzania, które są dostępne wraz z ofertą.  
+[Tworzenie konta automatyzacji autonomiczny](automation-create-standalone-account.md) przeprowadzi Cię przez proces tworzenia konta automatyzacji i obszarem roboczym pakietu OMS przez dołączania **Automatyzacja i kontrola** oferty. Można poznać sposoby tworzenia konta automatyzacji do testowania autonomiczny lub podejrzeć usługi.  
 
-1. Zaloguj się do witryny Azure Portal przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
+Aby utworzyć konto usługi Automatyzacja i obszarem roboczym pakietu OMS przy użyciu **Automatyzacja i kontrola** oferta portalu Marketplace:
 
-2. Kliknij przycisk **Nowy**.<br><br> ![Wybieranie opcji Nowy w witrynie Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+1. Zaloguj się do portalu Azure przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i coadministrator subskrypcji.
+2. Wybierz **nowe**.<br><br> ![W portalu Azure wybierz opcję Nowy](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+3. Wyszukaj **automatyzacji**. W wynikach wyszukiwania wybierz **automatyzacji & sterowanie**.<br><br> ![Wyszukaj i wybierz automatyzacji & kontroli w portalu Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+4. Przejrzyj opis oferty, a następnie wybierz **Utwórz**.  
+5. W obszarze **Automatyzacja i kontrola**, wybierz pozycję **obszarem roboczym pakietu OMS**. W obszarze **obszarów roboczych OMS**, wybierz obszar roboczy OMS, która jest połączona z subskrypcją platformy Azure, konto automatyzacji jest w. Jeśli nie masz obszar roboczy OMS, wybierz **Utwórz nowy obszar roboczy**. W obszarze **obszarem roboczym pakietu OMS**: 
+  1. Aby uzyskać **obszarem roboczym pakietu OMS**, wprowadź nazwę dla nowego obszaru roboczego.
+  2. Aby uzyskać **subskrypcji**, wybierz link do subskrypcji. Jeśli ustawienie domyślne nie ma subskrypcji, która ma być używany, wybierz subskrypcję z listy rozwijanej.
+  3. Aby uzyskać **grupy zasobów**, Utwórz grupę zasobów lub wybierz istniejącą grupę zasobów.  
+  4. Aby uzyskać **lokalizacji**, wybierz region. Aby uzyskać więcej informacji, zobacz [regiony usługi Automatyzacja Azure jest dostępna w](https://azure.microsoft.com/regions/services/). Rozwiązania są dostępne w dwóch warstw: warstwy bezpłatne i na węzeł (OMS). Warstwa bezpłatna ma ograniczenie ilości danych, które zostały zebrane codziennie, okres przechowywania i minut czasu wykonywania zadania elementu runbook. Na węzeł (OMS) warstwy nie ma ograniczenie ilości danych zbieranych dziennie.  
+  5. Wybierz pozycję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, należy utworzyć konto usługi Automatyzacja, który został skojarzony z nowy obszar roboczy OMS. Obejmują Twojej subskrypcji platformy Azure, grupy zasobów i region. 
+    1. Wybierz **Utwórz konto automatyzacji**.
+    2. W obszarze **konto automatyzacji**w **nazwa** wprowadź nazwę konta automatyzacji.
+    Inne opcje są automatycznie wypełniane oparte na obszar roboczy OMS wybrane. Nie można zmodyfikować te opcje. 
+    3. Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla oferty. Po wybraniu **OK**, opcje konfiguracji są weryfikowane i utworzeniu konta automatyzacji. Aby śledzić postęp, w menu, wybierz **powiadomienia**. 
+    4. W przeciwnym razie wybierz istniejące konto Uruchom jako usługi Automation. Wybrane konto już nie można połączyć z innym obszarem roboczym pakietu OMS. Jeśli tak jest, zostanie wyświetlony komunikat z powiadomieniem. Jeśli konto jest już połączony z obszarem roboczym pakietu OMS, wybierz inne konto automatyzacji Uruchom jako lub utwórz je.
+    5. Po wprowadzeniu lub wybierz wymagane informacje, wybierz **Utwórz**. Informacje jest weryfikowany i są tworzone na kontach konta automatyzacji i Uruchom jako. Automatycznie nastąpi powrót do **obszarem roboczym pakietu OMS** okienka.  
+6. Po wprowadzeniu lub wybierz wymagane informacje na **obszarem roboczym pakietu OMS** okienku wybierz **Utwórz**.  Informacje jest weryfikowany i utworzeniu obszaru roboczego. Aby śledzić postęp, w menu, wybierz **powiadomienia**. Nastąpi powrót do **Dodaj rozwiązanie** okienka.  
+7. W obszarze **Automatyzacja i kontrola** ustawienia, upewnij się, czy chcesz zainstalować zalecanych rozwiązań instalowane. Jeśli zmienisz jakiekolwiek domyślne opcje rozwiązania można zainstalować oddzielnie później.  
+8. Aby kontynuować proces przechodzenia do automatyzacji i obszarem roboczym pakietu OMS, wybierz **Utwórz**. Wszystkie ustawienia są prawidłowe, a następnie próbuje wdrażanie oferty w ramach subskrypcji platformy Azure. Ten proces może potrwać kilka sekund. Aby śledzić postęp, w menu, wybierz **powiadomienia**. 
 
-3. Wyszukaj termin **Automation**, a następnie w wynikach wyszukiwania wybierz pozycję **Automatyzacja i kontrola***.<br><br> ![Na platformie Marketplace wyszukaj i wybierz pozycję Automation and Control](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
-
-4. Po przeczytaniu opisu oferty kliknij przycisk **Utwórz**.  
-
-5. W bloku ustawień **Automatyzacja i kontrola** wybierz pozycję **Obszar roboczy OMS**.  W bloku **Obszary robocze OMS** wybierz obszar roboczy OMS połączony z tą samą subskrypcją platformy Azure, w której znajduje się konto usługi Automation, lub utwórz obszar roboczy OMS.  Jeśli nie masz obszaru roboczego OMS, wybierz pozycję **Utwórz nowy obszar roboczy** i wykonaj następujące czynności w bloku **Obszar roboczy OMS**: 
-   - Określ nazwę dla nowego **Obszaru roboczego OMS**.
-   - Wybierz **Subskrypcję** do połączenia poprzez wybór subskrypcji z listy rozwijanej, jeśli domyślnie wybrana subskrypcja jest niewłaściwa.
-   - W pozycji **Grupa zasobów** możesz utworzyć grupę zasobów lub wybrać istniejącą grupę zasobów.  
-   - Wybierz **lokalizację**.  Aby uzyskać dodatkowe informacje, sprawdź, w których [regionach jest dostępna usługa Azure Automation](https://azure.microsoft.com/regions/services/).  Rozwiązania są oferowane w dwóch warstwach: warstwie bezpłatnej i warstwie na węzeł (OMS).  W warstwie bezpłatnej obowiązuje dzienny limit ilości zbieranych danych, a także limit okresu przechowywania oraz minut czasu wykonywania zadania elementu Runbook.  W warstwie na węzeł (OMS) nie stosuje się dziennego limitu ilości zbieranych danych.  
-   - Wybierz pozycję **Konto usługi Automation**.  Jeśli tworzysz nowy obszar roboczy OMS, wymagane będzie również utworzenie konta usługi Automation, które jest skojarzone z nowym wcześniej określonym obszarem roboczym OMS, włącznie z subskrypcją platformy Azure, grupą zasobów i regionem.  Możesz wybrać pozycję **Utwórz konto usługi Automation** i podać następujące dane w bloku **Konto usługi Automation**: 
-  - W polu **Nazwa** wprowadź nazwę konta usługi Automation.
-
-    Wszystkie inne opcje są automatycznie uzupełniane w oparciu o wybrany obszar roboczy OMS. Nie można zmodyfikować tych opcji.  Konto Uruchom jako platformy Azure jest domyślną metodą uwierzytelniania dla oferty.  Gdy klikniesz przycisk **OK**, opcje konfiguracji zostaną sprawdzone, a konto usługi Automation zostanie utworzone.  Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu. 
-
-    W przeciwnym razie wybierz istniejące konto Uruchom jako usługi Automation.  Wybrane konto nie może być już połączone z innym obszarem roboczym OMS. W przeciwnym razie w bloku zostanie wyświetlony komunikat powiadomienia.  Jeśli konto jest już połączone, musisz wybrać inne konto Uruchom jako usługi Automation lub utworzyć konto.
-
-    Po podaniu wymaganych informacji kliknij przycisk **Utwórz**.  Informacje są weryfikowane, a następnie jest tworzone konto usługi Automation oraz konta Uruchom jako.  Nastąpi automatyczny powrót do bloku **Obszar roboczy OMS**.  
-
-6. Po podaniu wymaganych informacji w bloku **Obszar roboczy OMS** kliknij przycisk **Utwórz**.  Podczas weryfikowania informacji i tworzenia obszaru roboczego możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu.  Nastąpi powrót do bloku **Dodawanie rozwiązania**.  
-
-7. W bloku ustawień **Automatyzacja i kontrola** potwierdź chęć zainstalowania zalecanych wcześniej wybranych rozwiązań. Jeśli usuniesz wybór któregokolwiek z nich, możesz zainstalować je oddzielnie później.  
-
-8. Kliknij przycisk **Utwórz**, aby kontynuować dołączanie usługi Automation i obszaru roboczego OMS. Wszystkie ustawienia są sprawdzane, a następnie jest podejmowana próba wdrożenia oferty w Twojej subskrypcji.  Ten proces może potrwać kilka sekund. Możesz śledzić postęp w sekcji **Powiadomienia** z poziomu menu. 
-
-Po dołączeniu tej oferty możesz rozpocząć tworzenie elementów runbook, pracować z włączonymi przez Ciebie rozwiązaniami do zarządzania, wdrożyć rolę [procesu roboczego hybrydowego elementu runbook](automation-hybrid-runbook-worker.md) lub rozpocząć pracę z usługą [Log Analytics](https://docs.microsoft.com/azure/log-analytics), aby zebrać dane wygenerowane przez zasoby w środowiskach w chmurze lub lokalnych.   
+Po ofercie jest został załadowany, można wykonać następujące zadania:
+* Rozpocznij tworzenie elementów runbook.
+* Praca z rozwiązaniami do zarządzania, które są włączone.
+* Wdrażanie [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md) roli.
+* Rozpoczęcia stosowaniu [analizy dzienników](https://docs.microsoft.com/azure/log-analytics) do zbierania danych jest generowany przez zasobów w chmurze lub lokalnym środowisku.   
 
 ## <a name="next-steps"></a>Kolejne kroki
-* Możesz potwierdzić, że Twoje nowe konto usługi Automation może uwierzytelniać względem zasobów platformy Azure, sprawdzając [test uwierzytelniania konta Uruchom jako usługi Azure Automation](automation-verify-runas-authentication.md).
-* Przed rozpoczęciem tworzenia elementów runbook należy najpierw poznać obsługiwane [typy elementów runbook usługi Automation](automation-runbook-types.md) oraz powiązane zagadnienia.
+* Upewnij się, że nowe konto automatyzacji można uwierzytelniać na zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [testu automatyzacji Uruchom jako platformy Azure uwierzytelnianie konta](automation-verify-runas-authentication.md).
+* Dowiedz się, jak rozpocząć pracę z tworzeniem elementów runbook i powiązane zagadnienia, przed rozpoczęciem tworzenia. Aby uzyskać więcej informacji, zobacz [typy elementu runbook automatyzacji](automation-runbook-types.md).
 
 

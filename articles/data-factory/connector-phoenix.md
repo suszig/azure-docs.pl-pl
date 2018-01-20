@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 746519d3a450aca6efdf20c0ae57602d480bf86e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiowanie danych z Phoenix przy użyciu fabryki danych Azure 
 
@@ -34,7 +34,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do Phoenix łącznika.
 
@@ -48,7 +48,7 @@ Phoenix połączone usługi, obsługiwane są następujące właściwości:
 | host | IP adres lub nazwę hosta serwera Phoenix. (to znaczy 192.168.222.160)  | Yes |
 | port | Port TCP używany przez serwer Phoenix nasłuchiwanie dla połączeń klienta. Wartość domyślna to 8765.  | Nie |
 | httpPath | Częściowe adres URL, odpowiadający Phoenix serwera. (to znaczy /gateway/sandbox/phoenix/version). Wartość domyślna to `hbasephoenix` używania WindowsAzureHDInsightService.  | Nie |
-| Typ authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Phoenix. <br/>Dozwolone wartości to: **anonimowe**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
+| authenticationType | Mechanizm uwierzytelniania używany do łączenia się z serwerem Phoenix. <br/>Dozwolone wartości to: **anonimowe**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | nazwa użytkownika | Nazwa użytkownika używana do łączenia się z serwerem Phoenix.  | Nie |
 | hasło | Hasło odpowiadający nazwie użytkownika. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Nie |
 | enableSsl | Określa, czy połączenia z serwerem są szyfrowane przy użyciu protokołu SSL. Wartość domyślna to false.  | Nie |

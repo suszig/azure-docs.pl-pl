@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Tworzenie niestandardowych interfejsów API, który można wywołać z przepływów pracy aplikacji logiki
 
@@ -31,7 +31,7 @@ Mimo że Azure Logic Apps oferuje [100 + łączników](../connectors/apis-list.m
 
 Zasadniczo łączników są interfejsów API REST na użytek podłączany interfejsów sieci web [format metadanych struktury Swagger](http://swagger.io/specification/) dla dokumentacji i dane JSON jako ich format wymiany danych. Ponieważ łączniki są interfejsów API REST, które komunikują się za pośrednictwem punktów końcowych HTTP, można użyć dowolnego języka, takich jak .NET, Java lub Node.js do tworzenia łączników. Można również udostępnić swoje interfejsy API na [usłudze Azure App Service](../app-service/app-service-web-overview.md), platformy jako — usługa (PaaS) oferta zapewnia w jednym ze sposobów najlepsze najprostszym i najbardziej skalowalny hosting interfejsu API. 
 
-W przypadku niestandardowych interfejsów API do pracy z usługą logic apps, interfejs API może zapewnić [ *akcje* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) który wykonywania określonych zadań w przepływach pracy aplikacji logiki. Interfejs API mogą również działać jako [ *wyzwalacza* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) zaczynającym się przepływu pracy aplikacji logiki w przypadku nowych danych lub zdarzeń spełnia określony warunek. W tym temacie opisano typowe wzorce, które możesz wykonać tworzenia działania i jest wyzwalane w interfejsie API, na podstawie zachowania, które Twój interfejs API w celu zapewnienia.
+W przypadku niestandardowych interfejsów API do pracy z usługą logic apps, interfejs API może zapewnić [ *akcje* ](./logic-apps-overview.md#logic-app-concepts) który wykonywania określonych zadań w przepływach pracy aplikacji logiki. Interfejs API mogą również działać jako [ *wyzwalacza* ](./logic-apps-overview.md#logic-app-concepts) zaczynającym się przepływu pracy aplikacji logiki w przypadku nowych danych lub zdarzeń spełnia określony warunek. W tym temacie opisano typowe wzorce, które możesz wykonać tworzenia działania i jest wyzwalane w interfejsie API, na podstawie zachowania, które Twój interfejs API w celu zapewnienia.
 
 Swoje interfejsy API mogą być hostowane na [usłudze Azure App Service](../app-service/app-service-web-overview.md), platformy jako — usługa (PaaS) oferta zapewnia wysoce skalowalną, prosty hosting interfejsu API.
 
@@ -73,7 +73,7 @@ Wiele bibliotek, takich jak [Swashbuckle](https://github.com/domaindrivendev/Swa
 
 ## <a name="action-patterns"></a>Wzorce akcji
 
-W przypadku aplikacji logiki do wykonywania zadań powinno dostarczyć niestandardowego interfejsu API [ *akcje*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Mapuje każdej operacji interfejsu API do operacji. Podstawowe akcja jest kontrolera, który akceptuje żądania HTTP i zwraca odpowiedzi HTTP. Tak na przykład aplikacji logiki wysyła żądanie HTTP do aplikacji sieci web lub aplikacji interfejsu API. Aplikacja zwraca odpowiedź HTTP wraz z zawartością, który może przetwarzać aplikacji logiki.
+W przypadku aplikacji logiki do wykonywania zadań powinno dostarczyć niestandardowego interfejsu API [ *akcje*](./logic-apps-overview.md#logic-app-concepts). Mapuje każdej operacji interfejsu API do operacji. Podstawowe akcja jest kontrolera, który akceptuje żądania HTTP i zwraca odpowiedzi HTTP. Tak na przykład aplikacji logiki wysyła żądanie HTTP do aplikacji sieci web lub aplikacji interfejsu API. Aplikacja zwraca odpowiedź HTTP wraz z zawartością, który może przetwarzać aplikacji logiki.
 
 Działania standardowe możesz zapisać metoda żądania HTTP w interfejsie API i opis tej metody w pliku programu Swagger. Następnie można wywołać interfejsu API bezpośrednio z [akcji HTTP](../connectors/connectors-native-http.md) lub [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) akcji. Domyślnie odpowiedzi musi zostać zwrócona w [limit czasu żądania](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Dla tego wzorca zdefiniować dwa punkty końcowe na kontrolerze: `subscribe` i`u
 
 ## <a name="trigger-patterns"></a>Wzorce wyzwalacza
 
-Niestandardowy interfejs API może działać jako [ *wyzwalacza* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) zaczynającym się aplikacji logiki w przypadku nowych danych lub zdarzeń spełnia określony warunek. Wyzwalacz można regularnie, sprawdź lub poczekać i nasłuchiwania nowych danych lub zdarzeń na punkt końcowy usługi. Jeśli nowe dane lub zdarzenia spełnia określony warunek, wyzwalacz generowane i uruchamia aplikację logiki, która nasłuchuje do tego wyzwalacza. Aby uruchomić aplikacje logiki w ten sposób, można wykonać interfejsu API [ *wyzwalacza sondowania* ](#polling-triggers) lub [ *wyzwalacza elementu webhook* ](#webhook-triggers) wzorca. Te wzorce są podobne do ich odpowiedniki dla [sondowania akcje](#async-pattern) i [Akcje elementu webhook](#webhook-actions). Ponadto Dowiedz się więcej o [wyzwalaczy zbierania danych użycia](logic-apps-pricing.md).
+Niestandardowy interfejs API może działać jako [ *wyzwalacza* ](./logic-apps-overview.md#logic-app-concepts) zaczynającym się aplikacji logiki w przypadku nowych danych lub zdarzeń spełnia określony warunek. Wyzwalacz można regularnie, sprawdź lub poczekać i nasłuchiwania nowych danych lub zdarzeń na punkt końcowy usługi. Jeśli nowe dane lub zdarzenia spełnia określony warunek, wyzwalacz generowane i uruchamia aplikację logiki, która nasłuchuje do tego wyzwalacza. Aby uruchomić aplikacje logiki w ten sposób, można wykonać interfejsu API [ *wyzwalacza sondowania* ](#polling-triggers) lub [ *wyzwalacza elementu webhook* ](#webhook-triggers) wzorca. Te wzorce są podobne do ich odpowiedniki dla [sondowania akcje](#async-pattern) i [Akcje elementu webhook](#webhook-actions). Ponadto Dowiedz się więcej o [wyzwalaczy zbierania danych użycia](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -171,7 +171,7 @@ Oto etapy wyzwalacz sondowania opisem z punktu widzenia interfejsu API:
 | Znaleziono nowych danych lub zdarzeń?  | Odpowiedzi interfejsu API | 
 | ------------------------- | ------------ |
 | Znaleziono | Zwraca HTTP `200 OK` stan ładunek odpowiedzi (dane wejściowe dla następnego kroku). <br/>Ta odpowiedź tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy. | 
-| Nie można odnaleźć | Zwraca HTTP `202 ACCEPTED` stan o `location` nagłówka i `retry-after` nagłówka. <br/>Wyzwalaczy `location` nagłówka powinien również zawierać `triggerState` parametru zapytania, który zazwyczaj jest to "sygnatura czasowa". Interfejs API za pomocą tego identyfikatora możesz śledzić ostatniego aplikacji logiki zostało wyzwolone. | 
+| Nie znaleziono | Zwraca HTTP `202 ACCEPTED` stan o `location` nagłówka i `retry-after` nagłówka. <br/>Wyzwalaczy `location` nagłówka powinien również zawierać `triggerState` parametru zapytania, który zazwyczaj jest to "sygnatura czasowa". Interfejs API za pomocą tego identyfikatora możesz śledzić ostatniego aplikacji logiki zostało wyzwolone. | 
 ||| 
 
 Na przykład mogą okresowo sprawdzać usługi dla nowych plików, można utworzyć wyzwalacza sondowania, który ma następujące zachowania:
@@ -179,7 +179,7 @@ Na przykład mogą okresowo sprawdzać usługi dla nowych plików, można utworz
 | Żądanie zawiera `triggerState`? | Odpowiedzi interfejsu API | 
 | -------------------------------- | -------------| 
 | Nie | Zwraca HTTP `202 ACCEPTED` stanu oraz `location` nagłówek o `triggerState` ustawioną bieżący czas i `retry-after` interwał na 15 sekund. | 
-| Tak | Sprawdź usługi plików dodane po `DateTime` dla `triggerState`. | 
+| Yes | Sprawdź usługi plików dodane po `DateTime` dla `triggerState`. | 
 ||| 
 
 | Liczba znalezionych plików | Odpowiedzi interfejsu API | 
@@ -223,7 +223,7 @@ Po skonfigurowaniu uwierzytelniania, należy skonfigurować wdrożenie dla inter
 
 ## <a name="publish-custom-apis-to-azure"></a>Publikowanie niestandardowych interfejsów API na platformie Azure
 
-Aby udostępnić swoje niestandardowe interfejsy API dla innych użytkowników Logic Apps w usłudze Azure, musisz dodać zabezpieczeń i zarejestruj je łączników aplikacji logiki. Aby uzyskać więcej informacji, zobacz [omówienie łączniki niestandardowe](../logic-apps/custom-connector-overview.md). 
+Aby udostępnić swoje niestandardowe interfejsy API dla innych użytkowników Logic Apps w usłudze Azure, musisz dodać zabezpieczeń i zarejestruj je łączników aplikacji logiki. Aby uzyskać więcej informacji, zobacz [Omówienie łączników niestandardowych](../logic-apps/custom-connector-overview.md). 
 
 Aby udostępnić swoje niestandardowe interfejsy API dla wszystkich użytkowników w aplikacji logiki, Flow firmy Microsoft i PowerApps firmy Microsoft, należy dodać zabezpieczeń, Zarejestruj swoje interfejsy API łączników aplikacji logiki i wyznaczyć łączniki dla [programu Microsoft Azure certyfikowane](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
@@ -233,9 +233,9 @@ Aby udostępnić swoje niestandardowe interfejsy API dla wszystkich użytkownik�
 
 * Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Aby pomóc w udoskonalaniu Logic Apps, Zagłosuj lub Prześlij pomysłów na [witrynę opinii użytkowników Logic Apps](http://aka.ms/logicapps-wish). 
+* Aby pomóc w ulepszaniu usługi Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Logic Apps](http://aka.ms/logicapps-wish). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Obsługa błędów i wyjątków](../logic-apps/logic-apps-exception-handling.md)
 * [Wywołaj wyzwalacz, lub zagnieżdżania logiki aplikacji za pomocą punktów końcowych HTTP](../logic-apps/logic-apps-http-endpoint.md)

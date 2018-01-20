@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: d4614b0ceff0ec0d36dbb1a136551f985f2fc1a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-github-connector"></a>Rozpoczynanie pracy z łącznikiem usługi GitHub
 GitHub to repozytorium Git opartych na sieci web usługi hosta. Zapewnia ona wszystkich wersji rozproszonej i kontroli źródła kodu zarządzania (SCM) funkcji Git, a także dodawanie własnych funkcji.
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Utwórz połączenie z usługi GitHub
 Do tworzenia aplikacji logiki z usługi GitHub, należy najpierw utworzyć **połączenia** następnie podaj szczegóły następujące właściwości: 
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Token |Tak |Podaj poświadczenia usługi GitHub |
+| Token |Yes |Podaj poświadczenia GitHub |
 
 Po utworzeniu połączenia, można go wykonać akcje i będzie nasłuchiwać wyzwalaczy opisane w tym artykule. 
 

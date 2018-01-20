@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
 Aktualizacje **Azure Data Catalog** są wydawane regularnie. Nie każdy wydanie obejmuje nowe funkcje dla użytkownika, ponieważ niektóre wersje są koncentruje się na możliwości usługi zaplecza. Ta strona przedstawia nowe możliwości dla użytkownika dodane do usługi Azure Data Catalog.
@@ -208,7 +208,7 @@ Począwszy od listopada 2015 zostały dodane do wykazu danych Azure następując
 * Obsługa do definiowania i edytowania schematów na poziomie kolumny dla ręcznie zarejestrowanych zasobów danych. Po utworzeniu ręcznie zasobu danych za pomocą portalu wykazu danych Azure, użytkownicy mogą dodawać definicje kolumn we właściwościach zasobów danych.
 * Obsługa zapytań "ma" podczas wyszukiwania Azure Data Catalog, aby umożliwić odnajdywania zarejestrowanych zasobów danych, które posiadają określonych metadanych. Składnia zapytania w usłudze Azure Data Catalog zawiera teraz:
 
-| Składnia zapytania | Przeznaczenie |
+| Składnia zapytań | Przeznaczenie |
 | --- | --- |
 | `has:previews` |Umożliwia znalezienie zasobów danych, które obejmują Podgląd |
 | `has:documentation` |Umożliwia znalezienie zasobów danych, dla których dostarczono dokumentacji |

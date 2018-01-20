@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Rozpoczynanie pracy z łącznik DB2
 Łącznik usługi Microsoft dla bazy danych DB2 nawiązywanie zasobów przechowywanych w bazie danych programu IBM DB2 Logic Apps. Ten łącznik obejmuje klienta Microsoft do komunikowania się ze zdalnymi komputerami serwera bazy danych DB2 w sieci TCP/IP. Obejmuje chmury baz danych, takich jak dashDB IBM Bluemix lub IBM DB2 dla systemu Windows Azure wirtualizacji i lokalnych baz danych za pomocą bramy danych lokalnych. Zobacz [obsługiwane listy](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2 platform i wersji (w tym temacie).
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 W tym temacie przedstawiono sposób korzystania z łącznika w aplikacji logiki, aby operacje bazy danych procesu.
 
-Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Dostępne akcje
 Łącznik DB2 obsługuje następujące akcje logikę w aplikacji:
@@ -86,8 +86,8 @@ Ten łącznik obsługuje połączenia z lokalnym baz danych i w chmurze przy uż
 | Właściwość | Opis |
 | --- | --- |
 | serwer |Wymagany. Przyjmuje wartość ciągu, która reprezentuje adres TCP/IP lub alias w formacie IPv4 lub IPv6, a następnie (rozdzielany średnikami) przez numer portu TCP/IP. |
-| Bazy danych |Wymagany. Przyjmuje wartość ciągu, która reprezentuje DRDA relacyjne nazwę bazy danych (RDBNAM). Bazy danych DB2 dla z/OS akceptuje ciąg 16-bajtowych (baza danych jest znany jako IBM DB2 dla lokalizacji z/OS). Bazy danych DB2 dla i5/OS akceptuje ciąg 18-bajtowych (baza danych jest nazywany IBM DB2 dla i relacyjnej bazy danych). Bazy danych DB2 dla LUW akceptuje ciąg 8-bajtowych. |
-| Uwierzytelnianie |Opcjonalny. Akceptuje wartości elementu listy, Basic lub systemu Windows (kerberos). |
+| baza danych |Wymagany. Przyjmuje wartość ciągu, która reprezentuje DRDA relacyjne nazwę bazy danych (RDBNAM). Bazy danych DB2 dla z/OS akceptuje ciąg 16-bajtowych (baza danych jest znany jako IBM DB2 dla lokalizacji z/OS). Bazy danych DB2 dla i5/OS akceptuje ciąg 18-bajtowych (baza danych jest nazywany IBM DB2 dla i relacyjnej bazy danych). Bazy danych DB2 dla LUW akceptuje ciąg 8-bajtowych. |
+| uwierzytelnianie |Opcjonalny. Akceptuje wartości elementu listy, Basic lub systemu Windows (kerberos). |
 | nazwa użytkownika |Wymagany. Akceptuje wartości ciągu. Bazy danych DB2 dla z/OS akceptuje ciąg 8-bajtowych. Bazy danych DB2 dla i akceptuje ciąg 10-bajtowych. Bazy danych DB2 dla systemu Linux lub UNIX akceptuje ciąg 8-bajtowych. Bazy danych DB2 dla systemu Windows akceptuje ciąg 30-bajtowych. |
 | hasło |Wymagany. Akceptuje wartości ciągu. |
 | Bramy |Wymagany. Akceptuje wartości elementu listy, reprezentujący bramy danych lokalnych zdefiniowany do aplikacji logiki w ramach grupy magazynów. |
@@ -280,6 +280,6 @@ Ten łącznik obsługuje następujące platformy IBM DB2 i wersji, jak również
 
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/db2/). 
 
-## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
 

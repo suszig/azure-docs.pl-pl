@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Włącz licencjonowanego obrazu w laboratorium w usłudze Azure DevTest Labs
 
@@ -29,7 +29,7 @@ Pierwszy krok w celu zezwolenie użytkownikom na tworzenie maszyn wirtualnych za
 
 1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Wybierz pozycję **Więcej usług**, a następnie z listy wybierz pozycję **DevTest Labs**.
+1. Wybierz **wszystkie usługi**, a następnie wybierz **DevTest Labs** z listy.
 
 1. Z listy labs wybierz żądany laboratorium.  
 
@@ -76,7 +76,15 @@ Można włączyć wdrożenia programowe licencjonowanego obrazu wykonaj następu
    >
 
 
-1. Wybierz pozycję **Zapisz**. Na liście obrazów marketplace, który obraz przedstawia teraz **zaakceptowane postanowienia** i są dostępne dla użytkowników w celu utworzenia maszyny wirtualnej.
+1. Wybierz pozycję **Zapisz**. 
+
+    Na liście obrazów marketplace, który obraz przedstawia teraz **zaakceptowane postanowienia** i są dostępne dla użytkowników w celu utworzenia maszyny wirtualnej.
+
+> [!NOTE]
+> Użytkownicy mogą tworzyć niestandardowego obrazu z licencjonowanego obrazu. Zobacz [utworzyć niestandardowy obraz z pliku VHD](devtest-lab-create-template.md) Aby uzyskać więcej informacji.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Wpisy na blogu pokrewne
 
@@ -85,4 +93,6 @@ Można włączyć wdrożenia programowe licencjonowanego obrazu wykonaj następu
 
 ## <a name="next-steps"></a>Kolejne kroki
 
+- [Tworzenie niestandardowego obrazu z maszyny Wirtualnej](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Tworzenie niestandardowego obrazu z pliku VHD](devtest-lab-create-template.md)
 - [Dodaj Maszynę wirtualną do laboratorium](devtest-lab-add-vm.md)

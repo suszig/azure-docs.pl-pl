@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 699f5eba75bc105a708f82be353a7849646309ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Działania wyszukiwania w fabryce danych Azure
 Działania wyszukiwania służy do odczytywania lub wyszukania rekordu, nazwę tabeli lub wartość z dowolnego źródła zewnętrznego. Do tych danych wyjściowych mogą także odwoływać się kolejne działania. 
@@ -36,6 +36,8 @@ Następujące źródła danych są obecnie obsługiwane dla wyszukiwania:
 - Usługa Azure SQL Data Warehouse (JSON dane skonwertowane z zapytania)
 - SQL Server (JSON dane skonwertowane z zapytania)
 - Magazyn tabel Azure (JSON dane skonwertowane z zapytania)
+
+Maksymalna liczba wierszy zwracanych przez działanie wyszukiwania to **5000**, aż do **10MB** rozmiar.
 
 ## <a name="syntax"></a>Składnia
 
@@ -267,7 +269,7 @@ To wystąpienie bazy danych SQL Azure zawiera dane, które ma zostać skopiowany
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Zestaw obiektów
 

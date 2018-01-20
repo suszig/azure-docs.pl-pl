@@ -1,2 +1,2 @@
 >[!Note]
-> Korzystanie z emulatora magazynu Azure nie jest obsługiwane przez narzędzia usługi Azure Functions, podczas opracowywania lokalnie.
+> Funkcja aplikacji można użyć emulatora magazynu Azure dla **AzureWebJobsStorage** i **AzureWebJobsDashboard** ustawienia połączenia, które są wymagane przez projekt. Aby użyć emulatora, ustaw wartości tych kluczy do `UseDevelopmentStorage=true`. 

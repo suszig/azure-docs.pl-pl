@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: a03c71d2691478b17864d6cc5ec4c0c55caef477
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b47451bb8e53154760b893e452649f15ffdff7f9
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Jak można dołączyć dysku danych do maszyny wirtualnej systemu Linux
 > [!IMPORTANT] 
@@ -227,7 +227,7 @@ Istnieją dwa sposoby, aby umożliwić PRZYCINANIE obsługi w maszynie Wirtualne
 Więcej o korzystaniu z maszyny Wirtualnej systemu Linux w następujących artykułach:
 
 * [Jak zalogować się do maszyny wirtualnej z systemem Linux][Logon]
-* [Jak można odłączyć dysku od maszyny wirtualnej systemu Linux](detach-disk.md)
+* [Jak można odłączyć dysku od maszyny wirtualnej systemu Linux](detach-disk-classic.md)
 * [Z klasycznego modelu wdrażania przy użyciu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Skonfiguruj RAID na maszynie Wirtualnej systemu Linux na platformie Azure](../configure-raid.md)
 * [Skonfiguruj LVM na Maszynę wirtualną systemu Linux na platformie Azure](../configure-lvm.md)

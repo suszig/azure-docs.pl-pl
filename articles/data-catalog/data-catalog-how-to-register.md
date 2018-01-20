@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 42d7fddd592b9cea8fbfa38bf39ca5def3542d66
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Rejestracja źródeł danych w wykazie danych Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -85,5 +85,5 @@ Ponowne rejestrowanie źródła danych już zarejestrowany wykonuje operację "u
 ## <a name="summary"></a>Podsumowanie
 Ponieważ metadanych strukturalnych i opisowy jest kopiowane ze źródłem danych z usługą wykazu, rejestrowania źródła danych w katalogu danych ułatwia dane do odnalezienia i zrozumienia. Po zarejestrowaniu źródła danych, można dodawać adnotacje, zarządzanie i go odnaleźć za pomocą portalu wykazu danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat rejestrowania źródeł danych, zobacz [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md) samouczka.

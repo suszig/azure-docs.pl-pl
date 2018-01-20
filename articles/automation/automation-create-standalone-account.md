@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie autonomicznego konta usługi Azure Automation | Microsoft Docs"
-description: "Samouczek przeprowadzający przez proces tworzenia, testowania i przykładowego użycia uwierzytelniania podmiotu zabezpieczeń w usłudze Automatyzacji Azure."
+title: "Utwórz konto usługi Automatyzacja Azure autonomiczny | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono kroki tworzenia, testowania i przy użyciu przykład zabezpieczeń podmiotu zabezpieczeń uwierzytelniania w usłudze Automatyzacja Azure."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,79 +14,95 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7303c17cfa35043229bb1bdd61ef33647ef60ffa
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
-W tym temacie przedstawiono sposób tworzenia konta usługi Automation w witrynie Azure Portal, jeśli chcesz ocenić i dowiedzieć się o usłudze Azure Automation bez uwzględniania dodatkowych rozwiązań do zarządzania lub integracji z usługą OMS Log Analytics w celu zapewnienia zaawansowanego monitorowania zadań elementów Runbook.  W dowolnym momencie w przyszłości możesz dodać te rozwiązania do zarządzania lub zintegrować je z usługą Log Analytics.  Konto usługi Automation umożliwia uwierzytelnianie elementów Runbook zarządzających zasobami w usłudze Azure Resource Manager albo w klasycznym wdrożeniu platformy Azure.
+W tym artykule przedstawiono sposób utworzyć konto usługi Automatyzacja Azure w portalu Azure. Portal konta automatyzacji można użyć do oceny i więcej informacji na temat automatyzacji bez korzystania z rozwiązania do zarządzania dodatkowe i integracja z usługi Analiza dzienników Azure w Operations Management Suite (OMS). Można dodać te rozwiązania do zarządzania lub zintegrować z analizy dzienników dla zaawansowanego monitorowania zadań elementu runbook w dowolnym momencie w przyszłości. 
 
-Po utworzeniu konta usługi Automation witryna Azure Portal automatycznie tworzy:
+Przy użyciu konta automatyzacji elementów runbook mogą uwierzytelniać za zarządzanie zasobami w usłudze Azure Resource Manager lub w klasycznym modelu wdrażania.
 
-* Konto Uruchom jako, które tworzy nową nazwę główną usługi w usłudze Azure Active Directory i certyfikat oraz przypisuje rolę Współautor kontroli dostępu opartej na rolach (RBAC), która jest używana do zarządzania zasobami usługi Resource Manager za pomocą elementów Runbook.   
-* Klasyczne konto Uruchom jako przez przekazanie certyfikatu zarządzania, które jest używane do zarządzania klasycznymi zasobami przy użyciu elementów Runbook.  
+Podczas tworzenia konta automatyzacji w portalu Azure, te konta są tworzone automatycznie:
 
-Upraszcza to proces i pomaga szybko rozpocząć tworzenie i wdrażanie elementów Runbook dla różnych potrzeb automatyzacji.  
+* **Konto Uruchom jako**. To konto wykonuje następujące zadania:
+  - Tworzy nazwy głównej usługi w usłudze Azure Active Directory (Azure AD).
+  - Tworzy certyfikat.
+  - Przypisuje Contributor Role-Based kontroli dostępu (RBAC), która zarządza zasobów usługi Azure Resource Manager za pomocą elementów runbook.
+* **Klasycznym konta Uruchom jako**. To konto będzie przekazywać certyfikatu zarządzania. Certyfikat zarządza zasoby klasyczne przy użyciu elementów runbook.
 
-## <a name="permissions-required-to-create-automation-account"></a>Uprawnienia wymagane do utworzenia konta usługi Automation
-Aby utworzyć lub zaktualizować konto usługi Automation, musisz mieć następujące określone uprawnienia i uprawnienia wymagane do wykonania zadań opisanych w tym temacie.   
- 
-* Przed utworzeniem konta usługi Automation konto użytkownika usługi AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli właściciela dla zasobów Microsoft.Automation w sposób opisany w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).  
-* Jeśli ustawienie Rejestracje aplikacji ma wartość **Tak**, użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje usługi AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Jeśli wartością ustawienia rejestracji aplikacji jest **Nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD. 
+Tych kont tworzona można szybko rozpocząć tworzenia i wdrażania elementów runbook do różnych potrzeb automatyzacji.  
 
-Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tej usłudze zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**. Użytkownicy, którzy najpierw zostali dodani do roli administratora globalnego/współadministratora, mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostać pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację, w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
+## <a name="permissions-required-to-create-an-automation-account"></a>Uprawnienia wymagane do tworzenia konta automatyzacji
+Utwórz lub zaktualizuj konto usługi Automatyzacja i wykonać zadania opisane w tym artykule, musi mieć następujące uprawnienia i uprawnienia: 
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Tworzenie nowego konta usługi Automation w witrynie Azure Portal
-W tej części wykonaj poniższe kroki, aby utworzyć konto usługi Azure Automation w witrynie Azure Portal.    
+* Aby utworzyć konto usługi Automatyzacja, Twoje konto użytkownika usługi Azure AD musi dodany do roli uprawnienia równorzędne do roli właściciela dla **firmy Microsoft. Automatyzacja** zasobów. Aby uzyskać więcej informacji, zobacz [opartej na rolach kontroli dostępu w usłudze Automatyzacja Azure](automation-role-based-access-control.md).  
+* W portalu Azure w obszarze **usługi Azure Active Directory** > **ZARZĄDZAJ** > **rejestracji aplikacji**, jeśli **rejestracji aplikacji**  ustawiono **tak**, użytkownicy inni niż administratorzy w Twojej dzierżawie usługi Azure AD można [rejestrowania aplikacji usługi Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Jeśli **rejestracji aplikacji** ustawiono **nr**, użytkownik, który dokonuje tego działania musi być administratorem globalnym w usłudze Azure AD. 
 
-1. Zaloguj się do witryny Azure Portal przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
-2. Kliknij przycisk **Nowy**.<br><br> ![Wybieranie opcji Nowy w witrynie Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Wyszukaj termin **Automation**, a następnie w wynikach wyszukiwania wybierz pozycję **Automatyzacja i kontrola***.<br><br> ![Wyszukiwanie i wybieranie usługi Automation w witrynie Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-3. W bloku Konta automatyzacji kliknij przycisk **Dodaj**.<br><br>![Dodawanie konta usługi Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji przed dodaniem do roli administratora globalnego/coadministrator subskrypcji, są dodawane do usługi Active Directory jako Gość. W tym scenariuszu ten komunikat zostanie wyświetlony na **Dodaj konto automatyzacji** strony: "Nie ma uprawnień do utworzenia." 
 
+Jeśli użytkownik zostanie dodany do roli administratora globalnego/coadministrator najpierw należy można je usunąć z wystąpienia usługi Active Directory dla tej subskrypcji, a potem ponownie dodaj je do pełnego roli użytkownika w usłudze Active Directory.
 
-   > [!NOTE]
-   > Jeśli w bloku **Dodawanie konta usługi Automation** znajduje się poniższe ostrzeżenie, jest to spowodowane tym, że Twoje konto nie jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.<br><br>![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-without-perms.png)
-   > 
-   > 
-4. W bloku **Dodaj konto automatyzacji** w polu **Nazwa** wpisz nazwę nowego konta usługi Automation.
-5. Jeśli masz więcej niż jedną subskrypcję, określ jedną z nich dla nowego konta, nowej lub istniejącej **grupy zasobów** i **lokalizacji** centrum danych Azure.
-6. Sprawdź, czy została wybrana wartość **Tak** dla opcji **Utwórz konto Azure Uruchom jako**, a następnie kliknij przycisk **Utwórz**.  
-   
-   > [!NOTE]
-   > Jeśli wybrano opcję **Nie**, aby nie tworzyć konta Uruchom jako, w bloku **Dodawanie konta usługi Automation** zostanie wyświetlony komunikat ostrzegawczy.  Gdy konto zostanie utworzone w witrynie Azure Portal, nie ma odpowiedniej tożsamości uwierzytelniania w usłudze katalogowej subskrypcji klasycznej lub subskrypcji usługi Resource Manager i dlatego nie ma dostępu do zasobów w ramach subskrypcji.  Zapobiegnie to sytuacji, w której wszelkie elementy Runbook odwołujące się do tego konta miałyby możliwość uwierzytelniania i wykonywania zadań w odniesieniu do zasobów w tych modelach wdrożenia.
-   > 
-   > ![Ostrzeżenie podczas dodawania konta usługi Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-   > Jeśli nie została utworzona jednostka usługi, rola Współautor nie zostanie przypisana.
-   > 
+Aby sprawdzić role użytkowników:
+1. W portalu Azure, przejdź do **usługi Azure Active Directory** okienka.
+2. Wybierz **użytkowników i grup**.
+3. Wybierz **wszyscy użytkownicy**. 
+4. Po wybraniu określonego użytkownika, wybierz **profilu**. Wartość **typ użytkownika** atrybutu w profilu użytkownika nie powinna być **gościa**.
 
-7. W trakcie tworzenia konta usługi Automation na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
+## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Utwórz nowe konto usługi Automatyzacja w portalu Azure
+Aby utworzyć konto usługi Automatyzacja Azure w portalu Azure, wykonaj następujące kroki:    
+
+1. Zaloguj się do portalu Azure przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i coadministrator subskrypcji.
+2. Wybierz **nowe**.<br><br> ![W portalu Azure wybierz opcję Nowy](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+3. Wyszukaj **automatyzacji**. W wynikach wyszukiwania wybierz **automatyzacji & sterowanie**.<br><br> ![Wyszukaj i wybierz automatyzacji & kontroli w portalu Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. W obszarze **kont automatyzacji**, wybierz pozycję **Dodaj**.
+  ![Dodaj konto automatyzacji](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+  
+  > [!NOTE]
+  > Jeśli zostanie wyświetlony następujący komunikat w **Dodaj konto automatyzacji** okienko, Twoje konto nie jest członkiem roli Administratorzy subskrypcji i coadministrator subskrypcji.
+  >
+  > ![Dodaj ostrzeżenie konta automatyzacji](media/automation-create-standalone-account/create-account-without-perms.png)
+  >
+5. W **Dodaj konto automatyzacji** okienko w **nazwa** wprowadź nazwę nowego konta automatyzacji.
+6. Jeśli masz więcej niż jedną subskrypcję, w **subskrypcji** określ subskrypcję, którego chcesz użyć dla nowego konta. 
+7. Aby uzyskać **grupy zasobów**, wprowadź lub wybierz nowy lub istniejący zasób grupy. 
+8. Aby uzyskać **lokalizacji**, wybierz lokalizację centrum danych Azure.
+9. Dla **tworzenia konta Uruchom jako Azure** , należy upewnić się, że **tak** jest wybrany, a następnie wybierz **Utwórz**.
+    
+  > [!NOTE]
+  > Jeśli użytkownik nie chce utworzyć konto Uruchom jako, wybierając **nr** dla **tworzenia konta Uruchom jako Azure**, zostanie wyświetlony komunikat w **Dodaj konto automatyzacji** okienka. Mimo że konto jest tworzone w portalu Azure, konto nie ma odpowiedniego tożsamość uwierzytelniania w ramach subskrypcji modelu klasycznym wdrożenia lub w usłudze katalogowej subskrypcji usługi Azure Resource Manager. W związku z tym konta automatyzacji nie ma dostępu do zasobów w ramach subskrypcji. Dzięki temu wszystkie elementy runbook, odwołujący się tego konta mogą uwierzytelniać i wykonywać zadania dotyczące zasobów w tych modelach wdrażania.
+  >
+  > ![Dodaj ostrzeżenie konta automatyzacji](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+  >
+  > Gdy nazwy głównej usługi nie jest tworzony, nie jest przypisana rola współautora.
+  >
+10. Aby śledzić postęp tworzenia konta automatyzacji, w menu, wybierz **powiadomienia**.
 
 ### <a name="resources-included"></a>Zasoby dołączone
-Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzonych kilka zasobów.  Poniższa tabela zawiera podsumowanie zasobów dla konta Uruchom jako.<br>
+Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzonych kilka zasobów. Poniższa tabela zawiera podsumowanie zasobów dla konta Uruchom jako.
 
 | Zasób | Opis |
 | --- | --- |
-| AzureAutomationTutorial Runbook |Przykładowy graficzny element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
-| AzureAutomationTutorialScript Runbook |Przykładowy element Runbook programu PowerShell, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako, i pobiera wszystkie zasoby usługi Resource Manager. |
-| Element runbook AzureAutomationTutorialPython2 |Przykładowy element Runbook programu Python, który demonstruje sposób uwierzytelniania za pomocą konta Uruchom jako, a następnie wyświetla listę grup zasobów obecnych w określonej subskrypcji. |
-| AzureRunAsCertificate |Zasób Certyfikat utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta.  Umożliwia uwierzytelnianie za pomocą platformy Azure, aby można było zarządzać zasobami usługi Azure Resource Manager z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
-| AzureRunAsConnection |Zasób Połączenie utworzony automatycznie podczas tworzenia konta automatyzacji lub skorzystania z poniższego skryptu programu PowerShell dla istniejącego konta. |
+| AzureAutomationTutorial Runbook |Przykład graficzny element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako. Element runbook pobiera wszystkie zasoby usługi Resource Manager. |
+| AzureAutomationTutorialScript Runbook |Element runbook programu PowerShell przykładzie, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako. Element runbook pobiera wszystkie zasoby usługi Resource Manager. |
+| Element runbook AzureAutomationTutorialPython2 |Przykład Python element runbook, który demonstruje sposób uwierzytelniania przy użyciu konta Uruchom jako. Element runbook zawiera listę wszystkich grup zasobów w subskrypcji. |
+| AzureRunAsCertificate |Zasób certyfikatu, który jest automatycznie tworzony podczas tworzenia konta automatyzacji lub za pomocą skryptu programu PowerShell dla istniejącego konta. Certyfikat uwierzytelnia z platformy Azure, więc zasoby usługi Azure Resource Manager można zarządzać z poziomu elementów runbook. Ten certyfikat ma roczny okres obowiązywania. |
+| AzureRunAsConnection |Zasób połączenia, który jest automatycznie tworzony podczas tworzenia konta automatyzacji lub za pomocą skryptu programu PowerShell dla istniejącego konta. |
 
-Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jako.<br>
+Poniższa tabela zawiera podsumowanie zasobów dla klasycznego konta Uruchom jako.
 
 | Zasób | Opis |
 | --- | --- |
-| AzureClassicAutomationTutorial Runbook |Przykładowy graficzny element Runbook, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
-| AzureClassicAutomationTutorial Script Runbook |Przykładowy element Runbook programu PowerShell, który pobiera wszystkie klasyczne maszyny wirtualne w subskrypcji przy użyciu klasycznego konta Uruchom jako (certyfikat), a następnie generuje nazwę i stan maszyny wirtualnej. |
-| AzureClassicRunAsCertificate |Automatycznie utworzony zasób Certyfikat, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów Runbook.  Ten certyfikat ma roczny okres obowiązywania. |
-| AzureClassicRunAsConnection |Automatycznie utworzony zasób Połączenie, który służy do uwierzytelniania za pomocą platformy Azure, aby można było zarządzać klasycznymi zasobami platformy Azure z poziomu elementów Runbook. |
+| AzureClassicAutomationTutorial Runbook |Przykładowy graficzny element runbook. Element runbook pobiera wszystkie klasycznych maszyn wirtualnych w ramach subskrypcji przy użyciu klasycznego konto Uruchom jako (certyfikatu). Następnie wyświetla nazw maszyn wirtualnych i stanu. |
+| AzureClassicAutomationTutorial Script Runbook |Przykładowy element runbook programu PowerShell. Element runbook pobiera wszystkie klasycznych maszyn wirtualnych w ramach subskrypcji przy użyciu klasycznego konto Uruchom jako (certyfikatu). Następnie wyświetla nazw maszyn wirtualnych i stanu. |
+| AzureClassicRunAsCertificate |Zasób certyfikatu, który jest automatycznie tworzony. Certyfikat uwierzytelniany w usłudze Azure, Azure zasoby klasyczne można zarządzać z poziomu elementów runbook. Ten certyfikat ma roczny okres obowiązywania. |
+| AzureClassicRunAsConnection |Zasób połączenia, które zostało automatycznie utworzone. Element zawartości uwierzytelniany w usłudze Azure, Azure zasoby klasyczne można zarządzać z poziomu elementów runbook. |
 
 
 ## <a name="next-steps"></a>Kolejne kroki
-* Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).
+* Aby dowiedzieć się więcej na temat tworzenia graficznego, zobacz [tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md).
 * Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
 * Aby rozpocząć pracę z elementami runbook przepływu pracy programu PowerShell, zobacz [Mój pierwszy element runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).
 * Aby rozpocząć pracę z elementami Runbook programu Python2, zobacz [Mój pierwszy element Runbook programu Python2](automation-first-runbook-textual-python2.md).

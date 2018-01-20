@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Rozwiązywanie problemów z połączeń SSH maszyny Wirtualnej systemu Linux platformy Azure, który zakończy się niepowodzeniem, błędy, lub zostało odrzucone
 Istnieją różne powody, czy występują błędy protokołu Secure Shell (SSH), błędów połączenia SSH, lub SSH zostało odrzucone podczas próby nawiązania połączenia z maszyną wirtualną systemu Linux (VM). Ten artykuł ułatwia znajdowanie i rozwiązać problemy. Można użyć portalu Azure, Azure CLI lub rozszerzenia dostępu do maszyny Wirtualnej dla systemu Linux, aby rozwiązać problemy z połączeniem.
@@ -40,7 +40,7 @@ Po wykonaniu każdego kroku rozwiązywania problemów spróbuj połączyć się 
 4. Sprawdź [kondycja zasobów maszyny Wirtualnej](../../resource-health/resource-health-overview.md). 
    * Upewnij się, że maszyna wirtualna raporty jako będące w dobrej kondycji.
    * Jeśli masz włączoną diagnostykę rozruchu, sprawdź, czy maszyna wirtualna nie jest raportowanie błędów rozruchu w dziennikach.
-5. Uruchom ponownie maszynę Wirtualną.
+5. Uruchom ponownie maszynę wirtualną.
 6. Należy ponownie wdrożyć maszyny Wirtualnej.
 
 Kontynuuj lekturę dla bardziej szczegółowe kroki rozwiązywania problemów oraz objaśnienia.
@@ -229,12 +229,12 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 Spróbuj wykonać następujące kroki, aby rozwiązać najbardziej typowe błędy połączenia SSH dla maszyn wirtualnych, które zostały utworzone przy użyciu klasycznego modelu wdrażania. Po wykonaniu każdego kroku spróbuj połączyć się ponownie do maszyny Wirtualnej.
 
 * Zresetuj dostęp zdalny z [portalu Azure](https://portal.azure.com). W portalu Azure, wybierz maszyny Wirtualnej, a następnie kliknij przycisk **zresetować zdalnego...**  przycisku.
-* Uruchom ponownie maszynę Wirtualną. Na [portalu Azure](https://portal.azure.com)wybierz maszyny Wirtualnej i kliknij **ponowne uruchomienie** przycisku.
+* Uruchom ponownie maszynę wirtualną. Na [portalu Azure](https://portal.azure.com)wybierz maszyny Wirtualnej i kliknij **ponowne uruchomienie** przycisku.
     
 * Należy ponownie wdrożyć maszynę Wirtualną do nowego węzła platformy Azure. Aby uzyskać informacje o tym, jak można wdrożyć ponownie Maszynę wirtualną, zobacz [ponownego wdrażania maszyny wirtualnej do nowego węzła Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Po zakończeniu tej operacji, tymczasowych dane zostaną utracone i zostaną zaktualizowane dynamicznych adresów IP, które są skojarzone z maszyną wirtualną.
-* Postępuj zgodnie z instrukcjami [sposób resetowania hasła lub SSH dla maszyn wirtualnych z systemem Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) do:
+* Postępuj zgodnie z instrukcjami [sposób resetowania hasła lub SSH dla maszyn wirtualnych z systemem Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) do:
   
   * Resetowanie hasła lub klucza SSH.
   * Utwórz *sudo* konta użytkownika.
@@ -242,8 +242,8 @@ Spróbuj wykonać następujące kroki, aby rozwiązać najbardziej typowe błęd
 * Sprawdź kondycję zasobu maszyny Wirtualnej dla problemów z platformą.<br>
      Wybierz maszyny Wirtualnej, a następnie przewiń w dół **ustawienia** > **kondycji Sprawdź**.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * Jeśli nadal nie możesz SSH do maszyny Wirtualnej po wykonaniu czynności po, zobacz [bardziej szczegółowe kroki rozwiązywania problemów](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Aby przejrzeć dodatkowe kroki w celu rozwiązania problemu.
 * Aby uzyskać więcej informacji dotyczących rozwiązywania problemów z dostęp do aplikacji, zobacz [Rozwiązywanie problemów z dostępem do aplikacji działających na maszynie wirtualnej platformy Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Aby uzyskać więcej informacji na temat rozwiązywania problemów z maszyn wirtualnych, które zostały utworzone przy użyciu klasycznego modelu wdrażania, zobacz [sposób resetowania hasła lub SSH dla maszyn wirtualnych z systemem Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Aby uzyskać więcej informacji na temat rozwiązywania problemów z maszyn wirtualnych, które zostały utworzone przy użyciu klasycznego modelu wdrażania, zobacz [sposób resetowania hasła lub SSH dla maszyn wirtualnych z systemem Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

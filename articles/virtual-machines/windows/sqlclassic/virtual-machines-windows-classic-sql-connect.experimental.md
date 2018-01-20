@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8602decfa35a21e88885fda1a4c70264bb38444b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Sposób, który klient nawiąże połączenie z programem SQL Server uruchomiony
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Połączenia z serwerem SQL w tej samej usłudze w chmurze
-Można tworzyć wiele maszyn wirtualnych w tej samej usłudze w chmurze. Aby zrozumieć, w tym scenariuszu maszyn wirtualnych, zobacz [sposób nawiązywania połączenia z usługą wirtualnych sieci lub w chmurze maszyn wirtualnych](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). W tym scenariuszu klienta na jednej maszynie wirtualnej próbuje nawiązać połączenia z programem SQL Server uruchomionym na innej maszynie wirtualnej w tej samej usłudze w chmurze.
+Można tworzyć wiele maszyn wirtualnych w tej samej usłudze w chmurze. Aby zrozumieć, w tym scenariuszu maszyn wirtualnych, zobacz [sposób nawiązywania połączenia z usługą wirtualnych sieci lub w chmurze maszyn wirtualnych](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). W tym scenariuszu klienta na jednej maszynie wirtualnej próbuje nawiązać połączenia z programem SQL Server uruchomionym na innej maszynie wirtualnej w tej samej usłudze w chmurze.
 
 W tym scenariuszu można połączyć przy użyciu maszyny Wirtualnej **nazwa** (także wyświetlane jako **nazwy komputera** lub **hostname** w portalu). Jest to nazwa, podane dla maszyny Wirtualnej podczas tworzenia. Na przykład, jeśli nazwę maszyny Wirtualnej SQL **mysqlvm**, klient maszyny Wirtualnej w tej samej usłudze w chmurze można użyć następujące parametry połączenia do połączenia:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekodowanie AS2 wiadomości dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw 
 
@@ -35,7 +35,7 @@ Oto elementy, które są potrzebne:
 
 ## <a name="decode-as2-messages"></a>Dekodowanie AS2 wiadomości
 
-1. [Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+1. [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Dekodowanie AS2 łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
 
@@ -89,6 +89,6 @@ Aby wypróbować logiki pełnej funkcjonalności aplikacji oraz przykładowy AS2
 ## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
 Zobacz [swagger szczegóły](/connectors/as2/). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md) 
 

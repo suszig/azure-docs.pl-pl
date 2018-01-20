@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Wzorce sieci sieci szkieletowej usług
 Klaster sieci szkieletowej usług Azure można zintegrować z innymi funkcjami sieci platformy Azure. W tym artykule zostanie przedstawiony zostanie sposób tworzenia klastrów korzystających z następujących funkcji:
@@ -36,7 +36,7 @@ Jeśli port 19080 nie jest dostępny od dostawcy zasobów sieci szkieletowej us�
 
 ## <a name="templates"></a>Szablony
 
-Wszystkie szablony usługi sieć szkieletowa znajdują się w [jednego pobierania pliku](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Powinno być możliwe do wdrażania szablonów jako — za pomocą następujących poleceń programu PowerShell. Jeśli wdrażasz istniejącego szablonu usługi Azure Virtual Network lub statycznego publicznego szablon adresu IP, najpierw przeczytać artykuł [początkowej instalacji](#initialsetup) sekcji tego artykułu.
+Wszystkie szablony usługi sieć szkieletowa znajdują się w [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Powinno być możliwe do wdrażania szablonów jako — za pomocą następujących poleceń programu PowerShell. Jeśli wdrażasz istniejącego szablonu usługi Azure Virtual Network lub statycznego publicznego szablon adresu IP, najpierw przeczytać artykuł [początkowej instalacji](#initialsetup) sekcji tego artykułu.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Początkowej konfiguracji
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Szablon usługi sieć szkieletowa
 
-W przykładach w niniejszym artykule używamy template.json sieci szkieletowej usług. Standardowy Kreator portalu służy do pobrania szablonu z portalu, przed utworzeniem klastra. Można też użyć jednego z szablonów w [galerię szablonów](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), takiej jak [pięcioma węzłami klastra sieci szkieletowej usług](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+W przykładach w niniejszym artykule używamy template.json sieci szkieletowej usług. Standardowy Kreator portalu służy do pobrania szablonu z portalu, przed utworzeniem klastra. Można również użyć jednej z [przykładowy szablon](https://github.com/Azure-Samples/service-fabric-cluster-templates), takiej jak [bezpiecznego klastra sieci szkieletowej usług pięcioma węzłami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Istniejącej sieci wirtualnej lub podsieci
@@ -596,5 +596,5 @@ W klastrze typu węzła dwa jest jednego typu węzła w zewnętrznej usługi ró
 
 Po wdrożeniu widać dwie usługi równoważenia obciążenia w grupie zasobów. Po przejściu do usługi równoważenia obciążenia widać publicznego adresu IP adres i zarządzania punktów końcowych (porty 19000 i 19080) przypisany do publicznego adresu IP. Możesz również sprawdzić statyczne wewnętrzne IP adres i aplikacji punktu końcowego (port 80) przypisany do wewnętrznego modułu równoważenia obciążenia. Obie usługi równoważenia obciążenia, użyj tej samej puli zaplecza zestaw skali maszyny wirtualnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Tworzenie klastra](service-fabric-cluster-creation-via-arm.md)

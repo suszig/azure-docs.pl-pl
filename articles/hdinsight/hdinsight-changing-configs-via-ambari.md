@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Optymalizowanie konfiguracje klastrów usługi HDInsight przy użyciu Ambari
 
@@ -183,9 +183,9 @@ Kompresja dostępne typy to:
 
 | Format | Narzędzie | Algorytm | Rozszerzenie pliku | Podzielne? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | KORYGOWANIA | .GZ | Nie |
+| Gzip | Gzip | KORYGOWANIA | .gz | Nie |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Yes |
-| LZO | Lzop | LZO | .LZO | Tak, jeśli indeksowane |
+| LZO | Lzop | LZO | .lzo | Tak, jeśli indeksowane |
 | szałowe | ND | szałowe | szałowe | Nie |
 
 Zasadniczo ważne jest posiadanie podzielne metody kompresji, w przeciwnym razie zostanie utworzony bardzo mało mapowań. Jeśli dane wejściowe jest tekst, `bzip2` jest najlepszym rozwiązaniem. ORC format Snappy jest najszybszą opcję kompresji.
@@ -234,7 +234,7 @@ Wykonanie rozważana uruchamia pewne zduplikowane zadań, aby wykryć i wyelimin
 
 Rozważana wykonywania nie powinna być włączona dla długotrwałych zadań MapReduce z dużą ilością danych wejściowych.
 
-1. Aby umożliwić wykonanie rozważana, przejdź do gałęzi **Configs** karcie, a następnie ustaw `hive.mapred.reduce.tasks.speculative.execution` parametru na wartość true. Wartość domyślna to false.
+* Aby umożliwić wykonanie rozważana, przejdź do gałęzi **Configs** karcie, a następnie ustaw `hive.mapred.reduce.tasks.speculative.execution` parametru na wartość true. Wartość domyślna to false.
 
     ![Gałąź mapred zmniejszyć rozważana wykonania zadania](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -276,7 +276,7 @@ Domyślny typ sprzężenia w gałęzi *sprzężenia losowa*. W gałęzi specjaln
 
 | Typ przyłączenia | Kiedy | Jak | Gałąź, ustawienia | Komentarze |
 | -- | -- | -- | -- | -- |
-| Sprzężenia losowa | <ul><li>Wybór domyślny</li><li>Zawsze działa</li></ul> | <ul><li>Odczytuje z częścią jednej z tabel</li><li>Pakiety i sortowanie w kluczu sprzężenia</li><li>Wysyła jeden zasobnik do każdego Zmniejsz</li><li>Sprzężenia jest wykonywana na tej stronie Zmniejsz</li></ul> | Nie znaczących ustawienie wymagane gałęzi | Zawsze działa |
+| Shuffle Join | <ul><li>Wybór domyślny</li><li>Zawsze działa</li></ul> | <ul><li>Odczytuje z częścią jednej z tabel</li><li>Pakiety i sortowanie w kluczu sprzężenia</li><li>Wysyła jeden zasobnik do każdego Zmniejsz</li><li>Sprzężenia jest wykonywana na tej stronie Zmniejsz</li></ul> | Nie znaczących ustawienie wymagane gałęzi | Zawsze działa |
 | Dołącz do mapy | <ul><li>Jedna tabela można zmieścić w pamięci</li></ul> | <ul><li>Odczytuje małą tabelę w tablicy skrótów pamięci</li><li>Strumienie przez część dużych plików</li><li>Dołącza każdy rekord z tablicy skrótów</li><li>Sprzężenia są przez samego mapowania</li></ul> | `hive.auto.confvert.join=true` | Bardzo szybko, ale ograniczone |
 | Zasobnik scalania sortowania | Jeśli obie tabele są: <ul><li>Sortowane takie same</li><li>Bucketed takie same</li><li>Sprzęganie sortowane zasobnikach kolumny</li></ul> | Każdy proces: <ul><li>Odczytuje zasobnika z każdej tabeli</li><li>Przetwarza wiersz mający najmniejszą wartość</li></ul> | `hive.auto.convert.sortmerge.join=true` | Bardzo wydajny |
 
@@ -370,7 +370,7 @@ Liczba reduktory jest obliczana na podstawie parametru `pig.exec.reducers.bytes.
 
 Konfiguracja bazy danych HBase jest modyfikowany od **HBase Configs** kartę. W poniższych sekcjach opisano niektóre ustawienia konfiguracji ważne, które mają wpływ na wydajność bazy danych HBase.
 
-### <a name="set-hbaseheapsize"></a>Ustaw HBASE_HEAPSIZE
+### <a name="set-hbaseheapsize"></a>Set HBASE_HEAPSIZE
 
 Rozmiar sterty HBase określa maksymalną ilość sterty do użycia w megabajtach przez *region* i *wzorca* serwerów. Wartość domyślna to 1000 MB. Powinna to być dostosowana na potrzeby obciążenie klastra.
 
@@ -453,10 +453,10 @@ Rozmiar parametru jest zdefiniowane przez `hbase.regionserver.global.memstore.Up
 
 Użycie bufora lokalnej Alokacja magazynu jest określany przez właściwość `hbase.hregion.memstore.mslab.enabled`. Po włączeniu (true) zapobiega to fragmentację stosu podczas operacji zapisu duże. Wartość domyślna to true.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zarządzanie klastrami HDInsight z interfejsu użytkownika sieci web Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Interfejs API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

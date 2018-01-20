@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów wdrożenie klasyczne z Tworzenie nowej maszyny wirtualnej systemu Linux na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -50,7 +50,7 @@ W portalu Azure kliknij **Przeglądaj** > **maszyn wirtualnych** > *maszyny wirt
 
 **Rozwiązanie:**
 
-Aby rozwiązać oba te błędy, Przekaż oryginalny dysk VHD, dostępne lokalnych, jak to samo ustawienie dla systemu operacyjnego (uogólniony/specjalizowany). Można przekazać jako uogólniony, pamiętaj, aby uruchomić - anulowanie zastrzeżenia najpierw. Zobacz [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera System operacyjny Linux](create-upload-vhd.md) Aby uzyskać więcej informacji.
+Aby rozwiązać oba te błędy, Przekaż oryginalny dysk VHD, dostępne lokalnych, jak to samo ustawienie dla systemu operacyjnego (uogólniony/specjalizowany). Można przekazać jako uogólniony, pamiętaj, aby uruchomić - anulowanie zastrzeżenia najpierw. Zobacz [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera System operacyjny Linux](create-upload-vhd-classic.md) Aby uzyskać więcej informacji.
 
 **Zapisz błędy:**
 
@@ -60,7 +60,7 @@ Aby rozwiązać oba te błędy, Przekaż oryginalny dysk VHD, dostępne lokalnyc
 
 **Rozwiązanie:**
 
-Usuń oba te błędy, Usuń bieżący obraz z portalu, i [je ponownie przechwycić z bieżącym wirtualnych dysków twardych](capture-image.md) to samo ustawienie, jak te dla systemu operacyjnego (uogólniony/specjalizowany).
+Usuń oba te błędy, Usuń bieżący obraz z portalu, i [je ponownie przechwycić z bieżącym wirtualnych dysków twardych](capture-image-classic.md) to samo ustawienie, jak te dla systemu operacyjnego (uogólniony/specjalizowany).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problem: Niestandardowy / galerii / obrazu z witryny marketplace; Błąd alokacji
 Ten błąd pojawia się w sytuacjach, gdy nowe żądanie maszyny Wirtualnej są wysyłane do klastra, który nie ma dostępnego wolnego miejsca, aby pomieścić żądania albo nie obsługuje żądanej rozmiaru maszyny Wirtualnej. Nie jest możliwe mieszać innej serii maszyn wirtualnych w tej samej usłudze w chmurze. Więc jeśli chcesz tworzyć nowej maszyny Wirtualnej o innym rozmiarze niż co usługi w chmurze może obsługiwać żądania obliczeń zakończy się niepowodzeniem.
@@ -88,6 +88,6 @@ W zależności od ograniczeń usługi w chmurze, który jest używany do utworze
 * Utwórz nową maszynę Wirtualną w nowej sieci wirtualnej.
 * [Połączenie z istniejącą siecią wirtualną](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) do nowej sieci wirtualnej. Zobacz więcej informacji [regionalnych sieci wirtualnych](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Można też [migrację do regionalnej sieci wirtualnej sieci wirtualnej na podstawie grupy koligacji](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), a następnie utwórz nową maszynę Wirtualną.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli wystąpią problemy podczas uruchamiania zatrzymanej maszyny Wirtualnej systemu Linux lub zmień rozmiar istniejącej maszyny Wirtualnej systemu Linux na platformie Azure, zobacz [klasycznego Rozwiązywanie problemów dotyczących wdrożenia z ponownym uruchomieniem lub zmiana rozmiaru istniejącej maszyny wirtualnej systemu Linux na platformie Azure](restart-resize-error-troubleshooting.md).
 

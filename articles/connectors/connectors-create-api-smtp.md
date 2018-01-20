@@ -1,6 +1,6 @@
 ---
 title: "Łącznik SMTP w programie Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Utwórz połączenie SMTP, aby wysyłać wiadomości e-mail."
+description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Nawiązać SMTP do wysyłania wiadomości e-mail."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Rozpoczynanie pracy z łącznikiem SMTP
-Utwórz połączenie SMTP, aby wysyłać wiadomości e-mail.
+Nawiązać SMTP do wysyłania wiadomości e-mail.
 
-Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-smtp"></a>Nawiązać SMTP
 Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi. Na przykład, aby nawiązać połączenie SMTP, należy najpierw SMTP *połączenia*. Aby utworzyć połączenie, wprowadź poświadczenia, zwykle używanego do uzyskania dostępu do usługi, gdy połączysz się. Tak w tym przykładzie SMTP, wprowadź poświadczenia do połączenia nazwa, adres serwera SMTP i dane logowania użytkownika, aby utworzyć połączenie SMTP.  
@@ -35,7 +35,7 @@ Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy naj
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Użyj wyzwalacz SMTP
-Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 W tym przykładzie, ponieważ SMTP nie ma wyzwalacz własnych, użyjemy **Salesforce — po utworzeniu obiektu** wyzwalacza. Wyzwalacz aktywuje po utworzeniu nowego obiektu w usłudze Salesforce. W naszym przykładzie skonfigurujemy Twoje go tak, aby zawsze nowego potencjalnego klienta jest tworzony w Salesforce, *wysyłania wiadomości e-mail* akcja jest wykonywana za pośrednictwem łącznika SMTP powiadomienie potencjalnego nowego klienta tworzona.
 
@@ -49,7 +49,7 @@ W tym przykładzie, ponieważ SMTP nie ma wyzwalacz własnych, użyjemy **Salesf
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Za pomocą akcji SMTP
-Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Teraz, wyzwalacz został dodany, wykonaj następujące kroki, aby dodać akcję SMTP, która zostanie przeprowadzona po utworzeniu nowego potencjalnego klienta w usłudze Salesforce.
 

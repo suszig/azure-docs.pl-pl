@@ -11,168 +11,131 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 01ea39983c4c1ad41692fce31ef6fd9c81461c8e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
-> [!WARNING]
-> Integracja z usługą Azure Active Directory jest dostępny w [Developer, Standard i Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) tylko warstwy.
-
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory w usłudze Azure API Management
-## <a name="overview"></a>Przegląd
+
 Ten przewodnik zawiera instrukcje umożliwić dostęp do portalu dla deweloperów dla użytkowników z usługi Azure Active Directory. W tym przewodniku przedstawiono również sposób zarządzać grupami użytkowników usługi Azure Active Directory przez dodanie zewnętrznej grupy, które zawierają użytkowników usługi Azure Active Directory.
 
-> Aby wykonać kroki opisane w tym przewodniku najpierw musi mieć usługi Azure Active Directory, umożliwiający tworzenie aplikacji.
-> 
+> [!WARNING]
+> Integracja z usługą Azure Active Directory jest dostępny w [Developer, Standard i Premium](https://azure.microsoft.com/pricing/details/api-management/) tylko warstwy.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+- Ukończenie następujących Szybki Start: [utworzenia wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
+- Importowanie i opublikować wystąpienia interfejsu API zarządzania. Aby uzyskać więcej informacji, zobacz [Import i opublikuj](import-and-publish.md).
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Sposób autoryzowania konta dewelopera przy użyciu usługi Azure Active Directory
-Aby rozpocząć, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
-![Publisher portal][api-management-management-console]
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+2. Wybierz pozycję ![Strzałka](./media/api-management-howto-aad/arrow.png).
+3. W polu wyszukiwania wpisz "interfejsu api".
+4. Kliknij przycisk **usługi Zarządzanie interfejsami API**.
+5. Wybierz APIM wystąpienia usługi.
+6. W obszarze **zabezpieczeń**, wybierz pozycję **tożsamości**.
 
-> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
-> 
-> 
+    ![Tożsamości zewnętrznych](./media/api-management-howto-aad/api-management-with-aad001.png)
+7. Kliknij przycisk **+ Dodaj** od góry.
 
-Kliknij przycisk **zabezpieczeń** z **zarządzanie interfejsami API** menu po lewej stronie i kliknij przycisk **tożsamości zewnętrznych**.
+    **Dostawcy tożsamości Dodaj** po prawej stronie zostanie wyświetlone okno.
+8. W obszarze **typ dostawcy**, wybierz pozycję **usługi Azure Active Directory**.
 
-![Tożsamości zewnętrznych][api-management-security-external-identities]
+    Formanty, które umożliwiają wprowadź inne potrzebne informacje są wyświetlane w oknie. Dostępne kontrolki: **identyfikator klienta**, **klucz tajny klienta** (możesz uzyskać w dalszej części tego samouczka).
+9. Zanotuj **adresem URL przekierowania**.  
+10. W przeglądarce otwórz innej karty. 
+11. Otwórz witrynę [Azure Portal](https://portal.azure.com).
+12. Wybierz pozycję ![Strzałka](./media/api-management-howto-aad/arrow.png).
+13. Typ "active" **usługi Azure Active Directory** pojawi się.
+14. Wybierz **usługi Azure Active Directory**.
+15. W obszarze **ZARZĄDZAJ**, wybierz pozycję **rejestracji aplikacji**.
 
-Kliknij przycisk **usługi Azure Active Directory**. Zanotuj **adresem URL przekierowania** i przełączyć się do usługi Azure Active Directory w klasycznym portalu Azure.
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/api-management-with-aad002.png)
+16. Kliknij pozycję **Rejestrowanie nowej aplikacji**.
 
-![Tożsamości zewnętrznych][api-management-security-aad-new]
+    **Utwórz** po prawej stronie zostanie wyświetlone okno. To, gdzie możesz wprowadzić informacje o relavent usługi AAD aplikacji.
+17. Eneter nazwę aplikacji.
+18. Wybierz typ aplikacji **aplikacji/interfejs API sieci Web**.
+19. Adres URL logowania wprowadź adres URL rejestracji z portalu dla deweloperów. W tym przykładzie jest adres URL logowania: https://apimwithaad.portal.azure-api.net/signin.
+20. Kliknij przycisk **Utwórz** do tworzenia aplikacji.
+21. Aby znaleźć aplikacji, wybierz **rejestracji aplikacji** i Wyszukaj według nazwy.
 
-Kliknij przycisk **Dodaj** przycisk, aby utworzyć nową aplikację usługi Azure Active Directory, a następnie wybierz pozycję **Dodaj aplikację moją organizację**.
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/find-your-app.png)
+22. Po zarejestrowaniu aplikacji, przejdź do **adres URL odpowiedzi** i upewnij się, "URL przekierowania" jest ustawiona na wartość uzyskano z kroku 9. 
+23. Jeśli chcesz skonfigurować aplikację (na przykład zmienić **adres URL Identyfikatora aplikacji**) wybierz **właściwości**.
 
-![Dodaj nową aplikację usługi Azure Active Directory][api-management-new-aad-application-menu]
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/api-management-with-aad004.png)
 
-Wprowadź nazwę aplikacji, wybierz pozycję **sieci Web, aplikacji i/lub interfejs API sieci Web**i kliknij przycisk Dalej.
+    Jeśli wiele Azure Active Directory mają być używany dla tej aplikacji, kliknij przycisk **tak** dla **aplikacji jest wielodostępne**. Wartość domyślna to **nr**.
+24. Ustawianie uprawnienia aplikacji przez wybranie **wymagane uprawnienia**.
+25. Wybierz aplikacji i wyboru **odczytuj dane katalogu** i **Zaloguj się i odczytuj profil użytkownika**.
 
-![Nową aplikację usługi Azure Active Directory][api-management-new-aad-application-1]
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/api-management-with-aad005.png)
 
-Aby uzyskać **adres URL logowania**, wprowadź adres URL rejestracji z portalu dla deweloperów. W tym przykładzie **adres URL logowania** jest `https://aad03.portal.current.int-azure-api.net/signin`. 
+    Aby uzyskać więcej informacji o aplikacji i uprawnień delegowanych, zobacz [podczas uzyskiwania dostępu do interfejsu API programu Graph][Accessing the Graph API].
+26. W oknie po lewej stronie, skopiuj **identyfikator aplikacji** wartość.
 
-Aby uzyskać **adres URL Identyfikatora aplikacji**, wprowadź w domenie domyślnej lub niestandardowej domeny dla usługi Azure Active Directory i Dołącz unikatowy ciąg do niego. W tym przykładzie domyślnej domeny **https://contoso5api.onmicrosoft.com** jest używana z sufiksem **/api** określony.
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/application-id.png)
+27. Przełącz się do aplikacji interfejsu API zarządzania. **Dostawcy tożsamości Dodaj** powinny być wyświetlane okna. <br/>Wklej **identyfikator aplikacji** wartość w **identyfikator klienta** pole.
+28. Wrócić do konfiguracji usługi Azure Active Directory, a następnie kliknij polecenie **klucze**.
+29. Utwórz nowy klucz przez speicifying nazwę i czas trwania. 
+30. Kliknij pozycję **Zapisz**. Pobiera wygenerowany klucz.
 
-![Nowe właściwości aplikacji usługi Azure Active Directory][api-management-new-aad-application-2]
+    Skopiuj klucz do Schowka.
 
-Kliknij przycisk wyboru, aby zapisać i utworzyć aplikację, a następnie przejdź do **Konfiguruj** kartę, aby skonfigurować nową aplikację.
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/api-management-with-aad006.png)
 
-![Nowej aplikacji usługi Azure Active Directory][api-management-new-aad-app-created]
+    > [!NOTE]
+    > Zanotuj tego klucza. Po zamknięciu okna konfiguracji usługi Azure Active Directory, klucz nie może ponownie wyświetlone.
+    > 
+    > 
+31. Przełącz się do aplikacji interfejsu API zarządzania. <br/>W **dostawcy tożsamości Dodaj** okna, Wklej klucz do **klucz tajny klienta** pola tekstowego.
+32. **Dostawcy tożsamości Dodaj** zawiera okno **dozwolone dzierżaw** pole tekstowe, w przypadku Określ, które katalogi mają dostęp do interfejsów API wystąpienia usługi Zarządzanie interfejsami API. <br/>Określ domeny wystąpień usługi Azure Active Directory, do których chcesz udzielić dostępu. Wiele domen można oddzielić newlines, spacjami lub przecinkami.
 
-Jeśli wiele Azure Active Directory mają być używany dla tej aplikacji, kliknij przycisk **tak** dla **aplikacji jest wielodostępne**. Wartość domyślna to **nr**.
+    Można określić wiele domen w **dozwolone dzierżaw** sekcji. Przed każdy użytkownik może zalogować się z innej domeny niż domena oryginalnego rejestracji aplikacji, administrator globalny innej domeny musi udzielić uprawnień do dostępu do danych katalogu aplikacji. Aby udzielić uprawnień, przejść do administratora globalnego `https://<URL of your developer portal>/aadadminconsent` (na przykład https://contoso.portal.azure-api.net/aadadminconsent), wpisz nazwę domeny dzierżawy usługi Active Directory, które chcą, aby przyznać dostęp, a następnie kliknij przycisk Prześlij. W poniższym przykładzie administrator globalny `miaoaad.onmicrosoft.com` chce się nadać uprawnienia do tego portalu dewelopera w konkretnym. 
 
-![Aplikacja jest wieloma dzierżawcami][api-management-aad-app-multi-tenant]
+33. Po wymaganą konfiguracją jest określony, kliknij przycisk **Dodaj**.
 
-Kopiuj **adresem URL przekierowania** z **usługi Azure Active Directory** sekcji **tożsamości zewnętrznych** w portalu wydawcy i wklej ją do **odpowiedzi Adres URL** pola tekstowego. 
+    ![Rejestracja aplikacji](./media/api-management-howto-aad/api-management-with-aad007.png)
 
-![Adres URL odpowiedzi][api-management-aad-reply-url]
+Po zmiany zostaną zapisane, użytkownicy w określonej usługi Azure Active Directory mogą zalogować się do portalu dla deweloperów wykonując kroki opisane w [zalogować się do portalu dla deweloperów przy użyciu konta usługi Azure Active Directory](#log_in_to_dev_portal).
 
-Przewiń w dół na karcie Konfiguracja, wybierz opcję **uprawnienia aplikacji** listy rozwijanej i sprawdź **odczytuj dane katalogu**.
-
-![Uprawnienia aplikacji][api-management-aad-app-permissions]
-
-Wybierz **delegowanie uprawnień** listy rozwijanej i sprawdź **włączenia logowania jednokrotnego i odczytu profilów użytkowników**.
-
-![Uprawnienia delegowane][api-management-aad-delegated-permissions]
-
-> Aby uzyskać więcej informacji o aplikacji i uprawnień delegowanych, zobacz [podczas uzyskiwania dostępu do interfejsu API programu Graph][Accessing the Graph API].
-> 
-> 
-
-Kopiuj **identyfikator klienta** do Schowka.
-
-![Identyfikator klienta][api-management-aad-app-client-id]
-
-Przełączyć się do portalu wydawcy i Wklej w **identyfikator klienta** skopiowanych z konfiguracji aplikacji usługi Azure Active Directory.
-
-![Identyfikator klienta][api-management-client-id]
-
-Wrócić do konfiguracji usługi Azure Active Directory, a następnie kliknij przycisk **wybierz czas trwania** listy rozwijanej w **klucze** sekcji i określ interwał. W tym przykładzie **1 rok** jest używany.
-
-![Klucz][api-management-aad-key-before-save]
-
-Kliknij przycisk **zapisać** do zapisania konfiguracji, a następnie wyświetlić klucz. Skopiuj klucz do Schowka.
-
-> Zanotuj tego klucza. Po zamknięciu okna konfiguracji usługi Azure Active Directory, klucz nie może ponownie wyświetlone.
-> 
-> 
-
-![Klucz][api-management-aad-key-after-save]
-
-Przełączyć się do portalu wydawcy i Wklej klucz do **klucz tajny klienta** pola tekstowego.
-
-![Klucz tajny klienta][api-management-client-secret]
-
-**Dozwolone dzierżaw** Określa, które katalogi mają dostęp do interfejsów API wystąpienia usługi Zarządzanie interfejsami API. Określ domeny wystąpień usługi Azure Active Directory, do których chcesz udzielić dostępu. Wiele domen można oddzielić newlines, spacjami lub przecinkami.
-
-![Dozwolone dzierżawy][api-management-client-allowed-tenants]
-
-
-Po wymaganą konfiguracją jest określony, kliknij przycisk **zapisać**.
-
-![Zapisz][api-management-client-allowed-tenants-save]
-
-Po zmiany zostaną zapisane, użytkownicy w określonej usługi Azure Active Directory mogą zalogować się do portalu dla deweloperów wykonując kroki opisane w [zalogować się do portalu dla deweloperów przy użyciu konta usługi Azure Active Directory] [ Log in to the Developer portal using an Azure Active Directory account].
-
-Można określić wiele domen w **dozwolone dzierżaw** sekcji. Przed każdy użytkownik może zalogować się z innej domeny niż domena oryginalnego rejestracji aplikacji, administrator globalny innej domeny musi udzielić uprawnień do dostępu do danych katalogu aplikacji. Aby udzielić uprawnień, przejść do administratora globalnego `https://<URL of your developer portal>/aadadminconsent` (na przykład https://contoso.portal.azure-api.net/aadadminconsent), wpisz nazwę domeny dzierżawy usługi Active Directory, które chcą, aby przyznać dostęp, a następnie kliknij przycisk Prześlij. W poniższym przykładzie administrator globalny `miaoaad.onmicrosoft.com` chce się nadać uprawnienia do tego portalu dewelopera w konkretnym. 
-
-![Uprawnienia][api-management-aad-consent]
+![Uprawnienia](./media/api-management-howto-aad/api-management-aad-consent.png)
 
 Na następnym ekranie administratora globalnego pojawi się monit o potwierdzenie nadanie uprawnień. 
 
-![Uprawnienia][api-management-permissions-form]
+![Uprawnienia](./media/api-management-howto-aad/api-management-permissions-form.png)
 
-> Jeśli administrator globalny nie próbuje zalogować przed uprawnienia są udzielane przez administratora globalnego, próba logowania nie powiedzie się i zostanie wyświetlony komunikat o błędzie.
-> 
-> 
+Jeśli administrator globalny nie próbuje zalogować przed uprawnienia są udzielane przez administratora globalnego, próba logowania nie powiedzie się i zostanie wyświetlony komunikat o błędzie.
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Jak dodać zewnętrznych Azure grupy usługi Active Directory
+
 Po włączeniu dostępu dla użytkowników w usłudze Azure Active Directory, można dodać grupy usługi Azure Active Directory interfejsu API do zarządzania w celu skojarzenia deweloperów w grupie z żądaną produktów w prostszy sposób zarządzać.
 
-> Aby skonfigurować zewnętrznego grupy usługi Azure Active Directory, usługi Azure Active Directory należy najpierw skonfigurować na karcie tożsamości wykonując poniższe kroki w poprzedniej sekcji. 
-> 
-> 
+Aby skonfigurować zewnętrznego grupy usługi Azure Active Directory, usługi Azure Active Directory należy najpierw skonfigurować na karcie tożsamości wykonując poniższe kroki w poprzedniej sekcji. 
 
-Zewnętrzne grup usługi Azure Active Directory są dodawane z **widoczność** na karcie produktu, dla którego chcesz udzielić dostępu do grupy. Kliknij przycisk **produktów**, a następnie kliknij nazwę żądanego produktu.
+Zewnętrzne grup usługi Azure Active Directory są dodawane z **grup** kartę wystąpienia interfejsu API zarządzania.
 
-![Konfigurowanie produktu][api-management-configure-product]
+![Grupy](./media/api-management-howto-aad/api-management-with-aad008.png)
 
-Przełącz się do **widoczność** , a następnie kliknij pozycję **Dodawanie grup z usługi Azure Active Directory**.
+1. Wybierz kartę **Grupy**.
+2. Kliknij przycisk **grupy dodać AAD** przycisku.
+3. Wybierz grupę, którą chcesz dodać.
+4. Naciśnij klawisz **wybierz** przycisku.
 
-![Dodaj grupy][api-management-add-groups]
-
-Wybierz **Azure Active Directory dzierżawy** z listy rozwijanej liście, a następnie wpisz nazwę w odpowiedniej grupy **grup** do dodania pola tekstowego.
-
-![Wybieranie grupy][api-management-select-group]
-
-Ta nazwa grupy można znaleźć w **grup** lista dla usługi Azure Active Directory, jak pokazano w poniższym przykładzie.
-
-![Lista grup usługi Azure Active Directory][api-management-aad-groups-list]
-
-Kliknij przycisk **Dodaj** do sprawdzania poprawności nazwy grupy i Dodaj grupę. W tym przykładzie **deweloperzy 5 Contoso** jest dodana grupa zewnętrzna. 
-
-![Grupy dodane][api-management-aad-group-added]
-
-Kliknij przycisk **zapisać** można zapisać nowego wybranej grupy.
-
-Po grupy usługi Azure Active Directory zostało skonfigurowane z jednym z produktów, jest ona dostępna do sprawdzenia na **widoczność** kartę dla innych produktów w wystąpieniu usługi Zarządzanie interfejsami API.
-
-Aby przejrzeć i skonfiguruj właściwości dla zewnętrznych grup po ich dodaniu, kliknij nazwę grupy z **grup** kartę.
-
-![Zarządzanie grupami][api-management-groups]
+Po utworzeniu grupy usługi Azure Active Directory, można zobaczyć i skonfigurować właściwości dla zewnętrznych grup po zostały dodane, kliknij nazwę grupy z **grup** kartę.
 
 W tym miejscu można edytować **nazwa** i **opis** grupy.
-
-![Edytuj grupę][api-management-edit-group]
-
+ 
 Użytkownikom skonfigurowane usługi Azure Active Directory można zalogować się do portalu dla deweloperów i widoku oraz subskrybować żadnej z grup, do których mają widoczność, postępując zgodnie z instrukcjami w następnej sekcji.
 
-## <a name="how-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a>Jak zalogować się do portalu dla deweloperów przy użyciu konta usługi Azure Active Directory
+## <a name="a-idlogintodevportalhow-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a><a id="log_in_to_dev_portal"/>Jak zalogować się do portalu dla deweloperów przy użyciu konta usługi Azure Active Directory
+
 Aby zalogować się do portalu dla deweloperów przy użyciu konta usługi Azure Active Directory skonfigurowanych w poprzednich sekcjach, Otwórz nowe okno przeglądarki, za pomocą **adres URL logowania** konfiguracji aplikacji usługi Active Directory i kliknij przycisk **Usługi azure Active Directory**.
 
 ![Portalu dla deweloperów][api-management-dev-portal-signin]
@@ -189,37 +152,10 @@ Użytkownika jest obecnie zalogowany do portalu dla deweloperów wystąpienia us
 
 ![Rejestracja zakończona][api-management-registration-complete]
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Połącz się z serwerem IBM MQ z aplikacji logiki przy użyciu łącznika programu MQ 
 
@@ -43,7 +43,7 @@ Microsoft Connector dla programu MQ wysyła i pobiera wiadomości przechowywanyc
 * Tworzenie zasobu platformy Azure do bramy danych lokalnych - [Konfigurowanie połączenia bramy danych](../logic-apps/logic-apps-gateway-connection.md).
 
 * Oficjalnie obsługiwane wersje programu IBM WebSphere MQ:
-   * MQ W WERSJI 7.5
+   * MQ 7.5
    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
@@ -71,7 +71,7 @@ Microsoft Connector dla programu MQ wysyła i pobiera wiadomości przechowywanyc
     1. Wybierz **Połącz za pośrednictwem bramy danych lokalnych**, a następnie wprowadź właściwości serwera MQ.  
     Aby uzyskać **serwera**, wprowadź nazwę serwera MQ lub wprowadź adres IP, a następnie dwukropek i numer portu. 
     2. **Bramy** lista rozwijana zawiera listę istniejących połączeń bramy, które zostały skonfigurowane. Wybierz bramę.
-    3. Wybierz **Utwórz** po zakończeniu. Połączenie jest podobny do następującego:   
+    3. Po zakończeniu wybierz pozycję **Utwórz**. Połączenie jest podobny do następującego:   
     ![Właściwości połączenia](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. We właściwościach akcji można:  
@@ -122,5 +122,5 @@ Jeśli występują żadne komunikaty w kolejce, podczas przeglądania lub receiv
 
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/mq/).
 
-## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).

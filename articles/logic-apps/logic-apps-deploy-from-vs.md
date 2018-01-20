@@ -15,17 +15,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Projektowanie, tworzenie i wdrażanie usługi Azure Logic Apps w programie Visual Studio
 
 Mimo że [portalu Azure](https://portal.azure.com/) oferuje to dobry sposób umożliwiające tworzenie i zarządzanie nimi Azure Logic Apps, można użyć programu Visual Studio umożliwiające projektowanie, tworzenie i wdrażanie aplikacji logiki. Program Visual Studio udostępnia zaawansowane narzędzia, takie jak dla projektanta aplikacji logiki do tworzenia aplikacji logiki, konfigurować szablony wdrażania i automatyzacji i wdrażania z dowolnym środowiskiem. 
 
-Aby rozpocząć pracę z usługą Azure Logic Apps, Dowiedz się [tworzenie pierwszej aplikacji logiki w portalu Azure](logic-apps-create-a-logic-app.md).
+Aby rozpocząć pracę z usługą Azure Logic Apps, Dowiedz się [tworzenie pierwszej aplikacji logiki w portalu Azure](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Kroki instalacji
 
@@ -109,7 +109,7 @@ Jeśli chcesz aplikację logiki, aby odwołać zasoby zależne, można użyć [f
 Można używać parametrów aplikacji logiki w rodzaju wyzwalacze i akcje:
 
 *   Podrzędny przepływ pracy
-*   Funkcja aplikacji
+*   Aplikacja funkcji
 *   Wywołanie APIM
 *   Adres URL wykonywania połączenia interfejsu API
 *   Ścieżka połączenia interfejsu API

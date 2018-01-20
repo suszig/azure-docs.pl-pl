@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Rozpoczynanie pracy z łącznika usługi Azure SQL Database
 Za pomocą łącznika usługi Azure SQL Database, tworzyć przepływy pracy dla organizacji zarządzających danych w tabelach. 
@@ -31,7 +31,7 @@ Z bazy danych SQL można:
 
 W tym temacie opisano sposób korzystania z łącznika bazy danych SQL w aplikacji logiki, a także zawiera listę akcji.
 
-Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [co to jest logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [co to jest logic apps](../logic-apps/logic-apps-overview.md) i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-sql-database"></a>Połącz z bazą danych Azure SQL
 Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. Połączenie stanowi połączenie między aplikacji logiki i innej usługi. Na przykład do łączenia z bazą danych SQL, należy najpierw utworzyć bazę danych SQL *połączenia*. Do utworzenia połączenia, należy wprowadzić poświadczenia, zwykle używanego do uzyskania dostępu do usługi, którą jest nawiązywane. Tak w bazie danych SQL, wprowadź swoje poświadczenia bazy danych SQL, aby utworzyć połączenie. 
@@ -42,10 +42,10 @@ Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy naj
 > 
 
 ## <a name="use-a-trigger"></a>Użyć wyzwalacza
-Ten łącznik nie ma żadnych wyzwalaczy. Użyj innych wyzwalaczy, aby uruchomić aplikację logiki, takie jak wyzwalacz cyklu wyzwalacza HTTP elementu Webhook, wyzwalaczy dostępny z innych łączników i inne. [Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) przykładowego.
+Ten łącznik nie ma żadnych wyzwalaczy. Użyj innych wyzwalaczy, aby uruchomić aplikację logiki, takie jak wyzwalacz cyklu wyzwalacza HTTP elementu Webhook, wyzwalaczy dostępny z innych łączników i inne. [Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przykładowego.
 
 ## <a name="use-an-action"></a>Za pomocą akcji
-Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Wybierz znak plus. Zobacz kilka opcji: **Dodaj akcję**, **Dodaj warunek**, lub jeden z **więcej** opcje.
    
@@ -70,6 +70,6 @@ Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logik
 
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/sql/). 
 
-## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
 

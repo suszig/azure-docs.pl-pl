@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 71c73f034a3c32c9bdf1532106a3aba9521afb17
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1988d293c78e7fb51f08d040ab96a6d7a3abbb87
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Kopiowanie danych z kwadratowe przy użyciu fabryki danych Azure (wersja Beta)
 
@@ -37,7 +37,7 @@ Fabryka danych Azure oferuje wbudowane sterowników, aby umożliwić łącznoś�
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika.
 
@@ -48,7 +48,7 @@ Następujące właściwości są obsługiwane dla kwadratowego połączonej usł
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **kwadratowe** | Yes |
-| host | Adres URL wystąpienia kwadratowych. (tj. mystore.mysquare.com)  | Yes |
+| host | Adres URL wystąpienia kwadratowych. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | Identyfikator klienta skojarzony z aplikacją kwadratowych.  | Yes |
 | clientSecret | Klucz tajny klienta skojarzone z aplikacją kwadratowych. Można wybrać opcję Oznacz to pole jako SecureString Zapisz w bezpiecznej lokalizacji w ADF lub przechowywania haseł w usłudze Azure Key Vault i umożliwić działanie kopiowania ściągnięcia stamtąd podczas wykonywania kopii danych — Dowiedz się więcej o [przechowywania poświadczeń w magazynie kluczy](store-credentials-in-key-vault.md). | Yes |
 | redirectUri | Adres URL przekierowania przypisane na pulpicie nawigacyjnym aplikacji kwadratowych. (tj. http://localhost:2500)  | Yes |

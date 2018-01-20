@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie środowiska uruchomieniowego integracji usług SSIS Azure o wysokiej wydajności
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób konfigurowania usług SSIS Azure integrację śro
 
 Następujące części skryptu konfiguracji zawiera właściwości, które można skonfigurować podczas tworzenia środowiska uruchomieniowego integracji usług SSIS Azure. Ukończ skrypt programu PowerShell i opis, zobacz [pakiety wdrażania programu SQL Server Integration Services na platformie Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -42,7 +42,7 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ Jeśli masz wiele pakietów do uruchomienia, a najbardziej Cię interesują ogó
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Jeśli już korzystasz z węzłem procesu roboczego zaawansowane do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepustowość środowiska uruchomieniowego integracji. Można oszacować odpowiednią wartość, na podstawie jej kosztu pakietu i następujące konfiguracje węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiarów maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/windows/sizes-general.md).
+Jeśli już korzystasz z węzłem procesu roboczego zaawansowane do uruchamiania pakietów, zwiększenie **AzureSSISMaxParallelExecutionsPerNode** może zwiększyć ogólną przepustowość środowiska uruchomieniowego integracji. Dla węzłów Standard_D1_v2 1-4 wykonaniami równoległego na węzeł są obsługiwane. Dla wszystkich innych typów węzłów 1 – 8 wykonaniami równoległego na węzeł są obsługiwane.
+Można oszacować odpowiednią wartość, na podstawie jej kosztu pakietu i następujące konfiguracje węzłów procesu roboczego. Aby uzyskać więcej informacji, zobacz [rozmiarów maszyn wirtualnych ogólnego przeznaczenia](../virtual-machines/windows/sizes-general.md).
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -120,5 +121,5 @@ Można również dostosować bazy danych na podstawie warstwy cenowej [jednostka
 ## <a name="design-for-high-performance"></a>Projektowanie pod kątem wysokiej wydajności
 Projektowanie pakietu SSIS do uruchamiania na platformie Azure różni się od projektowania pakietu w celu wykonania lokalnego. Zamiast łączenie wielu niezależnych zadań w tym samym pakiecie, podzielone na kilka pakietów efektywniejsze wykonywanie w podczerwieni Azure SSIS. Utwórz wykonanie pakietu dla każdego pakietu, dzięki czemu nie trzeba czekać dla pozostałych do zakończenia. Ta metoda korzysta z skalowalność środowiska uruchomieniowego integracji usług SSIS Azure i zwiększa ogólną przepustowość.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej na temat środowiska uruchomieniowego integracji usług SSIS Azure. Zobacz [środowiska uruchomieniowego integracji usług SSIS Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).

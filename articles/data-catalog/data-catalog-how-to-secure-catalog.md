@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 0950d453e53a70f96f59de572ac10326ef030444
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Jak zabezpieczyć dostęp do katalogu danych i zasobów danych
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ Aby podać użytkownik lub Grupa dostępu do wykazu danych i ustawić uprawnieni
     ![Data catalog — ustawienia](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Na stronie ustawień, rozwiń węzeł **użytkownicy wykazu** sekcji.
     ![W katalogu użytkowników — Dodaj](media/data-catalog-how-to-secure-catalog/data-catalog-add-button.png)
-3. Kliknij pozycję **Dodaj**.
+3. Kliknij pozycję **Add** (Dodaj).
 4. Wprowadź w pełni kwalifikowaną **nazwy użytkownika** lub nazwa **grupy zabezpieczeń** w usłudze Azure Active Directory (AAD) skojarzone z katalogiem. Użyj przecinka (",") jako separatora, dodając więcej niż jednego użytkownika lub grupę.
     ![Użytkownicy wykazu - użytkowników lub grup](media/data-catalog-how-to-secure-catalog/data-catalog-users-groups.png)
 5. Naciśnij klawisz **ENTER** lub **kartę** poza pola tekstowego. 
@@ -54,6 +54,6 @@ Aby podać użytkownik lub Grupa dostępu do wykazu danych i ustawić uprawnieni
 - Uprawnienia przypisane do grupy zabezpieczeń są dodatku. Użytkownik jest w dwóch grupach. Jedna grupa ma adnotacji uprawnienia i nie mają adnotacje do innej grupy uprawnień. Następnie użytkownik ma adnotacji uprawnienia. 
 - Uprawnienia jawnie przypisane do użytkownika musi zostać zastąpiona uprawnienia przypisane do grup, do których należy użytkownik. W poprzednim przykładzie powiedzieć jawnie dodawania użytkownika do katalogu użytkowników i czy nie przypisuj uprawnienia funkcji dodawania adnotacji. Użytkownik nie adnotacji zasobów danych, nawet jeśli użytkownik jest członkiem grupy, która ma adnotacji uprawnienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Analiza biznesowa programu SQL Server w usłudze Azure Virtual Machines
 > [!IMPORTANT] 
@@ -71,15 +71,15 @@ Poniższa tabela zawiera podsumowanie funkcji analizy biznesowej zainstalowane n
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 z dodatkiem SP1 Standard
 * SQL Server 2014 SP2 Enterprise
-* SQL Server 2014 z dodatkiem SP2 Standard
-* SQL Server 2012 z dodatkiem SP3 Enterprise
-* SQL Server 2012 Standard z dodatkiem SP3
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | SQL Server BI funkcji | Zainstalować w obrazie galerii | Uwagi |
 | --- | --- | --- |
-| **Tryb macierzysty usług raportowania** |Tak |Zainstalowany, ale wymaga konfiguracji, w tym adresu URL Menedżera raportów. Zobacz sekcję [skonfigurować usługi Reporting Services](#configure-reporting-services). |
+| **Tryb macierzysty usług raportowania** |Yes |Zainstalowany, ale wymaga konfiguracji, w tym adresu URL Menedżera raportów. Zobacz sekcję [skonfigurować usługi Reporting Services](#configure-reporting-services). |
 | **Usług raportowania w trybie programu SharePoint** |Nie |Obraz galerii maszyny wirtualnej platformy Microsoft Azure nie ma programu SharePoint lub SharePoint plików instalacyjnych. <sup>1</sup> |
-| **Wyszukiwania danych i wielowymiarowych usług Analysis Services (OLAP)** |Tak |Zainstalowany i skonfigurowany jako domyślnego wystąpienia usług Analysis Services |
+| **Wyszukiwania danych i wielowymiarowych usług Analysis Services (OLAP)** |Yes |Zainstalowany i skonfigurowany jako domyślnego wystąpienia usług Analysis Services |
 | **Tabelaryczne usług Analysis Services** |Nie |Obsługiwane w programie SQL Server 2012, 2014 i 2016 obrazów, ale go nie zainstalowano domyślnie. Zainstalować inne wystąpienie usług Analysis Services. Zobacz sekcję zainstalowanie innych usług SQL Server i funkcji w tym temacie. |
 | **Dodatek Power Pivot usług analizy dla programu SharePoint** |Nie |Obraz galerii maszyny wirtualnej platformy Microsoft Azure nie ma programu SharePoint lub SharePoint plików instalacyjnych. <sup>1</sup> |
 
@@ -98,7 +98,7 @@ Poniższa tabela zawiera podsumowanie funkcji analizy biznesowej zainstalowane n
   * Dysk buforowanie zasad na domyślnym dysku **C**: nie są optymalne dla pracy z danymi.
   * **D**: dysk jest dyskiem tymczasowego, który jest używany głównie dla pliku stronicowania. **D**: dysk nie jest trwały i nie są zapisywane w magazynie obiektów blob. Resetuj rozmiar zadań zarządzania, takich jak zmiana w maszynie wirtualnej **D**: dysku. Zaleca się **nie** użyj **D**: dysku plików bazy danych, takie jak bazy danych tempdb.
     
-    Aby uzyskać więcej informacji na temat tworzenia i dołączania dysków, zobacz [jak dołączyć dysku danych do maszyny wirtualnej](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Aby uzyskać więcej informacji na temat tworzenia i dołączania dysków, zobacz [jak dołączyć dysku danych do maszyny wirtualnej](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Zatrzymaj lub odinstalować usługi, które nie będą używane. Dla przykładu Jeśli maszyna wirtualna jest używana tylko dla usług Reporting Services, Zatrzymaj lub odinstalowanie usług Analysis Services i SQL Server Integration Services. Poniższa ilustracja jest przykładem usług, które są uruchamiane domyślnie.
   
     ![Usługi programu SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -152,7 +152,7 @@ Istnieją dwa wspólne przepływy pracy podłączania do maszyny wirtualnej plat
   1. Typ **nazwa usługi w chmurze** jako nazwy komputera.
   2. Wpisz, dwukropek (:) i numerem portu publicznego, którą skonfigurowano dla zdalnego pulpitu punktu końcowego TCP.
      
-      Myservice.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Aby uzyskać więcej informacji, zobacz [co to jest usługa w chmurze?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
@@ -257,7 +257,7 @@ Aby zainstalować dodatkowy serwer SQL usług, takich jak usługi Analysis Servi
 2. Kliknij przycisk **Microsoft SQL Server 2016**, **programu Microsoft SQL Server 2014** lub **programu Microsoft SQL Server 2012** , a następnie kliknij przycisk **narzędzia do konfiguracji**.
 3. Kliknij przycisk **Centrum instalacji programu SQL Server**.
 
-Lub uruchom C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe lub C:\SQLServer_11.0_full\setup.exe
+Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
 
 > [!NOTE]
 > Po uruchomieniu Instalatora programu SQL Server po raz pierwszy więcej plików instalacji może zostać pobrana i wymaga ponownego uruchomienia maszyny wirtualnej i ponownie uruchomić Instalatora programu SQL Server.
@@ -339,7 +339,7 @@ Na poniższym diagramie przedstawiono porty do otwarcia w zaporze maszyny Wirtua
 * [Program SQL Server na maszynach wirtualnych platformy Azure — omówienie](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Inicjowanie obsługi administracyjnej maszyny wirtualnej programu SQL Server na platformie Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Jak można dołączyć dysku danych do maszyny wirtualnej](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Jak można dołączyć dysku danych do maszyny wirtualnej](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrowanie bazy danych do programu SQL Server na maszynie Wirtualnej platformy Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Określić wystąpienie usług analizy w trybie serwera](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modelowania wielowymiarowego (samouczek Adventure Works)](https://technet.microsoft.com/library/ms170208.aspx)

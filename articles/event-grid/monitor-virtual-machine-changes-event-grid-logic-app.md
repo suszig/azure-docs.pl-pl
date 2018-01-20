@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitoruj zmiany maszyny wirtualnej Azure zdarzeń siatki i Logic Apps
 
-Można uruchomić zautomatyzowanych [przepływu pracy aplikacji logiki](../logic-apps/logic-apps-what-are-logic-apps.md) po określonych zdarzeń w zasobów platformy Azure lub innych zasobów. Te zasoby mogą publikować te zdarzenia do [siatki usługi Azure event](../event-grid/overview.md). Z kolei siatki zdarzeń wypychanie tych zdarzeń do subskrybentów mających kolejek, elementów webhook, lub [usługi event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) jako punktów końcowych. Jako aplikację logiki można oczekiwania dla tych zdarzeń z siatki zdarzeń przed uruchomieniem automatycznych przepływów pracy do wykonywania zadań — bez pisania żadnego kodu.
+Można uruchomić zautomatyzowanych [przepływu pracy aplikacji logiki](../logic-apps/logic-apps-overview.md) po określonych zdarzeń w zasobów platformy Azure lub innych zasobów. Te zasoby mogą publikować te zdarzenia do [siatki usługi Azure event](../event-grid/overview.md). Z kolei siatki zdarzeń wypychanie tych zdarzeń do subskrybentów mających kolejek, elementów webhook, lub [usługi event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) jako punktów końcowych. Jako aplikację logiki można oczekiwania dla tych zdarzeń z siatki zdarzeń przed uruchomieniem automatycznych przepływów pracy do wykonywania zadań — bez pisania żadnego kodu.
 
 Na przykład poniżej przedstawiono niektóre zdarzenia, które wydawców mogą wysyłać do subskrybentów za pomocą usługi Azure Event siatki:
 
@@ -61,10 +61,10 @@ Najpierw należy utworzyć aplikację logiki i dodać wyzwalacz siatki zdarzeń,
 
    | Ustawienie | Sugerowana wartość | Opis | 
    | ------- | --------------- | ----------- | 
-   | **Nazwa** | *{your logiki app-name}* | Podaj unikatową nazwę aplikacji logiki. | 
-   | **Subskrypcja** | *{subskrypcji your Azure}* | Wybierz tej samej subskrypcji platformy Azure dla wszystkich usług, w tym samouczku. | 
-   | **Grupa zasobów** | *{your-Azure grupa zasobów}* | Wybierz grupę zasobów platformy Azure dla wszystkich usług w tym samouczku. | 
-   | **Lokalizacja** | *{your Azure region}* | Wybierz tego samego regionu dla wszystkich usług, w tym samouczku. | 
+   | **Nazwa** | *{your-logic-app-name}* | Podaj unikatową nazwę aplikacji logiki. | 
+   | **Subskrypcja** | *{your-Azure-subscription}* | Wybierz tej samej subskrypcji platformy Azure dla wszystkich usług, w tym samouczku. | 
+   | **Grupa zasobów** | *{your-Azure-resource-group}* | Wybierz grupę zasobów platformy Azure dla wszystkich usług w tym samouczku. | 
+   | **Lokalizacja** | *{your-Azure-region}* | Wybierz tego samego regionu dla wszystkich usług, w tym samouczku. | 
    | | | 
 
 4. Jeśli wszystko jest gotowe, wybierz **Przypnij do pulpitu nawigacyjnego**i wybierz polecenie **Utwórz**.
@@ -79,7 +79,7 @@ Najpierw należy utworzyć aplikację logiki i dodać wyzwalacz siatki zdarzeń,
 
    ![Wybieranie szablonu aplikacji logiki](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Teraz pokazuje projektanta aplikacji logiki [ *łączniki* ](../connectors/apis-list.md) i [ *wyzwalaczy* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) można uruchomić aplikacji logiki i również akcje, które można dodać po wyzwalacz do wykonywania zadań. Wyzwalacz jest zdarzenie, które tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy aplikacji logiki. 
+   Teraz pokazuje projektanta aplikacji logiki [ *łączniki* ](../connectors/apis-list.md) i [ *wyzwalaczy* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) można uruchomić aplikacji logiki i również akcje, które można dodać po wyzwalacz do wykonywania zadań. Wyzwalacz jest zdarzenie, które tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy aplikacji logiki. 
    Twoja aplikacja logiki powinna wyzwalacz jako pierwszy element.
 
 6. W polu wyszukiwania wprowadź "zdarzeń siatki" jako filtr. Wybierz ten wyzwalacz: **siatki zdarzeń Azure — w przypadku zdarzeń zasobów**
@@ -99,9 +99,9 @@ Najpierw należy utworzyć aplikację logiki i dodać wyzwalacz siatki zdarzeń,
 
    | Ustawienie | Sugerowana wartość | Opis | 
    | ------- | --------------- | ----------- | 
-   | **Subskrypcja** | *{wirtualnego machine subskrypcji platformy Azure —}* | Wybierz subskrypcję platformy Azure wydawca zdarzeń. W tym samouczku Wybierz subskrypcję platformy Azure dla maszyny wirtualnej. | 
+   | **Subskrypcja** | *{virtual-machine-Azure-subscription}* | Wybierz subskrypcję platformy Azure wydawca zdarzeń. W tym samouczku Wybierz subskrypcję platformy Azure dla maszyny wirtualnej. | 
    | **Typ zasobu** | Microsoft.Resources.resourceGroups | Wybierz typ zasobu wydawca zdarzeń. W tym samouczku wybierz określoną wartość, aplikację logiki monitoruje tylko grupy zasobów. | 
-   | **Nazwa zasobu** | *{wirtualnego machine-— Nazwa grupy zasobów —}* | Wybierz nazwę zasobu wydawcy. W tym samouczku wybierz nazwę grupy zasobów dla maszyny wirtualnej. | 
+   | **Nazwa zasobu** | *{virtual-machine-resource-group-name}* | Wybierz nazwę zasobu wydawcy. W tym samouczku wybierz nazwę grupy zasobów dla maszyny wirtualnej. | 
    | Wybierz opcjonalne ustawienia **Pokaż zaawansowane opcje**. | *{zobacz opisy}* | * **Prefiks filtru**: W tym samouczku, pozostaw to ustawienie puste. Domyślne zachowanie dopasowuje wszystkie wartości. Jednak można określić ciąg prefiksu jako filtru, na przykład ścieżkę i parametr dla określonego zasobu. <p>* **Sufiks filtru**: W tym samouczku, pozostaw to ustawienie puste. Domyślne zachowanie dopasowuje wszystkie wartości. Jednak można określić ciąg sufiksu jako filtru, na przykład rozszerzenie nazwy pliku, jeśli chcesz tylko określonych typów plików.<p>* **Nazwa subskrypcji**: Podaj unikatową nazwę dla Twojej subskrypcji zdarzeń. |
    | | | 
 
@@ -154,7 +154,7 @@ Wprowadź wyrażenie:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Wyślij wiadomość e-mail, gdy zmienia się na komputerze wirtualnym
 
-Teraz Dodaj [ *akcji* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) tak, aby pobrać wiadomość e-mail, gdy określony warunek jest spełniony.
+Teraz Dodaj [ *akcji* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) tak, aby pobrać wiadomość e-mail, gdy określony warunek jest spełniony.
 
 1. W tym stanie **w przypadku wartości PRAWDA** wybierz **Dodaj akcję**.
 
@@ -182,7 +182,7 @@ Teraz Dodaj [ *akcji* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-ap
 
    | Ustawienie | Sugerowana wartość | Opis | 
    | ------- | --------------- | ----------- | 
-   | **Do** | *{odbiorcy — adres e-mail}* |Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. | 
+   | **Do** | *{recipient-email-address}* |Wprowadź adres e-mail adresata. Do celów testowych możesz użyć własnego adresu e-mail. | 
    | **Temat** | Zasób zaktualizowane: **podmiotu**| Wprowadź zawartość w polu tematu wiadomości e-mail. W tym samouczku, wprowadź tekst sugerowane i wybierz zdarzenie **podmiotu** pola. W tym miejscu temat wiadomości e-mail zawiera nazwę do zaktualizowanego zasobu (maszyny wirtualnej). | 
    | **Treść** | Grupa zasobów: **tematu** <p>Typ zdarzenia: **typ zdarzenia**<p>Identyfikator zdarzenia: **ID**<p>Czas: **czas trwania zdarzenia** | Wprowadź zawartość w polu treści wiadomości e-mail. W tym samouczku, wprowadź tekst sugerowane i wybierz zdarzenie **tematu**, **typ zdarzenia**, **identyfikator**, i **czas trwania zdarzenia** pola tak, aby Twój adres e-mail zawiera nazwa grupy zasobów, typ zdarzenia, sygnatura czasowa zdarzenia i Identyfikatora zdarzenia dla aktualizacji. <p>Aby dodać puste wiersze w zawartości, naciśnij klawisze Shift + Enter. | 
    | | | 
@@ -245,6 +245,6 @@ Ten samouczek używa zasobów i wykonuje akcje, które naliczenie opłat w ramac
 
 * Aby trwale usunąć aplikację logiki w menu aplikacji logiki, wybierz **omówienie**. Na pasku narzędzi wybierz pozycję **Usuń**. Potwierdź, że chcesz usunąć aplikację logiki, a następnie wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie i trasy zdarzeń niestandardowych zdarzeń siatki](../event-grid/custom-event-quickstart.md)

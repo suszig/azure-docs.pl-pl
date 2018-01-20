@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 
@@ -181,7 +181,7 @@ Po pomyślnym włączeniu kopii zapasowej zasad tworzenia kopii zapasowej zostan
 Jeśli masz problemy z zarejestrowaniem maszyny wirtualnej, zobacz poniższe informacje na temat instalowania agenta maszyny Wirtualnej oraz łączność sieciową. Prawdopodobnie nie potrzebujesz następujących informacji w przypadku ochrony maszyn wirtualnych utworzonych na platformie Azure. Jednak po migracji maszyn wirtualnych na platformie Azure, należy poprawnie zainstalowany agent maszyny Wirtualnej i maszyny wirtualnej mogą komunikować się z siecią wirtualną.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Zainstaluj agenta maszyny Wirtualnej na maszynie wirtualnej
-Rozszerzenia kopii zapasowej do pracy Azure [agenta maszyny Wirtualnej](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) musi być zainstalowany na maszynie wirtualnej Azure. Jeśli maszyna wirtualna została utworzona z portalu Azure Marketplace, agent maszyny Wirtualnej jest już obecny w maszynie wirtualnej. 
+Rozszerzenia kopii zapasowej do pracy Azure [agenta maszyny Wirtualnej](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musi być zainstalowany na maszynie wirtualnej Azure. Jeśli maszyna wirtualna została utworzona z portalu Azure Marketplace, agent maszyny Wirtualnej jest już obecny w maszynie wirtualnej. 
 
 Poniżej przedstawiono informacje dotyczące sytuacji, w którym są *nie* przy użyciu maszyny Wirtualnej utworzone w witrynie Azure Marketplace. Na przykład w przypadku migracji maszyny Wirtualnej z lokalnego centrum danych. W takim przypadku agenta maszyny Wirtualnej musi być zainstalowany, aby chronić maszyny wirtualnej.
 

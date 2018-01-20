@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Rozpoczynanie pracy z łącznikiem dysk Google
 Nawiązać dysk Google, aby utworzyć pliki, Pobierz wiersze i inne. Dysk Google można: 
@@ -28,7 +28,7 @@ Nawiązać dysk Google, aby utworzyć pliki, Pobierz wiersze i inne. Dysk Google
 * Tworzenie sieci przepływu biznesowe na podstawie danych otrzymywanych z wyszukiwania. 
 * Użyj działania do wyszukania obrazów, wiadomości i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład można wyszukać wideo, a następnie za pomocą usługi Twitter zaksięgowania wideo do serwisu Twitter.
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>Utwórz połączenie z dysk Google
 Po dodaniu tego łącznika do aplikacji logiki, należy zezwolić aplikacji logiki, aby połączyć się z dyskiem Google.

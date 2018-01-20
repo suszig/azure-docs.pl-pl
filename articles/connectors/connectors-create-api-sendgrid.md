@@ -1,6 +1,6 @@
 ---
-title: SendGrid | Dokumentacja firmy Microsoft
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Dostawca połączeń SendGrid umożliwia wysyłanie wiadomości e-mail i zarządzanie nimi listy adresatów."
+title: SendGrid | Microsoft Docs
+description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Dostawca połączenia SendGrid umożliwia wysyłanie wiadomości e-mail i zarządzanie listami adresatów."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0773750f24b18aa55874a215cac7ccdfc5c1182
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Rozpoczynanie pracy z łącznika SendGrid
-Dostawca połączeń SendGrid umożliwia wysyłanie wiadomości e-mail i zarządzanie nimi listy adresatów.
+Dostawca połączenia SendGrid umożliwia wysyłanie wiadomości e-mail i zarządzanie listami adresatów.
 
-Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sendgrid"></a>Utwórz połączenie SendGrid
 Do tworzenia aplikacji logiki sendgrid, należy najpierw utworzyć **połączenia** następnie podaj szczegóły następujące właściwości: 
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| apiKey |Tak |Podaj klucz interfejsu Api SendGrid |
+| apiKey |Yes |Podaj klucz interfejsu API usługi SendGrid |
 
 > [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 

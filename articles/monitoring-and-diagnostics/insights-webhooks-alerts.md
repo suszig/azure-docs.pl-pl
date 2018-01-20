@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Konfigurowanie elementu webhook na alert metryki Azure
 Elementów Webhook pozwalają kierować Azure powiadomień o alertach do innych systemów przetwarzania końcowego lub niestandardowych działań. Elementu webhook na alert służy do kierowania go do usługi, które wysyłanie SMS, dziennika błędów, powiadamiania zespołu za pomocą usług wiadomości rozmów/lub czy dowolna liczba innych działań. W tym artykule opisano, jak ustawić elementu webhook w Azure alertu metryki i wygląda ładunek dla HTTP POST do elementu webhook. Informacje dotyczące instalacji i schematu dla alertu dziennika aktywności platformy Azure (alert zdarzeń) [wyświetlona następująca strona](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich ale
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -81,18 +84,18 @@ Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich ale
 | name |Tak | |Nazwa alertu. |
 | description |Tak | |Opis alertu. |
 | conditionType |Tak |"Metryki", "Event" |Obsługiwane są dwa typy alertów. Jeden na podstawie warunku metryki i inne, na podstawie zdarzenia w dzienniku aktywności. Użyj tej wartości, aby sprawdzić, czy alert jest oparty na Metryka lub zdarzeń. |
-| Warunek |Tak | |Na conditionType na podstawie określonych pól do sprawdzenia. |
+| warunek |Tak | |Na conditionType na podstawie określonych pól do sprawdzenia. |
 | metricName |Metryki alertów | |Nazwa metryki, który definiuje reguły monitoruje. |
 | metricUnit |Metryki alertów |"B", "BytesPerSecond", "Count", "CountPerSecond", "%", "S" |Jednostka może metryki. [Dozwolone wartości są wyświetlane tutaj](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Metryki alertów | |Rzeczywista wartość metryki, który spowodował alert. |
 | Próg |Metryki alertów | |Wartość progowa, w którym włączono alert. |
-| Rozmiar_okna |Metryki alertów | |Okres czasu, który służy do monitorowania alertów działania oparte na wartość progową. Musi należeć do zakresu od 5 minut do 1 dnia. Format czasu trwania ISO 8601. |
+| windowSize |Metryki alertów | |Okres czasu, który służy do monitorowania alertów działania oparte na wartość progową. Musi należeć do zakresu od 5 minut do 1 dnia. Format czasu trwania ISO 8601. |
 | timeAggregation |Metryki alertów |"Średnia", "Last", "Maksimum", "Minimalna", "None", "całkowita" |Jak można łączyć dane, które są zbierane wraz z upływem czasu. Wartość domyślna to średnia. [Dozwolone wartości są wyświetlane tutaj](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | Operator |Metryki alertów | |Operator użyty do porównania bieżące dane metryk do ustalonego progu. |
 | subscriptionId |Tak | |Identyfikator subskrypcji platformy Azure. |
-| Grupy zasobów o nazwie |Tak | |Nazwa grupy zasobów dla zasobu ryzyko. |
+| resourceGroupName |Tak | |Nazwa grupy zasobów dla zasobu ryzyko. |
 | resourceName |Tak | |Nazwa zasobu ryzyko zasobu. |
-| Typ zasobu |Tak | |Typ zasobu ryzyko zasobu. |
+| resourceType |Tak | |Typ zasobu ryzyko zasobu. |
 | resourceId |Tak | |Identyfikator zasobu ryzyko zasobu. |
 | resourceRegion |Tak | |Region lub lokalizacji zasobów objęte wpływem. |
 | portalLink |Tak | |Bezpośredniego łącza do strony podsumowania portalu zasobów. |
@@ -103,7 +106,7 @@ Operację POST zawiera następujące ładunek JSON i schematu dla wszystkich ale
 >
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o alertach Azure i elementów webhook wideo [integracji Azure alerty PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Wykonywanie skryptów automatyzacji Azure (elementów Runbook) Azure alertów](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Wyślij wiadomość SMS za pośrednictwem usługi Twilio z poziomu alertu Azure przy użyciu aplikacji logiki](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)

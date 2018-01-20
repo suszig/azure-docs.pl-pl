@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 04fa529a0d84f0413c825fef04eadea2496c02cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Wprowadzenie do projektowania tabel w magazynie danych SQL Azure
 
@@ -37,34 +37,27 @@ A [schemat gwiazdy](https://en.wikipedia.org/wiki/Star_schema) organizuje dane w
 ## <a name="schema-and-table-names"></a>Nazwy schematu i tabeli
 W usłudze SQL Data Warehouse magazyn danych jest typ bazy danych. Wszystkie tabele w magazynie danych są zawarte w tej samej bazy danych.  Nie można przyłączyć tabel na wiele magazynów danych. To zachowanie różni się od programu SQL Server, który obsługuje sprzężenia między bazami danych. 
 
-W bazie danych programu SQL Server może używać faktów i wymiarów, lub integracji dla nazwy schematu. W przypadku przenoszenia bazy danych programu SQL Server z magazynem danych SQL, działa najlepiej przeprowadzić migrację przechowywać wszystkie tabele faktów, wymiarów i integracji, aby jeden schemat w usłudze SQL Data Warehouse. Na przykład można przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) hurtowni danych przykładowych w ramach jednego schematu o nazwie WWI. Poniższy kod tworzy [użytkownika schematu](/sql/t-sql/statements/create-schema-transact-sql) o nazwie WWI.
+W bazie danych programu SQL Server może używać faktów i wymiarów, lub integracji dla nazwy schematu. W przypadku przenoszenia bazy danych programu SQL Server z magazynem danych SQL, działa najlepiej przeprowadzić migrację przechowywać wszystkie tabele faktów, wymiarów i integracji, aby jeden schemat w usłudze SQL Data Warehouse. Na przykład można przechowywać wszystkie tabele w [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) hurtowni danych przykładowych w ramach jednego schematu o nazwie wwi. Poniższy kod tworzy [użytkownika schematu](/sql/t-sql/statements/create-schema-transact-sql) o nazwie wwi.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-Aby wyświetlić organizacji tabel w usłudze SQL Data Warehouse, należy użyć faktów, wymiar i int jako prefiksy do nazwy tabeli. W poniższej tabeli przedstawiono niektóre nazwy schematu i tabeli dla WideWorldImportersDW. Porównuje nazw w programie SQL Server i SQL Data Warehouse. 
+Aby pokazać organizacji tabel w usłudze SQL Data Warehouse, int, faktów i wymiar może być używany jako prefiksy do nazwy tabeli. W poniższej tabeli przedstawiono niektóre nazwy schematu i tabeli dla WideWorldImportersDW. Porównuje nazw w programie SQL Server z nazw w usłudze SQL Data Warehouse. 
 
-| Tabele wymiarów WWI  | Oprogramowanie SQL Server | SQL Data Warehouse |
+| Tabela WideWorldImportersDW  | Typ tabeli | Oprogramowanie SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| Miasto | Dimension.City | WWI. DimCity |
-| Klient | Dimension.Customer | WWI. DimCustomer |
-| Date | Dimension.Date | WWI. DimDate |
-
-| Tabele faktów WWI | Oprogramowanie SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Kolejność | Fact.Order | WWI. FactOrder |
-| Sprzedaży  | Fact.Sale  | WWI. FactSale  |
-| Zakup | Fakt | WWI. FactPurchase |
+| Miasto | Wymiar | Dimension.City | wwi.DimCity |
+| Kolejność | Fakt | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>Definicja tabeli 
+## <a name="table-persistence"></a>Trwałość tabeli 
 
-Następujące pojęcia opisano kluczowe aspekty Definiowanie tabel. 
+Dane przechowywane w tabelach trwale w usłudze Azure Storage, tymczasowo w usłudze Azure Storage albo w magazynie danych zewnętrznych w magazynie danych.
 
-### <a name="standard-table"></a>Standardowa tabeli
+### <a name="regular-table"></a>Zwykłą tabelę
 
-Standardowe tabeli są przechowywane w usłudze Azure Storage jako część magazynu danych. W tabeli i dane utrwalić niezależnie od tego, czy sesja jest otwarty.  W tym przykładzie tworzy tabelę z kolumnami. 
+Zwykłą tabelę przechowuje dane w magazynie Azure, jako część magazynu danych. W tabeli i dane utrwalić niezależnie od tego, czy sesja jest otwarty.  W tym przykładzie tworzy zwykłą tabelę z kolumnami. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -76,17 +69,30 @@ Czas trwania sesji istnieje tylko tabeli tymczasowej. Używając tabeli tymczaso
 ### <a name="external-table"></a>Tabela zewnętrzna
 Wskazuje tabelę zewnętrzną danych znajdujących się w magazynie obiektów blob Azure lub usługi Azure Data Lake Store. W przypadku używania w połączeniu z instrukcji CREATE TABLE AS SELECT, wybierając z tabeli zewnętrznej importuje dane do usługi SQL Data Warehouse. Tabele zewnętrzne w związku z tym są przydatne do ładowania danych. Samouczek ładowania, zobacz [PolyBase używana do ładowania danych z magazynu obiektów blob Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
-### <a name="data-types"></a>Typy danych
+## <a name="data-types"></a>Typy danych
 Magazyn danych SQL obsługuje najczęściej używane typy danych. Aby uzyskać listę obsługiwanych typów danych, zobacz [typy danych](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) w instrukcji CREATE TABLE. Minimalizując rozmiar typów danych o pomaga zwiększyć wydajność przeszukiwania. Aby uzyskać wskazówki dotyczące typów danych, zobacz [typy danych](sql-data-warehouse-tables-data-types.md).
 
-### <a name="distributed-tables"></a>Rozproszone tabele
-Podstawowych funkcji usługi SQL Data Warehouse jest sposób umożliwia przechowywanie tabel w 60 rozproszonych lokalizacjach, nazywany dystrybucji, w rozproszonym systemie.  Magazyn danych SQL można zapisać tabeli w jeden z tych trzech sposobów:
+## <a name="distributed-tables"></a>Rozproszone tabele
+Podstawowych funkcji usługi SQL Data Warehouse jest sposób umożliwia przechowywanie tabel w 60 rozproszonych lokalizacjach, nazywany dystrybucji, w rozproszonym systemie.  Tabela są dystrybuowane za pomocą metody okrężnego, skrótu lub replikacji.
 
-- **Działanie okrężne** magazynów wiersze tabeli losowo, ale równomiernie między dystrybucje. Tabela okrężnego osiąga szybkie ładowanie wydajności, ale wymaga więcej przenoszenia danych od innych metod dla zapytań, które Dołącz do kolumn. 
-- **Skrót** dystrybucji dystrybuuje wiersze na podstawie wartości w kolumnie dystrybucji. Tabela rozpowszechniane skrót zawiera najbardziej potencjalnych do osiągnięcia wysokiej wydajności dla zapytanie sprzęga na dużych tabel. Istnieje kilka czynników, które mają wpływ na wybór kolumny dystrybucji. Aby uzyskać więcej informacji, zobacz [rozproszonych tabel](sql-data-warehouse-tables-distribute.md).
-- **Replikowane** tabel udostępnić pełną kopię tabeli w każdym węźle obliczeń. Uruchom szybkie na zapytania zreplikowane tabele, ponieważ sprzężenia w zreplikowanych tabelach nie wymaga przenoszenia danych. Replikacja wymaga dodatkowego magazynu i nie jest praktyczne dużych tabel. Aby uzyskać więcej informacji, zobacz [projekt, wskazówki dotyczące zreplikowanych tabel](design-guidance-for-replicated-tables.md).
+### <a name="hash-distributed-tables"></a>Tabele rozproszonych wyznaczania wartości skrótu
+Skrót dystrybucji dystrybuuje wiersze na podstawie wartości w kolumnie dystrybucji. Tabela rozpowszechniane skrót zawiera najbardziej potencjalnych do osiągnięcia wysokiej wydajności dla zapytanie sprzęga na dużych tabel. Istnieje kilka czynników, które mają wpływ na wybór kolumny dystrybucji. 
 
-Kategorii tabeli często określa się opcji do wyboru dystrybucji tabeli.  
+Aby uzyskać więcej informacji, zobacz [projektowania wskazówek dla tabel rozproszonej](sql-data-warehouse-tables-distribute.md).
+
+### <a name="replicated-tables"></a>Zreplikowane tabele
+Zreplikowanej tabeli ma pełną kopię tabel dostępnych w każdym węźle obliczeń. Uruchom szybkie na zapytania zreplikowane tabele, ponieważ sprzężenia w zreplikowanych tabelach nie wymaga przenoszenia danych. Replikacja wymaga dodatkowego magazynu i nie jest praktyczne dużych tabel. 
+
+Aby uzyskać więcej informacji, zobacz [projekt, wskazówki dotyczące zreplikowanych tabel](design-guidance-for-replicated-tables.md).
+
+### <a name="round-robin-tables"></a>Tabele okrężnego
+Tabeli okrężnego dystrybuuje wiersze tabeli równomiernie we wszystkich dystrybucji. Wiersze są dystrybuowane losowo. Ładowanie danych do tabeli okrężnego jest bardzo szybko.  Jednak kwerend może wymagać więcej przenoszenia danych od innych metod dystrybucji. 
+
+Aby uzyskać więcej informacji, zobacz [projektowania wskazówek dla tabel rozproszonej](sql-data-warehouse-tables-distribute.md).
+
+
+### <a name="common-distribution-methods-for-tables"></a>Typowe metody dystrybucji tabel
+Kategorii tabeli często określa się opcji do wyboru dystrybucji tabeli. Tabele są zazwyczaj dystrybuowane zgodnie z typem tabeli. 
 
 | Kategoria tabeli | Opcja zalecana dystrybucji |
 |:---------------|:--------------------|
@@ -94,18 +100,18 @@ Kategorii tabeli często określa się opcji do wyboru dystrybucji tabeli.
 | Wymiar      | Użycie replikowane mniejszych tabel. Jeśli tabela jest zbyt duży, aby przechowywać w każdym węźle obliczeń, użyj skrótu rozproszonych. |
 | Przemieszczanie        | Użyj okrężnego dla tabeli przemieszczania. Obciążenia o CTAS jest szybkie. Po zaimportowaniu danych w tabeli przemieszczania, użyj INSERT... Wybierz, aby przenieść dane do tabel produkcji. |
 
-### <a name="table-partitions"></a>Partycje tabel
+## <a name="table-partitions"></a>Partycje tabel
 Tabeli partycjonowanej przechowuje i wykonuje operacje w wierszach tabeli zgodnie z zakresy danych. Na przykład tabeli może być dzielony na partycje według dnia, miesiąca lub roku. Można zwiększyć usunięcie partycji wydajności zapytań, ograniczająca skanowania zapytania do danych w partycji. Można również zarządzać danymi za pomocą przełączanie partycji. Ponieważ dane w magazynie danych SQL została już wysłana, zbyt wiele partycji może zmniejszyć wydajność kwerend. Aby uzyskać więcej informacji, zobacz [partycjonowania wskazówki](sql-data-warehouse-tables-partition.md).
 
-### <a name="columnstore-indexes"></a>Indeksy magazynu kolumn
+## <a name="columnstore-indexes"></a>Indeksy magazynu kolumn
 Domyślnie usługa SQL Data Warehouse przechowuje tabeli jako klastrowany indeks magazynu kolumn. Ten formularz magazyn danych uzyskuje kompresji danych wysokiej i wydajność zapytań, na dużych tabel.  Klastrowany indeks magazynu kolumn jest zwykle najlepszym wyborem, ale w niektórych przypadkach indeksu klastrowanego lub sterty jest strukturą odpowiedniego magazynu.
 
 Aby uzyskać listę funkcji magazynu kolumn, zobacz [Nowości dla indeksów magazynu kolumn](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Aby zwiększyć wydajność indeksu magazynu kolumn, zobacz [maksymalizacja jakości i dla indeksów magazynu kolumn](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### <a name="statistics"></a>Statystyki
+## <a name="statistics"></a>Statystyki
 Optymalizator zapytań używa statystyki na poziomie kolumny, podczas tworzenia planu wykonania zapytania. Aby zwiększyć wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn, szczególnie kolumn używana w sprzężeniach zapytania. Tworzenie i aktualizowanie statystyk nie odbywa się automatycznie. [Tworzenie statystyk](/sql/t-sql/statements/create-statistics-transact-sql) po utworzeniu tabeli. Aktualizowanie statystyk po znacznej liczby wierszy są dodane lub zmienione. Na przykład aktualizowanie statystyk po obciążenia. Aby uzyskać więcej informacji, zobacz [wskazówki statystyki](sql-data-warehouse-tables-statistics.md).
 
-## <a name="ways-to-create-tables"></a>Sposoby tworzenia tabel
+## <a name="commands-for-creating-tables"></a>Polecenia służące do tworzenia tabel
 Można utworzyć tabelę jako nową, pustą tabelę. Można również tworzyć i wypełnianie tabeli z wynikami instrukcji select. Poniżej przedstawiono polecenia T-SQL do tworzenia tabeli.
 
 | Instrukcja T-SQL | Opis |

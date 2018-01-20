@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migracja do magazynu Premium za pomocą usługi Azure Site Recovery
 
@@ -199,7 +199,7 @@ Usługa Site Recovery spowoduje utworzenie wystąpienia maszyny Wirtualnej, któ
 ## <a name="post-migration-steps"></a>Czynności wykonywane po migracji
 
 1. **Skonfiguruj replikowanych maszyn wirtualnych do zestawu, jeśli ma to zastosowanie dostępności**. Usługa Site Recovery nie obsługuje migracji maszyn wirtualnych wraz z zestawu dostępności. W zależności od wdrożenia zreplikowanej maszyny Wirtualnej wykonaj jedną z następujących czynności:
-   * Dla maszyny Wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania: Dodaj maszynę Wirtualną do zestawu w portalu Azure dostępności. Aby uzyskać szczegółowy opis kroków, przejdź do [Dodaj istniejącą maszynę wirtualną do zestawu dostępności](../linux/classic/configure-availability.md#addmachine).
+   * Dla maszyny Wirtualnej utworzonej przy użyciu klasycznego modelu wdrażania: Dodaj maszynę Wirtualną do zestawu w portalu Azure dostępności. Aby uzyskać szczegółowy opis kroków, przejdź do [Dodaj istniejącą maszynę wirtualną do zestawu dostępności](../linux/classic/configure-availability-classic.md).
    * Dla maszyny Wirtualnej utworzonej przy użyciu modelu wdrażania usługi Resource Manager: Zapisz konfigurację maszyny wirtualnej, a następnie usunięcie i ponowne utworzenie maszyn wirtualnych w zestawie dostępności. Aby to zrobić, należy użyć skryptu w [ustawić Azure Resource Manager maszyny Wirtualnej zestawu dostępności](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Przed uruchomieniem tego skryptu sprawdź jego ograniczenia i zaplanowaniu czasu na przestoje.
 
 2. **Usuń stare maszyn wirtualnych i dysków**. Upewnij się, że dyski Premium są zgodne z dysków źródłowych i że nowych maszyn wirtualnych wykonać taką samą funkcję jak źródłowe maszyny wirtualne. Usuń maszynę Wirtualną i Usuń dyski ze źródła kont magazynu w portalu Azure. Jeśli występuje problem, której ten dysk nie jest usunięte, mimo że można usunąć maszyny Wirtualnej, zobacz [Rozwiązywanie problemów podczas usuwania wirtualne dyski twarde](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -211,20 +211,20 @@ Usługa Site Recovery spowoduje utworzenie wystąpienia maszyny Wirtualnej, któ
 * [Monitorowanie i rozwiązywanie problemów z ochroną maszyn wirtualnych i serwerów fizycznych](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum usługi Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W określonych scenariuszach migracji maszyn wirtualnych zobacz następujące zasoby:
 
 * [Migrowanie maszyn wirtualnych platformy Azure między kontami magazynu](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Tworzenie i przekazywanie wirtualnego dysku twardego serwera Windows Azure](../windows/classic/createupload-vhd.md)
-* [Tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrowanie maszyn wirtualnych z Amazon usług AWS na platformie Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Zobacz też następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure Storage i maszyn wirtualnych platformy Azure:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Maszyny wirtualne platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Magazyn w warstwie Premium: Magazyn o wysokiej wydajności dla obciążeń maszyny wirtualnej platformy Azure](premium-storage.md)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

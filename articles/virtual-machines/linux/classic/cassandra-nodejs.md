@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uruchom klaster Cassandra w systemie Linux na platformie Azure za pomocą języka Node.js
 
@@ -117,7 +117,7 @@ Następujące wersje oprogramowania są używane podczas wdrażania:
 
 <table>
 <tr><th>Oprogramowanie</th><th>Element źródłowy</th><th>Wersja</th></tr>
-<tr><td>ŚRODOWISKA JRE    </td><td>[ŚRODOWISKA JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
@@ -139,10 +139,10 @@ Aby utworzyć szablon maszyny Wirtualnej, zaloguj się do portalu Azure i użyj 
 Na ekranie "konfiguracja maszyny wirtualnej" #1, wprowadź następujące informacje:
 
 <table>
-<tr><th>NAZWA POLA              </td><td>       WARTOŚĆ POLA               </td><td>         UWAGI                </td><tr>
+<tr><th>NAZWA POLA              </td><td>       WARTOŚĆ POLA               </td><td>         REMARKS                </td><tr>
 <tr><td>DATA WYDANIA WERSJI    </td><td> Wybierz datę z listy rozwijanej</td><td></td><tr>
 <tr><td>NAZWA MASZYNY WIRTUALNEJ    </td><td> Szablon przypadku                   </td><td> Jest to nazwa hosta maszyny wirtualnej </td><tr>
-<tr><td>WARSTWY                     </td><td> STANDARDOWA                           </td><td> Pozostaw wartość domyślną              </td><tr>
+<tr><td>TIER                     </td><td> STANDARDOWA                           </td><td> Pozostaw wartość domyślną              </td><tr>
 <tr><td>ROZMIAR                     </td><td> A1                              </td><td>Wybierz maszynę Wirtualną, w zależności od potrzeb operacji We/Wy; w tym celu pozostaw wartość domyślną </td><tr>
 <tr><td> NOWĄ NAZWĘ UŻYTKOWNIKA             </td><td> localadmin                       </td><td> "Administrator" jest zastrzeżoną nazwą użytkownika w xx 12 Ubuntu i po</td><tr>
 <tr><td> UWIERZYTELNIANIE         </td><td> Kliknij pole wyboru                 </td><td>Sprawdź, czy chcesz zabezpieczyć za pomocą klucza SSH </td><tr>
@@ -154,12 +154,12 @@ Na ekranie "konfiguracja maszyny wirtualnej" #1, wprowadź następujące informa
 Na ekranie "konfiguracja maszyny wirtualnej" #2, wprowadź następujące informacje:
 
 <table>
-<tr><th>NAZWA POLA             </th><th> WARTOŚĆ POLA                       </th><th> UWAGI                                 </th></tr>
+<tr><th>NAZWA POLA             </th><th> WARTOŚĆ POLA                       </th><th> REMARKS                                 </th></tr>
 <tr><td> USŁUGI W CHMURZE    </td><td> Utwórz nową usługę w chmurze    </td><td>Usługa w chmurze jest zasoby obliczeniowe kontenera, takich jak maszyny wirtualne</td></tr>
-<tr><td> NAZWA DNS USŁUGI W CHMURZE    </td><td>ubuntu template.cloudapp.net    </td><td>Nadaj nazwę modułu równoważenia obciążenia o niesprecyzowanym maszyny</td></tr>
+<tr><td> NAZWA DNS USŁUGI W CHMURZE    </td><td>ubuntu-template.cloudapp.net    </td><td>Nadaj nazwę modułu równoważenia obciążenia o niesprecyzowanym maszyny</td></tr>
 <tr><td> REGION/GRUPY KOLIGACJI/SIECI WIRTUALNEJ </td><td>    Zachodnie stany USA    </td><td> Wybierz region, z której uzyskują dostęp do klastra Cassandra aplikacji sieci web</td></tr>
 <tr><td>KONTO MAGAZYNU </td><td>    Użyj wartości domyślnej    </td><td>Użyj domyślnego konta magazynu lub wstępnie utworzone konto magazynu w określonym regionie</td></tr>
-<tr><td>ZESTAW DOSTĘPNOŚCI </td><td>    None </td><td>    Pozostaw to pole puste</td></tr>
+<tr><td>ZESTAW DOSTĘPNOŚCI </td><td>    Brak </td><td>    Pozostaw to pole puste</td></tr>
 <tr><td>PUNKTY KOŃCOWE    </td><td>Użyj wartości domyślnej </td><td>    Użyj domyślnej konfiguracji SSH </td></tr>
 </table>
 
@@ -279,7 +279,7 @@ Edytuj cassandra.yaml na każdej maszynie Wirtualnej w celu uwzględnienia konfi
 
 <table>
 <tr><th>Nazwa pola   </th><th> Wartość  </th><th>    Uwagi </th></tr>
-<tr><td>nazwa_klastra </td><td>    "CustomerService"    </td><td> Użyj nazwy, która odzwierciedla wdrożenia</td></tr>
+<tr><td>cluster_name </td><td>    “CustomerService”    </td><td> Użyj nazwy, która odzwierciedla wdrożenia</td></tr>
 <tr><td>listen_address    </td><td>[pozostaw to pole puste]    </td><td> Usuń "localhost" </td></tr>
 <tr><td>rpc_addres   </td><td>[pozostaw to pole puste]    </td><td> Usuń "localhost" </td></tr>
 <tr><td>ziarna    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Lista wszystkich adresów IP, które są oznaczone jako dane.</td></tr>
@@ -292,7 +292,7 @@ Zaloguj się do maszyny wirtualnej przy użyciu nazwy hosta (hk-urzędów certyf
 Wykonania następującej akcji w celu przechwycenia obrazu:
 
 ##### <a name="1-deprovision"></a>1. Deprovision
-Użyj polecenia "sudo agenta waagent — deprovision + użytkownika" Aby usunąć określone informacje o wystąpieniu maszyny wirtualnej. Zobacz dla [Przechwytywanie maszyny wirtualnej systemu Linux](capture-image.md) do użycia jako szablon więcej szczegółów na temat procesu przechwytywania obrazu.
+Użyj polecenia "sudo agenta waagent — deprovision + użytkownika" Aby usunąć określone informacje o wystąpieniu maszyny wirtualnej. Zobacz dla [Przechwytywanie maszyny wirtualnej systemu Linux](capture-image-classic.md) do użycia jako szablon więcej szczegółów na temat procesu przechwytywania obrazu.
 
 ##### <a name="2-shut-down-the-vm"></a>2: zamykania maszyny Wirtualnej
 Upewnij się, że maszyna wirtualna zostanie wyróżniona, a następnie kliknij łącze zamknięcia z dolnym pasku poleceń.
@@ -307,7 +307,7 @@ Ten proces trwa kilka sekund i obraz powinien być dostępny w sekcji Moje obraz
 
 <table>
 <tr><th>Nazwa atrybutu maszyny Wirtualnej</th><th>Wartość</th><th>Uwagi</th></tr>
-<tr><td>Name (Nazwa)</td><td>sieć wirtualna — przypadku zachód nam</td><td></td></tr>
+<tr><td>Name (Nazwa)</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Zachodnie stany USA</td><td></td></tr>
 <tr><td>Serwery DNS</td><td>Brak</td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
 <tr><td>Przestrzeń adresowa</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -319,7 +319,7 @@ Dodaj następujące podsieci:
 
 <table>
 <tr><th>Name (Nazwa)</th><th>Uruchamianie adresu IP</th><th>CIDR</th><th>Uwagi</th></tr>
-<tr><td>Sieć Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
 <tr><td>dane</td><td>10.1.2.0</td><td>/24 (251)</td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
 
@@ -329,16 +329,16 @@ Dane i podsieci w sieci Web mogą być chronione przy użyciu grup zabezpieczeń
 
 <table>
 <tr><th>Nazwa komputera    </th><th>Podsieć    </th><th>Adres IP    </th><th>Zestaw dostępności</th><th>DC/Rack</th><th>Inicjatora?</th></tr>
-<tr><td>HK-c1-zachód us    </td><td>dane    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Yes</td></tr>
-<tr><td>HK-c2-zachód us    </td><td>dane    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa1    </td><td>Nie </td></tr>
-<tr><td>HK-c3-zachód us    </td><td>dane    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Yes</td></tr>
-<tr><td>HK-c4-zachód us    </td><td>dane    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Nie </td></tr>
-<tr><td>HK-c5-zachód us    </td><td>dane    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Yes</td></tr>
-<tr><td>HK-c6-zachód us    </td><td>dane    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Nie </td></tr>
-<tr><td>HK-c7-zachód us    </td><td>dane    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Yes</td></tr>
-<tr><td>HK-c8-zachód us    </td><td>dane    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Nie </td></tr>
-<tr><td>HK-w1 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.4    </td><td>HK p-aset-1    </td><td>                       </td><td>ND</td></tr>
-<tr><td>HK-w2 — zachód us    </td><td>Sieć Web    </td><td>10.1.1.5    </td><td>HK p-aset-1    </td><td>                       </td><td>ND</td></tr>
+<tr><td>hk-c1-west-us    </td><td>dane    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = stojak WESTUS = szafa1 </td><td>Yes</td></tr>
+<tr><td>hk-c2-west-us    </td><td>dane    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = stojak WESTUS = szafa1    </td><td>Nie </td></tr>
+<tr><td>hk-c3-west-us    </td><td>dane    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Yes</td></tr>
+<tr><td>hk-c4-west-us    </td><td>dane    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = stojak WESTUS = szafa2    </td><td>Nie </td></tr>
+<tr><td>hk-c5-west-us    </td><td>dane    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Yes</td></tr>
+<tr><td>hk-c6-west-us    </td><td>dane    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = stojak WESTUS = szafa3    </td><td>Nie </td></tr>
+<tr><td>hk-c7-west-us    </td><td>dane    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Yes</td></tr>
+<tr><td>hk-c8-west-us    </td><td>dane    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = stojak WESTUS = rack4    </td><td>Nie </td></tr>
+<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>ND</td></tr>
+<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>ND</td></tr>
 </table>
 
 Utworzenie powyższej listy maszyn wirtualnych wymaga następujący proces:
@@ -441,7 +441,7 @@ Aby przetestować klastra, wykonaj następujące kroki:
 
 1. Za pomocą polecenia Get-AzureInternalLoadbalancer polecenia programu Powershell, Uzyskaj adres IP wewnętrznego modułu równoważenia obciążenia (na przykład 10.1.2.101). Poniżej przedstawiono składnię polecenia: Get-AzureLoadbalancer — ServiceName "hk — c-svc zachód us" [Wyświetla szczegóły wewnętrznego modułu równoważenia obciążenia oraz adres IP]
 2. Zaloguj się do maszyny Wirtualnej (na przykład hk-w1 — zachód us) kolektywu serwerów sieci web przy użyciu programu Putty lub ssh
-3. Wykonanie $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Aby sprawdzić, czy klaster działa, należy użyć następujących poleceń CQL:
    
      TWORZENIE przestrzeni KLUCZY customers_ks z REPLIKACJĄ = {"class": "SimpleStrategy", "replication_factor": 3};   UŻYJ customers_ks;   Tworzenie tabeli Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Wstaw do Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   Wstaw do Customers(customer_id, firstname, lastname) wartości 2, 'Magdalena', 'Nowak';
@@ -466,7 +466,7 @@ Zaloguj się do portalu Azure i utworzyć sieć wirtualną z programem atrybutó
 
 <table>
 <tr><th>Nazwa atrybutu    </th><th>Wartość    </th><th>Uwagi</th></tr>
-<tr><td>Name (Nazwa)    </td><td>sieci wirtualnej przypadku wschód us</td><td></td></tr>
+<tr><td>Name (Nazwa)    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Region    </td><td>Wschodnie stany USA</td><td></td></tr>
 <tr><td>Serwery DNS        </td><td></td><td>Zignoruj ten komunikat, ponieważ nie używamy serwera DNS</td></tr>
 <tr><td>Konfigurowanie sieci VPN punkt lokacja</td><td></td><td>        Zignoruj ten komunikat</td></tr>
@@ -480,7 +480,7 @@ Dodaj następujące podsieci:
 
 <table>
 <tr><th>Name (Nazwa)    </th><th>Uruchamianie adresu IP    </th><th>CIDR    </th><th>Uwagi</th></tr>
-<tr><td>Sieć Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Podsieć dla kolektywu serwerów sieci web</td></tr>
 <tr><td>dane    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Podsieć dla węzłów bazy danych</td></tr>
 </table>
 
@@ -492,16 +492,16 @@ Utwórz dwie sieci lokalne na następujące informacje:
 
 | Nazwa sieci | Adres bramy sieci VPN | Przestrzeń adresowa | Uwagi |
 | --- | --- | --- | --- |
-| HK-lnet-map-to-East-US |23.1.1.1 |10.2.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku w regionie wschodnie stany USA utworzona sieć wirtualna. |
-| HK-lnet-map-to-West-US |23.2.2.2 |10.1.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku utworzona sieć wirtualna regionu zachodnie stany USA. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku w regionie wschodnie stany USA utworzona sieć wirtualna. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Podczas tworzenia sieci lokalnej do symbolu zastępczego adres bramy. Adres bramy rzeczywistych jest wypełniony, po utworzeniu bramy. Upewnij się, że przestrzeń adresowa dokładnie odpowiada odpowiednich zdalna sieć wirtualna; w takim przypadku utworzona sieć wirtualna regionu zachodnie stany USA. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Krok 3: Sieć "Lokalnie" mapy do odpowiednich sieci wirtualnych
 W portalu Azure wybierz każdej sieci wirtualnej, kliknij przycisk "Konfiguruj" Sprawdź "Połącz z sieci lokalnej" i wybierz sieci lokalnej na następujące szczegóły:
 
 | Virtual Network | Sieci lokalnej |
 | --- | --- |
-| HK — sieci wirtualnej zachód us |HK-lnet-map-to-East-US |
-| HK — sieci wirtualnej wschód us |HK-lnet-map-to-West-US |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Krok 4: Tworzenie bramy na VNET1 i VNET2
 Z poziomu pulpitu nawigacyjnego sieci wirtualnych kliknij przycisk Utwórz BRAMĘ, aby wyzwolić bramy sieci VPN, w procesie inicjowania obsługi. Po kilku minutach adres bramy rzeczywiste powinien być wyświetlany pulpit nawigacyjny w każdej sieci wirtualnej.
@@ -511,8 +511,8 @@ Edytuj zarówno lokalnej sieci należy zastąpić adres IP bramy symbol zastępc
 
 <table>
 <tr><th>Sieci lokalnej    </th><th>Brama sieci wirtualnej</th></tr>
-<tr><td>HK-lnet-map-to-East-US </td><td>Brama hk — sieci wirtualnej zachód us</td></tr>
-<tr><td>HK-lnet-map-to-West-US </td><td>Brama hk — sieci wirtualnej wschód us</td></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>Brama hk — sieci wirtualnej zachód us</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>Brama hk — sieci wirtualnej wschód us</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Krok 6: Zaktualizuj klucza wspólnego
@@ -526,15 +526,15 @@ Utwórz obraz Ubuntu zgodnie z opisem w regionie #1 wdrożenia, wykonując kroki
 
 | Nazwa komputera | Podsieć | Adres IP | Zestaw dostępności | DC/Rack | Inicjatora? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-wschód us |dane |10.2.2.4 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Yes |
-| HK-c2-wschód us |dane |10.2.2.5 |HK-c-aset-1 |DC = stojak EASTUS = szafa1 |Nie |
-| HK-c3-wschód us |dane |10.2.2.6 |HK-c-aset-1 |DC = stojak EASTUS = szafa2 |Yes |
-| HK-c5-wschód us |dane |10.2.2.8 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Yes |
-| HK-c6-wschód us |dane |10.2.2.9 |HK-c-aset-2 |DC = stojak EASTUS = szafa3 |Nie |
-| HK-c7-wschód us |dane |10.2.2.10 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Yes |
-| HK-c8-wschód us |dane |10.2.2.11 |HK-c-aset-2 |DC = stojak EASTUS = rack4 |Nie |
-| HK-w1 — wschód us |Sieć Web |10.2.1.4 |HK p-aset-1 |ND |ND |
-| HK-w2 — wschód us |Sieć Web |10.2.1.5 |HK p-aset-1 |ND |ND |
+| HK-c1-wschód us |dane |10.2.2.4 |hk-c-aset-1 |DC = stojak EASTUS = szafa1 |Yes |
+| HK-c2-wschód us |dane |10.2.2.5 |hk-c-aset-1 |DC = stojak EASTUS = szafa1 |Nie |
+| hk-c3-east-us |dane |10.2.2.6 |hk-c-aset-1 |DC = stojak EASTUS = szafa2 |Yes |
+| HK-c5-wschód us |dane |10.2.2.8 |hk-c-aset-2 |DC = stojak EASTUS = szafa3 |Yes |
+| HK-c6-wschód us |dane |10.2.2.9 |hk-c-aset-2 |DC = stojak EASTUS = szafa3 |Nie |
+| hk-c7-east-us |dane |10.2.2.10 |hk-c-aset-2 |DC = stojak EASTUS = rack4 |Yes |
+| HK-c8-wschód us |dane |10.2.2.11 |hk-c-aset-2 |DC = stojak EASTUS = rack4 |Nie |
+| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |ND |ND |
+| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |ND |ND |
 
 Postępuj zgodnie z instrukcjami region #1, ale użyj 10.2.xxx.xxx przestrzeni adresowej.
 
@@ -551,13 +551,13 @@ Zaloguj się do każdej maszyny Wirtualnej i uruchom Cassandra w tle, uruchamiaj
 Już Cassandra została wdrożona do 16 węzłów o 8 węzłów w każdym regionie Azure. Te węzły znajdują się w tym samym klastrze z wspólnej nazwy klastra i konfiguracja węzła inicjatora. Aby przetestować klastra, należy wykonać poniższe czynności:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Krok 1: Uzyskiwanie adresu IP usługi równoważenia obciążenia wewnętrznego dla regionów przy użyciu programu PowerShell
-* Get-AzureInternalLoadbalancer - ServiceName "hk — c-svc zachód us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
 * Get-AzureInternalLoadbalancer - ServiceName "hk — c-svc wschód us"  
   
     Należy zwrócić uwagę na adresy IP (na przykład zachodnie - 10.1.2.101, wschód - 10.2.2.101) wyświetlane.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Krok 2: Wykonaj następujące czynności w regionie Zachód po zalogowaniu w hk-w1 — zachód us
-1. Wykonanie $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Uruchom następujące polecenia CQL:
    
      TWORZENIE przestrzeni KLUCZY customers_ks z REPLIKACJĄ = {"class": "NetworkToplogyStrategy", "WESTUS": 3, EASTUS: 3};   UŻYJ customers_ks;   Tworzenie tabeli Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Wstaw do Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   Wstaw do Customers(customer_id, firstname, lastname) wartości 2, 'Magdalena', 'Nowak';   Wybierz * od klientów.
@@ -570,7 +570,7 @@ Powinien zostać wyświetlony ekran, tak jak poniżej:
 | 2 |Magdalena |Nowak |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Krok 3: Wykonaj następujące czynności w regionie wschodnie po zalogowaniu w hk-w1 — wschód us:
-1. Wykonanie $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Uruchom następujące polecenia CQL:
    
      UŻYJ customers_ks;   Tworzenie tabeli Customers(customer_id int PRIMARY KEY, firstname text, lastname text);   Wstaw do Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   Wstaw do Customers(customer_id, firstname, lastname) wartości 2, 'Magdalena', 'Nowak';   Wybierz * od klientów.

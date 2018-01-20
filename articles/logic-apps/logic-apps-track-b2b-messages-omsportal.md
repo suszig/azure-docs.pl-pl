@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Śledzenie komunikacji B2B pakiet zarządzania Operations (OMS) firmy Microsoft
 
@@ -32,7 +32,7 @@ Po skonfigurowaniu B2B komunikacji między dwiema uruchomionych procesów biznes
 
 ## <a name="requirements"></a>Wymagania
 
-* Aplikację logiki, który został skonfigurowany z rejestrowania diagnostyki. Dowiedz się [sposób tworzenia aplikacji logiki](logic-apps-create-a-logic-app.md) i [jak skonfigurować rejestrowanie dla danej aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Aplikację logiki, który został skonfigurowany z rejestrowania diagnostyki. Dowiedz się [sposób tworzenia aplikacji logiki](quickstart-create-first-logic-app-workflow.md) i [jak skonfigurować rejestrowanie dla danej aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Konta integracji, które skonfigurowano przy użyciu rejestrowania i monitorowania. Dowiedz się [sposobu tworzenia konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i [jak skonfigurować monitorowanie i rejestrowanie dla tego konta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -156,8 +156,8 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu AS2.
 | ACK. | Stan wiadomości MDN <br>Zaakceptowane = odebranych lub wysłanych MDN dodatnią. <br>Oczekujące = oczekiwanie na odbierać lub wysyłać MDN. <br>Odrzucone = odebranych lub wysłanych MDN ujemna. <br>Nie wymaga = MDN nie jest skonfigurowany w umowie. |
 | Kierunek | Kierunek wiadomości AS2 |
 | Identyfikator korelacji | Identyfikator odpowiadająca wyzwalacze i akcje w aplikacji logiki |
-| Identyfikator komunikatu | Identyfikator komunikatu AS2 z nagłówków komunikatu AS2 |
-| Znacznik czasu | Czas przetworzenia komunikatu akcji AS2 |
+| Identyfikator wiadomości | Identyfikator komunikatu AS2 z nagłówków komunikatu AS2 |
+| Sygnatura czasowa | Czas przetworzenia komunikatu akcji AS2 |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -190,7 +190,7 @@ Poniżej przedstawiono opisy właściwości dla każdego X12 wiadomości.
 | Typ msg | Typ komunikatu 12 EDI X |
 | ICN | Numer kontroli Interchange X12 wiadomości |
 | TSCN | Numer transakcji do sterowania ustaw dla X12 wiadomości |
-| Znacznik czasu | Podczas gdy X12 komunikat przetworzyć akcji |
+| Sygnatura czasowa | Podczas gdy X12 komunikat przetworzyć akcji |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -201,7 +201,7 @@ Poniżej przedstawiono formatów nazwy każdego pobierane X12 folderów i plikó
 
 | Folder lub plik | Format nazwy |
 | :------------- | :---------- |
-| Folder wiadomości | [nadawcy] \_[odbiornika]\_X12\_[ruch numer wymiany formantu]\_[numer globalnych kontroli]\_[-zestaw kontroli — numer transakcji]\_[sygnatury czasowej] |
+| Folder wiadomości | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Dane wejściowe, dane wyjściowe i jeśli skonfigurować potwierdzenia plików | **Wprowadzony ładunek**: [nadawcy]\_[odbiornika]\_X12\_[ruch numer wymiany formantu]\_input_payload.txt </p>**Ładunek danych wyjściowych**: [nadawcy]\_[odbiornika]\_X12\_[ruch numer wymiany formantu]\_dane wyjściowe\_payload.txt </p></p>**Dane wejściowe**: [nadawcy]\_[odbiornika]\_X12\_[ruch numer wymiany formantu]\_inputs.txt </p></p>**Dane wyjściowe**: [nadawcy]\_[odbiornika]\_X12\_[ruch numer wymiany formantu]\_outputs.txt |
 |          |             |
 
@@ -223,7 +223,7 @@ Poniżej przedstawiono opisy właściwości dla każdego komunikatu EDIFACT.
 | Typ msg | Typ komunikatu EDIFACT |
 | ICN | Numer formantu wymiany wiadomości EDIFACT |
 | TSCN | Numer transakcji do sterowania ustaw dla komunikatu EDIFACT |
-| Znacznik czasu | Czas przetworzenia komunikatu akcji EDIFACT |
+| Sygnatura czasowa | Czas przetworzenia komunikatu akcji EDIFACT |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -238,7 +238,7 @@ Poniżej przedstawiono formatów nazwy dla każdego folderu wiadomości EDIFACT 
 | Dane wejściowe, dane wyjściowe i jeśli skonfigurować potwierdzenia plików | **Wprowadzony ładunek**: [nadawcy]\_[odbiornika]\_EDIFACT\_[ruch numer wymiany formantu]\_input_payload.txt </p>**Ładunek danych wyjściowych**: [nadawcy]\_[odbiornika]\_EDIFACT\_[ruch numer wymiany formantu]\_dane wyjściowe\_payload.txt </p></p>**Dane wejściowe**: [nadawcy]\_[odbiornika]\_EDIFACT\_[ruch numer wymiany formantu]\_inputs.txt </p></p>**Dane wyjściowe**: [nadawcy]\_[odbiornika]\_EDIFACT\_[ruch numer wymiany formantu]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Kwerenda dotycząca wiadomości B2B usługi Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schematy śledzenia AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

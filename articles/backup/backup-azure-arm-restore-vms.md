@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Przywracanie maszyn wirtualnych za pomocą portalu Azure
 Ochrona danych za tworzenie migawek danych w określonych odstępach czasu. Te migawki są określane jako punkty odzyskiwania, i w których są przechowywane w Magazyny usług odzyskiwania. Jeśli jest konieczne naprawienie lub skompiluj ponownie maszynę wirtualną (VM), można przywrócić maszynę Wirtualną z żadnym z punktów odzyskiwania zapisane. Po przywróceniu punkt odzyskiwania, można:
@@ -70,7 +70,7 @@ Przywrócenie maszyny Wirtualnej lub wszystkich dysków z maszyny Wirtualnej kop
 
     **Przywrócić** zostanie otwarty blok.
 
-    ![Blok przywracania](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![Przywróć blok](./media/backup-azure-arm-restore-vms/restore-blade.png)
 7. Na **przywrócić** bloku, wybierz opcję **punkt przywracania**. **Wybierz punkt przywracania** zostanie otwarty blok.
 
     ![Wybierz punkt przywracania](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
@@ -117,7 +117,7 @@ Portal zawiera **szybkie tworzenie** opcji przywróconej maszyny wirtualnej. Aby
 
     d. **Sieć wirtualna**. Wybierz sieć wirtualną podczas tworzenia maszyny Wirtualnej. Pole zawiera wszystkie sieci wirtualne skojarzone z subskrypcją. Grupa zasobów maszyny wirtualnej jest wyświetlany w nawiasach.
 
-    e. **Podsieci**. Jeśli sieć wirtualna ma podsieci, pierwszej podsieci jest domyślnie zaznaczona. Jeśli istnieją dodatkowe podsieci, wybierz podsieć, którą chcesz.
+    e. **Subnet**. Jeśli sieć wirtualna ma podsieci, pierwszej podsieci jest domyślnie zaznaczona. Jeśli istnieją dodatkowe podsieci, wybierz podsieć, którą chcesz.
 
     f. **Konto magazynu**. To menu zawiera listę kont magazynu w tej samej lokalizacji co magazyn usług odzyskiwania. Konta magazynu, które są obszar strefowo nadmiarowy nie są obsługiwane. Jeśli nie ma żadnych kont magazynu z tej samej lokalizacji co magazyn usług odzyskiwania, należy go utworzyć przed uruchomieniem operacji przywracania. Typ replikacji konta magazynu jest wyświetlany w nawiasach.
 
@@ -196,7 +196,7 @@ Aby wyświetlić szablon, który został wygenerowany jako część opcji dyskó
    ![Przesyłanie szablonu wdrożenia](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Wykonywane po przywróceniu kroki
-* Jeśli używasz dystrybucji systemu Linux init oparte na chmurze, takich jak Ubuntu, ze względów bezpieczeństwa hasło jest zablokowana post przywracania. Użyj rozszerzenia VMAccess przywróconej maszynę wirtualną i [resetowania hasła](../virtual-machines/linux/classic/reset-access.md). Zalecamy używanie kluczy SSH w tych dystrybucji w celu uniknięcia Resetowanie hasła przywracania post.
+* Jeśli używasz dystrybucji systemu Linux init oparte na chmurze, takich jak Ubuntu, ze względów bezpieczeństwa hasło jest zablokowana post przywracania. Użyj rozszerzenia VMAccess przywróconej maszynę wirtualną i [resetowania hasła](../virtual-machines/linux/classic/reset-access-classic.md). Zalecamy używanie kluczy SSH w tych dystrybucji w celu uniknięcia Resetowanie hasła przywracania post.
 * Podczas tworzenia kopii zapasowej konfiguracji rozszerzenia są zainstalowane, ale nie jest włączony. Jeśli widzisz problemu, ponownie zainstaluj rozszerzenia. 
 * Jeśli kopia zapasowa maszyny Wirtualnej ma statycznego adresu IP post przywracania, przywróconej maszyny Wirtualnej ma dynamicznego adresu IP, aby uniknąć konfliktu podczas tworzenia przywróconą maszyną Wirtualną. Dowiedz się więcej o sposób [dodać statyczny adres IP z przywróconą maszyną wirtualną](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Przywróconą maszyną Wirtualną nie ma wartość dostępności. Firma Microsoft zaleca używanie dysków przywracania możliwość [dodać zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny Wirtualnej za pomocą programu PowerShell lub szablonów przy użyciu przywrócić dysków. 

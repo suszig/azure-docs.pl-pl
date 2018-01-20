@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Rozpoczynanie pracy z łącznikiem programu Informix
 Łącznik usługi Microsoft dla programu Informix łączy Logic Apps zasobów przechowywanych w bazie danych programu IBM Informix. Łącznik programu Informix obejmuje klienta Microsoft do komunikowania się z komputerami zdalnymi serwerem Informix w sieci TCP/IP. Obejmuje chmury baz danych, takich jak IBM Informix dla systemu Windows Azure wirtualizacji i lokalnych baz danych za pomocą bramy danych lokalnych. Zobacz [obsługiwane listy](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platform i wersji (w tym temacie).
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 W tym temacie przedstawiono sposób korzystania z łącznika w aplikacji logiki, aby operacje bazy danych procesu.
 
-Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby dowiedzieć się więcej na temat aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Dostępne akcje
 Ten łącznik obsługuje następujące akcje logikę w aplikacji:
@@ -86,8 +86,8 @@ Ten łącznik obsługuje połączenia z bazą danych na lokalnym i w chmurze prz
 | Właściwość | Opis |
 | --- | --- |
 | serwer |Wymagany. Akceptuje wartości ciągu reprezentujący adres TCP/IP lub alias w formacie IPv4 lub IPv6, a następnie (-średnikami) przez numer portu TCP/IP. |
-| Bazy danych |Wymagany. Akceptuje wartości ciągu reprezentujący DRDA relacyjne nazwę bazy danych (RDBNAM). Informix akceptuje ciąg 128-bajtowych (baza danych jest znany jako nazwa bazy danych programu IBM Informix (dbname)). |
-| Uwierzytelnianie |Opcjonalny. Akceptuje wartości elementu listy, Basic lub systemu Windows (kerberos). |
+| baza danych |Wymagany. Akceptuje wartości ciągu reprezentujący DRDA relacyjne nazwę bazy danych (RDBNAM). Informix akceptuje ciąg 128-bajtowych (baza danych jest znany jako nazwa bazy danych programu IBM Informix (dbname)). |
+| uwierzytelnianie |Opcjonalny. Akceptuje wartości elementu listy, Basic lub systemu Windows (kerberos). |
 | nazwa użytkownika |Wymagany. Akceptuje wartości ciągu. |
 | hasło |Wymagany. Akceptuje wartości ciągu. |
 | Bramy |Wymagany. Akceptuje wartości elementu listy, reprezentujący bramy danych lokalnych zdefiniowany do aplikacji logiki w ramach grupy magazynów. |
@@ -275,6 +275,6 @@ Ten łącznik obsługuje następujące wersje programu IBM Informix skonfigurowa
 
 Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/informix/). 
 
-## <a name="next-steps"></a>Następne kroki
-[Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+[Tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Eksploruj dostępnych łączników w aplikacjach logiki w naszym [listy interfejsów API](apis-list.md).
 

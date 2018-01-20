@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Rozpoczynanie pracy z akcji HTTP
 
@@ -30,7 +30,7 @@ Możesz:
 * Tworzenie przepływów pracy aplikacji, które aktywować (wyzwalacz) witryny sieci Web, którą zarządzasz systemowi logiki.
 * Komunikują się z dowolnego punktu końcowego za pośrednictwem protokołu HTTP, aby rozszerzyć przepływy pracy do innych usług.
 
-Aby rozpocząć, korzystając z akcji HTTP w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby rozpocząć, korzystając z akcji HTTP w aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Użyj wyzwalacza HTTP
 Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy, który jest zdefiniowany w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](connectors-overview.md).
@@ -107,17 +107,17 @@ Poniżej przedstawiono szczegóły akcję, która obsługuje ten łącznik. Łą
 ## <a name="http-details"></a>Szczegóły HTTP
 Poniższe tabele zawierają opis wymaganych i opcjonalnych pól wejściowych dla akcji i odpowiednie szczegóły danych wyjściowych, które są skojarzone z przy użyciu akcji.
 
-#### <a name="http-request"></a>Żądania HTTP
+#### <a name="http-request"></a>Żądanie HTTP
 Poniżej przedstawiono pól wejściowych dla akcji, dzięki czemu wychodzące żądania HTTP.
 A * oznacza, że jest polem wymaganym.
 
 | Nazwa wyświetlana | Nazwa właściwości | Opis |
 | --- | --- | --- |
-| Metoda * |— Metoda |Zlecenie HTTP do użycia |
-| IDENTYFIKATOR URI * |Identyfikator URI |Identyfikator URI dla żądania HTTP |
-| Nagłówki |Nagłówki |Obiekt JSON nagłówków HTTP w celu uwzględnienia |
-| Treść |Treści |Treść żądania HTTP |
-| Authentication |Uwierzytelnianie |Szczegółowe informacje w [uwierzytelniania](#authentication) sekcji |
+| Metoda * |metoda |Zlecenie HTTP do użycia |
+| URI* |identyfikator URI |Identyfikator URI dla żądania HTTP |
+| Nagłówki |nagłówki |Obiekt JSON nagłówków HTTP w celu uwzględnienia |
+| Treść |treść |Treść żądania HTTP |
+| Authentication |uwierzytelnianie |Szczegółowe informacje w [uwierzytelniania](#authentication) sekcji |
 
 <br>
 
@@ -126,8 +126,8 @@ Poniżej przedstawiono szczegóły danych wyjściowych dla odpowiedzi HTTP.
 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
-| Nagłówki |Obiekt |Nagłówki odpowiedzi |
-| Treść |Obiekt |Obiekt odpowiedzi |
+| Nagłówki |obiekt |Nagłówki odpowiedzi |
+| Treść |obiekt |Obiekt odpowiedzi |
 | Kod stanu |int |Kod stanu HTTP |
 
 ## <a name="authentication"></a>Authentication
@@ -145,7 +145,7 @@ A * oznacza, że jest polem wymaganym.
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
 | Typ * |type |Typ uwierzytelniania (musi być `Basic` dla uwierzytelniania podstawowego) |
-| Nazwa użytkownika * |nazwa użytkownika |Nazwa użytkownika do uwierzytelniania |
+| Username* |nazwa użytkownika |Nazwa użytkownika do uwierzytelniania |
 | Hasło * |hasło |Hasło do uwierzytelniania |
 
 > [!TIP]
@@ -169,7 +169,7 @@ Następujący obiekt uwierzytelniania jest potrzebne uwierzytelnianie certyfikat
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
 | Typ * |type |Typ uwierzytelniania (musi być `ClientCertificate` dla certyfikatów klienta SSL) |
-| PFX * |PFX |Zawartość pliku wymiany informacji osobistych (PFX) algorytmem Base64 |
+| PFX* |pfx |Zawartość pliku wymiany informacji osobistych (PFX) algorytmem Base64 |
 | Hasło * |hasło |Hasło dostępu do pliku PFX |
 
 > [!TIP]
@@ -192,10 +192,10 @@ Następujący obiekt uwierzytelniania jest wymagane do uwierzytelniania usługi 
 | Nazwa właściwości | Typ danych | Opis |
 | --- | --- | --- |
 | Typ * |type |Typ uwierzytelniania (musi być `ActiveDirectoryOAuth` dla usługi Azure AD OAuth) |
-| Dzierżawy * |Dzierżawy |Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
+| Dzierżawy * |dzierżawa |Identyfikator dzierżawy dla dzierżawy usługi Azure AD |
 | Grupy odbiorców * |grupy odbiorców |Zasób żądania autoryzacji do użycia. Na przykład: `https://management.core.windows.net/` |
 | Klient identyfikator * |clientId |Identyfikator klienta aplikacji usługi Azure AD |
-| Klucz tajny * |klucz tajny |Klucz tajny klienta, który żąda tokenu |
+| Klucz tajny * |wpis tajny |Klucz tajny klienta, który żąda tokenu |
 
 > [!TIP]
 > Można użyć `securestring` parametru i `@parameters()` [funkcji definicji przepływu pracy](http://aka.ms/logicappdocs) do używania parametru, który nie będzie można odczytać w definicji po zapisaniu.
@@ -214,6 +214,6 @@ Na przykład:
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
-Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
+## <a name="next-steps"></a>Kolejne kroki
+Teraz, wypróbuj platformy i [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Dostępne łączniki w aplikacjach logiki można eksplorować analizując naszych [listy interfejsów API](apis-list.md).
 

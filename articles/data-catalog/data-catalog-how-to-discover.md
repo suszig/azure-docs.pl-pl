@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 7c2a1d61bc13ba1cde404e2b732933d2d314e3e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2db429860e6e3a60211c993bebfecbca98d67fd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Jak odnajdować źródła danych w usłudze Azure Data Catalog
 ## <a name="introduction"></a>Wprowadzenie
@@ -64,5 +64,5 @@ Widok kafelków w domyślnym, zawiera każdego kafelka wyświetlane w wynikach w
 ## <a name="summary"></a>Podsumowanie
 Ponieważ rejestrowania źródła danych za pomocą usługi Data Catalog kopiuje metadane strukturalne i opisowy ze źródła danych z usługą wykazu, źródła danych staje się łatwiejsze do odnalezienia i zrozumienia. Po źródła danych został zarejestrowany, można go odnaleźć za pomocą filtrowania i wyszukiwanie z poziomu portalu wykazu danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać szczegółowe informacje krok po kroku dotyczące odnajdywania źródeł danych, zobacz [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c7a213343b4fb2b5a89a5052a459061b404a431c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f72d829fc50a0f967f08e068c553f5026f35eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Rozpoczynanie pracy z łącznikiem usługi Yammer
 Nawiązać Yammer do konwersacji dostęp w sieci przedsiębiorstwa. Za pomocą usługi Yammer można:
@@ -28,14 +28,14 @@ Nawiązać Yammer do konwersacji dostęp w sieci przedsiębiorstwa. Za pomocą u
 * Użyj uaktywnia dla istnieje nowy komunikat z grupy lub źródło danych z następujących czynności.
 * Akcje Umożliwia opublikowanie wiadomości, Pobierz wszystkie komunikaty i inne. Te akcje uzyskać odpowiedzi, a następnie udostępnić dane wyjściowe do innych działań. Na przykład gdy pojawi się nowy komunikat, możesz wysłać wiadomość e-mail przy użyciu usługi Office 365.
 
-Rozpoczynanie pracy przez tworzenie aplikacji logiki teraz; zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Rozpoczynanie pracy przez tworzenie aplikacji logiki teraz; zobacz [tworzenie aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-yammer"></a>Utwórz połączenie z usługi Yammer
 Do korzystania z łącznika usługi Yammer, należy najpierw utworzyć **połączenia** następnie podaj szczegóły tych właściwości: 
 
 | Właściwość | Wymagane | Opis |
 | --- | --- | --- |
-| Token |Tak |Podaj poświadczenia usługi Yammer |
+| Token |Yes |Podaj poświadczenia platformy Yammer |
 
 > [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
 > 

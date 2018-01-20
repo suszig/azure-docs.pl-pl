@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Tworzenie sieci wirtualnej (wdrożenia klasyczne) z wieloma podsieciami
 
@@ -46,7 +46,7 @@ Można utworzyć sieci wirtualnej (wdrożenia klasyczne) przy użyciu [portalu A
 
     |Ustawienie|Wartość|
     |---|---|
-    |Nazwa|myVnet|
+    |Name (Nazwa)|myVnet|
     |Przestrzeń adresowa|10.0.0.0/16|
     |Nazwa podsieci|Publiczne|
     |Zakres adresów podsieci|10.0.0.0/24|
@@ -159,10 +159,10 @@ Można utworzyć sieci wirtualnej (wdrożenia klasyczne) przy użyciu [portalu A
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby dowiedzieć się więcej o wszystkich ustawieniach podsieci i sieci wirtualnej, zobacz [Zarządzanie sieciami wirtualnymi](virtual-network-manage-network.md) i [Zarządzanie podsieci sieci wirtualnej](virtual-network-manage-subnet.md). Istnieją różne opcje dotyczące używania sieci wirtualnych i podsieci w środowisku produkcyjnym, aby spełnić różne wymagania.
 - Filtrowanie ruchu przychodzącego i wychodzącego podsieci, tworzenie i stosowanie [sieciowej grupy zabezpieczeń](virtual-networks-nsg.md) do podsieci.
-- Utwórz [systemu Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) maszyny wirtualnej, a następnie połącz się z istniejącą siecią wirtualną.
+- Utwórz [systemu Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) maszyny wirtualnej, a następnie połącz się z istniejącą siecią wirtualną.
 - Aby połączyć dwie sieci wirtualne w tej samej lokalizacji platformy Azure, Utwórz [sieci wirtualnej komunikacji równorzędnej](create-peering-different-deployment-models.md) między sieciami wirtualnymi. Elementu równorzędnego sieci wirtualnej (Resource Manager) do sieci wirtualnej (wdrożenia klasyczne), ale nie można utworzyć komunikacji równorzędnej między dwoma sieciami wirtualnymi (klasyczny).
 - Połączyć sieć wirtualną z siecią lokalną przy użyciu [bramy sieci VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) obwodu.
