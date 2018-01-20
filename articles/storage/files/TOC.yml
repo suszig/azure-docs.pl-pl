@@ -66,8 +66,6 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Konfigurowanie parametrów połączenia
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Korzystanie z interfejsu API REST usługi Azure Storage
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Zarządzanie
       items:
         - name: Program PowerShell dla usługi Azure Files

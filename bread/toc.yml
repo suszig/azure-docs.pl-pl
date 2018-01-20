@@ -101,7 +101,7 @@
     - name: Możliwości obsługi
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
-    - name: Tworzenie kopii zapasowych
+    - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -202,7 +202,7 @@
     - name: Event Grid
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: Usługa Event Hubs
+    - name: Event Hubs
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: ExpressRoute
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: Usługa IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -368,7 +371,7 @@
     - name: Bezpieczeństwo
       tocHref: /azure/security/
       topicHref: /azure/security/
-    - name: Centrum zabezpieczeń
+    - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
     - name: Service Bus
