@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Zarządzanie maszynami wirtualnymi pakietu Microsoft Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Uruchamianie i zatrzymywanie Azure stosu
+          href: azure-stack-start-and-stop.md
         - name: Wymiana sprzętu
           items:
             - name: Węzeł działania
