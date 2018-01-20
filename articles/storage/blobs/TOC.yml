@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Azure Storage
   href: /azure/storage/
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Wprowadzenie
       href: storage-blobs-introduction.md
@@ -190,8 +190,6 @@
           href: storage-how-to-use-blobs-powershell.md
         - name: Interfejs wiersza polecenia platformy Azure 2.0
           href: storage-how-to-use-blobs-cli.md
-        - name: REST
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Zarządzanie
       items:
         - name: Program PowerShell dla usługi Azure Storage
@@ -317,7 +315,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Często zadawane pytania o migrację magazynu
           href: ../common/storage-migration-faq.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
