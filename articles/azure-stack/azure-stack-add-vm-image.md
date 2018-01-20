@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Udostępnić obraz niestandardowy maszyny wirtualnej Azure stosu
 
@@ -43,7 +43,7 @@ Uruchom następujące wymagania wstępne, albo z [zestaw deweloperski](azure-sta
    Stos Azure obsługuje format wirtualnego dysku twardego dysku o stałym rozmiarze. Stały format konstrukcje dysku logicznego liniowo w pliku, więc ten dysk Przesunięcie X jest przechowywany przy przesunięciu obiektu blob X. Mała stopkę na końcu obiektu blob zawiera opis właściwości wirtualnego dysku twardego. Aby sprawdzić, czy dysk został rozwiązany, należy użyć [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) polecenia programu PowerShell.  
 
    > [!IMPORTANT]
-   >  Stos Azure nie obsługuje dysków dynamicznych wirtualnych dysków twardych. Zmiana rozmiaru dysku dynamicznego, który jest dołączony do maszyny Wirtualnej spowoduje zamknięcie maszyny Wirtualnej w stanie niepowodzenia. Aby zminimalizować ten problem, należy usunąć maszynę Wirtualną bez usuwania dysku maszyny Wirtualnej, obiektu blob dysku VHD na koncie magazynu. Konwertuj dysku VHD na dysku dynamicznym na dysku o stałym rozmiarze i ponownie utwórz maszynę wirtualną.
+   >  Stos Azure nie obsługuje dysków dynamicznych wirtualnych dysków twardych. Zmiana rozmiaru dysku dynamicznego, który jest dołączony do maszyny Wirtualnej spowoduje zamknięcie maszyny Wirtualnej w stanie niepowodzenia. Aby zminimalizować ten problem, należy usunąć maszynę Wirtualną bez usuwania dysku maszyny Wirtualnej, obiektu blob dysku VHD na koncie magazynu. Następnie Konwertuj wirtualny dysk twardy z dysk dynamiczny na dysk stały i Utwórz ponownie maszynę wirtualną.
 
 Aby dodać obraz do portalu Azure Marketplace stosu, wykonaj następujące czynności:
 
