@@ -24,9 +24,11 @@ ACU: 195-210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Wysoka                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Bardzo wysoka                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Bardzo wysoka                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
+| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Bardzo wysoka                                 |
 
 <sup>1</sup>serii Fsv2 maszyny Wirtualnej funkcji technologią Intel® Hyper-Threading
+
+<sup>2</sup> więcej niż 64 vCPU, muszą mieć jedną z tych gościa obsługiwanych systemów operacyjnych: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 z dodatkiem SP2 i Red Hat Enterprise Linux, CentOS 7.3 lub Oracle 7.3 Linux z LIS 4.2.1
 
 ## <a name="fs-series-sup1sup"></a>Seria FS <sup>1</sup>
 
@@ -57,7 +59,7 @@ ACU: 210–250
 | Standardowa_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standardowa_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standardowa_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standardowa_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000           |
+| Standardowa_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 
 
 <br>
