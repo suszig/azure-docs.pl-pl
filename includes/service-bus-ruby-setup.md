@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
-Aby uzyskać instrukcje, zobacz [tworzenie aplikacji Ruby na platformie Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Aby uzyskać instrukcje, zobacz [tworzenie aplikacji Ruby na platformie Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Skonfigurować aplikację do użycia usługi Service Bus
 Aby korzystać z usługi Service Bus, pobranie i użycie pakiet Azure Ruby, który zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
