@@ -52,9 +52,15 @@
     - name: 2 — Konfigurowanie urządzenia
       href: tutorial-set-up-device.md
     - name: 3 — Aprowizowanie urządzenia w centrum IoT
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 — Aprowizowanie urządzeń w wielu centrach
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 — Aprowizowanie rejestracji grup
+      href: tutorial-group-enrollments.md
 - name: Pojęcia
   items:
     - name: Pojęcia dotyczące urządzeń
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Odwoływanie dostępu urządzeń
       href: how-to-revoke-device-access-portal.md
+    - name: Anulowanie aprowizacji urządzeń
+      href: how-to-unprovision-devices.md
     - name: Używanie modułu HSM z zestawem SDK
       href: use-hsm-with-sdk.md
     - name: Kontrola dostępu do usługi Provisioning Service

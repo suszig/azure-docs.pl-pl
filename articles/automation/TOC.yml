@@ -131,10 +131,10 @@
       items:
         - name: Galeria elementów Runbook
           href: automation-runbook-gallery.md
+        - name: Uruchamianie elementu Runbook z alertów platformy Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Tworzenie maszyny wirtualnej usługi Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Rozwiązywanie problemów dotyczących alertów maszyny wirtualnej platformy Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Uruchamianie/zatrzymywanie maszyny wirtualnej przy użyciu tagów JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Usuwanie grupy zasobów

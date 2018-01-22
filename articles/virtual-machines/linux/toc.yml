@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Migrowanie do usługi Premium Storage przy użyciu usługi Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Znajdowanie niedołączonych dysków
+          href: find-unattached-disks.md
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Wdrażanie dysków za pomocą szablonu

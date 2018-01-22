@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Program R Server w usłudze HDInsight
   items:
-    - name: Przegląd
+    - name: Omówienie
       href: r-server-overview.md
     - name: Składniki usługi Hadoop na usłudze HDInsight
       href: ../hdinsight-component-versioning.md
@@ -44,6 +44,8 @@
         - name: Narzędzia dla programu VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Przesyłanie zadań z narzędzi R Tools for Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Rozszerzanie klastrów
       items:
         - name: Dostosowywanie klastrów za pomocą narzędzia Bootstrap
@@ -269,7 +271,7 @@
         - name: Monitorowanie wydajności klastra
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

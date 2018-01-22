@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Programowanie
       items:
+        - name: Używanie interfejsu API producentów i konsumentów usługi Kafka
+          href: apache-kafka-producer-consumer-api.md
+        - name: Używanie interfejsu API Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Używanie pustych węzłów brzegowych
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
