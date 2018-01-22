@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną za pomocą natywnego uwierzytelniania certyfikatu platformy Azure: PowerShell
 
 W tym artykule pokazano sposób tworzenia sieci wirtualnej z połączeniem typu punkt-lokacja w modelu wdrażania przy użyciu usługi Resource Manager za pomocą witryny programu PowerShell. W tej konfiguracji do uwierzytelniania używane są certyfikaty. W tej konfiguracji brama Azure VPN Gateway przeprowadza weryfikację certyfikatu, a nie serwera RADIUS. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Witryna Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Program PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
@@ -165,7 +165,7 @@ Skonfiguruj i utwórz bramę sieci wirtualnej dla sieci wirtualnej.
 
 * Zmienna -GatewayType musi mieć wartość **Vpn**, a zmienna **-VpnType** musi mieć wartość RouteBased.
 * Parametr -VpnClientProtocol służy do określania typów tuneli, które mają zostać włączone. Dostępne dwie opcje tuneli to **SSTP** i **IKEv2**. Można włączyć jedną z nich lub obie. Jeśli chcesz włączyć obie opcje, określ następnie obie nazwy rozdzielone przecinkiem. Klient Strongswan w systemach Android i Linux oraz natywny klient sieci VPN IKEv2 w systemach iOS i OSX będą używać do łączenia się tylko tuneli IKEv2. Klienci w systemie Windows będą najpierw próbowali użyć protokołu IKEv2, a jeśli połączenie nie zostanie nawiązane, użyją protokołu SSTP.
-* Tworzenie bramy sieci VPN może zająć do 45 minut, zależnie od wybranej [jednostki sku bramy](vpn-gateway-about-vpn-gateway-settings.md). W tym przykładzie użyto protokołu IKEv2, który jest obecnie dostępny w wersji zapoznawczej.
+* Tworzenie bramy sieci VPN może zająć do 45 minut, zależnie od wybranej [jednostki sku bramy](vpn-gateway-about-vpn-gateway-settings.md). W tym przykładzie użyto protokołu IKEv2.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

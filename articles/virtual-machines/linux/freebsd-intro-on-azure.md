@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Wprowadzenie do FreeBSD na platformie Azure
 Ten temat zawiera omówienie uruchomienie maszyny wirtualnej FreeBSD na platformie Azure.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 FreeBSD platformy Microsoft Azure to zaawansowane systemu operacyjnego używany do zasilania nowoczesnych serwerów, komputerów stacjonarnych i osadzone platform.
 
 Microsoft Corporation jest udostępniania obrazów FreeBSD na platformie Azure za pomocą [Agent gościa maszyny Wirtualnej Azure](https://github.com/Azure/WALinuxAgent/) wstępnie skonfigurowane. Obecnie następujące wersje FreeBSD są jako obrazów oferowanych przez firmę Microsoft:
 
-- FreeBSD 10.3-wersja
-- FreeBSD 11.0-wersja
-- FreeBSD 11.1-wersja
+- FreeBSD 10.3-RELEASE
+- FreeBSD 11.0-RELEASE
+- FreeBSD 11.1-RELEASE
 
 Agent jest odpowiedzialny za komunikację między FreeBSD maszyny Wirtualnej i sieci szkieletowej Azure dla operacji, takich jak inicjowanie obsługi maszyn wirtualnych przy pierwszym użyciu (nazwa użytkownika, hasło lub klucz SSH, nazwy hosta, itp.) i włączenie funkcji selektywnego rozszerzeń maszyny Wirtualnej.
 
@@ -89,7 +89,7 @@ ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 ## <a name="vm-extensions-for-freebsd"></a>Rozszerzenia maszyny Wirtualnej dla FreeBSD
 Poniżej przedstawiono obsługiwane rozszerzeń maszyny Wirtualnej w FreeBSD.
 
-### <a name="vmaccess"></a>Rozszerzenia VMAccess
+### <a name="vmaccess"></a>VMAccess
 [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) rozszerzenia można:
 
 * Zresetuj hasło dla oryginalnego użytkownika sudo.
@@ -132,6 +132,5 @@ Powłoka głównego Opcjonalnie można uzyskać za pomocą `sudo -s`.
 ## <a name="known-issues"></a>Znane problemy
 [Agent gościa maszyny Wirtualnej Azure](https://github.com/Azure/WALinuxAgent/) wersji 2.2.2 ma [znany problem] (https://github.com/Azure/WALinuxAgent/pull/517), która powoduje niepowodzenie udostępniania dla maszyny Wirtualnej FreeBSD na platformie Azure. Ta poprawka została przechwycona przez [Agent gościa maszyny Wirtualnej Azure](https://github.com/Azure/WALinuxAgent/) wersji 2.2.3 i jego nowszych wersjach. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przejdź do [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) tworzenie FreeBSD maszyny Wirtualnej.
-* Jeśli chcesz przełączyć własne FreeBSD na platformie Azure, zobacz [tworzenie i przekazywanie wirtualnego dysku twardego FreeBSD na platformie Azure](classic/freebsd-create-upload-vhd.md).

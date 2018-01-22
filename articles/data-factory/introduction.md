@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory
  
@@ -128,4 +128,13 @@ Załóżmy na przykład, że środowiska obliczeniowe, takie jak klaster usługi
 Aby uzyskać listę różnic między wersjami 1 i 2 usługi Data Factory, zobacz [Porównanie z wersją 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak utworzyć fabrykę danych, wykonując instrukcje krok po kroku zamieszczone w przewodnikach Szybki start dotyczących [programu PowerShell](quickstart-create-data-factory-powershell.md), [platformy .NET](quickstart-create-data-factory-dot-net.md), [języka Python](quickstart-create-data-factory-python.md), [interfejsu API REST](quickstart-create-data-factory-rest-api.md) i witryny Azure Portal. 
+Wprowadzenie do tworzenia potoku usługi Data Factory przy użyciu jednego z następujących narzędzi/zestawów SDK: 
+
+- [Interfejs użytkownika usługi Data Factory w witrynie Azure Portal](quickstart-create-data-factory-portal.md)
+- [Narzędzie do kopiowania danych w witrynie Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
+- [Program PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Szablon usługi Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+ 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
 > [!div class="op_single_selector"]
@@ -41,9 +41,10 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 * Windows 10
 
 > [!NOTE]
-> System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0][powershell5-download] w Centrum pobierania Microsoft.
-> 
-> 
+> Obsługa systemu Windows 7:
+> - System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0][powershell5-download] w Centrum pobierania Microsoft.
+> - Serwer proxy usługi Service Fabric nie jest dostępny w systemie Windows 7.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
 ### <a name="to-use-visual-studio-2017"></a>Używanie programu Visual Studio 2017

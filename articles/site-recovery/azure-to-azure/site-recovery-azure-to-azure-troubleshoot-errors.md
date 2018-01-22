@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7231c5d58dfd2d6eddd40e9003b63206f4c7f859
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Rozwiązywanie problemów z replikacją maszyn wirtualnych Azure do platformy Azure
 
@@ -109,13 +109,13 @@ Nowy dysk dołączony do maszyny Wirtualnej musi zostać zainicjowany.
 
 **Kod błędu:** | **Możliwe przyczyny** | **Zalecenia**
 --- | --- | ---
-150039<br></br>**Komunikat**: dysk danych platformy Azure (DiskName) (DiskURI) numer jednostki logicznej (LUN) (LUNValue) nie został zamapowany do odpowiedniego dysku zgłaszane z poziomu maszyny Wirtualnej, który ma taką samą wartość jednostki LUN. | -Nowy dysk danych, był dołączony do maszyny Wirtualnej, ale nie został on zainicjowany.</br></br>-Dysk z danymi w ramach maszyny Wirtualnej nie jest poprawnie zgłaszają wartość jednostki LUN, jaką dysk został dołączony do maszyny Wirtualnej.| Upewnij się, są inicjowane dyski danych, a następnie spróbuj ponownie wykonać operację.</br></br>W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Komunikat**: dysk danych platformy Azure (DiskName) (DiskURI) numer jednostki logicznej (LUN) (LUNValue) nie został zamapowany do odpowiedniego dysku zgłaszane z poziomu maszyny Wirtualnej, który ma taką samą wartość jednostki LUN. | -Nowy dysk danych, był dołączony do maszyny Wirtualnej, ale nie został on zainicjowany.</br></br>-Dysk z danymi w ramach maszyny Wirtualnej nie jest poprawnie zgłaszają wartość jednostki LUN, jaką dysk został dołączony do maszyny Wirtualnej.| Upewnij się, są inicjowane dyski danych, a następnie spróbuj ponownie wykonać operację.</br></br>W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### <a name="fix-the-problem"></a>Rozwiąż problem
 Upewnij się, została zainicjowana dysków z danymi, a następnie spróbuj ponownie wykonać operację:
 
 - W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 Jeśli problem będzie się powtarzać, skontaktuj się z pomocy technicznej.
 
@@ -143,7 +143,7 @@ Aby włączyć replikację na maszynie Wirtualnej, stan inicjowania powinien by�
 
 ### <a name="fix-the-problem"></a>Rozwiąż problem
 
-- Jeśli **provisioningState** jest ****, skontaktuj się z pomocą techniczną, podając szczegóły, aby rozwiązać.
+- Jeśli **provisioningState** jest **niepowodzenie**, skontaktuj się z pomocą techniczną, podając szczegóły, aby rozwiązać.
 - Jeśli **provisioningState** jest **aktualizacji**, inne rozszerzenie mogą być pobieranie wdrożone. Sprawdź, czy są wszystkie trwających operacji na maszynie Wirtualnej, poczekaj na ich zakończenie i ponów próbę odzyskania lokacji nie powiodło się **włączyć replikację** zadania.
 
 ## <a name="next-steps"></a>Kolejne kroki

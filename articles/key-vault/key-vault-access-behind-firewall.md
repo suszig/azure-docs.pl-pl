@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Uzyskiwanie dostępu do usługi Azure Key Vault za zaporą
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>Pyt. Moja aplikacja kliencka magazynu kluczy musi znajdować się za zaporą. Które porty, hosty lub adresy IP należy otworzyć, aby umożliwić dostęp do magazynu kluczy?
@@ -38,8 +38,8 @@ W celu uwierzytelnienia aplikacja kliencka usługi Key Vault będzie musiała uz
 
 | Typ nazwy głównej | Punkt końcowy:port |
 | --- | --- |
-| Użytkownik korzystający z konta Microsoft<br> (na przykład user@hotmail.com) |**Cały świat:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Wersja platformy Azure dla administracji USA:**<br> login-us.microsoftonline.com:443<br><br>**Niemiecka wersja platformy Azure:**<br> login.microsoftonline.de:443<br><br> i <br>login.live.com:443 |
-| Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego z usługą Azure AD (na przykład user@contoso.com) |**Cały świat:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Wersja platformy Azure dla administracji USA:**<br> login-us.microsoftonline.com:443<br><br>**Niemiecka wersja platformy Azure:**<br> login.microsoftonline.de:443 |
+| Użytkownik korzystający z konta Microsoft<br> (na przykład user@hotmail.com) |**Cały świat:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Wersja platformy Azure dla administracji USA:**<br> login.microsoftonline.us:443<br><br>**Niemiecka wersja platformy Azure:**<br> login.microsoftonline.de:443<br><br> i <br>login.live.com:443 |
+| Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego z usługą Azure AD (na przykład user@contoso.com) |**Cały świat:**<br> login.microsoftonline.com:443<br><br> **Chińska wersja platformy Azure:**<br> login.chinacloudapi.cn:443<br><br>**Wersja platformy Azure dla administracji USA:**<br> login.microsoftonline.us:443<br><br>**Niemiecka wersja platformy Azure:**<br> login.microsoftonline.de:443 |
 | Nazwa główna użytkownika lub jednostka usługi przy użyciu konta służbowego i punkt końcowy usług Active Directory Federation Services (AD FS) lub inny federacyjny punkt końcowy (na przykład user@contoso.com) |Wszystkie punkty końcowe dla konta służbowego oraz punkty końcowe usług AD FS lub inne federacyjne punkty końcowe |
 
 Istnieją inne możliwe złożone scenariusze. Aby uzyskać dodatkowe informacje, zapoznaj się z artykułami [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/) (Przepływ uwierzytelniania w usłudze Azure Active Directory), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) (Integrowanie aplikacji za pomocą usługi Azure Active Directory) i [Protokoły uwierzytelniania usługi Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
