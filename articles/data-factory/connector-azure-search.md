@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 026ec3195f9851164a85613f2060b1c282f8bb7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiowanie danych do indeksu usługi Azure Search przy użyciu fabryki danych Azure
 
@@ -36,7 +36,7 @@ Możesz skopiować dane z dowolnego źródła obsługiwanych magazynu danych do 
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które są używane do definiowania jednostek fabryki danych określonej do łącznika usługi Azure Search.
 
@@ -47,7 +47,7 @@ Obsługiwane są następujące właściwości dla usługi Azure Search połączo
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **AzureSearch** | Yes |
-| adres URL | Adres URL dla usługi Azure Search. | Yes |
+| adres url | Adres URL dla usługi Azure Search. | Yes |
 | key | Klucz administratora dla usługi Azure Search. Zaznacz to pole jako SecureString. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
@@ -116,7 +116,7 @@ Aby skopiować dane do usługi Azure Search, należy ustawić typ źródła w pr
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | type | Musi mieć ustawioną właściwość type źródła działania kopiowania: **AzureSearchIndexSink** | Yes |
-| WriteBehavior | Określa, czy należy scalić lub Zastąp, jeśli istnieje już dokument w indeksie. Zobacz [WriteBehavior właściwości](#writebehavior-property).<br/><br/>Dozwolone wartości to: **scalania** (ustawienie domyślne) i **przekazać**. | Nie |
+| writeBehavior | Określa, czy należy scalić lub Zastąp, jeśli istnieje już dokument w indeksie. Zobacz [WriteBehavior właściwości](#writebehavior-property).<br/><br/>Dozwolone wartości to: **scalania** (ustawienie domyślne) i **przekazać**. | Nie |
 | writeBatchSize | Przekazywanie danych do indeksu usługi Azure Search, gdy writeBatchSize osiągnie rozmiar buforu. Zobacz [właściwości WriteBatchSize](#writebatchsize-property) szczegółowe informacje.<br/><br/>Dozwolone wartości to: 1 do 1000; liczba całkowita domyślna to 1000. | Nie |
 
 ### <a name="writebehavior-property"></a>Właściwość WriteBehavior
@@ -175,7 +175,7 @@ Poniższa tabela określa, czy lub nie obsługuje typu danych usługi Azure Sear
 | Ciąg | Tak |
 | Int32 | Tak |
 | Int64 | Tak |
-| O podwójnej precyzji | Tak |
+| Podwójnej precyzji | Tak |
 | Wartość logiczna | Tak |
 | DataTimeOffset | Tak |
 | Tablica ciągów | N |
