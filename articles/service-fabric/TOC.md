@@ -311,6 +311,7 @@
 ### Monitorowanie wydajności
 #### [Monitorowanie wydajności za pomocą funkcji WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Dokumentacja
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [Program PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Interfejs API języka Java](/java/api/overview/azure/servicefabric)
+### [Interfejs API klienta Java REST](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schemat XML modelu usług](service-fabric-service-model-schema.md)

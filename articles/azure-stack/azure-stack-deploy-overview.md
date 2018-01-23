@@ -1,10 +1,10 @@
 ---
-title: "— Szybki Start Azure stosu Development Kit wdrożenia | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak wdrożyć Azure stosu Development Kit"
+title: Ocena Azure stosu Development Kit | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak wdrożyć Azure stosu Development Kit do celów oceny."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/10/2017
-ms.author: erikje
+ms.date: 01/22/2018
+ms.author: jeffgilb
 ms.custom: mvc
-ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 4ad2e0a91e2fd5023417722fc0a1a6fae93960d0
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Wdrażanie zestawu Azure Stack Development Kit — przewodnik Szybki start
+# <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>Szybki Start: Ocena Azure stosu Development Kit
 
 *Dotyczy: Azure stosu Development Kit*
 
