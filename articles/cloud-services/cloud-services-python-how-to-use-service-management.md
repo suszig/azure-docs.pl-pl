@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Jak używać usługi zarządzania w języku Python
 Ten przewodnik przedstawia, jak programowo wykonywać typowe zadania zarządzania dla usługi w języku Python. **ServiceManagementService** klasy w [zestaw Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) obsługuje dostęp programistyczny umożliwiający wiele usług związanych z zarządzaniem funkcji dostępnych w [Azure Portal] [ management-portal] (takich jak **tworzenie, aktualizowanie i usuwanie usługi w chmurze, wdrożeń, dane usługi zarządzania i maszyn wirtualnych**). Ta funkcja może być przydatne do tworzenia aplikacji, które muszą dostęp programistyczny umożliwiający zarządzanie usługą.
@@ -394,9 +394,9 @@ Aby na koniec utwórz maszynę wirtualną przy użyciu przechwyconego obrazu, na
         role_size='Small',
         vm_image_name = image_name)
 
-Aby dowiedzieć się więcej o sposobie przechwytywania maszyny wirtualnej systemu Linux, zobacz [Przechwytywanie maszyny wirtualnej systemu Linux.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Aby dowiedzieć się więcej o sposobie przechwytywania maszyny wirtualnej systemu Linux w klasycznym modelu wdrażania, zobacz [Przechwytywanie maszyny wirtualnej systemu Linux.](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Aby dowiedzieć się więcej o sposobie przechwytywania maszyny wirtualnej systemu Windows, temacie [jak przechwycić maszynę wirtualną systemu Windows.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Aby dowiedzieć się więcej o sposobie przechwytywania maszynę wirtualną w klasycznym modelu wdrażania, zobacz [jak przechwycić maszynę wirtualną systemu Windows.](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Następne kroki
 Teraz, kiedy znasz już podstawy usługi zarządzania, należy uzyskać dostęp [kompletne API dokumentacji dla zestawu Azure SDK Python](http://azure-sdk-for-python.readthedocs.org/) i wykonać złożone zadania łatwe do zarządzania aplikacją python.

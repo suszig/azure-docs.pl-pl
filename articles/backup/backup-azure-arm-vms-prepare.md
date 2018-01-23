@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 
@@ -54,7 +54,7 @@ Aby przygotować środowisko, należy zrozumieć następujące ograniczenia:
 * Tworzenie kopii zapasowych maszyn wirtualnych z danymi dysku o rozmiarze przekraczającym 1,023 GB nie jest obsługiwane.
 
   > [!NOTE]
-  > Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych z dyskami niezarządzane 1 TB (lub nowszego). Aby uzyskać więcej informacji, zapoznaj się [prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych dużych dysków](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych z dyskami > 1TB. Aby uzyskać więcej informacji, zapoznaj się [prywatnej wersji zapoznawczej do obsługi kopii zapasowych maszyn wirtualnych dużych dysków](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Tworzenie kopii zapasowych maszyn wirtualnych z zastrzeżonego adresu IP i nie zdefiniowanych punktów końcowych nie jest obsługiwane.
@@ -181,7 +181,7 @@ Po pomyślnym włączeniu kopii zapasowej zasad tworzenia kopii zapasowej zostan
 Jeśli masz problemy z zarejestrowaniem maszyny wirtualnej, zobacz poniższe informacje na temat instalowania agenta maszyny Wirtualnej oraz łączność sieciową. Prawdopodobnie nie potrzebujesz następujących informacji w przypadku ochrony maszyn wirtualnych utworzonych na platformie Azure. Jednak po migracji maszyn wirtualnych na platformie Azure, należy poprawnie zainstalowany agent maszyny Wirtualnej i maszyny wirtualnej mogą komunikować się z siecią wirtualną.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Zainstaluj agenta maszyny Wirtualnej na maszynie wirtualnej
-Rozszerzenia kopii zapasowej do pracy Azure [agenta maszyny Wirtualnej](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musi być zainstalowany na maszynie wirtualnej Azure. Jeśli maszyna wirtualna została utworzona z portalu Azure Marketplace, agent maszyny Wirtualnej jest już obecny w maszynie wirtualnej. 
+Rozszerzenia kopii zapasowej do pracy Azure [agenta maszyny Wirtualnej](../virtual-machines/windows/agent-user-guide.md) musi być zainstalowany na maszynie wirtualnej Azure. Jeśli maszyna wirtualna została utworzona z portalu Azure Marketplace, agent maszyny Wirtualnej jest już obecny w maszynie wirtualnej. 
 
 Poniżej przedstawiono informacje dotyczące sytuacji, w którym są *nie* przy użyciu maszyny Wirtualnej utworzone w witrynie Azure Marketplace. Na przykład w przypadku migracji maszyny Wirtualnej z lokalnego centrum danych. W takim przypadku agenta maszyny Wirtualnej musi być zainstalowany, aby chronić maszyny wirtualnej.
 
@@ -219,7 +219,7 @@ Umożliwia połączenia z magazynem określonego regionu za pomocą [usługi tag
 ![Grupy NSG z tagami magazynu dla regionu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Tagi magazynu są dostępne tylko w określonych regionach i są w wersji zapoznawczej. Aby uzyskać listę regionów, zobacz [usługi tagi dla magazynu](../virtual-network/security-overview.md#service-tags).
+> Tagi usługi magazynu są dostępne tylko w określonych regionach i są w wersji zapoznawczej. Aby uzyskać listę regionów, zobacz [usługi tagi dla magazynu](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Użyj serwera proxy HTTP dla kopii zapasowych maszyn wirtualnych
 Podczas tworzenia kopii zapasowej maszyny Wirtualnej, tworzenia kopii zapasowej rozszerzenia na maszynie Wirtualnej polecenia są wysyłane migawki zarządzania do magazynu Azure przy użyciu interfejsu API protokołu HTTPS. Kierować ruchem zapasowy numer wewnętrzny, za pośrednictwem serwera proxy HTTP, ponieważ jest on tylko składnik skonfigurowany do uzyskiwania dostępu do publicznej sieci internet.

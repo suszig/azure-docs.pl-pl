@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Samouczek: Integracji Azure Active Directory z Grovo
 
@@ -127,7 +127,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     > [!NOTE] 
     > Wartości te nie są prawdziwe. Znakiem rzeczywisty identyfikator, adres URL odpowiedzi, na adres URL i przekazywania stanu, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej Grovo](https://www.grovo.com/contact-us) uzyskać te wartości.
  
-5. Aplikacja Grovo oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
+5. Aplikacja Grovo oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Zamapuj **identyfikator użytkownika** z **user.mail** i skonfigurować inne atrybuty, zgodnie z poniższym zrzucie ekranu.
     
     ![Konfigurowanie rejestracji jednokrotnej attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     

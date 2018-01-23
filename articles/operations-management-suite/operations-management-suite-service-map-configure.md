@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurowanie usługi mapy w Operations Management Suite
 Mapa usługi automatycznie odnajduje składniki aplikacji w systemach Windows i Linux oraz mapuje komunikację między usługami. Służy on do wyświetlania serwerów jako traktować ich — jako połączonych systemy, które dostarczają usług krytycznych. Mapy usług zawiera połączeń między serwerami, procesów i portów w dowolnej architekturze połączenia TCP z konfiguracja nie jest wymagane, innego niż instalacji agenta.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Rozszerzenia maszyny Wirtualnej platformy Azure
-Możesz z łatwością wdrożyć agenta zależności przy użyciu maszyn wirtualnych platformy Azure [rozszerzenia maszyny Wirtualnej Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Rozszerzenie maszyny Wirtualnej Azure można wdrożyć agenta zależności maszyn wirtualnych za pomocą skryptu programu PowerShell lub bezpośrednio w szablonie usługi Azure Resource Manager maszyny Wirtualnej.  Rozszerzenie jest dostępna dla systemów Windows (DependencyAgentWindows), jak i Linux (DependencyAgentLinux).  W przypadku wdrożenia za pośrednictwem rozszerzenia maszyny Wirtualnej Azure, agentów może automatycznie zaktualizowana do najnowszej wersji.
+Możesz z łatwością wdrożyć agenta zależności przy użyciu maszyn wirtualnych platformy Azure [rozszerzenia maszyny Wirtualnej Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Rozszerzenie maszyny Wirtualnej Azure można wdrożyć agenta zależności maszyn wirtualnych za pomocą skryptu programu PowerShell lub bezpośrednio w szablonie usługi Azure Resource Manager maszyny Wirtualnej.  Rozszerzenie jest dostępna dla systemów Windows (DependencyAgentWindows), jak i Linux (DependencyAgentLinux).  W przypadku wdrożenia za pośrednictwem rozszerzenia maszyny Wirtualnej Azure, agentów może automatycznie zaktualizowana do najnowszej wersji.
 
 Aby wdrożyć rozszerzenie maszyny Wirtualnej Azure za pomocą programu PowerShell, można skorzystaj z następującego przykładu:
 ```PowerShell

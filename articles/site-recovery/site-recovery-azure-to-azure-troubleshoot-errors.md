@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 76ec4f6d2f4471f2e8399c3e028321754ea7c160
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Rozwiązywanie problemów z replikacją maszyn wirtualnych Azure do platformy Azure
 
@@ -109,13 +109,13 @@ Nowy dysk dołączony do maszyny Wirtualnej musi zostać zainicjowany.
 
 **Kod błędu:** | **Możliwe przyczyny** | **Zalecenia**
 --- | --- | ---
-150039<br></br>**Komunikat**: dysk danych platformy Azure (DiskName) (DiskURI) numer jednostki logicznej (LUN) (LUNValue) nie został zamapowany do odpowiedniego dysku zgłaszane z poziomu maszyny Wirtualnej, który ma taką samą wartość jednostki LUN. | -Nowy dysk danych, był dołączony do maszyny Wirtualnej, ale nie został on zainicjowany.</br></br>-Dysk z danymi w ramach maszyny Wirtualnej nie jest poprawnie zgłaszają wartość jednostki LUN, jaką dysk został dołączony do maszyny Wirtualnej.| Upewnij się, są inicjowane dyski danych, a następnie spróbuj ponownie wykonać operację.</br></br>W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Komunikat**: dysk danych platformy Azure (DiskName) (DiskURI) numer jednostki logicznej (LUN) (LUNValue) nie został zamapowany do odpowiedniego dysku zgłaszane z poziomu maszyny Wirtualnej, który ma taką samą wartość jednostki LUN. | -Nowy dysk danych, był dołączony do maszyny Wirtualnej, ale nie został on zainicjowany.</br></br>-Dysk z danymi w ramach maszyny Wirtualnej nie jest poprawnie zgłaszają wartość jednostki LUN, jaką dysk został dołączony do maszyny Wirtualnej.| Upewnij się, są inicjowane dyski danych, a następnie spróbuj ponownie wykonać operację.</br></br>W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Rozwiąż problem
 Upewnij się, została zainicjowana dysków z danymi, a następnie spróbuj ponownie wykonać operację:
 
-- W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Dla systemu Linux: [inicjowania dysku danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+- W systemie Windows: [Attach i zainicjować nowego dysku](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Dla systemu Linux: [Dodaj nowy dysk danych w systemie Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Jeśli problem będzie się powtarzać, skontaktuj się z pomocy technicznej.
 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizowanie danych opóźnienie transmitowane przy użyciu usługi Hive w usłudze HDInsight z systemem Linux
 
@@ -43,11 +43,11 @@ Sprawdzanie analizowanie danych opóźnienie transmitowane przy użyciu usługi 
 
 2. Na stronie wybierz następujące wartości:
 
-   | Nazwa | Wartość |
+   | Name (Nazwa) | Wartość |
    | --- | --- |
    | Filtr roku |2013 |
-   | Filtruj okres |Stycznia |
-   | Pola |Rok, FlightDate, UniqueCarrier, operatora, FlightNum, OriginAirportID, pochodzenia, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Filtruj okres |styczeń |
+   | Pola |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Usuń zaznaczenie wszystkich innych pól. 
 
 3. Wybierz **Pobierz**.
@@ -200,9 +200,7 @@ Jeśli nie masz już bazę danych SQL, skorzystaj z informacji w [tworzenie bazy
 > Istnieje wiele sposobów łączenia z bazą danych SQL i tworzenie tabeli. Następujące kroki użyj [protokół FreeTDS](http://www.freetds.org/) z klastrem usługi HDInsight.
 
 
-1. Połącz się z klastrem usługi HDInsight opartej na systemie Linux przy użyciu protokołu SSH, a wykonanie następujących kroków w sesji SSH.
-
-2. Aby zainstalować protokół FreeTDS, użyj następującego polecenia:
+1. Aby zainstalować protokół FreeTDS, użyj następującego polecenia z połączenia SSH do klastra:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Jeśli nie masz już bazę danych SQL, skorzystaj z informacji w [tworzenie bazy
 3. Po zakończeniu instalacji, użyj następującego polecenia, aby połączyć się z serwerem bazy danych SQL. Zastąp **serverName** z nazwą serwera bazy danych SQL. Zastąp **adminLogin** i **adminPassword** z nazwy logowania bazy danych SQL. Zastąp **databaseName** o nazwie bazy danych.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Po wyświetleniu monitu wprowadź hasło dla nazwy logowania administratora bazy danych SQL.
 
     Pojawi się dane wyjściowe podobne do następującego tekstu:
 
@@ -286,7 +286,7 @@ Jeśli nie masz już bazę danych SQL, skorzystaj z informacji w [tworzenie bazy
 
     Powinna zostać wyświetlona lista danych w tabeli. Typ `exit` aby wyjść z narzędzia tsql.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej sposobów pracować z danymi w usłudze HDInsight, zobacz następujące artykuły:
 

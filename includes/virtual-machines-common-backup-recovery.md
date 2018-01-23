@@ -3,7 +3,7 @@
 
 Do tworzenia kopii zapasowych maszyn wirtualnych Azure uruchamiania obciążeń produkcyjnych, użyj kopii zapasowej Azure. Kopia zapasowa Azure obsługuje kopie zapasowe spójnych z aplikacją dla systemu Windows i maszyn wirtualnych systemu Linux. Kopia zapasowa Azure tworzy punkty odzyskiwania, które są przechowywane w magazynach odzyskiwania z magazynu geograficznie nadmiarowego. Po przywróceniu z punktu odzyskiwania, można przywrócić całej maszyny Wirtualnej lub po prostu określonych plików. 
 
-Proste, praktyczne wprowadzenie do usługi Kopia zapasowa Azure dla maszyn wirtualnych platformy Azure, zobacz "Kopii zapasowej samouczek maszyn wirtualnych systemu Windows" dla [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [systemu Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+Proste, praktyczne wprowadzenie do usługi Kopia zapasowa Azure dla maszyn wirtualnych platformy Azure, zobacz samouczek "kopii zapasowych maszyn wirtualnych platformy Azure" dla [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Aby uzyskać więcej informacji na sposób działania usługi Kopia zapasowa Azure, zobacz [Zaplanuj infrastrukturę kopii zapasowej maszyny Wirtualnej na platformie Azure](../articles/backup/backup-azure-vms-introduction.md)
 
@@ -27,5 +27,5 @@ Aby uzyskać więcej informacji na temat tworzenia migawek zobacz:
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Można wypróbować usługę kopia zapasowa Azure, postępując "Kopii zapasowej samouczek maszyn wirtualnych systemu Windows" dla [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) lub [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

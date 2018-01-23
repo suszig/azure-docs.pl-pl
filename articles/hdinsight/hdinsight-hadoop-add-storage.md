@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 68229487f45c3246500875303105b0ebcc8079cb
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Dodać dodatkowe konta magazynu w usłudze HDInsight
 
@@ -55,7 +55,7 @@ Podczas przetwarzania skryptu wykonuje następujące czynności:
 
 ## <a name="the-script"></a>Skrypt
 
-__Lokalizacja skryptu__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Script location__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Wymagania dotyczące__:
 
@@ -147,6 +147,6 @@ Jeśli konto magazynu znajduje się w regionie innym niż klaster usługi HDInsi
 > [!WARNING]
 > Używanie konta magazynu w regionie innym niż klaster usługi HDInsight nie jest obsługiwane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Znasz sposób dodawania dodatkowych kont magazynu w istniejącym klastrze usługi HDInsight. Aby uzyskać więcej informacji dotyczących akcji skryptu, zobacz [klastrów usługi HDInsight opartej na dostosowanie systemu Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Podjąć działania z element Runbook usługi Automatyzacja w wynikach wyszukiwania dziennika analizy dzienników
 
@@ -30,7 +30,7 @@ Wynik wyszukiwania dziennika w Azure Log Analytics można teraz wybrać **reakcj
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Aby zainicjować element runbook z dziennika wyszukiwania
 
-Do wykonania akcji na zdarzenia i inicjowania elementu runbook z wyników wyszukiwania dziennika, rozpoczyna się od utworzenia wyszukiwania dziennika i z wyników można wywołać elementu runbook na żądanie.  Można to osiągnąć przez funkcję wyszukiwania dziennika w platformy Azure lub [portalu OMS](../log-analytics/log-analytics-log-searches.md).  W tym przykładzie mamy wyszukiwaniu dziennika z portalu Azure z podstawowych pokaz tej funkcji.
+Do wykonania akcji na zdarzenia i inicjowania elementu runbook z wyników wyszukiwania dziennika, rozpoczyna się od utworzenia wyszukiwania dziennika i z wyników można wywołać elementu runbook na żądanie.  Można to osiągnąć przez funkcję wyszukiwania dziennika w [portalu Azure](../log-analytics/log-analytics-log-search-new.md).  W tym przykładzie mamy wyszukiwaniu dziennika z portalu Azure z podstawowych pokaz tej funkcji.
 
 1. W portalu Azure, w menu centralnym kliknij **więcej usług** i wybierz **analizy dzienników**.  
 2. W bloku analizy dzienników wybierz obszaru roboczego analizy dzienników, a następnie w bloku obszaru roboczego wybierz **wyszukiwania dziennika**.  
@@ -46,7 +46,7 @@ Do wykonania akcji na zdarzenia i inicjowania elementu runbook z wyników wyszuk
 
 Wybranie elementu runbook, który został skonfigurowany tak, aby [wywoływane z alertu analizy dzienników](../automation/automation-invoke-runbook-from-omsla-alert.md), ma parametr wejściowy o nazwie **WebhookData** czyli **obiektu** typu.  Parametr wejściowy jest obowiązkowy, należy najpierw przekazać wyniki wyszukiwania do elementu runbook, więc można go przekonwertować ciąg w formacie JSON na typu obiektu, dzięki czemu można filtrować na określone elementy, które będzie odwoływać się w działania elementu runbook.  Aby to zrobić, wybierając **(obiekt) wynik wyszukiwania** z listy rozwijanej.<br><br> ![Wybierz obiekt danych elementu Webhook dla parametru elementu runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przegląd [analizy dzienników dziennika odwołanie wyszukiwania](log-analytics-search-reference.md) do wyświetlenia wszystkich pól wyszukiwania i aspektów, które są dostępne w analizy dzienników.
-* Aby dowiedzieć się, jak automatycznie Wywołaj element runbook usługi Automatyzacja, przejrzyj [wywołanie elementu runbook usługi Automatyzacja Azure z poziomu alertu analizy dzienników OMS](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Aby dowiedzieć się, jak automatycznie Wywołaj element runbook usługi Automatyzacja, przejrzyj [wywoływanie elementu runbook usługi Automatyzacja Azure z alert analizy dzienników](../automation/automation-invoke-runbook-from-omsla-alert.md).  

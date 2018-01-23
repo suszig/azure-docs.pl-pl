@@ -14,11 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 4a9d431e7bd1f204b9ba21b90d9fd6a0894d5d2d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0d7624d47a6924a5c8dec66b47ac0887ff493879
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Jak używać Magazynu kolejek w języku Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,7 +34,7 @@ Omówione scenariusze obejmują **wstawianie**, **wybierania**, **pobierania**, 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
-Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](../../virtual-machines/linux/classic/ruby-rails-web-app.md).
+Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [tworzenie Ruby aplikacji w usłudze App Service w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji na dostęp do magazynu
 Aby korzystać z usługi Azure storage, konieczne pobranie i użycie dopisków fonetycznych pakiet azure zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.

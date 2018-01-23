@@ -1,6 +1,6 @@
 ---
 title: "Tworzenie i zarządzanie nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób tworzenia i zarządzania nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia z wiersza polecenia platformy Azure."
+description: "W tym artykule opisano sposób tworzenia i zarządzania nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia wiersza polecenia platformy Azure."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 01/18/2018
-ms.openlocfilehash: ece359ed7c4d6d627b4bacf5efed88d34d754e02
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 1738fdd85391135357d34fefa878538866f21b91
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Tworzenie i zarządzanie nimi Azure bazy danych MySQL reguł zapory przy użyciu wiersza polecenia platformy Azure
 Reguły zapory poziomu serwera umożliwiają administratorom zarządzanie dostępem do bazy danych Azure MySQL serwera z określonego adresu IP lub zakresu adresów IP. Za pomocą wygodny poleceń interfejsu wiersza polecenia Azure, możesz utworzyć, zaktualizować, Usuń listę i Pokaż reguły zapory do zarządzania serwerem. Omówienie bazy danych Azure dla zapór MySQL, zobacz [bazą danych Azure dla reguł zapory serwera MySQL](./concepts-firewall-rules.md)
@@ -79,11 +79,23 @@ Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, Utwórz nową re
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
+
 Aby zezwolić na dostęp dla jednego adresu IP, należy podać ten sam adres IP jako Start IP i End IP, jak w poniższym przykładzie.
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myResourceGroup --server-name mysqlserver4demo --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
-Na sukces dane wyjściowe polecenia Wyświetla szczegóły reguły zapory, które zostały utworzone w formacie JSON (domyślnie). W przypadku awarii, dane wyjściowe zawierają tekst komunikatu o błędzie zamiast tego.
+
+Aby umożliwić aplikacjom z adresów IP platformy Azure do nawiązania połączenia bazy danych Azure, aby serwer MySQL, podaj adres IP 0.0.0.0 jako Start IP i End IP, jak w poniższym przykładzie.
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group myResourceGroup  
+--server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+```
+
+> [!IMPORTANT]
+> Ta opcja konfiguruje zaporę w celu zezwalania na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika zezwalają na dostęp tylko uprawnionym użytkownikom.
+> 
+
+Po sukces utworzyć każdego polecenia, które dane wyjściowe Wyświetla szczegóły reguły zapory, które zostały utworzone w formacie JSON (domyślnie). W przypadku awarii, dane wyjściowe zawierają tekst komunikatu o błędzie zamiast tego.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mysql-server"></a>Aktualizuj reguły zapory dla serwera MySQL w bazie danych Azure 
 Przy użyciu nazwy serwera Azure MySQL i nazwę grupy zasobów, zaktualizuj istniejącą regułę zapory na serwerze. Użyj [aktualizacja zapory serwera mysql az](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_update) polecenia. Podaj nazwę istniejącej reguły zapory jako dane wejściowe, a także początek atrybutów IP adresów IP i końcowy do aktualizacji.

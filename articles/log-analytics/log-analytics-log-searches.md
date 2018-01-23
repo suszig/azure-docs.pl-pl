@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników
 
@@ -30,7 +30,7 @@ Stanowiącej podstawę analizy dzienników jest dziennika funkcji wyszukiwania, 
 
 Na stronie wyszukiwania można utworzyć kwerendę, a następnie podczas wyszukiwania, możesz filtrować wyniki za pomocą formantów zestawu reguł. Można też utworzyć zaawansowanych zapytań przekształcenia filtru i raportu na wyniki.
 
-Typowe zapytania wyszukiwania dziennika znajdują się na większości stronach rozwiązania. W konsoli OMS możesz kliknąć Kafelki lub rozwinąć do innych elementów, aby wyświetlić szczegóły dotyczące elementu za pomocą wyszukiwania dziennika.
+Typowe zapytania wyszukiwania dziennika znajdują się na większości stronach rozwiązania. W portalu OMS możesz kliknąć Kafelki lub rozwinąć do innych elementów, aby wyświetlić szczegóły dotyczące elementu za pomocą wyszukiwania dziennika.
 
 W tym samouczku zostanie omówiony przykłady wszystkie kroki te obejmują podstawy podczas wyszukiwania dziennika.
 
@@ -39,7 +39,7 @@ Firma Microsoft będzie rozpoczynać się od prostego, praktyczne przykłady i n
 Po znasz zapoznać się z techniki wyszukiwania, można przejrzeć [analizy dzienników dziennika odwołanie wyszukiwania](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Używanie filtrów podstawowych
-Jest najpierw wiedzieć, że pierwsza część wyszukiwania zapytania przed każdą "|" znak kreski pionowej, jest zawsze *filtru*. Należy go traktować jako klauzuli WHERE TSQL — Określa *co* podzbiór danych do ściągnięcia z magazynu danych OMS. Wyszukiwanie w magazynie danych dotyczy przede wszystkim określenie właściwości dane, które mają zostać wyodrębnione, dlatego jest naturalna, czy zapytanie może rozpoczynać się w klauzuli WHERE.
+Jest najpierw wiedzieć, że pierwsza część wyszukiwania zapytania przed każdą "|" znak kreski pionowej, jest zawsze *filtru*. Należy go traktować jako klauzuli WHERE TSQL — Określa *co* podzbiór danych na potrzeby pobierania poza og obszaru roboczego analizy. Wyszukiwanie w magazynie danych dotyczy przede wszystkim określenie właściwości dane, które mają zostać wyodrębnione, dlatego jest naturalna, czy zapytanie może rozpoczynać się w klauzuli WHERE.
 
 Filtry najbardziej podstawowym, można użyć są *słowa kluczowe*, na przykład "error" lub 'timeout' lub nazwę komputera. Tego rodzaju prostego zapytania zwracają zazwyczaj różnych kształty danych w ramach tego samego zestawu wyników. Analiza dzienników ma inną *typy* danych w systemie.
 
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Użyj w poleceniu miary za pomocą funkcji AVG.
 Funkcji statystycznych Avg() używane z miarą pozwala obliczyć średnią wartość niektóre pola, a wyniki grupy za pomocą pola tego samego lub innego. Jest to użyteczne w wielu przypadkach, takich jak dane dotyczące wydajności.
 
-Zaczniemy dane dotyczące wydajności. Należy pamiętać, że OMS aktualnie zbiera dane liczników wydajności dla systemu Windows i Linux maszyny.
+Zaczniemy dane dotyczące wydajności. Należy pamiętać, że analizy dzienników aktualnie zbiera dane liczników wydajności dla systemu Windows i Linux maszyny.
 
 Aby wyszukać *wszystkie* dane dotyczące wydajności, zapytanie najbardziej podstawowa jest:
 
@@ -551,7 +551,7 @@ Funkcja countdistinct Zlicza unikatowe wartości w każdej grupie. Na przykład 
 * | measure countdistinct(Computer) by Type
 ```
 
-![OMS countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
+![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Użyj polecenia interwał miary
 Z niemal zbierania danych wydajności w czasie rzeczywistym, można zbierać i wizualizować wszystkie licznika wydajności w analizy dzienników. Wystarczy wprowadzić kwerendę **typu: wydajności** zwróci tysiące metryki wykresów na podstawie liczby liczników i serwerów w środowisku analizy dzienników. Z agregacją metryki na żądanie można przeglądać ogólną metryki wysokiego poziomu i nowości w bardziej szczegółowe dane potrzebne do środowiska.
@@ -583,7 +583,7 @@ Można określić wiele klauzul agregacji w poleceniu miary.  Każdy z nich moż
  ```
 Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval 1hour
 ```
-![OMS multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
+![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Oto inny przykład:
 
@@ -592,7 +592,7 @@ Oto inny przykład:
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać dodatkowe informacje dziennika wyszukiwania zobacz:
 
 * Użyj [pola niestandardowe w analizy dzienników](log-analytics-custom-fields.md) rozszerzenie dziennik wyszukiwania.

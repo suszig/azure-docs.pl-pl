@@ -15,11 +15,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Samouczek środowiska node.js: tworzenie aplikacji konsoli Node.js za pomocą interfejsu API SQL w usłudze Azure DB rozwiązania Cosmos
 > [!div class="op_single_selector"]
@@ -336,7 +336,7 @@ Skopiuj i wklej funkcję **getFamilyDocument** poniżej funkcji **getCollection*
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {
@@ -624,7 +624,7 @@ W terminalu znajdź swój plik ```app.js```, a następnie uruchom polecenie: ```
 
 To wszystko — skompiluj projekt i gotowe! 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Potrzebujesz bardziej złożonego przykładu środowiska Node.js? Zobacz [Tworzenie aplikacji internetowej Node.js za pomocą usługi Azure Cosmos DB](sql-api-nodejs-application.md).
 * Dowiedz się, jak [monitorować konto usługi Azure Cosmos DB](monitor-accounts.md).
 * Uruchom zapytania względem naszego przykładowego zestawu danych na [placu zabaw dla zapytań](https://www.documentdb.com/sql/demo).

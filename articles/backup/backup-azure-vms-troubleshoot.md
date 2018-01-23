@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi maszyn wirtualnych platformy Azure
 Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapasowa Azure informacje wymienione w poniższej tabeli.
@@ -28,7 +28,7 @@ Można rozwiązać błędów napotkanych podczas przy użyciu usługi Kopia zapa
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Błąd: Określona konfiguracja dysku nie jest obsługiwana
 
 > [!NOTE]
-> Dysponujemy prywatną wersją zapoznawczą obsługującą kopie zapasowe maszyn wirtualnych z niezarządzanymi dyskami większymi niż 1 TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -72,7 +72,7 @@ Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023
 ## <a name="jobs"></a>Zadania
 | Szczegóły błędu | Obejście problemu |
 | --- | --- |
-| Anulowanie nie jest obsługiwana dla tego typu zadania — poczekaj, aż zadanie zostało ukończone. |None |
+| Anulowanie nie jest obsługiwana dla tego typu zadania — poczekaj, aż zadanie zostało ukończone. |Brak |
 | Zadanie nie jest w stanie można anulować — poczekaj, aż zadanie zostało ukończone. <br>LUB<br> Wybrane zadanie nie jest w stanie można anulować — Zaczekaj na ukończenie zadania. |Najprawdopodobniej zadanie jest niemal ukończone. Poczekaj, aż do ukończenia zadania.|
 | Nie można anulować zadania, ponieważ nie jest w toku — anulowania jest obsługiwana tylko dla zadania, które są w toku. Anuluj próba w toku zadania. |Dzieje się z powodu stanu przejściowymi. Poczekaj chwilę i ponów próbę wykonania operacji anulowania. |
 | Nie można anulować zadania — proszę czekać dopóki zakończenie zadania. |Brak |
@@ -83,13 +83,13 @@ Kopia zapasowa Azure nie obsługuje obecnie rozmiary dysków [większa niż 1023
 | Przywracanie nie powiodło się z powodu błędu wewnętrznego w chmurze |<ol><li>Usługi chmury, do której chcesz przywrócić jest skonfigurowany przy użyciu ustawień DNS. Możesz sprawdzić <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-miejsca "Production" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>W przypadku skonfigurowany adres, oznacza to, czy ustawienia DNS są skonfigurowane.<br> <li>Usługi chmury, do której próbujesz przywrócić jest skonfigurowany z zastrzeżonego adresu IP i istniejących maszyn wirtualnych w usłudze w chmurze są w stanie zatrzymania.<br>Można sprawdzić, czy usługa w chmurze ma zastrzeżony adres IP za pomocą następujących poleceń cmdlet programu powershell:<br>$deployment = get-AzureDeployment - ServiceName "servicename"-gniazdo $ "Production" w programie dep. Nazwa zastrzeżonego adresu IP <br><li>Chcesz przywrócić maszynę wirtualną o następujące konfiguracje sieciowe specjalne w do tej samej usługi w chmurze. <br>— Maszyny wirtualne w konfiguracji usługi równoważenia obciążenia (wewnętrznych i zewnętrznych)<br>— Maszyny wirtualne z wielu zastrzeżonych adresów IP<br>— Maszyny wirtualne z wieloma kartami sieciowymi<br>Wybierz nową usługę w chmurze w interfejsie użytkownika lub zapoznaj się z [zagadnienia dotyczące przywracania](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) dla maszyn wirtualnych z konfiguracjami sieci specjalnych.</ol> |
 | Wybranej nazwy DNS jest już zajęta — Określ inną nazwę DNS i spróbuj ponownie. |Tutaj nazwę DNS, który odwołuje się do nazwy usługi w chmurze (zazwyczaj kończąc. cloudapp.net). To musi być unikatowa. Jeśli wystąpi ten błąd, należy wybrać inną nazwę maszyny Wirtualnej podczas przywracania. <br><br> Ten błąd jest wyświetlany tylko dla użytkowników portalu Azure. Operacji przywracania za pomocą programu PowerShell powiedzie się, ponieważ tylko przywraca dysków i nie tworzy maszynę Wirtualną. Błąd zostanie skierowany w przypadku maszyny Wirtualnej jest jawnie utworzone przez użytkownika, po operacji przywracania dysku. |
 | Konfiguracja określonej sieci wirtualnej jest nieprawidłowa — Określ konfiguracji innej sieci wirtualnej i spróbuj ponownie. |Brak |
-| Usługi w chmurze określonego używa zastrzeżonego adresu IP, który nie pasuje do konfiguracji maszyny wirtualnej przywracana — Określ innej usługi w chmurze, która nie używa zastrzeżonego adresu IP, lub wybierz inny punkt odzyskiwania, aby przywrócić z. |None |
+| Usługi w chmurze określonego używa zastrzeżonego adresu IP, który nie pasuje do konfiguracji maszyny wirtualnej przywracana — Określ innej usługi w chmurze, która nie używa zastrzeżonego adresu IP, lub wybierz inny punkt odzyskiwania, aby przywrócić z. |Brak |
 | Usługi w chmurze osiągnięto limit liczby wejściowych punktów końcowych — spróbuj ponownie wykonać operację, określając innej usługi w chmurze lub przy użyciu istniejącego punktu końcowego. |Brak |
-| Konto magazynu kopii zapasowej magazynu i obiekt docelowy znajdują się w dwóch różnych regionach — upewnij się, że wybrane konto magazynu podczas operacji przywracania jest w tym samym regionie Azure jako magazynu kopii zapasowych. |None |
-| Konta magazynu określony dla operacji przywracania nie jest obsługiwana — konta magazynu tylko Basic/Standard z lokalnie nadmiarowego lub z magazynu geograficznie nadmiarowego replikacji ustawienia są obsługiwane. Wybierz konto magazynu obsługiwane |None |
+| Konto magazynu kopii zapasowej magazynu i obiekt docelowy znajdują się w dwóch różnych regionach — upewnij się, że wybrane konto magazynu podczas operacji przywracania jest w tym samym regionie Azure jako magazynu kopii zapasowych. |Brak |
+| Konta magazynu określony dla operacji przywracania nie jest obsługiwana — konta magazynu tylko Basic/Standard z lokalnie nadmiarowego lub z magazynu geograficznie nadmiarowego replikacji ustawienia są obsługiwane. Wybierz konto magazynu obsługiwane |Brak |
 | Typ konta magazynu określony dla operacji przywracania nie jest w trybie online — upewnij się, że konta magazynu określony w operacji przywracania jest w trybie online |Taka sytuacja może wystąpić z powodu błędu przejściowego w usłudze Azure Storage lub z powodu awarii. Wybierz inne konto magazynu. |
 | Osiągnięto limit przydziału Grupa zasobów — Usuń niektóre grupy zasobów z portalu Azure lub skontaktuj się z pomocą techniczną platformy Azure w celu zwiększenia limitów. |Brak |
-| Wybrana podsieć nie istnieje — Wybierz podsieć, która istnieje |None |
+| Wybrana podsieć nie istnieje — Wybierz podsieć, która istnieje |Brak |
 | Usługa Kopia zapasowa nie ma autoryzacji umożliwiającej dostęp do zasobów w Twojej subskrypcji. |Aby rozwiązać ten problem, pierwszy dysków przywracania przy użyciu czynności wymienionych w sekcji **przywracania kopii zapasowej dysków** w [Wybieranie konfiguracji maszyny Wirtualnej przywracania](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Po tym, użyj programu PowerShell czynności wymienionych w [utworzyć Maszynę wirtualną z dysków przywróconej](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) Aby utworzyć pełny maszynę Wirtualną z przywróconą dysków. |
 
 ## <a name="backup-or-restore-taking-time"></a>Kopii zapasowej lub przywracania czasu

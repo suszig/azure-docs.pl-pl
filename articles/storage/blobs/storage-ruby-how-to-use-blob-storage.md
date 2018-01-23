@@ -14,11 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: tamram
-ms.openlocfilehash: 3a21d87cee714dbc3aab6d4106544e45d91a3193
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: c4c6d47511acdae7afaf4a535c24c6fcc7e389b1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-blob-storage-from-ruby"></a>Jak używać Magazynu obiektów Blob w języku Ruby
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -35,7 +35,7 @@ W tym przewodniku opisano sposób wykonywania typowych scenariuszy przy użyciu 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
-Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [dopisków fonetycznych w aplikacji sieci Web szyny na maszynie Wirtualnej platformy Azure](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)
+Utwórz aplikację dopisków fonetycznych. Aby uzyskać instrukcje, zobacz [tworzenie Ruby aplikacji w usłudze App Service w systemie Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji dostęp do magazynu

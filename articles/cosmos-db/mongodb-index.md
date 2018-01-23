@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c65013fefe6750e82c71cb3d201a3195acd64127
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure rozwiązania Cosmos bazy danych: Dokumentacją usługi MongoDB interfejsu API
 
@@ -69,5 +69,5 @@ Te samouczki są poziomu głębiej niż Przewodniki Szybki Start. W samouczkach 
 
 ## <a name="developers-guide"></a>Przewodnik dla deweloperów
 
-- [Korzystanie z programu MongoChef](mongodb-mongochef.md)
+- [Przy użyciu Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [Korzystanie z narzędzia Robomongo](mongodb-robomongo.md)

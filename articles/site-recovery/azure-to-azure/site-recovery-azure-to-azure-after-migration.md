@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
-ms.openlocfilehash: d1f414fc2305be4dec04fb7b0f43fe6ab5cdddc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 559e64ae3c16ed21bc09ac0c044281aa0a6e43df
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikowanie maszyn wirtualnych Azure w innym regionie po migracji na platformie Azure przy użyciu usługi Azure Site Recovery
 
@@ -51,7 +51,7 @@ Po zakończeniu migracji nie trzeba przekazać lub usunąć awarię. Zamiast teg
 2. **Przeprowadzenia migracji** akcji kończy proces migracji, spowoduje usunięcie replikacji dla maszyny i zatrzymuje rozliczeń usługi Site Recovery dla maszyny.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Krok 2: Zainstaluj agenta maszyny Wirtualnej platformy Azure na maszynie wirtualnej
-Azure [agenta maszyny Wirtualnej](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) musi być zainstalowany na maszynie wirtualnej w celu rozszerzenia usługi Site Recovery pracę i ułatwi ochronę maszyny Wirtualnej.
+Azure [agenta maszyny Wirtualnej](../../virtual-machines/windows/agent-user-guide.md) musi być zainstalowany na maszynie wirtualnej w celu rozszerzenia usługi Site Recovery pracę i ułatwi ochronę maszyny Wirtualnej.
 
 >[!IMPORTANT]
 >Począwszy od wersji 9.7.0.0, w przypadku maszyn wirtualnych systemu Windows, Instalatora usługi mobilnej instaluje najnowsze dostępne Azure agenta maszyny Wirtualnej. Migracji maszyna wirtualna spełnia wymagań wstępnych dla przy użyciu dowolnego rozszerzenia maszyny Wirtualnej z rozszerzeniem usługi Site Recovery instalacji agenta. Agent maszyny Wirtualnej platformy Azure musi zostać zainstalowany ręcznie tylko wtedy, gdy usługa mobilności zainstalowane na zmigrowanej maszynie wersji 9.6 lub starszej.

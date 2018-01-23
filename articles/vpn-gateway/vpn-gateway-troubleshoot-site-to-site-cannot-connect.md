@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Rozwiązywanie problemów: Nie można połączyć z połączenia sieci VPN typu lokacja lokacja Azure oraz przestaje działać
 
@@ -26,7 +26,7 @@ Po skonfigurowaniu połączenia VPN lokacja lokacja między siecią lokalną i s
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
+## <a name="troubleshooting-steps"></a>Rozwiązywanie problemów
 
 Aby rozwiązać ten problem, najpierw spróbuj [zresetowanie bramy sieci VPN platformy Azure](vpn-gateway-resetgw-classic.md) i zresetuj tunelu z lokalnego urządzenia sieci VPN. Jeśli problem będzie nadal występował, wykonaj następujące kroki, aby zidentyfikować przyczynę problemu.
 
@@ -52,7 +52,7 @@ Porównaj udostępniony klucz do lokalnego urządzenia sieci VPN do wirtualnej A
 
 Aby wyświetlić klucza wspólnego dla połączenia sieci VPN platformy Azure, użyj jednej z następujących metod:
 
-**Witryna Azure Portal**
+**Azure portal**
 
 1. Przejdź do utworzonego połączenia lokacja lokacja bramy sieci VPN.
 
@@ -92,7 +92,7 @@ Sprawdź, czy i Usuń użytkownika routingu (przez) lub grupy zabezpieczeń siec
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Krok 7. Sprawdź sondy kondycji Azure bramy
 
-1. Przejdź do [sondy kondycji](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Przejdź do badania kondycji.
 
 2. Kliknij przycisk za pomocą ostrzeżenie o certyfikacie.
 3. Jeśli otrzymasz odpowiedź bramy sieci VPN jest uznawany za dobrej kondycji. Jeśli nie otrzymasz odpowiedź bramy może nie być w dobrej kondycji lub grupy NSG podsieci bramy jest przyczyną problemu. Przykładowa odpowiedź brzmi:
@@ -103,7 +103,7 @@ Sprawdź, czy i Usuń użytkownika routingu (przez) lub grupy zabezpieczeń siec
 
 Funkcja doskonałego utajnienia może spowodować problemy rozłączenia. Jeśli urządzenie sieci VPN, ma doskonałego utajnienia, należy wyłączyć tę funkcję. Następnie zaktualizuj zasady IPsec bramy sieci VPN.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 -   [Skonfiguruj połączenie lokacja lokacja sieci wirtualnej](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Konfigurowanie zasad IPsec i IKE dla połączeń VPN lokacja lokacja](vpn-gateway-ipsecikepolicy-rm-powershell.md)

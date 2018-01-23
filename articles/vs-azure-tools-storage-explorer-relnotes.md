@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Informacje o wersji Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)
 
-Ten artykuł zawiera zlecenia, które uwagi 0.9.3 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
+Ten artykuł zawiera zlecenia, które uwagi 0.9.4 Eksploratora usługi Azure Storage (wersja zapoznawcza) wersji, a także informacje o wersji w poprzednich wersjach.
 
 [Eksploratora usługi Microsoft Azure Storage (wersja zapoznawcza)](./vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która pozwala łatwo pracować z danymi usługi Azure Storage w systemie Windows, macOS i Linux.
 
-## <a name="version-093"></a>Wersji 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Wersja 0.9.4 / 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Pobierz Eksploratora usługi Azure Storage 0.9.3 (wersja zapoznawcza)
-- [Eksplorator usługi Azure Storage 0.9.3 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Eksplorator usługi Azure Storage 0.9.3 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Eksplorator usługi Azure Storage 0.9.3 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Pobierz Eksploratora usługi Azure Storage 0.9.4 (wersja zapoznawcza)
+- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla komputerów Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Eksplorator usługi Azure Storage 0.9.4 (wersja zapoznawcza) dla systemu Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nowa
 * Twoje istniejące okno Eksploratora magazynu będzie ponownie użyte podczas:
@@ -44,6 +44,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.3 Eksploratora usługi Azure Sto
     * Dla komputerów Mac jest to opcja "Nowe okno" w Menu aplikacji.
 
 ### <a name="fixes"></a>Poprawki
+* Rozwiązany problem z zabezpieczeniami. Uaktualnij do 0.9.4 najwcześniejszą wygodne.
 * Starego działania zostały nie odpowiednio są czyszczone. To wpływ na wydajność długotrwałych zadań. One są teraz czyszczony poprawnie.
 * Akcje związane z dużą liczbą plików i katalogów spowoduje, że od czasu do czasu Eksploratora magazynu zablokować. Żądania do platformy Azure i udziały plików są teraz trottled ograniczenie użycia zasobów systemowych.
 
@@ -94,7 +95,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.3 Eksploratora usługi Azure Sto
 
 ### <a name="new"></a>Nowa
 * Obsługa podglądu bazy danych Azure rozwiązania Cosmos.
-    * [Dokumentację w trybie online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Dokumentację w trybie online](./cosmos-db/storage-explorer.md)
     * Tworzenie baz danych i kolekcji
     * Manipulowanie danymi
     * Zapytanie, tworzenie lub usuwanie dokumentów
@@ -174,7 +175,7 @@ Ten artykuł zawiera zlecenia, które uwagi 0.9.3 Eksploratora usługi Azure Sto
 10/20/2017
 ### <a name="new"></a>Nowa
 * Obsługa podglądu bazy danych Azure rozwiązania Cosmos.
-    * [Dokumentację w trybie online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Dokumentację w trybie online](./cosmos-db/storage-explorer.md)
     * Tworzenie baz danych i kolekcji
     * Manipulowanie danymi
     * Zapytanie, tworzenie lub usuwanie dokumentów

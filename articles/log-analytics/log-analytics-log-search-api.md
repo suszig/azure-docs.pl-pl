@@ -1,6 +1,6 @@
 ---
-title: "Analiza dzienników dziennika wyszukiwania interfejsu API REST | Dokumentacja firmy Microsoft"
-description: "Ten przewodnik zawiera podstawowe samouczek opisujący sposób wyszukiwania analizy dzienników interfejsu API REST można używać w Operations Management Suite (OMS) i zapewnia przykłady, których opisano, jak używać poleceń."
+title: "Analiza dzienników Azure dziennika wyszukiwania interfejsu API REST | Dokumentacja firmy Microsoft"
+description: "Ten przewodnik zawiera podstawowe samouczek opisujący sposób wyszukiwania Azure Log Analytics interfejsu API REST można używać wraz z przykładami, które opisano, jak używać poleceń."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Analiza dzienników dziennika wyszukiwania interfejsu API REST
 
 > [!IMPORTANT]
 > Jeśli obszaru roboczego został uaktualniony do [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), a następnie należy zapoznać się [dokumentacji nowej wersji wyszukiwania dziennika interfejsu API](https://dev.loganalytics.io/).  Ta starszej wersji interfejsu API może pracować z obszarem roboczym uaktualniony, ale depracated wkrótce będzie.  Należy zmodyfikować istniejących rozwiązaniach za pomocą nowego interfejsu API.
 
-Ten przewodnik zawiera podstawowe — samouczek, wraz z przykładami stosowania interfejsu API REST Search analizy dziennika. Analiza dzienników wchodzi w skład narzędzia Operations Management Suite (OMS).
+Ten przewodnik zawiera podstawowe — samouczek, wraz z przykładami stosowania interfejsu API REST Search analizy dziennika. 
 
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Omówienie wyszukiwania dziennika interfejsu API REST
-Interfejsu API REST Search analizy dziennika jest RESTful i jest możliwy za pomocą interfejsu API Menedżera zasobów Azure. W tym artykule przedstawiono przykłady uzyskiwania dostępu do interfejsu API za pomocą [ARMClient](https://github.com/projectkudu/ARMClient), narzędzie wiersza polecenia typu open source, które upraszcza wywoływanie interfejsu API Azure Resource Manager. Korzystanie z ARMClient jest jedną z wielu opcji, aby uzyskać dostęp do interfejsu API Search analizy dziennika. Innym rozwiązaniem jest moduł Azure PowerShell na potrzeby OperationalInsights, który oferuje polecenia cmdlet do uzyskiwania dostępu do wyszukiwania. Te narzędzia mogą korzystać z interfejsu API Menedżera zasobów Azure do wykonywania wywołań do obszarów roboczych OMS i wykonywania poleceń wyszukiwania w nich. Interfejs API generuje wyniki wyszukiwania w formacie JSON, co umożliwia używanie wyniki wyszukiwania na wiele różnych sposobów programowo.
+Interfejsu API REST Search analizy dziennika jest RESTful i jest możliwy za pomocą interfejsu API Menedżera zasobów Azure. W tym artykule przedstawiono przykłady uzyskiwania dostępu do interfejsu API za pomocą [ARMClient](https://github.com/projectkudu/ARMClient), narzędzie wiersza polecenia typu open source, które upraszcza wywoływanie interfejsu API Azure Resource Manager. Korzystanie z ARMClient jest jedną z wielu opcji, aby uzyskać dostęp do interfejsu API Search analizy dziennika. Innym rozwiązaniem jest moduł Azure PowerShell na potrzeby OperationalInsights, który oferuje polecenia cmdlet do uzyskiwania dostępu do wyszukiwania. Te narzędzia mogą korzystać z interfejsu API Menedżera zasobów Azure do wykonywania wywołań do analizy dzienników obszarów roboczych i wykonywania poleceń wyszukiwania w nich. Interfejs API generuje wyniki wyszukiwania w formacie JSON, co umożliwia używanie wyniki wyszukiwania na wiele różnych sposobów programowo.
 
 Usługi Azure Resource Manager może służyć za pośrednictwem [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) i [interfejsu API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Aby dowiedzieć się więcej, przejrzyj połączonych stron sieci web.
 

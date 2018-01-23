@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorowanie wydajności bazy danych w usłudze Azure SQL Database
 Monitorowanie wydajności bazy danych SQL na platformie Azure rozpoczyna się od monitorowania wykorzystania zasobów względem wybranego poziomu wydajności bazy danych. Monitorowanie pomaga ustalić, czy baza danych nie ma nadmiarowej pojemności lub czy nie występują problemy z powodu maksymalnego wykorzystania zasobów. Następnie na tej podstawie można zdecydować, czy nadszedł czas, aby dostosować poziom wydajności i [warstwę usług](sql-database-service-tiers.md) bazy danych. Bazę danych można monitorować za pomocą narzędzi graficznych w [witrynie Azure Portal](https://portal.azure.com) lub przy użyciu [dynamicznych widoków zarządzania](https://msdn.microsoft.com/library/ms188754.aspx) SQL.
@@ -83,7 +83,7 @@ Ponieważ ten widok udostępnia szczegółowe przyjrzeć się wykorzystania zaso
 Dla innych zapytań, zobacz przykłady w [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) wyświetlić w **wzorca** bazy danych zawiera dodatkowe informacje, które pomaga monitorować wydajność bazy danych SQL na poziomie warstwy i wydajności określonej usługi. Dane są zbierane co 5 minut i jest zachowywana na potrzeby około 35 dni. Ten widok jest przydatna do długoterminowego historycznej analizy używaniu zasobów bazy danych SQL.
+[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) wyświetlić w **wzorca** bazy danych zawiera dodatkowe informacje, które pomaga monitorować wydajność bazy danych SQL na poziomie warstwy i wydajności określonej usługi. Dane są zbierane co 5 minut i jest zachowywana na potrzeby około 14 dni. Ten widok jest przydatna do długoterminowego historycznej analizy używaniu zasobów bazy danych SQL.
 
 Wykres ukazuje Procesora wykorzystanie zasobów dla bazy danych — warstwa Premium P2 poziom wydajności dla każdej godziny w tygodniu. Ten wykres rozpoczyna się w poniedziałek, pokazuje 5 dni roboczych i następnie przedstawiono weekendy, w przypadku znacznie mniej w aplikacji.
 
@@ -135,7 +135,7 @@ W kolejnym przykładzie pokazano różne sposoby, w którym można **sys.resourc
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 3. Dzięki tym informacjom o wartości średnia i maksymalna każdego zasobu metryki można ocenić, jak obciążenie jest dopasowywana do wybranego poziomu wydajności. Zazwyczaj średnie wartości z **sys.resource_stats** zapewniają dobrą linii bazowej przeciwko rozmiar docelowy. Należy go z dysku podstawowego miary. Na przykład być może używasz warstwie usług standardowa S2 poziom wydajności. Średnią Użyj wartości procentowe dla procesora CPU i we/wy odczyty i zapisy są poniżej 40 procent, średnia liczba procesów roboczych jest poniżej 50, a średnią liczbę sesji jest poniżej 200. Obciążenie może mieści się w poziomie wydajności S1. Jest łatwo sprawdzić, czy baza danych mieści się w granicach sesji i proces roboczy. Aby zobaczyć, czy bazy danych mieści się na niższy poziom wydajności w odniesieniu do Procesora, odczyty i zapisy, dzielenie liczby jednostek dtu w warstwie niższej wydajności według liczby jednostek dtu w warstwie aktualny poziom wydajności, a następnie pomnożyć wynik przez 100:
    
-    **S1 DTU / S2 JEDNOSTEK DTU W WARSTWIE * 100 = 20 / 50 * 100 = 40**
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
    
     Wynik różni się względną wydajność poziomy wydajności dwóch w procentach. Jeśli Twoje użycie zasobów nie przekracza tę wartość, obciążenie może pasuje do niższej wydajności. Jednak należy przyjrzeć się wszystkie zakresy wartości użycia zasobów i określić wartości procentowej, jak często obciążenie bazy danych mieści się na niższym poziomie wydajności. Następujące zapytanie Wyświetla dopasowania procent na wymiarze zasobów do progu 40 procent, możemy obliczona w tym przykładzie:
    

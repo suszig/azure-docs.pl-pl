@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Za pomocą Oozie Hadoop do definiowania i uruchomić przepływ pracy w usłudze Azure HDInsight opartych na systemie Linux
 
@@ -518,8 +518,8 @@ Aby uzyskać więcej informacji na temat korzystania z interfejsu API REST Oozie
 Interfejs użytkownika sieci web Oozie zawiera widok opartych na sieci web do stanu zadań Oozie w klastrze. Z interfejsu użytkownika sieci web można wyświetlić następujące informacje:
 
    * Stan zadania
-   * Definicji zadania
-   * Konfiguracja
+   * Definicja zadania
+   * Konfigurowanie
    * Wykres akcje w zadaniu
    * Dzienniki zadania
 
@@ -541,7 +541,7 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci web Oozie, wykonaj następ
 
 5. Aby wyświetlić więcej informacji o zadaniu, wybierz zadanie.
 
-    ![Informacji o zadaniu](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Informacje o stanowisku](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
 6. Z **informacji o zadaniu** kartę, można wyświetlić informacje o zadaniu podstawowe i poszczególnych działań w ramach zadania. Karty u góry służy do wyświetlania **definicji zadania**, **zadania konfiguracji**, dostępu **dziennik zadań**, lub wyświetlić ukierunkowanego wykresu acyklicznego (DAG) zadania w obszarze **Zadania DAG**.
 
@@ -663,7 +663,7 @@ Koordynator służy do określania rozpoczęcia, punktu końcowego i częstotliw
 
 8. Jak wcześniej zadania przepływu pracy Jeśli wybierz pozycję zadania w interfejsie użytkownika sieci web wyświetla informacje o zadaniu:
 
-    ![Informacji o zadaniu koordynatora](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![Coordinator Job Info](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
     > Ten obraz zawiera tylko pomyślnie uruchamia zadanie, nie poszczególnych działań w ramach zaplanowanego przepływu pracy. Aby wyświetlić poszczególne działania, wybierz jedną z **akcji** wpisów.
@@ -731,7 +731,7 @@ Na przykład dla zadania w tym dokumencie, możesz użyć następujące czynnoś
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono sposób definiowania Oozie przepływu pracy i sposób uruchamiania zadania Oozie. Aby dowiedzieć się więcej na temat sposobu pracy z usługą HDInsight, zobacz następujące artykuły:
 

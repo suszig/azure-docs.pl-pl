@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure DB rozwiązania Cosmos szyfrowania bazy danych w stanie spoczynku
 
@@ -26,7 +26,7 @@ Szyfrowanie rest jest frazę, które często odwołuje się do szyfrowania danyc
 
 Jak usługa PaaS, rozwiązania Cosmos bazy danych jest bardzo łatwa w użyciu. Ponieważ wszystkie dane użytkownika przechowywane w bazie danych rozwiązania Cosmos są szyfrowane podczas przechowywania i podczas transportu, nie trzeba podejmować żadnych działań. Jest to można umieścić w inny sposób, że szyfrowanie rest jest "na" domyślnie. Nie istnieją żadne formanty, aby go włączyć lub wyłączyć. Firma Microsoft udostępnia tę funkcję, podczas możemy w dalszym ciągu będą spełniać naszych [SLA dostępności i wydajności](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Wdrożenia szyfrowania magazynowane
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementacja szyfrowanie przechowywanych dla bazy danych Azure rozwiązania Cosmos
 
 Szyfrowanie magazynowane jest implementowane za pomocą wielu technologii zabezpieczeń, takich jak systemy bezpiecznego magazynu kluczy, zaszyfrowanych sieci i interfejsów API usług kryptograficznych. Systemy odszyfrować i przetwarza dane mają do komunikowania się z systemów, które zarządzania kluczami. Na diagramie przedstawiono sposób przechowywania zaszyfrowanych danych i zarządzanie kluczami jest oddzielona. 
 
@@ -64,7 +64,7 @@ Odpowiedź: nie istnieje wpływ lub zmiany na wydajność SLA teraz, gdy jest w�
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Pytanie: czy lokalnego emulatora obsługuje szyfrowanie magazynowane?
 A: emulator jest to samodzielne narzędzie i testowania i nie używa usługi zarządzania kluczami, które używa zarządzanych usług DB rozwiązania Cosmos. Jest nasze zalecenie, aby włączyć funkcję BitLocker na dyskach, w której są przechowywane emulatora poufnych danych testowych. [Emulatora obsługuje zmiana domyślnego katalogu danych](local-emulator.md) oraz przy użyciu dobrze znanej lokalizacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Omówienie najnowsze ulepszenia i rozwiązania Cosmos DB zabezpieczeń, zobacz [zabezpieczeń bazy danych Azure DB rozwiązania Cosmos](database-security.md).
 Aby uzyskać więcej informacji o certyfikatach firmy Microsoft, zobacz [Centrum zaufania Azure](https://azure.microsoft.com/en-us/support/trust-center/).

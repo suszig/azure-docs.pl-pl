@@ -1,6 +1,6 @@
 ---
-title: "Alert rozwiązania do zarządzania w Operations Management Suite (OMS) | Dokumentacja firmy Microsoft"
-description: "Rozwiązanie zarządzania alertami w Log Analytics pomaga analizować wszystkie alerty w danym środowisku.  Oprócz konsoliduje alerty wygenerowane w OMS, jego importuje alerty z połączonych grup zarządzania programu System Center Operations Manager do analizy dzienników."
+title: "Alert rozwiązania do zarządzania w Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Rozwiązanie zarządzania alertami w Log Analytics pomaga analizować wszystkie alerty w danym środowisku.  Oprócz Konsolidacja alertów wygenerowanych w analizy dzienników jego importuje alerty z połączonych grup zarządzania programu System Center Operations Manager do analizy dzienników."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Alert rozwiązania do zarządzania w Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Alert rozwiązania do zarządzania w Analiza dzienników Azure
 
 ![Ikona zarządzania alertu](media/log-analytics-solution-alert-management/icon.png)
 
@@ -33,11 +33,11 @@ Rozwiązanie współpracuje z żadnych rekordów w repozytorium analizy dziennik
 - W przypadku alertów Nagios i Zabbix [skonfigurować te serwery](log-analytics-linux-agents.md) do wysyłania alertów do analizy dzienników.
 - W przypadku alertów programu System Center Operations Manager [Połącz grupę zarządzania programu Operations Manager do swojego obszaru roboczego analizy dzienników](log-analytics-om-agents.md).  Wszystkie alerty utworzone w programie System Center Operations Manager są importowane do analizy dzienników.  
 
-## <a name="configuration"></a>Konfiguracja
-Dodaj rozwiązanie zarządzania alertami na obszar roboczy OMS zastosowanie procesu opisanego w [dodać rozwiązania](log-analytics-add-solutions.md).  Nie są wymagane żadne dalsze czynności konfiguracyjne.
+## <a name="configuration"></a>Konfigurowanie
+Dodaj rozwiązanie zarządzania alertami do obszaru roboczego analizy dzienników przy użyciu procesu opisanego w [dodać rozwiązania](log-analytics-add-solutions.md).  Nie są wymagane żadne dalsze czynności konfiguracyjne.
 
 ## <a name="management-packs"></a>Pakiety administracyjne
-Jeśli grupa zarządzania programu System Center Operations Manager jest podłączony do swojego obszaru roboczego OMS, następujące pakiety administracyjne są zainstalowane w programie System Center Operations Manager podczas dodawania tego rozwiązania.  Brak konfiguracji lub konserwacji pakiety administracyjne wymagane.  
+Jeśli grupa zarządzania programu System Center Operations Manager jest podłączony do swojego obszaru roboczego analizy dzienników, następujące pakiety administracyjne są zainstalowane w programie System Center Operations Manager podczas dodawania tego rozwiązania.  Brak konfiguracji lub konserwacji pakiety administracyjne wymagane.  
 
 * Zarządzania alertami programu Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -51,7 +51,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 |:--- |:--- |:--- |
 | [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Nie |Bezpośrednie agentów systemu Windows nie generują alerty.  Można tworzyć alerty analizy dziennika zdarzeń i zebrać danych wydajności z systemu Windows agentów. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie |Bezpośrednie agentów systemu Linux nie generują alerty.  Dziennik analizy alerty mogą być tworzone z zdarzenia i dane wydajności zebrane z agentów systemu Linux.  Nagios i Zabbix alerty są zbierane z tych serwerów, które wymagają agenta systemu Linux. |
-| [Grupa zarządzania programu System Center Operations Manager](log-analytics-om-agents.md) |Tak |Alerty, które są generowane na agenty programu Operations Manager są dostarczane do grupy zarządzania i następnie przekazywane do analizy dzienników.<br><br>Połączenie bezpośrednie agenty programu Operations Manager do analizy dzienników nie jest wymagane. Dane alertów jest przekazywany z grupy zarządzania do repozytorium analizy dzienników. |
+| [Grupa zarządzania programu System Center Operations Manager](log-analytics-om-agents.md) |Yes |Alerty, które są generowane na agenty programu Operations Manager są dostarczane do grupy zarządzania i następnie przekazywane do analizy dzienników.<br><br>Połączenie bezpośrednie agenty programu Operations Manager do analizy dzienników nie jest wymagane. Dane alertów jest przekazywany z grupy zarządzania do repozytorium analizy dzienników. |
 
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
@@ -59,7 +59,7 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 - Dane alertów są wysyłane z grupy zarządzania programu Operations Manager do analizy dzienników co trzy minuty.  
 
 ## <a name="using-the-solution"></a>Użycie rozwiązania
-Po dodaniu rozwiązania zarządzania alertami na obszar roboczy OMS **zarządzania alertami** kafelka jest dodawany do pulpitu nawigacyjnego OMS.  Ten Kafelek Wyświetla graficzną reprezentację liczby aktywnych alertów, które zostały wygenerowane w ciągu ostatnich 24 godzin i liczba.  Nie można zmienić tego zakresu czasu.
+Po dodaniu rozwiązania zarządzania alertami do obszaru roboczego analizy dzienników **zarządzania alertami** kafelka jest dodawany do pulpitu nawigacyjnego.  Ten Kafelek Wyświetla graficzną reprezentację liczby aktywnych alertów, które zostały wygenerowane w ciągu ostatnich 24 godzin i liczba.  Nie można zmienić tego zakresu czasu.
 
 ![Alert kafelka zarządzania](media/log-analytics-solution-alert-management/tile.png)
 
@@ -88,11 +88,11 @@ Rozwiązanie zaimportować alerty z programu System Center Operations Manager i 
 | SourceSystem |*OpsManager* |
 | AlertContext |Szczegóły elementu danych, który spowodował alert zostanie wygenerowany w formacie XML. |
 | AlertDescription |Szczegółowy opis alertu. |
-| Identyfikatorem alertu |Identyfikator GUID alertu. |
+| AlertId |Identyfikator GUID alertu. |
 | AlertName |Nazwa alertu. |
 | AlertPriority |Poziom priorytetu alertu. |
 | AlertSeverity |Poziom ważności alertu. |
-| Stan alertu |Najnowszy stan rozwiązania alertu. |
+| AlertState |Najnowszy stan rozwiązania alertu. |
 | LastModifiedBy |Nazwa użytkownika, który ostatniej modyfikacji alertu. |
 | ManagementGroupName |Nazwa grupy zarządzania, w którym alert został wygenerowany. |
 | RepeatCount |Ile razy ten sam alert został wygenerowany dla tego samego monitorowany obiekt od rozwiązywany. |
@@ -133,5 +133,5 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje rekordy alert�
 | Alert &#124; gdzie SourceSystem == "OpsManager" i TimeRaised > ago(1d) &#124; Sortuj według RepeatCount desc |Alerty zgłoszone w ciągu ostatniej doby posortowane według wartości liczby powtórzeń |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej na temat [alertów w usłudze Log Analytics](log-analytics-alerts.md), aby poznać szczegóły generowania alertów z usługi Log Analytics.
