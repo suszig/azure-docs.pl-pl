@@ -113,6 +113,8 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Używanie z zestawem narzędzi usług Microsoft Cognitive
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Tworzenie potoku uczenia maszynowego platformy Spark
+          href: apache-spark-creating-ml-pipelines.md
     - name: Analizowanie danych big data
       items:
         - name: Odczytywanie i zapisywanie danych w bazie danych HBase za pomocą platformy Spark

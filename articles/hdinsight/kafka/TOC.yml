@@ -34,7 +34,7 @@
         - name: Usługi Kafka i Spark (przesyłanie strumieniowe ze strukturą)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
-        - name: Przesyłanie strumieniowe ze strukturą z usługi Kafka do usługi CosmosDB
+        - name: Przesyłanie strumieniowe ze strukturą z usługi Kafka do usługi Azure Cosmos DB
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Usługi Kafka i Spark (DStream)

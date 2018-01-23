@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Stos Azure połączenia z platformą Azure za pomocą usługi ExpressRoute
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
 Istnieją dwie metody obsługiwanych nawiązać sieci wirtualnych Azure stosu sieci wirtualnych na platformie Azure:
-   * **Lokacja lokacja**
+   * **Site-to-Site**
 
      Połączenie sieci VPN za pośrednictwem protokołu IPsec (IKE v1 i IKE v2). Ten typ połączenia wymaga urządzenia VPN lub usługi RRAS. Aby uzyskać więcej informacji, zobacz [połączyć stosu Azure na platformie Azure przy użyciu sieci VPN](azure-stack-connect-vpn.md).
    * **ExpressRoute**
@@ -88,7 +88,7 @@ Poniższe procedury umożliwiają utworzenie wymaganych zasobów sieciowych w st
 
    |Pole  |Wartość  |
    |---------|---------|
-   |Nazwa     |Tenant1VNet1         |
+   |Name (Nazwa)     |Tenant1VNet1         |
    |Przestrzeń adresowa     |10.1.0.0/16|
    |Nazwa podsieci     |Tenant1 Sub1|
    |Zakres adresów podsieci     |10.1.1.0/24|
@@ -99,7 +99,7 @@ Poniższe procedury umożliwiają utworzenie wymaganych zasobów sieciowych w st
 
     b. Sprawdź lokalizację domyślną.
 
-    c. Kliknij przycisk **Przypnij do pulpitu nawigacyjnego**.
+    d. Kliknij przycisk **Przypnij do pulpitu nawigacyjnego**.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -205,19 +205,22 @@ Router jest maszynę wirtualną systemu Windows Server (**AzS BGPNAT01**) roli u
    Na diagramach przykład *adres zewnętrzny BGPNAT* jest 10.10.0.62 i *wewnętrznego adresu IP* jest 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Router jest maszynę wirtualną systemu Windows Server (**AzS BGPNAT01**) roli u
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Router jest maszynę wirtualną systemu Windows Server (**AzS BGPNAT01**) roli u
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -564,5 +567,5 @@ Jeśli chcesz wiedzieć, ile ruchu jest przekazanie za pośrednictwem połączen
 
    ![Dane w danych wychodzących](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Wdrażanie aplikacji na platformie Azure oraz Azure stosu](azure-stack-solution-pipeline.md)

@@ -10,6 +10,9 @@
       href: apache-domain-joined-configure.md
     - name: Konfigurowanie przyłączonych do domeny klastrów za pomocą usługi Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
+    - name: Synchronizowanie użytkowników usługi Azure AD z klastrem usługi HDInsight
+      href: ../hdinsight-sync-aad-users-to-cluster.md
+      maintainContext: true
     - name: Konfigurowanie zasad technologii
       href: apache-domain-joined-run-hive.md
       maintainContext: true

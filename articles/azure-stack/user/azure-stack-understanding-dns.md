@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introducing Azure stosu międzynarodowych nazw domen.
 
@@ -30,7 +30,7 @@ Można też zarejestrować nazwy wewnętrznej sieci wirtualnej. W ten sposób mo
 Jest to element, który zawsze było dostępne w usłudze Azure, ale jest dostępny w systemie Windows Server 2016 i stosu Azure zbyt.
 
 ## <a name="what-does-idns-do"></a>Do czego służy międzynarodowych nazw domen.
-Międzynarodowych nazw domen w stosie Azure możesz uzyskać następujące funkcje bez konieczności określania niestandardowych wpisów serwera DNS.
+Z międzynarodowych nazw domen w stosie Azure bez konieczności określania niestandardowych wpisów serwera DNS można uzyskać następujące możliwości:
 
 * Udostępnione usługi rozpoznawania nazw DNS dla obciążeń dzierżawców.
 * Autorytatywny usługi DNS dla rozpoznawania nazw i rejestrację DNS w sieci wirtualnej dzierżawcy.
@@ -47,7 +47,7 @@ Na platformie Azure masz możliwość określenia etykieta nazwy DNS, który mo�
 
 Na ilustracji powyżej Azure utworzy rekord "A" w systemie DNS dla etykieta nazwy DNS w strefie **westus.cloudapp.azure.com**. Prefiksu i sufiksu razem tworzą pełni kwalifikowanej domeny nazwę (FQDN), który można rozwiązać ten problem z dowolnego miejsca w publicznej sieci Internet.
 
-Stos Azure obsługuje tylko międzynarodowych nazw domen rejestracji nazw wewnętrznych, więc nie można wykonać następujące czynności.
+Stos Azure obsługuje tylko międzynarodowych nazw domen rejestracji nazwy wewnętrznej, więc nie można wykonać następujące czynności:
 
 * Utwórz rekord DNS w istniejącej hostowanej strefy DNS (na przykład local.azurestack.external).
 * Tworzenie strefy DNS (np. Contoso.com).
