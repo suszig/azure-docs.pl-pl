@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Uruchom zadanie Apache Hive, Pig lub Hadoop przy użyciu bazy danych rozwiązania Cosmos Azure i usługi HDInsight
 W tym samouczku przedstawiono sposób uruchamiania [Apache Hive][apache-hive], [Apache Pig][apache-pig], i [Apache Hadoop] [ apache-hadoop] zadań MapReduce w usłudze Azure HDInsight z łącznikiem usługi Hadoop DB rozwiązania Cosmos. Łącznik usługi Hadoop DB rozwiązania cosmos umożliwia rozwiązania Cosmos bazy danych, które będą działać jako źródło i ujście zadań Hive, Pig i MapReduce. W tym samouczku będzie używać rozwiązania Cosmos bazy danych jako źródła danych i docelowy zadania usługi Hadoop.
+
+> [!IMPORTANT] 
+> Platforma Spark do bazy danych Azure rozwiązania Cosmos łącznika jest to zalecana opcja łączenia Azure HDInsight do bazy danych Azure rozwiązania Cosmos. Aby uzyskać więcej informacji, zobacz [przyspieszenie w czasie rzeczywistym analizy danych big data w usłudze Spark do łącznika usługi Azure DB rozwiązania Cosmos](spark-connector.md).
 
 Po ukończeniu tego samouczka, będziesz mieć możliwość odpowiedzieć na następujące pytania:
 
@@ -49,7 +52,7 @@ Nie masz czasu na ukończenie tego samouczka i po prostu chcesz uzyskać skrypty
     <tr><th>Wersja łącznika usługi Hadoop</th>
         <td>1.2.0</td></tr>
     <tr><th>Identyfikator Uri skryptu</th>
-        <td>https://portalcontent.blob.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Data modyfikacji</th>
         <td>04/26/2016</td></tr>
     <tr><th>HDInsight obsługiwane wersje</th>
@@ -118,11 +121,11 @@ Pole musi być ciągiem od 3 do 63 znaków.</td></tr>
 
      <table border='1'>
          <tr><th>Właściwość</th><th>Wartość</th></tr>
-         <tr><td>Nazwa</td>
+         <tr><td>Name (Nazwa)</td>
              <td>Określ nazwę akcji skryptu.</td></tr>
          <tr><td>Identyfikator URI skryptu</td>
              <td>Określ identyfikator URI do skryptu, które jest wywoływane, aby dostosować klastra.</br></br>
-Wprowadź: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
+Wprowadź: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Główny</td>
              <td>Kliknij pole wyboru, aby uruchomić skrypt programu PowerShell na węźle Head.</br></br>
              <strong>Zaznacz to pole wyboru</strong>.</td></tr>

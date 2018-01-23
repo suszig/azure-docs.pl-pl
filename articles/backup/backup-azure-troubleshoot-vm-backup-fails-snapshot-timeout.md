@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Rozwiązywanie problemów z usługi Kopia zapasowa Azure awarii: problemy z agenta i/lub rozszerzenie
 
@@ -78,7 +78,7 @@ Po zarejestrować i zaplanować maszyny Wirtualnej dla usługi Kopia zapasowa Az
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Określona konfiguracja dysku nie jest obsługiwana.
 
 > [!NOTE]
-> Dysponujemy prywatną wersją zapoznawczą obsługującą kopie zapasowe maszyn wirtualnych z niezarządzanymi dyskami większymi niż 1 TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Mamy prywatnej wersji zapoznawczej do obsługi kopii zapasowych dla maszyn wirtualnych o > dysków 1TB. Aby uzyskać szczegółowe informacje, zobacz [prywatnej wersji zapoznawczej do obsługi kopii zapasowych dużych dysków maszyny Wirtualnej](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Do poprawnego działania zapasowy numer wewnętrzny wymaga łączności Azure pu
 
 ####  <a name="solution"></a>Rozwiązanie
 Aby rozwiązać ten problem, wypróbuj jedną z metod wymienione w tym miejscu.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Zezwalaj na dostęp do określonych zakresów IP centrum danych Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Zezwalaj na dostęp do magazynu Azure odpowiadający regionu
 
-1. Uzyskaj [listy centrum danych Azure adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) zezwala na dostęp.
-2. Odblokuj adresy IP, uruchamiając **NetRoute nowy** polecenia cmdlet na maszynie wirtualnej Azure, w oknie programu PowerShell z podwyższonym poziomem uprawnień. Uruchom polecenie cmdlet z uprawnieniami administratora.
-3. Aby zezwolić na dostęp do adresów IP, należy dodać reguły do grupy zabezpieczeń sieci, jeśli istnieje.
+Umożliwia połączenia z magazynem określonego regionu za pomocą [usługi tagi](../virtual-network/security-overview.md#service-tags). Upewnij się, że reguła, która umożliwia uzyskanie dostępu do konta magazynu ma wyższy priorytet niż regułę, która blokuje dostęp do Internetu. 
+
+![Grupy NSG z tagami magazynu dla regionu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Tagi usługi magazynu są dostępne tylko w określonych regionach i są w wersji zapoznawczej. Aby uzyskać listę regionów, zobacz [usługi tagi dla magazynu](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Tworzenie ścieżki dla przepływ ruchu HTTP
 
@@ -166,8 +169,6 @@ Poniższe warunki mogą spowodować niepowodzenie zadań migawki:
 | --- | --- |
 | Maszyna wirtualna ma skonfigurowano kopii zapasowej programu SQL Server. | Domyślnie kopii zapasowej maszyny Wirtualnej jest uruchamiane VSS pełnej kopii zapasowej na maszynach wirtualnych systemu Windows. Na maszynach wirtualnych, które działają na serwerach programu SQL Server i programem SQL Server kopia zapasowa została skonfigurowana, mogą występować opóźnienia z powodu wykonywania migawki.<br><br>W przypadku niepowodzenia tworzenia kopii zapasowej z powodu problemu z migawki, należy ustawić następujący klucz rejestru:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | Stan maszyny Wirtualnej jest zgłaszana niepoprawnie, ponieważ maszyna wirtualna jest zamknięta w protokole RDP. | Jeśli wyłączysz maszyny Wirtualnej w protokołu RDP (Remote Desktop) sprawdź portalu, aby ustalić, czy stan maszyny Wirtualnej jest prawidłowa. Jeśli nie jest poprawny, należy wyłączyć maszynę Wirtualną w portalu przy użyciu **zamknięcia** opcji na pulpicie maszyny Wirtualnej. |
-| Wiele maszyn wirtualnych z tej samej usługi w chmurze są skonfigurowane do tworzenia kopii zapasowych, w tym samym czasie. | Jest najlepszym rozwiązaniem w celu rozłożenia harmonogramy tworzenia kopii zapasowej dla maszyn wirtualnych z tej samej usługi w chmurze. |
-| Maszyna wirtualna jest uruchomiona na wysokiego użycia procesora CPU lub pamięci. | Maszyna wirtualna jest uruchomiona na wysokie użycie Procesora (ponad 90%) lub wysokie użycie pamięci, zadania migawki jest umieszczona w kolejce i opóźnione, a ostatecznie upływie limitu czasu. W takim przypadku spróbuj kopii zapasowej na żądanie. |
 | Maszyna wirtualna nie można pobrać adresu hosta/sieci szkieletowej z serwera DHCP. | DHCP musi być włączona na gościu przeznaczonego na kopie zapasowe maszyn wirtualnych IaaS do pracy.  Jeśli maszyna wirtualna nie może pobrać adres hosta/sieci szkieletowej z odpowiedzi DHCP 245, go nie można pobrać lub uruchomić wszystkich rozszerzeń. Jeśli potrzebujesz statycznego prywatnego adresu IP, należy skonfigurować go za pośrednictwem platformy. Opcja DHCP w ramach maszyny Wirtualnej powinna być włączona w lewo. Aby uzyskać więcej informacji, zobacz [ustawienie wewnętrzny statycznego prywatnego adresu IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Zapasowy numer wewnętrzny nie może zaktualizować lub załadować
@@ -192,24 +193,6 @@ Aby odinstalować rozszerzenia, wykonaj następujące czynności:
 6. Kliknij przycisk **odinstalować**.
 
 Ta procedura powoduje, że rozszerzenie, należy zainstalować ponownie podczas następnej kopii zapasowej.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Maszyny wirtualne platformy Azure Classic może wymagać dodatkowych czynności, aby ukończyć rejestrację
-Agent w klasycznej maszyny wirtualne platformy Azure powinien być zarejestrowany do nawiązania połączenia z usługą kopii zapasowej i Rozpocznij wykonywanie kopii zapasowej
-
-#### <a name="solution"></a>Rozwiązanie
-
-Po zainstalowaniu agenta gościa maszyny Wirtualnej, uruchom program Azure PowerShell <br>
-1. Danych logowania na konto platformy Azure przy użyciu <br>
-       `Login-AzureAsAccount`<br>
-2. Sprawdź, czy właściwość agenta gościa na potrzeby maszyny Wirtualnej jest wartość True, za pomocą następujących poleceń <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Jeśli właściwość jest ustawiona na wartość FALSE, postępuj zgodnie z poniższych poleceń, aby ustawić ją na wartość TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Następnie uruchom następujące polecenie, aby zaktualizować maszyny Wirtualnej <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Spróbuj inicjowanie kopii zapasowej. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Usługa tworzenia kopii zapasowej nie ma uprawnienia do usuwania starych punktów przywracania z powodu blokady grupy zasobów
 Ten problem dotyczy zarządzanych maszyn wirtualnych, których użytkownika blokuje grupy zasobów i usługi Kopia zapasowa nie jest w stanie usunąć z wcześniejszych punktów przywracania. Z tego powodu nowe kopie zapasowe zaczęło kończyć się niepowodzeniem, ponieważ istnieje limit maksymalnego 18 punktów przywracania nałożone z wewnętrznej bazy danych.

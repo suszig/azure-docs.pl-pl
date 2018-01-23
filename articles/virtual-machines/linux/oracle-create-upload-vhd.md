@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: szark
-ms.openlocfilehash: 90df1546ddc70667f6c977afba8078b6dfb0e148
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej systemu Linux w środowisku Oracle dla platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -183,5 +183,5 @@ Przygotowywanie maszyny wirtualnej Oracle Linux 7 dla platformy Azure jest bardz
 15. Kliknij przycisk **akcji -> zamykania w dół** w Menedżerze funkcji Hyper-V. Dysk VHD systemu Linux jest teraz gotowy do przekazania do platformy Azure.
 
 ## <a name="next-steps"></a>Kolejne kroki
-Teraz możesz VHD programu Oracle Linux umożliwia tworzenie nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz kroki 2 i 3 w [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera system operacyjny Linux](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Teraz możesz VHD programu Oracle Linux umożliwia tworzenie nowych maszyn wirtualnych na platformie Azure. Jeśli jest to czy jest przekazywanie pliku VHD na platformę Azure po raz pierwszy, zobacz [Utwórz Maszynę wirtualną systemu Linux na podstawie niestandardowych dysku](upload-vhd.md#option-1-upload-a-vhd).
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 1a1855cc3f83d7fcba749ce94167039feb5bebe1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Przywracanie maszyn wirtualnych za pomocą portalu Azure
 Ochrona danych za tworzenie migawek danych w określonych odstępach czasu. Te migawki są określane jako punkty odzyskiwania, i w których są przechowywane w Magazyny usług odzyskiwania. Jeśli jest konieczne naprawienie lub skompiluj ponownie maszynę wirtualną (VM), można przywrócić maszynę Wirtualną z żadnym z punktów odzyskiwania zapisane. Po przywróceniu punkt odzyskiwania, można:
@@ -196,7 +196,7 @@ Aby wyświetlić szablon, który został wygenerowany jako część opcji dyskó
    ![Przesyłanie szablonu wdrożenia](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Wykonywane po przywróceniu kroki
-* Jeśli używasz dystrybucji systemu Linux init oparte na chmurze, takich jak Ubuntu, ze względów bezpieczeństwa hasło jest zablokowana post przywracania. Użyj rozszerzenia VMAccess przywróconej maszynę wirtualną i [resetowania hasła](../virtual-machines/linux/classic/reset-access-classic.md). Zalecamy używanie kluczy SSH w tych dystrybucji w celu uniknięcia Resetowanie hasła przywracania post.
+* Jeśli używasz dystrybucji systemu Linux init oparte na chmurze, takich jak Ubuntu, ze względów bezpieczeństwa hasło jest zablokowana post przywracania. Użyj rozszerzenia VMAccess przywróconej maszynę wirtualną i [resetowania hasła](../virtual-machines/linux/reset-password.md). Zalecamy używanie kluczy SSH w tych dystrybucji w celu uniknięcia Resetowanie hasła przywracania post.
 * Podczas tworzenia kopii zapasowej konfiguracji rozszerzenia są zainstalowane, ale nie jest włączony. Jeśli widzisz problemu, ponownie zainstaluj rozszerzenia. 
 * Jeśli kopia zapasowa maszyny Wirtualnej ma statycznego adresu IP post przywracania, przywróconej maszyny Wirtualnej ma dynamicznego adresu IP, aby uniknąć konfliktu podczas tworzenia przywróconą maszyną Wirtualną. Dowiedz się więcej o sposób [dodać statyczny adres IP z przywróconą maszyną wirtualną](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Przywróconą maszyną Wirtualną nie ma wartość dostępności. Firma Microsoft zaleca używanie dysków przywracania możliwość [dodać zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny Wirtualnej za pomocą programu PowerShell lub szablonów przy użyciu przywrócić dysków. 

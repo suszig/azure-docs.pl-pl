@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 31477cbf478d2d836c2d7c3472e3a53f13831480
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organizowanie zasobów platformy Azure przy użyciu tagów
 
@@ -147,9 +147,9 @@ Po pobraniu użycia woluminów CSV dla usług, które obsługują tagów z rozli
 
 ![Zobacz tagów w rozliczeń](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-* Za pomocą niestandardowych zasad można stosować ograniczenia i konwencje w Twojej subskrypcji. Zasady, które należy zdefiniować może wymagać, że wszystkie zasoby mają wartość określony tag. Aby uzyskać więcej informacji, zobacz [co to jest Azure zasad?](../azure-policy/azure-policy-introduction.md).
+* Za pomocą niestandardowych zasad można stosować ograniczenia i konwencje w Twojej subskrypcji. Zasady, które należy zdefiniować może wymagać, że wszystkie zasoby mają wartość określony tag. Aby uzyskać więcej informacji, zobacz artykuł [Co to jest usługa Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * Aby obejrzeć wprowadzenie do korzystania ze środowiska Azure PowerShell podczas wdrażania zasobów, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Resource Manager](powershell-azure-resource-manager.md).
 * Aby obejrzeć wprowadzenie do przy użyciu wiersza polecenia platformy Azure, podczas wdrażania zasobów, zobacz [przy użyciu wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows za pomocą Menedżera zasobów Azure](xplat-cli-azure-resource-manager.md).
 * Aby obejrzeć wprowadzenie do korzystania z portalu, zobacz [przy użyciu portalu Azure do zarządzania zasobami Azure](resource-group-portal.md).  

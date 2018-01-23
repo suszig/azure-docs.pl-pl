@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Pytania dotyczące usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure
 W tym artykule znajdują się odpowiedzi na często zadawane pytania pomagające w szybkim poznaniu składników usługi tworzenia kopii zapasowej maszyny wirtualnej platformy Azure. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Pytania dotyczące usługi Azure Backup można również zadawać na [forum dyskusyjnym](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ Opcji przywracania dysków można używać w następujących celach:
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Kopie zapasowe niezarządzane dysku maszyny Wirtualnej mogą służyć do przywrócenia po uaktualnieniu dysków do zarządzanych dysków?
 Tak, można użyć kopie zapasowe wykonane przed Migrowanie dysków z niezarządzanych do zarządzanych. Domyślnie zadanie przywracania maszyny Wirtualnej spowoduje utworzenie maszyny Wirtualnej z dyskami niezarządzane. Przywracanie dysków funkcji można używać do przywrócenia dysków i używać ich do tworzenia maszyny Wirtualnej na dyskach zarządzanych. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Co to jest procedurę, aby przywrócić Maszynę wirtualną do punktu przywracania przed konwersji z niezarządzanych do zarządzanych dysków została wykonana dla maszyny Wirtualnej?
+W tym scenariuszu domyślnie zadanie przywracania maszyny Wirtualnej spowoduje utworzenie maszyny Wirtualnej z dyskami niezarządzane. Aby utworzyć Maszynę wirtualną z dyskami zarządzanego:
+1. [Przywracanie do niezarządzanego dysków](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Skonwertuj dyski przywrócone do zarządzanych dysków](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Tworzenie maszyny Wirtualnej z dyskami zarządzanych](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Polecenia cmdlet programu Powershell, można znaleźć w temacie [tutaj](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Co się stanie po zmianie zasad kopii zapasowych na maszynach wirtualnych?

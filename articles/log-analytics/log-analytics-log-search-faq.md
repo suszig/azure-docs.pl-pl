@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Często zadawane pytania dotyczące wyszukiwania i znane problemy dziennika nowe analizy dzienników
 
@@ -88,9 +88,9 @@ Przeglądarka wymaga dostępu do następujących adresów do wykonywania kwerend
 
 | Identyfikator URI | Adres IP | Porty |
 |:---|:---|:---|
-| Portal.loganalytics.IO | Dynamiczny | 80,443 |
-| API.loganalytics.IO    | Dynamiczny | 80,443 |
-| docs.loganalytics.IO   | Dynamiczny | 80,443 |
+| portal.loganalytics.io | Dynamiczny | 80,443 |
+| api.loganalytics.io    | Dynamiczny | 80,443 |
+| docs.loganalytics.io   | Dynamiczny | 80,443 |
 
 
 
@@ -160,13 +160,12 @@ Wyszukiwanie starszych dziennika zostaną wycofane w najbliższych miesiącach. 
 Przed ogólnie można przywrócić obszaru roboczego po uaktualnieniu.  Teraz, gdy nowy język osiągnęła ogólnej dostępności, ta funkcja została usunięta gdy Rozpoczniemy wycofywania starszej wersji platformy.
 
 
-
 ## <a name="views"></a>Widoki
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pytanie: Jak utworzyć nowy widok z projektanta widoków?
-Przed uaktualnieniem można utworzyć nowy widok z projektanta widoków z kafelka na głównym pulpicie nawigacyjnym.  Po uaktualnieniu obszaru roboczego tego kafelka zostaną usunięte.  Można utworzyć nowy widok z projektanta widoków w portalu OMS, klikając przycisk w lewym menu + zielony.
+Przed uaktualnieniem można utworzyć nowy widok z projektanta widoków z kafelka na głównym pulpicie nawigacyjnym w portalu OMS.  Po uaktualnieniu obszaru roboczego tego kafelka zostaną usunięte.  Można utworzyć nowy widok z projektanta widoków w portalu OMS, klikając przycisk w lewym menu + zielony.  Możesz nadal tworzyć nowy widok przy użyciu portalu Azure przez kliknięcie kafelka Widok projektanta.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [uaktualnianie obszaru roboczego do nowego języka zapytań usługi Analiza dzienników](log-analytics-log-search-upgrade.md).

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Tworzenie wyszukiwań dziennika w Analiza dzienników Azure przy użyciu portalu wyszukiwania dziennika
 
@@ -37,11 +37,11 @@ Ten samouczek zakłada, że masz już obszar roboczy analizy dzienników z co na
 - Co najmniej jednego połączenia [agenta Windows](log-analytics-windows-agent.md) lub [agenta systemu Linux](log-analytics-linux-agents.md) do obszaru roboczego.  
 
 ## <a name="open-the-log-search-portal"></a>Otwórz portal wyszukiwania dziennika
-Uruchom, otwierając portal wyszukiwania dziennika.  Można do niego dostęp w portalu Azure lub w portalu OMS.
+Uruchom, otwierając portal wyszukiwania dziennika. 
 
-1. Otwórz Azure portal.
+1. Otwórz witrynę Azure Portal.
 2. Przejdź do analizy dzienników i wybierz obszar roboczy.
-3. Wybierz opcję **wyszukiwania dziennika** pozostanie w portalu Azure, czy portalu OMS wybierając **portalu OMS** , a następnie klikając przycisk wyszukiwania dziennika.
+3. Wybierz **dziennika wyszukiwania**.
 
 ![Przycisk wyszukiwania dziennika](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Wykres liniowy](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o język zapytań usługi Analiza dzienników w [wprowadzenie do korzystania z portalu usługi analiza](https://go.microsoft.com/fwlink/?linkid=856079).
 - Przewodnik po użyciu samouczka [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587) co pozwala na tej samej kwerend i dostęp do tych samych danych jako portal wyszukiwania dziennika.

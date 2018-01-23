@@ -1,11 +1,14 @@
 
 
 
-**Dokument ostatniej aktualizacji**: 12 stycznia 3:00 PM PST.
+**Dokument ostatniej aktualizacji**: 22 stycznia 3:00 PM PST.
 
 Ostatnie ujawnienie [nowa klasa luk w zabezpieczeniach Procesora](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) znany jako rozważana wykonywania ataków kanału po stronie spowodowało pytania, korzystając z wyszukiwania jasności więcej klientów.  
 
 Infrastrukturę, która uruchamia Azure i izoluje obciążeń klientów od siebie jest chroniony.  Oznacza to, że innych klientów działających na platformie Azure nie ataki aplikację za pomocą te luki w zabezpieczeniach.
+
+> [!NOTE] 
+> Azure środki zaradcze wcześniej ogłaszane na 3 stycznia 2018 nie dotyczy to przez ostatnie [zaktualizowano wskazówki](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Nie będzie żadnej aktywności dodatkowe konserwacji na klienta maszyn wirtualnych w wyniku tego nowych informacji przez firmę Intel.
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Aktualizowanie przez systemy operacyjne
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -116,9 +116,9 @@ Usługi umożliwiające przeniesienie do nowej grupy zasobów i subskrypcji są:
 * Data Lake Analytics
 * Data Lake Store
 * DNS
-* Usługa Event Hubs
+* Event Hubs
 * Klastry HDInsight — zobacz [ograniczenia usługi HDInsight](#hdinsight-limitations)
-* Centra IoT
+* Centra IoT Hub
 * Usługa Key Vault
 * Moduły równoważenia obciążenia
 * Logic Apps
@@ -315,6 +315,12 @@ Przenieś nie jest włączona dla magazynu, sieci lub używana do konfigurowania
 
 Na przykład załóżmy, że skonfigurowano replikację maszyn lokalnych do konta magazynu (Storage1) i chcesz chronionej maszyny znaleziona po w tryb failover na platformie Azure jako maszynę wirtualną (VM1) dołączona do sieci wirtualnej (Network1). Nie można przenieść żadnego z tych zasobów Azure - Storage1 VM1 i Network1 - między grupami zasobów w ramach tej samej subskrypcji lub różnych subskrypcji.
 
+Aby przenieść Maszynę wirtualną w **kopia zapasowa Azure** między grupami zasobów:
+ 1. Tymczasowo Zatrzymaj wykonywanie kopii zapasowej i Zachowaj dane kopii zapasowej
+ 2. Przenieś maszynę Wirtualną do docelowej grupy zasobów
+ 3. Włącz ochronę ponownie w tym samym/nowy magazyn, które użytkownicy mogą przywracać z dostępnych punktów przywracania utworzone przed operacji przenoszenia.
+Jeśli użytkownik przesuwa kopii zapasowej maszyny Wirtualnej w subskrypcjach, krok 1 i 2 pozostają takie same. W kroku 3 użytkownik musi ochronę maszyny Wirtualnej w obszarze Nowy magazyn istnieje / utworzone w docelowej subskrypcji. Magazyn usług odzyskiwania i pomocy technicznej cross subskrypcji kopii zapasowych.
+
 ## <a name="hdinsight-limitations"></a>Ograniczenia usługi HDInsight
 
 Klastry usługi HDInsight można przenieść do nowej subskrypcji lub grupy zasobów. Jednak nie można przenieść w subskrypcjach zasoby sieciowe połączone z klastrem usługi HDInsight (na przykład sieci wirtualnej, karty Sieciowej lub usługi równoważenia obciążenia). Ponadto nie można przenieść do nowej grupy zasobów kart interfejsu Sieciowego, który jest dołączony do maszyny wirtualnej do klastra.
@@ -380,7 +386,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 W treści żądania Określ docelowa grupa zasobów i zasobów, aby przenieść. Aby uzyskać więcej informacji na temat operacji REST przenoszenia zobacz [przenoszenia zasobów](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat poleceń cmdlet programu PowerShell do zarządzania subskrypcją, zobacz [przy użyciu programu Azure PowerShell z usługą Resource Manager](powershell-azure-resource-manager.md).
 * Informacje na temat polecenia wiersza polecenia platformy Azure do zarządzania subskrypcją, zobacz [przy użyciu wiersza polecenia platformy Azure z usługą Resource Manager](xplat-cli-azure-resource-manager.md).

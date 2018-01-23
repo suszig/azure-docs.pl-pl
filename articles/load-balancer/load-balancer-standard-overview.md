@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
@@ -91,7 +91,7 @@ Scenariusze obsługiwane dostawcy, odpornych można udostępnić klientom NVA do
 
 Wcześniejsze aplikacji odporność dzięki dostępności stref obsługiwanych regionów. Dostępność strefy są obecnie w wersji zapoznawczej w określonych regionach i wymaga dodatkowych uczestnictwa w.
 
-### <a name="automatic-zone-redundancy"></a>Automatycznej nadmiarowości strefy
+### <a name="automatic-zone-redundancy"></a>Automatic zone-redundancy
 
 Można wybrać, czy usługa równoważenia obciążenia powinno zapewniać strefowo nadmiarowy lub zonal frontonu dla poszczególnych aplikacji. Jest łatwo tworzyć nadmiarowość stref z standardowe usługi równoważenia obciążenia. Pojedynczy adres IP frontonu jest automatycznie strefowo nadmiarowy. Strefowo nadmiarowy frontonu jest obsługiwana przez wszystkie strefy dostępności w regionie jednocześnie. Ścieżka danych strefowo nadmiarowy jest tworzona dla połączeń przychodzących i wychodzących. Nadmiarowość stref na platformie Azure nie wymaga się wiele adresów IP i rekordy DNS. 
 
@@ -217,7 +217,7 @@ Gdy są używane połączenia wychodzące z strefowo nadmiarowy frontonu, połą
 
 Nowy algorytm w standardowe usługi równoważenia obciążenia preallocates SNAT portów do każdej maszyny wirtualnej karty Sieciowej. Jeśli karta sieciowa zostanie dodany do puli, porty SNAT są wstępnie przydzielonych na podstawie rozmiaru puli. W poniższej tabeli przedstawiono preallocations portu sześciu warstw wielkości puli zaplecza:
 
-| Rozmiar puli (wystąpień maszyny Wirtualnej) | Przydzielony wstępnie portu SNAT |
+| Rozmiar puli (wystąpień maszyny Wirtualnej) | Przydzielony wstępnie liczbę portów SNAT |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -339,7 +339,7 @@ Azure [ograniczenia usługi dotyczące sieci](https://docs.microsoft.com/azure/a
 
 W poniższej tabeli porównano limity i możliwości usługi równoważenia obciążenia — podstawowe i standardowe jednostki SKU:
 
-| Moduł równoważenia obciążenia | Podstawowa | Standardowa |
+| Moduł równoważenia obciążenia | Podstawowa | Standardowa (Standard) |
 | --- | --- | --- |
 | Rozmiar puli zaplecza | do 100 | maksymalnie 1000 |
 | Granic puli zaplecza | Zestaw dostępności | sieć wirtualna, region |
@@ -355,7 +355,7 @@ W poniższej tabeli porównano limity i możliwości usługi równoważenia obci
 
 W poniższej tabeli porównano limity i możliwości publicznego adresu IP podstawowe i standardowe jednostki SKU:
 
-| Publiczny adres IP | Podstawowa | Standardowa |
+| Publiczny adres IP | Podstawowa | Standardowa (Standard) |
 | --- | --- | --- |
 | Scenariusze stref dostępności | Tylko Zonal | Strefowo nadmiarowy (ustawienie domyślne), zonal (opcjonalnie) | 
 | Szybkie IP mobilności | Nieobsługiwane | Dostępna |
@@ -452,7 +452,7 @@ Następujące ograniczenia obowiązują w czasie Podgląd i mogą ulec zmianie:
 - W kontekście dostępności stref zonal adres publiczny adres IP nie można przenieść z jedną strefę na inny.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [podstawowe usługi równoważenia obciążenia](load-balancer-overview.md).
 - Dowiedz się więcej o [stref dostępności](../availability-zones/az-overview.md).

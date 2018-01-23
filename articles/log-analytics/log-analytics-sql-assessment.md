@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optymalizuj środowisko SQL z rozwiązaniem sprawdzania kondycji serwera SQL w analizy dzienników
 
@@ -165,14 +165,14 @@ Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
 2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
-3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
+3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **omówienie** kafelka.  
 4. Na **omówienie** kliknij przycisk **SQL kondycji Sprawdź** kafelka. 
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
 6. Na wszystkich stronach obszaru fokus można wyświetlić priorytetową zalecenia dla danego środowiska. Kliknij zalecenie, w obszarze **dotyczy obiektów** Aby wyświetlić szczegóły dotyczące Dlaczego tworzone są zalecenia.<br><br> ![Obraz sprawdzania kondycji SQL zalecenia](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Należy wykonać działania naprawcze sugerowane w **sugerowanych akcji**. Jeśli element został rozwiązany, ocen nowsze zarejestruje które zalecane akcje zostały pobrane i zwiększa wynik zgodności. Poprawione elementy są wyświetlane jako **przekazany obiektów**.
 
 ## <a name="ignore-recommendations"></a>Ignoruj zalecenia
-Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowego używanego OMS zapobiegające zaleceń znajdujących się w wynikach oceny.
+Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowego, który będzie użyć analizy dzienników, aby zapobiec zaleceń znajdujących się w wynikach oceny.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -244,7 +244,7 @@ Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowe
 *Jakiego typu dane są zbierane?*
 
 * Zbierane są następujące typy danych:
-  * USŁUGI WMI
+  * WMI
   * Rejestr
   * Liczniki wydajności
   * SQL dynamicznych widoków zarządzania (DMV).
@@ -265,5 +265,5 @@ Jeśli masz zaleceń, które chcesz zignorować, można utworzyć pliku tekstowe
 
 * Tak, zobacz [zignorowanie zalecenia](#ignore-recommendations) powyższej sekcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Wyszukaj dzienniki](log-analytics-log-searches.md) informacje na temat analizowania szczegółowych danych SQL sprawdzania kondycji i zaleceń.

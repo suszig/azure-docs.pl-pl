@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalowanie nowego lasu usługi Active Directory w sieci wirtualnej platformy Azure
 W tym artykule przedstawiono sposób tworzenia nowego środowiska usługi Active Directory systemu Windows Server na maszynie wirtualnej (VM) na [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). W takim przypadku sieci wirtualnej platformy Azure nie jest połączony z siecią lokalną.
@@ -57,7 +57,7 @@ Nie jest znacznie różnica między instalowania kontrolera domeny na platformie
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Tworzenie maszyn wirtualnych do uruchomienia kontrolera domeny i ról serwera DNS
 Powtórz następujące kroki, aby utworzyć maszyn wirtualnych do obsługi roli kontrolera domeny, zgodnie z potrzebami. Należy wdrożyć co najmniej dwóch wirtualnych kontrolerów domeny w celu zapewnienia odporności na uszkodzenia i nadmiarowość. Jeśli sieć wirtualna platformy Azure zawiera co najmniej dwa kontrolery domeny, podobnie skonfigurowanych (to, że są one zarówno wykazów globalnych, uruchom serwer DNS, i nie zawiera żadnych ról FSMO i tak dalej) umieścić maszyn wirtualnych, które Uruchom te kontrolery domeny zbiór dostępności dla ulepszone odporność na uszkodzenia.
 
-Aby utworzyć maszyn wirtualnych przy użyciu programu Windows PowerShell zamiast interfejsu użytkownika, zobacz [użycia programu Azure PowerShell do tworzenia i wstępnie skonfigurować maszyn wirtualnych z systemem Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Aby utworzyć maszyn wirtualnych przy użyciu programu Windows PowerShell zamiast interfejsu użytkownika, zobacz [Utwórz maszynę wirtualną przy użyciu programu PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md) próbki.
 
 1. W portalu Azure wybierz **nowy** > **obliczeniowe**, a następnie wybierz maszynę wirtualną. Użyj następujących wartości, aby zakończyć pracę kreatora. Zaakceptuj wartość domyślną ustawienia, chyba że inną wartość jest sugerowane lub wymagane.
 
@@ -67,7 +67,7 @@ Aby utworzyć maszyn wirtualnych przy użyciu programu Windows PowerShell zamias
    |  **Konfiguracja maszyny wirtualnej** |<p>Nazwa maszyny wirtualnej: Wpisz nazwy o pojedynczej etykiecie (na przykład AzureDC1).</p><p>Nowa nazwa użytkownika: Wpisz nazwę użytkownika. Ten użytkownik będzie członkiem lokalnej grupy Administratorzy na maszynie Wirtualnej. Konieczne będzie tę nazwę, aby zalogować się do maszyny Wirtualnej po raz pierwszy. Wbudowane konto o nazwie Administrator nie będzie działać.</p><p>Nowe hasło/Potwierdź: Wpisz hasło</p> |
    |  **Konfiguracja maszyny wirtualnej** |<p>Usługi w chmurze: Wybierz <b>Utwórz nową usługę w chmurze</b> pierwsza maszyna wirtualna i wybierz tej samej nazwy usługi chmury podczas tworzenia więcej maszyn wirtualnych, który będzie obsługiwać rolę kontrolera domeny.</p><p>Nazwa DNS usługi w chmurze: Określ globalnie unikatowa nazwa</p><p>Region/grupy koligacji/sieci wirtualnej: Określ nazwę sieci wirtualnej (np. WestUSVNet).</p><p>Konto magazynu: Wybierz <b>użyć konta magazynu automatycznie generowanych</b> dla pierwszej maszyny Wirtualnej, a następnie wybierz tej samej nazwy konta magazynu podczas tworzenia więcej maszyn wirtualnych, który będzie obsługiwać rolę kontrolera domeny.</p><p>Zestaw dostępności: Wybierz <b>tworzenia zestawu dostępności</b>.</p><p>Nazwa zbioru dostępności: wpisz nazwę zestawu dostępności podczas tworzenie pierwszej maszyny Wirtualnej, a następnie wybierz takie same nazwy podczas tworzenia więcej maszyn wirtualnych.</p> |
    |  **Konfiguracja maszyny wirtualnej** |<p>Wybierz <b>Zainstaluj agenta maszyny Wirtualnej</b> oraz innych rozszerzeń należy.</p> |
-2. Dołączanie dysku do każdej maszyny Wirtualnej, które zostanie uruchomione rolę serwera Kontroler domeny. Dodatkowy dysk jest niezbędne do przechowywania bazy danych, dzienników i folderu SYSVOL usługi AD. Określ rozmiar dysku (np. 10 GB) i pozostawić **hosta pamięci podręcznej preferencji** ustawioną **Brak**. Aby uzyskać instrukcje, zobacz [jak dołączyć dysku danych do maszyny wirtualnej systemu Windows](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Dołączanie dysku do każdej maszyny Wirtualnej, które zostanie uruchomione rolę serwera Kontroler domeny. Dodatkowy dysk jest niezbędne do przechowywania bazy danych, dzienników i folderu SYSVOL usługi AD. Określ rozmiar dysku (np. 10 GB) i pozostawić **hosta pamięci podręcznej preferencji** ustawioną **Brak**. Aby uzyskać instrukcje, zobacz [jak dołączyć dysku danych do maszyny wirtualnej systemu Windows](../virtual-machines/windows/attach-managed-disk-portal.md).
 3. Po pierwszy raz logujesz się do maszyny Wirtualnej, otwórz **Menedżera serwera** > **usług plików i magazynowania** Aby utworzyć wolumin na dysku w systemie plików NTFS.
 4. Zarezerwuj statyczny adres IP dla maszyn wirtualnych, które będą uruchamiane roli kontrolera domeny. Aby Zarezerwuj statyczny adres IP, Pobierz Instalator platformy sieci Web firmy Microsoft i [zainstalować program Azure PowerShell](/powershell/azure/overview) i uruchom polecenie cmdlet Set-AzureStaticVNetIP. Na przykład:
 

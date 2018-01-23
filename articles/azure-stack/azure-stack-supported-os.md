@@ -3,8 +3,8 @@ title: "Obsługiwane systemy operacyjne gościa dla stosu Azure | Dokumentacja f
 description: "Te systemy operacyjne gościa może służyć na stosie Azure."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: Brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: JeffGoldner
-ms.openlocfilehash: 0a31da6cbc2c245b959825a4e715d0dc7511ba99
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.date: 01/18/2018
+ms.author: Brenduns
+ms.reviewer: JeffGoldner
+ms.openlocfilehash: c9f5bee38772623fb79fa081be8eaece981cc8ab
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systemy operacyjne gościa obsługiwane na stosie Azure
 
@@ -37,14 +38,18 @@ Podczas wdrażania stosu Azure zapewnia, że odpowiedniej wersji agenta gościa 
 | Windows Server 2016 | 64-bitowa | Microsoft | Windows | Centrum danych, podstawowe centrum danych centrum danych z kontenerami |
 | Windows 7 | 64-bitowy, Pro i Enterprise | Microsoft | Windows | Nie |
 | Windows 8.1 | 64-bitowy, Pro i Enterprise | Microsoft | Windows | Nie |
-| Windows 10 | 64-bitowy, Pro i Enterprise | Microsoft | Windows | Nie |
+| Windows 10 *(patrz Uwaga 1)* | 64-bitowy, Pro i Enterprise | Microsoft | Windows | Nie |
+
+***Uwaga 1:****do wdrażania systemów operacyjnych klienta systemu Windows 10 na stosie Azure, musi mieć [Windows licencjonowania na użytkownika](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) lub zakupu za pośrednictwem dostawcy usług hostingowych wielodostępnej kwalifikowana ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).* 
+
 
 ## <a name="linux"></a>Linux
 
-Dystrybucje systemu Linux wymienione w tym miejscu zawierają niezbędne systemu Windows Azure Linux Agent (WALA). 
+Dystrybucje systemu Linux wymienione w tym miejscu zawierają niezbędne systemu Windows Azure Linux Agent (WALA).
 
-> [!NOTE]
-> Obrazów zbudowanych z WALA w wersji wcześniejszej niż 2.2.3 *nie* obsługiwane i są w stanie wdrożenia.
+> [!NOTE]   
+> Obrazów zbudowanych z WALA w wersji wcześniejszej niż 2.2.3 *nie* obsługiwane i są w stanie wdrożenia. Niektóre wersje agenta WALA wiadomo, że nieprawidłowe działanie na maszynach wirtualnych stosu Azure, w tym wersje 2.2.12 i 2.2.13.
+
 
 | Dystrybucja | Opis | Wydawca | Portal Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -62,7 +67,3 @@ Dystrybucje systemu Linux wymienione w tym miejscu zawierają niezbędne systemu
 | Ubuntu 16.04-LTS | 64-bitowa | Canonical | Yes |
 
 Inne dystrybucje systemu Linux mogą być obsługiwane w przyszłości.
-
-
-
-

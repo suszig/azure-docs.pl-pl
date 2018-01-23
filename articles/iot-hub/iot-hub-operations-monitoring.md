@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitorowanie operacji centrum IoT
 
 Monitorowanie operacji centrum IoT umożliwia monitorowanie stanu operacji w Centrum IoT w czasie rzeczywistym. Centrum IoT śledzi zdarzenia przez różne kategorie działań. Można włączyć do wysyłania zdarzeń z co najmniej jednej kategorii do punktu końcowego Centrum IoT do przetwarzania. Możesz monitorować dane błędy lub konfigurowanie bardziej złożonych przetwarzania na podstawie wzorców danych.
 
 >[!NOTE]
->Monitorowanie operacji centrum IoT jest przestarzała i zostanie usunięte z Centrum IoT w przyszłości. Do monitorowania operacji i kondycji Centrum IoT, zobacz [monitorowanie kondycji Azure IoT Hub i szybkie diagnozowanie problemów][lnk-monitor]. Aby uzyskać więcej informacji na temat osi czasu przestarzałą zobacz [monitorować rozwiązań Azure IoT z monitorem Azure oraz kondycja zasobów Azure][lnk-blog-announcement].
+>Monitorowanie operacji centrum IoT jest przestarzała i zostanie usunięte z Centrum IoT na 10 października 2018. Do monitorowania operacji i kondycji Centrum IoT, zobacz [monitorowanie kondycji Azure IoT Hub i szybkie diagnozowanie problemów][lnk-monitor]. Aby uzyskać więcej informacji na temat osi czasu przestarzałą zobacz [monitorować rozwiązań Azure IoT z monitorem Azure oraz kondycja zasobów Azure][lnk-blog-announcement].
 
 Centrum IoT monitoruje sześć kategorii zdarzeń:
 
@@ -34,7 +34,7 @@ Centrum IoT monitoruje sześć kategorii zdarzeń:
 * Komunikaty chmury do urządzenia
 * Połączenia
 * Przekazywania plików
-* Rozsyłanie wiadomości
+* Kierowanie komunikatów
 
 > [!IMPORTANT]
 > Monitorowanie operacji centrum IoT nie gwarantuje, niezawodne i uporządkowane dostarczanie zdarzeń. W zależności od podstawowej infrastruktury Centrum IoT niektóre zdarzenia mogą utracone lub dostarczony poza kolejnością. Użyj operacji monitorowanie, aby generować alerty oparte na sygnały błąd takich jak nieudanych prób połączenia lub rozłączeń wysokiej częstotliwości dla konkretnych urządzeń. Nie będą miały działań monitorowania zdarzeń, aby utworzyć spójne magazyn dla stanu urządzenia, np. Magazyn śledzenia połączone lub rozłączone stan urządzenia. 
@@ -172,7 +172,7 @@ Ta kategoria nie może przechwycić błędów, które są wykonywane bezpośredn
 }
 ```
 
-### <a name="message-routing"></a>Rozsyłanie wiadomości
+### <a name="message-routing"></a>Kierowanie komunikatów
 
 Kategoria routingu wiadomości śledzi błędów występujących podczas oceny trasy wiadomości i punktu końcowego kondycję postrzegane przez Centrum IoT. Ta kategoria zawiera zdarzenia, np. gdy reguła zwraca "undefined", gdy Centrum IoT oznacza punkt końcowy jako wiadomości i innych błędów, odbierane z punktu końcowego. Ta kategoria nie ma określonych błędów o komunikatach się (na przykład urządzenie ograniczania błędy), które zostały zgłoszone w kategorii "telemetrii urządzenia".
 
@@ -191,7 +191,7 @@ Kategoria routingu wiadomości śledzi błędów występujących podczas oceny t
 }
 ```
 
-## <a name="view-events"></a>Wyświetl wydarzenia
+## <a name="view-events"></a>Wyświetlanie zdarzeń
 
 Można użyć *explorer Centrum iothub* narzędzia do testowania szybkie, że Centrum IoT generuje monitorowania zdarzeń. Aby zainstalować narzędzie, zobacz instrukcje w [explorer Centrum iothub] [ lnk-iothub-explorer] repozytorium GitHub.
 
@@ -287,11 +287,11 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
 * [Przewodnik dewelopera Centrum IoT][lnk-devguide]
-* [Wdrażanie urządzenia brzegowe AI krawędzi IoT Azure][lnk-iotedge]
+* [Wdrażanie rozwiązań SI na urządzeniach brzegowych przy użyciu usługi Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

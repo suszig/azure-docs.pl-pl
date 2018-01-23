@@ -1,7 +1,7 @@
 ---
-title: "Użyj MongoChef dla rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak korzystać z bazy danych Azure rozwiązania Cosmos MongoChef: interfejsu API dla konta bazy danych MongoDB"
-keywords: mongochef
+title: "Użyj Studio 3T (MongoChef) z rozwiązania Cosmos Azure DB | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak użyć Studio 3T przy użyciu konta interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB"
+keywords: mongochef, studio 3T
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
@@ -13,58 +13,58 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 01/18/2018
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0341fbf668bbbc8f02e78bc1f6c7a00ecc939cc2
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Użyj MongoChef z bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure DB rozwiązania Cosmos: Użyj Studio 3T przy użyciu konta bazy danych MongoDB interfejsu API
 
-Aby nawiązać połączenie bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB, musi:
+Aby połączyć konto interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB, należy:
 
-* Pobierz i zainstaluj [MongoChef](http://3t.io/mongochef)
-* Z bazy danych rozwiązania Cosmos Azure ma: interfejsu API dla konta bazy danych MongoDB [ciąg połączenia](connect-mongodb-account.md) informacji
+* Pobierz i zainstaluj [3T w Studio](https://studio3t.com/) (wcześniej znane jako MongoChef)
+* Ma bazy danych programu Azure rozwiązania Cosmos [ciąg połączenia](connect-mongodb-account.md) informacji dotyczących Twojego konta bazy danych MongoDB
 
-## <a name="create-the-connection-in-mongochef"></a>Utwórz połączenie w MongoChef
-Aby dodać bazy danych programu Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB MongoChef Menedżera połączeń, wykonaj następujące kroki.
+## <a name="create-the-connection-in-studio-3t"></a>Utwórz połączenie w 3T w Studio
+Aby dodać konto bazy danych Azure rozwiązania Cosmos Menedżera połączeń 3T w Studio, wykonaj następujące czynności:
 
-1. Pobieranie Twojej bazy danych rozwiązania Cosmos Azure: interfejs API dla bazy danych MongoDB informacje o połączeniu z instrukcjami [tutaj](connect-mongodb-account.md).
+1. Pobrać informacji dotyczących połączenia bazy danych Azure rozwiązania Cosmos dla swojego konta bazy danych MongoDB interfejsu API przy użyciu instrukcji w [połączyć aplikację bazy danych MongoDB do bazy danych Azure rozwiązania Cosmos](connect-mongodb-account.md) artykułu.
 
-    ![Zrzut ekranu przedstawiający blok ciągu połączenia](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Zrzut ekranu strony ciąg połączenia](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Kliknij przycisk **Connect** aby otworzyć Menedżera połączeń, a następnie przycisk **nowego połączenia**
 
-    ![Zrzut ekranu przedstawiający MongoChef Menedżera połączeń](./media/mongodb-mongochef/ConnectionManager.png)
-3. W **nowe połączenie** okna na **serwera** wprowadź hosta (FQDN) Azure DB rozwiązania Cosmos: interfejs API dla konta bazy danych MongoDB i numer portu.
+    ![Zrzut ekranu przedstawiający Menedżera połączeń 3T w Studio](./media/mongodb-mongochef/ConnectionManager.png)
+3. W **nowe połączenie** okna na **serwera** wprowadź hosta (FQDN) konta bazy danych Azure rozwiązania Cosmos oraz numer portu.
 
-    ![Zrzut ekranu przedstawiający kartę MongoChef połączenie Menedżera serwera](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. W **nowe połączenie** okna na **uwierzytelniania** , wybierz pozycję tryb uwierzytelniania **Standard (CR bazy danych MONGODB lub SCARM-SHA-1)** , a następnie wprowadź nazwę użytkownika i hasło.  Zaakceptuj domyślną db uwierzytelniania (Administrator) lub podać własne wartości.
+    ![Zrzut ekranu przedstawiający kartę Studio 3T połączenie Menedżera serwera](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. W **nowe połączenie** okna na **uwierzytelniania** , wybierz pozycję tryb uwierzytelniania **Basic (CR bazy danych MONGODB lub SCARM-SHA-1)** , a następnie wprowadź nazwę użytkownika i hasło.  Zaakceptuj domyślną db uwierzytelniania (Administrator) lub podać własne wartości.
 
-    ![Zrzut ekranu: karta Uwierzytelnianie Menedżera połączeń MongoChef](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Zrzut ekranu: karta Studio 3T połączenie Menedżera uwierzytelniania](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. W **nowe połączenie** okna na **SSL** karcie wyboru **protokołu SSL używany nawiązać** pole wyboru i **akceptować certyfikaty SSL z podpisem własnym serwera**  przycisk radiowy.
 
-    ![Zrzut ekranu: karta SSL Menedżera połączeń MongoChef](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Zrzut ekranu przedstawiający kartę Studio 3T połączenie Menedżera protokołu SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Kliknij przycisk **Testuj połączenie** przycisk, aby sprawdzić informacje o połączeniu, kliknij przycisk **OK** powrócić do okna nowe połączenie, a następnie kliknij przycisk **zapisać**.
 
-    ![Zrzut ekranu przedstawiający okno MongoChef testu połączenia](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Zrzut ekranu przedstawiający okno Studio 3T testu połączenia](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Użyj MongoChef, aby utworzyć bazę danych, kolekcji i dokumentów
-Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj następujące kroki.
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Użyj Studio 3T, aby utworzyć bazę danych, kolekcji i dokumentów
+Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą Studio 3T, wykonaj następujące czynności:
 
 1. W **Menedżera połączeń**, zaznacz połączenie i kliknij **Connect**.
 
-    ![Zrzut ekranu przedstawiający MongoChef Menedżera połączeń](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Zrzut ekranu przedstawiający Menedżera połączeń 3T w Studio](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Kliknij prawym przyciskiem myszy hosta, a następnie wybierz pozycję **dodawania bazy danych**.  Podaj nazwę bazy danych, a następnie kliknij przycisk **OK**.
 
-    ![Zrzut ekranu opcji MongoChef dodawania bazy danych](./media/mongodb-mongochef/AddDatabase1.png)
-3. Kliknij prawym przyciskiem myszy kliknij bazę danych i wybierz polecenie **Dodaj kolekcji**.  Podaj nazwę kolekcji, a następnie kliknij przycisk **Utwórz**.
+    ![Zrzut ekranu opcji dodawania bazy danych 3T w Studio](./media/mongodb-mongochef/AddDatabase1.png)
+3. Kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **Dodaj kolekcji**.  Podaj nazwę kolekcji, a następnie kliknij przycisk **Utwórz**.
 
-    ![Zrzut ekranu opcji MongoChef Dodaj kolekcji](./media/mongodb-mongochef/AddCollection.png)
+    ![Zrzut ekranu opcji Dodaj kolekcji 3T w Studio](./media/mongodb-mongochef/AddCollection.png)
 4. Kliknij przycisk **kolekcji** menu elementu, następnie kliknij przycisk **Dodawanie dokumentu**.
 
-    ![Zrzut ekranu przedstawiający element menu MongoChef Dodawanie dokumentu](./media/mongodb-mongochef/AddDocument1.png)
+    ![Zrzut ekranu przedstawiający element menu Dodaj dokumentu 3T Studio](./media/mongodb-mongochef/AddDocument1.png)
 5. W oknie dialogowym Dodawanie dokumentu, wklej następujący, a następnie kliknij przycisk **Dodawanie dokumentu**.
 
         {
@@ -83,7 +83,7 @@ Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Dodaj teraz o następującej zawartości innego dokumentu.
+6. Dodawanie innego dokumentu teraz o następującej treści:
 
         {
         "_id": "WakefieldFamily",
@@ -114,5 +114,5 @@ Aby utworzyć bazę danych, kolekcji i dokumentów za pomocą MongoChef, wykonaj
 
     ![Zrzut ekranu przedstawiający Mongo Chef wyników zapytania](./media/mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>Następne kroki
-* Zapoznaj się z rozwiązania Cosmos Azure DB: Interfejs API, bazy danych mongodb [przykłady](mongodb-samples.md).
+## <a name="next-steps"></a>Kolejne kroki
+* Eksploruj interfejsu API Azure rozwiązania Cosmos bazy danych MongoDB [przykłady](mongodb-samples.md).

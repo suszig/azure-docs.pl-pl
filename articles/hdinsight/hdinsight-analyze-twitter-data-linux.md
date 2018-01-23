@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analizowanie danych Twitter przy użyciu Hive i Hadoop w usłudze HDInsight
 
@@ -45,7 +45,7 @@ Twitter umożliwia pobieranie [dane dla każdego tweet](https://dev.twitter.com/
 
    | Pole | Wartość |
    |:--- |:--- |
-   | Nazwa |MyHDInsightApp |
+   | Name (Nazwa) |MyHDInsightApp |
    | Opis |MyHDInsightApp |
    | Witryna sieci Web |http://www.myhdinsightapp.com |
 
@@ -326,7 +326,7 @@ Te polecenia przechowywania danych w miejscu dostępnym dla wszystkich węzłów
     > [!NOTE]
     > Zmiana filtru w `gettweets.py` skryptów, Zastąp **Azure** jeden z filtrów używane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaniu przekształcania zestaw danych JSON bez struktury w strukturze tabeli programu Hive. Aby dowiedzieć się więcej na temat programu Hive w usłudze HDInsight, można znaleźć w następujących dokumentach:
 

@@ -4,8 +4,14 @@ Po zastosowaniu tagów można pobrać wszystkie zasoby w subskrypcji o nazwie i 
 
 Tagi mają następujące ograniczenia:
 
-* Każdy zasób lub grupa zasobów może mieć co najwyżej 15 par nazwa/wartość tagu. To ograniczenie dotyczy tylko tagów stosowanych bezpośrednio do grupy zasobów lub zasobu. Grupa zasobów może zawierać wiele zasobów, z których każdy może mieć 15 par nazwa/wartość tagu. 
+* Każdy zasób lub grupa zasobów może mieć co najwyżej 15 par nazwa/wartość tagu. To ograniczenie dotyczy tylko tagów stosowanych bezpośrednio do grupy zasobów lub zasobu. Grupa zasobów może zawierać wiele zasobów, z których każdy może mieć 15 par nazwa/wartość tagu. Jeśli masz więcej niż 15 wartości, które należy skojarzyć z zasobem, użyj ciągu JSON jako wartości tagu. Ciąg JSON może zawierać wiele wartości, które są stosowane do jednej nazwy tagu. W tym artykule przedstawiono przykład przypisywania ciągu JSON do tagu.
 * Nazwa tagu może zawierać maksymalnie 512 znaków, a wartość tagu jest ograniczona do 256 znaków. W przypadku kont magazynu nazwa tagu jest ograniczona do 128 znaków, a wartość tagu jest ograniczona do 256 znaków.
-* Tagi zastosowane do grupy zasobów nie są dziedziczone przez zasoby należące do tej grupy. 
-
-Jeśli masz więcej niż 15 wartości, które należy skojarzyć z zasobem, użyj ciągu JSON jako wartości tagu. Ciąg JSON może zawierać wiele wartości, które są stosowane do jednej nazwy tagu. W tym artykule przedstawiono przykład przypisywania ciągu JSON do tagu.
+* Tagi zastosowane do grupy zasobów nie są dziedziczone przez zasoby należące do tej grupy.
+* Następujące znaki nie są obsługiwane:
+  * `<`
+  * `>`
+  * `%`
+  * `&`
+  * `\\`
+  * `?`
+  * `/`

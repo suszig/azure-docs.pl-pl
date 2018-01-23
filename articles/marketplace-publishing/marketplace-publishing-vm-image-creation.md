@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Przewodnik dotyczący tworzenia obrazu maszyny wirtualnej do portalu Azure Marketplace
 W tym artykule **krok 2**, przeprowadzi Cię przez przygotowanie wirtualnych dysków twardych (VHD), które zostaną wdrożone w portalu Azure Marketplace. Dyski VHD są podstawę sieci jednostki SKU. Proces jest różny w zależności od tego, czy udostępniasz SKU opartych na systemie Linux lub z systemem Windows. W tym artykule przedstawiono oba scenariusze. Ten proces można przeprowadzić równolegle z [o tworzeniu konta i rejestracji][link-acct-creation].
@@ -58,7 +58,7 @@ Po dodaniu oferty, należy zdefiniować i identyfikuje użytkownika jednostki SK
 3. Jeśli używasz jednostek SKU opartych na systemie Windows, użyj podanych linków, aby uzyskać zatwierdzone wersje systemu Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Tworzenie wirtualnego dysku twardego zgodnego Azure (opartych na systemie Linux)
-Ta sekcja dotyczy przede wszystkim najlepsze rozwiązania dotyczące tworzenia obrazu maszyny Wirtualnej opartych na systemie Linux dla portalu Azure Marketplace. Przewodnik krok po kroku, można znaleźć w następującej dokumentacji: [tworzenie i przekazywanie wirtualnego dysku twardego, który zawiera System operacyjny Linux](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Ta sekcja dotyczy przede wszystkim najlepsze rozwiązania dotyczące tworzenia obrazu maszyny Wirtualnej opartych na systemie Linux dla portalu Azure Marketplace. Przewodnik krok po kroku, można znaleźć w następującej dokumentacji: [utworzyć niestandardowy obraz maszyny Wirtualnej systemu Linux](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Tworzenie wirtualnego dysku twardego zgodnego Azure (z systemem Windows)
 W tej części przedstawiono kroki, aby utworzyć SKU, oparte na systemie Windows Server do portalu Azure Marketplace.

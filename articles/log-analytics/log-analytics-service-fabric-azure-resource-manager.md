@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Oceń aplikacji usługi Service Fabric i micro-services przy użyciu portalu Azure
 
@@ -37,7 +37,7 @@ Rozwiązanie usługi Service Fabric korzysta z danych diagnostyki Azure z maszyn
 Aby rozpocząć pracę z rozwiązaniem, należy połączyć z klastra usługi sieć szkieletowa usług do obszaru roboczego analizy dzienników. Poniżej przedstawiono trzy scenariusze, które należy uwzględnić:
 
 1. Jeśli klaster sieci szkieletowej usług nie została wdrożona, wykonaj kroki w ***wdrażanie klastra sieci szkieletowej usług podłączony do obszaru roboczego analizy dzienników*** do wdrożenia nowego klastra i została ona skonfigurowana do raportu analizy dzienników.
-2. Jeśli potrzebujesz można zebrać liczników wydajności z hostów użycie innych rozwiązań pakietu OMS, takich jak zabezpieczeń klastra sieci szkieletowej usług, postępuj zgodnie z instrukcjami ***wdrażanie klastra sieci szkieletowej usług podłączony do obszaru roboczego analizy dzienników zainstalowane rozszerzenie maszyny Wirtualnej.***
+2. Jeśli potrzebujesz można zebrać liczników wydajności z hostów do użycia w klastrze usługi sieć szkieletowa rozwiązań do zarządzania, takich jak zabezpieczenia, postępuj zgodnie z instrukcjami ***wdrażanie klastra sieci szkieletowej usług podłączony do obszaru roboczego analizy dzienników rozszerzenie maszyny Wirtualnej zainstalowana.***
 3. Jeśli zostały już wdrożone z klastra sieci szkieletowej usług i chcesz nawiązać analizy dzienników, postępuj zgodnie z instrukcjami ***Dodawanie istniejącego konta magazynu do analizy dzienników.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Wdrażanie klastra sieci szkieletowej usług podłączony do obszaru roboczego analizy dzienników.

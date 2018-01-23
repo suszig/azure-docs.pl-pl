@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>O wysokiej gęstości hosting w usłudze Azure App Service
 Korzystając z usługi aplikacji, aplikacja jest całkowicie niezależna od pojemności w dwóch pojęcia:
@@ -38,12 +38,12 @@ Jednak gdy wiele aplikacji udostępnić plan usługi aplikacji, wystąpienia, ap
 Każdej aplikacji odbierającej skalowanie aplikacji niezależnie od planu usług aplikacji, który go obsługuje. W ten sposób plan usługi aplikacji mogą być skalowane do 10 wystąpień, ale można ustawić aplikację do używania pięciu tylko.
 
    >[!NOTE]
-   >Każdej aplikacji odbierającej jest dostępna tylko w przypadku **Premium** planów usługi App Service dla jednostki SKU
+   >Dla programu app skalowanie, jest dostępna tylko w przypadku **standardowe**, **Premium**, **Premium V2** i **izolowany** planów usługi App Service dla jednostki SKU
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Każdej aplikacji odbierającej za pomocą programu PowerShell
 
-Można utworzyć planu, który został skonfigurowany jako *na skalowanie aplikacji* planu przez przekazywanie ```-perSiteScaling $true``` atrybutu ```New-AzureRmAppServicePlan``` apletu polecenia
+Tworzenie planu, który został skonfigurowany jako *na skalowanie aplikacji* planu przez przekazywanie ```-perSiteScaling $true``` atrybutu ```New-AzureRmAppServicePlan``` apletu polecenia
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Na poziomie aplikacji należy skonfigurować liczbę wystąpień, które aplikacja może używać w planie usługi aplikacji.
+Na poziomie aplikacji skonfiguruj liczbę wystąpień używanych przez aplikację w planie usługi aplikacji.
 
 W poniższym przykładzie aplikacji może zawierać maksymalnie dwa wystąpienia, niezależnie od tego, jak wiele wystąpień podstawowy plan usługi aplikacji może obsłużyć limit.
 
