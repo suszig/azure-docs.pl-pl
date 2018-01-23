@@ -341,7 +341,7 @@
         - name: Zarządzanie kluczami i spójnością
           href: manage-account.md
         - name: Eksplorator usługi Azure Storage
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Bezpieczeństwo
           items:
             - name: Szyfrowanie w spoczynku

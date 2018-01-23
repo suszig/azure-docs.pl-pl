@@ -28,13 +28,13 @@
 ### [Kontrola dostępu oparta na rolach (wersja zapoznawcza)](service-bus-role-based-access-control.md)
 ### [Obsługa komunikatów Premium](service-bus-premium-messaging.md)
 ### [Porównanie kolejek platformy Azure i kolejek usługi Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Tworzenie wielowarstwowej aplikacji usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optymalizowanie wydajności](service-bus-performance-improvements.md)
 ### [Geograficzne odzyskiwanie po awarii i replikacja geograficzna](service-bus-geo-dr.md)
 ### [Asynchroniczna obsługa komunikatów i wysoka dostępność](service-bus-async-messaging.md)
 ### [Obsługa wyłączeń i awarii](service-bus-outages-disasters.md)
 
 ## Programowanie
+### [Tworzenie wielowarstwowej aplikacji usługi Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Obsługa komunikatów
 #### [Kolejki, tematy i subskrypcje](service-bus-queues-topics-subscriptions.md)
 #### [Komunikaty, ładunki i serializacja](service-bus-messages-payloads.md)
