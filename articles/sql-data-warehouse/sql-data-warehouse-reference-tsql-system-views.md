@@ -3,7 +3,7 @@ title: Widoki systemowe SQL Data Warehouse | Dokumentacja firmy Microsoft
 description: "Łącza do systemu widokach zawartości dla usługi SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Widoki systemowe
 ## <a name="sql-data-warehouse-catalog-views"></a>Widoków wykazu SQL Data Warehouse
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server widoków DMV mające zastosowanie do magazynu danych SQL
 Następujące widoków DMV mają zastosowanie do usługi SQL Data Warehouse, ale musi zostać wykonana przez nawiązanie połączenia **wzorca** bazy danych.
@@ -77,38 +77,38 @@ Następujące widoków DMV mają zastosowanie do usługi SQL Data Warehouse, ale
 * [sys.assemblies](http://msdn.microsoft.com/library/ms189790.aspx)
 * [sys.assembly_modules](http://msdn.microsoft.com/library/ms180052.aspx)
 * [sys.assembly_types](http://msdn.microsoft.com/library/ms178020.aspx)
-* [sys.Certificates](http://msdn.microsoft.com/library/ms189774.aspx)
-* [sys.CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms187388.aspx)
-* [sys.Columns](http://msdn.microsoft.com/library/ms176106.aspx)
+* [sys.certificates](http://msdn.microsoft.com/library/ms189774.aspx)
+* [sys.check_constraints](http://msdn.microsoft.com/library/ms187388.aspx)
+* [sys.columns](http://msdn.microsoft.com/library/ms176106.aspx)
 * [sys.computed_columns](http://msdn.microsoft.com/library/ms188744.aspx)
-* [sys.Credentials](https://msdn.microsoft.com/library/ms189745.aspx)
+* [sys.credentials](https://msdn.microsoft.com/library/ms189745.aspx)
 * [sys.data_spaces](http://msdn.microsoft.com/library/ms190289.aspx)
 * [sys.database_credentials](https://msdn.microsoft.com/library/mt270282.aspx)
-* [widoku sys.database_files](http://msdn.microsoft.com/library/ms174397.aspx)
+* [sys.database_files](http://msdn.microsoft.com/library/ms174397.aspx)
 * [sys.database_permissions](http://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](http://msdn.microsoft.com/library/ms187328.aspx)
 * [sys.database_role_members](http://msdn.microsoft.com/library/ms189780.aspx)
-* [sys.Databases](http://msdn.microsoft.com/library/ms178534.aspx)
+* [sys.databases](http://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](http://msdn.microsoft.com/library/ms173758.aspx)
 * [sys.external_data_sources](http://msdn.microsoft.com/library/dn935019.aspx)
 * [sys.external_file_formats](http://msdn.microsoft.com/library/dn935025.aspx)
 * [sys.external_tables](http://msdn.microsoft.com/library/dn935029.aspx)
-* [widoku sys.filegroups](http://msdn.microsoft.com/library/ms187782.aspx)
+* [sys.filegroups](http://msdn.microsoft.com/library/ms187782.aspx)
 * [sys.foreign_key_columns](http://msdn.microsoft.com/library/ms186306.aspx)
 * [sys.foreign_keys](http://msdn.microsoft.com/library/ms189807.aspx)
 * [sys.identity_columns](http://msdn.microsoft.com/library/ms187334.aspx)
-* [widoku sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
+* [sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
 * [sys.indexes](http://msdn.microsoft.com/library/ms173760.aspx)
 * [sys.key_constraints](http://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](http://msdn.microsoft.com/library/ms179865.aspx)
-* [sys.Objects](http://msdn.microsoft.com/library/ms190324.aspx)
+* [sys.objects](http://msdn.microsoft.com/library/ms190324.aspx)
 * [sys.parameters](http://msdn.microsoft.com/library/ms176074.aspx)
 * [sys.partition_functions](http://msdn.microsoft.com/library/ms187381.aspx)
 * [sys.partition_parameters](http://msdn.microsoft.com/library/ms175054.aspx)
 * [sys.partition_range_values](http://msdn.microsoft.com/library/ms187780.aspx)
 * [sys.partition_schemes](http://msdn.microsoft.com/library/ms189752.aspx)
 * [sys.PARTITIONS](http://msdn.microsoft.com/library/ms175012.aspx)
-* [sys.Procedures](http://msdn.microsoft.com/library/ms188737.aspx)
+* [sys.procedures](http://msdn.microsoft.com/library/ms188737.aspx)
 * [sys.schemas](http://msdn.microsoft.com/library/ms176011.aspx)
 * [sys.securable_classes](http://msdn.microsoft.com/library/ms408301.aspx)
 * [sys.sql_expression_dependencies](http://msdn.microsoft.com/library/bb677315.aspx)
@@ -116,7 +116,7 @@ Następujące widoków DMV mają zastosowanie do usługi SQL Data Warehouse, ale
 * [sys.stats](http://msdn.microsoft.com/library/ms177623.aspx)
 * [sys.stats_columns](http://msdn.microsoft.com/library/ms187340.aspx)
 * [sys.symmetric_keys](https://msdn.microsoft.com/library/ms189446.aspx)
-* [sys.SYNONYMS](https://msdn.microsoft.com/library/ms189458.aspx)
+* [sys.synonyms](https://msdn.microsoft.com/library/ms189458.aspx)
 * [sys.syscharsets](https://msdn.microsoft.com/library/ms190300.aspx)
 * [sys.syscolumns](https://msdn.microsoft.com/library/ms186816.aspx)
 * [sys.sysdatabases](https://msdn.microsoft.com/library/ms179900.aspx)
@@ -130,23 +130,21 @@ Następujące widoków DMV mają zastosowanie do usługi SQL Data Warehouse, ale
 * [sys.system_views](http://msdn.microsoft.com/library/ms187764.aspx)
 * [sys.systypes](https://msdn.microsoft.com/library/ms175109.aspx)
 * [sys.sysusers](https://msdn.microsoft.com/library/ms179871.aspx)
-* [Widok sys.Tables](http://msdn.microsoft.com/library/ms187406.aspx)
+* [sys.tables](http://msdn.microsoft.com/library/ms187406.aspx)
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server widoków DMV dostępne w usłudze SQL Data Warehouse
 Usługa SQL Data Warehouse udostępnia wiele widoków dynamicznego zarządzania programu SQL Server (widoków DMV). Tych widoków, po otrzymaniu kwerendy w usłudze SQL Data Warehouse, są raportowania stanu systemem dystrybucje baz danych serwera SQL.
 
-Ponieważ Magazyn danych SQL jest oparty na technologii MPP firmy Microsoft, zarówno magazyn danych SQL i Analytics Platform System równoległego magazynu danych (PDW) korzystają z tej samej widoków systemowych.
-
-Jest to, dlatego każdy z tych DMV ma określonych kolumnę o nazwie pdw_node_id. Jest to identyfikator węzła obliczeń. W PDW mocy obliczeniowej węzła to pojęcie silniejszych dla architektury. W usłudze SQL Data Warehouse architektura zależy od bardziej intensywnie dystrybucje.
+Magazyn danych SQL i Analytics Platform System równoległego magazynu danych (PDW) za pomocą tego samego widoków systemu. Każdy DMV ma kolumnę o nazwie pdw_node_id, który jest identyfikatorem węźle obliczeń. 
 
 > [!NOTE]
-> Aby użyć tych widoku, Wstaw "pdw_nodes_" w nazwie, jak pokazano w poniższej tabeli.
+> Aby korzystać z tych widoków, Wstaw "pdw_nodes_" w nazwie, jak pokazano w poniższej tabeli:
 > 
 > 
 
-| Nazwa DMV w usłudze SQL Data Warehouse | Link do tematu programu SQL Server Transact-SQL w witrynie MSDN |
+| Nazwa DMV w usłudze SQL Data Warehouse | Artykuł programu SQL Server Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -188,7 +186,7 @@ Jest to, dlatego każdy z tych DMV ma określonych kolumnę o nazwie pdw_node_id
 | sys.dm_pdw_nodes_os_nodes |[sys.dm_os_nodes](http://msdn.microsoft.com/library/bb510628.aspx) |
 | sys.dm_pdw_nodes_os_performance_counters |[sys.dm_os_performance_counters](http://msdn.microsoft.com/library/ms187743.aspx) |
 | sys.dm_pdw_nodes_os_process_memory |[sys.dm_os_process_memory](http://msdn.microsoft.com/library/bb510747.aspx) |
-| sys.dm_pdw_nodes_os_schedulers |[widoku sys.dm_os_schedulers](http://msdn.microsoft.com/library/ms177526.aspx) |
+| sys.dm_pdw_nodes_os_schedulers |[sys.dm_os_schedulers](http://msdn.microsoft.com/library/ms177526.aspx) |
 | sys.dm_pdw_nodes_os_spinlock_stats |Dokumentacja języka Transact-SQL jest niedostępna. |
 | sys.dm_pdw_nodes_os_sys_info |[sys.dm_os_sys_info](http://msdn.microsoft.com/library/ms175048.aspx) |
 | sys.dm_pdw_nodes_os_sys_memory |[sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
@@ -224,16 +222,16 @@ Jest to, dlatego każdy z tych DMV ma określonych kolumnę o nazwie pdw_node_id
 
 ## <a name="sql-server-informationschema-views"></a>Widoki programu SQL Server INFORMATION_SCHEMA
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
-* [KOLUMNY](http://msdn.microsoft.com/library/ms188348.aspx)
-* [PARAMETRY](http://msdn.microsoft.com/library/ms173796.aspx)
+* [COLUMNS](http://msdn.microsoft.com/library/ms188348.aspx)
+* [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
 * [PROCEDURY](https://msdn.microsoft.com/library/ms188757.aspx)
-* [SCHEMATÓW](https://msdn.microsoft.com/library/ms182642.aspx)
-* [TABELE](http://msdn.microsoft.com/library/ms186224.aspx)
+* [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
+* [TABLES](http://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [WIDOKI](http://msdn.microsoft.com/library/ms181381.aspx)
+* [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacje, zobacz [Omówienie usługi SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

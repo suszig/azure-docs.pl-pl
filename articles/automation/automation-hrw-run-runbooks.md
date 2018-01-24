@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Uruchomione elementy runbook na hybrydowy proces roboczy elementu Runbook 
 Nie ma różnic w strukturze elementów runbook, które są uruchamiane w automatyzacji Azure oraz te, które uruchamiane na hybrydowy proces roboczy elementu Runbook. Elementy Runbook korzystające z każdym najprawdopodobniej różnią się znacznie jednak ponieważ elementy runbook, elementów docelowych hybrydowy proces roboczy elementu Runbook, zwykle zarządzać zasobami na komputerze lokalnym lub w odniesieniu do zasobów w środowisku lokalnym, w których jest wdrożona, gdy elementy runbook automatyzacji Azure zazwyczaj zarządzać zasobami w chmurze Azure.
@@ -59,7 +59,7 @@ Zamiast zapewnienia uwierzytelniania do zasobów lokalnych elementów runbook, m
 
 Nazwa użytkownika dla poświadczenia musi być w jednym z następujących formatów:
 
-* domena azwa_użytkownika
+* domain\username
 * username@domain
 * Nazwa użytkownika (dla kont lokalnych dla komputera lokalnego)
 
@@ -144,7 +144,7 @@ Następujący element runbook programu PowerShell *RunAsCertificateToHybridWorke
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Zapisz *RunAsCertificateToHybridWorker eksportu* runbook na komputerze z `.ps1` rozszerzenia.  Zaimportuj go do Twojego konta automatyzacji i edytować element runbook, zmiana wartości zmiennej `$Password` z własnego hasła.  Publikowanie, a następnie uruchom korzystających z uwierzytelniania przy użyciu konta Uruchom jako elementy runbook, które grupy hybrydowego procesu roboczego elementu runbook.  Strumień zadań zgłasza próba zaimportowania certyfikatu w magazynie komputera lokalnego i jest zgodny z wielu wierszy w zależności od liczby kont automatyzacji są zdefiniowane w ramach subskrypcji i jeśli uwierzytelnianie zakończy się pomyślnie.  
 
@@ -155,6 +155,6 @@ Dzienniki są przechowywane lokalnie na każdym hybrydowy proces roboczy na C:\P
 
 Jeśli elementy runbook nie są pomyślnie wykonywane zadanie podsumowania przedstawia stan **zawieszone**, przejrzyj artykuł dotyczący rozwiązywania problemów [hybrydowy proces roboczy elementu Runbook: kończy zadanie elementu runbook o stanie Suspended](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat różnych metod, które mogą służyć do uruchamiania elementu runbook, zobacz [uruchamianie elementu Runbook automatyzacji Azure](automation-starting-a-runbook.md).  
 * Aby poznać różne procedury dotyczące pracy z elementami runbook programu PowerShell i przepływ pracy programu PowerShell w automatyzacji Azure za pomocą edytor tekstowy, zobacz [edytowanie elementu Runbook automatyzacji Azure](automation-edit-textual-runbook.md)

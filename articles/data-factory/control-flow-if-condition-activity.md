@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Jeśli warunek działania w fabryce danych Azure
-Jeśli warunek działania zapewnia te same funkcje, jeśli instrukcja zawiera w językach programowania. Ocenia zestaw działań, gdy warunek jest `true` i innego zestawu działań, gdy warunek jest `false`. 
+Działanie If Condition pełni taką samą rolę, co instrukcja if w językach programowania. Powoduje ono obliczenie zestawu działań, gdy warunek zostanie obliczony na wartość `true`, oraz innego zestawu działań, gdy warunek zostanie obliczony na wartość `false`. 
 
 
 > [!NOTE]
@@ -70,11 +70,11 @@ Jeśli warunek działania zapewnia te same funkcje, jeśli instrukcja zawiera w 
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania, jeśli warunek. | Ciąg | Tak
-type | Należy wybrać opcję **IfCondition** | Ciąg | Tak
-wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Tak
-ifTrueActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `true`. | Tak
-ifFalseActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `false`. | Tak
+name | Nazwa działania, jeśli warunek. | Ciąg | Yes
+type | Należy wybrać opcję **IfCondition** | Ciąg | Yes
+wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Yes
+ifTrueActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `true`. | Yes
+ifFalseActivities | Zestaw działań, które są wykonywane, gdy wyrażenie ma `false`. | Yes
 
 ## <a name="example"></a>Przykład
 Potok, w tym przykładzie kopiuje dane z wejściowych folderu do folderu wyjściowego. Folder wyjściowy jest określana przez wartość parametru potoku: routeSelection. Jeśli wartość routeSelection ma wartość true, dane są kopiowane do outputPath1. I, jeśli wartość routeSelection ma wartość false, dane są kopiowane do outputPath2. 
@@ -290,7 +290,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)

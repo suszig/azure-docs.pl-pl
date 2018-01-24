@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ Kolekcje niezawodnej może przechowywać żadnych typ architektury .NET, łączn
 Menedżer niezawodnej stanu zarządza niezawodnej kolekcji. Po prostu poproś niezawodnej Menedżer stanu niezawodnej kolekcji o nazwie w dowolnym momencie i w dowolnym miejscu w usłudze. Niezawodne Menedżer stanu zapewnia ponownie uzyskać odwołanie. Nie zaleca się zapisywania odwołań do kolekcji niezawodnej instancji w elemencie członkowskim klasy zmiennych lub właściwości. Szczególną uwagę należy upewnić się, że odwołanie jest ustawione na wystąpienie przez cały czas w cyklu życia usługi. Niezawodne Menedżer stanu obsługuje tę pracę za Ciebie i jest zoptymalizowany do powtarzania wizytach.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operacje transakcyjne i asynchroniczne
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

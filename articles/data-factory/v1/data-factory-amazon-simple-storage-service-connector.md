@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Przenoszenia danych z usługi magazynowania proste Amazon przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Połączona usługa łączy magazynu danych z fabryki danych. Tworzenie połącz
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| accessKeyID |Identyfikator klucza tajnego dostępu. |Ciąg |Tak |
-| secretAccessKey |Samego klucza tajnego dostępu. |Zaszyfrowanego ciągu tajny |Tak |
+| accessKeyID |Identyfikator klucza tajnego dostępu. |ciąg |Yes |
+| secretAccessKey |Samego klucza tajnego dostępu. |Zaszyfrowanego ciągu tajny |Yes |
 
 >[!NOTE]
 >Ten łącznik wymaga klucze dostępu dla konta IAM skopiować dane z usługi Amazon S3. [Poświadczenia zabezpieczeń tymczasowego](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) nie jest obsługiwane.
@@ -95,10 +95,10 @@ Sekcje, takie jak struktury, dostępności i zasady są podobne dla wszystkich t
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| bucketName |Nazwa pakietu S3. |Ciąg |Tak |
+| bucketName |Nazwa pakietu S3. |Ciąg |Yes |
 | key |Klucz obiektu S3. |Ciąg |Nie |
 | Prefiks |Prefiks klucza obiektu S3. Wybrano obiektów, w której klucze uruchomienia z tym prefiksem. Ma zastosowanie tylko wtedy, gdy klucz jest pusty. |Ciąg |Nie |
-| Wersja |Wersja obiektu S3, jeśli włączono S3 przechowywania wersji. |Ciąg |Nie |
+| wersja |Wersja obiektu S3, jeśli włączono S3 przechowywania wersji. |Ciąg |Nie |
 | Format | Obsługiwane są następujące typy format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](data-factory-supported-file-and-compression-formats.md#text-format), [formatu JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), i [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) sekcje. <br><br> Jeśli chcesz skopiować pliki jako — jest między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych. |Nie | |
 | Kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **GZip**, **Deflate**, **BZip2**, i **ZipDeflate**. Obsługiwane poziomy: **optymalna** i **najszybciej**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w fabryce danych Azure](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie | |
 
@@ -361,7 +361,7 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 > Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły:
 
 * Informacje na temat kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w fabryce danych i zoptymalizować ją na różne sposoby, zobacz [skopiuj wydajności działania i dostrajania przewodnik](data-factory-copy-activity-performance.md).

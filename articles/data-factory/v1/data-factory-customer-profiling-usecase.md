@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Przypadek użycia — profilowanie klientów
 Fabryka danych Azure to jedna z wielu usług, używaną do zaimplementowania pakietu Cortana Intelligence Suite akceleratorów rozwiązania.  Aby uzyskać więcej informacji na temat Cortana Intelligence, odwiedź stronę [pakietu Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). W tym dokumencie opisano przypadek użycia prostego, aby pomóc Ci rozpocząć zrozumienie, jak fabryki danych Azure można rozwiązywania typowych problemów analytics.
@@ -53,7 +53,7 @@ Dostęp i wypróbować ten przypadek użycia prostego wystarczy [subskrypcji pla
 
     ![Blok Fabryka danych](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Omówienie rozwiązania
+## <a name="solution-overview"></a>Przegląd rozwiązania
 Ten przypadek użycia prostego może służyć jako przykład sposobu użycia usługi fabryka danych Azure w celu pozyskiwania, przygotowywanie, przekształcanie, analizowanie i publikować dane.
 
 ![Kompletny przepływ pracy](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

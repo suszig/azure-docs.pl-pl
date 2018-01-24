@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Przykłady na maszynach wirtualnych nauki danych (DSVM)
 
@@ -34,7 +34,7 @@ DSVMs mają załączone przykłady pełni działał w poziomie w formie notesów
 | **Python** języka  | Przykłady w **Python** wyjaśniający scenariuszy, takich jak nawiązać połączenie z magazynów danych w chmurze platformy Azure i Praca z **usługi Azure Machine Learning**.  <br/> [Zrzut ekranu](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** języka  | Przykładowe w **Julia** który szczegółów Plotting w Julia, głębokie uczenie w Julia, wywoływanie C i języka Python z Julia itp. <br/> [Zrzut ekranu](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Kognitywnych zestaw narzędzi firmy Microsoft)  | Bezpośrednie uczenia przykłady publikowane przez zespół kognitywnych zestawu narzędzi firmy Microsoft.  <br/> [Zrzut ekranu](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** notesów  | Głębokość uczenia przykłady wykorzystania **MXnet** na podstawie sieci neuronowej. Istnieją różne notesów od dla początkujących użytkowników zaawansowanych scenariuszy.  <br/> [Zrzut ekranu](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** notesów  | Głębokość uczenia przykłady wykorzystania **MXNet** na podstawie sieci neuronowej. Istnieją różne notesów od dla początkujących użytkowników zaawansowanych scenariuszy.  <br/> [Zrzut ekranu](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Uczenie maszynowe Azure** uczenie maszynowe Azure  | Interakcja z **usługi Azure Machine Learning** Studio i tworzenie punktów końcowych usługi sieci web z lokalnie przeszkolone modele, oceniania przepływów pracy opartych na chmurze. <br/> [Zrzut ekranu](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Głębokość uczenia przykłady wykorzystania **caffe2** na podstawie sieci neuronowej. Istnieje kilka notesów umożliwiającą zapoznanie użytkowników z caffe2 i jak z niego korzystać w rezultacie wraz z przykładami takich jak obraz przetwarzanie wstępne utworzenie zestawu danych, regresji, a za pomocą wstępnie uczony modeli. <br/> [Zrzut ekranu](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Na podstawie języka Python próbki, przy użyciu **H2O** wiele problemów rzeczywistych scenariuszy. <br/> [Zrzut ekranu](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -52,7 +52,7 @@ Odwiedź stronę główną Jupyter, przechodząc do  **`https://localhost:9999`*
 
 ### <a name="enabling-jupyter-access-from-browser"></a>Włączanie dostępu Jupyter z przeglądarki
 
-**DSVM systemu Windows**
+**Windows DSVM**
 
 Uruchom  **`Jupyter SetPassword`**  ze skrótu na pulpicie i wykonaj przetworzyć wiersza do zestawu/resetowania hasła dla Jupyter i uruchamiania Jupyter. 
 <br/>![Włącz wyjątek Jupyter](./media/jupyter-setpassword.png)<br/>
@@ -60,7 +60,7 @@ Po procesie Jupyter została pomyślnie uruchomiona na maszynie Wirtualnej, odwi
 <br/>![Włącz wyjątek Jupyter](./media/windows-jupyter-exception.png)<br/>
 Zaloguj się przy użyciu nowego hasła, które zostały ustawione.
 <br/>
-**DSVM systemu Linux**
+**Linux DSVM**
 
 Dostępne główną Jupyter na maszynie Wirtualnej, odwiedzając  **`https://localhost:8000`**  w przeglądarce. Zobacz zrzut ekranu, aby dodać wyjątek i włączyć Jupyter dostęp za pośrednictwem przeglądarki.
 <br/>![Włącz wyjątek Jupyter](./media/ubuntu-jupyter-exception.png)<br/>
@@ -83,13 +83,13 @@ Zaloguj się przy użyciu tego samego hasła jak logowanie do DSVM.
 <br/>![Przykłady CNTK](./media/cntk-samples2.png)<br/>
 <br/>![Przykłady CNTK](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![Przykłady MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
 <br/>![Przykłady AzurekML](./media/azureml-samples.png)<br/>
 
-## <a name="caffe2"></a>Caffe2 
+## <a name="caffe2"></a>caffe2 
 <br/>![Przykłady caffe2](./media/caffe2-samples.png)<br/>
 
 ## <a name="h2o"></a>H2O 

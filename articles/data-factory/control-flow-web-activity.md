@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Działanie sieci Web w fabryce danych Azure
 Działanie WebActivity może być używane do wywoływania niestandardowego punktu końcowego REST z potoku usługi Data Factory. Można przekazywać zestawy danych i połączone usługi do zużycia i dostępu przez działanie. 
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji dla fabryki danych w wersji 1](v1/data-factory-introduction.md).
+> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [dokumentację dotyczącą usługi Data Factory w wersji 1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Składnia
 
@@ -66,22 +66,22 @@ Działanie WebActivity może być używane do wywoływania niestandardowego punk
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania sieci web | Ciąg | Tak
-type | Należy wybrać opcję **WebActivity**. | Ciąg | Tak
-— Metoda | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. <br/><br/>Obsługiwane typy: "GET", "POST", "PUT" | Tak
-adres URL | Docelowy punkt końcowy i ścieżki | Ciąg (lub wyrażenie o wartości resultType ciągu) | Tak
-Nagłówki | Nagłówki, które są wysyłane do żądania. Na przykład, aby ustawić język i typ na żądanie: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Ciąg (lub wyrażenie o wartości resultType ciągu) | Tak, nagłówek Content-type jest wymagany. `"headers":{ "Content-Type":"application/json"}`
-Treści | Reprezentuje ładunek, które są wysyłane do punktu końcowego. Wymagany w przypadku metody POST/PUT.  | Ciąg (lub wyrażenie o wartości resultType ciągu). <br/><br/>Zobacz Schemat ładunku żądania w [schematu ładunku żądania](#request-payload-schema) sekcji. | Nie
-Uwierzytelnianie | Metoda uwierzytelniania używana do wywoływania punktu końcowego. Obsługiwane typy to "Basic lub ClientCertificate." Aby uzyskać więcej informacji, zobacz [uwierzytelniania](#authentication) sekcji. Jeśli uwierzytelnianie nie jest wymagane, należy wykluczyć tę właściwość. | Ciąg (lub wyrażenie o wartości resultType ciągu) | Nie
-Zbiory danych | Lista zestawów danych jest przekazywana do punktu końcowego. | Tablica odwołań do zestawu danych. Może być pustą tablicę. | Tak
-linkedServices | Lista usług połączonych przekazany do punktu końcowego. | Tablica odwołań do połączonej usługi. Może być pustą tablicę. | Tak
+name | Nazwa działania sieci web | Ciąg | Yes
+type | Należy wybrać opcję **WebActivity**. | Ciąg | Yes
+metoda | Metoda interfejsu API REST dla docelowego punktu końcowego. | Ciąg. <br/><br/>Obsługiwane typy: "GET", "POST", "PUT" | Yes
+adres url | Docelowy punkt końcowy i ścieżki | Ciąg (lub wyrażenie o wartości resultType ciągu) | Yes
+nagłówki | Nagłówki, które są wysyłane do żądania. Na przykład, aby ustawić język i typ na żądanie: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Ciąg (lub wyrażenie o wartości resultType ciągu) | Tak, nagłówek Content-type jest wymagany. `"headers":{ "Content-Type":"application/json"}`
+treść | Reprezentuje ładunek, które są wysyłane do punktu końcowego. Wymagany w przypadku metody POST/PUT.  | Ciąg (lub wyrażenie o wartości resultType ciągu). <br/><br/>Zobacz Schemat ładunku żądania w [schematu ładunku żądania](#request-payload-schema) sekcji. | Nie
+uwierzytelnianie | Metoda uwierzytelniania używana do wywoływania punktu końcowego. Obsługiwane typy to "Basic lub ClientCertificate." Aby uzyskać więcej informacji, zobacz [uwierzytelniania](#authentication) sekcji. Jeśli uwierzytelnianie nie jest wymagane, należy wykluczyć tę właściwość. | Ciąg (lub wyrażenie o wartości resultType ciągu) | Nie
+Zbiory danych | Lista zestawów danych jest przekazywana do punktu końcowego. | Tablica odwołań do zestawu danych. Może być pustą tablicę. | Yes
+linkedServices | Lista usług połączonych przekazany do punktu końcowego. | Tablica odwołań do połączonej usługi. Może być pustą tablicę. | Yes
 
 > [!NOTE]
 > Punkty końcowe REST, które wywołuje aktywności sieci web musi zwracać odpowiedzi typu JSON.
 
 ## <a name="authentication"></a>Authentication
 
-### <a name="none"></a>Brak
+### <a name="none"></a>None
 Jeśli uwierzytelnianie nie jest wymagane, nie ma właściwości "uwierzytelnianie".
 
 ### <a name="basic"></a>Podstawowa
@@ -222,7 +222,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)

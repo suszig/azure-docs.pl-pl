@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Przenoszenie danych z MySQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,14 +69,14 @@ Poniższa tabela zawiera opis specyficzne dla usługi MySQL połączone elementy
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesMySql** |Tak |
-| serwer |Nazwa serwera MySQL. |Tak |
-| Bazy danych |Nazwa bazy danych MySQL. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesMySql** |Yes |
+| serwer |Nazwa serwera MySQL. |Yes |
+| baza danych |Nazwa bazy danych MySQL. |Yes |
 | Schemat |Nazwa schematu w bazie danych. |Nie |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych MySQL. Możliwe wartości to: `Basic`. |Tak |
-| nazwa użytkownika |Określ nazwę użytkownika do połączenia z bazą danych MySQL. |Tak |
-| hasło |Określ hasło dla określonego konta użytkownika. |Tak |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych MySQL. |Tak |
+| authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych MySQL. Możliwe wartości to: `Basic`. |Yes |
+| nazwa użytkownika |Określ nazwę użytkownika do połączenia z bazą danych MySQL. |Yes |
+| hasło |Określ hasło dla określonego konta użytkownika. |Yes |
+| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych MySQL. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
@@ -305,42 +305,42 @@ Podczas przenoszenia danych na MySQL, następujące mapowania są używane do ty
 | bigint bez znaku |Decimal |
 | bigint |Int64 |
 | bitowe |Decimal |
-| Obiekt blob |Byte] |
-| wartość logiczna |Wartość logiczna |
+| obiekt blob |Byte[] |
+| bool |Wartość logiczna |
 | char |Ciąg |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
+| data |Data/godzina |
+| datetime |Data/godzina |
 | Decimal |Decimal |
-| podwójnej precyzji |O podwójnej precyzji |
-| O podwójnej precyzji |O podwójnej precyzji |
+| podwójnej precyzji |Podwójnej precyzji |
+| liczba podwójnej precyzji |Podwójnej precyzji |
 | wyliczenia |Ciąg |
-| Float |Pojedynczy |
+| liczba zmiennoprzecinkowa |Kawaler/panna |
 | int unsigned |Int64 |
 | int |Int32 |
 | Liczba całkowita bez znaku |Int64 |
-| Liczba całkowita |Int32 |
-| długie varbinary |Byte] |
+| liczba całkowita |Int32 |
+| długie varbinary |Byte[] |
 | varchar długa |Ciąg |
-| longblob |Byte] |
-| LONGTEXT |Ciąg |
-| mediumblob |Byte] |
+| longblob |Byte[] |
+| longtext |Ciąg |
+| mediumblob |Byte[] |
 | mediumint bez znaku |Int64 |
 | mediumint |Int32 |
 | mediumtext |Ciąg |
 | numeryczne |Decimal |
-| rzeczywiste |O podwójnej precyzji |
+| rzeczywiste |Podwójnej precyzji |
 | zestaw |Ciąg |
 | smallint bez znaku |Int32 |
 | smallint |Int16 |
 | Tekst |Ciąg |
-| time |Zakres czasu |
-| sygnatura czasowa |Data i godzina |
-| tinyblob |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Data/godzina |
+| tinyblob |Byte[] |
 | tinyint bez znaku |Int16 |
 | tinyint |Int16 |
 | tinytext |Ciąg |
 | varchar |Ciąg |
-| Roku |int |
+| rok |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
 Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).

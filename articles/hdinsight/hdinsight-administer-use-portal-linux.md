@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Hadoop w usłudze HDInsight przy użyciu portalu Azure
 
@@ -81,10 +81,10 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
 4. Kliknij klastra z listy w celu wyświetlenia strony Przegląd:
 
     ![Azure portalu essentials klastra usługi HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Omówienie menu:**
-    * **Pulpit nawigacyjny**: Otwiera pulpitu nawigacyjnego klastra, który jest sieci Ambari Web w klastrach opartych na systemie Linux.
+    * **Pulpit nawigacyjny**: Otwiera Ambari web UI dla klastra.
     * **Secure Shell**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH).
     * **Skalowanie klastra**: umożliwia zmianę liczby węzłów procesu roboczego dla tego klastra.
-    * **Przenieś**: Przenieś klaster do grupy zasobów innym lub subskrypcji.
+    * **Przenieś**: Przenosi klastra do innej grupy zasobów lub do innej subskrypcji.
     * **Usuń**: usuwa klastra.
 
     **Menu po lewej stronie:**
@@ -98,7 +98,7 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
     * **Narzędzia HDInsight**: narzędzia powiązane informacje pomocy dla usługi HDInsight.
     * **Użycie Core subskrypcji**: Wyświetl rdzeni używany i dostępny dla Twojej subskrypcji.
     * **Skalowanie klastra**: Zwiększ i zmniejsza liczbę węzłów procesu roboczego w klastrze. Zobacz[skalować klastrów](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + logowania do klastra**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)i zresetuj poświadczeń logowania klastra.
+    * **SSH + logowania do klastra**: zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH). Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Partnera usługi HDInsight**: Dodaj/Usuń bieżącego partnera usługi HDInsight.
     * **Zewnętrzne magazyny**: Wyświetl magazyny Hive i Oozie. Magazyny można skonfigurować tylko w trakcie procesu tworzenia klastra. Zobacz [użyć na potrzeby magazynu metadanych Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Akcje skryptu**: skrypty Bash uruchomić w klastrze. Zobacz [klastrów usługi HDInsight opartej na dostosowanie systemu Linux przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster-linux.md).
@@ -121,7 +121,7 @@ Jeśli wystąpi błąd NoRegisteredProviderFound lub błąd MissingSubscriptionR
    * **Region**: Lokalizacja platformy Azure. Aby uzyskać listę obsługiwanych lokalizacji platformy Azure, zobacz **Region** lista rozwijana na [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Data utworzenia**: Data klastra została wdrożona.
    * **System operacyjny**: albo **Windows** lub **Linux**.
-   * **Typ**: Hadoop, HBase, Storm, Spark.
+   * **Type**: Hadoop, HBase, Storm, Spark.
    * **Wersja**. Zobacz [wersji usługi HDInsight](hdinsight-component-versioning.md).
    * **Subskrypcja**: Nazwa subskrypcji.
    * **Domyślne źródło danych**: domyślny system plików klastra.
@@ -226,6 +226,21 @@ Klaster usługi HDInsight można przenieść do innej grupy zasobów platformy A
 
 Zobacz [uaktualnienia klastra usługi HDInsight do nowszej wersji](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Otwórz interfejs użytkownika sieci web Ambari
+
+Ambari zapewnia intuicyjny, łatwy w użyciu Hadoop zarządzania interfejsu użytkownika sieci web przez jego interfejsy API RESTful. Ambari umożliwia administratorom systemu zarządzania i monitorowania klastrów platformy Hadoop.
+
+1. Otwórz klaster usługi HDInsight w portalu Azure.  Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
+2. Kliknij przycisk **klastra pulpitu nawigacyjnego**.
+
+    ![Menu klastra usługi HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Wprowadź nazwę klastra użytkownika i hasło.  Domyślna nazwa użytkownika klastra _admin_. Ambari web UI wygląda następująco:
+
+    ![Interfejs sieci Web Ambari HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Aby uzyskać więcej informacji, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu użytkownika sieci Web Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Zmienianie haseł
 Klaster usługi HDInsight mogą być dwa konta użytkownika. (Alias konta użytkownika klastra usługi HDInsight Konto użytkownika HTTP) i konto użytkownika SSH są tworzone w trakcie procesu tworzenia. Interfejs użytkownika sieci web Ambari służy do zmiany nazwy użytkownika konta użytkownika klastra i hasła i akcji skryptu, aby zmienić konto użytkownika SSH
 
@@ -266,8 +281,8 @@ Ambari następnie zmiany hasła na wszystkich węzłach w klastrze.
 
    | Pole | Wartość |
    | --- | --- |
-   | Nazwa |Zmień ssh hasło |
-   | Skrypt bash identyfikatora URI |Identyfikator URI do pliku changepassword.sh |
+   | Name (Nazwa) |Zmień ssh hasło |
+   | Identyfikator URI skryptu powłoki systemowej |Identyfikator URI do pliku changepassword.sh |
    | Węzły (Head, proces roboczy, Nimbus, przełożonego, dozorcy itp.) |✓ dla wszystkich typów węzła na liście |
    | Parametry |Wprowadź nazwę użytkownika SSH, a następnie nowe hasło. Powinien być jedną spację między nazwę użytkownika i hasło. |
    | Utrwal tę akcję skryptu... |Nie zaznaczaj tego pola wyboru. |
@@ -349,7 +364,7 @@ Przy użyciu portalu Azure, możesz przeglądać zawartość domyślnego kontene
 * [Korzystanie z programu Hive z usługą HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Używanie protokołu SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule uzyskanych niektóre podstawowe funkcje administracyjne. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Przenoszenie danych z SAP HANA przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ Poniższa tabela zawiera opis specyficzne dla usługi SAP HANA połączone eleme
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-serwer | Nazwa serwera, na którym znajduje się z wystąpieniem SAP HANA. Jeśli serwer używa portu dostosowane, określ `server:port`. | Ciąg | Tak
-Typ authenticationType | Typ uwierzytelniania. | Ciąg. "Basic" lub "Windows" | Tak 
-nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP | Ciąg | Tak
-hasło | Hasło dla użytkownika. | Ciąg | Tak
-gatewayName | Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązywania połączenia z lokalnym wystąpieniem SAP HANA. | Ciąg | Tak
-encryptedCredential | Ciąg zaszyfrowane poświadczenia. | Ciąg | Nie
+serwer | Nazwa serwera, na którym znajduje się z wystąpieniem SAP HANA. Jeśli serwer używa portu dostosowane, określ `server:port`. | ciąg | Yes
+authenticationType | Typ uwierzytelniania. | Ciąg. "Basic" lub "Windows" | Yes 
+nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP | ciąg | Yes
+hasło | Hasło dla użytkownika. | ciąg | Yes
+gatewayName | Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązywania połączenia z lokalnym wystąpieniem SAP HANA. | ciąg | Yes
+encryptedCredential | Ciąg zaszyfrowane poświadczenia. | ciąg | Nie
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
@@ -82,7 +82,7 @@ Gdy źródło w przypadku działania kopiowania jest typu **RelationalSource** (
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query | Określa zapytanie SQL do odczytywania danych z wystąpieniem SAP HANA. | Zapytanie SQL. | Tak |
+| query | Określa zapytanie SQL do odczytywania danych z wystąpieniem SAP HANA. | Zapytanie SQL. | Yes |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Przykład JSON: kopiowanie danych z programu SAP HANA do obiektów Blob platformy Azure
 Poniższy przykład zawiera definicje JSON, których można utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). W tym przykładzie pokazano, jak można skopiować danych z lokalnego SAP HANA do magazynu obiektów Blob Azure. Jednak dane mogą być kopiowane **bezpośrednio** do dowolnego wychwytywanie wymienione [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.  
@@ -288,19 +288,19 @@ TINYINT | Bajtów
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-RZECZYWISTE | Pojedynczy
-O PODWÓJNEJ PRECYZJI | Pojedynczy
+RZECZYWISTE | Kawaler/panna
+O PODWÓJNEJ PRECYZJI | Kawaler/panna
 DECIMAL | Decimal
 WARTOŚĆ LOGICZNA | Bajtów
 VARCHAR | Ciąg
 NVARCHAR | Ciąg
-CLOB | Byte]
+CLOB | Byte[]
 ALPHANUM | Ciąg
-OBIEKT BLOB | Byte]
-DATA | Data i godzina
-CZAS | Zakres czasu
-ZNACZNIK CZASU | Data i godzina
-SECONDDATE | Data i godzina
+BLOB | Byte[]
+DATE | Data/godzina
+CZAS | TimeSpan
+ZNACZNIK CZASU | Data/godzina
+SECONDDATE | Data/godzina
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 Podczas kopiowania danych z programu SAP HANA istnieje kilka znane ograniczenia:

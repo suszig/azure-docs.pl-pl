@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Metoda przyjmuje cztery parametry:
 - **linkedServices**. Ta właściwość jest wyliczalny listę usług połączonych magazyn danych odwołuje się zestaw danych wejścia/wyjścia dla działania.   
 - **zestawy danych**. Ta właściwość jest wyliczalny listę zestawów danych wejścia/wyjścia dla działania. Ten parametr umożliwia pobieranie lokalizacji i schematy wynika z zestawów danych wejściowych i wyjściowych.
 - **działanie**. Ta właściwość reprezentuje bieżącego działania. Umożliwia dostęp rozszerzone właściwości skojarzone z działań niestandardowych do. Zobacz [dostępu właściwości rozszerzone](#access-extended-properties) szczegółowe informacje.
-- **Rejestrator**. Ten obiekt umożliwia zapisanie komentarze debugowania tej powierzchni w dzienniku użytkownika dla potoku.
+- **logger**. Ten obiekt umożliwia zapisanie komentarze debugowania tej powierzchni w dzienniku użytkownika dla potoku.
 
 Metoda zwraca słownik, który może służyć do łańcuch niestandardowych działań w przyszłości. Ta funkcja nie jest jeszcze zaimplementowana, więc Zwróć pusty słownik z metody.  
 

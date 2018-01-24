@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Aplikacji interfejsu API Insights dla niestandardowych zdarzeń i metryk
 
@@ -158,7 +158,7 @@ Aby wysłać pojedynczą wartość metryki:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Oto przykład agregację kodu:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -334,7 +334,7 @@ Dane telemetryczne są dostępne w `customMetrics` tabeli w [Application Insight
 * `valueSum`— Jest to suma pomiarów. Aby uzyskać wartość średnią, podzielić przez `valueCount`.
 * `valueCount`-Liczba pomiarów, które zostały zagregowane w to `trackMetric(..)` wywołania.
 
-## <a name="page-views"></a>Liczba wyświetleń strony
+## <a name="page-views"></a>Wyświetlenia strony
 W aplikacji lub strony sieci Web urządzenia po załadowaniu każdej ekranu lub strony, domyślnie jest wysyłane dane telemetryczne wyświetleń strony. Ale można zmienić, aby śledzić wyświetleń strony w czasie dodatkowych lub innych. Na przykład w aplikacji, która zawiera tabulatory lub bloków, możesz śledzić strony, kiedy użytkownik otwiera nowy blok.
 
 ![Obiektyw użycia w bloku — omówienie](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -422,7 +422,7 @@ Podczas śledzenia telemetrii ręcznie, najprostszym sposobem zapewnienia korela
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ Jeśli [próbkowania](app-insights-sampling.md) jest używany w operacji, właś
 ## <a name="trackdependency"></a>TrackDependency
 Użyj wywołania TrackDependency do śledzenia czasów odpowiedzi i odsetka pomyślnych wywołań zewnętrznego fragmentu kodu. Wyniki są wyświetlane na wykresach zależności w portalu.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ Aby *dynamicznie zatrzymywania i uruchamiania* zbierania i przekazywania danych 
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

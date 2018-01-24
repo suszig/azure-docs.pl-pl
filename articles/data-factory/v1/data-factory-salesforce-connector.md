@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Przenieść dane z witryny Salesforce przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,11 +71,11 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla usłu
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **Salesforce**. |Tak |
+| type |Właściwość type musi mieć ustawioną: **Salesforce**. |Yes |
 | environmentUrl | Określ wystąpienie adres URL usługi Salesforce. <br><br> -Domyślna to "https://login.salesforce.com". <br> -Aby skopiować dane z piaskownicy, określ "https://test.salesforce.com". <br> -Aby skopiować dane z domeny niestandardowej, określ, na przykład "https://[domain].my.salesforce.com". |Nie |
-| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak |
-| hasło |Określ hasło dla konta użytkownika. |Tak |
-| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) instrukcje dotyczące resetowania/Get tokenu zabezpieczającego. Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Tak |
+| nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Yes |
+| hasło |Określ hasło dla konta użytkownika. |Yes |
+| securityToken |Określ tokenu zabezpieczającego dla konta użytkownika. Zobacz [uzyskać token zabezpieczeń](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) instrukcje dotyczące resetowania/Get tokenu zabezpieczającego. Aby dowiedzieć się więcej o tokeny zabezpieczające ogólnie rzecz biorąc, zobacz [zabezpieczeń i interfejsu API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje i właściwości, które są dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, tabeli platformy Azure i tak dalej).
@@ -285,19 +285,19 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę 
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapowanie typu dla usług Salesforce
-| Typ usług SalesForce | . Typ opartej na sieci |
+| Typ Salesforce | . Typ opartej na sieci |
 | --- | --- |
 | Automatyczny numer |Ciąg |
 | Pole wyboru |Wartość logiczna |
-| Waluta |O podwójnej precyzji |
-| Date |Data i godzina |
-| Data i godzina |Data i godzina |
+| Waluta |Podwójnej precyzji |
+| Date |Data/godzina |
+| Data/godzina |Data/godzina |
 | Adres e-mail |Ciąg |
 | Identyfikator |Ciąg |
 | Relacja wyszukiwania |Ciąg |
 | Lista wyboru wielokrotnego wyboru |Ciąg |
-| Liczba |O podwójnej precyzji |
-| Procent |O podwójnej precyzji |
+| Liczba |Podwójnej precyzji |
+| Procent |Podwójnej precyzji |
 | Numer telefonu |Ciąg |
 | Lista wyboru |Ciąg |
 | Tekst |Ciąg |
@@ -305,7 +305,7 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę 
 | Obszar tekstu (Liczba długa) |Ciąg |
 | Obszar tekstu (zaawansowana) |Ciąg |
 | Tekst (zaszyfrowane) |Ciąg |
-| ADRES URL |Ciąg |
+| Adres URL |Ciąg |
 
 > [!NOTE]
 > Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).

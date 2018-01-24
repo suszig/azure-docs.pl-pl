@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Zarządzanie środowiska uruchomieniowego integracji usług SSIS Azure
 [Utworzyć środowiska uruchomieniowego integracji usług SSIS Azure](create-azure-ssis-integration-runtime.md) artykule przedstawiono sposób tworzenia Azure SSIS integrację środowiska uruchomieniowego (IR) przy użyciu fabryki danych Azure. Ten artykuł zawiera informacje o konieczności ponownej konfiguracji istniejącego środowiska uruchomieniowego integracji usług SSIS Azure.  
@@ -25,9 +25,28 @@ ms.lasthandoff: 01/13/2018
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz [Data Factory version 1 documentation (Dokumentacja usługi Data Factory w wersji 1)](v1/data-factory-introduction.md).
 
+
+## <a name="data-factory-ui"></a>Fabryka danych interfejsu użytkownika 
+Interfejs fabryki danych służy do zatrzymania, edycji/ponownej konfiguracji i usuwania IR. Azure SSIS 
+
+1. W **interfejsu użytkownika z fabryki danych**, przełącz się do **Edytuj** kartę. Aby uruchomić interfejs użytkownika z fabryki danych, kliknij przycisk **autora & Monitor** na stronie głównej w fabryce danych.
+2. W okienku po lewej stronie kliknij **połączenia**.
+3. W okienku po prawej stronie, przełącz się do **środowisk uruchomieniowych integracji**. 
+4. Można użyć przycisków w kolumnie Akcje **zatrzymać**, **Edytuj**, lub **usunąć** środowiska uruchomieniowego integracji. **Kod** przycisk **akcje** kolumny umożliwia wyświetlanie definicji JSON skojarzony ze środowiskiem uruchomieniowym integracji.  
+    
+    ![Akcje dotyczące IR Azure SSIS](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Aby zmienić konfigurację IR Azure SSIS
+1. Zatrzymać środowiska uruchomieniowego integracji, klikając **zatrzymać** w **akcje** kolumny. Aby odświeżyć widok listy, kliknij przycisk **Odśwież** na pasku narzędzi. Po wyłączeniu IR, zobaczysz, że pierwszą akcją umożliwia uruchamianie IR. 
+
+    ![Akcje dotyczące Azure SSIS IR — po wyłączeniu](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Edytuj/reconfigure IR, klikając **Edytuj** przycisk **akcje** kolumny. W **ustawień środowiska uruchomieniowego integracji** okna, Zmień ustawienia (na przykład rozmiaru węzła, liczba węzłów lub maksymalna wykonaniami równoległego na węzeł). 
+3. Aby ponownie uruchomić IR, kliknij przycisk **Start** przycisk **akcje** kolumny.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Po obsługi administracyjnej i uruchomić wystąpienia środowiska uruchomieniowego integracji usług SSIS Azure, można ponownie skonfigurować go przez uruchomienie sekwencji `Stop`  -  `Set`  -  `Start` poleceń cmdlet programu PowerShell po kolei. Na przykład poniższy skrypt programu PowerShell zmienia numer przydzielone dla wystąpienia środowiska uruchomieniowego integracji usług SSIS Azure do pięciu węzłów.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Skonfiguruj ponownie IR Azure SSIS
+### <a name="reconfigure-an-azure-ssis-ir"></a>Skonfiguruj ponownie IR Azure SSIS
 
 1. Najpierw należy zatrzymać środowiska uruchomieniowego integracji usług SSIS Azure za pomocą [Stop AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) polecenia cmdlet. To polecenie zwalnia wszystkich jego węzłów i zatrzymuje rozliczeń.
 
@@ -45,7 +64,7 @@ Po obsługi administracyjnej i uruchomić wystąpienia środowiska uruchomieniow
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Usuń IR Azure SSIS
+### <a name="delete-an-azure-ssis-ir"></a>Usuń IR Azure SSIS
 1. Po pierwsze Wyświetl listę wszystkich istniejących amerykańskim SSIS Azure w fabryce danych.
 
     ```powershell

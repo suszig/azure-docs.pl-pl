@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Ramka zabezpieczeń: Zarządzanie wyjątkami | Środki zaradcze 
 | Produktów i usług | Artykuł |
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="servicedebug"></a>Usługi WCF - nie zawiera węzła serviceDebug w pliku konfiguracji
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny, NET Framework 3 |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [uzyskania zawartości Królestwo](https://vulncat.fortify.com/en/vulncat/index.html) |
 | **Kroki** | Usług Windows Communication Framework (WCF) można skonfigurować w celu ujawnienie informacji debugowania. Debugowanie informacji nie powinna być używana w środowisku produkcyjnym. `<serviceDebug>` Tagów Określa, czy dla usługi WCF jest włączona funkcja informacji debugowania. Jeśli includeExceptionDetailInFaults atrybut ma ustawioną wartość true, informacje o wyjątku z aplikacji, zostanie zwrócony do klientów. Osoby atakujące mogą korzystać z dodatkowych informacji, które będą mogli z debugowania dane wyjściowe można zainstalować ataków ukierunkowanych na platformę, bazy danych lub inne zasoby używane przez aplikację. |
 
@@ -53,7 +53,7 @@ Wyłącz informacji o debugowaniu w usłudze. Można to zrobić przez usunięcie
 
 ## <a id="servicemetadata"></a>Usługi WCF - nie zawiera węzła serviceMetadata w pliku konfiguracji
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | WCF | 
 | **Faza SDL**               | Kompilacja |  
@@ -64,18 +64,18 @@ Wyłącz informacji o debugowaniu w usłudze. Można to zrobić przez usunięcie
 
 ## <a id="exception"></a>Upewnij się, że odpowiednich wyjątków odbywa się w interfejsie API sieci Web ASP.NET
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Interfejs API sieci Web | 
 | **Faza SDL**               | Kompilacja |  
-| **Zastosowanie technologii** | MVC 5, 6 MVC |
-| **Atrybuty**              | Nie dotyczy  |
+| **Zastosowanie technologii** | MVC 5, MVC 6 |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Obsługa wyjątków w ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [modelu weryfikacji w składniku ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Kroki** | Domyślnie większość nieprzechwyconych wyjątków w interfejsie API sieci Web platformy ASP.NET są przetłumaczyć z kodem stanu odpowiedzi HTTP`500, Internal Server Error`|
 
 ### <a name="example"></a>Przykład
 Aby kontrolować kod stanu zwrócony przez interfejs API, `HttpResponseException` można w sposób przedstawiony poniżej: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Przykład
 Dla dalszego formantu w odpowiedzi wyjątek `HttpResponseMessage` klasa może być używana, jak pokazano poniżej: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ Aby przechwycić nieobsługiwane wyjątki, które nie są typu `HttpResponseExce
 
 ### <a name="example"></a>Przykład
 Oto filtr, który konwertuje `NotImplementedException` wyjątków w kodzie stanu HTTP `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ Istnieje kilka sposobów, aby zarejestrować filtru wyjątków interfejsu API si
 
 ### <a name="example"></a>Przykład
 Aby zastosować filtr do określonej akcji, należy dodać filtr jako atrybut do akcji: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>Przykład
 Aby zastosować filtr do wszystkich akcji w `controller`, Dodaj filtr jako atrybut do `controller` klasy: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>Przykład
 Aby zastosować filtr globalnie do wszystkich kontrolerów interfejsu API sieci Web, należy dodać wystąpienia filtr, aby `GlobalConfiguration.Configuration.Filters` kolekcji. Zastosuj filtry wyjątków w tej kolekcji do dowolnej akcji kontrolera interfejsu API sieci Web. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Przykład
 Do weryfikacji modelu stan modelu mogą zostać przekazane do metody CreateErrorResponse, jak pokazano poniżej: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -182,50 +182,50 @@ Sprawdź łącza w sekcji odwołań, aby uzyskać więcej informacji o obsługę
 
 ## <a id="messages"></a>Nie ujawniaj szczegóły zabezpieczeń w komunikatach o błędach
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | <p>Ogólne komunikaty o błędach są dostarczane bezpośrednio do użytkownika bez włącznie z danymi poufnej aplikacji. Przykłady danych poufnych:</p><ul><li>Nazwy serwerów</li><li>Parametry połączeń</li><li>Nazwy użytkowników</li><li>Hasła</li><li>Procedury SQL</li><li>Szczegóły błędów SQL dynamiczne</li><li>Ślad stosu i wiersze kodu</li><li>Zmiennych przechowywanych w pamięci</li><li>Dysk i folder lokalizacji</li><li>Punkty instalacji aplikacji</li><li>Ustawienia konfiguracji hosta</li><li>Inne szczegóły aplikacja wewnętrzna</li></ul><p>Generują pułapki wszystkich błędów w aplikacji i zapewnianie ogólne komunikaty o błędach, a także włączenie błędy niestandardowe w ramach usług IIS pomaga zapobiegać ujawnienie informacji. Baza danych SQL Server i .NET obsługi wyjątków, między inny błąd obsługi architektury, są szczególnie pełne i bardzo przydatne złośliwy użytkownik profilowania aplikacji. Nie bezpośrednio wyświetlić zawartość klasy pochodzącej od klasy wyjątków .NET i upewnij się, czy masz odpowiednie wyjątków, dzięki czemu wystąpił nieoczekiwany wyjątek przypadkowo nie jest wywoływane bezpośrednio do użytkownika.</p><ul><li>Podaj ogólne komunikaty o błędach bezpośrednio do użytkownika, który abstrakcyjnej nieobecności szczegółowe znaleziono bezpośrednio wyjątek/komunikatu o błędzie</li><li>Nie wyświetlaj zawartość klasy wyjątków .NET bezpośrednio do użytkownika</li><li>Pułapki wszystkie komunikaty o błędach i w razie potrzeby powiadamia użytkownika za pośrednictwem ogólny komunikat o błędzie wysyłany do aplikacji klienta</li><li>Nie ujawniaj treść klasy wyjątku bezpośrednio do użytkownika, szczególnie wartość zwrotną z elementu `.ToString()`, lub wartości właściwości komunikatu lub ślad stosu. Bezpiecznego logowania te informacje i wyświetli komunikat więcej nieszkodliwe dla użytkownika</li></ul>|
 
 ## <a id="default"></a>Implementowanie obsługi strony błędów domyślne
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Edytuj okno dialogowe ustawień stron błędów ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
 | **Kroki** | <p>Aplikacja ASP.NET nie powiedzie się i powoduje, że wystąpił wewnętrzny błąd serwera HTTP/1.x 500 lub Konfiguracja funkcji, (na przykład Filtrowanie żądań) zapobiega wyświetlaniu strony, zostanie wygenerowany komunikat o błędzie. Administratorzy mogą wybrać, czy aplikacja powinien być wyświetlany przyjazny komunikat klienta, szczegółowy komunikat o błędzie do klienta lub szczegółowy komunikat o błędzie tylko localhost. <customErrors> Znacznika w pliku web.config ma trzy tryby:</p><ul><li>**Na:** Określa, czy błędy niestandardowe są włączone. Jeśli zostanie określony bez atrybutu defaultRedirect, użytkownicy widzą błąd ogólny. Błędy niestandardowe są wyświetlane z klientami zdalnymi, jak i dla hosta lokalnego</li><li>**OFF:** Określa, czy błędy niestandardowe są wyłączone. Szczegóły błędów platformy ASP.NET są wyświetlane z klientami zdalnymi, jak i dla hosta lokalnego</li><li>**RemoteOnly:** Określa, czy błędy niestandardowe są wyświetlane tylko klienci zdalni i czy błędy programu ASP.NET są widoczne dla hosta lokalnego. Jest to wartość domyślna</li></ul><p>Otwórz `web.config` dla witryny/aplikacji i upewnij się, że znacznik ma `<customErrors mode="RemoteOnly" />` lub `<customErrors mode="On" />` zdefiniowane.</p>|
 
 ## <a id="deployment"></a>Ustaw metody wdrażania na wersję handlową w usługach IIS
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Wdrożenie |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [wdrożenie — Element (schemat ustawień programu ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
 | **Kroki** | <p>`<deployment retail>` Przełącznik jest przeznaczony dla systemów produkcyjnych serwerów usług IIS. Ta opcja służy do aplikacje z najlepszą wydajność i najmniejsze wycieków informacji zabezpieczeń przez wyłączenie aplikacji możliwość generowania danych wyjściowych śledzenia na stronie wyłączenie możliwość wyświetlania szczegółowych komunikatów o błędach do Użytkownicy końcowi i wyłączanie przełącznika debugowania.</p><p>Często, przełączniki i opcje, które są ukierunkowane developer, takie jak nie powiodło się żądanie śledzenia i debugowania, są włączane podczas opracowywania active. Zaleca się, że metoda wdrażania na dowolnym serwerze produkcyjnym można ustawić na wersję handlową. Otwórz plik machine.config i upewnij się, że `<deployment retail="true" />` pozostaje ustawioną wartość true.</p>|
 
 ## <a id="fail"></a>Wyjątki powinna zakończyć się niepowodzeniem bezpiecznie
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Niepowodzenie bezpiecznego](https://www.owasp.org/index.php/Fail_securely) |
 | **Kroki** | Aplikacja powinna zakończyć się niepowodzeniem bezpiecznie. Dowolnej metody, która zwraca wartość logiczną, oparte na następuje pewnych decyzji, powinien mieć dokładnie utworzyć bloku wyjątków. Istnieje wiele błędów logicznych ze względu na których pełzanie w po bloku wyjątków są zapisywane zaniedbali. problemy dotyczące zabezpieczeń.|
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

@@ -11,13 +11,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 01/22/2018
 ms.author: nitinme
-ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b56253e7b9c9ab144ebc4006511631756de4f89b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Często zadawane pytania dotyczące usługi Azure Databricks
 
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji, zobacz [Użyj Data Lake Store z Azure Databrick
 
 Poniżej przedstawiono kilka problemów, które mogą wystąpić z Databricks.
 
-### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Ta subskrypcja nie jest zarejestrowany do korzystania z przestrzeni nazw "Microsoft.Databricks"
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problem: Ta subskrypcja nie jest zarejestrowany do korzystania z przestrzeni nazw "Microsoft.Databricks"
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
@@ -55,7 +55,7 @@ Poniżej przedstawiono kilka problemów, które mogą wystąpić z Databricks.
 3. Lista dostawców zasobów przed **Microsoft.Databricks**, wybierz pozycję **zarejestrować**. Musi mieć rolę współautora lub właściciela subskrypcji można zarejestrować dostawcy zasobów.
 
 
-### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure
+### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problem: Twoje konto {e-mail} nie ma roli właściciela lub współautora Databricks zasobu obszaru roboczego w portalu Azure
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
@@ -71,36 +71,36 @@ Poniżej przedstawiono kilka rozwiązania tego problemu:
 
     a. W portalu Azure przejdź do usługi Azure AD. Wybierz **użytkowników i grup** > **dodać użytkownika**.
 
-    b. Dodaj użytkownika z `@<tenant_name>.onmicrosoft.com` e-mail zamiast `@<your_domain>` wiadomości e-mail. Można je znaleźć w **domen niestandardowych**, w obszarze usługi Azure AD w portalu Azure.
+    b. Dodaj użytkownika z `@<tenant_name>.onmicrosoft.com` e-mail zamiast `@<your_domain>` wiadomości e-mail. Można znaleźć tej opcji w **domen niestandardowych**, w obszarze usługi Azure AD w portalu Azure.
     
-    c. Przyznaj tym nowego użytkownika **współautora** roli Databricks zasobu obszaru roboczego.
+    d. Przyznaj tym nowego użytkownika **współautora** roli Databricks zasobu obszaru roboczego.
     
     d. Zaloguj się do portalu Azure za pomocą nowego użytkownika, a następnie znajdź obszar roboczy Databricks.
     
     e. Uruchom obszaru roboczego Databricks jako ten użytkownik.
 
 
-### <a name="your-account-email-has-not-been-registered-in-databricks"></a>Konto {e-mail} nie został zarejestrowany w Databricks 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problem: Twoje konto {e-mail} nie została zarejestrowana w Databricks 
 
 #### <a name="solution"></a>Rozwiązanie
 
 Jeśli nie może utworzyć obszaru roboczego i są dodawane jako użytkownik, skontaktuj się z osobą, która utworzyła obszaru roboczego. Mieć tej osoby, które można dodać przy użyciu konsoli administracyjnej Databricks Azure. Aby uzyskać instrukcje, zobacz [Dodawanie i zarządzanie użytkownikami](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Jeśli utworzono obszar roboczy i nadal ten błąd, spróbuj wybrać **zainicjować obszaru roboczego** ponownie z portalu Azure.
 
-### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Błąd uruchamiania dostawcy usług w chmurze podczas konfigurowania klastra
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problem: Błąd uruchamiania dostawcy chmury podczas konfigurowania klastra (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
-"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji. Kod błędu systemu Azure: PublicIPCountLimitReached. Komunikat o błędzie platformy Azure: nie można utworzyć więcej niż 60 publicznych adresów IP dla tej subskrypcji w tym regionie. "
+"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Aby uzyskać więcej informacji zobacz Podręcznik Databricks. Kod błędu systemu Azure: PublicIPCountLimitReached. Komunikat o błędzie platformy Azure: nie można utworzyć więcej niż 60 publicznych adresów IP dla tej subskrypcji w tym regionie. "
 
 #### <a name="solution"></a>Rozwiązanie
 
 Dzięki klastrom Databricks jeden publiczny adres IP na węzeł. Jeśli subskrypcja jest już używana wszystkich swoich publicznych adresów IP, należy [żądania, aby zwiększyć przydział](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Wybierz **przydziału** jako **wydawania typu**, i **sieci: ARM** jako **typu przydziału**. W **szczegóły**, zażądać zwiększenia limitu przydziału publicznego adresu IP. Na przykład jeśli limit jest obecnie 60, a ma zostać utworzony 100 węzła klastra, zażądać zwiększenia limitu do 160.
 
-### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Drugi typ błąd uruchamiania dostawcy chmury podczas konfigurowania klastra
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problem: Drugi typ błąd uruchamiania dostawcy chmury podczas konfigurowania klastra (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Komunikat o błędzie
 
-"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Zobacz Przewodnik Databricks, aby uzyskać więcej informacji.
+"Błąd uruchamiania dostawcy usług w chmurze: Napotkano błąd dostawcy chmury podczas konfigurowania klastra. Aby uzyskać więcej informacji zobacz Podręcznik Databricks.
 Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRegistration Azure: subskrypcji nie jest zarejestrowany w celu używania przestrzeni nazw "Microsoft.Compute". Zobacz https://aka.ms/rps-not-found dotyczące sposobu rejestrowania subskrypcji."
 
 #### <a name="solution"></a>Rozwiązanie
@@ -111,7 +111,17 @@ Kod błędu systemu Azure: komunikat o błędzie platformy MissingSubscriptionRe
 
 Aby uzyskać szczegółowe instrukcje, zobacz [dostawców zasobów i typów](../azure-resource-manager/resource-manager-supported-services.md).
 
-## <a name="next-steps"></a>Następne kroki
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problem: Azure Databricks wymaga uprawnień dostępu do zasobów w organizacji, którzy mogą udzielić tylko administrator.
+
+#### <a name="background"></a>Tła
+
+Azure Databricks jest zintegrowany z usługą Azure AD. Dzięki temu można ustawić uprawnień w ramach Azure Databricks (na przykład na notesów lub klastry), określając użytkowników z usługi Azure AD. Dla Databricks Azure można było wyświetlić listę nazw użytkowników z usługi Azure AD wymaga uprawnienia do odczytu do tych informacji. Wymaga to zgodę. Jeśli zgody nie jest już dostępny, zostanie wyświetlony błąd.
+
+#### <a name="solution"></a>Rozwiązanie
+
+Zaloguj się jako administrator globalny do portalu Azure. Dla usługi Azure Active Directory, przejdź do **ustawienia użytkownika** karcie i upewnij się, że **użytkowników można wyrazić zgodę na dostęp do danych firmowych w ich imieniu aplikacji** ustawiono **tak**.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Szybki Start: Rozpoczynanie pracy z Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Co to jest Azure Databricks?](what-is-azure-databricks.md)

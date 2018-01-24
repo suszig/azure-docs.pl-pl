@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Aplikacje konsoli usługi Application Insights dla platformy .NET
 [Usługa Application Insights](app-insights-overview.md) umożliwia monitorowanie aplikacji sieci web, dostępności, wydajności i użycia.
@@ -31,7 +31,7 @@ Konieczna jest subskrypcja z [Microsoft Azure](http://azure.com). Zaloguj się p
 * Zainstaluj najnowsze [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pakietu.
 * Ustaw klucz Instrumentacji w kodzie przed wszystkie dane telemetryczne śledzenia (lub ustaw dla zmiennej środowiskowej APPINSIGHTS_INSTRUMENTATIONKEY). Po wykonaniu tej powinno być możliwe do ręcznego śledzenia telemetrii i jest widoczny w portalu Azure
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
@@ -45,13 +45,13 @@ Możesz zainicjować i Konfiguruj usługę Application Insights z kodu lub przy 
 
 Domyślnie zestaw SDK usługi Application Insights szuka `ApplicationInsights.config` pliku w katalogu roboczym podczas `TelemetryConfiguration` jest tworzony
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
 Może również określić ścieżkę do pliku konfiguracji.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
@@ -90,7 +90,7 @@ Pełny przykład pliku konfiguracyjnego może zostać przez zainstalowanie najno
 
 * Podczas uruchamiania aplikacji należy utworzyć i skonfigurować `DependencyTrackingTelemetryModule` wystąpienie — musi być pojedynczą i muszą zostać zachowane czas ich istnienia aplikacji.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * Dodaj wspólne inicjatory telemetrii
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -121,7 +121,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 
 #### <a name="full-example"></a>Pełny przykład
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;

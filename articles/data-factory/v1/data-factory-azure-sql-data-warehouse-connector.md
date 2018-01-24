@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiowanie danych do i z usługi Azure SQL Data Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,8 +72,8 @@ Poniższa tabela zawiera opis specyficzne dla usługi Azure SQL Data Warehouse p
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **AzureSqlDW** |Tak |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
+| type |Właściwość type musi mieć ustawioną: **AzureSqlDW** |Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem usługi Azure SQL Data Warehouse właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Yes |
 
 > [!IMPORTANT]
 > Skonfiguruj [zapory bazy danych SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) i serwer bazy danych do [Zezwalaj usługom Azure na dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto jeśli kopiujesz danych Azure SQL Data Warehouse z poza tym Azure z lokalnych źródeł danych z bramą fabryki danych, należy skonfigurować odpowiedni zakres adresów IP dla komputera, który wysyła dane do usługi Azure SQL Data Warehouse.
@@ -85,7 +85,7 @@ Sekcja typeProperties jest różne dla każdego typu zestawu danych i zawiera in
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli lub widoku w bazie danych Azure SQL Data Warehouse, odnoszący się do połączonej usługi. |Tak |
+| tableName |Nazwa tabeli lub widoku w bazie danych Azure SQL Data Warehouse, odnoszący się do połączonej usługi. |Yes |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
@@ -148,7 +148,7 @@ GO
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania do wykonania w taki sposób, że dane określonych wycinek jest wyczyszczone. Aby uzyskać więcej informacji, zobacz [sekcji powtarzalności](#repeatability-during-copy). |Instrukcja zapytania. |Nie |
 | allowPolyBase |Wskazuje, czy do użycia zamiast mechanizmu BULKINSERT PolyBase (jeśli jest to wymagane). <br/><br/> **Przy użyciu programu PolyBase jest zalecanym sposobem ładowanie danych do usługi SQL Data Warehouse.** Zobacz [Użyj programu PolyBase, aby załadować dane do usługi Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) sekcji dla ograniczenia i szczegółów. |True <br/>Wartość FAŁSZ (ustawienie domyślne) |Nie |
-| Usługi |Grupy właściwości, które można określić, kiedy **allowPolybase** właściwość jest ustawiona na **true**. |&nbsp; |Nie |
+| polyBaseSettings |Grupy właściwości, które można określić, kiedy **allowPolybase** właściwość jest ustawiona na **true**. |&nbsp; |Nie |
 | rejectValue |Określa liczbę lub odsetek wierszy, które można odrzucić przed zapytanie nie powiedzie się. <br/><br/>Dowiedz się więcej o opcjach Odrzuć PolyBase **argumenty** sekcji [Tworzenie tabeli zewnętrznej (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tematu. |0 (domyślnie), 1, 2... |Nie |
 | dla właściwości rejectType |Określa, czy opcja rejectValue jest określona jako wartość literału lub wartość procentowa. |Wartość (ustawienie domyślne), wartość procentowa |Nie |
 | rejectSampleValue |Określa liczbę wierszy do pobrania przed PolyBase ponownie oblicza procent odrzuconych wierszy. |1, 2, … |Tak, jeśli **dla właściwości rejectType** jest **procent** |
@@ -277,9 +277,9 @@ Poniższa tabela zawiera przykłady dotyczące sposobu określania **tableName**
 
 | Schemat bazy danych | Nazwa tabeli | Właściwość tableName JSON |
 | --- | --- | --- |
-| właściciel bazy danych |MyTable |MyTable lub dbo. MyTable lub [dbo]. [MyTable] |
+| dbo |MyTable |MyTable lub dbo. MyTable lub [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable lub [dbo1]. [MyTable] |
-| właściciel bazy danych |My.Table |[My.Table] lub [dbo]. [My.Table] |
+| dbo |My.Table |[My.Table] lub [dbo]. [My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
 Jeśli zostanie wyświetlony następujący błąd, może to być problem z wartość określona dla właściwości tableName. Poniższa tabela dla poprawne sposobu na określenie wartości dla właściwości tableName JSON.  
@@ -307,10 +307,10 @@ Fabryka danych tworzy tabeli w magazynie docelowym o takiej samej nazwie tabeli 
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| bitowe | bitowe |
+| Bit | Bit |
 | Decimal | Decimal |
 | numeryczne | Decimal |
-| Float | Float |
+| Liczba zmiennoprzecinkowa | Liczba zmiennoprzecinkowa |
 | oszczędność pieniędzy | oszczędność pieniędzy |
 | Real | Real |
 | SmallMoney | SmallMoney |
@@ -325,12 +325,12 @@ Fabryka danych tworzy tabeli w magazynie docelowym o takiej samej nazwie tabeli 
 | Tekst | Varchar (maksymalnie 8000) |
 | NText | NVarChar (maksymalnie 4000) |
 | Image (Obraz) | VarBinary (maksymalnie 8000) |
-| Unikatowy identyfikator | Unikatowy identyfikator |
+| UniqueIdentifier | UniqueIdentifier |
 | char | char |
 | NChar | NChar |
 | VarChar | VarChar (maksymalnie 8000) |
 | NVarChar | NVarChar (maksymalnie 4000) |
-| XML | Varchar (maksymalnie 8000) |
+| Xml | Varchar (maksymalnie 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,7 +347,7 @@ Mapowanie jest taka sama jak [mapowanie typu danych serwera SQL dla ADO.NET](htt
 | Typ aparatu bazy danych programu SQL Server | Typ programu .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
 | data |Data/godzina |
@@ -355,9 +355,9 @@ Mapowanie jest taka sama jak [mapowanie typu danych serwera SQL dla ADO.NET](htt
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
@@ -365,19 +365,19 @@ Mapowanie jest taka sama jak [mapowanie typu danych serwera SQL dla ADO.NET](htt
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Bajtów |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 Można również mapować kolumn z zestawu źródła danych do kolumn z zestawu danych zbiornika w definicji działania kopiowania. Aby uzyskać więcej informacji, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 

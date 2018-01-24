@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Wypychanie danych do indeksu usługi Azure Search przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,9 +59,9 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla usłu
 
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| type | Właściwość type musi mieć ustawioną: **AzureSearch**. | Tak |
-| adres URL | Adres URL dla usługi Azure Search. | Tak |
-| key | Klucz administratora dla usługi Azure Search. | Tak |
+| type | Właściwość type musi mieć ustawioną: **AzureSearch**. | Yes |
+| adres url | Adres URL dla usługi Azure Search. | Yes |
+| key | Klucz administratora dla usługi Azure Search. | Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
@@ -69,8 +69,8 @@ Aby uzyskać pełną listę sekcje i właściwości, które są dostępne do def
 
 | Właściwość | Opis | Wymagane |
 | -------- | ----------- | -------- |
-| type | Właściwość type musi mieć ustawioną **AzureSearchIndex**.| Tak |
-| indexName | Nazwa indeksu usługi Azure Search. Fabryki danych nie powoduje utworzenia indeksu. Indeks musi istnieć w usłudze Azure Search. | Tak |
+| type | Właściwość type musi mieć ustawioną **AzureSearchIndex**.| Yes |
+| indexName | Nazwa indeksu usługi Azure Search. Fabryki danych nie powoduje utworzenia indeksu. Indeks musi istnieć w usłudze Azure Search. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
@@ -81,7 +81,7 @@ Dla działania kopiowania, gdy obiekt sink jest typu **AzureSearchIndexSink**, w
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Określa, czy należy scalić lub Zastąp, jeśli istnieje już dokument w indeksie. Zobacz [WriteBehavior właściwości](#writebehavior-property).| Merge (ustawienie domyślne)<br/>Upload| Nie |
-| writeBatchSize | Przekazywanie danych do indeksu usługi Azure Search, gdy writeBatchSize osiągnie rozmiar buforu. Zobacz [właściwości WriteBatchSize](#writebatchsize-property) szczegółowe informacje. | 1 do 1000. Wartość domyślna to 1000. | Nie |
+| WriteBatchSize | Przekazywanie danych do indeksu usługi Azure Search, gdy writeBatchSize osiągnie rozmiar buforu. Zobacz [właściwości WriteBatchSize](#writebatchsize-property) szczegółowe informacje. | 1 do 1000. Wartość domyślna to 1000. | Nie |
 
 ### <a name="writebehavior-property"></a>Właściwość WriteBehavior
 Upserts AzureSearchSink podczas zapisywania danych. Innymi słowy podczas zapisywania dokumentu, jeśli klucz dokumentu już istnieje w indeksie usługi Azure Search, usługi Azure Search aktualizuje istniejący dokument zamiast zgłaszanie wyjątków konflikt.
@@ -104,7 +104,7 @@ Poniższa tabela określa, czy lub nie obsługuje typu danych usługi Azure Sear
 | Ciąg | Tak |
 | Int32 | Tak |
 | Int64 | Tak |
-| O podwójnej precyzji | Tak |
+| Podwójnej precyzji | Tak |
 | Wartość logiczna | Tak |
 | DataTimeOffset | Tak |
 | Tablica ciągów | N |
@@ -292,7 +292,7 @@ Można również mapować kolumn z zestawu źródła danych do kolumn z zestawu 
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie  
 Zobacz [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md) Aby dowiedzieć się więcej o kluczowych czynników tego wydajności wpływ przenoszenia danych (działanie kopiowania) i zoptymalizować ją na różne sposoby.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły:
 
 * [Samouczek działania kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) instrukcje krok po kroku do tworzenia potoku z działania kopiowania.

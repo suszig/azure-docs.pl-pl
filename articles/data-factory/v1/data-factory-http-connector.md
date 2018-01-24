@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b03be0df05f85ec9ecd1fca4042e87c838022c7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła HTTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,9 +50,9 @@ Poniższa tabela zawiera opis specyficzne dla protokołu HTTP elementy JSON poł
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type | Właściwość type musi mieć ustawioną: `Http`. | Tak |
-| adres URL | Podstawowy adres URL do serwera sieci Web | Tak |
-| Typ authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Tak |
+| type | Właściwość type musi mieć ustawioną: `Http`. | Yes |
+| adres url | Podstawowy adres URL do serwera sieci Web | Yes |
+| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Yes |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikacji certyfikatu serwera SSL, jeśli źródło jest serwer sieci Web protokołu HTTPS | Nie, domyślna to true |
 | gatewayName | Nazwa bramy zarządzania danymi do łączenia się z lokalnym źródłem HTTP. | Tak, jeśli kopiowanie danych z lokalnego źródła HTTP. |
 | encryptedCredential | Zaszyfrowane poświadczenia można uzyskać dostępu do punktu końcowego HTTP. Wygenerowany automatycznie podczas konfigurowania informacji o uwierzytelnianiu w kreatorze kopiowania lub w oknie podręcznym ClickOnce. | Nie. Mają zastosowanie tylko wtedy, gdy kopiowanie danych z lokalnego serwera HTTP. |
@@ -65,8 +65,8 @@ Ustaw `authenticationType` jako `Basic`, `Digest`, lub `Windows`i określ nastę
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| nazwa użytkownika | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Tak |
-| hasło | Hasło dla użytkownika (username). | Tak |
+| nazwa użytkownika | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Yes |
+| hasło | Hasło dla użytkownika (username). | Yes |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Przykład: uwierzytelnianie podstawowe, szyfrowane lub systemu Windows
 
@@ -152,7 +152,7 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Określony typ zestawu danych. należy wybrać opcję `Http`. | Tak |
+| type | Określony typ zestawu danych. należy wybrać opcję `Http`. | Yes |
 | relativeUrl | Względny adres URL do zasobu, który zawiera dane. Jeśli ścieżka nie jest określona, używana jest tylko adres URL określony w definicji połączonej usługi. <br><br> Aby skonstruować dynamicznego adresu URL, można użyć [funkcje fabryki danych i zmienne systemu](data-factory-functions-variables.md), np. "relativeUrl": "$$Text.Format (" / Moje/raport? miesiąca = {0: yyyy}-{0:MM} & formatowaniu = csv ", SliceStart)". | Nie |
 | requestMethod | Metoda HTTP. Dozwolone wartości to **UZYSKAĆ** lub **POST**. | Nie. Domyślnie jest `GET`. |
 | additionalHeaders | Dodatkowych nagłówków żądania HTTP. | Nie |

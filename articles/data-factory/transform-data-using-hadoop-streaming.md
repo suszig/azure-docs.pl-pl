@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działaniu przesyłania strumieniowego usługi Hadoop w usłudze fabryka danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,22 +74,22 @@ Jeśli jesteś nowym użytkownikiem usługi fabryka danych Azure, zapoznaj się 
 
 | Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nazwa działania                     | Tak      |
+| name              | Nazwa działania                     | Yes      |
 | description       | Tekst opisujący działanie służy do | Nie       |
-| type              | Typ działania działaniu przesyłania strumieniowego usługi Hadoop jest HDInsightStreaming | Tak      |
-| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Tak      |
-| mapowania            | Określa nazwę pliku wykonywalnego mapowania | Tak      |
-| Reduktor           | Określa nazwę pliku wykonywalnego reduktor | Tak      |
-| łączenia          | Określa nazwę pliku wykonywalnego łączenia | Nie       |
+| type              | Typ działania działaniu przesyłania strumieniowego usługi Hadoop jest HDInsightStreaming | Yes      |
+| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
+| mapowania            | Określa nazwę pliku wykonywalnego mapowania | Yes      |
+| Reduktor           | Określa nazwę pliku wykonywalnego reduktor | Yes      |
+| combiner          | Określa nazwę pliku wykonywalnego łączenia | Nie       |
 | fileLinkedService | Odwołanie do połączonej usługi magazynu Azure są używane do przechowywania mapowania, łączenia i reduktor na wykonywanie programów. Jeśli nie określisz tej połączonej usługi, usługi połączonej magazynu Azure, zdefiniowane w połączonej usłudze HDInsight jest używany. | Nie       |
-| Ścieżka pliku          | Podaj tablicę ścieżka do mapowania, łączenia, i programy reduktor przechowywanych w magazynie Azure odwołuje się fileLinkedService. W ścieżce jest rozróżniana wielkość liter. | Tak      |
-| Dane wejściowe             | Określa ścieżkę WASB do pliku wejściowego dla mapowania. | Tak      |
-| Dane wyjściowe            | Określa reduktor WASB ścieżka do pliku wyjściowego. | Tak      |
+| filePath          | Podaj tablicę ścieżka do mapowania, łączenia, i programy reduktor przechowywanych w magazynie Azure odwołuje się fileLinkedService. W ścieżce jest rozróżniana wielkość liter. | Yes      |
+| Dane wejściowe             | Określa ścieżkę WASB do pliku wejściowego dla mapowania. | Yes      |
+| output            | Określa reduktor WASB ścieżka do pliku wyjściowego. | Yes      |
 | getDebugInfo      | Określa, kiedy pliki dziennika są kopiowane do magazynu Azure używanego przez klaster usługi HDInsight (lub) określony przez element scriptLinkedService. Dozwolone wartości: None, zawsze lub niepowodzenie. Wartość domyślna: Brak. | Nie       |
 | Argumenty         | Określa tablicę argumentów dla zadania usługi Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
 | Definiuje           | Określ parametry jako pary klucz wartość dla odwołania do skryptu Hive. | Nie       | 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

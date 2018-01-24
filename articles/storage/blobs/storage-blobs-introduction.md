@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 0097f1c02b88343a135b6489130a6e0d35cf6fba
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Wprowadzenie do magazynu obiektów Blob
 
@@ -42,7 +42,7 @@ Usługa Blob obejmuje następujące składniki:
 
 * **Kontener:** kontener zawiera grupowanie zestawu obiektów blob. Wszystkie obiekty blob muszą być w kontenerze. Konto może zawierać nieograniczoną liczbę kontenerów. Kontener może przechowywać nieograniczoną liczbę obiektów blob. Pamiętaj, że wszystkie litery w nazwie kontenera muszą być małymi literami.
 
-* **Obiekt blob:** plik dowolnego typu o dowolnym rozmiarze. Usługa Azure Storage udostępnia trzy typy obiektów blob: blokowe, stronicowe i uzupełnialne.
+* **Obiekt blob:** plik dowolnego typu o dowolnym rozmiarze. Usługa Azure Storage udostępnia trzy typy obiektów blob: blokowe obiekty BLOB, [stronicowe](storage-blob-pageblob-overview.md)i uzupełnialnych obiektów blob.
   
     *Blokowe obiekty blob* idealnie nadają się do przechowywania tekstu lub plików binarnych, takich dokumenty czy pliki multimedialne. *Uzupełnialne obiekty blob* są podobne do obiektów blokowych, ponieważ składają się z bloków, ale zoptymalizowane do operacji uzupełnialnych, więc przydatne w scenariuszach logowania. Pojedynczy blokowy obiekt blob może zawierać do 50 000 bloków do 100 MB każdy, których rozmiar całkowity może nieco przekraczać 4.75 TB (100 MB X 50 000). Pojedynczy uzupełniany obiekt blob może zawierać do 50 000 bloków do 4 MB każdy, których rozmiar całkowity może nieco przekraczać 195 GB (4 MB X 50 000).
   

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiowanie danych do i z programu SQL Server przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Usługi SQL Server połączone obsługiwane są następujące właściwości:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **SqlServer** | Yes |
 | Parametry połączenia |Określ connectionString informacje potrzebne do łączenia z bazą danych programu SQL Server przy użyciu uwierzytelniania SQL lub uwierzytelniania systemu Windows. Zaznacz to pole jako SecureString. |Yes |
-| Nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania systemu Windows. Przykład: **domainname\\username**. |Nie |
+| userName |Określ nazwę użytkownika, jeśli używasz uwierzytelniania systemu Windows. Przykład: **domainname\\username**. |Nie |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
@@ -256,10 +256,10 @@ Aby skopiować dane do programu SQL Server, należy ustawić typ ujścia w dzia�
 | type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlSink** | Yes |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (domyślne: 10000) |
 | writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej danych upserts (aktualizacje/INSERT) do tabeli docelowej. |Nie |
+| preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do programu SQL Server. Go będzie można wywołać tylko raz na kopii Uruchom. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury przechowywanej, która definiuje sposób dotyczą źródła danych do tabeli docelowej, np. czy upserts lub Przekształcanie przy użyciu logiki biznesowej. <br/><br/>Należy pamiętać, będzie tej procedury składowanej **wywoływane na partię**. Jeśli chcesz wykonać operację, która tylko jest uruchamiane jeden raz i nie ma nic do wykonania z źródło danych, np. Usuń/obcięcia należy użyć `preCopyScript` właściwości. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej.<br/>Dozwolone wartości to: par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
 | sqlWriterTableType |Określ nazwę typu tabeli do użycia w procedurze składowanej. Działanie kopiowania udostępnia dane jest przenoszony w tabeli tymczasowej o tym typie tabeli. Kod procedury składowanej można następnie scalić dane są kopiowane z istniejącymi danymi. |Nie |
-| preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do programu SQL Server w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |
 
 > [!TIP]
 > Podczas kopiowania danych do programu SQL Server, działanie kopiowania dołącza dane do tabeli ujścia domyślnie. Aby przeprowadzić UPSERT lub dodatkowe reguły biznesowe, użyj procedury składowanej w SqlSink. Dowiedz się więcej szczegółów z [wywoływania procedury składowanej dla obiekt Sink SQL](#invoking-stored-procedure-for-sql-sink).
@@ -482,7 +482,7 @@ Podczas kopiowania danych z/do programu SQL Server, z typów danych programu SQL
 | Typ danych programu SQL Server | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
 | data |Data/godzina |
@@ -490,9 +490,9 @@ Podczas kopiowania danych z/do programu SQL Server, z typów danych programu SQL
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
@@ -500,19 +500,19 @@ Podczas kopiowania danych z/do programu SQL Server, z typów danych programu SQL
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Int16 |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="troubleshooting-connection-issues"></a>Rozwiązywanie problemów z połączeniem
 

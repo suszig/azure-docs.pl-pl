@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Brama zarządzania danymi - wysokiej dostępności i skalowalności (wersja zapoznawcza)
 > [!NOTE]
@@ -32,7 +32,7 @@ Ten artykuł pomaga skonfigurować bramę zarządzania danymi wysokiej dostępno
 
 >**Ta funkcja podglądu oficjalnie jest obsługiwana na 2.12.xxxx.x wersja bramy zarządzania danymi i nowszym**. Upewnij się, że używasz wersji 2.12.xxxx.x lub nowszej. Pobierz najnowszą wersję bramy zarządzania danymi [tutaj](https://www.microsoft.com/download/details.aspx?id=39717).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Można skojarzyć dane zarządzania bram, które są zainstalowane na wielu komputerach lokalnych z pojedynczą bramą logicznych z portalu. Te komputery są nazywane **węzłów**. Można mieć maksymalnie **czterech węzłów** skojarzone z bramą logiczne. Zalety mające wiele węzłów (lokalnymi maszynami z bramą zainstalowany) dla bramy logiczne to:  
 
 - Poprawianie wydajności przenoszenia danych między lokalnymi i w chmurze magazynów danych.  
@@ -186,7 +186,7 @@ Można włączyć **ustawienia zaawansowane** w **bramy** stronę, aby zobaczyć
 
 Właściwość monitorowania | Opis
 :------------------ | :---------- 
-Nazwa | Nazwa bramy logiczne i skojarzone z tą bramą węzłów.  
+Name (Nazwa) | Nazwa bramy logiczne i skojarzone z tą bramą węzłów.  
 Stan | Stan bramy logicznych i węzłów bramy. Przykład: Online/Offline/Limited/itp. Informacje o tych stanów znajdują się w temacie [stanu bramy](#gateway-status) sekcji. 
 Wersja | Wyświetlana jest wersja bramy logicznych i każdy węzeł bramy. Wersja bramy logicznej jest określana na podstawie wersji Większość węzłów w grupie. Jeśli ma prawidłowo węzłów z różnych wersji w konfiguracji bramy logiczne, tylko węzły z tym samym numerem wersji funkcji logicznej bramy. Inne osoby włączony jest tryb ograniczony i należy ręcznie zaktualizować (tylko w przypadku automatycznej aktualizacji nie powiedzie się). 
 Dostępna pamięć | Dostępna pamięć na węzeł bramy. Ta wartość jest blisko migawka w czasie rzeczywistym. 
@@ -204,10 +204,10 @@ W poniższej tabeli przedstawiono możliwe stany **węzeł bramy**:
 Stan  | Komentarz/scenariuszy
 :------- | :------------------
 Online | Węzeł jest podłączony do usługi fabryki danych.
-W trybie offline | Węzeł jest w trybie offline.
+Offline | Węzeł jest w trybie offline.
 Uaktualnianie | Węzeł jest aktualizowane automatycznie.
 Ograniczone | Z powodu problemu z łącznością. Może być z powodu problemu 8050 port HTTP, problem dotyczący łączności magistrali usługi lub problemu z synchronizacją poświadczeń. 
-Nieaktywne | Węzeł znajduje się w różnych konfiguracji innych węzłów większość konfiguracji.<br/><br/> Węzeł może być nieaktywne, gdy nie można połączyć do innych węzłów. 
+Nieaktywna | Węzeł znajduje się w różnych konfiguracji innych węzłów większość konfiguracji.<br/><br/> Węzeł może być nieaktywne, gdy nie można połączyć do innych węzłów. 
 
 
 W poniższej tabeli przedstawiono możliwe stany **logicznej bramy**. Stan bramy zależy od stany węzłów bramy. 
@@ -216,7 +216,7 @@ Stan | Komentarze
 :----- | :-------
 Wymaga rejestracji | Żaden węzeł nie jest jeszcze zarejestrowana dla tej bramy logiczne
 Online | Węzły bramy są w trybie online
-W trybie offline | Nie węzła w stan online.
+Offline | Nie węzła w stan online.
 Ograniczone | Nie wszystkie węzły w tej bramy są w dobrej kondycji. Ten stan jest ostrzeżenie, że niektóre węzeł może być wyłączony! <br/><br/>Może wynikać z problemu z synchronizacją poświadczeń w węźle dyspozytora/proces roboczy. 
 
 ### <a name="pipeline-activities-monitoring"></a>Potok / działania monitorowania
@@ -256,7 +256,7 @@ Aby przywrócić w wersji zapoznawczej, należy usunąć wszystkie węzły opró
 Po usunięciu, kliknij przycisk **funkcji w wersji zapoznawczej** w tej samej stronie portalu Azure i wyłączenie funkcji podglądu. Zresetowaniu bramę do jednej bramy (ogólnej dostępności) GA węzła.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Następujące artykuły:
 - [Brama zarządzania danymi](data-factory-data-management-gateway.md) — szczegółowy przegląd bramy.
 - [Przenoszenie danych między lokalnymi i w chmurze magazyny danych](data-factory-move-data-between-onprem-and-cloud.md) — zawiera przewodnik krok po kroku instrukcje korzystania z jednego węzła przy użyciu bramy. 

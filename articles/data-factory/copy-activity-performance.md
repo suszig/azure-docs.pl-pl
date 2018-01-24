@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Skopiuj wydajności działania i dostrajania przewodnik
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,15 +184,15 @@ Po uaktywnieniu przepływu danych przy użyciu tymczasowego magazynu można okre
 
 Obecnie nie można skopiować danych między dwa lokalnych magazynów danych przy użyciu magazynu tymczasowego.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Skonfiguruj **enableStaging** ustawienie w przypadku działania kopiowania, aby określić, czy dane umieszczane w magazynie obiektów Blob, przed załadowaniem do magazynu danych docelowym. Podczas ustawiania **enableStaging** do `TRUE`, określ dodatkowe właściwości, które są wymienione w następnej tabeli. Jeśli nie masz, należy także utworzyć magazynu Azure lub magazynu udostępnionego usługi połączone podpisu dostępu dla przemieszczania.
 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | **enableStaging** |Określ, czy chcesz skopiować dane za pośrednictwem przejściowej przemieszczania magazynu. |False |Nie |
-| **linkedServiceName** |Określ nazwę [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) połączonej usługi, która odwołuje się do wystąpienia magazynu, który jest używany jako magazyn tymczasowy tymczasowej. <br/><br/> Aby załadować dane do usługi SQL Data Warehouse przy użyciu programu PolyBase nie można używać magazynu sygnatury dostępu współdzielonego. Można go użyć w innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** ma wartość TRUE |
-| **Ścieżka** |Określ ścieżki do magazynu obiektów Blob, który ma zawierać przemieszczonych danych. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko w przypadku używania magazynu z sygnatury dostępu współdzielonego lub wymagają dane tymczasowe w określonej lokalizacji. |Nie dotyczy |Nie |
+| **linkedServiceName** |Określ nazwę [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) połączonej usługi, która odwołuje się do wystąpienia magazynu, który jest używany jako magazyn tymczasowy tymczasowej. <br/><br/> Aby załadować dane do usługi SQL Data Warehouse przy użyciu programu PolyBase nie można używać magazynu sygnatury dostępu współdzielonego. Można go użyć w innych scenariuszach. |ND |Tak, gdy **enableStaging** ma wartość TRUE |
+| **Ścieżka** |Określ ścieżki do magazynu obiektów Blob, który ma zawierać przemieszczonych danych. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko w przypadku używania magazynu z sygnatury dostępu współdzielonego lub wymagają dane tymczasowe w określonej lokalizacji. |ND |Nie |
 | **enableCompression** |Określa, czy dane powinny skompresowany, zanim zostanie on skopiowany do miejsca docelowego. To ustawienie pozwala ograniczyć ilość danych transferowanych. |False |Nie |
 
 Oto przykład definicji działanie kopiowania z właściwościami, które zostały opisane w powyższej tabeli:
@@ -384,7 +384,7 @@ Co najmniej jeden z następujących czynników może spowodować wąskie gardło
 
 W takim przypadku bzip2 kompresji danych może być spowolnienie całego procesu. Przełączanie do koder-dekoder kompresji gzip może ułatwić to "wąskie gardło".
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Informacje ogólne
 
 Oto monitorowania wydajności i dostrajania odwołań dla niektórych obsługiwanych magazynów:
 
@@ -395,7 +395,7 @@ Oto monitorowania wydajności i dostrajania odwołań dla niektórych obsługiwa
 * Lokalny program SQL Server: [monitora i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx)
 * Lokalny serwer plików: [dostrajania wydajności dla serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne artykuły działania kopiowania:
 
 - [Omówienie działania kopiowania](copy-activity-overview.md)

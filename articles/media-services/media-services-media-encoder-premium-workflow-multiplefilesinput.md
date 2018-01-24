@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Używanie wielu plików wejściowych i właściwości składnika za pomocą kodera — wersja Premium
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Istnieją scenariusze, w których może być konieczne dostosowanie właściwości składnika, określ zawartość XML listy klip lub wysłać wielu plików wejściowych podczas przesyłania zadania z **Media Encoder Premium w przepływie pracy** procesor multimediów. Przykłady to:
 
 * Zastępując tekst na wideo i ustawianie wartości tekstowej (na przykład data bieżąca) w czasie wykonywania dla każdego wejściowego wideo.
@@ -47,7 +47,7 @@ Ciąg konfiguracji można ustawić w zadaniu kodowania używa dokument XML, któ
 
 Oto kod C#, który odczytuje plik XML konfiguracji z pliku, go zaktualizować z użyciem nazwy pliku prawo wideo i przekazuje je do zadań w ramach zadania:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -269,7 +269,7 @@ Z dodatkowych przycinanie dokładne ramki:
 
 ## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Przykład 1: Nakładki obrazów na górze wideo
 
-### <a name="presentation"></a>Prezentacji
+### <a name="presentation"></a>Prezentacja
 Rozważmy przykład, w którym chcesz nałożyć obraz logo na wejściowego pliku wideo, gdy wideo jest zakodowany. W tym przykładzie wejściowy plik wideo ma nazwę "Microsoft_HoloLens_Possibilities_816p24.mp4" i logo o nazwie "logo.png". Należy wykonać następujące czynności:
 
 * Utwórz zasób przepływu pracy z plikiem przepływu pracy (zobacz poniższy przykład).
@@ -415,7 +415,7 @@ Następnie wklej poniższe dane XML. Należy określić nazwę pliku wideo wejś
 
 Użycie zestawu .NET SDK do tworzenia i uruchamiania zadania, dane XML musi być przekazywane jako parametry konfiguracji.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ Do kodowania, wykonaj następujące czynności:
 
 * Tych ścieżek należy wybieranych w programie Azure Media Player i zakodowanym elementem zawartości będzie zawierać ścieżek audio multi języka.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Wprowadzenie do kodowania w Azure Media Services w wersji Premium](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Jak używać Premium kodowania w usłudze Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kodowanie zawartości na żądanie za pomocą usługi Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

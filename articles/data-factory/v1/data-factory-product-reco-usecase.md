@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Przypadek użycia — rekomendacje produktów
 Fabryka danych Azure to jedna z wielu usług, używaną do zaimplementowania pakietu Cortana Intelligence Suite akceleratorów rozwiązania.  Zobacz [pakietu Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) strony w celu uzyskania szczegółów dotyczących tego zestawu. W tym dokumencie opisano typowe przypadek użycia, które Azure użytkownicy mają już rozwiązany i implementowane przy użyciu fabryki danych Azure i innych usług składowych Cortana Intelligence.
@@ -40,7 +40,7 @@ Trzecie musi być natychmiast dostarczanego użytkownikowi, aby zapewnić bezpro
 
 Na koniec przeszukiwarki ich podejście śledząc ogólnej sprzedaży w górę sprzedaży kliknij do konwersji sprzedaży sukcesów i Dostosuj, aby ich przyszłych zalecenia konieczne sprzedawców.
 
-## <a name="solution-overview"></a>Omówienie rozwiązania
+## <a name="solution-overview"></a>Przegląd rozwiązania
 Ten przypadek użycia przykład został rozwiązany i zaimplementowana przez użytkowników rzeczywistym Azure przy użyciu fabryki danych Azure i innych usług składowych Cortana Intelligence, łącznie [HDInsight](https://azure.microsoft.com/services/hdinsight/) i [usługi Power BI](https://powerbi.microsoft.com/).
 
 Detalicznej online używa magazynu obiektów Blob platformy Azure, programu SQL server lokalnej bazy danych SQL Azure i składnicy danych relacyjnych jako ich opcji przechowywania danych w całym przepływie pracy.  Magazyn obiektów blob zawiera informacje o kliencie, dane zachowanie klienta i danych informacji o produkcie. Danych informacji produktu zawiera informacje markę produktu i produktu katalogu przechowywanych lokalnie w usłudze SQL data warehouse. 

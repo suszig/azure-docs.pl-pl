@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3f0b296b0bfb762607fdb4b42151b77a9e388a18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania fabryki danych Azure
 > [!NOTE]
@@ -90,5 +90,5 @@ Operacja kopiowania jednorazowe umożliwia przenoszenie danych ze źródła do m
 
 ![Planowanie właściwości](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przewodnik szybkiego za pomocą Kreatora kopiowania fabryki danych można utworzyć potoku o aktywności kopiowania, zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).

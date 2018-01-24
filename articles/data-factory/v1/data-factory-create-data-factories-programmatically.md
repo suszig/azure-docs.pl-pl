@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Tworzenie, monitorowanie i zarządzanie przy użyciu zestawu SDK .NET usługi Azure Data Factory fabryki danych Azure
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [samouczek działania kopiowania w wersji 2 dokumentacji](../quickstart-create-data-factory-dot-net.md). 
+> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi Data Factory, która jest w wersji zapoznawczej, zapoznaj się z [dokumentacją samouczka działania kopiowania w wersji 2](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Tworzenie, monitorowanie i zarządzanie fabryki danych Azure, programowo przy użyciu zestawu .NET SDK fabryki danych. Ten artykuł zawiera wskazówki, które można wykonać w celu tworzenia przykładowej aplikacji konsoli .NET, które tworzy i monitoruje fabryki danych. 
 
 > [!NOTE]
@@ -499,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz poniższy przykład do utworzenia potoku przy użyciu zestawu .NET SDK, który kopiuje dane z magazynu obiektów blob platformy Azure do bazy danych Azure SQL: 
 
 - [Tworzenie potoku, aby skopiować dane z magazynu obiektów Blob do bazy danych SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

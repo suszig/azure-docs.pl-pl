@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiowanie danych z bazy danych Oracle lokalnymi przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,10 +94,10 @@ Poniższa tabela zawiera opis specyficzne dla usługi Oracle połączone element
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesOracle** |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesOracle** |Yes |
 | driverType | Określ sterowniku można skopiować danych z/do bazy danych programu Oracle. Dozwolone wartości to **Microsoft** lub **ODP** (ustawienie domyślne). Zobacz [obsługiwanych wersji i instalacji](#supported-versions-and-installation) sekcji Szczegóły sterownika. | Nie |
-| Parametry połączenia | Podaj informacje wymagane do połączenia z wystąpieniem bazy danych programu Oracle dla właściwości connectionString. | Tak |
-| gatewayName | Nazwa bramy, czy jest używany do łączenia się z serwerem Oracle lokalnej |Tak |
+| Parametry połączenia | Podaj informacje wymagane do połączenia z wystąpieniem bazy danych programu Oracle dla właściwości connectionString. | Yes |
+| gatewayName | Nazwa bramy, czy jest używany do łączenia się z serwerem Oracle lokalnej |Yes |
 
 **Przykład: za pomocą sterownika Microsoft:**
 ```json
@@ -572,22 +572,22 @@ Podczas przenoszenia danych z bazy danych Oracle, następujące mapowania są u�
 
 | Typ danych Oracle | Typ danych .NET framework |
 | --- | --- |
-| BPLIK |Byte] |
-| OBIEKT BLOB |Byte]<br/>(obsługiwana tylko na Oracle 10 GB/s i wyższe, gdy za pomocą sterownika Microsoft) |
+| BPLIK |Byte[] |
+| BLOB |Byte[]<br/>(obsługiwana tylko na Oracle 10 GB/s i wyższe, gdy za pomocą sterownika Microsoft) |
 | CHAR |Ciąg |
 | CLOB |Ciąg |
-| DATA |Data/godzina |
+| DATE |Data/godzina |
 | FLOAT |Decimal, ciąg (jeśli precyzja > 28) |
 | LICZBA CAŁKOWITA |Decimal, ciąg (jeśli precyzja > 28) |
 | INTERWAŁ ROK, MIESIĄC |Int32 |
-| INTERWAŁ DZIEŃ NA SEKUNDĘ |Zakres czasu |
+| INTERWAŁ DZIEŃ NA SEKUNDĘ |TimeSpan |
 | DŁUGA |Ciąg |
-| LONG RAW |Byte] |
+| LONG RAW |Byte[] |
 | NCHAR |Ciąg |
 | NCLOB |Ciąg |
-| NUMER |Decimal, ciąg (jeśli precyzja > 28) |
+| NUMBER |Decimal, ciąg (jeśli precyzja > 28) |
 | NVARCHAR2 |Ciąg |
-| NIEPRZETWORZONE |Byte] |
+| RAW |Byte[] |
 | ROWID |Ciąg |
 | ZNACZNIK CZASU |Data/godzina |
 | SYGNATURA CZASOWA Z LOKALNEJ STREFIE CZASOWEJ |Data/godzina |

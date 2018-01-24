@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sekcja danych wyjściowych w szablonach usługi Azure Resource Manager
 W sekcji danych wyjściowych można określić wartości, które są zwracane z wdrożenia. Na przykład można zwrócić identyfikator URI do uzyskania dostępu do zasobu wdrożone.
@@ -57,6 +57,8 @@ Na przykład należy określić adres IP modułu równoważenia obciążenia prz
 }
 ```
 
+Nie można użyć `reference` funkcji w sekcji danych wyjściowych [szablon zagnieżdżony](resource-group-linked-templates.md#link-or-nest-a-template). Aby zwrócić wartości dla wdrożonych zasobów w szablonie zagnieżdżonych, przekonwertować szablon zagnieżdżony połączonego szablonu.
+
 ## <a name="available-properties"></a>Dostępne właściwości
 
 W poniższym przykładzie przedstawiono struktura definicji danych wyjściowych:
@@ -72,9 +74,9 @@ W poniższym przykładzie przedstawiono struktura definicji danych wyjściowych:
 
 | Nazwa elementu | Wymagane | Opis |
 |:--- |:--- |:--- |
-| outputName |Tak |Nazwa wartości danych wyjściowych. Musi być prawidłowym identyfikatorem języka JavaScript. |
-| type |Tak |Typ wartości danych wyjściowych. Dane wyjściowe wartości obsługuje te same typy tablic jako parametrów wejściowych szablonu. |
-| wartość |Tak |Wyrażenia języka szablonu, który jest obliczany i zwracany, jako wartość wyjściowa. |
+| outputName |Yes |Nazwa wartości danych wyjściowych. Musi być prawidłowym identyfikatorem języka JavaScript. |
+| type |Yes |Typ wartości danych wyjściowych. Dane wyjściowe wartości obsługuje te same typy tablic jako parametrów wejściowych szablonu. |
+| wartość |Yes |Wyrażenia języka szablonu, który jest obliczany i zwracany, jako wartość wyjściowa. |
 
 ## <a name="recommendations"></a>Zalecenia
 
@@ -103,7 +105,7 @@ Jeśli szablon umożliwia tworzenie publicznych adresów IP, należy uwzględni�
 |[Moduł równoważenia obciążenia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Łącza do poprzedniego szablonu. Używa Identyfikatora zasobu w danych wyjściowych podczas tworzenia modułu równoważenia obciążenia. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby wyświetlić pełną listę szablonów dla wielu różnych rozwiązań, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/).
 * Aby uzyskać więcej informacji o funkcje, których można użyć z w ramach szablonu, zobacz [funkcje szablonów usługi Azure Resource Manager](resource-group-template-functions.md).
 * Aby połączyć wiele szablonów podczas wdrażania, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).

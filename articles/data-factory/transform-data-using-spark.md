@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania Spark w usłudze fabryka danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,13 +67,13 @@ W poniższej tabeli opisano właściwości JSON używane w definicji JSON:
 
 | Właściwość              | Opis                              | Wymagane |
 | --------------------- | ---------------------------------------- | -------- |
-| name                  | Nazwa działania w potoku.    | Tak      |
+| name                  | Nazwa działania w potoku.    | Yes      |
 | description           | Tekst opisujący działanie robi.  | Nie       |
-| type                  | Dla działania Spark typ działania jest HDInsightSpark. | Tak      |
-| linkedServiceName     | Nazwa usługi HDInsight Spark połączonej usługi, na którym jest uruchomiony Spark program. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Tak      |
-| sparkJobLinkedService | Magazyn Azure połączone usługi, która ma Spark plik zadania, zależności i dzienniki.  Jeśli nie określisz wartości dla tej właściwości, Magazyn skojarzony z klastrem usługi HDInsight jest używany. | Nie       |
-| Właściwość rootPath              | Kontener obiektów Blob platformy Azure i folder zawierający plik Spark. Nazwa pliku jest rozróżniana wielkość liter. Odwoływać się do struktury folderów sekcji (dalej) Aby uzyskać szczegółowe informacje o strukturze tego folderu. | Tak      |
-| entryFilePath         | Ścieżka względna do folderu głównego Spark kodu/pakietu. | Tak      |
+| type                  | Dla działania Spark typ działania jest HDInsightSpark. | Yes      |
+| linkedServiceName     | Nazwa usługi HDInsight Spark połączonej usługi, na którym jest uruchomiony Spark program. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
+| SparkJobLinkedService | Magazyn Azure połączone usługi, która ma Spark plik zadania, zależności i dzienniki.  Jeśli nie określisz wartości dla tej właściwości, Magazyn skojarzony z klastrem usługi HDInsight jest używany. | Nie       |
+| rootPath              | Kontener obiektów Blob platformy Azure i folder zawierający plik Spark. Nazwa pliku jest rozróżniana wielkość liter. Odwoływać się do struktury folderów sekcji (dalej) Aby uzyskać szczegółowe informacje o strukturze tego folderu. | Yes      |
+| entryFilePath         | Ścieżka względna do folderu głównego Spark kodu/pakietu. | Yes      |
 | className             | Klasy głównym aplikacji Java/Spark      | Nie       |
 | Argumenty             | Lista argumentów wiersza polecenia do programu Spark. | Nie       |
 | proxyUser             | Konto użytkownika do personifikacji do wykonania programu Spark | Nie       |
@@ -87,8 +87,8 @@ Utwórz następującą strukturę folderów w magazynie obiektów Blob platformy
 
 | Ścieżka                  | Opis                              | Wymagane | Typ   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(root)            | Ścieżka katalogu głównego zadania Spark w połączonej usługi magazynu | Tak      | Folder |
-| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka do pliku wpisu zadania Spark | Tak      | Plik   |
+| `.`(root)            | Ścieżka katalogu głównego zadania Spark w połączonej usługi magazynu | Yes      | Folder |
+| &lt;zdefiniowane przez użytkownika&gt; | Ścieżka do pliku wpisu zadania Spark | Yes      | Plik   |
 | . / jars                | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi klasy java klastra | Nie       | Folder |
 | . / pyFiles             | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi PYTHONPATH klastra | Nie       | Folder |
 | . / pliki               | Wszystkie pliki w tym folderze są przekazywane i dotyczącymi Moduł wykonujący katalog roboczy | Nie       | Folder |
@@ -115,7 +115,7 @@ SparkJob2
         script2.py
     logs
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

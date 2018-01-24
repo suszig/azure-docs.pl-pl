@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Oprogramowanie serii StorSimple 8000, wysokiej dostępności i wymagań sieciowych
 
@@ -38,7 +38,7 @@ Następujące wymagania dotyczące oprogramowania dotyczą klientów pamięci ma
 
 | Obsługiwane systemy operacyjne | Wersja wymagana | Dodatkowe wymagania dotyczące/uwagi |
 | --- | --- | --- |
-| Windows Server |2008 R2 Z DODATKIEM SP1, 2012, 2012 R2, 2016 |Woluminy iSCSI StorSimple można używać tylko następujących typów dysku systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Proste i dublowane wolumin na dysku dynamicznym</li></ul>Obsługiwane są tylko oprogramowania inicjatorzy iSCSI natywnie w systemie operacyjnym. Inicjatorów iSCSI sprzętu nie są obsługiwane.<br></br>Windows Server 2012 oraz alokowanie 2016 i funkcji odciążonego transferu danych są obsługiwane, jeśli używasz woluminu StorSimple iSCSI.<br><br>StorSimple można tworzyć alokowane elastycznie i pełni woluminów. Nie można go tworzyć woluminów inicjowanych częściowo.<br><br>Ponowne formatowanie woluminu alokowane elastycznie może zająć dużo czasu. Zaleca się usunięcie woluminu, a następnie utworzenie nową zamiast ponownego formatowania. Jednak jeśli jednak preferować do ponownego formatowania woluminu:<ul><li>Uruchom następujące polecenie przed ponownego formatowania, aby uniknąć opóźnienia odzyskiwanie miejsca: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania, użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w [KB 2878635](https://support.microsoft.com/kb/2870270) do komputera z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub kartę StorSimple dla programu SharePoint, przejdź do [wymagań dotyczących oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Woluminy iSCSI StorSimple można używać tylko następujących typów dysku systemu Windows:<ul><li>Wolumin prosty na dysku podstawowym</li><li>Proste i dublowane wolumin na dysku dynamicznym</li></ul>Obsługiwane są tylko oprogramowania inicjatorzy iSCSI natywnie w systemie operacyjnym. Inicjatorów iSCSI sprzętu nie są obsługiwane.<br></br>Windows Server 2012 oraz alokowanie 2016 i funkcji odciążonego transferu danych są obsługiwane, jeśli używasz woluminu StorSimple iSCSI.<br><br>StorSimple można tworzyć alokowane elastycznie i pełni woluminów. Nie można go tworzyć woluminów inicjowanych częściowo.<br><br>Ponowne formatowanie woluminu alokowane elastycznie może zająć dużo czasu. Zaleca się usunięcie woluminu, a następnie utworzenie nową zamiast ponownego formatowania. Jednak jeśli jednak preferować do ponownego formatowania woluminu:<ul><li>Uruchom następujące polecenie przed ponownego formatowania, aby uniknąć opóźnienia odzyskiwanie miejsca: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Po zakończeniu formatowania, użyj następującego polecenia, aby ponownie włączyć odzyskiwanie miejsca:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Zastosuj poprawkę systemu Windows Server 2012, zgodnie z opisem w [KB 2878635](https://support.microsoft.com/kb/2870270) do komputera z systemem Windows Server.</li></ul></li></ul></ul> Jeśli konfigurujesz StorSimple Snapshot Manager lub kartę StorSimple dla programu SharePoint, przejdź do [wymagań dotyczących oprogramowania dla składników opcjonalnych](#software-requirements-for-optional-components). |
 | VMware ESX |5.5 i 6.0 |Obsługiwane z programem VMware vSphere jako klient. Funkcja VAAI bloku jest obsługiwana z programem VMware vSphere urządzenia StorSimple. |
 | Linux RHEL/CentOS |5, 6 i 7 |Obsługa klientów iSCSI Linux z wersjami inicjatora iSCSI Otwórz 5, 6 i 7. |
 | Linux |SUSE Linux 11 | |
@@ -67,9 +67,9 @@ Urządzenia StorSimple to urządzenie w trybie blokady. Jednak porty muszą być
 | UDP 53 (DNS) |limit |WAN |W niektórych przypadkach; Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy używasz serwera DNS w Internecie. |
 | UDP 123 (NTP) |limit |WAN |W niektórych przypadkach; Zobacz uwagi. |Ten port jest wymagany tylko wtedy, gdy używasz serwera NTP internetowego. |
 | TCP 9354 |limit |WAN |Yes |Wychodzący port jest używany przez urządzenia StorSimple do komunikowania się z usługą Menedżera urządzeń StorSimple. |
-| 3260 (iSCSI) |W |SIECI LAN |Nie |Port ten jest używany do dostępu do danych za pośrednictwem interfejsu iSCSI. |
-| 5985 |W |SIECI LAN |Nie |Przychodzący port jest używany przez StorSimple Snapshot Manager do komunikowania się z urządzeniem StorSimple.<br>Port ten jest również używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple za pośrednictwem protokołu HTTP. |
-| 5986 |W |SIECI LAN |Nie |Port ten jest używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple przy użyciu protokołu HTTPS. |
+| 3260 (iSCSI) |W |LAN |Nie |Port ten jest używany do dostępu do danych za pośrednictwem interfejsu iSCSI. |
+| 5985 |W |LAN |Nie |Przychodzący port jest używany przez StorSimple Snapshot Manager do komunikowania się z urządzeniem StorSimple.<br>Port ten jest również używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple za pośrednictwem protokołu HTTP. |
+| 5986 |W |LAN |Nie |Port ten jest używany podczas zdalnego nawiązywania połączenia programu Windows PowerShell dla urządzenia StorSimple przy użyciu protokołu HTTPS. |
 
 <sup>1</sup> nie portów przychodzących muszą być otwarte na publiczny Internet.
 
@@ -107,7 +107,7 @@ Firma Microsoft zaleca, aby ustawić regułach zapory dla ruchu wychodzącego, o
 
 | Wzorzec URL | Składnik/funkcji | Adresy IP urządzeń |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Usługa menedżera urządzeń StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Usługa menedżera urządzeń StorSimple<br>Usługa kontroli dostępu<br>Azure Service Bus<br>Usługa uwierzytelniania |Interfejsy sieciowe z obsługą chmury |
 | `https://*.backup.windowsazure.us` |Rejestracja urządzenia |Tylko dane 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Odwoływanie certyfikatów |Interfejsy sieciowe z obsługą chmury |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorowanie i kontami magazynu Azure |Interfejsy sieciowe z obsługą chmury |

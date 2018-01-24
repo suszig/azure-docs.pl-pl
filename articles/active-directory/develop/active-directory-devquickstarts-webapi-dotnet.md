@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET interfejsu API sieci Web wprowadzenie
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Można sprawdzić poprawności przychodzących żądań i tokenów, należy skon
 
 3. Deklaracja klasy, aby zmienić `public partial class Startup`. Już zaimplementowano część tej klasy dla Ciebie w innym pliku. W `Configuration(…)` utworzyć wywołanie metody `ConfgureAuth(…)` Aby skonfigurować uwierzytelnianie dla aplikacji sieci web.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Można sprawdzić poprawności przychodzących żądań i tokenów, należy skon
 
 4. Otwórz plik `App_Start\Startup.Auth.cs` i wdrożenie `ConfigureAuth(…)` metody. Parametry, które należy podać w `WindowsAzureActiveDirectoryBearerAuthenticationOptions` będzie służyć jako współrzędnych dla aplikacji w celu komunikowania się z usługą Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Można sprawdzić poprawności przychodzących żądań i tokenów, należy skon
 
 5. Teraz można używać `[Authorize]` atrybutów, aby lepiej chronić Twoje kontrolerów i akcji przy użyciu uwierzytelniania elementu nośnego tokenu Web JSON (JWT). Dekoracji `Controllers\TodoListController.cs` klasy z tagiem autoryzacji. Spowoduje to wymuszenie użytkownika do logowania przed uzyskaniem dostępu do tej strony.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Można sprawdzić poprawności przychodzących żądań i tokenów, należy skon
 
 6. Typowym wymogiem dla interfejsów API sieci Web jest weryfikacja „zakresów” występujących w tokenie. Dzięki temu, że użytkownik zgodził się na uprawnienia wymagane do uzyskania dostępu do czy listy usługi.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

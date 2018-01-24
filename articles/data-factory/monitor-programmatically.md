@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowo monitorować fabryki danych Azure
 W tym artykule opisano, jak monitorować potok w fabryce danych przy użyciu różnych software development Kit (SDK). 
@@ -146,6 +146,6 @@ Aby uzyskać pełny Przewodnik tworzenia i monitorowania potoku przy użyciu pro
 
 Pełna dokumentacja poleceń cmdlet programu PowerShell, zobacz [dokumentacji poleceń cmdlet programu PowerShell fabryki danych](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz [Monitor potoków za pomocą monitora Azure](monitor-using-azure-monitor.md) artykułu, aby dowiedzieć się więcej o Monitorze Azure do monitorowania potoki fabryki danych. 
 

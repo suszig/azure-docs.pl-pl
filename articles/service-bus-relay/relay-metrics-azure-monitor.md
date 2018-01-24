@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure metryki przekazywania w monitorze Azure (wersja zapoznawcza)
 
@@ -57,24 +57,24 @@ Wszystkie wartości metryki są wysyłane do monitora Azure co minutę. Odstęp 
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-| ListenerConnections — Powodzenie (wersja zapoznawcza) | Liczba pomyślnie odbiornika połączeń przekazywania Azure w określonym czasie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ListenerConnections-ClientError (wersja zapoznawcza)|Liczba klientów z błędami połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ListenerConnections-ServerError (wersja zapoznawcza)|Liczba błędów serwera dla połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|SenderConnections — Powodzenie (wersja zapoznawcza)|Liczba połączeń pomyślne nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|SenderConnections-ClientError (wersja zapoznawcza)|Liczba klientów z błędami połączeń nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|SenderConnections-ServerError (wersja zapoznawcza)|Liczba błędów serwera w przypadku połączeń nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ListenerConnections-TotalRequests (wersja zapoznawcza)|Całkowita liczba połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|SenderConnections-TotalRequests (wersja zapoznawcza)|Żądania połączeń wykonywanych przez nadawców w w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ActiveConnections (wersja zapoznawcza)|Liczba aktywnych połączeń w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ActiveListeners (wersja zapoznawcza)|Liczba active odbiorników w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|ListenerDisconnects (wersja zapoznawcza)|Liczba odłączonego odbiorników w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
-|SenderDisconnects (wersja zapoznawcza)|Liczba odłączonego nadawców w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
+| ListenerConnections — Powodzenie (wersja zapoznawcza) | Liczba pomyślnie odbiornika połączeń przekazywania Azure w określonym czasie. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ListenerConnections-ClientError (wersja zapoznawcza)|Liczba klientów z błędami połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ListenerConnections-ServerError (wersja zapoznawcza)|Liczba błędów serwera dla połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|SenderConnections — Powodzenie (wersja zapoznawcza)|Liczba połączeń pomyślne nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|SenderConnections-ClientError (wersja zapoznawcza)|Liczba klientów z błędami połączeń nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|SenderConnections-ServerError (wersja zapoznawcza)|Liczba błędów serwera w przypadku połączeń nadawcy w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ListenerConnections-TotalRequests (wersja zapoznawcza)|Całkowita liczba połączeń odbiornika w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|SenderConnections-TotalRequests (wersja zapoznawcza)|Żądania połączeń wykonywanych przez nadawców w w określonym przedziale czasu.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ActiveConnections (wersja zapoznawcza)|Liczba aktywnych połączeń w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ActiveListeners (wersja zapoznawcza)|Liczba active odbiorników w określonym czasie.<br/><br/> Jednostka: liczba <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|ListenerDisconnects (wersja zapoznawcza)|Liczba odłączonego odbiorników w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
+|SenderDisconnects (wersja zapoznawcza)|Liczba odłączonego nadawców w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Metryki użycia pamięci
 
 | Nazwa metryki | Opis |
 | ------------------- | ----------------- |
-|BytesTransferred (wersja zapoznawcza)|Liczba bajtów przesłanych w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Wymiar: Nazwa jednostki|
+|BytesTransferred (wersja zapoznawcza)|Liczba bajtów przesłanych w określonym czasie.<br/><br/> Jednostka: bajtów <br/> Typ agregacji: Całkowita liczba <br/> Dimension: EntityName|
 
 ## <a name="metrics-dimensions"></a>Wymiary metryk
 
@@ -82,9 +82,9 @@ Przekaźnik Azure obsługuje następujące wymiary metryki w monitorze Azure. Do
 
 |Nazwa wymiaru|Opis|
 | ------------------- | ----------------- |
-|Nazwa jednostki| Azure przekaźnika obsługuje jednostek obsługi komunikatów w przestrzeni nazw.|
+|EntityName| Azure przekaźnika obsługuje jednostek obsługi komunikatów w przestrzeni nazw.|
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz [Azure monitorowanie — Przegląd](../monitoring-and-diagnostics/monitoring-overview.md).
 

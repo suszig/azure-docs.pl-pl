@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cf51d9442ff31433cedbcf19052e31247421f4d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Wywoływanie programów Spark z potoków fabryki danych Azure
 
@@ -117,7 +117,7 @@ W tym kroku utworzysz usługi HDInsight połączony do połączenia z klastrem S
 
 1. W edytorze fabryki danych, wybierz **więcej** > **nowych obliczeń** > **klastra usługi HDInsight**.
 
-    ![Tworzenie usługi HDInsight połączone](media/data-factory-spark/new-hdinsight-linked-service.png)
+    ![Tworzenie połączonej usługi HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 2. Skopiuj i wklej poniższy fragment kodu do okna Wersja robocza-1. W edytorze JSON wykonaj następujące czynności:
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Zapytania SQL dla bazy danych Azure rozwiązania Cosmos
 
@@ -298,7 +298,7 @@ Następujące operatory binarne są obecnie obsługiwane i mogą być używane w
 </tr>
 <tr>
 <td>Logiczne</td>
-<td>I, LUB NIE</td>
+<td>AND, OR, NOT</td>
 </tr>
 <tr>
 <td>Porównanie</td>    
@@ -353,7 +353,7 @@ W poniższej tabeli przedstawiono wynik porównania równości w interfejsie API
             <strong>Niezdefiniowana</strong>
          </td>
          <td valign="top">
-            <strong>Wartość null</strong>
+            <strong>Null</strong>
          </td>
          <td valign="top">
             <strong>Wartość logiczna</strong>
@@ -392,7 +392,7 @@ Niezdefiniowane </td>
       </tr>
       <tr>
          <td valign="top">
-            <strong>Wartość null<strong>
+            <strong>Null<strong>
          </td>
          <td valign="top">
 Niezdefiniowane </td>
@@ -929,7 +929,7 @@ W poniższej tabeli przedstawiono listę obsługiwanych funkcji agregujących w 
 | Sposób użycia | Opis |
 |-------|-------------|
 | LICZBA | Zwraca liczbę elementów w wyrażeniu. |
-| SUMA   | Zwraca sumę wszystkich wartości w wyrażeniu. |
+| SUM   | Zwraca sumę wszystkich wartości w wyrażeniu. |
 | MIN.   | Zwraca minimalną wartość wyrażenia. |
 | MAKS.   | Zwraca maksymalną wartość wyrażenia. |
 | ŚREDNIA   | Zwraca średnią z wartości wyrażenia. |
@@ -1262,7 +1262,7 @@ W poprzednim przykładzie jest tworzony UDF, którego nazwa jest `REGEX_MATCH`. 
 Firma Microsoft mogą teraz używać tej funkcji w zapytaniu w projekcji. Funkcje UDF musi być kwalifikowana z uwzględnieniem wielkości liter prefiks "udf." Po wywołaniu z wewnątrz zapytania. 
 
 > [!NOTE]
-> Przed 2015-3-17 DB rozwiązania Cosmos obsługiwane wywołania funkcji zdefiniowanej przez użytkownika bez "udf." Prefiks, takich jak REGEX_MATCH() wybierz. Ten wzorzec wywołującego jest przestarzała.  
+> Przed 2015-3-17 DB rozwiązania Cosmos obsługiwane wywołania funkcji zdefiniowanej przez użytkownika bez "udf." prefix like SELECT REGEX_MATCH(). Ten wzorzec wywołującego jest przestarzała.  
 > 
 > 
 
@@ -1425,7 +1425,7 @@ Funkcje matematyczne wykonywanie obliczeń, na podstawie wartości wejściowych,
 | [COS (num_expr)](#bk_cos) | Zwraca cosinus trygonometryczne o określony kąt w radianach, określone wyrażenie. |
 | [KOT (num_expr)](#bk_cot) | Zwraca trygonometryczne cotangens kąta określonego w radianach, określonego wyrażenia liczbowego. |
 | [STOPNI (num_expr)](#bk_degrees) | Zwraca odpowiadający mu kąt w stopniach dla kąta określonego w radianach. |
-| [PI)](#bk_pi) | Zwraca stałą wartość liczby PI. |
+| [PI ()](#bk_pi) | Zwraca stałą wartość liczby PI. |
 | [Wartość w RADIANACH (num_expr)](#bk_radians) | Zwraca wartość w radianach, po wprowadzeniu w stopniach, wyrażenia liczbowego. |
 | [SIN (num_expr)](#bk_sin) | Zwraca sinus określonego kąta trygonometryczne w radianach, określone wyrażenie. |
 | [TAN (num_expr)](#bk_tan) | Zwraca tangens wyrażenie wejściowe określonego wyrażenia. |
@@ -1503,7 +1503,7 @@ Następujące funkcje skalarne wykonania operacji w ciągu wartości wejściowej
 | [DŁUGOŚĆ (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Zwraca liczbę znaków z określonego wyrażenia ciągu |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Zwraca ciąg, który jest wynikiem łączenie dwóch lub więcej wartości ciągu. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Zwraca część wyrażenia ciągu. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu kończy się na sekundę |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu rozpoczyna się od drugiego |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu kończy się na sekundę |
 | [ZAWIERA (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Zwraca wartość Boolean wskazującą, czy pierwszy wyrażenia ciągu zawiera drugi. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Zwraca pozycję początkową pierwszego wystąpienia drugi ciąg wyrażenia w pierwszym wyrażeniu określony ciąg lub wartość -1, jeśli nie zostanie znaleziony ciąg. |
@@ -2125,7 +2125,7 @@ Jeśli skonfigurowane zasady indeksowania w kolekcji nie obsługuje określonego
 
 Szczegółowe metryki na wykonanie kwerendy można uzyskać przez ustawienie `x-ms-documentdb-populatequerymetrics` nagłówka do `True`. Aby uzyskać więcej informacji, zobacz [metryki kwerendy SQL dla bazy danych Azure rozwiązania Cosmos](sql-api-sql-query-metrics.md).
 
-### <a id="DotNetSdk"></a>C# (.NET) ZESTAWU SDK
+### <a id="DotNetSdk"></a>C# (.NET) SDK
 Zestaw .NET SDK obsługuje zarówno LINQ, jak i SQL zapytań. Poniższy przykład pokazuje, jak wykonać kwerendy filtr prosty wprowadzone wcześniej w tym dokumencie.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
@@ -2258,7 +2258,7 @@ Poniższy przykład przedstawia użycie queryDocuments na serwerze JavaScript AP
 4. [Poziomy spójności bazy danych Azure rozwiązania Cosmos][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. Specyfikacja języka JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9. Zapytanie techniki oceny dla dużych baz danych [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Przetwarzania zapytań w systemach równoległych relacyjnych baz danych, naciśnij społeczeństwa IEEE komputera, 1994 r.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z Redshift Amazon przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,12 +63,12 @@ Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla usłu
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Typ** |Ta właściwość musi mieć ustawioną **AmazonRedshift**. |Tak |
-| **Serwer** |IP adres lub nazwę hosta serwera Amazon Redshift. |Tak |
-| **Port** |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwania dla połączeń klienta. |Nie (wartość domyślna to 5439) |
-| **bazy danych** |Nazwa bazy danych Amazon Redshift. |Tak |
-| **Nazwa użytkownika** |Nazwa użytkownika, który ma dostęp do bazy danych. |Tak |
-| **hasło** |Hasło dla konta użytkownika. |Tak |
+| **Typ** |Ta właściwość musi mieć ustawioną **AmazonRedshift**. |Yes |
+| **server** |IP adres lub nazwę hosta serwera Amazon Redshift. |Yes |
+| **port** |Numer portu TCP używany przez serwer Amazon Redshift do nasłuchiwania dla połączeń klienta. |Nie (wartość domyślna to 5439) |
+| **bazy danych** |Nazwa bazy danych Amazon Redshift. |Yes |
+| **Nazwa użytkownika** |Nazwa użytkownika, który ma dostęp do bazy danych. |Yes |
+| **hasło** |Hasło dla konta użytkownika. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
@@ -207,7 +207,7 @@ Przykład kopiuje dane z wyniku kwerendy w Amazon Redshift do obiektów blob pla
 }
 ```
 
-**Azure Blob wyjściowy zestaw danych**
+**Wyjściowy zestaw danych obiektów blob platformy Azure**
 
 Dane są zapisywane do nowego obiektu blob co godzinę, ustawiając **częstotliwość** dla właściwości "Godzina" i **interwał** właściwości na wartość 1. **FolderPath** dynamicznie oceny właściwości dla obiektu blob. Wartość właściwości jest oparta na czas rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
 
@@ -335,13 +335,13 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | LICZBA CAŁKOWITA |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| RZECZYWISTE |Pojedynczy |
-| PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
+| RZECZYWISTE |Kawaler/panna |
+| PODWÓJNEJ PRECYZJI |Podwójnej precyzji |
 | WARTOŚĆ LOGICZNA |Ciąg |
 | CHAR |Ciąg |
 | VARCHAR |Ciąg |
-| DATA |Data i godzina |
-| ZNACZNIK CZASU |Data i godzina |
+| DATE |Data/godzina |
+| ZNACZNIK CZASU |Data/godzina |
 | TEKST |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
@@ -353,5 +353,5 @@ Po skopiowaniu danych z magazynu danych relacyjnych należy pamiętać, aby unik
 ## <a name="performance-and-tuning"></a>Wydajności i dostosowywanie
 Więcej informacji na temat kluczowych czynników wpływających na wydajność działania kopiowania i sposobów w celu optymalizacji wydajności w [wydajności działania kopiowania i dostrajania przewodnik](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać instrukcje tworzenia potoku z działania kopiowania, zobacz [samouczek działanie kopiowania](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

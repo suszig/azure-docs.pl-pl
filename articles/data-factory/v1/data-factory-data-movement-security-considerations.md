@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5857a0286dce92493c4d538f79ef9f47012bc0a2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 
@@ -38,7 +38,7 @@ Przenoszenie danych przy użyciu fabryki danych Azure została **certyfikowane**
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [CSA GWIAZDY](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Jeśli interesuje Cię zgodności platformy Azure i jak Azure zabezpiecza własnej infrastruktury, odwiedź stronę [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -63,7 +63,7 @@ Niektóre dane są przechowywane Obsługa szyfrowania danych magazynowanych. Zal
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Przezroczysty danych szyfrowania (funkcji TDE) w usłudze Azure SQL Data Warehouse pomaga w ochronie przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania danych przechowywanych. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w usłudze SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Baza danych SQL Azure obsługuje również przezroczystego szyfrowania danych (funkcji TDE), która pomaga w ochronie przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania danych bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczystego szyfrowania danych z bazy danych SQL Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
@@ -190,7 +190,7 @@ Następujące magazyny danych chmury wymagają niedozwolonych adres IP komputera
 **Pytanie:** jakie są wymagania dotyczące certyfikatów dla bramy?
 **Odpowiedź:** bieżącej bramy wymaga certyfikatu, który jest używany przez aplikację Menedżera poświadczeń w bezpieczny sposób ustawiania poświadczeń magazynu danych. Ten certyfikat jest certyfikatu z podpisem własnym utworzone i skonfigurowane przez Instalatora bramy. Można użyć własnych TLS / SSL zamiast tego certyfikatu. Aby uzyskać więcej informacji, zobacz [kliknij — raz poświadczeń aplikacji Menedżera](#click-once-credentials-manager-app) sekcji. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje o wydajności działania kopiowania, zobacz [skopiuj wydajności działania i dostrajania przewodnik](data-factory-copy-activity-performance.md).
 
  

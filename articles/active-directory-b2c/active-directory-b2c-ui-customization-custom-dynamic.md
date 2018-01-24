@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Usługa Azure Active Directory B2C: Konfigurowanie interfejsu użytkownika z dynamiczną zawartością za pomocą zasad niestandardowych
 Za pomocą usługi Azure Active Directory B2C zasad niestandardowych (Azure AD B2C), możesz wysłać parametr w ciągu zapytania. Przez przekazanie parametru do punktu końcowego HTML, można dynamicznie zmieniać zawartość strony. Na przykład można zmienić obraz tła w witrynie usługi Azure AD B2C zapisywania się lub zaloguj się na podstawie parametru, który jest przekazywany z sieci web lub aplikacji mobilnej. 
@@ -41,16 +41,16 @@ W zasadach niestandardowych definicję zawartości definiuje stronę HTML5 ident
 
 | Identyfikator definicji zawartości | Domyślny szablon HTML5| Opis | 
 |-----------------------|--------|-------------|
-| *API.error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub wystąpił błąd. |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub wystąpił błąd. |
 | *API.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Strona wyboru dostawcy tożsamości**. Ta strona zawiera listę dostawców tożsamości, które użytkownicy mogą wybierać podczas logowania. Opcje są zazwyczaj enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych. |
 | *API.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Wybór dostawcy tożsamości dla rejestracji**. Ta strona zawiera listę dostawców tożsamości, które użytkownicy mogą wybierać podczas tworzenia konta. Dostępne opcje to enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych. |
-| *API.localaccountpasswordreset* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Nie pamiętasz hasła strony**. Ta strona zawiera formularz, który użytkownicy muszą wykonać, aby zainicjować resetowania hasła.  |
-| *API.localaccountsignin* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania przy użyciu konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
-| *API.localaccountsignup* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Stronę konta lokalnego konta**. Ta strona zawiera formularza do skorzystania z konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać różne kontrolki wejściowe, takich jak: tekst wejściowy pola, pole wprowadzania hasła, przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pola wyboru wielokrotnego wyboru. |
-| *API.phonefactor* | [wieloskładnikowa 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą sprawdzić swoje numery telefonów (przy użyciu tekstowych lub głosowych) podczas tworzenia konta lub logowania. |
-| *API.selfasserted* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strony rejestracji społecznościowych konta**. Ta strona zawiera formularz, który użytkownicy muszą wykonać podczas logowania przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych. Ta strona jest podobny do poprzedniego konta społecznościowych stronę tworzenia konta, z wyjątkiem pól wprowadzania hasła. |
-| *API.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu**. Ta strona zawiera formularz, który użytkownicy mogą uzyskiwać dostęp do zaktualizowania swój profil. Ta strona jest podobna do strony rejestracji społecznościowych konto, z wyjątkiem pól wprowadzania hasła. |
-| *API.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Ujednolicone stronę tworzenia konta lub logowania**. Ta strona obsługuje proces rejestracji i logowania użytkownika. Użytkownicy mogą używać enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook lub Google + lub kont lokalnych.  |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Nie pamiętasz hasła strony**. Ta strona zawiera formularz, który użytkownicy muszą wykonać, aby zainicjować resetowania hasła.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania przy użyciu konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Stronę konta lokalnego konta**. Ta strona zawiera formularza do skorzystania z konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać różne kontrolki wejściowe, takich jak: tekst wejściowy pola, pole wprowadzania hasła, przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pola wyboru wielokrotnego wyboru. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkownicy mogą sprawdzić swoje numery telefonów (przy użyciu tekstowych lub głosowych) podczas tworzenia konta lub logowania. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Strony rejestracji społecznościowych konta**. Ta strona zawiera formularz, który użytkownicy muszą wykonać podczas logowania przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych. Ta strona jest podobny do poprzedniego konta społecznościowych stronę tworzenia konta, z wyjątkiem pól wprowadzania hasła. |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Strona aktualizacji profilu**. Ta strona zawiera formularz, który użytkownicy mogą uzyskiwać dostęp do zaktualizowania swój profil. Ta strona jest podobna do strony rejestracji społecznościowych konto, z wyjątkiem pól wprowadzania hasła. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Ujednolicone stronę tworzenia konta lub logowania**. Ta strona obsługuje proces rejestracji i logowania użytkownika. Użytkownicy mogą używać enterprise dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook lub Google + lub kont lokalnych.  |
 
 ## <a name="serving-dynamic-content"></a>Obsługę zawartości dynamicznej
 W [skonfigurować dostosowywania interfejsu użytkownika w zasadach niestandardowych](active-directory-b2c-ui-customization-custom.md) artykułu, przekazywanie plików HTML5 do magazynu obiektów Blob Azure. Te pliki HTML5 są statyczne i renderowania zawartości dla każdego żądania do tego samego kodu HTML. 
@@ -105,7 +105,7 @@ Szablon HTML5 niestandardowy jest oparty na wbudowanych szablonów usługi Azure
 
 7. W ramach tego przewodnika możemy Usuń odwołanie do strony układu. Dodaj poniższy fragment kodu do _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Modyfikowanie HomeController `unified` metodę, aby zaakceptować parametru camp
 
 1. Otwórz *Controllers\HomeController.cs* pliku, a następnie zmień `unified` metody, dodając następujący fragment kodu:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background
@@ -323,7 +323,7 @@ W przypadku wybrania **Zamów teraz** łącze na stronie logowania w przeglądar
 
     b. Skopiuj zawartość pliku.
 
-    c. Utwórz nowy widok *selfasserted*.
+    d. Utwórz nowy widok *selfasserted*.
 
     d. Dodaj *selfasserted* do **Home** kontrolera.
 

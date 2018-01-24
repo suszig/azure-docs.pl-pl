@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: spelluru
-ms.openlocfilehash: e4e9416d75d5887de059a6fcfc66683940e3e6fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b48e08233fb6457c180b280af1076838845fcc94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować środowiska uruchomieniowego integracji Azure
 Integracja środowiska uruchomieniowego (IR) jest używany przez fabryki danych Azure zapewnienie możliwości integracji danych w różnych środowiskach sieci infrastruktury obliczeniowej. Aby uzyskać więcej informacji na temat IR, zobacz [integrację środowiska uruchomieniowego](concepts-integration-runtime.md).
@@ -66,7 +66,7 @@ Po utworzeniu IR Azure można odwoływać się do niej w definicji połączonej 
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły na temat tworzenia innych typów środowisk uruchomieniowych integracji:
 
 - [Create self-hosted integration runtime (Tworzenie środowiska Integration Runtime (Self-hosted)](create-self-hosted-integration-runtime.md)

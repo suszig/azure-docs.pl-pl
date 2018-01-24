@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Wizualne monitorować fabryki danych Azure
 Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
@@ -51,7 +51,7 @@ Widok listy pokazujące każdego potoku uruchamiania dla Twojego potoków v2 fab
 | Błąd | Potok Uruchom błędu (jeśli/any) |
 | Identyfikator uruchomienia | Identyfikator procesu, uruchom |
 
-![Uruchamia Monitor potoku](media/monitor-visually/pipeline-runs.png)
+![Monitorowanie uruchomień potoku](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Monitorowanie uruchomień działania
 Widok listy pokazujące uruchomień działania odpowiadający każdej potoku uruchamiania. Kliknij przycisk **"Odbywa się działanie"** ikonę w obszarze **"Działania"** kolumnę do wyświetlenia działania jest uruchamiana dla każdego procesu uruchamiania. Uwzględnionych kolumn:
@@ -67,7 +67,7 @@ Widok listy pokazujące uruchomień działania odpowiadający każdej potoku uru
 | Dane wyjściowe | Tablica JSON opisujące danych wyjściowych działania |
 | Błąd | Działanie Uruchom błędu (jeśli/any) |
 
-![Monitor uruchomień działania](media/monitor-visually/activity-runs.png)
+![Monitorowanie uruchomień działania](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > Musisz kliknąć przycisk **"Odśwież"** ikona u góry, aby odświeżyć listę uruchamia potoku i działania. Automatyczne odświeżanie nie jest obecnie obsługiwane.
@@ -112,6 +112,6 @@ Kliknij ikonę "Opinie", aby wysłać nam swoją opinię na różnych funkcji lu
 
 ![Opinia](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz [monitora i programowe zarządzanie potoki](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki

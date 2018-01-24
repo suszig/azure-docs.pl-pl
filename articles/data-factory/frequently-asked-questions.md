@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Fabryki danych Azure — często zadawane pytania
 Ten artykuł dotyczy wersji 2 usługi fabryka danych Azure. Zawiera on odpowiedzi na często zadawane pytania dotyczące usługi fabryka danych.  
@@ -31,7 +31,7 @@ Fabryka danych jest usługą pełni zarządzana, oparte na chmurze, integracja d
 
 Przy użyciu fabryki danych Azure, można utworzyć danymi przepływy pracy w celu przenoszenia danych między lokalnymi i w chmurze magazynów danych. Może przetwarzać i przekształcanie danych za pomocą obliczeniowe usług, takich jak środowiska uruchomieniowego integracji Azure HDInsight, Azure Data Lake Analytics i SQL Server Integration Services (SSIS). 
 
-Usługi w chmurze systemem Azure albo we własnym środowisku siebie obliczeń, takich jak SSIS, SQL Server lub Oracle przy użyciu fabryki danych można wykonać przetwarzania danych. Po utworzeniu potok, który wykonuje czynność, którą należy można zaplanować jego wyzwalacza potoku z wystąpienia zdarzeń lub uruchom okresowo (na przykład co godzinę, codziennie lub co tydzień). Aby uzyskać więcej informacji, zobacz [wprowadzenie do fabryki danych Azure](introduction.md).
+Usługi w chmurze systemem Azure albo we własnym środowisku siebie obliczeń, takich jak SSIS, SQL Server lub Oracle przy użyciu fabryki danych można wykonać przetwarzania danych. Po utworzeniu potok, który wykonuje czynność, którą należy można zaplanować jego wyzwalacza potoku z wystąpienia zdarzeń lub uruchom okresowo (na przykład co godzinę, codziennie lub co tydzień). Aby uzyskać więcej informacji, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
 
 ## <a name="whats-different-in-version-2"></a>Czym się różni wersja 2?
 Usługa Azure Data Factory w wersji 2 opiera się na oryginalnej usłudze przenoszenia i przekształcania danych Azure Data Factory, obsługując jednocześnie większy zestaw scenariuszy integracji danych w chmurze. Fabryka danych Azure w wersji 2 oferuje następujące możliwości:
@@ -93,7 +93,7 @@ Integracja środowiska uruchomieniowego jest używany przez fabryki danych Azure
 
 Jeden lub wiele wystąpień środowiska uruchomieniowego integracji można wdrożyć jako wymagane do przeniesienia i przekształcania danych. Integracja środowiska uruchomieniowego można uruchomić w sieci publicznej platformy Azure lub w sieci prywatnej (lokalnej, sieci wirtualnej platformy Azure lub usług Amazon Web Services wirtualnego chmury prywatnej [VPC]). 
 
-Aby uzyskać więcej informacji, zobacz [środowiska uruchomieniowego integracji w fabryce danych Azure](concepts-integration-runtime.md).
+Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Co to jest limit liczby środowisk uruchomieniowych integracji?
 Nie ma żadnego twardych limitu liczby wystąpień środowiska uruchomieniowego integracji, które mogą mieć w fabryce danych. Istnieje jednak limit liczby rdzeni maszyny Wirtualnej, które środowiska uruchomieniowego integracji można użyć dla subskrypcji wykonywanie pakietów SSIS. Aby uzyskać więcej informacji, zobacz [ogranicza fabryki danych](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Tak. Powiązane z działaniami w wersji 2, bez konieczności zestawów danych. D
 Tak, wszystkie działania w wersji 1 są obsługiwane w wersji 2.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Jak można zaplanować potoku w wersji 2 
-Wyzwalacz harmonogramu służy do planowania potoku w wersji 2. Wyzwalacz wykorzystuje harmonogram kalendarza wall zegara i służy do planowania potoki okresowo lub za pomocą kalendarza na podstawie powtarzającego się wzorce (na przykład, co tydzień w poniedziałek godzinie 6 i czwartki o 21: 00). Aby uzyskać więcej informacji, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md).
+Wyzwalacz harmonogramu służy do planowania potoku w wersji 2. Wyzwalacz wykorzystuje harmonogram kalendarza wall zegara i służy do planowania potoki okresowo lub za pomocą kalendarza na podstawie powtarzającego się wzorce (na przykład, co tydzień w poniedziałek godzinie 6 i czwartki o 21: 00). Aby uzyskać więcej informacji, zobacz [Wyzwalacze i wykonywanie potoku](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Dla potoku, uruchom w wersji 2 można przekazywać parametrów?
 Parametry są tak, pojęcie najwyższej jakości, najwyższego poziomu w wersji 2. Można zdefiniować parametrów na poziomie potoku i przekazywać argumenty, jak wykonać potoku uruchamiane na żądanie lub przy użyciu wyzwalacza.  
@@ -196,7 +196,7 @@ Można użyć `@coalesce` skonstruować w wyrażeniach można bezpiecznie obsłu
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>Czy można użyć ponawiania i limit czasu na poziomie działania w wersji 2?
 Tak. Dotyczące wykonywania działań w wersji 2, tak jak w wersji 1, można skonfigurować na poziomie działania ponawiania i limit czasu. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać instrukcje krok po kroku można utworzyć fabryki danych w wersji 2 zobacz następujące samouczki:
 
 - [Szybki Start: Tworzenie fabryki danych](quickstart-create-data-factory-dot-net.md)

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Wprowadzenie do monitorowania usługi w chmurze
 
@@ -39,7 +39,7 @@ Podstawowe monitorowanie nie wymagają konta magazynu.
 
 ## <a name="advanced-monitoring"></a>Zaawansowane monitorowanie
 
-Zaawansowanego monitorowania polega na użyciu rozszerzenia diagnostyki Azure (i opcjonalnie zestaw SDK usługi Application Insights) w roli, którą chcesz monitorować. Rozszerzenie diagnostyki używa pliku konfiguracyjnego (dla każdej roli) o nazwie **diagnostics.wadcfgx** konfigurowania metryki diagnostyki monitorowane. Dane diagnostyczne Azure zbiera rozszerzenia jest przechowywane w konta usługi Azure Storage, który jest skonfigurowany w **.wadcfgx** i w [csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) i [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) plików. Oznacza to, że istnieje dodatkowy koszt związany z zaawansowanego monitorowania.
+Zaawansowanego monitorowania polega na użyciu **diagnostyki Azure** rozszerzenia (i opcjonalnie zestaw SDK usługi Application Insights) dla danej roli, który chcesz monitorować. Rozszerzenie diagnostyki używa pliku konfiguracyjnego (dla każdej roli) o nazwie **diagnostics.wadcfgx** konfigurowania metryki diagnostyki monitorowane. Dane diagnostyczne Azure zbiera rozszerzenia jest przechowywane w konta usługi Azure Storage, który jest skonfigurowany w **.wadcfgx** i w [csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) i [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) plików. Oznacza to, że istnieje dodatkowy koszt związany z zaawansowanego monitorowania.
 
 Przy tworzeniu każdej roli programu Visual Studio dodaje rozszerzenia diagnostyki Azure do niej. To rozszerzenie zebrać następujące informacje:
 
@@ -52,22 +52,24 @@ Przy tworzeniu każdej roli programu Visual Studio dodaje rozszerzenia diagnosty
 * Zrzuty awaryjne
 * Dzienniki błędów klienta
 
-Podczas tych danych jest agregowana do konta magazynu, portalu nie zapewnia natywnego sposobem dane wykresu. Innej usługi, takie jak usługi Application Insights, można użyć do grupowania i wyświetlić dane.
+> [!IMPORTANT]
+> Podczas tych danych jest agregowana do konta magazynu, portalu jest **nie** umożliwiają natywnych danych wykresu. Zdecydowanie zaleca się integrowanie innej usługi, takie jak usługi Application Insights do aplikacji.
 
 ### <a name="use-application-insights"></a>Użyj usługi Application Insights
 
-Po opublikowaniu usługi w chmurze w programie Visual Studio podano opcję Wyślij dane diagnostyczne do usługi Application Insights. Można utworzyć zasobu usługi Application Insights w tym czasie, lub wysłać dane do istniejącego zasobu. Usługi w chmurze mogą być monitorowane przez usługę Application Insights dostępność, wydajność, błędy i użycia. Niestandardowe wykresy mogą być dodawane do usługi Application Insights, dzięki czemu dane można wyświetlić który ważna najbardziej. Mogą być zbierane dane wystąpienia roli przy użyciu zestawu SDK usługi Application Insights w projekcie usługi w chmurze. Aby uzyskać więcej informacji na temat integracji usługi Application Insights, zobacz [usługi Application Insights z usługami w chmurze](../application-insights/app-insights-cloudservices.md).
+Po opublikowaniu usługi w chmurze w programie Visual Studio podano opcję Wyślij dane diagnostyczne do usługi Application Insights. Można utworzyć zasobów aplikacji Azure szczegółowych informacji w tym czasie lub wysyłać dane do istniejącego zasobu platformy Azure. Usługi w chmurze mogą być monitorowane przez usługę Application Insights dostępność, wydajność, błędy i użycia. Niestandardowe wykresy mogą być dodawane do usługi Application Insights, dzięki czemu dane można wyświetlić który ważna najbardziej. Mogą być zbierane dane wystąpienia roli przy użyciu zestawu SDK usługi Application Insights w projekcie usługi w chmurze. Aby uzyskać więcej informacji na temat integracji usługi Application Insights, zobacz [usługi Application Insights z usługami w chmurze](../application-insights/app-insights-cloudservices.md).
 
 Należy pamiętać, że podczas korzystania z usługi Application Insights, aby wyświetlić liczniki wydajności (i inne ustawienia) określono za pośrednictwem rozszerzenia systemu Windows Azure Diagnostics tylko otrzymasz więcej możliwości dzięki integracji zestawu SDK usługi Application Insights do role sieci web i proces roboczy.
 
-
-## <a name="add-advanced-monitoring"></a>Dodaj zaawansowanego monitorowania
+## <a name="setup-diagnostics-extension"></a>Ustawienia diagnostyki rozszerzenia
 
 Pierwsza strona, jeśli nie masz **klasycznego** konta magazynu [utworzyć](../storage/common/storage-create-storage-account.md#create-a-storage-account). Upewnij się, że utworzono konto magazynu z **klasycznego modelu wdrożenia** określony.
 
 Następnie przejdź do **konta magazynu (klasyczne)** zasobów. Wybierz **ustawienia** > **klucze dostępu** i skopiuj **parametry połączenia podstawowej** wartość. Ta wartość jest wymagane dla usługi w chmurze. 
 
-Istnieją dwa pliki konfiguracji, należy zmienić Diagnostics zaawansowane włączyć, **ServiceDefinition.csdef** i **pliku ServiceConfiguration.cscfg**. Prawdopodobnie użytkownik ma dwa **.cscfg** pliki jedną o nazwie **ServiceConfiguration.cloud.cscfg** wdrażania platformy Azure i jedną o nazwie **ServiceConfiguration.local.cscfg** używany do wdrożenia lokalnego debugowania. Zmiana obu z nich.
+Istnieją dwa pliki konfiguracji, należy zmienić Diagnostics zaawansowane włączyć, **ServiceDefinition.csdef** i **pliku ServiceConfiguration.cscfg**.
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 W **ServiceDefinition.csdef** plików, Dodaj nowe ustawienie o nazwie `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` dla każdej roli, która używa zaawansowane diagnostyki. Podczas tworzenia nowego projektu programu Visual Studio dodaje do tej wartości do pliku. W przypadku, gdy jest on niedostępny, można dodać go teraz. 
 
@@ -78,7 +80,9 @@ W **ServiceDefinition.csdef** plików, Dodaj nowe ustawienie o nazwie `Microsoft
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Definiuje to nowe ustawienie, które muszą zostać dodane do każdej **pliku ServiceConfiguration.cscfg** pliku. Otwórz i zmień każdego **.cscfg** pliku. Dodaj ustawienie o nazwie `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ustaw wartość na jedną **parametry połączenia podstawowej** konta magazynu classic lub do `UseDevelopmentStorage=true`, jeśli chcesz użyć lokalnego magazynu na komputerze deweloperskim.
+Definiuje to nowe ustawienie, które muszą zostać dodane do każdej **pliku ServiceConfiguration.cscfg** pliku. 
+
+Prawdopodobnie użytkownik ma dwa **.cscfg** pliki jedną o nazwie **ServiceConfiguration.cloud.cscfg** wdrażania platformy Azure i jedną o nazwie **ServiceConfiguration.local.cscfg** używany w przypadku wdrożeń lokalnych w środowisku emulowanej. Otwórz i zmień każdego **.cscfg** pliku. Dodaj ustawienie o nazwie `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ustaw wartość na jedną **parametry połączenia podstawowej** konta magazynu klasycznego. Jeśli chcesz użyć lokalnego magazynu na komputerze deweloperskim, należy użyć `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ Definiuje to nowe ustawienie, które muszą zostać dodane do każdej **pliku Se
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>Kolejne kroki

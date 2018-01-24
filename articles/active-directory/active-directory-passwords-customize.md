@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Dostosowywanie funkcji usługi Azure AD dla samoobsługowego resetowania hasła
 
@@ -74,31 +74,7 @@ Wybrane grafiki są przedstawione w następujących okolicznościach:
     * Przez przekazanie *godz. pracy* strony, takich jak "https://login.microsoftonline.com/?whr=contoso.com" resetowania parametr hasło
     * Przez przekazanie *username* parametr hasło zresetować strony, tak samo, jak "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Szczegóły grafiki
-
-Użyj następujących ustawień, aby zmienić właściwości visual strony logowania. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**:
-
-* Obraz strony logowania powinien być plikiem .png lub .jpg 1420 x 1200 pikseli i nie większą niż 500 KB. Aby uzyskać najlepsze wyniki zaleca się pozostawienie jej około 200 KB.
-* Kolor tła strony logowania jest używany w przypadku połączeń z dużymi opóźnieniami i musi być w formacie szesnastkowym RGB.
-* Obraz transparentu powinien być plikiem .png lub .jpg 60 x 280 pikseli i być większe niż 10 KB.
-* Kwadratowe logo (normalne i ciemnego motywu) powinien być plikiem .png lub .jpg 240 x 240 pikseli (rozmiar) i nie większą niż 10 KB.
-
-### <a name="sign-in-text-options"></a>Opcje logowania tekstu
-
-Użyj następujących ustawień, aby dodać tekst do strony logowania, która jest odpowiednia dla Twojej organizacji. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**:
-
-* **Wskazówka nazwy użytkownika**: zastępuje tekst przykład  *someone@example.com*  na coś bardziej odpowiednie dla użytkowników. Zaleca się pozostawienie wskazówka domyślna w przypadku obsługi użytkowników wewnętrznych i zewnętrznych.
-* **Tekst strony logowania**: może zawierać maksymalnie 256 znaków. Ten tekst jest wyświetlany wszędzie tam, gdzie użytkownicy logują się w trybie online i w środowisku Azure AD dołączanie do miejsca pracy w systemie Windows 10. Użyj tego tekstu warunków użytkowania, instrukcje i wskazówki dla użytkowników. 
-
-   >[!IMPORTANT]
-   >Każda osoba, która jest widoczny Twojej strony logowania, więc nie oferują żadnych poufnych informacji.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Ustawienie "Zachowaj wylogowuj mnie wyłączone"
-
-Z **wylogowuj mnie wyłączone** opcji użytkowników można wylogować po zamknięciu i ponownie otworzyć ich okna przeglądarki. Ta opcja nie wpływa na okres istnienia sesji. Przejdź do **usługi Azure Active Directory** > **firmy znakowania** > **znakowanie firmowe edycji**.
-
-Niektóre funkcje pakietu Office 2010 i SharePoint Online zależy od możliwości użytkowników zaznacz to pole wyboru. Ukrycie tę opcję, użytkownicy mogą uzyskać dodatkowe i nieoczekiwane logowania monitów.
+Wyszukiwanie szczegółowych informacji na temat konfigurowania firmowe w artykule [dodać znakowanie firmowe do strony logowania w usłudze Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Nazwa katalogu
 
@@ -107,7 +83,7 @@ Można zmienić atrybutu nazwy katalogu, w obszarze **usługi Azure Active Direc
 * Przyjazna nazwa w wiadomości e-mail, na przykład "Microsoft imieniu pokaz firmy CONTOSO"
 * Wiersz tematu wiadomości e-mail, na przykład "CONTOSO demonstracyjna konta e-mail kod weryfikacyjny"
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jak wykonać pomyślne wdrożenie funkcji samoobsługowego resetowania haseł?](active-directory-passwords-best-practices.md)
 * [Resetowanie lub zmienianie hasła](active-directory-passwords-update-your-own-password.md)

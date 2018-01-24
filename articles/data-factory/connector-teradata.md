@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiowanie danych z programu Teradata przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ Obsługiwane są następujące właściwości dla programu Teradata połączone 
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Teradata** | Yes |
 | serwer | Nazwa serwera programu Teradata. | Yes |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata.<br/>Dozwolone wartości to: **podstawowe**, i **Windows**. | Yes |
+| authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata.<br/>Dozwolone wartości to: **podstawowe**, i **Windows**. | Yes |
 | nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych programu Teradata. | Yes |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |
@@ -167,44 +167,44 @@ Podczas kopiowania danych z programu Teradata, następujące mapowania są używ
 | Typ danych programu Teradata | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | BigInt |Int64 |
-| Obiekt blob |Byte] |
-| Bajtów |Byte] |
+| Obiekt blob |Byte[] |
+| Bajtów |Byte[] |
 | ByteInt |Int16 |
 | char |Ciąg |
 | CLOB |Ciąg |
 | Date |Data/godzina |
 | Decimal |Decimal |
-| O podwójnej precyzji |O podwójnej precyzji |
+| Podwójnej precyzji |Podwójnej precyzji |
 | Grafika |Ciąg |
 | Liczba całkowita |Int32 |
-| Interwał dnia |Zakres czasu |
-| Interwał dzień na godzinę |Zakres czasu |
-| Interwał dzień na minutę |Zakres czasu |
-| Interwał dzień na sekundę |Zakres czasu |
-| Interwał, godzinę |Zakres czasu |
-| Interwał godzinę, minutę |Zakres czasu |
-| Interwał godzinę na sekundę |Zakres czasu |
-| Interwał minutę |Zakres czasu |
-| Interwał minutę na sekundę |Zakres czasu |
+| Interwał dnia |TimeSpan |
+| Interwał dzień na godzinę |TimeSpan |
+| Interwał dzień na minutę |TimeSpan |
+| Interwał dzień na sekundę |TimeSpan |
+| Interwał, godzinę |TimeSpan |
+| Interwał godzinę, minutę |TimeSpan |
+| Interwał godzinę na sekundę |TimeSpan |
+| Interwał minutę |TimeSpan |
+| Interwał minutę na sekundę |TimeSpan |
 | Interwał miesiąca |Ciąg |
-| Interwał drugi |Zakres czasu |
+| Interwał drugi |TimeSpan |
 | Interwał roku |Ciąg |
 | Interwał rok, miesiąc |Ciąg |
-| Liczba |O podwójnej precyzji |
+| Liczba |Podwójnej precyzji |
 | Period(Date) |Ciąg |
 | Period(Time) |Ciąg |
 | Okres (czas ze strefą czasową) |Ciąg |
 | Period(TimeStamp) |Ciąg |
 | Okres (sygnatura ze strefą czasową) |Ciąg |
 | SmallInt |Int16 |
-| Time |Zakres czasu |
+| Time |TimeSpan |
 | Czas ze strefą czasową |Ciąg |
 | Sygnatura czasowa |Data/godzina |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
-| VarByte |Byte] |
+| VarByte |Byte[] |
 | VarChar |Ciąg |
 | VarGraphic |Ciąg |
-| XML |Ciąg |
+| Xml |Ciąg |
 
 
 ## <a name="next-steps"></a>Kolejne kroki

@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: sdash
-ms.openlocfilehash: da945257a7a2548fe68498e5c908bd5487dad782
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: b090699cf90c74af8480b811901b6e3078b007b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 01/23/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostyka ujednoliconego transakcji między składnikami
 
-*To środowisko jest obecnie w wersji zapoznawczej i zastępuje istniejące bloków diagnostyki po stronie serwera.*
+*To środowisko jest obecnie w wersji zapoznawczej i zastępuje istniejące bloków diagnostyki dla żądania po stronie serwera, zależności i wyjątki.*
 
 Wersja zapoznawcza wprowadza nową funkcjonalność ujednoliconego diagnostyki odpowiadająca automatycznie telemetrii po stronie serwera z dotyczące wszystkich składników usługi Application Insights monitorowane w jednym widoku. Nie ma znaczenia, jeśli masz wiele zasobów z kluczami oddzielne Instrumentacji; Usługa Application Insights wykrycia relacji podstawowej i umożliwia łatwe diagnozowanie składnika aplikacji, zależności lub wyjątek, która spowodowała spowolnienie transakcji lub niepowodzenie.
 
@@ -49,7 +49,7 @@ Ten widok zawiera trzy części klucza: wykres transakcji między składnikami, 
 
 ![Części klucza](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
 
-### <a name="cross-component-transaction-chart"></a>Wykres transakcji między składnikami
+### <a name="1-cross-component-transaction-chart"></a>[1] między składnikami transakcji wykresu
 
 Ten wykres zawiera oś czasu z słupkach poziomych na czas trwania żądania i zależności między składnikami. Wszelkie wyjątki, które są zbierane są również oznaczane na osi czasu.
 
@@ -57,18 +57,18 @@ Ten wykres zawiera oś czasu z słupkach poziomych na czas trwania żądania i z
 * Wszystkie wywołania zależności zewnętrznych są proste-zwijanej wiersze, w których ikony reprezentujący typ zależności.
 * Wywołania z innymi składnikami są zwijane wierszy. Każdy wiersz odpowiada określonej operacji wywołać składnika.
 * Domyślnie żądania, zależności lub wyjątek, który początkowo zaznaczone jest wyświetlane na wykresie.
-* Wybierz wszystkie wiersze, aby wyświetlić jego szczegóły po prawej stronie. Kliknięcie ikony profilera w wierszu żądania lub ikonę migawki debugowania, w wierszu wyjątek zostanie otwarty odpowiedni okienka szczegółów.
+* Wybierz wszystkie wiersze, aby wyświetlić jego szczegóły po prawej stronie. Kliknij przycisk "ślady profilera Otwórz" lub "debugowania Otwórz migawkę" dla poziomu diagnostyki kodu w odpowiednich okienka szczegółów.
 
 > [!NOTE]
-Wywołania z innymi składnikami mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzącego (zależności) ze składnika wywołującego i drugiego wiersza odpowiada żądania przychodzącego na składnik o nazwie. Drugie jest nazywany localhost ułatwiają odróżnienie je. Użyć kanału opinii prawym górnym rogu, aby poinformować nas, jak uważasz, że zaktualizowano prezentacji.
+Wywołania z innymi składnikami mają dwa wiersze: jeden wiersz reprezentuje wywołanie wychodzącego (zależności) ze składnika wywołującego i drugiego wiersza odpowiada żądania przychodzącego na składnik o nazwie. Ikona początkowych i różne style pasków czas trwania pomoże rozróżnianie między nimi.
 
-### <a name="time-sequenced-telemetry-of-the-selected-component-operation"></a>Telemetria sekwencjonowania czas operacji wybranego składnika.
+### <a name="2-time-sequenced-telemetry-of-the-selected-component-operation"></a>[2] czas sekwencjonowania telemetrii operacji wybranego składnika.
 
 Każdy wiersz na wykresie między składnikami transakcji jest powiązany z operacji wywoływanej w poszczególnych składników. Ta operacja wybranego składnika znajduje odzwierciedlenie w tytule dolnej części. Otworzyć tę sekcję, aby zobaczyć sekwencji płaskiej czas wszystkie dane telemetryczne dotyczące tej operacji. Można wybrać dowolny element telemetrii na tej liście, aby wyświetlić szczegóły po prawej stronie.
 
 ![Wszystkie dane telemetryczne czasu sekwencji](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
-### <a name="details-pane"></a>W okienku szczegółów
+### <a name="3-details-pane"></a>[3] w okienku szczegółów
 
 Szczegóły wybranego elementu z jednej z dwóch części w tym okienku są wyświetlane po lewej stronie. "Pokaż wszystko" zawiera wszystkie standardowe atrybuty, które są zbierane. Atrybuty niestandardowe oddzielnie są wymienione poniżej standardowego zestawu.
 
@@ -88,7 +88,7 @@ Potencjalne przyczyny:
 
 * Czy inne składniki są instrumentowane przy użyciu usługi Application Insights?
 * Są one przy użyciu najnowszych stabilna Insights zestaw SDK usługi Application?
-* Jeśli te składniki są osobne zasobów usługi Application Insights, czy jest wymagany dostęp do nich?
+* Jeśli te składniki są osobne zasobów usługi Application Insights, czy jest wymagany dostęp do swoich danych telemetrycznych?
 
 Jeśli masz dostęp i składniki są instrumentowane przy użyciu najnowszych zestawów SDK Insights aplikacji, Daj nam znać za pośrednictwem kanału górnym prawym opinii.
 
@@ -100,7 +100,7 @@ Tak. Nowe środowisko łączy wszystkie powiązane dane telemetryczne po stronie
 
 *Widać zduplikowane wiersze dla zależności. Jest to oczekiwane?*
 
-W tej chwili możemy są wyświetlane wywołania zależności wychodzącego oddzielony od ruchu przychodzącego żądania. Zazwyczaj dwa wywołania Szukaj taka sama, jak są różne z powodu sieci Rundy tylko wartości czasu trwania. Aby ułatwić ich rozróżnienie, wywołania składnika odbierania żądań "localhost" ikoną serwera. Ten wiersz zostanie natychmiast wykonaj wiersza zależności. Jest myląca ze tej prezentacji danych? Przekaż nam swoją opinię!
+W tej chwili możemy są wyświetlane wywołania zależności wychodzącego oddzielony od ruchu przychodzącego żądania. Zazwyczaj dwa wywołania Szukaj taka sama, jak są różne z powodu sieci Rundy tylko wartości czasu trwania. Ikona początkowych i różne style pasków czas trwania pomoże rozróżnianie między nimi. Jest myląca ze tej prezentacji danych? Przekaż nam swoją opinię!
 
 *Jak zegar pochyla w wystąpieniach różnych składników?*
 

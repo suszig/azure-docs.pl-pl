@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Przenoszenia danych z PostgreSQL przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,14 +75,14 @@ Poniższa tabela zawiera opis specyficzne dla usługi PostgreSQL połączone ele
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesPostgreSql** |Tak |
-| serwer |Nazwa serwera PostgreSQL. |Tak |
-| Bazy danych |Nazwa bazy danych PostgreSQL. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesPostgreSql** |Yes |
+| serwer |Nazwa serwera PostgreSQL. |Yes |
+| baza danych |Nazwa bazy danych PostgreSQL. |Yes |
 | Schemat |Nazwa schematu w bazie danych. Nazwa schematu jest rozróżniana wielkość liter. |Nie |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych PostgreSQL. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
+| authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych PostgreSQL. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Nie |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych PostgreSQL. |Tak |
+| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych PostgreSQL. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów w zestawie danych.
@@ -307,30 +307,30 @@ Podczas przenoszenia danych do PostgreSQL, następujące mapowania są używane 
 
 | Typ bazy danych PostgreSQL | Aliasy PostgresSQL | Typ programu .NET framework |
 | --- | --- | --- |
-| abstime | |Data i godzina | &nbsp;
+| abstime | |Data/godzina | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bitowe [(n)] | |Byte [], ciąg | &nbsp;
 | bit zróżnicowanie [(n)] |varbit |Byte [], ciąg |
-| Wartość logiczna |wartość logiczna |Wartość logiczna |
-| Pole | |Byte [], ciąg |&nbsp;
+| wartość logiczna |bool |Wartość logiczna |
+| box | |Byte [], ciąg |&nbsp;
 | bytea | |Byte [], ciąg |&nbsp;
 | znak [(n)] |char [(n)] |Ciąg |
 | znak zróżnicowanie [(n)] |varchar [(n)] |Ciąg |
 | CID | |Ciąg |&nbsp;
 | CIDR | |Ciąg |&nbsp;
 | koło | |Byte [], ciąg |&nbsp;
-| Data | |Data i godzina |&nbsp;
+| data | |Data/godzina |&nbsp;
 | DateRange | |Ciąg |&nbsp;
-| podwójnej precyzji |FLOAT8 |O podwójnej precyzji |
+| podwójnej precyzji |FLOAT8 |Podwójnej precyzji |
 | inet | |Byte [], ciąg |&nbsp;
 | intarry | |Ciąg |&nbsp;
 | int4range | |Ciąg |&nbsp;
 | int8range | |Ciąg |&nbsp;
-| Liczba całkowita |int, int4 |Int32 |
+| liczba całkowita |int, int4 |Int32 |
 | Interwał [pola] [(p)] | |Zakres czasu |&nbsp;
-| JSON | |Ciąg |&nbsp;
-| jsonb | |Byte] |&nbsp;
+| json | |Ciąg |&nbsp;
+| jsonb | |Byte[] |&nbsp;
 | wiersz | |Byte [], ciąg |&nbsp;
 | lseg | |Byte [], ciąg |&nbsp;
 | macaddr | |Byte [], ciąg |&nbsp;
@@ -338,14 +338,14 @@ Podczas przenoszenia danych do PostgreSQL, następujące mapowania są używane 
 | numeryczne [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Ciąg |&nbsp;
 | Identyfikator OID | |Int32 |&nbsp;
-| Ścieżka | |Byte [], ciąg |&nbsp;
+| ścieżka | |Byte [], ciąg |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | punkt | |Byte [], ciąg |&nbsp;
 | wielokąta | |Byte [], ciąg |&nbsp;
-| rzeczywiste |FLOAT4 |Pojedynczy |
+| rzeczywiste |FLOAT4 |Kawaler/panna |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Szeregowe |serial4 |Int32 |
+| numer seryjny |serial4 |Int32 |
 | Tekst | |Ciąg |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła

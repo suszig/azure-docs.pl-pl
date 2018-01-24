@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry i manifestów dynamiczne
 Począwszy od wersji 2.17, Media Services można zdefiniować filtry dla zasobów. Te filtry są reguły po stronie serwera, które umożliwi klientom wybierz można wykonywać następujące czynności: odtwarzanie tylko części klipu wideo (zamiast odtwarzanie całego), lub określ tylko podzestaw wersji audio i wideo, które urządzenia klienta może obsłużyć (zamiast tego wszystkie wersji skojarzonych z elementu zawartości). Filtrowania elementów zawartości zostaną zarchiwizowane za pośrednictwem **dynamiczne manifestu**, które są tworzone na żądanie klienta do strumienia wideo oparte na określonej filtry.
 
-Tematy to omówiono typowe scenariusze, w którym za pomocą filtrów będą bardzo przydatne do klientów i linki do tematów, które przedstawiają sposób tworzyć filtry programowo (obecnie można tworzyć filtry z interfejsów API REST tylko).
+Tematy to omówiono typowe scenariusze, w którym za pomocą filtrów będą bardzo przydatne do klientów i linki do tematów, które przedstawiają sposób tworzyć filtry programowo.
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Podczas dostarczania zawartości klientom (przesyłanie strumieniowe wydarzeń na żywo lub wideo) poznasz jest dostarczania wideo wysokiej jakości do różnych urządzeń bez względu na warunki panujące w sieci. Aby osiągnąć ten cel, należy wykonać następujące czynności:
 
 * kodowanie strumienia do wielokrotnej szybkości transmisji bitów ([adaptacyjną szybkością transmisji bitów](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) strumienia wideo (to zajmie się jakość i warunki sieciowe) i 

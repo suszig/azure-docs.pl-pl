@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Zarządzanie i obsługę agenta analizy dzienników systemu Windows i Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agent systemu Linux
-Jeśli komputery Linux muszą komunikować się za pośrednictwem serwera proxy lub bramy OMS do analizy dzienników, należy wykonać następujące czynności.  Wartość konfiguracji serwera proxy ma następującą składnię `[protocol://][user:password@]proxyhost[:port]`.
+Jeśli komputery Linux muszą komunikować się za pośrednictwem serwera proxy lub bramy OMS do analizy dzienników, należy wykonać następujące czynności.  Wartość konfiguracji serwera proxy ma następującą składnię `[protocol://][user:password@]proxyhost[:port]`.  *Proxyhost* właściwość akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy.
 
 1. Edytuj plik `/etc/opt/microsoft/omsagent/proxy.conf`, uruchamiając następujące polecenia, i zmień wartości na odpowiednie dla siebie.
 
@@ -148,7 +148,7 @@ Pobrany plik dla agenta jest pakietem instalacyjnym niezależne utworzone za pom
 3. W wierszu polecenia wpisz `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Agent systemu Linux
-Aby usunąć agenta, wykonaj następujące działania.
+Aby usunąć agenta, wykonaj poniższe kroki.
 
 1. Pobierz na komputer [uniwersalny skrypt](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) agenta systemu Linux.
 2. Uruchom na komputerze plik sh pakietu z argumentem *--purge*, co spowoduje całkowite usunięcie agenta i jego konfiguracji.
@@ -178,6 +178,6 @@ Wykonaj poniższe kroki, aby skonfigurować agenta pakietu OMS dla systemu Linux
 2. Upewnij się, że zaczyna się od wiersza `httpsport=` definiuje portu 1270. Takie jak:`httpsport=1270`
 3. Uruchom ponownie serwer OMI:`sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przegląd [Rozwiązywanie problemów z agentem systemu Linux](log-analytics-agent-linux-support.md) napotkania problemów podczas instalowania lub zarządzania agentem.  

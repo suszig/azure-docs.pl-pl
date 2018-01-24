@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI z usługą Azure HDInsight przy użyciu narzędzi do wizualizacji danych
 
@@ -29,7 +29,7 @@ Dowiedz się, jak używać [Microsoft Power BI](http://powerbi.microsoft.com) i 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Pełne [uruchamianie interakcyjnych zapytań w klastrze Spark w usłudze HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Ukończenie tego artykułu [uruchamianie interakcyjnych zapytań w klastrze Spark w usłudze HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) i [subskrypcji wersji próbnej usługi Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcjonalnie).
 * **TABLEAU**: [pulpitu Tableau](http://www.tableau.com/products/desktop) i [sterownika Microsoft Spark ODBC](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ Notesu Jupyter, który został utworzony w [poprzedniego samouczek](apache-spark
 
     ![Pokaż wiersze z tabeli hvac w łączniku Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Z **pliku** menu w notesie kliknij **zamknąć i zatrzymuje**. Zamknij aby zwolnić zasoby. 
+3. W menu **File** (Plik) w notesie kliknij polecenie **Close and Halt** (Zamknij i zatrzymaj). Zamknij aby zwolnić zasoby. 
 
 
 
@@ -109,7 +109,7 @@ Pierwszym krokiem w pracy z platformy Spark jest Połącz się z klastrem w prog
 
     ![Platforma Spark jest klastra nazwę użytkownika i hasło](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark klastra nazwę użytkownika i hasło")
 
-    Power BI Desktop zawiera informacje niezbędne do połączenia się Spark klastra i ładowanie danych z `hvac` tabeli. Tabeli i jej kolumn są wyświetlane w **pola** okienka.  Zobacz poniższy zrzut ekranu.
+    Power BI Desktop zawiera informacje niezbędne do połączenia się Spark klastra i ładowanie danych z `hvac` tabeli. Tabeli i jej kolumn są wyświetlane w **pola** okienka.  Zobacz poniższy zrzut ekranu:
 
 6. Wizualizuj różnica między temperatury docelowych i rzeczywistego temperatury dla każdego tworzenia: 
 
@@ -212,11 +212,11 @@ Wizualny jest przypięta do pulpitu nawigacyjnego — możesz dodawać innych el
 6. Kliknij przycisk **Sheet1 —** kartę w lewym dolnym rogu. Należy wizualizacji przedstawiający średni docelowy i rzeczywistego temperatur w budynkach wszystkie dla każdego dnia. Przeciągania **data** i **tworzenia identyfikator** do **kolumn** i **rzeczywiste Temp**/**Target Temp** Aby **wierszy**. W obszarze **znaczniki**, wybierz pozycję **obszaru** do Użyj obszaru mapy wizualizacji danych platformy Spark.
 
      ![Dodawanie pól do wizualizacji danych Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Dodawanie pól do wizualizacji danych Spark")
-7. Domyślnie są wyświetlane pola temperatury jako agregacji. Jeśli chcesz wyświetlić średnia temperatura zamiast tego, możesz to zrobić z listy rozwijanej, jak pokazano na poniższym zrzucie ekranu.
+7. Domyślnie są wyświetlane pola temperatury jako agregacji. Jeśli chcesz wyświetlić średnia temperatura zamiast tego, możesz to zrobić z listy rozwijanej, jak pokazano na poniższym zrzucie ekranu:
 
     ![Zająć średnia temperatura wizualizacji danych Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "zająć średnia temperatura Spark wizualizacji danych")
 
-8. Można również super skonfigurować jedną mapę temperatury za pośrednictwem innych uzyskanie lepszego działania różnica między temperatury rzeczywiste i docelowe. Przesuń wskaźnik myszy do rogu niższe obszaru mapy dopóki Zobacz kształtu uchwyt wyróżnione kolorem czerwonym kółku. Przeciągnij mapy do innych mapy u góry, a następnie zwolnij przycisk myszy, gdy pojawi się kształtu wyróżnione kolorem czerwonym prostokątem.
+8. Można również super skonfigurować jedną mapę temperatury za pośrednictwem innych uzyskanie lepszego działania różnica między temperatury rzeczywiste i docelowe. Przesuń wskaźnik myszy do rogu niższe obszaru mapy do momentu wyświetlenia kształtu uchwyt wyróżnione kolorem czerwonym kółku. Przeciągnij mapy do innych mapy u góry, a następnie zwolnij przycisk myszy, gdy pojawi się kształtu wyróżnione kolorem czerwonym prostokątem.
 
     ![Scal mapy do wizualizacji danych Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "scalania mapy dla Spark wizualizacji danych")
 
@@ -225,7 +225,7 @@ Wizualny jest przypięta do pulpitu nawigacyjnego — możesz dodawać innych el
     ![Dane wyjściowe TABLEAU do wizualizacji danych Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau danych wyjściowych Spark wizualizacji danych")
 9. Kliknij przycisk **zapisać** można zapisać w arkuszu. Można tworzyć pulpity nawigacyjne i dodawać do niego co najmniej jeden arkusz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Do tej pory przedstawiono sposób tworzenia klastra, Utwórz Spark ramek danych wykonać zapytania o dane i następnie dostęp do danych z narzędzi do analizy Biznesowej. Teraz można przeglądać instrukcje dotyczące zarządzania zasobami klastra i debugowanie zadań uruchomionych w klastrze Spark w usłudze HDInsight.
 

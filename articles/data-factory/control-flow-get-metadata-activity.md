@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Uzyskiwanie metadanych działania w fabryce danych Azure
 Działanie GetMetadata umożliwia pobieranie metadanych dowolnych danych z usługi Azure Data Factory. To działanie jest obsługiwana tylko dla fabryki danych w wersji 2. Mogą być używane w następujących scenariuszach:
@@ -96,10 +96,10 @@ Obecnie GetMetadata działania można pobrać następujące typy informacji meta
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-listy pól | Wyświetla listę typów wymaganych informacji o metadanych.  | <ul><li>Rozmiar</li><li>Struktura</li><li>Ostatnia modyfikacja</li></ul> |    Nie<br/>W przypadku braku działania zwraca wszystkie informacje o 3 obsługiwanych metadanych. 
-Zestaw danych | Zestaw danych odwołania, których działanie metadanych ma być pobrana przez działanie GetMetadata. <br/><br/>Typ aktualnie obsługiwany zestaw danych jest obiektów Blob platformy Azure. Dostępne są następujące dwie właściwości sub: <ul><li><b>nazwę odwołania</b>: odwołanie do istniejącego zestawu danych obiektów Blob Azure</li><li><b>Typ</b>: ponieważ odwołuje się zestaw danych jest typu "DatasetReference"</li></ul> |    <ul><li>Ciąg</li><li>DatasetReference</li></ul> | Tak
+listy pól | Wyświetla listę typów wymaganych informacji o metadanych.  | <ul><li>rozmiar</li><li>Struktura</li><li>lastModified</li></ul> |    Nie<br/>W przypadku braku działania zwraca wszystkie informacje o 3 obsługiwanych metadanych. 
+Zestaw danych | Zestaw danych odwołania, których działanie metadanych ma być pobrana przez działanie GetMetadata. <br/><br/>Typ aktualnie obsługiwany zestaw danych jest obiektów Blob platformy Azure. Dostępne są następujące dwie właściwości sub: <ul><li><b>nazwę odwołania</b>: odwołanie do istniejącego zestawu danych obiektów Blob Azure</li><li><b>Typ</b>: ponieważ odwołuje się zestaw danych jest typu "DatasetReference"</li></ul> |    <ul><li>Ciąg</li><li>DatasetReference</li></ul> | Yes
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)

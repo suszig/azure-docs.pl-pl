@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7e57003582dc6190b79e1b4eea38ec4adc1c521c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych do i z bazy danych SQL Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Azure SQL połączone usługi łączy bazy danych Azure SQL z fabryką danych. P
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **AzureSqlDatabase** |Tak |
-| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem bazy danych SQL Azure dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Tak |
+| type |Właściwość type musi mieć ustawioną: **AzureSqlDatabase** |Yes |
+| Parametry połączenia |Podaj informacje wymagane do połączenia z wystąpieniem bazy danych SQL Azure dla właściwości connectionString. Obsługiwane jest tylko uwierzytelnianie podstawowe. |Yes |
 
 > [!IMPORTANT]
 > Skonfiguruj [zapory bazy danych SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) serwera bazy danych do [Zezwalaj usługom Azure na dostęp do serwera](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Ponadto jeśli kopiujesz danych do bazy danych SQL Azure z poza tym Azure z lokalnych źródeł danych z bramą fabryki danych, należy skonfigurować odpowiedni zakres adresów IP dla komputera, który wysyła dane do bazy danych SQL Azure.
@@ -81,7 +81,7 @@ Sekcja typeProperties jest różne dla każdego typu zestawu danych i zawiera in
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych SQL Azure, odnoszący się do połączonej usługi. |Tak |
+| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych SQL Azure, odnoszący się do połączonej usługi. |Yes |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
@@ -152,7 +152,7 @@ GO
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 10000) |
 | sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania do wykonania w taki sposób, że dane określonych wycinek jest wyczyszczone. Aby uzyskać więcej informacji, zobacz [powtarzalne kopiowania](#repeatable-copy). |Instrukcja zapytania. |Nie |
 | sliceIdentifierColumnName |Określ nazwę kolumny dla aktywności kopiowania wypełnić automatycznie generowane wycinek identyfikator, który służy do oczyszczania danych określonego wycinek czas ponownego uruchomienia. Aby uzyskać więcej informacji, zobacz [powtarzalne kopiowania](#repeatable-copy). |Nazwa kolumny kolumnę o typie danych binary(32). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej danych upserts (aktualizacje/INSERT) do tabeli docelowej. |Nazwa procedury składowanej. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury przechowywanej, która definiuje sposób dotyczą źródła danych do tabeli docelowej, np. czy upserts lub Przekształcanie przy użyciu logiki biznesowej. <br/><br/>Należy pamiętać, będzie tej procedury składowanej **wywoływane na partię**. Jeśli chcesz wykonać operację, która tylko jest uruchamiane jeden raz i nie ma nic do wykonania z źródło danych, np. Usuń/obcięcia należy użyć `sqlWriterCleanupScript` właściwości. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej. |Par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
 | sqlWriterTableType |Określ nazwę typu tabeli do użycia w procedurze składowanej. Działanie kopiowania udostępnia dane jest przenoszony w tabeli tymczasowej o tym typie tabeli. Kod procedury składowanej można następnie scalić dane są kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
 
@@ -639,37 +639,37 @@ Podczas przenoszenia danych do i z bazy danych SQL Azure, następujące mapowani
 | Typ aparatu bazy danych programu SQL Server | Typ programu .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
-| datetime2 |Data i godzina |
+| data |Data/godzina |
+| Data/godzina |Data/godzina |
+| datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
 | ntext |Ciąg, Char] |
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
-| rzeczywiste |Pojedynczy |
-| ROWVERSION |Byte] |
-| smalldatetime |Data i godzina |
+| rzeczywiste |Kawaler/panna |
+| ROWVERSION |Byte[] |
+| smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Bajtów |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
 Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Przenoszenie danych z bazy danych MongoDB przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,15 +67,15 @@ Poniższa tabela zawiera opis elementów JSON specyficzne dla **OnPremisesMongoD
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesMongoDb** |Tak |
-| serwer |Adres IP lub hosta nazwę serwera bazy danych MongoDB. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesMongoDb** |Yes |
+| serwer |Adres IP lub hosta nazwę serwera bazy danych MongoDB. |Yes |
 | port |Port TCP używany przez serwer bazy danych MongoDB do nasłuchiwania dla połączeń klienta. |Opcjonalne, wartość domyślna: 27017 |
-| Typ authenticationType |Podstawowy, lub anonimowe. |Tak |
+| authenticationType |Podstawowy, lub anonimowe. |Yes |
 | nazwa użytkownika |Konto użytkownika do bazy danych MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło dla użytkownika. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, który ma być używany w celu sprawdzenia poświadczeń dla uwierzytelniania. |Opcjonalnie (jeśli jest używane uwierzytelnianie podstawowe). domyślne: używa konta administratora i baza danych określona za pomocą właściwości databaseName. |
-| DatabaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Tak |
-| gatewayName |Nazwa bramy, która uzyskuje dostęp do magazynu danych. |Tak |
+| databaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Yes |
+| gatewayName |Nazwa bramy, która uzyskuje dostęp do magazynu danych. |Yes |
 | encryptedCredential |Poświadczenie szyfrowane przez bramę. |Optional (Opcjonalność) |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
@@ -85,7 +85,7 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
+| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Yes |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
@@ -296,15 +296,15 @@ Podczas przenoszenia danych do bazy danych MongoDB z bazy danych MongoDB typy s�
 
 | Typ bazy danych MongoDB | Typ programu .NET framework |
 | --- | --- |
-| Binarne |Byte] |
+| Binarny |Byte[] |
 | Wartość logiczna |Wartość logiczna |
-| Date |Data i godzina |
-| NumberDouble |O podwójnej precyzji |
+| Date |Data/godzina |
+| NumberDouble |Podwójnej precyzji |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Identyfikator obiektu |Ciąg |
+| ObjectID |Ciąg |
 | Ciąg |Ciąg |
-| IDENTYFIKATOR UUID |Identyfikator GUID |
+| UUID |Identyfikator GUID |
 | Obiekt |Renormalized do spłaszczenia kolumn z "_" jako separatora zagnieżdżonych |
 
 > [!NOTE]
@@ -328,14 +328,14 @@ Na przykład "ExampleTable" poniżej znajduje się tabela bazy danych MongoDB o 
 | _id | Nazwa klienta | Faktury | Poziom usług | Klasyfikacje |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: elementu "123",: "tostera", cena: Rabat "456",: "0,2"}, {invoice_id: "124", element: "piec", cena: Zniżka "1235": "0,2"}] |Srebrny |[5,6] |
-| 2222 |XYZ |[{invoice_id: element "135": "lodówko", cena: Rabat "12543": "0,0"}] |Gold |[1,2] |
+| 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Złoty |[1,2] |
 
 Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Pierwszy tabeli wirtualnej jest tabela podstawowa o nazwie "ExampleTable", pokazano poniżej. Podstawowa tabela zawiera wszystkie dane z oryginalnej tabeli, ale dane z macierzami została pominięta i jest rozwinięta w tabelach wirtualnych.
 
 | _id | Nazwa klienta | Poziom usług |
 | --- | --- | --- |
 | 1111 |ABC |Srebrny |
-| 2222 |XYZ |Gold |
+| 2222 |XYZ |Złoty |
 
 W poniższych tabelach przedstawiono wirtualnego tabel, które reprezentują oryginalnego tablic w przykładzie. Te tabele zawierać następujące informacje:
 

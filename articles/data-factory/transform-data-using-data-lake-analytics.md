@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych za pomocą skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,11 +39,11 @@ Poniższa tabela zawiera opisy ogólne właściwości używane w definicji JSON.
 
 | Właściwość                 | Opis                              | Wymagane                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **Typ**                 | Powinien mieć ustawioną właściwość type: **AzureDataLakeAnalytics**. | Tak                                      |
-| **Nazwa konta**          | Nazwa konta usługi Azure Data Lake Analytics.  | Tak                                      |
-| **Element dataLakeAnalyticsUri** | Identyfikator URI, usługi Azure Data Lake Analytics.           | Nie                                       |
-| **Identyfikator subskrypcji**       | Identyfikator subskrypcji platformy Azure                    | Nie (Jeśli nie zostanie określony, używany subskrypcji fabryki danych). |
-| **grupy zasobów o nazwie**    | Nazwa grupy zasobów platformy Azure                | Nie (Jeśli nie zostanie określony, używana grupa zasobów z fabryką danych). |
+| **Typ**                 | Powinien mieć ustawioną właściwość type: **AzureDataLakeAnalytics**. | Yes                                      |
+| **accountName**          | Nazwa konta usługi Azure Data Lake Analytics.  | Yes                                      |
+| **dataLakeAnalyticsUri** | Identyfikator URI, usługi Azure Data Lake Analytics.           | Nie                                       |
+| **subscriptionId**       | Identyfikator subskrypcji platformy Azure                    | Nie (Jeśli nie zostanie określony, używany subskrypcji fabryki danych). |
+| **resourceGroupName**    | Nazwa grupy zasobów platformy Azure                | Nie (Jeśli nie zostanie określony, używana grupa zasobów z fabryką danych). |
 
 ### <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
 Usługa Azure Data Lake Analytics połączone wymaga uwierzytelniania głównej usługi, aby połączyć się z usługą Azure Data Lake Analytics. Aby używać uwierzytelniania głównej usługi, Zarejestruj podmiot aplikacji w usłudze Azure Active Directory (Azure AD) i przyznać jej dostęp do usługi Data Lake Analytics i Data Lake Store używa. Aby uzyskać szczegółowe instrukcje, zobacz [do usługi uwierzytelniania](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Zwróć uwagę na następujące wartości, które służą do definiowania połączonej usługi:
@@ -55,9 +55,9 @@ Uwierzytelnianie usługi głównej przez określenie następujących właściwo�
 
 | Właściwość                | Opis                              | Wymagane |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Określ identyfikator aplikacji klienta.     | Tak      |
-| **servicePrincipalKey** | Określ klucz aplikacji.           | Tak      |
-| **dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Tak      |
+| **servicePrincipalId**  | Określ identyfikator aplikacji klienta.     | Yes      |
+| **servicePrincipalKey** | Określ klucz aplikacji.           | Yes      |
+| **dzierżawy**              | Określ informacje dzierżawy (identyfikator nazwy lub dzierżawy domeny), w którym znajduje się aplikacja. Można go pobrać, ustawiając kursor myszy w prawym górnym rogu portalu Azure. | Yes      |
 
 **Przykład: Usługa podmiotu zabezpieczeń uwierzytelniania**
 ```json
@@ -119,17 +119,17 @@ W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne
 
 | Właściwość            | Opis                              | Wymagane |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nazwa działania w potoku     | Tak      |
+| name                | Nazwa działania w potoku     | Yes      |
 | description         | Tekst opisujący działanie robi.  | Nie       |
-| type                | Dla działania Data Lake Analytics U-SQL jest typ działania **DataLakeAnalyticsU SQL**. | Tak      |
-| linkedServiceName   | Połączona usługa do usługi Azure Data Lake Analytics. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu.  |Tak       |
-| scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Tak      |
-| Element scriptLinkedService | Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych | Tak      |
+| type                | Dla działania Data Lake Analytics U-SQL jest typ działania **DataLakeAnalyticsU SQL**. | Yes      |
+| linkedServiceName   | Połączona usługa do usługi Azure Data Lake Analytics. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu.  |Yes       |
+| scriptPath          | Ścieżka do folderu, który zawiera skrypt U-SQL. Nazwa pliku jest rozróżniana wielkość liter. | Yes      |
+| scriptLinkedService | Połączonej usługi, która łączy magazynu, który zawiera skrypt do fabryki danych | Yes      |
 | degreeOfParallelism | Maksymalna liczba węzłów jednocześnie użyta do uruchomienia zadania. | Nie       |
-| Priorytet            | Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. | Nie       |
+| priorytet            | Określa, które spośród wszystkich znajdujących się w kolejce zadań należy wybrać ma być uruchomiony. Im niższy numer, tym wyższy priorytet. | Nie       |
 | parameters          | Parametry skryptu U-SQL          | Nie       |
 | runtimeVersion      | Wersja środowiska uruchomieniowego aparatu U-SQL do użycia | Nie       |
-| właściwość compilationMode     | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości: **semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli, **pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp., **SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox. Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. | Nie |
+| compilationMode     | <p>Tryb kompilacji U-SQL. Musi być jedną z następujących wartości: **semantycznej:** wykonywać tylko semantycznego kontroli i potrzeby związane z poprawnością kontroli, **pełna:** wykonania pełnej kompilacji, takich jak sprawdzanie składni, optymalizacja, generowania kodu, itp., **SingleBox:** wykonania pełnej kompilacji, z ustawieniem TargetType do SingleBox. Jeśli nie określisz wartości dla tej właściwości, serwer określa tryb optymalne kompilacji. | Nie |
 
 Fabryka danych przesyła zobacz [definicji skryptu SearchLogProcessing.txt](#sample-u-sql-script) definicji skryptu. 
 
@@ -187,7 +187,7 @@ Istnieje możliwość zamiast tego użyj parametrów dynamicznych. Na przykład:
 
 W takim przypadku pliki wejściowe nadal są pobierane z folderu /datalake/input i pliki wyjściowe są generowane w folderze /datalake/output. Nazwy plików są dynamiczne na podstawie czasu rozpoczęcia wycinka.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie gałęzi](transform-data-using-hadoop-hive.md)

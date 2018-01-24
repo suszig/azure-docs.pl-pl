@@ -1,6 +1,6 @@
 ---
 title: "Migrowanie serwera SQL z bazą danych SQL Azure za pomocą usługi migracji bazy danych Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się przeprowadzić migrację z lokalnej instalacji programu SQL Server do bazy danych SQL Azure za pomocą usługi migracji bazy danych Azure."
+description: "Dowiedz się przeprowadzić migrację z lokalnej instalacji programu SQL Server do bazy danych SQL Azure za pomocą usługi Azure migracji bazy danych."
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/17/2017
-ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.date: 01/24/2018
+ms.openlocfilehash: 06d7023f225698400509449e59bdcb827becc644
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrowanie serwera SQL z bazą danych Azure SQL
 Usługa Azure bazy danych migracji umożliwia migrację bazy danych z lokalnego wystąpienia programu SQL Server do bazy danych SQL Azure. W tym samouczku, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 (lub nowszym) z bazą danych SQL Azure za pomocą usługi Azure migracji bazy danych w bazie danych.
@@ -34,13 +34,15 @@ Do ukończenia tego samouczka, musisz:
 
 - Pobierz i zainstaluj [programu SQL Server 2016 lub nowszego](https://www.microsoft.com/sql-server/sql-server-downloads) (dowolna wersja).
 - Włącz protokół TCP/IP, które jest domyślnie wyłączone podczas instalacji programu SQL Server Express przez postępując zgodnie z instrukcjami w artykule [włączyć lub wyłączyć protokół sieciowy serwera](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Konfigurowanie sieci [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Utwórz wystąpienie wystąpienia bazy danych SQL Azure, co zrobić, wykonując szczegółowo w artykule [tworzenie bazy danych Azure SQL w portalu Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - Pobierz i zainstaluj [Asystenta migracji danych](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 lub nowszym.
 - Tworzenie sieci Wirtualnej dla usługi Azure migracji bazy danych przy użyciu modelu wdrażania usługi Azure Resource Manager, który zapewnia połączenie lokacja lokacja z serwerami lokalnymi źródła przy użyciu [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) lub [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Upewnij się, że Twoje Azure (VNET) sieciowej grupy zabezpieczeń sieci wirtualnej reguły blok następujący komunikat porty 443, 53, 9354, 445, 12000. Aby uzyskać więcej szczegółów na filtrowanie ruchu NSG sieci Wirtualnej Azure, zobacz artykuł [filtrowania ruchu sieciowego z grup zabezpieczeń sieci](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Konfigurowanie sieci [zapory systemu Windows dla dostępu aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Otwórz Zaporę systemu Windows tak, aby umożliwić uzyskiwanie dostępu do źródła programu SQL Server z usługi migracji bazy danych Azure.
+- Tworzenie z poziomu serwera [reguły zapory](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) dla serwera bazy danych SQL Azure, aby umożliwić dostęp z migracji bazy danych Azure do docelowymi bazami danych. Podaj zakres podsieci sieci wirtualnej używane przez usługę Azure migracji bazy danych.
 - Upewnij się, że poświadczenia użyte do nawiązania połączenia źródła wystąpienia programu SQL Server [serwera kontroli](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) uprawnienia.
 - Sprawdź, czy poświadczenia użyte do nawiązania połączenia docelowego wystąpienia bazy danych SQL Azure mają uprawnienia bazy danych kontroli na docelowymi bazami danych Azure SQL.
-- Otwórz Zaporę systemu Windows tak, aby umożliwić uzyskiwanie dostępu do źródła programu SQL Server z usługi migracji bazy danych Azure.
 
 ## <a name="assess-your-on-premises-database"></a>Oceny lokalnej bazy danych
 Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure, należy dokonać oceny problemy blokujące, które mogą uniemożliwić migracji bazy danych SQL Server. W danych migracji Asystenta v3.3 lub nowszym, wykonaj czynności opisane w artykule [wykonywania oceny migracji programu SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) przeprowadzenie lokalnej bazy danych do oceny. Podsumowanie kroki wymagane są następujące:
@@ -207,4 +209,4 @@ Po utworzeniu usługi znalezienie go w portalu Azure, a następnie utwórz proje
 1. Wybierz działanie migracji, aby sprawdzić stan działania.
 2. Sprawdź docelowa baza danych Azure SQL po zakończeniu migracji.
 
-    ![Ukończony](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)
+    ![Ukończone](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)

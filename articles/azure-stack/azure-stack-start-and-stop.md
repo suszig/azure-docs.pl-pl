@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Uruchamianie i zatrzymywanie Azure stosu
 
@@ -41,6 +41,15 @@ Stos Azure należy zamknąć następujące czynności:
 > [!Note]  
 > Zgodnie z instrukcjami z Original Equipment Manufacturer (OEM) który dostarczony sprzętu stosu Azure można zweryfikować stan zasilania węzła fizycznego. 
 
+## <a name="start-azure-stack"></a>Start Azure stosu 
+
+Uruchom stosu Azure następujące kroki. Wykonaj następujące kroki, niezależnie od tego, jak zatrzymać stosu Azure.
+
+1. Włącz na wszystkich węzłach fizycznych w środowisku Azure stosu. Sprawdź zasilania w instrukcjach dla węzłów fizycznych zgodnie z instrukcjami z Original Equipment Manufacturer (OEM) który podany sprzętu dla stosu Azure.
+
+2. Poczekaj, aż uruchamia usługi infrastruktury platformy Azure stosu. Usług infrastruktury platformy Azure stosu może wymagać dwóch godzin w celu zakończenia procesu uruchamiania. Można sprawdzić stan początkowy stosu Azure z [ **Get-ActionStatus** polecenia cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Pobierz stan uruchomienia Azure stosu
 
 Pobierz początkową dla procedury uruchomienia stosu Azure następujące czynności:
@@ -52,14 +61,6 @@ Pobierz początkową dla procedury uruchomienia stosu Azure następujące czynno
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Start Azure stosu 
-
-Uruchom stosu Azure następujące kroki. Wykonaj następujące kroki, niezależnie od tego, jak zatrzymać stosu Azure.
-
-1. Włącz na wszystkich węzłach fizycznych w środowisku Azure stosu. Sprawdź zasilania w instrukcjach dla węzłów fizycznych zgodnie z instrukcjami z Original Equipment Manufacturer (OEM) który podany sprzętu dla stosu Azure.
-
-2. Poczekaj, aż uruchamia usługi infrastruktury platformy Azure stosu. Usług infrastruktury platformy Azure stosu może wymagać dwóch godzin w celu zakończenia procesu uruchamiania. Można sprawdzić stan początkowy stosu Azure z [ **Get-ActionStatus** polecenia cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Rozwiązywanie problemów z uruchamiania i wyłączania Azure stosu
 

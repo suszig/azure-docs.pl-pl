@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 7745f273283ff998b41fe59a10e705e7564a7bd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e939c57c256e5e6e3932ab0859aae6cf4122dd6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania usługi Hadoop, Pig w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,17 +62,17 @@ Jeśli jesteś nowym użytkownikiem usługi fabryka danych Azure, zapoznaj się 
 
 | Właściwość            | Opis                              | Wymagane |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nazwa działania                     | Tak      |
+| name                | Nazwa działania                     | Yes      |
 | description         | Tekst opisujący działanie służy do | Nie       |
-| type                | Dla gałęzi działania typu działania jest HDinsightPig | Tak      |
-| linkedServiceName   | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Tak      |
-| Element scriptLinkedService | Odwołanie do połączonej usługi magazynu Azure są używane do przechowywania skrypt programu Pig do wykonania. Jeśli nie określisz tej połączonej usługi, usługi połączonej magazynu Azure, zdefiniowane w połączonej usłudze HDInsight jest używany. | Nie       |
+| type                | Dla gałęzi działania typu działania jest HDinsightPig | Yes      |
+| linkedServiceName   | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
+| scriptLinkedService | Odwołanie do połączonej usługi magazynu Azure są używane do przechowywania skrypt programu Pig do wykonania. Jeśli nie określisz tej połączonej usługi, usługi połączonej magazynu Azure, zdefiniowane w połączonej usłudze HDInsight jest używany. | Nie       |
 | scriptPath          | Podaj ścieżkę do pliku skryptu przechowywanych w magazynie Azure odwołuje się element scriptLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Nie       |
 | getDebugInfo        | Określa, kiedy pliki dziennika są kopiowane do magazynu Azure używanego przez klaster usługi HDInsight (lub) określony przez element scriptLinkedService. Dozwolone wartości: None, zawsze lub niepowodzenie. Wartość domyślna: Brak. | Nie       |
 | Argumenty           | Określa tablicę argumentów dla zadania usługi Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
 | Definiuje             | Określ parametry jako pary klucz wartość dla odwołania do skryptu Pig. | Nie       |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

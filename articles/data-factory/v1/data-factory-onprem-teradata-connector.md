@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Przenoszenia danych z programu Teradata przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,12 +65,12 @@ Poniższa tabela zawiera opis specyficzne dla usługi programu Teradata połącz
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesTeradata** |Tak |
-| serwer |Nazwa serwera programu Teradata. |Tak |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesTeradata** |Yes |
+| serwer |Nazwa serwera programu Teradata. |Yes |
+| authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych programu Teradata. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Nie |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych programu Teradata. |Tak |
+| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych programu Teradata. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
@@ -86,7 +86,7 @@ Jeśli źródło jest typu **RelationalSource** (która obejmuje Teradata), są 
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Tak |
+| query |Użyj niestandardowych zapytania można odczytać danych. |Ciąg zapytania SQL. Na przykład: Wybierz * z MyTable. |Yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Przykład JSON: kopiowanie danych z programu Teradata do obiektów Blob platformy Azure
 W poniższym przykładzie przedstawiono przykładowe definicje JSON, które można użyć, aby utworzyć potok przy użyciu [portalu Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) lub [programu Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) lub [programu Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Przedstawiają sposób kopiowania danych z programu Teradata do magazynu obiektów Blob Azure. Jednak można skopiować danych do dowolnego wychwytywanie podane [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats) za pomocą działania kopiowania w fabryce danych Azure.   
@@ -291,31 +291,31 @@ Podczas przenoszenia danych do programu Teradata, następujące mapowania są u�
 | Grafika |Ciąg |
 | VarChar |Ciąg |
 | VarGraphic |Ciąg |
-| Obiekt blob |Byte] |
-| Bajtów |Byte] |
-| VarByte |Byte] |
+| Obiekt blob |Byte[] |
+| Bajtów |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| O podwójnej precyzji |O podwójnej precyzji |
+| Podwójnej precyzji |Podwójnej precyzji |
 | Liczba całkowita |Int32 |
-| Liczba |O podwójnej precyzji |
+| Liczba |Podwójnej precyzji |
 | SmallInt |Int16 |
-| Date |Data i godzina |
-| Time |Zakres czasu |
+| Date |Data/godzina |
+| Time |TimeSpan |
 | Czas ze strefą czasową |Ciąg |
-| Znacznik czasu |Data i godzina |
+| Sygnatura czasowa |Data/godzina |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
-| Interwał dnia |Zakres czasu |
-| Interwał dzień na godzinę |Zakres czasu |
-| Interwał dzień na minutę |Zakres czasu |
-| Interwał dzień na sekundę |Zakres czasu |
-| Interwał, godzinę |Zakres czasu |
-| Interwał godzinę, minutę |Zakres czasu |
-| Interwał godzinę na sekundę |Zakres czasu |
-| Interwał minutę |Zakres czasu |
-| Interwał minutę na sekundę |Zakres czasu |
-| Interwał drugi |Zakres czasu |
+| Interwał dnia |TimeSpan |
+| Interwał dzień na godzinę |TimeSpan |
+| Interwał dzień na minutę |TimeSpan |
+| Interwał dzień na sekundę |TimeSpan |
+| Interwał, godzinę |TimeSpan |
+| Interwał godzinę, minutę |TimeSpan |
+| Interwał godzinę na sekundę |TimeSpan |
+| Interwał minutę |TimeSpan |
+| Interwał minutę na sekundę |TimeSpan |
+| Interwał drugi |TimeSpan |
 | Interwał roku |Ciąg |
 | Interwał rok, miesiąc |Ciąg |
 | Interwał miesiąca |Ciąg |
@@ -324,7 +324,7 @@ Podczas przenoszenia danych do programu Teradata, następujące mapowania są u�
 | Okres (czas ze strefą czasową) |Ciąg |
 | Period(TimeStamp) |Ciąg |
 | Okres (sygnatura ze strefą czasową) |Ciąg |
-| XML |Ciąg |
+| Xml |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła
 Aby uzyskać informacje dotyczące mapowania kolumn w zestawie źródła danych do kolumn w zestawie danych zbiornika, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).

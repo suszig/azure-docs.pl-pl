@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: c1fbb6864629874ef116cdf81d48df4a9ed5af1f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania MapReduce z Hadoop w usłudze fabryka danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,13 +68,13 @@ Zobacz [Pig](transform-data-using-hadoop-pig.md) i [Hive](transform-data-using-h
 
 | Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nazwa działania                     | Tak      |
+| name              | Nazwa działania                     | Yes      |
 | description       | Tekst opisujący działanie służy do | Nie       |
-| type              | Dla działania MapReduce typ działania jest HDinsightMapReduce | Tak      |
-| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Tak      |
-| className         | Nazwa klasy do wykonania         | Tak      |
+| type              | Dla działania MapReduce typ działania jest HDinsightMapReduce | Yes      |
+| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych. Aby dowiedzieć się więcej na temat tej połączonej usługi, zobacz [obliczeniowe połączonych usług](compute-linked-services.md) artykułu. | Yes      |
+| className         | Nazwa klasy do wykonania         | Yes      |
 | jarLinkedService  | Odwołanie do połączonej usługi magazynu Azure są używane do przechowywania plików Jar. Jeśli nie określisz tej połączonej usługi, usługi połączonej magazynu Azure, zdefiniowane w połączonej usłudze HDInsight jest używany. | Nie       |
-| jarFilePath       | Podaj ścieżkę do plików Jar przechowywanych w usłudze Azure Storage odwołuje się jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Tak      |
+| jarFilePath       | Podaj ścieżkę do plików Jar przechowywanych w usłudze Azure Storage odwołuje się jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Yes      |
 | jarlibs           | Ciąg tablicy ścieżki do plików biblioteki Jar odwołuje się zadania przechowywanych w magazynie Azure zdefiniowane w jarLinkedService. Nazwa pliku jest rozróżniana wielkość liter. | Nie       |
 | getDebugInfo      | Określa, kiedy pliki dziennika są kopiowane do magazynu Azure używanego przez klaster usługi HDInsight (lub) określonym przez jarLinkedService. Dozwolone wartości: None, zawsze lub niepowodzenie. Wartość domyślna: Brak. | Nie       |
 | Argumenty         | Określa tablicę argumentów dla zadania usługi Hadoop. Argumenty są przekazywane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
@@ -118,7 +118,7 @@ Działania MapReduce HDInsight służy do uruchomienia dowolnego pliku jar MapRe
 ```
 Można określić żadnych argumentów dla programu MapReduce w **argumenty** sekcji. W czasie wykonywania, zobacz kilka dodatkowych argumentów (na przykład: mapreduce.job.tags) z platformy MapReduce. Rozróżnianie argumentów z argumentami MapReduce, należy rozważyć użycie zarówno opcji i wartości jako argumenty, jak pokazano w poniższym przykładzie (- s, — dane wejściowe,--itp., dane wyjściowe są opcje bezpośrednio następuje ich wartości).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły, które opisują sposób przekształcania danych w inny sposób: 
 
 * [Działanie U-SQL](transform-data-using-data-lake-analytics.md)

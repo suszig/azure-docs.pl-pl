@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Dodaj logowanie do aplikacji sieci web platformy .NET MVC
 Z punktem końcowym v2.0 można szybko dodać konta służbowego i uwierzytelniania do aplikacji sieci web z obsługą oba osobistego konta Microsoft.  W aplikacji sieci web ASP.NET można to zrobić za pomocą oprogramowania pośredniczącego OWIN firmy Microsoft włączone w programie .NET Framework 4.5.
@@ -64,7 +64,7 @@ W tym miejscu skonfigurujemy oprogramowania pośredniczącego OWIN do zastosowan
 3. Dodaj "Klasę początkową OWIN" do projektu o nazwie `Startup.cs` --> kliknij projekt prawym **Dodaj** --> **nowy element** --> Wyszukaj "OWIN".  Oprogramowanie pośredniczące OWIN wywoła metodę `Configuration(...)` podczas uruchamiania aplikacji.
 4. Deklaracja klasy, aby zmienić `public partial class Startup` — już zaimplementowano część tej klasy dla Ciebie w innym pliku.  W `Configuration(...)` metody, utworzyć ConfigureAuth(...) wywołana w celu ustawienia uwierzytelniania dla aplikacji sieci web  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ W tym miejscu skonfigurujemy oprogramowania pośredniczącego OWIN do zastosowan
 
 5. Otwórz plik `App_Start\Startup.Auth.cs` i wdrożenie `ConfigureAuth(...)` metody.  Parametry podane `OpenIdConnectAuthenticationOptions` będzie służyć jako współrzędnych dla aplikacji w celu komunikowania się z usługą Azure AD.  Należy również skonfigurować uwierzytelniania plików Cookie — oprogramowanie pośredniczące OpenID Connect używa plików cookie poniżej obejmuje.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z punktem 
 
 - Można użyć znaczników w kontrolerach wymaganie, że użytkownik loguje się przed uzyskaniem dostępu do konkretnej strony autoryzacji.  Otwórz `Controllers\HomeController.cs`i Dodaj `[Authorize]` tag do kontrolera informacje.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z punktem 
 
 - OWIN umożliwia również wystawić żądania uwierzytelniania od bezpośrednio w kodzie.  Otwórz `Controllers\AccountController.cs`.  W działaniach SignIn() i SignOut() wystawić odpowiednio OpenID Connect żądania i wylogowania żądania.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Podczas uwierzytelniania użytkowników z OpenID Connect, punktu końcowego v2.0
 
 - Otwórz plik `Controllers\HomeController.cs`.  Dostęp do oświadczeń użytkownika w kontrolerach za pośrednictwem `ClaimsPrincipal.Current` obiekt główny zabezpieczeń.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -205,7 +205,7 @@ Próbka ukończone (bez wartości konfiguracji) [jest dostarczane jako zip w tym
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz przejść do bardziej zaawansowanych tematów.  Można spróbować:
 
 [Zabezpieczanie interfejsu API sieci Web, z punktem końcowym v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)

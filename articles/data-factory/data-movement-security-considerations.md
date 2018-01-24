@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Fabryka danych Azure — zagadnienia dotyczące zabezpieczeń dla przepływu danych
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Przenoszenie danych przy użyciu fabryki danych Azure została **certyfikowane**
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA GWIAZDY](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 Jeśli interesuje Cię zgodności platformy Azure i jak Azure zabezpiecza własnej infrastruktury, odwiedź stronę [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -72,7 +72,7 @@ Niektóre dane są przechowywane Obsługa szyfrowania danych magazynowanych. Zal
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 Przezroczysty danych szyfrowania (funkcji TDE) w usłudze Azure SQL Data Warehouse pomaga w ochronie przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania danych przechowywanych. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w usłudze SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Usługa Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Baza danych SQL Azure obsługuje również przezroczystego szyfrowania danych (funkcji TDE), która pomaga w ochronie przed zagrożeniem złośliwych działań, wykonując w czasie rzeczywistym szyfrowania i odszyfrowywania danych bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczny dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczystego szyfrowania danych z bazy danych SQL Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
@@ -187,7 +187,7 @@ Następujące magazyny danych chmury wymagają niedozwolonych adres IP komputera
 **Odpowiedź:** siebie integrację środowiska uruchomieniowego umożliwia nawiązanie połączenia oparte na protokole HTTP można otworzyć internet. **Wychodzącego porty 443 i 80** muszą być otwarte dla siebie integrację środowiska uruchomieniowego, to połączenie. Otwórz **ruchu przychodzącego dla portu 8050** tylko na poziomie komputera (nie na poziomie firmowej zapory) dla aplikacji Menedżer poświadczeń. Jeśli baza danych SQL Azure lub usługi Azure SQL Data Warehouse jest używany jako źródło / docelowego, następnie trzeba otworzyć **1433** również port. Aby uzyskać więcej informacji, zobacz [konfiguracji i adresy IP listę dozwolonych podobnej zapory](#firewall-configurations-and-whitelisting-ip-address-of gateway) sekcji. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje o wydajności działania kopiowania, zobacz [skopiuj wydajności działania i dostrajania przewodnik](copy-activity-performance.md).
 
  

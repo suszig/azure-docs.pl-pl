@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych do lub z bazą danych SQL Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -226,10 +226,10 @@ Aby skopiować dane do bazy danych SQL Azure, należy ustawić typ ujścia w dzi
 | type | Musi mieć ustawioną właściwość typu sink działania kopiowania: **SqlSink** | Yes |
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu.<br/>Dozwolone wartości to: liczba całkowita (liczba wierszy). |Nie (domyślna to 10 000) |
 | writeBatchTimeout |Czas na ukończenie zanim upłynie limit czasu operacji wstawiania wsadowego oczekiwania.<br/>Dozwolone wartości to: timespan. Przykład: "00: 30:00" (30 minut). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej danych upserts (aktualizacje/INSERT) do tabeli docelowej. |Nie |
+| preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do bazy danych SQL Azure. Go będzie można wywołać tylko raz na kopii Uruchom. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury przechowywanej, która definiuje sposób dotyczą źródła danych do tabeli docelowej, np. czy upserts lub Przekształcanie przy użyciu logiki biznesowej. <br/><br/>Należy pamiętać, będzie tej procedury składowanej **wywoływane na partię**. Jeśli chcesz wykonać operację, która tylko jest uruchamiane jeden raz i nie ma nic do wykonania z źródło danych, np. Usuń/obcięcia należy użyć `preCopyScript` właściwości. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej.<br/>Dozwolone wartości to: par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
 | sqlWriterTableType |Określ nazwę typu tabeli do użycia w procedurze składowanej. Działanie kopiowania udostępnia dane jest przenoszony w tabeli tymczasowej o tym typie tabeli. Kod procedury składowanej można następnie scalić dane są kopiowane z istniejącymi danymi. |Nie |
-| preCopyScript |Określ zapytanie SQL dla aktywności kopiowania do wykonania przed zapisaniem danych do bazy danych SQL Azure w każdym przebiegu. Ta właściwość służy do oczyszczania danych wstępnie załadowane. |Nie |
 
 > [!TIP]
 > Podczas kopiowania danych do bazy danych SQL Azure, działanie kopiowania dołącza dane do tabeli ujścia domyślnie. Aby przeprowadzić UPSERT lub dodatkowe reguły biznesowe, użyj procedury składowanej w SqlSink. Dowiedz się więcej szczegółów z [wywoływania procedury składowanej dla obiekt Sink SQL](#invoking-stored-procedure-for-sql-sink).
@@ -452,7 +452,7 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | Typ danych bazy danych SQL Azure | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
 | data |Data/godzina |
@@ -460,9 +460,9 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
@@ -470,19 +470,19 @@ Podczas kopiowania danych z/do bazy danych SQL Azure, następujące mapowania s�
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
 | rzeczywiste |Kawaler/panna |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Bajtów |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Kolejne kroki
 Lista magazynów danych obsługiwane jako źródła i wychwytywanie przez działanie kopiowania w fabryce danych Azure, zobacz [obsługiwane magazyny danych](copy-activity-overview.md##supported-data-stores-and-formats).

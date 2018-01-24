@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85a3b1b96effb716b8a33da8ad37309462042a44
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 87acbe81d20e0f2b209565eace16de1b979b1d96
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Przenoszenia danych z lokalnego systemu plików HDFS przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,12 +66,12 @@ Połączona usługa łączy magazynu danych z fabryki danych. Tworzenie połącz
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **Hdfs** |Tak |
-| Url |Adres URL do systemu plików HDFS |Tak |
-| Typ authenticationType |Anonimowe lub Windows. <br><br> Umożliwia **uwierzytelnianie Kerberos** łącznika systemu plików HDFS, można znaleźć w temacie [w tej sekcji](#use-kerberos-authentication-for-hdfs-connector) do odpowiednio skonfigurowane w lokalnym środowisku. |Tak |
-| Nazwa użytkownika |Uwierzytelnianie nazwy użytkownika dla systemu Windows. Aby uwierzytelnianie Kerberos, określ `<username>@<domain>.com`. |Tak (w przypadku uwierzytelniania systemu Windows) |
+| type |Właściwość type musi mieć ustawioną: **Hdfs** |Yes |
+| Url |Adres URL do systemu plików HDFS |Yes |
+| authenticationType |Anonimowe lub Windows. <br><br> Umożliwia **uwierzytelnianie Kerberos** łącznika systemu plików HDFS, można znaleźć w temacie [w tej sekcji](#use-kerberos-authentication-for-hdfs-connector) do odpowiednio skonfigurowane w lokalnym środowisku. |Yes |
+| userName |Uwierzytelnianie nazwy użytkownika dla systemu Windows. Aby uwierzytelnianie Kerberos, określ `<username>@<domain>.com`. |Tak (w przypadku uwierzytelniania systemu Windows) |
 | hasło |Hasło dla uwierzytelniania systemu Windows. |Tak (w przypadku uwierzytelniania systemu Windows) |
-| gatewayName |Nazwa bramy, która powinna być używana do nawiązania połączenia systemu plików HDFS usługi fabryka danych. |Tak |
+| gatewayName |Nazwa bramy, która powinna być używana do nawiązania połączenia systemu plików HDFS usługi fabryka danych. |Yes |
 | encryptedCredential |[Nowy AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) poświadczeń dostępu do danych wyjściowych. |Nie |
 
 ### <a name="using-anonymous-authentication"></a>Przy użyciu uwierzytelniania anonimowego
@@ -119,7 +119,7 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| folderPath |Ścieżka do folderu. Przykład:`myfolder`<br/><br/>Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Na przykład: folder\subfolder, określ folder\\\\podfolderów i dla d:\samplefolder, określ d:\\\\folder_przykładowy.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** do folderu ścieżki oparte na wycinku rozpoczęcia/zakończenia daty i godziny. |Tak |
+| folderPath |Ścieżka do folderu. Przykład:`myfolder`<br/><br/>Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Na przykład: folder\subfolder, określ folder\\\\podfolderów i dla d:\samplefolder, określ d:\\\\folder_przykładowy.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** do folderu ścieżki oparte na wycinku rozpoczęcia/zakończenia daty i godziny. |Yes |
 | fileName |Określ nazwę pliku w **folderPath** aby tabela do odwoływania się do określonego pliku w folderze. Jeśli nie określono żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Jeśli nie określono nazwy pliku dla wyjściowego zestawu danych, nazwę wygenerowanego pliku będzie poniżej tego formatu: <br/><br/>Dane. <Guid>.txt (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nie |
 | partitionedBy |partitionedBy może służyć do określenia dynamiczne folderPath, nazwę pliku dla czasu serii danych. Przykład: folderPath sparametryzowana dla każdej godziny danych. |Nie |
 | Format | Obsługiwane są następujące typy format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw **typu** właściwości w formacie do jednej z tych wartości. Aby uzyskać więcej informacji, zobacz [formacie tekstowym](data-factory-supported-file-and-compression-formats.md#text-format), [formatu Json](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), i [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sekcje. <br><br> Jeśli chcesz **skopiuj pliki jako — jest** między opartych na plikach magazynów (kopia binarnego), Pomiń sekcji format w obu definicji zestawu danych wejściowych i wyjściowych. |Nie |

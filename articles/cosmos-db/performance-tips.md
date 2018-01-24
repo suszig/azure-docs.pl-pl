@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 84a1913bd218d512f7f2818291f59d98628a7272
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -60,7 +60,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
      Tryb łączności skonfigurowano podczas konstruowania obiektu DocumentClient z parametrem ConnectionPolicy. Jeśli używany jest tryb Direct, protokół można również ustawić w parametrze ConnectionPolicy.
 
-    ```C#
+    ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
@@ -158,7 +158,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Zasady indeksowania rozwiązania cosmos w DB umożliwia również określić, które ścieżki dokumentu do dołączania lub wykluczania indeksowania dzięki wykorzystaniu indeksowania ścieżki (IndexingPolicy.IncludedPaths i IndexingPolicy.ExcludedPaths). Użycie indeksowania ścieżki zaoferować zapisu lepszą wydajność i dolnym indeksu magazynu w scenariuszach, w których wzorców zapytań są znane wcześniej, jak koszty indeksowania bezpośrednio skorelowanych liczby unikatowych ścieżki zaindeksowane.  Na przykład poniższy kod przedstawia sposób wykluczyć całą sekcję dokumentów () poddrzewo) z indeksowania przy użyciu "*" symboli wieloznacznych.
 
-    ```C#
+    ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
@@ -180,7 +180,7 @@ Dlatego jeśli "jak poprawić wydajność mojej bazy danych?" należy wziąć po
 
     Do mierzenia obciążenie wszelkie operacje (Tworzenie, aktualizowanie lub usuwanie), sprawdzić [x-ms żądania — opłata](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) nagłówka (lub równoważne właściwości RequestCharge w ResourceResponse<T> lub FeedResponse<T> w. SDK NET) w celu mierzenia liczby jednostek żądania używanych przez te operacje.
 
-    ```C#
+    ```csharp
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);

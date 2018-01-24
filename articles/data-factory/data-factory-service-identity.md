@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: aad93abd6e7bdf75e6f3b4fcd02b433a1d301ebc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-service-identity"></a>Tożsamość usługi fabryka danych Azure
 
@@ -25,7 +25,7 @@ Ten artykuł pomaga zrozumieć, co to jest tożsamość usługi fabryki danych i
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji dla fabryki danych version1](v1/data-factory-introduction.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Podczas tworzenia fabryki danych, można utworzyć tożsamości usługi oraz tworzenie fabryki. Tożsamość usługi jest zarejestrowany do usługi Azure Directory działania aplikacji zarządzanej i reprezentuje tej fabryki danych.
 
@@ -167,7 +167,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące tematy, które wprowadzenie, kiedy i jak używać tożsamości usługi fabryka danych:
 
 - [Przechowywania poświadczeń w usłudze Azure Key Vault](store-credentials-in-key-vault.md)

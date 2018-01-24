@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiowanie danych z punktu końcowego HTTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Usługa HTTP połączone obsługuje następujące właściwości:
 | type | Właściwość type musi mieć ustawioną: **HttpServer**. | Yes |
 | adres url | Podstawowy adres URL do serwera sieci Web | Yes |
 | enableServerCertificateValidation | Określ, czy włączyć weryfikacji certyfikatu serwera SSL podczas nawiązywania połączenia punkt końcowy HTTP. | Nie, domyślna to true |
-| Typ authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Yes |
+| authenticationType | Określa typ uwierzytelniania. Dozwolone wartości to: **anonimowe**, **podstawowe**, **szyfrowanego**, **Windows**, **ClientCertificate**. <br><br> Odpowiednio można znaleźć w sekcjach poniżej tej tabeli na więcej właściwości i przykłady JSON dla tych typów uwierzytelniania. | Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Uwierzytelnianie podstawowe, szyfrowane lub systemu Windows
@@ -65,7 +65,7 @@ Ustaw dla właściwości "authenticationType" **podstawowe**, **szyfrowanego**, 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| Nazwa użytkownika | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Yes |
+| userName | Nazwa użytkownika do uzyskania dostępu punkt końcowy HTTP. | Yes |
 | hasło | Hasło dla użytkownika (userName). Zaznacz to pole jako SecureString. | Yes |
 
 **Przykład**

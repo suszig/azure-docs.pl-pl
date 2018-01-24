@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure protokołu przekazywania połączeń hybrydowych
 Przekazywania Azure to jedna z kolumn klucza możliwości platformy Azure Service Bus. Nowy *połączeń hybrydowych* możliwość przekazywania jest bezpieczne, protokołu open zmiany, na podstawie HTTP i protokołu WebSockets. Zastępuje ona poprzedniego jednakowo o nazwie *usługi BizTalk Services* funkcji, który został utworzony na podstawie zastrzeżonym protokołem. Integrację usługi aplikacji Azure połączeń hybrydowych było możliwe będzie działać jako — jest.
@@ -38,7 +38,7 @@ Programy po obu stronach połączenia są nazywane "klientów", ponieważ są on
 ### <a name="listener-interactions"></a>Odbiornik interakcji
 Odbiornik ma cztery interakcji z usługą; w dalszej części tego artykułu zamieszczone w tej sekcji opisano wszystkie szczegóły danych przesyłanych w sieci.
 
-#### <a name="listen"></a>Nasłuchiwanie
+#### <a name="listen"></a>Nasłuchuj
 Aby wskazać gotowość do usługi, która jest odbiornik gotowy do akceptowania połączeń, tworzy wychodzące połączenia obiektu WebSocket. Uzgadnianie połączenia przyjmuje nazwę połączenie hybrydowe skonfigurowany na przestrzeń nazw przekazywania i token zabezpieczający, który przyznaje "Nasłuchiwania" zgodny z nazwą.
 Gdy protokół WebSocket jest akceptowane przez usługę, rejestracja została zakończona i ustalonych sieci web protokołu WebSocket jest utrzymywane jako "kanał kontrolny" włączania wszystkich kolejnych interakcji. Usługa umożliwia połączenie hybrydowe maksymalnie 25 równoczesnych odbiorników. W przypadku co najmniej dwa odbiorniki aktywnego połączenia przychodzące są równoważone między je w kolejności losowej. odpowiedni dystrybucji nie jest gwarantowana.
 
@@ -87,8 +87,8 @@ Dostępne są następujące opcje parametru ciągu zapytania.
 
 | Parametr | Wymagane | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Dla roli odbiornika parametr musi być **sb hc akcji = nasłuchiwania** |
-| `{path}` |Tak |Ścieżka zakodowane w adresie URL przestrzeni nazw połączenia hybrydowego wstępnie skonfigurowane, aby zarejestrować się w tym odbiorniku. To wyrażenie jest dołączany do stałej `$hc/` części ścieżki. |
+| `sb-hc-action` |Yes |Dla roli odbiornika parametr musi być **sb hc akcji = nasłuchiwania** |
+| `{path}` |Yes |Ścieżka zakodowane w adresie URL przestrzeni nazw połączenia hybrydowego wstępnie skonfigurowane, aby zarejestrować się w tym odbiorniku. To wyrażenie jest dołączany do stałej `$hc/` części ścieżki. |
 | `sb-hc-token` |Tak\* |Odbiornik Podaj prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **nasłuchiwania** prawo. |
 | `sb-hc-id` |Nie |Ten identyfikator opcjonalne dostarczonych przez klienta umożliwia śledzenie diagnostyczne end-to-end. |
 
@@ -96,9 +96,9 @@ Jeśli połączenia obiektu WebSocket nie powiodło się z powodu ścieżka poł
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
+| 404 |Nie znaleziono |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
 | 401 |Brak autoryzacji |Token zabezpieczający jest brak lub źle sformułowany lub nieprawidłowy. |
-| 403 |Dostęp zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki do wykonania tej akcji. |
+| 403 |Zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki do wykonania tej akcji. |
 | 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
 
 Wyłączenie połączenia obiektu WebSocket celowo przez usługę po jego został początkowo, przyczyna to przesyłane przy użyciu odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który obejmuje również identyfikator śledzenia Usługa nie wyłączy kanału kontroli bez napotkania warunek błędu. Wszelkie czystego zamknięcia jest kontrolowane przez klienta.
@@ -147,8 +147,8 @@ Adres URL musi być używany jako — jest ustalania gniazda Akceptuj, ale zawie
 
 | Parametr | Wymagane | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Akceptowania gniazda, parametr musi być`sb-hc-action=accept` |
-| `{path}` |Tak |(zobacz następujący ustęp) |
+| `sb-hc-action` |Yes |Akceptowania gniazda, parametr musi być`sb-hc-action=accept` |
+| `{path}` |Yes |(zobacz następujący ustęp) |
 | `sb-hc-id` |Nie |Zobacz opis poprzedniego **identyfikator**. |
 
 `{path}`to ścieżka zakodowane w adresie URL przestrzeni nazw wstępnie skonfigurowane połączenia hybrydowego, w którym można zarejestrować tego odbiornika. To wyrażenie jest dołączany do stałej `$hc/` części ścieżki. 
@@ -161,7 +161,7 @@ Jeśli występuje błąd, usługa może odpowiedzieć w następujący sposób:
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Adres URL jest nieprawidłowy. |
+| 403 |Zabroniony |Adres URL jest nieprawidłowy. |
 | 500 |Błąd wewnętrzny |Wystąpił problem w usłudze |
 
 Po ustanowieniu połączenia serwera zamknięty, protokół WebSocket kiedy nadawcy WebSocket przebiega w dół lub z następujących stanów:
@@ -182,8 +182,8 @@ Aby odrzucić gniazda, klient pobiera adres URI z komunikatu "Zaakceptuj" i doł
 
 | Param | Wymagane | Opis |
 | --- | --- | --- |
-| statusCode |Tak |Kod stanu HTTP. |
-| StatusDescription |Tak |Człowieka czytelny przyczynę odrzucenia. |
+| statusCode |Yes |Kod stanu HTTP. |
+| StatusDescription |Yes |Człowieka czytelny przyczynę odrzucenia. |
 
 Wynikowy identyfikatora URI jest następnie używany do ustanawiania połączenia obiektu WebSocket.
 
@@ -191,7 +191,7 @@ Po zakończeniu poprawnie, to uzgadnianie celowo kończy się niepowodzeniem z k
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 403 |Dostęp zabroniony |Adres URL jest nieprawidłowy. |
+| 403 |Zabroniony |Adres URL jest nieprawidłowy. |
 | 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
 
 ### <a name="listener-token-renewal"></a>Odbiornik odnowienia tokenu
@@ -231,8 +231,8 @@ Dostępne są następujące opcje parametru ciągu zapytania:
 
 | Param | Wymagana? | Opis |
 | --- | --- | --- |
-| `sb-hc-action` |Tak |Dla roli nadawcy parametr musi być `action=connect`. |
-| `{path}` |Tak |(zobacz następujący ustęp) |
+| `sb-hc-action` |Yes |Dla roli nadawcy parametr musi być `action=connect`. |
+| `{path}` |Yes |(zobacz następujący ustęp) |
 | `sb-hc-token` |Tak\* |Odbiornik Podaj prawidłową, zakodowane w adresie URL usługi magistrali udostępnionych Token dostępu dla przestrzeni nazw lub połączenie hybrydowe, który przyznaje **wysyłania** prawo. |
 | `sb-hc-id` |Nie |Opcjonalny identyfikator umożliwia śledzenie diagnostyczne end-to-end, który ma zostać udostępnione do odbiornika podczas uzgadniania accept. |
 
@@ -248,9 +248,9 @@ Jeśli połączenia obiektu WebSocket nie powiodło się z powodu ścieżka poł
 
 | Kod | Błąd | Opis |
 | --- | --- | --- |
-| 404 |Nie można odnaleźć |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
+| 404 |Nie znaleziono |Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany. |
 | 401 |Brak autoryzacji |Token zabezpieczający jest brak lub źle sformułowany lub nieprawidłowy. |
-| 403 |Dostęp zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki, a dla tej akcji. |
+| 403 |Zabroniony |Token zabezpieczający nie jest prawidłowy dla tej ścieżki, a dla tej akcji. |
 | 500 |Błąd wewnętrzny |Wystąpił problem w usłudze. |
 
 Wyłączenie połączenia obiektu WebSocket celowo przez usługę po została początkowo prawidłowo skonfigurowana przyczyna to przesyłane przy użyciu odpowiednich kod błędu protokołu WebSocket wraz z komunikat z opisem błędu, który obejmuje również identyfikator śledzenia
@@ -262,7 +262,7 @@ Wyłączenie połączenia obiektu WebSocket celowo przez usługę po została po
 | 1008 |Token zabezpieczeń wygasł, w związku z tym naruszenia zasad autoryzacji. |
 | 1011 |Wystąpił problem w usłudze. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Często zadawane pytania dotyczące usługi Relay](relay-faq.md)
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)
 * [Wprowadzenie do programu .NET](relay-hybrid-connections-dotnet-get-started.md)

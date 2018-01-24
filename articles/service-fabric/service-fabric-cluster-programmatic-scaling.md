@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowo skalowanie klastra sieci szkieletowej usług 
 
@@ -57,7 +57,7 @@ Nazwy głównej usługi mogą być tworzone z następujących kroków:
 
 Biblioteka fluent obliczeń zalogować się przy użyciu tych poświadczeń w następujący sposób (należy pamiętać, że fluent Azure typów podstawowych, takich jak `IAzure` w [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pakietu):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Po zalogowaniu, liczba wystąpień zestawu skali można tworzyć zapytania za po
 ## <a name="scaling-out"></a>Skalowanie w poziomie
 Przy użyciu fluent Azure obliczeniowe zestawu SDK, wystąpień, mogą być dodawane do zestaw z kilku wywołania - skalowania maszyny wirtualnej
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Skalowanie w jest podobny do skalowania. Rzeczywiste zestawu skalowania maszyn w
 
 Przygotowanie węzła dla zamknięcia polega na znajdowaniu się, że węzeł, który ma być usunięty (węzeł ostatnio dodane) i dezaktywowanie go. Dla węzłów z systemem innym niż inicjatora nowszej węzły znajdują się na podstawie porównania ilości `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Węzłów inicjatora są różne, a nie zawsze wykonaj Konwencji najpierw usuną
 
 Po znalezieniu węzeł ma zostać usunięty, można dezaktywować i usunąć korzystającej z tego samego `FabricClient` wystąpienia i `IAzure` wystąpienie z wcześniej.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Jako ze skalowania poleceń cmdlet programu PowerShell modyfikowania skalowania maszyny wirtualnej zestawu pojemności można także tutaj Jeśli skryptów podejście jest bardziej pożądane. Po usunięciu wystąpienie maszyny wirtualnej, można usunąć stan węzła sieci szkieletowej usług.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
@@ -144,7 +144,7 @@ Jak pokazano w poprzedzających fragmentów kodu, tworzenia własnego skalowania
 
 Jak powinna wynosić skalowania usługi Service Fabric, zależy od danego scenariusza. W przypadku skalowania rzadko, możliwość dodawania lub usuwania węzłów ręcznie jest prawdopodobnie wystarczający. Dla bardziej złożonymi scenariuszami reguły automatyczne skalowanie i zestawy SDK udostępnia możliwość skalowania programowo oferują zaawansowane alternatyw.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby rozpocząć wdrażanie własną logikę automatyczne skalowanie, należy zapoznać się z przydatne interfejsów API i następujące kwestie:
 

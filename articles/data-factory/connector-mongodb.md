@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z bazy danych MongoDB przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,8 +58,8 @@ Obsługiwane są następujące właściwości dla bazy danych MongoDB połączon
 | type |Właściwość type musi mieć ustawioną: **bazy danych MongoDb** |Yes |
 | serwer |Adres IP lub hosta nazwę serwera bazy danych MongoDB. |Yes |
 | port |Port TCP używany przez serwer bazy danych MongoDB do nasłuchiwania dla połączeń klienta. |Nie (wartość domyślna to 27017) |
-| DatabaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Yes |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych MongoDB.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
+| databaseName |Nazwa bazy danych MongoDB, które chcesz uzyskać dostęp. |Yes |
+| authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych MongoDB.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
 | nazwa użytkownika |Konto użytkownika do bazy danych MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło dla użytkownika. Zaznacz to pole jako SecureString. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, który ma być używany w celu sprawdzenia poświadczeń dla uwierzytelniania. |Nie. Dla uwierzytelniania podstawowego domyślnie używany jest konto administratora i baza danych określona za pomocą właściwości databaseName. |
@@ -177,15 +177,15 @@ Podczas kopiowania danych z bazy danych MongoDB, następujące mapowania są uż
 
 | Typ danych MongoDB | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| Binarny |Byte] |
+| Binarny |Byte[] |
 | Wartość logiczna |Wartość logiczna |
 | Date |Data/godzina |
-| NumberDouble |O podwójnej precyzji |
+| NumberDouble |Podwójnej precyzji |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Ciąg |
 | Ciąg |Ciąg |
-| IDENTYFIKATOR UUID |Identyfikator GUID |
+| UUID |Identyfikator GUID |
 | Obiekt |Renormalized do spłaszczenia kolumn z "_" jako separatora zagnieżdżonych |
 
 > [!NOTE]
@@ -208,8 +208,8 @@ Na przykład w tym miejscu ExampleTable jest tabeli bazy danych MongoDB, która 
 
 | _id | Nazwa klienta | Faktury | Poziom usług | Klasyfikacje |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: elementu "123",: "tostera", cena: Rabat "456",: "0,2"}, {invoice_id: "124", element: "piec", cena: Zniżka "1235": "0,2"}] |Srebrny |[5,6] |
-| 2222 |XYZ |[{invoice_id: element "135": "lodówko", cena: Rabat "12543": "0,0"}] |Złoty |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Srebrny |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Złoty |[1,2] |
 
 Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Pierwszy tabeli wirtualnej jest tabela podstawowa o nazwie "ExampleTable" pokazano w przykładzie. Podstawowa tabela zawiera wszystkie dane z oryginalnej tabeli, ale dane z macierzami została pominięta i jest rozwinięta w tabelach wirtualnych.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopiowanie danych ze źródła OData przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,8 +52,8 @@ Obsługiwane są następujące właściwości usługi OData połączone:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **OData** |Yes |
 | adres url | Główny adres URL usługi OData. |Yes |
-| Typ authenticationType | Typ uwierzytelniania używany do nawiązania połączenia źródła OData.<br/>Dozwolone wartości to: **anonimowe**, **podstawowe**, i **Windows**. Należy pamiętać, że OAuth nie jest obsługiwane. | Yes |
-| Nazwa użytkownika | Określ nazwę użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. | Nie |
+| authenticationType | Typ uwierzytelniania używany do nawiązania połączenia źródła OData.<br/>Dozwolone wartości to: **anonimowe**, **podstawowe**, i **Windows**. Należy pamiętać, że OAuth nie jest obsługiwane. | Yes |
+| userName | Określ nazwę użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. | Nie |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
 
@@ -206,12 +206,12 @@ Podczas kopiowania danych z OData, następujące mapowania są używane z typów
 
 | Typ danych OData | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | wartość logiczna |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Wartość logiczna |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Data/godzina |
 | Edm.Decimal | Decimal |
-| Edm.Double | O podwójnej precyzji |
+| Edm.Double | Podwójnej precyzji |
 | Edm.Single | Kawaler/panna |
 | Edm.Guid | Identyfikator GUID |
 | Edm.Int16 | Int16 |
@@ -219,7 +219,7 @@ Podczas kopiowania danych z OData, następujące mapowania są używane z typów
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | Ciąg |
-| Edm.Time | Zakres czasu |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!Note]

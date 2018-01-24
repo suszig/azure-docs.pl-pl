@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Przenoszenie danych z serwera FTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Jeśli przenosisz dane z **lokalnymi** serwer FTP do chmury danych magazynu (na 
 
 Użytkownik może zainstalować bramę na tym samym komputera lokalnego lub maszyn wirtualnych IaaS co na serwerze FTP. Jednak zaleca się zainstalowanie bramy na osobnym komputerze lub maszynie Wirtualnej IaaS, aby uniknąć rywalizacji i w celu zapewnienia lepszej wydajności. Po zainstalowaniu bramy na osobnym komputerze maszynie powinno być możliwe dostęp do serwera FTP.
 
-## <a name="get-started"></a>Rozpoczynanie pracy
+## <a name="get-started"></a>Rozpoczęcie pracy
 Można utworzyć potoku o działanie kopiowania, który przenosi dane ze źródła FTP przy użyciu różnych narzędzi lub interfejsów API.
 
 Najprostszym sposobem, aby utworzyć potok jest użycie **kreatora kopiowania fabryki danych**. Zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md) Przewodnik Szybki.
@@ -66,16 +66,16 @@ W poniższej tabeli opisano specyficzne dla usługi FTP połączone elementy JSO
 
 | Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| type |Ustaw tę wartość na SerwerFTP. |Tak |&nbsp; |
-| Host |Określ nazwę lub adres IP serwera FTP. |Tak |&nbsp; |
-| Typ authenticationType |Określ typ uwierzytelniania. |Tak |Basic anonimowe |
+| type |Ustaw tę wartość na SerwerFTP. |Yes |&nbsp; |
+| host |Określ nazwę lub adres IP serwera FTP. |Yes |&nbsp; |
+| authenticationType |Określ typ uwierzytelniania. |Yes |Basic anonimowe |
 | nazwa użytkownika |Określ użytkownika, który ma dostęp do serwera FTP. |Nie |&nbsp; |
 | hasło |Określ hasło dla użytkownika (username). |Nie |&nbsp; |
 | encryptedCredential |Określ zaszyfrowane poświadczenia dostępu do serwera FTP. |Nie |&nbsp; |
 | gatewayName |Określ nazwę bramy w brama zarządzania danymi do nawiązania połączenia lokalnego serwera FTP. |Nie |&nbsp; |
 | port |Określ port, na którym nasłuchuje serwer FTP. |Nie |21 |
-| enableSsl |Określ, czy używać FTP za pośrednictwem kanału SSL/TLS. |Nie |Wartość true |
-| enableServerCertificateValidation |Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS. |Nie |Wartość true |
+| enableSsl |Określ, czy używać FTP za pośrednictwem kanału SSL/TLS. |Nie |prawda |
+| enableServerCertificateValidation |Określ, czy w celu włączenia weryfikacji certyfikatu serwera SSL, gdy używasz FTP za pośrednictwem kanału SSL/TLS. |Nie |prawda |
 
 ### <a name="use-anonymous-authentication"></a>Uwierzytelnianie anonimowe
 
@@ -153,7 +153,7 @@ Aby uzyskać pełną listę właściwości dostępnych do definiowania zestawów
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| folderPath |Podrzędną do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** ścieżki folderu oparte na początku wycinka i kończyć daty i godziny. |Tak |
+| folderPath |Podrzędną do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** ścieżki folderu oparte na początku wycinka i kończyć daty i godziny. |Yes |
 | fileName |Określ nazwę pliku w **folderPath** aby tabela do odwoływania się do określonego pliku w folderze. Jeśli nie określono żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Gdy **fileName** nie jest określony dla wyjściowego zestawu danych, nazwę wygenerowanego pliku znajduje się w następującym formacie: <br/><br/>Dane. <Guid>.txt (przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nie |
 | obiektu fileFilter |Określ filtr służący do wybierania podzbioru plików w **folderPath**, a nie wszystkich plików.<br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1:`"fileFilter": "*.log"`<br/>Przykład 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **obiektu fileFilter** dotyczy wejściowy zestaw danych z udziału plików. Ta właściwość nie jest obsługiwana z Hadoop Distributed pliku System (HDFS). |Nie |
 | partitionedBy |Służy do określania dynamicznym **folderPath** i **fileName** czasu serii danych. Na przykład można określić **folderPath** który jest sparametryzowana dla każdej godziny danych. |Nie |
@@ -387,7 +387,7 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania wej
 > [!NOTE]
 > Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły:
 
 * Informacje na temat kluczowych czynników tego wydajność wpływ przenoszenia danych (działanie kopiowania) w fabryce danych i zoptymalizować ją na różne sposoby, zobacz [skopiuj wydajności działania i dostrajania przewodnik](data-factory-copy-activity-performance.md).

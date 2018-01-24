@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Działanie procedury przechowywane programu SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,14 +35,14 @@ ms.lasthandoff: 11/03/2017
 > * [Działania niestandardowe .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [Przekształcanie danych za pomocą działania procedury składowanej w fabryce danych w wersji 2](../transform-data-using-stored-procedure.md).
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [Przekształcanie danych za pomocą działania procedury składowanej w fabryce danych w wersji 2](../transform-data-using-stored-procedure.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Użyj działania przekształcania danych w fabryce danych [potoku](data-factory-create-pipelines.md) do transformacji i przetwarzać dane pierwotne służące do przewidywania i szczegółowych informacji. Działania dotyczącego procedury składowanej jest jednym z działania przekształcania, które obsługuje fabryki danych. W tym artykule opiera się na [działań przekształcania danych](data-factory-data-transformation-activities.md) artykułu, który przedstawia ogólny przegląd transformacji danych i działań przekształcania obsługiwanych w fabryce danych.
 
 Działania dotyczącego procedury składowanej umożliwia wywołanie procedury składowanej w jednym z następujących magazynów danych w przedsiębiorstwie lub na maszynie wirtualnej platformy Azure (VM): 
 
-- Usługa Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Baza danych programu SQL Server.  Jeśli używasz programu SQL Server, należy zainstalować bramę zarządzania danymi na tym samym komputerze, który jest hostem bazy danych lub na osobnym komputerze, który ma dostęp do bazy danych. Brama zarządzania danymi jest składnik, który nawiązuje połączenie danych źródeł na lokalnym/na maszynie Wirtualnej platformy Azure z usługami w chmurze w sposób bezpieczny i zarządzanie nimi. Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykułu, aby uzyskać szczegółowe informacje.
 
@@ -311,12 +311,12 @@ W poniższej tabeli opisano te właściwości JSON:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| name | Nazwa działania |Tak |
+| name | Nazwa działania |Yes |
 | description |Tekst opisujący działanie służy do |Nie |
-| type | Musi mieć wartość: **SqlServerStoredProcedure** | Tak |
+| type | Musi mieć wartość: **SqlServerStoredProcedure** | Yes |
 | Dane wejściowe | Opcjonalny. Jeśli określisz wejściowy zestaw danych, musi być dostępny (w stanie "Gotowe") dla działania procedury składowanej do uruchomienia. Wejściowy zestaw danych nie mogą być używane w procedurze składowanej jako parametr. Tylko służy do sprawdzania zależności przed rozpoczęciem działania procedury składowanej. |Nie |
-| dane wyjściowe | Należy określić zestaw danych wyjściowych dla działania procedury składowanej. Określa wyjściowy zestaw danych **harmonogram** działania procedury składowanej (co godzinę, co tydzień, co miesiąc, itp.). <br/><br/>Wyjściowy zestaw danych musi używać **połączona usługa** odwołujący się do bazy danych SQL Azure lub usługi Azure SQL Data Warehouse lub bazy danych programu SQL Server w której ma zostać procedurę składowaną, aby uruchomić. <br/><br/>Wyjściowy zestaw danych może stanowić sposób przekazać wyników procedury składowanej dla kolejnych przetwarzania przez inne działanie ([łańcucha działania](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) w potoku. Jednak fabryki danych nie automatycznie zapisuje dane wyjściowe procedury składowanej do tego elementu dataset. Jest procedury przechowywanej, która zapisuje do tabeli SQL, która wskazuje wyjściowego zestawu danych. <br/><br/>W niektórych przypadkach może być wyjściowy zestaw danych **fikcyjny zestawu danych**, które służą tylko do określ harmonogram uruchamiania działania procedury składowanej. |Tak |
-| storedProcedureName |Określ nazwę procedury składowanej bazy danych Azure SQL lub w bazie danych magazynu danych SQL Azure lub programu SQL Server, reprezentowanego przez połączonej usługi, która używa tabeli wyników. |Tak |
+| wyjścia | Należy określić zestaw danych wyjściowych dla działania procedury składowanej. Określa wyjściowy zestaw danych **harmonogram** działania procedury składowanej (co godzinę, co tydzień, co miesiąc, itp.). <br/><br/>Wyjściowy zestaw danych musi używać **połączona usługa** odwołujący się do bazy danych SQL Azure lub usługi Azure SQL Data Warehouse lub bazy danych programu SQL Server w której ma zostać procedurę składowaną, aby uruchomić. <br/><br/>Wyjściowy zestaw danych może stanowić sposób przekazać wyników procedury składowanej dla kolejnych przetwarzania przez inne działanie ([łańcucha działania](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) w potoku. Jednak fabryki danych nie automatycznie zapisuje dane wyjściowe procedury składowanej do tego elementu dataset. Jest procedury przechowywanej, która zapisuje do tabeli SQL, która wskazuje wyjściowego zestawu danych. <br/><br/>W niektórych przypadkach może być wyjściowy zestaw danych **fikcyjny zestawu danych**, które służą tylko do określ harmonogram uruchamiania działania procedury składowanej. |Yes |
+| storedProcedureName |Określ nazwę procedury składowanej bazy danych Azure SQL lub w bazie danych magazynu danych SQL Azure lub programu SQL Server, reprezentowanego przez połączonej usługi, która używa tabeli wyników. |Yes |
 | storedProcedureParameters |Określ wartości dla parametrów procedury składowanej. Jeśli chcesz przekazać wartości null dla parametru należy użyć składni: "param1": wartość null (małe litery). Zobacz poniższy przykład, aby dowiedzieć się więcej o korzystaniu z tej właściwości. |Nie |
 
 ## <a name="passing-a-static-value"></a>Przekazywanie wartości statycznej

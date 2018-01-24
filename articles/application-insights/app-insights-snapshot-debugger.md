@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek na wyjątków w aplikacji .NET
 
@@ -82,7 +82,7 @@ Są obsługiwane w następujących środowiskach:
 
 3. Modyfikowanie aplikacji `Startup` klasy, aby dodać i skonfigurować migawki modułu zbierającego dane telemetryczne procesora.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ Są obsługiwane w następujących środowiskach:
 2. Dodaj [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pakietu NuGet w aplikacji.
 
 3. Migawki są zbierane tylko na wyjątki, które są zgłaszane do usługi Application Insights. Konieczne może być swój kod, aby zgłosić je modyfikować. Kod obsługi wyjątków jest zależna od struktury aplikacji, ale przykładem jest poniżej:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -291,7 +291,7 @@ Wykonaj poniższe kroki konfigurowania roli użytkownika usługi w chmurze z ded
 ```
 
 2. Modyfikowanie roli użytkownika `OnStart` metodę, aby dodać zmienną środowiskową, który wskazuje `SnapshotStore` zasobu lokalnego.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

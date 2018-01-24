@@ -1,5 +1,5 @@
 ---
-title: "Jak utworzyć wyzwalaczy okno wirowania w fabryce danych Azure | Dokumentacja firmy Microsoft"
+title: Tworzenie wyzwalaczy okno wirowania w fabryce danych Azure | Dokumentacja firmy Microsoft
 description: "Dowiedz się, jak utworzyć wyzwalacza w fabryce danych Azure, uruchamianego potoku na okno wirowania."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: a3b056ae4bb4eda26fec58ca3b6bed7f0744e36e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Jak utworzyć wyzwalacz, który działa na okno wirowania potoku
-Ten artykuł zawiera kroki, aby utworzyć, uruchomić i monitorować wyzwalacz okno wirowania. Aby uzyskać ogólne informacje na temat wyzwalaczy i typy obsługujemy, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Utwórz wyzwalacz, który działa na okno wirowania potoku
+Ten artykuł zawiera kroki, aby utworzyć, uruchomić i monitorować wyzwalacz okno wirowania. Aby uzyskać ogólne informacje o wyzwalaczy i obsługiwane typy, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz dostępnej ogólnie wersji 1 usługi Data Factory, zobacz artykuł z [wprowadzeniem do usługi Data Factory w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Ten artykuł dotyczy usługi fabryka danych Azure w wersji 2, który jest obecnie w wersji zapoznawczej. Jeśli używasz usługi fabryka danych Azure w wersji 1, która jest ogólnie dostępna (GA), zobacz [Rozpoczynanie pracy z fabryką danych Azure w wersji 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Wyzwalacze okno wirowania są typu wyzwalacza, z którego generowane w odstępach czasu okresowe z określonym czasie rozpoczęcia, zachowując stanu. Windows wirowania są serii o stałym rozmiarze, nienakładających i ciągłe interwałów. Wyzwalacz okno wirowania ma relację 1:1 z potokiem i może się odwoływać tylko do pojedynczej potoku.
+Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Windows wirowania są serii o stałym rozmiarze, nienakładających i ciągłe interwałów. Wyzwalacz okno wirowania ma relacje jeden do jednego z potokiem i może się odwoływać tylko do pojedynczej potoku.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Właściwości typu wyzwalacza okno wirowania
+Okno wirowania ma następujące właściwości typu wyzwalacza:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -68,24 +70,25 @@ Wyzwalacze okno wirowania są typu wyzwalacza, z którego generowane w odstępac
 }
 ```  
 
-Poniższa tabela zawiera omówienie głównych elementów odnoszące się do ponownego i planowania w wyzwalaczu okno wirowania.
+Poniższa tabela zawiera omówienie głównych elementów JSON, które są powiązane z cyklu i planowania wyzwalacza okno wirowania:
 
-| **Nazwy JSON** | **Opis** | **Dozwolone wartości** | **Wymagane** |
-|:--- |:--- |:--- |:--- |
-| **Typ** | Typ wyzwalacza. To jest określona jako "TumblingWindowTrigger." | Ciąg | Yes |
-| **runtimeState** | <readOnly>Możliwe wartości: Uruchomiona, zatrzymana, wyłączone | Ciąg | Tak, tylko do odczytu |
-| **częstotliwość** |*Częstotliwość* ciąg reprezentujący jednostkę częstotliwość powtarzania wyzwalacza. Obsługiwane wartości to "min" i "Godzina". Jeśli czas rozpoczęcia części daty, które są bardziej szczegółowego niż wartość częstotliwości, będzie można brana pod uwagę do obliczenia granice okna. Dla ex: Jeśli częstotliwość wynosi co godzinę i czas rozpoczęcia jest 2016-04-01T10:10:10Z, pierwsze okno jest (2017-09-01T10:10:10Z, 2017-09 — 01T11:10:10Z.)  | Ciąg. Obsługiwane typy "minute", "Godzina" | Yes |
-| **Interwał** |*Interwał* jest dodatnią liczbą całkowitą i określa interwał *częstotliwość* określający, jak często będą uruchamiane wyzwalacza. Na przykład jeśli *interwał* 3 i *częstotliwość* to "Godzina" wyzwalacza wystąpi co 3 godziny. | Liczba całkowita | Yes |
-| **czas rozpoczęcia**|*wartość startTime* jest daty i godziny. *wartość startTime* jest pierwsze wystąpienie i może przypadać w przeszłości. Pierwszy interwał wyzwalacza będzie (czas rozpoczęcia, czas rozpoczęcia + interwał). | Data/godzina | Yes |
-| **wartość endTime**|*wartość endTime* jest daty i godziny. *wartość endTime* jest ostatnim wystąpieniem a może przypadać w przeszłości. | Data/godzina | Yes |
-| **Opóźnienie** | Określ opóźnienie przetwarzania danych powoduje uruchomienie okna. Uruchom potoku jest uruchomione po oczekiwany czas wykonywania + opóźnienia. Opóźnienie definiuje sposób czas oczekiwania wyzwalacza zaległe czasie przed wyzwalania, Uruchom nowe. Nie zmienia godzina rozpoczęcia okna. | Wartość TimeSpan (przykład: 00:10:00 oznacza opóźnienia w ciągu 10 minut) |  Nie. Domyślna to "00: 00:00" |
-| **MAX współbieżności** | Liczba uruchomień jednoczesnych wyzwalacza, które są uruchamiane dla systemu windows, które są gotowe. Przykład: Jeśli próbujemy uzupełniania co godzinę na wczoraj, który będzie 24 systemu windows. Jeśli współbieżności = 10, wyzwalacz zdarzenia są generowane tylko dla systemu windows 10 pierwszych (00:00-01:00 - 09:00-10:00). Po zakończeniu 10 pierwszych uruchamia wyzwalanych potoku uruchamia wyzwalacz są uruchamiane dla następnego 10 (10:00-11:00-19:00-20:00). Kontynuowanie przykład współbieżności = 10, jeśli istnieją 10 systemu windows, które są gotowe, będzie 10 uruchamia potoku. Jeśli istnieje tylko 1 okno gotowe, będzie istnieć tylko 1 wykonywania potoku. | Liczba całkowita | Tak. Możliwe wartości 1 – 50 |
-| **retryPolicy: liczba** | Liczba ponownych prób przed uruchomieniem potoku jest oznaczony jako "Niepowodzenie"  | Liczba całkowita |  Nie. Domyślna to 0 ponownych prób. |
-| **retryPolicy: element intervalInSeconds** | Opóźnienie między ponownymi próbami w sekundach | Liczba całkowita |  Nie. Domyślna to 30 sekund. |
+| JSON element | Opis | Typ | Dozwolone wartości | Wymagane |
+|:--- |:--- |:--- |:--- |:--- |
+| **Typ** | Typ wyzwalacza. Typ jest wartością stałą "TumblingWindowTrigger." | Ciąg | "TumblingWindowTrigger" | Yes |
+| **runtimeState** | Bieżący stan czasu wykonywania wyzwalacza.<br/>**Uwaga**: ten element jest \<tylko do odczytu >. | Ciąg | "Uruchomiona", "zatrzymana," "Wyłączone" | Yes |
+| **częstotliwość** | Ciąg, który reprezentuje jednostkę częstotliwość (w minutach lub godzinach) powtarzania wyzwalacza. Jeśli **startTime** wartości daty są bardziej szczegółowego niż **częstotliwość** wartość **startTime** daty są traktowane jako, gdy są obliczane granice okna. Na przykład jeśli **częstotliwość** wartość to co godzinę i **startTime** wartość jest 2016-04-01T10:10:10Z, pierwsze okno jest (2017 — 09 — 01T10:10:10Z, 2017-09 — 01T11:10:10Z). | Ciąg | "minute", "Godzina"  | Yes |
+| **interval** | Dodatnia liczba całkowita, która określa interwał **częstotliwość** wartość, która określa, jak często uruchamia wyzwalacz. Na przykład jeśli **interwał** 3 i **częstotliwość** to "Godzina", wyzwalacz wystąpi co 3 godziny. | Liczba całkowita | Dodatnia liczba całkowita. | Yes |
+| **startTime**| Pierwsze wystąpienie, które mogą znajdować się w przeszłości. Pierwszy interwał wyzwalacza (**startTime**, **startTime** + **interwał**). | Data/godzina | Wartość daty i godziny. | Yes |
+| **endTime**| Ostatnie wystąpienie, które mogą znajdować się w przeszłości. | Data/godzina | Wartość daty i godziny. | Yes |
+| **delay** | Ilość czasu opóźnienie przetwarzania danych w oknie. Uruchom potoku została uruchomiona po oczekiwany czas wykonywania oraz ilość **opóźnienie**. **Opóźnienie** określa czas oczekiwania wyzwalacza późniejsza niż godzina ukończenia, aby mogło nastąpić wyzwolenie nowy przebieg. **Opóźnienie** nie powoduje zmian okna **startTime**. Na przykład **opóźnienie** wartość 00:10:00 oznacza 10 minutach. | Zakres czasu  | Wartość czasu, gdy wartość domyślna to 00:00:00. | Nie |
+| **maxConcurrency** | Liczba uruchomień jednoczesnych wyzwalacza, które są uruchamiane dla systemu windows, które są gotowe. Na przykład kopii wypełnienia co godzinę trwający wczoraj powoduje 24 systemu windows. Jeśli **maxConcurrency** = 10, wyzwalacz zdarzenia są generowane tylko dla systemu windows 10 pierwszych (00:00-01:00 - 09:00-10:00). Po zakończeniu 10 pierwszych uruchamia wyzwalanych potoku uruchamia wyzwalacz są uruchamiane dla kolejnych 10 systemu windows (10:00-11:00-19:00-20:00). Kontynuowanie z tym przykładem **maxConcurrency** = 10, jeśli istnieją 10 systemu windows, które są gotowe, istnieją 10 uruchamia całkowita potoku. Jeśli istnieje tylko 1 okno gotowy, jest tylko 1 wykonywania potoku. | Liczba całkowita | Liczba całkowita od 1 do 50. | Yes |
+| **retryPolicy: Count** | Liczba ponownych prób przed uruchomieniem potoku jest oznaczony jako "Nieudane".  | Liczba całkowita | Liczba całkowita, gdzie wartość domyślna to 0 (brak ponownych prób). | Nie |
+| **retryPolicy: element intervalInSeconds** | Opóźnienie między ponownymi próbami określony w sekundach. | Liczba całkowita | Liczba sekund, gdzie wartość domyślna to 30. | Nie |
 
-### <a name="using-system-variables-windowstart-and-windowend"></a>Za pomocą zmiennych systemowych: WindowStart i WindowEnd
+### <a name="windowstart-and-windowend-system-variables"></a>Zmienne systemu WindowStart i WindowEnd
 
-Jeśli chcesz użyć WindowStart i WindowEnd wyzwalacz okno wirowania w Twojej **potoku** definicji (tj. w przypadku części zapytania), należy przekazać zmienne jako parametry do potoku sieci w **wyzwalacza**definicji, w następujący sposób:
+Można użyć **WindowStart** i **WindowEnd** zmienne systemowe wyzwalacza okno wirowania w Twojej **potoku** definicji (oznacza to, że części zapytania). Przekaż zmienne systemowe jako parametry do potoku sieci w **wyzwalacza** definicji. Poniższy przykład przedstawia sposób przekazywania tych zmiennych jako parametry:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -113,22 +116,24 @@ Jeśli chcesz użyć WindowStart i WindowEnd wyzwalacz okno wirowania w Twojej *
 }
 ```  
 
-Następnie, w definicji potoku, aby użyć wartości WindowStart i WindowEnd, użyj parametry odpowiednio "MyWindowStart" i "MyWindowEnd"
+Aby użyć **WindowStart** i **WindowEnd** odpowiednio parametry "MyWindowStart" i "MyWindowEnd", użyj systemu wartości zmiennych w definicji potoku.
 
-### <a name="notes-on-backfill"></a>Uwagi dotyczące uzupełniania
-W przypadku wielu systemu windows do wykonywania (esp. w scenariuszu uzupełniania) kolejność wykonywania systemu windows jest deterministyczna i będzie od najstarszych do najnowszych odstępach czasu. Nie istnieje sposób zmienić to zachowanie od tej chwili.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Kolejność wykonywania systemu windows w scenariuszu uzupełniania
+Istnieje wiele systemu windows do wykonywania (szczególnie w scenariuszu uzupełniania), kolejność wykonywania dla systemu windows jest deterministyczna, od najstarszych do najnowszych odstępach czasu. Obecnie nie można modyfikować tego zachowania.
 
-### <a name="updating-an-existing-triggerresource"></a>Aktualizowanie istniejących TriggerResource
-* Zmiana częstotliwości (lub rozmiar okna) wyzwalacza stan systemu windows już przetworzone będzie *nie* zresetowane. Wyzwalacz będzie uruchamiania dla systemu windows z ostatnią wykonane, używając nowego rozmiaru okna.
-* Godzina zakończenia wyzwalacza zmian (dodano lub zaktualizowano), stan systemu windows już przetwarzanie będzie *nie* zresetowane. Wyzwalacz honoruje po prostu nową godzinę zakończenia. Jeśli godzina zakończenia jest przed systemu windows już wykonane, wyzwalacz zostanie zatrzymane. W przeciwnym razie zostanie zatrzymane, gdy napotkano nową godzinę zakończenia.
+### <a name="existing-triggerresource-elements"></a>Istniejące elementy TriggerResource
+Mają zastosowanie następujące kwestie istniejących **TriggerResource** elementy:
 
-## <a name="sample-using-azure-powershell"></a>Przykładowe przy użyciu programu Azure PowerShell
+* Jeśli wartość **częstotliwość** elementu (lub rozmiar okna) zmian wyzwalacza, stan systemu windows, które już są przetwarzane jest *nie* resetowania. Wyzwalacz w dalszym ciągu wyzwalać dla systemu windows z oknie ostatniego wykonania przy użyciu nowego rozmiaru okna.
+* Jeśli wartość **endTime** jest element wyzwalacza zmiany (dodano lub zaktualizowano), stan systemu windows, które już są przetwarzane *nie* resetowania. Wyzwalacz honoruje nowe **endTime** wartość. Jeśli nowy **endTime** wartość jest przed okna, które są już wykonane zatrzymuje wyzwalacza. W przeciwnym razie wyzwalacza zatrzymuje, gdy nowy **endTime** napotkano wartość.
+
+## <a name="sample-for-azure-powershell"></a>Przykład dla programu Azure PowerShell
 W tej sekcji przedstawiono sposób tworzenia, uruchomić i monitorować wyzwalacz przy użyciu programu Azure PowerShell.
 
-1. Utwórz plik JSON o nazwie MyTrigger.json w folderze C:\ADFv2QuickStartPSH\ o następującej treści:
+1. Utwórz plik JSON o nazwie **MyTrigger.json** w folderze C:\ADFv2QuickStartPSH\ o następującej treści:
 
    > [!IMPORTANT]
-   > Ustaw **startTime** bieżący czas UTC i **endTime** aby godzinę poza bieżący czas UTC razem przed zapisaniem pliku JSON.
+   > Przed zapisaniem pliku JSON, ustaw wartość **startTime** element bieżący czas UTC. Ustaw wartość **endTime** elementu godzinę poza bieżący czas UTC.
 
     ```json   
     {
@@ -160,32 +165,38 @@ W tej sekcji przedstawiono sposób tworzenia, uruchomić i monitorować wyzwalac
       }
     }
     ```  
-2. Utwórz wyzwalacz za pomocą **AzureRmDataFactoryV2Trigger zestaw** polecenia cmdlet.
+
+2. Utwórz wyzwalacz za pomocą **AzureRmDataFactoryV2Trigger zestaw** polecenia cmdlet:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
     
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
+3. Upewnij się, że jest w stanie wyzwalacza **zatrzymane** za pomocą **Get-AzureRmDataFactoryV2Trigger** polecenia cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
+
 4. Uruchomić wyzwalacz za pomocą **Start AzureRmDataFactoryV2Trigger** polecenia cmdlet:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-5. Upewnij się, że jest w stanie wyzwalacza **uruchomiono** za pomocą **Get-AzureRmDataFactoryV2Trigger** polecenia cmdlet.
+
+5. Upewnij się, że jest w stanie wyzwalacza **uruchomiono** za pomocą **Get-AzureRmDataFactoryV2Trigger** polecenia cmdlet:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  Pobierz uruchamia wyzwalacz za pomocą programu PowerShell przy użyciu **Get-AzureRmDataFactoryV2TriggerRun** polecenia cmdlet. Aby uzyskać informacje na temat uruchamia wyzwalacz, uruchom następujące polecenie okresowo: aktualizacja **TriggerRunStartedAfter** i **TriggerRunStartedBefore** wartości są zgodne z wartościami w definicji wyzwalacza .
+
+6. GET, wyzwalacz uruchamia w programie Azure PowerShell przy użyciu **Get-AzureRmDataFactoryV2TriggerRun** polecenia cmdlet. Aby uzyskać informacje o uruchomieniu wyzwalacza, uruchom następujące polecenie okresowo. Aktualizacja **TriggerRunStartedAfter** i **TriggerRunStartedBefore** wartości są zgodne z wartościami w definicji wyzwalacz:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-Aby monitorować wyzwalacz uruchamia/potoku działa w portalu Azure, zobacz [uruchamia Monitor potoku](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    
+Do monitorowania wyzwalacz uruchamia i potoku jest uruchamiana w portalu Azure, zobacz [uruchamia Monitor potoku](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać szczegółowe informacje dotyczące wyzwalaczy, zobacz [potoku wykonywania i wyzwalaczy](concepts-pipeline-execution-triggers.md#triggers).

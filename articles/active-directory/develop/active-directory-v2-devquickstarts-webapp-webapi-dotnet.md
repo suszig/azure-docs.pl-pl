@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Wywoływanie interfejsu API sieci web z aplikacji sieci web .NET
 Z punktem końcowym v2.0 można szybko Dodawanie uwierzytelniania do aplikacji sieci web i interfejsów API sieci web o obsługę zarówno osobistego konta Microsoft i konta służbowego.  W tym miejscu firma Microsoft będzie kompilacji aplikacji sieci web MVC, który zaloguje się użytkowników przy użyciu protokołu OpenID Connect, z niektórych pomoc od firmy Microsoft oprogramowania pośredniczącego OWIN.  Aplikacji sieci web pobieranie tokenów dostępu protokołu OAuth 2.0 dla sieci web interfejsu api zabezpieczone przez OAuth 2.0, który pozwala utworzyć, odczytać i delete na określony użytkownik "listą zadań do wykonania".
@@ -68,7 +68,7 @@ Teraz skonfigurować oprogramowania pośredniczącego OWIN do zastosowania [prot
 * Otwórz plik `App_Start\Startup.Auth.cs` i Dodaj `using` instrukcje dla bibliotek z powyżej.
 * W tym samym pliku implementacji `ConfigureAuth(...)` metody.  Parametry podane `OpenIDConnectAuthenticationOptions` będzie służyć jako współrzędnych dla aplikacji w celu komunikowania się z usługą Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ W `AuthorizationCodeReceived` powiadomień, chcemy użyć [OAuth 2.0 w połącze
 * I dodać kolejne `using` instrukcji `App_Start\Startup.Auth.cs` MSAL w pliku.
 * Teraz Dodaj nową metodę `OnAuthorizationCodeReceived` obsługi zdarzeń.  Ten program obsługi będzie używać MSAL w celu pobrania tokenu dostępu do interfejsu API listy zadań do wykonania i będą przechowywane w pamięci podręcznej tokenu w MSAL token do użycia później:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Teraz nadszedł czas na rzeczywiście używane ' access_token ', które zostało
     `using Microsoft.Identity.Client;`
 * W `Index` akcji, użyj MSAL `AcquireTokenSilentAsync` metodę, aby pobrać ' access_token ', który może służyć do odczytywania danych z usługi listy zadań do wykonania:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Przykład następnie dodaje wynikowy token żądania HTTP GET jako `Authorization` nagłówek, który używa usługi listy zadań do wykonania uwierzytelnić żądania.
 * Jeśli usługa listy zadań do wykonania zwraca `401 Unauthorized` odpowiedzi, access_tokens w MSAL stały się nieprawidłowy jakiegoś powodu.  W takim przypadku należy usunąć wszelkie access_tokens z pamięci podręcznej MSAL i Pokaż komunikat, który może być konieczne Zaloguj się ponownie, który zostanie uruchomiony ponownie przepływ nabycia tokenu użytkownika.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Podobnie MSAL nie może zwracać ' access_token ' jakiejkolwiek przyczyny, należy poinstruować użytkowników zalogować się ponownie.  Jest tak proste, jak przechwytywanie dowolnego `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

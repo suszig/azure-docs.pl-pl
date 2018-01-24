@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Uruchom usługi Azure Functions z zadania usługi analiza strumienia Azure 
  
@@ -62,7 +62,7 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
 
 2. Przejdź do **run.csx** funkcji. Zaktualizuj go następującym kodem. (Pamiętaj zastąpić "\<ciąg połączenia pamięci podręcznej redis tu\>" z parametrami połączenia głównej pamięci podręcznej Redis Azure pobrany w poprzedniej sekcji.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
 
    Gdy Stream Analytics odbiera "HTTP żądania jednostki zbyt duże" wyjątków od funkcji, zmniejsza rozmiar partii wysyłanych do funkcji. W funkcji należy użyć poniższego kodu, aby sprawdzić, czy usługi Stream Analytics nie wysyła partie zbyt duży. Upewnij się, że maksymalna liczba i rozmiar wartości partii używany w funkcji są zgodne z wartości wprowadzone w portalu usługi analiza strumienia.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
@@ -155,8 +155,8 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
    |**Nazwa właściwości**|**Opis**|
    |---|---|
    |Alias wyjściowy| Przyjazna dla użytkownika nazwa używana w zapytaniu zadanie odwołania do danych wyjściowych. |
-   |Opcja importowania| Można użyć funkcji z bieżącej subskrypcji lub skonfiguruj ustawienia ręcznie, jeśli funkcja znajduje się w innej subskrypcji. |
-   |Aplikacja funkcji| Nazwa funkcji aplikacji. |
+   |Opcja importu| Można użyć funkcji z bieżącej subskrypcji lub skonfiguruj ustawienia ręcznie, jeśli funkcja znajduje się w innej subskrypcji. |
+   |Aplikacja usługi Functions| Nazwa funkcji aplikacji. |
    |Funkcja| Nazwa funkcji w funkcji aplikacji (nazwa funkcji run.csx).|
    |Rozmiar partii maksymalna|Ustawia maksymalny rozmiar poszczególnych partii danych wyjściowych, które są przesyłane do funkcji. Domyślnie ta wartość jest równa 256 KB.|
    |Maksymalna liczba wsadów|Określa maksymalną liczbę zdarzeń w każdej z partii, wysyłany do funkcji. Wartość domyślna to 100. Ta właściwość jest opcjonalna.|
@@ -179,7 +179,7 @@ Postępuj zgodnie z [wykrywanie oszustw w czasie rzeczywistym](stream-analytics-
 
 5. Uruchom aplikację telcodatagen.exe, uruchamiając następujące polecenie w wierszu polecenia (Użyj formatu `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000.2 2**
+   **telcodatagen.exe 1000 .2 2**
     
 6.  Uruchom zadanie usługi Stream Analytics.
 

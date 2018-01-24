@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Podręczniku rozwiązywania problemów z szyfrowania dysków Azure
 
@@ -30,7 +30,7 @@ Szyfrowanie dysków systemu operacyjnego (OS) Linux należy odinstalować dysku 
 
 Ten błąd jest najbardziej prawdopodobne, próba szyfrowania dysku systemu operacyjnego w środowisku maszyny Wirtualnej docelowego, który został zmodyfikowany lub zmieniła się z jego obrazu obsługiwane galerii standardowych. Następujące przykłady odchylenia od obsługiwanych obrazu, który może zakłócać możliwość rozszerzenia odinstalować dysku systemu operacyjnego:
 - Niestandardowe obrazy zgodne nie jest już obsługiwany system plików lub schemat partycjonowania.
-- Dużych aplikacji, takie jak SAP, MongoDB lub Apache Cassandra są zainstalowane i uruchomione w systemie operacyjnym przed szyfrowania. Rozszerzenie nie może poprawnie Zamknij te aplikacje. Jeśli aplikacje Obsługa uchwytów Otwórz plik na dysku systemu operacyjnego, dysku nie może być odinstalowane, co powoduje błąd.
+- Dużych aplikacji, takie jak SAP, MongoDB Apache Cassandra i Docker nie są obsługiwane, gdy są one zainstalowane i uruchomione w systemie operacyjnym przed szyfrowania.  Szyfrowanie dysków Azure nie może bezpiecznie zamknąć te procesy, zgodnie z wymaganiami przygotowanie dysku systemu operacyjnego do szyfrowania dysku.  Jeśli występują nadal aktywnych procesów zawierający dojść otwartych plików na dysku systemu operacyjnego, dysk systemu operacyjnego nie może być odinstalowane, co spowoduje niepowodzenie szyfrowania dysku systemu operacyjnego. 
 - Niestandardowe skrypty uruchomionymi w pobliżu Zamknij czasu jest włączone szyfrowanie, lub jeśli inne jest zmieniana na maszynie Wirtualnej podczas procesu szyfrowania. Ten konflikt może się zdarzyć, gdy szablonu usługi Azure Resource Manager definiuje wiele rozszerzeń można wykonać jednocześnie lub uruchomienie rozszerzenia niestandardowego skryptu lub innego działania jednocześnie do szyfrowania dysku. Serializację i izolowanie tych czynności może rozwiązać ten problem.
 - Nie wyłączono Linux zwiększonych zabezpieczeń (SELinux) przed włączeniem szyfrowania, więc krok odinstalowywania zakończy się niepowodzeniem. Może być reenabled SELinux, po zakończeniu szyfrowania.
 - Dysk systemu operacyjnego wykorzystuje schemat menedżera woluminu logicznego (LVM). Ograniczona obsługa dysku danych LVM jest dostępne, nie jest dysk systemu operacyjnego LVM.
@@ -116,7 +116,11 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="troubleshooting-encryption-status"></a>Rozwiązywanie problemów z stanu szyfrowania
+
+Jeśli stan oczekiwano szyfrowania nie jest zgodny, co jest raportowane w portalu, zobacz następujący artykuł pomocy technicznej: [stanu szyfrowania jest wyświetlany niepoprawnie w portalu zarządzania Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym dokumencie przedstawiono więcej informacji na temat typowych problemów w szyfrowania dysków Azure i sposoby rozwiązywania tych problemów. Aby uzyskać więcej informacji na temat tej usługi i jego możliwości zobacz następujące artykuły:
 

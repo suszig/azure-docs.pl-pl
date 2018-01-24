@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d1cd846418b0e65b978971526af7b918bd03a7a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Planowanie fabryki danych i wykonywania
 > [!NOTE]
@@ -187,8 +187,8 @@ W poniższej tabeli opisano właściwości można używać w **dostępności** s
 
 | Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| frequency |Określa jednostkę czasu dla trybu produkcyjnego wycinek zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuty, godziny, dnia, tygodnia, miesiąca |Tak |Nie dotyczy |
-| interval |Określa mnożnik częstotliwości<br/><br/>"Interwał częstotliwości x" Określa, jak często jest tworzony wycinek.<br/><br/>Zestaw danych, aby zostać podzielona na godzinę, należy ustawić <b>częstotliwość</b> do <b>godzina</b>, i <b>interwał</b> do <b>1</b>.<br/><br/><b>Uwaga</b>: Jeśli zostanie określona częstotliwość jako minutę, zaleca się ustawić interwał wynoszący nie mniej niż 15 |Tak |Nie dotyczy |
+| frequency |Określa jednostkę czasu dla trybu produkcyjnego wycinek zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuty, godziny, dnia, tygodnia, miesiąca |Yes |Nie dotyczy |
+| interval |Określa mnożnik częstotliwości<br/><br/>"Interwał częstotliwości x" Określa, jak często jest tworzony wycinek.<br/><br/>Zestaw danych, aby zostać podzielona na godzinę, należy ustawić <b>częstotliwość</b> do <b>godzina</b>, i <b>interwał</b> do <b>1</b>.<br/><br/><b>Uwaga</b>: Jeśli zostanie określona częstotliwość jako minutę, zaleca się ustawić interwał wynoszący nie mniej niż 15 |Yes |Nie dotyczy |
 | Styl |Określa, czy wycinek będą tworzone na początku/końca zakresu.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Jeśli częstotliwość ma ustawioną wartość miesiąca i styl ma ustawioną wartość EndOfInterval, wycinek jest realizowane ostatniego dnia miesiąca. Jeżeli styl jest ustawiony na StartOfInterval, wycinek jest generowany na pierwszy dzień miesiąca.<br/><br/>Jeśli ustawiono częstotliwość do dnia i styl ma ustawioną wartość EndOfInterval, wycinka jest realizowane w ciągu ostatniej godziny dnia.<br/><br/>Jeśli częstotliwość wynosi godzinę i styl ma ustawioną wartość EndOfInterval, wycinek jest generowany na koniec godziny. Na przykład dla wycinka okres 13: 00 – 14: 00, wycinek jest generowany na 14: 00. |Nie |EndOfInterval |
 | anchorDateTime |Definiuje położenie bezwzględne w czasie używanych przez harmonogram do obliczenia granice wycinek zestawu danych. <br/><br/><b>Uwaga</b>: Jeśli AnchorDateTime ma części daty, które są bardziej szczegółowego niż wartość częstotliwości, bardziej szczegółowego części są ignorowane. <br/><br/>Na przykład jeśli <b>interwał</b> jest <b>co godzinę</b> (częstotliwość: godzinę i interwał: 1) i <b>AnchorDateTime</b> zawiera <b>minut i sekund</b>, a następnie <b>minut i sekund</b> części AnchorDateTime są ignorowane. |Nie |01/01/0001 |
 | Przesunięcie |Zakres czasu za pomocą której zostaną przesunięte początku i końcu wszystkie fragmenty zestawu danych. <br/><br/><b>Uwaga</b>: Jeśli jest określony zarówno anchorDateTime, jak i przesunięcie wynik jest połączonych shift. |Nie |Nie dotyczy |
@@ -236,7 +236,7 @@ Zestaw danych może mieć zdefiniowane zasady sprawdzania poprawności określaj
 | Nazwa zasad | Opis | Dotyczy | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Sprawdza, czy dane w **obiektów blob platformy Azure** spełnia wymagania minimalny rozmiar (w megabajtach). |Obiekt bob Azure |Nie |Nie dotyczy |
-| minimumRows | Sprawdza, czy dane w **bazy danych Azure SQL** lub **tabeli platformy Azure** zawiera minimalną liczbę wierszy. |<ul><li>Usługa Azure SQL Database</li><li>Tabeli platformy Azure</li></ul> |Nie |Nie dotyczy |
+| minimumRows | Sprawdza, czy dane w **bazy danych Azure SQL** lub **tabeli platformy Azure** zawiera minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
 
 #### <a name="examples"></a>Przykłady
 **minimumSizeMB:**
@@ -274,10 +274,10 @@ Zasady wpływają na zachowanie czasu wykonania działania, w szczególności, p
 | Współbieżność |Liczba całkowita <br/><br/>Wartość maksymalna: 10 |1 |Liczba równoczesnych wykonania działania.<br/><br/>Określa Liczba wykonań działania równoległego, które mogą wystąpić na różnych wycinków. Na przykład jeśli działanie musi przechodzić przez duży zbiór dostępnych danych o większej wartości współbieżności przyspiesza przetwarzania danych. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Określa kolejność wycinki danych, które są przetwarzane.<br/><br/>Na przykład jeśli masz wycinków 2 (w toku co 4 godziny, a innym godzinie 5), a oba oczekują na wykonanie. Jeśli ustawisz executionPriorityOrder jako NewestFirst wycinka godzinie 5 jest przetwarzana najpierw. Podobnie jeśli ustawisz executionPriorityORder jako OldestFIrst wycinka godzinie 4 jest przetwarzany. |
 | retry |Liczba całkowita<br/><br/>Maksymalna wartość może być 10 |0 |Liczba ponownych prób przed przetwarzania danych dla wycinka jest oznaczony jako błąd. Do określonego ponownych próba zostanie ponowiona wykonania działania dla wycinka danych. Ponów próbę odbywa się jak najszybciej po awarii. |
-| timeout |Zakres czasu |00:00:00 |Limit czasu działania. Przykład: 00:10:00 (oznacza limitu 10 minut)<br/><br/>Jeśli wartość nie została określona lub jest równa 0, limit czasu to nieskończoność.<br/><br/>Jeśli czas przetwarzania danych na wycinek przekracza wartość limitu czasu, anulowaniu, a system podejmuje próbę przetwarzania. Liczba ponownych prób zależy od właściwości ponów próbę. W przypadku przekroczenia limitu czasu stan jest ustawiony na upłynął limit czasu. |
-| Opóźnienie |Zakres czasu |00:00:00 |Określ opóźnienie przetwarzania danych powoduje uruchomienie wycinka.<br/><br/>Wykonanie działań dotyczących wycinek danych jest uruchomiona po opóźnienie oczekiwany czas wykonywania.<br/><br/>Przykład: 00:10:00 (oznacza opóźnienia w ciągu 10 minut) |
+| timeout |TimeSpan |00:00:00 |Limit czasu działania. Przykład: 00:10:00 (oznacza limitu 10 minut)<br/><br/>Jeśli wartość nie została określona lub jest równa 0, limit czasu to nieskończoność.<br/><br/>Jeśli czas przetwarzania danych na wycinek przekracza wartość limitu czasu, anulowaniu, a system podejmuje próbę przetwarzania. Liczba ponownych prób zależy od właściwości ponów próbę. W przypadku przekroczenia limitu czasu stan jest ustawiony na upłynął limit czasu. |
+| Opóźnienie |TimeSpan |00:00:00 |Określ opóźnienie przetwarzania danych powoduje uruchomienie wycinka.<br/><br/>Wykonanie działań dotyczących wycinek danych jest uruchomiona po opóźnienie oczekiwany czas wykonywania.<br/><br/>Przykład: 00:10:00 (oznacza opóźnienia w ciągu 10 minut) |
 | Parametr longRetry |Liczba całkowita<br/><br/>Wartość maksymalna: 10 |1 |Liczba długa ponownych prób przed wycinek wykonanie nie powiodło się.<br/><br/>Parametr longRetry prób uzyskają przez longRetryInterval. Dlatego jeśli trzeba określić czas między ponownymi próbami, użyj longRetry. Jeśli został określony zarówno longRetry, jak i ponów próbę, każdej próbie longRetry zawiera ponownych prób i maksymalną liczbę prób ponawiania * longRetry.<br/><br/>Na przykład, jeśli mamy poniższe ustawienia w zasadach działania:<br/>Spróbuj ponownie: 3<br/>Parametr longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Załóżmy istnieje tylko jeden wycinek do wykonania (oczekiwanie stanu) i wykonania działania zawsze kończy się niepowodzeniem. Początkowo może być 3 wykonywanie kolejnych prób. Po każdej próbie stanu wycinka byłoby ponów próbę. Po pierwsze 3 prób się za pośrednictwem stanu wycinka będą LongRetry.<br/><br/>Po upływie godziny (to znaczy wartość longRetryInteval w) będzie inny zestaw 3 wykonywanie kolejnych prób. Po wykonaniu tej nie będzie można stanu wycinka i będą podejmowane próby. Dlatego całkowity 6 podejmowano.<br/><br/>Jeśli wykonanie żadnych zakończy się powodzeniem, stan wycinek jest gotowy, a próby są próby.<br/><br/>Parametr longRetry mogą być używane w sytuacji, w których danych zależnych dociera deterministyczna razy lub ogólnej środowiska jest niestabilnym, w których przetwarzania danych. W takich przypadkach to ponownych prób po kolei może nie pomagają i w ten sposób po interwału czasu powoduje żądanego wyniku.<br/><br/>Word Przestroga: nie należy ustawiać wysokiej wartości longRetry lub longRetryInterval. Zazwyczaj wyższej wartości oznacza innych kwestii systemowych. |
-| longRetryInterval |Zakres czasu |00:00:00 |Opóźnienie między próbami czas ponów |
+| longRetryInterval |TimeSpan |00:00:00 |Opóźnienie między próbami czas ponów |
 
 Aby uzyskać więcej informacji, zobacz [potoki](data-factory-create-pipelines.md) artykułu. 
 

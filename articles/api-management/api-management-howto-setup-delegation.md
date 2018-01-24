@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować subskrypcji użytkownika rejestracji i produktu
 Delegowanie umożliwia przy użyciu istniejącej witryny sieci Web do obsługi projektanta logowania — w/tworzenia konta i subskrypcji do produktów, a nie za pomocą wbudowanej funkcji w portalu dla deweloperów. Dzięki temu witryny sieci Web do własnych danych użytkownika i przeprowadzania weryfikacji tych kroków w niestandardowy sposób.
@@ -70,14 +70,14 @@ Teraz musisz utworzyć **punktu końcowego delegowania**. Musi przeprowadzić sz
    * [żądania tokenu (rejestracji jednokrotnej SSO) single-sign-on] za pośrednictwem interfejsu API REST zarządzania interfejsu API
    * Dołącz returnUrl parametru zapytania do adresu URL logowania jednokrotnego otrzymane od wywołania interfejsu API powyżej:
      
-     > https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url np. 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * przekierowuje użytkownika do utworzonych powyższy adres URL
 
 Oprócz **SignIn** operacji, można również wykonywać Zarządzanie kontami przez wykonanie poprzednich kroków i przy użyciu jednej z następujących czynności.
 
-* **Element ChangePassword**
+* **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
 
@@ -131,7 +131,7 @@ Te przykłady pokazują, jak wykonać *klucz sprawdzania poprawności delegowani
 
 **Kod C# do generowania skrótu returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";
@@ -163,7 +163,7 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na delegowania zobacz poniższe wideo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
