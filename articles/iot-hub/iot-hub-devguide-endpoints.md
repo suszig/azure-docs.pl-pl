@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Odwołanie — punkty końcowe Centrum IoT
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Nazwy hostów punktów końcowych w portalu w Centrum IoT można znaleźć **omówienie** bloku. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net`.
 
-Usługi Azure DNS umożliwia utworzenie niestandardowej nazwy DNS dla Centrum IoT. Aby uzyskać więcej informacji, zobacz [użycia usługi Azure DNS, aby określić ustawienia domeny niestandardowej dla usługi Azure](../dns/dns-custom-domain.md#azure-iot).
+Usługi Azure DNS umożliwia utworzenie niestandardowej nazwy DNS dla Centrum IoT. Aby uzyskać więcej informacji, zobacz [użycia usługi Azure DNS, aby określić ustawienia domeny niestandardowej dla usługi Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista wbudowanych punkty końcowe Centrum IoT
 
@@ -69,7 +69,7 @@ Możesz połączyć istniejące usługi platformy Azure w ramach subskrypcji, z 
 Centrum IoT obsługuje obecnie następujących usług platformy Azure jako dodatkowe punkty końcowe:
 
 * Kontenery magazynu Azure
-* Usługa Event Hubs
+* Event Hubs
 * Kolejki usługi Service Bus
 * Tematy dotyczące usługi Service Bus
 
@@ -101,7 +101,7 @@ Rozwiązania IoT *bramy pola* znajduje się między urządzeniami a punktami ko�
 
 Można użyć [Azure IoT krawędzi] [ lnk-iot-edge] do zaimplementowania bramy pola. Krawędź IoT oferuje funkcje, takie jak multipleksowania komunikacji z różnych urządzeń do tego samego połączenia Centrum IoT.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Inne tematy dokumentacji, w tym przewodniku deweloperów Centrum IoT obejmują:
 

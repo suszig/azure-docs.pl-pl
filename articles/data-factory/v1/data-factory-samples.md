@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Fabryki danych Azure — przykłady
 > [!NOTE]
@@ -29,9 +29,9 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Przykłady z witryny GitHub
 [Repozytorium GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) zawiera kilka przykłady, które ułatwiają szybkie zwiększać usłudze fabryka danych Azure (lub) zmodyfikować skrypty i używać jej w własnych aplikacji. Samples\JSON folder zawiera fragmenty kodu JSON dla typowych scenariuszy.
 
-| Przykład | Opis |
+| Sample | Opis |
 |:--- |:--- |
-| [Wskazówki ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |W tym przykładzie przedstawiono wskazówki na trasie do przetwarzania plików dziennika przy użyciu fabryki danych Azure, aby włączyć danych z plików dziennika w do szczegółowych danych. <br/><br/>W tym przewodniku potoku fabryki danych zbiera dzienniki próbki, procesów i wzbogaca danych z dzienników przy użyciu danych referencyjnych i przekształcenia danych oceny skuteczności kampanii marketingowych, która została ostatnio uruchomiona. |
+| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |W tym przykładzie przedstawiono wskazówki na trasie do przetwarzania plików dziennika przy użyciu fabryki danych Azure, aby włączyć danych z plików dziennika w do szczegółowych danych. <br/><br/>W tym przewodniku potoku fabryki danych zbiera dzienniki próbki, procesów i wzbogaca danych z dzienników przy użyciu danych referencyjnych i przekształcenia danych oceny skuteczności kampanii marketingowych, która została ostatnio uruchomiona. |
 | [Przykłady JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |W tym przykładzie przedstawiono przykłady JSON dla typowych scenariuszy. |
 | [Przykładowe narzędzie do pobierania danych http](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Ten przykładowy pokazy pobierania danych z punktu końcowego HTTP do magazynu obiektów Blob Azure przy użyciu działań niestandardowych .NET. |
 | [Krzyżowe próbki Net działanie elementu AppDomain kropka](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |W tym przykładzie umożliwia tworzenie niestandardowego działania .NET, który nie jest ograniczona do wersji zestawu używanych przez uruchamianie ADF (na przykład WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x itp.). |

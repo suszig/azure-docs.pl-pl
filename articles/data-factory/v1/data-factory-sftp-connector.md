@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09e812974cdcea831f5e905bc4abd6319185a972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3485120347923dd291663962d528a1e5996b477f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Przenoszenie danych z serwera SFTP przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,10 +52,10 @@ Poniższa tabela zawiera opis elementów JSON specyficzne dla połączonej usłu
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- | --- |
-| type | Właściwość type musi mieć ustawioną `Sftp`. |Tak |
-| Host | Nazwa lub adres IP serwera SFTP. |Tak |
+| type | Właściwość type musi mieć ustawioną `Sftp`. |Yes |
+| host | Nazwa lub adres IP serwera SFTP. |Yes |
 | port |Port, na którym nasłuchuje serwer SFTP. Wartość domyślna to: 21 |Nie |
-| Typ authenticationType |Określ typ uwierzytelniania. Dozwolone wartości: **podstawowe**, **parametry SshPublicKey**. <br><br> Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Tak |
+| authenticationType |Określ typ uwierzytelniania. Dozwolone wartości: **podstawowe**, **parametry SshPublicKey**. <br><br> Zapoznaj się [uwierzytelnianie podstawowe Using](#using-basic-authentication) i [przy użyciu publicznego klucza uwierzytelniania SSH](#using-ssh-public-key-authentication) odpowiednio sekcje więcej właściwości i przykłady JSON. |Yes |
 | skipHostKeyValidation | Określ, czy pominąć sprawdzanie poprawności klucza hosta. | Nie. Wartość domyślna: false |
 | hostKeyFingerprint | Podaj odcisk palca klucza hosta. | Tak, jeśli `skipHostKeyValidation` ma wartość false.  |
 | gatewayName |Nazwa bramy zarządzania danymi do nawiązywania połączenia z serwerem lokalnym SFTP. | Tak, jeśli kopiowanie danych z lokalnego serwera SFTP. |
@@ -67,8 +67,8 @@ Aby uwierzytelnianie podstawowe, należy ustawić `authenticationType` jako `Bas
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- | --- |
-| nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP. |Tak |
-| hasło | Hasło dla użytkownika (username). | Tak |
+| nazwa użytkownika | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
+| hasło | Hasło dla użytkownika (username). | Yes |
 
 #### <a name="example-basic-authentication"></a>Przykład: Uwierzytelnianie podstawowe
 ```json
@@ -117,10 +117,10 @@ Aby używać uwierzytelniania klucza publicznego SSH, ustaw `authenticationType`
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- | --- |
-| nazwa użytkownika |Użytkownik, który ma dostęp do serwera SFTP |Tak |
+| nazwa użytkownika |Użytkownik, który ma dostęp do serwera SFTP |Yes |
 | privateKeyPath | Określ ścieżka bezwzględna do pliku klucza prywatnego może dostęp do tej bramy. | Określ `privateKeyPath` lub `privateKeyContent`. <br><br> Mają zastosowanie tylko wtedy, gdy kopiowanie danych z lokalnego serwera SFTP. |
 | privateKeyContent | Ciąg serializacji zawartość klucza prywatnego. Kreator kopiowania można odczytać pliku klucza prywatnego i Wyodrębnij zawartość klucza prywatnego automatycznie. Jeśli używane są wszystkie inne narzędzie/pakiet SDK, należy użyć właściwości privateKeyPath. | Określ `privateKeyPath` lub `privateKeyContent`. |
-| Hasło | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
+| passPhrase | Określ przebiegu frazy/hasło do odszyfrowania klucza prywatnego, jeśli plik klucza jest chroniony przez hasło. | Tak, jeśli hasło jest chroniony plik klucza prywatnego. |
 
 > [!NOTE]
 > Łącznik SFTP obsługują tylko klucz OpenSSH. Upewnij się, że plik klucza jest w nieprawidłowym formacie. Narzędzie Putty umożliwia konwertowanie ppk na OpenSSH format.
@@ -173,7 +173,7 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| folderPath |Sub ścieżkę do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** do folderu ścieżki oparte na wycinku rozpoczęcia/zakończenia daty i godziny. |Tak |
+| folderPath |Sub ścieżkę do folderu. Użyj znaku ucieczki "\" dla znaków specjalnych w ciągu. Zobacz [próbki połączone definicje usługi i zestawu danych](#sample-linked-service-and-dataset-definitions) przykłady.<br/><br/>Możesz łączyć tej właściwości z **partitionBy** do folderu ścieżki oparte na wycinku rozpoczęcia/zakończenia daty i godziny. |Yes |
 | fileName |Określ nazwę pliku w **folderPath** aby tabela do odwoływania się do określonego pliku w folderze. Jeśli nie określono żadnej wartości dla tej właściwości, tabela wskazuje wszystkie pliki w folderze.<br/><br/>Jeśli nie określono nazwy pliku dla wyjściowego zestawu danych, nazwę wygenerowanego pliku będzie poniżej tego formatu: <br/><br/>Dane. <Guid>.txt (przykład: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nie |
 | obiektu fileFilter |Określ filtr służący do wybierania podzbioru pliki w ścieżce folderu, a nie wszystkie pliki.<br/><br/>Dozwolone wartości to: `*` (wielu znaków) i `?` (pojedynczy znak).<br/><br/>Przykład 1:`"fileFilter": "*.log"`<br/>Przykład 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> obiektu fileFilter jest odpowiednie dla wejściowego zestawu danych z udziału plików. Ta właściwość nie jest obsługiwana z systemu plików HDFS. |Nie |
 | partitionedBy |partitionedBy może służyć do określenia dynamiczne folderPath, nazwę pliku dla czasu serii danych. Na przykład folderPath sparametryzowana dla każdej godziny danych. |Nie |
@@ -307,7 +307,7 @@ Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw dany
 }
 ```
 
-**Azure Blob wyjściowy zestaw danych**
+**Wyjściowy zestaw danych obiektów blob platformy Azure**
 
 Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
 

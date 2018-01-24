@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Platformy sztucznej inteligencji i uczenia głębokiego
 [Maszyny wirtualnej nauki danych](http://aka.ms/dsvm) (DSVM) i [głębokie wirtualna Learning](http://aka.ms/dsvm/deeplearning) obsługuje wiele platform głębokie learning ułatwia tworzenie aplikacji analizy sztucznego (AI) z analizy predykcyjnej i kognitywnych możliwości, takich jak obraz i zrozumienia języka. 
@@ -56,7 +56,7 @@ Poniżej przedstawiono szczegóły na wszystkich bezpośrednich uczenia struktur
 | DSVM obsługiwane wersje      | Windows, Linux     |
 | Jak jest on skonfigurowany / zainstalowanym DSVM?  | Keras jest zainstalowany w Python 2.7 (_głównego_), a także Python 3.5 (_py35_) środowiska.   |
 | Łącza do próbek      | https://github.com/fchollet/keras/Tree/Master/Examples      |
-| Pokrewne narzędzia na DSVM      | Theano kognitywnych zestawu narzędzi, TensorLlow, Microsoft      |
+| Pokrewne narzędzia na DSVM      | Theano kognitywnych zestawu narzędzi, TensorFlow, Microsoft      |
 | Jak używać / uruchom go?    | Pobierz przykłady z lokalizacji Github, skopiuj go do katalogu, w obszarze ~/notebooks i otwórz go w aplikacji Jupyter   |
 
 
@@ -117,7 +117,7 @@ W terminalu, aktywować odpowiednią wersję języka Python (_głównego_ lub _p
 | DSVM obsługiwane wersje      | Linux     |
 | Jak jest on skonfigurowany / zainstalowanym DSVM?  | Głębokie limitu górnego jest zainstalowany w `/dsvm/tools/deep_water`.   |
 | Łącza do próbek      | Przykłady są dostępne za pośrednictwem serwera głębokie limitu górnego.      |
-| Pokrewne narzędzia na DSVM      | H2o musujących limitu górnego      |
+| Pokrewne narzędzia na DSVM      | H2O musujących limitu górnego      |
 
 ### <a name="how-to-use--run-it"></a>Jak używać / uruchom go?  
 
@@ -157,7 +157,7 @@ Start, usługi trwa około jednej minuty. Uruchom przeglądarkę sieci web i prz
 
 
 
-## <a name="nvdia-smi"></a>nvdia smi
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

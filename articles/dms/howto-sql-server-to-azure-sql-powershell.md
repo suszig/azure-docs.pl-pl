@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
-ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 01/24/2018
+ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrowanie lokalnej instalacji programu SQL Server do bazy danych SQL Azure przy użyciu programu Azure PowerShell
 W tym artykule, wykonywana jest migracja **Adventureworks2012** przywrócone do lokalnego wystąpienia programu SQL Server 2016 lub nowszy z bazą danych SQL Azure za pomocą programu Microsoft Azure PowerShell bazy danych. Można migrować baz danych z lokalnego wystąpienia programu SQL Server z bazą danych SQL Azure za pomocą `AzureRM.DataMigration` moduł w programie Microsoft Azure PowerShell.
@@ -60,25 +60,28 @@ Można utworzyć nowego wystąpienia usługi migracji bazy danych platformy Azur
 - *Nazwa grupy zasobów platformy Azure*. Można użyć [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) polecenie, aby utworzyć grupę zasobów Azure pokazano wcześniej i podać jego nazwę, jako parametr.
 - *Nazwa usługi*. Ciąg, który odpowiada nazwie żądanej usługi unikatowy dla usługi migracji bazy danych Azure 
 - *Lokalizacja*. Określa lokalizację usługi. Określ lokalizację centrum danych Azure, takich jak zachodnie stany USA lub Azja południowo-wschodnia
-- *Jednostka SKU*. Ten parametr odpowiada nazwa jednostki Sku DMS. Są obecnie obsługiwane nazwy jednostki Sku *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *Sku*. Ten parametr odpowiada nazwa jednostki Sku DMS. Są obecnie obsługiwane nazwy jednostki Sku *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
 - *Identyfikator podsieci wirtualnej*. Możesz użyć polecenia cmdlet [AzureRmVirtualNetworkSubnetConfig nowy](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) Aby utworzyć podsieć. 
 
-Poniższy przykład tworzy usługi o nazwie *MyDMS* w grupie zasobów *MyDMSResourceGroup*, który znajduje się w *wschodnie stany USA* regionu za pomocą podsieci wirtualnej o nazwie *MySubnet*.
+Poniższy przykład tworzy usługi o nazwie *MyDMS* w grupie zasobów *MyDMSResourceGroup*, który znajduje się w *wschodnie stany USA* regionu w sieci wirtualnej o nazwie *MyVNET* i podsieć o nazwie *MySubnet*.
 
 ```powershell
+ $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+
+$vSubNet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
+
 $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
   -Sku Basic_2vCores `  
-  -VirtualSubnetId
-$vnet.Id`
+  -VirtualSubnetId $vSubNet.Id`
 ```
 
 ## <a name="create-a-migration-project"></a>Tworzenie projektu migracji
 Po utworzeniu wystąpienia usługi migracji bazy danych Azure, Utwórz projekt migracji. Projekt usługi migracji bazy danych Azure wymaga informacji o połączeniu zarówno wystąpień źródłowych i docelowych, a także listy baz danych, które chcesz przeprowadzić migrację w ramach projektu.
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Tworzenie obiektu bazy danych informacji o połączeniu dla połączeń źródłowa i docelowa
-Obiekt informacje o połączeniu bazy danych można utworzyć za pomocą `New-AzureRmDmsConnInfo` polecenia cmdlet.  Aplet polecenia oczekuje następujące parametry:
+Obiekt informacje o połączeniu bazy danych można utworzyć za pomocą `New-AzureRmDmsConnInfo` polecenia cmdlet. Aplet polecenia oczekuje następujące parametry:
 - *Typ*. Połączenia z bazą danych żądanego typu, na przykład SQL, Oracle lub MySQL. Użyj programu SQL dla programu SQL Server i SQL Azure.
 - *Źródło danych*. Nazwa lub adres IP wystąpienia serwera SQL lub serwer usługi SQL Azure.
 - *Typ*. Typ uwierzytelniania dla połączenia, który może być SqlAuthentication lub WindowsAuthentication.
@@ -166,9 +169,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>Tworzenie i uruchamianie zadania migracji
 
 Użyj `New-AzureRmDataMigrationTask` polecenia cmdlet, aby utworzyć i uruchomić zadanie migracji. Aplet polecenia oczekuje następujące parametry:
-- *TaskType*.  Typ tworzonego zadania migracji dla programu SQL Server do typu migracji SQL Azure *MigrateSqlServerSqlDb* jest oczekiwany. 
+- *TaskType*. Typ tworzonego zadania migracji dla programu SQL Server do typu migracji SQL Azure *MigrateSqlServerSqlDb* jest oczekiwany. 
 - *Nazwa grupy zasobów*. Nazwa grupy zasobów platformy Azure, w którym można utworzyć zadania.
-- *ServiceName*.  Azure wystąpienie usługi migracji bazy danych, w którym można utworzyć zadania.
+- *ServiceName*. Azure wystąpienie usługi migracji bazy danych, w którym można utworzyć zadania.
 - *ProjectName*. Nazwa projektu migracja bazy danych Azure, w którym można utworzyć zadania. 
 - *TaskName*. Nazwa zadania, które ma zostać utworzony. 
 - *Źródło połączenia*. Obiekt AzureRmDmsConnInfo reprezentujący połączenie ze źródłem.
@@ -202,5 +205,5 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Przejrzyj wskazówki dotyczące migracji w programie Microsoft [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/).

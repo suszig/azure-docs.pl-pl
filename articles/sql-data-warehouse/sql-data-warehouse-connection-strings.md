@@ -15,22 +15,22 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Sterowniki dla magazynu danych Azure SQL
 Usługa SQL Data Warehouse można nawiązać z kilku różnych aplikacji protokołów takich, jak [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] i [JDBC][JDBC]. Poniżej przedstawiono kilka przykładów ciągi połączenia dla każdego protokołu.  Azure portal umożliwia również tworzenie parametrów połączenia.  Aby utworzyć parametry połączenia przy użyciu portalu Azure, przejdź do bloku bazy danych, w obszarze *Essentials* kliknij *Pokaż parametry połączenia bazy danych*.
 
 ## <a name="sample-adonet-connection-string"></a>Parametry połączenia ADO.NET próbki
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ## <a name="sample-odbc-connection-string"></a>Ciąg połączenia ODBC próbki
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
@@ -49,7 +49,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 > 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uruchomić zapytanie magazynu danych z programu Visual Studio i innymi aplikacjami, zobacz [zapytania z programem Visual Studio][Query with Visual Studio].
 
 <!--Image references-->

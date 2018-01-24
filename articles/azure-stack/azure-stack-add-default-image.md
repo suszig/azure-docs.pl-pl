@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Dodaj obraz maszyny Wirtualnej systemu Windows Server 2016 w portalu Azure Marketplace stosu
 
@@ -135,19 +135,23 @@ Uruchom następujące wymagania wstępne, albo z [zestaw deweloperski](azure-sta
 
 Aby upewnić się, że obraz maszyny Wirtualnej systemu Windows Server 2016 ma najnowszej aktualizacji zbiorczej obejmują `IncludeLatestCU` parametru podczas uruchamiania `New-AzsServer2016VMImage` polecenia cmdlet. Informacje o parametrach dozwolonych dla `New-AzsServer2016VMImage` polecenia cmdlet, zobacz [parametry](#parameters). Trwa około godzinę do publikowania obrazu w portalu Azure Marketplace stosu. 
 
-## <a name="parameters"></a>Parametry
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parametry nowej AzsServer2016VMImage
 
-|Parametry nowej AzsServer2016VMImage|Wymagane|Opis|
-|-----|-----|------|
-|ISOPath|Yes|Pełna ścieżka do pobranego ISO 2016 serwera systemu Windows.|
-|Net35|Nie|Instaluje środowisko uruchomieniowe .NET 3.5 na obrazie systemu Windows Server 2016. Domyślnie ta wartość jest równa **true**.|
-|Wersja|Nie|Określa **Core**, **pełne**, lub **zarówno** obrazów systemu Windows Server 2016. Domyślnie ta wartość jest równa **pełne**.|
-|VHDSizeInMB|Nie|Ustawia rozmiar obrazu wirtualnego dysku twardego do dodania do środowiska Azure stosu (w MB). Domyślnie ta wartość jest równa 40,960 MB.|
-|CreateGalleryItem|Nie|Określa, czy można utworzyć elementu portalu Marketplace w obrazu systemu Windows Server 2016. Domyślnie ta wartość jest równa **true**.|
-|location |Nie |Określa lokalizację, do którego powinien zostać opublikowany, obraz systemu Windows Server 2016.|
-|IncludeLatestCU|Nie|Dotyczy najnowszej aktualizacji zbiorczej dla systemu Windows Server 2016 nowego wirtualnego dysku twardego (Sprawdź, czy skrypt do zapewnienia wskazuje na najnowszej aktualizacji lub użyj jednej z dwóch kolejnych opcji). |
-|CUUri |Nie |Zestawy Windows Server 2016 aktualizacji zbiorczej można uruchamiać ją z określonym identyfikatorem URI. |
-|CUPath |Nie |Zestawy Windows Server 2016 aktualizacji zbiorczej można uruchamiać ją z ścieżkę lokalną. Ta opcja jest pomocna, jeśli wdrożono wystąpienie Azure stosu w środowisku bez połączenia.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Tworzy i przekazuje nowy 2016 Server Core i lub pełnego obrazu i tworzy dla niego element marketplace.
+
+| Parametry | Wymagane | Przykład | Opis |
+|-----|-----|------|---- |
+|ISOPath|Yes| N:\ISO\en_windows_16_x64_dvd | Pełna ścieżka do pobranego ISO 2016 serwera systemu Windows.|
+|Net35|Nie| True | Instaluje środowisko uruchomieniowe .NET 3.5 na obrazie systemu Windows Server 2016. Domyślnie ta wartość jest równa **true**.|
+|Wersja|Nie| Pełne |  Określa **Core**, **pełne**, lub **zarówno** obrazów systemu Windows Server 2016. Domyślnie ta wartość jest równa **pełne**.|
+|VHDSizeInMB|Nie| 40,960 | Ustawia rozmiar obrazu wirtualnego dysku twardego do dodania do środowiska Azure stosu (w MB). Domyślnie ta wartość jest równa 40,960 MB.|
+|CreateGalleryItem|Nie| True | Określa, czy można utworzyć elementu portalu Marketplace w obrazu systemu Windows Server 2016. Domyślnie ta wartość jest równa **true**.|
+|location |Nie | D:\ | Określa lokalizację, do którego powinien zostać opublikowany, obraz systemu Windows Server 2016.|
+|IncludeLatestCU|Nie| False | Stosuje najnowszej aktualizacji zbiorczej dla systemu Windows Server 2016 nowego wirtualnego dysku twardego. Sprawdź skryptu, aby zapewnić wskazuje na najnowszej aktualizacji lub użyj jednego z poniższych dwóch opcji. |
+|CUUri |Nie | https://yourupdateserver/winservupdate2016 | Zestawy Windows Server 2016 aktualizacji zbiorczej można uruchamiać ją z określonym identyfikatorem URI. |
+|CUPath |Nie | C:\winservupdate2016 | Zestawy Windows Server 2016 aktualizacji zbiorczej można uruchamiać ją z ścieżkę lokalną. Ta opcja jest pomocna, jeśli wdrożono wystąpienie Azure stosu w środowisku bez połączenia.|
 
 ## <a name="next-steps"></a>Kolejne kroki
 

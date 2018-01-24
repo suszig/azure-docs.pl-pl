@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Przenoszenie danych do i z lokalnej instalacji programu SQL Server lub na IaaS (Azure VM) przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,9 +75,9 @@ Poniższa tabela zawiera opis specyficzne dla usługi SQL Server połączone ele
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Powinien mieć ustawioną właściwość type: **OnPremisesSqlServer**. |Tak |
-| Parametry połączenia |Określ connectionString informacje wymagane do połączenia z lokalną bazą danych programu SQL Server, przy użyciu uwierzytelniania SQL lub uwierzytelniania systemu Windows. |Tak |
-| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych programu SQL Server. |Tak |
+| type |Powinien mieć ustawioną właściwość type: **OnPremisesSqlServer**. |Yes |
+| Parametry połączenia |Określ connectionString informacje wymagane do połączenia z lokalną bazą danych programu SQL Server, przy użyciu uwierzytelniania SQL lub uwierzytelniania systemu Windows. |Yes |
+| gatewayName |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych programu SQL Server. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania systemu Windows. Przykład: **domainname\\username**. |Nie |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Nie |
 
@@ -132,7 +132,7 @@ Sekcja typeProperties jest różne dla każdego typu zestawu danych i zawiera in
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych serwera SQL, odnoszący się do połączonej usługi. |Tak |
+| tableName |Nazwa tabeli lub widoku w wystąpieniu bazy danych serwera SQL, odnoszący się do połączonej usługi. |Yes |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Jeśli przenosisz dane z bazy danych programu SQL Server, w przypadku działania kopiowania, aby ustawić typ źródła **SqlSource**. Podobnie jeśli przenosisz dane do bazy danych programu SQL Server, należy ustawić typ ujścia w działanie kopiowania do **SqlSink**. Ta sekcja zawiera listę obsługiwanych przez SqlSource i SqlSink właściwości.
@@ -171,7 +171,7 @@ Jeśli nie określisz sqlReaderQuery lub sqlReaderStoredProcedureName kolumny zd
 | writeBatchSize |Wstawia dane do tabeli SQL, gdy writeBatchSize osiągnie rozmiar buforu. |Liczba całkowita (liczba wierszy) |Nie (domyślne: 10000) |
 | sqlWriterCleanupScript |Określ kwerendę dla działania kopiowania do wykonania w taki sposób, że dane określonych wycinek jest wyczyszczone. Aby uzyskać więcej informacji, zobacz [powtarzalne kopiowania](#repeatable-copy) sekcji. |Instrukcja zapytania. |Nie |
 | sliceIdentifierColumnName |Określ nazwę kolumny dla aktywności kopiowania wypełnić automatycznie generowane wycinek identyfikator, który służy do oczyszczania danych określonego wycinek czas ponownego uruchomienia. Aby uzyskać więcej informacji, zobacz [powtarzalne kopiowania](#repeatable-copy) sekcji. |Nazwa kolumny kolumnę o typie danych binary(32). |Nie |
-| sqlWriterStoredProcedureName |Nazwa procedury składowanej danych upserts (aktualizacje/INSERT) do tabeli docelowej. |Nazwa procedury składowanej. |Nie |
+| sqlWriterStoredProcedureName |Nazwa procedury przechowywanej, która definiuje sposób dotyczą źródła danych do tabeli docelowej, np. czy upserts lub Przekształcanie przy użyciu logiki biznesowej. <br/><br/>Należy pamiętać, będzie tej procedury składowanej **wywoływane na partię**. Jeśli chcesz wykonać operację, która tylko jest uruchamiane jeden raz i nie ma nic do wykonania z źródło danych, np. Usuń/obcięcia należy użyć `sqlWriterCleanupScript` właściwości. |Nazwa procedury składowanej. |Nie |
 | storedProcedureParameters |Parametry dla procedury składowanej. |Par nazwa/wartość. Nazwy i wielkość liter w wyrazie parametry muszą być zgodne, nazwy i wielkość liter w wyrazie parametry procedury składowanej. |Nie |
 | sqlWriterTableType |Należy określić nazwę typu tabeli do użycia w procedurze składowanej. Działanie kopiowania udostępnia dane jest przenoszony w tabeli tymczasowej o tym typie tabeli. Kod procedury składowanej można następnie scalić dane są kopiowane z istniejącymi danymi. |Nazwa typu tabeli. |Nie |
 
@@ -248,7 +248,7 @@ Ustawienie "external": "prawda" informuje usługi fabryka danych czy zestaw dany
   }
 }
 ```
-**Azure Blob wyjściowy zestaw danych**
+**Wyjściowy zestaw danych obiektów blob platformy Azure**
 
 Dane są zapisywane do nowego obiektu blob co godzinę (częstotliwość: godziny, interwał: 1). Ścieżka folderu dla obiekt blob jest dynamicznie obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godziny części czas rozpoczęcia.
 
@@ -554,7 +554,7 @@ Potok zawiera działanie kopiowania, który jest skonfigurowany do używania tyc
 3. W tym samym oknie, kliknij dwukrotnie **TCP/IP** można uruchomić **właściwości protokołu TCP/IP** okna.
 4. Przełącz się do **adresów IP** kartę. Przewiń w dół, aby znaleźć **IPWszystkie** sekcji. Należy zanotować ** TCP Port ** (domyślnie jest **1433**).
 5. Utwórz **reguły zapory systemu Windows** na maszynie, aby zezwolić na ruch przychodzący za pośrednictwem tego portu.  
-6. **Sprawdź połączenie**: Aby połączyć się z serwerem SQL przy użyciu w pełni kwalifikowanej nazwy, użyj programu SQL Server Management Studio z innego komputera. Na przykład: "<machine>.<domain>.corp.<company>.com,1433."
+6. **Sprawdź połączenie**: Aby połączyć się z serwerem SQL przy użyciu w pełni kwalifikowanej nazwy, użyj programu SQL Server Management Studio z innego komputera. Na przykład: "<machine>.<domain>. Corp.<company>.com, 1433. "
 
    > [!IMPORTANT]
 
@@ -655,37 +655,37 @@ Mapowanie jest taka sama jak mapowanie typu danych serwera SQL dla ADO.NET.
 | Typ aparatu bazy danych programu SQL Server | Typ programu .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binarne |Byte] |
+| Binarne |Byte[] |
 | bitowe |Wartość logiczna |
 | char |Ciąg, Char] |
-| Data |Data i godzina |
-| Data i godzina |Data i godzina |
-| datetime2 |Data i godzina |
+| data |Data/godzina |
+| Data/godzina |Data/godzina |
+| datetime2 |Data/godzina |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atrybut FILESTREAM (varbinary(max)) |Byte] |
-| Float |O podwójnej precyzji |
-| Obraz |Byte] |
+| Atrybut FILESTREAM (varbinary(max)) |Byte[] |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
+| Obraz |Byte[] |
 | int |Int32 |
 | oszczędność pieniędzy |Decimal |
 | nchar |Ciąg, Char] |
 | ntext |Ciąg, Char] |
 | numeryczne |Decimal |
 | nvarchar |Ciąg, Char] |
-| rzeczywiste |Pojedynczy |
-| ROWVERSION |Byte] |
-| smalldatetime |Data i godzina |
+| rzeczywiste |Kawaler/panna |
+| ROWVERSION |Byte[] |
+| smalldatetime |Data/godzina |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Obiekt * |
 | Tekst |Ciąg, Char] |
-| time |Zakres czasu |
-| sygnatura czasowa |Byte] |
+| time |TimeSpan |
+| sygnatura czasowa |Byte[] |
 | tinyint |Bajtów |
-| Unikatowy identyfikator |Identyfikator GUID |
-| varbinary |Byte] |
+| uniqueidentifier |Identyfikator GUID |
+| varbinary |Byte[] |
 | varchar |Ciąg, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Źródło mapowania na obiekt sink kolumn
 Aby mapować kolumn z zestawu źródła danych do kolumn z obiektu sink zestawu danych, zobacz [mapowania kolumnach dataset w fabryce danych Azure](data-factory-map-columns.md).

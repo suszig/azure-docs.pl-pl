@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Działania ForEach w fabryce danych Azure
 Działania ForEach definiuje identycznych przepływu sterowania w potoku sieci. To działanie służy do wykonywania iteracji po kolekcji i wykonuje określone działania w pętli. Implementacja pętli tego działania przypomina strukturę pętli Foreach w językach programowania.
@@ -74,11 +74,11 @@ Właściwości opisane w dalszej części tego artykułu. Właściwości element
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa dla każdego działania. | Ciąg | Tak
-type | Należy wybrać opcję **ForEach** | Ciąg | Tak
+name | Nazwa dla każdego działania. | Ciąg | Yes
+type | Należy wybrać opcję **ForEach** | Ciąg | Yes
 isSequential | Określa, czy pętli powinny być wykonywane sekwencyjnie lub równolegle.  Maksymalna liczba iteracji pętli 20 mogą być wykonywane jednocześnie równoległe). Na przykład, jeśli masz działania ForEach przez działanie kopiowania z 10 różnych źródłowy i odbiorczy zestawów danych o iteracja **isSequential** ma wartość False, wszystkie kopie są wykonywane jednocześnie. Domyślna to False. <br/><br/> "IsSequential" jest ustawiona na wartość False, upewnij się, że istnieje prawidłowej konfiguracji, aby uruchomić wiele plików wykonywalnych. W przeciwnym razie wartość tej właściwości należy używać ostrożnie Aby uniknąć ponoszenia konflikty zapisu. Aby uzyskać więcej informacji, zobacz [równoległe wykonywanie](#parallel-execution) sekcji. | Wartość logiczna | Nie. Domyślna to False.
-Items | Wyrażenie, które zwraca tablicę JSON należy powtórzyć za pośrednictwem. | Wyrażenie (która zwraca tablicę JSON) | Tak
-Działania | Czynności do wykonania. | Lista działań | Tak
+Items | Wyrażenie, które zwraca tablicę JSON należy powtórzyć za pośrednictwem. | Wyrażenie (która zwraca tablicę JSON) | Yes
+Działania | Czynności do wykonania. | Lista działań | Yes
 
 ## <a name="parallel-execution"></a>Wykonywanie równoległe
 Jeśli **isSequential** ma wartość false, działanie iteruje równolegle z maksymalnie 20 równoczesnych iteracji. Tego ustawienia należy używać ostrożnie. Jeśli równoczesnych iteracji pisania w tym samym folderze, ale w różnych plikach, ta metoda jest poprawne. Jeśli równoczesnych iteracji pisania jednocześnie do dokładnie tego samego pliku, takie podejście najbardziej prawdopodobne przyczyny błędu. 
@@ -573,7 +573,7 @@ Wyrażenie nie zawiera zbierania danych wyjściowych wszystkie iteracje ForEach 
 ]
 
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)

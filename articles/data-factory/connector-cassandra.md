@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiowanie danych z Cassandra przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Cassandra połączone usługi, obsługiwane są następujące właściwości:
 | type |Właściwość type musi mieć ustawioną: **Cassandra** |Yes |
 | host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Yes |
 | port |Port TCP używany przez serwer Cassandra nasłuchiwanie dla połączeń klienta. |Nie (wartość domyślna to 9042) |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych Cassandra.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
+| authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych Cassandra.<br/>Dozwolone wartości to: **podstawowe**, i **anonimowe**. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
 | hasło |Określ hasło dla konta użytkownika. Zaznacz to pole jako SecureString. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -173,17 +173,17 @@ Podczas kopiowania danych z Cassandra, następujące mapowania są używane z Ca
 |:--- |:--- |
 | ASCII |Ciąg |
 | BIGINT |Int64 |
-| OBIEKT BLOB |Byte] |
+| BLOB |Byte[] |
 | WARTOŚĆ LOGICZNA |Wartość logiczna |
 | DECIMAL |Decimal |
-| O PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
+| O PODWÓJNEJ PRECYZJI |Podwójnej precyzji |
 | FLOAT |Kawaler/panna |
 | INET |Ciąg |
 | INT |Int32 |
 | TEKST |Ciąg |
 | ZNACZNIK CZASU |Data/godzina |
 | TIMEUUID |Identyfikator GUID |
-| IDENTYFIKATOR UUID |Identyfikator GUID |
+| UUID |Identyfikator GUID |
 | VARCHAR |Ciąg |
 | VARINT |Decimal |
 
@@ -210,8 +210,8 @@ Na przykład następujące "ExampleTable" jest Cassandra tabeli bazy danych, kt�
 
 | pk_int | Wartość | List | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"Przykładowa wartość 1" |["1", "2", "3"] |{"S1": "", "S2": "b"} |{"", "B", "C"} |
-| 3 |"przykład value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"", "E"} |
+| 1 |"Przykładowa wartość 1" |["1", "2", "3"] |{"S1": "", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"przykład value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Kolumny klucza obcego w tabeli wirtualnej odwołania kolumn klucza podstawowego w tabeli rzeczywistych i wskazać, który odpowiada wiersz tabeli wirtualnej wiersz tabeli prawdziwe.
 
@@ -243,8 +243,8 @@ W poniższych tabelach przedstawiono wirtualnego tabel, które renormalize danyc
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
 **Tabela "ExampleTable_vt_StringSet":**
 

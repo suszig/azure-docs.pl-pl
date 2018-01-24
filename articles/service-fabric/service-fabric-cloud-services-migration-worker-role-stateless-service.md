@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Przewodnik po konwersji sieci Web i proces roboczy usług bezstanowych sieci szkieletowej usług
 W tym artykule opisano sposób migracji z usług chmury w sieci Web i proces roboczy do usługi sieć szkieletowa usług bezstanowych. Jest to najprostsza ścieżka migracji z usług w chmurze sieci szkieletowej usług dla aplikacji, których ogólna architektura ma około pozostają takie same.
@@ -43,20 +43,20 @@ Podobnie jak rola proces roboczy, rolę sieci Web również reprezentuje bezstan
 | Formularze sieci Web ASP.NET |Nie |Konwertuj na MVC ASP.NET Core 1 |
 | ASP.NET MVC |Z migracją |Uaktualnienie do platformy ASP.NET Core 1 MVC |
 | Składnik Web API platformy ASP.NET |Z migracją |Użyj serwera siebie lub platformy ASP.NET Core 1 |
-| Platformy ASP.NET Core 1 |Tak |Nie dotyczy |
+| ASP.NET Core 1 |Yes |ND |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Interfejs API punktu wejścia i cykl życia
 Rola proces roboczy i sieci szkieletowej usług usługi interfejsów API oferta podobne punkty wejścia: 
 
-| **Punkt wejścia** | **Rola procesu roboczego** | **Usługa sieci szkieletowej usług** |
+| **Entry Point** | **Rola procesu roboczego** | **Usługa sieci szkieletowej usług** |
 | --- | --- | --- |
 | Przetwarzanie |`Run()` |`RunAsync()` |
-| Początek maszyny Wirtualnej |`OnStart()` |Nie dotyczy |
-| Zatrzymanie maszyny Wirtualnej |`OnStop()` |Nie dotyczy |
-| Otwórz odbiornika dla żądań klientów |Nie dotyczy |<ul><li> `CreateServiceInstanceListener()`Aby uzyskać bezstanowych</li><li>`CreateServiceReplicaListener()`dla stateful</li></ul> |
+| Początek maszyny Wirtualnej |`OnStart()` |ND |
+| Zatrzymanie maszyny Wirtualnej |`OnStop()` |ND |
+| Otwórz odbiornika dla żądań klientów |ND |<ul><li> `CreateServiceInstanceListener()`Aby uzyskać bezstanowych</li><li>`CreateServiceReplicaListener()`dla stateful</li></ul> |
 
-### <a name="worker-role"></a>Rola procesu roboczego
-```C#
+### <a name="worker-role"></a>Rola Proces roboczy
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Usługa sieci szkieletowej usług bezstanowych
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -122,8 +122,8 @@ Interfejs API środowiska usługi w chmurze zawiera informacje oraz funkcje dla 
 | Ustawienia konfiguracji i powiadomienia o zmianie |`RoleEnvironment` |`CodePackageActivationContext` |
 | Magazyn lokalny |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informacje o punkcie końcowym |`RoleInstance` <ul><li>Bieżące wystąpienie:`RoleEnvironment.CurrentRoleInstance`</li><li>Inne role i wystąpienie:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`dla bieżącego adresu węzła</li><li>`FabricClient`i `ServicePartitionResolver` do odnajdywania punktu końcowego usługi</li> |
-| Emulacja środowiska |`RoleEnvironment.IsEmulated` |Nie dotyczy |
-| Zdarzenie zmiany jednoczesnych |`RoleEnvironment` |Nie dotyczy |
+| Emulacja środowiska |`RoleEnvironment.IsEmulated` |ND |
+| Zdarzenie zmiany jednoczesnych |`RoleEnvironment` |ND |
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 Ustawienia konfiguracji usług w chmurze są ustawiane dla roli maszyny Wirtualnej i dotyczą wszystkich wystąpień tej roli maszyny Wirtualnej. Te ustawienia są pary klucz wartość ustawiona w plikach ServiceConfiguration.*.cscfg i jest dostępny bezpośrednio za pomocą RoleEnvironment. W sieci szkieletowej usług ustawienia stosowane osobno do każdej usługi i dla każdej aplikacji, a nie do maszyny Wirtualnej, ponieważ maszyna wirtualna może obsługiwać wiele usług i aplikacji. Usługa składa się z trzech pakietów:
@@ -138,7 +138,7 @@ Każdy z tych pakietów można niezależnie określonej wersji, jak i uaktualnio
 #### <a name="cloud-services"></a>Cloud Services
 Ustawienia konfiguracji z ServiceConfiguration.*.cscfg jest możliwy za pośrednictwem `RoleEnvironment`. Te ustawienia są ogólnie dostępna dla wszystkich wystąpień roli w ramach tego samego wdrożenia usługi w chmurze.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Każda usługa ma własny pakiet konfiguracji poszczególnych. Nie istnieje wbud
 
 Ustawienia konfiguracji są dostępu w ramach każdego wystąpienia usługi za pośrednictwem usługi `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Cloud Services
 `RoleEnvironment.Changed` Zdarzeń jest używana do powiadamiania wszystkich wystąpień roli w przypadku zmiany w środowisku, np. o zmianie konfiguracji. Służy to użycie konfiguracji aktualizacji bez odtwarzania wystąpień roli lub ponowne uruchomienie procesu roboczego.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Poszczególnych typów pakietu trzy usługi kodu, konfiguracji i danych - ma zda
 
 Te zdarzenia są dostępne zużyje zmiany pakietów usług bez konieczności ponownego uruchamiania wystąpienie usługi.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -210,7 +210,7 @@ Uruchamianie zadania są działaniach wykonywanych przed uruchomieniem aplikacji
 | Cloud Services | Service Fabric |
 | --- | --- | --- |
 | Lokalizacja konfiguracji |ServiceDefinition.csdef |
-| Uprawnienia |"ograniczony" lub "z podwyższonym poziomem uprawnień" |
+| Przywileje |"ograniczony" lub "z podwyższonym poziomem uprawnień" |
 | Sekwencjonowanie |"prosty", "tła", "narzędzia" |
 
 ### <a name="cloud-services"></a>Cloud Services
@@ -251,7 +251,7 @@ W sieci szkieletowej usług punktu wejścia uruchamiania jest skonfigurowany dla
 ## <a name="a-note-about-development-environment"></a>Uwagi dotyczące środowiska deweloperskiego
 Usługi Service Fabric i usług w chmurze są zintegrowane z programem Visual Studio z szablonów projektu i obsługę debugowania, konfigurowanie i wdrażanie, zarówno lokalnie, jak i na platformie Azure. Usługa Service Fabric i usług w chmurze udostępniają rozwoju lokalnego środowiska uruchomieniowego. Różnica polega na podczas rozwoju środowiska uruchomieniowego usługi w chmurze emuluje środowiska platformy Azure, na którym jest uruchomiony, Service Fabric nie korzysta z emulatora — używa pełne środowisko uruchomieniowe usługi sieć szkieletowa usług. Środowisko sieci szkieletowej usług uruchomionych na komputerze deweloperskim lokalnego jest tym samym środowisku, który jest uruchamiany w środowisku produkcyjnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj więcej na temat usługi sieci szkieletowej usług niezawodnych i podstawowe różnice między usługi w chmurze i architektury aplikacji usługi Service Fabric, zrozumienie, jak korzystać z pełnego zestawu funkcji usługi sieć szkieletowa usług.
 
 * [Wprowadzenie do korzystania z usługi sieć szkieletowa niezawodne usługi](service-fabric-reliable-services-quick-start.md)

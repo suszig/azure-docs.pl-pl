@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET pulpitu (WPF) wprowadzenie
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ Zasada podstawowa za ADAL jest, że zawsze, gdy Twoja aplikacja powinna tokenu d
 
 * W `DirectorySearcher` otwarciu projektu `MainWindow.xaml.cs` i Znajdź `MainWindow()` metody.  Pierwszym krokiem jest zainicjowanie aplikacji `AuthenticationContext` -ADAL obiektu klasy podstawowej.  Jest to, gdy przekazujesz ADAL współrzędne wymaga do komunikacji z usługą Azure AD i poinformuj go, jak pamięci podręcznej tokenów.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Znajdź teraz `Search(...)` metodę, która będzie wywoływana, gdy użytkownik kliknie przycisk "Wyszukiwanie" w Interfejsie użytkownika aplikacji.  Ta metoda zgłasza żądanie GET interfejsu API Azure AD Graph zapytania dla użytkowników, których nazwy UPN rozpoczyna się od danego wyszukiwanego.  Jednak aby można było wykonać kwerendę interfejsu API programu Graph, należy uwzględnić ' access_token ' w `Authorization` nagłówka żądania — jest to, gdzie ADAL jest dostarczany.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Zwróć uwagę, że `AuthenticationResult` zawiera obiekt `UserInfo` obiektu, który może służyć do zbierania informacji o aplikacji może być konieczne.  W DirectorySearcher `UserInfo` jest używany do dostosowania interfejsu użytkownika aplikacji z identyfikatorem użytkownika.
 * Gdy użytkownik kliknie przycisk "Wyloguj", chcemy się upewnić się, że następne wywołanie `AcquireTokenAsync(...)` będzie monitować użytkownika do logowania.  Przy użyciu biblioteki ADAL jest tak proste, jak czyszczenie pamięci podręcznej tokenu:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Jednak jeśli użytkownik nie klikniesz przycisku "Wyloguj", można zachować sesję użytkownika dla przy następnym uruchomieniu DirectorySearcher.  Po uruchomieniu aplikacji, należy sprawdzić ADAL w pamięci podręcznej tokenu dla istniejącego tokenu, a następnie odpowiednio zaktualizować interfejsu użytkownika.  W `CheckForCachedToken()` metody innego wywoływania `AcquireTokenAsync(...)`, przekazując teraz `PromptBehavior.Never` parametru.  `PromptBehavior.Never`informuje ADAL, że użytkownik nie powinien być monitowany w celu logowania się i ADAL zamiast tego powinien zgłosić wyjątek, jeśli nie można zwrócić token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

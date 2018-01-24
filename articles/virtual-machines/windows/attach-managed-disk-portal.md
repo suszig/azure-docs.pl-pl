@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Jak można dołączyć dysku danych zarządzanych do maszyny Wirtualnej systemu Windows, w portalu Azure
 
-W tym artykule przedstawiono sposób dołączyć nowego dysku danych zarządzanych do maszyn wirtualnych z systemem Windows za pośrednictwem portalu Azure. Zanim to zrobisz, przejrzyj następujące wskazówki:
+W tym artykule przedstawiono sposób dołączyć nowego dysku danych zarządzanych do maszyn wirtualnych systemu Windows w portalu Azure. Zanim to zrobisz, przejrzyj następujące wskazówki:
 
 * Rozmiar maszyny wirtualnej Określa, ile można dołączać dysków z danymi. Aby uzyskać więcej informacji, zobacz [rozmiary maszyn wirtualnych](sizes.md).
 * Dla nowego dysku nie trzeba go najpierw utworzyć ponieważ Azure tworzy go po dołączeniu go.
@@ -80,5 +80,5 @@ defrag.exe <volume:> -l
 
 Ponadto upewnij się, że cały wolumin jest ograniczona przez formatowania woluminu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Jeśli aplikacja musi używać D: dysków do przechowywania danych, możesz [zmienić literę dysku tymczasowym systemu Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

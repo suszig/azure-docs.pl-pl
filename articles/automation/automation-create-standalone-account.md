@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 7303c17cfa35043229bb1bdd61ef33647ef60ffa
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 W tym artykule przedstawiono sposób utworzyć konto usługi Automatyzacja Azure w portalu Azure. Portal konta automatyzacji można użyć do oceny i więcej informacji na temat automatyzacji bez korzystania z rozwiązania do zarządzania dodatkowe i integracja z usługi Analiza dzienników Azure w Operations Management Suite (OMS). Można dodać te rozwiązania do zarządzania lub zintegrować z analizy dzienników dla zaawansowanego monitorowania zadań elementu runbook w dowolnym momencie w przyszłości. 
@@ -55,9 +55,9 @@ Aby sprawdzić role użytkowników:
 Aby utworzyć konto usługi Automatyzacja Azure w portalu Azure, wykonaj następujące kroki:    
 
 1. Zaloguj się do portalu Azure przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i coadministrator subskrypcji.
-2. Wybierz **nowe**.<br><br> ![W portalu Azure wybierz opcję Nowy](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Wyszukaj **automatyzacji**. W wynikach wyszukiwania wybierz **automatyzacji & sterowanie**.<br><br> ![Wyszukaj i wybierz automatyzacji & kontroli w portalu Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. W obszarze **kont automatyzacji**, wybierz pozycję **Dodaj**.
+2. Wybierz **+ Utwórz zasób**.
+3. Wyszukaj **automatyzacji**. W wynikach wyszukiwania wybierz **automatyzacji**.<br><br> ![Wyszukaj i wybierz automatyzacji & kontroli w portalu Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. Na następnym ekranie Wybierz **Utwórz**.
   ![Dodaj konto automatyzacji](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
   > [!NOTE]

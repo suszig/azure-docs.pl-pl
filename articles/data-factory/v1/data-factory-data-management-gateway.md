@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -139,10 +139,10 @@ Na poziomie firmowa Zapora należy skonfigurować następujące domeny i portów
 
 | Nazwy domen | Porty | Opis |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Używany do komunikacji z zapleczem usługi przenoszenia danych |
-| *. core.windows.net |443 |Używany do kopiowania przejściowa przy użyciu obiektów Blob platformy Azure (jeśli jest skonfigurowane)|
-| *. frontend.clouddatahub.net |443 |Używany do komunikacji z zapleczem usługi przenoszenia danych |
-| *. servicebus.windows.net |9350-9354, 5671 |Przekaźnik magistrali usługi opcjonalne za pośrednictwem protokołu TCP używanego przez kreatora kopiowania |
+| *.servicebus.windows.net |443, 80 |Używany do komunikacji z zapleczem usługi przenoszenia danych |
+| *.core.windows.net |443 |Używany do kopiowania przejściowa przy użyciu obiektów Blob platformy Azure (jeśli jest skonfigurowane)|
+| *.frontend.clouddatahub.net |443 |Używany do komunikacji z zapleczem usługi przenoszenia danych |
+| *.servicebus.windows.net |9350-9354, 5671 |Przekaźnik magistrali usługi opcjonalne za pośrednictwem protokołu TCP używanego przez kreatora kopiowania |
 
 
 Na poziomie zapory systemu Windows te porty wyjściowe zwykle są włączone. Nie można skonfigurować w domenach i porty odpowiednio na maszynie bramy.
@@ -315,7 +315,7 @@ Strona główna umożliwia wykonywanie następujących czynności:
 * **Zaplanuj aktualizacje** o określonej godzinie dni.
 * Wyświetlić datę bramy **ostatniej aktualizacji**.
 
-### <a name="settings-page"></a>Ustawienia strony
+### <a name="settings-page"></a>Strona Ustawienia
 Strona Ustawienia umożliwia wykonywanie następujących czynności:
 
 * Wyświetlanie, zmienianie i eksportowanie **certyfikatu** używany przez bramę. Ten certyfikat jest używany do szyfrowania poświadczeń źródła danych.
@@ -405,7 +405,7 @@ Ta sekcja zawiera kroki przenoszenie klienta bramy z jednego komputera na inny k
 
 1. W portalu, przejdź do **strony głównej fabryki danych**i kliknij przycisk **połączonych usług** kafelka.
 
-    ![Łącze bram danych](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 2. Wybierz bramy w **BRAM danych** sekcji **połączonych usług** strony.
 
     ![Połączonej strony usług z wybranej bramy](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)

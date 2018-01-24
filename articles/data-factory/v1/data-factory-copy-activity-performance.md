@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Skopiuj wydajności działania i dostrajania przewodnik
 > [!NOTE]
@@ -199,14 +199,14 @@ Po uaktywnieniu przepływu danych przy użyciu tymczasowego magazynu można okre
 
 Obecnie nie można skopiować danych między dwa lokalnych magazynów danych przy użyciu magazynu tymczasowego. Oczekujemy tę opcję, aby wkrótce dostępna.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Skonfiguruj **enableStaging** ustawienie w przypadku działania kopiowania, aby określić, czy dane umieszczane w magazynie obiektów Blob, przed załadowaniem do magazynu danych docelowym. Podczas ustawiania **enableStaging** na wartość PRAWDA, określ dodatkowe właściwości, które są wymienione w następnej tabeli. Jeśli nie masz, należy także utworzyć magazynu Azure lub magazynu udostępnionego usługi połączone podpisu dostępu dla przemieszczania.
 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | **enableStaging** |Określ, czy chcesz skopiować dane za pośrednictwem przejściowej przemieszczania magazynu. |False |Nie |
-| **linkedServiceName** |Określ nazwę [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [element AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) połączonej usługi, która odwołuje się do wystąpienia magazynu, który jest używany jako magazyn tymczasowy tymczasowej. <br/><br/> Aby załadować dane do usługi SQL Data Warehouse przy użyciu programu PolyBase nie można używać magazynu sygnatury dostępu współdzielonego. Można go użyć w innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** ma wartość TRUE |
-| **Ścieżka** |Określ ścieżki do magazynu obiektów Blob, który ma zawierać przemieszczonych danych. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko w przypadku używania magazynu z sygnatury dostępu współdzielonego lub wymagają dane tymczasowe w określonej lokalizacji. |Nie dotyczy |Nie |
+| **linkedServiceName** |Określ nazwę [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [element AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) połączonej usługi, która odwołuje się do wystąpienia magazynu, który jest używany jako magazyn tymczasowy tymczasowej. <br/><br/> Aby załadować dane do usługi SQL Data Warehouse przy użyciu programu PolyBase nie można używać magazynu sygnatury dostępu współdzielonego. Można go użyć w innych scenariuszach. |ND |Tak, gdy **enableStaging** ma wartość TRUE |
+| **Ścieżka** |Określ ścieżki do magazynu obiektów Blob, który ma zawierać przemieszczonych danych. Jeśli ścieżka nie zostanie określona, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko w przypadku używania magazynu z sygnatury dostępu współdzielonego lub wymagają dane tymczasowe w określonej lokalizacji. |ND |Nie |
 | **enableCompression** |Określa, czy dane powinny skompresowany, zanim zostanie on skopiowany do miejsca docelowego. To ustawienie pozwala ograniczyć ilość danych transferowanych. |False |Nie |
 
 Oto przykład definicji działanie kopiowania z właściwościami, które zostały opisane w powyższej tabeli:
@@ -410,7 +410,7 @@ W takim przypadku bzip2 kompresji danych może być spowolnienie całego procesu
 
 ![Scenariusz 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Informacje ogólne
 Poniżej przedstawiono monitorowania wydajności i dostrajania odwołań dla niektórych obsługiwanych magazynów:
 
 * Magazyn Azure (w tym magazynie obiektów Blob i Magazyn tabel): [wartości docelowe skalowalności magazynu Azure](../../storage/common/storage-scalability-targets.md) i [Lista kontrolna wydajności i skalowalności magazynu Azure](../../storage/common/storage-performance-checklist.md)

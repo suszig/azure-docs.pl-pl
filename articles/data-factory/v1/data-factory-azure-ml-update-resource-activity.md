@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 009c7349e82194f9b7f0c8a0c49c427fc78bba85
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 502bf8771bf7854755ccd72c7002110f1e25bd40
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aktualizowanie modeli uczenia maszynowego Azure przy użyciu działanie aktualizacji zasobu
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/02/2017
 
 Główne fabryki danych Azure - artykułu integracji usługi Azure Machine Learning uzupełnia w tym artykule: [tworzenie potoków predykcyjnej przy użyciu usługi Azure Machine Learning i fabryki danych Azure](data-factory-azure-ml-batch-execution-activity.md). Jeśli nie zostało to jeszcze zrobione, należy przeczytać artykuł głównego przed odczytaniem za pośrednictwem tego artykułu. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Wraz z upływem czasu modeli predykcyjnych w uczenie Maszynowe Azure oceniania eksperymenty konieczne retrained, przy użyciu nowych baz danych wejściowych. Po wykonaniu ponownego trenowania chcesz zaktualizować usługę sieci web oceniania retrained modelu uczenia Maszynowego. Typowe kroki, aby włączyć ponownego trenowania i aktualizowanie modeli uczenia Maszynowego Azure za pośrednictwem usług sieci web są:
 
 1. Tworzenie eksperymentu w [Azure ML Studio](https://studio.azureml.net).

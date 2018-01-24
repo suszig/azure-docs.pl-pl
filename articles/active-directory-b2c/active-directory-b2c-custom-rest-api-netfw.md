@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integracja wymiany oświadczenia interfejsu API REST usługi Azure AD B2C podróży użytkownika jako weryfikacji danych wejściowych użytkownika
 Framework obsługi tożsamości, która jest usługi Azure Active Directory B2C (Azure AD B2C), można zintegrować z interfejsu API RESTful w podróży użytkownika. W tym przewodniku dowiesz się, jak usługa Azure AD B2C współdziała z usługami .NET Framework RESTful (interfejs API sieci web).
@@ -88,7 +88,7 @@ Tworzenie modelu, który reprezentuje oświadczenia wejściowe, wykonując nast�
 
 3. Nazwa klasy `InputClaimsModel`, a następnie dodaj następujące właściwości `InputClaimsModel` klasy:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Tworzenie modelu, który reprezentuje oświadczenia wejściowe, wykonując nast�
 
 4. Utwórz nowy model `OutputClaimsModel`, a następnie dodaj następujące właściwości `OutputClaimsModel` klasy:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Tworzenie modelu, który reprezentuje oświadczenia wejściowe, wykonując nast�
 
 5. Utwórz jeden model więcej, `B2CResponseContent`, umożliwiający generują komunikaty o błędzie sprawdzania poprawności danych wejściowych. Dodaj następujące właściwości `B2CResponseContent` klasy, podaj brakujących odwołań, a następnie zapisz plik:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ W składniku web API _kontrolera_ jest obiekt, który obsługuje żądania HTTP.
 
 4. Jeśli *IdentityController.cs* plik nie jest już otwarty, kliknij go dwukrotnie i następnie Zastąp kod w pliku następującym kodem:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;
@@ -382,6 +382,6 @@ Po dodaniu oświadczeń nowy kod jednostki uzależnionej strony wygląda następ
 * Po ukończeniu [wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md) wskazówki, zaleca się tworzenia scenariusz przy użyciu plików zasady niestandardowe. Użytkownikowi, firma Microsoft umieściła [przykładowe pliki zasad](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Możesz pobrać pełną kod z [przykładowe rozwiązanie Visual Studio dla odwołania](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
     
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zabezpieczanie interfejsu API RESTful z uwierzytelnianiem podstawowym (nazwy użytkownika i hasła)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Zabezpieczanie interfejsu API RESTful certyfikaty klienta](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

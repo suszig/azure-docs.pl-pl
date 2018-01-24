@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Niezawodne serializacji obiektu kolekcji w sieci szkieletowej usług Azure
 Niezawodne kolekcje replikacji i utrwalić swoich elementów, aby upewnić się, że są trwałe na błędy maszyn i awarie zasilania.
@@ -34,15 +34,15 @@ Wbudowane serializatorów są bardziej wydajne, ponieważ wiedzieli, nie można 
 
 Menedżer stanu niezawodny ma wbudowane serializatora dla następujących typów: 
 - Identyfikator GUID
-- wartość logiczna
-- Bajtów
-- sbyte —
-- Byte]
+- bool
+- bajt
+- sbyte
+- byte[]
 - char
-- Ciąg
+- ciąg
 - Decimal
-- O podwójnej precyzji
-- Float
+- liczba podwójnej precyzji
+- liczba zmiennoprzecinkowa
 - int
 - uint
 - długa
@@ -56,7 +56,7 @@ Niestandardowe serializatorów są często używane w celu zwiększenia wydajno�
 
 [IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) służy do rejestrowania niestandardowego programu szeregującego dla danego typu T. Rejestracja powinno się zdarzyć w konstrukcji StatefulServiceBase zapewnienie przed rozpoczęciem odzyskiwania, wszystkie kolekcje niezawodny dostęp do odpowiednich serializatora do odczytania ich danych.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ Serializatora niestandardowego należy zaimplementować [IStateSerializer<T> ](h
 
 Poniżej przedstawiono przykład typu niestandardowego o nazwie OrderKey, który zawiera cztery właściwości
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Poniżej przedstawiono przykład stosowania IStateSerializer<OrderKey>.
 Należy pamiętać, że odczytywanie i zapisywanie przeciążeń, które przyjmują w baseValue, wywołania ich odpowiednich przeciążenia dla zgodności wyszukiwanie do przodu.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)
@@ -147,7 +147,7 @@ Użytkownicy niestandardowego programu szeregującego powinien zgodne z wytyczny
 Typowy sposób obsługi wszystkich wersji jest dodawania informacji o rozmiarze na początku i tylko właściwości opcjonalnych.
 W ten sposób każdej wersji może odczytywać znacznie można i przejść w pozostałej części strumienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
   * [Serializacja i uaktualniania](service-fabric-application-upgrade-data-serialization.md)
   * [Dokumentacja dla deweloperów niezawodnej kolekcji](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Uaktualnianie aplikacji za pomocą Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualnienia aplikacji przy użyciu programu Visual Studio.

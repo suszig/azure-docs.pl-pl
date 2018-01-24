@@ -4,7 +4,7 @@ description: "Konfigurowanie stron sieci web do wysyłania rzeczywiste pomiary u
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Jak wysłać rzeczywiste pomiary użytkownika do usługi Azure Traffic Manager przy użyciu stron sieci web
 
@@ -61,7 +61,7 @@ Po uzyskaniu klucza rumu, następnym krokiem jest osadzanie tego skopiowanych Ja
 1.  Otwórz stronę HTML, w edytorze tekstu
 2.  Wklej skopiowany w poprzednim kroku sekcji treść HTML kod JavaScript (skopiowanego kodu jest w wierszu 8 & 9, zobacz rysunek 3).
  
-    ![Osadzanie kodu Javascript do strony sieci web dla rzeczywiste pomiary użytkownika](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Osadzanie kodu Javascript do strony sieci web dla rzeczywiste pomiary użytkownika](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Rysunek 3: Proste HTML z osadzonych JavaScript rzeczywiste pomiary użytkownika**
 
@@ -69,7 +69,7 @@ Po uzyskaniu klucza rumu, następnym krokiem jest osadzanie tego skopiowanych Ja
 4. Następnym razem, gdy ta strona jest renderowany w przeglądarce sieci web, JavaScript, do których odwołuje się jest pobierana i skrypt zostanie wykonany, miary i operacje raportowania.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Dowiedz się więcej o [rzeczywiste pomiary użytkownika](traffic-manager-rum-overview.md)
 - Dowiedz się [działania Menedżera ruchu](traffic-manager-overview.md)
 - Dowiedz się więcej o [metody routingu ruchu](traffic-manager-routing-methods.md) obsługiwane przez Menedżera ruchu

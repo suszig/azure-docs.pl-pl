@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Dodaj logowanie do aplikacji Windows Desktop
 Z punktu końcowego v2.0, można szybko dodać uwierzytelniania aplikacji klasycznych z obsługą oba osobistego konta Microsoft i konta firmowego lub szkolnego.  Umożliwia również aplikacji do bezpiecznego komunikowania się z wewnętrznej bazy danych sieci web interfejsu api, a także [Microsoft Graph](https://graph.microsoft.io) i kilka [Office 365 Unified API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ Podstawową zasadą za MSAL jest, że zawsze, gdy Twoja aplikacja powinna tokenu
 
 * W `TodoListClient` otwarciu projektu `MainWindow.xaml.cs` i Znajdź `OnInitialized(...)` metody.  Pierwszym krokiem jest zainicjowanie aplikacji `PublicClientApplication` -MSAL dla klasy podstawowej reprezentujący natywnych aplikacji.  Jest to, gdy przekazujesz MSAL współrzędne potrzebne do komunikowania się z usługą Azure AD i poinformuj go, jak pamięci podręcznej tokenów.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Podczas uruchamiania aplikacji, chcemy do sprawdzenia, czy użytkownik jest już zalogowany do aplikacji.  Jednak nie chcemy jeszcze wywołania interfejsu użytkownika logowania — wybierzemy użytkownika, kliknij przycisk "Zarejestruj" Aby to zrobić.  Również w `OnInitialized(...)` metody:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Jeśli użytkownik nie jest zalogowany i kliknięciu przycisku "Zaloguj", chcemy wywołania interfejsu użytkownika logowania i użytkownika, wprowadź swoje poświadczenia.  Implementowanie obsługi przycisk Zaloguj:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Jeśli użytkownik pomyślnie logowania, MSAL będą odbierać i pamięci podręcznej tokenu i można przejść do wywołania `GetTodoList()` metody bez obaw.  Pozostało można pobrać zadań użytkownika jest zaimplementowanie `GetTodoList()` metody.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -248,7 +248,7 @@ Próbka ukończone (bez wartości konfiguracji) [jest dostarczane jako zip w tym
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz przejść do bardziej zaawansowanych tematów.  Można spróbować:
 
 * [Zabezpieczanie interfejsu API sieci Web TodoListService z punktem końcowym v2.0](active-directory-v2-devquickstarts-dotnet-api.md)

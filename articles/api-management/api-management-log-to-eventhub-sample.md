@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitoruj swoje interfejsy API z usługi Azure API Management, usługa Event Hubs i Runscope
 [Usługi Zarządzanie interfejsami API](api-management-key-concepts.md) zawiera wiele możliwości przetwarzania żądania HTTP wysyłane do interfejsu API protokołu HTTP. Jednak istnienie żądania i odpowiedzi jest przejściowy. Żądanie, a następnie za pomocą usługi Zarządzanie interfejsami API z wewnętrzną bazą danych interfejsu API. Interfejs API przetwarza żądania i odpowiedzi przechodzi wstecz przez konsumenta interfejsu API. Usługi Zarządzanie interfejsami API utrzymuje niektórych ważnych statystyk dotyczących interfejsów API do wyświetlenia na pulpicie nawigacyjnym portalu wydawcy w ale ponad, czy szczegóły znikną.
@@ -166,7 +166,7 @@ W tym przykładzie używamy `EventProcessorHost` dla uproszczenia, jednak może 
 ### <a name="ieventprocessor"></a>IEventProcessor
 Centralna koncepcji przy użyciu `EventProcessorHost` jest utworzenie implementacja `IEventProcessor` interfejs, który zawiera metodę `ProcessEventAsync`. Użycia tej metody jest następujący:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ Lista obiektów EventData są przekazywane do metody i możemy iteracja tej list
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` Wystąpienia zawiera trzy elementy danych:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ Dla tego przykładu I uzgodnionych byłoby interesujące do dystrybuowania żąd
 
 `IHttpMessageProcessor` Implementacji wygląda tak,
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;
@@ -273,7 +273,7 @@ Na poniższej ilustracji animowany widać żądanie do interfejsu API w portalu 
 ## <a name="summary"></a>Podsumowanie
 Usługi Zarządzanie interfejsami API Azure udostępnia doskonale nadaje się do przechwytywania ruchu HTTP do i z swoje interfejsy API w podróży. Usługa Azure Event Hubs to wysoce skalowalną, tanich rozwiązanie do przechwytywania tego ruchu i skierowanie go do systemów przetwarzania dodatkowej rejestrowania, monitorowania i inne zaawansowane analizy. Łączenie z systemów, takich jak Runscope jest tak proste, jak dozen zaledwie kilku wierszach kodu monitorowania ruchu innych firm.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej na temat usługi Azure Event Hubs
   * [Wprowadzenie do usługi Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Odbieranie komunikatów za pomocą klasy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

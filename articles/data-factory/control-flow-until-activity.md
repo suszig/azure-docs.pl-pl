@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Do działania w fabryce danych Azure
-Działanie Until zapewnia te same funkcje czy-dopóki zapętlenia struktury udostępnia w językach programowania. Wykonywania zestawu działań w pętli do momentu warunku skojarzone z działaniem zwraca wartość true. Można określić wartość limitu czasu do czasu działania w fabryce danych. 
+Działanie Until zapewnia te same funkcje czy-dopóki zapętlenia struktury udostępnia w językach programowania. Służy do wykonywania zestawu działań w pętli do momentu, gdy warunek skojarzony z działaniem zostanie obliczony na wartość true. W usłudze Data Factory można określić wartość limitu czasu działania Until. 
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji V1 fabryki danych](v1/data-factory-introduction.md).
@@ -57,11 +57,11 @@ Działanie Until zapewnia te same funkcje czy-dopóki zapętlenia struktury udos
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa `Until` działania. | Ciąg | Tak
-type | Należy wybrać opcję **do momentu**. | Ciąg | Tak
-wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Wyrażenie.  | Tak
+name | Nazwa `Until` działania. | Ciąg | Yes
+type | Należy wybrać opcję **do momentu**. | Ciąg | Yes
+wyrażenie | Wyrażenie musi zwrócić wartość true lub false | Wyrażenie.  | Yes
 timeout | Czy — do pętli razy się po upływie określonego czasu. | Ciąg. `d.hh:mm:ss`(lub) `hh:mm:ss`. Wartość domyślna to 7 dni. Maksymalna wartość to: 90 dni. | Nie
-Działania | Zbiór działań, które są wykonywane, dopóki wyrażenie daje w wyniku `true`. | Tablica działań. |  Tak
+Działania | Zbiór działań, które są wykonywane, dopóki wyrażenie daje w wyniku `true`. | Tablica działań. |  Yes
 
 ## <a name="example-1"></a>Przykład 1
 
@@ -289,10 +289,10 @@ while ($True) {
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
-- [Jeśli warunek działania](control-flow-if-condition-activity.md)
+- [Działanie If Condition](control-flow-if-condition-activity.md)
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)

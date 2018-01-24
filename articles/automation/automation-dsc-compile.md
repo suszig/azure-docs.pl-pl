@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilowanie konfiguracji DSC automatyzacji Azure
 
@@ -299,7 +299,7 @@ Można dowiedzieć się jak podpisać konfiguracje węzłów w https://msdn.micr
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importowanie konfiguracji węzła, w portalu Azure
 
-1. Twoje konto usługi Automatyzacja kliknij **konfiguracji węzłów DSC**.
+1. Twoje konto usługi Automatyzacja kliknij **konfiguracji węzłów DSC** w obszarze **zarządzania konfiguracją**.
 
     ![Konfiguracje węzłów DSC](./media/automation-dsc-compile/node-config.png)
 2. W **konfiguracji węzłów DSC** bloku, kliknij przycisk **dodać NodeConfiguration**.

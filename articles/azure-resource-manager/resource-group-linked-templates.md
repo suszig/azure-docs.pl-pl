@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: d641971811f20b2a6e9c14f134cf0d80f95944eb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Za pomocą połączonego i zagnieżdżone szablony, w przypadku wdrażania zasobów platformy Azure
 
@@ -84,6 +84,8 @@ Aby zagnieździć szablonu w szablonie głównym, należy użyć **szablonu** w�
 
 > [!NOTE]
 > Zagnieżdżone szablony nie można używać parametrów lub zmiennych, które są zdefiniowane w szablonie zagnieżdżonym. Można użyć parametrów i zmiennych z głównym szablonu. W powyższym przykładzie `[variables('storageName')]` pobiera wartość z głównym szablonu szablon zagnieżdżony. To ograniczenie nie ma zastosowania do szablonów zewnętrznych.
+>
+> Nie można użyć `reference` w sekcji danych wyjściowych szablonu zagnieżdżonych funkcji. Aby zwrócić wartości dla wdrożonych zasobów w szablonie zagnieżdżonych, przekonwertować szablon zagnieżdżony połączonego szablonu.
 
 ### <a name="external-template-and-external-parameters"></a>Szablon zewnętrznych i parametry zewnętrznych
 

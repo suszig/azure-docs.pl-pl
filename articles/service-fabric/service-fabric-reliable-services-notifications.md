@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Niezawodne usługi powiadomień
 Powiadomienia Zezwalaj klientom na śledzić zmiany wprowadzone do obiektu, który interesują Cię. Powiadomienia obsługuje dwa typy obiektów: *niezawodnej Menedżer stanu* i *niezawodnej słownika*.
@@ -36,7 +36,7 @@ Menedżer stanu niezawodny zapewnia powiadomienia o następujących zdarzeń:
 * Transakcji
   * Zatwierdzenie
 * Menedżer stanu
-  * Skompiluj ponownie
+  * Kompiluj ponownie
   * Dodanie niezawodnej stanu
   * Usunięcie stanu niezawodnej
 
@@ -51,7 +51,7 @@ Kolekcja niezawodnej Menedżer stanu zostanie odtworzony w trzech przypadkach:
 
 Do zarejestrowania dla transakcji powiadomienia i/lub powiadomienia menedżera stanu, należy zarejestrować z **TransactionChanged** lub **StateManagerChanged** zdarzeń w niezawodnej Menedżer stanów. Spójne rejestrowania z tych programów obsługi zdarzeń jest konstruktor stanowe usługi. Gdy zarejestrujesz się w konstruktorze, nie będzie pominięcia wszystkich powiadomień, który jest spowodowany przez zmianę w czasie trwania **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ public MyService(StatefulServiceContext context)
 
 Poniżej przedstawiono przykładowy **TransactionChanged** obsługi zdarzeń.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Użyj właściwości akcji w **NotifyStateManagerChangedEventArgs** można rzuto
 
 Poniżej przedstawiono przykładowy **StateManagerChanged** obsługi powiadomień.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Słownik niezawodnej zapewnia powiadomienia o następujących zdarzeń:
 Otrzymywać powiadomień niezawodnej słownika, musisz zarejestrować w usłudze **DictionaryChanged** obsługi zdarzeń na **IReliableDictionary**. Spójne rejestrowania z tych programów obsługi zdarzeń jest **ReliableStateManager.StateManagerChanged** dodać powiadomienia.
 Podczas rejestrowania **IReliableDictionary** jest dodawany do **IReliableStateManager** gwarantuje, że nie utracić żadnych powiadomień.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 Poprzedniego zestawu kodu **IReliableNotificationAsyncCallback** interfejsu, wraz z **DictionaryChanged**. Ponieważ **NotifyDictionaryRebuildEventArgs** zawiera **IAsyncEnumerable** interfejsu — które musi zostać wyliczone asynchronicznie — Odbuduj powiadomienia są uruchamiane przy użyciu  **RebuildNotificationAsyncCallback** zamiast **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -215,7 +215,7 @@ Poniżej przedstawiono niektóre czynności, które należy wziąć pod uwagę:
 * Dla transakcji, które zawierają wiele operacji operacji są stosowane w kolejności, w jakiej zostały odebrane w replice podstawowej przez użytkownika.
 * W ramach przetwarzania postępu false niektóre operacje mogą być cofnąć. Powiadomienia są zgłaszane dla takich operacji cofania, Przywracanie stanu repliki stabilna punktu. Jedną istotną różnicą powiadomienia cofania jest, że zdarzenia, które mają zduplikowane klucze są agregowane. Na przykład jeśli to Trwa wycofywanie transakcji T1, zobaczysz jednego powiadomienia Delete(X).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Elementy Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Niezawodne usługi szybki start](service-fabric-reliable-services-quick-start.md)
 * [Niezawodne usługi Kopia zapasowa i przywracanie (odzyskiwania po awarii)](service-fabric-reliable-services-backup-restore.md)

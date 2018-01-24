@@ -3,9 +3,9 @@ title: "Szyfrowanie dysków Azure — często zadawane pytania | Dokumentacja fi
 description: "Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące programu Microsoft Azure dysku szyfrowanie dla systemu Windows i maszyn wirtualnych systemu Linux IaaS."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Szyfrowanie dysków Azure — często zadawane pytania
 
@@ -47,7 +47,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące Azu
 
 | Dystrybucja systemu Linux | Wersja | Typ woluminu obsługiwany w przypadku szyfrowania|
 | --- | --- |--- |
-| Ubuntu | 16.04 — CODZIENNIE LTS | Dysk systemu operacyjnego i danych |
+| Ubuntu | 16.04-DAILY-LTS | Dysk systemu operacyjnego i danych |
 | Ubuntu | 14.04.5-DAILY-LTS | Dysk systemu operacyjnego i danych |
 | RHEL | 7.3 | Dysk systemu operacyjnego i danych |
 | RHEL | 7.2 | Dysk systemu operacyjnego i danych |
@@ -62,11 +62,11 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania (FAQ) dotyczące Azu
 | CentOS | 6.6 | Dysk z danymi |
 | CentOS | 6.5 | Dysk z danymi |
 | openSUSE | 13.2 | Dysk z danymi |
-| SLES | 12 Z DODATKIEM SP1 | Dysk z danymi |
+| SLES | 12 SP1 | Dysk z danymi |
 | SLES | Priorytet: 12-z dodatkiem SP1 | Dysk z danymi |
 | SLES | HPC 12 | Dysk z danymi |
 | SLES | Priorytet: 11-SP4 | Dysk z danymi |
-| SLES | 11 Z DODATKIEM SP4 | Dysk z danymi |
+| SLES | 11 SP4 | Dysk z danymi |
 
 **Pytanie:** jak umożliwić, za pomocą szyfrowania dysków Azure?
 
@@ -131,7 +131,7 @@ Jeśli ten przepływ pracy nie jest możliwe, opierając się na [szyfrowanie us
 
 **Odpowiedź:** można zadawać pytania i wyrazić swoją opinię na [forum szyfrowania dysków Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym dokumencie przedstawiono więcej informacji na temat najczęściej zadawane pytania dotyczące szyfrowania dysków Azure. Aby uzyskać więcej informacji na temat tej usługi i jego możliwości zobacz następujące artykuły:
 
 - [Zastosuj szyfrowanie dysków w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Rozwiązywanie problemów Diagnostyka Azure
 W tym artykule opisano informacje dotyczące rozwiązywania problemów, który dotyczy za pomocą diagnostyki Azure. Aby uzyskać więcej informacji na temat diagnostycznych platformy Azure, zobacz [Omówienie diagnostyki Azure](azure-diagnostics.md).
@@ -36,25 +36,25 @@ Poniżej przedstawiono ścieżki do niektórych dzienników ważne i artefaktów
 ### <a name="azure-cloud-services"></a>usług Azure Cloud Services
 | Artefaktów | Ścieżka |
 | --- | --- |
-| **Plik konfiguracji diagnostyki Azure** | %SYSTEMDRIVE%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<wersji > \Config.txt |
-| **Pliki dziennika** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<wersji > \ |
-| **Magazyn lokalny dla danych diagnostycznych** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Plik konfiguracji agenta monitorowania** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Pakiet rozszerzeń Azure diagnostyki** | %SYSTEMDRIVE%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<wersji > |
-| **Ścieżka narzędzia kolekcji dziennika** | %SYSTEMDRIVE%\Packages\GuestAgent\ |
-| **Plik dziennika MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Plik konfiguracji diagnostyki Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Pliki dziennika** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Magazyn lokalny dla danych diagnostycznych** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Plik konfiguracji agenta monitorowania** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Pakiet rozszerzeń Azure diagnostyki** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
+| **Ścieżka narzędzia kolekcji dziennika** | %SystemDrive%\Packages\GuestAgent\ |
+| **Plik dziennika MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
 | Artefaktów | Ścieżka |
 | --- | --- |
-| **Plik konfiguracji diagnostyki Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<wersji > \RuntimeSettings |
-| **Pliki dziennika** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<wersji > \Logs\ |
-| **Magazyn lokalny dla danych diagnostycznych** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Plik konfiguracji agenta monitorowania** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Plik stanu** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<wersji > \Status |
-| **Pakiet rozszerzeń Azure diagnostyki** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Plik konfiguracji diagnostyki Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Pliki dziennika** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Magazyn lokalny dla danych diagnostycznych** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Plik konfiguracji agenta monitorowania** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Plik stanu** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Pakiet rozszerzeń Azure diagnostyki** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Ścieżka narzędzia kolekcji dziennika** | C:\WindowsAzure\Packages |
-| **Plik dziennika MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **Plik dziennika MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dane nie są wyświetlane w portalu Azure
 Diagnostyka Azure udostępnia metryki dane, które mogą być wyświetlane w portalu Azure. Jeśli masz problemy wyświetlać dane w portalu, sprawdź, czy WADMetrics\* tabeli diagnostyki Azure konta magazynu, aby sprawdzić, czy są odpowiednie rekordy metryki. 
@@ -68,7 +68,7 @@ Sprawdź, czy nie ma żadnych danych dla określonej metryki, **konfiguracji dia
 - \Memory\Available Bytes
 - Aplikacje \ASP.NET (__całkowita__) \Requests/Sec
 - Aplikacje \ASP.NET (__całkowita__) \Errors/s
-- \ASP.NET\Requests umieszczonych w kolejce.
+- \ASP.NET\Requests Queued
 - \ASP.NET\Requests odrzucone
 - \Processor(W3wp)\% czas procesora
 - Bajty \Private \Process (w3wp)
@@ -154,7 +154,7 @@ Jeśli myślisz o skontaktowaniu się z pomocą techniczną, w pierwszej kolejno
 ## <a name="diagnostics-data-tables-not-found"></a>Nie można odnaleźć tabel danych diagnostycznych
 Tabel w magazynie Azure, które zawierają zdarzenia ETW są nazywane przy użyciu następującego kodu:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -207,7 +207,7 @@ Ten kod generuje czterech tabel:
 
 | Wydarzenie | Nazwa tabeli |
 | --- | --- |
-| Dostawca = "prov1" &lt;identyfikator zdarzenia = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
+| Dostawca = "prov1" &lt;identyfikator zdarzenia = "1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | Dostawca = "prov1" &lt;identyfikator zdarzenia = "2" eventDestination = "dest1" /&gt; |WADdest1 |
 | Dostawca = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | Dostawca = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |

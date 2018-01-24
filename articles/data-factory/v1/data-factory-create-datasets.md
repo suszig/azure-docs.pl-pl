@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w fabryce danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ W tym artykule opisano, jakie zestawy danych są, jak są definiowane w formacie
 > [!NOTE]
 > Jeśli jesteś nowym użytkownikiem usługi fabryka danych, zobacz [wprowadzenie do fabryki danych Azure](data-factory-introduction.md) omówienie. Jeśli nie masz praktyczne doświadczenie w tworzeniu fabryki danych, można uzyskać lepsze zrozumienie odczytując [samouczek przekształcania danych](data-factory-build-your-first-pipeline.md) i [samouczek przepływu danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Fabryka danych może obejmować jeden lub wiele potoków. A **potoku** to logiczne grupowanie **działania** który razem wykonania zadania. Działania w potoku definiują akcje do wykonania na danych. Na przykład można użyć działania kopiowania można skopiować danych z lokalnego serwera SQL do magazynu obiektów Blob Azure. Następnie należy użyć działania Hive, które uruchamia skrypt Hive w klastrze usługi HDInsight Azure do przetwarzania danych z magazynu obiektów Blob wygenerowało danych wyjściowych. Ponadto można użyć drugiej działanie kopiowania można skopiować danych wyjściowych do usługi Azure SQL Data Warehouse, na które raportowania są wbudowane rozwiązania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działania, zobacz [potoki i działań w fabryce danych Azure](data-factory-create-pipelines.md).
 
 Działanie może zająć zero lub więcej danych wejściowych **zestawów danych**i utworzyć co najmniej jeden wyjściowy zestaw danych. Zestaw danych wejściowych reprezentuje dane wejściowe dla działania w potoku i wyjściowy zestaw danych reprezentuje dane wyjściowe działania. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów Blob platformy Azure określa folder i kontener obiektów blob w magazynie obiektów Blob, z którego potoku odczytywane dane. 
@@ -82,12 +82,12 @@ W poniższej tabeli opisano właściwości w powyższym JSON:
 
 | Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| name |Nazwa zestawu danych. Zobacz [fabryki danych Azure - reguły nazewnictwa](data-factory-naming-rules.md) dla reguły nazewnictwa. |Tak |Nie dotyczy |
-| type |Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [typ zestawu](#Type). |Tak |Nie dotyczy |
+| name |Nazwa zestawu danych. Zobacz [fabryki danych Azure - reguły nazewnictwa](data-factory-naming-rules.md) dla reguły nazewnictwa. |Yes |Nie dotyczy |
+| type |Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [typ zestawu](#Type). |Yes |Nie dotyczy |
 | Struktura |Schemat zestawu danych.<br/><br/>Aby uzyskać więcej informacji, zobacz [struktury zestawu danych](#Structure). |Nie |Nie dotyczy |
-| typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#Type). |Tak |Nie dotyczy |
-| external | Flaga wartości logicznej, aby określić, czy element dataset jawnie jest generowany przez potok fabryki danych, czy nie. Jeśli wejściowy zestaw danych działania nie jest generowany przez bieżący potoku, ustawienia tej flagi na wartość true. Ustawienia tej flagi na wartość true dla zestawu danych wejściowych pierwszy działania w potoku.  |Nie |wartość false |
-| availability | Definiuje okna przetwarzania (na przykład godzinowo lub dziennie) lub skalowania modelu do produkcji zestawu danych. Każda jednostka danych używane i produkowane przez uruchomienia działania nosi nazwę wycinka danych. Jeśli dostępności wyjściowy zestaw danych jest ustawiony na codziennie (częstotliwość - Day, interwał - 1), wycinek jest tworzony codziennie. <br/><br/>Aby uzyskać więcej informacji, zobacz [dostępności zestawu danych](#Availability). <br/><br/>Szczegółowe informacje dotyczące tworzenia wycinków modelu zestawu danych, zobacz [planowania i wykonywania](data-factory-scheduling-and-execution.md) artykułu. |Tak |Nie dotyczy |
+| typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#Type). |Yes |Nie dotyczy |
+| external | Flaga wartości logicznej, aby określić, czy element dataset jawnie jest generowany przez potok fabryki danych, czy nie. Jeśli wejściowy zestaw danych działania nie jest generowany przez bieżący potoku, ustawienia tej flagi na wartość true. Ustawienia tej flagi na wartość true dla zestawu danych wejściowych pierwszy działania w potoku.  |Nie |fałsz |
+| availability | Definiuje okna przetwarzania (na przykład godzinowo lub dziennie) lub skalowania modelu do produkcji zestawu danych. Każda jednostka danych używane i produkowane przez uruchomienia działania nosi nazwę wycinka danych. Jeśli dostępności wyjściowy zestaw danych jest ustawiony na codziennie (częstotliwość - Day, interwał - 1), wycinek jest tworzony codziennie. <br/><br/>Aby uzyskać więcej informacji, zobacz [dostępności zestawu danych](#Availability). <br/><br/>Szczegółowe informacje dotyczące tworzenia wycinków modelu zestawu danych, zobacz [planowania i wykonywania](data-factory-scheduling-and-execution.md) artykułu. |Yes |Nie dotyczy |
 | policy |Definiuje kryteria i warunków, które należy spełnić wycinków zestaw danych. <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawie danych zasad](#Policy) sekcji. |Nie |Nie dotyczy |
 
 ## <a name="dataset-example"></a>Przykład zestawu danych
@@ -195,7 +195,7 @@ Każda kolumna w strukturze zawiera następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| name |Nazwa kolumny. |Tak |
+| name |Nazwa kolumny. |Yes |
 | type |Typ danych kolumny.  |Nie |
 | Kultury |. Kulturę opartą na sieci do użycia, gdy typem jest typ architektury .NET: `Datetime` lub `Datetimeoffset`. Wartość domyślna to `en-us`. |Nie |
 | Format |Ciąg do użycia, gdy typem jest typ architektury .NET formatu: `Datetime` lub `Datetimeoffset`. |Nie |
@@ -238,8 +238,8 @@ W poniższej tabeli opisano właściwości, które można użyć w sekcji dostę
 
 | Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| frequency |Określa jednostkę czasu dla trybu produkcyjnego wycinek zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuty, godziny, dnia, tygodnia, miesiąca |Tak |Nie dotyczy |
-| interval |Określa mnożnik częstotliwości.<br/><br/>"Interwał częstotliwości x" Określa, jak często jest tworzony wycinek. Na przykład, jeśli potrzebujesz zestawu danych, aby zostać podzielona na godzinę, należy ustawić <b>częstotliwość</b> do <b>godzina</b>, i <b>interwał</b> do <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał nie mniej niż 15. |Tak |Nie dotyczy |
+| frequency |Określa jednostkę czasu dla trybu produkcyjnego wycinek zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuty, godziny, dnia, tygodnia, miesiąca |Yes |Nie dotyczy |
+| interval |Określa mnożnik częstotliwości.<br/><br/>"Interwał częstotliwości x" Określa, jak często jest tworzony wycinek. Na przykład, jeśli potrzebujesz zestawu danych, aby zostać podzielona na godzinę, należy ustawić <b>częstotliwość</b> do <b>godzina</b>, i <b>interwał</b> do <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał nie mniej niż 15. |Yes |Nie dotyczy |
 | Styl |Określa, czy wycinek będą tworzone na początku lub końca zakresu.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Jeśli **częstotliwość** ma ustawioną wartość **miesiąca**, i **styl** ustawiono **EndOfInterval**, wycinek jest generowany na ostatni dzień miesiąca. Jeśli **styl** ustawiono **StartOfInterval**, wycinek jest generowany na pierwszy dzień miesiąca.<br/><br/>Jeśli **częstotliwość** ma ustawioną wartość **dzień**, i **styl** ustawiono **EndOfInterval**, wycinek jest generowany w ciągu ostatniej godziny, dnia.<br/><br/>Jeśli **częstotliwość** ustawiono **godzina**, i **styl** ma ustawioną wartość **EndOfInterval**, wycinek jest generowany na koniec godziny. Na przykład dla wycinka okres 13: 00 - 14: 00, wycinek jest generowany na 14: 00. |Nie |EndOfInterval |
 | anchorDateTime |Definiuje położenie bezwzględne w czasie używanych przez harmonogram do obliczenia granice wycinek zestawu danych. <br/><br/>Należy zwrócić uwagę, jeśli ta propoerty części daty, które są bardziej szczegółowego niż określona częstotliwość, bardziej szczegółowego części są ignorowane. Na przykład jeśli **interwał** jest **co godzinę** (częstotliwość: godzinę i interwał: 1) i **anchorDateTime** zawiera **minut i sekund**, a następnie części minut i sekund **anchorDateTime** są ignorowane. |Nie |01/01/0001 |
 | Przesunięcie |Zakres czasu za pomocą której zostaną przesunięte początku i końcu wszystkie fragmenty zestawu danych. <br/><br/>Należy pamiętać, że jeśli obie **anchorDateTime** i **przesunięcie** są określone, wynikiem jest połączonych shift. |Nie |Nie dotyczy |
@@ -286,7 +286,7 @@ Następujący zestaw danych jest co miesiąc i jest generowany na 3rd każdego m
 | Nazwa zasad | Opis | Dotyczy | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Sprawdza, czy dane w **magazynu obiektów Blob Azure** spełnia wymagania minimalny rozmiar (w megabajtach). |Azure Blob Storage |Nie |Nie dotyczy |
-| minimumRows |Sprawdza, czy dane w **bazy danych Azure SQL** lub **tabeli platformy Azure** zawiera minimalną liczbę wierszy. |<ul><li>Baza danych SQL Azure</li><li>Tabeli platformy Azure</li></ul> |Nie |Nie dotyczy |
+| minimumRows |Sprawdza, czy dane w **bazy danych Azure SQL** lub **tabeli platformy Azure** zawiera minimalną liczbę wierszy. |<ul><li>Baza danych SQL Azure</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
 
 #### <a name="examples"></a>Przykłady
 **minimumSizeMB:**
@@ -319,7 +319,7 @@ Zewnętrznych zestawów danych są tymi, które nie są tworzone przez uruchomio
 
 Jeśli zestaw danych jest tworzonym przez fabrykę danych, powinien być oznaczony jako **zewnętrznych**. To ustawienie dotyczy wejść pierwsze działanie w potoku, chyba że działania lub łańcucha potoku jest używany.
 
-| Nazwa | Opis | Wymagane | Wartość domyślna |
+| Name (Nazwa) | Opis | Wymagane | Wartość domyślna |
 | --- | --- | --- | --- |
 | dataDelay |Czas opóźnienia sprawdzanie dostępności danych zewnętrznych dla danego wycinka. Na przykład za pomocą tego ustawienia można opóźnić wyboru co godzinę.<br/><br/>Ustawienie ma zastosowanie tylko do chwili obecnej.  Na przykład jeśli 1:00 PM od razu i ta wartość to 10 minut, sprawdzanie poprawności rozpoczyna się od 1:22:00.<br/><br/>Należy pamiętać, że to ustawienie nie dotyczy wycinków w przeszłości. Wycinków z **czas zakończenia wycinek** + **dataDelay** < **teraz** są przetwarzane bez opóźnień.<br/><br/>Godzinach większą niż 23:59 godziny należy określić przy użyciu `day.hours:minutes:seconds` format. Na przykład aby określić 24 godziny, nie używaj 24:00:00. Zamiast tego należy użyć 1.00:00:00. Jeśli używasz 24:00:00, będzie traktowane jako 24 dni (24.00:00:00). 1 dzień i 4 godziny Określ 1:04:00:00. |Nie |0 |
 | retryInterval |Czas oczekiwania między awarii i ponowieniem próby. To ustawienie ma zastosowanie do chwili obecnej. Jeśli poprzedni ponów zakończone niepowodzeniem, po następnej próbie **retryInterval** okresu. <br/><br/>Jeśli jest 1:00 PM od razu, możemy rozpocząć pierwszej próby. W przypadku czasu oczekiwania na zakończenie pierwszej sprawdzanie poprawności 1 minutę i operacja nie powiodła się, następna ponowna próba wynosi 1:00 1 min (czas trwania) + 1min (interwału ponawiania prób) = 13:02:00. <br/><br/>Wycinki w przeszłości nie ma żadnego opóźnienia. Ponów próbę odbywa się natychmiast. |Nie |00:01:00 (1 minuta) |
@@ -448,6 +448,6 @@ Możesz utworzyć zestawy danych, które należą do potoku zakresu przy użyciu
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji na temat potoków, zobacz [tworzenie potoków](data-factory-create-pipelines.md). 
 - Aby uzyskać więcej informacji o sposobie planowania i wykonywania potoków, zobacz [planowania i wykonywania w fabryce danych Azure](data-factory-scheduling-and-execution.md). 

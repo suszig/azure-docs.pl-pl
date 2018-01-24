@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429828515411986dc7b3586360cb9923a5bb20de
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migracja minimalnym czasem przestojów PostgreSQL bazą danych Azure
 Istniejącą bazę danych PostgreSQL można migrować do bazy danych platformy Azure dla PostgreSQL przy użyciu replikacji Attunity Migrations firmy Microsoft. Replikacja Attunity jest wspólnego z Attunity i firmy Microsoft. Wraz z usługi migracji bazy danych Azure jest uwzględniony bez ponoszenia dodatkowych kosztów do klientów firmy Microsoft. 
@@ -34,5 +34,5 @@ Zawiera omówienie procesu migracji minimalnym czasem przestojów:
 Aby uzyskać więcej informacji o replikacji Attunity Migrations Microsoft oferty zobacz następujące zasoby:
  - Przejdź do [replikacja Attunity Migrations Microsoft](https://aka.ms/attunity-replicate) strony sieci Web.
  - Pobierz [Attunity replikacji dla migracji w programie Microsoft](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Przejdź do [Attunity replikować społeczności](https://microsoft.attunity.com/) Przewodnik Szybki Start, samouczki i pomocy technicznej.
+ - Przejdź do [Attunity replikować społeczności](https://aka.ms/attunity-community/) Przewodnik Szybki Start, samouczki i pomocy technicznej.
  - Aby uzyskać wskazówki krok po kroku przy użyciu replikacji Attunity do migracji z PostgreSQL do bazy danych platformy Azure dla PostgreSQL, zobacz [Przewodnik po migracji bazy danych](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

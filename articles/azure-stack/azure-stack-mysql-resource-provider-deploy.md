@@ -3,7 +3,7 @@ title: "Użyj bazy danych MySQL jako PaaS w stosie Azure | Dokumentacja firmy Mi
 description: "Dowiedz się, jak wdrożyć MySQL dostawcy zasobów i zapewnić baz danych MySQL jako usługa na stosie Azure"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Użyj bazy danych MySQL na Microsoft Azure stosu
 
@@ -90,7 +90,7 @@ Konto system musi mieć następujące uprawnienia:
 
 6. [Zainstaluj program Azure PowerShell w wersji 1.2.11](azure-stack-powershell-install.md).
 
-7. Uruchom skrypt DeploySqlProvider.ps1.
+7. Uruchom skrypt `DeployMySqlProvider.ps1`.
 
 Skrypt wykonuje następujące czynności:
 
@@ -155,18 +155,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parametry DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>Parametry DeployMySqlProvider.ps1
 Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszystkich parametrów sprawdzania poprawności zakończy się niepowodzeniem, zostanie wyświetlony monit podaj wymaganych pól.
 
 | Nazwa parametru | Opis | Wartość domyślna lub komentarz |
 | --- | --- | --- |
-| **CloudAdminCredential** | Poświadczenia dla administratora chmury niezbędne do uzyskiwania dostępu do punktu końcowego Privleged. | _Wymagane_ |
+| **CloudAdminCredential** | Poświadczenia dla administratora chmury niezbędne do uzyskiwania dostępu do uprzywilejowanych punktu końcowego. | _Wymagane_ |
 | **AzCredential** | Podaj poświadczenia dla konta administratora usługi Azure stosu. Użyj tych samych poświadczeń używane do wdrażania stosu Azure). | _Wymagane_ |
 | **VMLocalCredential** | Zdefiniuj poświadczenia dla konta administratora lokalnego dostawcy zasobów MySQL maszyny Wirtualnej. | _Wymagane_ |
 | **PrivilegedEndpoint** | Podaj adres IP lub nazwę DNS uprzywilejowanych punktu końcowego. |  _Wymagane_ |
 | **DependencyFilesLocalPath** | Ścieżka do udziału lokalnego nadrzędnym [mysql — łącznik net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Jeśli podasz, plik certyfikatu muszą znajdować się w tym również katalogu. | _opcjonalne_ (_obowiązkowe_ dla wielowęzłowego) |
 | **DefaultSSLCertificatePassword** | Hasło dla certyfikatu pfx | _Wymagane_ |
-| **Wartość MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
+| **MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
 | **RetryDuration** | Zdefiniuj limit czasu między kolejnymi próbami w sekundach. | 120 |
 | **Dezinstalacja** | Usuń dostawcę zasobów i wszystkie powiązane zasoby (zobacz uwagi poniżej) | Nie |
 | **DebugMode** | Uniemożliwia automatyczne oczyszczania po awarii | Nie |
@@ -323,10 +323,10 @@ Te parametry można określić w wierszu polecenia. Jeśli nie chcesz lub wszyst
 | **CloudAdminCredential** | Poświadczenia dla administratora chmury niezbędne do uzyskiwania dostępu do uprzywilejowanych punktu końcowego. | _Wymagane_ |
 | **AzCredential** | Podaj poświadczenia dla konta administratora usługi Azure stosu. Użyj tych samych poświadczeń używane do wdrażania stosu Azure). | _Wymagane_ |
 | **VMLocalCredential** | Zdefiniuj poświadczenia dla konta administratora lokalnego dostawcy zasobów SQL maszyny Wirtualnej. | _Wymagane_ |
-| **PrivilegedEndpoint** | Podaj adres IP lub nazwę DNS Privleged punktu końcowego. |  _Wymagane_ |
+| **PrivilegedEndpoint** | Podaj adres IP lub nazwę DNS uprzywilejowanych punktu końcowego. |  _Wymagane_ |
 | **DependencyFilesLocalPath** | Plik PFX certyfikatu muszą znajdować się w tym również katalogu. | _opcjonalne_ (_obowiązkowe_ dla wielowęzłowego) |
 | **DefaultSSLCertificatePassword** | Hasło dla certyfikatu pfx | _Wymagane_ |
-| **Wartość MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
+| **MaxRetryCount** | Zdefiniuj jak często chcesz ponowić próbę każdej operacji w przypadku awarii.| 2 |
 | **RetryDuration** | Zdefiniuj limit czasu między kolejnymi próbami w sekundach. | 120 |
 | **Dezinstalacja** | Usuń dostawcę zasobów i wszystkie powiązane zasoby (zobacz uwagi poniżej) | Nie |
 | **DebugMode** | Uniemożliwia automatyczne oczyszczania po awarii | Nie |

@@ -1,8 +1,9 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Bliźniacze reprezentacje urządzeń to dokumenty JSON, które przechowują informacje o stanie urządzenia (metadane, konfiguracje i warunki). Centrum IoT utrzymuje dwie urządzenia, dla każdego urządzenia, które nawiązuje z nim połączenie.
 
@@ -14,7 +15,7 @@ Użyj twins urządzenia do:
 * Zapytanie z metadanych urządzeniami, konfiguracji lub stanu.
 
 > [!NOTE]
-> Twins urządzenia są przeznaczone do synchronizacji i do wykonywania zapytań w konfiguracji urządzeń i warunki. Więcej informacje o tym, kiedy używać twins urządzenia znajdują się w [zrozumieć urządzenia twins][lnk-twins].
+> Twins urządzenia są przeznaczone do synchronizacji i do wykonywania zapytań w konfiguracji urządzeń i warunki. Więcej informacji o tym, kiedy należy używać twins urządzenia znajdują się w [zrozumieć urządzenia twins][lnk-twins].
 
 Twins urządzeń są przechowywane w Centrum IoT i zawierają:
 

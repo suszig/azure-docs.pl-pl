@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrowanie z usługi zarządzana pamięć podręczna do pamięci podręcznej Azure Redis
 Migrowanie aplikacji korzystających z usługi zarządzana pamięć podręczna Azure z pamięcią podręczną Redis Azure można wykonywać przy minimalnych zmianach w aplikacji, w zależności od funkcji usługi zarządzana pamięć podręczna używana przez aplikację do buforowania. Interfejsy API są dokładnie takie same są podobne, i znacznie istniejący kod korzystającą z usługi zarządzana pamięć podręczna w celu dostępu do pamięci podręcznej mogą być ponownie używane przy minimalnych zmianach. W tym temacie przedstawiono sposób niezbędną konfigurację i zmian w aplikacji do migracji aplikacji usługi zarządzana pamięć podręczna do użycia pamięci podręcznej Redis Azure i pokazuje, jak niektóre funkcje pamięci podręcznej Redis Azure używane do implementowania zarządzane Pamięć podręczna usługi pamięci podręcznej.
@@ -125,7 +125,7 @@ W przypadku usługi zarządzana pamięć podręczna połączeń z pamięci podr�
 
 Dodaj następujący kod za pomocą instrukcji u góry każdego pliku, z którego chcesz uzyskać dostępu do pamięci podręcznej.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Jeśli nie rozwiąże ten obszar nazw, należy się upewnić, że dodano pakiet 
 
 Aby połączyć się z wystąpieniem usługi pamięć podręczna Redis Azure, należy wywołać statycznych `ConnectionMultiplexer.Connect` — metoda i przekaż punktu końcowego i klucz. Jednym z rozwiązań w zakresie udostępniania wystąpienia klasy `ConnectionMultiplexer` w aplikacji jest korzystanie z właściwości statycznej, która zwraca połączone wystąpienie podobnie jak w poniższym przykładzie. Jest to bezpieczny wątkowo sposób na inicjowanie tylko jednego połączonego wystąpienia klasy `ConnectionMultiplexer` W tym przykładzie `abortConnect` ma wartość false, co oznacza, że wywołanie powiedzie się, nawet jeśli nie zostanie nawiązane połączenie z pamięci podręcznej. Kluczowa funkcja klasy `ConnectionMultiplexer` polega na automatycznym przywracaniu łączności z pamięcią podręczną po rozwiązaniu problemu z siecią lub usunięciu innych przyczyn.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ Punkt końcowy, klucze i porty, można je uzyskać z **pamięci podręcznej Redi
 
 Po nawiązaniu połączenia zwraca odwołanie do bazy danych z pamięci podręcznej Redis, wywołując `ConnectionMultiplexer.GetDatabase` metody. Obiekt zwracany z metody `GetDatabase` jest lekkim obiektem przekazującym i nie wymaga przechowywania.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ Podczas wywoływania metody `StringGet`, jeśli obiekt nie istnieje, jest zwraca
 
 Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `TimeSpan` metody `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

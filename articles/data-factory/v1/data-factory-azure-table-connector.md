@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Przenoszenie danych do i z tabel Azure przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -476,10 +476,10 @@ Podczas przenoszenia danych do i z tabel Azure, następujące [mapowania zdefini
 
 | Typ danych OData | Typ architektury .NET | Szczegóły |
 | --- | --- | --- |
-| Edm.Binary |Byte] |Tablica bajtów do 64 KB. |
-| Edm.Boolean |wartość logiczna |Wartość logiczna. |
-| Edm.DateTime |Data i godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Obsługiwanym zakresem DateTime zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. (R), CZAS UTC. Zakres kończy się po 31 grudnia 9999 r. |
-| Edm.Double |O podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
+| Edm.Binary |byte[] |Tablica bajtów do 64 KB. |
+| Edm.Boolean |bool |Wartość logiczna. |
+| Edm.DateTime |Data/godzina |Wartość 64-bitowa, wyrażone jako uniwersalny czas koordynowany (UTC). Obsługiwanym zakresem DateTime zaczyna się od 12:00, a 1 stycznia, 1601 r. N.E. (C.E.), UTC. Zakres kończy się po 31 grudnia 9999 r. |
+| Edm.Double |liczba podwójnej precyzji |64-bitowej zmiennej punktu wartości. |
 | Edm.Guid |Identyfikator GUID |Globalnie unikatowy identyfikator 128-bitowego. |
 | Edm.Int32 |Int32 |32-bitową liczbę całkowitą. |
 | Edm.Int64 |Int64 |64-bitową liczbę całkowitą. |

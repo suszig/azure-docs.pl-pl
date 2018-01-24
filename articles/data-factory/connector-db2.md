@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z bazy danych DB2 przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Dla bazy danych DB2 połączone usługi, obsługiwane są następujące właści
 | serwer |Nazwa serwera bazy danych DB2. |Yes |
 | baza danych |Nazwa bazy danych DB2. |Yes |
 | Schemat |Nazwa schematu w bazie danych. Nazwa schematu jest rozróżniana wielkość liter. |Nie |
-| Typ authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych DB2.<br/>Dozwolone wartości to: **podstawowe**. |Yes |
+| authenticationType |Typ uwierzytelniania używany do łączenia z bazą danych DB2.<br/>Dozwolone wartości to: **podstawowe**. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika do połączenia z bazą danych DB2. |Yes |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Yes |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych jest dostępny publicznie) można użyć środowiska uruchomieniowego integracji Self-hosted lub środowiska uruchomieniowego integracji Azure. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. |Nie |
@@ -178,8 +178,8 @@ Podczas kopiowania danych z bazy danych DB2, następujące mapowania są używan
 | Typ bazy danych DB2 | Typ danych tymczasowych fabryki danych |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binarny |Byte] |
-| Obiekt blob |Byte] |
+| Binarny |Byte[] |
+| Obiekt blob |Byte[] |
 | char |Ciąg |
 | CLOB |Ciąg |
 | Date |Data/godzina |
@@ -187,22 +187,22 @@ Podczas kopiowania danych z bazy danych DB2, następujące mapowania są używan
 | DbClob |Ciąg |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| O podwójnej precyzji |O podwójnej precyzji |
-| Float |O podwójnej precyzji |
+| Podwójnej precyzji |Podwójnej precyzji |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
 | Grafika |Ciąg |
 | Liczba całkowita |Int32 |
-| LongVarBinary |Byte] |
+| LongVarBinary |Byte[] |
 | LongVarChar |Ciąg |
 | LongVarGraphic |Ciąg |
 | numeryczne |Decimal |
 | Real |Kawaler/panna |
 | SmallInt |Int16 |
-| Time |Zakres czasu |
+| Time |TimeSpan |
 | Sygnatura czasowa |Data/godzina |
-| VarBinary |Byte] |
+| VarBinary |Byte[] |
 | VarChar |Ciąg |
 | VarGraphic |Ciąg |
-| XML |Byte] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Kolejne kroki

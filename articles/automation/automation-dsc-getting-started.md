@@ -14,11 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: e8b7d0d38f59589cbe6f82798b4e725af7b20e23
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Wprowadzenie do korzystania z usługi Konfiguracja DSC automatyzacji Azure
 W tym artykule opisano sposób wykonywania typowych zadań z żądanego stanu konfiguracji (Konfiguracja DSC automatyzacji Azure), takie jak tworzenie, importowanie i konfiguracje, dołączania urządzenia do zarządzania, kompilowanie i wyświetlania raportów. Omówienie jakie Konfiguracja DSC automatyzacji Azure jest, zobacz [Przegląd usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md). Dokumentacja usługi Konfiguracja DSC w temacie [żądany stan konfiguracji Omówienie środowiska Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
@@ -70,10 +70,10 @@ Ta konfiguracja wymaga jednego zasobu w każdym węźle bloku, [WindowsFeature z
 Następnie należy zaimportować konfigurację do konta automatyzacji.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **konfiguracji DSC**.
-4. Na **konfiguracji DSC** bloku, kliknij przycisk **dodać konfigurację**.
-5. Na **konfigurację importu** przejdź do bloku `TestConfig.ps1` plik na komputerze.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** wybierz pozycję **konfiguracji DSC** w obszarze **zarządzania konfiguracją**.
+4. Na **konfiguracji DSC** kliknij przycisk **+ Dodaj konfigurację**.
+5. Na **konfigurację importu** pozycję Przeglądaj, aby `TestConfig.ps1` plik na komputerze.
    
     ![Zrzut ekranu przedstawiający ** importowania konfiguracji ** bloku](./media/automation-dsc-getting-started/AddConfig.png)
 6. Kliknij przycisk **OK**.
@@ -82,10 +82,10 @@ Następnie należy zaimportować konfigurację do konta automatyzacji.
 Po zaimportowaniu konfiguracji, można go wyświetlić w portalu Azure.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **konfiguracji DSC**
-4. Na **konfiguracji DSC** bloku, kliknij przycisk **TestConfig** (jest to nazwa konfiguracji zaimportowany w poprzedniej procedurze).
-5. Na **konfiguracji TestConfig** bloku, kliknij przycisk **źródło konfiguracji widoku**.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** wybierz pozycję **konfiguracji DSC** w obszarze **zarządzania konfiguracją**.
+4. Na **konfiguracji DSC** kliknij przycisk **TestConfig** (jest to nazwa konfiguracji zaimportowany w poprzedniej procedurze).
+5. Na **konfiguracji TestConfig** kliknij przycisk **źródło konfiguracji widoku**.
    
     ![Zrzut ekranu przedstawiający blok konfiguracji TestConfig](./media/automation-dsc-getting-started/ViewConfigSource.png)
    
@@ -95,12 +95,12 @@ Po zaimportowaniu konfiguracji, można go wyświetlić w portalu Azure.
 Przed żądanego stanu można stosować do węzła, konfiguracji DSC definiowanie tego stanu musi być skompilowany w co najmniej jednej konfiguracji węzła (MOF dokumentu) i umieszczone na serwerze ściągania usługi Konfiguracja DSC automatyzacji. Aby uzyskać bardziej szczegółowy opis kompilowania konfiguracji DSC automatyzacji Azure, zobacz [kompilowania konfiguracji DSC automatyzacji Azure](automation-dsc-compile.md). Aby uzyskać więcej informacji o kompilacji konfiguracji, zobacz [konfiguracji DSC](https://msdn.microsoft.com/PowerShell/DSC/configurations).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **konfiguracji DSC**
-4. Na **konfiguracji DSC** bloku, kliknij przycisk **TestConfig** (nazwa poprzednio zaimportowanego konfiguracji).
-5. Na **konfiguracji TestConfig** bloku, kliknij przycisk **skompilować**, a następnie kliknij przycisk **tak**. Spowoduje to uruchomienie zadania kompilacji.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **konfiguracji DSC** w obszarze **zarządzania konfiguracją**.
+4. Na **konfiguracji DSC** kliknij przycisk **TestConfig** (nazwa poprzednio zaimportowanego konfiguracji).
+5. Na **konfiguracji TestConfig** kliknij przycisk **skompilować**, a następnie kliknij przycisk **tak**. Spowoduje to uruchomienie zadania kompilacji.
    
-    ![Zrzut ekranu przedstawiający blok konfiguracji TestConfig wyróżnianie przycisk kompilacji](./media/automation-dsc-getting-started/CompileConfig.png)
+    ![Zrzut ekranu przedstawiający stronę konfiguracji TestConfig wyróżnianie przycisk kompilacji](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
 > Podczas kompilowania konfiguracji w automatyzacji Azure automatycznie wdraża żadnej konfiguracji węzła utworzonego za na serwerze ściągania.
@@ -111,13 +111,13 @@ Przed żądanego stanu można stosować do węzła, konfiguracji DSC definiowani
 Po rozpoczęciu kompilacji, możesz je wyświetlić w **zadań kompilacji** kafelka w **konfiguracji** bloku. **Zadań kompilacji** zawiera obecnie uruchomiona, zakończone oraz zadania zakończone niepowodzeniem. Po otwarciu bloku zadania kompilacji zawiera informacje dotyczące tego zadania, w tym wszelkie błędy lub ostrzeżenia napotkał, parametry wejściowe używane w konfiguracji i kompilacja dzienników.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **konfiguracji DSC**.
-4. Na **konfiguracji DSC** bloku, kliknij przycisk **TestConfig** (nazwa poprzednio zaimportowanego konfiguracji).
-5. Na **zadań kompilacji** kafelku **konfiguracji TestConfig** bloku, kliknij jedną z wymienionych zadań. A **zadania kompilacji** otwartym bloku z datą rozpoczęcia zadania kompilacji.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **konfiguracji DSC** w obszarze **zarządzania konfiguracją**.
+4. Na **konfiguracji DSC** kliknij przycisk **TestConfig** (nazwa poprzednio zaimportowanego konfiguracji).
+5. W obszarze **zadań kompilacji**, wybierz zadanie kompilacji, który chcesz wyświetlić. A **zadania kompilacji** otwierania z datą rozpoczęcia zadania kompilacji strony.
    
-    ![Zrzut ekranu przedstawiający blok zadania kompilacji](./media/automation-dsc-getting-started/CompilationJob.png)
-6. Kliknij Kafelek w **zadania kompilacji** bloku, aby zobaczyć więcej szczegółowych informacji o zadaniu.
+    ![Zrzut ekranu przedstawiający stronę zadania kompilacji](./media/automation-dsc-getting-started/CompilationJob.png)
+6. Kliknij Kafelek w **zadania kompilacji** stronę, aby zobaczyć więcej szczegółowych informacji o zadaniu.
 
 ## <a name="viewing-node-configurations"></a>Wyświetlanie konfiguracji węzłów
 Pomyślne zakończenie zadania kompilacji tworzy nowy co najmniej jednej konfiguracji węzła. Konfiguracja węzła jest dokumentem MOF, który jest wdrożony na serwerze ściągania i są gotowe do można ściągnąć i stosowane przez co najmniej jeden węzeł. Konfiguracje węzłów można wyświetlić w Twoje konto usługi Automatyzacja w **konfiguracji węzłów DSC** bloku. Konfiguracja węzła ma nazwę w postaci *ConfigurationName*. *NodeName*.
@@ -133,20 +133,19 @@ Konfiguracja DSC automatyzacji Azure umożliwia zarządzanie maszynach wirtualny
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Dołączyć maszyny Wirtualnej platformy Azure Resource Manager do zarządzania przez Konfiguracja DSC automatyzacji Azure
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **węzłów DSC**.
-4. W **węzłów DSC** bloku, kliknij przycisk **dodać maszyny Wirtualnej Azure**.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC** w obszarze **zarządzania konfiguracją**...
+4. W **węzłów DSC** kliknij przycisk **dodać maszyny Wirtualnej Azure**.
    
-    ![Zrzut ekranu przedstawiający blok węzłów DSC wyróżnianie przycisku Dodaj maszyny Wirtualnej Azure](./media/automation-dsc-getting-started/OnboardVM.png)
-5. W **Dodaj maszyny wirtualne Azure** bloku, kliknij przycisk **wybierz maszyny wirtualne do dołączenia**.
-6. W **wybierz maszyny wirtualne** bloku, zaznacz maszyny Wirtualnej chcesz dołączyć i kliknij **OK**.
+    ![Zrzut ekranu przedstawiający stronę węzłów DSC wyróżnianie przycisku Dodaj maszyny Wirtualnej Azure](./media/automation-dsc-getting-started/OnboardVM.png)
+5. Na **maszyn wirtualnych** wybierz maszyny Wirtualnej.  **Dodawanie maszyn wirtualnych Azure** kliknij przycisk **wybierz maszyny wirtualne do dołączenia**.
+6. Kliknij przycisk **Połącz**.
    
    > [!IMPORTANT]
    > Musi to być maszyny Wirtualnej platformy Azure Resource Manager systemem Windows Server 2008 R2 lub nowszym.
    > 
    > 
-7. W **Dodaj maszyny wirtualne Azure** bloku, kliknij przycisk **Konfigurowanie danych rejestracji**.
-8. W **rejestracji** bloku, wprowadź nazwę konfiguracji węzła, który chcesz zastosować do maszyny Wirtualnej w ramach **Nazwa konfiguracji węzła** pole. To musi dokładnie odpowiadać Nazwa konfiguracji węzła, w ramach konta automatyzacji. W tym momencie podanie nazwy jest opcjonalne. Można zmienić konfiguracji węzła przypisanej po dołączania węzła.
+1. W **rejestracji** strony, wprowadź nazwę konfiguracji węzła, który chcesz zastosować do maszyny Wirtualnej w ramach **Nazwa konfiguracji węzła** pole. To musi dokładnie odpowiadać Nazwa konfiguracji węzła, w ramach konta automatyzacji. W tym momencie podanie nazwy jest opcjonalne. Można zmienić konfiguracji węzła przypisanej po dołączania węzła.
    Sprawdź **ponowny rozruch węzła, w razie potrzeby**, a następnie kliknij przycisk **OK**.
    
     ![Zrzut ekranu przedstawiający blok rejestracji](./media/automation-dsc-getting-started/RegisterVM.png)
@@ -160,16 +159,17 @@ Azure rozpoczyna proces przechodzenia do maszyny Wirtualnej. Po zakończeniu mas
 Można wyświetlić listę wszystkich komputerach, które zostały został załadowany do zarządzania na Twoim koncie automatyzacji w **węzłów DSC** bloku.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **węzłów DSC**.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC**.
 
 ## <a name="viewing-reports-for-dsc-nodes"></a>Wyświetlanie raportów węzłów DSC
-Zawsze Konfiguracja DSC automatyzacji Azure przeprowadza sprawdzanie spójności na węzeł zarządzany, węzeł wysyła raport o stanie z powrotem do serwera ściągania. Raporty te można wyświetlić w bloku dla tego węzła.
+Zawsze Konfiguracja DSC automatyzacji Azure przeprowadza sprawdzanie spójności na węzeł zarządzany, węzeł wysyła raport o stanie z powrotem do serwera ściągania. Można wyświetlać te raporty na stronie dla tego węzła.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **węzłów DSC**.
-4. Na **raporty** kafelka, kliknij dowolną raporty na liście.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC**.
+4. W **węzłów DSC** listy, wybierz węzeł, który chcesz wyświetlić.
+5. Na **węzła** kliknij przycisk raport, który chcesz wyświetlić w obszarze **raporty**.
    
     ![Zrzut ekranu przedstawiający blok raportu](./media/automation-dsc-getting-started/NodeReport.png)
 
@@ -191,13 +191,13 @@ Może upłynąć trochę czasu, gdy węzeł został załadowany przed pierwszym 
 Można przypisać węzeł, aby użyć konfiguracji węzła innego niż ten, który początkowo przypisana.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **węzłów DSC**.
-4. Na **węzłów DSC** bloku, kliknij nazwę węzła chcesz ponownie przypisać.
-5. W bloku dla tego węzła, kliknij **węzła Przypisz**.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC**.
+4. Na **węzłów DSC** strony, kliknij nazwę węzła chcesz ponownie przypisać.
+5. Na stronie dla tego węzła, kliknij przycisk **węzła Przypisz**.
    
     ![Zrzut ekranu przedstawiający blok węzła wyróżnianie przycisk przypisać węzła](./media/automation-dsc-getting-started/AssignNode.png)
-6. Na **przypisać konfiguracji węzła** bloku konfiguracji węzła, do którego chcesz przypisać węzeł, a następnie kliknij przycisk Wybierz **OK**.
+6. Na **przypisać konfiguracji węzła** konfiguracji węzła, do którego chcesz przypisać węzeł, a następnie kliknij przycisk Wybierz **OK**.
    
     ![Zrzut ekranu przedstawiający blok przypisać konfiguracji węzła](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 
@@ -205,14 +205,14 @@ Można przypisać węzeł, aby użyć konfiguracji węzła innego niż ten, któ
 Jeśli nie ma już węzeł ma być zarządzany przez Konfiguracja DSC automatyzacji Azure, możesz go wyrejestrować.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu centralnym kliknij **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
-3. Na **konto automatyzacji** bloku, kliknij przycisk **węzłów DSC**.
-4. Na **węzłów DSC** bloku, kliknij nazwę węzła chcesz wyrejestrować.
-5. W bloku dla tego węzła, kliknij **Unregister**.
+2. Po lewej stronie, kliknij przycisk **wszystkie zasoby** , a następnie nazwę konta automatyzacji.
+3. Na **konto automatyzacji** kliknij przycisk **węzłów DSC**.
+4. Na **węzłów DSC** strony, kliknij nazwę węzła chcesz wyrejestrować.
+5. Na stronie dla tego węzła, kliknij przycisk **Unregister**.
    
     ![Zrzut ekranu przedstawiający blok węzła wyróżnianie przycisk Unregister](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="related-articles"></a>Pokrewne artykuły
+## <a name="related-articles"></a>Powiązane artykuły
 * [Omówienie usługi Konfiguracja DSC automatyzacji Azure](automation-dsc-overview.md)
 * [Dołączania komputerów do zarządzania przez Konfiguracja DSC automatyzacji Azure](automation-dsc-onboarding.md)
 * [Omówienie stanu konfiguracji żądanego programu Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)

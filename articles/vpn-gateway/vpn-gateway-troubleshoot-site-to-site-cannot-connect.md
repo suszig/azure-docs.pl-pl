@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Rozwiązywanie problemów: Nie można połączyć z połączenia sieci VPN typu lokacja lokacja Azure oraz przestaje działać
 
@@ -87,7 +87,7 @@ Sprawdź, czy i Usuń użytkownika routingu (przez) lub grupy zabezpieczeń siec
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Krok 6. Sprawdź, czy podsieci są takie same (Azure bramy oparte na zasadach)
 
--   Sprawdź, czy podsieci pasują dokładnie między sieci wirtualnej platformy Azure i lokalnymi definicji dla sieci wirtualnej platformy Azure.
+-   Sprawdź, czy space(s) adresów sieci wirtualnej pasują dokładnie między sieci wirtualnej platformy Azure i lokalnymi definicje.
 -   Sprawdź, czy podsieci pasują dokładnie między **bramy sieci lokalnej** lokalnych i w definicji sieci lokalnej.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Krok 7. Sprawdź sondy kondycji Azure bramy

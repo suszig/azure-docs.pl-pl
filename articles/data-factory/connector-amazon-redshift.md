@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1e1c8e03bbfc2a07f4d4faee4c3b171c44fa312d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Redshift przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -217,7 +217,7 @@ Podczas kopiowania danych z Amazon Redshift, następujące mapowania są używan
 | CHAR |Ciąg |
 | DATE |Data/godzina |
 | DECIMAL |Decimal |
-| PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
+| PODWÓJNEJ PRECYZJI |Podwójnej precyzji |
 | LICZBA CAŁKOWITA |Int32 |
 | RZECZYWISTE |Kawaler/panna |
 | SMALLINT |Int16 |

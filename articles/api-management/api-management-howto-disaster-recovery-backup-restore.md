@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 105c1978c049a9981c865eaf752a465c774ab7fd
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Jak zaimplementować odzyskiwania po awarii przy użyciu usługi Kopia zapasowa i przywracanie w usłudze Azure API Management
 
@@ -80,7 +80,7 @@ Wszystkie zadania, które można wykonywać na zasobów przy użyciu usługi Azu
 
 Przed wywołaniem interfejsów API, które Generowanie kopii zapasowej i przywrócenie go, należy uzyskać token. W poniższym przykładzie użyto [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pakiet NuGet w celu pobrania tokenu.
 
-```c#
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 
@@ -121,7 +121,7 @@ Zastąp `{tentand id}`, `{application id}`, i `{redirect uri}` z poniższymi ins
 
 Przed wywołaniem "Kopia zapasowa i przywracanie" czynności opisane w poniższych sekcjach, ustaw nagłówek żądania autoryzacji dla wywołania REST.
 
-```c#
+```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 

@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Jak znaleźć adres przy użyciu usługi wyszukiwanie Azure usługi na podstawie lokalizacji (wersja zapoznawcza)
 Usługa wyszukiwania jest RESTful zestaw interfejsów API przeznaczone dla deweloperów wyszukać adresy, miejsca, punkty zainteresowań, listy biznesowych i innych informacji geograficznych. Usługa wyszukiwania przypisuje szerokości geograficznej/długości określonego adresu, krzyżowego ulicy, geograficzne funkcji lub z interesujących (POI). Współrzędne geograficzne wartości zwracane przez usługę wyszukiwania interfejsów API mogą być używane jako parametry w innych Azure lokalizacji na podstawie usług takich jak API przepływ ruchu i trasy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Zainstaluj [aplikacji Postman](https://www.getpostman.com/apps).
+* Zainstaluj [aplikacji Postman](https://www.getpostman.com/apps).
 
-Usługi na podstawie lokalizacji Azure konto i Subskrypcja klucz. Aby uzyskać informacje o tworzeniu konta i pobierania klucza subskrypcji, zobacz [jak zarządzać Twoje konto usługi na podstawie lokalizacji platformy Azure i klucze](how-to-manage-account-keys.md). 
+* Mieć konto usług na podstawie lokalizacji platformy Azure i klucza. Aby uzyskać informacje o tworzeniu konta i pobierania klucza, zobacz [jak zarządzać Twoje konto usługi na podstawie lokalizacji platformy Azure i klucze](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Przy użyciu Wyszukiwanie rozmyte
 
@@ -36,24 +36,24 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
 
 2. Na karcie konstruktora wybierz **UZYSKAĆ** metody HTTP, a następnie wprowadź adres URL żądania dla punktu końcowego interfejsu API.
 
-    ![Wyszukiwanie rozmyte ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adres URL żądania | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
+    | Adres URL żądania | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autoryzacja | Nie autoryzacji |
 
     **Json** atrybut ścieżki adresu URL określa format odpowiedzi. Łatwość użycia i czytelność używasz json w tym artykule. Możesz znaleźć odpowiedzi dostępnych formatów **uzyskać wyszukiwania rozmytego** definicji [odwołania do lokalizacji na podstawie funkcjonalności interfejsu API usług] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Kliknij przycisk **Params**i wprowadź następujący klucz / wartość pary do użycia jako parametry zapytania lub ścieżki w adresie URL żądania:
 
-    ![Wyszukiwanie rozmyte ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Klucz | Wartość |
     |------------------|-------------------------|
     | wersja interfejsu API | 1.0 |
-    | klucz subskrypcji | *klucz subskrypcji* |
+    | klucz subskrypcji | \<Klucz usługi na podstawie lokalizacji platformy Azure\> |
     | query | pizza |
 
 4. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 
@@ -74,7 +74,7 @@ Domyślnie większość zapytań wyszukiwania ' maxFuzzyLevel = 1' w celu uzyska
     
 4. W parametrów, wprowadź następujący klucz / wartość pary i kliknij przycisk **wysyłania**:
 
-    ![Wyszukiwanie rozmyte ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
     
     | Klucz | Wartość |
     |-----|------------|
@@ -93,7 +93,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adres URL żądania | https://Atlas.microsoft.com/search/Address/JSON? |
+    | Adres URL żądania | https://atlas.microsoft.com/search/address/json? |
     | Autoryzacja | Nie autoryzacji |
 
 2. Kliknij przycisk **Params**i wprowadź następujący klucz / wartość pary do użycia jako parametry zapytania lub ścieżki w adresie URL żądania:
@@ -103,8 +103,8 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Klucz | Wartość |
     |------------------|-------------------------|
     | wersja interfejsu API | 1.0 |
-    | klucz subskrypcji | *klucz subskrypcji* |
-    | query | 400 szerokim St, Seattle, WA 98109 |
+    | klucz subskrypcji | \<Klucz usługi na podstawie lokalizacji platformy Azure\> |
+    | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 
     
@@ -133,7 +133,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
+    | Adres URL żądania | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autoryzacja | Nie autoryzacji |
     
 2. Kliknij przycisk **Params**i wprowadź następujący klucz / wartość pary do użycia jako parametry zapytania lub ścieżki w adresie URL żądania:
@@ -143,7 +143,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Klucz | Wartość |
     |------------------|-------------------------|
     | wersja interfejsu API | 1.0 |
-    | klucz subskrypcji | *klucz subskrypcji* |
+    | klucz subskrypcji | \<Klucz usługi na podstawie lokalizacji platformy Azure\> |
     | query | 47.59093,-122.33263 |
     
 3. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 
@@ -201,7 +201,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Parametr | Sugerowana wartość |
     |---------------|------------------------------------------------|
     | Metoda HTTP | GET |
-    | Adres URL żądania | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
+    | Adres URL żądania | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autoryzacja | Nie autoryzacji |
     
 3. Kliknij przycisk **Params**i wprowadź następujący klucz / wartość pary do użycia jako parametry zapytania lub ścieżki w adresie URL żądania:
@@ -209,7 +209,7 @@ Można przekazywać ulicę pełną lub częściową API adres wyszukiwania i odb
     | Klucz | Wartość |
     |------------------|-------------------------|
     | wersja interfejsu API | 1.0 |
-    | klucz subskrypcji | *klucz subskrypcji* |
+    | klucz subskrypcji | \<Klucz usługi na podstawie lokalizacji platformy Azure\> |
     | query | 47.59093,-122.33263 |
     
 4. Kliknij przycisk **wysyłania** i przejrzeć treść odpowiedzi. 

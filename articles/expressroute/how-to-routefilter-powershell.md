@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurowanie filtrów trasy dla komunikacji równorzędnej firmy Microsoft: środowiska PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/21/2017
 
 Filtry trasy są sposób korzystać z podzbioru obsługiwane usługi za pomocą komunikacji równorzędnej firmy Microsoft. Kroki opisane w tym artykule ułatwiające konfigurowanie i Zarządzanie filtrami trasy dla obwody usługi ExpressRoute.
 
-Usługi Dynamics 365 i usługi Office 365, takich jak Exchange Online, SharePoint Online i Skype dla firm i usług Azure, takich jak magazyn i bazy danych SQL są dostępne za pośrednictwem komunikacji równorzędnej firmy Microsoft. W przypadku skonfigurowania komunikacji równorzędnej firmy Microsoft w obwodu usługi ExpressRoute, wszystkie prefiksy związane z tych usług są rozgłaszane za pośrednictwem sesji protokołu BGP, które są ustalane. Wartość społeczności protokołu BGP jest dołączony do każdego prefiksu do identyfikowania usługa, która jest dostępna za pośrednictwem prefiks. Aby uzyskać listę wartości społeczności BGP i usług, są one wykonywane na, zobacz [społeczności BGP](expressroute-routing.md#bgp).
+Usługi Dynamics 365 i usług Office 365, takich jak Exchange Online, SharePoint Online i Skype dla firm i Azure usługi publiczne, takie jak magazyn i bazy danych SQL są dostępne za pośrednictwem komunikacji równorzędnej firmy Microsoft. Usługi publicznej platformy Azure można wybrać na podstawie na region i nie może być zdefiniowana dla publicznej. 
+
+Podczas komunikacji równorzędnej firmy Microsoft jest konfigurowana dla obwodu usługi ExpressRoute i jest dołączony filtr tras, za pośrednictwem sesji protokołu BGP, które są ustalane są rozgłaszane wszystkie prefiksy, które są wybrane dla tych usług. Wartość społeczności protokołu BGP jest dołączony do każdego prefiksu do identyfikowania usługa, która jest dostępna za pośrednictwem prefiks. Aby uzyskać listę wartości społeczności BGP i usług, są one wykonywane na, zobacz [społeczności BGP](expressroute-routing.md#bgp).
 
 Jeśli potrzebujesz łączności z usługami wszystkich dużej liczby prefiksów są rozgłaszane za pomocą protokołu BGP. To znacznie zwiększa rozmiar tabel tras obsługiwanego przez routery w sieci. Jeśli planujesz używać tylko podzestaw usługami oferowanymi w ramach komunikacji równorzędnej firmy Microsoft, można zmniejszyć rozmiar tabel tras na dwa sposoby. Możesz:
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Uruchom następujące polecenie, aby dołączyć filtr trasy do obwodu usługi expressroute, przy założeniu, że masz tylko komunikacji równorzędnej firmy Microsoft:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

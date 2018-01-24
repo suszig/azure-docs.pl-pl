@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania Pig w fabryce danych Azure
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -84,13 +84,13 @@ Działanie HDInsight Pig w fabryce danych [potoku](data-factory-create-pipelines
 ## <a name="syntax-details"></a>Szczegóły składni
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| name |Nazwa działania |Tak |
+| name |Nazwa działania |Yes |
 | description |Tekst opisujący działanie służy do |Nie |
-| type |HDinsightPig |Tak |
+| type |HDinsightPig |Yes |
 | Dane wejściowe |Co najmniej jeden dane wejściowe, używane na potrzeby działania Pig |Nie |
-| dane wyjściowe |Co najmniej jeden dane wyjściowe, generowane przez działanie Pig |Tak |
-| linkedServiceName |Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych |Tak |
-| Skrypt |Określ wbudowanego skryptu Pig |Nie |
+| wyjścia |Co najmniej jeden dane wyjściowe, generowane przez działanie Pig |Yes |
+| linkedServiceName |Odwołanie do klastra usługi HDInsight zarejestrowany jako połączonej usługi z fabryki danych |Yes |
+| skrypt |Określ wbudowanego skryptu Pig |Nie |
 | Ścieżka skryptu |Umieść skrypt programu Pig w magazynie obiektów blob platformy Azure, a następnie podaj ścieżkę do pliku. Użyj właściwości 'script' lub "scriptPath". Nie można używać razem. Nazwa pliku jest rozróżniana wielkość liter. |Nie |
 | Definiuje |Określ parametry jako pary klucz wartość dla odwołania do skryptu Pig |Nie |
 

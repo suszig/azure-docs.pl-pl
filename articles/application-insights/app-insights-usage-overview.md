@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -59,7 +59,7 @@ Szczegółowe informacje, z prawej strony punktu interesujących wzorców w zest
 
 [Więcej informacji na temat narzędzia użytkownikami, sesjami i zdarzenia](app-insights-usage-segmentation.md)  
 
-## <a name="page-views"></a>Liczba wyświetleń strony
+## <a name="page-views"></a>Wyświetlenia strony
 
 W bloku użycia kliknij za pośrednictwem kafelkiem wyświetleń strony, aby uzyskać podział najpopularniejszych stron:
 
@@ -110,7 +110,7 @@ Zdarzenia mogą być rejestrowane po stronie klienta aplikacji:
 
 Lub po stronie serwera:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ W portalu usługi Application Insights filtrowania i podziału danych w wartośc
 
 Aby to zrobić, [Konfigurowanie inicjatora telemetrii](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Aby to zrobić, [Konfigurowanie inicjatora telemetrii](app-insights-api-filterin
 
 W inicjatorze aplikacji sieci web, takich jak Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -168,7 +168,7 @@ W inicjatorze aplikacji sieci web, takich jak Global.asax.cs:
 
 Wszystkie nowe TelemetryClients automatycznie dodają podaną wartość właściwości. Zdarzenia telemetrii poszczególnych można zastąpić wartości domyślne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
    - [Użytkownicy, sesje, zdarzenia](app-insights-usage-segmentation.md)
    - [Lejki](usage-funnels.md)
    - [Przechowywanie](app-insights-usage-retention.md)

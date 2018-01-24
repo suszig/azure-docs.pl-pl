@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Przenieść dane z bazy danych DB2 za pomocą działania kopiowania fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,14 +82,14 @@ W poniższej tabeli wymieniono właściwości JSON, które są specyficzne dla u
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| **Typ** |Ta właściwość musi mieć ustawioną **OnPremisesDb2**. |Tak |
-| **Serwer** |Nazwa serwera bazy danych DB2. |Tak |
-| **bazy danych** |Nazwa bazy danych DB2. |Tak |
-| **Schemat** |Nazwa schematu bazy danych DB2. Ta właściwość jest rozróżniana wielkość liter. |Nie |
-| **Typ authenticationType** |Typ uwierzytelniania używany do łączenia z bazą danych DB2. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Tak |
+| **Typ** |Ta właściwość musi mieć ustawioną **OnPremisesDb2**. |Yes |
+| **server** |Nazwa serwera bazy danych DB2. |Yes |
+| **bazy danych** |Nazwa bazy danych DB2. |Yes |
+| **schema** |Nazwa schematu bazy danych DB2. Ta właściwość jest rozróżniana wielkość liter. |Nie |
+| **authenticationType** |Typ uwierzytelniania używany do łączenia z bazą danych DB2. Możliwe wartości to: anonimowe, podstawowe i systemu Windows. |Yes |
 | **Nazwa użytkownika** |Nazwa konta użytkownika, jeśli korzystasz z uwierzytelniania podstawowego lub systemu Windows. |Nie |
 | **hasło** |Hasło dla konta użytkownika. |Nie |
-| **gatewayName** |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych DB2. |Tak |
+| **gatewayName** |Nazwa bramy, która powinna być używana przez usługi fabryka danych nawiązać połączenia z lokalną bazą danych DB2. |Yes |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Listę sekcje i właściwości, które są dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje, takich jak **struktury**, **dostępności**i **zasad** dla zestawu danych JSON, są podobne dla wszystkich typów zestawu danych (Azure SQL, magazyn obiektów Blob platformy Azure, Magazyn tabel Azure itd.).
@@ -191,7 +191,7 @@ Próbka przyjęto założenie, że utworzono tabelę w bazie danych DB2 o nazwie
 }
 ```
 
-**Azure Blob wyjściowy zestaw danych**
+**Wyjściowy zestaw danych obiektów blob platformy Azure**
 
 Dane są zapisywane do nowego obiektu blob co godzinę, ustawiając **częstotliwość** dla właściwości "Godzina" i **interwał** właściwości na wartość 1. **FolderPath** właściwości dla obiektu blob dynamicznie jest obliczane na podstawie czasu rozpoczęcia wycinek, który jest przetwarzana. Ścieżka folderu używa rok, miesiąc, dzień i godzinę części czas rozpoczęcia.
 
@@ -312,42 +312,42 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | SmallInt |Int16 |
 | Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Real |Pojedynczy |
-| O podwójnej precyzji |O podwójnej precyzji |
-| Float |O podwójnej precyzji |
+| Real |Kawaler/panna |
+| Podwójnej precyzji |Podwójnej precyzji |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeryczne |Decimal |
-| Date |Data i godzina |
-| Time |Zakres czasu |
-| Znacznik czasu |Data i godzina |
-| XML |Byte] |
+| Date |Data/godzina |
+| Time |TimeSpan |
+| Sygnatura czasowa |Data/godzina |
+| Xml |Byte[] |
 | char |Ciąg |
 | VarChar |Ciąg |
 | LongVarChar |Ciąg |
 | DB2DynArray |Ciąg |
-| Binarne |Byte] |
-| VarBinary |Byte] |
-| LongVarBinary |Byte] |
+| Binarny |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
 | Grafika |Ciąg |
 | VarGraphic |Ciąg |
 | LongVarGraphic |Ciąg |
 | CLOB |Ciąg |
-| Obiekt blob |Byte] |
+| Obiekt blob |Byte[] |
 | DbClob |Ciąg |
 | SmallInt |Int16 |
 | Liczba całkowita |Int32 |
 | BigInt |Int64 |
-| Real |Pojedynczy |
-| O podwójnej precyzji |O podwójnej precyzji |
-| Float |O podwójnej precyzji |
+| Real |Kawaler/panna |
+| Podwójnej precyzji |Podwójnej precyzji |
+| Liczba zmiennoprzecinkowa |Podwójnej precyzji |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeryczne |Decimal |
-| Date |Data i godzina |
-| Time |Zakres czasu |
-| Znacznik czasu |Data i godzina |
-| XML |Byte] |
+| Date |Data/godzina |
+| Time |TimeSpan |
+| Sygnatura czasowa |Data/godzina |
+| Xml |Byte[] |
 | char |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Obiekt sink kolumn mapy źródła

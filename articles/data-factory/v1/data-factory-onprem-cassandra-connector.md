@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Przenoszenia danych z Cassandra lokalną bazą danych przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,13 +67,13 @@ Poniższa tabela zawiera opis specyficzne dla usługi Cassandra połączone elem
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OnPremisesCassandra** |Tak |
-| Host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/><br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OnPremisesCassandra** |Yes |
+| host |Jeden lub więcej adresów IP lub nazw hostów serwerów Cassandra.<br/><br/>Określ rozdzielaną przecinkami listę adresów IP lub nazw hostów, aby nawiązać połączenie wszystkie serwery jednocześnie. |Yes |
 | port |Port TCP używany przez serwer Cassandra nasłuchiwanie dla połączeń klienta. |Nie, wartość domyślna: 9042 |
-| Typ authenticationType |Podstawowa lub anonimowe |Tak |
+| authenticationType |Podstawowa lub anonimowe |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
 | hasło |Określ hasło dla konta użytkownika. |Tak, jeśli authenticationType ustawiany jest podstawowy. |
-| gatewayName |Nazwa bramy, która służy do łączenia z bazą danych Cassandra lokalnymi. |Tak |
+| gatewayName |Nazwa bramy, która służy do łączenia z bazą danych Cassandra lokalnymi. |Yes |
 | encryptedCredential |Poświadczenie szyfrowane przez bramę. |Nie |
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
@@ -262,17 +262,17 @@ Zobacz [właściwości typu RelationalSource](#copy-activity-properties) listę 
 | --- | --- |
 | ASCII |Ciąg |
 | BIGINT |Int64 |
-| OBIEKT BLOB |Byte] |
+| BLOB |Byte[] |
 | WARTOŚĆ LOGICZNA |Wartość logiczna |
 | DECIMAL |Decimal |
-| O PODWÓJNEJ PRECYZJI |O podwójnej precyzji |
-| FLOAT |Pojedynczy |
+| O PODWÓJNEJ PRECYZJI |Podwójnej precyzji |
+| FLOAT |Kawaler/panna |
 | INET |Ciąg |
 | INT |Int32 |
 | TEKST |Ciąg |
-| ZNACZNIK CZASU |Data i godzina |
+| ZNACZNIK CZASU |Data/godzina |
 | TIMEUUID |Identyfikator GUID |
-| IDENTYFIKATOR UUID |Identyfikator GUID |
+| UUID |Identyfikator GUID |
 | VARCHAR |Ciąg |
 | VARINT |Decimal |
 
@@ -300,8 +300,8 @@ Na przykład następujące "ExampleTable" jest Cassandra tabeli bazy danych, kt�
 
 | pk_int | Wartość | List | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"Przykładowa wartość 1" |["1", "2", "3"] |{"S1": "", "S2": "b"} |{"", "B", "C"} |
-| 3 |"przykład value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"", "E"} |
+| 1 |"Przykładowa wartość 1" |["1", "2", "3"] |{"S1": "", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"przykład value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Sterownik przetwarzający generuje wiele tabel wirtualnego do reprezentowania tej pojedynczej tabeli. Kolumny klucza obcego w tabeli wirtualnej odwołania kolumn klucza podstawowego w tabeli rzeczywistych i wskazać, który odpowiada wiersz tabeli wirtualnej wiersz tabeli prawdziwe.
 
@@ -329,8 +329,8 @@ W poniższych tabelach przedstawiono wirtualnego tabel, które renormalize danyc
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tabela "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Zestawy danych i usług połączonych w fabryce danych Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ W tym artykule opisano, jakie zestawy danych są, jak są definiowane w formacie
 
 Jeśli jesteś nowym użytkownikiem usługi fabryka danych, zobacz [wprowadzenie do fabryki danych Azure](introduction.md) omówienie. 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Fabryka danych może obejmować jeden lub wiele potoków. A **potoku** to logiczne grupowanie **działania** który razem wykonania zadania. Działania w potoku definiują akcje do wykonania na danych. Na przykład można użyć działania kopiowania można skopiować danych z lokalnego serwera SQL do magazynu obiektów Blob Azure. Następnie należy użyć działania Hive, które uruchamia skrypt Hive w klastrze usługi HDInsight Azure do przetwarzania danych z magazynu obiektów Blob wygenerowało danych wyjściowych. Ponadto można użyć drugiej działanie kopiowania można skopiować danych wyjściowych do usługi Azure SQL Data Warehouse, na które raportowania są wbudowane rozwiązania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działania, zobacz [potoków i działania](concepts-pipelines-activities.md) w fabryce danych Azure.
 
 Teraz **dataset** jest nazwane widoku danych, która po prostu punktów lub odwołuje się do danych mają być używane w sieci **działania** jako danych wejściowych i wyjściowych. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Blob Storage, z których działanie ma odczytywać dane.
@@ -67,9 +67,9 @@ W poniższej tabeli opisano właściwości w powyższym JSON:
 
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa połączonej usługi. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Tak |
-type | Typ połączonej usługi. Na przykład: AzureStorage (magazyn danych) lub AzureBatch (obliczeniowe). Zobacz opis typeProperties. | Tak |
-typeProperties | Właściwości typu są różne dla każdego magazynu danych lub obliczeniowe. <br/><br/> Obsługiwane dane można przechowywać w typów i ich właściwości typu, zobacz [typ zestawu](#dataset-type) tabeli w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu określonego w magazynie danych. <br/><br/> Dla typów obliczeń obsługiwane i ich właściwości typu, zobacz [obliczeniowe połączonych usług](compute-linked-services.md). | Tak |
+name | Nazwa połączonej usługi. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Yes |
+type | Typ połączonej usługi. Na przykład: AzureStorage (magazyn danych) lub AzureBatch (obliczeniowe). Zobacz opis typeProperties. | Yes |
+typeProperties | Właściwości typu są różne dla każdego magazynu danych lub obliczeniowe. <br/><br/> Obsługiwane dane można przechowywać w typów i ich właściwości typu, zobacz [typ zestawu](#dataset-type) tabeli w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu określonego w magazynie danych. <br/><br/> Dla typów obliczeń obsługiwane i ich właściwości typu, zobacz [obliczeniowe połączonych usług](compute-linked-services.md). | Yes |
 connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. (Jeśli w magazynie danych znajduje się w sieci prywatnej), można użyć środowiska uruchomieniowego integracji Azure lub Self-hosted integracji w czasie wykonywania. Jeśli nie zostanie określony, używa domyślnej środowiska uruchomieniowego integracji Azure. | Nie
 
 ## <a name="linked-service-example"></a>Przykład połączonej usługi
@@ -124,10 +124,10 @@ W poniższej tabeli opisano właściwości w powyższym JSON:
 
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa zestawu danych. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Tak |
-type | Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawu danych typów](#dataset-types). | Tak |
+name | Nazwa zestawu danych. Zobacz [fabryki danych Azure - reguły nazewnictwa](naming-rules.md). |  Yes |
+type | Typ zestawu danych. Określ jeden z typów obsługiwanych przez fabrykę danych (na przykład: AzureBlob, AzureSqlTable). <br/><br/>Aby uzyskać więcej informacji, zobacz [zestawu danych typów](#dataset-types). | Yes |
 Struktura | Schemat zestawu danych. Aby uzyskać więcej informacji, zobacz [struktury zestawu danych](#dataset-structure). | Nie |
-typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#dataset-type). | Tak |
+typeProperties | Właściwości typu są różne dla każdego typu (na przykład: obiektów Blob platformy Azure, tabeli Azure SQL). Aby uzyskać szczegółowe informacje o obsługiwanych typów i ich właściwości, zobacz [typ zestawu](#dataset-type). | Yes |
 
 ## <a name="dataset-example"></a>Przykład zestawu danych
 W poniższym przykładzie zestawu danych reprezentuje tabeli o nazwie MyTable w bazie danych SQL.
@@ -198,7 +198,7 @@ Każda kolumna w strukturze zawiera następujące właściwości:
 
 Właściwość | Opis | Wymagane
 -------- | ----------- | --------
-name | Nazwa kolumny. | Tak
+name | Nazwa kolumny. | Yes
 type | Typ danych kolumny. | Nie
 Kultury | . Kulturę opartą na sieci do użycia, gdy typem jest typ architektury .NET: `Datetime` lub `Datetimeoffset`. Wartość domyślna to `en-us`. | Nie
 Format | Ciąg do użycia, gdy typem jest typ architektury .NET formatu: `Datetime` lub `Datetimeoffset`. | Nie
@@ -221,7 +221,7 @@ Poniżej przedstawiono niektóre różnice między fabryki danych v1 i v2 zestaw
 - Właściwości zasad i dostępności nie są obsługiwane w wersji 2. Czas rozpoczęcia dla potoku jest zależna od [wyzwalaczy](concepts-pipeline-execution-triggers.md).
 - Zakresami zestawów danych (zestawy danych zdefiniowany w potoku) nie są obsługiwane w wersji 2. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz samouczek następujące instrukcje krok po kroku do tworzenia potoki i zestawów danych przy użyciu jednej z tych narzędzi i zestawy SDK. 
 
 - [Quickstart: create a data factory using .NET (Szybki start: tworzenie fabryki danych przy użyciu platformy .NET)](quickstart-create-data-factory-dot-net.md)

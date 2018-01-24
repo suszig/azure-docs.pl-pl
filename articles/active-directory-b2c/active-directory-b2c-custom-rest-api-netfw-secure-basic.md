@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Zabezpieczanie usług RESTful przy użyciu uwierzytelniania podstawowego HTTP
 W [powiązanego artykułu usługi Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), tworzenia usługi RESTful (interfejs API sieci web), która integruje się z usługi Azure Active Directory B2C podróże użytkownika (Azure AD B2C) bez uwierzytelniania. 
@@ -76,7 +76,7 @@ Dodaj `ClientAuthMiddleware.cs` klasy w obszarze *App_Start* folderu. W tym celu
 
 3. Otwórz *App_Start\ClientAuthMiddleware.cs* plików i Zastąp plik zawartości z następującym kodem:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Dodaj klasę początkową OWIN o nazwie `Startup.cs` do interfejsu API. W tym ce
 
 2. Otwórz *Startup.cs* plików i Zastąp plik zawartości z następującym kodem:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     
@@ -342,6 +342,6 @@ Po zabezpieczeniu według Identyfikatora klienta (nazwa użytkownika) i klucz ta
 * Po ukończeniu [wprowadzenie do zasad niestandardowych](active-directory-b2c-get-started-custom.md) wskazówki, zaleca się tworzenia scenariusz przy użyciu plików zasady niestandardowe. Użytkownikowi, firma Microsoft umieściła [przykładowe pliki zasad](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * Możesz pobrać pełną kod z [przykładowe rozwiązanie Visual Studio dla odwołania](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Aby zabezpieczyć interfejs API RESTful wykorzystuje się certyfikaty klienta](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 

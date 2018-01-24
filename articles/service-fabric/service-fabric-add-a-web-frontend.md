@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Tworzenie frontonu sieci web usługi aplikacji przy użyciu platformy ASP.NET Core
 Domyślnie usługi sieć szkieletowa usług Azure nie udostępniają interfejs publiczny w sieci Web. Udostępniać aplikacji funkcje do klientów protokołu HTTP, należy utworzyć projekt sieci web do działania jako punkt wejścia, a następnie komunikować się z niego do poszczególnych usług.
@@ -91,7 +91,7 @@ Zacznijmy od utworzenia interfejsu, który ma działać jako kontraktu między u
 
 4. W bibliotece klas programu utworzenie interfejsu z jedną metodę `GetCountAsync`, i rozszerzenie interfejsu z `Microsoft.ServiceFabric.Services.Remoting.IService`. Interfejsu usług zdalnych musi pochodzić od tego interfejsu, aby wskazać, że interfejs Service Remoting.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Teraz, gdy zdefiniowaniu interfejsu, należy ją wdrożyć w usłudze stanowych.
     ![Dodawanie odwołania do projektu biblioteki klas w usługi stanowej][vs-add-class-library-reference]
 2. Zlokalizuj klasy, która dziedziczy `StatefulService`, takich jak `MyStatefulService`, i rozszerzyć ją do zaimplementowania `ICounter` interfejsu.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Teraz, gdy zdefiniowaniu interfejsu, należy ją wdrożyć w usłudze stanowych.
     ```
 3. Teraz wdrożyć pojedynczej metody, która jest zdefiniowana w `ICounter` interfejsu `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ W takim przypadku możemy zastąpić istniejącą `CreateServiceReplicaListeners
 
 `CreateServiceRemotingListener` — Metoda rozszerzenia na `IService` interfejs umożliwia łatwe tworzenie `ServiceRemotingListener` przy użyciu wszystkich ustawień domyślnych. Aby użyć tej metody rozszerzenia, upewnij się, masz `Microsoft.ServiceFabric.Services.Remoting.Runtime` zaimportowane przestrzeni nazw. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Nasza usługa stanowa jest teraz gotowa do odbioru ruchu z innych usług za poś
 
 4. W **kontrolerów** folder, otwórz `ValuesController` klasy. Należy pamiętać, że `Get` metoda obecnie tylko zwraca tablicę ustalony ciąg "wartość1" i "wartość2"--odpowiadającego widzieliśmy wcześniej w przeglądarce. Ta implementacja Zastąp następujący kod:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
@@ -223,7 +223,7 @@ Z kolei po uruchomieniu usługi sieci web lokalnie, musisz upewnij się, że tyl
 
 Aby dowiedzieć się, jak skonfigurować różne wartości dla innego środowiska, zobacz [Zarządzanie parametry aplikacji dla wielu środowiskach](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy masz z przodu web przechodzili zestaw aplikacji z platformy ASP.NET Core, Dowiedz się więcej o [platformy ASP.NET Core w usługach niezawodnej usługi sieć szkieletowa](service-fabric-reliable-services-communication-aspnetcore.md) dla dobrej znajomości sposobu platformy ASP.NET Core współpracuje z sieci szkieletowej usług.
 
 Następnie [Dowiedz się więcej o komunikacji z usługami](service-fabric-connect-and-communicate-with-services.md) ogólnie uzyskanie pełnego obrazu z jak usługi komunikacji działa w sieci szkieletowej usług.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-session-management--articles"></a>Ramka zabezpieczeń: Zarządzanie sesjami | Artykuły 
 | Produktów i usług | Artykuł |
@@ -33,23 +33,23 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="logout-adal"></a>Implementuje prawidłowego wylogowania przy użyciu metod ADAL w przypadku korzystania z usługi Azure AD
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Azure AD | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Jeśli aplikacja opiera się na token dostępu wystawiony przez usługę Azure AD, powinny wywoływać wylogowania programu obsługi zdarzeń |
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
 
 ### <a name="example"></a>Przykład
 Należy także zniszczyć sesji użytkownika, wywołując metodę Session.Abandon(). Następujące metody przedstawia bezpiecznej implementacji wylogowania użytkownika:
-```C#
+```csharp
     [HttpPost]
         [ValidateAntiForgeryToken]
         public void LogOff()
@@ -68,39 +68,39 @@ Należy także zniszczyć sesji użytkownika, wywołując metodę Session.Abando
 
 ## <a id="finite-tokens"></a>Użyj ograniczone okresy istnienia generowanych tokenach SaS
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Urządzenia IoT | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Tokeny sygnatury dostępu współdzielonego wygenerowane do uwierzytelniania w usłudze Azure IoT Hub powinny mieć okresu wygaśnięcia. Zachowaj okresy istnienia tokenu sygnatury dostępu współdzielonego do minimum, aby ograniczyć ilość czasu, który może być odtwarzany w przypadku naruszenia zabezpieczeń tokeny.|
 
 ## <a id="resource-tokens"></a>Minimalny okres istnienia tokenu na użytek generowanych tokenach zasobów
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Dokumentów w usłudze Azure DB | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Zmniejsz zakres czasu tokenu zasobów minimalną wartość wymaganą. Tokeny zasobów ma prawidłowy obiekt timespan domyślnej 1 godz.|
 
 ## <a id="wsfederation-logout"></a>Implementuje prawidłowego wylogowania przy użyciu metod WsFederation, korzystając z usług AD FS
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | ADFS | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Jeśli aplikacja używa tokenu Zabezpieczającego wydane przez usługi AD FS, program obsługi zdarzeń wylogowania powinien wywoływać metodę WSFederationAuthenticationModule.FederatedSignOut() się wylogować użytkownika. Również zostać zniszczone w bieżącej sesji, a wartość tokenu sesji należy zresetować i zniweczone.|
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
         [HttpPost, ValidateAntiForgeryToken]
         [Authorization]
         public ActionResult SignOut(string redirectUrl)
@@ -139,18 +139,18 @@ Należy także zniszczyć sesji użytkownika, wywołując metodę Session.Abando
 
 ## <a id="proper-logout"></a>Implementuje prawidłowego wylogowania przy użyciu tożsamości serwera
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Tożsamości serwera | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Federacyjna IdentityServer3 wylogowaniu](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
 | **Kroki** | IdentityServer obsługuje możliwości utworzenia federacji z dostawców tożsamości zewnętrznych. Gdy użytkownik zaloguje się poza dostawcy tożsamości nadrzędnego, w zależności od używanego protokołu, może być możliwe otrzymywać powiadomienia po wylogowaniu się użytkownika. Umożliwia on IdentityServer do powiadamiania klientów, ich można również wylogowanie użytkownika. Zapoznaj się z dokumentacją w sekcji odwołań dla szczegóły implementacji.|
 
 ## <a id="https-secure-cookies"></a>Aplikacje dostępne za pośrednictwem protokołu HTTPS muszą używać bezpiecznych plików cookie
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
@@ -160,7 +160,7 @@ Należy także zniszczyć sesji użytkownika, wywołując metodę Session.Abando
 | **Kroki** | Pliki cookie są zwykle dostępne jedynie do domeny, dla którego zostały zakres. Niestety definicji "domeny" nie zawierają protokołu, dlatego plików cookie, które są tworzone przy użyciu protokołu HTTPS są dostępne za pośrednictwem protokołu HTTP. W przeglądarce atrybutu "secure" wskazuje, czy plik cookie powinien tylko udostępniane za pośrednictwem protokołu HTTPS. Upewnij się, że wszystkie pliki cookie ustawione za pośrednictwem protokołu HTTPS, użyj **bezpiecznego** atrybutu. To wymaganie można wymusić w pliku web.config przez ustawienie atrybutu parametru requireSSL na wartość true. Jest to preferowane rozwiązanie, ponieważ wymuszają **bezpiecznego** atrybutu dla wszystkich plików cookie obecne i przyszłe bez konieczności zmiany dodatkowy kod.|
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -169,17 +169,17 @@ Należy także zniszczyć sesji użytkownika, wywołując metodę Session.Abando
 ```
 Ustawienia zaczynają obowiązywać nawet wtedy, gdy HTTP jest używany do uzyskania dostępu do aplikacji. Jeśli HTTP jest używany do uzyskania dostępu do aplikacji, ustawienia dzieli aplikacji, ponieważ pliki cookie są konfigurowane przy użyciu atrybutu secure i przeglądarka nie będzie wysyłać je do aplikacji.
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
-| **Zastosowanie technologii** | Formularze sieci Web, MVC5 |
+| **Zastosowanie technologii** | Web Forms, MVC5 |
 | **Atrybuty**              | EnvironmentType - lokalnego programu |
-| **Odwołania**              | Nie dotyczy  |
+| **Odwołania**              | ND  |
 | **Kroki** | Gdy aplikacja sieci web jest uzależniona oraz rozszerzeniu IdP serwera usług AD FS, atrybut bezpiecznego tokenu FedAuth można skonfigurować przez ustawienie parametru requireSSL na wartość True w `system.identityModel.services` sekcji w pliku Web.config:|
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -191,12 +191,12 @@ Ustawienia zaczynają obowiązywać nawet wtedy, gdy HTTP jest używany do uzysk
 
 ## <a id="cookie-definition"></a>Wszystkie aplikacji oparty na protokole http należy określić http tylko dla definicji pliku cookie
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Atrybut bezpiecznego pliku Cookie](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
 | **Kroki** | Aby zmniejszyć ryzyko ujawnienia informacji z atak skryptów między witrynami (XSS), nowy atrybut — httpOnly - wprowadzono w celu pliki cookie i jest obsługiwana przez wszystkie główne przeglądarki. Ten atrybut określa, czy plik cookie nie jest dostępny za pośrednictwem skryptu. Za pomocą plików cookie HttpOnly, aplikacji sieci web zmniejsza prawdopodobieństwo poufne dane zawarte w pliku cookie może być kradzieży za pomocą skryptu i wysyłany do witryny internetowej osoby atakującej. |
 
@@ -212,12 +212,12 @@ Wszystkie aplikacje oparte na protokole HTTP, które używają plików cookie na
 </system.web>
 ```
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Formularze sieci Web |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Właściwość FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 | **Kroki** | Wartość parametru RequireSSL właściwości jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu parametru requireSSL elementu konfiguracji. Można określić w pliku Web.config dla aplikacji ASP.NET czy SSL (Secure Sockets Layer) jest wymagany do zwrócenia pliku cookie uwierzytelniania formularzy do serwera przez ustawienie atrybutu parametru requireSSL.|
 
@@ -229,7 +229,7 @@ Poniższy przykład kodu ustawia atrybut parametru requireSSL w pliku Web.config
 </authentication>
 ```
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
@@ -254,26 +254,26 @@ Następująca konfiguracja zawiera prawidłowej konfiguracji:
 
 ## <a id="csrf-asp"></a>Ograniczenia przed atakami sfałszowaniem żądań Cross-Site (CSRF) na stronach sieci web ASP.NET
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Fałszowanie żądań między witrynami (CSRF lub XSRF) jest typem ataku, w którym atakujący może wykonywać akcje w kontekście zabezpieczeń ustanowienie sesji innego użytkownika w witrynie sieci web. Celem jest modyfikowania lub usuwania zawartości, jeśli docelowa witryna sieci web opiera się wyłącznie na pliki cookie z sesji do odebrane żądanie uwierzytelnienia. Osoba atakująca może wykorzystać tę lukę w zabezpieczeniach, pobierając przeglądarki innego użytkownika, aby załadować adresu URL za pomocą polecenia z lokacji narażony, na którym użytkownik jest już zalogowany. Istnieje wiele sposobów, atakujący może to zrobić, takich jak inna witryna sieci web, ładowaną zasobu na serwerze narażony, lub pobierania użytkownika, kliknięcie łącza. Ataków można zapobiec, jeśli serwer wysyła dodatkowe token do klienta, wymaga od klienta do dołączenia token wszystkich przyszłych żądań i sprawdza, czy wszystkich przyszłych żądań zawierać token, który odnoszą się do bieżącej sesji, takie jak przy użyciu platformy ASP.NET AntiForgeryToken lub ViewState. |
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | MVC5, MVC6 |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Zapobieganie XSRF/CSRF w platformie ASP.NET MVC i stron sieci Web](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Kroki** | Użyj Anti-CSRF i formularzy platformy ASP.NET MVC — `AntiForgeryToken` metody pomocniczej w widokach; ujmij `Html.AntiForgeryToken()` w formularzu, na przykład|
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -281,7 +281,7 @@ Następująca konfiguracja zawiera prawidłowej konfiguracji:
 ```
 
 ### <a name="example"></a>Przykład
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -304,7 +304,7 @@ Filtr autoryzacji, która sprawdza, czy:
 
 ### <a name="example"></a>Przykład
 Anti-CSRF i AJAX: tokenu formularza może to stanowić problem dla żądania AJAX, ponieważ żądanie AJAX może wysyłać dane JSON, a nie dane formularza HTML. Rozwiązanie polega na wysyłanie tokenów w niestandardowy nagłówek HTTP. Poniższy kod używa składni Razor do generowania tokenów, a następnie dodaje tokenów na żądanie AJAX. 
-```C#
+```csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -329,7 +329,7 @@ Anti-CSRF i AJAX: tokenu formularza może to stanowić problem dla żądania AJA
 
 ### <a name="example"></a>Przykład
 Podczas przetwarzania żądania, Wyodrębnij tokenów w nagłówku żądania. Następnie wywołaj metodę AntiForgery.Validate do weryfikacji tokenów. Metoda weryfikacji zgłasza wyjątek, jeśli tokenów nie są prawidłowe.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -349,18 +349,18 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Formularze sieci Web |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Korzystać z funkcji wbudowanych ASP.NET w celu zapobieżenia poza atakami z sieci Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
 | **Kroki** | Ataki CSRF w aplikacjach na podstawie formularza sieci Web można zminimalizować przez ustawienie ViewStateUserKey losowy ciąg, który jest różny dla każdego użytkownika — identyfikator użytkownika lub jeszcze lepiej identyfikator sesji. Istnieje wiele możliwych przyczyn technicznych i społecznościowych identyfikator sesji jest znacznie lepszym rozwiązaniem, ponieważ identyfikator jest nieoczekiwane, sesji upłynie limit czasu i zmienia się na poszczególnych użytkowników.|
 
 ### <a name="example"></a>Przykład
 Oto kod, który musi być w wszystkie strony:
-```C#
+```csharp
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
    :
@@ -369,13 +369,13 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Konfigurowanie sesji dla okresu istnienia aktywności
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | [Właściwość HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
 | **Kroki** | Limit czasu sesji reprezentuje zdarzenie występuje, gdy użytkownik nie wykonywania dowolnych akcji w witrynie sieci web dla interwału (zdefiniowane przez serwer sieci web). Zdarzenia po stronie serwera, Zmień stan sesji użytkownika do "nieprawidłowe" (na przykład "nie już używać") i serwer sieci web do zniszczenia (usunięcie wszystkich danych znajdujących się w niej). Poniższy przykład kodu ustawia atrybut limitu czasu sesji do 15 minut, w pliku Web.config.|
 
 ### <a name="example"></a>Przykład
@@ -385,12 +385,12 @@ void Page_Init (object sender, EventArgs e) {
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
 ```
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Formularze sieci Web |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Tworzy Element uwierzytelniania (schemat ustawień programu ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Kroki** | Ustaw limit czasu plików cookie biletu uwierzytelniania formularzy do 15 minut|
 
@@ -428,38 +428,38 @@ void Page_Init (object sender, EventArgs e) {
 
 ### <a name="example"></a>Przykład
 Również usług AD FS wystawiony SAML oświadczeń okres istnienia tokenu powinien być ustawiony na 15 minut, wykonując następujące polecenia programu powershell na serwerze usług AD FS:
-```C#
+```csharp
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implementuje prawidłowego wylogowania z aplikacji
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Aplikacja sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Wykonaj odpowiednie Wyloguj z aplikacji, gdy użytkownik naciśnie Wyloguj się przycisk. Podczas wylogowania aplikacji należy zniszczyć sesji użytkownika, resetowanie oraz zniesienia wartość pliku cookie sesji, oraz resetowanie i rozpoczynającą wartość pliku cookie uwierzytelniania. Ponadto jeśli wiele sesji są powiązane z tożsamością pojedynczego użytkownika, one musi być zbiorczo zakończona po stronie serwera na limitu czasu lub Wyloguj. Ponadto upewnij się, że wylogowania funkcje są dostępne na każdej stronie. |
 
 ## <a id="csrf-api"></a>Ograniczenia przed atakami sfałszowaniem żądań Cross-Site (CSRF) na interfejsów API sieci Web ASP.NET
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Interfejs API sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | Ogólny |
-| **Atrybuty**              | Nie dotyczy  |
-| **Odwołania**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
+| **Odwołania**              | ND  |
 | **Kroki** | Fałszowanie żądań między witrynami (CSRF lub XSRF) jest typem ataku, w którym atakujący może wykonywać akcje w kontekście zabezpieczeń ustanowienie sesji innego użytkownika w witrynie sieci web. Celem jest modyfikowania lub usuwania zawartości, jeśli docelowa witryna sieci web opiera się wyłącznie na pliki cookie z sesji do odebrane żądanie uwierzytelnienia. Osoba atakująca może wykorzystać tę lukę w zabezpieczeniach, pobierając przeglądarki innego użytkownika, aby załadować adresu URL za pomocą polecenia z lokacji narażony, na którym użytkownik jest już zalogowany. Istnieje wiele sposobów, atakujący może to zrobić, takich jak inna witryna sieci web, ładowaną zasobu na serwerze narażony, lub pobierania użytkownika, kliknięcie łącza. Ataków można zapobiec, jeśli serwer wysyła dodatkowe token do klienta, wymaga od klienta do dołączenia token wszystkich przyszłych żądań i sprawdza, czy wszystkich przyszłych żądań zawierać token, który odnoszą się do bieżącej sesji, takie jak przy użyciu platformy ASP.NET AntiForgeryToken lub ViewState. |
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Interfejs API sieci Web | 
 | **Faza SDL**               | Kompilacja |  
 | **Zastosowanie technologii** | MVC5, MVC6 |
-| **Atrybuty**              | Nie dotyczy  |
+| **Atrybuty**              | ND  |
 | **Odwołania**              | [Zapobieganie Cross-Site (CSRF) Fałszerstwie żądania w składniku ASP.NET Web API](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
 | **Kroki** | Anti-CSRF i AJAX: tokenu formularza może to stanowić problem dla żądania AJAX, ponieważ żądanie AJAX może wysyłać dane JSON, a nie dane formularza HTML. Rozwiązanie polega na wysyłanie tokenów w niestandardowy nagłówek HTTP. Poniższy kod używa składni Razor do generowania tokenów, a następnie dodaje tokenów na żądanie AJAX. |
 
@@ -488,7 +488,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ### <a name="example"></a>Przykład
 Podczas przetwarzania żądania, Wyodrębnij tokenów w nagłówku żądania. Następnie wywołaj metodę AntiForgery.Validate do weryfikacji tokenów. Metoda weryfikacji zgłasza wyjątek, jeśli tokenów nie są prawidłowe.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -510,7 +510,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Przykład
 Anti-CSRF i formularzy platformy ASP.NET MVC — użyj metody pomocnika AntiForgeryToken widoków; na przykład umieścić Html.AntiForgeryToken() w formularzu
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -520,7 +520,7 @@ Anti-CSRF i formularzy platformy ASP.NET MVC — użyj metody pomocnika AntiForg
 
 ### <a name="example"></a>Przykład
 W powyższym przykładzie dane wyjściowe obejmują postać zbliżoną do następującej:
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -541,7 +541,7 @@ Filtr autoryzacji, która sprawdza, czy:
 * Żądanie przychodzące ma `Request.Form` wpisu o nazwie __RequestVerificationToken
 * Te pliki cookie i `Request.Form` jest dobrze zakładając, że wszystkie wartości są zgodne, żądanie przechodzi przez normalnego. Ale jeśli nie, następnie wystąpił błąd autoryzacji z komunikatem "wymagany token zabezpieczający przed sfałszowaniem nie został podany lub jest nieprawidłowy".
 
-| Tytuł                   | Szczegóły      |
+| Stanowisko                   | Szczegóły      |
 | ----------------------- | ------------ |
 | **Składnik**               | Interfejs API sieci Web | 
 | **Faza SDL**               | Kompilacja |  

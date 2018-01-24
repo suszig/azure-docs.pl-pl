@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Zabezpiecz interfejs API web MVC
 Z usługą Azure Active Directory punktu końcowego v2.0, można chronić przy użyciu interfejsu API sieci Web [OAuth 2.0](active-directory-v2-protocols.md) dostęp do tokenów, umożliwiając użytkownikom z obu osobistego konta Microsoft i służbowego konta do bezpiecznego dostępu do interfejsu API sieci Web.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Dodawanie klasy początkowej OWIN do projektu TodoListService o nazwie `Startup.cs`.  Kliknij prawym przyciskiem projekt myszy--> **Dodaj** --> **nowy element** --> Wyszukaj "OWIN".  Oprogramowanie pośredniczące OWIN wywoła metodę `Configuration(…)` podczas uruchamiania aplikacji.
 * Deklaracja klasy, aby zmienić `public partial class Startup` — już zaimplementowano część tej klasy dla Ciebie w innym pliku.  W `Configuration(…)` metody, utworzyć ConfgureAuth(...) wywołana w celu ustawienia uwierzytelniania dla aplikacji sieci web.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Otwórz plik `App_Start\Startup.Auth.cs` i wdrożenie `ConfigureAuth(…)` metodę, która zostanie skonfigurowany w interfejsie API sieci Web akceptuje tokeny od punktu końcowego v2.0.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Teraz można używać `[Authorize]` atrybutów ochrony kontrolerów i akcji z uwierzytelniania elementu nośnego OAuth 2.0.  Dekoracji `Controllers\TodoListController.cs` klasy z tagiem autoryzacji.  Spowoduje to wymuszenie użytkownika do logowania przed uzyskaniem dostępu do tej strony.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Gdy Autoryzowany rozmówca pomyślnie wywołuje jeden z `TodoListController` interfejsów API, działania mogą wymagać dostępu do informacji o elemencie wywołującym.  OWIN zapewnia dostęp do oświadczeń wewnątrz tokenu elementu nośnego za pośrednictwem `ClaimsPrincipal` obiektu.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
@@ -156,7 +156,7 @@ Próbka ukończone (bez wartości konfiguracji) [jest dostarczane jako zip w tym
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz przejść do dodatkowe tematy.  Można spróbować:
 
 [Wywoływanie interfejsu API sieci Web z aplikacji sieci Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funkcje zasobów dla szablonów usługi Azure Resource Manager
 
@@ -27,8 +27,8 @@ Usługa Resource Manager zapewnia następujące funkcje do pobierania wartości 
 * [listKeys i listy {Value}](#listkeys)
 * [dostawców](#providers)
 * [Odwołanie](#reference)
-* [Grupa zasobów](#resourcegroup)
-* [Identyfikator zasobu](#resourceid)
+* [resourceGroup](#resourcegroup)
+* [resourceId](#resourceid)
 * [Subskrypcja](#subscription)
 
 Aby uzyskać wartości z parametrów, zmiennych lub bieżącego wdrożenia, zobacz [wdrożenia wartość funkcji](resource-group-template-functions-deployment.md).
@@ -47,8 +47,8 @@ Zwraca wartości dla dowolnego typu zasobu, który obsługuje operacja listy. Na
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Tak |Ciąg |Unikatowy identyfikator zasobu. |
-| apiVersion |Tak |Ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zazwyczaj w formacie **rrrr mm-dd**. |
+| resourceName lub resourceIdentifier |Yes |ciąg |Unikatowy identyfikator zasobu. |
+| apiVersion |Yes |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zazwyczaj w formacie **rrrr mm-dd**. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -153,8 +153,8 @@ Zwraca informacje o dostawcy zasobów i jego obsługiwane typy zasobów. Jeśli 
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Tak |Ciąg |Namespace dostawcy |
-| Typ zasobu |Nie |Ciąg |Typ zasobu w określonej przestrzeni nazw. |
+| providerNamespace |Yes |ciąg |Namespace dostawcy |
+| resourceType |Nie |ciąg |Typ zasobu w określonej przestrzeni nazw. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -232,7 +232,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="reference" />
 
-## <a name="reference"></a>Odwołanie
+## <a name="reference"></a>odwołanie
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Zwraca obiekt reprezentujący stan czasu wykonywania zasobu.
@@ -241,9 +241,9 @@ Zwraca obiekt reprezentujący stan czasu wykonywania zasobu.
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Tak |Ciąg |Nazwa lub identyfikator zasobu. |
-| apiVersion |Nie |Ciąg |Wersja interfejsu API określonego zasobu. Obejmują tego parametru, gdy zasób nie zostanie zainicjowana w ramach tego samego szablonu. Zazwyczaj w formacie **rrrr mm-dd**. |
-| "Pełny" |Nie |Ciąg |Wartość określająca, czy mają być zwracane obiektu pełne zasobów. Jeśli nie określisz `'Full'`, zwracany jest tylko obiekt właściwości zasobu. Obiekt pełne zawiera wartości, takie jak identyfikator zasobu i lokalizacji. |
+| resourceName lub resourceIdentifier |Yes |ciąg |Nazwa lub identyfikator zasobu. |
+| apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. Obejmują tego parametru, gdy zasób nie zostanie zainicjowana w ramach tego samego szablonu. Zazwyczaj w formacie **rrrr mm-dd**. |
+| 'Full' |Nie |ciąg |Wartość określająca, czy mają być zwracane obiektu pełne zasobów. Jeśli nie określisz `'Full'`, zwracany jest tylko obiekt właściwości zasobu. Obiekt pełne zawiera wartości, takie jak identyfikator zasobu i lokalizacji. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -251,7 +251,7 @@ Każdy typ zasobu zwraca inne właściwości dla funkcji odwołania. Funkcja nie
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja odwołanie pochodzi wartość ze stanu środowiska uruchomieniowego i nie można użyć w sekcji zmiennych. Można go w sekcji danych wyjściowych szablonu. 
+Funkcja odwołanie pochodzi wartość ze stanu środowiska uruchomieniowego i nie można użyć w sekcji zmiennych. Może służyć w sekcji danych wyjściowych szablonu lub [połączonego szablonu](resource-group-linked-templates.md#link-or-nest-a-template). Nie można użyć w sekcji danych wyjściowych [szablon zagnieżdżony](resource-group-linked-templates.md#link-or-nest-a-template). Aby zwrócić wartości dla wdrożonych zasobów w szablonie zagnieżdżonych, przekonwertować szablon zagnieżdżony połączonego szablonu. 
 
 Za pomocą funkcji odwołania, niejawnie deklarowaniu czy jeden zasób jest zależny od innego zasobu, jeśli przywoływany zasób jest udostępniony w ramach tego samego szablonu. Nie trzeba również użyć dependsOn właściwości. Funkcja nie jest oceniany, aż do zakończenia wdrażania żądanego zasobu.
 
@@ -441,7 +441,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>Grupa zasobów
+## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
 
 Zwraca obiekt reprezentujący bieżącej grupie zasobów. 
@@ -534,10 +534,10 @@ Zwraca unikatowy identyfikator zasobu. Aby użyć tej funkcji, jeśli nazwa zaso
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (format identyfikatora GUID w) |Wartość domyślna to bieżącej subskrypcji. Należy podać tę wartość, gdy trzeba pobrać zasobu w innej subskrypcji. |
-| Grupy zasobów o nazwie |Nie |Ciąg |Wartość domyślna to bieżącej grupie zasobów. Należy podać tę wartość, gdy trzeba pobrać zasobu w innej grupie zasobów. |
-| Typ zasobu |Tak |Ciąg |Typ zasobu, włącznie z przestrzenią nazw dostawcy zasobów. |
-| resourceName1 |Tak |Ciąg |Nazwa zasobu. |
-| resourceName2 |Nie |Ciąg |Następny nazwy segmentu zasobu, jeśli zasób jest zagnieżdżony. |
+| resourceGroupName |Nie |ciąg |Wartość domyślna to bieżącej grupie zasobów. Należy podać tę wartość, gdy trzeba pobrać zasobu w innej grupie zasobów. |
+| resourceType |Yes |ciąg |Typ zasobu, włącznie z przestrzenią nazw dostawcy zasobów. |
+| resourceName1 |Yes |ciąg |Nazwa zasobu. |
+| resourceName2 |Nie |ciąg |Następny nazwy segmentu zasobu, jeśli zasób jest zagnieżdżony. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -652,12 +652,12 @@ Następujące [przykładowy szablon](https://github.com/Azure/azure-docs-json-sa
 
 Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi to:
 
-| Nazwa | Typ | Wartość |
+| Name (Nazwa) | Typ | Wartość |
 | ---- | ---- | ----- |
-| sameRGOutput | Ciąg | /Subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Ciąg | /Subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Ciąg | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Ciąg | /Subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/Providers/Microsoft.SQL/Servers/serverName/Databases/databaseName |
+| nestedResourceOutput | Ciąg | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Aby wdrożyć ten przykładowy szablon z wiersza polecenia platformy Azure, należy użyć:
 
@@ -721,7 +721,7 @@ Aby wdrożyć szablon ten przykład przy użyciu programu PowerShell, należy u�
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Opis części szablonu usługi Azure Resource Manager, zobacz [szablonów Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Aby scalić wiele szablonów, zobacz [za pomocą szablonów połączonych z usługą Azure Resource Manager](resource-group-linked-templates.md).
 * Do wykonywania iteracji określoną liczbę razy podczas tworzenia typu zasobu, zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).

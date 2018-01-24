@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Przenoszenie danych z programu SAP Business Warehouse przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ Poniższa tabela zawiera opis specyficzne dla usługi programu SAP Business maga
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-serwer | Nazwa serwera, na którym znajduje się wystąpienie programu SAP BW. | Ciąg | Tak
-systemNumber | Numer systemu systemu SAP BW. | Liczba dziesiętna dwucyfrowe reprezentowany jako ciąg. | Tak
-clientId | Identyfikator klienta w systemie SAP W klienta. | Trzycyfrowa liczba dziesiętna reprezentowany jako ciąg. | Tak
-nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP | Ciąg | Tak
-hasło | Hasło dla użytkownika. | Ciąg | Tak
-gatewayName | Nazwa bramy, która powinna być używana do nawiązania połączenia lokalnego wystąpienia programu SAP BW usługi fabryka danych. | Ciąg | Tak
-encryptedCredential | Ciąg zaszyfrowane poświadczenia. | Ciąg | Nie
+serwer | Nazwa serwera, na którym znajduje się wystąpienie programu SAP BW. | ciąg | Yes
+systemNumber | Numer systemu systemu SAP BW. | Liczba dziesiętna dwucyfrowe reprezentowany jako ciąg. | Yes
+clientId | Identyfikator klienta w systemie SAP W klienta. | Trzycyfrowa liczba dziesiętna reprezentowany jako ciąg. | Yes
+nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP | ciąg | Yes
+hasło | Hasło dla użytkownika. | ciąg | Yes
+gatewayName | Nazwa bramy, która powinna być używana do nawiązania połączenia lokalnego wystąpienia programu SAP BW usługi fabryka danych. | ciąg | Yes
+encryptedCredential | Ciąg zaszyfrowane poświadczenia. | ciąg | Nie
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania zestawów danych, zobacz [Tworzenie zbiorów danych](data-factory-create-datasets.md) artykułu. Sekcje zawierają informacje, takie jak struktury, dostępności i zasad zestawu danych JSON są podobne dla wszystkich typów obiektów dataset (Azure SQL, obiektów blob platformy Azure, Azure tabeli itp.).
@@ -87,7 +87,7 @@ Gdy źródło w przypadku działania kopiowania jest typu **RelationalSource** (
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| query | Określa zapytanie MDX, które można odczytać danych z wystąpienia programu SAP BW. | Zapytania MDX. | Tak |
+| query | Określa zapytanie MDX, które można odczytać danych z wystąpienia programu SAP BW. | Zapytania MDX. | Yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Przykład JSON: kopiowanie danych z programu SAP Business Warehouse do obiektów Blob platformy Azure
@@ -291,25 +291,25 @@ Podczas przenoszenia danych z programu SAP BW, następujące mapowania są używ
 
 Typ danych w słowniku ABAP | Typ danych .net
 -------------------------------- | --------------
-ACCP |  int
+ACCP |  Int
 CHAR | Ciąg
 CLNT | Ciąg
-BI | Decimal
+CURR | Decimal
 CUKY | Ciąg
 DEC | Decimal
-FLTP | O podwójnej precyzji
+FLTP | Podwójnej precyzji
 INT1 | Bajtów
 INT2 | Int16
-INT4 | int
+INT4 | Int
 JĘZYK | Ciąg
 LCHR | Ciąg
-LRAW | Byte]
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-NIEPRZETWORZONE | Byte]
-RAWSTRING | Byte]
+RAW | Byte[]
+RAWSTRING | Byte[]
 CIĄG | Ciąg
-JEDNOSTKI | Ciąg
+JEDNOSTKA | Ciąg
 DATS | Ciąg
 NUMC | Ciąg
 TIMS | Ciąg

@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 4ef8cbf22f2fcd7017af16083240608e5ca0fb5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86a9cf2c1106180ba5c8c65849042784bfd2afcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure przekazywania uwierzytelniania i autoryzacji
 
 Aplikacje mogą uwierzytelniać do przekazywania Azure przy użyciu uwierzytelniania dostępu do sygnatury dostępu Współdzielonego. Uwierzytelniania sygnatury dostępu Współdzielonego umożliwia aplikacjom uwierzytelniania w usłudze Azure przekazywania przy użyciu klawisza dostępu skonfigurowane na przestrzeń nazw przekazywania. Można następnie użyć tego klucza do wygenerowania tokenu sygnatura dostępu współdzielonego, której klienci mogą używać do uwierzytelniania usługi przekazywania.
 
 ## <a name="shared-access-signature-authentication"></a>Uwierzytelniania sygnatury dostępu współużytkowanego
+
 [Uwierzytelniania sygnatury dostępu Współdzielonego](../service-bus-messaging/service-bus-sas.md) umożliwia udzielić użytkownikowi dostępu do zasobów Azure przekazywania przy użyciu określonych praw. Uwierzytelniania sygnatury dostępu Współdzielonego obejmuje konfigurację klucza kryptograficznego ze skojarzonymi prawami do zasobu. Klienci mogą następnie uzyskać dostęp do tego zasobu z uwzględnieniem tokenu sygnatury dostępu Współdzielonego, który składa się z identyfikatora URI uzyskują dostęp do zasobu i wygaśnięcia podpisana za pomocą skonfigurowanego klucza.
 
 Na przestrzeni nazw przekazywania, można skonfigurować klucze dla skojarzeń zabezpieczeń. W przeciwieństwie do komunikatów usługi Service Bus, [połączeń hybrydowych przekazywania](relay-hybrid-connections-protocol.md) obsługuje nadawców nieautoryzowani lub anonimowe. Dostęp anonimowy dla jednostki można włączyć podczas tworzenia, jak pokazano na poniższym ekranie zrzut z portalu:
@@ -44,7 +45,8 @@ Aby uzyskać dostęp do jednostki, klient wymaga tokenu sygnatury dostępu Wspó
 
 Obsługę uwierzytelniania sygnatury dostępu Współdzielonego dla przekazywania Azure jest częścią zestawu Azure .NET SDK w wersji 2.0 lub nowszy. Sygnatury dostępu Współdzielonego zapewnia obsługę [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Wszystkich interfejsów API, które przyjmują ciąg połączenia jako parametr obsługują parametry połączenia SAS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
+
 - Materiały [uwierzytelniania usługi Service Bus za pomocą sygnatury dostępu współdzielonego](../service-bus-messaging/service-bus-sas.md) Aby uzyskać więcej informacji na temat sygnatury dostępu Współdzielonego.
 - Zobacz [przewodnik protokołu połączeń hybrydowych przekazywania Azure](relay-hybrid-connections-protocol.md) szczegółowe informacje dotyczące możliwości połączeń hybrydowych było możliwe.
 - Dla odpowiednich informacji na temat obsługi komunikatów magistrali usług uwierzytelniania i autoryzacji, zobacz [magistrali usług uwierzytelniania i autoryzacji](../service-bus-messaging/service-bus-authentication-and-authorization.md). 

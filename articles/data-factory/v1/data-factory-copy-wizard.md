@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Skopiować lub przenieść dane z Kreatora kopiowania fabryki danych Azure
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [samouczek działania kopiowania w wersji 2 dokumentacji](../quickstart-create-data-factory-dot-net.md). 
+> Ten artykuł dotyczy wersji 1 usługi Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi Data Factory, która jest w wersji zapoznawczej, zapoznaj się z [dokumentacją samouczka działania kopiowania w wersji 2](../quickstart-create-data-factory-dot-net.md). 
 
 
 Kreator kopiowania fabryki danych Azure jest upraszczają proces wprowadzania danych, który zazwyczaj jest to pierwszy krok w scenariuszu integracji danych na całej trasie. Podczas przechodzenia za pomocą Kreatora kopiowania fabryki danych Azure, nie należy zrozumieć żadnych definicji JSON połączonej usługi, zestawy danych i potoki. Jednak po ukończeniu wszystkich czynności kreatora, Kreator automatycznie tworzy potoku można skopiować danych z wybranego źródła danych do wybranej lokalizacji docelowej. Ponadto Kreator kopiowania ułatwia sprawdzania poprawności danych jest pozyskanych w czasie tworzenia, która zapisuje większość czasu, szczególnie gdy użytkownik są pobierania danych po raz pierwszy ze źródła danych. Aby uruchomić Kreatora kopiowania, kliknij przycisk **skopiować dane** kafelka na stronie głównej w fabryce danych.
@@ -92,6 +92,6 @@ Operacja kopiowania jednorazowe umożliwia przenoszenie danych ze źródła do m
 
 ![Planowanie właściwości](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przewodnik szybkiego za pomocą Kreatora kopiowania fabryki danych można utworzyć potoku o aktywności kopiowania, zobacz [samouczek: tworzenie potoku za pomocą Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
 

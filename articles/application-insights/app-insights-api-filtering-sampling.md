@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i przetwarzania wstępnego telemetrii w zestaw SDK usługi Application Insights
 
@@ -48,7 +48,7 @@ Aby filtrować dane telemetryczne, zapisać procesora telemetrii i zarejestrowan
 >
 
 ### <a name="create-a-telemetry-processor-c"></a>Utwórz procesora telemetrii (C#)
-1. Sprawdź, czy zestaw SDK usługi Application Insights w projekcie wersji 2.0.0 lub nowszej. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań w usłudze Visual Studio i wybierz polecenie Zarządzaj pakietami NuGet. W Menedżerze pakietów NuGet Sprawdź Microsoft.ApplicationInsights.Web.
+1. Sprawdź, czy zestaw SDK usługi Application Insights w projekcie wersji 2.0.0 lub nowszej. Kliknij prawym przyciskiem myszy projekt w Eksploratorze rozwiązań w usłudze Visual Studio i wybierz polecenie Zarządzaj pakietami NuGet. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
 2. Aby utworzyć filtr, zaimplementuj ITelemetryProcessor. Jest to inny punkt rozszerzalności, takich jak moduł telemetrii, inicjatora telemetrii i kanału danych telemetrycznych.
 
     Zwróć uwagę, że procesorów Telemetrii utworzyć łańcuch przetwarzania. Można utworzyć wystąpienia procesora telemetrii, należy przekazać łącze do następnej procesora w łańcuchu. Gdy punkt danych telemetrycznych jest przekazywany do metody procesu, nie jego pracy i następnie wywołuje dalej procesora Telemetrii w łańcuchu.
@@ -122,7 +122,7 @@ Można przekazać wartości ciągu z pliku .config, zapewniając publicznej wła
 
 **Alternatywnie** można zainicjować filtru w kodzie. W klasie inicjowania odpowiedniego — na przykład AppStart Global.asax.cs - Wstaw procesora w łańcuchu:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Filtrowanie testów robotów i sieci web. Mimo że Eksploratora metryk umożliwi
 #### <a name="failed-authentication"></a>Uwierzytelnianie nie powiodło się
 Filtrowanie żądań z odpowiedzi "401".
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Jeśli podasz inicjatora telemetrii jest wywoływana po każdej zmianie dowolnej
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -263,7 +263,7 @@ Jeśli podasz inicjatora telemetrii jest wywoływana po każdej zmianie dowolnej
 
 **Ładowanie z inicjatora**
 
-W ApplicationInsights.config:
+In ApplicationInsights.config:
 
     <ApplicationInsights>
       <TelemetryInitializers>
@@ -275,7 +275,7 @@ W ApplicationInsights.config:
 
 *Alternatywnie* można utworzyć wystąpienia inicjatora w kodzie, na przykład w pliku Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...

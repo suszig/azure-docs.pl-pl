@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Skopiuj dane z i do magazynów danych ODBC przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,8 +56,8 @@ Obsługiwane są następujące właściwości dla ODBC połączone usługi:
 |:--- |:--- |:--- |
 | type | Właściwość type musi mieć ustawioną: **Odbc** | Yes |
 | Parametry połączenia | Parametry połączenia, z wyjątkiem części poświadczeń. Można określić parametry połączenia ze wzorcem, takich jak `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, lub użyj systemową nazwę DSN (nazwa źródła danych), należy skonfigurować na komputerze środowiska uruchomieniowego integracji z `"DSN=<name of the DSN on IR machine>;"` (trzeba nadal określać części poświadczeń w połączonej usłudze odpowiednio).| Yes |
-| Typ authenticationType | Typ uwierzytelniania używany do łączenia się z magazynem danych ODBC.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Yes |
-| Nazwa użytkownika | Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. | Nie |
+| authenticationType | Typ uwierzytelniania używany do łączenia się z magazynem danych ODBC.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Yes |
+| userName | Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. | Nie |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. | Nie |
 | poświadczenia | Dostęp do poświadczeń część ciągu połączenia określonego w formacie wartości właściwości sterownika. Przykład: `"RefreshToken=<secret refresh token>;"`. Zaznacz to pole jako SecureString. | Nie |
 | connectVia | [Integrację środowiska uruchomieniowego](concepts-integration-runtime.md) ma być używany do nawiązania połączenia z magazynem danych. Środowisko uruchomieniowe integracji Self-hosted jest wymagana, jak wspomniano w [wymagania wstępne](#prerequisites). |Yes |

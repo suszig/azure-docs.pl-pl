@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ae092308c5d2579a5b513657787ae6dbbfadaf05
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b2cb55bc0c3888fa05b2dd49df10ec157c8bf95e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapowanie kolumny źródłowe zestawu danych do kolumny zestawu danych docelowego
 > [!NOTE]
@@ -180,7 +180,7 @@ W takim przypadku wyniki zapytania najpierw są mapowane na kolumny określone w
 
 ![Mapowanie kolumny przepływu-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Samouczek dotyczący używania działania kopiowania, zobacz artykuł: 
 
 - [Kopiowanie danych z magazynu obiektów Blob do bazy danych SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

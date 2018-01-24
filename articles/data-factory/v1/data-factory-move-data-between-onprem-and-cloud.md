@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między lokalnych źródeł i w chmurze z brama zarządzania danymi
 > [!NOTE]
@@ -142,7 +142,7 @@ W tym kroku, użyj portalu Azure można utworzyć wystąpienia fabryki danych Az
    * Ustaw serwer proxy HTTP do użycia przez bramę.     
 9. (opcjonalnie) Przełącz się do **diagnostyki** karcie wyboru **Włącz pełne rejestrowanie** opcję, jeśli chcesz włączyć pełne rejestrowanie, służącego do rozwiązywania problemów z bramą. Rejestrowanie informacji można znaleźć w **Podgląd zdarzeń** w obszarze **Dzienniki aplikacji i usług** -> **brama zarządzania danymi** węzła.
 
-    ![Karta diagnostyki](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+    ![Karta Diagnostyka](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
     Można również wykonywać następujące czynności w **diagnostyki** karty:
 
@@ -281,7 +281,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
    * **folderPath** ustawiono **adftutorial/outfromonpremdf** gdzie outfromonpremdf to folder, w kontenerze adftutorial. Utwórz **adftutorial** kontener, jeśli jeszcze nie istnieje.
    * Parametr **availability** (dostępność) został ustawiony na wartość **hourly** (co godzinę) (parametr **frequency** [częstotliwość] został ustawiony na **hour** [godzinę], a **interval** [interwał] został ustawiony na wartość **1**).  Usługi fabryka danych generuje wycinek danych wyjściowych, co godzinę w **pustych elementów** tabeli w bazie danych SQL Azure.
 
-   Jeśli nie określisz **fileName** dla **tabeli wyników**, wygenerowanych plików w **folderPath** są nazywane w następującym formacie: danych.<Guid>.txt (na przykład: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Jeśli nie określisz **fileName** dla **tabeli wyników**, wygenerowanych plików w **folderPath** są nazywane w następującym formacie: danych.<Guid>. txt (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Aby ustawić **folderPath** i **fileName** dynamicznie na podstawie **SliceStart** czasu, użyj właściwości partitionedBy. W poniższym przykładzie parametr folderPath używa elementów Year, Month i Day z parametru SliceStart (czas rozpoczęcia przetwarzania wycinka), a parametr fileName używa elementu Hour z parametru SliceStart. Na przykład jeśli wycinek jest generowany dla czasu 2014-10-20T08:00:00, parametr folderName zostaje ustawiony na wikidatagateway/wikisampledataout/2014/10/20, a parametr fileName zostaje ustawiony na wartość 08.csv.
 
@@ -378,7 +378,7 @@ W tym kroku utworzysz **potoku** z jednym **działanie kopiowania** używającą
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Wyświetlanie fabryki danych w widoku diagramu
 1. W **portalu Azure**, kliknij przycisk **Diagram** Kafelek na stronie głównej **ADFTutorialOnPremDF** fabryki danych. :
 
-    ![Diagram łącza](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    ![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. Powinien zostać wyświetlony diagram podobny do tego na poniższej ilustracji:
 
     ![Widok diagramu](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
@@ -394,7 +394,7 @@ W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dziej
 2. Zwróć uwagę, że wszystkie dane wycinków zapasowej znajdują się w **gotowe** stanu, ponieważ czas trwania procesu (czas rozpoczęcia do czasu zakończenia) przypada w przeszłości. Jest również wstawieniu danych w bazie danych programu SQL Server i jest cały czas. Upewnij się, że brak wycinków widoczne w **wycinków Problem** sekcji u dołu. Aby wyświetlić wszystkie fragmenty, kliknij przycisk **Zobacz więcej** w dolnej części listy wycinków.
 3. Teraz, w **zestawów danych** kliknij przycisk **OutputBlobTable**.
 
-    ![Wycinki OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+    ![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 4. Kliknij wycinek żadnych danych z listy i powinna zostać wyświetlona **wycinka danych** strony. Zobaczysz, że działanie jest uruchomione wycinka. Użytkownik widzi tylko jedno działanie Uruchom zwykle.  
 
     ![Blok wycinek danych](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
@@ -412,6 +412,6 @@ W tym kroku opisano użycie witryny Azure Portal do monitorowania tego, co dziej
 
    ![Eksplorator usługi Azure Storage](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zobacz [brama zarządzania danymi](data-factory-data-management-gateway.md) artykuł, aby wszystkie szczegółowe informacje o brama zarządzania danymi.
 * Zobacz [skopiować dane z obiektu Blob Azure do usługi Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) Aby dowiedzieć się więcej o sposobie używania działania kopiowania do przenoszenia danych z magazynu danych źródła do ujścia magazynu danych.

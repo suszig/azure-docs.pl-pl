@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorowanie za pomocą monitora Azure fabryki danych  
 Aplikacje w chmurze są złożonych z wielu części ruchu. Monitorowanie zawiera danych, aby upewnić się, że aplikacja pozostaje w górę i działa w dobrej kondycji. Pomaga również umożliwia stave potencjalne problemy i rozwiązywanie problemów w przeszłości te. Ponadto można użyć danych monitorowania w celu uzyskania szczegółowych informacji o aplikacji. Wiedzy może pomóc zwiększyć wydajność aplikacji lub utrzymania lub automatyzować czynności, które w przeciwnym razie wymagają ręcznej interwencji.
@@ -105,14 +105,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Właściwość | Typ | Opis |
 | --- | --- | --- |
-| StorageAccountId |Ciąg | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne |
+| storageAccountId |Ciąg | Identyfikator zasobu konta magazynu, do którego chcesz wysłać dzienniki diagnostyczne |
 | serviceBusRuleId |Ciąg | Identyfikator reguły magistrali usługi z przestrzeń nazw magistrali usług, w którym chcesz mieć centra zdarzeń utworzonych dla przesyłania strumieniowego dzienników diagnostycznych. Reguła identyfikator jest w formacie: "{identyfikator zasobu magistrali usługi} /authorizationrules/ {nazwa klucza}".|
-| WorkspaceId | Typ złożony | Tablica ziarno czasu metryki i ich zasad przechowywania. Obecnie ta właściwość jest pusta. |
+| workspaceId | Typ złożony | Tablica ziarno czasu metryki i ich zasad przechowywania. Obecnie ta właściwość jest pusta. |
 |metrics| Wartości parametrów potoku Uruchom do przekazania do wywoływanej potoku| Obiekt JSON mapowania nazw parametrów do wartości argumentów | 
 | dzienniki| Typ złożony| Nazwa kategorii dzienników diagnostycznych dla typu zasobu. Aby uzyskać listę kategorii dzienników diagnostycznych dla zasobu, należy najpierw wykonać operację pobierania ustawień diagnostycznych. |
 | category| Ciąg| Tablica kategorii dzienników i ich zasady przechowywania |
 | Ziarnem czasu | Ciąg | Poziom szczegółowości metryk, które są przechwytywane w formacie czasu trwania ISO 8601. Musi być PT1M (jednej minuty)|
-| włączone| Wartość logiczna | Określa, czy kolekcja tej kategorii Metryka lub dziennika jest włączona dla tego zasobu|
+| enabled| Wartość logiczna | Określa, czy kolekcja tej kategorii Metryka lub dziennika jest włączona dla tego zasobu|
 | retentionPolicy| Typ złożony| Opis zasad przechowywania dla kategorii Metryka lub dziennika. Używany tylko opcji konta magazynu.|
 | dni| Int| Liczba dni przechowywania metryki lub dzienniki. Wartość 0 zachowuje dzienniki w nieskończoność. Używany tylko opcji konta magazynu. |
 
@@ -287,7 +287,7 @@ Aby dowiedzieć się więcej tutaj] (https://msdn.microsoft.com/en-us/library/az
 |pipelineName| Ciąg | Nazwa potoku | `MyPipeline` |
 |activityName| Ciąg | Nazwa działania | `MyActivity` |
 |rozpoczynanie| Ciąg | Początek działania Uruchom w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
-|Koniec| Ciąg | Uruchom kończy działanie w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
+|end| Ciąg | Uruchom kończy działanie w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
 
 
 ### <a name="pipeline-run-logs-attributes"></a>Dzienniki wykonywania atrybutów w potoku
@@ -325,14 +325,14 @@ Aby dowiedzieć się więcej tutaj] (https://msdn.microsoft.com/en-us/library/az
 | Poziom |Ciąg | Poziom dziennika diagnostycznego. Poziom 4 jest tak w przypadku uruchamiania dzienniki działania. | `4`  |
 | correlationId |Ciąg | Unikatowy identyfikator określonego żądania end-to-end śledzić | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Ciąg | Czas zdarzenia w zakres czasu, w formacie UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|przebiegu| Ciąg| Identyfikator procesu, uruchom | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|runId| Ciąg| Identyfikator procesu, uruchom | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| Ciąg | Identyfikator skojarzonego zasobu dla zasobu fabryki danych | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Ciąg | Kategoria dzienników diagnostycznych. Ustaw tę właściwość na "PipelineRuns" | `PipelineRuns` |
 |poziom| Ciąg | Poziom dziennika diagnostycznego. Ustaw tę właściwość na "Informacyjny" | `Informational` |
 |operationName| Ciąg |Nazwa potoku o stanie. "Potoku - zakończyło się pomyślnie" z stan końcowy po zakończeniu potoku uruchamiania| `MyPipeline - Succeeded` |
 |pipelineName| Ciąg | Nazwa potoku | `MyPipeline` |
 |rozpoczynanie| Ciąg | Początek działania Uruchom w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
-|Koniec| Ciąg | Uruchamia zakończenia działania w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
+|end| Ciąg | Uruchamia zakończenia działania w zakres czasu, w formacie UTC. Jeśli działanie nie zakończyła jeszcze (dzienników diagnostycznych do uruchamiania działania), domyślną wartość `1601-01-01T00:00:00Z` jest ustawiona.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Ciąg | Stan końcowy potoku uruchamiania (powodzenie lub niepowodzenie) | `Succeeded`|
 
 
@@ -370,12 +370,12 @@ Aby dowiedzieć się więcej tutaj] (https://msdn.microsoft.com/en-us/library/az
 | Poziom |Ciąg | Poziom dziennika diagnostycznego. Ustaw poziom 4 dla działania uruchamiania dzienników. | `4`  |
 | correlationId |Ciąg | Unikatowy identyfikator określonego żądania end-to-end śledzić | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Ciąg | Czas zdarzenia w zakres czasu, w formacie UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-|Identyfikator_wyzwalacza| Ciąg| Identyfikator wyzwalacz uruchomienia | `08587023010602533858661257311` |
+|triggerId| Ciąg| Identyfikator wyzwalacz uruchomienia | `08587023010602533858661257311` |
 |resourceId| Ciąg | Identyfikator skojarzonego zasobu dla zasobu fabryki danych | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| Ciąg | Kategoria dzienników diagnostycznych. Ustaw tę właściwość na "PipelineRuns" | `PipelineRuns` |
 |poziom| Ciąg | Poziom dziennika diagnostycznego. Ustaw tę właściwość na "Informacyjny" | `Informational` |
 |operationName| Ciąg |Nazwa wyzwalacza z stan końcowy określa, czy pomyślnie uruchomił. "MyTrigger - powiodło się" Jeśli pulsu zakończyło się pomyślnie| `MyTrigger - Succeeded` |
-|Nazwa_wyzwalacza| Ciąg | Nazwa wyzwalacza | `MyTrigger` |
+|triggerName| Ciąg | Nazwa wyzwalacza | `MyTrigger` |
 |triggerType| Ciąg | Typ wyzwalacza (Ręczne wyzwalacza lub wyzwalacza harmonogram) | `ScheduleTrigger` |
 |triggerEvent| Ciąg | Zdarzenia wyzwalacza | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |rozpoczynanie| Ciąg | Początek uruchomić wyzwalacz w zakres czasu, w formacie UTC | `2017-06-26T20:55:29.5007959Z`|
@@ -387,7 +387,7 @@ Azure Monitor umożliwia korzystanie z telemetrię, aby uzyskać wgląd w wydajn
 
 ADFV2 emituje następujące metryki
 
-| **Metryka**           | **Nazwa wyświetlana metryki**         | **Jednostki** | **Typ agregacji** | **Opis**                                       |
+| **Metryka**           | **Nazwa wyświetlana metryki**         | **Unit** | **Typ agregacji** | **Opis**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Pomyślnie metryki uruchamia potoku | Licznik    | Łącznie                | Całkowita liczba potoków uruchamia zakończyło się pomyślnie w ciągu minuty okna |
 | PipelineFailedRuns   | Nie powiodło się metryki uruchamia potoku    | Licznik    | Łącznie                | Całkowita liczba potoków uruchamia nie powiodło się w ciągu minuty okna    |
@@ -398,5 +398,5 @@ ADFV2 emituje następujące metryki
 
 Dostęp do metryk, postępuj zgodnie z instrukcjami w artykule - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz [monitora i programowe zarządzanie potoki](monitor-programmatically.md) artykułu, aby uzyskać informacje o monitorowaniu i zarządzaniu nimi potoki, uruchamiając. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Samouczek: Integracji Azure Active Directory z chmurą Creative Adobe
 
@@ -133,8 +133,8 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     | Nazwa atrybutu | Wartość atrybutu |
     | ---------------| ----------------|
-    | Imię |User.givenName |
-    | Nazwisko |User.surname |
+    | Imię |user.givenname |
+    | LastName |user.surname |
     | Adres e-mail |User.mail |
 
     a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
@@ -145,7 +145,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
+    d. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **OK**.
     
@@ -157,17 +157,17 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfiguracja chmury Creative Adobe](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. W oknie przeglądarki innej witryny sieci web logowania z dzierżawą chmury Creative Adobe jako administrator.
+10. W oknie przeglądarki innej witryny sieci web, zaloguj się do [konsoli administracyjnej programu Adobe](https://adminconsole.adobe.com) jako administrator.
 
-11. Przejdź do **tożsamości** w okienku nawigacji po lewej stronie i kliknij domenę. Następnie wykonaj następujące czynności na **pojedynczy znak na wymagana konfiguracja** sekcji.
+11. Przejdź do **ustawienia** w górnym menu nawigacyjnym pasek, a następnie wybierz pozycję **tożsamości**. Otwiera listy domen. Kliknij przycisk **Konfiguruj** łącze w domenie. Następnie wykonaj następujące czynności na **pojedynczy znak na wymagana konfiguracja** sekcji. Aby uzyskać więcej informacji, zobacz [ustawienia domeny](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Ustawienia](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "ustawienia")
+    ![Ustawienia](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "ustawienia")
     
     a. Kliknij przycisk **Przeglądaj** można przekazać certyfikatu pobrane z usługi Azure AD do **certyfikatu IDP**.
     
     b. W **wystawcy IDP** pole tekstowe, umieścić wartość elementu **identyfikator jednostki SAML** którego skopiowany z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
     
-    c. W **adres URL logowania IDP** pole tekstowe, umieścić wartość elementu **adres URL usługi logowania jednokrotnego SAML** , które zostały skopiowane z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
+    d. W **adres URL logowania IDP** pole tekstowe, umieścić wartość elementu **adres URL usługi logowania jednokrotnego SAML** , które zostały skopiowane z **Konfigurowanie logowania jednokrotnego** sekcji w portalu Azure.
     
     d. Wybierz **HTTP - przekierowania** jako **powiązania IDP**.
     
@@ -176,8 +176,6 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     f. Kliknij przycisk **zapisać** przycisku.
 
 12. Pulpit nawigacyjny teraz przedstawi XML **"Pobieranie metadanych"** pliku. Zawiera adres URL EntityDescriptor Adobe i AssertionConsumerService adresu URL. Otwórz plik i skonfigurować je w aplikacji usługi Azure AD.
-
-    ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Konfigurowanie rejestracji jednokrotnej po stronie aplikacji](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -216,7 +214,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -226,11 +224,9 @@ Aby włączyć użytkowników usługi Azure AD zalogować się do chmury Creativ
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Aby udostępnić konta użytkowników, wykonaj następujące czynności:
 
-1. Zaloguj się do witryny firmy Adobe Creative chmurze jako administrator.
+1. Zaloguj się do [konsoli administracyjnej programu Adobe](https://adminconsole.adobe.com) lokacji jako administrator.
 
-2. Dodaj użytkownika konsoli Adobe jako identyfikator usługi federacyjnej i przypisać je do grupy uprawniające
-
-    ![Łącze Adobe Creative chmury na liście aplikacji](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Dodaj użytkownika w ramach konsoli Adobe jako identyfikator usługi federacyjnej i przypisać je do profilu produktu. Aby uzyskać szczegółowe informacje na temat dodawania użytkowników, zobacz [Dodawanie użytkowników w konsoli administracyjnej programu Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. W tym momencie wpisz Twojej adres e-mail/upn do postaci rejestrowanie Adobe, naciśnij klawisz tab, i powinien federacyjną do usługi Azure AD:
     * Dostęp w sieci Web: www.adobe.com > logowania
@@ -274,10 +270,12 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka Adobe Creative chmury w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji w chmurze Creative Adobe.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Konfigurowanie domeny (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Konfigurowanie usługi Azure do użycia z logowania jednokrotnego Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

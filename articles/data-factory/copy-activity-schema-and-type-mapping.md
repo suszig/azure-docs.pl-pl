@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapowanie schematu w przypadku działania kopiowania
 W tym artykule opisano, jak aktywność kopiowania fabryki danych Azure mapowania schematu i mapowanie typu danych ze źródła danych do zbiornika danych kiedy wykonać kopię danych.
@@ -150,17 +150,17 @@ Mapowanie między natywny typ tymczasowe w sekcji "Mapowanie typu danych" w tema
 
 Fabryka danych obsługuje następujące typy danych tymczasowych: można określić poniżej wartości podczas dostarczania informacji o typie w [struktury zestawu danych](concepts-datasets-linked-services.md#dataset-structure) konfiguracji:
 
-* Byte]
+* Byte[]
 * Wartość logiczna
-* Data i godzina
+* Data/godzina
 * Datetimeoffset
 * Decimal
-* O podwójnej precyzji
+* Podwójnej precyzji
 * Identyfikator GUID
 * Int16
 * Int32
 * Int64
-* Pojedynczy
+* Kawaler/panna
 * Ciąg
 * Zakres czasu
 
@@ -186,7 +186,7 @@ W poniższych scenariuszach, zalecane jest "structure" w zestawie danych:
 * Kopiowanie danych przechowuje ze schematem elastyczne, na przykład bazy danych Azure tabeli/rozwiązania Cosmos (wejściowy zestaw danych), aby zagwarantować oczekiwanych danych (kolumny), które są kopiowane zamiast kopiowania let działania wnioskowania dotyczącego schematu oparte na najwyższym wiersze podczas każdego uruchamiania działania.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne artykuły działania kopiowania:
 
 - [Omówienie działania kopiowania](copy-activity-overview.md)

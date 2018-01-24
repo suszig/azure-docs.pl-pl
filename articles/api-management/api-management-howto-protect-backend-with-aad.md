@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Jak zabezpieczyć interfejs API sieci Web wewnętrznej bazy danych z usługi Azure Active Directory i zarządzanie interfejsami API
 Poniższe wideo przedstawia sposób tworzenia zaplecza interfejsu API sieci Web i chronić go przy użyciu protokołu OAuth 2.0 z usługą Azure Active Directory i zarządzanie interfejsami API.  Ten artykuł zawiera omówienie i dodatkowe informacje dotyczące czynności w wideo. To 24 minutę wideo pokazuje, jak do:
@@ -81,13 +81,13 @@ Interfejs API sieci Web, w tym przykładzie implementuje Kalkulator podstawowe u
 
 Dodaj następujące `using` instrukcji na początku `CalcInput.cs` pliku.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Zastąp następujący kod wygenerowanej klasy.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Kliknij prawym przyciskiem myszy **kontrolerów** w **Eksploratora rozwiązań**
 
 Dodaj następujące `using` instrukcji na początku `CalcController.cs` pliku.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Zastąp następujący kod klasy wygenerowanym kontrolerze. Implementuje ten kod `Add`, `Subtract`, `Multiply`, i `Divide` operacji podstawowe Kalkulator interfejsu API.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -188,7 +188,7 @@ Zanotuj **identyfikator URI aplikacji** do użycia w kolejnym kroku po skonfigur
 ## <a name="import-the-web-api-into-api-management"></a>Importowanie interfejsu API sieci Web do zarządzania interfejsem API
 Interfejsy API są skonfigurowane z portalu wydawcy interfejsu API, który jest dostępny za pośrednictwem portalu Azure. Aby uzyskać do niej dostęp, kliknij przycisk **portal wydawcy** na pasku narzędzi usługi Zarządzanie interfejsami API. Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w [pierwszy interfejs API zarządzania] [ Manage your first API] samouczka.
 
-![Portal wydawcy][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
 Operacje mogą być [ręcznie dodawać do interfejsów API](api-management-howto-add-operations.md), lub mogą być importowane. W tym wideo operacje są importowane w formacie struktury Swagger, zaczynając od 6:40.
 
@@ -510,7 +510,7 @@ Ostatnia procedura wideo rozpoczyna się od 20:48 i przedstawiono sposób użyci
 
 Aby innego demonstracyjne konfigurowania i korzystania z tych zasad, zobacz [177 epizodu obejmują chmury: więcej funkcji interfejsu API zarządzania](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przewijanie do przodu do 13:50. Szybko przewiń do przodu do 15:00, aby wyświetlić zasady skonfigurowane w edytorze zasad, a następnie do 18:50 dla pokaz wywołanie operacji z portalu dla deweloperów zarówno z i bez tokenu autoryzacji wymagane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zapoznaj się z kilku [wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) o zarządzanie interfejsami API.
 * Aby uzyskać inne metody zabezpieczania usługi wewnętrznej bazy danych, zobacz [uwierzytelnianie wzajemne certyfikatu](api-management-howto-mutual-certificates.md).
 

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Poczekaj na działanie w fabryce danych Azure
-Gdy używasz działanie oczekiwania w potoku potoku czeka na określonym przedziale czasu, przed kontynuowaniem wykonywania kolejnych działań. 
+Gdy używasz działania Wait w potoku, potok czeka przez określony okres z kontynuowaniem wykonywania kolejnych działań. 
 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 2 usługi Data Factory, która jest obecnie dostępna w wersji zapoznawczej. Jeśli używasz wersji 1 usługi fabryka danych, która jest ogólnie dostępna (GA), zobacz [dokumentacji V1 fabryki danych](v1/data-factory-introduction.md).
@@ -42,9 +42,9 @@ Gdy używasz działanie oczekiwania w potoku potoku czeka na określonym przedzi
 
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa `Wait` działania. | Ciąg | Tak
-type | Należy wybrać opcję **oczekiwania**. | Ciąg | Tak
-waitTimeInSeconds | Liczba sekund, przez potok czeka przed kontynuowaniem przetwarzania. | Liczba całkowita | Tak
+name | Nazwa `Wait` działania. | Ciąg | Yes
+type | Należy wybrać opcję **oczekiwania**. | Ciąg | Yes
+waitTimeInSeconds | Liczba sekund, przez potok czeka przed kontynuowaniem przetwarzania. | Liczba całkowita | Yes
 
 ## <a name="example"></a>Przykład
 
@@ -102,13 +102,13 @@ W tym przykładzie potoku ma dwa działania: **do momentu** i **oczekiwania**. P
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz inne działania przepływu sterowania obsługiwane przez fabrykę danych: 
 
-- [Jeśli warunek działania](control-flow-if-condition-activity.md)
+- [Działanie If Condition](control-flow-if-condition-activity.md)
 - [Działanie Execute Pipeline](control-flow-execute-pipeline-activity.md)
 - [Dla każdego działania](control-flow-for-each-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działania w sieci Web](control-flow-web-activity.md)
-- [Do działania](control-flow-until-activity.md)
+- [Działanie Until](control-flow-until-activity.md)

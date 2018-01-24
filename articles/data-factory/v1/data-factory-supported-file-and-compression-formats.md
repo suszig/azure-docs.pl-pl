@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formaty plików i kompresji obsługiwane przez usługi fabryka danych Azure
 *Ten temat dotyczy następujące łączniki: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [obiektów Blob platformy Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [systemu plików](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), i [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Ten artykuł dotyczy wersji 1 usługi fabryka danych Azure, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [obsługiwane formaty plików i kodery-dekodery kompresji w fabryce danych w wersji 2](../supported-file-formats-and-compression-codecs.md).
+> Ten artykuł dotyczy wersji 1 usługi Azure Data Factory, która jest ogólnie dostępna (GA). Jeśli używasz wersji 2 usługi fabryka danych, która jest w wersji zapoznawczej, zobacz [obsługiwane formaty plików i kodery-dekodery kompresji w fabryce danych w wersji 2](../supported-file-formats-and-compression-codecs.md).
 
 Fabryka danych Azure obsługuje następujące typy plików w formacie:
 
@@ -87,7 +87,7 @@ Aby **importu/eksportu pliku JSON jako — jest do/z bazy danych Azure rozwiąza
 
 Jeśli chcesz przeanalizować pliku JSON lub zapisać dane w formacie JSON, ustaw `type` właściwości w `format` sekcji do **JsonFormat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example).
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 | jsonNodeReference | Jeśli chcesz wykonać iterację i ekstrakcję danych z obiektów wewnątrz pola tablicy o tym samym wzorcu, określ ścieżkę JSON tej tablicy. Ta właściwość jest obsługiwana tylko podczas kopiowania danych z plików JSON. | Nie |
@@ -228,7 +228,7 @@ i chcesz skopiować ją do tabeli usługi Azure SQL w następującym formacie pr
 Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: (częściowa definicja zawierająca tylko stosowne fragmenty). Więcej szczegółów:
 
 - Sekcja `structure` definiuje niestandardowe nazwy kolumn i odpowiedni typ danych podczas konwersji na dane tabelaryczne. Ta sekcja jest **opcjonalna**, o ile nie trzeba wykonać mapowania kolumn. Zobacz [mapują kolumnach dataset źródła kolumny zestawu danych docelowego](data-factory-map-columns.md) sekcji, aby uzyskać więcej informacji.
-- Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. Aby skopiować dane z tablicy, możesz użyć składni **tablica[x].właściwość** w celu wydobycia wartości wskazanej właściwości z obiektu o numerze x albo składni **tablica[*].właściwość** w celu znalezienia wartości z wszystkich obiektów zawierających taką właściwość.
+- Właściwość `jsonPathDefinition` określa ścieżkę JSON dla każdej kolumny, wskazując, skąd mają zostać wyodrębnione dane. Aby skopiować dane z tablicy, można użyć **.property tablicy [x]** wyodrębniania wartości właściwości danego obiektu x, lub można użyć **.property tablicy [*]** Aby znaleźć wartości z dowolnych obiektów zawierających takie Właściwość.
 
 ```json
 "properties": {
@@ -505,7 +505,7 @@ Po określeniu `compression` właściwość w zestawie danych wejściowych JSON 
 * Odczytywać skompresowane GZIP danych obiektów blob platformy Azure, zdekompresować skompresować je przy użyciu BZIP2 i zapisać wynik danych obiektów blob platformy Azure. Zdefiniuj wejściowy zestaw danych obiektów Blob Azure o `compression` `type` GZIP i wyjściowy zestaw danych z ustawioną `compression` `type` ustawioną BZIP2 w takim przypadku.   
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły dla magazynów danych obsługiwane przez usługi fabryka danych Azure:
 
 - [Azure Blob Storage](data-factory-azure-blob-connector.md)

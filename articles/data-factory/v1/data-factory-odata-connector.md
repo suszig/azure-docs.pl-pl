@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Przenoszenie danych źródła z OData przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,9 +64,9 @@ Poniższa tabela zawiera opis specyficzne dla usługi OData połączone elementy
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość type musi mieć ustawioną: **OData** |Tak |
-| adres URL |Adres URL usługi OData. |Tak |
-| Typ authenticationType |Typ uwierzytelniania używany do nawiązania połączenia źródła OData. <br/><br/> Chmury OData możliwe wartości to anonimowe, podstawowe i OAuth (Uwaga obecnie tylko pomocy technicznej usługi fabryka danych Azure OAuth opartej na usłudze Azure Active Directory). <br/><br/> Dla protokołu OData lokalnymi możliwe wartości to anonimowe, podstawowe i systemu Windows. |Tak |
+| type |Właściwość type musi mieć ustawioną: **OData** |Yes |
+| adres url |Adres URL usługi OData. |Yes |
+| authenticationType |Typ uwierzytelniania używany do nawiązania połączenia źródła OData. <br/><br/> Chmury OData możliwe wartości to anonimowe, podstawowe i OAuth (Uwaga obecnie tylko pomocy technicznej usługi fabryka danych Azure OAuth opartej na usłudze Azure Active Directory). <br/><br/> Dla protokołu OData lokalnymi możliwe wartości to anonimowe, podstawowe i systemu Windows. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego. |Tak (tylko wtedy, gdy używasz uwierzytelniania podstawowego) |
 | hasło |Określ hasło dla konta użytkownika, określone nazwy użytkownika. |Tak (tylko wtedy, gdy używasz uwierzytelniania podstawowego) |
 | authorizedCredential |Jeśli używasz uwierzytelniania OAuth, kliknij przycisk **autoryzacji** przycisku w kreatorze kopiowania fabryki danych lub edytorze, a następnie wprowadź Twoje poświadczenia wartość tej właściwości będzie wygenerowany automatycznie. |Tak (tylko wtedy, gdy używasz uwierzytelniania OAuth) |
@@ -149,7 +149,7 @@ Aby uzyskać pełną listę sekcje & właściwości dostępne do definiowania ze
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| Ścieżka |Ścieżka do zasobu OData |Nie |
+| ścieżka |Ścieżka do zasobu OData |Nie |
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 Pełną listę sekcje & właściwości dostępne do definiowania działań, zobacz [tworzenie potoków](data-factory-create-pipelines.md) artykułu. Właściwości, takie jak nazwa, opis, dane wejściowe i wyjściowe tabel i zasady są dostępne dla wszystkich typów działań.
@@ -160,7 +160,7 @@ Jeśli źródło jest typu **RelationalSource** (w tym OData) w sekcji typePrope
 
 | Właściwość | Opis | Przykład | Wymagane |
 | --- | --- | --- | --- |
-| query |Użyj niestandardowych zapytania można odczytać danych. |"? $select = nazwa, opis i $top = 5" |Nie |
+| query |Użyj niestandardowych zapytania można odczytać danych. |"?$select=Name, Description&$top=5" |Nie |
 
 ## <a name="type-mapping-for-odata"></a>Mapowanie typu dla protokołu OData
 Jak wspomniano w [działań przepływu danych](data-factory-data-movement-activities.md) artykułu, automatyczne konwersje z typów źródła do zbiornika typy z następujących rozwinięcie wykonuje działanie kopiowania.
@@ -172,20 +172,20 @@ Podczas przenoszenia danych z OData, następujące mapowania są używane typy O
 
 | Typ danych OData | Typ architektury .NET |
 | --- | --- |
-| Edm.Binary |Byte] |
-| Edm.Boolean |wartość logiczna |
-| Edm.Byte |Byte] |
-| Edm.DateTime |Data i godzina |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Wartość logiczna |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |Data/godzina |
 | Edm.Decimal |Decimal |
-| Edm.Double |O podwójnej precyzji |
-| Edm.Single |Pojedynczy |
+| Edm.Double |Podwójnej precyzji |
+| Edm.Single |Kawaler/panna |
 | Edm.Guid |Identyfikator GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |
 | Edm.Int64 |Int64 |
 | Edm.SByte |Int16 |
 | Edm.String |Ciąg |
-| Edm.Time |Zakres czasu |
+| Edm.Time |TimeSpan |
 | Edm.DateTimeOffset |DateTimeOffset |
 
 > [!Note]
