@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planowanie klastrów Hadoop przyłączonych do domeny platformy Azure w usłudze HDInsight
 
@@ -47,16 +47,13 @@ Poniższy zrzut ekranu przedstawia jednostki Organizacyjnej utworzone w domenie 
 
 ![Jednostki organizacyjnej klastrów HDInsight przyłączone do domeny](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Trzy sposoby zapewniania własnych kontrolerów domeny usługi Active Directory
+### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Dwa sposoby zapewniania własnych kontrolerów domeny usługi Active Directory
 
-Istnieją trzy sposoby przełączeniem kontrolerów domeny usługi Active Directory do utworzenia klastrów HDInsight przyłączonych do domeny. 
+Istnieją dwa sposoby przełączeniem kontrolerów domeny usługi Active Directory do utworzenia klastrów HDInsight przyłączonych do domeny. 
 
 - **Azure Active Directory Domain Services**: ta usługa udostępnia zarządzanej domeny usługi Active Directory, która jest w pełni zgodny z usługi Active Directory systemu Windows Server. Microsoft odpowiada on za zarządzanie, poprawki i monitorowania domeny usługi AD. Można wdrożyć klaster bez obaw o zachowaniu kontrolerów domeny. Użytkowników, grup i haseł są synchronizowane z usługi Azure Active Directory, umożliwiając użytkownikom na logowanie się do klastra przy użyciu swoich poświadczeń firmowych w. Aby uzyskać więcej informacji, zobacz [przyłączonych do domeny skonfiguruj HDInsight clusters przy użyciu usługi Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 - **Usługi Active Directory na maszynach wirtualnych Azure IaaS**: W przypadku tej opcji wdrażania i zarządzania nimi własnej domeny usługi Active Directory systemu Windows Server na maszynach wirtualnych Azure IaaS. Aby uzyskać więcej informacji, zobacz [środowisko piaskownicy przyłączone do domeny skonfiguruj](./apache-domain-joined-configure.md).
-
-- **Lokalnej usługi Active Directory**: W przypadku tej opcji HDInsight zintegrować z kontrolerem domeny z lokalnej usługi Active Directory.
-
 
 ## <a name="next-steps"></a>Kolejne kroki
 * Aby skonfigurować przyłączony do domeny klaster usługi HDInsight, zobacz [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight).

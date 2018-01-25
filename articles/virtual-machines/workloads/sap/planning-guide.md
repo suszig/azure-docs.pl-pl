@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure maszyn wirtualnych, planowania i wdrażania dla programu SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Temat wdrożenia SAP na platformie Azure dostępne są następujące przewodniki
 
 Poniższe uwagi SAP są związane z tym tematem SAP na platformie Azure:
 
-| Numer | Tytuł |
+| Numer | Stanowisko |
 | --- | --- |
 | [1928533] |Aplikacje SAP na platformie Azure: obsługiwane produktów i zmiana rozmiaru |
 | [2015553] |SAP na platformie Microsoft Azure: obsługuje wymagania wstępne |
@@ -1505,7 +1505,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Utwórz nowe konto magazynu
+* Tworzenie nowego konta magazynu
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1965,9 +1965,7 @@ Poniższej ilustracji przedstawiono tej samej orientacji poziomej za pomocą zar
 ![Architektura HA SAP NetWeaver aplikacji z programem SQL Server w IaaS platformy Azure][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA w systemie Linux
-Architektura SAP HA w systemie Linux na platformie Azure jest zasadniczo taki sam, jak w przypadku systemu Windows zgodnie z powyższym opisem. Od stycznia 2016 nie będzie żadnych SAP (A) SCS HA rozwiązania jeszcze obsługiwane w systemie Linux na platformie Azure
-
-W rezultacie począwszy od stycznia 2016 systemu SAP Linux Azure nie można osiągnąć tego samego dostępności jako systemu SAP systemu Windows Azure z powodu brakujących HA SCS (A) wystąpienia i bazy danych SAP ASE jednego wystąpienia.
+Architektura SAP HA w systemie Linux na platformie Azure jest zasadniczo taki sam, jak w przypadku systemu Windows zgodnie z powyższym opisem. Zapoznaj się Uwaga SAP [1928533] listę rozwiązań obsługiwanych wysokiej dostępności.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Przy użyciu Autostart dla wystąpień SAP
 SAP oferowane funkcjonalność do uruchomienia wystąpień SAP natychmiast po rozpoczęciu systemu operacyjnego w Maszynie wirtualnej. Dokładne kroki zostały udokumentowane w artykule bazy wiedzy SAP [1909114]. Jednak SAP nie jest rekomendowania ustawienia już ponieważ nie kontrolka nie kolejności ponowne uruchomienie wystąpienia, przy założeniu więcej niż jedna maszyna wirtualna otrzymano wpływ lub uruchomienia wielu wystąpień dla maszyny Wirtualnej. Zakładając, że typowy scenariusz Azure jednego wystąpienia serwera SAP aplikacji w maszynie Wirtualnej i w przypadku jednej maszyny Wirtualnej po pewnym czasie ponownie uruchomić pobieranie, Autostart nie są naprawdę ważne i można ją włączyć przez dodanie tego parametru:

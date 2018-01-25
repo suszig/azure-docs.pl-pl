@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Tworzenie i wdrażanie modułu krawędzi IoT C# w symulowane urządzenie — w wersji preview
 
@@ -31,7 +31,7 @@ Moduł IoT krawędzi, który możesz utworzyć w tym samouczku filtruje temperat
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Urządzenie brzegowe IoT Azure utworzoną w pierwszym samouczku lub Szybki Start.
-* Parametry połączenia klucza podstawowego dla urządzenia IoT krawędzi.  
+* Parametry połączenia klucza podstawowego dla urządzenia usługi IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Rozszerzenie krawędzi IoT Azure dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# dla rozszerzenia Visual Studio Code (obsługiwane przez OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -70,6 +70,14 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
 5. W kodzie VS explorer, kliknij przycisk **Program.cs** go otworzyć.
 
    ![Otwórz plik Program.cs][1]
+
+6. W górnej części **FilterModule** przestrzeni nazw, Dodaj trzy `using` instrukcje dla typów używanych w późniejszym czasie na:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Dodaj `temperatureThreshold` zmienną **Program** klasy. Ta zmienna Określa wartość, której może przekraczać zmierzone temperatury dane do wysłania do Centrum IoT. 
 
@@ -244,10 +252,10 @@ Dodaj poświadczenia do rejestru do środowiska wykonawczego Edge na komputerze,
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-## <a name="run-the-solution"></a>Uruchom rozwiązania
+## <a name="run-the-solution"></a>Uruchamianie rozwiązania
 
 1. W [portalu Azure](https://portal.azure.com), przejdź do Centrum IoT.
-2. Przejdź do **IoT krawędzi (wersja zapoznawcza)** i wybierz urządzenia IoT krawędzi.
+2. Przejdź do pozycji **IoT Edge (wersja zapoznawcza)** i wybierz urządzenie usługi IoT Edge.
 3. Wybierz **ustawić modułów**. 
 2. Sprawdź, czy **tempSensor** modułu jest wypełniane automatycznie. Jeśli nie, należy dodać ją za pomocą następujących czynności:
     1. Wybierz **Dodaj moduł krawędzi IoT**.

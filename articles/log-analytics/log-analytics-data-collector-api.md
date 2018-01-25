@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Wysyłanie danych do analizy dzienników przy użyciu protokołu HTTP danych modułu zbierającego interfejsu API (w publicznej wersji zapoznawczej)
 W tym artykule przedstawiono sposób wysyłania danych do analizy dzienników z klienta interfejsu API REST za pomocą interfejsu API modułów zbierających dane HTTP.  Przedstawiono sposób formatowania danych zbieranych przez skrypt lub aplikację, dołączyć go w żądaniu i mieć tego żądania uprawnień przez analizy dzienników.  Przykłady są dostępne dla programu PowerShell, C# i Python.
@@ -43,7 +43,7 @@ Aby za pomocą interfejsu API modułów zbierających dane HTTP, należy utworzy
 | Atrybut | Właściwość |
 |:--- |:--- |
 | Metoda |POST |
-| IDENTYFIKATOR URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Identyfikator URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Typ zawartości |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametry identyfikatora URI żądania
@@ -53,13 +53,13 @@ Aby za pomocą interfejsu API modułów zbierających dane HTTP, należy utworzy
 | Zasób |Nazwa zasobu interfejsu API: / api/logs. |
 | Wersja interfejsu API |Wersja interfejsu API do używania z tym żądaniem. Obecnie jest 2016-04-01. |
 
-### <a name="request-headers"></a>Nagłówki żądania
+### <a name="request-headers"></a>Nagłówki żądań
 | Nagłówek | Opis |
 |:--- |:--- |
 | Autoryzacja |Podpis autoryzacji. W dalszej części tego artykułu można uzyskać informacje dotyczące sposobu tworzenia nagłówka HMAC SHA256. |
 | Typ dziennika |Określ typ rekordu jest przesyłane dane. Typ dziennika obsługuje obecnie tylko znaki alfanumeryczne. Nie obsługuje wartości numeryczne i znaki specjalne. |
 | x-ms-date |Żądanie zostało przetworzone, w formacie RFC 1123 Data. |
-| czas wygenerowany — pola |Nazwa pola danych, które zawiera sygnaturę czasową elementu danych. Jeśli określisz pola, a następnie jego zawartość jest używana dla **TimeGenerated**. Jeśli to pole nie zostanie określona, wartością domyślną **TimeGenerated** jest czas, który jest pozyskanych wiadomości. Zawartość pola wiadomości należy wykonać w formacie ISO 8601 RRRR-MM-Ddtgg. |
+| time-generated-field |Nazwa pola danych, które zawiera sygnaturę czasową elementu danych. Jeśli określisz pola, a następnie jego zawartość jest używana dla **TimeGenerated**. Jeśli to pole nie zostanie określona, wartością domyślną **TimeGenerated** jest czas, który jest pozyskanych wiadomości. Zawartość pola wiadomości należy wykonać w formacie ISO 8601 RRRR-MM-Ddtgg. |
 
 ## <a name="authorization"></a>Autoryzacja
 Każde żądanie API modułu zbierającego dane dziennika Analytics HTTP musi zawierać nagłówek uwierzytelnienia. Aby uwierzytelnić żądanie, musisz zalogować się żądanie z serwera podstawowego lub dodatkowego klucza dla obszaru roboczego, który wysłał żądanie. Następnie przekaż tego podpisu, jako część żądania.   
@@ -136,9 +136,9 @@ Aby określić typ danych właściwości, analizy dzienników dodaje sufiks nazw
 |:--- |:--- |
 | Ciąg |_s |
 | Wartość logiczna |_b |
-| O podwójnej precyzji |_d |
-| Data i godzina |_t — |
-| IDENTYFIKATOR GUID |_g |
+| Podwójnej precyzji |_d |
+| Data i godzina |_t |
+| GUID |_g |
 
 Typ danych, który używa analizy dzienników dla każdej właściwości zależy od tego, czy istnieje już typ rekordu w nowym rekordzie.
 
@@ -173,7 +173,7 @@ Kod stanu HTTP 200 oznacza, że otrzymał żądanie do przetworzenia. Oznacza to
 
 Poniższa tabela zawiera pełen zestaw kodów stanu, które mogą zwracać usługi:
 
-| Kod | Stan | Kod błędu: | Opis |
+| Kod | Stan | Kod błędu | Opis |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |Pomyślnie zaakceptowano żądanie. |
 | 400 |Nieprawidłowe żądanie |InactiveCustomer |Obszar roboczy został zamknięty. |
@@ -185,11 +185,11 @@ Poniższa tabela zawiera pełen zestaw kodów stanu, które mogą zwracać usłu
 | 400 |Nieprawidłowe żądanie |MissingContentType |Nie określono typu zawartości. |
 | 400 |Nieprawidłowe żądanie |MissingLogType |Nie określono typu dziennika wymaganej wartości. |
 | 400 |Nieprawidłowe żądanie |UnsupportedContentType |Typ zawartości nie został ustawiony na **application/json**. |
-| 403 |Dostęp zabroniony |InvalidAuthorization |Usługa nie może uwierzytelnić żądania. Sprawdź, czy klucz połączenia i identyfikator obszaru roboczego są prawidłowe. |
-| 404 |Nie można odnaleźć | | Podany adres URL jest nieprawidłowy albo żądania jest za duży. |
+| 403 |Zabroniony |InvalidAuthorization |Usługa nie może uwierzytelnić żądania. Sprawdź, czy klucz połączenia i identyfikator obszaru roboczego są prawidłowe. |
+| 404 |Nie znaleziono | | Podany adres URL jest nieprawidłowy albo żądania jest za duży. |
 | 429 |Zbyt wiele żądań | | Usługa napotkała dużą liczbę dane z Twojego konta. Ponów żądanie później. |
 | 500 |Wewnętrzny błąd serwera |UnspecifiedError |Usługa napotkała błąd wewnętrzny. Ponów żądanie. |
-| 503 |Usługa jest niedostępna |ServiceUnavailable |Usługa jest obecnie odbierać żądań. Ponów żądanie. |
+| 503 |Usługa niedostępna |ServiceUnavailable |Usługa jest obecnie odbierać żądań. Ponów żądanie. |
 
 ## <a name="query-data"></a>Zapytania o dane
 Aby danych zapytań przesyłanych przez analityka HTTP danych modułu zbierającego interfejs API dziennika, Wyszukaj rekordy z **typu** jest równa **LogType** wartość, która została określona, dołączony **_CL**. Na przykład jeśli użyto **MyCustomLog**, a następnie zwróci wszystkie rekordy z **typu = MyCustomLog_CL**.
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Przykład w języku C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Użyj [interfejs API dziennika wyszukiwania](log-analytics-log-search-api.md) do pobierania danych z repozytorium analizy dzienników.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Samouczek: kopiowanie danych z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage
 W tym samouczku użyjesz interfejsu użytkownika usługi Azure Data Factory, aby utworzyć potok usługi Data Factory, który kopiuje dane z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage. Utworzysz własne środowisko Integration Runtime (Self-hosted), służące do przenoszenia danych między lokalnym magazynem danych i magazynem danych w chmurze. 
@@ -191,7 +191,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
 11. W oknie **Instalacja ekspresowa środowiska Integration Runtime (Self-hosted)** kliknij przycisk **Zamknij**. 
 
    ![Instalacja środowiska Integration Runtime — pomyślna](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. W przeglądarce internetowej w oknie **instalatora środowiska Integration Runtime** kliknij przycisk **Zakończ**. Powinien nastąpić powrót do okna **Nowa połączona usługa**.
+12. W przeglądarce internetowej w oknie **instalatora środowiska Integration Runtime** kliknij przycisk **Zakończ**. 
 
    ![Instalacja środowiska Integration Runtime — zakończenie](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. W oknie **Nowa połączona usługa** wykonaj następujące czynności:

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Rozwiązywanie problemów na trasie przy użyciu metryk usługi Azure Storage i rejestrowania, AzCopy i analizatora komunikatów
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>End-to-end Rozwiązywanie problemów przy użyciu metryk usługi Azure Storage i rejestrowania, AzCopy i analizatora komunikatów
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnozowanie i rozwiązywanie problemów z jest klucza umiejętności umożliwiające tworzenie i obsługa aplikacji klienta za pomocą usługi Magazyn Microsoft Azure. Z powodu Rozproszony charakter aplikacji Azure diagnozowanie i rozwiązywanie problemów z błędów i problemów z wydajnością może być bardziej skomplikowane niż w tradycyjnych środowisk.
@@ -37,14 +37,12 @@ Rozwiązywać aplikacji klienckich za pomocą usługi Magazyn Microsoft Azure ko
   * **Rejestrowanie magazynu** rejestruje każde żądanie do usług magazynu Azure do dzienników po stronie serwera. Dziennik śledzenia szczegółowe dane dla każdego żądania, w tym operacje wykonywane, stan działania i informacje opóźnienia. Zobacz [Format dziennika analityka magazynu](/rest/api/storageservices/Storage-Analytics-Log-Format) Aby uzyskać więcej informacji o danych żądania i odpowiedzi, które są zapisywane w dziennikach przez analityka magazynu.
 
 > [!NOTE]
-> Nie masz konta magazynu typu replikacji z magazynu Strefowo nadmiarowy (ZRS), metryki lub w tej chwili włączona funkcja rejestrowania. 
-> 
-> 
+> Konta magazynu z typem replikacji magazyn Strefowo nadmiarowy (ZRS) obsługują metryki i rejestrowania. Kontami ZRS klasycznego nie obsługują metryki i rejestrowania. Aby uzyskać więcej informacji o ZRS, zobacz [magazyn Strefowo nadmiarowy](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure portal**. Można skonfigurować rejestrowanie i metryki dla konta magazynu w [portalu Azure](https://portal.azure.com). Można także wyświetlić schematy i wykresy, które pokazują, jak aplikacja działa w czasie i skonfigurować alerty powiadamiające o, jeśli aplikacja przeprowadza się inaczej, niż oczekiwano dla określonej metryki.
   
     Zobacz [monitorować konto magazynu w portalu Azure](storage-monitor-storage-account.md) informacji o konfigurowaniu monitorowania w portalu Azure.
-* **Narzędzie AzCopy**. Dzienniki serwera usługi Azure Storage są przechowywane jako obiekty BLOB, dzięki czemu można użyć narzędzia AzCopy do kopiowania obiektów blob dziennika do katalogu lokalnego do analizy przy użyciu programu Microsoft Message Analyzer. Zobacz [Transfer danych za pomocą wiersza polecenia Azcopy](storage-use-azcopy.md) Aby uzyskać więcej informacji na temat narzędzia AzCopy.
+* **AzCopy**. Dzienniki serwera usługi Azure Storage są przechowywane jako obiekty BLOB, dzięki czemu można użyć narzędzia AzCopy do kopiowania obiektów blob dziennika do katalogu lokalnego do analizy przy użyciu programu Microsoft Message Analyzer. Zobacz [Transfer danych za pomocą wiersza polecenia Azcopy](storage-use-azcopy.md) Aby uzyskać więcej informacji na temat narzędzia AzCopy.
 * **Microsoft Message Analyzer**. Message Analyzer jest narzędziem, które korzysta z plików dziennika i dane dziennika są wyświetlane w formacie visual, który ułatwia grupy danych dzienników, wyszukiwania i filtrów w przydatne zestawy, które umożliwiają analizowanie błędów i problemów z wydajnością. Zobacz [Microsoft komunikatów analizatora operacyjnego przewodnik](http://technet.microsoft.com/library/jj649776.aspx) Aby uzyskać więcej informacji na temat analizatora komunikatów.
 
 ## <a name="about-the-sample-scenario"></a>Przykładowy scenariusz — informacje
@@ -100,7 +98,7 @@ Aby skonfigurować rejestrowanie i metryki do obsługi magazynu konta przy użyc
 > 
 > 
 
-**Za pomocą programu PowerShell**
+**Via PowerShell**
 
 Aby zacząć korzystać z programu PowerShell dla usługi Azure, zobacz [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
@@ -350,22 +348,22 @@ Teraz, po zapoznaniu się z za pomocą analizatora komunikatów do analizowania 
 | Aby zbadać... | Użycie wyrażenia filtru... | Wyrażenie ma zastosowanie do dziennika (klienta, serwera, sieci, wszystkie) |
 | --- | --- | --- |
 | Nieoczekiwane opóźnienia dotyczące dostarczania wiadomości w kolejce |Zawiera AzureStorageClientDotNetV4.Description "Ponawianie nie można wykonać operacji." |Klient |
-| HTTP wzrost PercentThrottlingError |PROTOKÓŁ HTTP. Response.StatusCode == 500 &#124; &#124; PROTOKÓŁ HTTP. Response.StatusCode == 503 |Sieć |
-| Wzrost PercentTimeoutError |PROTOKÓŁ HTTP. Response.StatusCode == 500 |Sieć |
-| Wzrost PercentTimeoutError (wszystkie wersje) |* StatusCode == 500 |Wszystkie |
-| Wzrost PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |Klient |
+| HTTP wzrost PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Sieć |
+| Wzrost PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Sieć |
+| Wzrost PercentTimeoutError (wszystkie wersje) |*StatusCode   == 500 |Wszyscy |
+| Wzrost PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Klient |
 | Komunikaty HTTP 403 (zabroniony) |PROTOKÓŁ HTTP. Response.StatusCode == 403 |Sieć |
 | HTTP 404 (nie znaleziono) wiadomości |PROTOKÓŁ HTTP. Response.StatusCode == 404 |Sieć |
-| 404 (wszystkie wersje) |* StatusCode == 404 |Wszystkie |
+| 404 (wszystkie wersje) |* StatusCode == 404 |Wszyscy |
 | Udostępnione problem autoryzacji podpis dostępu (SAS) |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Sieć |
 | HTTP 409 (konflikt) wiadomości |PROTOKÓŁ HTTP. Response.StatusCode == 409 |Sieć |
-| 409 (wszystkie wersje) |* StatusCode == 409 |Wszystkie |
+| 409 (wszystkie wersje) |* StatusCode == 409 |Wszyscy |
 | Działania o stanie transakcji ClientOtherErrors ma PercentSuccess małej lub analityka wpisy dziennika |AzureStorageLog.RequestStatus == "ClientOtherError" |Serwer |
 | Ostrzeżenie Nagle'a |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) i (AzureStorageLog.RequestPacketSize < 1460) i (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Serwer |
 | Zakres czasu w dziennikach serwera i sieci |#Timestamp > = 2014-10-20T16:36:38 i #Timestamp < = 2014-10-20T16:36:39 |Serwer, sieci |
 | Zakres czasu w dziennikach serwera |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 i AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Serwer |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji na temat rozwiązywania problemów scenariuszy end-to-end w usłudze Azure Storage zobacz następujące zasoby:
 
 * [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługi Magazyn Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)

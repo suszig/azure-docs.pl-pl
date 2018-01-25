@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 34780001afb309a2986cc21dae948d9d94f1a63f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Za pomocą usługi Azure CLI 2.0 z usługą Azure Storage
 
@@ -176,7 +176,7 @@ Done
 
 ## <a name="manage-storage-accounts"></a>Zarządzanie kontami magazynu
 
-### <a name="create-a-new-storage-account"></a>Utwórz nowe konto magazynu
+### <a name="create-a-new-storage-account"></a>Tworzenie nowego konta magazynu
 Aby móc użyć usługi Azure Storage, musisz mieć konto magazynu. Po skonfigurowaniu komputera, można utworzyć nowe konto magazynu Azure [nawiązać połączenia z subskrypcją](#connect-to-your-azure-subscription).
 
 ```azurecli
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Ustaw zmienne środowiskowe domyślne konto magazynu Azure
-Może mieć wielu kont magazynu w ramach subskrypcji platformy Azure. Aby wybrać jeden z nich do użycia dla wszystkich poleceń kolejnych magazynu, można ustawić zmienne środowiskowe:
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -509,7 +510,7 @@ Przykładowe dane wyjściowe
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Poniżej przedstawiono dodatkowe zasoby dowiedzieć się więcej o pracy z 2.0 interfejsu wiersza polecenia platformy Azure.
 
 * [Wprowadzenie do usługi Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

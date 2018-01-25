@@ -31,6 +31,8 @@
   items:
     - name: 1 — Aplikacja z bazą danych
       items:
+        - name: .NET Core z bazą danych SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET z bazą danych SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP z bazą danych MySQL

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Tworzenie kopii zapasowych maszyn wirtualnych przy użyciu poleceń cmdlet AzureRM.RecoveryServices.Backup
 
@@ -180,7 +180,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Zasady tworzenia kopii zapasowej ochrony jest skojarzony z co najmniej jedne zasady przechowywania. Zasady przechowywania określają, jak długo punkt odzyskiwania jest przechowywana, przed usunięciem. Użyj  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  Aby wyświetlić domyślne zasady przechowywania.  Podobnie można użyć  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  uzyskać domyślne zasady harmonogramu.  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenie cmdlet tworzy obiekt programu PowerShell, która przechowuje informacje o zasadach tworzenia kopii zapasowej. Harmonogram i przechowywania obiektów zasady są używane jako dane wejściowe  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenia cmdlet. Poniższy przykład zasad harmonogramu i zasady przechowywania są przechowywane w zmiennych. W przykładzie użyto tych zmiennych definiuje parametry podczas tworzenia zasad ochrony, *NewPolicy*.
+Zasady tworzenia kopii zapasowej ochrony jest skojarzony z co najmniej jedne zasady przechowywania. Zasady przechowywania określają, jak długo punkt odzyskiwania jest przechowywana, przed usunięciem. Użyj  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  Aby wyświetlić domyślne zasady przechowywania.  Podobnie można użyć  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  uzyskać domyślne zasady harmonogramu. **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenie cmdlet tworzy obiekt programu PowerShell, która przechowuje informacje o zasadach tworzenia kopii zapasowej. Harmonogram i przechowywania obiektów zasady są używane jako dane wejściowe  **[AzureRmRecoveryServicesBackupProtectionPolicy nowy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  polecenia cmdlet. Poniższy przykład zasad harmonogramu i zasady przechowywania są przechowywane w zmiennych. W przykładzie użyto tych zmiennych definiuje parametry podczas tworzenia zasad ochrony, *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -284,7 +284,7 @@ Ma klucza różnicy między przywracanie maszyny Wirtualnej przy użyciu portalu
 >
 >
 
-Aby utworzyć maszynę wirtualną z dysku, zobacz sekcję [utworzyć maszynę Wirtualną z przechowywanych dysków](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Podstawowe kroki, aby przywrócić maszyny Wirtualnej platformy Azure są:
+Aby utworzyć maszynę wirtualną z dysku, zobacz sekcję [utworzyć maszynę Wirtualną z dysków przywróconej](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Podstawowe kroki, aby przywrócić maszyny Wirtualnej platformy Azure są:
 
 * Wybierz maszynę Wirtualną
 * Wybierz punkt odzyskiwania

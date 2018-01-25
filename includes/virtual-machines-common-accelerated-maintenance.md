@@ -45,7 +45,7 @@ Usług platformy Azure, w tym sieci web i mobilnych, usług danych, IoT, niekorz
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel opublikowała dodatkowe wskazówki dotyczące 22 stycznia 2018 związane z luk w zabezpieczeniach.  W tych wskazówkach spowoduje żadnych działań obsługi dodatkowych przez platformę Azure?  
 
-Nie ma wpływu na czynniki Azure wcześniej ogłaszane na 3 stycznia 2018 [zaktualizowano wskazówki](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Nie będzie żadnej aktywności dodatkowe konserwacji na klienta maszyn wirtualnych w wyniku tego nowych informacji przez firmę Intel.
+Nie ma wpływu na czynniki Azure wcześniej ogłaszane na 3 stycznia 2018 [zaktualizowano wskazówki](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Nie będzie żadnej aktywności obsługi dodatkowych na klienta maszyn wirtualnych w wyniku tego nowych informacji.
  
 
 ## <a name="next-steps"></a>Kolejne kroki

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Samouczek: Integracji Azure Active Directory z logowania jednokrotnego SAML zlewiska przez firmę Microsoft
 
@@ -31,6 +31,10 @@ Integracja z usługą Azure AD logowania jednokrotnego SAML zlewiska przez firm�
 - Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
 Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Opis:
+
+Korzystać z serwera zlewiska Atlassian konta Microsoft Azure Active Directory, aby włączyć logowanie jednokrotne. W ten sposób wszyscy użytkownicy organizacji można używać poświadczeń usługi Azure AD do logowania do aplikacji zlewiska. Ten dodatek plug-in używa SAML 2.0 dla Federacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,8 +98,6 @@ Aby skonfigurować integrację logowania jednokrotnego SAML zlewiska przez firm�
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego SAML zlewiska przez firmę Microsoft, w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
 Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w logowania jednokrotnego SAML zlewiska przez firmę Microsoft jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w logowania jednokrotnego SAML zlewiska przez firmę Microsoft.
-
-W logowania jednokrotnego SAML zlewiska przez firmę Microsoft, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
 Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z logowania jednokrotnego SAML zlewiska przez firmę Microsoft, należy wykonać poniższe bloki konstrukcyjne:
 
@@ -163,7 +165,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Pobierz dodatek z [Microsoft Download Center](). Ręcznie przekazać wtyczki, używając Microsoft **przekazać dodatek** menu
+8. Pobierz dodatek z [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Ręcznie przekazać wtyczki, używając Microsoft **przekazać dodatek** menu
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

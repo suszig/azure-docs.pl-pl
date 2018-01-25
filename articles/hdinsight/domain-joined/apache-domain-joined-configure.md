@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Skonfiguruj środowisko piaskownicy domeny w usłudze HDInsight
 
@@ -29,7 +29,6 @@ Bez klastra usługi HDInsight przyłączonych do domeny, każdy klaster może za
 
 -   Autonomiczny usługi Active Directory systemem Azure IaaS.
 -   Azure Active Directory.
--   Uruchomienie w środowisku lokalnym klienta Active Directory.
 
 Przy użyciu autonomicznej usługi Active Directory systemem Azure IaaS zostało opisane w tym artykule. Jest najprostsza architektury, które klient może wykonać, aby uzyskać pomoc techniczną przez wielu użytkowników w usłudze HDInsight. W tym artykule opisano dwa podejścia do tej konfiguracji:
 
@@ -71,9 +70,10 @@ W tej sekcji możesz otworzyć szablon administracyjny zasobów platformy Azure 
     - **Nazwa użytkownika administratora**: Wprowadź nazwę użytkownika administratora domeny.
     - **Hasło administratora**: Wprowadź hasło administratora domeny.
     - **Nazwa domeny**: nazwa domyślna to *contoso.com*.  Jeśli zmienisz nazwę domeny, należy również zaktualizować **certyfikatu bezpiecznego LDAP** pola i **DN jednostki organizacyjnej** pola.
+    - **Prefiks DNS**: wprowadź prefiks DNS dla publicznego adresu IP używane przez usługi równoważenia obciążenia.
     - **Nazwa klastra**: Wprowadź nazwę klastra usługi HDInsight.
     - **Typ klastra**: nie należy zmieniać tej wartości. Jeśli chcesz zmienić typ klastra, należy użyć określonego szablonu w ostatnim kroku.
-
+    - **Bezpieczne hasło certyfikatu Ldap**: Użyj wartości domyślnej, chyba że zostanie zmienione pole certyfikatu Secure LDAP.
     Niektóre wartości są zakodowane na stałe w szablonie, na przykład jest dwa wystąpienia liczba węzłów procesu roboczego.  Aby zmienić wartości stałe, kliknij przycisk **Edytuj szablon**.
 
     ![Szablon edycji przyłączonych do domeny klastra usługi HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

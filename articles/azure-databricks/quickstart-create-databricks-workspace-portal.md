@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Szybki start: uruchamianie zadania Spark w usłudze Azure Databricks przy użyciu witryny Azure Portal
 
@@ -38,10 +38,7 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 2. W obszarze **Azure Databricks (wersja zapoznawcza)** kliknij pozycję **Utwórz**.
 
-    > [!NOTE]
-    > Usługa Azure Databricks jest obecnie dostępna w ograniczonej wersji zapoznawczej. Jeśli chcesz, aby Twoja subskrypcja platformy Azure została wzięta pod uwagę podczas dodawania do listy dozwolonych dla wersji zapoznawczej, musisz wypełnić [formularz rejestracji](https://databricks.azurewebsites.net/).
-
-2. W obszarze **Usługa Azure Databricks** podaj następujące wartości:
+3. W obszarze **Usługa Azure Databricks** podaj następujące wartości:
 
     ![Tworzenie obszaru roboczego usługi Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Tworzenie obszaru roboczego usługi Azure Databricks")
 
@@ -50,7 +47,7 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
     * W obszarze **Grupa zasobów** określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej. Grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
     * W polu **Lokalizacja** wybierz pozycję **Wschodnie stany USA 2**. Inne dostępne regiony podano na stronie [dostępności usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).
 
-3. Kliknij przycisk **Utwórz**.
+4. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Tworzenie klastra Spark w usłudze Databricks
 

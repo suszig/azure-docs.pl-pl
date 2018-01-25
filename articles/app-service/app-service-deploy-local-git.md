@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Wdrażanie lokalnej usługi Git w usłudze Azure App Service
 
@@ -54,18 +54,13 @@ Usługa aplikacji obsługuje aplikacje utworzone w różnych językach programow
 
 1. Jeśli repozytorium nie obejmuje zawartości, Dodaj plik statyczny .html lub pominąć ten krok:
    * Za pomocą edytora tekstu, Utwórz nowy plik o nazwie **index.html** w katalogu głównym repozytorium Git
-   * Dodaj poniższy tekst jako zawartość dla index.html plik i zapisać go: *Git Witaj!*
-1. Z poziomu wiersza polecenia Sprawdź, czy w katalogu głównym repozytorium Git. Następnie użyj następującego polecenia, aby dodać pliki do repozytorium:
+   * Dodaj poniższy tekst jako zawartość index.html plik i zapisać go: *Git Witaj!*
+1. W wierszu polecenia Sprawdź, czy w katalogu głównym repozytorium Git. Następnie użyj następującego polecenia, aby dodać pliki do repozytorium:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. Następnie Zatwierdź zmiany do repozytorium przy użyciu następującego polecenia:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Krok 3: Włącz repozytorium aplikacji usługi aplikacji
 
@@ -92,7 +87,7 @@ Wykonaj następujące kroki, aby publikowanie aplikacji w usłudze App Service p
 1. Korzystając z wiersza polecenia, sprawdź, czy w katalogu lokalnym repozytorium Git.
 1. Użyj `git remote` można dodać odwołania zdalnego na liście **adres URL Git** z kroku 1. Polecenie wygląda podobnie do następującego:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Użyj punktów końcowych usługi sieci wirtualnej i reguł bazy danych SQL Azure
 
@@ -179,11 +179,20 @@ Obecnie istnieją dwa sposoby włączania inspekcji bazy danych SQL. Inspekcja t
 Usługa Azure Storage zaimplementowała tej samej funkcji, która umożliwia ograniczenie łączności z kontem magazynu.
 Jeśli wybierzesz użyć tej funkcji przy użyciu konta magazynu, który jest używany przez serwer SQL platformy Azure, można uruchomić na problemy. Jest obok listy oraz omówienie funkcji Azure SQLDB, które ma wpływ na to.
 
-#### <a name="azure-sqldw-polybase"></a>Program PolyBase Azure SQLDW
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
 Program PolyBase jest najczęściej używany do ładowania danych do usługi Azure SQLDW z kont magazynu. Jeśli konto magazynu, które są podczas ładowania danych z ogranicza dostęp tylko do wielu podsieci sieci wirtualnej, spowoduje przerwanie połączenia z programu PolyBase do konta.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Obiekt Blob Azure SQLDB inspekcji
 Inspekcja obiektów blob wypchnięcia dzienników inspekcji na koncie magazynu. Jeśli to konto magazynu jest używana funkcja punktów końcowych usługi zdarzenie spowoduje przerwanie połączenia z Azure SQLDB do konta magazynu.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Dodawanie reguły zapory w sieci Wirtualnej do serwera bez włączania na sieć Wirtualną punktów końcowych usługi
+
+Dawno temu, zanim ta funkcja została udoskonalona i były wymagane punkty końcowe można włączyć sieci wirtualnej usługi na przed regułę sieci wirtualnej na żywo można zaimplementować w zaporze. Punkty końcowe powiązane w jednej podsieci sieci wirtualnej do bazy danych SQL Azure. Jednak obecnie w począwszy od stycznia 2018, ustawiając mogą omijać to wymaganie **IgnoreMissingServiceEndpoint** flagi.
+
+Tylko ustawienie reguły zapory nie pomaga zabezpieczyć serwer. Należy również włączyć punktów końcowych usługi sieci wirtualnej dla zabezpieczeń zaczęły obowiązywać. Po włączeniu punktów końcowych usługi w podsieci sieci wirtualnej napotyka przestoju dopiero po zakończeniu jego przejścia z wył. Jest to szczególnie istotne w kontekście dużych sieci wirtualnych. Można użyć **IgnoreMissingServiceEndpoint** flagę w celu ograniczenie lub wyeliminowanie przestojów podczas przejścia.
+
+Można ustawić **IgnoreMissingServiceEndpoint** flagi przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz [PowerShell, aby utworzyć regułę i punkt końcowy usługi sieci wirtualnej dla bazy danych SQL Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 
 ## <a name="errors-40914-and-40615"></a>Błędy 40914 i 40615

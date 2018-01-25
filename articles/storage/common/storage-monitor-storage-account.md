@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitor konta magazynu w portalu Azure
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Usługa pliki Azure obecnie obsługuje metryki analityka magazynu, ale jeszcze nie obsługuje rejestrowania.
 >
-> Konta magazynu z typu replikacji z magazynu Strefowo nadmiarowy (ZRS) aktualnie nie masz miar lub włączona funkcja rejestrowania.
+> Konta magazynu z typem replikacji magazyn Strefowo nadmiarowy (ZRS) obsługują metryki i rejestrowania. Poprzednie kontami ZRS, które zostały zmienione ZRS klasycznego, wykonaj nie metryki pomocy technicznej lub rejestrowania. Aby uzyskać więcej informacji o ZRS, zobacz [magazyn Strefowo nadmiarowy](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Aby uzyskać szczegółowy przewodnik przy użyciu analizy magazynu i innych narzędzi do identyfikacji, diagnozowanie i rozwiązywanie problemów związanych z usługą Azure Storage, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów z usługi Magazyn Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -154,7 +154,7 @@ Dzienniki diagnostyczne są zapisywane w kontenerze obiektu blob o nazwie $logs 
 
 Informacje o uzyskiwaniu dostępu do kontenera $logs, zobacz [Włączanie rejestrowania magazynu i uzyskiwanie dostępu do danych dziennika](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Uzyskać więcej informacji na temat [metryki, rejestrowania i rozliczeń](../storage-analytics.md) analizy magazynu.
 * [Włącz dane metryk usługi Azure Storage metryki i widoku](../storage-enable-and-view-metrics.md) przy użyciu programu PowerShell i programowo w języku C#.

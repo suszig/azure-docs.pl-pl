@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Zarządzanie aktualizacjami systemu Windows za pomocą usługi Azure Automation
 
@@ -62,9 +62,8 @@ Obszar roboczy usługi [Log Analytics](../log-analytics/log-analytics-overview.m
 Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 Aby wykonać dodatkowe akcje na maszynach wirtualnych, które wymagają aktualizacji, usługa Azure Automation pozwala na uruchamianie elementów Runbook dla maszyn wirtualnych, takich jak pobieranie i stosowanie aktualizacji.
 
-Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego.
-Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących stanu aktualizacji.
 Proces walidacji sprawdza również, czy maszyna wirtualna jest aprowizowana za pomocą programu Microsoft Monitoring Agent (MMA) i hybrydowego procesu roboczego elementu Runbook usługi Automation.
+Ten agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji dotyczących stanu aktualizacji.
 
 Jeśli te wymagania wstępne nie są spełnione, zostanie wyświetlony transparent zawierający opcję włączenia rozwiązania.
 

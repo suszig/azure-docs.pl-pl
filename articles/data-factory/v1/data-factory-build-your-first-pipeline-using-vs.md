@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 49fb249b6ff1169527829c77a6539926ec99b912
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Samouczek: Tworzenie fabryki danych za pomocą programu Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,7 +60,7 @@ Poniżej przedstawiono kroki do wykonania w ramach tego przewodnika:
 5. Po opublikowaniu będziesz monitorować potok za pomocą bloków witryny Azure Portal i aplikacji do monitorowania i zarządzania. 
   
 ### <a name="prerequisites"></a>Wymagania wstępne
-1. Przeczytaj artykuł [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonaj kroki **wymagań wstępnych**. Aby przejść do artykułu, możesz również wybrać opcję **Przegląd i wymagania wstępne** z listy rozwijanej w górnej części strony. Po spełnieniu wymagań wstępnych przejdź z powrotem do tego artykułu, wybierając opcję **Visual Studio** z listy rozwijanej.
+1. Przeczytanie artykułu [Omówienie samouczka](data-factory-build-your-first-pipeline.md) oraz wykonanie kroków **wymagań wstępnych**. Aby przejść do artykułu, możesz również wybrać opcję **Przegląd i wymagania wstępne** z listy rozwijanej w górnej części strony. Po spełnieniu wymagań wstępnych przejdź z powrotem do tego artykułu, wybierając opcję **Visual Studio** z listy rozwijanej.
 2. Aby utworzyć wystąpienia usługi Data Factory, użytkownik musi być członkiem roli [współautora usługi Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) na poziomie subskrypcji/grupy zasobów.  
 3. Na komputerze muszą być zainstalowane następujące elementy:
    * Visual Studio 2013 lub Visual Studio 2015

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: danis
-ms.openlocfilehash: f3e4ab075f7cd75bac2d66f0391227c0de6e11a0
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3be001c2ad63c5872af4740f136438034e1e406b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Omówienie usługi Azure agenta maszyny wirtualnej
 
-Agent maszyny wirtualnej programu Microsoft Azure (AM Agent) jest procesem zabezpieczonych, lekkie, który zarządza wirtualna interakcji z kontrolerem sieci szkieletowej Azure. Agent maszyny Wirtualnej ma podstawową rolą włączenie i wykonywania rozszerzenia maszyny wirtualnej platformy Azure. Włączanie rozszerzenia maszyny Wirtualnej po konfiguracji wdrożenia maszyn wirtualnych, takie jak instalowanie i konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych również włączyć funkcje odzyskiwania, np. zresetowania hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny Wirtualnej Azure nie można uruchomić rozszerzenia maszyny wirtualnej.
+Agent maszyny wirtualnej programu Microsoft Azure (Agent maszyny Wirtualnej) jest procesem zabezpieczonych, lekkie, który zarządza wirtualna interakcji z kontrolerem sieci szkieletowej Azure. Agent maszyny Wirtualnej ma podstawową rolą włączenie i wykonywania rozszerzenia maszyny wirtualnej platformy Azure. Włączanie rozszerzenia maszyny Wirtualnej po konfiguracji wdrożenia maszyn wirtualnych, takie jak instalowanie i konfigurowanie oprogramowania. Rozszerzenia maszyn wirtualnych również włączyć funkcje odzyskiwania, np. zresetowania hasła administracyjnego maszyny wirtualnej. Bez agenta maszyny Wirtualnej Azure nie można uruchomić rozszerzenia maszyny wirtualnej.
 
 Ten dokument zawiera szczegóły dotyczące instalacji, wykrywania i usuwania agenta maszyny wirtualnej Azure.
 

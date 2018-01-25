@@ -8,7 +8,10 @@ Ostatnie ujawnienie [nowa klasa luk w zabezpieczeniach Procesora](https://portal
 Infrastrukturę, która uruchamia Azure i izoluje obciążeń klientów od siebie jest chroniony.  Oznacza to, że innych klientów działających na platformie Azure nie ataki aplikację za pomocą te luki w zabezpieczeniach.
 
 > [!NOTE] 
-> Azure środki zaradcze wcześniej ogłaszane na 3 stycznia 2018 nie dotyczy to przez ostatnie [zaktualizowano wskazówki](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Nie będzie żadnej aktywności dodatkowe konserwacji na klienta maszyn wirtualnych w wyniku tego nowych informacji przez firmę Intel.
+> Azure środki zaradcze wcześniej ogłaszane na 3 stycznia 2018 nie dotyczy to przez ostatnie [zaktualizowano wskazówki](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) z Intel. Nie będzie żadnej aktywności obsługi dodatkowych na klienta maszyn wirtualnych w wyniku tego nowych informacji.
+>
+> Firma Microsoft będzie zaktualizować następujące najlepsze rozwiązania jako aktualizacje mikrokodu otrzymane od dostawcy sprzętu. Sprawdź, czy ponownie zaktualizowane wskazówki.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Aktualizowanie przez systemy operacyjne
 
@@ -46,9 +49,6 @@ Jeśli używasz systemu Windows i obsługujący kodzie niezaufanym, należy rów
 ### <a name="linux"></a>Linux
 Jeśli korzysta z systemu Linux i hosting kodzie niezaufanym, należy również zaktualizować Linux do nowszej wersji, która implementuje izolacja tabeli stron jądra (KPTI), która oddziela tabele stron używane przez jądro z elementów należących do przestrzeni. Czynniki te wymagają aktualizacji systemu operacyjnego Linux oraz można uzyskać od dostawcy dystrybucji, jeśli jest dostępna. Dostawca systemu operacyjnego można stwierdzić, czy zabezpieczenia są włączone lub wyłączone domyślnie.
 
-
-
-Firma Microsoft będzie zaktualizować następujące najlepsze rozwiązania jako aktualizacje mikrokodu otrzymane od dostawcy sprzętu. Sprawdź, czy ponownie zaktualizowane wskazówki.
 
 
 ## <a name="next-steps"></a>Kolejne kroki

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: b680d4b828910207367035a8b03bd75f84c79271
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sprint-3---january-2018"></a>Wypalenie w 3 — styczeń 2018 
 
@@ -34,6 +34,7 @@ Poniżej znajduje się lista szczegółowe aktualizacji w obszarze każdego skł
 - Możliwość instalacji/dezinstalacji aplikacji z apletu Dodaj/Usuń programy
 - Aktualizacje stosu uwierzytelniania wymusza wyboru logowania i konto podczas rozruchu
 - Udoskonalone środowisko pojedynczy znak na rejestracji jednokrotnej (SSO) w systemie Windows
+- Użytkownicy, którzy należą do wielu dzierżawców z innymi poświadczeniami teraz będą mogli zalogować się do środowiska roboczego
 
 #### <a name="ui"></a>UI
 - Ogólne poprawki i poprawki
@@ -46,6 +47,7 @@ Poniżej znajduje się lista szczegółowe aktualizacji w obszarze każdego skł
 - Ulepszone algorytm inspektora częstotliwość wzorca
 - Umożliwia wysyłanie przykładowych danych i opinie podczas wykonywania przekształcenia przez przykład ![obrazu wysyłania link opinii na pochodzi przekształcenia kolumny](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Ulepszenia środowiska uruchomieniowego Spark
+- Scala zastąpił Pyspark
 - Stałe brakiem zamknięcia czas inspektora serii danych nie dotyczy 
 - Stały czas zawieszenie wykonywania przygotowanie bazy danych dla HDI
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Utworzyć regułę i punkt końcowy usługi wirtualne w bazie danych SQL Azure przy użyciu programu PowerShell
 
@@ -48,7 +48,8 @@ Na poniższej liście przedstawiono sekwencję innych *głównych* poleceń cmdl
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): będzie się powtarzał aktualizacje wprowadzone w Twojej sieci wirtualnej.
 
-5. **Nowy AzureRmSqlServerVirtualNetworkRule**: po podsieć jest punktem końcowym, dodaje podsieć zasadzie sieci wirtualnej do listy kontroli dostępu serwera bazy danych SQL Azure.
+5. [Nowy AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): po podsieć jest punktem końcowym, dodaje podsieć zasadzie sieci wirtualnej do listy kontroli dostępu serwera bazy danych SQL Azure.
+    - Oferuje parametr **- IgnoreMissingVnetServiceEndpoint**, rozpoczynając modułu programu PowerShell Menedżera zasobów Azure wersji 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Wymagania wstępne dotyczące uruchamiania programu PowerShell
 
@@ -123,7 +124,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 Skrypt ten przygotowuje się do dalej skryptu, gdzie jest akcja punktu końcowego. Ten skrypt tworzy następujące wymienionych elementów, ale tylko wtedy, jeśli jeszcze nie istnieje. Skrypt 2 można pominąć, jeśli masz pewność, że te elementy już istnieje:
 
-- Grupy zasobów platformy Azure
+- Grupa zasobów platformy Azure
 - Serwer bazy danych SQL Azure
 
 #### <a name="powershell-script-2-source-code"></a>Kod źródłowy 2 skryptu PowerShell

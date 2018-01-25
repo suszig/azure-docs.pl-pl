@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery macierz obsługi replikacji z lokalnych do platformy Azure
 
@@ -68,7 +68,7 @@ W poniższej tabeli przedstawiono obsługę systemu operacyjnego replikowanych w
 
  **Serwer VMware/fizyczne** | **Funkcja Hyper-V (lub bez VMM)** |
 --- | --- |
-64-bitowego systemu Windows Server 2016 (instalacja Server Core, serwer z środowisko pulpitu)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 do 7,4<br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 do 7,4 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP3 <br/><br/>SUSE Linux Enterprise Server 11 z dodatkiem SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.) | Wszelkie system operacyjny gościa [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bitowego systemu Windows Server 2016 (instalacja Server Core, serwer z środowisko pulpitu)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1<br/><br/> Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 do 7,4<br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 do 7,4 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.) | Wszelkie system operacyjny gościa [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
@@ -117,7 +117,7 @@ W poniższej tabeli podsumowano Obsługa konfiguracji sieci w różnych scenariu
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 Tworzenie zespołu kart sieciowych | Yes<br/><br/>Nieobsługiwane, gdy są replikowane maszyny fizycznej| Yes
-SIECI VLAN | Yes | Yes
+VLAN | Yes | Yes
 Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
 
@@ -130,7 +130,7 @@ Protokół IPv4 | Yes | Yes
 Protokół IPv6 | Nie | Nie
 Statyczny adres IP (z systemem Windows) | Yes | Yes
 Statyczny adres IP (Linux) | Yes <br/><br/>Maszyny wirtualne są skonfigurowane do używania protokołu DHCP w przypadku powrotu po awarii  | Nie
-Obsługa wielu kart Sieciowych | Yes | Yes
+Multi-NIC | Yes | Yes
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Konfiguracja sieci maszyny Wirtualnej Azure przełączona w tryb failover
 
@@ -140,7 +140,7 @@ ExpressRoute | Yes | Yes
 Wewnętrzny moduł równoważenia obciążenia | Yes | Yes
 ELB | Yes | Yes
 Traffic Manager | Yes | Yes
-Obsługa wielu kart Sieciowych | Yes | Yes
+Multi-NIC | Yes | Yes
 Zastrzeżony adres IP | Yes | Yes
 Protokół IPv4 | Yes | Yes
 Zachowaj źródłowy adres IP | Yes | Yes
@@ -154,9 +154,9 @@ W poniższej tabeli podsumowano Obsługa konfiguracji magazynu w różnych scena
 
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | --- | ---
-SYSTEMU PLIKÓW NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych | ND
+NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznych | ND
 SMB 3.0 | ND | Yes
-SIECI SAN (ISCSI) | Yes | Yes
+SAN (ISCSI) | Yes | Yes
 Wiele ścieżek (MPIO)<br></br>Przetestowana: moduł DSM firmy Microsoft, EMC PowerPath 5.7 z dodatkiem SP4, EMC PowerPath DSM dla CLARiiON | Yes | Yes
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>Gość lub serwerze fizycznym magazynu konfiguracji
@@ -164,14 +164,14 @@ Wiele ścieżek (MPIO)<br></br>Przetestowana: moduł DSM firmy Microsoft, EMC Po
 **Konfiguracja** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 VMDK | Yes | ND
-DYSK VHD/VHDX | ND | Yes
+VHD/VHDX | ND | Yes
 Gł 2 maszyny Wirtualnej | ND | Yes
-INTERFEJSEM EFI/UEFI| Nie | Yes
+EFI/UEFI| Migracja do systemu Azure dla systemu Windows Server 2012 i późniejsze. </br></br> ** Zobacz uwagi pod koniec tabeli.  | Yes
 Udostępniony dysk klastra | Nie | Nie
 Zaszyfrowanego dysku | Nie | Nie
-SYSTEMU PLIKÓW NFS | Nie | ND
+NFS | Nie | ND
 SMB 3.0 | Nie | Nie
-DYSK RDM | Yes<br/><br/> Brak serwerów fizycznych | ND
+RDM | Yes<br/><br/> Brak serwerów fizycznych | ND
 Na dysku > 1 TB | Yes<br/><br/>Maksymalnie 4095 GB | Yes<br/><br/>Maksymalnie 4095 GB
 Dysk o rozmiarze sektora fizycznego logicznych i 4 k 4K | Yes | Nie są obsługiwane w maszynach wirtualnych generacji 1<br/><br/>Nie są obsługiwane w maszynach wirtualnych generacji 2.
 Dysk o logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes |  Yes
@@ -180,6 +180,12 @@ Funkcja miejsca do magazynowania | Nie | Yes
 Dodaj lub usuń gorących dysku | Nie | Nie
 Wykluczanie dysku | Yes | Yes
 Wiele ścieżek (MPIO) | ND | Yes
+
+> [!NOTE]
+> ** UEFI rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
+> - Migracja do platformy Azure. Powrót po awarii do lokalnej lokacji oprogramowania VMware nie jest obsługiwane.
+> - Nie więcej niż 4 partycje są obsługiwane na dysku systemu operacyjnego serwera.
+> - Wymagana wersja usługi mobilności odzyskiwania lokacji Azure 9.13 lub nowszej.
 
 **Magazyn platformy Azure** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
@@ -201,14 +207,14 @@ Konta magazynu ogólnego przeznaczenia V2 (zarówno gorącego i chłodnej warstw
 **Obliczanie funkcji** | **Serwer VMware/fizyczne** | **Funkcja Hyper-V (z/bez programu Virtual Machine Manager)**
 --- | --- | ---
 Zestawy dostępności | Yes | Yes
-CENTRUM | Yes | Yes  
+HUB | Yes | Yes  
 Dyski zarządzane | Yes | Yes<br/><br/>Powrót po awarii do środowiska lokalnego z maszyny Wirtualnej platformy Azure z dyskami zarządzanego nie jest obecnie obsługiwane.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Wymagania dotyczące maszyny Wirtualnej Azure przełączona w tryb failover
 
 Możesz wdrożyć usługę Site Recovery, aby replikować maszyny wirtualne i serwery fizyczne z dowolnym systemem operacyjnym obsługiwanym przez platformę Azure. Jest to większość wersji systemów Windows i Linux. Lokalna Usługa maszyn wirtualnych, które chcesz replikować muszą być zgodne z następującymi wymaganiami Azure podczas replikacji do platformy Azure.
 
-**Jednostki** | **Wymagania** | **Szczegóły**
+**Entity** | **Wymagania** | **Szczegóły**
 --- | --- | ---
 **System operacyjny gościa** | Funkcja Hyper-V Azure replikacji: Usługa Site Recovery obsługuje wszystkich systemów operacyjnych, które są [obsługiwany przez platformę Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware i replikacji na serwerze fizycznym: sprawdzanie systemu Windows i Linux [wymagania wstępne](site-recovery-vmware-to-azure-classic.md) | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli jest nieobsługiwany.
 **Architektura systemu operacyjnego gościa** | 64-bitowa | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
@@ -220,7 +226,7 @@ Możesz wdrożyć usługę Site Recovery, aby replikować maszyny wirtualne i se
 **Udostępniony wirtualny dysk twardy** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **FC dysku** | Nieobsługiwane | Sprawdzanie wymagań wstępnych zakończy się niepowodzeniem, jeśli nieobsługiwane
 **Format dysku twardego** | WIRTUALNEGO DYSKU TWARDEGO <br/><br/> VHDX | Chociaż VHDX nie jest obecnie obsługiwany na platformie Azure, Usługa Site Recovery automatycznie konwertuje VHDX do wirtualnego dysku twardego, gdy awaryjnie na platformie Azure. Gdy nie powiedzie się do lokalnych maszyn wirtualnych w dalszym ciągu korzystać z formatu VHDX.
-**Funkcja BitLocker** | Nieobsługiwane | Przed rozpoczęciem ochrony maszyny wirtualnej, należy wyłączyć funkcję BitLocker.
+**Bitlocker** | Nieobsługiwane | Przed rozpoczęciem ochrony maszyny wirtualnej, należy wyłączyć funkcję BitLocker.
 **Nazwa maszyny Wirtualnej** | Od 1 do 63 znaków. Ograniczone do litery, cyfry i łączniki. Nazwa maszyny Wirtualnej musi zaczynać i kończyć literą lub cyfrą. | Zaktualizuj wartość we właściwościach maszyny wirtualnej w usłudze Site Recovery.
 **Typu maszyny Wirtualnej** | Generacja 1<br/><br/> Generacja 2 — systemu Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego, Basic (zawierającej co najmniej dwa woluminy danych w formacie VHDX) i mniejsza niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyn wirtualnych systemu Linux generacji 2 nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 

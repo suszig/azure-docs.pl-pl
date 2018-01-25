@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Zaktualizuj urządzenia z serii StorSimple 8000
 > [!NOTE]
-> Klasyczny portal dla urządzenia StorSimple jest przestarzały. Menedżerowie urządzenia StorSimple zostanie automatycznie przełączona do nowego portalu Azure, zgodnie z harmonogramem wycofywanie. Otrzymasz wiadomość e-mail i powiadomienie portalu dla tego przeniesienia. Ten dokument również zostaną wkrótce wycofane. Wszelkie pytania dotyczące przeniesienie, zobacz [— często zadawane pytania: przejść do portalu Azure](storsimple-8000-move-azure-portal-faq.md).
+> Klasyczny portal dla urządzeń StorSimple jest przestarzały. Menedżerowie urządzeń StorSimple dokonają automatycznego przeniesienia do nowej witryny Azure Portal zgodnie z ustalonym harmonogramem wycofywania przestarzałych produktów. Powiadomienie o przeniesieniu otrzymasz pocztą e-mail i za pośrednictwem portalu. Ten dokument zostanie wkrótce usunięty. W razie jakichkolwiek pytań dotyczących przeniesienia, zobacz [FAQ: Move to Azure portal (Często zadawane pytania — przeniesienie do witryny Azure Portal)](storsimple-8000-move-azure-portal-faq.md).
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 Funkcje aktualizacji StorSimple umożliwiają łatwe aktualizowanie urządzenia StorSimple. W zależności od typu aktualizacji należy zastosować aktualizacje na urządzeniu za pośrednictwem klasycznego portalu Azure lub za pośrednictwem interfejsu programu Windows PowerShell. W tym samouczku opisano typy aktualizacji i sposobu instalacji każdego z nich.
 
 Można zastosować dwa typy aktualizacji urządzenia: 
@@ -116,9 +116,9 @@ Poniższe procedury dotyczą sposobu używania programu Windows PowerShell dla S
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Co się dzieje z aktualizacji w przypadku resetowania urządzenia do ustawień fabrycznych?
-Jeśli urządzenie jest zresetowane do ustawień fabrycznych, wszystkie aktualizacje zostaną utracone. Po rejestracji i konfiguracji Resetowanie do ustawień fabrycznych urządzenia, należy ręcznie zainstalować aktualizacje za pośrednictwem klasycznego portalu Azure i/lub środowiska Windows PowerShell dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat resetowania do ustawień fabrycznych, zobacz [zresetowania urządzenia do domyślnych ustawień fabrycznych](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Jeśli urządzenie jest zresetowane do ustawień fabrycznych, wszystkie aktualizacje zostaną utracone. Po rejestracji i konfiguracji Resetowanie do ustawień fabrycznych urządzenia, należy ręcznie zainstalować aktualizacje za pośrednictwem klasycznego portalu Azure i/lub środowiska Windows PowerShell dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat resetowania do ustawień fabrycznych, zobacz [zresetowania urządzenia do domyślnych ustawień fabrycznych](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [przy użyciu programu Windows PowerShell dla StorSimple do administrowania urządzeniem StorSimple](storsimple-windows-powershell-administration.md).
 * Dowiedz się więcej o [przy użyciu usługi Menedżer StorSimple do administrowania urządzeniem StorSimple](storsimple-manager-service-administration.md).
 

@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Skonfigurować PHP w aplikacjach sieci Web usługi aplikacji Azure
 ## <a name="introduction"></a>Wprowadzenie
@@ -27,7 +27,7 @@ W tym przewodniku opisano sposób konfigurowania wbudowanych środowiska uruchom
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Porady: zmiana wbudowanych wersji PHP
-Domyślnie program PHP w wersji 5.5 jest zainstalowana i natychmiast dostępnej do użycia podczas tworzenia aplikacji sieci web usługi aplikacji. Najlepszym sposobem Zobacz poprawki dostępnych wersji domyślnej konfiguracji i włączone rozszerzenia jest wdrożenie skryptu, który wywołuje [phpinfo()] funkcji.
+Domyślnie PHP 5.6 jest zainstalowana i natychmiast dostępnej do użycia podczas tworzenia aplikacji sieci web usługi aplikacji. Najlepszym sposobem Zobacz poprawki dostępnych wersji domyślnej konfiguracji i włączone rozszerzenia jest wdrożenie skryptu, który wywołuje [phpinfo()] funkcji.
 
 Wersje PHP 5.6 i PHP 7.0 są również dostępne, ale nie jest włączony domyślnie. Aby zaktualizować wersję PHP, wykonaj jedną z następujących metod:
 
@@ -178,7 +178,7 @@ Domyślnie usługi aplikacji nie są wykonywane z composer.json, jeśli istnieje
    
     ![Wdrażanie Git za pomocą automatyzacji Composer na platformie Azure](./media/web-sites-php-configure/composer-extension-success.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji, zobacz [Centrum deweloperów języka PHP](/develop/php/).
 
 > [!NOTE]

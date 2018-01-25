@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 857bbd42fda4abddd9a7551f4de016cecae03868
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Tabela wsparcia dla VMware i replikacja serwerów fizycznych do platformy Azure
 
@@ -43,22 +43,28 @@ Poniższa tabela zawiera podsumowanie obsługi replikacji dla maszyny. Usługa S
 --- | ---
 Konfiguracja maszyny | Komputery, które są replikowane do platformy Azure musi spełniać [wymagania dotyczące usługi Azure](#failed-over-azure-vm-requirements).
 System operacyjny maszyny (system Windows) | 64-bitowego systemu Windows Server 2016 (instalacja Server Core, serwer z środowisko pulpitu)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z na co najmniej z dodatkiem SP1
-System operacyjny maszyny (Linux) | Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 i 7.3 <br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 i 7.3 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.)
-Wersja jądra systemu Linux | Red Hat Enterprise Linux Server 7 + i CentOS 7 + serwery 3.10.0-514 wersji jądra jest obsługiwana, począwszy od wersji 9,8 usługi mobilności odzyskiwania lokacji Azure.<br/><br/> Klienci na jądra 3.10.0-514 przy użyciu wersji usługi mobilności niższa niż wersja 9,8 są wymagane do Wyłącz replikację, zaktualizuj wersję usługi mobilności do wersji 9,8 i włączeniu replikacji ponownie.
+System operacyjny maszyny (Linux) | Red Hat Enterprise Linux: 5.2-5.11, 6.1-6.9, 7.0 do 7,4 <br/><br/>CentOS: 5.2-5.11, 6.1-6.9, 7.0 do 7,4 <br/><br/>Ubuntu 14.04 LTS serwera[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (obsługiwane wersje jądra)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Linux przedsiębiorstwa 6.4, 6.5 systemem Red Hat jądra zgodny lub podzielenie Enterprise jądra wersji 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uaktualnienie replikowanie maszyn z SLES 11 z dodatkiem SP3 do SLES 11 z dodatkiem SP4 nie jest obsługiwane. Jeśli zreplikowanej maszyny został uaktualniony z SLES 11SP3 do SLES 11 z dodatkiem SP4, należy wyłączyć replikację i chronić komputer ponownie post uaktualnienia.)
 
+>[!NOTE]
+>
+> - Na dystrybucje systemu Linux obsługiwane są tylko podstawowe jądra będących częścią wersja pomocnicza wersji/aktualizacji dystrybucji.
+>
+> - Uaktualnienia w wersjach głównych dystrybucji systemu Linux na platformie Azure Site Recovery chronione maszyny wirtualnej VMware lub serwera fizycznego nie jest obsługiwane. Podczas uaktualniania systemu operacyjnego w wersji głównych (na przykład CentOS 6.* do CentOS 7.*), wyłącz replikację dla maszyny, Uaktualnij system operacyjny na maszynie, a następnie włącz ponownie replikacji.
+>
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu wersji jądra
 
 
 **Obsługiwana wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic do 3.13.0-117-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic do 3.13.0-121-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic do 3.13.0-128-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic do 3.13.0-132-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic do 3.13.0-137-generic,<br/>3.16.0-25-Generic do 3.16.0-77-generic,<br/>3.19.0-18-Generic do 3.19.0-80-generic,<br/>4.2.0-18-Generic do 4.2.0-42-generic,<br/>4.4.0-21-Generic do 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic do 4.4.0-81-generic,<br/>4.8.0-34-Generic do 4.8.0-56-generic,<br/>4.10.0-14-Generic do 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic do 4.4.0-91-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic do 4.4.0-96-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic do 4.4.0-104-generic,<br/>4.8.0-34-Generic do 4.8.0-58-generic,<br/>4.10.0-14-Generic do 4.10.0-42-generic |
 
 ## <a name="linux-file-systemsguest-storage-configurations"></a>Konfiguracje magazynu systemów/gościa plików systemu Linux
 
@@ -70,7 +76,7 @@ Oprogramowanie wielościeżkowego | Mapowanie urządzeń
 Urządzenia magazynujące parawirtualnego systemu | Wyeksportowane przez parawirtualnego systemu sterowników urządzeń nie są obsługiwane.
 Blokuj wielu kolejki We/Wy urządzenia | Nieobsługiwane.
 Serwery fizyczne z kontrolera magazynu HP CCISS | Nieobsługiwane.
-Katalogi | Te katalogi (jeśli skonfigurowany jako osobne partycje /-systemów plików) musi składać się na tym samym dysku systemu operacyjnego na serwerze źródłowym: / (root), / Boot usr, /usr/local, /var, etc
+Katalogi | Te katalogi (jeśli skonfigurowany jako osobne partycje /-systemów plików) musi składać się na tym samym dysku systemu operacyjnego na serwerze źródłowym: / (root), / Boot usr, /usr/local, /var, etc </br></br>  Jeśli / (root) wolumin jest LVM, a następnie/Boot musi znajdować się na innej partycji na tym samym dysku i nie jest woluminem LVM.<br/><br/>
 XFSv5 | Funkcje XFSv5 na XFS systemów plików, takich jak metadanych sumy kontrolnej są obsługiwane z wersji 9.10 usługi mobilności i jego nowszych wersjach. Użyj narzędzia xfs_info, aby sprawdzić superblock XFS dla partycji. Jeśli ftype jest ustawiona na 1, XFSv5 funkcje są w użyciu.
 
 
@@ -96,12 +102,12 @@ Wiele kart sieciowych sieci z serwerem gościa | Yes
 **Składnik** | **Obsługiwane** 
 --- | --- 
 ExpressRoute | Yes 
-ILB | Yes 
+Wewnętrzny moduł równoważenia obciążenia | Yes 
 ELB | Yes 
 Traffic Manager | Yes 
 Multi-NIC | Yes 
 Zastrzeżony adres IP | Yes 
-IPv4 | Yes 
+Protokół IPv4 | Yes 
 Zachowaj źródłowy adres IP | Yes 
 Punkty końcowe usługi sieci wirtualnej<br/><br/> (Usługa azure storage zapory i sieci wirtualne) | Nie 
 
@@ -115,7 +121,7 @@ Host systemu plików NFS | Tak, aby VMware<br/><br/> Nie dla serwerów fizycznyc
 Sieć SAN (ISCSI) hosta | Yes
 Wiele ścieżek hosta (MPIO) | Tak — przetestowana: Microsoft DSM, EMC PowerPath 5.7 z dodatkiem SP4 EMC PowerPath DSM dla CLARiiON
 Gość i serwerem VMDK | Yes 
-Gość i serwerem interfejsem EFI/UEFI| Nie
+Gość i serwerem interfejsem EFI/UEFI| Partial (migracja do platformy Azure dla systemu Windows Server 2012 i późniejsze). </br></br> ** Zobacz uwagi pod koniec tabeli.
 Dysk udostępniony klaster gościa serwera | Nie 
 Gość i serwerem zaszyfrowanego dysku | Nie 
 Gość serwera systemu plików NFS | Nie 
@@ -124,7 +130,14 @@ Gość i serwerem RDM | Yes<br/><br/> Brak serwerów fizycznych
 Gość i serwerem dysku > 1 TB | Yes<br/><br/>Do 4095 GB 
 Gość i serwerem dysku o rozmiarze sektora fizycznego logicznych i 4 k 4K | Yes
 Dysk serwera gościa z logicznych 4K i rozmiar sektora fizycznego 512 bajtów | Yes 
-Wolumin serwera gościa z dysku rozłożone > 1 TB<br/><br/> Logiczne LVM woluminu gościa/serwer zarządzania — miejsca do magazynowania | Dysku dodawania i usuwania gorących gościa i serwerem | Gość/server - wykluczyć dysku | Tak wielościeżkowe gościa i serwerem (MPIO) | N/D 
+Wolumin serwera gościa z dysku rozłożone > 1 TB<br/><br/> Logiczne LVM woluminu gościa/serwer zarządzania — miejsca do magazynowania | Dysku dodawania i usuwania gorących gościa i serwerem | Gość/server - wykluczyć dysku | Tak wielościeżkowe gościa i serwerem (MPIO) | N/D
+
+> [!NOTE]
+> ** UEFI rozruchu maszyn wirtualnych VMware lub serwerów fizycznych z systemem Windows Server 2012 lub nowszym można poddać migracji do usługi Azure. Obowiązują następujące ograniczenia.
+> - Tylko migracja do systemu Azure jest obsługiwana. Powrót po awarii do lokalnej lokacji oprogramowania VMware nie jest obsługiwane.
+> - Serwer nie powinna mieć więcej niż 4 partycji na dysku systemu operacyjnego.
+> - Wymagana wersja usługi mobilności odzyskiwania lokacji Azure 9.13 lub nowszej.
+
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -187,5 +200,5 @@ Przenieść magazyn, sieć, maszyn wirtualnych platformy Azure w grupach zasobó
 **Usługa mobilności** | Koordynuje replikację między lokalnymi VMware serwerów/serwery fizyczne i Azure/dodatkowej lokacji<br/><br/> Zainstalowana na maszynie Wirtualnej VMware lub serwerów fizycznych, które chcesz replikować  | 9.12.4653.1 (dostępne w portalu) | [Najnowsze funkcje i poprawki](https://aka.ms/latest_asr_updates)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się, jak](tutorial-prepare-azure.md) do przygotowania Azure odzyskiwania po awarii maszyn wirtualnych VMware.

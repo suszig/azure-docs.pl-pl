@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 W tym samouczku pokazano, jak utworzyć potok usługi Data Factory przedstawiający niektóre funkcje przepływu sterowania. Ten potok tworzy prostą kopię z kontenera w usłudze Azure Blob Storage w innym kontenerze na tym samym koncie magazynu. Jeśli działanie kopiowania zakończy się powodzeniem, warto wysłać szczegóły zakończonej pomyślnie operacji kopiowania (takie jak ilość zapisanych danych) w wiadomości e-mail z informacją o powodzeniu. W przypadku niepowodzenia działania kopiowania warto wysłać szczegóły błędu kopiowania (np. komunikat o błędzie) w wiadomości e-mail z informacją o niepowodzeniu. W samouczku pokazano, jak przekazać parametry.
@@ -292,7 +292,7 @@ W projekcie języka C# utwórz klasę o nazwie **EmailRequest**. Definiuje ona, 
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Tworzenie punktów końcowych przepływu pracy poczty e-mail
-Aby wyzwolić wysyłanie wiadomości e-mail, zdefiniuj przepływ pracy przy użyciu usługi [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md). Aby uzyskać szczegółowe informacje na temat tworzenia przepływu pracy aplikacji logiki, zobacz [Jak utworzyć aplikację logiki](../logic-apps/logic-apps-create-a-logic-app.md). 
+Aby wyzwolić wysyłanie wiadomości e-mail, zdefiniuj przepływ pracy przy użyciu usługi [Logic Apps](../logic-apps/logic-apps-overview.md). Aby uzyskać szczegółowe informacje na temat tworzenia przepływu pracy aplikacji logiki, zobacz [Jak utworzyć aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Przepływ pracy wiadomości e-mail z informacją o powodzeniu 
 Utwórz przepływ pracy aplikacji logiki o nazwie `CopySuccessEmail`. Zdefiniuj wyzwalacz przepływu pracy jako `When an HTTP request is received` i dodaj akcję `Office 365 Outlook – Send an email`.

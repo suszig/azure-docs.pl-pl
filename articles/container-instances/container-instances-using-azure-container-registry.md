@@ -1,21 +1,21 @@
 ---
 title: "Wdrażanie do wystąpień kontenera platformy Azure z rejestru kontenera platformy Azure"
-description: "Wdrażanie wystąpień kontenera platformy Azure z rejestru kontenera platformy Azure"
+description: "Dowiedz się, jak wdrażanie kontenerów w wystąpień kontenera platformy Azure przy użyciu obrazów kontenera w rejestrze kontenera platformy Azure."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Wdrażanie do wystąpień kontenera platformy Azure z rejestru kontenera platformy Azure
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do wystąpień kontenera platformy Azure z rejestru kontenera platformy Azure
 
 Rejestr kontenera Azure jest rejestru Azure, prywatnego obrazów kontenera Docker. W tym artykule opisano sposób wdrażania obrazów kontenera przechowywane w rejestrze kontenera Azure do wystąpień kontenera platformy Azure.
 
@@ -51,17 +51,23 @@ Jeśli obsługa obrazów kontenera w rejestrze kontenera platformy Azure, można
 
 1. W portalu Azure przejdź do kontenera rejestru.
 
-2. Wybierz **repozytoria**, a następnie wybierz pozycję repozytorium, który chcesz wdrożyć, kliknij prawym przyciskiem myszy tag obrazu kontenera chcesz wdrożyć, a następnie wybierz **uruchomione wystąpienie**.
+1. Wybierz **repozytoria**, a następnie wybierz pozycję repozytorium, który chcesz wdrożyć, kliknij prawym przyciskiem myszy tag obrazu kontenera chcesz wdrożyć, a następnie wybierz **uruchomione wystąpienie**.
 
     !["Uruchomione wystąpienie" w rejestrze kontenera platformy Azure w portalu Azure][acr-runinstance-contextmenu]
 
-3. Wprowadź nazwę kontenera i nazwy grupy zasobów. Jeśli chcesz, możesz również zmienić wartości domyślne.
+1. Wprowadź nazwę kontenera i nazwy grupy zasobów. Jeśli chcesz, możesz również zmienić wartości domyślne.
 
     ![Tworzenie menu dla wystąpień kontenera platformy Azure][acr-create-deeplink]
 
-4. Po zakończeniu wdrożenia, można przejść do kontenera grupy z okienka powiadomienia, aby znaleźć adres IP i inne właściwości.
+1. Po zakończeniu wdrożenia, można przejść do kontenera grupy z okienka powiadomienia, aby znaleźć adres IP i inne właściwości.
 
     ![Widok szczegółów grupy kontener wystąpień kontenera platformy Azure][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
+
+Jeśli dla użytkownika administracyjnego rejestru kontenera platformy Azure jest wyłączone, możesz użyć usługi Azure Active Directory [nazwy głównej usługi](../container-registry/container-registry-auth-service-principal.md) do uwierzytelniania w rejestrze, podczas tworzenia wystąpienia obiektu kontenera. Do uwierzytelniania przy użyciu nazwy głównej usługi jest również zalecane w scenariuszach bezobsługowe, takich jak skryptu lub aplikacji do tworzenia wystąpień kontenera w trybie nienadzorowanym.
+
+Aby uzyskać więcej informacji, zobacz [Uwierzytelnij rejestrem kontenera platformy Azure z wystąpień kontenera Azure](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Kolejne kroki
 

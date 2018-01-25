@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 Wyszukiwanie za pomocą zestawu .NET SDK jest równie proste co wywołanie metody `Documents.Search` klasy `SearchIndexClient`. Ta metoda przyjmuje kilka parametrów, łącznie z tekstem wyszukiwania oraz obiektem `SearchParameters`, który może służyć do uściślenia zapytania.
 
 #### <a name="types-of-queries"></a>Typy zapytań
-Dwa najczęściej używane [typy zapytań](search-query-overview.md#types-of-queries) to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach *z możliwością wyszukiwania* w indeksie. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie.
+Dwa najczęściej używane [typy zapytań](search-query-overview.md#types-of-queries) to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach *z możliwością wyszukiwania* w indeksie. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie. Wyszukiwań i filtrów można używać razem lub oddzielnie.
 
 Zarówno operacja wyszukiwania, jak i filtrowania są wykonywane przy użyciu metody `Documents.Search`. Zapytanie wyszukiwania może zostać przekazane za pośrednictwem parametru `searchText`, natomiast wyrażenie filtrowania może zostać przekazane za pośrednictwem właściwości `Filter` klasy `SearchParameters`. Aby filtrować bez wyszukiwania, po prostu przekaż wartość `"*"` jako parametr `searchText`. Aby wyszukiwać bez filtrowania, pozostaw nieustawioną właściwość `Filter` lub nie przekazuj jej w wystąpieniu obiektu `SearchParameters`.
 

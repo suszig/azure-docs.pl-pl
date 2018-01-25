@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Uwierzytelniania za pomocą prywatnego rejestru kontenera Docker
 
@@ -33,7 +33,7 @@ az acr login --name <acrName>
 
 Podczas logowania przy użyciu `az acr login`, interfejsu wiersza polecenia używa tokenu tworzone podczas wykonania `az login` bezproblemowe uwierzytelnianie sesji z rejestru. Po logujesz się w ten sposób, poświadczenia są buforowane, a kolejne `docker` polecenia nie wymagają nazwy użytkownika i hasła. Jeśli token wygaśnie, można go odświeżyć przy użyciu `az acr login` polecenia ponownie w celu ponownego uwierzytelnienia. Przy użyciu `az acr login` z tożsamościami Azure udostępnia [dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md).
 
-## <a name="service-principal"></a>Nazwy głównej usługi
+## <a name="service-principal"></a>Jednostka usługi
 
 Można przypisać [nazwy głównej usługi](../active-directory/develop/active-directory-application-objects.md) do rejestru, a usługi lub aplikacji może być używany do uwierzytelniania bezobsługowe. Zezwalaj na nazwy główne usług [dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md) do rejestru, i wiele podmiotów usługi można przypisać do rejestru. Wiele podmiotów usługi umożliwiają definiowanie różnych dostępu dla różnych aplikacji.
 
@@ -61,7 +61,9 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Po zalogowaniu, Docker buforuje poświadczeń, więc nie trzeba pamiętać identyfikator aplikacji.
 
-W zależności od wersji Docker został zainstalowany, może być wyświetlone ostrzeżenie rekomendowania stosowania `--password-stdin` parametru. Gdy wykorzystanie przez niego wykracza poza zakres tego artykułu, zaleca się po tym najlepszym rozwiązaniem. Aby uzyskać więcej informacji, zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) poleceń.
+W zależności od wersji Docker został zainstalowany, może być wyświetlone ostrzeżenie rekomendowania stosowania `--password-stdin` parametru. Użycie tego parametru wykracza poza zakres tego artykułu, jednak zalecamy zastosowanie tego najlepszego rozwiązania. Aby uzyskać więcej informacji, zobacz [logowania docker](https://docs.docker.com/engine/reference/commandline/login/) poleceń.
+
+Aby uzyskać więcej informacji na przy użyciu nazwy głównej usługi uwierzytelniania bezobsługowe ACR, zobacz [uwierzytelniania rejestru kontenera Azure za pomocą nazwy główne usług](container-registry-auth-service-principal.md).
 
 ## <a name="admin-account"></a>Konto administratora
 
@@ -89,7 +91,7 @@ Można włączyć dla użytkownika administracyjnego, w portalu Azure, przechodz
 
 ![Włącz administrator interfejsu użytkownika w portalu Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wypychanie pierwszy obraz przy użyciu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md)
 

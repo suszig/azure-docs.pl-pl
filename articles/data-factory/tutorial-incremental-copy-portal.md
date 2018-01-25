@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage
 W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem, który ładuje dane różnicowe z tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage. 
@@ -311,7 +311,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
         | Name (Nazwa) | Typ | Wartość | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Ciąg | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -446,7 +446,7 @@ W ramach tego samouczka wykonano następujące procedury:
 W tym samouczku potok skopiował dane z jednej tabeli w bazie danych SQL do magazynu Blob Storage. Przejdź do poniższego samouczka, aby uzyskać informacje na temat kopiowania danych z wielu tabel w lokalnej bazie danych programu SQL Server do bazy danych SQL. 
 
 > [!div class="nextstepaction"]
->[Incrementally load data from multiple tables in SQL Server to Azure SQL Database (Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database)](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Incrementally load data from multiple tables in SQL Server to Azure SQL Database (Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database)](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

@@ -53,14 +53,14 @@ W tym miejscu są dostępne dla dysków zarządzanych w warstwie premium rozmiar
 
 | **Premium zarządzane <br>typ dysku** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Rozmiar dysku        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | GiB 2048 (2 TiB) | GiB 4095 (4 TiB) | 
 
 
 W tym miejscu są dostępne dla standardowych dysków zarządzanych rozmiary dysków:
 
-| **Standard zarządzane <br>typ dysku** | **S4** | **S6** | **S10 W WARSTWIE** | **S20** | **S30 W WARSTWIE** | **S40** | **S50** |
+| **Standard zarządzane <br>typ dysku** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Rozmiar dysku        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Rozmiar dysku        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | GiB 2048 (2 TiB) | GiB 4095 (4 TiB) | 
 
 
 **Liczba transakcji**: rozliczenie jest liczba transakcji, które można wykonywać na standardowych dysków zarządzanych. Nie ma żadnych kosztów transakcji dla dysków zarządzanych w warstwie premium.
@@ -72,7 +72,7 @@ Aby uzyskać szczegółowe informacje o cenach dla dysków zarządzanych, zobacz
 
 ## <a name="managed-disk-snapshots"></a>Dyski zarządzane migawki
 
-Migawka zarządzanych jest tylko do odczytu pełnej kopii dysku zarządzanego, który jest przechowywany jako standardowych dysków zarządzanych przez domyślny. Z migawki można tworzyć kopie zapasowe dysków zarządzanych w dowolnym momencie w czasie. Te migawki istnieje niezależnie od dysku źródłowego i mogą służyć do tworzenia nowych dysków zarządzanych. Są one rozliczane na podstawie rozmiaru używane. Na przykład po utworzeniu migawki dysków zarządzanych z elastycznie pojemności 64 GB i rozmiaru rzeczywistego używanych danych wynosi 10 GB migawki będą naliczane tylko za używanych danych rozmiar 10 GB.  
+Migawka zarządzanych jest tylko do odczytu pełnej kopii dysku zarządzanego, który jest przechowywany jako standardowych dysków zarządzanych przez domyślny. Z migawki można tworzyć kopie zapasowe dysków zarządzanych w dowolnym momencie w czasie. Te migawki istnieje niezależnie od dysku źródłowego i mogą służyć do tworzenia nowych dysków zarządzanych. Są one rozliczane na podstawie rozmiaru używane. Na przykład po utworzeniu migawki dysków zarządzanych z elastycznie pojemność 64 GiB i rozmiaru rzeczywistego używanych danych 10 GiB migawki będą naliczane tylko za 10 GiB rozmiar używanych danych.  
 
 [Przyrostowe migawki](../articles/virtual-machines/windows/incremental-snapshots.md) nie są obecnie obsługiwane w przypadku dysków zarządzanych, ale będzie możliwe w przyszłości.
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing ruchu w sieci wirtualnej
 
@@ -38,10 +38,10 @@ Każda trasa zawiera prefiks adresu i typ następnego przeskoku. Gdy ruch opuszc
 |-------|---------                                               |---------      |
 |Domyślne|Unikatowy dla sieci wirtualnej                           |Sieć wirtualna|
 |Domyślne|0.0.0.0/0                                               |Internet       |
-|Domyślne|10.0.0.0/8                                              |Brak           |
-|Domyślne|172.16.0.0/12                                           |Brak           |
-|Domyślne|192.168.0.0/16                                          |Brak           |
-|Domyślne|100.64.0.0/10                                           |Brak           |
+|Domyślne|10.0.0.0/8                                              |None           |
+|Domyślne|172.16.0.0/12                                           |None           |
+|Domyślne|192.168.0.0/16                                          |None           |
+|Domyślne|100.64.0.0/10                                           |None           |
 
 Typy następnego przeskoku wymienione w powyższej tabeli określają sposób, w jaki platforma Azure kieruje ruch przeznaczony dla wymienionego prefiksu adresu. Poniżej znajdują się objaśnienia typów następnego przeskoku:
 
@@ -61,8 +61,8 @@ Platforma Azure dodaje dodatkowe domyślne trasy systemowe dla różnych funkcji
 
 |Element źródłowy                 |Prefiksy adresów                       |Typ następnego skoku|Podsieć w sieci wirtualnej, której trasa jest dodawana|
 |-----                  |----                                   |---------                    |--------|
-|Domyślne                |Unikatowy dla sieci wirtualnej, na przykład: 10.1.0.0/16|Komunikacja równorzędna sieci wirtualnych                 |Wszystkie|
-|Brama sieci wirtualnej|Prefiksy anonsowane lokalnie za pośrednictwem protokołu BGP lub skonfigurowane w bramie sieci lokalnej     |Brama sieci wirtualnej      |Wszystkie|
+|Domyślne                |Unikatowy dla sieci wirtualnej, na przykład: 10.1.0.0/16|Komunikacja równorzędna sieci wirtualnych                 |Wszyscy|
+|Brama sieci wirtualnej|Prefiksy anonsowane lokalnie za pośrednictwem protokołu BGP lub skonfigurowane w bramie sieci lokalnej     |Brama sieci wirtualnej      |Wszyscy|
 |Domyślne                |Wiele                               |VirtualNetworkServiceEndpoint|Tylko podsieć, dla której jest włączony punkt końcowy usługi.|
 
 - **Komunikacja równorzędna sieci wirtualnej (VNet)**: podczas tworzenia komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi dodawana jest trasa dla każdego zakresu adresów w obrębie przestrzeni adresowej w każdej sieci wirtualnej, dla której jest tworzona komunikacja równorzędna. Dowiedz się więcej o [komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md).  
@@ -89,7 +89,7 @@ Podczas tworzenia tras zdefiniowanych przez użytkownika możesz określić poni
     > [!NOTE]
     > Wdróż urządzenie wirtualne w podsieci innej niż ta, gdzie są wdrożone zasoby, które są przesyłane przez urządzenie wirtualne. Wdrożenie urządzenia wirtualnego w tej samej podsieci, a następnie zastosowanie tabeli tras do podsieci, która kieruje ruch przez urządzenie wirtualne, może spowodować zapętlenie tras, w którym ruch nigdy nie opuszcza podsieci.
 
-    - Prywatny adres IP [wewnętrznego modułu równoważenia obciążenia](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure. Moduł równoważenia obciążenia jest często używany jako część [strategii wysokiej dostępności sieciowych urządzeń wirtualnych](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - Prywatny adres IP [wewnętrznego modułu równoważenia obciążenia](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) platformy Azure. Moduł równoważenia obciążenia jest często używany jako część [strategii wysokiej dostępności sieciowych urządzeń wirtualnych](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Możesz określić trasę 0.0.0.0/0 jako prefiks adresu i typ następnego przeskoku urządzenia wirtualnego, umożliwiając urządzeniu sprawdzanie ruchu i określanie, czy przekazać ruch dalej, czy też go porzucić. Jeśli zamierzasz utworzyć trasę zdefiniowaną przez użytkownika, która zawiera prefiks adresu 0.0.0.0/0, przeczytaj najpierw [0.0.0.0/0 address prefix (Prefiks adresu 0.0.0.0/0)](#default-route).
 
@@ -241,10 +241,10 @@ Tabela tras dla podsieci *Subnet2* na ilustracji zawiera następujące trasy:
 |Domyślne |Aktywne |10.2.0.0/16         |Komunikacja równorzędna sieci wirtualnych              |                   |
 |Domyślne |Aktywne |10.10.0.0/16        |Brama sieci wirtualnej   |[X.X.X.X]          |
 |Domyślne |Aktywne |0.0.0.0/0           |Internet                  |                   |
-|Domyślne |Aktywne |10.0.0.0/8          |Brak                      |                   |
+|Domyślne |Aktywne |10.0.0.0/8          |None                      |                   |
 |Domyślne |Aktywne |100.64.0.0/10       |Brak                      |                   |
-|Domyślne |Aktywne |172.16.0.0/12       |Brak                      |                   |
-|Domyślne |Aktywne |192.168.0.0/16      |Brak                      |                   |
+|Domyślne |Aktywne |172.16.0.0/12       |None                      |                   |
+|Domyślne |Aktywne |192.168.0.0/16      |None                      |                   |
 
 Tabela tras dla podsieci *Subnet2* zawiera wszystkie domyślne trasy utworzone przez platformę Azure oraz opcjonalne równorzędne sieci wirtualne i opcjonalne trasy bramy sieci wirtualnej. Platforma Azure dodała opcjonalne trasy do wszystkich podsieci w sieci wirtualnej, gdy brama i komunikacja równorzędna zostały dodane do sieci wirtualnej. Platforma Azure usunęła trasy dla prefiksów adresów 10.0.0.0/8, 172.16.0.0/12 192.168.0.0/16 i 100.64.0.0/10 z tabeli tras podsieci *Subnet1*, gdy zdefiniowana przez użytkownika trasa dla prefiksu adresu 0.0.0.0/0 została dodana do podsieci *Subnet1*.  
 

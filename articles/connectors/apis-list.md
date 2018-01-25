@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lista łączników
 Wyzwalacze i akcje zdefiniowane w opisach platformy Swagger poszczególnych łączników oraz limity łączników można znaleźć w [szczegółach łącznika](/connectors/).
@@ -143,7 +143,7 @@ Aby pomóc w ulepszaniu usługi Azure Logic Apps, przesyłaj pomysły lub głosu
 Czy pominęliśmy jakiś temat dotyczący łączników albo jakieś informacje, które uważasz za istotne? Jeśli tak, pomóż nam, uzupełniając istniejące tematy lub pisząc swój własny temat. Nasza dokumentacja jest typu open source i jest hostowana w usłudze GitHub. Zacznij, przechodząc do naszego [repozytorium GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Tworzenie pierwszej aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Tworzenie niestandardowych interfejsów API dla aplikacji logiki](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorowanie aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

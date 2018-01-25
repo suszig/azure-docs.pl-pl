@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 22a3972d7b2e9cf732f5dc75dd2b53b83570ee66
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian 
 W tym samouczku utworzysz fabrykę usługi Azure Data Factory z potokiem służącym do ładowania danych przyrostowych na podstawie informacji o **śledzeniu zmian** w źródłowej bazie danych Azure SQL Database do magazynu Azure Blob Storage.  
@@ -467,7 +467,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Przejdź do następującego samouczka, aby dowiedzieć się więcej o przekształcaniu danych za pomocą klastra Spark na platformie Azure:
 
 > [!div class="nextstepaction"]
->[Przekształcanie danych przy użyciu klastra Spark w chmurze](tutorial-transform-data-spark-powershell.md)
+>[Przekształcanie danych przy użyciu klastra Spark w chmurze](tutorial-transform-data-spark-portal.md)
 
 
 

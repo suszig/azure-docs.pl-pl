@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ff882889aba7add77d974500ac13a474523b3b53
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Jak mają być rejestrowane zdarzenia do usługi Azure Event Hubs w usłudze Azure API Management
 Azure Event Hubs to wysoce skalowalna usługa transferu danych przychodzących, która może obsługiwać miliony zdarzeń na sekundę, dzięki czemu możliwe jest przetwarzanie i analizowanie olbrzymich ilości danych wytworzonych przez podłączone urządzenia i aplikacje. Usługa Event Hubs działa jako "drzwi wejściowe" dla potoku zdarzeń, a po pobraniu danych do Centrum zdarzeń, można je przekształcać i przechowywane za pomocą dowolnego dostawcy analiz w czasie rzeczywistym lub kart przetwarzania wsadowego i magazynowania. Usługa Event Hubs oddziela wytwarzanie strumienia zdarzeń od użycia tych zdarzeń, dzięki czemu odbiorcy zdarzeń mogą uzyskiwać dostęp do zdarzeń zgodnie z własnym harmonogramem.
@@ -93,7 +93,7 @@ Po Twoje rejestratora jest skonfigurowany w usłudze API Management, można skon
 
 Aby skonfigurować zasady, zaloguj się do [portalu Azure](https://portal.azure.com), przejdź do usługi API Management i kliknij przycisk **portal wydawcy** dostęp do portalu wydawcy.
 
-![Portal wydawcy][publisher-portal]
+![Publisher portal][publisher-portal]
 
 Kliknij przycisk **zasady** zarządzanie interfejsami API menu po lewej stronie, wybierz żądany produktu i interfejsu API, a następnie kliknij przycisk **Dodaj zasady**. W tym przykładzie Trwa dodawanie zasad, aby **Echo API** w **nieograniczone** produktu.
 
@@ -115,13 +115,13 @@ Można użyć dowolne wyrażenie zwracające ciąg jako wartość `log-to-eventh
 
 Kliknij przycisk **zapisać** Aby zapisać konfigurację zaktualizowane zasady. Natychmiast po ich zapisaniu zasady są aktywne, a zdarzenia są rejestrowane w wyznaczonym Centrum zdarzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej na temat usługi Azure Event Hubs
   * [Wprowadzenie do usługi Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Odbieranie komunikatów za pomocą klasy EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Przewodnik programowania w usłudze Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * Dowiedz się więcej na temat integracji usługi API Management i usługi Event Hubs
-  * [Odwołanie do jednostki rejestratora](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [Odwołanie do jednostki rejestratora](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [informacje o zasadach dziennika do Centrum eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Monitoruj swoje interfejsy API z usługi Azure API Management, usługa Event Hubs i Runscope](api-management-log-to-eventhub-sample.md)    
 

@@ -1,5 +1,5 @@
 ---
-title: "Jak buforowanie działa w Azure Content Delivery Network | Dokumentacja firmy Microsoft"
+title: "Jak działa buforowanie | Dokumentacja firmy Microsoft"
 description: "Buforowanie jest procesem przechowywania danych lokalnie, tak aby przyszłych żądań dotyczących szybciej dostępne dane."
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>Jak działa buforowanie
 
-Ten artykuł zawiera omówienie ogólne koncepcje buforowania i używania sieci dostarczania zawartości (CDN) Azure buforowanie w celu zwiększenia wydajności. Jeśli chcesz dowiedzieć się więcej o tym, jak dostosować zachowanie buforowania na punkt końcowy CDN, zobacz [kontroli usługi Azure CDN zachowanie buforowania z buforowaniem reguły](cdn-caching-rules.md) i [kontroli usługi Azure CDN buforowanie z ciągami zapytań](cdn-query-string.md).
+Ten artykuł zawiera omówienie ogólne koncepcje buforowania i w jaki sposób [Azure sieci dostarczania zawartości (CDN)](cdn-overview.md) używa buforowanie, aby zwiększyć wydajność. Jeśli chcesz dowiedzieć się więcej o tym, jak dostosować zachowanie buforowania na punkt końcowy CDN, zobacz [kontroli usługi Azure CDN zachowanie buforowania z buforowaniem reguły](cdn-caching-rules.md) i [kontroli usługi Azure CDN buforowanie z ciągami zapytań](cdn-query-string.md).
 
 ## <a name="introduction-to-caching"></a>Wprowadzenie do buforowania
 
@@ -57,35 +57,39 @@ Buforowanie jest integralną częścią CDN funkcjonowania przyspieszenia dostar
 
 - Dzięki przeniesieniu pracy CDN, buforowanie można zmniejszyć obciążenie sieci oraz obciążenia na serwerze źródłowym. Dzięki temu zmniejsza koszt i zasoby wymagania dotyczące aplikacji, nawet w przypadku dużej liczby użytkowników.
 
-Podobnie jak w przeglądarce sieci web, można kontrolować, jak buforowanie CDN jest wykonywane przez wysyłanie nagłówków dyrektywy pamięci podręcznej. Dyrektywa pamięci podręcznej nagłówki są nagłówków HTTP, które zwykle są dodawane przez serwer pochodzenia. Mimo że większość tych nagłówków pierwotnie zostały zaprojektowane do adresów pamięci podręcznej w przeglądarkach klientów, teraz również są używane przez wszystkie pośrednie pamięci podręcznych, takich jak CDN. Dwa nagłówki mogą być używane do definiowania świeżości pamięci podręcznej: `Cache-Control` i `Expires`. `Cache-Control`jest bardziej aktualny i ma pierwszeństwo przed `Expires`, jeśli istnieją. Istnieją również dwa typy nagłówków używany do sprawdzania poprawności (nazywane moduły weryfikacji): `ETag` i `Last-Modified`. `ETag`jest bardziej aktualny i ma pierwszeństwo przed `Last-Modified`, jeśli są określone oba.  
+Podobnie jak buforowanie jest zaimplementowana w przeglądarce sieci web można kontrolować jak buforowanie odbywa się w sieci CDN przez wysyłanie nagłówków pamięci podręcznej dyrektywy. Dyrektywa pamięci podręcznej nagłówki są nagłówków HTTP, które zwykle są dodawane przez serwer pochodzenia. Mimo że większość tych nagłówków pierwotnie zostały zaprojektowane do adresów pamięci podręcznej w przeglądarkach klientów, teraz również są używane przez wszystkie pośrednie pamięci podręcznych, takich jak CDN. 
+
+Dwa nagłówki mogą być używane do definiowania świeżości pamięci podręcznej: `Cache-Control` i `Expires`. `Cache-Control`jest bardziej aktualny i ma pierwszeństwo przed `Expires`, jeśli istnieją. Istnieją również dwa typy nagłówków używany do sprawdzania poprawności (nazywane moduły weryfikacji): `ETag` i `Last-Modified`. `ETag`jest bardziej aktualny i ma pierwszeństwo przed `Last-Modified`, jeśli są określone oba.  
 
 ## <a name="cache-directive-headers"></a>Nagłówki pamięci podręcznej — dyrektywa
 
+> [!IMPORTANT]
+> Domyślnie usługi Azure CDN punktu końcowego, który jest zoptymalizowana pod kątem DSA ignoruje nagłówków pamięci podręcznej dyrektywy i pomija buforowania. Można dostosować, jak punkt końcowy usługi Azure CDN traktuje te nagłówki przy użyciu CDN buforowanie zasady można włączyć buforowanie. Aby uzyskać więcej informacji, zobacz [kontroli usługi Azure CDN zachowanie buforowania z buforowaniem reguły](cdn-caching-rules.md).
+
 Usługi Azure CDN obsługuje następujące dyrektywy pamięci podręcznej nagłówki HTTP, które definiują czas trwania pamięci podręcznej i współużytkowania pamięci podręcznej: 
 
-`Cache-Control`  
+`Cache-Control`
 - Wprowadzone w protokołu HTTP 1.1, zapewniają większą kontrolę nad swoją zawartość sieci web wydawcy i adresu ograniczenia `Expires` nagłówka.
 - Zastępuje `Expires` nagłówka, jeśli obie go i `Cache-Control` są zdefiniowane.
-- Gdy jest używany w nagłówku żądania: domyślnie ignorowana przez usługi Azure CDN.
-- Gdy jest używany w nagłówku odpowiedzi: Azure CDN honoruje następujące `Cache-Control` dyrektywy podczas korzystania z dostawy ogólne sieci web, pobierania plików o dużym i ogólne/video-na-demand przesyłania strumieniowego multimediów optymalizacje:  
-   - `max-age`: Liczby sekund określonej pamięć podręczna może przechowywać zawartość. Na przykład `Cache-Control: max-age=5`. Ta dyrektywa określa maksymalną ilość czasu, w których zawartość została uznana za świeże.
-   - `private`: Zawartość jest przeznaczony dla jednego użytkownika. nie należy przechowywać zawartość który udostępnionej pamięci podręczne, takie jak sieci CDN.
-   - `no-cache`: Zawartość pamięci podręcznej, ale zweryfikować zawartości każdorazowym przed dostarczeniem go z pamięci podręcznej. Odpowiednikiem `Cache-Control: max-age=0`.
-   - `no-store`: Nigdy nie pamięci podręcznej zawartości. Usuwanie zawartości, jeśli zostały wcześniej zapisane.
+- Gdy jest używany w nagłówku żądania, `Cache-Control` jest ignorowana przez usługi Azure CDN domyślnie.
+- W przypadku nagłówka odpowiedzi usługi Azure CDN obsługuje następujące `Cache-Control` dyrektywy zgodnie z produktu: 
+   - **Usługi Azure CDN from Verizon**: obsługuje wszystkie `Cache-Control` dyrektywy. 
+   - **Azure CDN from Akamai**: obsługuje tylko następujące `Cache-Control` dyrektywy; wszystkie inne są ignorowane: 
+      - `max-age`: Liczby sekund określonej pamięć podręczna może przechowywać zawartość. Na przykład `Cache-Control: max-age=5`. Ta dyrektywa określa maksymalną ilość czasu, w których zawartość została uznana za świeże.
+      - `no-cache`: Zawartość pamięci podręcznej, ale sprawdzenie poprawności zawartości każdorazowym przed dostarczeniem go z pamięci podręcznej. Odpowiednikiem `Cache-Control: max-age=0`.
+      - `no-store`: Nigdy nie pamięci podręcznej zawartości. Usuwanie zawartości, jeśli zostały wcześniej zapisane.
 
-`Expires` 
+`Expires`
 - Nagłówek starszych wprowadzone w HTTP 1.0; obsługiwane w przypadku zapewnienia zgodności.
 - Używa czas na podstawie daty wygaśnięcia z dokładnością do drugiego. 
 - Podobnie jak `Cache-Control: max-age`.
 - Używane podczas `Cache-Control` nie istnieje.
 
-`Pragma` 
-   - Domyślnie nie honorowane przez usługi Azure CDN.
+`Pragma`
+   - Nie honorowane przez usługi Azure CDN domyślnie.
    - Nagłówek starszych wprowadzone w HTTP 1.0; obsługiwane w przypadku zapewnienia zgodności.
    - Używane jako nagłówek żądania klientów o następujące dyrektywy: `no-cache`. Ta dyrektywa nakazuje serwerowi dostarczania nową wersję tego zasobu.
    - `Pragma: no-cache`jest odpowiednikiem `Cache-Control: no-cache`.
-
-Domyślnie optymalizacje DSA ignorować te nagłówki. Można dostosować sposób Azure CDN traktuje te nagłówki za pomocą reguł buforowania CDN. Aby uzyskać więcej informacji, zobacz [kontroli usługi Azure CDN zachowanie buforowania z buforowaniem reguły](cdn-caching-rules.md).
 
 ## <a name="validators"></a>Moduły weryfikacji
 
@@ -110,23 +114,23 @@ Nie wszystkie zasoby mogą być buforowane. W poniższej tabeli przedstawiono, j
 |                   | Usługi Azure CDN from Verizon | Azure CDN from Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Kody stanu HTTP | 200                    | 200, 203 300, 301, 302 i 401 |
-| Metoda HTTP       | POBIERZ                    | POBIERZ                              |
-| Rozmiar pliku         | 300 GB                 | <ul><li>Optymalizacja dostarczania ogólne sieci web: 1,8 GB</li> <li>Multimediów strumieniowych optymalizacje: 1,8 GB</li> <li>Optymalizacja plików o dużym: 150 GB</li> |
+| Metoda HTTP       | GET                    | GET                              |
+| Rozmiar pliku         | 300 GB                 | — Optymalizacja dostarczania ogólne sieci web: 1,8 GB<br />-Multimediów strumieniowych optymalizacje: 1,8 GB<br />-Optymalizacja dużych plików: 150 GB |
 
 ## <a name="default-caching-behavior"></a>Domyślne zachowanie buforowania
 
 W poniższej tabeli opisano domyślne zachowanie dla produkty Azure CDN i ich optymalizacje buforowania.
 
-|                    | Verizon - dostarczania ogólne sieci web | Verizon — przyspieszenie dynamiczne witryny | Akamai — dostarczania ogólne sieci web | Akamai — przyspieszenie dynamiczne witryny | Akamai — pobierania dużych plików | Akamai — ogólne lub przesyłania strumieniowego multimediów wideo na żądanie |
+|                    | Verizon - dostarczania ogólne sieci web | Verizon — DSA | Akamai — dostarczania ogólne sieci web | Akamai - DSA | Akamai — pobierania dużych plików | Akamai — ogólne lub przesyłania strumieniowego multimediów VOD |
 |--------------------|--------|------|-----|----|-----|-----|
-| **Honoruj źródła**   | Tak    | Nie   | Tak | Nie | Tak | Tak |
-| **Czas trwania pamięci podręcznej CDN** | 7 dni | Brak | 7 dni | Brak | 1 dzień | 1 rok |
+| **Honoruj źródła**   | Yes    | Nie   | Yes | Nie | Yes | Yes |
+| **Czas trwania pamięci podręcznej CDN** | 7 dni | None | 7 dni | None | 1 dzień | 1 rok |
 
 **Uznawać pochodzenia**: Określa, czy należy przestrzegać [obsługiwanych nagłówków pamięci podręcznej dyrektywy](#http-cache-directive-headers) Jeśli istnieją w odpowiedzi HTTP z serwera pochodzenia.
 
 **Czas trwania pamięci podręcznej CDN**: Określa ilość czasu, dla którego jest buforowana zasobu w sieci CDN w warstwie Azure. Jednak jeśli **honorować pochodzenia** brzmią "tak" i odpowiedzi HTTP z serwera pochodzenia zawiera nagłówek pamięci podręcznej dyrektywy `Expires` lub `Cache-Control: max-age`, wartości czasu trwania użyty przez nagłówek używa usługi Azure CDN. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby dowiedzieć się, jak dostosować i zastąpić domyślne zachowanie w sieci CDN do buforowania reguły buforowania, zobacz [kontroli usługi Azure CDN zachowanie buforowania z buforowaniem reguły](cdn-caching-rules.md). 
 - Aby dowiedzieć się jak używać ciągów zapytania, aby formant zachowanie buforowania, zobacz [kontroli usługi Azure CDN buforowanie z ciągami zapytań](cdn-query-string.md).

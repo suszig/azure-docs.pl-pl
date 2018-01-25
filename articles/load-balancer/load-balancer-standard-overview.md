@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Omówienie usługi Azure Standard modułu równoważenia obciążenia (wersja zapoznawcza)
 
@@ -72,8 +72,8 @@ Standardowe usługi równoważenia obciążenia udostępnia nowe funkcje diagnos
 | --- | --- |
 | Dostępność adresu VIP | Standardowe usługi równoważenia obciążenia stale korzysta ze ścieżki danych z w obrębie regionu frontonu aż do stosu SDN, który obsługuje maszyny Wirtualnej modułu równoważenia obciążenia. Tak długo, jak utrzymać dobrej kondycji wystąpień, pomiar następuje taką samą ścieżkę aplikacji z równoważeniem obciążenia ruchu. Ścieżka danych, który jest używany przez klientów również jest weryfikowana. Miara jest niewidoczny dla aplikacji i nie koliduje z innych operacji.|
 | Dostępność DIP | Standardowe usługi równoważenia obciążenia używa rozproszonej kondycję sondowanie usługi, który monitoruje kondycję punkt końcowy aplikacji zgodnie z ustawieniami konfiguracji. Ta metryka zapewnia agregacji lub na punkt końcowy filtrowane widoku każdego punktu końcowego poszczególnych wystąpień w usłudze równoważenia obciążenia w puli.  Widać, jak usługa równoważenia obciążenia widoków kondycji aplikacji wskazywany przez konfigurację sondy kondycji.
-| SYN pakietów | Standardowe usługi równoważenia obciążenia nie przerwanie połączenia TCP lub interakcji z przepływów pakietów TCP lub UDP. Przepływy i ich uzgodnienia są zawsze między serwerem źródłowym a wystąpienia maszyny Wirtualnej. Aby lepiej rozwiązać scenariuszy protokołu TCP, możesz wprowadzić użycie SYN pakietów, aby zrozumieć, jak wiele połączeń TCP prób. Metryka raporty o liczbie pakietów TCP SYN, które zostały odebrane. Metryka może również odzwierciedlać klientów, które próbują nawiązać połączenie z usługą.|
-| SNAT połączenia | Standardowe usługi równoważenia obciążenia raporty liczby połączeń wychodzących, które są masqueraded do publicznego adresu IP frontonu. Porty SNAT są zużywalnymi zasobami. Ta metryka może przedstawiać jak silnie aplikacji polega na SNAT zdalnych połączeń wychodzących.|
+| SYN pakietów | Standardowe usługi równoważenia obciążenia nie przerwanie połączenia TCP lub interakcji z przepływów pakietów TCP lub UDP. Przepływy i ich uzgodnienia są zawsze między serwerem źródłowym a wystąpienia maszyny Wirtualnej. Aby lepiej rozwiązać scenariuszy protokołu TCP, możesz wprowadzić użycie SYN liczniki pakietów, aby zrozumieć, jak wiele połączeń TCP prób. Metryka raporty o liczbie pakietów TCP SYN, które zostały odebrane.|
+| SNAT połączenia | Standardowe usługi równoważenia obciążenia zgłasza liczbę przepływów wychodzących, które są masqueraded do publicznego adresu IP frontonu. Porty SNAT są zużywalnymi zasobami. Ta metryka może przedstawiać jak silnie aplikacji jest oparte na SNAT dla zdalnych przepływów wychodzących.  Liczniki dla udane i nieudane przepływów wychodzących SNAT są raportowane i może służyć do rozwiązywania oraz zrozumienie kondycji przepływów wychodzących.|
 | Liczniki bajtów | Standardowe usługi równoważenia obciążenia zgłosił danych przetwarzanych na frontonu.|
 | Liczniki pakietów | Standardowe usługi równoważenia obciążenia raporty pakietów przetwarzanych na frontonu.|
 

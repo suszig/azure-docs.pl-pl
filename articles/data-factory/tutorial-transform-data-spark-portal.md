@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Przekształcanie danych w chmurze za pomocą działania platformy Spark w usłudze Azure Data Factory
 W tym samouczku użyjesz witryny Azure Portal do utworzenia potoku usługi Data Factory, który przekształca dane przy użyciu działania platformy Spark i połączonej usługi HDInsight na żądanie. Ten samouczek obejmuje następujące procedury:
@@ -180,6 +180,8 @@ W tej sekcji zredagujesz dwie połączone usługi:
     
     ![Przycisk Weryfikuj](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Kliknij przycisk **Opublikuj**. Interfejs użytkownika usługi Data Factory publikuje jednostki (połączone usług i potok) do usługi Azure Data Factory. 
+    
+    ![Przycisk Opublikuj](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Wyzwalanie uruchomienia potoku
 Kliknij pozycję **Wyzwól** na pasku narzędzi, a następnie kliknij pozycję **Wyzwól teraz**. 
