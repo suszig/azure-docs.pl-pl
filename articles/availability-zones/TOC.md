@@ -33,6 +33,9 @@
 #### [Tworzenie publicznego adresu IP w strefie dostępności przy użyciu programu PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Tworzenie publicznego adresu IP w strefie dostępności przy użyciu interfejsu wiersza polecenia](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Magazyn
+#### [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Odzyskiwanie po awarii
 ## [Korzystanie z usługi Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

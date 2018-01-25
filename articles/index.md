@@ -4,11 +4,11 @@ hide_bc: True
 title: Dokumentacja platformy Microsoft Azure
 description: "Dowiedz się, jak tworzyć zaawansowane aplikacje i zarządzać nimi przy użyciu usług w chmurze platformy Microsoft Azure. Pobierz dokumentację, przykładowy kod, samouczki i wiele więcej."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -991,7 +991,7 @@ ms.lasthandoff: 01/18/2018
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>Pakiet IoT Azure</p>
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Zestawy skali maszyn wirtualnych</h3>
-                                                    <p>Zarządzanie dziesiątkami, a nawet tysiącami maszyn wirtualnych z systemami Windows i Linux oraz skalowanie ich</p>
+                                                    <p>Skalowanie w górę do tysięcy maszyn wirtualnych z systemem Linux i Windows oraz zarządzanie nimi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Wdrażanie aplikacji sieci Web w systemie Linux przy użyciu kontenerów</p>
+                                                    <p>Szybkie tworzenie zaawansowanych internetowych i mobilnych aplikacji w chmurze</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługa Azure Container Service (AKS)</h3>
-                                                    <p>Uruchamianie konteneryzowanych aplikacji na dużą skalę przy użyciu platformy Kubernetes</p>
+                                                    <p>Upraszczanie wdrażania i obsługi platformy Kubernetes oraz zarządzanie nią</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obciążenia HTTP i kontrolą dostarczania </p>
+                                                    <p>Tworzenie bezpiecznych, skalowalnych frontonów internetowych o wysokiej dostępności na platformie Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Dostarczanie zawartości do użytkowników końcowych przez niezawodną sieć globalnych centrów danych</p>
+                                                    <p>Bezpieczne i niezawodne dostarczanie zawartości o szerokim zasięgu globalnym</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Monitorowanie i diagnozowanie warunków na poziomie sieci</p>
+                                                    <p>Rozwiązanie do monitorowania i diagnostyki wydajności sieci</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Wysoce skalowalny magazyn obiektów dla danych bez określonej struktury</p>
+                                                    <p>Magazyn obiektów oparty na protokole REST dla danych bez struktury</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disk Storage</h3>
-                                                    <p>Magazyn dysków dla maszyn wirtualnych</p>
+                                                    <p>Opcje trwałych, zabezpieczonych dysków obsługujących maszyny wirtualne</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Kolejki trwałe dla usług w chmurze obsługujących duże ilości danych</p>
+                                                    <p>Efektywne skalowanie aplikacji według ruchu</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Prosty, rozproszony system plików dla wielu platform</p>
+                                                    <p>Udziały plików korzystające ze standardowego protokołu SMB 3.0</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Magazyn StorSimple</h3>
-                                                    <p>Przeznaczony dla przedsiębiorstw magazyn w chmurze hybrydowej zwiększający bezpieczeństwo danych</p>
+                                                    <p>Niższe koszty z rozwiązaniem magazynu w chmurze hybrydowej dla przedsiębiorstw</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Organizowanie odzyskiwania po awarii w przypadku maszyn wirtualnych platformy Azure, lokalnych maszyn wirtualnych i serwerów fizycznych</p>
+                                                    <p>Organizowanie ochrony i odzyskiwania chmur prywatnych</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Dostarczanie zawartości do użytkowników końcowych przez niezawodną sieć globalnych centrów danych </p>
+                                                    <p>Bezpieczne i niezawodne dostarczanie zawartości o szerokim zasięgu globalnym</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Szybkie wysyłanie milionów komunikatów dzięki skalowalnemu aparatowi powiadomień wypychanych</p>
+                                                    <p>Wysyłanie powiadomień push na każdą platformę z dowolnego zaplecza</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługa Azure Container Service (AKS)</h3>
-                                                    <p>Uruchamianie konteneryzowanych aplikacji na dużą skalę przy użyciu platformy Kubernetes</p>
+                                                    <p>Upraszczanie wdrażania i obsługi platformy Kubernetes oraz zarządzanie nią</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Zarządzana relacyjna baza danych jako usługa</p>
+                                                    <p>Zarządzana, relacyjna baza danych SQL udostępniana jako usługa</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Globalnie dystrybuowana, wielomodelowa usługa bazy danych dla każdej skali</p>
+                                                    <p>Magazyn NoSQL kluczy i wartości używający zestawów danych z częściową strukturą</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pamięć podręczna Redis</h3>
-                                                    <p>Tworzenie szybkich i skalowalnych aplikacji dzięki wysokiej przepływności i krótkiemu czasowi oczekiwania na dostęp do danych</p>
+                                                    <p>Zapewnianie aplikacjom dostępu do danych o wysokiej przepływności i małych opóźnieniach</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2321,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Aprowizacja klastrów Hadoop, Spark, R Server, Hbase i Storm w chmurze</p>
+                                                    <p>Aprowizacja klastrów Hadoop, Spark, R Server, HBase i Storm w chmurze</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modelowanie danych w chmurze klasy korporacyjnej</p>
+                                                    <p>Aparat analityczny klasy korporacyjnej jako usługa</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Konserwacja predykcyjna z użyciem zaawansowanych narzędzi analizy predykcyjnej opartych na chmurze</p>
+                                                    <p>Łatwe tworzenie i wdrażanie rozwiązań do analiz predykcyjnych oraz zarządzanie nimi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Samodzielne odnajdowanie źródeł danych w całym przedsiębiorstwie</p>
+                                                    <p>Lepsze wykorzystanie możliwości firmowych zasobów danych</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługi Machine Learning</h3>
-                                                    <p>Konserwacja predykcyjna z użyciem zaawansowanych narzędzi analizy predykcyjnej opartych na chmurze</p>
+                                                    <p>Udostępnianie wszystkim użytkownikom możliwości korzystania ze sztucznej inteligencji dzięki kompleksowej, skalowalnej i zaufanej platformie wyposażonej w usługi eksperymentowania i zarządzania modelami</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2596,7 +2595,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Sztuczna inteligencja w usłudze Azure Batch</h3>
-                                                    <p>Łatwe eksperymentowanie oraz równoległe szkolenie modeli głębokiego uczenia i SI na dużą skalę</p>
+                                                    <p>Łatwe eksperymentowanie oraz równoległe szkolenie modeli głębokiego uczenia i sztucznej inteligencji na dużą skalę</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Rozszerzanie rozwiązań inteligentnych w chmurze na urządzenia brzegowe</p>
+                                                    <p>Rozszerzanie rozwiązań inteligentnych chmury na urządzenia brzegowe</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Mapy, kierunki, wyszukiwanie i inne niezawodne usługi geoprzestrzenne</p>
+                                                    <p>Proste i bezpieczne interfejsy API lokalizacji umożliwiające dodawanie kontekstu geoprzestrzennego do danych</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługi Machine Learning</h3>
-                                                    <p>Konserwacja predykcyjna z użyciem zaawansowanych narzędzi analizy predykcyjnej opartych na chmurze</p>
+                                                    <p>Udostępnianie wszystkim użytkownikom możliwości korzystania ze sztucznej inteligencji dzięki kompleksowej, skalowalnej i zaufanej platformie wyposażonej w usługi eksperymentowania i zarządzania modelami</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Szybkie wysyłanie milionów komunikatów dzięki skalowalnemu aparatowi powiadomień wypychanych</p>
+                                                    <p>Wysyłanie powiadomień push na każdą platformę z dowolnego zaplecza</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Magazyn StorSimple</h3>
-                                                    <p>Przeznaczony dla przedsiębiorstw magazyn w chmurze hybrydowej zwiększający bezpieczeństwo danych</p>
+                                                    <p>Niższe koszty z rozwiązaniem magazynu w chmurze hybrydowej dla przedsiębiorstw</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Samodzielne odnajdowanie źródeł danych w całym przedsiębiorstwie</p>
+                                                    <p>Lepsze wykorzystanie możliwości firmowych zasobów danych</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Zapobieganie zagrożeniom, ich wykrywanie oraz reagowanie na nie dzięki zwiększonej widoczności</p>
+                                                    <p>Uzyskiwanie ujednoliconego zarządzania zabezpieczeniami i zaawansowanej ochrony przed zagrożeniami w obciążeniach chmury hybrydowej</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Usługa Key Vault</h3>
-                                                    <p>Dowiedz się, jak zarządzać kluczami kryptograficznymi i kluczami tajnymi</p>
+                                                    <p>Ochrona i zachowywanie kontroli nad kluczami i innymi wpisami tajnymi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Dodatkowy poziom uwierzytelniania chroniący dostęp do danych i aplikacji</p>
+                                                    <p>Dodatkowe bezpieczeństwo dla danych i aplikacji bez zwiększania utrudnień dla użytkowników</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi </p>
+                                                    <p>Implementowanie standardów i ładu korporacyjnego na dużą skalę na potrzeby zasobów platformy Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cost Management</h3>
-                                                    <p>Śledzenie wydatków i użycia chmury</p>
+                                                    <p>Optymalizowanie wydatków na chmurę z maksymalnym wykorzystaniem jej możliwości</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Dowiedz się, jak przekształcić dane komputerowe w analizę operacyjną</p>
+                                                    <p>Gromadzenie, przeszukiwanie i wizualizowanie danych maszyn lokalnych i w chmurze</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Popraw efektywność kosztową, wydajność, wysoką dostępność i bezpieczeństwo zasobów platformy Azure</p>
+                                                    <p>Spersonalizowany aparat rekomendacji najlepszych rozwiązań dotyczących platformy Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Zapewnia spersonalizowane wskazówki i pomoc techniczną w przypadku problemów z usługami platformy Azure, z których korzystasz.</p>
+                                                    <p>Uzyskiwanie spersonalizowanych wskazówek i pomocy technicznej w przypadku problemów z usługami platformy Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Moduł równoważenia obciążenia warstwy 7 z wbudowanym równoważeniem obcią
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplikacje zarządzane</h3>
-                                                    <p>Zarządzanie wdrożonymi rozwiązaniami dla klientów</p>
+                                                    <p>Prostsze zarządzanie ofertami dla chmury</p>
                                                 </div>
                                             </div>
                                         </div>

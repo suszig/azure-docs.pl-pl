@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Zarządzanie usługą aprowizowania urządzeń za pomocą interfejsu wiersza polecenia platformy Azure
       href: how-to-manage-dps-with-cli.md
+    - name: Programowanie za pomocą narzędzi zestawu SDK
+      href: how-to-use-sdk-tools.md
 - name: Dokumentacja
   items:
     - name: REST
