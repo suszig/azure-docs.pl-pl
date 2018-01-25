@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importuj dane usługi Analiza dzienników Azure do usługi Power BI
 
@@ -86,12 +86,12 @@ Podczas konfigurowania usługi Power BI z [starszej wersji obszaru roboczego ana
 ![Analiza dzienników do usługi Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI harmonogramów
-A *Power BI harmonogram* obejmuje wyszukiwania dziennika, które eksportuje zestaw danych z repozytorium OMS do odpowiedniego zestawu danych w usłudze Power BI i harmonogram, który określa, jak często to wyszukiwanie jest uruchamiany aby zapewnić aktualność zestawu danych.
+A *Power BI harmonogram* obejmuje wyszukiwania dziennika, który eksportuje zestaw danych z analizy dzienników do odpowiedniego zestawu danych w usłudze Power BI i harmonogram, który określa, jak często to wyszukiwanie jest uruchamiany aby zapewnić aktualność zestawu danych.
 
 Pola w zestawie danych będzie odpowiadać właściwości rekordów zwróconych przez wyszukiwanie dziennika.  Jeśli wyniki wyszukiwania zawierają rekordy o różnych typach zestawu danych będzie zawierać wszystkie właściwości z poszczególnych typów rekordów uwzględnione.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Obszar roboczy OMS nawiązywania połączenia z usługi Power BI
-Przed analizy dzienników można wyeksportować do usługi Power BI, należy połączyć z obszarem roboczym pakietu OMS na koncie usługi Power BI, korzystając z następującej procedury.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Łączenie z usługą Power BI obszaru roboczego analizy dzienników
+Przed analizy dzienników można wyeksportować do usługi Power BI, należy połączyć obszaru roboczego na koncie usługi Power BI, korzystając z następującej procedury.  
 
 1. Kliknij w konsoli OMS **ustawienia** kafelka.
 2. Wybierz **kont**.
@@ -108,7 +108,7 @@ Utwórz harmonogram Power BI dla każdego zestawu danych, korzystając z następ
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Nazwa |Nazwę, aby zidentyfikować harmonogram, podczas wyświetlania listy harmonogramów usługi Power BI. |
+| Name (Nazwa) |Nazwę, aby zidentyfikować harmonogram, podczas wyświetlania listy harmonogramów usługi Power BI. |
 | Zapisane wyszukiwanie |Wyszukiwanie dziennika do uruchomienia.  Można wybrać bieżącego zapytania lub wybierz istniejące zapisane wyszukiwanie w polu listy rozwijanej. |
 | Harmonogram |Jak często uruchomić zapisane wyszukiwanie i eksportowanie z zestawem danych usługi Power BI.  Wartość musi należeć do zakresu od 15 minut do 24 godzin. |
 | Nazwa zestawu danych |Nazwa zestawu danych w usłudze Power BI.  Zostanie ono utworzone, jeśli nie istnieje i zaktualizowany, jeśli istnieje. |
@@ -169,6 +169,6 @@ Możemy zapisać raport, klikając przycisk Zapisz w górnej części ekranu i Z
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) do tworzenia zapytań, które mogą być eksportowane do usługi Power BI.
 * Dowiedz się więcej o [usługi Power BI](http://powerbi.microsoft.com) tworzenie wizualizacji opartych na eksportuje analizy dzienników.

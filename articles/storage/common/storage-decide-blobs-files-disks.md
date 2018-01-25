@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Kiedy należy użyć obiektów blob Azure, Azure plików lub dysków Azure
 
@@ -41,7 +41,7 @@ W poniższej tabeli porównano plików Azure z obiektami blob Azure.
 ||||  
 |-|-|-|  
 |**Atrybut**|**Azure Blobs**|**Usługa pliki Azure**|  
-|Opcje trwałości|Magazyn LRS, ZRS, GRS (i RA-GRS, aby uzyskać większą dostępność)|LRS, GRS|  
+|Opcje trwałości|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Ułatwienia dostępu|Interfejsy API REST|Interfejsy API REST<br /><br /> Protokół SMB 2.1 i 3.0 protokołu SMB (systemu plików standardowych interfejsów API)|  
 |Łączność|Interfejsy API REST — na całym świecie|Interfejsy API REST - na całym świecie<br /><br /> Protokół SMB 2.1--w obrębie regionu<br /><br /> Protokół SMB 3.0 — na całym świecie|  
 |Punkty końcowe|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  

@@ -3,8 +3,8 @@ title: "Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis | Mi
 description: "Informacje na temat tworzenia aplikacji sieci Web za pomocą pamięci podręcznej Redis"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Tworzenie aplikacji sieci Web za pomocą pamięci podręcznej Redis
 > [!div class="op_single_selector"]
@@ -102,7 +102,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
     ![Dodawanie klasy modelu][cache-model-add-class-dialog]
 3. Zastąp instrukcje `using` na początku pliku `Team.cs` poniższymi instrukcjami `using`.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 1. Zastąp definicję klasy `Team` poniższym fragmentem kodu, który zawiera zaktualizowaną definicję klasy `Team` oraz niektóre inne klasy pomocnika platformy Entity Framework. Więcej informacji na temat podejścia typu Code First na platformie Entity Framework używanego w tym samouczku znajduje się w artykule [Code first to a new database](https://msdn.microsoft.com/data/jj193542) (Rozwiązanie Code First dla nowej bazy danych).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
     ![Global.asax.cs][cache-global-asax]
 6. Dodaj dwie poniższe instrukcje `using` na początku pliku pod innymi instrukcjami `using`.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
 
 1. Dodaj poniższy wiersz kodu na końcu metody `Application_Start`.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Aby uzyskać więcej informacji dotyczących tego pakietu, zobacz stronę pakiet
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Zastąp ciąg `controller = "Home"` w poniższym kodzie w metodzie `RegisterRoutes` ciągiem `controller = "Teams"`, jak pokazano w poniższym przykładzie.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ W tej sekcji samouczka opisano konfigurowanie przykładowej aplikacji do przecho
     ![Kontroler zespołów][cache-teamscontroller]
 4. Dodaj dwie poniższe instrukcje `using` do pliku **TeamsController.cs**.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Dodaj dwie poniższe właściwości do klasy `TeamsController`.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
 1. Dodaj poniższe instrukcje `using` na początku pliku `TeamsController.cs` razem z innymi instrukcjami `using`.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Zastąp bieżącą implementację metody `public ActionResult Index()` następującą implementacją.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
    
     Metoda `PlayGames` aktualizuje statystyki zespołu, symulując sezon gier, zapisuje wyniki w bazie danych i czyści obecnie nieaktualne dane z pamięci podręcznej.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
     Metoda `RebuildDB` ponownie inicjuje bazę danych z domyślnym zestawem zespołów, generuje ich statystyki i czyści obecnie nieaktualne dane z pamięci podręcznej.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
     Metoda `ClearCachedTeams` usuwa wszystkie buforowane statystyki zespołów z pamięci podręcznej.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
    
     Metoda `GetFromDB` odczytuje statystyki zespołu z bazy danych.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
     Metoda `GetFromList` odczytuje statystyki zespołu z pamięci podręcznej jako zserializowany obiekt `List<Team>`. W przypadku braku trafienia pamięci podręcznej, statystyki zespołu są odczytywane z bazy danych, a następnie zapisywane w pamięci podręcznej do użytku następnym razem. W tym przykładzie używamy serializacji JSON.NET, aby serializować obiekty platformy .NET podczas zapisu w pamięci podręcznej i odczytu z niej. Więcej informacji znajduje się w temacie [Praca z obiektami .NET w usłudze Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
     Metoda `GetFromSortedSet` odczytuje statystyki zespołu z buforowanego zestawu posortowanego. W przypadku braku trafienia pamięci podręcznej, statystyki zespołu są odczytywane z bazy danych i przechowywane w pamięci podręcznej jako zestaw posortowany.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ W tym przykładzie statystyki zespołu można pobrać z bazy danych lub z pamię
 
     Metoda `GetFromSortedSetTop5` odczytuje pierwsze 5 zespołów z buforowanego zestawu posortowanego. Rozpoczyna od sprawdzenia pamięci podręcznej pod kątem istnienia klucza `teamsSortedSet`. Jeśli klucz ten nie jest obecny, wywołana zostaje metoda `GetFromSortedSet` w celu odczytu statystyk zespołu i zapisania ich w pamięci podręcznej. Następnie zostaje przesłane zapytanie do buforowanego zestawu posortowanego, które zwraca 5 najlepszych zespołów.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
 
 1. Przejdź do metody `Create(Team team)` w klasie `TeamsController`. Dodaj wywołanie metody `ClearCachedTeams`, jak pokazano w poniższym przykładzie.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
 
 1. Przejdź do metody `Edit(Team team)` w klasie `TeamsController`. Dodaj wywołanie metody `ClearCachedTeams`, jak pokazano w poniższym przykładzie.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
 
 1. Przejdź do metody `DeleteConfirmed(int id)` w klasie `TeamsController`. Dodaj wywołanie metody `ClearCachedTeams`, jak pokazano w poniższym przykładzie.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]

@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Zarządzanie
       items:
-        - name: Uaktualnianie do magazynu usługi Recovery Services
-          href: upgrade-site-recovery-vaults.md
         - name: Zarządzanie serwerami przetwarzania na platformie Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Zarządzanie serwerem konfiguracji

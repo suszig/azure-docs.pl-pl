@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Zapobiegaj nieoczekiwany opłat rozliczenia Azure i kosztów zarządzania
 
@@ -157,6 +157,7 @@ Enterprise koszt widoków obecnie znajdują się w publicznej wersji zapoznawcze
 - Koszty subskrypcji są na podstawie użycia i bez uwzględnienia przedpłacone kwoty, nadwyżki ilości dołączone, dostosowania i podatki. Rzeczywiste opłaty są obliczane na poziomie rejestrowania. 
 - Kwoty wyświetlone w portalu Azure mogą być opóźnione w porównaniu do wartości w witrynie Enterprise portal.  
 - Jeśli nie widzisz kosztów, może to wynikać z jednego z następujących powodów:
+    - Nie masz uprawnień wystarczających RBAC na poziomie subskrypcji. Aby wyświetlić widoki koszt przedsiębiorstwa, musi być czytnika rozliczeń, czytnika, współautora lub właściciela na poziomie subskrypcji.
     - Jesteś właścicielem konta i Administrator rejestracji wyłączył "opłaty widoku AO" ustawienie.  Skontaktuj się z administratorem rejestracji, aby uzyskać dostęp do kosztów. 
     - Jesteś administratorem działu, a Administrator rejestracji wyłączył "opłaty widoku DA" ustawienie.  Skontaktuj się z administratorem rejestracji w celu uzyskania dostępu. 
     - Azure zostały zakupione w ramach partnera kanału i partner nie udostępnił informacje o cenach.  

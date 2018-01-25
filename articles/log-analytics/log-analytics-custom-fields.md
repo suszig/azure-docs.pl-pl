@@ -1,6 +1,6 @@
 ---
-title: Pola niestandardowe w dzienniku Analytics | Dokumentacja firmy Microsoft
-description: "Funkcja pola niestandardowe analizy dzienników służy do tworzenia własnych pól z możliwością wyszukiwania z danych OMS dodać właściwości zebranych rekordu.  W tym artykule opisano proces tworzenia niestandardowego pola i udostępnia szczegółowy przewodnik zdarzenie próbkowania."
+title: Pola niestandardowe w Azure Log Analytics | Dokumentacja firmy Microsoft
+description: "Funkcja pola niestandardowe analizy dzienników służy do tworzenia własnych pól z możliwością wyszukiwania z rekordów dziennika analizy, dodawanych do właściwości zebranych rekordu.  W tym artykule opisano proces tworzenia niestandardowego pola i udostępnia szczegółowy przewodnik zdarzenie próbkowania."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Pola niestandardowe w analizy dzienników
-**Pola niestandardowe** funkcji analizy dzienników umożliwia rozszerzanie istniejących rekordów w repozytorium OMS przez dodanie pola wyszukiwania.  Pola niestandardowe zostaną automatycznie wypełnione z danych wyodrębnionych z innych właściwości w tym samym rekordzie.
+**Pola niestandardowe** funkcji analizy dzienników umożliwia rozszerzanie istniejących rekordów w analizy dzienników przez dodanie pola wyszukiwania.  Pola niestandardowe zostaną automatycznie wypełnione z danych wyodrębnionych z innych właściwości w tym samym rekordzie.
 
 ![Przegląd pól niestandardowych](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Podczas tworzenia niestandardowego pola analizy dzienników muszą zrozumieć da
 Poniższe sekcje zawierają procedury tworzenia niestandardowego pola.  W dolnej części tego artykułu jest przewodnik wyodrębniania próbki.
 
 > [!NOTE]
-> Pole niestandardowe jest wypełniana podczas dodawania rekordów odpowiadającego określonym kryteriom w magazynie danych OMS, zostanie wyświetlony tylko na rekordy zebrane po utworzeniu pola niestandardowego.  Pole niestandardowe nie zostanie dodany do rekordów, które znajdują się już w magazynie danych po jego utworzeniu.
-> 
+> Pole niestandardowe jest wypełniana zgodnie z rekordów spełniających określone kryteria są dodawane do analizy dzienników, zostanie wyświetlony tylko na rekordy zebrane po utworzeniu pola niestandardowego.  Pole niestandardowe nie zostanie dodany do rekordów, które znajdują się już w magazynie danych po jego utworzeniu.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Krok 1: określenie rekordów, które będą miały pole niestandardowe
@@ -72,7 +71,7 @@ Po wykonaniu początkowego wyodrębniania analizy dzienników wyświetli wyniki 
 7. Użyj pola niestandardowego, podobnie jak inne właściwości rekordu.  Można używać go do agregacji i grupy danych i nawet używać do tworzenia nowych danych.
 
 ## <a name="viewing-custom-fields"></a>Wyświetlanie pola niestandardowe
-Można wyświetlić listę wszystkich pól niestandardowych w grupie zarządzania z **ustawienia** kafelka pulpitu nawigacyjnego OMS.  Wybierz **danych** , a następnie **pola niestandardowe** listę wszystkich pól niestandardowych w obszarze roboczym.  
+Można wyświetlić listę wszystkich pól niestandardowych w grupie zarządzania z **Zaawansowane ustawienia** menu obszaru roboczego analizy dzienników w portalu Azure.  Wybierz **danych** , a następnie **pola niestandardowe** listę wszystkich pól niestandardowych w obszarze roboczym.  
 
 ![Niestandardowe pola](media/log-analytics-custom-fields/list.png)
 
@@ -138,7 +137,7 @@ Teraz można używać niestandardowego pola, podobnie jak inne właściwości re
 
 ![Grupuj według zapytania](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) do kompilowania zapytań przy użyciu pól niestandardowych kryteriów.
 * Monitor [pliki dziennika niestandardowego](log-analytics-data-sources-custom-logs.md) który przeanalizować, przy użyciu pól niestandardowych.
 

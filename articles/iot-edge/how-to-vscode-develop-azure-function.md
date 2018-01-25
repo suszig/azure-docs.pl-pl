@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Użyj programu Visual Studio Code do opracowywania i wdrażania usługi Azure Functions do krawędzi IoT Azure
 
@@ -140,9 +140,13 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
 
 1. W Eksploratorze kodzie VS rozwiń **Docker** folderu. Następnie rozwiń folder dla danej platformy kontenera albo **linux x64** lub **windows nano**.
 2. Kliknij prawym przyciskiem myszy **plik Dockerfile** plik i kliknij przycisk **krawędzi IoT Tworzenie modułu Docker obrazu**. 
+
+    ![Utwórz obraz docker](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
+
 3. Przejdź do **funkcji FilterFunction** folderu projektu i kliknij przycisk **wybierz Folder jako EXE_DIR**. 
 4. W polu tekstowym wyskakujących w górnej części okna kodu programu VS wprowadź nazwę obrazu. Na przykład: `<your container registry address>/filterfunction:latest`. Jeśli są wdrażane w lokalnym rejestrze, powinien być `localhost:5000/filterfunction:latest`.
 5. Wypchnij obrazu do repozytorium Docker. Użyj **krawędzi: Push krawędzi IoT modułu Docker obrazu** polecenia i wprowadź adres URL obrazu, w polu tekstowym wyskakujących w górnej części okna kodu programu VS. Użyj używany w ponad krok ten sam adres URL obrazu.
+    ![Obraz docker wypychania](./media/how-to-vscode-develop-csharp-function/push-image.png)
 
 ### <a name="deploy-your-function-to-iot-edge"></a>Wdrażanie funkcji na krawędzi IoT
 
@@ -172,22 +176,28 @@ Pokaż następujące kroki należy jak utworzyć moduł krawędzi IoT na podstaw
 
 2. Zastąp **tras** sekcji z poniżej zawartości:
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
    > Deklaracyjne reguły w środowisku uruchomieniowym definiują, do których przepływu wiadomości. W tym samouczku należy na dwa sposoby. Pierwszy trasy transportu wiadomości z czujnika temperatury funkcji filtru za pośrednictwem punktu końcowego "input1", który jest punkt końcowy, który został skonfigurowany z obsługą FilterMessages. Drugi trasy transportu wiadomości z funkcji filtr do Centrum IoT. W tej trasy nadrzędnego jest specjalne lokalizacji docelowej, która informuje krawędzi koncentratora do wysyłania komunikatów do Centrum IoT.
 
 3. Zapisz ten plik.
 4. Polecenie palety, wybierz **krawędzi: tworzenie wdrożenia dla urządzenie brzegowe**. Następnie wybierz identyfikator urządzenia IoT krawędzi Aby utworzyć wdrożenie. Lub kliknij prawym przyciskiem myszy identyfikator urządzenia na liście urządzeń i wybierz polecenie **tworzenie wdrożenia dla urządzenie brzegowe**.
+
+    ![Tworzenie wdrożenia](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
 5. Wybierz `deployment.json` aktualne. W oknie danych wyjściowych widać odpowiednie dane wyjściowe dla danego wdrożenia.
 6. Uruchomienie programu runtime krawędzi w palety polecenia. **Krawędź: Krawędzi początkowej**
 7. Widać programu runtime krawędzi IoT uruchomione w Eksploratorze rozwiązania Docker funkcją symulowane czujników i filtru.
+
+    ![Działającej](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
 8. Kliknij prawym przyciskiem myszy identyfikator urządzenia brzegowe i monitorować D2C wiadomości w kodzie VS.
+
+    ![Monitor wiadomości](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
 ## <a name="next-steps"></a>Kolejne kroki

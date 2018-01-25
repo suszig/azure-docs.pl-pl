@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Wdrażanie systemu Windows 10 na platformie Azure z wielodostępnej Hosting uprawnień 
 W przypadku klientów z systemem Windows 10 Enterprise E3/E5 dla poszczególnych użytkowników lub dostęp do pulpitu wirtualnego systemu Windows na użytkownika (licencji subskrypcji użytkownika lub licencji subskrypcji użytkownika dodatku) wielodostępnej Hosting praw dla systemu Windows 10 pozwala załadować licencji systemu Windows 10 do chmury i uruchom maszyny wirtualne systemu Windows 10 na platformie Azure, bez płatności dla innej licencji. Aby uzyskać więcej informacji, zobacz [wielodostępnej Hosting dla systemu Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> W tym artykule opisano Implementowanie asysty licencjonowania dla obrazów systemu Windows 10 Desktop. Można odwołać się do następujących dla [hybrydowego Azure użyć korzyści dla obrazów systemu Windows Server](hybrid-use-benefit-licensing.md).
+> W tym artykule opisano Implementowanie asysty licencjonowania dla obrazów systemu Windows 10 Desktop Pro w portalu Azure Marketplace.
+> - Windows 7, 8.1, 10 Enterprise (x64) obrazów w witrynie Azure Marketplace subskrypcji MSDN, można znaleźć na stronie [klienta systemu Windows na platformie Azure scenariusze tworzenia/testowania](client-images.md)
+> - W systemie Windows Server licencjonowania korzyści, zapoznaj się [hybrydowego Azure użyć korzyści dla obrazów systemu Windows Server](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Wdrażanie obrazu systemu Windows 10 z portalu Azure Marketplace 
@@ -32,8 +34,10 @@ Dla wdrożenia szablonu programu Powershell, interfejsu wiersza polecenia i usł
 
 | System operacyjny  |      PublisherName      |  Oferta | SKU |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows 10  | RS2 Pro   |
-| System Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows 10  | RS2 ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Przekazywanie systemu Windows 10 dysku VHD na platformę Azure
 Podczas przekazywania wirtualnego dysku twardego uogólnionego systemu Windows 10, należy pamiętać, że system Windows 10 nie ma wbudowane konto administratora domyślnie włączone. Aby włączyć wbudowanego konta administratora, obejmują następujące polecenie w ramach rozszerzenia niestandardowego skryptu.

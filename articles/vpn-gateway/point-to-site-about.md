@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Sieć VPN punkt lokacja — informacje
 
@@ -36,7 +36,7 @@ Sieć VPN punkt lokacja można użyć jednej z następujących protokołów:
 Jeśli masz środowisko mieszane klienckie, składające się z urządzeniami z systemem Windows i Mac, należy skonfigurować zarówno SSTP i IKEv2.
 
 >[!NOTE]
->Protokół IKEv2 dla P2S jest dostępna dla modelu wdrażania usługi Resource Manager. Nie jest dostępna dla klasycznym modelu wdrażania.
+>Protokół IKEv2 dla P2S jest dostępna tylko modelu wdrażania Menedżera zasobów. Nie jest dostępna dla klasycznym modelu wdrażania.
 >
 
 ## <a name="authentication"></a>Sposób uwierzytelniania klientów sieci VPN P2S
@@ -67,6 +67,10 @@ Użytkownicy przy użyciu natywnych klientów sieci VPN na urządzeniach z syste
 * W przypadku urządzeń Mac składa się z pliku mobileconfig instalowanego przez użytkowników na ich urządzeniach.
 
 Plik zip zawiera również wartości niektórych ważnych ustawień po stronie Azure, który służy do tworzenia profilu dla tych urządzeń. Niektóre wartości obejmują adres bramy sieci VPN, typy tuneli skonfigurowanych tras i certyfikat główny dla sprawdzania poprawności bramy.
+
+>[!NOTE]
+>Dla klientów systemu Windows musi mieć prawa administratora na urządzeniu klienckim, aby zainicjować połączenie sieci VPN na urządzeniu klienckim na platformie Azure.
+>
 
 ### <a name="gwsku"></a>Które P2S Obsługa jednostki SKU bramy sieci VPN?
 

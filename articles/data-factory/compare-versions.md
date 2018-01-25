@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Porównanie wersji 1 i 2 usługi Azure Data Factory
 W tym artykule porównano wersję 2 z wersją 1 usługi Azure Data Factory. Aby zapoznać się z opisem wersji 1, zobacz [Wprowadzenie do usługi Azure Data Factory](v1/data-factory-introduction.md). Aby zapoznać się z opisem wersji 2, zobacz [Wprowadzenie do usługi Data Factory (V2 — wersja zapoznawcza)](introduction.md).
@@ -25,7 +25,7 @@ W tym artykule porównano wersję 2 z wersją 1 usługi Azure Data Factory. Aby 
 ## <a name="feature-comparison"></a>Porównanie funkcji
 W poniższej tabeli porównano funkcje wersji 1 i wersji 2. 
 
-| Funkcja | Wersja 1 | Wersja 2 | 
+| Cecha | Wersja 1 | Wersja 2 | 
 | ------- | --------- | --------- | 
 | Zestawy danych | Nazwany widok danych odwołujący się do danych, które mają być używane w działaniach jako dane wejściowe lub wyjściowe. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure określa kontener obiektów blob i folder w usłudze Azure Blob Storage, z których działanie ma odczytywać dane.<br/><br/>**Dostępność** definiuje model tworzenia wycinków okien przetwarzania dla zestawu danych (na przykład co godzinę, codziennie itd.). | Zestawy danych są takie same w wersji 2. Nie trzeba jednak definiować harmonogramów **dostępności** dla zestawów danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Aby uzyskać więcej informacji, zobacz [Triggers](concepts-pipeline-execution-triggers.md#triggers) (Wyzwalacze) i [Datasets](concepts-datasets-linked-services.md) (Zestawy danych). | 
 | Połączone usługi | Połączone usługi działają podobnie do parametrów połączenia, umożliwiając definiowanie informacji dla usługi Data Factory, które są niezbędne do nawiązywania połączeń z zasobami zewnętrznymi. | Połączone usługi są takie same, jak w usłudze Data Factory V1, ale z nową właściwością **connectVia** do korzystania ze środowiska obliczeniowego Integration Runtime usługi Data Factory V2. Aby uzyskać więcej informacji, zobacz [Infrastruktura Integration Runtime w usłudze Azure Data Factory](concepts-integration-runtime.md) i [Linked service properties for Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) (Właściwości usługi połączonej dla usługi Azure Blob Storage). |
@@ -128,7 +128,16 @@ Aby uzyskać więcej informacji, zobacz [Difference between custom activity in V
 Zestawy SDK, które zostały zaktualizowane w wersji 2, nie są zgodne wstecz z klientami w wersji 1. 
 
 ## <a name="authoring-experience"></a>Środowisko tworzenia
-Za pomocą usługi Data Factory V1 możesz tworzyć potoki przy użyciu Edytora usługi Data Factory w witrynie Azure Portal. Obecnie usługa Data Factory V2 obsługuje tylko metody programowe (takie jak .NET SDK, REST API, PowerShell i Python) tworzenia fabryk danych. Nie ma jeszcze obsługi interfejsu użytkownika.  Usługa Data Factory V1 obsługuje również tworzenie w zestawie SDK, architekturze REST i programie PowerShell.
+
+| &nbsp; | Wersja 2 | Wersja 1 |
+| ------ | -- | -- | 
+| Azure Portal | [Tak](quickstart-create-data-factory-portal.md) | [Tak](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Tak](quickstart-create-data-factory-powershell.md) | [Tak](data-factory-build-your-first-pipeline-using-powershell.md) |
+| Zestaw SDK .NET | [Tak](quickstart-create-data-factory-dot-net.md) | [Tak](data-factory-build-your-first-pipeline-using-vs.md) |
+| Interfejs API REST | [Tak](quickstart-create-data-factory-rest-api.md) | [Tak](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Zestaw SDK dla języka Python | [Tak](quickstart-create-data-factory-python.md) | Nie |
+| Szablon usługi Resource Manager | [Tak](quickstart-create-data-factory-resource-manager-template.md) | [Tak](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Środowisko monitorowania
 W wersji 2 można także monitorować fabryki danych za pomocą usługi [Azure Monitor](monitor-using-azure-monitor.md). Nowe polecenia cmdlet programu PowerShell obsługują monitorowanie [środowisk Integration Runtime](monitor-integration-runtime.md). Zarówno wersja 1, jak i wersja 2, obsługują monitorowanie wizualne za pośrednictwem aplikacji monitorowania, którą można uruchamiać z witryny Azure Portal.

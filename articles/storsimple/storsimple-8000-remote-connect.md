@@ -4,7 +4,7 @@ description: "Wyjaśniono, jak skonfigurować urządzenie do zdalnego zarządzan
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Zdalne nawiązywanie połączenia z urządzenia z serii StorSimple 8000
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 Możesz zdalnie nawiązać urządzenia za pomocą środowiska Windows PowerShell. Po ustanowieniu połączenia w ten sposób nie ma menu. (Możesz zobaczyć menu tylko wtedy, gdy używasz konsoli szeregowej urządzenia do łączenia). Przy użyciu komunikacji zdalnej programu Windows PowerShell należy nawiązać określonego obszaru działania. Można również określić język wyświetlania.
 
@@ -84,7 +84,10 @@ Wykonaj następujące czynności na konsoli szeregowej urządzenia, aby włączy
 Wykonaj następujące czynności na komputerze klienckim, aby włączyć zdalne zarządzanie.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Aby przygotować klienta dla połączenia zdalnego
-1. Uruchom sesję programu Windows PowerShell jako administrator.
+1. Uruchom sesję programu Windows PowerShell jako administrator. Jeśli za pomocą klienta systemu Windows 10, domyślnie, usługa Windows Remote Management ma ustawiony ręczny. Może być konieczne uruchomienie usługi przez wpisanie:
+
+    `Start-Service WinRM`
+    
 2. Wpisz następujące polecenie, aby dodać adres IP urządzenia StorSimple do listy zaufanych hostów klienta:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Użyj programu Windows PowerShell i protokołu SSL, aby wprowadzić sesji SSAdmi
 Na komputerze, z którego mają być połączenia zdalnego programu Windows PowerShell, należy wykonać poniższą procedurę.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Aby wprowadzić sesji SSAdmin na urządzeniu za pomocą środowiska Windows PowerShell i SSL
-1. Uruchom sesję programu Windows PowerShell jako administrator.
+1. Uruchom sesję programu Windows PowerShell jako administrator. Jeśli za pomocą klienta systemu Windows 10, domyślnie, usługa Windows Remote Management ma ustawiony ręczny. Może być konieczne uruchomienie usługi przez wpisanie:
+
+    `Start-Service WinRM`
+
 2. Dodaj adres IP urządzenia do klienta zaufanych hostów, wpisując:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -237,7 +243,7 @@ Na komputerze, z którego mają być połączenia zdalnego programu Windows Powe
    
     ![Usługi zdalne środowiska PowerShell przy użyciu protokołu HTTPS i SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się więcej o [przy użyciu programu Windows PowerShell do administrowania urządzeniem StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Dowiedz się więcej o [przy użyciu usługi Menedżer StorSimple urządzenia do administrowania urządzeniem StorSimple](storsimple-8000-manager-service-administration.md).

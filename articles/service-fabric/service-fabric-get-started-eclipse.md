@@ -3,7 +3,7 @@ title: "Wtyczka usługi Azure Service Fabric dla środowiska Eclipse | Microsoft
 description: "Rozpocznij pracę z wtyczką usługi Service Fabric dla środowiska Eclipse."
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
-ms.author: saysa
-ms.openlocfilehash: 90faa353a1f6b83ec0cd8b9ee2cd247905ef4524
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: rapatchi
+ms.openlocfilehash: 291bbd35d6e3c89eb9568130ad144831452142ad
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
 Eclipse jest jednym z najczęściej używanych zintegrowanych środowisk projektowych (IDE, integrated development environment) przez programistów języka Java. W tym artykule omówiono konfigurowanie środowiska projektowego Eclipse do pracy z usługą Azure Service Fabric. Dowiedz się, jak zainstalować wtyczkę usługi Service Fabric oraz utworzyć aplikację usługi Service Fabric i wdrożyć ją w lokalnym lub zdalnym klastrze usługi Service Fabric w środowisku Eclipse Neon. 
@@ -36,7 +36,7 @@ W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyc
 
 2.  Aby zainstalować wtyczkę usługi Service Fabric, w środowisku Eclipse Neon wybierz pozycję **Help** > **Install New Software** (Pomoc — Instaluj nowe oprogramowanie).
   1.    W polu **Work with** (Pracuj z) wprowadź adres **http://dl.microsoft.com/eclipse**.
-  2.    Kliknij pozycję **Dodaj**.
+  2.    Kliknij pozycję **Add** (Dodaj).
 
          ![Wtyczka usługi Service Fabric dla środowiska Eclipse Neon][sf-eclipse-plugin-install]
   3.    Wybierz wtyczkę usługi Service Fabric, a następnie kliknij przycisk **Next** (Dalej).

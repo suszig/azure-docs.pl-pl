@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Używanie programu Azure PowerShell z usługą Azure Storage
 
@@ -133,7 +133,7 @@ Aby zmienić ustawienia konta magazynu, należy użyć [Set-AzureRmStorageAccoun
 
 * **Tagi** przypisane do konta magazynu. Tagi są często używane do klasyfikowania zasobów do celów rozliczeń.
 
-* **SKU** jest ustawienie replikacji dla konta magazynu, takich jak LRS lokalnie nadmiarowego magazynu. Na przykład można zmienić zgodne ze standardem\_LRS, Standard\_GRS lub Standard\_RAGRS. Należy pamiętać, że nie można zmienić ZRS standardowa lub Premium-LRS inne wersje ani zmienić te inne wersje. 
+* **SKU** jest ustawienie replikacji dla konta magazynu, takich jak LRS lokalnie nadmiarowego magazynu. Na przykład można zmienić zgodne ze standardem\_LRS, Standard\_GRS lub Standard\_RAGRS. Należy pamiętać, że nie można zmienić Standard\_ZRS lub Premium\_LRS na inne wersje, lub zmień te inne wersje.
 
 * **Warstwy dostępu** dla konta magazynu obiektów Blob. Ustawiono wartość dla warstwy dostępu **gorących** lub **chłodnych**, i pozwala zminimalizować koszty, wybierając warstwy dostępu, aby była zgodna z jak używasz konta magazynu. Aby uzyskać więcej informacji, zobacz [Hot, ostudzić oraz archiwum warstw magazynowania](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,9 +185,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Domyślnie wszystkie konta magazynu są dostępne dla każdej sieci, który ma dostęp do Internetu. Można jednak skonfigurować reguły sieci, aby zezwolić tylko aplikacji z określonych sieci wirtualnych, aby uzyskać dostęp do konta magazynu. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapory magazynu Azure i sieci wirtualne](storage-network-security.md). 
 
 Artykuł pokazano, jak zarządzać tymi ustawieniami za pomocą następujących poleceń cmdlet programu PowerShell:
-* [Dodaj AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [AzureRmStorageAccountNetworkRuleSet aktualizacji](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Usuń AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Użyj magazynu analityka  
 
@@ -223,24 +223,24 @@ Interfejsu API Azure rozwiązania Cosmos DB tabeli zawiera funkcje premium magaz
 * Aby uzyskać więcej informacji, zobacz [interfejsu API Azure rozwiązania Cosmos DB tabeli](../../cosmos-db/table-introduction.md). 
 * Aby dowiedzieć się, jak wykonywać operacje interfejsu API Azure rozwiązania Cosmos DB tabeli za pomocą programu PowerShell, zobacz [operacji wykonania rozwiązania Cosmos DB tabeli interfejsu API Azure przy użyciu programu PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Chmury niezależnie wdrożyć platformy Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Wdrożenia chmury niezależnie od platformy Azure
 
 Większość użytkowników użyj chmury publicznej Azure globalne wdrożenia usługi Azure. Istnieją również niektórych niezależnie od wdrożenia programu Microsoft Azure ze względu na suwerenności i tak dalej. Te niezależne wdrożenia są określane jako "środowisk". Poniżej przedstawiono dostępne środowiskach:
 
 * [Chmury Azure dla instytucji rządowych](https://azure.microsoft.com/features/gov/)
 * [Chmury Azure Chin przez 21Vianet w Chinach](http://www.windowsazure.cn/)
-* [Niemiecki chmury Azure](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 Aby uzyskać informacje na temat dostępu do tych chmur i ich magazynu przy użyciu programu PowerShell, zobacz [Zarządzanie magazynu w Azure niezależne chmur przy użyciu programu PowerShell](storage-powershell-independent-clouds.md).
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli utworzono nową grupę zasobów i konto magazynu dla tego ćwiczenia yous można usunąć wszystkie zasoby utworzone przez usunięcie grupy zasobów. Spowoduje to również usunięcie wszystkie zasoby zawarte w obrębie grupy. W takim przypadku usuwa utworzono konto magazynu i grupy zasobów, do samej siebie.
+Jeśli utworzono nową grupę zasobów i konto magazynu dla tego ćwiczenia yous można usunąć wszystkie zasoby utworzone przez usunięcie grupy zasobów. Spowoduje to również usunięcie wszystkich zasobów znajdujących się w grupie. W takim przypadku usuwa utworzono konto magazynu i grupy zasobów, do samej siebie.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule opisano typowe operacje przy użyciu poleceń cmdlet płaszczyzny zarządzania można zarządzać kontami magazynu. W tym samouczku omówiono: 
 
