@@ -13,13 +13,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/08/2017
   ms.author: spelluru
-  ms.openlocfilehash: 293cfbc2cc9030a8315fa48e835a1446ff10d469
-  ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+  ms.openlocfilehash: 76d18c2966b52c508ec959074c976e84ab5e9bdf
+  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 12/01/2017
+  ms.lasthandoff: 01/24/2018
 abstract:
   description: "Dowiedz się, jak tworzyć zautomatyzowane potoki danych składające się z usług przechowywania, przenoszenia i przetwarzania danych za pomocą usługi integracji danych w chmurze Data Factory. Samouczki i inne dokumenty przedstawiające sposób konfigurowania potoków danych i zarządzania nimi oraz metody przenoszenia i przekształcania danych na potrzeby analiz. <p>Obecnie wersja V2 usługi Data Factory to wersja zapoznawcza. Wersja V1 jest ogólnie dostępna. Jeśli używasz wersji V1 usługi Data Factory, zobacz <a href=/azure/data-factory/v1/data-factory-introduction>dokumentację wersji V1</a>.</p>"
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: "Wizualne tworzenie potoków dla usługi Azure Data Factory w wersji 2 (19:31)"
+    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    width: 250
 sections:
 - title: 5-minutowe przewodniki Szybki start
   items:
@@ -28,6 +37,14 @@ sections:
   - type: list
     style: icon48
     items:
+    - image:
+        src: /azure/data-factory/media/index/portal.svg
+      text: "Interfejs użytkownika usługi Data Factory"
+      href: /azure/data-factory/quickstart-create-data-factory-portal
+    - image:
+        src: /azure/data-factory/media/index/copy-data-tool.png
+      text: "Narzędzie do kopiowania danych"
+      href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
     - image:
         src: /azure/data-factory/media/index/logo_powershell.svg
       text: Azure PowerShell
@@ -45,10 +62,6 @@ sections:
       text: REST
       href: /azure/data-factory/quickstart-create-data-factory-rest-api
     - image:
-        src: /azure/data-factory/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/data-factory/quickstart-create-data-factory-portal
-    - image:
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
       text: "Szablon usługi Resource Manager"
       href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
@@ -59,14 +72,14 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Wdrażanie pakietów usług SSIS na platformie Azure</a>"
-    - html: <a href="/azure/data-factory/tutorial-copy-data-dot-net">Kopiowanie danych w chmurze</a>
-    - html: <a href="../data-factory/tutorial-hybrid-copy-powershell">Kopiowanie danych lokalnych do chmury</a>
-    - html: <a href="../data-factory/tutorial-bulk-copy">Zbiorcze kopiowanie danych</a>
-    - html: <a href="../data-factory/tutorial-incremental-copy-powershell">Przyrostowe kopiowanie danych</a>
-    - html: "<a href=\"../data-factory/tutorial-transform-data-spark-powershell\">Przekształcanie danych w chmurze przy użyciu platformy Spark</a>"
-    - html: "<a href=\"../data-factory/tutorial-transform-data-hive-virtual-network\">Przekształcanie danych w sieci wirtualnej</a>"
-    - html: "<a href=\"../data-factory/tutorial-control-flow\">Przepływ sterowania</a>"
+    - html: "Wdrażanie pakietów SSIS na platformie Azure — <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
+    - html: "Kopiowanie danych w chmurze — <a href=\"/azure/data-factory/tutorial-copy-data-tool\">Narzędzie do kopiowania danych</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">Azure PowerShell</a>"
+    - html: "Kopiowanie danych lokalnych do chmury — <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">Narzędzie do kopiowania danych | <a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
+    - html: "Zbiorcze kopiowanie danych — <a href=\"/azure/data-factory/tutorial-bulk-copy-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-bulk-copy\">Azure PowerShell</a>"
+    - html: "Przyrostowe kopiowanie danych — <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
+    - html: "Przekształcanie danych w chmurze za pomocą platformy Spark — <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
+    - html: "Przekształcanie danych w sieci wirtualnej — <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
+    - html: "Przepływ sterowania — <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Interfejs użytkownika usługi Data Factory</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">Azure PowerShell</a>"
 - title: "Przykłady"
   items:
   - type: paragraph
@@ -75,7 +88,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
+    - html: <a href="/azure/data-factory/samples-powershell">Program PowerShell</a>
 - title: Dokumentacja
   items:
   - type: list

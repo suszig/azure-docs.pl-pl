@@ -2,7 +2,6 @@
 
 ## Omówienie
 ### [Jakie jest rozwiązanie?](storsimple-ova-overview.md)
-### [Dostępność w danym regionie](storsimple-regions.md)
 
 ## Rozpoczęcie pracy
 ### Planowanie
@@ -13,6 +12,7 @@
 ### Wdrażanie
 #### [Przygotowanie do wdrożenia](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Wdrażanie usługi StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Nowe uwierzytelnianie](storsimple-virtual-array-aad-registration-key.md)
 #### [Aprowizacja za pomocą funkcji Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Aprowizacja w oprogramowaniu VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Konfigurowanie serwera jako serwera plików](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Wdrażanie
 #### [StorSimple Device Manager service (Usługa Menedżer urządzeń StorSimple)](storsimple-8000-manage-service.md)
+#### [Nowe uwierzytelnianie dla usługi](storsimple-8000-aad-registration-key.md)
 #### [Urządzenie fizyczne na platformie Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Urządzenie fizyczne w Portalu dla instytucji rządowych](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Cloud appliance in Azure (Urządzenie w chmurze na platformie Azure)](storsimple-8000-cloud-appliance-u2.md)

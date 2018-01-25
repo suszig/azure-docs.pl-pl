@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: Zarządzanie
       items:
-        - name: Zarządzanie aplikacjami logiki — VS
+        - name: Zarządzanie aplikacjami logiki — Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: Zarządzanie kontami integracji
           href: logic-apps-enterprise-integration-accounts.md

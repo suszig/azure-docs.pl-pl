@@ -248,7 +248,7 @@
           items:
             - name: Łączenie ze swoim kontem MongoDB
               href: connect-mongodb-account.md
-            - name: Korzystanie z programu MongoChef
+            - name: Korzystanie z programu Studio 3T
               href: mongodb-mongochef.md
             - name: Korzystanie z narzędzia Robomongo
               href: mongodb-robomongo.md

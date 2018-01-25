@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Tworzenie kopii zapasowej zaszyfrowanych maszyn wirtualnych
               href: backup-azure-vms-encryption.md
+            - name: Włączanie kopii zapasowej maszyny wirtualnej podczas tworzenia maszyny wirtualnej
+              href: backup-during-vm-creation.md
         - name: Monitorowanie maszyn wirtualnych i zarządzanie nimi
           items:
             - name: Zarządzanie kopiami zapasowymi maszyny wirtualnej platformy Azure w witrynie Azure Portal

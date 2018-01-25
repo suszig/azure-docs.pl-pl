@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Rozwiązywanie typowych problemów w usłudze Automatyzacja Azure 
 Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić w automatyzacji Azure, a także sugeruje możliwe rozwiązania, aby je rozwiązać.
@@ -139,7 +139,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Typowe błędy podczas pracy z konfiguracji żądanego stanu (DSC)
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Scenariusz: Węzeł jest w stanie błędu z powodu błędu "Nie została odnaleziona"
-**Błąd:** węzeł ma raport o **** stanu i zawierające błąd "próba pobrania akcji z serwera https://``<url>``//accounts/ ``<account-id>`` /Nodes(AgentId=``<agent-id>``) / GetDscAction nie powiodło się, ponieważ prawidłowej konfiguracji ``<guid>`` nie można odnaleźć. "
+**Błąd:** węzeł ma raport o stanu i zawierające błąd "próba pobrania akcji z serwera https://``<url>``//accounts/ ``<account-id>`` /Nodes(AgentId=``<agent-id>``) / GetDscAction nie powiodło się, ponieważ prawidłowej konfiguracji ``<guid>`` nie można odnaleźć. "
 
 **Przyczyną tego błędu:** ten błąd występuje zazwyczaj gdy węzeł jest przypisany do nazwy konfiguracji (na przykład ABC) zamiast Nazwa konfiguracji węzła (na przykład ABC. Serwer sieci Web).
 
@@ -152,7 +152,7 @@ Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić 
   * Aby przypisać konfiguracji węzła do węzła przy użyciu polecenia cmdlet programu PowerShell, użyj **AzureRmAutomationDscNode zestaw** polecenia cmdlet
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scenariusz: Nie ma żadnych konfiguracji węzła (pliki MOF) zostały utworzone podczas kompilowania konfiguracji
-**Błąd:** zadania kompilacji DSC zawiesza się z powodu błędu: "Kompilacja została ukończona pomyślnie, ale nie wygenerowano żadnych .mofs konfiguracji węzła".
+**Błąd:** zadania kompilacji DSC zawiesza się z powodu błędu: "Kompilacja została ukończona pomyślnie, ale nie wygenerowano żadnych configuration.mofs węzła".
 
 **Przyczyną tego błędu:** podczas następujące wyrażenie **węzła** — słowo kluczowe w konfiguracji DSC daje w wyniku `$null`, a następnie są tworzone nie konfiguracje węzłów.
 
@@ -190,6 +190,16 @@ Ten kod błędu oznacza, że zapytania grupy komputera zapisanego wyszukiwania u
 **Porady dotyczące rozwiązywania problemów:**
 
 Można usunąć zapytania dla tego rozwiązania, a reonboard rozwiązanie, polegające na zapytanie. Zapytanie znajduje się w obszarze roboczym, w obszarze **zapisane wyszukiwania**. Nazwa zapytania jest **MicrosoftDefaultComputerGroup**, a kategoria zapytania jest nazwą rozwiązania skojarzoną z tym zapytaniem. W przypadku wielu rozwiązań są włączone, **MicrosoftDefaultComputerGroup** zawiera wiele razy w obszarze **zapisane wyszukiwania**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Przyczyną tego błędu:**
+
+Ten kod błędu oznacza, że wdrożenie nie powiodło się z powodu naruszenia zasad.
+
+**Porady dotyczące rozwiązywania problemów:**
+
+Sprawdź powiadomienia w prawym górnym rogu portalu Azure lub przejdź do grupę zasobów, która zawiera konta automatyzacji i wybierz **wdrożeń** w obszarze **ustawienia** Aby wyświetlić nieudane wdrożenia. Dla więcej informacji na temat zasad usługi Azure, odwiedź stronę: [Omówienie zasad Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Kolejne kroki
 
