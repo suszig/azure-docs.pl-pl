@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>Komunikat odroczenia
 
@@ -35,13 +35,13 @@ Interfejs API jest [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.mess
 
 Odroczone wiadomości pozostaną w kolejki głównej oraz wszystkie inne komunikaty active (w przeciwieństwie do wiadomości utraconych przebywających w kolejce podrzędne), ale ich nie otrzyma przy użyciu funkcji odbioru/metody ReceiveAsync regularne. Odnalezione wiadomości odroczonego [przeglądania wiadomości](message-browsing.md) Jeśli aplikacja traci informacje o nich.
 
-Pobierania z opóźnieniem wiadomości, jest odpowiedzialny za zapamiętywanie jego "właścicielem" [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) zgodnie z jego różni się go. Wszelkie odbiornika, który zna **SequenceNumber** odroczonego komunikatu później może odbierać wiadomości używając Receive(sequenceNumber).
+Pobierania z opóźnieniem wiadomości, jego właścicielem jest odpowiedzialny za zapamiętywanie [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) zgodnie z jego różni się go. Żadnych odbiornika, który zna numer sekwencyjny komunikatu odroczonego później może odbierać wiadomości jawnie z `Receive(sequenceNumber)`.
 
-Jeśli nie można przetworzyć komunikatu, ponieważ określonego zasobu obsługi wiadomości jest tymczasowo niedostępny, ale przetwarzanie komunikatu nie summarily zawiesza się, elegancki sposób umieszczenia wiadomości na stronie kilka minut jest do zapamiętania **SequenceNumber** w [zaplanowane komunikat](message-sequencing.md) można opublikować za kilka minut, a następnie ponownie pobrać odroczonego komunikat po odebraniu wiadomości zaplanowane. Należy pamiętać, że jeśli program obsługi komunikatów zależy od bazy danych dla wszystkich operacji i że baza danych jest tymczasowo niedostępny, należy nie używać opóźnienia, ale raczej zawiesić odbieranie komunikatów całkowicie aż baza danych jest ponownie dostępny.
+Jeśli nie można przetworzyć komunikatu, ponieważ określonego zasobu obsługi wiadomości jest tymczasowo niedostępny, ale przetwarzanie komunikatu nie summarily zawiesza się, sposób umieszczenia wiadomości na stronie kilka minut jest do zapamiętania  **SequenceNumber** w [zaplanowane komunikat](message-sequencing.md) można opublikować za kilka minut, a następnie ponownie pobrać odroczonego komunikat po odebraniu wiadomości zaplanowane. Należy pamiętać, że jeśli program obsługi komunikatów zależy od bazy danych dla wszystkich operacji i że baza danych jest tymczasowo niedostępny, należy nie używać opóźnienia, ale raczej zawiesić odbieranie komunikatów całkowicie aż baza danych jest ponownie dostępny.
 
 Odkładanie wiadomości nie wpływa na czas wygaśnięcia wiadomości, co oznacza, że komunikaty odroczonego nadal wygaśnie początkowo zaplanowanej godzinie i są przenoszone do kolejki utraconych wiadomości po odpowiednim skonfigurowaniu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

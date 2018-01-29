@@ -15,11 +15,11 @@ ms.date: 01/03/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: ddcc6464b1d0d7ba7443e5a3a548cfa4cf0d88c8
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 178fdc04a88e684a6574ca97b2390af756532072
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integracja aplikacji SaaS w usłudze Azure Active Directory
 
@@ -66,7 +66,7 @@ Aby uzyskać pełną listę aplikacji SaaS, które zostały wstępnie zintegrowa
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aravo.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ArcGIS.png)| [ArcGIS](active-directory-saas-arcgis-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Ariba.png)| [Ariba](active-directory-saas-ariba-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-asana-tutorial.png)| [Asana](active-directory-saas-asana-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-asana-tutorial.png)| [Asana](active-directory-saas-asana-tutorial.md)| [Asana — Inicjowanie obsługi użytkowników](active-directory-saas-asana-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/saasapp_asccontracts.png)| [Kontrakty ASC](active-directory-saas-asccontracts-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AssetBank.png)| [Bank zasobów](active-directory-saas-assetbank-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian chmury](active-directory-saas-atlassian-cloud-tutorial.md)|
@@ -299,7 +299,7 @@ Aby uzyskać pełną listę aplikacji SaaS, które zostały wstępnie zintegrowa
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-perceptionunitedstates-tutorial.png)| [Z punktu widzenia użytkownika Stanów Zjednoczonych (z systemem innym niż UltiPro)](active-directory-saas-perceptionunitedstates-tutorial.md)||
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-performancecentre-tutorial.png)| [PerformanceCentre](active-directory-saas-performancecentre-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-picturepark-tutorial.png)| [Picturepark](active-directory-saas-picturepark-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Pingboard.png)| [Pingboard](active-directory-saas-PingBoard-tutorial.md)| [Pingboard — Inicjowanie obsługi użytkowników](active-directory-saas-pingboard-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PlanMyLeave.png)| [PlanMyLeave](active-directory-saas-planmyleave-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-pluralsight-tutorial.png)| [Pluralsight](active-directory-saas-pluralsight-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-policystat-tutorial.png)| [PolicyStat](active-directory-saas-policystat-tutorial.md)|

@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrowanie aplikacji z usługą Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ Pokaż aplikacjom w Twojej organizacji został zarejestrowany w obszarze "Moje a
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Usuwanie aplikacji wielodostępnych, autoryzowany w innej organizacji
 Część aplikacji, które Pokaż w filtrze "Wszystkie aplikacje" (z wyłączeniem rejestracji "Moje aplikacje") na stronie głównej "Rejestracji aplikacji" Twojej dzierżawy są aplikacje wielodostępne. Te aplikacje wielodostępne pochodzą z innego dzierżawcę pod względem technicznym, a podczas procesu zgody zostały zarejestrowane w dzierżawie. W szczególności są one reprezentowane przez tylko usługa główna obiektu w dzierżawie, bez odpowiedniego obiektu aplikacji. Aby uzyskać więcej informacji na temat różnic między aplikacją a obiekty główne usług, zobacz [aplikacji i usług obiektów principal w usłudze Azure AD](active-directory-application-objects.md).
 
-Aby usunąć aplikację wielodostępne dostępu do katalogu (po udzielenia zgody), administrator firmy, należy usunąć jego nazwy głównej usługi. Administrator musi mieć dostęp administratora globalnego i usunąć za pomocą portalu Azure [poleceń cmdlet programu Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) Aby usunąć dostęp.
+Aby usunąć aplikację wielodostępne dostępu do katalogu (po udzielenia zgody), administrator firmy, należy usunąć jego nazwy głównej usługi. Administrator musi mieć dostęp administratora globalnego i można usunąć za pomocą portalu Azure lub użyj [poleceń cmdlet programu Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) Aby usunąć dostęp.
 
 ## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji dotyczących działania uwierzytelniania w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD](active-directory-authentication-scenarios.md).

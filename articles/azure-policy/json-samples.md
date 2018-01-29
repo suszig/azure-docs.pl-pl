@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Szablony zasad Azure
 
@@ -55,7 +55,7 @@ Poniższa tabela zawiera linki do szablony json dla zasad usługi Azure. Te przy
 | [Dozwolone jednostki SKU usługi równoważenia obciążenia](scripts/allowed-lb-skus.md) | Wymaga użycia zatwierdzone jednostki SKU usługi równoważenia obciążenia. Należy określić tablicę dozwolonych jednostki SKU. |
 | [Brak sieci komunikację równorzędną, aby ER sieci](scripts/no-peering-er-net.md) | Zabrania używania sieć równorzędna z przypisaniem go do sieci w grupie określonego zasobu. Użyj, aby uniemożliwić połączenia z infrastrukturą sieci zarządzanej centralnej. Należy określić nazwę grupy zasobów, aby zapobiec skojarzenia. |
 | [Żaden użytkownik nie zdefiniowano tabeli tras](scripts/no-user-def-route-table.md)  |Zabrania sieci wirtualne wdrażane z tabelą tras zdefiniowanych przez użytkownika. |
-| [Dozwolone jednostki SKU bramy sieci wirtualnej](scripts/no-user-def-route-table.md) | Wymaga użycia zatwierdzone jednostki SKU i bramy typu bram sieci wirtualnej. Należy określić tablicę zatwierdzone jednostki SKU i tablicę typów zatwierdzonych bramy. |
+| [Dozwolone jednostki SKU bramy sieci wirtualnej](scripts/allowed-vn-gate-sku.md) | Wymaga użycia zatwierdzone jednostki SKU i bramy typu bram sieci wirtualnej. Należy określić tablicę zatwierdzone jednostki SKU i tablicę typów zatwierdzonych bramy. |
 | [Użyj zatwierdzonych podsieci maszyny Wirtualnej w interfejsach sieciowych](scripts/use-approved-subnet-vm-nics.md) | Wymaga użycia zatwierdzonych podsieci interfejsów sieciowych. Należy określić identyfikator zatwierdzonych podsieci. |
 | [Użyj zatwierdzonych sieci wirtualnej maszyny Wirtualnej w interfejsach sieciowych](scripts/use-approved-vnet-vm-nics.md) | Wymaga użycia interfejsów sieciowych zatwierdzonych sieci wirtualnej. Należy określić identyfikator zatwierdzonych sieci wirtualnej. |
 |**Tagi**||

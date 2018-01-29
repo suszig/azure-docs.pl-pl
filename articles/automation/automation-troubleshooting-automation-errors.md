@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Rozwiązywanie typowych problemów w usłudze Automatyzacja Azure 
 Ten artykuł zawiera pomoc w rozwiązywaniu typowych błędów mogą wystąpić w automatyzacji Azure, a także sugeruje możliwe rozwiązania, aby je rozwiązać.
@@ -195,11 +195,19 @@ Można usunąć zapytania dla tego rozwiązania, a reonboard rozwiązanie, poleg
 
 **Przyczyną tego błędu:**
 
-Ten kod błędu oznacza, że wdrożenie nie powiodło się z powodu naruszenia zasad.
+Ten kod błędu oznacza, że wdrożenie nie powiodło się z powodu naruszenia co najmniej jedne zasady.
 
 **Porady dotyczące rozwiązywania problemów:**
 
-Sprawdź powiadomienia w prawym górnym rogu portalu Azure lub przejdź do grupę zasobów, która zawiera konta automatyzacji i wybierz **wdrożeń** w obszarze **ustawienia** Aby wyświetlić nieudane wdrożenia. Dla więcej informacji na temat zasad usługi Azure, odwiedź stronę: [Omówienie zasad Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Aby pomyślnie wdrożyć rozwiązanie, należy wziąć pod uwagę zmiany wskazanych zasad. Ponieważ istnieje wiele różnych typów zasad, które mogą być definiowane, wymaganych zmian są zależne od naruszenia zasad. Na przykład zdefiniowano zasady grupy zasobów, której odmówiono uprawnień do zmiany zawartości niektórych typów zasobów w grupie zasobów, można na przykład wykonać jedną z następujących czynności:
+
+*   Usuń zasady całkowicie.
+* Spróbuj dodać do innej grupie zasobów.
+* Popraw zasady, na przykład:
+   * Ponownie, wybierając zasady dla konkretnego zasobu (np. określone konto automatyzacji).
+   * Zmiana zestawu zasobów tej zasady zostało skonfigurowane do odrzucania.
+
+Sprawdź powiadomienia w prawym górnym rogu portalu Azure lub przejdź do grupę zasobów, która zawiera konta automatyzacji i wybierz **wdrożeń** w obszarze **ustawienia** Aby wyświetlić nieudane wdrożenia. Aby dowiedzieć się więcej na temat zasad usługi Azure, odwiedź stronę: [Omówienie zasad Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Kolejne kroki
 

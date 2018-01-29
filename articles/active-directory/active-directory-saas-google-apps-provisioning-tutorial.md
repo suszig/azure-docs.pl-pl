@@ -1,5 +1,5 @@
 ---
-title: "Samouczek: Konfigurowanie usługi Google Apps dla użytkownika automatycznego inicjowania obsługi administracyjnej na platformie Azure | Dokumentacja firmy Microsoft"
+title: "Samouczek: Konfigurowanie usługi Google Apps dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do usługi Google Apps."
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a77b5b1fff670ed7698d0ef48fa63f8a8f9be819
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Google Apps dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
@@ -79,7 +79,7 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
 
      ![Dodawanie domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
-    c. Wpisz nazwę domeny do **nazwy domeny** pola. Ta nazwa domeny powinien być tej samej nazwy domeny, która ma być używana dla konta Google Apps. Następnie wybierz **Dodawanie domeny** przycisku.
+    d. Wpisz nazwę domeny do **nazwy domeny** pola. Ta nazwa domeny powinien być tej samej nazwy domeny, która ma być używana dla konta Google Apps. Następnie wybierz **Dodawanie domeny** przycisku.
      
      ![Nazwa domeny](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
@@ -105,7 +105,7 @@ Ta sekcja umożliwia łączenie usługi Azure AD z konta użytkownika, inicjowan
      
      ![Dodaj nową domenę][21]
 
-    c. Wybierz **Dodaj inną domenę**, a następnie wpisz nazwę domeny, który chcesz dodać.
+    d. Wybierz **Dodaj inną domenę**, a następnie wpisz nazwę domeny, który chcesz dodać.
      
      ![Wpisz nazwę domeny][22]
 
@@ -161,7 +161,7 @@ Ten proces jest uruchamiany wstępna synchronizacja jakichkolwiek użytkowników
 
 Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty aktywności. Te raporty opisano wszystkie akcje, które są wykonywane przez usługę inicjowania obsługi administracyjnej na aplikację usługi Google Apps.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

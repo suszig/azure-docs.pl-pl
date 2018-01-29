@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z GoToMeeting | Dokumentacja firmy Microsoft'
+title: "Samouczek: Konfigurowanie GoToMeeting dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i GoToMeeting."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie GoToMeeting dla użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie GoToMeeting dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w GoToMeeting i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD GoToMeeting.
 
@@ -62,7 +62,7 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
 4. Ustaw **inicjowania obsługi administracyjnej** tryb **automatyczne**. 
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 5. W sekcji poświadczenia administratora wykonaj następujące czynności:
    
@@ -86,7 +86,7 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
 Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do GoToMeeting w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na GoToMeeting aplikacji.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Jak używać Azure zarządzanych tożsamości usługi (publicznej wersji zapoznawczej) w aplikacji usługi i usługi Azure Functions
 
@@ -56,7 +56,7 @@ Aby skonfigurować tożsamość usługi zarządzanej przy użyciu wiersza polece
 
 Poniższe kroki przeprowadzi użytkownika przez proces tworzenia aplikacji sieci web i przypisywania jej tożsamość za pomocą interfejsu wiersza polecenia:
 
-1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w której chcesz wdrożyć aplikację:
+1. Jeśli używasz interfejsu wiersza polecenia Azure w lokalnej konsoli, najpierw zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w której chcesz wdrożyć aplikację:
 
     ```azurecli-interactive
     az login
@@ -171,7 +171,7 @@ Pomyślne odpowiedź 200 OK zawiera treść JSON z następującymi właściwośc
 > [!div class="mx-tdBreakAll"]
 > |Nazwa właściwości|Opis|
 > |-------------|----------|
-> |' access_token '|Żądany dostęp token. Wywołanie usługi sieci web umożliwia ten token uwierzytelniania przyjęcia usługi sieci web.|
+> |access_token|Żądany dostęp token. Wywołanie usługi sieci web umożliwia ten token uwierzytelniania przyjęcia usługi sieci web.|
 > |expires_on|Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów.|
 > |zasób|Identyfikator URI aplikacji odbierającej usługi sieci web.|
 > |token_type|Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest elementu nośnego. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|

@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Niskiego priorytetu maszyn wirtualnych za pomocą usługi partia zadań
 
@@ -71,9 +71,12 @@ Partia zadań Azure oferuje kilka możliwości, które ułatwiają korzystanie i
 
 -   Przerwanie zadania wsadowego wykrywa i automatycznie requeues zadania, aby uruchomić ponownie.
 
--   Maszyny wirtualne o niskim priorytecie przydziału oddzielnych vCPU, różni się od dla dedykowanych maszyn wirtualnych. 
+-   Maszyny wirtualne o niskim priorytecie ma przydział oddzielnych vCPU, która różni się od dla dedykowanych maszyn wirtualnych. 
     Limit przydziału maszyn wirtualnych o niskim priorytecie jest większy niż limit przydziału dla dedykowanych maszyn wirtualnych, ponieważ koszt niskiego priorytetu maszyny wirtualne. Aby uzyskać więcej informacji, zobacz [partii usługi przydziały i limity](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Niskiego priorytetu maszyny wirtualne nie są obsługiwane dla kont usługi partia zadań utworzonych w [tryb subskrypcji użytkownika](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Tworzenie i aktualizowanie pul
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
@@ -181,7 +184,7 @@ Aby wyświetlić metryki w portalu Azure:
 
 ![Metryki dla węzłów o niskim priorytecie](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
 * Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.

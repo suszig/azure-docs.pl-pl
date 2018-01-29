@@ -15,22 +15,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f56e62576cae0c594f26bcddf44528032bd5ea69
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Zarządzanie moc obliczeniową w usłudze Azure SQL Data Warehouse (Azure portal)
-> [!div class="op_single_selector"]
-> * [Omówienie](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [Program PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
-
+Skala obliczeniowe zasobów w usłudze Azure SQL Data Warehouse przy użyciu portalu Azure.
 
 ## <a name="scale-compute-power"></a>Moc obliczeniową skali
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
@@ -47,43 +39,6 @@ Aby zmienić zasoby obliczeniowe:
 
     ![Klikanie pozycji Zapisz.][3]
 
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Wstrzymaj obliczeń
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Aby wstrzymać bazy danych:
-
-1. Otwórz [portalu Azure] [ Azure portal] i otworzyć bazy danych. Należy zauważyć, że stan jest **Online**.
-
-    ![Stan online][6]
-2. Wstrzymania zasobów obliczeniowych i pamięć, kliknij przycisk **Wstrzymaj**, a następnie zostanie wyświetlony komunikat potwierdzenia. Kliknij przycisk **tak** o potwierdzenie lub **nie** do anulowania.
-
-    ![Upewnij się, Wstrzymaj][7]
-3. Podczas uruchamiania bazy danych SQL Data Warehouse, stan jest **wstrzymywanie**.
-4. Jeśli stan jest **wstrzymana**, odbywa się operację wstrzymywania i nie zawierają dla jednostek dwu.
-
-    ![Stan wstrzymania][4]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Wznów obliczeń
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Aby wznowić bazy danych:
-
-1. Otwórz [portalu Azure] [ Azure portal] i otworzyć bazy danych. Należy zauważyć, że stan jest **Paused**.
-
-    ![Wstrzymaj bazy danych][4]
-2. Wznowienie kliknij bazy danych **Start**, a następnie zostanie wyświetlony komunikat potwierdzenia. Kliknij przycisk **tak** o potwierdzenie lub **nie** do anulowania.
-
-    ![Upewnij się, Wznów][5]
-3. Podczas uruchamiania bazy danych SQL Data Warehouse, stanu jest "Wznawianie".
-4. Jeśli stan jest **online**, baza danych jest gotowy.
-
-    ![Stan online][6]
-
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać więcej informacji, zobacz [omówienie zarządzania][Management overview].
@@ -92,10 +47,7 @@ Aby uzyskać więcej informacji, zobacz [omówienie zarządzania][Management ove
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
-[4]: ./media/sql-data-warehouse-manage-compute-portal/resume-database.png
-[5]: ./media/sql-data-warehouse-manage-compute-portal/resume-confirm.png
-[6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
-[7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
+
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md

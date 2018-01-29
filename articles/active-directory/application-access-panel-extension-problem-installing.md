@@ -1,6 +1,6 @@
 ---
-title: "Problem podczas instalowania aplikacji dostępu panelu rozszerzenia przeglądarki | Dokumentacja firmy Microsoft"
-description: "Jak rozwiązywać typowe błędy podczas instalowania rozszerzenia przeglądarki panelu dostępu"
+title: "Zainstaluj aplikację dostępu panelu przeglądarki rozszerzenie - Azure | Dokumentacja firmy Microsoft"
+description: "Rozwiąż typowe błędy podczas instalowania rozszerzenia przeglądarki panelu dostępu."
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,113 +14,108 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 26dc5d5ffce84206450123132c0633c2aa323e9f
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Problem podczas instalowania aplikacji dostępu panelu rozszerzenia przeglądarki
+# <a name="install-the-access-panel-browser-extension"></a>Zainstaluj rozszerzenie przeglądarki panelu dostępu
 
-Panel dostępu jest widok, a następnie uruchom chmurowych aplikacji, które administrator usługi Azure AD udzielił im dostępu do portalu sieci web, dzięki czemu użytkownik, który ma konto służbowe w usłudze Azure Active Directory (Azure AD). Użytkownik, który ma wersje usługi Azure AD umożliwia także grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu. Panel dostępu jest oddzielony od portalu Azure i nie wymaga użytkownikom posiadania subskrypcji platformy Azure.
+Panel dostępu jest portalem sieci web. Jeśli masz służbowego lub szkolnego konta w usłudze Azure Active Directory (Azure AD), służy panelu dostępu do wyświetlania i uruchamiania aplikacji opartej na chmurze, które administrator usługi Azure AD udzielił dostęp do. 
 
-Aby użyć opartego na hasłach rejestracji jednokrotnej (SSO) w panelu dostępu, rozszerzenia Panelu dostępu musi być zainstalowany w przeglądarce. To rozszerzenie jest pobierany automatycznie, gdy użytkownik wybierze aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
+Jeśli używasz wersji usługi Azure AD, można również użyć grupami samoobsługi, a funkcje zarządzania aplikacjami za pomocą panelu dostępu. 
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Spełniające wymagania przeglądarki do panelu dostępu
+Panel dostępu jest oddzielony od portalu Azure. Nie wymagają posiadania subskrypcji platformy Azure.
 
-Panel dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Aby użyć opartego na hasłach rejestracji jednokrotnej (SSO) w panelu dostępu, rozszerzenia Panelu dostępu musi być zainstalowany w przeglądarce. To rozszerzenie jest pobierany automatycznie, gdy użytkownik wybierze aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
+## <a name="web-browser-requirements"></a>Wymagania dotyczące przeglądarki sieci Web
 
-Logowanie Jednokrotne opartego na hasłach można przeglądarki przez użytkownika końcowego:
+Co najmniej panelu dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Zalogowani do aplikacji za pomocą opartego na hasłach logowania jednokrotnego w panelu dostępu, musi mieć rozszerzenie panelu dostępu, które są zainstalowane w przeglądarce. Rozszerzenie jest pobierany automatycznie po wybraniu aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
 
--   Krawędź w systemie Windows 10 Anniversary Edition lub nowszy 
+Dla logowania jednokrotnego opartego na hasłach można użyć dowolnego z poniższych przeglądarek:
 
--   Chrome — W systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
+- **Krawędź**: w systemie Windows 10 Anniversary Edition lub nowszy. 
+- **Chrome**: w systemie Windows 7 lub nowszym i System MacOS x lub później.
+- **Firefox 26.0 lub nowsze**: w systemie Windows XP SP2 lub nowszy i Mac OS X 10.6 lub później.
+- **Internet Explorer 8, 9, 10, 11**: w systemie Windows 7 lub nowszy (obsługa ograniczona).
 
--   Firefox 26.0 lub później — w systemie Windows XP z dodatkiem SP2 lub nowszy oraz w systemie Mac OS X 10,6 lub nowszy
-
--   Internet Explorer 8, 9, 10, 11 — w systemie Windows 7 lub nowszy (obsługa ograniczona)
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Jak zainstalować rozszerzenie przeglądarki panelu dostępu
+## <a name="install-the-access-panel-browser-extension"></a>Zainstaluj rozszerzenie przeglądarki panelu dostępu
 
 Aby zainstalować rozszerzenie przeglądarki panelu dostępu, wykonaj następujące czynności:
 
-1.  Otwórz [panelu dostępu](https://myapps.microsoft.com) w jednym z obsługiwanych przeglądarkach i zaloguj się jako **użytkownika** w usługi Azure AD.
+1.  W jednym z obsługiwanych przeglądarek, otwórz [panelu dostępu](https://myapps.microsoft.com), a następnie zaloguj się jako użytkownik na koncie usługi Azure AD.
 
-2.  Kliknij przycisk **logowania jednokrotnego hasła aplikacji** w panelu dostępu.
+2.  Wybierz aplikację rejestracji Jednokrotnej opartego na hasłach.
 
-3.  W oknie komunikatu z pytaniem do zainstalowania oprogramowania, zaznaczyć **Zainstaluj teraz**.
+3.  Po wyświetleniu monitu wybierz **Zainstaluj teraz**.  
+    Nastąpi przekierowanie do łącze Pobierz dostępne dla wybranej przeglądarki. 
+    
+4.  Wybierz pozycję **Dodaj**.
 
-4.  Oparte na przeglądarce być kierowane do łącza pobierania. **Dodaj** rozszerzenia do przeglądarki.
+5.  Jeśli zostanie wyświetlony monit, albo **włączyć** lub **Zezwalaj** rozszerzenia.
 
-5.  Jeśli przeglądarka pytanie, wybierz albo **włączyć** lub **Zezwalaj** rozszerzenia.
+6.  Po zakończeniu instalacji uruchom ponownie przeglądarkę.
 
-6.  Wcześniej zainstalowano **ponowne uruchomienie** sesji przeglądarki.
+7.  Zaloguj się do panelu dostępu, a także Sprawdź, aby zobaczyć, czy można uruchomić aplikacji rejestracji Jednokrotnej opartego na hasłach.
 
-7.  Zaloguj się do panelu dostępu i zobacz, czy można **uruchamianie** logowania jednokrotnego hasła aplikacji
+Możesz również pobrać rozszerzenia dla programu Chrome i krawędzi bezpośrednio z następujących witryn:
 
-Może również pobrać rozszerzenia dla programu Chrome i krawędzi z bezpośrednich łączy poniżej:
+- [Rozszerzenia programu Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Rozszerzenie krawędzi](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
--   [Rozszerzenie panelu dostępu Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Użyj mojej aplikacji bezpiecznego logowania rozszerzenia
+* Jeśli używasz Mój adres URL aplikacji innych niż `https://myapps.microsoft.com`, skonfiguruj adres URL domyślnej przez wykonanie następujących czynności:
+   1. Podczas *nie* zalogowany do rozszerzenia, kliknij prawym przyciskiem myszy ikonę rozszerzenia.
+   2. W menu, wybierz **adres URL aplikacji Mój**.
+   3. Wybierz adres URL domyślnej.
+   4. Wybierz ikonę rozszerzenia.
+   5. Aby zalogować się do rozszerzenia, wybierz **Zaloguj się rozpocząć**.
 
--   [Rozszerzenie panelu dostępu krawędzi](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+* Aby zalogować się bezpośrednio do aplikacji z przeglądarki, wykonaj następujące czynności:
+   1. Po zainstalowaniu rozszerzenia, zaloguj się do niego, wybierając **Zaloguj się rozpocząć**.
+   2. Zaloguj się do aplikacji z adresem URL logowania jednokrotnego.  
+       Adres URL logowania jest zwykle adres URL aplikacji, która wyświetla formularz logowania.
+      Rozszerzenia należy zmienić stan i informacją o tym, że hasło jest dostępny.
+   3. Aby się zarejestrować, wybierz ikonę rozszerzenia.
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Jak używać Moje aplikacje bezpiecznego logowania rozszerzenie?
-Zmiana domyślnego adresu URL aplikacji Moje rozszerzenia
-
-Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
-1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
-2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
-3. **Wybierz** Twojego domyślny adres URL.
-4. Kliknij ikonę rozszerzenia.
-5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
-
-Zaloguj się bezpośrednio do aplikacji z przeglądarki
-1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
-2. Przejdź do **adres URL logowania na** aplikacji, które chcesz logować się do, zazwyczaj jest to adres URL aplikacji, która wyświetla formularz logowania.
-3. Rozszerzenia należy zmiany stanu i umożliwiają znać hasło jest dostępna, kliknij pozycję **ikona rozszerzenia** do logowania.
-
-Uruchom aplikację z rozszerzenia
-1. Po zainstalowaniu rozszerzenia, zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
-2. Kliknij ikonę rozszerzenia, aby otworzyć jego **menu**.
-3. **Wyszukiwanie** dla aplikacji, które są dostępne w portalu Moje aplikacje.
-4. Kliknij aplikację z **wyniki wyszukiwania** można go uruchomić.
-5. Ostatnie trzy aplikacje uruchomione będą również widoczne w **ostatnio używane** listy skrótów
+* Aby uruchomić aplikację z rozszerzenia, wykonaj następujące czynności:
+   1. Po zainstalowaniu rozszerzenia, zaloguj się do niego, wybierając **Zaloguj się rozpocząć**.
+   2. Wybierz ikonę rozszerzenia, aby otworzyć menu.
+   3. Wyszukaj aplikację, która jest dostępna w portalu Moje aplikacje.
+   4. Na liście wyników wyszukiwania wybierz aplikację.  
+       Ostatnie trzy aplikacje używane są wyświetlane w **ostatnio używane** listy skrótów.
 
 > [!NOTE]
-> Te opcje są dostępne tylko na krawędzi, Chrome, Firefox.
+> Poprzednie opcje są dostępne tylko dla krawędzi, Chrome i Firefox.
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Konfigurowanie zasad grupy dla programu Internet Explorer
+## <a name="set-up-a-group-policy-for-internet-explorer"></a>Konfigurowanie zasad grupy dla programu Internet Explorer
 
-Możesz skonfigurować zasady grupy, które umożliwiają zdalnie zainstalować rozszerzenie Panel dostępu dla programu Internet Explorer na komputerach użytkowników.
+Można skonfigurować zasady grupy, która pozwala na zdalnie zainstalować rozszerzenia panel dostępu dla programu Internet Explorer na komputerach użytkowników.
 
-Wymagania wstępne należą:
+Przed rozpoczęciem konfigurowania zasad grupy, upewnij się, że:
 
 -   Po skonfigurowaniu [usług domenowych w usłudze Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), i dołączeniu komputerów użytkowników do domeny.
 
--   Musi mieć uprawnienie "Edytuj ustawienia" do edycji obiektu zasad grupy (GPO). Domyślnie to uprawnienie mają członków z następujących grup zabezpieczeń: Administratorzy domeny, Administratorzy przedsiębiorstwa oraz Twórcy-właściciele zasad grupy. [Dowiedz się więcej](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Aby dokonać edycji obiektu zasad grupy (GPO), musisz mieć *edytować ustawienia* uprawnienia. Domyślnie to uprawnienie jest przyznawane członków z następujących grup zabezpieczeń: Administratorzy domeny, Administratorzy przedsiębiorstwa oraz Twórcy-właściciele zasad grupy.
 
-Czynności opisane w samouczku [wdrażanie rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md) instrukcje krok po kroku dotyczące sposobu konfigurowania zasad grupy oraz wdrażanie dla użytkowników.
+Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania zasad grupy i wdrożeniem jej u użytkowników, zobacz [wdrażania rozszerzenia panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md).
 
 ## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Rozwiązywanie problemów z rozszerzeniem panelu dostępu w programie Internet Explorer
 
-Postępuj zgodnie z [Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer](active-directory-saas-ie-troubleshooting.md) przewodnik dostępu narzędzia diagnostycznego i instrukcje krok po kroku dotyczące konfigurowania rozszerzenia dla programu Internet Explorer.
+Aby uzyskać dostęp do narzędzia diagnostycznego i informacji o konfigurowaniu rozszerzenia dla programu Internet Explorer, zobacz [Rozwiązywanie problemów z rozszerzeniem panel dostępu dla programu Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> Programu Internet Explorer znajduje się na ograniczony pomocy technicznej i nie będzie już otrzymywać nowe aktualizacje oprogramowania. Krawędź jest zalecane przeglądarki.
+> Internet Explorer znajduje się na ograniczony pomocy technicznej i nie będzie już otrzymywać nowe aktualizacje oprogramowania. Krawędź jest zalecane przeglądarki.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Jeśli te kroki rozwiązywania problemów nie rozwiąże problemu
+## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Jeśli te czynności nie rozwiąże problemu
 
-Otwórz bilet pomocy technicznej następujące informacje, jeśli są dostępne:
+Jeśli jest dostępna, otwórz bilet pomocy technicznej następujące informacje:
 
 -   Identyfikator błędu korelacji
-
 -   Nazwa UPN (adres e-mail użytkownika)
-
 -   Dla identyfikatora dzierżawcy
-
 -   Typ przeglądarki
-
--   Strefa czasowa i przedziału czasu/czasu podczas błąd występuje
-
+-   Strefa czasowa i godziny lub przedział czasu w momencie wystąpienia błędu
 -   Ślady fiddler
 
 ## <a name="next-steps"></a>Kolejne kroki

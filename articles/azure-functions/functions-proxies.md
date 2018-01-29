@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Praca z serwerów proxy Azure Functions
 
@@ -62,6 +62,11 @@ Obecnie nie są bez obsługi portalu modyfikowania odpowiedzi. Więcej informacj
 
 Konfiguracja serwera proxy dla muszą być statyczne. Można warunku, aby używać zmiennych z oryginalnego żądania klienta, zaplecza odpowiedzi lub ustawień aplikacji.
 
+### <a name="reference-localhost"></a>Odwołanie do funkcji lokalnej
+Można użyć `localhost` do odwołania funkcji w tej samej aplikacji funkcja bezpośrednio, bez przesyłania żądania serwera proxy.
+
+`"backendurl": "localhost/api/httptriggerC#1"`będzie odwoływać się do funkcji lokalnej HTTP wyzwalane w trasy`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Parametry żądania odwołania
 
 Parametry żądania można użyć jako dane wejściowe, aby właściwość URL zaplecza lub w ramach modyfikowania żądania i odpowiedzi. Niektóre parametry mogą być powiązane z szablonu trasy, który został określony w konfiguracji podstawowej serwera proxy, a inne osoby mogą pochodzić z właściwości z żądania przychodzącego.
@@ -94,6 +99,18 @@ Na przykład adres URL zaplecza z *https://%ORDER_PROCESSING_HOST%/api/orders* b
 
 > [!TIP] 
 > Użyj ustawienia aplikacji dla hostów zaplecza w przypadku wielu wdrożeń lub środowisk testowych. W ten sposób można upewnić się, że zawsze mówimy do prawej zaplecza dla tego środowiska.
+
+## <a name="debugProxies"></a>Rozwiązywanie problemów z serwerów proxy
+
+Dodając flagi `"debug":true` do dowolnego serwera proxy w sieci `proxy.json` spowoduje włączenie rejestrowania debugowania. Dzienniki są przechowywane w `D:\home\LogFiles\Application\Proxies\DetailedTrace` i jest dostępny za pośrednictwem zaawansowanych narzędzi (kudu). Wszystkie odpowiedzi HTTP będzie również zawierać `Proxy-Trace-Location` nagłówka o adresie URL dostępu do pliku dziennika.
+
+Serwer proxy po stronie klienta można debugować przez dodanie `Proxy-Trace-Enabled` wartość nagłówka `true`. Spowoduje to również rejestrowania danych śledzenia w systemie plików i zwraca adres URL śledzenia jako nagłówka w odpowiedzi.
+
+### <a name="block-proxy-traces"></a>Blok serwera proxy śledzenia
+
+Ze względów bezpieczeństwa możesz nie pozwala nikomu wywoływania usługi do generowania śledzenia. Nie będą oni mogli uzyskać dostępu do zawartości śledzenia bez poświadczeń logowania, ale generowania śledzenia wykorzystuje zasoby i ujawnia używasz funkcji serwerów proxy.
+
+Całkowicie wyłączyć śladów, dodając `"debug":false` do dowolnego określonego serwera proxy w sieci `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
@@ -130,6 +147,24 @@ Każdy serwer proxy ma przyjazną nazwę, takich jak *proxy1* w poprzednim przyk
 
 > [!NOTE] 
 > *Trasy* właściwości w proxy funkcji Azure honoruje *routePrefix* właściwości konfiguracji hostów funkcji aplikacji. Jeśli chcesz obejmują takie jak prefiks `/api`, muszą być zawarte w *trasy* właściwości.
+
+### <a name="disableProxies"></a>Wyłącz poszczególnych serwerów proxy
+
+Można wyłączyć poszczególne serwery proxy, dodając `"disabled": true` do serwera proxy w `proxies.json` pliku. To spowoduje, że wszystkie żądania spotkania matchCondidtion do zwrócenia 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Zdefiniuj obiektu requestOverrides
 

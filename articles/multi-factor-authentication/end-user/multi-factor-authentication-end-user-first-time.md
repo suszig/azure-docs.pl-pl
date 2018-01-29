@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 04b8d2b8d7d84bd4c6b46507be5d597c03d9dbb0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Skonfiguruj moje konto na potrzeby weryfikacji dwuetapowej
 Weryfikacja dwuetapowa to dodatkowe zabezpieczenia krok, który pomaga chronić Twoje konto dokonując przeszkodę dla innych osób włamanie się. Jeśli czytasz ten artykuł, prawdopodobnie masz wiadomość e-mail od firmy lub szkoły administratorem temat uwierzytelniania wieloskładnikowego. Lub może być próbował zarejestrować i otrzymano komunikat z pytaniem do skonfigurowania dodatkowej weryfikacji zabezpieczeń. Jeśli tak, jest **nie można zalogować przed ukończeniem procesu automatycznej rejestracji**.
@@ -43,7 +43,7 @@ Pierwsze pytanie w procesie rejestracji jest jak mamy się z Tobą skontaktować
 
 | Metoda kontaktu | Opis |
 | --- | --- |
-| [Aplikacji mobilnej](#use-a-mobile-app-as-the-contact-method) |- **Odbieranie powiadomień o weryfikacji.** Ta opcja wypycha powiadomienie do aplikacji uwierzytelniania na smartfonie lub tablecie. Wyświetlić powiadomienie i, jeśli jest to uzasadnione, wybierz **Uwierzytelnij** w aplikacji. Konto służbowe może wymagać wprowadzenia kodu PIN przed uwierzytelniania.<br>- **Użyj kodu weryfikacyjnego.** W tym trybie aplikacja uwierzytelniania generuje kod weryfikacyjny, który aktualizuje co 30 sekund. Wprowadź kod weryfikacyjny najbardziej aktualne w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Aplikacji mobilnej](#use-a-mobile-app-as-the-contact-method) |- **Odbieranie powiadomień o weryfikacji.** Ta opcja wypycha powiadomienie do aplikacji uwierzytelniania na smartfonie lub tablecie. Wyświetlić powiadomienie i, jeśli jest to uzasadnione, wybierz **Uwierzytelnij** w aplikacji. Konto służbowe może wymagać wprowadzenia kodu PIN przed uwierzytelniania.<br>- **Użyj kodu weryfikacyjnego.** W tym trybie aplikacja uwierzytelniania generuje kod weryfikacyjny, który aktualizuje co 30 sekund. Wprowadź kod weryfikacyjny najbardziej aktualne w interfejsie logowania.<br>Jest dostępna dla aplikacji Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), i [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Telefonu komórkowego połączenia lub wiadomości SMS](#use-your-mobile-phone-as-the-contact-method) |- **Połączenie telefoniczne** umieszcza wykonywane automatyczne połączenie głosowe do należy podać numer telefonu. Odebranie połączenia i naciśnięcie przycisku # na klawiaturze telefonu w celu uwierzytelnienia.<br>- **Wiadomość SMS** kończy się wiadomość tekstową zawierającą kod weryfikacyjny. Następujący wiersz w tekście Odpowiedz na wiadomość SMS lub wprowadź kod weryfikacyjny Podany w interfejsie logowania. |
 | [Z telefonem biurowym](#use-your-office-phone-as-the-contact-method) |Umieszcza wykonywane automatyczne połączenie głosowe pod numer telefonu, podane przez użytkownika. Odebrać połączenie i naciska klawisz # na klawiaturze telefonu w celu uwierzytelnienia. |
 
@@ -67,7 +67,7 @@ Za pomocą tej metody wymaga zainstalowania aplikacji uwierzytelniania na swój 
    ![Pole wprowadzania numeru PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Po zakończeniu wprowadzania numeru PIN, wybierz **Zamknij**. W tym momencie weryfikacja zostanie pomyślnie.
-9. Firma Microsoft zaleca, możesz wprowadzić numer telefonu komórkowego na wypadek utraty dostępu do aplikacji mobilnej. Określ w Twoim kraju z listy rozwijanej, a następnie wprowadź numer telefonu komórkowego w polu obok nazwy kraju. Wybierz **dalej**.
+9. Firma Microsoft zaleca, możesz wprowadzić numer telefonu komórkowego na wypadek utraty dostępu do aplikacji mobilnej. Określ w Twoim kraju z listy rozwijanej, a następnie wprowadź numer telefonu komórkowego w polu obok nazwy kraju. Wybierz opcję **Dalej**.
 10. W tym momencie monit o ustawienie hasła aplikacji dla aplikacji korzystających z przeglądarki, takich jak Outlook 2010 lub starszy lub natywna aplikacja poczty e-mail na urządzeniach Apple. Jest to spowodowane niektóre aplikacje nie obsługują weryfikacji dwuetapowej. Nie należy używać tych aplikacji, kliknij przycisk **gotowe** i Pomiń pozostałe czynności.
 11. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji podane i wklej go do aplikacji zamiast prawidłowe hasło. Dla wielu aplikacji, można użyć tego samego hasła aplikacji. Aby uzyskać więcej informacji [pomoc przy użyciu haseł aplikacji].
 12. Kliknij przycisk **Gotowe**.
@@ -102,7 +102,7 @@ Jeśli chcesz dodać konto do aplikacji mobilnej ręcznie, zamiast używać czyt
 5. Jeśli używasz tych aplikacji Kopiuj hasło aplikacji podane i wklej go do aplikacji zamiast prawidłowe hasło. Dla wielu aplikacji, można użyć tego samego hasła aplikacji. Aby uzyskać więcej informacji, zobacz [co to są hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md).
 6. Kliknij przycisk **Gotowe**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zmienianie opcji i [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](multi-factor-authentication-end-user-manage-settings.md)
 * Konfigurowanie [hasła aplikacji](multi-factor-authentication-end-user-app-passwords.md) dla aplikacji natywnych urządzenia, które nie obsługują weryfikacji dwuetapowej.
 * Zapoznaj się z [aplikacji Microsoft Authenticator](microsoft-authenticator-app-how-to.md) Aby szybko i bezpiecznie uwierzytelniania nawet wtedy, gdy nie ma usługi komórki.

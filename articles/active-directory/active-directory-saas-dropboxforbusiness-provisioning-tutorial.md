@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z Dropbox dla firm | Dokumentacja firmy Microsoft'
+title: "Samouczek: Konfigurowanie skrzynki dla użytkowników automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i skrzynki dla firm."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie skrzynki dla firm użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie skrzynki dla firm dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w Dropbox dla firm i Azure AD automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do usługi Dropbox dla firm.
 
@@ -62,7 +62,7 @@ Ta sekcja przeprowadzi użytkownika przez nawiązywania połączenia z usługi A
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
 5. W obszarze **poświadczeń administratora** kliknij **autoryzacji**. Dropbox dla okna dialogowego logowania biznesowych zostanie otwarty w nowym oknie przeglądarki.
 
@@ -97,7 +97,7 @@ Użytkownik pomyślnie zakończono inicjowanie obsługi cyklu wskazuje stan powi
 ![Przypisywanie użytkowników](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "przypisywanie użytkowników")
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

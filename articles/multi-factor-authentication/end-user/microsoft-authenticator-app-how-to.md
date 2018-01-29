@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Wprowadzenie do aplikacji Microsoft Authenticator
 Aplikacja Microsoft Authenticator zawiera dodatkowy poziom zabezpieczeń w ramach Twojego konta służbowego (na przykład bsimon@contoso.com) lub konta Microsoft (na przykład bsimon@outlook.com).
@@ -42,7 +42,7 @@ Osobiste konta musisz skonfigurowaną weryfikację dwuetapową dla siebie. Jeśl
 Można również używać Authenticator firmy Microsoft z kont innych niż Microsoft. Funkcja one wywołać inną niż weryfikację dwuetapową, ale można go znaleźć w ramach zabezpieczeń lub ustawienia logowania.
 
 ## <a name="install-the-app"></a>Zainstaluj aplikację
-Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Jest dostępna dla aplikacji Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), i [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Dodaj konta do aplikacji
 Dla każdego konta, które chcesz dodać do aplikacji Microsoft Authenticator użyj jednej z następujących procedur:
@@ -100,7 +100,7 @@ Aby skonfigurować funkcję Touch ID do Authenticator firmy Microsoft, należy w
 
 Od tego punktu do przodu, gdy jest wymagane, aby sprawdzić, logowanie, wybierz powiadomień wypychanych odebrane i skanowania odcisku palca zamiast wprowadzania numeru PIN.
 
-![Powiadomienia wypychane](./media/authenticator-app-how-to/touchid2.png)
+![Powiadomienie push](./media/authenticator-app-how-to/touchid2.png)
 
 ## <a name="use-the-app-when-you-sign-in"></a>Po zalogowaniu się przy użyciu tej aplikacji
 

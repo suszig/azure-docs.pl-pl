@@ -1,162 +1,193 @@
 ---
-title: "Konfigurowanie zapory aplikacji sieci web: Brama aplikacji w usłudze Azure | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera wskazówki dotyczące sposobu uruchamiania za pomocą zapory aplikacji sieci web w istniejącej lub nowej bramy aplikacji."
-documentationcenter: na
+title: "Utwórz bramę aplikacji z zapory aplikacji sieci web - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu wiersza polecenia platformy Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 961642796525223eba4b19d77568d4149ee9d3c6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Konfigurowanie zapory aplikacji sieci web w nowej lub istniejącej aplikacji bramy przy użyciu wiersza polecenia platformy Azure
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu wiersza polecenia platformy Azure
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [Program PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Interfejs wiersza polecenia platformy Azure](application-gateway-web-application-firewall-cli.md)
+Interfejsu wiersza polecenia Azure umożliwia tworzenie [brama aplikacji w](application-gateway-introduction.md) z [zapory aplikacji sieci web](application-gateway-web-application-firewall-overview.md) (WAF), która używa [zestaw skali maszyny wirtualnej](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Używa zapory aplikacji sieci Web [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) zasady ochrony aplikacji. Reguły obejmują ochronę przed ataki, takie jak iniekcja kodu SQL, atakami skryptów między witrynami i hijacks sesji. 
 
-Dowiedz się, jak utworzyć zapory aplikacji sieci web (WAF)-włączone bramy aplikacji. Również informacje o sposobie dodawanie zapory aplikacji sieci Web do istniejącej bramy aplikacji.
+W tym artykule dowiesz się, jak:
 
-Zapory aplikacji sieci Web w brama aplikacji w usłudze Azure chroni aplikacje sieci web przed wspólnej ataków opartych na sieci web takich jak iniekcja kodu SQL, ataki skryptów między witrynami i hijacks sesji.
+> [!div class="checklist"]
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji z zapory aplikacji sieci Web jest włączona
+> * Utwórz zestaw skali maszyny wirtualnej
+> * Utwórz konto magazynu i skonfigurować diagnostykę
 
- Brama aplikacji jest modułem równoważenia obciążenia warstwy 7. Zapewnia on trybu failover, wydajności routingu żądań HTTP między różnymi serwerami, czy są one w chmurze lub lokalnie. Brama aplikacji w oferują wiele funkcji kontrolera (ADC) dostarczania aplikacji:
+![Przykład zapory aplikacji sieci Web](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
 
- * Równoważenie obciążenia HTTP 
- * Koligacji na podstawie plików cookie sesji 
- * Secure Sockets Layer (SSL) odciążania 
- * Sondy kondycji niestandardowych 
- * Obsługa funkcji wielooddziałowości
- 
- Aby uzyskać pełną listę obsługiwanych funkcji, zobacz [brama Omówienie aplikacji](application-gateway-introduction.md).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-W tym artykule przedstawiono sposób [Dodawanie zapory aplikacji sieci web do istniejącej bramy aplikacji](#add-web-application-firewall-to-an-existing-application-gateway). Zawiera także jak [Utwórz bramę aplikacji używającej zapory aplikacji sieci web](#create-an-application-gateway-with-web-application-firewall).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Scenariusz obrazu][scenario]
+Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, w tym samouczku wymaga używasz interfejsu wiersza polecenia Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Wymagania wstępne: Instalacja Azure CLI 2.0
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Aby wykonać kroki opisane w tym artykule, należy [zainstalować interfejs wiersza polecenia platformy Azure (Azure CLI) dla komputerów Mac, Linux i Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Tworzenie grupy zasobów platformy Azure o nazwie *myResourceGroupAG* z [Tworzenie grupy az](/cli/azure/group#az_group_create).
 
-## <a name="waf-configuration-differences"></a>Różnice w konfiguracji zapory aplikacji sieci Web
-
-Jeśli zostały przeczytane [Utwórz bramę aplikacji z wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md), zrozumieć ustawienia jednostki SKU można skonfigurować podczas tworzenia bramy aplikacji. Zapory aplikacji sieci Web udostępnia dodatkowe ustawienia, aby zdefiniować podczas konfigurowania jednostka SKU bramy aplikacji. Brak dodatkowych zmian wprowadzonych na bramy aplikacji.
-
-| **Ustawienie** | **Szczegóły**
-|---|---|
-|**SKU** |Bramy normalne aplikacji bez zapory aplikacji sieci Web obsługuje **standardowe\_małych**, **standardowe\_średni**, i **standardowe\_duży**rozmiary. Wraz z wprowadzeniem zapory aplikacji sieci Web, istnieją dwie dodatkowe jednostki SKU, **WAF\_średni** i **zapory aplikacji sieci Web\_duży**. Zapory aplikacji sieci Web nie jest obsługiwana w bramach małych aplikacji.|
-|**Tryb** | To ustawienie jest tryb zapory aplikacji sieci Web. dozwolone wartości to **wykrywania** i **zapobiegania**. Gdy zapory aplikacji sieci Web jest ustawiany w **wykrywania** trybie wszystkie zagrożenia są przechowywane w pliku dziennika. W **zapobiegania** tryb, zdarzenia są nadal rejestrowane, ale osoba atakująca odbiera 403 nieautoryzowany odpowiedzi z bramy aplikacji.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Dodawanie zapory aplikacji sieci web do istniejącej bramy aplikacji
-
-Polecenie zmiany istniejącą bramę standardowej aplikacji do bramy aplikacji z obsługą zapory aplikacji sieci Web:
-
-```azurecli-interactive
-#!/bin/bash
-
-az network application-gateway waf-config set \
-  --enabled true \
-  --firewall-mode Prevention \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-To polecenie aktualizuje bramy aplikacji zapory aplikacji sieci Web. Aby poznać sposób wyświetlania dzienniki bramy aplikacji, zobacz [diagnostyki bramy aplikacji](application-gateway-diagnostics.md). Z powodu zabezpieczeń rodzaj zapory aplikacji sieci Web Przejrzyj dzienniki regularnie, aby poznać strukturę aplikacji sieci web.
+## <a name="create-network-resources"></a>Utwórz zasoby sieciowe
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web
-
-Poniższe polecenie tworzy bramę aplikacji z zapory aplikacji sieci Web:
+Sieci wirtualnej i podsieci są używane do zapewnienia możliwości połączenia sieci z bramy aplikacji i jej skojarzonych zasobów. Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet* z [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_network_vnet_create) i [az podsieci sieci wirtualnej Utwórz](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
-#!/bin/bash
+az network vnet create 
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myBackendSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create 
+  --name myAGSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24 
+az network public-ip create 
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
+## <a name="create-an-application-gateway-with-a-waf"></a>Utwórz bramę aplikacji z zapory aplikacji sieci Web
+
+Można użyć [utworzyć az sieci z bramy aplikacji](/cli/azure/application-gateway#az_application_gateway_create) Utwórz bramę aplikacji o nazwie *myAppGateway*. Podczas tworzenia bramy aplikacji przy użyciu wiersza polecenia platformy Azure, należy określić informacje o konfiguracji, takie jak pojemności, jednostki sku i ustawienia protokołu HTTP. Brama aplikacji jest przypisany do *myAGSubnet* i *myPublicIPSddress* wcześniej utworzony.
+
+```azurecli-interactive
 az network application-gateway create \
-  --name "AdatumAppGateway2" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet2" \
-  --subnet-address-prefix "10.0.0.0/28" \
- --servers "10.0.0.5 10.0.0.4" \
-  --capacity 2 
-  --sku "WAF_Medium" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip2" \
-  --public-ip-address-allocation "dynamic" \
-  --tags "cli[2] owner[administrator]"
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --capacity 2 \
+  --sku WAF_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+az network application-gateway waf-config set --enabled true \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --firewall-mode Detection
 ```
 
-> [!NOTE]
-> Bramy aplikacji utworzonych za pomocą podstawową konfigurację zapory aplikacji sieci Web są skonfigurowane z CRS 3.0 do ochrony.
+Może upłynąć kilka minut dla bramy aplikacji ma zostać utworzony. Po utworzeniu bramy aplikacji, można wyświetlić te nowe funkcje:
 
-## <a name="get-an-application-gateway-dns-name"></a>Pobierz nazwę DNS bramy aplikacji
+- *appGatewayBackendPool* -bramę aplikacji musi mieć co najmniej jedna pula adresów zaplecza.
+- *appGatewayBackendHttpSettings* — Określa, że portu 80 oraz protokołu HTTP jest używany do komunikacji.
+- *appGatewayHttpListener* -odbiornika domyślne skojarzone z *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -przypisuje *myAGPublicIPAddress* do *appGatewayHttpListener*.
+- *rule1* — domyślna routingu regułę, która jest skojarzona z *appGatewayHttpListener*.
 
-Po utworzeniu bramy, następnym krokiem jest skonfigurowanie frontonu dla komunikacji. Gdy używasz publicznego adresu IP bramy aplikacji wymaga przypisywany dynamicznie nazwy DNS, który nie jest przyjazną. Aby upewnić się, że użytkownicy mogą trafień bramy aplikacji, wskaż publiczny punkt końcowy bramy aplikacji przy użyciu rekordu CNAME. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla usługi w chmurze Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+## <a name="create-a-virtual-machine-scale-set"></a>Utwórz zestaw skali maszyny wirtualnej
 
-Aby skonfigurować rekord CNAME, należy pobrać szczegółów bramy aplikacji i skojarzonej z nią nazwy IP DNS przy użyciu elementu publicznego adresu IP dołączony na bramie aplikacji. Użyj nazwy DNS bramy aplikacji, aby utworzyć rekord CNAME, wskazujący aplikacji dwie sieci web do tej nazwy DNS. Nie zaleca się przy użyciu rekordów, ponieważ adres VIP może ulec zmianie po ponownym uruchomieniu bramy aplikacji.
+W tym przykładzie utworzysz zestaw skali maszyny wirtualnej, która zawiera dwa serwery w puli zaplecza bramy aplikacji. W zestawie skalowania maszyn wirtualnych są skojarzone z *myBackendSubnet* podsieci. Aby utworzyć skali zestaw, możesz użyć [az vmss utworzyć](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-#!/bin/bash
-
-az network public-ip show \
-  --name pip2 \
-  --resource-group "AdatumAppGatewayRG"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-```
+### <a name="install-nginx"></a>Instalowanie serwera NGINX
+
+Można użyć dowolnego edytora, który chcesz utworzyć plik, w powłoce chmury. Wprowadź `sensible-editor cloudConfig.json` umożliwia wyświetlenie listy dostępnych edytory do utworzenia pliku. W bieżącym powłoki Utwórz plik o nazwie customConfig.json i wklej następującą konfigurację:
+
+```json
 {
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
+  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh"
 }
 ```
 
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings @cloudConfig.json
+```
+
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Utwórz konto magazynu i skonfigurować diagnostykę
+
+W tym samouczku aplikacji przy użyciu brama konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Analiza dzienników lub Centrum zdarzeń można użyć również do rejestrowania danych. 
+
+### <a name="create-a-storage-account"></a>Tworzenie konta magazynu
+
+Utwórz konto magazynu o nazwie *myagstore1* z [Tworzenie konta magazynu az](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+
+```azurecli-interactive
+az storage account create \
+  --name myagstore1 \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --sku Standard_LRS \
+  --encryption blob
+```
+
+### <a name="configure-diagnostics"></a>Skonfiguruj diagnostyki
+
+Skonfiguruj diagnostykę, aby zapisać dane w dzienniku ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog. SUBSTITUTE `<subscriptionId>` z identyfikatorem subskrypcji, a następnie skonfiguruj Diagnostyka z [utworzyć ustawienia diagnostyki az monitora](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --resource-id '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' \
+  --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --storage-account '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1'
+```
+
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
+
+Aby uzyskać publiczny adres IP bramy aplikacji, należy użyć [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Podstawowy adres URL testu bramy aplikacji](./media/application-gateway-web-application-firewall-cli/application-gateway-nginxtest.png)
+
 ## <a name="next-steps"></a>Kolejne kroki
 
-Aby dowiedzieć się, jak dostosować reguły zapory aplikacji sieci Web, zobacz [dostosować reguły zapory aplikacji sieci web za pośrednictwem 2.0 interfejsu wiersza polecenia Azure](application-gateway-customize-waf-rules-cli.md).
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
-[scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
+> [!div class="checklist"]
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji z zapory aplikacji sieci Web jest włączona
+> * Utwórz zestaw skali maszyny wirtualnej
+> * Utwórz konto magazynu i skonfigurować diagnostykę
+
+Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.

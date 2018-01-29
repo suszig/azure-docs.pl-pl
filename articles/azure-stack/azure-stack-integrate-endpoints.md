@@ -2,17 +2,18 @@
 title: "Azure stosu integracji datacenter — publikować punkty końcowe"
 description: "Dowiedz się, jak publikować punkty końcowe platformy Azure stosu w centrum danych."
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/26/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stosu integracji datacenter — publikować punkty końcowe
 
@@ -64,49 +65,6 @@ Stos Azure obsługuje tylko serwery przezroczystego obiektu pośredniczącego. W
 |Rejestracja|https://management.azure.com|HTTPS|443|
 |Sposób użycia|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Publikowanie zapory
-
-Portach wymienionych w poprzedniej sekcji dotyczą przychodzącej komunikacji podczas publikowania usług Azure stosu przez zaporę istniejących.
-
-Zalecane jest użycie urządzenia zapory ułatwiające bezpieczne stosu Azure. Jednak nie jest ścisłym wymogiem. Mimo że zapory można ułatwić rozproszonej typu "odmowa usługi" (DDOS) ataków i inspekcji zawartości, może również zostać wąskie gardło przepływności dla usług magazynu Azure, takich jak obiekty BLOB, tabel i kolejek.
-
-Oparte na modelu tożsamości (Azure AD lub AD FS), może lub nie mogą wymagać opublikować punktu końcowego usług AD FS. Jeśli używany jest tryb odłączonego wdrożenia, należy opublikować punktu końcowego usług AD FS. (Aby uzyskać więcej informacji, zobacz temat identity integration centrum danych).
-
-Usługi Azure Resource Manager (administrator), portalu administratora i punktów końcowych usługi Key Vault (administrator) nie wymaga zewnętrznego publikowania. To zależy od scenariusza. Na przykład jako dostawcę usługi można ograniczyć obszar narażony na ataki i tylko administrowania stosu Azure z wewnątrz sieci, a nie z Internetu.
-
-W przedsiębiorstwie zewnętrznej sieci może być istniejącej sieci firmowej. W takiej sytuacji należy opublikować te punkty końcowe działanie stosu Azure z sieci firmowej.
-
-## <a name="edge-firewall-scenario"></a>Scenariusz zapory krawędzi
-
-We wdrożeniu krawędzi stosu Azure jest wdrażany bezpośrednio za router brzegowy (udostępniony przez usługodawcę internetowego) lub bez zapory przed nim.
-
-![Diagram architektury wdrożenia krawędzi stosu Azure](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Zazwyczaj publiczne rutowalne adresy IP są określone dla publicznych pulę adresów VIP w czasie wdrażania we wdrożeniu krawędzi. Ten scenariusz umożliwia użytkownikowi wystąpić środowisko pełnej chmury własnym kontrolowanego, tak jak w publicznej w chmurze, takich jak Azure.
-
-### <a name="using-nat"></a>Przy użyciu translatora adresów Sieciowych
-
-Chociaż nie jest zalecane z powodu obciążenie, można użyć translatora adresów sieciowych (NAT) dla publikowania punktów końcowych. Publikowanie punktu końcowego, który pełni jest kontrolowany przez użytkowników, wymaga reguły NAT dla poszczególnych użytkowników VIP, który zawiera wszystkie porty, które użytkownik może użyć.
-
-Kolejnym zagadnieniem są Azure nie obsługuje konfigurowania tunelu VPN punkt końcowy w scenariuszu chmury hybrydowej z platformy Azure przy użyciu translatora adresów Sieciowych.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Scenariusz zapory sieci obwodowej Enterprise/intranet
-
-We wdrożeniu obwodowej enterprise/intranet stosu Azure jest wdrażany poza drugi zapory, która zwykle jest częścią sieci obwodowej (znanej także jako strefa DMZ).
-
-![Azure scenariusz zapory stosu](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Publiczne adresy IP routingu zostały określone dla publicznych pulę adresów VIP stosu Azure, te adresy logicznie należą do sieci obwodowej i wymagają reguł publikowania na zaporze podstawowej.
-
-### <a name="using-nat"></a>Przy użyciu translatora adresów Sieciowych
-
-Użycie niepublicznych rutowalne adresy IP dla puli adresów VIP publicznego stosu Azure NAT służy na zaporze dodatkowej do publikowania punktów końcowych stosu Azure. W tym scenariuszu należy skonfigurować reguły publikowania na zaporze głównej poza krawędź i dodatkowej zapory. Jeśli chcesz użyć NAT, należy wziąć pod uwagę następujące kwestie:
-
-- Translator adresów Sieciowych dodaje nakłady związane z zarządzaniem reguły zapory, ponieważ użytkownicy kontrolować własnych punktów końcowych i własne reguły publikowania w sieci stosu zdefiniowanych przez oprogramowanie (SDN). Użytkownicy, musisz skontaktować się z operatora stosu Azure można pobrać ich adresy VIP opublikowane oraz do aktualizowania listy portów.
-- Podczas użycia NAT ogranicza środowisko użytkownika, zapewnia pełnej kontroli dla operatora za pośrednictwem publikowania żądania.
-- W scenariuszach chmur hybrydowych przy użyciu platformy Azure należy wziąć pod uwagę Azure nie obsługuje konfigurowania tunel sieci VPN do punktu końcowego przy użyciu translatora adresów sieciowych.
-
 
 ## <a name="next-steps"></a>Kolejne kroki
-
 [Integracja Azure datacenter stosu - zabezpieczeń](azure-stack-integrate-security.md)

@@ -1,125 +1,262 @@
 ---
-title: "Tworzenie bramy aplikacji przy użyciu reguł routingu adresów URL - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje dotyczące sposobu tworzenia i konfigurowania bramy aplikacji przy użyciu reguł routingu adresów URL."
-documentationcenter: na
+title: "Utwórz bramę aplikacji z adresu URL na podstawie ścieżki reguły routingu - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć adres URL na podstawie ścieżki reguły routingu dla aplikacji bramy i maszyny wirtualnej zestaw skalowania przy użyciu wiersza polecenia platformy Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 73db1f05bacd3edd93394f346274727ca5735c87
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Utwórz bramę aplikacji przy użyciu routingu opartego na ścieżkę 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Utwórz bramę aplikacji z adresu URL na podstawie ścieżki reguły routingu przy użyciu wiersza polecenia platformy Azure
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-url-route-portal.md)
-> * [Azure Resource Manager — program PowerShell](application-gateway-create-url-route-arm-ps.md)
-> * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-url-route-cli.md)
+Interfejs wiersza polecenia platformy Azure umożliwiają skonfigurowanie [reguł routingu na podstawie ścieżki adresu URL](application-gateway-url-route-overview.md) podczas tworzenia [brama aplikacji w](application-gateway-introduction.md). W tym samouczku, tworzenia pul zaplecza przy użyciu [zestaw skali maszyny wirtualnej](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Następnie można utworzyć reguły routingu, które upewnij się, że ruch w sieci web dociera do odpowiednich serwerów w pulach.
 
-Adres URL na podstawie ścieżki routingu, należy skojarzyć tras na podstawie ścieżki adresu URL żądania HTTP. Sprawdza, czy istnieje trasa z pulą serwera zaplecza skonfigurowane dla adresu URL podanego przez bramę aplikacji, a następnie wysyła ruchu sieciowego do określonych puli. Użycia routingu adresów URL na podstawie ścieżki jest w celu zrównoważenia obciążenia żądaniami dla różnych typów zawartości do innego serwera zaplecza pul.
+W tym artykule dowiesz się, jak:
 
-Brama aplikacji w Azure wykorzystuje dwa typy reguł: basic i adres URL reguły ścieżki. Typ podstawowy reguły udostępnia usługę okrężnego dla pul zaplecza. Ścieżka reguły, oprócz rozdzielanie, również umożliwia wzorzec ścieżki adresu URL żądania Wybieranie odpowiedniej puli zaplecza.
+> [!div class="checklist"]
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji z mapą adresu URL
+> * Utwórz zestawy skalowania maszyny wirtualnej z pul zaplecza
 
-## <a name="scenario"></a>Scenariusz
+![Przykład routingu adresów URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
-W poniższym przykładzie bramę aplikacji udostępniają ruchu dla domeny contoso.com z dwóch pul serwerów zaplecza: domyślna pula serwera i puli serwerów obrazu.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Żądania dla http://contoso.com/image * są kierowane do puli serwerów obrazu (**imagesBackendPool**). Jeśli wzorzec ścieżki nie jest zgodny, brama aplikacji w wybrana domyślna pula serwera (**appGatewayBackendPool**).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Trasy adresu URL](./media/application-gateway-create-url-route-cli/scenario.png)
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Otwórz **wiersza polecenia usługi Microsoft Azure** i zaloguj się na:
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Tworzenie grupy zasobów przy użyciu [Tworzenie grupy az](/cli/azure/group#create).
 
-```azurecli
-az login -u "username"
+Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupAG* w *eastus* lokalizacji.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> Można również użyć `az login` bez przełącznika dla nazwy logowania urządzenia, która wymaga wprowadzenie kodu na aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Utwórz zasoby sieciowe 
 
-Po wprowadzeniu poprzedniego polecenia, otrzymasz kod. Przejdź do https://aka.ms/devicelogin w przeglądarce, aby kontynuować proces logowania.
+Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet* przy użyciu [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_net). Następnie można dodać podsieci o nazwie *myBackendSubnet* są one wymagane serwerów wewnętrznej bazy danych przy użyciu [Utwórz podsieć sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu [utworzyć az sieci publicznej ip](/cli/azure/public-ip#az_network_public_ip_create).
 
-![cmd przedstawiający urządzenia logowania][1]
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
-W przeglądarce wprowadź otrzymany kod. To przekieruje Cię do strony logowania.
+## <a name="create-the-application-gateway-with-url-map"></a>Utwórz bramę aplikacji z adresu URL mapy
 
-![przeglądarki, aby wprowadzić kod][2]
+Można użyć [utworzyć az sieci z bramy aplikacji](/cli/azure/application-gateway#create) Utwórz bramę aplikacji o nazwie *myAppGateway*. Podczas tworzenia bramy aplikacji przy użyciu wiersza polecenia platformy Azure, należy określić informacje o konfiguracji, takie jak pojemności, jednostki sku i ustawienia protokołu HTTP. Brama aplikacji jest przypisany do *myAGSubnet* i *myAGPublicIPAddress* wcześniej utworzony. 
 
-Wprowadź kod, aby zarejestrować, a następnie zamknij przeglądarkę, aby kontynuować.
+```azurecli-interactive
+az network application-gateway create \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+```
 
-![pomyślnie zalogował się][3]
+ Może upłynąć kilka minut dla bramy aplikacji ma zostać utworzony. Po utworzeniu bramy aplikacji, można wyświetlić te nowe funkcje:
 
-## <a name="add-a-path-based-rule-to-an-existing-application-gateway"></a>Dodawanie reguły na podstawie ścieżki do istniejącej bramy aplikacji
+- *appGatewayBackendPool* -bramę aplikacji musi mieć co najmniej jedna pula adresów zaplecza.
+- *appGatewayBackendHttpSettings* — Określa, że portu 80 oraz protokołu HTTP jest używany do komunikacji.
+- *appGatewayHttpListener* -odbiornika domyślne skojarzone z *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -przypisuje *myAGPublicIPAddress* do *appGatewayHttpListener*.
+- *rule1* — domyślna routingu regułę, która jest skojarzona z *appGatewayHttpListener*.
 
-Poniższe kroki pokazują, jak dodać reguły na podstawie ścieżki do istniejącej bramy aplikacji.
-### <a name="create-a-new-back-end-pool"></a>Utwórz nową pulę zaplecza
 
-Skonfiguruj ustawienia bramy aplikacji **imagesBackendPool** dla ruchu sieciowego z równoważeniem obciążenia w puli zaplecza. W tym przykładzie możesz skonfigurować ustawienia innej puli zaplecza nowej puli zaplecza. Każda pula zaplecza może mieć własne ustawienia. Reguły ścieżki, użyj ustawienia HTTP zaplecza można kierować ruchem do elementów członkowskich puli zaplecza poprawne. Określa protokół i port, który jest używany podczas wysyłania ruchu do elementów członkowskich puli zaplecza. Ustawienia HTTP zaplecza również określić na podstawie pliku cookie sesji.  Włączenie koligacji na podstawie plików cookie sesji wysyła ruch do tej samej zaplecza w poprzednim żądania dla każdego pakietu.
+### <a name="add-image-and-video-backend-pools-and-port"></a>Dodawanie obrazu i wideo pul zaplecza i portu
+
+Można dodać puli wewnętrznej bazy danych o nazwie *imagesBackendPool* i *videoBackendPool* z bramą aplikacji przy użyciu [az brama aplikacji w puli adresów sieciowych — tworzenie](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create). Dodawanie portu frontonu dla pul przy użyciu [tworzenie frontonu — port az brama aplikacji w sieci](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
---gateway-name AdatumAppGateway \
---name imagesBackendPool  \
---resource-group myresourcegroup \
---servers 10.0.0.6 10.0.0.7
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name imagesBackendPool
+az network application-gateway address-pool create \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name videoBackendPool
+az network application-gateway frontend-port create \
+  --port 8080 \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --name port8080
 ```
 
-### <a name="create-a-new-front-end-port-for-an-application-gateway"></a>Utwórz nowy port frontonu bramy aplikacji
+### <a name="add-backend-listener"></a>Dodaj odbiornika wewnętrznej bazy danych
 
-Obiekt konfiguracji portów frontonu jest używany przez odbiornik do zdefiniowania, jakie portu bramy aplikacji nasłuchuje ruchu na odbiornika.
+Dodaj odbiornika wewnętrznej bazy danych o nazwie *backendListener* który jest potrzebne do kierowania ruchu przy użyciu [utworzyć az sieci bramy aplikacji odbiornik http](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+
 
 ```azurecli-interactive
-az network application-gateway frontend-port create --port 82 --gateway-name AdatumAppGateway --resource-group myresourcegroup --name port82
+az network application-gateway http-listener create \
+  --name backendListener \
+  --frontend-ip appGatewayFrontendIP \
+  --frontend-port port8080 \
+  --resource-group myResourceGroupAG \
+  --gateway-name myAppGateway
 ```
 
-### <a name="create-a-new-listener"></a>Utwórz nowy
+### <a name="add-url-path-map"></a>Dodaj mapę ścieżki adresu URL
 
-W tym kroku dla odbiornika konfigurowany jest publiczny adres IP i port używane do odbierania przychodzącego ruchu sieciowego. W poniższym przykładzie przyjmuje wcześniej skonfigurowane konfiguracji IP frontonu, Konfiguracja portów frontonu i protokołu (http lub https, który jest uwzględniana wielkość liter) i konfiguruje odbiornika. W tym przykładzie odbiornika nasłuchuje ruchu HTTP na porcie 82 publiczny adres IP utworzony wcześniej w tym scenariuszu.
-
-```azurecli-interactive
-az network application-gateway http-listener create --name imageListener --frontend-ip appGatewayFrontendIP  --frontend-port port82 --resource-group myresourcegroup --gateway-name AdatumAppGateway
-```
-
-### <a name="create-the-url-path-map"></a>Tworzenie mapy ścieżki adresu URL
-
-Ten krok obejmuje skonfigurowanie względnej ścieżki adresu URL używany przez bramę aplikacji, aby zdefiniować mapowanie między ścieżkę i puli zaplecza przypisane do obsługi ruchu przychodzącego.
-
-> [!IMPORTANT]
-> Każda ścieżka musi rozpoczynać się od "/", a miejsce tylko gwiazdkę jest dozwolone, jest na końcu. Nieprawidłowa przykładów /xyz, /xyz* lub/xyz / *. Ciąg przekazywani do dopasowania ścieżki nie zawiera żadnego tekstu po pierwszym "?" lub "#", a te znaki są niedozwolone. 
-
-Poniższy przykład tworzy jedną regułę/obrazów / * ścieżkę routingu ruchu do zaplecza **imagesBackendPool**. Ta zasada zapewnia, że ruchu dla każdego zestawu adresów URL jest kierowany do wewnętrznej. Na przykład http://adatum.com/images/figure1.jpg przechodzi do **imagesBackendPool**. Jeśli ścieżka nie odpowiada żadnemu z reguły ścieżki wstępnie zdefiniowane, Konfiguracja mapowania ścieżki reguły konfiguruje również domyślna pula adresów zaplecza. Na przykład http://adatum.com/shoppingcart/test.html przechodzi do **pool1** , ponieważ jest on zdefiniowany jako domyślna pula niedopasowane ruchu.
+Adres URL ścieżki mapy upewnij się, że określone adresy URL są kierowane do pul zaplecza określone. Można utworzyć mapowania ścieżki adresu URL o nazwie *imagePathRule* i *videoPathRule* przy użyciu [utworzyć az sieci Brama aplikacji w url ścieżka map](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) i [az sieci Tworzenie reguły adresu url ścieżki mapy bramy aplikacji](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
---gateway-name AdatumAppGateway \
---name imagespathmap \
---paths /images/* \
---resource-group myresourcegroup2 \
---address-pool imagesBackendPool \
---default-address-pool appGatewayBackendPool \
---default-http-settings appGatewayBackendHttpSettings \
---http-settings appGatewayBackendHttpSettings \
---rule-name images
+  --gateway-name myAppGateway \
+  --name myPathMap \
+  --paths /images/* \
+  --resource-group myResourceGroupAG \
+  --address-pool imagesBackendPool \
+  --default-address-pool appGatewayBackendPool \
+  --default-http-settings appGatewayBackendHttpSettings \
+  --http-settings appGatewayBackendHttpSettings \
+  --rule-name imagePathRule
+az network application-gateway url-path-map rule create \
+  --gateway-name myAppGateway \
+  --name videoPathRule \
+  --resource-group myResourceGroupAG \
+  --path-map-name myPathMap \
+  --paths /video/* \
+  --address-pool videoBackendPool
 ```
+
+### <a name="add-routing-rule"></a>Dodaj regułę routingu
+
+Reguły routingu kojarzy mapy adresu URL przy użyciu odbiornika, który został utworzony. Można dodać reguły o nazwie *rule2* przy użyciu [Tworzenie reguły brama aplikacji w sieci az](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name rule2 \
+  --resource-group myResourceGroupAG \
+  --http-listener backendListener \
+  --rule-type PathBasedRouting \
+  --url-path-map myPathMap \
+  --address-pool appGatewayBackendPool
+```
+
+## <a name="create-virtual-machine-scale-sets"></a>Utwórz zestawy skalowania maszyny wirtualnej
+
+W tym przykładzie utworzysz trzy zestawy skalowania maszyn wirtualnych, które obsługują trzy pule zaplecza, które zostały utworzone. Zestawy skalowania, które możesz utworzyć są nazywane *myvmss1*, *myvmss2*, i *myvmss3*. Każdy zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, na które należy zainstalować NGINX.
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  if [ $i -eq 1 ]
+  then
+    poolName="appGatewayBackendPool" 
+  fi
+  if [ $i -eq 2 ]
+  then
+    poolName="imagesBackendPool"
+  fi
+  if [ $i -eq 3 ]
+  then
+    poolName="videoBackendPool"
+  fi
+  az vmss create \
+    --name myvmss$i \
+    --resource-group myResourceGroupAG \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password Azure123456! \
+    --instance-count 2 \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --vm-sku Standard_DS2 \
+    --upgrade-policy-mode Automatic \
+    --app-gateway myAppGateway \
+    --backend-pool-name $poolName
+done
+```
+
+### <a name="install-nginx"></a>Instalowanie serwera NGINX
+
+W bieżącym powłoki Utwórz plik o nazwie customConfig.json i wklej następującą konfigurację. Można użyć dowolnego edytora, który chcesz utworzyć plik, w powłoce chmury.  Wprowadź `sensible-editor cloudConfig.json` umożliwia wyświetlenie listy dostępnych edytory do utworzenia pliku.
+
+```json
+{
+  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh"
+}
+```
+
+Uruchom następujące polecenie w oknie powłoki:
+
+```azurecli-interactive
+for i in `seq 1 3`; do
+  az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroupAG \
+    --vmss-name myvmss$i \
+    --settings @cloudConfig.json
+done
+```
+
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
+
+Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki. Takie jak *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, lub *http://40.121.222.19:8080/video/test.htm*.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Podstawowy adres URL testu bramy aplikacji](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
+
+Zmień adres URL do http://<ip-address>:8080/video/test.html na końcu podstawowy adres URL i powinny zostać wyświetlone informacje, jak w następującym przykładzie:
+
+![Adres URL obrazów testu w bramy aplikacji](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
+
+Zmień adres URL do http://<ip-address>:8080/video/test.html i powinny zostać wyświetlone informacje, jak w następującym przykładzie.
+
+![Testuj adres URL wideo w bramy aplikacji](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Jeśli chcesz dowiedzieć się więcej o odciążania protokołu Secure Sockets Layer (SSL), zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl-cli.md).
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
+> [!div class="checklist"]
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji z mapą adresu URL
+> * Utwórz zestawy skalowania maszyny wirtualnej z pul zaplecza
 
-[scenario]: ./media/application-gateway-create-url-route-cli/scenario.png
-[1]: ./media/application-gateway-create-url-route-cli/figure1.png
-[2]: ./media/application-gateway-create-url-route-cli/figure2.png
-[3]: ./media/application-gateway-create-url-route-cli/figure3.png
+Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Filtry tematu i akcji
 
-Subskrybenci można zdefiniować wiadomości, które mają otrzymywać tematu. Komunikaty te są określone w formie jednej lub wielu reguł o nazwie subskrypcji. Każda reguła zawiera warunek, który wybiera określone wiadomości i akcji, która oznacza wybranego komunikatu. Dla każdego pasującego warunku reguły subskrypcji tworzy kopię wiadomości, która może być inaczej adnotacji dla każdej reguły dopasowywania.
+Subskrybenci można zdefiniować wiadomości, które mają otrzymywać tematu. Komunikaty te są określone w formie co najmniej jednej reguły o nazwie subskrypcji. Każda reguła zawiera warunek, który wybiera określone wiadomości i akcji, która oznacza wybranego komunikatu. Dla każdego pasującego warunku reguły subskrypcji tworzy kopię wiadomości, która może być inaczej adnotacji dla każdej reguły dopasowywania.
 
 Każda subskrypcja nowo utworzony temat ma początkowej domyślna reguła subskrypcji. Jeśli nie zostanie jawnie określony warunek filtru dla reguły, zastosowanego filtru jest **true** filtr, który włącza wszystkie komunikaty, należy wybrać w subskrypcji. Domyślna reguła nie ma adnotacji skojarzonych działań.
 
@@ -39,7 +39,7 @@ Reguły filtrowania złożonych wymagają możliwości przetwarzania. W szczegó
 
 ## <a name="actions"></a>Akcje
 
-Z warunkami filtru SQL, a tylko z tymi można określić akcję, która może dodawać adnotacje do wiadomości przez dodanie, usunięcie lub wymiana, właściwości i ich wartości. Akcja [korzysta z wyrażenia przypominającego SQL](service-bus-messaging-sql-filter.md) który luźno leans na składni instrukcji SQL UPDATE. Akcja jest wykonywana na komunikat po jego została dopasowana i przed wybrano komunikat do tematu. Zmiany właściwości wiadomości są prywatne komunikat kopiowane do subskrypcji.
+Z warunkami filtru SQL, a tylko z tymi można określić akcję, która może dodawać adnotacje do wiadomości przez dodanie, usunięcie lub wymiana, właściwości i ich wartości. Akcja [korzysta z wyrażenia przypominającego SQL](service-bus-messaging-sql-filter.md) który luźno leans na składni instrukcji SQL UPDATE. Akcja jest wykonywana na komunikat po ma dopasowane i przed wybrano komunikat na temat. Zmiany właściwości wiadomości są prywatne komunikat kopiowane do subskrypcji.
 
 ## <a name="usage-patterns"></a>Wzorce użycia
 
@@ -51,7 +51,7 @@ Filtry partycjonowania używa do dystrybucji wiadomości między kilka istnieją
 
 Routing używa filtrów do rozpowszechniają wiadomości subskrypcje tematu w sposób przewidywalne, ale nie zawsze wyłącznego. W połączeniu z [automatycznego przekazywania](service-bus-auto-forwarding.md) funkcji tematu może używać filtrów do utworzenia złożonego routingu wykresach w przestrzeni nazw usługi Service Bus dla dystrybucji komunikatów w obrębie regionu platformy Azure. Funkcji Azure lub usługi Azure Logic Apps, działając jako mostka między obszarami nazw usługi Azure Service Bus można utworzyć złożonej topologii globalnych z integracją bezpośrednich do aplikacji LOB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

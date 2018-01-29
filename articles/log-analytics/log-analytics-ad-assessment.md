@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optymalizowanie środowiska usługi Active Directory z rozwiązaniem Active Directory kondycji Sprawdź w analizy dzienników
 
@@ -64,7 +64,7 @@ Active Directory kondycji Sprawdź zbiera dane z następujących źródeł przy 
 
 - Rejestr 
 - LDAP 
-- .NET framework
+- .NET Framework
 - Dziennik zdarzeń 
 - Usługa Active Directory interfejsy (ADSI)
 - Windows PowerShell
@@ -108,10 +108,8 @@ Po jego zainstalowaniu, można wyświetlić podsumowanie zaleceń za pomocą kaf
 Wyświetl oceny zgodności podsumowania dla Twojej infrastruktury, a następnie wejdź do zalecenia.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aby wyświetlić zalecenia dla obszaru fokus i podjąć działania naprawcze
-1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com). 
-2. W witrynie Azure Portal kliknij pozycję **Więcej usług** w lewym dolnym rogu. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz pozycję **Log Analytics**.
-3. W okienku subskrypcje analizy dzienników, wybierz obszar roboczy, a następnie kliknij przycisk **portalu OMS** kafelka.  
-4. Na **omówienie** kliknij przycisk **sprawdzania kondycji AD** kafelka. 
+3. Kliknij przycisk **omówienie** kafelku obszaru roboczego analizy dzienników w portalu Azure.
+4. Na **omówienie** kliknij przycisk **Active Directory kondycji Sprawdź** kafelka. 
 5. Na **sprawdzania kondycji** strony, sprawdź informacje w jednym z bloków obszaru fokus, a następnie kliknij przycisk jedna, aby wyświetlić zalecenia dla tego obszaru fokus.
 6. Na wszystkich stronach obszaru fokus można wyświetlić priorytetową zalecenia dla danego środowiska. Kliknij zalecenie, w obszarze **dotyczy obiektów** Aby wyświetlić szczegóły dotyczące Dlaczego tworzone są zalecenia.<br><br> ![obraz kondycji Sprawdź zalecenia](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Należy wykonać działania naprawcze sugerowane w **sugerowanych akcji**. Jeśli element został rozwiązany, nowsze rekordy oceny zalecane akcje zostały pobrane i zwiększy wynik zgodności. Poprawione elementy są wyświetlane jako **przekazany obiektów**.
@@ -195,5 +193,5 @@ Po Następne zaplanowane przebiegów sprawdzania kondycji, domyślnie co siedem 
 
 * Tak, zobacz [zignorowanie zalecenia](#ignore-recommendations) powyższej sekcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) Aby dowiedzieć się, jak analizować szczegółowe dane AD sprawdzania kondycji i zaleceń.

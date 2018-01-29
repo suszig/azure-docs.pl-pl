@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Aby pobrać poprawki
 
@@ -27,7 +27,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
 
 Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznaczone do trybu normalnego. Jeśli zostały już one zainstalowane za pomocą klasycznej witryny Azure Portal, przejdź do [instalowania i weryfikowania poprawek przeznaczonych do trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Aby zainstalować poprawki, przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej Twojego urządzenia StorSimple. Postępuj zgodnie ze szczegółowymi instrukcjami w części [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). W wierszy polecenia naciśnij klawisz **Enter**.
+1. Aby zainstalować poprawki, przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej Twojego urządzenia StorSimple. Postępuj zgodnie ze szczegółowymi instrukcjami w części [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). W wierszy polecenia naciśnij klawisz **Enter**.
 2. Wybierz **opcję 1**, aby zalogować się do urządzenia z pełnym dostępem. Zalecamy, aby najpierw zainstalować poprawkę na kontrolerze pasywnym.
 3. Aby zainstalować poprawkę, w wierszu polecenia wpisz:
    

@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Omówienie diagnostyki usługi aplikacji Azure 
 
 Jeśli korzystasz z aplikacji sieci web, ma należy przygotować wszystkie problemy, które mogą powstać z 500 błędów informujący użytkowników z lokacji jest wyłączony. Diagnostyka usługi aplikacji to inteligentnego i interaktywne środowisko ułatwiające rozwiązywanie problemów aplikacji sieci web za pomocą wymagana żadna konfiguracja. Jeśli wystąpiły problemy z aplikacją sieci web, Diagnostyka aplikacji usługi wskaże co to jest niewłaściwy prowadzące do właściwe informacje, aby łatwo i szybko rozwiązać problem. 
  
 Mimo że to środowisko jest najbardziej przydatne, gdy występują problemy z aplikacją sieci web w ciągu ostatnich 24 godzin, diagnostycznych wykresy będzie dostępny do analizowania przez cały czas. Dodatkowe narzędzia do rozwiązywania problemów oraz linki do dokumentacji przydatne i fora znajdują się w kolumnie po prawej stronie.
+
+## <a name="open-app-service-diagnostics"></a>Otwórz diagnostykę usługi aplikacji
+
+Aby uzyskać dostęp do diagnostyki aplikacji usługi, przejdź do aplikacji sieci web usługi aplikacji w [portalu Azure](https://portal.azure.com). 
+
+Na lewym pasku nawigacyjnym kliknij **diagnozowanie i rozwiązywanie problemów**.
 
 ![Strona główna](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Określa, czy potrzebujesz dodatkowych informacji po uruchomieniu [checkup kondy
 
 ![Raport diagnostyczny](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Otwórz diagnostykę usługi aplikacji
-
-Aby uzyskać dostęp do diagnostyki aplikacji usługi, przejdź do aplikacji sieci web usługi aplikacji w [portalu Azure](https://portal.azure.com). 
-
-Na lewym pasku nawigacyjnym kliknij **diagnozowanie i rozwiązywanie problemów**.

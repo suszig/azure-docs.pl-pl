@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 89ecd5ac2b8816e4efc5f8bf37dd7390bbf39ae8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0686e3fe129abcdcecc5870f7384dd68271e7b3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Tworzenie sieci wirtualnej równorzędna - Resource Manager różnych subskrypcji 
 
@@ -317,7 +317,7 @@ Po zakończeniu tego samouczka można usunąć utworzony w samouczka w celu unik
     az group delete --name myResourceGroupB --yes
     ```
 
-### <a name="delete-powershell"></a>Środowiska PowerShell
+### <a name="delete-powershell"></a>PowerShell
 
 1. Zaloguj się na platformie Azure jako Użytkownik_a i uruchom następujące polecenie:
 
@@ -334,9 +334,7 @@ Po zakończeniu tego samouczka można usunąć utworzony w samouczka w celu unik
 
 ## <a name="register"></a>Zarejestrować w wersji zapoznawczej komunikacji równorzędnej globalnej sieci wirtualnej
 
-Możliwość elementów równorzędnych sieci wirtualnych w różnych regionach jest obecnie w przeglądzie. Ta funkcja jest dostępna w określonych regionach (początkowo nam zachodnio-środkowe, Kanada centralnej i nam zachodnie 2). Utworzony między sieciami wirtualnymi w różnych regionach komunikacji równorzędnych sieci wirtualnych nie może mieć taki sam poziom dostępności i niezawodności jako komunikacji równorzędnej między sieciami wirtualnymi w tym samym regionie. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-
--To-peer sieci wirtualnych w regionach, najpierw należy zarejestrować w preview, wykonując następujące czynności (w ramach subskrypcji, w każdej sieci wirtualnej, aby elementu równorzędnego jest w) przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia Azure:
+Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Równorzędna sieci wirtualnych w różnych regionach jest obecnie w przeglądzie. Zobacz [aktualizacje sieci wirtualnej](https://azure.microsoft.com/en-us/updates/?product=virtual-network) dla dostępnych regionów. -To-peer sieci wirtualnych w regionach, najpierw należy zarejestrować w preview, wykonując następujące czynności (w ramach subskrypcji, w każdej sieci wirtualnej, aby elementu równorzędnego jest w) przy użyciu programu Azure PowerShell lub interfejsu wiersza polecenia Azure:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -382,7 +380,7 @@ Możliwość elementów równorzędnych sieci wirtualnych w różnych regionach 
 
     W sekcjach szablonu portalu, interfejsu wiersza polecenia Azure, programu PowerShell lub Menedżera zasobów tego artykułu, dopóki nie zostanie wypełnione **RegistrationState** dane wyjściowe po wprowadzeniu poprzedniego polecenia jest wyświetlany **zarejestrowane**  dla obu subskrypcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Należy dokładnie zapoznać się z ważne [ograniczenia komunikacji równorzędnej sieci wirtualnej i zachowania](virtual-network-manage-peering.md#requirements-and-constraints) przed utworzeniem sieci wirtualnej komunikacji równorzędnej w środowisku produkcyjnym należy używać.
 - Więcej informacji na temat wszystkich [sieci wirtualnej komunikacji równorzędnej ustawienia](virtual-network-manage-peering.md#create-a-peering).

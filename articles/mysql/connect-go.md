@@ -10,15 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/24/2018
+ms.openlocfilehash: 4aca7c4c0c096082d03c0514ce714cfd3624249b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie względem nich zapytań za pomocą języka Go
-Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) na platformach Windows, Ubuntu Linux i Apple macOS. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym temacie założono, że wiesz już, jak opracowywać zawartość za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
+Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for MySQL przy użyciu kodu napisanego w języku [Go](https://golang.org/) na platformach Windows, Ubuntu Linux i Apple macOS. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W tym artykule założono, że wiesz już, jak opracowywać zawartość za pomocą języka Go, i dopiero zaczynasz pracę z usługą Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w jednym z tych przewodników:
@@ -26,7 +26,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Instalowanie środowiska języka Go i łącznika bazy danych MySQL
-Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) na swoim komputerze. W zależności od używanej platformy wykonaj kroki w odpowiedniej sekcji:
+Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation) co najmniej w wersji 1.3 na swoim komputerze. W zależności od używanej platformy wykonaj kroki w odpowiedniej sekcji:
 
 ### <a name="windows"></a>Windows
 1. [Pobierz](https://golang.org/dl/) i zainstaluj środowisko języka Go dla systemu Microsoft Windows zgodnie z [instrukcjami dotyczącymi instalacji](https://golang.org/doc/install).
@@ -34,7 +34,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu, np. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Przejdź do folderu projektu, np. `cd %USERPROFILE%\go\src\mysqlgo`.
 5. Ustaw zmienną środowiskową GOPATH, aby wskazywała katalog kodu źródłowego. `set GOPATH=%USERPROFILE%\go`.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
 
    Podsumowując: zainstaluj środowisko języka Go, a następnie uruchom następujące polecenia w wierszu polecenia:
    ```cmd
@@ -50,7 +50,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
 5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
 
    Podsumowując: uruchom te polecenia programu Bash:
    ```bash
@@ -67,7 +67,7 @@ Zainstaluj środowisko języka [Go](https://golang.org/doc/install) i sterownik 
 3. Utwórz folder dla projektu w katalogu macierzystym, np. `mkdir -p ~/go/src/mysqlgo/`.
 4. Przejdź do tego folderu, np. `cd ~/go/src/mysqlgo/`.
 5. Ustaw zmienną środowiskową GOPATH tak, aby wskazywała prawidłowy katalog źródłowy, np. folder go w bieżącym katalogu macierzystym. W powłoce Bash uruchom polecenie `export GOPATH=~/go`, aby dodać katalog go jako zmienną GOPATH dla bieżącej sesji powłoki.
-6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`.
+6. Zainstaluj sterownik [go-sql-driver dla bazy danych MySQL](https://github.com/go-sql-driver/mysql#installation), uruchamiając polecenie `go get github.com/go-sql-driver/mysql`. Minimalna wymagana wersja to 1.3.
 
    Podsumowując: zainstaluj środowisko języka Go, następnie uruchom te polecenia programu Bash:
    ```bash

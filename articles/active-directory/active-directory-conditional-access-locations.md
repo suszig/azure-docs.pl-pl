@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Lokalizacja warunki dostępu warunkowego w usłudze Azure Active Directory 
 
@@ -100,7 +100,7 @@ Po skonfigurowaniu warunku lokalizacji, masz możliwość rozróżnienia:
 
 ### <a name="any-location"></a>Dowolna lokalizacja
 
-Domyślnie zaznaczenie **dowolnej lokalizacji** powoduje, że zasady do zastosowania dla wszystkich adresów IP, która oznacza każdy adres w Internecie. To ustawienie nie nie jest ograniczona do adresów IP, które zostały skonfigurowane jako lokalizacji o nazwie. Po wybraniu **dowolnej lokalizacji**, nadal można wykluczyć określone lokalizacje z zasad. Na przykład można zastosować zasady do wszystkich lokalizacji z wyjątkiem zaufanych lokalizacji, aby ustawić zakres do wszystkich lokalizacji, z wyjątkiem sieci firmowej.
+Domyślnie zaznaczenie **dowolnej lokalizacji** powoduje, że zasady do zastosowania dla wszystkich adresów IP, która oznacza każdy adres w Internecie. To ustawienie nie nie jest ograniczona do adresów IP, które zostały skonfigurowane jako lokalizacji o nazwie. Po wybraniu **dowolnej lokalizacji**, nadal można wykluczyć określone lokalizacje z zasad. Na przykład można zastosować zasady do wszystkich lokalizacji, z wyjątkiem zaufanych lokalizacji, aby ustawić zakres do wszystkich lokalizacji, z wyjątkiem sieci firmowej.
 
 ### <a name="all-trusted-locations"></a>Wszystkie zaufane lokalizacje
 

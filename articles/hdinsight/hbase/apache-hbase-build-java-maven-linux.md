@@ -4,7 +4,7 @@ description: "Dowiedz się, jak używać Apache Maven do tworzenia aplikacji opa
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Tworzenie aplikacji Java dla bazy danych Apache HBase
 
@@ -154,7 +154,7 @@ Użyj dokumentów z krokami w tym [Maven](http://maven.apache.org/) do tworzenia
 
     Wtyczka cień maven tworzy również jar pełny, który zawiera wszystkie zależności wymagane przez aplikację.
 
-4. Zapisz `pom.xml` pliku.
+4. Zapisz plik `pom.xml`.
 
 5. Utwórz katalog o nazwie `conf` w `hbaseapp` katalogu. Ten katalog jest używany do przechowywania informacji o konfiguracji w celu nawiązania HBase.
 
@@ -244,7 +244,7 @@ Użyj dokumentów z krokami w tym [Maven](http://maven.apache.org/) do tworzenia
 
     Ten kod jest **CreateTable** klasy, która tworzy tabelę o nazwie **osób** i wypełnić ją w przypadku niektórych użytkowników wstępnie zdefiniowane.
 
-3. Zapisz `CreateTable.java` pliku.
+3. Zapisz plik `CreateTable.java`.
 
 4. W `hbaseapp/src/main/java/com/microsoft/examples` katalogu, Utwórz plik o nazwie `SearchByEmail.java`. Zawartość tego pliku, należy użyć następującego tekstu:
 
@@ -323,7 +323,7 @@ Użyj dokumentów z krokami w tym [Maven](http://maven.apache.org/) do tworzenia
 
     **SearchByEmail** klasa może być używana do zapytania dla wierszy za pomocą adresu e-mail. Ponieważ używa filtra wyrażenia regularnego, musisz podać ciąg lub wyrażenie regularne, przy użyciu klasy.
 
-5. Zapisz `SearchByEmail.java` pliku.
+5. Zapisz plik `SearchByEmail.java`.
 
 6. W `hbaseapp/src/main/hava/com/microsoft/examples` katalogu, Utwórz plik o nazwie `DeleteTable.java`. Zawartość tego pliku, należy użyć następującego tekstu:
 
@@ -351,7 +351,7 @@ Użyj dokumentów z krokami w tym [Maven](http://maven.apache.org/) do tworzenia
 
     Ta klasa czyści tabele bazy danych HBase utworzone w tym przykładzie, wyłączając i upuszczanie tabeli utworzone przez `CreateTable` klasy.
 
-7. Zapisz `DeleteTable.java` pliku.
+7. Zapisz plik `DeleteTable.java`.
 
 ## <a name="build-and-package-the-application"></a>Tworzenie i pakiet aplikacji
 
@@ -626,7 +626,7 @@ Poniższe kroki przekazać JAR do magazynu domyślnego dla klastra HBase przy u�
    * **Dodaj HDInsightFile** — umożliwia przekazywanie plików do klastra
    * **Początek HBaseExample** — używany do uruchamiania klasy utworzony wcześniej
 
-2. Zapisz `hbase-runner.psm1` pliku.
+2. Zapisz plik `hbase-runner.psm1`.
 
 3. Otwórz nowe okno programu Azure PowerShell, przejdź do `hbaseapp` katalogu, a następnie uruchom następujące polecenie:
 
@@ -642,7 +642,7 @@ Poniższe kroki przekazać JAR do magazynu domyślnego dla klastra HBase przy u�
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Zastąp ciąg `hdinsightclustername` nazwą klastra. Polecenie przekazuje `hbaseapp-1.0-SNAPSHOT.jar` do `example/jars` lokalizacji w pamięci głównej dla klastra.
+    Zastąp ciąg `hdinsightclustername` nazwą klastra. Po wyświetleniu monitu wprowadź nazwę klastra logowania (Administrator) i hasło. Polecenie przekazuje `hbaseapp-1.0-SNAPSHOT.jar` do `example/jars` lokalizacji w pamięci głównej dla klastra.
 
 5. Aby utworzyć tabelę przy użyciu `hbaseapp`, użyj następującego polecenia:
 
@@ -650,7 +650,7 @@ Poniższe kroki przekazać JAR do magazynu domyślnego dla klastra HBase przy u�
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Zastąp ciąg `hdinsightclustername` nazwą klastra.
+    Zastąp ciąg `hdinsightclustername` nazwą klastra. Po wyświetleniu monitu wprowadź nazwę klastra logowania (Administrator) i hasło.
 
     To polecenie tworzy tabeli o nazwie **osób** w bazie danych HBase w klastrze usługi HDInsight. To polecenie nie wyświetla żadnych danych wyjściowych w oknie konsoli.
 
@@ -660,7 +660,7 @@ Poniższe kroki przekazać JAR do magazynu domyślnego dla klastra HBase przy u�
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Zastąp ciąg `hdinsightclustername` nazwą klastra.
+    Zastąp ciąg `hdinsightclustername` nazwą klastra. Po wyświetleniu monitu wprowadź nazwę klastra logowania (Administrator) i hasło.
 
     To polecenie używa `SearchByEmail` klasę, aby wyszukać wszystkie wiersze gdzie `contactinformation` rodziny kolumn i `email` kolumny zawiera ciąg `contoso.com`. Powinien zostać wyświetlony następujące wyniki:
 
@@ -689,6 +689,6 @@ __Z programu Azure PowerShell__:
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dowiedz się, jak korzystać z SQuirreL SQL z bazy danych HBase](apache-hbase-phoenix-squirrel-linux.md)

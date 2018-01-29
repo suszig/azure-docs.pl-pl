@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funkcje systemu operacyjnego w usłudze Azure App Service
 W tym artykule opisano typowe funkcje systemu operacyjnego linii bazowej, która jest dostępna dla wszystkich aplikacji uruchomionych na [usłudze Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ta funkcja zawiera plik, sieci i dostępu do rejestru i dzienników diagnostyki i zdarzeń. 
@@ -49,7 +49,7 @@ Istnieją różne dyski w usługi aplikacji, w tym dyski lokalne i dyskach sieci
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Dyski lokalne
-Zasadniczo usługi aplikacji — usługa jest uruchomiona na szczycie infrastruktury Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, dołączonych "" do maszyny wirtualnej są takie same typy dysku dostępne dla każdej roli procesu roboczego działające na platformie Azure. W tym dysku systemu operacyjnego (dysku D:\), dysk aplikacji, który zawiera pliki cspkg pakietu Azure używany wyłącznie przez usługę App Service (i niedostępne do klientów) i dysku "użytkownika" (dysku C:\), którego rozmiar może być różna w zależności od rozmiaru maszyny wirtualnej.
+Zasadniczo usługi aplikacji — usługa jest uruchomiona na szczycie infrastruktury Azure PaaS (platforma jako usługa). W związku z tym dyski lokalne, dołączonych "" do maszyny wirtualnej są takie same typy dysku dostępne dla każdej roli procesu roboczego działające na platformie Azure. W tym dysku systemu operacyjnego (dysku D:\), dysk aplikacji, który zawiera pliki cspkg pakietu Azure używany wyłącznie przez usługę App Service (i niedostępne do klientów) i dysku "użytkownika" (dysku C:\), którego rozmiar może być różna w zależności od rozmiaru maszyny wirtualnej. Należy monitorować Twoje wykorzystanie dysku wraz z rozwojem aplikacji. Gdy zostanie osiągnięty przydział dysku, może mieć niepożądane skutki do aplikacji.
 
 <a id="NetworkDrives"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z piaskownicy Salesforce | Dokumentacja firmy Microsoft'
+title: "Samouczek: Konfigurowanie usług Salesforce piaskownicy dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usług Salesforce piaskownicy."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie piaskownicy Salesforce użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usług Salesforce piaskownicy dla użytkownika automatycznego inicjowania obsługi administracyjnej
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w piaskownicy Salesforce i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do usługi Salesforce piaskownicy.
 
@@ -65,7 +65,7 @@ Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników us�
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    
@@ -107,7 +107,7 @@ Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane d
 
 Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane z usług salesforce.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

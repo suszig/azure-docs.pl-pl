@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Pojęcia
   items:
+    - name: Integracja z centrum danych
+      items:
+        - name: Zagadnienia dotyczące integracji ogólne Azure stosu
+          href: azure-stack-datacenter-integration.md
+        - name: Modele połączenia wdrażania w usłudze Azure stosu
+          href: azure-stack-connection-models.md
+        - name: Zagadnienia dotyczące wdrażania połączenia
+          href: azure-stack-connected-deployment.md
+        - name: Zagadnienia dotyczące wdrażania bez połączenia
+          href: azure-stack-disconnected-deployment.md
+        - name: Integracja sieci centrum danych
+          items:
+            - name: Integracja sieci
+              href: azure-stack-network.md
+            - name: Łączność obramowania
+              href: azure-stack-border-connectivity.md
+            - name: Integracja z usługą DNS
+              href: azure-stack-integrate-dns.md
+            - name: Integracja z zaporą
+              href: azure-stack-firewall.md
+              items:
+                - name: Publikowanie punktów końcowych
+                  href: azure-stack-integrate-endpoints.md
+        - name: Wymagania dotyczące usługi Azure stosu wdrażania infrastruktury kluczy publicznych
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Uzyskiwanie certyfikatów PKI dla wdrożenia stosu Azure
+              href: azure-stack-get-pki-certs.md
+        - name: Integracja tożsamości
+          href: azure-stack-integrate-identity.md
+        - name: Zarejestruj Azure stosu
+          href: azure-stack-registration.md
+        - name: Monitorowania zewnętrznych
+          href: azure-stack-integrate-monitor.md
+        - name: Integracja z zabezpieczeniami
+          href: azure-stack-integrate-security.md
     - name: Obsługa zasad
       href: azure-stack-servicing-policy.md
     - name: Kluczowe funkcje i pojęcia
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Tworzenie testowej maszyny wirtualnej
           href: azure-stack-provision-vm.md
-    - name: Wdrażanie systemów stosu Azure zintegrowanych
-      items:
-        - name: Zagadnienia dotyczące planowania wdrożenia
-          href: azure-stack-deployment-planning.md
-        - name: Decyzje związane z planowaniem wdrożenia
-          href: azure-stack-deployment-decisions.md
-        - name: Wdrażanie podłączone do platformy Azure
-          href: azure-stack-connected-deployment.md
-        - name: Wdrażanie odłączony od usługi Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Wymagania dotyczące usługi Azure stosu wdrażania infrastruktury kluczy publicznych
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Uzyskiwanie certyfikatów PKI dla wdrożenia stosu Azure
-              href: azure-stack-get-pki-certs.md
-        - name: Zarejestruj Azure stosu
-          href: azure-stack-registration.md
-    - name: Integracja z centrum danych
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Tożsamość
-          href: azure-stack-integrate-identity.md
-        - name: Publikowanie punktów końcowych
-          href: azure-stack-integrate-endpoints.md
-        - name: Monitorowania zewnętrznych
-          href: azure-stack-integrate-monitor.md
-        - name: Bezpieczeństwo
-          href: azure-stack-integrate-security.md
     - name: Zarządzanie
       items:
         - name: Zarządzanie regionami

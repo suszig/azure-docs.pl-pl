@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Przesyłania wiadomości, blokad i rozliczenia
 
-Najważniejszą możliwości brokera komunikatów, takie jak usługi Service Bus jest akceptować komunikaty w kolejce lub tematu i je przechowywać dostępne do pobrania nowsze. *Wyślij* termin, który jest powszechnie używany do przekazywania wiadomości w brokera komunikatów. *Odbieranie* termin powszechnie używany do przekazywania wiadomości do pobierania klienta.
+Możliwości centralnego brokera komunikatów, takie jak usługi Service Bus jest akceptować komunikaty w kolejce lub tematu i je przechowywać dostępne do pobrania nowsze. *Wyślij* termin, który jest powszechnie używany do przekazywania wiadomości w brokera komunikatów. *Odbieranie* termin powszechnie używany do przekazywania wiadomości do pobierania klienta.
 
 Gdy klient wysyła komunikat, zwykle chce wiedzieć, czy wiadomość została prawidłowo przeniesione do i zaakceptowane przez brokera lub czy wystąpiły jakieś błędu. To potwierdzenie dodatnie lub ujemne reguluje klienta i broker opis o stanie transferu wiadomości i w związku z tym jest określany jako *rozliczenia*.
 
@@ -121,7 +121,7 @@ Jeśli **Complete** kończy się niepowodzeniem, w których występuje zwykle na
 
 Typowe mechanizmu identyfikowania dostaw zduplikowanych komunikatów jest sprawdzanie komunikatu — identyfikator, który można i powinien być ustawiony przez nadawcę do unikatową wartość, prawdopodobnie są wyrównane z identyfikatorem w procesie źródłowego. Harmonogram zadań prawdopodobnie ustawiał identyfikator komunikatu z identyfikatorem zadania, które podejmuje próbę przypisania do pracownika z danego pracownika i proces roboczy czy Ignoruj drugie wystąpienie przypisania zadania, jeśli to zadanie zostało już przeprowadzone.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

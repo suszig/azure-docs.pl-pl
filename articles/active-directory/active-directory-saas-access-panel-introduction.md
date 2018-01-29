@@ -15,166 +15,160 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-access-panel"></a>Co to jest panel dostępu?
 
-Panel dostępu jest portalem sieci web. Umożliwia użytkownikowi służbowy lub konto służbowe w usłudze Azure Active Directory do wyświetlania i uruchamiania aplikacji opartej na chmurze administrator usługi Azure AD udzielił im dostępu do. Można również użyć grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu.
+Panel dostępu jest portalem sieci web. Jeśli masz służbowego lub szkolnego konta w usłudze Azure Active Directory (Azure AD), służy panelu dostępu do wyświetlania i uruchamiania aplikacji opartej na chmurze, które administrator usługi Azure AD udzielił dostęp do. Można również użyć grupami samoobsługi i funkcje zarządzania aplikacjami za pomocą panelu dostępu.
 
-Panel dostępu jest oddzielony od portalu Azure i nie może być subskrypcji platformy Azure jest.
+Panel dostępu jest oddzielony od portalu Azure. Nie wymagają posiadania subskrypcji platformy Azure.
 
-![Panel dostępu][1]
+![Panel dostępu][1] , korzystając z panelu dostępu, możesz edytować niektóre ustawienia profilu i wykonaj następujące czynności:
 
-Panel dostępu umożliwia edytowanie niektórych ustawień profilu, umożliwiając między innymi:
+- Zmień hasło skojarzone z konta służbowego.
 
-- Zmień hasło skojarzone z konta służbowego
+- Edytuj ustawienia resetowania hasła.
 
-- Edytuj ustawienia resetowania hasła
+- Edytuj ustawienia kontaktowe i preferencje dotyczące uwierzytelniania wieloskładnikowego (dla kont, które są wymagane do używania go przez administratora).
 
-- Edytuj ustawienia kontaktowe i preferencje dotyczące uwierzytelniania wieloskładnikowego (dla kont, które są wymagane do używania go przez administratora)
+- Wyświetl konta alternatywne szczegóły, takie jak nazwa użytkownika, poczty e-mail, numerów telefonów mobile i pakietu office i urządzeń.
 
-- Wyświetl konta alternatywne szczegóły, takie jak nazwa użytkownika, poczty e-mail oraz mobile i office numery telefonów i urządzeń
+- Wyświetl i uruchamiania aplikacji opartej na chmurze, które administrator usługi Azure AD udzielił dostęp do. 
 
-- Wyświetl i uruchamiania aplikacji opartej na chmurze, które administrator usługi Azure AD udzielił im dostępu do. Aby uzyskać więcej informacji na temat panelu dostępu z punktu widzenia użytkownika Zobacz Korzystanie z panelu dostępu. 
-
-- Własnym Zarządzanie grupami. W szczególności administrator można tworzyć i Zarządzaj grupami zabezpieczeń i żądania członkostwa w grupach zabezpieczeń w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Samoobsługowe zarządzanie grupami użytkowników w usłudze Azure AD](active-directory-accessmanagement-self-service-group-management.md) i [Zarządzanie grupami](active-directory-manage-groups.md).
+- Własnym Zarządzanie grupami. Administratorzy mogą tworzyć i Zarządzaj grupami zabezpieczeń i żądania członkostwa w grupach zabezpieczeń w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Samoobsługowe zarządzanie grupami użytkowników w usłudze Azure AD](active-directory-accessmanagement-self-service-group-management.md) i [Zarządzanie grupami](active-directory-manage-groups.md).
 
 
 
 
-## <a name="accessing-the-access-panel"></a>Uzyskiwanie dostępu do panelu dostępu
+## <a name="access-the-access-panel"></a>Dostęp do panelu dostępu
 
-Aby dostęp do panelu dostępu, przechodząc na stronę następujący adres URL w przeglądarce sieci web:`http://myapps.microsoft.com`
+Dostęp do panelu dostępu, przechodząc do `http://myapps.microsoft.com`.
 
-Jeśli masz niestandardowe znakowanie skonfigurowana dla strony logowania, należy załadować tego znakowania przez dołączenie domeny organizacji na końcu adresu URL:`http://myapps.microsoft.com/<your domain>.com`
+Jeśli masz niestandardowe znakowanie skonfigurowana dla strony logowania, można załadować znakowania przez dołączenie do adresu URL domeny organizacji (na przykład `http://myapps.microsoft.com/<your domain>.com`).
 
-W takim przypadku można użyć dowolnej nazwy aktywnych lub zweryfikowanej domeny, skonfigurowanego w portalu Azure.
+Można użyć dowolną nazwę domeny active lub zweryfikowane, skonfigurowanego w portalu Azure, jak pokazano poniżej:
 
 ![Nazwa domeny Wingtip Toys][2]  
 
-Należy rozpowszechniać adres URL dla wszystkich użytkowników, którzy będą Zaloguj się do aplikacji, które są zintegrowane z usługą Azure AD.
+Dystrybuuj adresu URL dla wszystkich użytkowników, zaloguj się do aplikacji, które są zintegrowane z usługą Azure AD.
 
 ## <a name="authentication"></a>Authentication
 
 Aby uzyskać dostęp do panelu dostępu, użytkownik musi zostać uwierzytelniony przy użyciu konta służbowego w usłudze Azure AD. Użytkownik może zostać uwierzytelniony do usługi Azure AD bezpośrednio. Alternatywnie Jeśli organizacji skonfigurował Federacji przy użyciu usługi Active Directory Federation Services (AD FS) ani innych technologii, możesz mogą być uwierzytelniane przez usługę Active Directory systemu Windows Server.
 
-Jeśli masz subskrypcji Azure lub usługi Office 365 i był używany portalu Azure lub aplikacji pakietu Office 365, widać na liście aplikacji bez logowanie się ponownie. Jeśli nie są uwierzytelniane zostanie wyświetlony monit logowania przy użyciu nazwy użytkownika i hasło dla swojego konta w usłudze Azure AD. Jeśli organizacji skonfigurował federacyjnych, wpisując nazwę użytkownika jest wystarczająca.
+Ma subskrypcji platformy Azure lub usługi Office 365, której używasz portalu Azure lub aplikacji pakietu Office 365 można wyświetlić listę aplikacji bez zalogować się ponownie. Jeśli użytkownik nie jest uwierzytelniony, zostanie wyświetlony monit logowania przy użyciu nazwy użytkownika i hasło dla swojego konta w usłudze Azure AD. Jeśli organizacji skonfigurował federacyjnych, wpisując nazwę użytkownika jest wystarczająca.
 
 Gdy użytkownik jest uwierzytelniony, mogą współdziałać z aplikacjami, które administrator ma zintegrowane z katalogiem. Aby dowiedzieć się, jak integrować aplikacje z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="web-browser-requirements"></a>Wymagania dotyczące przeglądarki sieci Web
 
-Co najmniej panelu dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Aby użytkownik mógł zalogowani do aplikacji za pomocą opartego na hasłach rejestracji jednokrotnej (SSO) rozszerzenie panelu dostępu musi być zainstalowany w przeglądarce. Rozszerzenie jest pobierany automatycznie po wybraniu aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
+Co najmniej panelu dostępu wymaga przeglądarki obsługującej JavaScript i włączył CSS. Zalogowani do aplikacji za pomocą opartego na hasłach rejestracji jednokrotnej (SSO), musi mieć rozszerzenie panelu dostępu, które są zainstalowane w przeglądarce. Rozszerzenie jest pobierany automatycznie po wybraniu aplikacji, która jest skonfigurowana do opartego na hasłach logowania jednokrotnego.
 
 Rozszerzenie panelu dostępu jest obecnie dostępny dla:
--   Krawędź w systemie Windows 10 Anniversary Edition lub nowszy 
-
--   Chrome — W systemie Windows 7 lub nowszy oraz System MacOS x lub nowszych
-
--   Firefox 26.0 lub później — w systemie Windows XP z dodatkiem SP2 lub nowszy oraz w systemie Mac OS X 10,6 lub nowszy
-
--   Internet Explorer 8, 9, 10, 11 — w systemie Windows 7 lub nowszy (obsługa ograniczona)
+- **Krawędź**: w systemie Windows 10 Anniversary Edition lub nowszy. 
+- **Chrome**: w systemie Windows 7 lub nowszym i System MacOS x lub później.
+- **Firefox 26.0 lub nowsze**: w systemie Windows XP SP2 lub nowszy i Mac OS X 10.6 lub później.
+- **Internet Explorer 8, 9, 10, 11**: w systemie Windows 7 lub nowszy (obsługa ograniczona).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Rozszerzenie bezpiecznego logowania do moich aplikacji
-Rozszerzenie jest wymagane dla użytkowników zalogować się do opartego na hasłach rejestracji jednokrotnej. Gdy zainstalowana użytkowników można również włączyć dodatkowe funkcje po zalogowaniu się do rozszerzenia, klikając **Zaloguj się rozpocząć**. 
+Aby zalogować się do opartego na hasłach logowanie jednokrotne, należy użyć rozszerzenia. Po zainstalowaniu rozszerzenia może logowania się do niego do włączyć dodatkowe funkcje, wybierając **Zaloguj się rozpocząć**. 
 
-- Użytkownicy mogą zalogować się do aplikacji bezpośrednio, przechodząc na stronę aplikacji **adres URL logowania**. Gdy użytkownik przechodzi do aplikacji adres URL logowania rozszerzenia wykryje to i podaj opcję dla użytkownika do logowania się do jej z rozszerzenia.
-- Użytkownicy również można uruchamiać aplikacje z panelu dostępu przy użyciu **szybkiego wyszukiwania** funkcji rozszerzenia. 
-- Rozszerzenie zostanie również Pokaż użytkowników ostatnie trzy aplikacje podjęte w ramach **ostatnio używane** sekcji.
+- Zaloguj się do aplikacji za pomocą aplikacji **adres URL logowania**. Korzystając z adresu URL aplikacji, rozszerzenia wykrywa akcji i daje możliwość logowania z rozszerzenia.
+- Aby uruchomić aplikacji z poziomu panelu dostępu za pomocą *szybkiego wyszukiwania* funkcji rozszerzenia. 
+- Rozszerzenie zawiera ostatnich trzech aplikacji, które można uruchomić w **ostatnio używane** sekcji.
 
 > [!NOTE]
 > Dodatkowe funkcje są dostępne tylko w przypadku krawędzi, Chrome i Firefox.
 >
->
 
-Jeśli używasz różnych Moje aplikacje adresu URL niż https://myapps.microsoft.com następnie należy skonfigurować adres URL domyślnej jednak następujące czynności:
-1. Nie jest zalogowany do rozszerzenia, **kliknij prawym przyciskiem myszy** ikona rozszerzenia.
-2. Polecenie **wybierz adres URL Moje aplikacje** z menu.
-3. **Wybierz** Twojego domyślny adres URL.
-4. Kliknij ikonę rozszerzenia.
-5. Zaloguj się do rozszerzenia, wybierając **Zaloguj się rozpocząć**.
+Jeśli używasz Mój adres URL aplikacji innych niż `https://myapps.microsoft.com`, skonfiguruj adres URL domyślnej przez wykonanie następujących czynności:
+1. Podczas *nie* zalogowany do rozszerzenia, kliknij prawym przyciskiem myszy ikonę rozszerzenia.
+2. W menu, wybierz **adres URL aplikacji Mój**.
+3. Wybierz adres URL domyślnej.
+4. Wybierz ikonę rozszerzenia.
+5. Wybierz **Zaloguj się rozpocząć**.
 
 ## <a name="mobile-app-support"></a>Obsługa aplikacji mobilnej
 
-Zespół usługi Azure Active Directory publikuje mojej aplikacji mobilnej aplikacji. Po zainstalowaniu aplikacji można logowania się do aplikacji opartych na hasło logowania jednokrotnego w systemach iOS i urządzeniach z systemem Android.
+Zespół usługi Azure Active Directory publikuje Moje aplikacje aplikacji mobilnej. Po zainstalowaniu aplikacji można logowania się do aplikacji opartych na hasło logowania jednokrotnego w systemach iOS i urządzeniach z systemem Android.
 
 > [!NOTE]
-> Można logowania się do aplikacji, które obsługują federacji z usługą Azure AD (w tym Salesforce, usługi Google Apps, Dropbox, pole, Concur, produktu Workday, usługi Office 365 i więcej niż 70 innych użytkowników) w praktycznie dowolnej przeglądarki sieci web, na dowolnym urządzeniu, bez konieczności wtyczki lub przenośnych aplikacji. Wszystkie inne [dostęp do środowiska panelu](https://myapps.microsoft.com/) również nie wymagają mojej aplikacji mobilnej aplikacji do użycia na urządzeniu przenośnym.
+> Można logowania się do aplikacji, które obsługują federacji z usługą Azure AD (w tym Salesforce, usługi Google Apps, Dropbox, pole, Concur, produktu Workday, usługi Office 365 i więcej niż 70 innych użytkowników) w praktycznie dowolnej przeglądarki sieci web, na dowolnym urządzeniu, bez konieczności wtyczki lub przenośnych aplikacji. Do użycia na urządzeniu przenośnym, innych [dostęp do środowiska panelu](https://myapps.microsoft.com/) również nie wymagają aplikacji mobilnej Moje aplikacje.
 >
 >
 
 ### <a name="my-apps-for-android"></a>Moje aplikacje dla systemu Android
 
-Moje aplikacje dla systemu Android jest obsługiwana na dowolnym urządzeniu z systemem Android, którym jest uruchomiona wersja systemu Android 4.1 lub nowszej.  
-Jest on dostępny w [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
+Moje aplikacje dla systemu Android jest obsługiwana na dowolnym urządzeniu z systemem Android jest uruchomiona wersja systemu Android 4.1 lub nowszą.  
+
+Jest ona dostępna w [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
 ![Moje aplikacje dla systemu Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>Moje aplikacje dla urządzenia iPhone i iPad
 
 Moje aplikacje dla systemu iOS jest obsługiwana na wszystkie urządzenia iPhone lub iPad z systemem iOS w wersji 7 lub nowszy.  
-Jest on dostępny w [sklepu Apple App Store](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8).
+
+Jest ona dostępna w [sklepu Apple App Store](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8).
 
 ![Moje aplikacje dla systemu iOS][4]    
 
 
-
 ## <a name="managed-browser-for-my-apps"></a>Zarządzane przeglądarki pod kątem Moje aplikacje
 
-Moje aplikacje są również zintegrowane w programie Intune Managed Browser. Intune Managed Browser dla urządzeń iOS i Android odgrywa kluczową rolę w zapewnieniu, że dane na urządzeniach przenośnych jest bezpieczne. Umożliwia ona bezpiecznie przeglądać i przejdź do strony sieci web, które mogą zawierać informacje o firmie i zapewnia bezpieczne przeglądanie sieci web.  
-Możesz znaleźć szybki dostęp do mojej aplikacji na stronie głównej Managed Browser oraz w zakładki, umożliwiając mniejszej liczby kliknięć do dowolnej aplikacji, którego chcesz uzyskać dostęp.
+Moje aplikacje są również zintegrowane z Intune Managed Browser. Intune Managed Browser dla urządzeń iOS i Android odgrywa kluczową rolę w by upewnić się, że dane na urządzeniach przenośnych jest bezpieczne. Przeglądarki umożliwia bezpieczne przeglądanie i przejdź do strony sieci Web, który może zawierać informacje o firmie, a także pomaga zapewnić bezpieczne środowisko przeglądania sieci web.  
 
-Jest on dostępny w [sklepu Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) i [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Możesz uzyskać szybki dostęp do Moje aplikacje na stronie głównej Managed Browser oraz w zakładki, dzięki mniejszej liczby kliknięć są wymagane do dowolnej aplikacji, którego chcesz uzyskać dostęp.
 
-![Przeglądarka Mananged Moje aplikacje][5]    
+Intune Managed Browser są dostępne pod adresem [sklepu Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) i [sklepu Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
 
-
-
+![Zarządzane przeglądarki pod kątem Moje aplikacje][5]    
 
 
 ## <a name="tips-for-testing-the-user-experience"></a>Porady dotyczące testowania czynności użytkownika
 
-Jeśli jesteś administratorem systemu Azure i użytkownik jest zalogowany do portalu Azure przy użyciu konta w katalogu, użytkownik zostanie automatycznie zarejestrowany do panelu dostępu jako swoim aktualnym kontem. W takim przypadku widoczne wszystkie aplikacje, które zostały przypisane do Ciebie.
+Jeśli jesteś administratorem systemu Azure i użytkownik jest zalogowany do portalu Azure przy użyciu konta w katalogu, użytkownik zostanie automatycznie zarejestrowany do panelu dostępu jako swoim aktualnym kontem. Ten widok przedstawia wszystkie aplikacje, które są przypisane do Ciebie.
 
-**Aby przetestować jako *różnych* konta użytkownika:**
+Aby przetestować w *różnych* użytkownika konto, wykonaj następujące czynności:
 
-1. Kliknij menu użytkownika w prawym górnym rogu portalu Azure lub panel dostępu, a następnie wybierz **Wyloguj**. 
+1. W prawym górnym rogu portalu Azure lub panel dostępu, wybierz **Wyloguj**. 
 2. Przejdź do [panelu dostępu](http://myapps.microsoft.com).
 3. Na stronie logowania wpisz nazwę użytkownika i hasło dla konta w katalogu, który ma zostać przetestowana.
 
 
 ## <a name="starting-applications"></a>Uruchamianie aplikacji
 
-Kilka typów aplikacji może występować w panelu dostępu.
+W tej sekcji omówiono kilka typów aplikacji, które mogą być wyświetlane w panelu dostępu.
 
 ### <a name="office-365-applications"></a>Aplikacje pakietu Office 365
 
 Jeśli organizacja korzysta z aplikacji usługi Office 365, jest udzielana dla nich aplikacje pakietu Office 365 pojawiają się na Twoje panelu dostępu.
 
-Po kliknięciu kafelka aplikacji dla aplikacji usługi Office 365 są przekierowywane do aplikacji i zostanie automatycznie zalogowany.
+Po wybraniu kafelka aplikacji dla aplikacji usługi Office 365 są przekierowywane do aplikacji i zostanie automatycznie zalogowany.
 
 ### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Aplikacje firmy Microsoft i innych firm skonfigurowaną na podstawie federacyjnego logowania jednokrotnego
 
-Administrator może dodać aplikacje w sekcji usługi Active Directory w portalu Azure w trybie logowania jednokrotnego ustawioną **Azure AD rejestracji jednokrotnej**. Te aplikacje może zobaczyć tylko, jeśli administrator ma jawnie przyznane uprawnienia dostępu do aplikacji.
+Administrator może dodać aplikacje w sekcji usługi Active Directory w portalu Azure w trybie logowania jednokrotnego ustawioną **Azure AD rejestracji jednokrotnej**. Te aplikacje jest widoczny tylko wtedy, gdy administrator ma jawnie przyznane uprawnienia dostępu do nich.
 
-Po kliknięciu kafelka dla jednej z tych aplikacji, są przekierowywane i zostanie automatycznie zalogowany do aplikacji.
+Po wybraniu kafelka aplikacji są przekierowywane i zostanie automatycznie zalogowany do niego.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>Na podstawie hasła logowania jednokrotnego bez obsługi tożsamości
 
 Administrator może dodać aplikacje w sekcji usługi Active Directory w portalu Azure w trybie logowania jednokrotnego ustawioną **opartego na hasłach rejestracji jednokrotnej**. Wszyscy użytkownicy w katalogu widzą wszystkie aplikacje, które zostały skonfigurowane w tym trybie.
 
-Po raz pierwszy, kliknięciu kafelka dla jednej z tych aplikacji, zostanie wyświetlony monit zainstalować wtyczkę logowania jednokrotnego hasła dla programu Internet Explorer lub przeglądarki Chrome. Instalacja może wymagać ponownego uruchomienia przeglądarki sieci web. Po powrocie do panelu dostępu i ponownie kliknij Kafelek aplikacji, monit o nazwę użytkownika i hasło dla aplikacji. Po wprowadzeniu nazwy użytkownika i hasła, te poświadczenia są bezpiecznie przechowywane i połączony z kontem w usłudze Azure AD.
+Wybierz kafelka aplikacji po raz pierwszy monit Zainstaluj wtyczkę logowania jednokrotnego hasła dla programu Internet Explorer lub przeglądarki Chrome. Instalacja może wymagać ponownego uruchomienia przeglądarki sieci web. Po powrocie do panelu dostępu i ponownie wybierz Kafelek aplikacji, monit o nazwę użytkownika i hasło dla aplikacji. Po wprowadzeniu nazwy użytkownika i hasła, poświadczenia są bezpiecznie przechowywane i połączony z kontem w usłudze Azure AD.
 
-Przy następnym kliknięciu kafelka aplikacji, użytkownik zostanie automatycznie zarejestrowany aplikacji.  
+Przy następnym wybierz Kafelek aplikacji, użytkownik zostanie automatycznie zarejestrowany aplikacji.  
+
 Nie trzeba ponownie wprowadź swoje poświadczenia i/lub Zainstaluj wtyczkę logowania jednokrotnego hasła.
 
 Jeśli poświadczenia zostały zmienione w aplikacji docelowej innych firm, należy również zaktualizować swoje poświadczenia, które są przechowywane w usłudze Azure AD. 
 
-**Aby zaktualizować poświadczenia:**
+Aby zaktualizować swoje poświadczenia, wykonaj następujące czynności:
 
 1. Wybierz ikonę na kafelku aplikacji.
 2. Wybierz **zaktualizować poświadczenia** ponownie wprowadzić nazwę użytkownika i hasło dla aplikacji.
@@ -182,14 +176,15 @@ Jeśli poświadczenia zostały zmienione w aplikacji docelowej innych firm, nale
 
 ### <a name="password-based-sso-with-identity-provisioning"></a>Oparte na hasłach rejestracji Jednokrotnej z inicjowaniem obsługi administracyjnej tożsamości
 
-Administrator może dodawać aplikacje w **usługi Active Directory** części portalu Azure w trybie logowania jednokrotnego ustawioną **opartego na hasłach rejestracji jednokrotnej**, oraz inicjowanie obsługi tożsamości.
+Administrator może dodać aplikacje w sekcji usługi Active Directory w portalu Azure w trybie logowania jednokrotnego ustawioną **opartego na hasłach rejestracji jednokrotnej**, oraz inicjowanie obsługi tożsamości.
 
-Po raz pierwszy, kliknij Kafelek aplikacji, dla jednego z tych aplikacji, monit o zainstalowanie **logowania jednokrotnego hasła dodatek dla programu Internet Explorer lub przeglądarki Chrome**. Instalacja może wymagać ponownego uruchomienia przeglądarki sieci web.  
-Po powrocie do panelu dostępu i ponownie kliknij Kafelek aplikacji, użytkownik zostanie automatycznie zarejestrowany aplikacji.
+Wybierz kafelka aplikacji po raz pierwszy monit Zainstaluj wtyczkę logowania jednokrotnego hasła dla programu Internet Explorer lub przeglądarki Chrome. Instalacja może wymagać ponownego uruchomienia przeglądarki sieci web.  
 
-Niektóre aplikacje mogą wymagać można zmienić hasło przy pierwszym logowaniu. Jeśli poświadczenia zostały zmienione w aplikacji docelowej innych firm, należy również zaktualizować poświadczenia, które są przechowywane w usłudze Azure AD. 
+Po powrocie do panelu dostępu i ponownie wybierz Kafelek aplikacji, użytkownik zostanie automatycznie zarejestrowany aplikacji.
 
-**Aby zaktualizować poświadczenia:**
+Niektóre aplikacje mogą wymagać zmiany hasła przy pierwszym logowaniu. Jeśli poświadczenia zostały zmienione w aplikacji docelowej innych firm, należy również zaktualizować poświadczenia, które są przechowywane w usłudze Azure AD. 
+
+Aby zaktualizować swoje poświadczenia, wykonaj następujące czynności:
 
 1. Wybierz ikonę na kafelku aplikacji.
 2. Wybierz **zaktualizować poświadczenia** ponownie wprowadzić nazwę użytkownika i hasło dla aplikacji.
@@ -197,16 +192,16 @@ Niektóre aplikacje mogą wymagać można zmienić hasło przy pierwszym logowan
 
 ### <a name="application-with-existing-sso-solutions"></a>Aplikacja z istniejącymi rozwiązaniami do logowania jednokrotnego
 
-Aby skonfigurować logowanie Jednokrotne dla aplikacji, Azure portal udostępnia trzecia opcja o nazwie **istniejących rejestracji jednokrotnej**. Ta opcja umożliwia administratorem, aby utworzyć łącze do aplikacji i umieść ją na panel dostępu dla wybranych użytkowników.
+Aby skonfigurować logowanie Jednokrotne dla aplikacji, portalu Azure udostępnia trzecia opcja o nazwie istniejących rejestracji jednokrotnej. Ta opcja umożliwia administratorem, aby utworzyć łącze do aplikacji i umieść ją na panel dostępu dla wybranych użytkowników.
 
-Na przykład jeśli aplikacja jest skonfigurowana do uwierzytelniania użytkowników za pomocą usług AD FS 2.0, administrator może użyć **istniejących rejestracji jednokrotnej** opcję, aby utworzyć łącze do niego w panelu dostępu. Gdy uzyskujesz dostęp do łącza, są uwierzytelniane za pośrednictwem usług AD FS 2.0 lub niezależnie od istniejącej rejestracji Jednokrotnej rozwiązania przez aplikację.
+Na przykład jeśli aplikacja jest skonfigurowana do uwierzytelniania użytkowników za pomocą usług AD FS 2.0, administrator może opcja istniejących rejestracji jednokrotnej do utworzenia na panelu dostępu do niej łącza. Gdy uzyskujesz dostęp do łącza, są uwierzytelniane za pośrednictwem usług AD FS 2.0 lub niezależnie od istniejącej rejestracji Jednokrotnej rozwiązania przez aplikację.
 
 
 ## <a name="next-steps"></a>Kolejne kroki
 
 - Aby wyświetlić listę wszystkich tematów, które są powiązane z zarządzaniem aplikacjami, zobacz [indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md).
  
-- Aby uzyskać informacje o integracji aplikacji SaaS w usłudze Azure AD, zobacz [lista samouczków dotyczących sposobów integracji aplikacji SaaS](active-directory-saas-tutorial-list.md).
+- Aby uzyskać informacje o integracji aplikacji SaaS z usługą Azure AD, zobacz [lista samouczków dotyczących sposobów integracji aplikacji SaaS](active-directory-saas-tutorial-list.md).
  
 - Aby dowiedzieć się więcej o zarządzaniu aplikacjami za pomocą usługi Azure AD, zobacz [wprowadzenie do uzyskania dostępu do pojedynczego aplikacji logowania jednokrotnego i zarządzanie nimi w usłudze Azure Active Directory](active-directory-appssoaccess-whatis.md).
  

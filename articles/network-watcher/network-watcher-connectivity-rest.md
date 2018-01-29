@@ -1,10 +1,10 @@
 ---
-title: "Sprawdź łączność z obserwatora sieciowego Azure - Azure portal | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśniono, jak Sprawdź łączność z obserwatora sieciowego w portalu Azure"
+title: "Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure - interfejsu API REST Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak korzystać z połączenia Rozwiązywanie problemów z możliwości obserwatora sieciowego Azure przy użyciu interfejsu API REST Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Sprawdź łączność z obserwatora sieciowego Azure przy użyciu portalu Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure przy użyciu interfejsu API REST Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
-Dowiedz się, jak używać łączności, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
+Dowiedz się, jak używać połączenia Rozwiązywanie problemów, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz następujące zasoby:
 
-* Wystąpienie obserwatora sieciowego w regionie, aby sprawdzić łączność.
-
-* Sprawdź łączność z maszyn wirtualnych.
-
-ARMclient służy do wywołania interfejsu API REST przy użyciu programu PowerShell. ARMClient znajduje się na chocolatey w [ARMClient na Chocolatey](https://chocolatey.org/packages/ARMClient).
-
-W tym scenariuszu przyjęto zostały już wykonane kroki przedstawione w [utworzyć obserwatora sieciowego](network-watcher-create.md) utworzyć obserwatora sieciowego.
+* Wystąpienie obserwatora sieciowego w regionie rozwiązywania problemów z połączeniem.
+* Rozwiązywanie problemów z połączeniami z maszyn wirtualnych.
 
 > [!IMPORTANT]
-> Sprawdź łączność wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Rozwiązywanie problemów z połączenia wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Zaloguj się za pomocą ARMClient
 
@@ -469,13 +464,11 @@ Poniższy przykład jest odpowiedź z poprzedniego wywołania interfejsu API. Ja
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
+Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md).
 
-Znajdź, jeśli niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, odwiedzając [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Znajdź, jeśli niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, odwiedzając [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

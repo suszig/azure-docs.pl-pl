@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Zdarzenie siatki zabezpieczeń i uwierzytelniania 
 
@@ -24,7 +24,7 @@ Azure siatki zdarzeń ma trzy typy uwierzytelniania:
 
 ## <a name="webhook-event-delivery"></a>Dostarczania zdarzeń elementu WebHook
 
-Element Webhook ma jeden wiele sposobów, aby odbierać zdarzenia w czasie rzeczywistym z siatki zdarzeń platformy Azure. Za każdym razem, gdy jest gotowe do dostarczenia nowego zdarzenia, elementu Webhook siatki zdarzeń nasion skonfigurowany punkt końcowy HTTP ze zdarzeniem w treści żądania HTTP.
+Element Webhook ma jeden wiele sposobów, aby odbierać zdarzenia w czasie rzeczywistym z siatki zdarzeń platformy Azure. Za każdym razem, gdy jest gotowe do dostarczenia nowego zdarzenia, elementu Webhook siatki zdarzeń wysyła żądanie HTTP do skonfigurowanego punktu końcowego HTTP ze zdarzeniem w treści.
 
 Po zarejestrowaniu własny punkt końcowy elementu WebHook siatki zdarzeń wysyła możesz żądania POST z kodem poprawności w celu potwierdzenia własność punktu końcowego. Twoja aplikacja powinna odpowiadać za wstecz wyświetlania kodu walidacji. Siatka zdarzeń nie dostarcza zdarzeń do elementu WebHook punktów końcowych, które nie przeszły sprawdzanie poprawności.
 
@@ -234,6 +234,6 @@ Aby przypisać rolę do użytkownika, należy użyć:
 az role assignment create --assignee <user name> --role "<name of role>"
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby obejrzeć wprowadzenie do siatki zdarzeń, zobacz [o siatki zdarzeń](overview.md)

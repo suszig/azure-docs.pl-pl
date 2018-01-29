@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Co to jest podgląd z migracji bazy danych Azure?
 Usługa Azure bazy danych migracji jest pełni zarządzana usługa zaprojektowana w celu umożliwienia bezproblemowego migracji z wielu źródeł bazy danych do platformy Azure danych z minimalnym czasem przestojów. Usługa jest obecnie w wersji zapoznawczej, z programistycznych koncentruje się na:
@@ -34,6 +34,11 @@ W publicznej wersji zapoznawczej usługi Azure migracji bazy danych jest obecnie
 - Brazylia Południowa
 - Europa Zachodnia
 - Europa Północna
+- Azja Południowo-Wschodnia
+- Indie Zachodnie
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - [Utwórz wystąpienie usługi migracji bazy danych Azure przy użyciu portalu Azure](quickstart-create-data-migration-service-portal.md).
+- [Migrowanie serwera SQL z bazą danych Azure SQL](tutorial-sql-server-to-azure-sql.md).
+- [Przegląd wymagań wstępnych dotyczących używania usługi Azure bazy danych migracji](pre-reqs.md).
+- [Często zadawane pytania dotyczące korzystania z usługi migracji bazy danych Azure](faq.md).

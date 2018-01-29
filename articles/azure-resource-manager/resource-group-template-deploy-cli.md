@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Deploy resources with Resource Manager templates and Azure CLI (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu wiersza polecenia platformy Azure)
 
@@ -119,7 +119,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Testowanie wdrażania szablonu
 
-Aby przetestować z szablonu i wartości parametrów bez faktycznie wdrażania zasobów, wpisz [zweryfikować wdrożenie grupy az](/cli/azure/group/deployment#validate). 
+Aby przetestować z szablonu i wartości parametrów bez faktycznie wdrażania zasobów, wpisz [zweryfikować wdrożenie grupy az](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -230,7 +230,7 @@ Następujący szablon jest używany w przykładach w tym temacie. Skopiuj i zapi
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Przykłady w tym artykule wdrożenie zasobów do grupy zasobów w ramach subskrypcji domyślne. Aby użyć innej subskrypcji, zobacz [zarządzać wieloma subskrypcjami platformy Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 * Zakończenie przykładowego skryptu, który wdraża szablonu, zobacz [skrypt wdrożenia szablonu usługi Resource Manager](resource-manager-samples-cli-deploy.md).
 * Aby poznać sposób definiowania parametry w szablonie, zobacz [poznać strukturę i składni szablonów usługi Azure Resource Manager](resource-group-authoring-templates.md).

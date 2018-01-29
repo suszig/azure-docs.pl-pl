@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalowanie aktualizacji 5 na urządzeniu StorSimple
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 W tym samouczku przedstawiono sposób instalacji aktualizacji 5 na urządzeniu StorSimple uruchomiona starsza wersja oprogramowania za pośrednictwem portalu Azure i przy użyciu metody poprawki. Metoda poprawki jest używany podczas próby zainstalowania aktualizacji 5 na urządzeniu z systemem w wersji 3 przed aktualizacją. Metoda poprawki również jest używana, gdy brama jest skonfigurowany w interfejsie sieciowym innym niż dane 0 urządzenia StorSimple i są próby aktualizacji z wersji oprogramowania 1 przed aktualizacją.
 
@@ -56,10 +56,10 @@ Teraz zobaczysz, że są dostępne aktualizacje tryb konserwacji (ten komunikat 
 
 Dostępne są następujące wersje oprogramowania, które można uaktualnić za pomocą metody poprawki:
 
-* Zaktualizuj 0,1, 0,2, 0,3
-* Aktualizacja 1, 1.1 i 1.2
-* Aktualizacja 2, 2.1, 2.2
-* Aktualizacja 3 w wersji 3.1
+* Update 0.1, 0.2, 0.3
+* Update 1, 1.1, 1.2
+* Update 2, 2.1, 2.2
+* Update 3, 3.1
 * Aktualizacja 4
 
 > [!NOTE] 
@@ -77,7 +77,7 @@ Należy pobrać i zainstalować poniższe poprawki w określonej kolejności i s
 
 | Kolejność | KB | Opis | Typ aktualizacji | Godzina instalacji |Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Aktualizacja oprogramowania<br> Pobierz oba _HcsSfotwareUpdate.exe_ i _CisMSDAgent.exe_ |Regularne <br></br>Bezproblemowa |~ 25 minut. |FirstOrderUpdate|
+| 1. |KB4037264 |Aktualizacja oprogramowania<br> Pobierz oba _HcsSoftwareUpdate.exe_ i _CisMSDAgent.exe_ |Regularne <br></br>Bezproblemowa |~ 25 mins |FirstOrderUpdate|
 
 Aktualizowania z urządzenia z uruchomioną aktualizacji 4, wystarczy zainstalować aktualizacje zbiorcze systemu operacyjnego jako drugi aktualizacje kolejności.
 
@@ -89,16 +89,16 @@ W przypadku instalowania z urządzenia z uruchomioną aktualizacji 3 lub starszy
 
 | Kolejność | KB | Opis | Typ aktualizacji | Godzina instalacji |Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Sterownik LSI i aktualizacje oprogramowania układowego <br> Aktualizacja oprogramowania układowego należy (wersja 3.38) |Regularne <br></br>Bezproblemowa |~ 3 godziny <br> (dotyczy również 2A. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Sterownik LSI i aktualizacje oprogramowania układowego <br> Aktualizacja oprogramowania układowego należy (wersja 3.38) |Regularne <br></br>Bezproblemowa |~ 3 godziny <br> (dotyczy również 2A. + 2B. + 2C.)|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pakiet aktualizacji zabezpieczeń systemu operacyjnego <br> Pobierz wersję systemu Windows Server 2012 R2 |Regularne <br></br>Bezproblemowa |- |SecondOrderUpdate|
-| 2W. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz wersję systemu Windows Server 2012 R2 |Regularne <br></br>Bezproblemowa |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz wersję systemu Windows Server 2012 R2 |Regularne <br></br>Bezproblemowa |- |SecondOrderUpdate|
 
 
 Należy również zainstalować aktualizacje oprogramowania układowego dysku na wszystkich aktualizacji zamieszczone w poprzednich tabelach. Możesz sprawdzić, czy potrzebujesz aktualizacje oprogramowania układowego dysku, uruchamiając `Get-HcsFirmwareVersion` polecenia cmdlet. Jeśli używasz tych wersji oprogramowania układowego: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, a następnie nie trzeba zainstalować te aktualizacje.
 
 | Kolejność | KB | Opis | Typ aktualizacji | Godzina instalacji | Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Oprogramowanie układowe dysku |Konserwacji <br></br>Problem |~ 30 minut. | ThirdOrderUpdate |
+| 3. |KB4037263 |Oprogramowanie układowe dysku |Konserwacja <br></br>Problem |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 
@@ -112,6 +112,6 @@ Wykonaj poniższe kroki, aby pobrać i zainstalować poprawki.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [wersji aktualizacji 5](storsimple-update5-release-notes.md).
 

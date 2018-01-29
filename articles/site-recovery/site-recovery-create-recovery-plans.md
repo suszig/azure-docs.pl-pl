@@ -1,5 +1,5 @@
 ---
-title: "Tworzenie planów odzyskiwania dla trybu failover i odzyskiwania w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
+title: "Tworzyć i dostosowywać plany odzyskiwania dla trybu failover i odzyskiwania w usłudze Azure Site Recovery | Dokumentacja firmy Microsoft"
 description: "Opisuje, jak tworzyć i dostosowywać plany odzyskiwania w programie Azure Site Recovery w tryb failover i odzyskiwania maszyn wirtualnych i serwerów fizycznych"
 services: site-recovery
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 01/26/2018
 ms.author: raynew
-ms.openlocfilehash: 202e0ac8be36e9156ec16fadc1b722f4eb3d1432
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 9839a989246b28c1a194b8d1f0e99c1bd80ac2e5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-recovery-plans"></a>Tworzenie planów odzyskiwania
 
@@ -33,78 +33,120 @@ Zamieść wszelkie komentarze lub pytania pod tym artykułem lub na [forum Usłu
 * Model zależności między komputerami, grupując je do odzyskiwania Zaplanuj grupy. Na przykład do pracy awaryjnej i wyświetlić określonej aplikacji, możesz grupy wszystkich maszyn wirtualnych dla tej aplikacji w tej samej grupie planu odzyskiwania.
 * Uruchom tryb failover. Można uruchomić testu, planowane, ani nieplanowane przełączenie awaryjne, w ramach planu odzyskiwania.
 
+## <a name="why-use-recovery-plans"></a>Dlaczego warto używać planów odzyskiwania?
 
-## <a name="create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
+Plany odzyskiwania pomocne podczas procesu systematyczne odzyskiwania przez utworzenie małych jednostek niezależne, którymi można zarządzać. Te jednostki zazwyczaj będzie reprezentować aplikacji w danym środowisku. Plan odzyskiwania można nie tylko zdefiniować sekwencji, w którym uruchomić maszyny wirtualne, ale pomaga również automatyzacji typowych zadań podczas odzyskiwania.
+
+
+**Zasadniczo jednym ze sposobów Sprawdź, czy są przygotowane do migracji w chmurze lub odzyskiwania po awarii jest zapewnienie, że każdy aplikacji jest częścią planu odzyskiwania i każdy z planów odzyskiwania jest sprawdzane pod kątem odzyskiwania Microsoft Azure. Z tym gotowości bez obaw można migrować lub pracy awaryjnej pełną centrum danych do systemu Microsoft Azure.**
+ 
+Poniżej przedstawiono trzy propozycje wartości klucza w planie odzyskiwania:
+
+### <a name="model-an-application-to-capture-dependencies"></a>Model aplikacji do przechwytywania zależności
+
+Plan odzyskiwania jest grupy maszyn wirtualnych zwykle składającej się z aplikacji czy tryb failover razem. Konstruuje przy użyciu planu odzyskiwania, można rozszerzyć tę grupę, aby przechwycić właściwości specyficzne dla aplikacji.
+ 
+Daj nam zająć przykład typowa aplikacja trzy warstwy z
+
+* jeden wewnętrznej bazy danych SQL
+* jeden oprogramowania pośredniczącego
+* jedną witrynę sieci web frontonu
+
+Plan odzyskiwania można dostosować w taki sposób, aby upewnić się, że maszyny wirtualne znaleziona w odpowiedniej kolejności po przejściu w tryb failover. Wewnętrznej bazy danych SQL powinna pochodzić pierwszy, oprogramowanie pośredniczące powinno znaleziona dalej i frontonu sieci web powinna pochodzić się ostatnio. To zamówienie sprawia, że niektóre, że aplikacja działa przez czas, który ostatnia maszyna wirtualna funkcjonuje. Na przykład gdy oprogramowanie pośredniczące, próbuje nawiązać połączenia z warstwą SQL i planu odzyskiwania ma zapewnić warstwy SQL jest już uruchomiony. Serwerów frontonu powtarzający się ostatnio również zapewnia, że użytkownicy końcowi nie podłączaj do adresu URL aplikacji przez pomyłkę dopóki wszystkie składniki są uruchomione są uruchomione i jest gotowy do akceptowania żądań aplikacji. Aby utworzyć te zależności, można dostosować planu odzyskiwania, aby dodać grupy. Wybierz maszynę wirtualną i zmienić jej grupy, aby przenieść go między grupami.
+
+![Przykładowy plan odzyskiwania](./media/site-recovery-create-recovery-plans/rp.png)
+
+Po ukończeniu dostosowań można zwizualizować kolejnych kroków odzyskiwania. Poniżej przedstawiono kolejność czynności wykonywane w trybie failover planu odzyskiwania:
+
+* Najpierw jest krokiem zamykania, który próbuje wyłączyć maszyny wirtualne lokalnej (z wyjątkiem testowy tryb failover, gdy lokacja główna musi działać w dalszym ciągu)
+* Następnie wyzwala trybu failover wszystkich maszyn wirtualnych w planie odzyskiwania równolegle. Krok trybu failover przygotowuje dysków maszyn wirtualnych z replikowanych danych.
+* Na koniec grup uruchamiania wykonywania w ich kolejność, najpierw uruchamianie maszyn wirtualnych w każdej grupie — Grupa 1 następnie grupa 2, a na końcu grupy 3. Jeśli istnieje więcej niż jeden maszyn wirtualnych w dowolnej grupie (na przykład frontonu sieci web z równoważeniem obciążenia) wszystkich z nich są rozruchu się równolegle.
+
+**Sekwencjonowanie między grupami gwarantuje, że są honorowane zależności między warstwami różnych aplikacji i równoległości odpowiednim zwiększa RTO odzyskiwania aplikacji.**
+
+   > [!NOTE]
+   > Komputery, które są częścią pojedynczej grupy przejdzie w tryb failover równolegle. Komputery, które należą do różnych grup przejdzie w tryb failover w Odry grup. Tylko wtedy, gdy wszystkie komputery z grupy 1 zostały przełączone do trybu failover i uruchomiony, maszyn z grupy 2 rozpocznie się ich pracy awaryjnej.
+
+### <a name="automate-most-recovery-tasks-to-reduce-rto"></a>Większość zadań odzyskiwania, aby zmniejszyć RTO automatyzacji
+
+Odzyskiwanie dużych aplikacji może być złożonym zadaniem. Jest również trudno należy pamiętać, że kroki dokładne dostosowanie post trybu failover lub migracji. Czasami nie jest użytkownik, ale inną osobę nie rozpoznaje aplikacji mogli dokładnie zapoznać się, kto chce wyzwolić tryb failover. Zapamiętywanie trudno jest zbyt wiele wymagane ręczne wykonanie czynności w czasie chaos i błąd podatnych na błędy. Plan odzyskiwania zawiera sposobem zautomatyzowania wymagane akcje, które należy wykonać na każdym etapie, za pomocą elementów runbook automatyzacji Microsoft Azure. Z elementami runbook można zautomatyzować wspólne zadania odzyskiwania, takie jak przykłady podane poniżej. Te zadania, które nie mogły zostać zautomatyzowane plany odzyskiwania także umożliwić możliwość wstawiania działań ręcznych.
+
+* Zadania na maszynie wirtualnej Azure po pracy awaryjnej — zazwyczaj są to wymagane, dzięki czemu można połączyć z maszyną wirtualną, na przykład:
+    * Tworzenie publicznego adresu IP w tryb failover post maszyny wirtualnej
+    * Przypisanie grupy NSG do nieudane za pośrednictwem karty Sieciowej maszyny wirtualnej
+    * Dodaj usługi równoważenia obciążenia do zestawu dostępności
+* Zadania na maszynie wirtualnej po pracy awaryjnej — te zmiany konfiguracji aplikacji, dzięki czemu nadal działają prawidłowo w nowym środowisku, na przykład:
+    * Zmodyfikuj parametry połączenia bazy danych na maszynie wirtualnej
+    * Zmień reguły konfiguracji serwera sieci web
+
+**Plan odzyskiwania ukończone, który automatyzuje zadania odzyskiwania post za pomocą elementu runbook usługi Automatyzacja możesz osiągnąć trybu failover z jednym kliknięciem i zoptymalizować Docelowy.**
+
+### <a name="test-failover-to-be-ready-for-a-disaster"></a>Testowanie trybu failover będzie gotowa do awarii
+
+Planu odzyskiwania może służyć do wyzwolenia zarówno trybu failover lub test trybu failover. Należy zawsze wykonać test trybu failover na aplikacji przed wykonaniem trybu failover. Testowanie trybu failover pomaga sprawdzić, czy aplikacja zostanie znaleziona w lokacji odzyskiwania.  Jeśli pominięto coś, można łatwo wyzwolić oczyszczania i ponownie przeprowadzić test trybu failover. Do testowania trybu failover wielokrotnie, dopóki nie wiesz, z pewnością, który aplikacja przywraca sprawnie.
+
+![Plan odzyskiwania testu](./media/site-recovery-create-recovery-plans/rptest.png)
+
+**Każda aplikacja jest inne, a następnie należy utworzyć plany odzyskiwania, które są dostosowane do każdego. Ponadto w tym środowisku dynamicznym centrum danych aplikacji oraz ich zależności zachować zmiany. Testowanie trybu failover Sprawdź, czy bieżący plan odzyskiwania aplikacji raz na kwartał.**
+
+## <a name="how-to-create-a-recovery-plan"></a>Tworzenie planu odzyskiwania
 
 1. Kliknij przycisk **planów odzyskiwania** > **utworzenie planu odzyskiwania**.
-   Określ nazwę planu odzyskiwania i źródłowym i docelowym. Lokalizacja źródłowa musi mieć maszyn wirtualnych, które są włączone dla trybu failover i odzyskiwania.
+   Określ nazwę planu odzyskiwania i źródłowym i docelowym. Lokalizacja źródłowa musi mieć maszyn wirtualnych, które są włączone dla trybu failover i odzyskiwania. Wybierz źródło i cel oparte na maszynach wirtualnych, które mają być częścią planu odzyskiwania. 
 
-    - Dla programu VMM do replikacji programu VMM, wybierz **typ źródła** > **VMM**i serwerach VMM źródłowych i docelowych. Kliknij przycisk **funkcji Hyper-V** wyświetlić chmury, które są chronione.
-    - Dla programu VMM do platformy Azure, wybierz **typ źródła** > **VMM**.  Wybierz źródłowy serwer VMM i **Azure** jako element docelowy.
-    - W przypadku replikacji funkcji Hyper-V do platformy Azure (bez VMM) wybierz **typ źródła** > **lokacji funkcji Hyper-V**. Wybierz lokację jako źródła, a **Azure** jako element docelowy.
-    - Dla maszyny Wirtualnej VMware lub serwera lokalnego fizycznych do platformy Azure jako źródła, wybierz serwer konfiguracji i **Azure** jako element docelowy.
-    - Plan odzyskiwania Azure do platformy Azure wybierz region platformy Azure jako źródło i dodatkowej region platformy Azure jako element docelowy. Dodatkowej regiony platformy Azure są tylko te, dla których są chronione maszyny wirtualne.
-2. W **wybierz maszyny wirtualne**, wybierz maszyny wirtualne (lub grupa replikacji), który ma zostać dodany do domyślnej grupy (Grupa 1) w planie odzyskiwania.
+   |Scenariusz                   |Element źródłowy               |Obiekt docelowy           |
+   |---------------------------|---------------------|-----------------|
+   |Azure–Azure             |Region platformy Azure         |Region Azure     |
+   |VMware do platformy Azure            |Serwer konfiguracji |Azure            |
+   |Z programu VMM na platformę Azure               |Przyjazna nazwa programu VMM    |Azure            |
+   |Lokacji funkcji Hyper-v na platformę Azure      |Nazwa lokacji funkcji Hyper-v    |Azure            |
+   |Maszyn fizycznych do platformy Azure |Serwer konfiguracji |Azure            |
+   |Program VMM do programu VMM                 |Przyjazna nazwa programu VMM    |Przyjazna nazwa programu VMM|
 
-## <a name="customize-and-extend-recovery-plans"></a>Dostosowywanie i rozszerzanie planów odzyskiwania
+   > [!NOTE]
+   > Plan odzyskiwania może zawierać maszyn wirtualnych, które mają taką samą źródłowego i docelowego. Maszyny wirtualne VMware i program VMM nie może być częścią tego samego planu odzyskiwania. Maszyny wirtualne VMware i maszyn fizycznych, jednak mogą być dodawane do tego samego planu, jako źródło dla obu z nich jest serwer konfiguracji.
+
+2. W **wybierz maszyny wirtualne**, wybierz maszyny wirtualne (lub grupa replikacji), który ma zostać dodany do domyślnej grupy (Grupa 1) w planie odzyskiwania. Do wyboru mogą być tylko maszyny wirtualne, które były chronione w źródle (jako wybrane w planie odzyskiwania) i są chronione w miejscu docelowym (jako wybrane w planie odzyskiwania).
+
+## <a name="how-to-customize-and-extend-recovery-plans"></a>Sposób dostosowywania i rozszerzania planów odzyskiwania
+
+Można dostosować i rozszerzyć plany odzyskiwania, przechodząc do bloku zasobów planu odzyskiwania usługi Site Recovery i klikając kartę Dostosuj.
 
 Można dostosować i rozszerzyć planów odzyskiwania:
 
 - **Dodaj nowe grupy**— Dodawanie grup planu odzyskiwania dodatkowe (maksymalnie 7) do domyślnej grupy, a następnie dodaj więcej komputerów lub grup replikacji dla grup planu odzyskiwania. Grupy są numerowane w kolejności, w którym dodać. Maszyny wirtualnej lub grupy replikacji tylko mogą zostać włączone w grupie planu odzyskiwania jednego.
 - **Dodaj akcję ręczną**— można dodać ręczne akcje, które są uruchamiane przed lub po grupie planu odzyskiwania. Po uruchomieniu planu odzyskiwania przestaje w momencie, jaką dodaje akcji ręcznej. Okno dialogowe zostanie wyświetlony monit o określenie, że akcja ręczna została zakończona.
-- **Dodawanie skryptu**— można dodać skryptów uruchamianych przed lub po grupie planu odzyskiwania. Po dodaniu skrypt dodaje nowy zestaw akcje dla grupy. Na przykład, zostanie utworzony zestaw kroków wstępne 1 grupy o nazwie: Grupa 1: wstępne czynności. Wszystkie kroki przed będzie wyświetlane w tym zestawie. Skrypt można dodać w lokacji głównej, jeśli serwer VMM wdrożone.
+- **Dodawanie skryptu**— można dodać skryptów uruchamianych przed lub po grupie planu odzyskiwania. Po dodaniu skrypt dodaje nowy zestaw akcje dla grupy. Na przykład, zostanie utworzony zestaw kroków wstępne 1 grupy o nazwie: Grupa 1: wstępne czynności. Wszystkie kroki wstępne są wymienione w tym zestawie. Skrypt można dodać w lokacji głównej, jeśli serwer VMM wdrożone. [Dowiedz się więcej](site-recovery-how-to-add-vmmscript.md).
 - **Dodaj elementy runbook Azure**— można rozszerzyć plany odzyskiwania z elementów runbook platformy Azure. Na przykład w celu zautomatyzowania zadań lub utworzyć pojedynczy krok odzyskiwania. [Dowiedz się więcej](site-recovery-runbook-automation.md).
 
-## <a name="add-scripts"></a>Dodawanie skryptów
 
-Można użyć skryptów środowiska PowerShell w planów odzyskiwania.
+## <a name="how-to-add-a-script-runbook-or-manual-action-to-a-plan"></a>Jak dodać działanie skryptu, element runbook lub ręcznego do planu
 
- - Upewnij się, że skrypty używać bloków try-catch, tak aby bezpiecznie obsługi wyjątków.
-    - W przypadku wyjątku w skrypcie, przestaje działać, i pokazuje zadania nie powiodło się.
-    - Jeśli wystąpi błąd, pozostała część skrypt nie działa.
-    - Jeśli błąd wystąpi po uruchomieniu nieplanowanego trybu failover, nadal planu odzyskiwania.
-    - Jeśli wystąpi błąd podczas uruchamiania planowanego trybu failover, zatrzymuje planu odzyskiwania. Należy naprawić skryptu, sprawdź, czy działa zgodnie z oczekiwaniami, a następnie uruchom odzyskiwanie Zaplanuj ponownie.
-- Polecenie Write-Host nie działa w skryptu planu odzyskiwania, a skrypt zakończy się niepowodzeniem. Aby utworzyć dane wyjściowe, należy utworzyć skrypt serwera proxy, który z kolei uruchamia skrypt głównego. Upewnij się, że wszystkie dane wyjściowe jest przekazywany w potoku się przy użyciu >> polecenia.
-  * Limit czasu skryptu, jeśli nie zwraca w 600 sekund.
-  * Jeśli wszystko jest zapisywane do strumienia wyjściowego STDERR, skrypt jest klasyfikowany jako zakończony niepowodzeniem. Te informacje są wyświetlane w szczegółach wykonanie skryptu.
-
-Jeśli używasz programu VMM w ramach wdrożenia:
-
-* Skrypty w planie odzyskiwania są uruchamiane w kontekście konta usługi VMM. Upewnij się, że to konto ma uprawnienia do odczytu do udziału zdalnego, na którym zlokalizowany jest skrypt. Testowanie skryptu do uruchomienia na poziomie uprawnień konta usługi programu VMM.
-* Poleceń cmdlet programu VMM są dostarczane w moduł programu Windows PowerShell. Moduł jest zainstalowany, po zainstalowaniu konsoli programu VMM. Może być załadowany do skryptu, za pomocą następującego polecenia w skrypcie:
-   - Import-Module-Name virtualmachinemanager. [Dowiedz się więcej](https://technet.microsoft.com/library/hh875013.aspx).
-* Upewnij się, że co najmniej jednego serwera biblioteki w danym wdrożeniu programu VMM. Domyślnie ścieżkę udziału biblioteki na serwerze VMM znajduje się lokalnie na serwerze VMM MSCVMMLibrary nazwą folderu.
-    * Jeśli Twoje ścieżki udziału bibliotecznego jest zdalne (lub lokalnym, ale nie są udostępniane MSCVMMLibrary), skonfigurować udział w następujący sposób (przy użyciu \\libserver2.contoso.com\share\ jako przykład):
-      * Otwórz Edytor rejestru i przejdź do **Recovery\Registration lokacji HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure**.
-      * Edytuj wartość **ScriptLibraryPath** i umieszczenie go w formie \\libserver2.contoso.com\share\. Określ pełną nazwę FQDN. Podaj uprawnieniami do lokalizacji udziału. Należy pamiętać, że ten węzeł główny udziału. **Aby to sprawdzić, możesz wyszukać biblioteki w węźle głównym w programie VMM. Ścieżka, którego kliknięcie spowoduje otwarcie będzie główny ścieżki — jeden będą musieli używać w zmiennej**.
-      * Upewnij się, aby przetestować skrypt przy użyciu konta użytkownika, który ma te same uprawnienia jak konto usługi VMM. Sprawdza, że autonomiczny przetestować skrypty uruchamiane w taki sam sposób jak zostaną planów odzyskiwania. Na serwerze programu VMM ustawienie zasad wykonywania, aby pominąć w następujący sposób:
-        * Otwórz **64-bitowego systemu Windows PowerShell** konsoli, korzystając z podwyższonym poziomem uprawnień.
-        * Typ: **obejścia Set-executionpolicy**. [Dowiedz się więcej](https://technet.microsoft.com/library/ee176961.aspx).
-
-> [!IMPORTANT]
-> Należy ustawić zasady wykonywania na obejście na programu powershell 64-bitowych. Jeśli ustawiono go dla programu powershell 32-bitowy, skrypty będą nie exeute.
-
-## <a name="add-a-script-or-manual-action-to-a-plan"></a>Dodaj akcję skryptu lub ręcznie do planu
-
-Skrypt można dodać do domyślnej grupy planu odzyskiwania po utworzeniu dodane do niej maszyny wirtualne lub grup replikacji i utworzony plan.
+Skrypt lub akcji ręcznej można dodać do domyślnej grupy planu odzyskiwania po utworzeniu dodane do niej maszyny wirtualne lub grup replikacji i utworzony plan.
 
 1. Otwórz planu odzyskiwania.
 2. Kliknij element **krok** , a następnie kliknij przycisk **skryptu** lub **Akcja ręczna**.
-3. Określ, czy chcesz dodać skrypt lub akcji przed lub po wybranego elementu. Użyj **Przenieś w górę** i **Przenieś w dół** przyciski przeniesienia pozycji skryptu w górę lub w dół.
+3. Określ, czy chcesz dodać skrypt lub akcji przed lub po wybranego elementu. Aby przenieść pozycji skryptu w górę lub w dół, użyj **Przenieś w górę** i **Przenieś w dół** przycisków.
 4. Jeśli dodasz skryptu programu VMM, wybierz **trybu Failover do skryptu VMM**. W **ścieżka skryptu**, wpisz względną ścieżkę do udziału. W poniższym przykładzie programu VMM, określ ścieżkę: **\RPScripts\RPScript.PS1**.
 5. Po dodaniu usługi Automatyzacja Azure Uruchom książki Określ konto usługi Automatyzacja Azure, w której znajduje się element runbook, a następnie wybierz skrypt odpowiednich elementów runbook platformy Azure.
-6. Czy tryb failover planu odzyskiwania, aby upewnić się, że skrypt działa zgodnie z oczekiwaniami.
+6. Aby upewnić się, że skrypt działa zgodnie z oczekiwaniami, czy tryb failover planu odzyskiwania.
+
+Opcje skryptu lub elementu runbook są dostępne tylko w następujących scenariuszach, w trakcie pracy awaryjnej lub powrotu po awarii. Ręczna akcja jest dostępna dla trybu failover i powrotu po awarii.
 
 
-### <a name="add-a-vmm-script"></a>Skrypt programu VMM
+|Scenariusz               |Tryb failover |Powrót po awarii |
+|-----------------------|---------|---------|
+|Azure–Azure         |Elementy Runbook |Element Runbook  |
+|VMware do platformy Azure        |Elementy Runbook |Nie dotyczy       | 
+|Z programu VMM na platformę Azure           |Elementy Runbook |Skrypt   |
+|Lokacji funkcji Hyper-v na platformę Azure  |Elementy Runbook |Nie dotyczy       |
+|Program VMM do programu VMM             |Skrypt   |Skrypt   |
 
-Lokację źródłową programu VMM można utworzyć skrypt na serwerze programu VMM i dołącz ją do planu odzyskiwania.
 
-1. Utwórz nowy folder w udziale biblioteki. Na przykład \<nazwa > \MSSCVMMLibrary\RPScripts. Umieść go w źródle i VMM serwery docelowe.
-2. Utwórz skrypt (na przykład RPScript), a następnie sprawdź, czy działa on zgodnie z oczekiwaniami.
-3. Umieść skrypt w lokalizacji \<nazwa > \MSSCVMMLibrary na serwerach VMM źródłowych i docelowych.
-
-
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dowiedz się więcej](site-recovery-failover.md) dotyczące uruchamiania trybu failover.
+
+Obejrzyj ten film, aby zobaczyć odzyskiwania plan działania.
+
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]

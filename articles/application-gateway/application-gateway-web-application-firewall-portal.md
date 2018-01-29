@@ -1,166 +1,171 @@
 ---
-title: "Utwórz lub zaktualizuj bramę aplikacji za pomocą zapory aplikacji sieci web | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu"
+title: "Utwórz bramę aplikacji z zapory aplikacji sieci web - portalu Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web przy użyciu portalu Azure
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-web-application-firewall-portal.md)
-> * [Program PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Interfejs wiersza polecenia platformy Azure](application-gateway-web-application-firewall-cli.md)
+Azure portal umożliwia tworzenie [brama aplikacji w](application-gateway-introduction.md) z [zapory aplikacji sieci web](application-gateway-web-application-firewall-overview.md) (WAF). Używa zapory aplikacji sieci Web [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) zasady ochrony aplikacji. Reguły obejmują ochronę przed ataki, takie jak iniekcja kodu SQL, atakami skryptów między witrynami i hijacks sesji.
 
-Dowiedz się, jak utworzyć zapory aplikacji sieci web (WAF)-włączone bramy aplikacji.
+W tym artykule dowiesz się, jak:
 
-Zapory aplikacji sieci Web w brama aplikacji w usłudze Azure chroni aplikacje sieci web przed wspólnej ataków opartych na sieci web takich jak iniekcja kodu SQL, ataki skryptów między witrynami i hijacks sesji. Zapory aplikacji sieci Web chroni przed wiele OWASP top 10 wspólnej sieci web luk w zabezpieczeniach.
+> [!div class="checklist"]
+> * Utwórz bramę aplikacji z zapory aplikacji sieci Web jest włączona
+> * Tworzenie maszyn wirtualnych, używane jako serwery wewnętrznej bazy danych
+> * Utwórz konto magazynu i skonfigurować diagnostykę
 
-## <a name="scenarios"></a>Scenariusze
+![Przykład zapory aplikacji sieci Web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-W tym artykule przedstawiono dwa scenariusze. W przypadku pierwszego scenariusza, możesz dowiedzieć się, jak [Utwórz bramę aplikacji z zapory aplikacji sieci Web](#create-an-application-gateway-with-web-application-firewall). W tym scenariuszu drugiego, możesz dowiedzieć się, jak [Dodawanie zapory aplikacji sieci Web do istniejącej bramy aplikacji](#add-web-application-firewall-to-an-existing-application-gateway).
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-![Przykładowy scenariusz][scenario]
+Zaloguj się do portalu Azure pod adresem [http://portal.azure.com](http://portal.azure.com)
 
-> [!NOTE]
-> Można dodać sondy kondycji niestandardowych, adresy w puli zaplecza i dodatkowe reguły na bramie aplikacji. Te aplikacje są skonfigurowane, po skonfigurowaniu bramy aplikacji i nie podczas pierwszego wdrożenia.
+## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+Sieć wirtualna jest wymagany dla komunikacji między zasobami, które można utworzyć. Dwie podsieci są tworzone w tym przykładzie: jeden dla bramy aplikacji, a drugi dla serwerów zaplecza. W tym samym czasie utworzonego bramy aplikacji może utworzyć sieć wirtualną.
 
- Brama aplikacji wymaga jego własnej podsieci. Po utworzeniu sieci wirtualnej, upewnij się, pozostawienie wystarczającej przestrzeni adresowej do mają wiele podsieci. Po wdrożeniu bramę aplikacji do podsieci bramy tylko dodatkowych aplikacji można dodać do podsieci.
+1. Kliknij przycisk **nowy** znaleziono w lewym górnym rogu portalu Azure.
+2. Wybierz **sieci** , a następnie wybierz **brama aplikacji w** na liście duży.
+3. Wprowadź wartości dla bramy aplikacji:
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Dodawanie zapory aplikacji sieci web do istniejącej bramy aplikacji
+    - *myAppGateway* — nazwa bramy aplikacji.
+    - *myResourceGroupAG* — dla nowej grupy zasobów.
+    - Wybierz *WAF* dla warstwy bramy aplikacji.
 
-W tym przykładzie aktualizuje istniejącą bramę aplikacji do obsługi zapory aplikacji sieci Web w **zapobiegania** tryb.
+    ![Utwórz nową bramę aplikacji](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-1. W portalu Azure **ulubione** okienku wybierz **wszystkie zasoby**. Na **wszystkie zasoby** bloku, wybierz istniejącą bramę aplikacji. Jeśli subskrypcja już ma kilka zasobów, wprowadź nazwę w **Filtruj według nazwy** pole, aby łatwo uzyskać dostęp do strefy DNS.
+4. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
+5. Kliknij przycisk **wybierz sieć wirtualną**, kliknij przycisk **Utwórz nowy**, a następnie wprowadź wartości dla sieci wirtualnej:
 
-   ![Wybrane bramy aplikacji][1]
+    - *myVNet* — dla nazwy sieci wirtualnej.
+    - *10.0.0.0/16* — do przestrzeni adresowej sieci wirtualnej.
+    - *myAGSubnet* — dla nazwy podsieci.
+    - *10.0.0.0/24* — do przestrzeni adresowej podsieci.
 
-2. Wybierz **zapory aplikacji sieci Web**i zaktualizuj ustawienia bramy aplikacji. Po zakończeniu aktualizacji, zaznacz **zapisać**. 
+    ![Tworzenie sieci wirtualnej](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-3. Aby zaktualizować istniejącą bramę aplikacji do obsługi zapory aplikacji sieci Web, użyj następujących ustawień:
+6. Kliknij przycisk **OK** do tworzenia sieci wirtualnej i podsieci.
+7. Kliknij przycisk **wybierz publiczny adres IP**, kliknij przycisk **Utwórz nowy**, a następnie wprowadź nazwę publicznego adresu IP. W tym przykładzie publiczny adres IP o nazwie *myAGPublicIPAddress*. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **OK**.
+8. Zaakceptuj wartości domyślne w konfiguracji odbiornika, pozostaw zapory aplikacji sieci Web, które są wyłączone, a następnie kliknij **OK**.
+9. Przejrzyj ustawienia na stronie Podsumowanie, a następnie kliknij przycisk **OK** tworzyć zasoby sieciowe i bramy aplikacji. Może upłynąć kilka minut dla bramy aplikacji można utworzyć, poczekaj na wdrożenie zakończy się pomyślnie przed przejściem do następnej sekcji.
 
-   | **Ustawienie** | **Wartość** | **Szczegóły**
-   |---|---|---|
-   |**Uaktualnij do planu zapory aplikacji sieci Web**| Zaznaczone | Ta opcja umożliwia ustawienie warstwy brama aplikacji w warstwie zapory aplikacji sieci Web.|
-   |**Stan zapory**| Enabled (Włączony) | To ustawienie umożliwia włączenie zapory na zapory aplikacji sieci Web.|
-   |**Trybie zapory** | Zapobieganie | To ustawienie jest sposób obsługi zapory aplikacji sieci Web z szkodliwy ruch. **Wykrywanie** tryb tylko dzienniki zdarzeń. **Zapobieganie** tryb dzienniki zdarzeń i zatrzymuje szkodliwy ruch.|
-   |**Zestaw reguł**|3.0|To ustawienie określa [podstawowego zestawu reguł](application-gateway-web-application-firewall-overview.md#core-rule-sets) używany do ochrony członków puli zaplecza.|
-   |**Konfigurowanie reguł wyłączone**|Zmienia się|Aby uniknąć możliwych fałszywych alarmów, można to ustawienie wyłączyć niektórych [reguł i grup reguł](application-gateway-crs-rulegroups-rules.md).|
+### <a name="add-a-subnet"></a>Dodaj podsieć
 
-    >[!NOTE]
-    > Po uaktualnieniu istniejącą bramę aplikacji do jednostki SKU zapory aplikacji sieci Web, rozmiar jednostki SKU zmienia się na **średni**. Po zakończeniu konfiguracji, można ponownie skonfigurować to ustawienie.
+1. Kliknij przycisk **wszystkie zasoby** w menu po lewej stronie, a następnie kliknij przycisk **myVNet** na liście zasobów.
+2. Kliknij przycisk **podsieci**, a następnie kliknij przycisk **podsieci**.
 
-    ![Ustawienia podstawowe][2-1]
+    ![Utwórz podsieć](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-    > [!NOTE]
-    > Aby wyświetlić dzienniki zapory aplikacji sieci Web, Włącz diagnostykę i wybierz **ApplicationGatewayFirewallLog**. Wybierz wystąpienia **1** tylko do celów testowych. Nie zaleca się liczba wystąpień, w obszarze **2** , ponieważ nie jest objęta umowy SLA. Mała bram nie są dostępne, gdy używasz zapory aplikacji sieci Web.
+3. Wprowadź *myBackendSubnet* dla nazwy podsieci, a następnie kliknij przycisk **OK**.
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Utwórz bramę aplikacji za pomocą zapory aplikacji sieci web
+## <a name="create-backend-servers"></a>Utwórz serwerów wewnętrznej bazy danych
 
-W tym scenariuszu obejmują:
+W tym przykładzie utworzysz dwie maszyny wirtualne do użycia jako serwery zaplecza bramy aplikacji. Należy również zainstalować usług IIS na maszynach wirtualnych, aby sprawdzić, czy brama aplikacji została pomyślnie utworzona.
 
-* Utwórz bramę aplikacji średnia zapory aplikacji sieci Web z dwoma wystąpieniami.
-* Tworzenie sieci wirtualnej o nazwie AdatumAppGatewayVNET z zarezerwowanym blokiem CIDR 10.0.0.0/16.
-* Tworzenie podsieci o nazwie Appgatewaysubnet używającej bloku 10.0.0.0/28 jako bloku CIDR.
-* Konfigurowanie certyfikatu dla odciążania protokołu SSL.
+### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz już konto, możesz zarejestrować się w celu [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/free).
+1. Kliknij przycisk **Nowy**.
+2. Kliknij przycisk **obliczeniowe** , a następnie wybierz **systemu Windows Server 2016 Datacenter** na liście duży.
+3. Wprowadź wartości dla maszyny wirtualnej:
 
-2. W **ulubione** okienku w portalu, wybierz opcję **nowy**.
+    - *myVM* — Nazwa maszyny wirtualnej.
+    - *azureuser* — nazwa użytkownika administratora.
+    - *Azure123456!* hasła.
+    - Wybierz **Użyj istniejącego**, a następnie wybierz *myResourceGroupAG*.
 
-3. Na **nowy** bloku, wybierz opcję **sieci**. Na **sieci** bloku, wybierz opcję **brama aplikacji w**, jak pokazano na poniższej ilustracji:
+4. Kliknij przycisk **OK**.
+5. Wybierz **DS1_V2** dla rozmiaru maszyny wirtualnej, a następnie kliknij przycisk **wybierz**.
+6. Upewnij się, że **myVNet** został wybrany do sieci wirtualnej i podsieci jest **myBackendSubnet**. 
+7. Kliknij przycisk **wyłączone** wyłączyć diagnostyki rozruchu.
+8. Kliknij przycisk **OK**Przejrzyj ustawienia na stronie Podsumowanie, a następnie kliknij przycisk **Utwórz**.
 
-    ![Tworzenie bramy aplikacji][1]
+### <a name="install-iis"></a>Zainstaluj usługi IIS
 
-4. Na **podstawy** bloku, zostanie wyświetlone, wprowadź następujące wartości, a następnie wybierz **OK**:
+1. Otwórz powłokę interakcyjne i upewnij się, że jest ustawiona na **PowerShell**.
 
-   | **Ustawienie** | **Wartość** | **Szczegóły**
-   |---|---|---|
-   |**Nazwa**|AdatumAppGateway|Nazwa bramy aplikacji.|
-   |**Warstwy**|Zapora aplikacji sieci Web|Dostępne wartości to Standard i zapory aplikacji sieci Web. Aby dowiedzieć się więcej na temat zapory aplikacji sieci Web, zobacz [zapory aplikacji sieci Web](application-gateway-web-application-firewall-overview.md).|
-   |**Rozmiar jednostki SKU**|Medium|Opcje warstwy standardowa **małych**, **średni**, i **duży**. Opcje warstwy zapory aplikacji sieci Web są **średni** i **duży** tylko.|
-   |**Liczba wystąpień**|2|Liczba wystąpień brama aplikacji w celu zapewnienia wysokiej dostępności. Użyj liczby wystąpień 1 tylko do celów testowych.|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję na potrzeby utworzenia bramy aplikacji.|
-   |**Grupa zasobów**|**Utwórz nowy:** AdatumAppGatewayRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
-   |**Lokalizacja**|Zachodnie stany USA||
+    ![Zainstaluj rozszerzenia niestandardowego](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-   ![Podstawowe ustawienia konfiguracji][2-2]
+2. Uruchom następujące polecenie, aby zainstalować usługi IIS na maszynie wirtualnej: 
 
-5. Na **ustawienia** bloku, który jest wyświetlany w obszarze **sieci wirtualnej**, wybierz pozycję **wybierz sieć wirtualną**. Na **sieci wirtualnej wybierz** bloku, wybierz opcję **Utwórz nowy**.
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-   ![Wybór sieci wirtualnej][2]
+3. Utwórz maszynę wirtualną drugiej i zainstaluj usługi IIS, wykonując kroki, które właśnie zostało zakończone. Wprowadź *myVM2* dla nazwy i VMName w AzureRmVMExtension zestawu.
 
-6. Na **bloku sieci wirtualnej Utwórz**, wprowadź następujące wartości, a następnie wybierz **OK**. **Podsieci** na **ustawienia** bloku jest wypełniane przy użyciu wybranej podsieci.
+### <a name="add-backend-servers"></a>Dodawanie serwerów wewnętrznej bazy danych
 
-   |**Ustawienie** | **Wartość** | **Szczegóły** |
-   |---|---|---|
-   |**Nazwa**|AdatumAppGatewayVNET|Nazwa bramy aplikacji.|
-   |**Przestrzeń adresowa**|10.0.0.0/16| Ta wartość jest przestrzeni adresowej dla sieci wirtualnej.|
-   |**Nazwa podsieci**|AppGatewaySubnet|Nazwa podsieci bramy aplikacji.|
-   |**Zakres adresów podsieci**|10.0.0.0/28 | Ta podsieć umożliwia więcej dodatkowe podsieci w sieci wirtualnej dla członków puli zaplecza.|
+1. Kliknij przycisk **wszystkie zasoby**, a następnie kliknij przycisk **myAppGateway**.
+2. Kliknij przycisk **pul zaplecza**. Domyślna pula został utworzony automatycznie z bramy aplikacji. Kliknij przycisk **appGateayBackendPool**.
+3. Kliknij przycisk **docelowy Dodaj** dodawania każdej maszyny wirtualnej, który został utworzony do puli wewnętrznej bazy danych.
 
-7. Na **ustawienia** bloku w obszarze **konfiguracji IP frontonu**, wybierz pozycję **publicznego** jako **typ adresu IP**.
+    ![Dodawanie serwerów wewnętrznej bazy danych](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-8. Na **ustawienia** bloku w obszarze **publicznego adresu IP**, wybierz pozycję **wybierz publiczny adres IP**. Na **wybierz publiczny adres IP** bloku, wybierz opcję **Utwórz nowy**.
+4. Kliknij pozycję **Zapisz**.
 
-   ![Publiczny Wybór adresu IP][3]
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Utwórz konto magazynu i skonfigurować diagnostykę
 
-9. Na **tworzenie publicznego adresu IP** bloku, zaakceptuj wartość domyślną, a następnie wybierz **OK**. **Publicznego adresu IP** pole jest wypełniane przy użyciu publicznego adresu IP wybrana.
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-10. Na **ustawienia** bloku w obszarze **konfiguracji odbiornika**, wybierz pozycję **HTTP** w obszarze **protokołu**. Certyfikat jest wymagany do użycia **HTTPS**. Klucz prywatny certyfikatu jest wymagana. Podaj do eksportu pliku PFX certyfikatu, a następnie wprowadź hasło dla pliku.
+W tym samouczku aplikacji przy użyciu brama konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Analiza dzienników lub Centrum zdarzeń można użyć również do rejestrowania danych.
 
-11. Skonfigurować ustawienia specyficzne dla **WAF**.
+1. Kliknij przycisk **nowy** znaleziono w lewym górnym rogu portalu Azure.
+2. Wybierz **magazynu**, a następnie wybierz **konta magazynu — obiekt blob, plików, tabeli, kolejki**.
+3. Wprowadź nazwę konta magazynu, wybierz opcję **Użyj istniejącego** dla grupy zasobów, a następnie wybierz **myResourceGroupAG**. W tym przykładzie nazwa konta magazynu jest *myagstore1*. Zaakceptuj wartości domyślne dla innych ustawień, a następnie kliknij przycisk **Utwórz**.
 
-   |**Ustawienie** | **Wartość** | **Szczegóły** |
-   |---|---|---|
-   |**Stan zapory**| Enabled (Włączony)| To ustawienie włącza zapory aplikacji sieci Web lub wyłącz.|
-   |**Trybie zapory** | Zapobieganie| To ustawienie określa akcje, które przyjmuje zapory aplikacji sieci Web w szkodliwy ruch. **Wykrywanie** tryb tylko dzienników ruchu. **Zapobieganie** tryb dzienniki i zatrzymuje ruchu z nieautoryzowanego odpowiedź 403.|
+## <a name="configure-diagnostics"></a>Skonfiguruj diagnostyki
 
+Skonfiguruj diagnostykę, aby zapisać dane w dzienniku ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog.
 
-12. Przegląd **Podsumowanie** i wybrać opcję **OK**. Brama aplikacji jest teraz w kolejce, a utworzona.
+1. W menu po lewej stronie kliknij **wszystkie zasoby**, a następnie wybierz *myAppGateway*.
+2. W obszarze monitorowania, kliknij przycisk **dzienników diagnostycznych**.
+3. Kliknij przycisk **Dodaj ustawienie diagnostyczne**.
+4. Wprowadź *myDiagnosticsSettings* jako nazwy ustawień diagnostycznych.
+5. Wybierz **archiwum na konto magazynu**, a następnie kliknij przycisk **Konfiguruj** wybierz *myagstore1* konta magazynu, która została wcześniej utworzona.
+6. Wybierz dzienniki bramy aplikacji do zbierania i zachowania.
+7. Kliknij pozycję **Zapisz**.
 
-13. Po zastosowaniu utworzono bramę, przejdź do niego w portalu, aby kontynuować konfigurację bramy aplikacji.
+    ![Skonfiguruj diagnostyki](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-    ![Widok zasobów bramy aplikacji][10]
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Te kroki Utwórz bramę aplikacji w warstwie podstawowa z domyślnych ustawień odbiornika, puli zaplecza, ustawienia HTTP zaplecza i zasady. Pomyślnie, po zakończeniu inicjowania obsługi administracyjnej można zmodyfikować te ustawienia do potrzeb wdrożenia.
+1. Znajdź publicznego adresu IP dla bramy aplikacji na ekran Przegląd. Kliknij przycisk **wszystkie zasoby** , a następnie kliknij przycisk **myAGPublicIPAddress**.
 
-> [!NOTE]
-> Bramy aplikacji utworzonych za pomocą podstawową konfigurację zapory aplikacji sieci Web są skonfigurowane z CRS 3.0 do ochrony.
+    ![Zarejestruj publiczny adres IP bramy aplikacji](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+
+2. Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki.
+
+    ![Brama aplikacji w testu](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Kolejne kroki
 
-Aby skonfigurować alias domeny niestandardowej dla [publicznego adresu IP](../dns/dns-custom-domain.md#public-ip-address), możesz użyć usługi Azure DNS lub innego dostawcy usługi DNS.
+W tym artykule przedstawiono sposób:
 
-Aby skonfigurować rejestrowanie diagnostyczne do dziennika zdarzeń, które wykryte lub uniemożliwił z zapory aplikacji sieci Web, zobacz [diagnostyki bramy aplikacji](application-gateway-diagnostics.md).
+> [!div class="checklist"]
+> * Utwórz bramę aplikacji z zapory aplikacji sieci Web jest włączona
+> * Tworzenie maszyn wirtualnych, używane jako serwery wewnętrznej bazy danych
+> * Utwórz konto magazynu i skonfigurować diagnostykę
 
-Aby utworzyć sondy kondycji niestandardowych, zobacz [utworzyć sondy kondycji niestandardowych](application-gateway-create-probe-portal.md).
-
-Aby skonfigurować odciążanie protokołu SSL, a następnie kosztowne subskrypcji SSL poza serwerów sieci web, zobacz [odciążania skonfigurować protokół SSL](application-gateway-ssl-portal.md).
-
-<!--Image references-->
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[2-1]: ./media/application-gateway-web-application-firewall-portal/figure2-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
+Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.

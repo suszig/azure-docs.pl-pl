@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Obsługiwane usługi, schematy i kategorie dzienników diagnostycznych platformy Azure
 
@@ -34,12 +34,12 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 | Bramy Application Gateway |[Rejestrowania diagnostyki bramy aplikacji](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Analizy dzienników dla usługi Automatyzacja Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure rejestrowania diagnostycznego partii](../batch/batch-diagnostics.md) |
-| Informacje na temat technologii klienta | Schemat nie jest dostępna. |
+| Customer Insights | Schemat nie jest dostępna. |
 | Content Delivery Network | Schemat nie jest dostępna. |
 | CosmosDB | [Rejestrowanie Azure rozwiązania Cosmos bazy danych](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) (Dostęp do dzienników diagnostycznych usługi Azure Data Lake Analytics) |
 | Data Lake Store |[Uzyskiwanie dostępu do dzienników diagnostycznych dla usługi Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Usługa Event Hubs |[Azure Event Hubs dzienników diagnostycznych](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Event Hubs |[Azure Event Hubs dzienników diagnostycznych](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Usługa IoT Hub | [Operacje Centrum IoT](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Usługa Key Vault |[Funkcja rejestrowania usługi Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Moduł równoważenia obciążenia |[Analiza dzienników dotyczących usługi Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
@@ -57,7 +57,6 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dziennika na typ zasobu
 |Typ zasobu|Kategoria|Nazwa wyświetlana kategorii|
 |---|---|---|
-|Microsoft.aadiam/tenants|Zaloguj|Zaloguj|
 |Microsoft.AnalysisServices/servers|Aparat|Aparat|
 |Microsoft.AnalysisServices/servers|Usługa|Usługa|
 |Microsoft.ApiManagement/service|GatewayLogs|Dzienniki związane z ApiManagement bramy|
@@ -65,9 +64,9 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Automation/automationAccounts|JobStreams|Strumienie zadania|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stan węzła DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Dzienniki usługi|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki punktu końcowego, np. przepustowości, transfer danych wychodzących,... itd.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Pobiera metryki punktu końcowego (np. przepustowość, ruch wychodzący itd.).|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
-|Microsoft.DataFactory/factories|Uruchomień|Dziennik uruchamia aktywności w potoku|
+|Microsoft.DataFactory/factories|ActivityRuns|Dziennik uruchamia aktywności w potoku|
 |Microsoft.DataFactory/factories|PipelineRuns|Potok jest uruchamiane dziennika|
 |Microsoft.DataFactory/factories|TriggerRuns|Wyzwalacz uruchamia dziennika|
 |Microsoft.DataLakeAnalytics/accounts|Inspekcja|Dzienniki inspekcji|
@@ -93,7 +92,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.EventHub/namespaces|OperationalLogs|Operacyjne dzienniki|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Dzienniki skalowania automatycznego|
 |Microsoft.KeyVault/vaults|AuditEvent|Dzienniki inspekcji|
-|Microsoft.Logic/workflows|Obiekt WorkflowRuntime|Zdarzenia diagnostyczne środowiska wykonawczego przepływów pracy|
+|Microsoft.Logic/workflows|WorkflowRuntime|Zdarzenia diagnostyczne środowiska wykonawczego przepływów pracy|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Zdarzenia śledzenia konta integracji|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Zdarzenie sieciowej grupy zabezpieczeń|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Licznik reguł sieciowej grupy zabezpieczeń|
@@ -111,11 +110,13 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Menedżer ruchu sondy kondycji wyniki zdarzenia|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela GWM liczników|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Kopia zapasowa Azure danych raportowania|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Zadania usługi Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Usługi Azure Site Recovery zdarzenia|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementy replikowane usługi Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Usługi Azure Site Recovery replikacji statystyki|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punkty odzyskiwania odzyskiwania lokacji Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Szybkość przekazywanie danych replikacji usługi Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Przenoszenie danych dysku chronionych usługi Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Dzienniki operacji |
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operacyjne dzienniki|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Magazyn zapytań statystyk czasu wykonywania|
@@ -125,6 +126,7 @@ Schemat dla dzienników diagnostycznych zasobu różni się w zależności od ka
 |Microsoft.Sql/servers/databases|Limity czasu|Limity czasu|
 |Microsoft.Sql/servers/databases|Bloki|Bloki|
 |Microsoft.Sql/servers/databases|SQLInsights|Informacje na temat technologii SQL|
+|Microsoft.Sql/servers/databases|Inspekcja|Dzienniki inspekcji|
 |Microsoft.StreamAnalytics/streamingjobs|Wykonywanie|Wykonywanie|
 |Microsoft.StreamAnalytics/streamingjobs|Tworzenie|Tworzenie|
 

@@ -1,10 +1,10 @@
 ---
-title: "Sprawdź łączność z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśniono, jak przetestowanie łączności z obserwatora sieciowego przy użyciu programu PowerShell"
+title: "Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure - PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak korzystać z połączenia Rozwiązywanie problemów z możliwości obserwatora sieciowego Azure przy użyciu programu PowerShell."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Sprawdź łączność z obserwatora sieciowego Azure przy użyciu programu PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
-Dowiedz się, jak używać łączności, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
+Dowiedz się, jak używać połączenia Rozwiązywanie problemów, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-W tym artykule przyjęto założenie, że masz następujące zasoby:
-
-* Wystąpienie obserwatora sieciowego w regionie, aby sprawdzić łączność.
-
-* Sprawdź łączność z maszyn wirtualnych.
+* Wystąpienie obserwatora sieciowego w regionie rozwiązywania problemów z połączeniem.
+* Rozwiązywanie problemów z połączeniami z maszyn wirtualnych.
 
 > [!IMPORTANT]
-> Sprawdź łączność wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Rozwiązywanie problemów z połączenia wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Sprawdź połączenie z maszyną wirtualną
 
-W tym przykładzie służy do sprawdzania łączności do docelowej maszyny wirtualnej za pośrednictwem portu 80. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
+W tym przykładzie sprawdza połączenie do docelowej maszyny wirtualnej za pośrednictwem portu 80. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
 
 ### <a name="example"></a>Przykład
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Sprawdź poprawność routingu problemów
 
-Przykład służy do sprawdzania łączności między maszyną wirtualną i zdalny punkt końcowy. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
+W tym przykładzie sprawdza łączność między maszyną wirtualną i zdalny punkt końcowy. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
 
 ### <a name="example"></a>Przykład
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Sprawdź łączność z punktu końcowego magazynu
 
-Poniższy przykład sprawdza łączność z maszyny wirtualnej na blogu konto magazynu. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
+Poniższy przykład służy do sprawdzania łączności z maszyny wirtualnej na blogu konto magazynu. W tym przykładzie wymaga obserwatora sieciowego włączony w regionie zawierający źródłowej maszyny Wirtualnej.  
 
 ### <a name="example"></a>Przykład
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 Następujący kod json jest przykład odpowiedzi z uruchomienie poprzedniego polecenia cmdlet. Jako miejsce docelowe jest osiągalny, `ConnectionStatus` właściwość pokazuje, jak **osiągalne**.  Podano szczegółowe informacje dotyczące liczby przeskoków niezbędnych do magazynu obiektów blob i opóźnień.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -305,24 +302,8 @@ Hops             : [
                    ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Znajdź, jeśli niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, odwiedzając [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md)
+Określić, czy niektórych ruch jest dozwolony w lub z maszyny Wirtualnej, przechodząc [Sprawdź przepływ Sprawdź IP](network-watcher-check-ip-flow-verify-portal.md).
 
 Jeśli ruch jest blokowane i nie należy, zobacz [Zarządzaj grupami zabezpieczeń sieci](../virtual-network/virtual-network-manage-nsg-arm-portal.md) śledzić reguły zabezpieczeń sieciowych grupy i zabezpieczeń zdefiniowane.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

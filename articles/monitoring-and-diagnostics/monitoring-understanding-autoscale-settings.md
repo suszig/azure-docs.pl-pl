@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Zrozumienie Ustawienia skalowania automatycznego
 Ustawienia skalowania automatycznego umożliwiają upewnij się, że masz jednostkom zasoby z uruchomionym obsłużyć wahania obciążenia aplikacji. Można skonfigurować ustawienia skalowania automatycznego wyzwolenie w oparciu metryki, które wskazują obciążenia lub wydajności, wyzwalacza lub w zaplanowanym czasie. Ten artykuł przedstawia szczegółowe anatomia ustawieniu skalowania automatycznego. Artykuł rozpoczyna się od zrozumienia schematu i właściwości ustawienia, a następnie przeprowadzi Cię przez typy innego profilu, które można skonfigurować, a na koniec omówiono sposób skalowania automatycznego ocenia profil, który można wykonać w dowolnym momencie.
@@ -100,21 +100,21 @@ Aby zilustrować schematu Ustawienia skalowania automatycznego, następujące us
 | Ustawienie | ID | Identyfikator zasobu w ustawieniu skalowania automatycznego. Ustawienia skalowania automatycznego są zasobów usługi Azure Resource Manager. |
 | Ustawienie | name | Nazwa ustawienia skalowania automatycznego. |
 | Ustawienie | location | Lokalizacja w ustawieniu skalowania automatycznego. Ta lokalizacja może być inna niż lokalizacja zasobów są skalowane. |
-| properties | identyfikatora URI zasobu docelowego | Identyfikator zasobu jest skalowana zasobu. Może mieć tylko jedno ustawienie automatycznego skalowania dla zasobów. |
+| properties | targetResourceUri | Identyfikator zasobu jest skalowana zasobu. Może mieć tylko jedno ustawienie automatycznego skalowania dla zasobów. |
 | properties | Profile | Ustawienia skalowania automatycznego składa się z co najmniej jeden profil. Każdym uruchomieniu aparatu skalowania automatycznego wykonuje jeden profil. |
 | Profil | name | Nazwa profilu, można wybrać dowolną nazwę, która pomaga zidentyfikować ten profil. |
 | Profil | Capacity.Maximum | Moc maksymalna dozwolona. Gwarantuje, że funkcja automatycznego skalowania, podczas wykonywania tego profilu, nie obsługuje zasobu powyżej ten numer. |
 | Profil | Capacity.minimum | Pojemność minimalne dozwolone. Gwarantuje, że funkcja automatycznego skalowania, podczas wykonywania tego profilu, nie obsługuje zasobu pod ten numer. |
 | Profil | Capacity.default | Jeśli występuje problem z odczytem pomiar zasobów (w tym przypadku procesora "vmss1"), a obecna pojemność jest poniżej pojemności domyślnej następnie zapewnienie dostępności zasobów, skalowania automatycznego możliwość skalowania w poziomie domyślne. Jeśli pojemność bieżąca już jest wyższa niż wydajność domyślna, automatycznego skalowania zostanie nie skali w. |
 | Profil | rules | Skalowania automatycznego jest automatycznie skalowany między przy użyciu reguł w profilu możliwości maksymalne i minimalne. Istnieje wiele reguł w profilu. Podstawowy scenariusz ma dwie reguły: je do określenia, kiedy skalowalnego w poziomie, a drugą do określenia, kiedy w skali. |
-| Reguły | metricTrigger | Definiuje metryki warunek reguły. |
+| zasada | metricTrigger | Definiuje metryki warunek reguły. |
 | metricTrigger | metricName | Nazwa metryki. |
 | metricTrigger |  metricResourceUri | Identyfikator zasobu zasób, który emituje metryki. W większości przypadków jest taka sama jak zasobów są skalowane. W niektórych przypadkach może być inny, na przykład można skalować zestaw skali maszyny wirtualnej na podstawie liczby wiadomości w kolejce magazynu. |
 | metricTrigger | Ziarnem czasu | Czas trwania metryki próbkowania. Na przykład ziarnem czasu = "PT1M" oznacza, że powinno być metryki agregowane co minutę metoda agregacji określony w "Statystyka." |
 | metricTrigger | Statystyka | Metoda agregacji w okresie ziarnem czasu. Na przykład Statystyka = "Średni" i ziarnem czasu = "PT1M" oznacza, że powinno być metryki agregowane co 1 minutę, wykonując średnią. Ta właściwość decyduje o tym, jak jest próbkowany metryki. |
 | metricTrigger | timeWindow | Ilość czasu, aby wyszukać metryki. Na przykład timeWindow = "PT10M" oznacza, że każdym uruchomieniu automatycznego skalowania, wysyła zapytanie metryki dla ostatnich 10 minut. Przedział czasu umożliwia Twoje metryki będą normalizowane i pozwala uniknąć reagowanie na nagłego przejściowej. |
 | metricTrigger | timeAggregation | Metoda agregacji używane do agregowania miar próbki. Na przykład TimeAggregation = "Średni" powinien agregacji próbkowanych metryki wykonując średniej. W przypadku powyższych potrwać 10 próbek 1 minutę, a średnie je. |
-| Reguły | scaleAction | Akcja wykonywana po wyzwoleniu metricTrigger reguły. |
+| zasada | scaleAction | Akcja wykonywana po wyzwoleniu metricTrigger reguły. |
 | scaleAction | kierunek | "Zwiększyć" do skalowania, "Zmniejsz" w skali|
 | scaleAction | wartość | Ile, aby zwiększyć lub zmniejszyć pojemność zasobu |
 | scaleAction | cooldown | Ilość czasu oczekiwania po zakończeniu operacji skalowania przed skalowanie ponownie. Na przykład jeśli cooldown = "PT10M" po zakończeniu operacji skalowania, skalowania automatycznego nie będzie próbował skalować ponownie dla innego 10 minut. Cooldown jest umożliwienie metryk do utrwalania po Dodawanie lub usuwanie wystąpienia. |
@@ -125,7 +125,7 @@ Istnieją trzy typy profilów skalowania automatycznego:
 
 1. **Regularne profilu:** najbardziej typowych profilu. Jeśli nie ma potrzeby skalowania zasobu inaczej oparty na dzień tygodnia lub w określonym dniu, następnie wystarczy skonfigurować profil regularne w Ustawienia skalowania automatycznego. Następnie można skonfigurować ten profil metryki reguły kiedy skalowalnego w poziomie i kiedy w skali. Powinien mieć tylko jeden profil regularne zdefiniowany.
 
-    Profil przykład używane w tym artykule jest przykładem regularne profilu. Czy nie istnieje również możliwość ustawienia profilu skalowanie liczby wystąpień statycznych dla zasobu.
+    Profil przykład używane w tym artykule jest przykładem regularne profilu. Należy zauważyć, że istnieje również możliwość ustawienia profilu skalowanie liczby wystąpień statycznych dla zasobu.
 
 2. **Stała daty profilu:** z profilem regularne zdefiniowane, załóżmy, że masz ważne zdarzenie powtarzający się na 26 grudnia 2017 (PST) i ma minimalne i maksymalne pojemności zasobu różnić się w jednym dniu, ale nadal skalowanie na te same metryki . W takim przypadku należy dodać profil daty stałej do listy profile z ustawieniem. Profil jest skonfigurowany do uruchamiania tylko w dniu zdarzenia. Dla innych dnia regularne profilu jest wykonywana.
 
@@ -276,7 +276,7 @@ Istnieją trzy typy profilów skalowania automatycznego:
     }]
     ```
     
-    Patrząc na poprzednie ustawienia, "businessHoursProfile" rozpoczyna się wykonywanych w poniedziałek w 9: 00 Dzięki temu wykonywanie do momentu 17: 00 ponieważ jest to, kiedy rozpoczyna "nonBusinessHoursProfile" wykonywanie. Wykonuje "nonBusinessHoursProfile" do 9: 00 Wtorek, a następnie przejmuje "businessHoursProfile". To jest powtarzany do piątku. 5, w tym momencie "nonBusinessHoursProfile" wykonuje aż do poniedziałek 9: 00 ponieważ "businessHoursProfile" nie można uruchomić wykonywania do poniedziałek 9: 00
+    Patrząc na poprzednie ustawienia, "businessHoursProfile" rozpoczyna się wykonywanych w poniedziałek w 9: 00 Dzięki temu wykonywanie do momentu 17: 00 ponieważ jest to, kiedy rozpoczyna "nonBusinessHoursProfile" wykonywanie. The “nonBusinessHoursProfile” executes until 9 a.m. Wtorek, a następnie przejmuje "businessHoursProfile". To jest powtarzany do piątku. 5, w tym momencie "nonBusinessHoursProfile" wykonuje aż do poniedziałek 9: 00 ponieważ "businessHoursProfile" nie można uruchomić wykonywania do poniedziałek 9: 00
     
 > [!Note]
 > Automatycznego skalowania środowiska użytkownika w portalu Azure wymusza zakończenia cyklu profilów i rozpoczęciu wykonywania w ustawieniu skalowania automatycznego profil domyślny Between profile cyklu.

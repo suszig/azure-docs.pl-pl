@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migracja magazynu danych do magazynu w warstwie premium
 Usługa Azure SQL Data Warehouse niedawno wprowadzone [magazyn w warstwie premium dla większej wydajności przewidywalności][premium storage for greater performance predictability]. Teraz można migrować istniejące magazynów danych obecnie na magazynu w warstwie standardowa do magazyn w warstwie premium. Możesz korzystać z automatycznych migracji, lub jeśli wolisz decyduje o migracji (która jest związana z przestój), migrację można wykonać samodzielnie.
@@ -110,7 +110,7 @@ W tym przykładzie załóżmy, że istniejącego magazynu danych na magazynu w w
 4. Usuń "MyDW_BeforeMigration." **Jeśli nie wykonać ten krok, zostanie naliczona opłata dla obu magazynów danych.**
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W przypadku zmiany do magazynu w warstwie premium masz również zwiększonej liczby plików bazy danych obiektów blob w podstawowej architektury magazynu danych. Aby zmaksymalizować korzyści w zakresie wydajności tej zmiany, należy ponownie utworzyć Twoje klastrowane indeksy magazynu kolumn przy użyciu następującego skryptu. Działania skryptu, wymuszając istniejące dane na dodatkowe obiekty BLOB. Jeśli nie podejmiesz żadnych działań, dane naturalnie zostanie ponownie rozesłać wraz z upływem czasu, ponieważ załadowanie większej ilości danych w tabelach.
 
 **Wymagania wstępne:**
@@ -170,7 +170,7 @@ Jeśli wystąpią problemy z magazynem danych, [Utwórz bilet pomocy technicznej
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power

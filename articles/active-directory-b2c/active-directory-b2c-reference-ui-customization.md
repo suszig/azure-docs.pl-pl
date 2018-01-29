@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Usługa Azure Active Directory B2C: Dostosowywanie interfejsu użytkownika (UI) usługi Azure AD B2C
 
@@ -38,7 +38,7 @@ W tym artykule omówiono następujące tematy:
 
 ## <a name="the-page-ui-customization-feature"></a>Dostosowywanie funkcji interfejsu użytkownika strony
 
-Można dostosować wygląd i działanie hasła klienta rejestrację, logowanie, resetowania i edytowanie profilu strony (konfigurując [zasady](active-directory-b2c-reference-policies.md)). Klienci uzyskać bezproblemowe podczas nawigowania między aplikacji i strony obsługiwanych przez usługę Azure AD B2C.
+Można dostosować wygląd i działanie odbiorcy rejestrację, logowanie (zobacz powyżej Uwaga wyjątki dotyczące znakowania), resetowania hasła i edytowanie profilu stron (konfigurując [zasady](active-directory-b2c-reference-policies.md)). Klienci uzyskać bezproblemowe podczas nawigowania między aplikacji i strony obsługiwanych przez usługę Azure AD B2C.
 
 W przeciwieństwie do innych usług, których opcji interfejsu użytkownika, usługi Azure AD B2C używa proste i nowoczesne podejścia do dostosowania interfejsu użytkownika.
 

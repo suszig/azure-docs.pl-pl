@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Włącz profilera Insights aplikacji dla maszyn wirtualnych platformy Azure, usługi Service Fabric i usług w chmurze
 
-W tym artykule przedstawiono sposób włączania usługi Azure Application Insights profilera w aplikacji ASP.NET, która jest obsługiwana przez zasób obliczeń platformy Azure. 
+W tym artykule przedstawiono sposób włączania usługi Azure Application Insights profilera w aplikacji ASP.NET, która jest obsługiwana przez zasób obliczeń platformy Azure.
 
 W tym artykule przykładami pomocy technicznej dla maszyny wirtualnej platformy Azure, zestawy skalowania maszyny wirtualnej, sieć szkieletowa usług Azure i usługi w chmurze Azure. Przykłady polegać na szablony, które obsługują [usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelu wdrażania.  
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
-Na poniższej ilustracji przedstawiono, jak działa profilera usługi Application Insights z zasobów platformy Azure. Jako przykład obrazu korzysta z maszyny wirtualnej platformy Azure.
+Na poniższej ilustracji przedstawiono, jak działa profilera usługi Application Insights z rozwiązań usługi obliczenia Azure zasobów. Zasoby obliczeniowe Azure obejmują usługi w chmurze maszyn wirtualnych, zestawy skalowania maszyny wirtualnej, i klastrów sieci szkieletowej usług. Jako przykład obrazu korzysta z maszyny wirtualnej platformy Azure.  
 
-  ![Omówienie](./media/enable-profiler-compute/overview.png)
+  ![Przegląd](./media/enable-profiler-compute/overview.png)
 
 Aby w pełni włączyć profilera, należy zmienić konfigurację w trzech miejscach:
 
-* W okienku wystąpienia usługi Application Insights w portalu Azure.
+* Blok wystąpienia usługi Application Insights w portalu Azure.
 * Kod źródłowy aplikacji (na przykład aplikacja sieci web ASP.NET).
-* Środowisko wdrażania definicji kodu źródłowego (na przykład maszyna wirtualna wdrożenia JSON pliku szablonu).
+* Środowisko wdrażania definicji kodu źródłowego (na przykład szablonu usługi Azure Resource Manager w pliku JSON).
 
 
 ## <a name="set-up-the-application-insights-instance"></a>Skonfiguruj wystąpienie usługi Application Insights
 
-W portalu Azure Utwórz lub przejdź do wystąpienia usługi Application Insights, które chcesz użyć. Zanotuj klucz Instrumentacji wystąpienia. Używasz klucza Instrumentacji w inne czynności konfiguracyjne.
+[Utwórz nowy zasób usługi Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) lub wybierz istniejący.
+Przejdź do zasobu usługi Application Insights i skopiuj klucz instrumentacji.
 
   ![Lokalizacja klucza Instrumentacji](./media/enable-profiler-compute/CopyAIKey.png)
 
-To wystąpienie powinna być taka sama jak aplikacji. Jest on skonfigurowany do wysyłania danych telemetrycznych do na każdym żądaniu.
-Wyniki profilera są również dostępne w tym wystąpieniu.  
-
-W portalu Azure, wykonaj kroki opisane w [włączyć profilera](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) do zakończenia konfigurowania wystąpienia usługi Application Insights profilera. Nie musisz połączyć aplikacji sieci web, na przykład w tym artykule. Po prostu upewnij się, że profiler jest włączone w portalu.
+Następnie należy wykonać czynności opisane w [włączyć profilera](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) do zakończenia konfigurowania wystąpienia usługi Application Insights profilera. Nie musisz połączyć aplikacje sieci web, jak te kroki określonego zasobu usługi aplikacji. Po prostu upewnij się, że profiler jest włączona w *Konfiguruj* bloku profilera.
 
 
 ## <a name="set-up-the-application-source-code"></a>Konfigurowanie kodu źródłowego aplikacji
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>Aplikacje sieci Web ASP.NET, role sieci Web usługi w chmurze lub frontonu sieci Web platformy ASP.NET sieci szkieletowej usług
 Konfigurowanie aplikacji do wysyłania danych telemetrycznych do wystąpienia usługi Application Insights w każdym `Request` operacji:  
 
-1. Dodaj [zestaw SDK usługi Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) projekt aplikacji. Upewnij się, że wersje pakietów NuGet są następujące:  
+Dodaj [zestaw SDK usługi Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) projekt aplikacji. Upewnij się, że wersje pakietów NuGet są następujące:  
   - Dla aplikacji ASP.NET: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 lub nowszym.
   - Dla aplikacji platformy ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 lub nowszym.
   - Dla innych aplikacji .NET i .NET Core (na przykład usługi bezstanowej sieci szkieletowej usług lub roli procesu roboczego usługi w chmurze): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) lub [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 lub nowszej.  
 
-2. Jeśli aplikacja jest *nie* aplikacji ASP.NET lub ASP.NET Core (na przykład, jeśli jest to roli procesu roboczego usługi w chmurze lub bezstanowych interfejsów API usługi Service Fabric), wymagane jest następujące ustawienia dodatkowe Instrumentacji:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Role proces roboczy usług w chmurze lub usługa sieci szkieletowej bezstanowych wewnętrznej bazy danych
+Jeśli aplikacja jest *nie* aplikacji ASP.NET lub ASP.NET Core (na przykład, jeśli jest to roli procesu roboczego usługi w chmurze lub bezstanowych interfejsów API usługi Service Fabric), jest wymagane, oprócz jakie krok następujące ustawienia dodatkowe Instrumentacji powyżej:  
 
   1. Dodaj następujący kod na początku istnienia aplikacji:  
 
@@ -204,7 +204,7 @@ Pełna przykłady:
   ```
 
 2. Jeśli aplikację zamierzone działa za pośrednictwem [IIS](https://www.microsoft.com/web/platform/server.aspx), Włącz `IIS Http Tracing` funkcji systemu Windows:  
-  
+
   1. Ustanowić zdalnego dostępu do środowiska, a następnie użyj [dodać funkcji systemu Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) okna lub uruchom następujące polecenie w programie PowerShell (Administrator):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,11 +217,11 @@ Pełna przykłady:
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>Włącz profilera na serwerach lokalnych
 
-Włączanie profilera na lokalnym serwerze jest nazywana uruchomionej aplikacji profilera wgląd w trybie autonomicznym (nie jest on związany na modyfikacje rozszerzenia diagnostyki Azure). 
+Włączanie profilera na lokalnym serwerze jest nazywana uruchomionej aplikacji profilera wgląd w trybie autonomicznym (nie jest on związany na modyfikacje rozszerzenia diagnostyki Azure).
 
 Nie mamy żadnych planu świadczył oficjalną pomoc techniczną profilera dla serwerów lokalnych. Jeśli interesuje Cię eksperymentowanie z tego scenariusza, możesz [Pobierz kod obsługi](https://github.com/ramach-msft/AIProfiler-Standalone). Możemy *nie* odpowiedzialna za utrzymanie kodu lub reagowania na problemy i żądania funkcji związanych z kodem.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Generowanie ruchu do aplikacji (na przykład uruchomić [test dostępności](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Następnie zaczekaj 10 – 15 minut na śladów uruchomić do wysłania do wystąpienia usługi Application Insights.
 - Zobacz [ślady profilera](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) w portalu Azure.

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z Jive | Dokumentacja firmy Microsoft'
+title: "Samouczek: Konfigurowanie Jive dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Jive."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 930b64d8c119f468a18ab5736983365aaf5f03c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 67bbf48c0ce67b0fef5cc2b1c61e3612e0201534
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-jive-for-user-provisioning"></a>Samouczek: Konfigurowanie Jive Inicjowanie obsługi użytkowników
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Jive dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w Jive i Azure AD można automatycznie udostępnić i usuwanie kont użytkowników z usługi Azure AD do Jive.
 
@@ -65,7 +65,7 @@ W ramach tej procedury możesz są wymagane do potrzebnych do żądania od Jive.
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
 
-    ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
+    ![aprowizowanie](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
 5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    
@@ -73,7 +73,7 @@ W ramach tej procedury możesz są wymagane do potrzebnych do żądania od Jive.
    
     b. W **hasło administratora Jive** tekstowym, wpisz hasło dla tego konta.
    
-    c. W **adres URL dzierżawy Jive** tekstowym, wpisz adres URL dzierżawy Jive.
+    d. W **adres URL dzierżawy Jive** tekstowym, wpisz adres URL dzierżawy Jive.
       
       > [!NOTE]
       > Adres URL dzierżawy Jive jest adres URL, który jest używany przez organizację do logowania do Jive.  
@@ -97,7 +97,7 @@ Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane d
 
 Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z Jive poczekaj maksymalnie 20 minut.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

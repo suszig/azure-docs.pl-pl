@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 9e6e4fbccc225f0a457bb1fab53b75fe59074576
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 901f0ec7ceeb80687b7b75d9a3710e8d6bc1811c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-samanage-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Samanage dla użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Samanage dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w Samanage i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD Samanage. 
@@ -72,7 +72,7 @@ Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkowni
 
 4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
-    ![Samanage inicjowania obsługi administracyjnej.](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
+    ![Samanage Provisioning](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
 
 5. W obszarze **poświadczeń administratora** sekcji wejściowych **nazwa użytkownika i hasło administratora** Twojego Samanage konta. 
 
@@ -95,11 +95,11 @@ Ta operacja uruchamia wstępnej synchronizacji użytkowników i/lub grupy przypi
 Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)

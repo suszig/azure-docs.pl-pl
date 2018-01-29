@@ -1,6 +1,6 @@
 ---
 title: "Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure | Dokumentacja firmy Microsoft"
-description: "Przedstawia sposób użycia uprzywilejowanego punktu końcowego w stosie Azure (dla operatora stosu Azure)."
+description: "Przedstawia sposób użycia uprzywilejowanego punktu końcowego (program ten) w stosie Azure (dla operatora stosu Azure)."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -12,49 +12,49 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/25/2018
 ms.author: mabrigg
-ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7f95014ac9186815d8ea0c7d271e5c6e19252d73
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Przy użyciu punktu końcowego uprzywilejowanych w stosie Azure
 
 *Dotyczy: Azure stosu zintegrowanych systemów i Azure stosu Development Kit*
 
-Jako operator stosu Azure należy użyć portalu administratora programu PowerShell lub interfejsów API usługi Azure Resource Manager dla najbardziej codziennych zadań zarządzania. Jednak w przypadku niektórych mniej typowych operacji, należy użyć *uprzywilejowanych punktu końcowego* (program ten). Ten punkt końcowy jest wstępnie skonfigurowane zdalnej konsoli programu PowerShell, która dostarcza wystarczającego możliwości, które ułatwiają wykonywanie wymaganych zadań. Punkt końcowy korzysta z programu PowerShell JEA (tylko tyle administracyjnej) do udostępnienia tylko ograniczony zestaw poleceń cmdlet. Dostępu do uprzywilejowanych punktu końcowego i wywołać ograniczony zestaw poleceń cmdlet, konta z niskimi uprawnieniami jest używana. Żadnych kont administratora są wymagane. Aby dodatkowo zwiększyć bezpieczeństwo skryptów jest niedozwolone.
+Jako operator stosu Azure należy użyć portalu administratora programu PowerShell lub interfejsów API usługi Azure Resource Manager dla najbardziej codziennych zadań zarządzania. Jednak w przypadku niektórych mniej typowych operacji, należy użyć *uprzywilejowanych punktu końcowego* (program ten). Program ten jest wstępnie skonfigurowane zdalnej konsoli programu PowerShell, która dostarcza wystarczającego możliwości, które ułatwiają wykonywanie wymaganych zadań. Punkt końcowy używa [JEA środowiska PowerShell (tylko tyle Administracja)](https://docs.microsoft.com/en-us/powershell/jea/overview) do udostępnienia tylko ograniczony zestaw poleceń cmdlet. Aby dostęp program ten i wywołać ograniczony zestaw poleceń cmdlet, należy użyć konta z niskimi uprawnieniami. Żadnych kont administratora są wymagane. Aby dodatkowo zwiększyć bezpieczeństwo skryptów jest niedozwolone.
 
-Uprzywilejowane punktu końcowego służy do wykonywania następujących zadań:
+Program ten służy do wykonywania następujących zadań:
 
 - Aby wykonywać zadania niskiego poziomu, takie jak [zbierania dzienników diagnostycznych](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostics#log-collection-tool).
-- Do wykonywania wielu zadań integracji datacenter po wdrożeniu zintegrowanych systemów, takich jak dodawanie usług przesyłania dalej systemu nazw domen (DNS) po wdrożeniu konfigurowania integracji wykresu, integracji usługi Active Directory Federation Services (AD FS), certyfikat Obracanie itp.
-- Aby pracować z obsługą przy uzyskiwaniu dostępu do tymczasowego, wysokiego poziomu do rozwiązywania problemów szczegółowe zintegrowanego systemu. 
+- Do wykonywania wielu zadań integracji datacenter po wdrożeniu zintegrowane systemów, takich jak dodawanie usług przesyłania dalej systemu nazw domen (DNS) po wdrożeniu konfigurowania integracji programu Microsoft Graph, integracji usługi Active Directory Federation Services (AD FS) certyfikat obracanie itp.
+- Aby pracować z obsługą przy uzyskiwaniu dostępu do tymczasowego, wysokiego poziomu do rozwiązywania problemów szczegółowe zintegrowanego systemu.
 
-Uprzywilejowane punktu końcowego rejestruje wszystkie akcje (i jej odpowiednie dane wyjściowe), wykonywanych w sesji programu PowerShell. Zapewnia to pełna przezroczystość i inspekcji zakończenie operacji. Można zachować te pliki dziennika na przyszłe potrzeby inspekcji.
+Program ten rejestruje każda akcja (i jej odpowiednie dane wyjściowe), które można wykonywać w sesji programu PowerShell. Zapewnia to pełna przezroczystość i inspekcji zakończenie operacji. Można zachować te pliki dziennika dla przyszłych inspekcji.
 
 > [!NOTE]
-> W usłudze Azure stosu Development Kit (ASDK), można uruchomić niektórych poleceń, które są dostępne w punkcie końcowym uprzywilejowanych bezpośrednio z sesji programu PowerShell na hoście development kit. Można przetestować niektóre operacje przy użyciu uprzywilejowanych punktu końcowego, takich jak zbieranie danych dziennika, ponieważ jest jedyną wykonywania pewnych operacji w środowisku zintegrowanych systemów.
+> W usłudze Azure stosu Development Kit (ASDK), można uruchomić niektórych poleceń, które są dostępne w program ten bezpośrednio z sesji programu PowerShell na hoście development kit. Jednak można przetestować niektóre operacje przy użyciu program ten, takich jak zbieranie dzienników, ponieważ jest jedyną wykonywania pewnych operacji w środowisku zintegrowanych systemów.
 
 ## <a name="access-the-privileged-endpoint"></a>Dostęp uprzywilejowany punktu końcowego
 
-Możesz uzyskać dostęp uprzywilejowany punktu końcowego za pomocą sesji zdalnej programu PowerShell na maszynie wirtualnej, uprzywilejowane punkt końcowy. W ASDK tej maszyny wirtualnej ma nazwę AzS ERCS01. Jeśli używasz zintegrowanego systemu, istnieją trzy wystąpienia uprzywilejowanych punktu końcowego, każdy uruchomiony wewnątrz maszyny wirtualnej (*prefiksu*-ERCS01, *prefiksu*-ERCS02, lub *prefiksu*-ERCS03) na różnych hostach odporność na awarie. 
+Program ten jest dostępny za pośrednictwem sesji zdalnej programu PowerShell na maszynie wirtualnej, który hostuje program ten. W ASDK tej maszyny wirtualnej o nazwie **AzS ERCS01**. Jeśli używasz zintegrowanego systemu, istnieją trzy wystąpienia program ten, każda uruchomiona wewnątrz maszyny wirtualnej (*prefiksu*-ERCS01, *prefiksu*-ERCS02, lub *prefiksu*- ERCS03) na różnych hostach odporność na awarie. 
 
-Przed rozpoczęciem tej procedury dla zintegrowany system, upewnij się, że można uzyskiwać dostęp do uprzywilejowanych punkt końcowy, za pomocą adresu IP lub przy użyciu systemu DNS. Po początkowym wdrożeniu stosu Azure uprzywilejowanych punktu końcowego są dostępne tylko za pomocą adresu IP ponieważ integracja protokołu DNS nie jest jeszcze skonfigurowany. Dostawca sprzętu OEM będzie dostarczać plik JSON o nazwie "AzureStackStampDeploymentInfo", zawierający adresy IP uprzywilejowanych punktu końcowego.
+Przed rozpoczęciem tej procedury dla zintegrowany system, upewnij się, że można uzyskać dostępu do program ten, za pomocą adresu IP lub przy użyciu systemu DNS. Po początkowym wdrożeniu stosu Azure program ten są dostępne tylko za pomocą adresu IP ponieważ integracja protokołu DNS nie jest jeszcze skonfigurowany. Dostawca sprzętu OEM zapewnia plik JSON o nazwie **AzureStackStampDeploymentInfo** zawierający adresy IP program ten.
 
-Zaleca się, że należy połączyć uprzywilejowanych punktu końcowego tylko od sprzętu hosta cyklu życia lub z dedykowanym, zablokowaną komputera, tak samo, jak [uprzywilejowanego dostępu do stacji roboczej](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Zaleca się, że należy połączyć program ten tylko od sprzętu hosta cyklu życia lub z komputera z dedykowanym, bezpieczne, takich jak [uprzywilejowanego dostępu do stacji roboczej](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Wykonaj jedną z następujących czynności w zależności od środowiska:
+1. Dostęp do stacji roboczej do uprzywilejowanego dostępu.
 
-    - Na zintegrowany system uruchom następujące polecenie, aby dodać uprzywilejowanych punktu końcowego jako zaufanego hosta na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej.
+    - W systemie zintegrowanego, uruchom następujące polecenie, aby dodać program ten jako zaufanego hosta na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - Jeśli korzystasz z ADSK, zaloguj się do rozwoju hosta zestawu.
 
-2. Na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej otwórz sesję środowiska Windows PowerShell z podwyższonym poziomem uprawnień. Uruchom następujące polecenia, aby ustanowić sesję zdalną na maszynie wirtualnej, uprzywilejowane punkt końcowy:
+2. Na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej otwórz sesję środowiska Windows PowerShell z podwyższonym poziomem uprawnień. Uruchom następujące polecenia, aby ustanowić sesję zdalną na maszynie wirtualnej, który hostuje program ten:
  
     - Na zintegrowany system:
       ````PowerShell
@@ -63,7 +63,7 @@ Zaleca się, że należy połączyć uprzywilejowanych punktu końcowego tylko o
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
-      `ComputerName` Parametr może być adres IP lub nazwę DNS w jednej z maszyn wirtualnych, które obsługuje uprzywilejowanych punktu końcowego. 
+      `ComputerName` Parametr może być adres IP lub nazwę DNS w jednej z maszyn wirtualnych, które obsługuje program ten. 
     - Jeśli używasz ADSK:
      
       ````PowerShell
@@ -74,61 +74,100 @@ Zaleca się, że należy połączyć uprzywilejowanych punktu końcowego tylko o
       ```` 
    Po wyświetleniu monitu użyj następujących poświadczeń:
 
-      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt;* domeny stosu Azure*&gt;\cloudadmin**. (ASDK, nazwa użytkownika jest **azurestack\cloudadmin**.)
+      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\cloudadmin**. (ASDK, nazwa użytkownika jest **azurestack\cloudadmin**.)
       - **Hasło**: wprowadź to samo hasło, które zostało podane podczas instalacji dla konta administratora domeny AzureStackAdmin.
     
-3.  Po nawiązaniu połączenia wiersza zmieni się na  **[*nazwa adresu IP lub wirtualna ERCS*]: PS > ** lub **[azs ercs01]: PS >**, w zależności od środowiska. W tym miejscu, należy uruchomić `Get-Command` Aby wyświetlić listę dostępnych poleceń cmdlet.
+3.  Po nawiązaniu połączenia wiersza zmieni się na **[*nazwa adresu IP lub wirtualna ERCS*]: PS >** lub **[azs ercs01]: PS >**, w zależności od środowiska. W tym miejscu, należy uruchomić `Get-Command` Aby wyświetlić listę dostępnych poleceń cmdlet.
 
     ![Dane wyjściowe polecenia cmdlet Get-Command przedstawiający listę dostępnych poleceń](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 
     Wiele z tych poleceń cmdlet są przeznaczone tylko dla środowisk zintegrowany system (takich jak polecenia cmdlet związane z integracji centrum danych). W ASDK zostały zatwierdzone następujące polecenia cmdlet:
 
     - Wyczyść hosta
-    - Zamknij PrivilegedEndpoint
+    - Close-PrivilegedEndpoint
     - Zakończ PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
     - Polecenie GET
-    - Klasy FormatData Get
+    - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
     - Obiekt miary
-    - Nowe CloudAdminUser
+    - New-CloudAdminUser
     - Domyślna wyjściowego
-    - Usuń CloudAdminUser
+    - Remove-CloudAdminUser
     - Select-Object
-    - Zestaw CloudAdminUserPassword
-    - AzureStack testu
+    - Set-CloudAdminUserPassword
+    - Test-AzureStack
     - Stop-AzureStack
-    - Get-Clusterlog, zmienna środowiskowa
+    - Get-ClusterLog
 
-4.  Nie zezwala na wykonywanie skryptów, dlatego nie można użyć uzupełniania po naciśnięciu tabulatora wartości parametrów. Aby uzyskać listę parametrów dla danego polecenia cmdlet, uruchom następujące polecenie:
+## <a name="tips-for-using-the-privileged-endpoint"></a>Porady dotyczące używania uprzywilejowanego punktu końcowego 
 
-    ````PowerShell
+Jak wspomniano powyżej, program ten jest [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) punktu końcowego. Zapewniając warstwy silne zabezpieczenie punktu końcowego JEA zmniejsza niektórych podstawowych funkcji programu PowerShell, takie jak uzupełnianie skryptów lub na karcie. Jeśli spróbujesz dowolnego typu działania skryptu kończy się niepowodzeniem z powodu błędu **ScriptsNotAllowed**. Jest to oczekiwane zachowanie.
+
+Tak na przykład, aby uzyskać listę parametrów dla danego polecenia cmdlet, możesz uruchom następujące polecenie:
+
+```PowerShell
     Get-Command <cmdlet_name> -Syntax
-    ```` 
-    Jeśli spróbujesz dowolnego typu działania skryptu kończy się niepowodzeniem z powodu błędu **ScriptsNotAllowed**. Jest to oczekiwane zachowanie.
+```
+
+Alternatywnie można użyć [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) polecenia cmdlet, aby zaimportować wszystkie polecenia cmdlet program ten do bieżącej sesji na komputerze lokalnym. W ten sposób wszystkie polecenia cmdlet i funkcje program ten są teraz dostępne na komputerze lokalnym, wraz z uzupełniania po naciśnięciu tabulatora i, inne ogólnie rzecz biorąc, wykonywanie skryptów. 
+
+Aby zaimportować program ten sesji na komputerze lokalnym, wykonaj następujące czynności:
+
+1. Dostęp do stacji roboczej do uprzywilejowanego dostępu.
+
+    - W systemie zintegrowanego, uruchom następujące polecenie, aby dodać program ten jako zaufanego hosta na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej.
+
+      ````PowerShell
+        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+      ````
+    - Jeśli korzystasz z ADSK, zaloguj się do rozwoju hosta zestawu.
+
+2. Na hoście cyklu życia sprzętu lub uprzywilejowanego dostępu do stacji roboczej otwórz sesję środowiska Windows PowerShell z podwyższonym poziomem uprawnień. Uruchom następujące polecenia, aby ustanowić sesję zdalną na maszynie wirtualnej, który hostuje program ten:
+ 
+    - Na zintegrowany system:
+      ````PowerShell
+        $cred = Get-Credential
+
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS>`
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ````
+      `ComputerName` Parametr może być adres IP lub nazwę DNS w jednej z maszyn wirtualnych, które obsługuje program ten. 
+    - Jeśli używasz ADSK:
+     
+      ````PowerShell
+       $cred = Get-Credential
+
+       $session = New-PSSession -ComputerName azs-ercs01`
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```` 
+   Po wyświetleniu monitu użyj następujących poświadczeń:
+
+      - **Nazwa użytkownika**: Określ konto CloudAdmin w formacie  **&lt; *domeny stosu Azure*&gt;\cloudadmin**. (ASDK, nazwa użytkownika jest **azurestack\cloudadmin**.)
+      - **Hasło**: wprowadź to samo hasło, które zostało podane podczas instalacji dla konta administratora domeny AzureStackAdmin.
+
+3. Zaimportuj program ten sesji do komputera lokalnego
+    ````PowerShell 
+        Import-PSSession $session
+    ````
+4. Teraz można użyć uzupełniania po naciśnięciu tabulatora i czy skryptów w zwykły sposób, w sesji programu PowerShell lokalnej z wszystkich funkcji i poleceń cmdlet programu program ten, bez wpływu na stan zabezpieczeń stosu Azure. Owocnej pracy.
+
 
 ## <a name="close-the-privileged-endpoint-session"></a>Zamknij sesję uprzywilejowanych punktu końcowego
 
- Jak wspomniano wcześniej, uprzywilejowane punktu końcowego rejestruje wszystkie akcje (i jej odpowiednie dane wyjściowe), wykonywanych w sesji programu PowerShell. Należy zamknąć sesję przy użyciu `Close-PrivilegedEndpoint` polecenia cmdlet. To polecenie cmdlet poprawnie zamyka punktu końcowego i przesyła pliki dziennika w udziale plików zewnętrznych dla przechowywania.
+ Jak wspomniano wcześniej, program ten rejestruje każda akcja (i jej odpowiednie dane wyjściowe), które można wykonywać w sesji programu PowerShell. Należy zamknąć sesję przy użyciu `Close-PrivilegedEndpoint` polecenia cmdlet. To polecenie cmdlet poprawnie zamyka punktu końcowego i przesyła pliki dziennika w udziale plików zewnętrznych dla przechowywania.
 
 Aby zamknąć sesji punktu końcowego:
 
-1. Tworzenie udziału plików zewnętrznego, który jest dostępny dla uprzywilejowanych punktu końcowego. W środowisku development kit można po prostu utworzyć udział plików na hoście development kit.
+1. Tworzenie udziału plików zewnętrznego, który jest dostępny program ten. W środowisku development kit można po prostu utworzyć udział plików na hoście development kit.
 2. Uruchom `Close-PrivilegedEndpoint` polecenia cmdlet. 
 3. Zostanie wyświetlony monit o ścieżkę do przechowywania plików dziennika zapis. Określ udział plików, który został utworzony wcześniej, w formacie &#92; &#92; *servername*&#92; *Nazwa udziału*. Jeśli ścieżka nie jest określony, polecenie cmdlet nie powiedzie się i sesja pozostanie otwarta. 
 
     ![Dane wyjściowe polecenia cmdlet PrivilegedEndpoint Zamknij pokazujący, gdzie Określ ścieżkę docelową, zapis](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-Po pomyślnie przesyłania plików dziennika zapis do udziału plików, są one automatycznie usuwane z uprzywilejowanego punktu końcowego. Jeśli zamknięciu sesji uprzywilejowanych punktu końcowego za pomocą polecenia cmdlet `Exit-PSSession` lub `Exit`, lub zamknij konsolę programu PowerShell, dzienniki wykaz nie transferu do udziału plików. Pozostają one w uprzywilejowanych punktu końcowego. Przy następnym uruchomieniu `Close-PrivilegedEndpoint` i obejmują udziału plików, dzienniki zapis z poprzedniej sesji również zostaną przeniesione.
+Po pomyślnie przesyłania plików dziennika zapis do udziału plików, są one automatycznie usunięte z program ten. Jeśli za pomocą poleceń cmdlet programu Zamknij sesję program ten `Exit-PSSession` lub `Exit`, lub zamknij konsolę programu PowerShell, dzienniki wykaz nie transferu do udziału plików. Pozostają one w program ten. Przy następnym uruchomieniu `Close-PrivilegedEndpoint` i obejmują udziału plików, dzienniki zapis z poprzedniej sesji również zostaną przeniesione.
 
 ## <a name="next-steps"></a>Kolejne kroki
 [Azure stosu narzędzia diagnostyczne](azure-stack-diagnostics.md)
-
-
-
-
-
-
-

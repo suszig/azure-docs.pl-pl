@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Wykrywanie duplikatów
 
-Gdy aplikacja napotka błąd krytyczny natychmiast po wysyła komunikat i uruchomić ją ponownie aplikację w związku z tym błędnego uznaje, że dostarczanie komunikatów wcześniejsze nie zostało przeprowadzone, wysyłanie kolejnych powoduje, że ten sam komunikat pojawią się w systemie dwa razy.
+Jeśli aplikacja napotka błąd krytyczny natychmiast po wysyła komunikat i uruchomić ją ponownie aplikację błędnie uznaje, że dostarczanie komunikatów wcześniejsze nie zostało przeprowadzone, wysyłanie kolejnych powoduje, że ten sam komunikat do pojawiają się dwukrotnie w systemie.
 
-Istnieje również możliwość, wystąpił błąd na poziomie klienta lub w sieci występuje moment wcześniej i wysłany komunikat mają być przekazane do kolejki, z potwierdzenia nie co klientowi pomyślnie. W tym scenariuszu sprawi, że klient wątpliwości dotyczących wyniku operacji wysyłania.
+Istnieje również możliwość wystąpił błąd na poziomie klienta lub w sieci występuje wcześniej chwilę, a na zadeklarowane w kolejce o potwierdzenie nie zostało pomyślnie wysłane wiadomości zwracana do klienta. W tym scenariuszu sprawi, że klient wątpliwości dotyczących wyniku operacji wysyłania.
 
 Wykrywanie duplikatów przyjmuje wątpliwości z tych sytuacji, należy włączyć ponownie wysłać tę samą wiadomość nadawcy, a kolejka lub temat spowoduje odrzucenie wszystkich duplikatów kopii.
 
@@ -53,7 +53,7 @@ Należy pamiętać, że włączenie wykrywania duplikatów i rozmiaru okna bezpo
 
 Utrzymywanie okna small oznacza, że mniej identyfikatory komunikatów muszą być przechowywane i dopasować i Przepływność wynosi wpływ na mniejsze. Dla jednostek wysokiej przepływności, które wymagają wykrywania duplikatów należy dysponować okna możliwie jak najmniejszy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

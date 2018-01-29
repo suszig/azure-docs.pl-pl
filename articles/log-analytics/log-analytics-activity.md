@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Zbieranie i analizowanie dzienników aktywności platformy Azure w analizy dzienników
 
@@ -90,10 +90,10 @@ Dane dziennika aktywności jest wyświetlany tylko *po* skonfigurowaniu Dziennik
 
 | Blade | Opis |
 | --- | --- |
-| Wpisy dziennika aktywności platformy Azure | Przedstawia wykres słupkowy TOP wpis dziennika aktywności platformy Azure rekordów sumy wybranego zakresu i pokazuje listę top wywołań 10 działania. Kliknij na wykresie słupkowym, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity</code>. Kliknij element wywołujący, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla danego elementu. |
-| Dzienniki aktywności według stanu | Przedstawia wykres pierścieniowy stanu dziennika aktywności platformy Azure wybranego zakresu. Również listy to lista top rekordów stanu 10. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Kliknij element stanu, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla tego rekordu stanu. |
-| Dzienniki aktywności przez zasób | Zawiera całkowitą liczbę zasobów o Dzienniki aktywności oraz listę pierwszych dziesięciu zasobów z rekordem liczniki dla każdego zasobu. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity &#124; measure count() by Resource</code>, który zawiera wszystkie zasoby platformy Azure dostępna w rozwiązaniu. Kliknij zasób, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich rekordów działania dla tego zasobu. |
-| Dzienniki aktywności przez dostawcę zasobów | Przedstawia sumę dostawców zasobów, które powodują powstanie działania dzienniki i listy pierwszych dziesięć. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, który wskazuje wszystkich dostawców zasobów platformy Azure. Kliknij dostawcę zasobów, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich rekordów działania dla dostawcy. |
+| Wpisy dziennika aktywności platformy Azure | Przedstawia wykres słupkowy TOP wpis dziennika aktywności platformy Azure rekordów sumy wybranego zakresu i pokazuje listę top wywołań 10 działania. Kliknij na wykresie słupkowym, aby uruchomić wyszukiwanie dziennika <code>AzureActivity</code>. Kliknij element wywołujący, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla danego elementu. |
+| Dzienniki aktywności według stanu | Przedstawia wykres pierścieniowy stanu dziennika aktywności platformy Azure wybranego zakresu. Również listy to lista top rekordów stanu 10. Kliknij na wykresie, aby uruchomić wyszukiwanie dziennika <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Kliknij element stanu, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich wpisów dziennika aktywności dla tego rekordu stanu. |
+| Dzienniki aktywności przez zasób | Zawiera całkowitą liczbę zasobów o Dzienniki aktywności oraz listę pierwszych dziesięciu zasobów z rekordem liczniki dla każdego zasobu. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, który zawiera wszystkie zasoby platformy Azure dostępna w rozwiązaniu. Kliknij zasób, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich rekordów działania dla tego zasobu. |
+| Dzienniki aktywności przez dostawcę zasobów | Przedstawia sumę dostawców zasobów, które powodują powstanie działania dzienniki i listy pierwszych dziesięć. Kliknij przycisk całkowity obszar, aby uruchomić wyszukiwanie dziennika <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, który wskazuje wszystkich dostawców zasobów platformy Azure. Kliknij dostawcę zasobów, aby uruchomić wyszukiwanie dziennika zwracanie wszystkich rekordów działania dla dostawcy. |
 
 ![Azure Dzienniki aktywności pulpitu nawigacyjnego](./media/log-analytics-activity/activity-log-dash.png)
 

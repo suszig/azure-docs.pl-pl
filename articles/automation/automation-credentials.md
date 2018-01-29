@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Zasoby poświadczeń usługi Automatyzacja Azure
 Zawiera zasób poświadczenia usługi automatyzacja [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Konfiguracje elementów Runbook i DSC może używać poleceń cmdlet, które akceptuje obiekt PSCredential uwierzytelniania lub ich może wyodrębnić nazwy użytkownika i hasła obiektu PSCredential zapewnienie niektórych aplikacja lub usługa wymaga uwierzytelnienia. Właściwości dla poświadczenia są bezpiecznie przechowywane w usłudze Automatyzacja Azure i jest dostępny w element runbook lub Konfiguracja DSC o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) działania.
@@ -32,9 +32,9 @@ Polecenia cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasoba
 | Polecenia cmdlet | Opis |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Pobiera informacje o zasób poświadczeń. Można tylko pobieranie poświadczeń się z **Get-AutomationPSCredential** działania. |
-| [Nowe AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Tworzy nowe poświadczenie automatyzacji. |
-| [Remove - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Usuwa poświadczenie automatyzacji. |
-| [Set - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Ustawia właściwości istniejącego poświadczenia usługi Automatyzacja. |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Tworzy nowe poświadczenie automatyzacji. |
+| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Usuwa poświadczenie automatyzacji. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Ustawia właściwości istniejącego poświadczenia usługi Automatyzacja. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>Polecenia cmdlet programu AzureRM PowerShell
 Dla AzureRM poleceń cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasobami poświadczenie automatyzacji przy użyciu programu Windows PowerShell.  One dostarczane jako część [modułu AzureRM.Automation](/powershell/azure/overview) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
@@ -42,11 +42,11 @@ Dla AzureRM poleceń cmdlet w poniższej tabeli służą do tworzenia i zarządz
 | Polecenia cmdlet | Opis |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Pobiera informacje o zasób poświadczeń.  |
-| [Nowe AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Tworzy nowe poświadczenie automatyzacji. |
-| [Usuń AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Usuwa poświadczenie automatyzacji. |
-| [Zestaw AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Ustawia właściwości istniejącego poświadczenia usługi Automatyzacja. |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Tworzy nowe poświadczenie automatyzacji. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Usuwa poświadczenie automatyzacji. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Ustawia właściwości istniejącego poświadczenia usługi Automatyzacja. |
 
-## <a name="runbook-activities"></a>Działania elementu Runbook
+## <a name="activities"></a>Działania
 Działania w poniższej tabeli umożliwiają dostęp do poświadczeń w elemencie runbook i konfiguracji DSC.
 
 | Działania | Opis |

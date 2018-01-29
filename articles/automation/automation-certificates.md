@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Zasoby certyfikatu usługi Automatyzacja Azure
 
@@ -28,18 +28,26 @@ Certyfikaty mogą być bezpiecznie przechowywane w automatyzacji Azure, są one 
 > Bezpiecznych zasobów w automatyzacji Azure obejmują poświadczeń, certyfikatów, połączeń i szyfrowane zmienne. Te zasoby są szyfrowane i przechowywane w automatyzacji Azure za pomocą Unikatowy klucz, który jest generowany dla każdego konta automatyzacji. Ten klucz jest zaszyfrowany za pomocą certyfikatu głównego i przechowywane w automatyzacji Azure. Przed zapisaniem zabezpieczonym zasobem, klucza dla konta automatyzacji zostaną odszyfrowane przy użyciu certyfikatu głównego, a następnie używany do szyfrowania elementu zawartości.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Polecenia cmdlet programu Windows PowerShell
-
-Polecenia cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasobami certyfikatu usługi Automatyzacja przy użyciu programu Windows PowerShell. One dostarczane jako część [modułu Azure PowerShell](../powershell-install-configure.md) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
+## <a name="azurerm-powershell-cmdlets"></a>Polecenia cmdlet programu AzureRM PowerShell
+Dla AzureRM poleceń cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasobami poświadczenie automatyzacji przy użyciu programu Windows PowerShell.  One dostarczane jako część [modułu AzureRM.Automation](/powershell/azure/overview) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
 
 |Polecenia cmdlet|Opis|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Pobiera informacje o certyfikat do użycia w element runbook lub konfiguracji DSC. Sam certyfikat można pobierać tylko z działania Get AutomationCertificate.|
-|[Nowe AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Tworzy nowy certyfikat w automatyzacji Azure.|
-[Usuń AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Usuwa certyfikat usługi Automatyzacja Azure.|Tworzy nowy certyfikat w automatyzacji Azure.
-|[Zestaw AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Ustawia właściwości istniejącego certyfikatu, włącznie z przekazywaniem pliku certyfikatu i ustawianiem hasła dla pliku pfx.|
-|[Dodaj AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Przekazywanie certyfikatu usługi dla usługi określonej chmury.|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Tworzy nowy certyfikat w automatyzacji Azure.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Usuwa certyfikat usługi Automatyzacja Azure.|Tworzy nowy certyfikat w automatyzacji Azure.
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Ustawia właściwości istniejącego certyfikatu, włącznie z przekazywaniem pliku certyfikatu i ustawianiem hasła dla pliku pfx.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Przekazywanie certyfikatu usługi dla usługi określonej chmury.|
 
+## <a name="activities"></a>Działania
+Działania w poniższej tabeli umożliwiają dostęp certyfikaty w elemencie runbook i konfiguracji DSC.
+
+| Działania | Opis |
+|:---|:---|
+|Get-AutomationCertificate|Pobiera certyfikat do użycia w element runbook lub konfiguracji DSC. Zwraca [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) obiektu.|
+
+> [!NOTE] 
+> Należy unikać używania zmiennych w parametrze-Name z **Get-AutomationCertificate** runbook lub konfiguracji DSC, ponieważ może to skomplikować wykrywanie zależności między elementami runbook lub konfiguracji DSC automatyzacji zmienne w czasie projektowania.
 
 ## <a name="python2-functions"></a>Funkcje Python2
 
@@ -112,6 +120,6 @@ Poniższy przykład przedstawia sposób uzyskać dostępu do certyfikatów w ele
     # returns the binary cert content  
     print cert 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby dowiedzieć się więcej o pracy z łącza w celu kontroli przepływu logicznego wynikającego z elementem runbook służy do wykonywania działań, zobacz [łącza w tworzeniu graficznego](automation-graphical-authoring-intro.md#links-and-workflow). 
