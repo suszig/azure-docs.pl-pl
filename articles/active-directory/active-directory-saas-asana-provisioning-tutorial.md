@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36ba34eddac11315790e86cb9a2cfcb690637296
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 4f3bd11a99f43d6405ea285a7a283179d561f92a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana dla użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Asana dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w Asana i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD Asana.
 
