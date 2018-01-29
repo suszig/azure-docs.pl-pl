@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Synchronizacja programu Azure AD Connect: zrozumienie i dostosowywanie synchronizacji
 Usługi synchronizacji usługi Azure Active Directory Connect (synchronizacja programu Azure AD Connect) jest głównym składnikiem programu Azure AD Connect. Odpowiada on za wszystkich operacji związanych z synchronizacją tożsamości między środowiskiem lokalnym i usługą Azure AD. Synchronizacja programu Azure AD Connect jest zastępuje narzędzie DirSync, Azure AD Sync i Forefront Identity Manager z usługi Azure Active Directory Connector skonfigurowany.
 
 Ten temat jest stroną główną dla **synchronizacja programu Azure AD Connect** (nazywane również **aparatu synchronizacji**) i zawiera linki do innych tematów z nim związane. Łącza do usługi Azure AD Connect, zobacz [integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md).
 
-Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja programu Azure AD Connect** składnika i po stronie usługi w usłudze Azure AD o nazwie **usługi synchronizacji programu Azure AD Connect**. 
+Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja programu Azure AD Connect** składnika i po stronie usługi w usłudze Azure AD o nazwie **usługi synchronizacji programu Azure AD Connect**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Tematy synchronizacji usługi Azure AD Connect
 | Temat | Co obejmuje i kiedy do odczytu |
@@ -49,6 +49,7 @@ Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja program
 | [Implementowanie synchronizacji haseł](active-directory-aadconnectsync-implement-password-synchronization.md) |Opisuje opis działania synchronizacji haseł, jak wdrożyć i sposób obsługi i rozwiązywanie problemów z. |
 | [Zapisywanie zwrotne urządzeń](active-directory-aadconnect-feature-device-writeback.md) |W tym artykule opisano, jak działa zapisu zwrotnego urządzeń w programie Azure AD Connect. |
 | [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md) |Opisuje sposób rozszerzyć schemat usługi Azure AD z własnych niestandardowych atrybutów. |
+| [PreferredDataLocation usługi Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Opisuje sposób umieść zasobów usługi Office 365 użytkownika w tym samym regionie co użytkownik. |
 | **Usługa synchronizacji** | |
 | [Funkcje usługi synchronizacji programu Azure AD Connect](active-directory-aadconnectsyncservice-features.md) |Opisuje po stronie usługi synchronizacji oraz zmienić ustawienia synchronizacji w usłudze Azure AD. |
 | [Zduplikowany atrybut odporności](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Zawiera opis sposobu włączania i użyj **userPrincipalName** i **proxyAddresses** odporności wartości zduplikowany atrybut. |
@@ -64,4 +65,3 @@ Usługa synchronizacji zawiera dwa składniki, lokalną **synchronizacja program
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](active-directory-aadconnect.md)
-

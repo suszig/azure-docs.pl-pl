@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorowania i diagnostyki dla sieci szkieletowej usług Azure
 
@@ -136,5 +136,6 @@ Aby dostosować wykresy, postępuj zgodnie z instrukcjami [metryk w Microsoft Az
 
 * Dowiedz się więcej na temat monitorowania platformy i zdarzenia platformy Service Fabric zawiera w miejscu [platformy poziomu generowania zdarzeń i dzienników](service-fabric-diagnostics-event-generation-infra.md)
 * Wprowadzenie do instrumentacji aplikacji, dla [poziomu generowania zdarzeń i dziennika aplikacji](service-fabric-diagnostics-event-generation-app.md)
-* Przejdź do samouczka [monitorowania i diagnostyki dla aplikacji platformy ASP.NET Core sieci szkieletowej usług](service-fabric-tutorial-monitoring-aspnet.md)
+* Przejdź przez proces konfigurowania AI aplikacji z [monitorowania i diagnostyki dla aplikacji platformy ASP.NET Core sieci szkieletowej usług](service-fabric-tutorial-monitoring-aspnet.md)
+* Dowiedz się, jak skonfigurować OMS analizy dzienników dla monitorowania kontenery- [monitorowania i diagnostyki dla systemu Windows kontenerów w sieci szkieletowej usług Azure](service-fabric-tutorial-monitoring-wincontainers.md)
 

@@ -1,211 +1,186 @@
 ---
-title: "Utwórz bramę aplikacji - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak utworzyć bramę aplikacji przy użyciu 2.0 interfejsu wiersza polecenia Azure Resource Manager."
+title: "Utwórz bramę aplikacji - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć bramę aplikacji przy użyciu wiersza polecenia platformy Azure."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Tworzenie bramy aplikacji przy użyciu 2.0 interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-application-gateway-using-the-azure-cli"></a>Utwórz bramę aplikacji przy użyciu wiersza polecenia platformy Azure
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager — program PowerShell](application-gateway-create-gateway-arm.md)
-> * [Program Azure PowerShell klasycznego](application-gateway-create-gateway.md)
-> * [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interfejs wiersza polecenia platformy Azure 1.0](application-gateway-create-gateway-cli.md)
-> * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-create-gateway-cli.md)
+Interfejsu wiersza polecenia Azure umożliwia tworzenie lub zarządzanie bramy aplikacji z poziomu wiersza polecenia lub w skryptach. Ta opcja szybkiego startu przedstawia tworzenie zasobów sieciowych, serwerów wewnętrznej bazy danych oraz bramy aplikacji.
 
-Azure bramy aplikacji jest wirtualne dedykowanych udostępnia kontroler dostarczania aplikacji (ADC) jako usługa, oferty różnych warstwy 7 Równoważenie obciążenia sieciowego funkcji aplikacji.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="cli-versions"></a>Wersje interfejsu wiersza polecenia
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Można utworzyć bramy aplikacji przy użyciu jednej z następujących wersji interfejsu wiersza polecenia (CLI):
+Jeśli wybierzesz do zainstalowania i używania interfejsu wiersza polecenia lokalnie, ta opcja szybkiego startu, użytkownik musi uruchomić wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
-* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md): wiersza polecenia platformy Azure dla klasycznego i modeli wdrażania usługi Azure Resource Manager
-* [Azure CLI 2.0](application-gateway-create-gateway-cli.md): Next generation interfejsu wiersza polecenia dla modelu wdrażania usługi Resource Manager
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Wymagania wstępne: Instalacja Azure CLI 2.0
+Tworzenie grupy zasobów przy użyciu [Tworzenie grupy az](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Aby wykonać kroki opisane w tym artykule, należy [instalowanie interfejsu wiersza polecenia Azure macOS, Linux i Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupAG* w *eastus* lokalizacji.
 
-> [!NOTE]
-> Potrzebujesz konta platformy Azure, aby utworzyć bramę aplikacji. Jeśli nie masz, zaloguj się do [bezpłatnej wersji próbnej](../active-directory/sign-up-organization.md).
-
-## <a name="scenario"></a>Scenariusz
-
-W tym scenariuszu należy Dowiedz się, jak utworzyć bramę aplikacji przy użyciu portalu Azure.
-
-W tym scenariuszu obejmują:
-
-* Utwórz bramę aplikacji średnia z dwóch wystąpień.
-* Tworzenie sieci wirtualnej o nazwie AdatumAppGatewayVNET z zarezerwowanym blokiem CIDR 10.0.0.0/16.
-* Tworzenie podsieci o nazwie Appgatewaysubnet używającej bloku 10.0.0.0/28 jako bloku CIDR.
-
-> [!NOTE]
-> Dalsza konfiguracja bramy aplikacji, w tym sondy kondycji niestandardowych, adresy w puli zaplecza i dodatkowe reguły odbywa się po utworzeniu bramy aplikacji i nie podczas pierwszego wdrożenia.
-
-## <a name="before-you-begin"></a>Przed rozpoczęciem
-
-Brama aplikacji wymaga jego własnej podsieci. Podczas tworzenia sieci wirtualnej, upewnij się, czy pozostanie wystarczająco dużo przestrzeni adresowej używanej przez wiele podsieci. Po wdrożeniu bramę aplikacji do podsieci, można dodać tylko bramy dodatkowych aplikacji do tej podsieci.
-
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-
-Otwórz **wiersza polecenia usługi Microsoft Azure** i zaloguj się na:
-
-```azurecli-interactive
-az login -u "username"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-> [!NOTE]
-> Można również użyć `az login` bez przełącznika dla nazwy logowania urządzenia, która wymaga wprowadzenie kodu na aka.ms/devicelogin.
+## <a name="create-network-resources"></a>Utwórz zasoby sieciowe 
 
-Po wprowadzeniu poprzedniego polecenia, otrzymasz kod. Przejdź do https://aka.ms/devicelogin w przeglądarce, aby kontynuować proces logowania.
-
-![cmd przedstawiający urządzenia logowania][1]
-
-W przeglądarce wprowadź otrzymany kod. To przekieruje Cię do strony logowania.
-
-![przeglądarki, aby wprowadzić kod][2]
-
-Wprowadź kod, aby zarejestrować, a następnie zamknij przeglądarkę, aby kontynuować.
-
-![pomyślnie zalogował się][3]
-
-## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
-
-Przed utworzeniem bramy aplikacji, Utwórz grupę zasobów, które zawierałoby proces. Użyj następującego polecenia:
+Tworzenie sieci wirtualnej i podsieci przy użyciu [tworzenie sieci wirtualnej sieci az](/cli/azure/vnet#az_vnet_create). Utwórz publiczny adres IP przy użyciu [utworzyć az sieci publicznej ip](/cli/azure/public-ip#az_public_ip_create).
 
 ```azurecli-interactive
-az group create --name myresourcegroup --location "eastus"
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet   \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-backend-servers"></a>Utwórz serwerów wewnętrznej bazy danych
+
+W tym przykładzie utworzysz dwie maszyny wirtualne do użycia jako serwery zaplecza bramy aplikacji. Należy również zainstalować NGINX na maszynach wirtualnych, aby sprawdzić, czy brama aplikacji została pomyślnie utworzona.
+
+### <a name="create-two-virtual-machines"></a>Utwórz dwie maszyny wirtualne
+
+Plik konfiguracji chmury init służy do instalowania NGINX i uruchamianie aplikacji Node.js "Hello World" w maszynie wirtualnej systemu Linux. W bieżącym powłoki Utwórz plik o nazwie init.txt chmury i skopiuj i wklej następującą konfigurację w powłoce. Upewnij się, że należy skopiować cały init chmury pliku poprawnie, szczególnie pierwszy wiersz:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+Tworzenie interfejsów sieciowych z [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#az_network_nic_create). Tworzenie maszyn wirtualnych z [tworzenia maszyny wirtualnej az](/cli/azure/vm#az_vm_create).
+
+```azurecli-interactive
+for i in `seq 1 2`; do
+  az network nic create \
+    --resource-group myResourceGroupAG \
+    --name myNic$i \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet
+  az vm create \
+    --resource-group myResourceGroupAG \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+done
 ```
 
 ## <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
 
-Użyj adresów IP zaplecza na adresy IP serwera zaplecza. Te wartości można prywatnych adresów IP w sieci wirtualnej, publiczne adresy IP lub nazwy FQDN dla serwerów zaplecza. Poniższy przykład tworzy bramę aplikacji z dodatkowe konfiguracje dla ustawień protokołu HTTP, portów i reguł:
+Tworzenie bramy aplikacji przy użyciu [utworzyć az sieci z bramy aplikacji](/cli/azure/application-gateway#az_application_gateway_create). Podczas tworzenia bramy aplikacji przy użyciu wiersza polecenia platformy Azure, należy określić informacje o konfiguracji, takie jak pojemności, jednostki sku i ustawienia protokołu HTTP. Prywatne adresy IP interfejsów sieciowych są dodawane jako serwery w puli zaplecza bramy aplikacji.
 
 ```azurecli-interactive
+address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+address2=$(az network nic show --name myNic2 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
 az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers 10.0.0.4 10.0.0.5 \
---capacity 2 \
---sku Standard_Small \
---http-settings-cookie-based-affinity Enabled \
---http-settings-protocol Http \
---frontend-port 80 \
---routing-rule-type Basic \
---http-settings-port 80 \
---public-ip-address "pip2" \
---public-ip-address-allocation "dynamic" \
-
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --capacity 2 \
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --servers "$address1" "$address2"
 ```
 
-W poprzednim przykładzie pokazano kilka właściwości, które nie są wymagane podczas tworzenia bramy aplikacji. Poniższy przykład kodu tworzy bramę aplikacji z informacjami wymaganymi:
+Może upłynąć kilka minut dla bramy aplikacji ma zostać utworzony. Po utworzeniu bramy aplikacji, można wyświetlić następujące elementy:
 
-```azurecli-interactive
-az network application-gateway create \
---name "AdatumAppGateway" \
---location "eastus" \
---resource-group "myresourcegroup" \
---vnet-name "AdatumAppGatewayVNET" \
---vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet" \
---subnet-address-prefix "10.0.0.0/28" \
---servers "10.0.0.5"  \
---public-ip-address pip
-```
- 
-> [!NOTE]
-> Aby uzyskać listę parametrów do użycia podczas tworzenia, uruchom następujące polecenie: `az network application-gateway create --help`.
+- *appGatewayBackendPool* -bramę aplikacji musi mieć co najmniej jedna pula adresów zaplecza.
+- *appGatewayBackendHttpSettings* — Określa, że portu 80 oraz protokołu HTTP jest używany do komunikacji.
+- *appGatewayHttpListener* -odbiornika domyślne skojarzone z *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -przypisuje *myAGPublicIPAddress* do *appGatewayHttpListener*.
+- *rule1* — domyślna routingu regułę, która jest skojarzona z *appGatewayHttpListener*.
 
-W tym przykładzie tworzy bramę aplikacji w warstwie podstawowa z domyślnych ustawień odbiornika, puli zaplecza, ustawienia HTTP zaplecza i zasady. Można zmodyfikować te ustawienia do wdrożenia po udostępnianie zakończy się pomyślnie.
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Jeśli aplikacja sieci web został zdefiniowany z puli zaplecza w poprzednich krokach, równoważenie obciążenia sieciowego rozpocznie się teraz.
+Aby uzyskać publiczny adres IP bramy aplikacji, należy użyć [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki.
 
-## <a name="get-the-application-gateway-dns-name"></a>Pobierz nazwę DNS bramy aplikacji
-Po utworzeniu bramy, następnie należy skonfigurować frontonu dla komunikacji. Gdy używasz publicznego adresu IP bramy aplikacji wymaga przypisywany dynamicznie nazwy DNS, który nie jest przyjazną. Zapewnienie, że użytkownicy mogą trafień bramy aplikacji, wskaż publiczny punkt końcowy bramy aplikacji przy użyciu rekordu CNAME. Aby uzyskać więcej informacji, zobacz [użycia usługi Azure DNS, aby określić ustawienia domeny niestandardowej dla usługi Azure](../dns/dns-custom-domain.md).
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+``` 
 
-Aby skonfigurować alias, należy pobrać szczegółów bramy aplikacji i skojarzonej z nią nazwy IP DNS przy użyciu elementu publicznego adresu IP dołączony na bramie aplikacji. Użyj nazwy DNS bramy aplikacji, aby utworzyć rekord CNAME, wskazujący aplikacji dwie sieci web do tej nazwy DNS. Nie korzystać z rekordów, ponieważ adres VIP mogą ulec zmianie sprawie ponownego uruchomienia bramy aplikacji.
+![Brama aplikacji w testu](./media/application-gateway-create-gateway-cli/application-gateway-nginxtest.png)
 
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
-```
+Gdy nie są już potrzebne, można użyć [usunięcie grupy az](/cli/azure/group#az_group_delete) polecenia, aby usunąć grupę zasobów, bramy aplikacji i wszystkie powiązane zasoby.
 
-```
-{
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
-}
-```
-
-## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
-
-Aby usunąć wszystkie zasoby utworzone w tym artykule, uruchom następujące polecenie:
-
-```azurecli-interactive
-az group delete --name AdatumAppGatewayRG
+```azurecli-interactive 
+az group delete --name myResourceGroupAG
 ```
  
 ## <a name="next-steps"></a>Kolejne kroki
 
-Aby dowiedzieć się, jak utworzyć sondy kondycji niestandardowych, przejdź do [Tworzenie niestandardowych sondowania bramy aplikacji przy użyciu portalu](application-gateway-create-probe-portal.md).
+W tym szybkiego startu utworzyć grupę zasobów, zasobów sieciowych i serwerów wewnętrznej bazy danych. Te zasoby są następnie używane do tworzenia bramy aplikacji. Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.
 
-Aby dowiedzieć się, jak skonfigurować odciążanie protokołu SSL i podejmij kosztowne odszyfrowywania SSL poza serwerów sieci web, zobacz [skonfigurować bramę aplikacji dla odciążania protokołu SSL przy użyciu usługi Azure Resource Manager](application-gateway-ssl-arm.md).
-
-<!--Image references-->
-
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png

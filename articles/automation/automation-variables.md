@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Zasoby zmiennej usługi Automatyzacja Azure
 
@@ -51,20 +51,20 @@ Poniżej przedstawiono listę typów zmiennych, które są dostępne w automatyz
 * Wartość logiczna
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Obsługa skryptów, tworzenie i zarządzanie zmiennych
+## <a name="azurerm-powershell-cmdlets"></a>Polecenia cmdlet programu AzureRM PowerShell
+Dla AzureRM poleceń cmdlet w poniższej tabeli służą do tworzenia i zarządzania zasobami poświadczenie automatyzacji przy użyciu programu Windows PowerShell.  One dostarczane jako część [modułu AzureRM.Automation](/powershell/azure/overview) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
 
-Polecenia cmdlet w poniższej tabeli służą do tworzenia zmiennych i zarządzania nimi automatyzacji przy użyciu programu Windows PowerShell. One dostarczane jako część [modułu Azure PowerShell](../powershell-install-configure.md) która jest dostępna na potrzeby automatyzacji elementów runbook i konfiguracji DSC.
-
-|Polecenia cmdlet|Opis|
+| Polecenia cmdlet | Opis |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Pobiera wartość istniejącej zmiennej.|
-|[Nowe AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Tworzy nową zmienną i ustawia jej wartość.|
-|[Usuń AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Usuwa istniejącej zmiennej.|
-|[Zestaw AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Ustawia wartość istniejącej zmiennej.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Tworzy nową zmienną i ustawia jej wartość.|
+|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Usuwa istniejącej zmiennej.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Ustawia wartość istniejącej zmiennej.|
 
-Działania przepływu pracy w poniższej tabeli umożliwiają dostęp do zmiennych automatyzacji w elemencie runbook. Są dostępne tylko dla elementu runbook lub konfiguracji DSC i nie są dostarczane jako część modułu Azure PowerShell.
+## <a name="activities"></a>Działania
+Działania w poniższej tabeli umożliwiają dostęp do poświadczeń w elemencie runbook i konfiguracji DSC.
 
-|Działania przepływu pracy|Opis|
+| Działania | Opis |
 |:---|:---|
 |Get-AutomationVariable|Pobiera wartość istniejącej zmiennej.|
 |Set-AutomationVariable|Ustawia wartość istniejącej zmiennej.|
@@ -205,4 +205,3 @@ Na poniższej ilustracji przedstawiono przykładowe działania można zaktualizo
 
 * Aby dowiedzieć się więcej o łączenie działań w tworzeniu graficzny, zobacz [łącza w tworzeniu graficznego](automation-graphical-authoring-intro.md#links-and-workflow)
 * Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz artykuł [My first graphical runbook](automation-first-runbook-graphical.md) (Mój pierwszy graficzny element Runbook). 
-

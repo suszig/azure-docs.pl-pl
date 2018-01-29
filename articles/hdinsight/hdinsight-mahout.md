@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generowanie zaleceń filmu przy użyciu Apache Mahout Hadoop w usłudze HDInsight (PowerShell)
 
@@ -68,7 +68,7 @@ Dane zawarte w ratings.txt użytkownika ma struktury `userID`, `movieID`, `userR
     244    51     2    880606923
     166    346    1    886397596
 
-### <a name="run-the-job"></a>Uruchamianie zadania
+### <a name="run-the-job"></a>Uruchom zadanie
 
 Użyj następującego skryptu programu Windows PowerShell do uruchomienia zadania, które używa aparatu zalecenie Mahout z danymi film:
 
@@ -210,7 +210,7 @@ Zadania mahout, używane przez następujące klasy zwracać różne komunikaty o
 
 Aby uruchomić zadania korzystające z tych klas, połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH, a następnie uruchom zadania z wiersza polecenia. Na przykład do uruchomienia zadań Mahout przy użyciu protokołu SSH, zobacz [Generowanie zaleceń filmu przy użyciu Mahout i HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz sposobu używania Mahout, odnajdywanie inne sposoby pracy z danymi w usłudze HDInsight:
 

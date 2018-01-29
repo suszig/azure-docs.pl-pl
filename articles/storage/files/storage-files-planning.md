@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Usługa pliki Azure](storage-files-introduction.md) oferuje pełni zarządzanych udziałów plików w chmurze, które są dostępne przy użyciu standardowego protokołu SMB. Ponieważ pliki Azure jest pełna, jego wdrożeniem w środowisku produkcyjnym scenariuszach jest znacznie prostsze niż wdrażania i zarządzania nimi serwera plików lub urządzenie NAS. W tym artykule opisano tematy wziąć pod uwagę podczas wdrażania udziału plików platformy Azure do użytku produkcyjnego w ramach danej organizacji.
@@ -50,7 +50,7 @@ Azure pliki ofert dwóch metod, której można oddzielnie lub w połączeniu ze 
 
 W poniższej tabeli przedstawiono, jak użytkowników i aplikacji dostęp do udziału plików platformy Azure:
 
-| | Dostęp bezpośredni chmury | Synchronizacja plików na platformę Azure |
+| | Dostęp bezpośredni chmury | Usługa Azure File Sync |
 |------------------------|------------|-----------------|
 | Jakie protokoły musisz użyć? | Usługa pliki Azure obsługuje protokół SMB 2.1, SMB 3.0 i interfejsu API REST plików. | Dostęp do udziału plików Azure za pomocą dowolnego protokołu obsługiwanych w systemie Windows Server (protokół SMB, systemu plików NFS, FTPS itp.) |  
 | Gdy używasz Twoje obciążenie? | **Na platformie Azure**: plików Azure oferuje bezpośredni dostęp do danych. | **Lokalnej z wolną sieć**: klientów systemu Windows, Linux i macOS można zainstalować lokalnie lokalnego udziału plików systemu Windows jako szybkiego pamięci podręcznej udziału plików platformy Azure. |
@@ -64,7 +64,7 @@ Usługa pliki Azure zawiera kilka wbudowanych opcji równoczesnym zapewnieniu be
     * Klienci, którzy nie obsługują protokołu SMB 3.0 mogą komunikować się centrum danych wewnątrz przez protokół SMB 2.1 lub SMB 3.0 bez szyfrowania. Należy pamiętać, że klienci nie są dozwolone do komunikacji między centrum danych za pośrednictwem protokołu SMB 2.1 lub SMB 3.0 bez szyfrowania.
     * Klienci mogą komunikować się za pośrednictwem pliku REST z protokołu HTTP lub HTTPS.
 * Szyfrowanie na rest ([szyfrowanie usługi Magazyn Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Trwa włączanie szyfrowanie usługi Magazyn (SSE) na platformie Azure Storage podstawowej. Oznacza to, że szyfrowanie zostanie włączona domyślnie dla wszystkich kont magazynu. W przypadku tworzenia nowego konta magazynu w regionie z szyfrowania podczas spoczynku na domyślnych, nie trzeba wykonywać żadnych czynności, aby włączyć. Dane na rest jest szyfrowana za pełni zarządzanych kluczy. Szyfrowanie na rest zwiększenie kosztów magazynowania lub nie zmniejszyć wydajność. 
-* Opcjonalne wymagania zaszyfrowanych danych podczas przesyłania: po wybraniu plików Azure nie pozwoli na dostęp do danych za pośrednictwem nieszyfrowanego kanałów. W szczególności tylko protokołu HTTPS i SMB 3.0 z szyfrowania połączenia będą dozwolone. 
+* Opcjonalne wymagania zaszyfrowanych danych podczas przesyłania: po wybraniu plików Azure odrzuca dostępu do danych za pośrednictwem nieszyfrowanego kanałów. W szczególności są dozwolone tylko protokołu HTTPS i SMB 3.0 z szyfrowania połączenia. 
 
     > [!Important]  
     > Wymaganie bezpiecznego transferu danych spowoduje, że nie może komunikować się z protokołem SMB 3.0 z szyfrowania starsze klienty SMB się niepowodzeniem. Zobacz [zainstalować w systemie Windows](storage-how-to-use-files-windows.md), [zainstalować w systemie Linux](storage-how-to-use-files-linux.md), [zainstalować na macOS](storage-how-to-use-files-mac.md) Aby uzyskać więcej informacji.
@@ -74,10 +74,13 @@ Dla zapewnienia maksymalnego poziomu bezpieczeństwa zdecydowanie zaleca się za
 Jeśli używasz synchronizacji plików Azure na dostęp do udziału plików platformy Azure, zawsze używamy HTTPS i SMB 3.0 z szyfrowaniem do synchronizacji danych do serwerów systemu Windows, niezależnie od tego, czy Wymaganie szyfrowania danych na rest.
 
 ## <a name="data-redundancy"></a>Nadmiarowość danych
-Usługa pliki Azure obsługuje dwie opcje nadmiarowości danych: Magazyn lokalnie nadmiarowy (LRS) i magazynu geograficznie nadmiarowego (GRS). W poniższych sekcjach opisano różnice między magazyn lokalnie nadmiarowy i magazynu geograficznie nadmiarowego:
+Usługa pliki Azure obsługuje trzy opcje nadmiarowości danych: Magazyn lokalnie nadmiarowy (LRS), strefy magazyn geograficznie nadmiarowy (ZRS) i magazynu geograficznie nadmiarowego (GRS). W poniższych sekcjach opisano różnice między nadmiarowość różne opcje:
 
 ### <a name="locally-redundant-storage"></a>Magazyn lokalnie nadmiarowy
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Strefa magazynu geograficznie nadmiarowego
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Magazyn geograficznie nadmiarowy
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
@@ -95,7 +98,7 @@ Istnieje wiele opcji łatwy do zbiorczego transferu danych z istniejącego pliku
 * **[ROBOCOPY](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy jest narzędziem dobrze znanych kopiowania jest dostarczana z systemem Windows i Windows Server. ROBOCOPY może służyć do przesyłania danych do usługi pliki Azure instalowanie udziału plików lokalnie, a następnie używając lokalizacji zainstalowanego jako miejsce docelowe polecenia Robocopy.
 * **[Narzędzie AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: narzędzie AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych z magazynu obiektów Blob platformy Azure, a także pliki Azure przy użyciu prostych poleceń z optymalną wydajnością. Narzędzie AzCopy jest dostępna dla systemów Windows i Linux.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Planowanie wdrożenia synchronizacji plików na platformę Azure](storage-sync-files-planning.md)
 * [Wdrażanie plików platformy Azure](storage-files-deployment-guide.md)
 * [Wdrażanie synchronizacji plików na platformę Azure](storage-sync-files-deployment-guide.md)

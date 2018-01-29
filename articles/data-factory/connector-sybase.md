@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiowanie danych z programu Sybase przy użyciu fabryki danych Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,6 @@ Obsługiwane są następujące właściwości dla programu Sybase połączone us
 | type | Właściwość type musi mieć ustawioną: **Sybase** | Yes |
 | serwer | Nazwa serwera programu Sybase. |Yes |
 | baza danych | Nazwa bazy danych programu Sybase. |Yes |
-| Schemat | Nazwa schematu w bazie danych. |Nie |
 | authenticationType | Typ uwierzytelniania używany do łączenia z bazą danych programu Sybase.<br/>Dozwolone wartości to: **podstawowe**, i **Windows**. |Yes |
 | nazwa użytkownika | Określ nazwę użytkownika do połączenia z bazą danych programu Sybase. |Yes |
 | hasło | Określ hasło dla konta użytkownika, określone nazwy użytkownika. Zaznacz to pole jako SecureString. |Yes |

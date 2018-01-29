@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: e97bdd645ef2a3efba83e3f87114c998f9a9e344
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67a9d01f686c6aa8a569239667ae14d7bf087a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-sequencing-and-timestamps"></a>Komunikat sekwencjonowania i sygnatury czasowe
 
@@ -45,7 +45,7 @@ Można zaplanować wiadomości, albo ustawiając [ScheduledEnqueueTimeUtc](/dotn
 
 Ponieważ funkcja jest zakotwiczona na poszczególne wiadomości i komunikaty mogą być tylko umieszczonych w kolejce raz, usługi Service Bus nie obsługuje cyklicznych harmonogramów dla wiadomości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

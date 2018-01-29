@@ -1,10 +1,10 @@
 ---
-title: "Sprawdź łączność z obserwatora sieciowego Azure - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ta strona wyjaśniono, jak Sprawdzanie łączności za pomocą Monitora sieci używa interfejsu wiersza polecenia platformy Azure w wersji 2.0"
+title: "Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak korzystać z połączenia Rozwiązywanie problemów z możliwości obserwatora sieciowego Azure za pomocą 2.0 interfejsu wiersza polecenia platformy Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Sprawdź łączność z obserwatora sieciowego Azure używa interfejsu wiersza polecenia platformy Azure w wersji 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Rozwiązywanie problemów z połączeniami z obserwatora sieciowego Azure za pomocą 2.0 interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > - [Program PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfejs wiersza polecenia 2.0](network-watcher-connectivity-cli.md)
 > - [Interfejs API Azure REST](network-watcher-connectivity-rest.md)
 
-Dowiedz się, jak używać łączności, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
+Dowiedz się, jak używać połączenia Rozwiązywanie problemów, aby sprawdzić, czy można nawiązać bezpośrednie połączenie TCP z maszyny wirtualnej do danego punktu końcowego.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz następujące zasoby:
 
-* Wystąpienie obserwatora sieciowego w regionie, aby sprawdzić łączność.
-
-* Sprawdź łączność z maszyn wirtualnych.
+* Wystąpienie obserwatora sieciowego w regionie rozwiązywania problemów z połączeniem.
+* Rozwiązywanie problemów z połączeniami z maszyn wirtualnych.
 
 > [!IMPORTANT]
-> Sprawdź łączność wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
+> Rozwiązywanie problemów z połączenia wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension`. Instalowanie rozszerzenia na maszynie Wirtualnej systemu Windows można znaleźć [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny Wirtualnej systemu Linux, odwiedź [rozszerzenie maszyny wirtualnej Azure sieci obserwatorów agenta dla systemu Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Sprawdź połączenie z maszyną wirtualną
 
@@ -122,7 +121,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>Sprawdź poprawność routingu problemów
 
-Przykład służy do sprawdzania łączności między maszyną wirtualną i zdalny punkt końcowy.
+W tym przykładzie sprawdza łączność między maszyną wirtualną i zdalny punkt końcowy.
 
 ### <a name="example"></a>Przykład
 
@@ -269,7 +268,7 @@ Następujący kod json jest przykład odpowiedzi z uruchomienie poprzedniego pol
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak można zautomatyzować przechwytywania pakietów z alertami maszyny wirtualnej, wyświetlając [utworzyć przechwytywania alertów wyzwalanych pakietów](network-watcher-alert-triggered-packet-capture.md)
 

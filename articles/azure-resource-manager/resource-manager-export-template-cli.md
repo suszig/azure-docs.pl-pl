@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Eksportowanie szablonów usługi Azure Resource Manager z wiersza polecenia platformy Azure
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Zapisz szablon z historii wdrożenia
 
-Można pobrać szablonu z historii wdrożenia za pomocą [eksportowanie wdrożenia grupy az](/cli/azure/group/deployment#export) polecenia. Poniższy przykład zapisuje szablon, który wcześniej wdrażania:
+Można pobrać szablonu z historii wdrożenia za pomocą [eksportowanie wdrożenia grupy az](/cli/azure/group/deployment#az_group_deployment_export) polecenia. Poniższy przykład zapisuje szablon, który wcześniej wdrażania:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Zwróć uwagę, że jest d
 
 ## <a name="export-resource-group-as-template"></a>Eksportowanie grupy zasobów jako szablon
 
-Zamiast pobierania szablonu z historii wdrażania, można pobrać szablonu, która reprezentuje bieżący stan grupy zasobów za pomocą [eksportowanie grupy az](/cli/azure/group#export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian w danej grupie zasobów, a nie istniejący szablon reprezentuje wszystkie zmiany.
+Zamiast pobierania szablonu z historii wdrażania, można pobrać szablonu, która reprezentuje bieżący stan grupy zasobów za pomocą [eksportowanie grupy az](/cli/azure/group#az_group_export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian w danej grupie zasobów, a nie istniejący szablon reprezentuje wszystkie zmiany.
 
 ```azurecli
 az group export --name ExampleGroup
@@ -203,7 +203,7 @@ Twój szablon wygląda teraz następująco:
 
 Należy ponownie wdrożyć zmodyfikowany szablon.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać informacje dotyczące korzystania z portalu, aby wyeksportować szablon, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
 * Aby określić parametry w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).
 * Aby uzyskać wskazówki dotyczące rozwiązania typowych błędów wdrażania, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).

@@ -5,8 +5,7 @@ keywords: szyfrowanie klucza szyfrowania danych w chmurze szyfrowania
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Zawsze zaszyfrowane: Ochrona poufnych danych w bazie danych SQL i przechowywania kluczy szyfrowania w usłudze Azure Key Vault
 
@@ -48,30 +47,18 @@ W tym samouczku potrzebne są:
 * [Program Azure PowerShell](/powershell/azure/overview), w wersji 1.0 lub nowszej. Typ **(Get-Module azure flagą-ListAvailable). Wersja** jakiej wersji programu PowerShell są uruchomione.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Włączanie aplikacji klienckiej dostęp do usługi baza danych SQL
-Należy włączyć aplikacji klienckiej dostęp do usługi SQL Database, konfigurując wymagane uwierzytelnianie i uzyskiwanie *ClientId* i *klucz tajny* należy do uwierzytelniania aplikacji w poniższym kodzie.
+Należy włączyć dostęp do usługi SQL Database, konfigurowania aplikacji usługi Azure Active Directory (AAD) i kopiowanie przez aplikację klienta *identyfikator aplikacji* i *klucza* potrzebne do uwierzytelniania aplikacji.
 
-1. Otwórz [klasycznego portalu Azure](http://manage.windowsazure.com).
-2. Wybierz **usługi Active Directory** i kliknij przycisk wystąpienia usługi Active Directory, który będzie używany przez aplikację.
-3. Kliknij przycisk **aplikacji**, a następnie kliknij przycisk **dodać**.
-4. Wpisz nazwę dla aplikacji (na przykład: *myClientApp*), wybierz pozycję **aplikacji sieci WEB**i kliknij strzałkę, aby kontynuować.
-5. Dla **adres URL logowania** i **identyfikator URI aplikacji** możesz wpisać prawidłowy adres URL (na przykład *http://myClientApp*) i kontynuować.
-6. Kliknij przycisk **Konfiguruj**.
-7. Kopiowanie z **identyfikator klienta**. (Należy tej wartości w kodzie później.)
-8. W **klucze** zaznacz **1 rok** z **wybierz czas trwania** listy rozwijanej. (Będzie skopiuj klucz, kiedy zostanie zapisany w kroku 13.)
-9. Przewiń w dół i kliknij przycisk **Dodaj aplikację**.
-10. Pozostaw **Pokaż** ustawioną **Microsoft Apps** i wybierz **interfejs API zarządzania usługami Microsoft Azure**. Kliknij znacznik wyboru, aby kontynuować.
-11. Wybierz **dostęp do zarządzania usługą Azure...**  z **delegowane uprawnienia** listy rozwijanej.
-12. Kliknij przycisk **SAVE** (Zapisz).
-13. Po zakończeniu Zapisz, skopiuj wartość klucza w **klucze** sekcji. (Należy tej wartości w kodzie później.)
+Aby uzyskać *identyfikator aplikacji* i *klucza*, postępuj zgodnie z instrukcjami [utworzyć podmiot zabezpieczeń aplikacji i usług, który ma dostęp do zasobów usługi Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Tworzenie klucza magazynu do przechowywania kluczy
-Skonfigurowano aplikację klienta, a masz Identyfikatora klienta, jest czas na utworzenie magazynu kluczy i skonfigurować jego zasady dostępu, możesz i aplikacji wymaga dostępu do kluczy tajnych w magazynie (zawsze zaszyfrowane kluczy). *Utworzyć*, *uzyskać*, *listy*, *znak*, *Sprawdź*, *wrapKey*, i *unwrapKey* uprawnienia są wymagane do utworzenia nowego klucza głównego kolumny i konfigurowania szyfrowania za pomocą programu SQL Server Management Studio.
+Skonfigurowano aplikację klienta, a ma swój identyfikator aplikacji, jest czas na utworzenie magazynu kluczy i skonfigurować jego zasady dostępu, możesz i aplikacji wymaga dostępu do kluczy tajnych w magazynie (zawsze zaszyfrowane kluczy). *Utworzyć*, *uzyskać*, *listy*, *znak*, *Sprawdź*, *wrapKey*, i *unwrapKey* uprawnienia są wymagane do utworzenia nowego klucza głównego kolumny i konfigurowania szyfrowania za pomocą programu SQL Server Management Studio.
 
 Może szybko utworzyć magazyn kluczy, uruchamiając poniższy skrypt. Aby uzyskać dokładniejsze objaśnienie tych poleceń cmdlet i więcej informacji na temat tworzenia i konfigurowania magazynu kluczy, zobacz [wprowadzenie do usługi Azure Key Vault](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ Może szybko utworzyć magazyn kluczy, uruchamiając poniższy skrypt. Aby uzysk
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -233,7 +220,7 @@ Poniższy kod przedstawia sposób rejestrowania dostawcy usługi Azure Key Vault
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Uruchom aplikację, aby wyświetlić zawsze zaszyfrowane w akcji.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Uruchom aplikację, aby wyświetlić zawsze zaszyfrowane w akcji.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -628,7 +615,7 @@ Aby uzyskać dostęp do danych w postaci zwykłego tekstu przy użyciu narzędzi
     ![Nową aplikację konsoli](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Po utworzeniu bazy danych, która używa zawsze zaszyfrowane, można wykonać następujące czynności:
 
 * [Obracanie i wyczyścić klucze](https://msdn.microsoft.com/library/mt607048.aspx).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Dostosowywanie systemu operacyjnego konfiguracjach zabezpieczeń w Centrum zabezpieczeń Azure (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ W tym przewodniku pokazano, jak dostosować oceny konfiguracji zabezpieczeń sys
 
 ## <a name="what-are-os-security-configurations"></a>Co to są konfiguracji zabezpieczeń systemu operacyjnego?
 
-Konfiguracje zabezpieczeń monitorów Centrum zabezpieczeń Azure za pomocą zestawu reguł zalecanych ponad 150 ograniczenie funkcjonalności systemu operacyjnego, w tym reguły dotyczące zapór, inspekcji, zasad haseł i innych. Jeśli maszyna zostanie znaleziony konfiguracji narażony, Centrum zabezpieczeń generuje zalecana ze względów bezpieczeństwa.
+Centrum zabezpieczeń Azure monitoruje konfiguracji zabezpieczeń, stosując zestaw [zalecane reguły kodu ponad 150](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) do wzmacniania systemu operacyjnego, w tym reguły związane z zapory, inspekcji, zasad haseł i innych. Jeśli maszyna zostanie znaleziony konfiguracji narażony, Centrum zabezpieczeń generuje zalecana ze względów bezpieczeństwa.
 
 Dostosowując zasady organizacji można kontrolować, które opcje konfiguracji są bardziej odpowiednie dla swojego środowiska. Można ustawić zasady niestandardowe oceny i zastosować je na wszystkich komputerach stosowane w ramach subskrypcji.
 
@@ -60,8 +60,8 @@ Aby dostosować domyślna konfiguracja zabezpieczeń systemu operacyjnego w Cent
 3.  Wybierz subskrypcję, którą chcesz wykonać dostosowania dla.
 
 4. W obszarze **składniki zasad**, wybierz pozycję **Edycja konfiguracji zabezpieczeń**.  
-    **Edycja konfiguracji zabezpieczeń** zostanie otwarte okno. 
-    
+    **Edycja konfiguracji zabezpieczeń** zostanie otwarte okno.
+
     ![Okno "Edytuj konfiguracje zabezpieczeń"](media/security-center-customize-os-security-config/blade.png)
 
 5. W okienku po prawej stronie wykonaj kroki pobierania, edytowania i przekazywania zmodyfikowany plik.
@@ -70,7 +70,7 @@ Aby dostosować domyślna konfiguracja zabezpieczeń systemu operacyjnego w Cent
    > Domyślnie pobrany plik konfiguracji jest w *json* format. Aby uzyskać instrukcje na temat modyfikowania tego pliku, przejdź do [dostosować plik konfiguracji](#customize-the-configuration-file).
    >
 
-   Po plik został pomyślnie zapisany, konfiguracja zostanie zastosowana do wszystkich maszyn wirtualnych i komputerów, które są podłączone do wszystkich obszarów roboczych w ramach subskrypcji. Proces zazwyczaj zajmuje kilka minut, ale może trwać dłużej, w zależności od wielkości infrastruktury. 
+   Po plik został pomyślnie zapisany, konfiguracja zostanie zastosowana do wszystkich maszyn wirtualnych i komputerów, które są podłączone do wszystkich obszarów roboczych w ramach subskrypcji. Proces zazwyczaj zajmuje kilka minut, ale może trwać dłużej, w zależności od wielkości infrastruktury.
 
 6. Aby zatwierdzić zmiany, wybierz **zapisać**. W przeciwnym razie wartość zasad nie są przechowywane.
 

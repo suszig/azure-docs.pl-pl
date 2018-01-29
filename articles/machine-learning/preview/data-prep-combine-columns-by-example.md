@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Łączenie kolumn w przykładzie transformacja
 Ta transformacja umożliwia użytkownikowi Dodaj nową kolumnę przez połączenie wartości z wielu kolumn. Użytkownika można określić separatora lub zawierają przykłady połączonych wartości do wykonania tej transformacji. Podczas użytkownika zawiera przykłady kombinacja, transformacja jest obsługiwana przez ten sam **przez przykład** aparatu, który jest używany w **kolumny pochodzi przykładzie** transformacji.
@@ -38,6 +38,10 @@ Wybieranie **przykłady** w obszarze **połączyć kolumny według** umożliwia 
 
 Użytkownik może przełączać się między **trybie podstawowym** i **trybu zaawansowanego** po kliknięciu łączy w edytorze transformacji.
 
+### <a name="transform-editor-send-feedback"></a>Przekształć edytora: wysyłanie opinii
+
+Kliknięcie **wysłać opinię** połączyć otwartym **opinii** udostępnił okna dialogowego z polem komentarze wstępnie wypełnione użytkownika przykłady. Użytkownik powinien przejrzeć zawartość pola komentarze i zawierają więcej szczegółowych informacji, aby pomóc nam zrozumieć problem. Jeśli użytkownik nie chce udostępniać dane firmy Microsoft, użytkownik powinien usunąć wstępnie przykładowe dane przed kliknięciem przycisku **Prześlij opinię** przycisku. 
+
 ### <a name="editing-existing-transformation"></a>Edytowanie istniejącego przekształcania
 
 Użytkownik może edytować istniejące **Połącz kolumnę według przykładu** przekształcenie wybierając **Edytuj** opcji krok transformacji. Kliknięcie **Edytuj** otwiera edytor Przekształć w **trybie podstawowym**. Użytkownik może wprowadzić **trybu zaawansowanego** , klikając łącze w nagłówku. Wszystkie przykłady, które zostały podane podczas tworzenia transformacji zostaną w nim wyświetlone.
@@ -54,7 +58,7 @@ Przecinek następuje spacja jest używany jako separator w tym przykładzie poł
 |16041 N.E. sposób 36th|REDMOND|WA|98052|16041 N.E. 36th way, REDMOND, WA, 98052|
 |16051 N.E. sposób 36th|REDMOND|WA|98052|16051 N.E. 36th way, REDMOND, WA, 98052|
 |16061 N.E. sposób 36th|REDMOND|WA|98052|16061 N.E. 36th way, REDMOND, WA, 98052|
-|NE ścieżek 157th 3460|REDMOND|WA|98052|NE ścieżek 157th 3460, REDMOND, WA, 98052|
+|3460 157th Avenue NE|REDMOND|WA|98052|NE ścieżek 157th 3460, REDMOND, WA, 98052|
 |3350 157th Ave. N.E.|REDMOND|WA|98052|N.E. Ave. 157th 3350, REDMOND, WA, 98052|
 |3240 157th ścieżek N.E.|REDMOND|WA|98052|N.E. ścieżek 157th 3240, REDMOND, WA, 98052|
 

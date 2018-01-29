@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 79cd3e2f91f4eb7cecdf2efcd195b409c947d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapas czasu dla użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie zapas czasu dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 
 Celem tego samouczka jest opisano kroki należy wykonać w zapas czasu i Azure AD, aby automatycznie Zainicjuj obsługę i usuwanie kont użytkowników z usługi Azure AD do zapas czasu. 

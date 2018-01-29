@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracji Azure Active Directory z miejsca pracy przez Facebook | Dokumentacja firmy Microsoft'
+title: "Samouczek: Skonfiguruj miejsca pracy przez Facebook dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i miejsca pracy przez usługi Facebook."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez usługi Facebook na potrzeby Inicjowanie obsługi użytkowników
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Skonfiguruj miejsca pracy przez usługi Facebook dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w miejscu pracy przez Facebook i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do miejsca pracy przez usługi Facebook.
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne lokalnymi i topologii usługi Azure Active Directory (Azure AD), używające synchronizacja programu Azure AD Connect jako rozwiązanie integracji klucza. W tym artykule opisano zarówno obsługiwane i nieobsługiwane konfiguracje.
@@ -110,10 +110,11 @@ W tym scenariuszu jeden (lub więcej) lasu zasobów ufa wszystkich lasów kont. 
 Niektórych obciążeń usługi Office 365 mają niektórych ograniczeń dotyczących obsługiwanych topologii:
 
 | Obciążenie | Ograniczenia |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Aby uzyskać więcej informacji na temat hybrydowe topologie obsługiwane przez usługę Exchange Online, zobacz [hybrydowych wdrożeń z wieloma lasami usługi Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype dla firm | Podczas korzystania z wieloma lokalnymi lasami, topologią lasu zasobów konta jest obsługiwana. Aby uzyskać więcej informacji, zobacz [środowiska wymagania dla usługi Skype dla firm Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Jeśli są większe organizacji, a następnie należy użyć [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) funkcji. Umożliwia zdefiniowanie, w którym regionie centrum danych znajdują się resocues użytkownika.
 
 ## <a name="staging-server"></a>Serwer przemieszczania
 ![Przemieszczania serwer w topologii](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

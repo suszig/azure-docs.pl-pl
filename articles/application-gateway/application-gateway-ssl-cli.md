@@ -1,194 +1,189 @@
 ---
-title: "Konfigurowanie protokołu SSL odciążania - Azure Application Gateway - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera instrukcje, aby utworzyć bramę aplikacji przy użyciu protokołu SSL Odciążanie przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0"
-documentationcenter: na
+title: "Utwórz bramę aplikacji z kończenia żądań SSL - wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć bramę aplikacji i Dodaj certyfikat dla zakończenia połączenia SSL przy użyciu wiersza polecenia platformy Azure."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 01/18/2018
 ms.author: davidmu
-ms.openlocfilehash: 4bdca33dae2ce52fdeccdae9a67abb6667593f9d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f0a18f940cf3b4bbedd4b8e5c89cbbeb1bafef77
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Skonfiguruj bramę aplikacji dla odciążania protokołu SSL przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Utwórz bramę aplikacji z kończenia żądań SSL przy użyciu wiersza polecenia platformy Azure
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-ssl-portal.md)
-> * [Azure Resource Manager — program PowerShell](application-gateway-ssl-arm.md)
-> * [Program Azure PowerShell klasycznego](application-gateway-ssl.md)
-> * [Interfejs wiersza polecenia platformy Azure 2.0](application-gateway-ssl-cli.md)
+Interfejsu wiersza polecenia Azure umożliwia tworzenie [brama aplikacji w](application-gateway-introduction.md) przy użyciu certyfikatu dla [kończenia żądań SSL](application-gateway-backend-ssl.md) używającą [zestaw skali maszyny wirtualnej](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dla serwerów wewnętrznej bazy danych. W tym przykładzie zestaw skalowania zawiera dwa wystąpienia maszyny wirtualnej, które są dodawane do domyślnej puli zaplecza bramy aplikacji.
 
-Usługę Azure Application Gateway można skonfigurować tak, aby przerywała sesję protokołu SSL (Secure Sockets Layer) na poziomie bramy, co pozwoli na uniknięcie wykonywania kosztownych zadań szyfrowania protokołu SSL w kolektywie serwerów sieci Web. Odciążanie protokołu SSL także upraszcza zarządzanie certyfikatami na serwerze frontonu.
+W tym artykule dowiesz się, jak:
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Wymagania wstępne: Instalacja Azure CLI 2.0
+> [!div class="checklist"]
+> * Utwórz certyfikat z podpisem własnym
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji przy użyciu certyfikatu
+> * Utwórz zestaw z domyślnej puli zaplecza skali maszyny wirtualnej
 
-Aby wykonać kroki opisane w tym artykule, należy [zainstalować interfejs wiersza polecenia platformy Azure dla komputerów Mac, Linux i Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="required-components"></a>Wymagane składniki
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* **Pula serwerów zaplecza**: Lista adresów IP serwerów zaplecza. Na liście adresów IP powinna należeć do podsieci sieci wirtualnej lub powinien być publiczny adres IP lub wirtualnego adresu IP (VIP).
-* **Ustawienia puli serwera zaplecza**: co Pula ma ustawienia, takie jak port protokołu i koligacji na podstawie plików cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
-* **Port frontonu**: ten port jest port publiczny, który jest otwarty na bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
-* **Odbiornik**: odbiornika ma port frontonu, protokół (Http lub Https; tych ustawień jest rozróżniana wielkość liter) oraz nazwę certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).
-* **Reguła**: reguła wiąże odbiornika i puli serwerów zaplecza i określa, które puli serwerów zaplecza umożliwiających kierowanie ruchem do gdy liczba trafień określonego odbiornika. Obecnie jest obsługiwana tylko reguła *podstawowa*. Reguła *podstawowa* to dystrybucja obciążenia z działaniem okrężnym.
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli).
 
-**Uwagi dotyczące konfiguracji dodatkowych**
+## <a name="create-a-self-signed-certificate"></a>Utwórz certyfikat z podpisem własnym
 
-W przypadku konfiguracji certyfikatów SSL protokół w polu **HttpListener** należy zmienić na *Https* (z uwzględnieniem wielkości liter). Dodaj **SslCertificate** elementu **HttpListener** z wartością zmiennej skonfigurowane dla certyfikatu SSL. Port frontonu powinny zostać uaktualnione do **443**.
-
-**Aby włączyć koligacji na podstawie plików cookie**: można skonfigurować bramę aplikacji, aby upewnić się, że żądanie z sesji klienta jest zawsze kierowane do tej samej maszyny Wirtualnej w kolektywie serwerów sieci web. W tym celu należy wstawić umożliwia bramy do kierowania ruchem danych odpowiednio plik cookie sesji. Aby włączyć koligację opartą na plikach cookie, ustaw element **CookieBasedAffinity** na wartość *Enabled* w elemencie **BackendHttpSettings**.
-
-## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Skonfiguruj odciążanie protokołu SSL na istniejącą bramę aplikacji
-
-Wprowadź następujące polecenia, aby skonfigurować odciążanie protokołu SSL do istniejącej bramy aplikacji:
+W środowisku produkcyjnym należy zaimportować certyfikat podpisane przez zaufanego dostawcę. W tym samouczku Utwórz certyfikat z podpisem własnym i pliku pfx za pomocą polecenia biblioteki openssl.
 
 ```azurecli-interactive
-#!/bin/bash
-
-# Create a new front end port to be used for SSL
-az network application-gateway frontend-port create \
-  --name sslport \
-  --port 443 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Upload the .pfx certificate for SSL offload
-az network application-gateway ssl-cert create \
-  --name "newcert" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new listener referencing the port and certificate created earlier
-az network application-gateway http-listener create \
-  --frontend-ip "appGatewayFrontendIP" \
-  --frontend-port sslport  \
-  --name sslListener \
-  --ssl-cert newcert \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new back-end pool to be used
-az network application-gateway address-pool create \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG" \
-  --name "appGatewayBackendPool2" \
-  --servers 10.0.0.7 10.0.0.8
-
-# Create a new back-end HTTP settings using the new probe
-az network application-gateway http-settings create \
-  --name "settings2" \
-  --port 80 \
-  --cookie-based-affinity Enabled \
-  --protocol "Http" \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
-# Create a new rule linking the listener to the back-end pool
-az network application-gateway rule create \
-  --name "rule2" \
-  --rule-type Basic \
-  --http-settings settings2 \
-  --http-listener ssllistener \
-  --address-pool temp1 \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
-
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
-## <a name="create-an-application-gateway-with-ssl-offload"></a>Utwórz bramę aplikacji z odciążania protokołu SSL
-
-Poniższy przykład tworzy bramę aplikacji z odciążania protokołu SSL. Certyfikat i hasło muszą zostać zaktualizowane do prawidłowego klucza prywatnego.
+Wprowadź wartości odpowiednich dla certyfikatu. Można zaakceptować wartości domyślne.
 
 ```azurecli-interactive
-#!/bin/bash
+openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
+```
 
-# Creates an application gateway with SSL offload
+Wprowadź hasło dla certyfikatu. W tym przykładzie *Azure123456!* jest używany.
+
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
+
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Tworzenie grupy zasobów przy użyciu [Tworzenie grupy az](/cli/azure/group#create).
+
+Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroupAG* w *eastus* lokalizacji.
+
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
+```
+
+## <a name="create-network-resources"></a>Utwórz zasoby sieciowe
+
+Utwórz sieć wirtualną o nazwie *myVNet* i podsieć o nazwie *myAGSubnet* przy użyciu [tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#az_net). Następnie można dodać podsieci o nazwie *myBackendSubnet* są one wymagane serwerów wewnętrznej bazy danych przy użyciu [Utwórz podsieć sieci wirtualnej sieci az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu [utworzyć az sieci publicznej ip](/cli/azure/public-ip#az_network_public_ip_create).
+
+```azurecli-interactive
+az network vnet create \
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myAGSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create \
+  --name myBackendSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24
+az network public-ip create \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
+
+## <a name="create-the-application-gateway"></a>Tworzenie bramy aplikacji
+
+Można użyć [utworzyć az sieci z bramy aplikacji](/cli/azure/application-gateway#create) Utwórz bramę aplikacji. Podczas tworzenia bramy aplikacji przy użyciu wiersza polecenia platformy Azure, należy określić informacje o konfiguracji, takie jak pojemności, jednostki sku i ustawienia protokołu HTTP. 
+
+Brama aplikacji jest przypisany do *myAGSubnet* i *myAGPublicIPAddress* wcześniej utworzony. W tym przykładzie należy skojarzyć utworzony certyfikat i jego hasło po utworzeniu bramy aplikacji. 
+
+```azurecli-interactive
 az network application-gateway create \
-  --name "AdatumAppGateway3" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG2" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --cert-file /home/azureuser/self-signed/AdatumAppGatewayCert.pfx \
-  --cert-password P@ssw0rd \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet" \
-  --subnet-address-prefix "10.0.0.0/28" \
-  --frontend-port 443 \
-  --servers "10.0.0.5 10.0.0.4" \
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGsubnet \
   --capacity 2 \
-  --sku "Standard_Small" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip" \
-  --public-ip-address-allocation "dynamic"
+  --sku Standard_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 443 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress \
+  --cert-file appgwcert.pfx \
+  --cert-password "Azure123456!"
+
 ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Pobierz nazwę DNS bramy aplikacji
+ Może upłynąć kilka minut dla bramy aplikacji ma zostać utworzony. Po utworzeniu bramy aplikacji, można wyświetlić te nowe funkcje:
 
-Po utworzeniu bramy, następnym krokiem jest skonfigurowanie frontonu dla komunikacji.  Brama aplikacji wymaga przypisywany dynamicznie nazwy DNS, korzystając z publicznego adresu IP, który nie jest przyjazną. Aby zapewnić, że użytkownicy końcowi mogą trafień bramy aplikacji, umożliwia rekord CNAME wskaż publiczny punkt końcowy bramy aplikacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla platformy Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+- *appGatewayBackendPool* -bramę aplikacji musi mieć co najmniej jedna pula adresów zaplecza.
+- *appGatewayBackendHttpSettings* — Określa, że portu 80 oraz protokołu HTTP jest używany do komunikacji.
+- *appGatewayHttpListener* -odbiornika domyślne skojarzone z *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -przypisuje *myAGPublicIPAddress* do *appGatewayHttpListener*.
+- *rule1* — domyślna routingu regułę, która jest skojarzona z *appGatewayHttpListener*.
 
-Aby skonfigurować alias, pobrać szczegółów bramy aplikacji i jego skojarzony IP DNS nazwy przy użyciu **publicznego adresu IP** element dołączony na bramie aplikacji. Użyj nazwy DNS bramy aplikacji, aby utworzyć rekord CNAME, wskazujący aplikacji dwie sieci web do tej nazwy DNS. Nie zaleca się użycie rekordów A, ponieważ adres VIP, można zmienić na ponownego uruchomienia bramy aplikacji.
+## <a name="create-a-virtual-machine-scale-set"></a>Utwórz zestaw skali maszyny wirtualnej
 
+W tym przykładzie utworzysz zestaw skali maszyny wirtualnej, zapewniający serwerów domyślnej puli zaplecza bramy aplikacji. W zestawie skalowania maszyn wirtualnych są skojarzone z *myBackendSubnet* i *appGatewayBackendPool*. Aby utworzyć skali zestaw, możesz użyć [az vmss utworzyć](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-```
+### <a name="install-nginx"></a>Instalowanie serwera NGINX
+
+Można użyć dowolnego edytora, który chcesz utworzyć plik, w powłoce chmury. Wprowadź `sensible-editor cloudConfig.json` umożliwia wyświetlenie listy dostępnych edytory do utworzenia pliku. W bieżącym powłoki Utwórz plik o nazwie customConfig.json i wklej następującą konfigurację:
+
+```json
 {
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
+  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh"
 }
 ```
 
+Uruchom następujące polecenie w oknie powłoki:
+
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings @cloudConfig.json
+```
+
+## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
+
+Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#az_network_public_ip_show). Skopiuj publicznego adresu IP, a następnie wklej go w pasku adresu przeglądarki.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Ostrzeżenie bezpieczne](./media/application-gateway-ssl-cli/application-gateway-secure.png)
+
+Aby zaakceptować zabezpieczeń ostrzeżenie, jeśli używasz certyfikatu z podpisem własnym, wybierz **szczegóły** , a następnie **przejdź do strony sieci Web**. Następnie wyświetleniem zabezpieczonej witrynie NGINX jak w poniższym przykładzie:
+
+![Podstawowy adres URL testu bramy aplikacji](./media/application-gateway-ssl-cli/application-gateway-nginx.png)
+
 ## <a name="next-steps"></a>Kolejne kroki
 
-Jeśli chcesz skonfigurować bramę aplikacji za pomocą wewnętrznego modułu równoważenia obciążenia, zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia](application-gateway-ilb.md).
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
-Aby uzyskać więcej informacji o opcjach były ogólnie równoważenia obciążenia Zobacz:
+> [!div class="checklist"]
+> * Utwórz certyfikat z podpisem własnym
+> * Konfigurowanie sieci
+> * Utwórz bramę aplikacji przy użyciu certyfikatu
+> * Utwórz zestaw z domyślnej puli zaplecza skali maszyny wirtualnej
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+Aby dowiedzieć się więcej na temat bram aplikacji i ich skojarzonych zasobów, nadal artykuły.

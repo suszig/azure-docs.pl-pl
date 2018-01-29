@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Skonfiguruj wygaśnięcia dla grup usługi Office 365 (wersja zapoznawcza)
 
@@ -34,11 +34,21 @@ Umożliwia teraz Zarządzanie cyklem życia grup usługi Office 365 przez ustawi
 
 Aby uzyskać informacje na temat Pobierz i zainstaluj polecenia cmdlet programu PowerShell usługi Azure AD, zobacz [Azure Active Directory PowerShell wykresu — publicznej wersji zapoznawczej 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Role i uprawnienia
+Są to role, które można skonfigurować i używać wygaśnięcia dla grup usługi Office 365 w usłudze Azure AD.
+
+Rola | Uprawnienia
+-------- | --------
+Administrator globalny<br>Administrator kont użytkowników | Można tworzyć, odczytywać, aktualizować lub usuwać ustawienia zasad wygasania grup usługi Office 365
+Użytkownik | Mogą odnowić grupy usługi Office 365, w której jest właścicielem<br>Można przywrócić grupy usługi Office 365, w której jest właścicielem
+
+Aby uzyskać więcej informacji dotyczących uprawnień, aby przywrócić usunięte grupy, zobacz [Przywracanie usuniętej grupy usługi Office 365](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Ustaw grupy wygaśnięcia
 
 1. Otwórz [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym w dzierżawie usługi Azure AD.
 
-2. Otwórz usługę Azure AD, wybierz **użytkowników i grup**.
+2. Wybierz **użytkowników i grup**.
 
 3. Wybierz **ustawienia grupy** , a następnie wybierz **wygaśnięcia** aby otworzyć ustawienia wygaśnięcia.
   
@@ -48,7 +58,7 @@ Aby uzyskać informacje na temat Pobierz i zainstaluj polecenia cmdlet programu 
 
   * Ustaw okres istnienia grupy w dniach. Możesz wybrać jedną z istniejących wartości lub wartości niestandardowych (powinien być 31 dni lub więcej). 
   * Określ adres e-mail, w którym mają być wysyłane powiadomienia odnowienia i wygaśnięcia po grupie nie ma ono właściciela. 
-  * Wybierz grupy, które usługi Office 365 wygaśnie. Można włączyć wygaśnięcia dla **wszystkie** grup usługi Office 365, możesz wybrać spośród grup usługi Office 365 lub wybrać **Brak** wyłączyć wygaśnięcia dla wszystkich grup.
+  * Wybierz grupy, które usługi Office 365 wygaśnie. Można włączyć wygaśnięcia dla **wszystkie** grup usługi Office 365, można włączyć tylko **wybrane** grup usługi Office 365, lub wybierz **Brak** wyłączyć wygaśnięcia dla wszystkich grup .
   * Zapisz ustawienia, gdy wszystko będzie gotowe, wybierając **zapisać**.
 
 

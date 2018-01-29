@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f816f661767d2e372b02b207d6fa7efd494e6ec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Jak korzystać z usługi Azure Functions wersji środowiska uruchomieniowego
 
@@ -105,7 +105,7 @@ Jeśli potrzebne jest docelowa wersja niż bieżąca wersja główna lub w wersj
 
 ## <a name="target-a-version-using-azure-cli"></a>Docelowa wersja przy użyciu wiersza polecenia platformy Azure
 
- Można również ustawić `FUNCTIONS_EXTENSION_VERSION` z wiersza polecenia platformy Azure. Przy użyciu wiersza polecenia platformy Azure, zaktualizuj ustawienia aplikacji w aplikacji funkcji z [az functionapp config appsettings zestaw](/cli/azure/functionapp/config/appsettings#set) polecenia.
+ Można również ustawić `FUNCTIONS_EXTENSION_VERSION` z wiersza polecenia platformy Azure. Przy użyciu wiersza polecenia platformy Azure, zaktualizuj ustawienia aplikacji w aplikacji funkcji z [az functionapp config appsettings zestaw](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) polecenia.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -116,7 +116,7 @@ W tym kodzie Zamień `<function_app>` z nazwą funkcji aplikacji. Zastąp równi
 
 Możesz uruchomić to polecenie z [powłoki chmury Azure](../cloud-shell/overview.md) , wybierając **wypróbuj** w poprzednim przykładzie kodu. Można również użyć [lokalnie interfejsu wiersza polecenia Azure](/cli/azure/install-azure-cli) do wykonywania tego polecenia po wykonaniu [logowania az](/cli/azure#az_login) do logowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Do wykonywania 2.0 w środowisku projektowania lokalnego](functions-run-local.md)

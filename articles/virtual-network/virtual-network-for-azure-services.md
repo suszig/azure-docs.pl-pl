@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integracji sieci wirtualnej do usług platformy Azure
 
@@ -58,7 +58,7 @@ Każda usługa bezpośrednio wdrożony w sieci wirtualnej ma szczególne wymagan
 - [Brama aplikacji (wewnętrzny)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Aparat usługi kontenera platformy Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): usługi kontenera platformy Azure utworzy domyślną sieci wirtualnej. Można utworzyć niestandardowe sieci wirtualnej do użycia z [aparat usługi kontenera platformy Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): sieć wirtualna (klasyczna) tylko
-- [Partia zadań Azure](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration): sieć wirtualna (klasyczna) tylko
+- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Usługi w chmurze](https://msdn.microsoft.com/library/azure/jj156091): sieć wirtualna (klasyczna) tylko
 
 Można wdrożyć [usługi równoważenia obciążenia Azure wewnętrznego](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) załadować wiele zasobów na poprzedniej liście zrównoważenia. W niektórych przypadkach usługa automatycznie tworzy i wdraża moduł równoważenia obciążenia, podczas tworzenia zasobu.

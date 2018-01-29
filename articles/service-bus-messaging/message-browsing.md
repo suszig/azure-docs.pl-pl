@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Przeglądanie wiadomości
 
-Komunikat przeglądanie ("wybierania") umożliwia klientowi wyliczyć wszystkie komunikaty znajdującej się w kolejce lub subskrypcji, zazwyczaj diagnostycznych i debugowania.
+Komunikat przeglądanie ("wybierania") umożliwia klientowi usługi Service Bus wyliczyć wszystkie komunikaty znajdującej się w kolejce lub subskrypcji, zazwyczaj diagnostycznych i debugowania.
 
-Operacje wglądu zwraca wszystkie wiadomości znajdujące się w dzienniku komunikat kolejki lub subskrypcji, nie tylko te dostępne do powstania natychmiastowego z *Receive()* lub *OnMessage()* pętli. *Stanu* właściwości każdy komunikat informuje, czy wiadomość jest aktywny (dostępne do odebrania), odroczone (patrz odroczenia [łącze do ustalenia]) lub zaplanowane (patrz wiadomości zaplanowane [łącze do ustalenia]).
+Operacje wglądu zwraca wszystkie wiadomości znajdujące się w dzienniku komunikat kolejki lub subskrypcji, nie tylko te dostępne do powstania natychmiastowego z `Receive()` lub `OnMessage()` pętli. `State` Właściwości każdy komunikat informuje, czy wiadomość jest aktywny (dostępne do odebrania) [odroczonego](message-deferral.md), lub [zaplanowane](message-sequencing.md).
 
-Zużywa i wygasłe komunikaty są czyszczone przez asynchronicznego Uruchom "wyrzucanie elementów bezużytecznych" musi dokładnie wiadomości wygaśnięcia i w związku z tym wglądu w rzeczywistości może zwrócić wiadomości, które już wygasł i zostanie usunięte ani wiadomości lettered podczas odbierania Operacja obok została wywołana, kolejka lub subskrypcji.
+Zużywa i wygasłe komunikaty są czyszczone przez asynchronicznego "wyrzucanie elementów bezużytecznych" Uruchom i nie musi dokładnie wiadomości wygaśnięcia i w związku z tym `Peek` w rzeczywistości może zwrócić wiadomości, które już wygasł i zostanie usunięty lub gdy lettered wiadomości Operacja receive obok jest wywoływana kolejki lub subskrypcji.
 
 Jest to szczególnie ważne, należy wziąć pod uwagę podczas próby odzyskania odroczonego wiadomości z kolejki. Komunikat, dla którego [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) przeszło błyskawicznych nie jest już kwalifikuje się do pobierania regularne w inny sposób, nawet wtedy, gdy zostały zwrócone przez podglądu. Zwracanie te komunikaty jest zamierzone, ponieważ Peek to narzędzie Diagnostyka aktualnym stanie dziennika.
 
@@ -41,7 +41,7 @@ Gdy wywołuje się wielokrotnie, metody Peek wylicza wszystkie komunikaty, któr
 
 Można również inicjatora przeciążenia metody z [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) w którym należy uruchomić, a następnie wywołać przeciążenie metody bez parametrów, dalsze wyliczyć. **PeekBatch** ekwiwalentnie działa, ale jednocześnie pobiera zestaw komunikatów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Używane przez usługę Azure Traffic Manager dla metody routingu ruchu geograficznego hierarchii Kraj/Region
 
@@ -30,7 +30,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - AD(Andorra)
 
-        - Al(Albania)
+        - AL(Albania)
 
         - AT(Austria)
 
@@ -66,14 +66,6 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - GB (Zjednoczone Królestwo)
 
-            - GB-eng(England)
-
-            - GB NIR(Northern Ireland)
-
-            - GB-SCT(Scotland)
-
-            - GB-WLS(Wales)
-
         - GG(Guernsey)
 
         - GI(Gibraltar)
@@ -106,7 +98,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - MD(Moldova)
 
-        - Me(Montenegro)
+        - ME(Montenegro)
 
         - MK (Macedonia, była Jugosłowiańska Republika)
 
@@ -114,7 +106,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - NL(Netherlands)
 
-        - No(Norway)
+        - NO(Norway)
 
         - PL(poland)
 
@@ -226,9 +218,9 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - CR (Kostaryka)
 
-        - Cu(CUBA)
+        - CU(Cuba)
 
-        - CW(CuraÃ§Ao)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -252,7 +244,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - KY (Kajmany)
 
-        - LC (Saint Lucia)
+        - LC(Saint Lucia)
 
         - MF (Saint pole)
 
@@ -264,7 +256,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - Ni(Nicaragua)
 
-        - Pa(Panama)
+        - PA(Panama)
 
         - PM (Saint Pierre i Miquelon)
 
@@ -278,7 +270,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - TT (Trynidad i Tobago)
 
-        - UM (STANY ZJEDNOCZONE Wyspy Stanów Zjednoczonych)
+        - UM(U.S. Wyspy Stanów Zjednoczonych)
 
         - US(United States)
 
@@ -288,11 +280,11 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - US-AR(Arkansas)
 
-            - US-az(Arizona)
+            - US-AZ(Arizona)
 
             - US-CA(California)
 
-            - US-co(Colorado)
+            - US-CO(Colorado)
 
             - US-CT(Connecticut)
 
@@ -300,7 +292,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - US-de(Delaware)
 
-            - US-FL(florida)
+            - US-FL(Florida)
 
             - US-GA(Georgia)
 
@@ -320,7 +312,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - US-La(Louisiana)
 
-            - US-ma(Massachusetts)
+            - US-MA(Massachusetts)
 
             - US-MD(Maryland)
 
@@ -328,9 +320,9 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - US-mi(Michigan)
 
-            - US-Mn(Minnesota)
+            - US-MN(Minnesota)
 
-            - US-mo(Missouri)
+            - US-MO(Missouri)
 
             - US-MS(Mississippi)
 
@@ -340,7 +332,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - ND(North Dakota) stany USA
 
-            - US-ne(Nebraska)
+            - US-NE(Nebraska)
 
             - NH(New Hampshire) stany USA
 
@@ -358,7 +350,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - US-OR(oregon)
 
-            - US-Pa(Pennsylvania)
+            - US-PA(Pennsylvania)
 
             - RI(Rhode Island) stany USA
 
@@ -382,13 +374,13 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
             - WV(West Virginia) stany USA
 
-            - US-Wy(Wyoming)
+            - US-WY(Wyoming)
 
         - VC (Saint Vincent i Grenadyny)
 
         - VG (Brytyjskie Wyspy Dziewicze)
 
-        - VI (STANY ZJEDNOCZONE Wyspy Virgin)
+        - VI(U.S. Wyspy Virgin)
 
         - Program XE (Sint Eustatius)
 
@@ -438,11 +430,11 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - La(Laos)
 
-        - LK (Sri Lanka)
+        - LK(Sri Lanka)
 
         - MM(Myanmar)
 
-        - Mn(Mongolia)
+        - MN(Mongolia)
 
         - MO (Makau SAR)
 
@@ -466,19 +458,19 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - TM(Turkmenistan)
 
-        - Tw(Taiwan)
+        - TW(Taiwan)
 
         - UZ(Uzbekistan)
 
-        - Vn(Vietnam)
+        - VN(Vietnam)
 
-    - Geo-AF(Africa)
+    - GEO-AF(Africa)
 
         - AO(Angola)
 
-        - BF (Burkina Faso)
+        - BF(Burkina Faso)
 
-        - Bi(Burundi)
+        - BI(Burundi)
 
         - BJ(Benin)
 
@@ -516,7 +508,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - GN(Guinea)
 
-        - GQ (Gwinea Gwinea)
+        - GQ(Equatorial Guinea)
 
         - GW(Guinea_Bissau)
 
@@ -546,7 +538,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - NA(Namibia)
 
-        - NE(niger)
+        - NE(Niger)
 
         - NG(Nigeria)
 
@@ -570,7 +562,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - ST (Wyspy Świętego Tomasza i Książęca)
 
-        - Sz(Swaziland)
+        - SZ(Swaziland)
 
         - TD(CHAD)
 
@@ -578,7 +570,7 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - TG(Togo)
 
-        - TN(TUNISIA)
+        - TN(Tunisia)
 
         - TZ(Tanzania)
 
@@ -588,11 +580,11 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - ZA (Republika Południowej Afryki)
 
-        - Zm(Zambia)
+        - ZM(Zambia)
 
-        - Zw(Zimbabwe)
+        - ZW(Zimbabwe)
 
-    - Geo-an(Antarctica)
+    - GEO-AN(Antarctica)
 
         - AQ(Antarctica)
 
@@ -698,6 +690,6 @@ W tym artykule wymieniono innych krajów i regionów używane przez **Geographic
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [Geographic ruchu metody routingu w usłudze Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

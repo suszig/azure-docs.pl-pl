@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie centralnego Cerner dla użytkownika automatycznego inicjowania obsługi administracyjnej.
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie centralnego Cerner dla użytkownika automatycznego inicjowania obsługi administracyjnej
 
 Celem tego samouczka jest opisano czynności, które należy wykonać w środkowej Cerner i usługi Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do spisu użytkownika, Indie środkowe Cerner. 
 
@@ -73,7 +73,7 @@ Aby udostępnić konta użytkowników do centralnego Cerner, należy poprosić k
 
 2.  Następnie należy utworzyć konta systemu dla usługi Azure AD. Poniższe instrukcje umożliwiają żądania konto systemowe dla środowiska izolowanego i produkcji.
 
-   * Instrukcje: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instructions:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Piaskownicy: https://sandboxcernercentral.com/system-accounts/
 
@@ -81,7 +81,7 @@ Aby udostępnić konta użytkowników do centralnego Cerner, należy poprosić k
 
 3.  Następnie można wygenerować tokenu elementu nośnego OAuth dla każdego konta użytkownika systemu. Aby to zrobić, postępuj zgodnie z poniższymi instrukcjami.
 
-   * Instrukcje: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
    * Piaskownicy: https://sandboxcernercentral.com/system-accounts/
 
@@ -103,9 +103,9 @@ Aby udostępnić konta użytkowników do centralnego Cerner, należy poprosić k
 
    * W **adres URL dzierżawy** wprowadź adres URL w formacie poniżej, zastępując "Użytkownik-spisu-obszaru-ID" z Identyfikatorem obszaru uzyskaną w kroku #4.
 
-> Piaskownicy: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Produkcji: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * W **klucz tajny tokenu** wprowadź token elementu nośnego OAuth wygenerowany w kroku #3 i kliknij przycisk **Testuj połączenie**.
 
@@ -125,12 +125,12 @@ Spowoduje to uruchomienie synchronizacji początkowej użytkowników i/lub grupy
 
 Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Środkowe Cerner: Publikowania danych tożsamości za pomocą usługi Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Samouczek: Konfigurowanie centralnego Cerner na potrzeby rejestracji jednokrotnej z usługą Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Zarządzanie aprowizacja konta użytkowników dla aplikacji przedsiębiorstwa](active-directory-enterprise-apps-manage-provisioning.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

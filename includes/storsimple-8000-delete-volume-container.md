@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Jeśli kontener woluminów ma skojarzone woluminy, wykonać tych woluminów w trybie offline najpierw. Postępuj zgodnie z instrukcjami [Przełącz do trybu offline wolumin](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Po woluminy są w trybie offline, można je usunąć. Kontener woluminów ma skojarzone woluminów, usunięcie kontenera woluminów. Wykonaj następującą procedurę, aby usunąć kontener woluminów.
+Jeśli kontener woluminów ma skojarzone woluminy, wykonać tych woluminów w trybie offline najpierw. Postępuj zgodnie z instrukcjami [Przełącz do trybu offline wolumin](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Po woluminy są w trybie offline, można je usunąć. Kontener woluminów ma skojarzone woluminów, usunięcie kontenera woluminów. Wykonaj następującą procedurę, aby usunąć kontener woluminów.
 
 #### <a name="to-delete-a-volume-container"></a>Aby usunąć kontener woluminów
 1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. Wybierz i kliknij urządzenie, a następnie przejdź do **Ustawienia > Zarządzaj > kontenery woluminów**.

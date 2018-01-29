@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Ochrona wdrażania aplikacji wielowarstwowych SAP NetWeaver przy użyciu usługi Azure Site Recovery
 
@@ -81,7 +81,7 @@ Jeśli używasz statycznego adresu IP, można określić adres IP, który ma mas
 Plan odzyskiwania umożliwia sekwencjonowania pracę awaryjną różnych warstw w wielowarstwowej aplikacji, w związku z tym zachowaniu spójności aplikacji. Wykonaj kroki opisane [tutaj](site-recovery-create-recovery-plans.md) podczas tworzenia planu odzyskiwania dla aplikacji sieci web w wielowarstwowych.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Dodawanie skryptów do planu odzyskiwania
-Konieczne może być czy niektóre operacje na maszynach wirtualnych platformy Azure post trybu failover i testowanie trybu failover dla aplikacji do poprawnego działania. Można zautomatyzować operację trybu failover post, takich jak aktualizacja wpisu DNS i zmiana skojarzenia i połączenia, dodając odpowiednie skrypty w planie odzyskiwania, zgodnie z opisem w [w tym artykule](site-recovery-create-recovery-plans.md#add-scripts).
+Konieczne może być czy niektóre operacje na maszynach wirtualnych platformy Azure post trybu failover i testowanie trybu failover dla aplikacji do poprawnego działania. Można zautomatyzować operację trybu failover post, takich jak aktualizacja wpisu DNS i zmiana skojarzenia i połączenia, dodając odpowiednie skrypty w planie odzyskiwania, zgodnie z opisem w [w tym artykule](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Aktualizację DNS
 Jeśli DNS jest skonfigurowany do dynamicznej aktualizacji DNS, a następnie maszyn wirtualnych zwykle po rozpoczęciu aktualizacji DNS z nowego adresu IP. Jeśli chcesz dodać jawne krok, aby zaktualizować DNS o nowe adresy IP maszyn wirtualnych, a następnie dodaj ją [skrypt w celu zaktualizowania IP w systemie DNS](https://aka.ms/asr-dns-update) akcji post na grupach planu odzyskiwania.  
@@ -114,7 +114,7 @@ Postępuj zgodnie z [w tych wskazówkach](site-recovery-failover.md) podczas wpr
 3.  Kliknij pozycję "Failover".
 4.  Wybierz punkt odzyskiwania, aby rozpocząć proces trybu failover.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o tworzeniu rozwiązanie odzyskiwania po awarii dla wdrożenia SAP NetWeaver przy użyciu usługi Azure Site Recovery w [dokumencie](http://aka.ms/asr-sap). Również oficjalnym dokumencie omówiono zalecenia dla różnych architektur SAP, zawiera listę obsługiwanych aplikacji i typów maszyny Wirtualnej dla programu SAP na platformie Azure i opisano możliwe planów testowych do rozwiązania do odzyskiwania po awarii.
 
 Dowiedz się więcej o [replikowanie innych obciążeń](site-recovery-workload.md) przy użyciu usługi Site Recovery.

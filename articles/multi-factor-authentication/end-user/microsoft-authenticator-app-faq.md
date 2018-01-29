@@ -15,17 +15,17 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Aplikacja uwierzytelniania firmy Microsoft — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania otrzymujących o aplikacji Authenticator firmy Microsoft. Jeśli nie widzisz odpowiedź na swoje pytanie, przejdź do [forum aplikacji Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Mamy także innego często zadawane pytania dotyczące określonych funkcji w aplikacji, [Zaloguj się przy użyciu telefonu — często zadawane pytania](microsoft-authenticator-app-phone-signin-faq.md).
 
-Aplikacja Microsoft Authenticator zastępowane aplikacji Azure Authenticator, a jest zalecaną aplikację, korzystając z usługi Azure Multi-Factor Authentication. Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Aplikacja Microsoft Authenticator zastępowane aplikacji Azure Authenticator, a jest zalecaną aplikację, korzystając z usługi Azure Multi-Factor Authentication. Jest dostępna dla aplikacji Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), i [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -100,7 +100,7 @@ Nie masz do odblokowania urządzenia w celu weryfikacji żądań zatwierdzenia, 
 
 Ikona kłódki wskazuje, że urządzenie jest zarejestrowane w usłudze Azure AD i zarejestrowana na koncie. Rejestracja urządzeń dla systemu iOS odbywa się podczas rejestracji Microsoft Intune.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ### <a name="contact-us"></a>Skontaktuj się z nami
 Tutaj nie odpowiedzi na pytanie, chcemy poznać Twoją opinię. Przejdź do [forum aplikacji Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) Zgłoś zapytanie i Uzyskaj pomoc od społeczności lub zostaw komentarz na tej stronie.

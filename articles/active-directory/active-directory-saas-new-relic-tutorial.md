@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: a97038b942998b611bdde50ccf67c5b2e3fa4cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c5d6eb8333083cf87e35a667159ecc71b944e9a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Samouczek: Integracji Azure Active Directory z usługi New Relic
 
@@ -108,12 +108,9 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Nowe adresy URL i domeny Relic pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_url.png)
 
-    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.newrelic.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` — należy zastąpić identyfikatorem nowe konto Relic
 
     b. W **identyfikator** tekstowym, wpisz wartość:`rpm.newrelic.com`
-
-    > [!NOTE] 
-    > Zaloguj się na wartość adresu URL nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej nowego klienta Relic](https://support.newrelic.com/) aby zyskać tę wartość. 
 
 4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
@@ -145,7 +142,7 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
    b. W **adres URL logowania zdalnego** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
    
-   c. W **lądowanie adresu URL wylogowania** pole tekstowe, Wklej wartość **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
+   d. W **lądowanie adresu URL wylogowania** pole tekstowe, Wklej wartość **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
 
    d. Kliknij przycisk **Zapisz moje zmiany**.
 
@@ -181,7 +178,7 @@ Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie 
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
@@ -209,7 +206,7 @@ Aby włączyć usługi Azure Active Directory użytkownikom na logowanie się do
 
     b. Jako **roli** wybierz **użytkownika**.
 
-    c. Kliknij przycisk **Dodaj tego użytkownika**.
+    d. Kliknij przycisk **Dodaj tego użytkownika**.
 
 >[!NOTE]
 >Można użyć dowolnego inne usługi New Relic użytkownika konta narzędzia do tworzenia lub interfejsów API dostarczonych przez usługi New Relic do kont użytkowników usługi AAD.
@@ -252,7 +249,7 @@ W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego log
 Po kliknięciu kafelka usługi New Relic w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji usługi New Relic.
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

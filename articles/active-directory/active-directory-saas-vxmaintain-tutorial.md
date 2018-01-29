@@ -1,5 +1,5 @@
 ---
-title: "Samouczek: Integrowanie usługi Azure Active Directory z vxMaintain | Dokumentacja firmy Microsoft"
+title: 'Samouczek: Integracji Azure Active Directory z vxMaintain | Dokumentacja firmy Microsoft'
 description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i vxMaintain."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Samouczek: Integrowanie usługi Azure Active Directory z vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Samouczek: Integracji Azure Active Directory z vxMaintain
 
 Z tego samouczka dowiesz się integrowanie vxMaintain z usługi Azure Active Directory (Azure AD).
 
@@ -153,7 +153,7 @@ W tej sekcji możesz tworzyć użytkownika testowego Simona Britta w portalu Azu
 
     b. W **nazwy użytkownika** wpisz adres e-mail użytkownika testowego Simona Britta.
 
-    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartości, który został wygenerowany w **hasło** pole.
+    d. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartości, który został wygenerowany w **hasło** pole.
 
     d. Wybierz pozycję **Utwórz**.
  
@@ -195,7 +195,7 @@ Wybieranie **vxMaintain** kafelka w panelu dostępu należy logować Cię w apli
 
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Lista samouczków dotyczących integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)

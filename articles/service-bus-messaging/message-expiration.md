@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcia wiadomości (czas wygaśnięcia)
 
@@ -25,11 +25,11 @@ ms.lasthandoff: 10/11/2017
 
 Programowanie i środowisk testowych, w których kolejek i tematów są często używane w kontekście częściowe uruchomień aplikacji lub części aplikacji jest również pożądane dla wiadomości testowych Opuszczony standardowy będą automatycznie bezużytecznych tak, aby uruchomić Następny test może rozpoczynanie czyszczenia.
 
-Wygaśnięcia wszelkie poszczególne wiadomości mogą kontrolowane przez ustawienie [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) właściwości systemu, który określa względny czas trwania. Po upływie staje się bezwzględne natychmiastowe, gdy komunikat jest dodawanych do kolejki w jednostce. W tym czasie [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) właściwość przyjmuje wartość [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Wygaśnięcia wszelkie poszczególne wiadomości mogą kontrolowane przez ustawienie [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) właściwości systemu, który określa względny czas trwania. Po upływie staje się bezwzględne natychmiastowe, gdy komunikat jest dodawanych do kolejki w jednostce. W tym czasie [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) właściwość przyjmuje wartość [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Ostatnie **ExpiresAtUtc** błyskawicznych, wiadomości kwalifikować się do pobrania. Czas wygaśnięcia nie wpływa na wiadomości, które są aktualnie zablokowane w celu dostarczania; te komunikaty nadal są zwykle obsługiwane. Jeśli blokady wygaśnie lub komunikat zostanie porzucony, po upływie obowiązuje bezpośrednim.
 
-Gdy komunikat jest pod blokady, aplikacja może być w posiadaniu komunikat, który nominalnie wygasł. Określa, czy chce hypervreplicavolumesize przetwarzania lub wybierze został porzucony komunikat aplikacji jest implementujący.
+Gdy komunikat jest pod blokady, aplikacja może być w posiadaniu komunikat, który wygasł. Określa, czy chce hypervreplicavolumesize przetwarzania lub wybierze został porzucony komunikat aplikacji jest implementujący.
 
 ## <a name="entity-level-expiration"></a>Jednostki poziom ważności
 
@@ -47,14 +47,14 @@ Rozważmy na przykład witryny sieci web, który musi być niezawodnie wykonać 
 
 Kolejki usługi Service Bus, tematy i subskrypcje mogą być tworzone jako tymczasowy jednostek, które są automatycznie usuwane, gdy nie były używane w określonym okresie czasu.
  
-Automatyczne czyszczenie jest przydatny do projektowania i testowania scenariuszy, w których podmioty są tworzone dynamicznie i nie są czyszczone po użyciu z powodu test lub uruchom debugowania o zostało przerwane. Jest również przydatne w przypadku aplikacji tworzy dynamiczne jednostki, na przykład kolejki odpowiedzi, wysyłania odpowiedzi do procesu serwera sieci web lub do innego obiektu względnie krótkim okresie, w których trudno niezawodnie wyczyścić tych jednostek dla podczas obiektu wystąpienie zniknie.
+Automatycznego oczyszczania jest przydatny do projektowania i testowania scenariuszy, w których podmioty są tworzone dynamicznie i nie są czyszczone po użyciu z powodu niektóre przerwom w wykonywaniu test lub uruchom debugowanie. Jest również przydatne w przypadku aplikacji tworzy dynamiczne jednostki, na przykład kolejki odpowiedzi, wysyłania odpowiedzi do procesu serwera sieci web lub do innego obiektu względnie krótkim okresie, w których trudno niezawodnie wyczyścić tych jednostek dla podczas obiektu wystąpienie zniknie.
 
 Ta funkcja jest włączona, za pomocą [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) właściwość, która jest ustawiona na czas trwania, dla którego jednostka musi być w stanie bezczynności (i nieużywanych) zanim zostanie automatycznie usunięty. Minimalny czas trwania wynosi 5 minut.
  
-Można ustawić właściwości, za pośrednictwem operacji usługi Azure Resource Manager lub za pomocą klienta programu .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) interfejsów API. Nie można ustawić za pośrednictwem portalu.
+**AutoDeleteOnIdle** za pośrednictwem operacji usługi Azure Resource Manager lub za pomocą klienta programu .NET Framework, należy ustawić właściwość [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) interfejsów API. Nie można ustawić za pośrednictwem portalu.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o komunikatów usługi Service Bus, zobacz następujące tematy:
 

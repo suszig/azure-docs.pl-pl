@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 6e3bab5356812c256cfd147e42f065f381e0f63d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Przypisać przypisanych do użytkowników zarządzanych tożsamości usługi (MSI) dostęp do zasobów, przy użyciu wiersza polecenia platformy Azure
 
@@ -33,7 +33,7 @@ Po utworzeniu pliku MSI przypisane przez użytkownika, należy zapewnić dostęp
 Aby uruchomić przykłady skryptów interfejsu wiersza polecenia, w tym samouczku, masz dwie opcje:
 
 - Użyj [powłoki chmury Azure](~/articles/cloud-shell/overview.md) w portalu Azure lub za pomocą przycisku "Spróbuj on" znajduje się w prawym górnym rogu każdej blok kodu.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 lub nowsza), jeśli wolisz korzystać z konsoli lokalnej interfejsu wiersza polecenia. Następnie zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć przypisany użytkownik MSI i maszyny Wirtualnej:
+- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 lub nowsza), jeśli wolisz korzystać z konsoli lokalnej interfejsu wiersza polecenia. Następnie zaloguj się do platformy Azure przy użyciu [logowania az](/cli/azure/#az_login). Użyj konta, które jest skojarzone z subskrypcją platformy Azure, w którym chcesz wdrożyć przypisany użytkownik MSI i maszyny Wirtualnej:
 
    ```azurecli
    az login

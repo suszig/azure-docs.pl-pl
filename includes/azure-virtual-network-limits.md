@@ -39,9 +39,9 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Grupy zabezpieczeń aplikacji, które można określić w ramach wszystkich reguł zabezpieczeń grupy zabezpieczeń sieci |50 |100 |
 | Zdefiniowane przez użytkownika tabele tras |100 |200 |
 | Zdefiniowane przez użytkownika trasy na tabelę tras |100 |400 |
-| Publiczne adresy IP — dynamiczne |60 (podstawowe) |kontakt z pomocą techniczną |
-| Publiczne adresy IP — statyczne |20 (podstawowe) |kontakt z pomocą techniczną |
-| Publiczne adresy IP — statyczne |20 (standardowy) |kontakt z pomocą techniczną |
+| Publiczne adresy IP — dynamiczne |(Basic) 60 |kontakt z pomocą techniczną |
+| Publiczne adresy IP — statyczne |(Basic) 20 |kontakt z pomocą techniczną |
+| Publiczne adresy IP — statyczne |(Standard) 20 |kontakt z pomocą techniczną |
 | Certyfikaty główne typu punkt-lokacja na bramę VPN Gateway |20 |20 |
 
 #### <a name="load-balancer"></a>Limity usługi równoważenia obciążenia
@@ -55,7 +55,7 @@ Następujące limity mają zastosowanie tylko w przypadku zasobów sieciowych za
 | Konfiguracje adresów IP frontonu, Basic | 10 | kontakt z pomocą techniczną |
 | Konfiguracje adresów IP frontonu, Standard | 10 | 600 |
 | Puli zaplecza, Basic | 100, pojedynczy zestaw dostępności | - |
-| Puli zaplecza, Standard | 1000, pojedynczy sieci wirtualnej | kontakt z pomocą techniczną |
+| Puli zaplecza, Standard | 1000, pojedynczy sieci wirtualnej | - |
 | HA portów, Standard | 1 na frontonie wewnętrzny | - |
 
 Jeśli będzie konieczne zwiększenie limitów domyślnych, [skontaktuj się z pomocą techniczną](../articles/azure-supportability/resource-manager-core-quotas-request.md ).

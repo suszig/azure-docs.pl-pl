@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Przygotowywanie środowiska do tworzenia kopii zapasowych maszyn wirtualnych wdrożonych przez program Resource Manager
 
@@ -63,7 +63,7 @@ Aby przygotować środowisko, należy zrozumieć następujące ograniczenia:
 * Dane kopii zapasowej nie zawiera dyski sieciowe zainstalowane dołączony do maszyny Wirtualnej.
 * Zamiana istniejącej maszyny wirtualnej podczas przywracania nie jest obsługiwana. Jeśli podjęto próbę przywrócenia maszyny Wirtualnej, gdy maszyna wirtualna istnieje, operacja przywracania kończy się niepowodzeniem.
 * Region między kopii zapasowej i przywracania nie są obsługiwane.
-* Kopia zapasowa i przywracanie magazynu ACLed maszyn wirtualnych nie jest obsługiwane począwszy od teraz. Kopii zapasowych maszyn wirtualnych nie jest obsługiwane, jeśli włączono magazynu funkcję sieci Wirtualnej, dzięki czemu konta magazynu można uzyskać dostęp tylko z niektórych podsieci/sieci wirtualnych i/lub adresów IP.
+* Kopia zapasowa i przywracanie z maszyn wirtualnych za pomocą niezarządzanych dysków na kontach magazynu przy użyciu reguł sieciowej stosowane obecnie nie jest obsługiwane. Podczas konfigurowania kopii zapasowej, upewnij się, że ustawienia "Zapory i sieci wirtualne" dla konta magazynu jest dozwolony dostęp z "Wszystkie sieci."
 * Można tworzyć kopie zapasowe maszyn wirtualnych we wszystkich regionach publicznej platformy Azure. (Zobacz [Lista kontrolna](https://azure.microsoft.com/regions/#services) obsługiwanych regionów.) Jeśli obecnie jest obsługiwany region, którego szukasz, nie zostanie wyświetlony na liście rozwijanej podczas tworzenia magazynu.
 * Przywracanie kontrolera domeny (DC) maszyny Wirtualnej, która jest częścią konfiguracji kontrolera domeny na wielu jest obsługiwane tylko za pomocą programu PowerShell. Aby dowiedzieć się więcej, zobacz [Przywracanie kontrolera domeny, kontrolera domeny na wielu](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Przywracanie maszyn wirtualnych, które mają następujące konfiguracje sieciowe specjalne jest obsługiwane tylko za pomocą programu PowerShell. Maszyny wirtualne utworzone za pomocą przepływu pracy przywracania w interfejsie użytkownika nie będą miały te konfiguracje sieci po zakończeniu operacji przywracania. Aby dowiedzieć się więcej, zobacz [przywracanie maszyn wirtualnych z konfiguracjami sieci specjalne](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

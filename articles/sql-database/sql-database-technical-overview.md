@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co to jest usługa Azure SQL Database? 
 
@@ -156,7 +156,7 @@ Usługa SQL Database obsługuje tworzenie aplikacji za pomocą narzędzi Python,
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): zadawaj pytania dotyczące administrowania bazami danych
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): zadawaj pytania dotyczące opracowywania zawartości
 - [Fora MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): zadawaj pytania techniczne
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): zgłaszaj usterki i wysyłaj prośby dotyczące funkcji
+- [Opinie](http://aka.ms/sqlfeedback): zgłaszaj usterki i wysyłaj prośby dotyczące funkcji
 - [Reddit](https://www.reddit.com/r/SQLServer/): omówienie programu SQL Server
 
 ## <a name="next-steps"></a>Następne kroki

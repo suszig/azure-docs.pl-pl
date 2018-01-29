@@ -4,7 +4,7 @@ description: "Dowiedz się, jak ograniczyć HDInsight dostępu do danych przecho
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Użyj sygnatury dostępu współdzielonego magazynu Azure, aby ograniczyć dostęp do danych w usłudze HDInsight
 
@@ -204,7 +204,7 @@ Jeśli masz istniejący klaster opartych na systemie Linux, można dodać dostę
 
 4. Rozwiń węzeł **niestandardowe core-site** sekcji, a następnie przewiń do zakończenia i wybierz **Dodaj właściwość...**  łącza. Użyj poniższych wartości **klucza** i **wartość** pola:
 
-   * **Klucz**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Wartość**: SAS zwrócony przez aplikację języka C# lub Python został przeprowadzony wcześniej
 
      Zastąp **CONTAINERNAME** o nazwie kontenera używane w aplikacji C# lub SAS. Zastąp **STORAGEACCOUNTNAME** nazwą konta magazynu, należy użyć.
@@ -216,7 +216,7 @@ Jeśli masz istniejący klaster opartych na systemie Linux, można dodać dostę
    > [!IMPORTANT]
    > Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić kilka usług.
 
-6. Ambari web UI, wybierz **HDFS** na liście z lewej strony, a następnie wybierz **ponowne uruchomienie wszystkich** z **akcji usługi** listy rozwijanej liście po prawej stronie. Po wyświetleniu monitu wybierz **Włącz tryb konserwacji** , a następnie uruchom ponownie wszystkie __Conform select ".
+6. Ambari web UI, wybierz **HDFS** na liście z lewej strony, a następnie wybierz **ponowne uruchomienie wszystkich wpływ** z **akcji usługi** listy rozwijanej liście po prawej stronie. Po wyświetleniu monitu wybierz __jest zgodna z ponowne uruchomienie wszystkich__.
 
     Powtórz ten proces dla MapReduce2 i YARN.
 
@@ -300,7 +300,7 @@ Po nawiązaniu połączenia z klastrem, wykonaj następujące kroki, aby sprawdz
 * Musi zawierać co najmniej jeden znak inny niż alfanumeryczny
 * Musi zawierać co najmniej jedną wielką lub małą literę
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz jak dodać magazyn ograniczonego dostępu do klastra usługi HDInsight, Dowiedz się inne sposoby pracy z danymi w klastrze:
 

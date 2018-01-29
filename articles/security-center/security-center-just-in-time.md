@@ -1,6 +1,6 @@
 ---
 title: "Tylko w maszynie wirtualnej czas dostępu w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
-description: "Ten przeszukiwań dokumentu dostęp odbywa się za pośrednictwem jak tylko w czasie maszyny Wirtualnej w Centrum zabezpieczeń Azure ułatwia można kontrolować dostęp do maszynach wirtualnych platformy Azure."
+description: "W tym dokumencie przedstawiono sposób tylko w czasie dostępu do maszyny Wirtualnej w Centrum zabezpieczeń Azure ułatwia kontrolowanie dostępu do sieci maszyn wirtualnych platformy Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Zarządzanie dostępem do maszyny wirtualnej przy użyciu tylko w czasie (wersja zapoznawcza)
 
@@ -50,11 +50,13 @@ Gdy użytkownik żąda dostępu do maszyny Wirtualnej, Centrum zabezpieczeń spr
 
 ## <a name="using-just-in-time-access"></a>Przy użyciu tylko w czasie
 
-**Bezpośrednio w dostęp do maszyny Wirtualnej czasu** kafelka w obszarze **Centrum zabezpieczeń** pokazuje liczbę maszyn wirtualnych skonfigurowanych dla tylko w czasie dostępu oraz numer zatwierdzenia żądań dostępu w ostatnim tygodniu.
+1. Otwórz pulpit nawigacyjny usługi **Security Center**.
+
+2. W okienku po lewej stronie wybierz **bezpośrednio w dostęp do maszyny Wirtualnej czasu**.
 
 ![Tylko w czasie dostępu do maszyny Wirtualnej kafelka][2]
 
-Wybierz **bezpośrednio w dostęp do maszyny Wirtualnej czasu** Kafelek i **bezpośrednio w dostęp maszyny Wirtualnej** otwiera.
+**Bezpośrednio w dostęp do maszyny Wirtualnej czasu** zostanie otwarte okno.
 
 ![Tylko w czasie dostępu do maszyny Wirtualnej kafelka][10]
 
@@ -127,7 +129,7 @@ Aby edytować istniejące tylko w zasadach czasu maszyny wirtualnej, **skonfigur
 1. W obszarze **maszyn wirtualnych**, wybierz maszynę Wirtualną można dodać portu do, klikając trzy kropki znajdujące się w obrębie wiersza dla tej maszyny Wirtualnej. Spowoduje to otwarcie menu.
 2. Wybierz **Edytuj** w menu. Spowoduje to otwarcie **Konfiguracja dostępu do maszyny Wirtualnej JIT**.
 
-  ![Edytowanie zasad][8]
+  ![Edytuj zasady][8]
 
 3. W obszarze **Konfiguracja dostępu do maszyny Wirtualnej JIT**, albo można edytować istniejące ustawienia portu już chronionych, klikając jej portu, lub wybrać **Dodaj**. Spowoduje to otwarcie **konfiguracji portów Dodaj**.
 
@@ -170,7 +172,7 @@ Postępuj zgodnie z dokumentacją polecenia cmdlet, aby dowiedzieć się więcej
 Można uzyskać dostępu do określonej maszyny Wirtualnej, który jest chroniony za pomocą tylko w rozwiązaniu czas, musisz uruchomić to polecenie w sesji programu PowerShell: ASCJITAccess wywołania.
 Postępuj zgodnie z dokumentacją polecenia cmdlet, aby dowiedzieć się więcej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób tylko w czasie dostępu do maszyny Wirtualnej w Centrum zabezpieczeń ułatwia się, że kontroli dostępu na maszynach wirtualnych platformy Azure.
 
 Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:

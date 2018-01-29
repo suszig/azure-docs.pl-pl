@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ed4adfa0698eabe8994da95554377b4dad76b291
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Co oznacza Azure Multi-Factor Authentication dla mnie?
 Tak, ma zaakceptujesz wiadomość e-mail od użytkowników z IT lub Twoje przełożonego, informujący o tym, ich dodanie dodatkowej weryfikacji zabezpieczeń do konta.  Dlatego co to znaczy?
@@ -46,4 +46,4 @@ Wybierz jedną z tych tematów, aby rozpocząć pracę.
 | [Środowisko logowania](multi-factor-authentication-end-user-signin.md) |Pokazuje, czego można oczekiwać od logowanie przy użyciu różnych metod, takich jak telefon lub aplikacji. |
 | [Zmiana ustawień usługi](multi-factor-authentication-end-user-manage-settings.md) |Pokazuje, jak można zmienić ustawienia, takie jak numer telefonu lub metodę rejestracji preferowany. |
 | [Pomoc przy użyciu haseł aplikacji](multi-factor-authentication-end-user-app-passwords.md) |Informacje na temat tworzenia i stosowania haseł aplikacji. |
-| [Korzystać z aplikacji mobilnej](microsoft-authenticator-app-how-to.md) |Jest dostępna dla aplikacji Microsoft Authenticator [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), i [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Korzystać z aplikacji mobilnej](microsoft-authenticator-app-how-to.md) |Jest dostępna dla aplikacji Microsoft Authenticator [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), i [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 diagnostyki Azure i nowszym schemat konfiguracji
 > [!NOTE]
@@ -384,7 +384,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**PublicConfig**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
 |**PrivateConfig**|Opcjonalny. Zobacz opis w innym miejscu na tej stronie.|  
-|**IsEnabled**|Wartość logiczna. Zobacz opis w innym miejscu na tej stronie.|  
+|**IsEnabled**|Boolean. Zobacz opis w innym miejscu na tej stronie.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
  *Drzewa: PublicConfig - DiagnosticsConfiguration - katalogu głównego*
@@ -394,7 +394,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
 |**WadCfg**|Wymagany. Zobacz opis w innym miejscu na tej stronie.|  
-|**Konto magazynu**|Nazwa konta magazynu Azure do przechowywania danych. Można także określić jako parametr podczas wykonywania polecenia cmdlet Set-AzureServiceDiagnosticsExtension.|  
+|**StorageAccount**|Nazwa konta magazynu Azure do przechowywania danych. Można także określić jako parametr podczas wykonywania polecenia cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Może być *tabeli*, *obiektu Blob*, lub *TableAndBlob*. Tabela jest domyślny. Po wybraniu TableAndBlob danych diagnostycznych są zapisywane dwukrotnie — raz dla każdego typu.|  
 |**LocalResourceDirectory**|Katalog na maszynie wirtualnej, na którym Agent monitorowania przechowuje dane zdarzenia. Jeśli nie, ustawić, jest używany domyślny katalog:<br /><br /> Dla roli proces roboczy/sieci web:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Dla maszyny wirtualnej:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Atrybuty wymagane są:<br /><br /> - **ścieżka** -katalogu w systemie mają być używane przez diagnostyki Azure.<br /><br /> - **expandEnvironment** — Określa, czy zmienne środowiskowe są rozwijane w nazwie ścieżki.|  
 
@@ -411,7 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atrybuty|Opis|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Maksymalna ilość miejsca na dysku lokalnym, które mogą być używane przez różne rodzaje danych diagnostycznych zebranych przez diagnostyki Azure. Ustawienie domyślne to 5120 MB.<br />
+| **overallQuotaInMB** | Maksymalna ilość miejsca na dysku lokalnym, które mogą być używane przez różne rodzaje danych diagnostycznych zebranych przez diagnostyki Azure. Ustawienie domyślne to 4096 MB.<br />
 |**useProxyServer** | Skonfiguruj diagnostyki Azure, aby użyć ustawienia serwera proxy zgodnie z ustawieniami w ustawieniach programu Internet Explorer.|  
 
 <br /> <br />
@@ -423,7 +423,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Katalogi**|Zobacz opis w innym miejscu na tej stronie.|  
 |**EtwProviders**|Zobacz opis w innym miejscu na tej stronie.|  
 |**Metryki**|Zobacz opis w innym miejscu na tej stronie.|  
-|**Liczniki wydajności**|Zobacz opis w innym miejscu na tej stronie.|  
+|**PerformanceCounters**|Zobacz opis w innym miejscu na tej stronie.|  
 |**WindowsEventLog**|Zobacz opis w innym miejscu na tej stronie.| 
 |**DockerSources**|Zobacz opis w innym miejscu na tej stronie. | 
 
@@ -436,7 +436,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atrybuty|Opis|  
 |----------------|-----------------|  
-|**Właściwość containerName**|Opcjonalny. Nazwa kontenera obiektów blob na koncie magazynu Azure używanego do przechowywania zrzuty awaryjne.|  
+|**containerName**|Opcjonalny. Nazwa kontenera obiektów blob na koncie magazynu Azure używanego do przechowywania zrzuty awaryjne.|  
 |**crashDumpType**|Opcjonalny.  Konfiguruje diagnostyki Azure do zbieranie zrzutów mini lub pełnej awarii.|  
 |**directoryQuotaPercentage**|Opcjonalny.  Określa procent **overallQuotaInMB** mają zostać zarezerwowane dla zrzuty awaryjne na maszynie Wirtualnej.|  
 
@@ -480,7 +480,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**Bezwzględne**|Ścieżka bezwzględna do katalogu, do monitorowania. Wymagane są następujące atrybuty:<br /><br /> - **Ścieżka** -ścieżka bezwzględna do katalogu, do monitorowania.<br /><br /> - **expandEnvironment** — Określa, czy są rozwinięte zmiennych środowiskowych w ścieżce.|  
+|**Absolute**|Ścieżka bezwzględna do katalogu, do monitorowania. Wymagane są następujące atrybuty:<br /><br /> - **Ścieżka** -ścieżka bezwzględna do katalogu, do monitorowania.<br /><br /> - **expandEnvironment** — Określa, czy są rozwinięte zmiennych środowiskowych w ścieżce.|  
 |**LocalResource**|Ścieżka względna zasobu lokalnego do monitorowania. Atrybuty wymagane są:<br /><br /> - **Nazwa** -zasób lokalny, zawierająca katalogi do monitorowania<br /><br /> - **relativePath** -ścieżka względna nazwa zawierająca katalogi do monitorowania|  
 
 
@@ -557,7 +557,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element podrzędny|Opis|  
 |-------------------|-----------------|  
-|**Źródło danych**|Dzienniki zdarzeń systemu Windows do zbierania. Wymagany atrybut:<br /><br /> **Nazwa** — Kwerenda XPath opisujące zdarzeń systemu windows, które mają być zbierane. Na przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> W celu gromadzenia wszystkich zdarzeń, określ "*"|  
+|**DataSource**|Dzienniki zdarzeń systemu Windows do zbierania. Wymagany atrybut:<br /><br /> **Nazwa** — Kwerenda XPath opisujące zdarzeń systemu windows, które mają być zbierane. Na przykład:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> W celu gromadzenia wszystkich zdarzeń, określ "*"|  
 
 
 
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**Nazwa**|Ciąg|Ciąg identyfikujący sinkname.|  
+|**Nazwa**|ciąg|Ciąg identyfikujący sinkname.|  
 
 |Element|Typ|Opis|  
 |-------------|----------|-----------------|  
-|**Usługa Application Insights**|Ciąg|Używana tylko wtedy, gdy wysyłanie danych do usługi Application Insights. Zawiera klucz instrumentacji dla aktywnego konta usługi Application Insights, czy masz dostęp do.|  
-|**Kanały**|Ciąg|Po jednej dla każdego dodatkowego filtrowania strumienia, który|  
+|**Application Insights**|ciąg|Używana tylko wtedy, gdy wysyłanie danych do usługi Application Insights. Zawiera klucz instrumentacji dla aktywnego konta usługi Application Insights, czy masz dostęp do.|  
+|**Channels**|ciąg|Po jednej dla każdego dodatkowego filtrowania strumienia, który|  
 
 ## <a name="channels-element"></a>Element kanałów  
  *Drzewa: Kanały SinksConfig - zbiornika - głównego - DiagnosticsConfiguration - PublicConfig - WadCFG-*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Typ|Opis|  
 |-------------|----------|-----------------|  
-|**Kanał**|Ciąg|Zobacz opis w innym miejscu na tej stronie.|  
+|**Channel**|ciąg|Zobacz opis w innym miejscu na tej stronie.|  
 
 ## <a name="channel-element"></a>Element kanału
  *Drzewa: Kanały SinksConfig - zbiornika - głównego - DiagnosticsConfiguration - PublicConfig - WadCFG - — kanału*
@@ -645,10 +645,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementy podrzędne|Opis|  
 |--------------------|-----------------|  
-|**Konto magazynu**|Konta magazynu do użycia. Następujące atrybuty są wymagane<br /><br /> - **Nazwa** — nazwa konta magazynu.<br /><br /> - **klucz** — klucz do konta magazynu.<br /><br /> - **punkt końcowy** — punkt końcowy do uzyskania dostępu do konta magazynu. <br /><br /> -**sasToken** (dodany 1.8.1)-tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu można określić w prywatnej konfiguracji. Podany klucz konta magazynu jest ignorowana. <br />Wymagania dotyczące tokenu sygnatury dostępu Współdzielonego: <br />— Obsługuje tylko tokenu sygnatury dostępu Współdzielonego konta <br />- *b*, *t* typów usług są wymagane. <br /> - *a*, *c*, *u*, *w* uprawnienia są wymagane. <br /> - *c*, *o* typów zasobów są wymagane. <br /> — Obsługuje tylko protokół HTTPS <br /> -Start i czas wygaśnięcia musi być prawidłowy.|  
+|**StorageAccount**|Konta magazynu do użycia. Następujące atrybuty są wymagane<br /><br /> - **Nazwa** — nazwa konta magazynu.<br /><br /> - **klucz** — klucz do konta magazynu.<br /><br /> - **punkt końcowy** — punkt końcowy do uzyskania dostępu do konta magazynu. <br /><br /> -**sasToken** (dodany 1.8.1)-tokenu sygnatury dostępu Współdzielonego, zamiast klucz konta magazynu można określić w prywatnej konfiguracji. Podany klucz konta magazynu jest ignorowana. <br />Wymagania dotyczące tokenu sygnatury dostępu Współdzielonego: <br />— Obsługuje tylko tokenu sygnatury dostępu Współdzielonego konta <br />- *b*, *t* typów usług są wymagane. <br /> - **, *c*, *u*, *w* uprawnienia są wymagane. <br /> - *c*, *o* typów zasobów są wymagane. <br /> — Obsługuje tylko protokół HTTPS <br /> -Start i czas wygaśnięcia musi być prawidłowy.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled Element  
  *Drzewa: IsEnabled - DiagnosticsConfiguration - katalogu głównego*
 
- Wartość logiczna. Użyj `true` umożliwiające diagnostyki lub `false` wyłączyć diagnostyki.
+ Boolean. Użyj `true` umożliwiające diagnostyki lub `false` wyłączyć diagnostyki.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historia wersji
 Zespół usługi Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect z nowych funkcji. Nie wszystkie dodatki mają zastosowanie do wszystkich grup odbiorców.
@@ -82,7 +82,7 @@ Aby użyć skryptu programu PowerShell, aby zastosować te ustawienia do istniej
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-gdzie 
+Gdzie 
 
 **$ObjectDN** = konto usługi Active Directory, w której uprawnienia należy zwiększyć.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Wybierz pozycję|
-    |CertKeyAlgorithmParams|CertHashString|gdzie|
+    |CertKeyAlgorithmParams|CertHashString|Gdzie|
     |||Zawiera|
 
 * Aby umożliwić klientom tworzenie reguły synchronizacji niestandardowych przepływ sAMAccountName, domainNetBios i domainFQDN dla grupy obiektów, a także distinguishedName obiektów użytkownika zostały wprowadzone następujące zmiany schematu:
@@ -473,7 +473,7 @@ Synchronizacja programu Azure AD Connect
   * Zestaw reguł synchronizacji zaktualizowany domyślny nie eksportowania atrybuty **userCertificate** i **userSMIMECertificate** Jeśli atrybutów ma więcej niż 15 wartości.
   * Atrybuty AD **identyfikator pracownika** i **msExchBypassModerationLink** znajdują się teraz w domyślny zestaw reguł synchronizacji.
   * Atrybut AD **fotografii** została usunięta z domyślnego zestawu reguł synchronizacji.
-  * Dodaje **preferredDataLocation** schematu Metaverse i schematu łącznika usługi AAD. Klienci, którzy do zaktualizowania obu atrybutów w usłudze Azure AD można zaimplementować zasady niestandardowe synchronizacji w tym celu. Aby dowiedzieć się więcej na temat atrybutu, zapoznaj się z rozdziałem artykułu [synchronizacja programu Azure AD Connect: jak wprowadzić zmianę do domyślnej konfiguracji — Włączanie synchronizacji PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Dodaje **preferredDataLocation** schematu Metaverse i schematu łącznika usługi AAD. Klienci, którzy do zaktualizowania obu atrybutów w usłudze Azure AD można zaimplementować zasady niestandardowe synchronizacji w tym celu. 
   * Dodaje **userType** schematu Metaverse i schematu łącznika usługi AAD. Klienci, którzy do zaktualizowania obu atrybutów w usłudze Azure AD można zaimplementować zasady niestandardowe synchronizacji w tym celu.
 
 * Azure AD Connect teraz automatycznie umożliwia korzystanie z atrybutu ConsistencyGuid jako atrybut zakotwiczenia źródła dla lokalnych obiektów usługi AD. Ponadto, Azure AD Connect wypełnia atrybutu ConsistencyGuid o wartości atrybut objectGuid, jeśli jest pusty. Ta funkcja ma zastosowanie do tylko nowe wdrożenie. Aby dowiedzieć się więcej o tej funkcji, zapoznaj się z rozdziałem artykułu [Azure AD Connect: zagadnienia dotyczące — przy użyciu msDS-ConsistencyGuid jako sourceAnchor projektowania](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodaj element runbook usługi Automatyzacja Azure do planów odzyskiwania
 W tym artykule opisano sposób Azure Site Recovery integruje się z automatyzacji Azure w celu umożliwienie wydłużenia planów odzyskiwania. Plany odzyskiwania można organizować odzyskiwania maszyn wirtualnych, które są chronione za pomocą usługi Site Recovery. Plany odzyskiwania działają zarówno dla replikacji do chmury dodatkowej, jak i dla replikacji do platformy Azure. Plany odzyskiwania również sprawić, że odzyskiwania **spójnie dokładne**, **powtarzalne**, i **automatyczne**. Jeśli w trybie Failover maszyny wirtualne na platformie Azure, integracja z usługi Automatyzacja Azure rozszerza planów odzyskiwania. Służy on do wykonywania elementów runbook, które oferują zaawansowane automatyzacji zadań.
 
-Jeśli jesteś nowym użytkownikiem usługi Automatyzacja Azure, możesz [Zarejestruj](https://azure.microsoft.com/services/automation/) i [Pobierz przykładowe skrypty](https://azure.microsoft.com/documentation/scripts/). Aby uzyskać więcej informacji, a także informacje na temat organizowania odzyskiwania na platformie Azure przy użyciu [planów odzyskiwania](https://azure.microsoft.com/blog/?p=166264), zobacz [usługi Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Jeśli jesteś nowym użytkownikiem usługi Automatyzacja Azure, możesz [Zarejestruj](https://azure.microsoft.com/services/automation/) i [Pobierz przykładowe skrypty](https://azure.microsoft.com/documentation/scripts/). Aby uzyskać więcej informacji, a także informacje na temat organizowania odzyskiwania na platformie Azure przy użyciu [planów odzyskiwania](./site-recovery-create-recovery-plans.md), zobacz [usługi Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 W tym artykule opisano sposób integrowania elementu runbook usługi Automatyzacja Azure do planów odzyskiwania. Przykłady możemy użyć do zautomatyzowania podstawowe zadania, które wcześniej wymagały ręcznej interwencji. Opisano również sposób konwertowania odzyskiwania wieloetapowych do akcji odzyskiwania jednym kliknięciem.
 
@@ -99,7 +99,7 @@ W tym artykule opisano sposób integrowania elementu runbook usługi Automatyzac
     | SubscriptionId |Identyfikator subskrypcji platformy Azure, w którym utworzono maszynę Wirtualną. |
     | RoleName |Nazwa maszyny Wirtualnej platformy Azure, która jest przywracana. |
     | CloudServiceName |Nazwa usługi chmury Azure, pod którym utworzono maszynę Wirtualną. |
-    | Grupy zasobów o nazwie|Nazwa grupy zasobów platformy Azure, w którym utworzono maszynę Wirtualną. |
+    | ResourceGroupName|Nazwa grupy zasobów platformy Azure, w którym utworzono maszynę Wirtualną. |
     | RecoveryPointId|Znacznik czasu po odzyskaniu maszyna wirtualna. |
 
 * Upewnij się, że konto usługi Automatyzacja ma następujących modułów:
@@ -256,8 +256,10 @@ Na przykład innego zobacz poniższe wideo. Go pokazano, jak odzyskać dwuwarstw
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Azure automatyzacji usługi konta Uruchom jako](../automation/automation-sec-configure-azure-runas-account.md)
+## <a name="additional-resources"></a>Zasoby dodatkowe
+* [Azure automatyzacji usługi konta Uruchom jako](../automation/automation-create-runas-account.md)
 * [Omówienie usługi Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Omówienie usługi Automatyzacja Azure")
 * [Azure Automation przykładowe skrypty](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "usługi Automatyzacja Azure przykładowe skrypty")
+
+## <a name="next-steps"></a>Kolejne kroki
+[Dowiedz się więcej](site-recovery-failover.md) dotyczące uruchamiania trybu failover.

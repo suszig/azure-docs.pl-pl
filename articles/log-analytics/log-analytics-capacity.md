@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planowanie pojemności maszyn wirtualnych funkcji Hyper-V z rozwiązaniem pojemność i wydajność (wersja zapoznawcza)
 
@@ -45,9 +45,9 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 
 | Połączone źródło | Pomoc techniczna | Opis |
 |---|---|---|
-| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Tak | Rozwiązania zbiera informacje o danych pojemność i wydajność z agentów systemu Windows. |
+| [Agenci dla systemu Windows](log-analytics-windows-agent.md) | Yes | Rozwiązania zbiera informacje o danych pojemność i wydajność z agentów systemu Windows. |
 | [Agenci dla systemu Linux](log-analytics-linux-agents.md) | Nie    | Rozwiązanie nie zbiera pojemność i wydajność, informacje o danych z bezpośredniej agentów systemu Linux.|
-| [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Tak |Rozwiązania zbiera dane pojemność i wydajność z agentów w podłączonej grupy zarządzania SCOM. Bezpośrednie połączenie z agenta programu SCOM OMS nie jest wymagane. Dane są przekazywane z grupy zarządzania do repozytorium usługi OMS.|
+| [Grupa zarządzania programu SCOM](log-analytics-om-agents.md) | Yes |Rozwiązania zbiera dane pojemność i wydajność z agentów w podłączonej grupy zarządzania SCOM. Bezpośrednie połączenie z agenta programu SCOM Log Analytics nie jest wymagane.|
 | [Konto usługi Azure Storage](log-analytics-azure-storage.md) | Nie | Usługa Azure storage nie zawiera danych pojemność i wydajność.|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -55,15 +55,15 @@ W poniższej tabeli opisano połączone źródła, które obsługuje to rozwiąz
 - W systemie Windows Server 2012 lub nowszej hosty funkcji Hyper-V, nie maszyny wirtualne muszą zostać zainstalowane z systemem Windows lub agenty programu Operations Manager.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Wykonaj następujący krok, aby dodać pojemność i wydajność rozwiązania do swojego obszaru roboczego.
 
-- Dodaj rozwiązanie pojemność i wydajność na obszar roboczy OMS zastosowanie procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
+- Dodaj rozwiązanie pojemność i wydajność do obszaru roboczego analizy dzienników przy użyciu procesu opisanego w [rozwiązań dodać analizy dzienników z galerii rozwiązań](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Pakiety administracyjne
 
-Jeśli grupę zarządzania programu SCOM jest podłączony do swojego obszaru roboczego OMS, następnie następujące pakiety administracyjne będą instalowani w SCOM po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych.
+Jeśli grupę zarządzania programu SCOM jest podłączony do swojego obszaru roboczego analizy dzienników, następnie następujące pakiety administracyjne będą instalowani w SCOM po dodaniu tego rozwiązania. Nie jest wymagana żadna konfiguracja ani obsługa tych pakietów administracyjnych.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 
@@ -144,5 +144,5 @@ W poniższej tabeli przedstawiono przykładowy dziennik wyszukuje pojemność i 
 | Podział łączny czas oczekiwania przez wszystkie woluminy CSV | Wydajności &#124; Gdzie ObjectName == "Pojemności i wydajności" i (CounterName == "Opóźnienie odczytu CSV" lub CounterName == "Opóźnienie zapisu CSV") &#124; Podsumuj AggregatedValue = avg(CounterValue) przez bin (TimeGenerated, 1 godz.), CounterName, InstanceName |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) Aby wyświetlić szczegółowe dane pojemność i wydajność.

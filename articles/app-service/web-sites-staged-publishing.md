@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk w usłudze Azure App Service przejściowych
 <a name="Overview"></a>
@@ -75,7 +75,7 @@ Klonuj konfiguracji z innego miejsca wdrożenia, sklonowany konfiguracji po edyc
 * Ustawienia ogólne — takie jak gniazda sieci Web 32/64-bitowych wersji framework
 * Ustawienia aplikacji (może być skonfigurowana do osadzania miejsca)
 * Parametry połączenia (można skonfigurować w celu osadzania miejsca)
-* Mapowania programu obsługi
+* Mapowania procedur obsługi
 * Ustawienia monitorowania i diagnostyki
 * Zawartość zadań Webjob
 
@@ -244,7 +244,7 @@ Interfejsu wiersza polecenia Azure udostępnia polecenia i platform do pracy z p
 * Aby wyświetlić listę dostępnych poleceń dla usługi Azure App Service w wiersza polecenia platformy Azure, należy wywołać `azure site -h`.
 
 > [!NOTE] 
-> Dla [Azure CLI 2.0](https://github.com/Azure/azure-cli) poleceń dla miejsc wdrożenia, zobacz [miejsce wdrożenia sieci web appservice az](/cli/azure/appservice/web/deployment/slot).
+> Dla [Azure CLI 2.0](https://github.com/Azure/azure-cli) poleceń dla miejsc wdrożenia, zobacz [miejsce wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>Lista witryn platformy Azure

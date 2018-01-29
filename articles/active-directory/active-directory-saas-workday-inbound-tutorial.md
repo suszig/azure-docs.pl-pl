@@ -1,5 +1,5 @@
 ---
-title: "Samouczek: Konfigurowanie produktu Workday dla użytkownika automatycznego inicjowania obsługi administracyjnej z lokalnej usługi Active Directory i Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Samouczek: Konfigurowanie produktu Workday do obsługi użytkowników z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Informacje o sposobie użycia produktu Workday jako źródło danych tożsamości dla usługi Active Directory i Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Samouczek: Konfigurowanie produktu Workday dla użytkownika automatycznego inicjowania obsługi administracyjnej z lokalnej usługi Active Directory i Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do inicjowania obsługi użytkowników
+
 Celem tego samouczka jest opisano czynności, które należy wykonać, aby zaimportować osób z produktu Workday do usługi Active Directory i Azure Active Directory, z opcjonalne zapisu pewnych atrybutów do produktu Workday. 
 
 
 
-## <a name="overview"></a>Omówienie
+## <a name="overview"></a>Przegląd
 
 [Użytkownika usługi Azure Active Directory świadczenie usługi](active-directory-saas-app-provisioning.md) integruje się z [produktu Workday kadr API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) w celu obsługi administracyjnej kont użytkowników. Usługi Azure AD używa tego połączenia, aby umożliwić następujące przepływów pracy przypisywania użytkowników:
 
@@ -113,7 +114,7 @@ W celu ułatwienia tych wiele przepływów pracy w wielu systemach źródłowych
 
 Sposób instalowania i konfigurowania tych specjalnych inicjowania obsługi administracyjnej aplikacji łącznika jest przedmiotem pozostałej części tego samouczka. Aplikacje, które użytkownik chce skonfigurować zależy to dzierżawców systemach, w których należy udostępnić, ile lasy usługi Active Directory i Azure AD w środowisku.
 
-![Omówienie](./media/active-directory-saas-workday-inbound-tutorial/WD_Overview.PNG)
+![Przegląd](./media/active-directory-saas-workday-inbound-tutorial/WD_Overview.PNG)
 
 ## <a name="configure-a-system-integration-user-in-workday"></a>Skonfiguruj użytkownika integracji systemu w pracy
 Typowe wymagania wszystkich łączników inicjowania obsługi administracyjnej produktu Workday jest wymagają podania poświadczeń dla konta integracji systemu produktu Workday do nawiązania połączenia interfejsu API kadr produktu Workday. Ta sekcja zawiera opis sposobu tworzenia konta integrator systemu w pracy.
@@ -328,25 +329,25 @@ W tej sekcji skonfigurujesz, jak dane użytkownika wypływających z produktu Wo
 |  **Jednostki administracyjnej**   |   l   |     | Tworzenie i aktualizowanie |
 |  **Firmy**         | Firmy   |     |  Tworzenie i aktualizowanie |
 |  **CountryReferenceTwoLetter**      |   co |     |   Tworzenie i aktualizowanie |
-| **CountryReferenceTwoLetter**    |  C  |     |         Tworzenie i aktualizowanie |
+| **CountryReferenceTwoLetter**    |  c  |     |         Tworzenie i aktualizowanie |
 | **SupervisoryOrganization**  | Dział  |     |  Tworzenie i aktualizowanie |
 |  **PreferredNameData**  |  Nazwa wyświetlana |     |   Tworzenie i aktualizowanie |
-| **Identyfikator pracownika**    |  Nazwa pospolita    |   |   Napisane przy tworzeniu tylko |
+| **Identyfikator pracownika**    |  cn    |   |   Napisane przy tworzeniu tylko |
 | **Faksów**      | facsimileTelephoneNumber     |     |    Tworzenie i aktualizowanie |
-| **Imię**   | Imię       |     |    Tworzenie i aktualizowanie |
+| **Imię**   | givenName       |     |    Tworzenie i aktualizowanie |
 | **Przełącznik (\[Active\],, "0", "True", "1")** |  AccountDisabled      |     | Tworzenie i aktualizowanie |
-| **Telefon komórkowy**  |    Telefon komórkowy       |     |       Tworzenie i aktualizowanie |
+| **Mobile**  |    Telefon komórkowy       |     |       Tworzenie i aktualizowanie |
 | **EmailAddress**    | Poczty    |     |     Tworzenie i aktualizowanie |
-| **ManagerReference**   | Menedżer  |     |  Tworzenie i aktualizowanie |
+| **ManagerReference**   | manager  |     |  Tworzenie i aktualizowanie |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Tworzenie i aktualizowanie |
-| **KodPocztowy**  |   KodPocztowy  |     | Tworzenie i aktualizowanie |
+| **PostalCode**  |   postalCode  |     | Tworzenie i aktualizowanie |
 | **LocalReference** |  preferredLanguage  |     |  Tworzenie i aktualizowanie |
-| ** Zastąp (Mid (Zastąp (\[identyfikator pracownika\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
+| **Zastąp (Mid (Zastąp (\[identyfikator pracownika\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Napisane przy tworzeniu tylko |
 | **Nazwisko**   |   SN   |     |  Tworzenie i aktualizowanie |
-| **CountryRegionReference** |  St     |     | Tworzenie i aktualizowanie |
-| **AddressLineData**    |  Adres  |     |   Tworzenie i aktualizowanie |
+| **CountryRegionReference** |  st     |     | Tworzenie i aktualizowanie |
+| **AddressLineData**    |  streetAddress  |     |   Tworzenie i aktualizowanie |
 | **PrimaryWorkTelephone**  |  TelephoneNumber   |     | Tworzenie i aktualizowanie |
-| **BusinessTitle**   |  Tytuł     |     |  Tworzenie i aktualizowanie |
+| **BusinessTitle**   |  tytuł     |     |  Tworzenie i aktualizowanie |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "[P]", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([W])", "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Tworzenie i aktualizowanie                                                   
 | **Przełącznika (\[jednostki administracyjnej\], "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = domyślne, OU = lokalizacjach, DC = = contoso, DC = com", "Dallas", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Dallas, OU = lokalizacjach, DC = = contoso, DC = com", "Austin", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Austin, OU = lokalizacjach, DC = = contoso, DC = com", "Seattle", "jednostki Organizacyjnej użytkowników standardowych, OU = użytkowników, OU = Seattle, OU = lokalizacjach, DC = = contoso, DC = com", "Londyn", "jednostki Organizacyjnej = użytkownicy w wersji Standard Jednostki Organizacyjnej użytkowników, OU = Londyn, OU = = lokalizacjach, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Tworzenie i aktualizowanie |
   
@@ -366,14 +367,14 @@ Po zainstalowaniu agenta, uruchom poniższe polecenia programu Powershell do kon
 
 **Polecenie #2**
 
-> Dodaj ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Wejście: "Nazwa katalogu", wprowadź nazwę lesie usługi Active Directory wprowadzoną w części \#2
 * Wejście: Nazwa użytkownika i hasło dla lasu usługi Active Directory
 
 **Polecenie #3**
 
-> Dodaj ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Wejście: Nazwa użytkownika administratora globalnego i hasło dla dzierżawy usługi Azure AD
 
@@ -395,11 +396,11 @@ Po zainstalowaniu agenta, uruchom poniższe polecenia programu Powershell do kon
 >
 > Przetwarzający: False
 >
-> Identyfikator: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Polecenie #5**
 
-> Start AdSyncAgentSynchronization-automatyczne
+> Start-AdSyncAgentSynchronization -Automatic
 
 **Polecenie #6**
 
@@ -422,7 +423,7 @@ Jeśli dzierżawy usługi Azure Active Directory znajduje się w jednym z centr�
 2. Przejdź do folderu instalacji agenta (przykład: C:\Program Files\Microsoft Azure inicjowania obsługi administracyjnej agenta programu AD Connect).
 3. Otwórz **SyncAgnt.exe.config** w edytorze tekstów.
 4. Zastąp https://manage.hub.syncfabric.windowsazure.com/Management z **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
-5. Zastąp https://provision.hub.syncfabric.windowsazure.com/Provisioning z **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
 6. Zapisz **SyncAgnt.exe.config** pliku.
 7. Otwórz **Services.msc**i uruchom **Microsoft Azure AD inicjowania obsługi administracyjnej agenta Connect** usługi.
 
@@ -643,11 +644,11 @@ Po zakończeniu części 1 i 2, można uruchomić usługę inicjowania obsługi 
 
 * Poprzedni problem z dziennikami inspekcji nie są widoczne w dzierżaw usługi Azure AD, znajduje się w Unii Europejskiej został rozwiązany. Jednak konfiguracji dodatkowych agenta jest wymagane dla dzierżaw usługi Azure AD w UE. Aby uzyskać więcej informacji, zobacz [część 3: Konfigurowanie agenta synchronizacji lokalnej](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 * [Samouczek: Konfigurowanie logowania jednokrotnego między produktu Workday i Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
