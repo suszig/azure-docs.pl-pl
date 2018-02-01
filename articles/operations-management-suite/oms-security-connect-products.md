@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Łączenie produktów dotyczących zabezpieczeń z rozwiązaniem Zabezpieczenia i inspekcja w pakiecie Operations Management Suite (OMS) 
 Ten dokument ułatwia łączenie produktów dotyczących zabezpieczeń z rozwiązaniem Zabezpieczenia i inspekcja w pakiecie OMS. Obsługiwane są następujące źródła:
@@ -95,7 +95,7 @@ Na maszynie agenta zdarzenia muszą być wysyłane z demona dziennika systemu do
 
 ## <a name="reviewing-collected-security-events"></a>Przeglądanie zebranych zdarzeń zabezpieczeń
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Po zakończeniu konfiguracji funkcja zabezpieczeń w pakiecie OMS zacznie pozyskiwać zdarzenie zabezpieczeń. Aby zwizualizować te zdarzenia, otwórz wyszukiwanie w dzienniku, wpisz polecenie *Type=CommonSecurityLog* w polu wyszukiwania i naciśnij klawisz ENTER. W poniższym przykładzie przedstawiono wynik tego polecenia. W tym przypadku funkcja zabezpieczeń pakietu OMS już pozyskała dzienniki zabezpieczeń od wielu dostawców:
    

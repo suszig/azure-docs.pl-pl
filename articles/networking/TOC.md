@@ -24,7 +24,7 @@
 ### [Połączenie systemów lokalnych — dedykowane](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Rozpoczęcie pracy
-## [Tworzenie pierwszej sieci wirtualnej](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Tworzenie pierwszej sieci wirtualnej](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Instrukcje
 ## Łączność z Internetem
@@ -72,5 +72,5 @@
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
 ## [Dostępność regionalna](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-## [Filmy wideo](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
+## [Wideo](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 

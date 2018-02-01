@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Porównanie wersji 1 i 2 usługi Azure Data Factory
 W tym artykule porównano wersję 2 z wersją 1 usługi Azure Data Factory. Aby zapoznać się z opisem wersji 1, zobacz [Wprowadzenie do usługi Azure Data Factory](v1/data-factory-introduction.md). Aby zapoznać się z opisem wersji 2, zobacz [Wprowadzenie do usługi Data Factory (V2 — wersja zapoznawcza)](introduction.md).
@@ -86,7 +86,7 @@ Użyj usług Azure-SSIS, jeśli chcesz przenieść obciążenia usług SSIS do c
 
 Azure-SSIS Integration Runtime to w pełni zarządzany klaster maszyn wirtualnych platformy Azure (węzłów), których przeznaczeniem jest uruchamianie pakietów SSIS w chmurze. Po zainicjowaniu środowiska Azure-SSIS Integration Runtime możesz użyć tych samych narzędzi, których używano do wdrażania pakietów SSIS w lokalnym środowisku SSIS. 
 
-Na przykład możesz użyć programu SQL Server Data Tools lub SQL Server Management Studio do wdrożenia pakietów usług SSIS w tym środowisku uruchomieniowym na platformie Azure. Instrukcje krok po kroku znajdują się w samouczku [Wdrażanie pakietów usług SQL Server Integration Services na platformie Azure](tutorial-deploy-ssis-packages-azure.md). 
+Na przykład możesz użyć programu SQL Server Data Tools lub SQL Server Management Studio do wdrożenia pakietów usług SSIS w tym środowisku uruchomieniowym na platformie Azure. Instrukcje krok po kroku znajdują się w samouczku [Wdrażanie pakietów usług SQL Server Integration Services na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Elastyczne harmonogramy
 W usłudze Data Factory V2 nie trzeba definiować harmonogramów dostępności zestawu danych. Można zdefiniować zasób wyzwalający, który może planować potoki z paradygmatu harmonogramu zegarowego. Parametry można też przekazać do potoków z wyzwalacza dla modelu elastycznego harmonogramu i wykonywania. 

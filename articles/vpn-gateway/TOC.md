@@ -3,7 +3,7 @@
 ## [VPN Gateway — często zadawane pytania](vpn-gateway-vpn-faq.md)
 ## [Limity usług i subskrypcji](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
-# Wprowadzenie
+# Rozpoczęcie pracy
 ## [Planowanie i projektowanie dla usługi VPN Gateway](vpn-gateway-plan-design.md)
 ## [Informacje na temat ustawień usługi VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md)
 ## [Informacje o urządzeniach sieci VPN](vpn-gateway-about-vpn-devices.md)
@@ -14,14 +14,14 @@
 
 # Instrukcje
 ## Konfigurowanie połączeń typu lokacja-lokacja
-### [Witryna Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
 ## Konfigurowanie połączeń typu punkt-lokacja — natywne uwierzytelnianie certyfikatu platformy Azure
 ### Konfigurowanie sieci VPN typu P2S
-#### [Witryna Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 #### [Portal Azure (klasyczny)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Generowanie certyfikatów z podpisem własnym
@@ -36,17 +36,17 @@
 ### [Tworzenie i instalowanie plików konfiguracji klienta sieci VPN](point-to-site-vpn-client-configuration-radius.md)
 
 ## Konfigurowanie połączeń między sieciami wirtualnymi
-### [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Konfigurowanie połączenia sieć wirtualna-sieć wirtualna między modelami wdrażania
-### [Witryna Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Konfigurowanie połączeń między lokacjami i współistniejących połączeń usługi ExpressRoute
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Konfigurowanie wielu połączeń typu lokacja-lokacja
-### [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (wersja klasyczna)](vpn-gateway-multi-site.md)
 ## Łączenie wielu urządzeń sieci VPN opartej na zasadach
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
@@ -61,13 +61,13 @@
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (wersja klasyczna)](vpn-gateway-about-forced-tunneling.md)
 ## Modyfikowanie ustawień lokalnej bramy sieci
-### [Witryna Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+### [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Weryfikowanie połączenia z bramą VPN Gateway](vpn-gateway-verify-connection-resource-manager.md)
 ## [Resetowanie bramy VPN Gateway](vpn-gateway-resetgw-classic.md)
 ## Usuwanie bramy VPN Gateway
-### [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (wersja klasyczna)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Konfigurowanie bramy sieci VPN (wdrożenie klasyczne)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -76,7 +76,7 @@
 ### [Overview & Azure configuration (Omówienie i konfiguracja platformy Azure)](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP) (Przykład: Urządzenie ASA Cisco [IKEv2/bez protokołu BGP])](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Migracja z modelu klasycznego do usługi Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
-## Rozwiązywanie problemów
+## [Rozwiązywanie problemów](vpn-gateway-troubleshoot.md)
 ### [Sprawdzanie przepustowości sieci VPN do sieci wirtualnej](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Ustawienia sieci VPN lub urządzenia zapory sugerowane przez społeczność](vpn-gateway-third-party-settings.md)
 ### [Problem z połączeniem punkt-lokacja](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

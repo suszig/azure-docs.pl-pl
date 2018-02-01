@@ -1,6 +1,6 @@
 - name: Dokumentacja usługi Azure Location Based Services
   href: index.yml
-- name: Przegląd
+- name: Omówienie
   items:
     - name: Informacje o usługach Azure Location Based Services
       href: about-location-based-services.md
@@ -31,7 +31,7 @@
       href: how-to-use-map-control.md
     - name: Jak wyszukiwać adres
       href: how-to-search-for-address.md
-- name: Odwołanie
+- name: Dokumentacja
   items:
     - name: Funkcjonalny interfejs API
       href: 'https://docs.microsoft.com/rest/api/location-based-services/'
@@ -46,7 +46,7 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Kalkulator cen

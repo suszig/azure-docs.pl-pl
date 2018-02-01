@@ -251,6 +251,8 @@
           href: ../workloads/sap/get-started.md
         - name: Klaster MATLAB
           href: matlab-mdcs-cluster.md
+        - name: Visual Studio
+          href: using-visual-studio-vm.md
         - name: Obliczenia o wysokiej wydajności (HPC)
           href: hpcpack-cluster-options.md
           items:
